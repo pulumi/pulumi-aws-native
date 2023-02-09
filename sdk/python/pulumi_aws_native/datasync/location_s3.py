@@ -17,8 +17,8 @@ __all__ = ['LocationS3Args', 'LocationS3']
 @pulumi.input_type
 class LocationS3Args:
     def __init__(__self__, *,
-                 s3_bucket_arn: pulumi.Input[str],
                  s3_config: pulumi.Input['LocationS3S3ConfigArgs'],
+                 s3_bucket_arn: Optional[pulumi.Input[str]] = None,
                  s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationS3TagArgs']]]] = None):
@@ -29,26 +29,15 @@ class LocationS3Args:
         :param pulumi.Input[str] subdirectory: A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
         :param pulumi.Input[Sequence[pulumi.Input['LocationS3TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         pulumi.set(__self__, "s3_config", s3_config)
+        if s3_bucket_arn is not None:
+            pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         if s3_storage_class is not None:
             pulumi.set(__self__, "s3_storage_class", s3_storage_class)
         if subdirectory is not None:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="s3BucketArn")
-    def s3_bucket_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the Amazon S3 bucket.
-        """
-        return pulumi.get(self, "s3_bucket_arn")
-
-    @s3_bucket_arn.setter
-    def s3_bucket_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "s3_bucket_arn", value)
 
     @property
     @pulumi.getter(name="s3Config")
@@ -58,6 +47,18 @@ class LocationS3Args:
     @s3_config.setter
     def s3_config(self, value: pulumi.Input['LocationS3S3ConfigArgs']):
         pulumi.set(self, "s3_config", value)
+
+    @property
+    @pulumi.getter(name="s3BucketArn")
+    def s3_bucket_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "s3_bucket_arn")
+
+    @s3_bucket_arn.setter
+    def s3_bucket_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_bucket_arn", value)
 
     @property
     @pulumi.getter(name="s3StorageClass")
@@ -155,8 +156,6 @@ class LocationS3(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LocationS3Args.__new__(LocationS3Args)
 
-            if s3_bucket_arn is None and not opts.urn:
-                raise TypeError("Missing required property 's3_bucket_arn'")
             __props__.__dict__["s3_bucket_arn"] = s3_bucket_arn
             if s3_config is None and not opts.urn:
                 raise TypeError("Missing required property 's3_config'")
@@ -215,7 +214,7 @@ class LocationS3(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3BucketArn")
-    def s3_bucket_arn(self) -> pulumi.Output[str]:
+    def s3_bucket_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon S3 bucket.
         """

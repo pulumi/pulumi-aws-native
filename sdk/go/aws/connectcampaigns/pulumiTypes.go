@@ -12,6 +12,8 @@ import (
 
 // The possible types of dialer config parameters
 type CampaignDialerConfig struct {
+	PredictiveDialerConfig  *CampaignPredictiveDialerConfig  `pulumi:"predictiveDialerConfig"`
+	ProgressiveDialerConfig *CampaignProgressiveDialerConfig `pulumi:"progressiveDialerConfig"`
 }
 
 // CampaignDialerConfigInput is an input type that accepts CampaignDialerConfigArgs and CampaignDialerConfigOutput values.
@@ -27,6 +29,8 @@ type CampaignDialerConfigInput interface {
 
 // The possible types of dialer config parameters
 type CampaignDialerConfigArgs struct {
+	PredictiveDialerConfig  CampaignPredictiveDialerConfigPtrInput  `pulumi:"predictiveDialerConfig"`
+	ProgressiveDialerConfig CampaignProgressiveDialerConfigPtrInput `pulumi:"progressiveDialerConfig"`
 }
 
 func (CampaignDialerConfigArgs) ElementType() reflect.Type {
@@ -56,6 +60,14 @@ func (o CampaignDialerConfigOutput) ToCampaignDialerConfigOutputWithContext(ctx 
 	return o
 }
 
+func (o CampaignDialerConfigOutput) PredictiveDialerConfig() CampaignPredictiveDialerConfigPtrOutput {
+	return o.ApplyT(func(v CampaignDialerConfig) *CampaignPredictiveDialerConfig { return v.PredictiveDialerConfig }).(CampaignPredictiveDialerConfigPtrOutput)
+}
+
+func (o CampaignDialerConfigOutput) ProgressiveDialerConfig() CampaignProgressiveDialerConfigPtrOutput {
+	return o.ApplyT(func(v CampaignDialerConfig) *CampaignProgressiveDialerConfig { return v.ProgressiveDialerConfig }).(CampaignProgressiveDialerConfigPtrOutput)
+}
+
 type CampaignDialerConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (CampaignDialerConfigPtrOutput) ElementType() reflect.Type {
@@ -80,8 +92,28 @@ func (o CampaignDialerConfigPtrOutput) Elem() CampaignDialerConfigOutput {
 	}).(CampaignDialerConfigOutput)
 }
 
+func (o CampaignDialerConfigPtrOutput) PredictiveDialerConfig() CampaignPredictiveDialerConfigPtrOutput {
+	return o.ApplyT(func(v *CampaignDialerConfig) *CampaignPredictiveDialerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PredictiveDialerConfig
+	}).(CampaignPredictiveDialerConfigPtrOutput)
+}
+
+func (o CampaignDialerConfigPtrOutput) ProgressiveDialerConfig() CampaignProgressiveDialerConfigPtrOutput {
+	return o.ApplyT(func(v *CampaignDialerConfig) *CampaignProgressiveDialerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ProgressiveDialerConfig
+	}).(CampaignProgressiveDialerConfigPtrOutput)
+}
+
 // The configuration used for outbound calls.
 type CampaignOutboundCallConfig struct {
+	// The configuration used for answering machine detection during outbound calls
+	AnswerMachineDetectionConfig *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties `pulumi:"answerMachineDetectionConfig"`
 	// The identifier of the contact flow for the outbound call.
 	ConnectContactFlowArn string `pulumi:"connectContactFlowArn"`
 	// The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
@@ -103,6 +135,8 @@ type CampaignOutboundCallConfigInput interface {
 
 // The configuration used for outbound calls.
 type CampaignOutboundCallConfigArgs struct {
+	// The configuration used for answering machine detection during outbound calls
+	AnswerMachineDetectionConfig CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput `pulumi:"answerMachineDetectionConfig"`
 	// The identifier of the contact flow for the outbound call.
 	ConnectContactFlowArn pulumi.StringInput `pulumi:"connectContactFlowArn"`
 	// The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
@@ -136,6 +170,13 @@ func (o CampaignOutboundCallConfigOutput) ToCampaignOutboundCallConfigOutput() C
 
 func (o CampaignOutboundCallConfigOutput) ToCampaignOutboundCallConfigOutputWithContext(ctx context.Context) CampaignOutboundCallConfigOutput {
 	return o
+}
+
+// The configuration used for answering machine detection during outbound calls
+func (o CampaignOutboundCallConfigOutput) AnswerMachineDetectionConfig() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v CampaignOutboundCallConfig) *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties {
+		return v.AnswerMachineDetectionConfig
+	}).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput)
 }
 
 // The identifier of the contact flow for the outbound call.
@@ -177,6 +218,16 @@ func (o CampaignOutboundCallConfigPtrOutput) Elem() CampaignOutboundCallConfigOu
 	}).(CampaignOutboundCallConfigOutput)
 }
 
+// The configuration used for answering machine detection during outbound calls
+func (o CampaignOutboundCallConfigPtrOutput) AnswerMachineDetectionConfig() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *CampaignOutboundCallConfig) *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties {
+		if v == nil {
+			return nil
+		}
+		return v.AnswerMachineDetectionConfig
+	}).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput)
+}
+
 // The identifier of the contact flow for the outbound call.
 func (o CampaignOutboundCallConfigPtrOutput) ConnectContactFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignOutboundCallConfig) *string {
@@ -205,6 +256,428 @@ func (o CampaignOutboundCallConfigPtrOutput) ConnectSourcePhoneNumber() pulumi.S
 		}
 		return v.ConnectSourcePhoneNumber
 	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration used for answering machine detection during outbound calls
+type CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties struct {
+	// Flag to decided whether outbound calls should have answering machine detection enabled or not
+	EnableAnswerMachineDetection bool `pulumi:"enableAnswerMachineDetection"`
+}
+
+// CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesInput is an input type that accepts CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs and CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput values.
+// You can construct a concrete instance of `CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesInput` via:
+//
+//	CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs{...}
+type CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput
+	ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutputWithContext(context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput
+}
+
+// The configuration used for answering machine detection during outbound calls
+type CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs struct {
+	// Flag to decided whether outbound calls should have answering machine detection enabled or not
+	EnableAnswerMachineDetection pulumi.BoolInput `pulumi:"enableAnswerMachineDetection"`
+}
+
+func (CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties)(nil)).Elem()
+}
+
+func (i CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput {
+	return i.ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput)
+}
+
+func (i CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
+	return i.ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput).ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput is an input type that accepts CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs, CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtr and CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput` via:
+//
+//	        CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput
+	ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput
+}
+
+type campaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrType CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs
+
+func CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtr(v *CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput {
+	return (*campaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrType)(v)
+}
+
+func (*campaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties)(nil)).Elem()
+}
+
+func (i *campaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrType) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
+	return i.ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrType) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput)
+}
+
+// The configuration used for answering machine detection during outbound calls
+type CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties)(nil)).Elem()
+}
+
+func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput {
+	return o
+}
+
+func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput {
+	return o
+}
+
+func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
+	return o.ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties) *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties {
+		return &v
+	}).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput)
+}
+
+// Flag to decided whether outbound calls should have answering machine detection enabled or not
+func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) EnableAnswerMachineDetection() pulumi.BoolOutput {
+	return o.ApplyT(func(v CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties) bool {
+		return v.EnableAnswerMachineDetection
+	}).(pulumi.BoolOutput)
+}
+
+type CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties)(nil)).Elem()
+}
+
+func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput) Elem() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput {
+	return o.ApplyT(func(v *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties) CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties
+		return ret
+	}).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput)
+}
+
+// Flag to decided whether outbound calls should have answering machine detection enabled or not
+func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput) EnableAnswerMachineDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableAnswerMachineDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Predictive Dialer config
+type CampaignPredictiveDialerConfig struct {
+	// The bandwidth allocation of a queue resource.
+	BandwidthAllocation float64 `pulumi:"bandwidthAllocation"`
+}
+
+// CampaignPredictiveDialerConfigInput is an input type that accepts CampaignPredictiveDialerConfigArgs and CampaignPredictiveDialerConfigOutput values.
+// You can construct a concrete instance of `CampaignPredictiveDialerConfigInput` via:
+//
+//	CampaignPredictiveDialerConfigArgs{...}
+type CampaignPredictiveDialerConfigInput interface {
+	pulumi.Input
+
+	ToCampaignPredictiveDialerConfigOutput() CampaignPredictiveDialerConfigOutput
+	ToCampaignPredictiveDialerConfigOutputWithContext(context.Context) CampaignPredictiveDialerConfigOutput
+}
+
+// Predictive Dialer config
+type CampaignPredictiveDialerConfigArgs struct {
+	// The bandwidth allocation of a queue resource.
+	BandwidthAllocation pulumi.Float64Input `pulumi:"bandwidthAllocation"`
+}
+
+func (CampaignPredictiveDialerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignPredictiveDialerConfig)(nil)).Elem()
+}
+
+func (i CampaignPredictiveDialerConfigArgs) ToCampaignPredictiveDialerConfigOutput() CampaignPredictiveDialerConfigOutput {
+	return i.ToCampaignPredictiveDialerConfigOutputWithContext(context.Background())
+}
+
+func (i CampaignPredictiveDialerConfigArgs) ToCampaignPredictiveDialerConfigOutputWithContext(ctx context.Context) CampaignPredictiveDialerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignPredictiveDialerConfigOutput)
+}
+
+func (i CampaignPredictiveDialerConfigArgs) ToCampaignPredictiveDialerConfigPtrOutput() CampaignPredictiveDialerConfigPtrOutput {
+	return i.ToCampaignPredictiveDialerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignPredictiveDialerConfigArgs) ToCampaignPredictiveDialerConfigPtrOutputWithContext(ctx context.Context) CampaignPredictiveDialerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignPredictiveDialerConfigOutput).ToCampaignPredictiveDialerConfigPtrOutputWithContext(ctx)
+}
+
+// CampaignPredictiveDialerConfigPtrInput is an input type that accepts CampaignPredictiveDialerConfigArgs, CampaignPredictiveDialerConfigPtr and CampaignPredictiveDialerConfigPtrOutput values.
+// You can construct a concrete instance of `CampaignPredictiveDialerConfigPtrInput` via:
+//
+//	        CampaignPredictiveDialerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignPredictiveDialerConfigPtrInput interface {
+	pulumi.Input
+
+	ToCampaignPredictiveDialerConfigPtrOutput() CampaignPredictiveDialerConfigPtrOutput
+	ToCampaignPredictiveDialerConfigPtrOutputWithContext(context.Context) CampaignPredictiveDialerConfigPtrOutput
+}
+
+type campaignPredictiveDialerConfigPtrType CampaignPredictiveDialerConfigArgs
+
+func CampaignPredictiveDialerConfigPtr(v *CampaignPredictiveDialerConfigArgs) CampaignPredictiveDialerConfigPtrInput {
+	return (*campaignPredictiveDialerConfigPtrType)(v)
+}
+
+func (*campaignPredictiveDialerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignPredictiveDialerConfig)(nil)).Elem()
+}
+
+func (i *campaignPredictiveDialerConfigPtrType) ToCampaignPredictiveDialerConfigPtrOutput() CampaignPredictiveDialerConfigPtrOutput {
+	return i.ToCampaignPredictiveDialerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignPredictiveDialerConfigPtrType) ToCampaignPredictiveDialerConfigPtrOutputWithContext(ctx context.Context) CampaignPredictiveDialerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignPredictiveDialerConfigPtrOutput)
+}
+
+// Predictive Dialer config
+type CampaignPredictiveDialerConfigOutput struct{ *pulumi.OutputState }
+
+func (CampaignPredictiveDialerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignPredictiveDialerConfig)(nil)).Elem()
+}
+
+func (o CampaignPredictiveDialerConfigOutput) ToCampaignPredictiveDialerConfigOutput() CampaignPredictiveDialerConfigOutput {
+	return o
+}
+
+func (o CampaignPredictiveDialerConfigOutput) ToCampaignPredictiveDialerConfigOutputWithContext(ctx context.Context) CampaignPredictiveDialerConfigOutput {
+	return o
+}
+
+func (o CampaignPredictiveDialerConfigOutput) ToCampaignPredictiveDialerConfigPtrOutput() CampaignPredictiveDialerConfigPtrOutput {
+	return o.ToCampaignPredictiveDialerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignPredictiveDialerConfigOutput) ToCampaignPredictiveDialerConfigPtrOutputWithContext(ctx context.Context) CampaignPredictiveDialerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignPredictiveDialerConfig) *CampaignPredictiveDialerConfig {
+		return &v
+	}).(CampaignPredictiveDialerConfigPtrOutput)
+}
+
+// The bandwidth allocation of a queue resource.
+func (o CampaignPredictiveDialerConfigOutput) BandwidthAllocation() pulumi.Float64Output {
+	return o.ApplyT(func(v CampaignPredictiveDialerConfig) float64 { return v.BandwidthAllocation }).(pulumi.Float64Output)
+}
+
+type CampaignPredictiveDialerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignPredictiveDialerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignPredictiveDialerConfig)(nil)).Elem()
+}
+
+func (o CampaignPredictiveDialerConfigPtrOutput) ToCampaignPredictiveDialerConfigPtrOutput() CampaignPredictiveDialerConfigPtrOutput {
+	return o
+}
+
+func (o CampaignPredictiveDialerConfigPtrOutput) ToCampaignPredictiveDialerConfigPtrOutputWithContext(ctx context.Context) CampaignPredictiveDialerConfigPtrOutput {
+	return o
+}
+
+func (o CampaignPredictiveDialerConfigPtrOutput) Elem() CampaignPredictiveDialerConfigOutput {
+	return o.ApplyT(func(v *CampaignPredictiveDialerConfig) CampaignPredictiveDialerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignPredictiveDialerConfig
+		return ret
+	}).(CampaignPredictiveDialerConfigOutput)
+}
+
+// The bandwidth allocation of a queue resource.
+func (o CampaignPredictiveDialerConfigPtrOutput) BandwidthAllocation() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CampaignPredictiveDialerConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.BandwidthAllocation
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Progressive Dialer config
+type CampaignProgressiveDialerConfig struct {
+	// The bandwidth allocation of a queue resource.
+	BandwidthAllocation float64 `pulumi:"bandwidthAllocation"`
+}
+
+// CampaignProgressiveDialerConfigInput is an input type that accepts CampaignProgressiveDialerConfigArgs and CampaignProgressiveDialerConfigOutput values.
+// You can construct a concrete instance of `CampaignProgressiveDialerConfigInput` via:
+//
+//	CampaignProgressiveDialerConfigArgs{...}
+type CampaignProgressiveDialerConfigInput interface {
+	pulumi.Input
+
+	ToCampaignProgressiveDialerConfigOutput() CampaignProgressiveDialerConfigOutput
+	ToCampaignProgressiveDialerConfigOutputWithContext(context.Context) CampaignProgressiveDialerConfigOutput
+}
+
+// Progressive Dialer config
+type CampaignProgressiveDialerConfigArgs struct {
+	// The bandwidth allocation of a queue resource.
+	BandwidthAllocation pulumi.Float64Input `pulumi:"bandwidthAllocation"`
+}
+
+func (CampaignProgressiveDialerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignProgressiveDialerConfig)(nil)).Elem()
+}
+
+func (i CampaignProgressiveDialerConfigArgs) ToCampaignProgressiveDialerConfigOutput() CampaignProgressiveDialerConfigOutput {
+	return i.ToCampaignProgressiveDialerConfigOutputWithContext(context.Background())
+}
+
+func (i CampaignProgressiveDialerConfigArgs) ToCampaignProgressiveDialerConfigOutputWithContext(ctx context.Context) CampaignProgressiveDialerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignProgressiveDialerConfigOutput)
+}
+
+func (i CampaignProgressiveDialerConfigArgs) ToCampaignProgressiveDialerConfigPtrOutput() CampaignProgressiveDialerConfigPtrOutput {
+	return i.ToCampaignProgressiveDialerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignProgressiveDialerConfigArgs) ToCampaignProgressiveDialerConfigPtrOutputWithContext(ctx context.Context) CampaignProgressiveDialerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignProgressiveDialerConfigOutput).ToCampaignProgressiveDialerConfigPtrOutputWithContext(ctx)
+}
+
+// CampaignProgressiveDialerConfigPtrInput is an input type that accepts CampaignProgressiveDialerConfigArgs, CampaignProgressiveDialerConfigPtr and CampaignProgressiveDialerConfigPtrOutput values.
+// You can construct a concrete instance of `CampaignProgressiveDialerConfigPtrInput` via:
+//
+//	        CampaignProgressiveDialerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignProgressiveDialerConfigPtrInput interface {
+	pulumi.Input
+
+	ToCampaignProgressiveDialerConfigPtrOutput() CampaignProgressiveDialerConfigPtrOutput
+	ToCampaignProgressiveDialerConfigPtrOutputWithContext(context.Context) CampaignProgressiveDialerConfigPtrOutput
+}
+
+type campaignProgressiveDialerConfigPtrType CampaignProgressiveDialerConfigArgs
+
+func CampaignProgressiveDialerConfigPtr(v *CampaignProgressiveDialerConfigArgs) CampaignProgressiveDialerConfigPtrInput {
+	return (*campaignProgressiveDialerConfigPtrType)(v)
+}
+
+func (*campaignProgressiveDialerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignProgressiveDialerConfig)(nil)).Elem()
+}
+
+func (i *campaignProgressiveDialerConfigPtrType) ToCampaignProgressiveDialerConfigPtrOutput() CampaignProgressiveDialerConfigPtrOutput {
+	return i.ToCampaignProgressiveDialerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignProgressiveDialerConfigPtrType) ToCampaignProgressiveDialerConfigPtrOutputWithContext(ctx context.Context) CampaignProgressiveDialerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignProgressiveDialerConfigPtrOutput)
+}
+
+// Progressive Dialer config
+type CampaignProgressiveDialerConfigOutput struct{ *pulumi.OutputState }
+
+func (CampaignProgressiveDialerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignProgressiveDialerConfig)(nil)).Elem()
+}
+
+func (o CampaignProgressiveDialerConfigOutput) ToCampaignProgressiveDialerConfigOutput() CampaignProgressiveDialerConfigOutput {
+	return o
+}
+
+func (o CampaignProgressiveDialerConfigOutput) ToCampaignProgressiveDialerConfigOutputWithContext(ctx context.Context) CampaignProgressiveDialerConfigOutput {
+	return o
+}
+
+func (o CampaignProgressiveDialerConfigOutput) ToCampaignProgressiveDialerConfigPtrOutput() CampaignProgressiveDialerConfigPtrOutput {
+	return o.ToCampaignProgressiveDialerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignProgressiveDialerConfigOutput) ToCampaignProgressiveDialerConfigPtrOutputWithContext(ctx context.Context) CampaignProgressiveDialerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignProgressiveDialerConfig) *CampaignProgressiveDialerConfig {
+		return &v
+	}).(CampaignProgressiveDialerConfigPtrOutput)
+}
+
+// The bandwidth allocation of a queue resource.
+func (o CampaignProgressiveDialerConfigOutput) BandwidthAllocation() pulumi.Float64Output {
+	return o.ApplyT(func(v CampaignProgressiveDialerConfig) float64 { return v.BandwidthAllocation }).(pulumi.Float64Output)
+}
+
+type CampaignProgressiveDialerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignProgressiveDialerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignProgressiveDialerConfig)(nil)).Elem()
+}
+
+func (o CampaignProgressiveDialerConfigPtrOutput) ToCampaignProgressiveDialerConfigPtrOutput() CampaignProgressiveDialerConfigPtrOutput {
+	return o
+}
+
+func (o CampaignProgressiveDialerConfigPtrOutput) ToCampaignProgressiveDialerConfigPtrOutputWithContext(ctx context.Context) CampaignProgressiveDialerConfigPtrOutput {
+	return o
+}
+
+func (o CampaignProgressiveDialerConfigPtrOutput) Elem() CampaignProgressiveDialerConfigOutput {
+	return o.ApplyT(func(v *CampaignProgressiveDialerConfig) CampaignProgressiveDialerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignProgressiveDialerConfig
+		return ret
+	}).(CampaignProgressiveDialerConfigOutput)
+}
+
+// The bandwidth allocation of a queue resource.
+func (o CampaignProgressiveDialerConfigPtrOutput) BandwidthAllocation() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CampaignProgressiveDialerConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.BandwidthAllocation
+	}).(pulumi.Float64PtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -319,12 +792,24 @@ func (o CampaignTagArrayOutput) Index(i pulumi.IntInput) CampaignTagOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDialerConfigInput)(nil)).Elem(), CampaignDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignOutboundCallConfigInput)(nil)).Elem(), CampaignOutboundCallConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesInput)(nil)).Elem(), CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput)(nil)).Elem(), CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPredictiveDialerConfigInput)(nil)).Elem(), CampaignPredictiveDialerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPredictiveDialerConfigPtrInput)(nil)).Elem(), CampaignPredictiveDialerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignProgressiveDialerConfigInput)(nil)).Elem(), CampaignProgressiveDialerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignProgressiveDialerConfigPtrInput)(nil)).Elem(), CampaignProgressiveDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagInput)(nil)).Elem(), CampaignTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagArrayInput)(nil)).Elem(), CampaignTagArray{})
 	pulumi.RegisterOutputType(CampaignDialerConfigOutput{})
 	pulumi.RegisterOutputType(CampaignDialerConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignOutboundCallConfigOutput{})
 	pulumi.RegisterOutputType(CampaignOutboundCallConfigPtrOutput{})
+	pulumi.RegisterOutputType(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CampaignPredictiveDialerConfigOutput{})
+	pulumi.RegisterOutputType(CampaignPredictiveDialerConfigPtrOutput{})
+	pulumi.RegisterOutputType(CampaignProgressiveDialerConfigOutput{})
+	pulumi.RegisterOutputType(CampaignProgressiveDialerConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignTagOutput{})
 	pulumi.RegisterOutputType(CampaignTagArrayOutput{})
 }

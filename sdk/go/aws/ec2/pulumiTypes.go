@@ -6340,6 +6340,324 @@ func (o IPAMPoolTagArrayOutput) Index(i pulumi.IntInput) IPAMPoolTagOutput {
 }
 
 // A key-value pair to associate with a resource.
+type IPAMResourceDiscoveryAssociationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IPAMResourceDiscoveryAssociationTagInput is an input type that accepts IPAMResourceDiscoveryAssociationTagArgs and IPAMResourceDiscoveryAssociationTagOutput values.
+// You can construct a concrete instance of `IPAMResourceDiscoveryAssociationTagInput` via:
+//
+//	IPAMResourceDiscoveryAssociationTagArgs{...}
+type IPAMResourceDiscoveryAssociationTagInput interface {
+	pulumi.Input
+
+	ToIPAMResourceDiscoveryAssociationTagOutput() IPAMResourceDiscoveryAssociationTagOutput
+	ToIPAMResourceDiscoveryAssociationTagOutputWithContext(context.Context) IPAMResourceDiscoveryAssociationTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IPAMResourceDiscoveryAssociationTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IPAMResourceDiscoveryAssociationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMResourceDiscoveryAssociationTag)(nil)).Elem()
+}
+
+func (i IPAMResourceDiscoveryAssociationTagArgs) ToIPAMResourceDiscoveryAssociationTagOutput() IPAMResourceDiscoveryAssociationTagOutput {
+	return i.ToIPAMResourceDiscoveryAssociationTagOutputWithContext(context.Background())
+}
+
+func (i IPAMResourceDiscoveryAssociationTagArgs) ToIPAMResourceDiscoveryAssociationTagOutputWithContext(ctx context.Context) IPAMResourceDiscoveryAssociationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryAssociationTagOutput)
+}
+
+// IPAMResourceDiscoveryAssociationTagArrayInput is an input type that accepts IPAMResourceDiscoveryAssociationTagArray and IPAMResourceDiscoveryAssociationTagArrayOutput values.
+// You can construct a concrete instance of `IPAMResourceDiscoveryAssociationTagArrayInput` via:
+//
+//	IPAMResourceDiscoveryAssociationTagArray{ IPAMResourceDiscoveryAssociationTagArgs{...} }
+type IPAMResourceDiscoveryAssociationTagArrayInput interface {
+	pulumi.Input
+
+	ToIPAMResourceDiscoveryAssociationTagArrayOutput() IPAMResourceDiscoveryAssociationTagArrayOutput
+	ToIPAMResourceDiscoveryAssociationTagArrayOutputWithContext(context.Context) IPAMResourceDiscoveryAssociationTagArrayOutput
+}
+
+type IPAMResourceDiscoveryAssociationTagArray []IPAMResourceDiscoveryAssociationTagInput
+
+func (IPAMResourceDiscoveryAssociationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMResourceDiscoveryAssociationTag)(nil)).Elem()
+}
+
+func (i IPAMResourceDiscoveryAssociationTagArray) ToIPAMResourceDiscoveryAssociationTagArrayOutput() IPAMResourceDiscoveryAssociationTagArrayOutput {
+	return i.ToIPAMResourceDiscoveryAssociationTagArrayOutputWithContext(context.Background())
+}
+
+func (i IPAMResourceDiscoveryAssociationTagArray) ToIPAMResourceDiscoveryAssociationTagArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryAssociationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryAssociationTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IPAMResourceDiscoveryAssociationTagOutput struct{ *pulumi.OutputState }
+
+func (IPAMResourceDiscoveryAssociationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMResourceDiscoveryAssociationTag)(nil)).Elem()
+}
+
+func (o IPAMResourceDiscoveryAssociationTagOutput) ToIPAMResourceDiscoveryAssociationTagOutput() IPAMResourceDiscoveryAssociationTagOutput {
+	return o
+}
+
+func (o IPAMResourceDiscoveryAssociationTagOutput) ToIPAMResourceDiscoveryAssociationTagOutputWithContext(ctx context.Context) IPAMResourceDiscoveryAssociationTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IPAMResourceDiscoveryAssociationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMResourceDiscoveryAssociationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IPAMResourceDiscoveryAssociationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMResourceDiscoveryAssociationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IPAMResourceDiscoveryAssociationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IPAMResourceDiscoveryAssociationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMResourceDiscoveryAssociationTag)(nil)).Elem()
+}
+
+func (o IPAMResourceDiscoveryAssociationTagArrayOutput) ToIPAMResourceDiscoveryAssociationTagArrayOutput() IPAMResourceDiscoveryAssociationTagArrayOutput {
+	return o
+}
+
+func (o IPAMResourceDiscoveryAssociationTagArrayOutput) ToIPAMResourceDiscoveryAssociationTagArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryAssociationTagArrayOutput {
+	return o
+}
+
+func (o IPAMResourceDiscoveryAssociationTagArrayOutput) Index(i pulumi.IntInput) IPAMResourceDiscoveryAssociationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMResourceDiscoveryAssociationTag {
+		return vs[0].([]IPAMResourceDiscoveryAssociationTag)[vs[1].(int)]
+	}).(IPAMResourceDiscoveryAssociationTagOutput)
+}
+
+// The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+type IPAMResourceDiscoveryIpamOperatingRegion struct {
+	// The name of the region.
+	RegionName string `pulumi:"regionName"`
+}
+
+// IPAMResourceDiscoveryIpamOperatingRegionInput is an input type that accepts IPAMResourceDiscoveryIpamOperatingRegionArgs and IPAMResourceDiscoveryIpamOperatingRegionOutput values.
+// You can construct a concrete instance of `IPAMResourceDiscoveryIpamOperatingRegionInput` via:
+//
+//	IPAMResourceDiscoveryIpamOperatingRegionArgs{...}
+type IPAMResourceDiscoveryIpamOperatingRegionInput interface {
+	pulumi.Input
+
+	ToIPAMResourceDiscoveryIpamOperatingRegionOutput() IPAMResourceDiscoveryIpamOperatingRegionOutput
+	ToIPAMResourceDiscoveryIpamOperatingRegionOutputWithContext(context.Context) IPAMResourceDiscoveryIpamOperatingRegionOutput
+}
+
+// The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+type IPAMResourceDiscoveryIpamOperatingRegionArgs struct {
+	// The name of the region.
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (IPAMResourceDiscoveryIpamOperatingRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i IPAMResourceDiscoveryIpamOperatingRegionArgs) ToIPAMResourceDiscoveryIpamOperatingRegionOutput() IPAMResourceDiscoveryIpamOperatingRegionOutput {
+	return i.ToIPAMResourceDiscoveryIpamOperatingRegionOutputWithContext(context.Background())
+}
+
+func (i IPAMResourceDiscoveryIpamOperatingRegionArgs) ToIPAMResourceDiscoveryIpamOperatingRegionOutputWithContext(ctx context.Context) IPAMResourceDiscoveryIpamOperatingRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryIpamOperatingRegionOutput)
+}
+
+// IPAMResourceDiscoveryIpamOperatingRegionArrayInput is an input type that accepts IPAMResourceDiscoveryIpamOperatingRegionArray and IPAMResourceDiscoveryIpamOperatingRegionArrayOutput values.
+// You can construct a concrete instance of `IPAMResourceDiscoveryIpamOperatingRegionArrayInput` via:
+//
+//	IPAMResourceDiscoveryIpamOperatingRegionArray{ IPAMResourceDiscoveryIpamOperatingRegionArgs{...} }
+type IPAMResourceDiscoveryIpamOperatingRegionArrayInput interface {
+	pulumi.Input
+
+	ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutput() IPAMResourceDiscoveryIpamOperatingRegionArrayOutput
+	ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(context.Context) IPAMResourceDiscoveryIpamOperatingRegionArrayOutput
+}
+
+type IPAMResourceDiscoveryIpamOperatingRegionArray []IPAMResourceDiscoveryIpamOperatingRegionInput
+
+func (IPAMResourceDiscoveryIpamOperatingRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i IPAMResourceDiscoveryIpamOperatingRegionArray) ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutput() IPAMResourceDiscoveryIpamOperatingRegionArrayOutput {
+	return i.ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(context.Background())
+}
+
+func (i IPAMResourceDiscoveryIpamOperatingRegionArray) ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryIpamOperatingRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryIpamOperatingRegionArrayOutput)
+}
+
+// The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+type IPAMResourceDiscoveryIpamOperatingRegionOutput struct{ *pulumi.OutputState }
+
+func (IPAMResourceDiscoveryIpamOperatingRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o IPAMResourceDiscoveryIpamOperatingRegionOutput) ToIPAMResourceDiscoveryIpamOperatingRegionOutput() IPAMResourceDiscoveryIpamOperatingRegionOutput {
+	return o
+}
+
+func (o IPAMResourceDiscoveryIpamOperatingRegionOutput) ToIPAMResourceDiscoveryIpamOperatingRegionOutputWithContext(ctx context.Context) IPAMResourceDiscoveryIpamOperatingRegionOutput {
+	return o
+}
+
+// The name of the region.
+func (o IPAMResourceDiscoveryIpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMResourceDiscoveryIpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+type IPAMResourceDiscoveryIpamOperatingRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (IPAMResourceDiscoveryIpamOperatingRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMResourceDiscoveryIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o IPAMResourceDiscoveryIpamOperatingRegionArrayOutput) ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutput() IPAMResourceDiscoveryIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o IPAMResourceDiscoveryIpamOperatingRegionArrayOutput) ToIPAMResourceDiscoveryIpamOperatingRegionArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o IPAMResourceDiscoveryIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) IPAMResourceDiscoveryIpamOperatingRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMResourceDiscoveryIpamOperatingRegion {
+		return vs[0].([]IPAMResourceDiscoveryIpamOperatingRegion)[vs[1].(int)]
+	}).(IPAMResourceDiscoveryIpamOperatingRegionOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IPAMResourceDiscoveryTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IPAMResourceDiscoveryTagInput is an input type that accepts IPAMResourceDiscoveryTagArgs and IPAMResourceDiscoveryTagOutput values.
+// You can construct a concrete instance of `IPAMResourceDiscoveryTagInput` via:
+//
+//	IPAMResourceDiscoveryTagArgs{...}
+type IPAMResourceDiscoveryTagInput interface {
+	pulumi.Input
+
+	ToIPAMResourceDiscoveryTagOutput() IPAMResourceDiscoveryTagOutput
+	ToIPAMResourceDiscoveryTagOutputWithContext(context.Context) IPAMResourceDiscoveryTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IPAMResourceDiscoveryTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IPAMResourceDiscoveryTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMResourceDiscoveryTag)(nil)).Elem()
+}
+
+func (i IPAMResourceDiscoveryTagArgs) ToIPAMResourceDiscoveryTagOutput() IPAMResourceDiscoveryTagOutput {
+	return i.ToIPAMResourceDiscoveryTagOutputWithContext(context.Background())
+}
+
+func (i IPAMResourceDiscoveryTagArgs) ToIPAMResourceDiscoveryTagOutputWithContext(ctx context.Context) IPAMResourceDiscoveryTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryTagOutput)
+}
+
+// IPAMResourceDiscoveryTagArrayInput is an input type that accepts IPAMResourceDiscoveryTagArray and IPAMResourceDiscoveryTagArrayOutput values.
+// You can construct a concrete instance of `IPAMResourceDiscoveryTagArrayInput` via:
+//
+//	IPAMResourceDiscoveryTagArray{ IPAMResourceDiscoveryTagArgs{...} }
+type IPAMResourceDiscoveryTagArrayInput interface {
+	pulumi.Input
+
+	ToIPAMResourceDiscoveryTagArrayOutput() IPAMResourceDiscoveryTagArrayOutput
+	ToIPAMResourceDiscoveryTagArrayOutputWithContext(context.Context) IPAMResourceDiscoveryTagArrayOutput
+}
+
+type IPAMResourceDiscoveryTagArray []IPAMResourceDiscoveryTagInput
+
+func (IPAMResourceDiscoveryTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMResourceDiscoveryTag)(nil)).Elem()
+}
+
+func (i IPAMResourceDiscoveryTagArray) ToIPAMResourceDiscoveryTagArrayOutput() IPAMResourceDiscoveryTagArrayOutput {
+	return i.ToIPAMResourceDiscoveryTagArrayOutputWithContext(context.Background())
+}
+
+func (i IPAMResourceDiscoveryTagArray) ToIPAMResourceDiscoveryTagArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAMResourceDiscoveryTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IPAMResourceDiscoveryTagOutput struct{ *pulumi.OutputState }
+
+func (IPAMResourceDiscoveryTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMResourceDiscoveryTag)(nil)).Elem()
+}
+
+func (o IPAMResourceDiscoveryTagOutput) ToIPAMResourceDiscoveryTagOutput() IPAMResourceDiscoveryTagOutput {
+	return o
+}
+
+func (o IPAMResourceDiscoveryTagOutput) ToIPAMResourceDiscoveryTagOutputWithContext(ctx context.Context) IPAMResourceDiscoveryTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IPAMResourceDiscoveryTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMResourceDiscoveryTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IPAMResourceDiscoveryTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IPAMResourceDiscoveryTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IPAMResourceDiscoveryTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IPAMResourceDiscoveryTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPAMResourceDiscoveryTag)(nil)).Elem()
+}
+
+func (o IPAMResourceDiscoveryTagArrayOutput) ToIPAMResourceDiscoveryTagArrayOutput() IPAMResourceDiscoveryTagArrayOutput {
+	return o
+}
+
+func (o IPAMResourceDiscoveryTagArrayOutput) ToIPAMResourceDiscoveryTagArrayOutputWithContext(ctx context.Context) IPAMResourceDiscoveryTagArrayOutput {
+	return o
+}
+
+func (o IPAMResourceDiscoveryTagArrayOutput) Index(i pulumi.IntInput) IPAMResourceDiscoveryTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPAMResourceDiscoveryTag {
+		return vs[0].([]IPAMResourceDiscoveryTag)[vs[1].(int)]
+	}).(IPAMResourceDiscoveryTagOutput)
+}
+
+// A key-value pair to associate with a resource.
 type IPAMScopeTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
@@ -16644,8 +16962,10 @@ func (o NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayOutput) I
 }
 
 type NetworkInsightsAnalysisAdditionalDetail struct {
-	AdditionalDetailType *string                                   `pulumi:"additionalDetailType"`
-	Component            *NetworkInsightsAnalysisAnalysisComponent `pulumi:"component"`
+	AdditionalDetailType *string                                    `pulumi:"additionalDetailType"`
+	Component            *NetworkInsightsAnalysisAnalysisComponent  `pulumi:"component"`
+	LoadBalancers        []NetworkInsightsAnalysisAnalysisComponent `pulumi:"loadBalancers"`
+	ServiceName          *string                                    `pulumi:"serviceName"`
 }
 
 type NetworkInsightsAnalysisAdditionalDetailOutput struct{ *pulumi.OutputState }
@@ -16670,6 +16990,16 @@ func (o NetworkInsightsAnalysisAdditionalDetailOutput) Component() NetworkInsigh
 	return o.ApplyT(func(v NetworkInsightsAnalysisAdditionalDetail) *NetworkInsightsAnalysisAnalysisComponent {
 		return v.Component
 	}).(NetworkInsightsAnalysisAnalysisComponentPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisAdditionalDetailOutput) LoadBalancers() NetworkInsightsAnalysisAnalysisComponentArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAdditionalDetail) []NetworkInsightsAnalysisAnalysisComponent {
+		return v.LoadBalancers
+	}).(NetworkInsightsAnalysisAnalysisComponentArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisAdditionalDetailOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisAdditionalDetail) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
 type NetworkInsightsAnalysisAdditionalDetailArrayOutput struct{ *pulumi.OutputState }
@@ -17922,6 +18252,7 @@ type NetworkInsightsAnalysisPathComponent struct {
 	RouteTableRoute               *NetworkInsightsAnalysisAnalysisRouteTableRoute       `pulumi:"routeTableRoute"`
 	SecurityGroupRule             *NetworkInsightsAnalysisAnalysisSecurityGroupRule     `pulumi:"securityGroupRule"`
 	SequenceNumber                *int                                                  `pulumi:"sequenceNumber"`
+	ServiceName                   *string                                               `pulumi:"serviceName"`
 	SourceVpc                     *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"sourceVpc"`
 	Subnet                        *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"subnet"`
 	TransitGateway                *NetworkInsightsAnalysisAnalysisComponent             `pulumi:"transitGateway"`
@@ -18003,6 +18334,10 @@ func (o NetworkInsightsAnalysisPathComponentOutput) SecurityGroupRule() NetworkI
 
 func (o NetworkInsightsAnalysisPathComponentOutput) SequenceNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *int { return v.SequenceNumber }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkInsightsAnalysisPathComponentOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisPathComponent) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
 func (o NetworkInsightsAnalysisPathComponentOutput) SourceVpc() NetworkInsightsAnalysisAnalysisComponentPtrOutput {
@@ -27138,6 +27473,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolProvisionedCidrArrayInput)(nil)).Elem(), IPAMPoolProvisionedCidrArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolTagInput)(nil)).Elem(), IPAMPoolTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolTagArrayInput)(nil)).Elem(), IPAMPoolTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryAssociationTagInput)(nil)).Elem(), IPAMResourceDiscoveryAssociationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryAssociationTagArrayInput)(nil)).Elem(), IPAMResourceDiscoveryAssociationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryIpamOperatingRegionInput)(nil)).Elem(), IPAMResourceDiscoveryIpamOperatingRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryIpamOperatingRegionArrayInput)(nil)).Elem(), IPAMResourceDiscoveryIpamOperatingRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryTagInput)(nil)).Elem(), IPAMResourceDiscoveryTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMResourceDiscoveryTagArrayInput)(nil)).Elem(), IPAMResourceDiscoveryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMScopeTagInput)(nil)).Elem(), IPAMScopeTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMScopeTagArrayInput)(nil)).Elem(), IPAMScopeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMTagInput)(nil)).Elem(), IPAMTagArgs{})
@@ -27501,6 +27842,12 @@ func init() {
 	pulumi.RegisterOutputType(IPAMPoolProvisionedCidrArrayOutput{})
 	pulumi.RegisterOutputType(IPAMPoolTagOutput{})
 	pulumi.RegisterOutputType(IPAMPoolTagArrayOutput{})
+	pulumi.RegisterOutputType(IPAMResourceDiscoveryAssociationTagOutput{})
+	pulumi.RegisterOutputType(IPAMResourceDiscoveryAssociationTagArrayOutput{})
+	pulumi.RegisterOutputType(IPAMResourceDiscoveryIpamOperatingRegionOutput{})
+	pulumi.RegisterOutputType(IPAMResourceDiscoveryIpamOperatingRegionArrayOutput{})
+	pulumi.RegisterOutputType(IPAMResourceDiscoveryTagOutput{})
+	pulumi.RegisterOutputType(IPAMResourceDiscoveryTagArrayOutput{})
 	pulumi.RegisterOutputType(IPAMScopeTagOutput{})
 	pulumi.RegisterOutputType(IPAMScopeTagArrayOutput{})
 	pulumi.RegisterOutputType(IPAMTagOutput{})

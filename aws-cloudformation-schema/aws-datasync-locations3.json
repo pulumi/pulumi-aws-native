@@ -93,7 +93,7 @@
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags"
   },
-  "required" : [ "S3BucketArn", "S3Config" ],
+  "required" : [ "S3Config" ],
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],
   "createOnlyProperties" : [ "/properties/S3Config", "/properties/S3StorageClass", "/properties/Subdirectory", "/properties/S3BucketArn" ],

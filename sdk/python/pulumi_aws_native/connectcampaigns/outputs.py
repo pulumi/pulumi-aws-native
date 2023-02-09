@@ -8,10 +8,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'CampaignDialerConfig',
     'CampaignOutboundCallConfig',
+    'CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties',
+    'CampaignPredictiveDialerConfig',
+    'CampaignProgressiveDialerConfig',
     'CampaignTag',
 ]
 
@@ -20,11 +24,45 @@ class CampaignDialerConfig(dict):
     """
     The possible types of dialer config parameters
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predictiveDialerConfig":
+            suggest = "predictive_dialer_config"
+        elif key == "progressiveDialerConfig":
+            suggest = "progressive_dialer_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignDialerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignDialerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignDialerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 predictive_dialer_config: Optional['outputs.CampaignPredictiveDialerConfig'] = None,
+                 progressive_dialer_config: Optional['outputs.CampaignProgressiveDialerConfig'] = None):
         """
         The possible types of dialer config parameters
         """
-        pass
+        if predictive_dialer_config is not None:
+            pulumi.set(__self__, "predictive_dialer_config", predictive_dialer_config)
+        if progressive_dialer_config is not None:
+            pulumi.set(__self__, "progressive_dialer_config", progressive_dialer_config)
+
+    @property
+    @pulumi.getter(name="predictiveDialerConfig")
+    def predictive_dialer_config(self) -> Optional['outputs.CampaignPredictiveDialerConfig']:
+        return pulumi.get(self, "predictive_dialer_config")
+
+    @property
+    @pulumi.getter(name="progressiveDialerConfig")
+    def progressive_dialer_config(self) -> Optional['outputs.CampaignProgressiveDialerConfig']:
+        return pulumi.get(self, "progressive_dialer_config")
 
 
 @pulumi.output_type
@@ -39,6 +77,8 @@ class CampaignOutboundCallConfig(dict):
             suggest = "connect_contact_flow_arn"
         elif key == "connectQueueArn":
             suggest = "connect_queue_arn"
+        elif key == "answerMachineDetectionConfig":
+            suggest = "answer_machine_detection_config"
         elif key == "connectSourcePhoneNumber":
             suggest = "connect_source_phone_number"
 
@@ -56,15 +96,19 @@ class CampaignOutboundCallConfig(dict):
     def __init__(__self__, *,
                  connect_contact_flow_arn: str,
                  connect_queue_arn: str,
+                 answer_machine_detection_config: Optional['outputs.CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties'] = None,
                  connect_source_phone_number: Optional[str] = None):
         """
         The configuration used for outbound calls.
         :param str connect_contact_flow_arn: The identifier of the contact flow for the outbound call.
         :param str connect_queue_arn: The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
+        :param 'CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties' answer_machine_detection_config: The configuration used for answering machine detection during outbound calls
         :param str connect_source_phone_number: The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
         """
         pulumi.set(__self__, "connect_contact_flow_arn", connect_contact_flow_arn)
         pulumi.set(__self__, "connect_queue_arn", connect_queue_arn)
+        if answer_machine_detection_config is not None:
+            pulumi.set(__self__, "answer_machine_detection_config", answer_machine_detection_config)
         if connect_source_phone_number is not None:
             pulumi.set(__self__, "connect_source_phone_number", connect_source_phone_number)
 
@@ -85,12 +129,137 @@ class CampaignOutboundCallConfig(dict):
         return pulumi.get(self, "connect_queue_arn")
 
     @property
+    @pulumi.getter(name="answerMachineDetectionConfig")
+    def answer_machine_detection_config(self) -> Optional['outputs.CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties']:
+        """
+        The configuration used for answering machine detection during outbound calls
+        """
+        return pulumi.get(self, "answer_machine_detection_config")
+
+    @property
     @pulumi.getter(name="connectSourcePhoneNumber")
     def connect_source_phone_number(self) -> Optional[str]:
         """
         The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
         """
         return pulumi.get(self, "connect_source_phone_number")
+
+
+@pulumi.output_type
+class CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties(dict):
+    """
+    The configuration used for answering machine detection during outbound calls
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableAnswerMachineDetection":
+            suggest = "enable_answer_machine_detection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_answer_machine_detection: bool):
+        """
+        The configuration used for answering machine detection during outbound calls
+        :param bool enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
+        """
+        pulumi.set(__self__, "enable_answer_machine_detection", enable_answer_machine_detection)
+
+    @property
+    @pulumi.getter(name="enableAnswerMachineDetection")
+    def enable_answer_machine_detection(self) -> bool:
+        """
+        Flag to decided whether outbound calls should have answering machine detection enabled or not
+        """
+        return pulumi.get(self, "enable_answer_machine_detection")
+
+
+@pulumi.output_type
+class CampaignPredictiveDialerConfig(dict):
+    """
+    Predictive Dialer config
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bandwidthAllocation":
+            suggest = "bandwidth_allocation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignPredictiveDialerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignPredictiveDialerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignPredictiveDialerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bandwidth_allocation: float):
+        """
+        Predictive Dialer config
+        :param float bandwidth_allocation: The bandwidth allocation of a queue resource.
+        """
+        pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
+
+    @property
+    @pulumi.getter(name="bandwidthAllocation")
+    def bandwidth_allocation(self) -> float:
+        """
+        The bandwidth allocation of a queue resource.
+        """
+        return pulumi.get(self, "bandwidth_allocation")
+
+
+@pulumi.output_type
+class CampaignProgressiveDialerConfig(dict):
+    """
+    Progressive Dialer config
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bandwidthAllocation":
+            suggest = "bandwidth_allocation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignProgressiveDialerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignProgressiveDialerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignProgressiveDialerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bandwidth_allocation: float):
+        """
+        Progressive Dialer config
+        :param float bandwidth_allocation: The bandwidth allocation of a queue resource.
+        """
+        pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
+
+    @property
+    @pulumi.getter(name="bandwidthAllocation")
+    def bandwidth_allocation(self) -> float:
+        """
+        The bandwidth allocation of a queue resource.
+        """
+        return pulumi.get(self, "bandwidth_allocation")
 
 
 @pulumi.output_type

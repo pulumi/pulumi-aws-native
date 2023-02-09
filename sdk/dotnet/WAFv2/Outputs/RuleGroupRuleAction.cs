@@ -16,38 +16,23 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleAction
     {
-        /// <summary>
-        /// Allow traffic towards application.
-        /// </summary>
-        public readonly Outputs.RuleGroupRuleActionAllowProperties? Allow;
-        /// <summary>
-        /// Block traffic towards application.
-        /// </summary>
-        public readonly Outputs.RuleGroupRuleActionBlockProperties? Block;
-        /// <summary>
-        /// Checks valid token exists with request.
-        /// </summary>
-        public readonly Outputs.RuleGroupRuleActionCaptchaProperties? Captcha;
-        /// <summary>
-        /// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-        /// </summary>
-        public readonly Outputs.RuleGroupRuleActionChallengeProperties? Challenge;
-        /// <summary>
-        /// Count traffic towards application.
-        /// </summary>
-        public readonly Outputs.RuleGroupRuleActionCountProperties? Count;
+        public readonly Outputs.RuleGroupAllowAction? Allow;
+        public readonly Outputs.RuleGroupBlockAction? Block;
+        public readonly Outputs.RuleGroupCaptchaAction? Captcha;
+        public readonly Outputs.RuleGroupChallengeAction? Challenge;
+        public readonly Outputs.RuleGroupCountAction? Count;
 
         [OutputConstructor]
         private RuleGroupRuleAction(
-            Outputs.RuleGroupRuleActionAllowProperties? allow,
+            Outputs.RuleGroupAllowAction? allow,
 
-            Outputs.RuleGroupRuleActionBlockProperties? block,
+            Outputs.RuleGroupBlockAction? block,
 
-            Outputs.RuleGroupRuleActionCaptchaProperties? captcha,
+            Outputs.RuleGroupCaptchaAction? captcha,
 
-            Outputs.RuleGroupRuleActionChallengeProperties? challenge,
+            Outputs.RuleGroupChallengeAction? challenge,
 
-            Outputs.RuleGroupRuleActionCountProperties? count)
+            Outputs.RuleGroupCountAction? count)
         {
             Allow = allow;
             Block = block;

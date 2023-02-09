@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
     public partial class CRL : global::Pulumi.CustomResource
     {
         [Output("crlData")]
-        public Output<string?> CrlData { get; private set; } = null!;
+        public Output<string> CrlData { get; private set; } = null!;
 
         [Output("crlId")]
         public Output<string> CrlId { get; private set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public Output<bool?> Enabled { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.CRLTag>> Tags { get; private set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public CRL(string name, CRLArgs? args = null, CustomResourceOptions? options = null)
+        public CRL(string name, CRLArgs args, CustomResourceOptions? options = null)
             : base("aws-native:rolesanywhere:CRL", name, args ?? new CRLArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -78,8 +78,8 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class CRLArgs : global::Pulumi.ResourceArgs
     {
-        [Input("crlData")]
-        public Input<string>? CrlData { get; set; }
+        [Input("crlData", required: true)]
+        public Input<string> CrlData { get; set; } = null!;
 
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

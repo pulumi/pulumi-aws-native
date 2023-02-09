@@ -18,7 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetApiMappingResult:
-    def __init__(__self__, api_mapping_key=None, id=None, stage=None):
+    def __init__(__self__, api_id=None, api_mapping_key=None, id=None, stage=None):
+        if api_id and not isinstance(api_id, str):
+            raise TypeError("Expected argument 'api_id' to be a str")
+        pulumi.set(__self__, "api_id", api_id)
         if api_mapping_key and not isinstance(api_mapping_key, str):
             raise TypeError("Expected argument 'api_mapping_key' to be a str")
         pulumi.set(__self__, "api_mapping_key", api_mapping_key)
@@ -28,6 +31,11 @@ class GetApiMappingResult:
         if stage and not isinstance(stage, str):
             raise TypeError("Expected argument 'stage' to be a str")
         pulumi.set(__self__, "stage", stage)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> Optional[str]:
+        return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter(name="apiMappingKey")
@@ -51,6 +59,7 @@ class AwaitableGetApiMappingResult(GetApiMappingResult):
         if False:
             yield self
         return GetApiMappingResult(
+            api_id=self.api_id,
             api_mapping_key=self.api_mapping_key,
             id=self.id,
             stage=self.stage)
@@ -67,6 +76,7 @@ def get_api_mapping(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getApiMapping', __args__, opts=opts, typ=GetApiMappingResult).value
 
     return AwaitableGetApiMappingResult(
+        api_id=__ret__.api_id,
         api_mapping_key=__ret__.api_mapping_key,
         id=__ret__.id,
         stage=__ret__.stage)

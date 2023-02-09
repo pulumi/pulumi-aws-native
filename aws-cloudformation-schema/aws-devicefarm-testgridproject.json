@@ -97,7 +97,9 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/VpcConfig" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "devicefarm:CreateTestGridProject", "devicefarm:TagResource", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "iam:CreateServiceLinkedRole" ]

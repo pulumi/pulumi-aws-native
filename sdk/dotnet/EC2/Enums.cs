@@ -817,6 +817,37 @@ namespace Pulumi.AwsNative.EC2
     }
 
     /// <summary>
+    /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+    /// </summary>
+    [EnumType]
+    public readonly struct IPAMPoolPublicIpSource : IEquatable<IPAMPoolPublicIpSource>
+    {
+        private readonly string _value;
+
+        private IPAMPoolPublicIpSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPAMPoolPublicIpSource Byoip { get; } = new IPAMPoolPublicIpSource("byoip");
+        public static IPAMPoolPublicIpSource Amazon { get; } = new IPAMPoolPublicIpSource("amazon");
+
+        public static bool operator ==(IPAMPoolPublicIpSource left, IPAMPoolPublicIpSource right) => left.Equals(right);
+        public static bool operator !=(IPAMPoolPublicIpSource left, IPAMPoolPublicIpSource right) => !left.Equals(right);
+
+        public static explicit operator string(IPAMPoolPublicIpSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPAMPoolPublicIpSource other && Equals(other);
+        public bool Equals(IPAMPoolPublicIpSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
     /// </summary>
     [EnumType]

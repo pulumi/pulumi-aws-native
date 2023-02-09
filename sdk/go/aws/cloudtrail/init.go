@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:cloudtrail:Channel":
+		r = &Channel{}
 	case "aws-native:cloudtrail:EventDataStore":
 		r = &EventDataStore{}
+	case "aws-native:cloudtrail:ResourcePolicy":
+		r = &ResourcePolicy{}
 	case "aws-native:cloudtrail:Trail":
 		r = &Trail{}
 	default:

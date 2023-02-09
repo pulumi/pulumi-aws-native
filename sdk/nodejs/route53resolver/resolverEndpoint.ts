@@ -49,6 +49,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     public readonly outpostArn!: pulumi.Output<string | undefined>;
     public readonly preferredInstanceType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly resolverEndpointId!: pulumi.Output<string>;
+    public readonly resolverEndpointType!: pulumi.Output<string | undefined>;
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<outputs.route53resolver.ResolverEndpointTag[] | undefined>;
 
@@ -79,6 +80,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
             resourceInputs["preferredInstanceType"] = args ? args.preferredInstanceType : undefined;
+            resourceInputs["resolverEndpointType"] = args ? args.resolverEndpointType : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -95,6 +97,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["outpostArn"] = undefined /*out*/;
             resourceInputs["preferredInstanceType"] = undefined /*out*/;
             resourceInputs["resolverEndpointId"] = undefined /*out*/;
+            resourceInputs["resolverEndpointType"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -112,6 +115,7 @@ export interface ResolverEndpointArgs {
     name?: pulumi.Input<string>;
     outpostArn?: pulumi.Input<string>;
     preferredInstanceType?: pulumi.Input<string>;
+    resolverEndpointType?: pulumi.Input<string>;
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.route53resolver.ResolverEndpointTagArgs>[]>;
 }

@@ -4091,7 +4091,7 @@ func (o DomainCustomImageArrayOutput) Index(i pulumi.IntInput) DomainCustomImage
 	}).(DomainCustomImageOutput)
 }
 
-// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
 type DomainDefaultSpaceSettings struct {
 	// The execution role for the space.
 	ExecutionRole *string `pulumi:"executionRole"`
@@ -4114,7 +4114,7 @@ type DomainDefaultSpaceSettingsInput interface {
 	ToDomainDefaultSpaceSettingsOutputWithContext(context.Context) DomainDefaultSpaceSettingsOutput
 }
 
-// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
 type DomainDefaultSpaceSettingsArgs struct {
 	// The execution role for the space.
 	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
@@ -4179,7 +4179,7 @@ func (i *domainDefaultSpaceSettingsPtrType) ToDomainDefaultSpaceSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
-// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
 type DomainDefaultSpaceSettingsOutput struct{ *pulumi.OutputState }
 
 func (DomainDefaultSpaceSettingsOutput) ElementType() reflect.Type {
@@ -12971,6 +12971,2957 @@ func (o ModelBiasJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.StringArrayOu
 		}
 		return v.Subnets
 	}).(pulumi.StringArrayOutput)
+}
+
+type ModelCardAdditionalInformation struct {
+	// Caveats and recommendations for people who might use this model in their applications.
+	CaveatsAndRecommendations *string `pulumi:"caveatsAndRecommendations"`
+	// customer details.
+	CustomDetails interface{} `pulumi:"customDetails"`
+	// Any ethical considerations that the author wants to provide.
+	EthicalConsiderations *string `pulumi:"ethicalConsiderations"`
+}
+
+// ModelCardAdditionalInformationInput is an input type that accepts ModelCardAdditionalInformationArgs and ModelCardAdditionalInformationOutput values.
+// You can construct a concrete instance of `ModelCardAdditionalInformationInput` via:
+//
+//	ModelCardAdditionalInformationArgs{...}
+type ModelCardAdditionalInformationInput interface {
+	pulumi.Input
+
+	ToModelCardAdditionalInformationOutput() ModelCardAdditionalInformationOutput
+	ToModelCardAdditionalInformationOutputWithContext(context.Context) ModelCardAdditionalInformationOutput
+}
+
+type ModelCardAdditionalInformationArgs struct {
+	// Caveats and recommendations for people who might use this model in their applications.
+	CaveatsAndRecommendations pulumi.StringPtrInput `pulumi:"caveatsAndRecommendations"`
+	// customer details.
+	CustomDetails pulumi.Input `pulumi:"customDetails"`
+	// Any ethical considerations that the author wants to provide.
+	EthicalConsiderations pulumi.StringPtrInput `pulumi:"ethicalConsiderations"`
+}
+
+func (ModelCardAdditionalInformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardAdditionalInformation)(nil)).Elem()
+}
+
+func (i ModelCardAdditionalInformationArgs) ToModelCardAdditionalInformationOutput() ModelCardAdditionalInformationOutput {
+	return i.ToModelCardAdditionalInformationOutputWithContext(context.Background())
+}
+
+func (i ModelCardAdditionalInformationArgs) ToModelCardAdditionalInformationOutputWithContext(ctx context.Context) ModelCardAdditionalInformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardAdditionalInformationOutput)
+}
+
+func (i ModelCardAdditionalInformationArgs) ToModelCardAdditionalInformationPtrOutput() ModelCardAdditionalInformationPtrOutput {
+	return i.ToModelCardAdditionalInformationPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardAdditionalInformationArgs) ToModelCardAdditionalInformationPtrOutputWithContext(ctx context.Context) ModelCardAdditionalInformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardAdditionalInformationOutput).ToModelCardAdditionalInformationPtrOutputWithContext(ctx)
+}
+
+// ModelCardAdditionalInformationPtrInput is an input type that accepts ModelCardAdditionalInformationArgs, ModelCardAdditionalInformationPtr and ModelCardAdditionalInformationPtrOutput values.
+// You can construct a concrete instance of `ModelCardAdditionalInformationPtrInput` via:
+//
+//	        ModelCardAdditionalInformationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardAdditionalInformationPtrInput interface {
+	pulumi.Input
+
+	ToModelCardAdditionalInformationPtrOutput() ModelCardAdditionalInformationPtrOutput
+	ToModelCardAdditionalInformationPtrOutputWithContext(context.Context) ModelCardAdditionalInformationPtrOutput
+}
+
+type modelCardAdditionalInformationPtrType ModelCardAdditionalInformationArgs
+
+func ModelCardAdditionalInformationPtr(v *ModelCardAdditionalInformationArgs) ModelCardAdditionalInformationPtrInput {
+	return (*modelCardAdditionalInformationPtrType)(v)
+}
+
+func (*modelCardAdditionalInformationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardAdditionalInformation)(nil)).Elem()
+}
+
+func (i *modelCardAdditionalInformationPtrType) ToModelCardAdditionalInformationPtrOutput() ModelCardAdditionalInformationPtrOutput {
+	return i.ToModelCardAdditionalInformationPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardAdditionalInformationPtrType) ToModelCardAdditionalInformationPtrOutputWithContext(ctx context.Context) ModelCardAdditionalInformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardAdditionalInformationPtrOutput)
+}
+
+type ModelCardAdditionalInformationOutput struct{ *pulumi.OutputState }
+
+func (ModelCardAdditionalInformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardAdditionalInformation)(nil)).Elem()
+}
+
+func (o ModelCardAdditionalInformationOutput) ToModelCardAdditionalInformationOutput() ModelCardAdditionalInformationOutput {
+	return o
+}
+
+func (o ModelCardAdditionalInformationOutput) ToModelCardAdditionalInformationOutputWithContext(ctx context.Context) ModelCardAdditionalInformationOutput {
+	return o
+}
+
+func (o ModelCardAdditionalInformationOutput) ToModelCardAdditionalInformationPtrOutput() ModelCardAdditionalInformationPtrOutput {
+	return o.ToModelCardAdditionalInformationPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardAdditionalInformationOutput) ToModelCardAdditionalInformationPtrOutputWithContext(ctx context.Context) ModelCardAdditionalInformationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardAdditionalInformation) *ModelCardAdditionalInformation {
+		return &v
+	}).(ModelCardAdditionalInformationPtrOutput)
+}
+
+// Caveats and recommendations for people who might use this model in their applications.
+func (o ModelCardAdditionalInformationOutput) CaveatsAndRecommendations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardAdditionalInformation) *string { return v.CaveatsAndRecommendations }).(pulumi.StringPtrOutput)
+}
+
+// customer details.
+func (o ModelCardAdditionalInformationOutput) CustomDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v ModelCardAdditionalInformation) interface{} { return v.CustomDetails }).(pulumi.AnyOutput)
+}
+
+// Any ethical considerations that the author wants to provide.
+func (o ModelCardAdditionalInformationOutput) EthicalConsiderations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardAdditionalInformation) *string { return v.EthicalConsiderations }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardAdditionalInformationPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardAdditionalInformationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardAdditionalInformation)(nil)).Elem()
+}
+
+func (o ModelCardAdditionalInformationPtrOutput) ToModelCardAdditionalInformationPtrOutput() ModelCardAdditionalInformationPtrOutput {
+	return o
+}
+
+func (o ModelCardAdditionalInformationPtrOutput) ToModelCardAdditionalInformationPtrOutputWithContext(ctx context.Context) ModelCardAdditionalInformationPtrOutput {
+	return o
+}
+
+func (o ModelCardAdditionalInformationPtrOutput) Elem() ModelCardAdditionalInformationOutput {
+	return o.ApplyT(func(v *ModelCardAdditionalInformation) ModelCardAdditionalInformation {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardAdditionalInformation
+		return ret
+	}).(ModelCardAdditionalInformationOutput)
+}
+
+// Caveats and recommendations for people who might use this model in their applications.
+func (o ModelCardAdditionalInformationPtrOutput) CaveatsAndRecommendations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardAdditionalInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaveatsAndRecommendations
+	}).(pulumi.StringPtrOutput)
+}
+
+// customer details.
+func (o ModelCardAdditionalInformationPtrOutput) CustomDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ModelCardAdditionalInformation) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.CustomDetails
+	}).(pulumi.AnyOutput)
+}
+
+// Any ethical considerations that the author wants to provide.
+func (o ModelCardAdditionalInformationPtrOutput) EthicalConsiderations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardAdditionalInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EthicalConsiderations
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelCardBarChartMetric struct {
+	Name      string                      `pulumi:"name"`
+	Notes     *string                     `pulumi:"notes"`
+	Type      ModelCardBarChartMetricType `pulumi:"type"`
+	Value     []float64                   `pulumi:"value"`
+	XAxisName []string                    `pulumi:"xAxisName"`
+	YAxisName *string                     `pulumi:"yAxisName"`
+}
+
+// Business details.
+type ModelCardBusinessDetails struct {
+	// What business problem does the model solve?
+	BusinessProblem *string `pulumi:"businessProblem"`
+	// Business stakeholders.
+	BusinessStakeholders *string `pulumi:"businessStakeholders"`
+	// Line of business.
+	LineOfBusiness *string `pulumi:"lineOfBusiness"`
+}
+
+// ModelCardBusinessDetailsInput is an input type that accepts ModelCardBusinessDetailsArgs and ModelCardBusinessDetailsOutput values.
+// You can construct a concrete instance of `ModelCardBusinessDetailsInput` via:
+//
+//	ModelCardBusinessDetailsArgs{...}
+type ModelCardBusinessDetailsInput interface {
+	pulumi.Input
+
+	ToModelCardBusinessDetailsOutput() ModelCardBusinessDetailsOutput
+	ToModelCardBusinessDetailsOutputWithContext(context.Context) ModelCardBusinessDetailsOutput
+}
+
+// Business details.
+type ModelCardBusinessDetailsArgs struct {
+	// What business problem does the model solve?
+	BusinessProblem pulumi.StringPtrInput `pulumi:"businessProblem"`
+	// Business stakeholders.
+	BusinessStakeholders pulumi.StringPtrInput `pulumi:"businessStakeholders"`
+	// Line of business.
+	LineOfBusiness pulumi.StringPtrInput `pulumi:"lineOfBusiness"`
+}
+
+func (ModelCardBusinessDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardBusinessDetails)(nil)).Elem()
+}
+
+func (i ModelCardBusinessDetailsArgs) ToModelCardBusinessDetailsOutput() ModelCardBusinessDetailsOutput {
+	return i.ToModelCardBusinessDetailsOutputWithContext(context.Background())
+}
+
+func (i ModelCardBusinessDetailsArgs) ToModelCardBusinessDetailsOutputWithContext(ctx context.Context) ModelCardBusinessDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardBusinessDetailsOutput)
+}
+
+func (i ModelCardBusinessDetailsArgs) ToModelCardBusinessDetailsPtrOutput() ModelCardBusinessDetailsPtrOutput {
+	return i.ToModelCardBusinessDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardBusinessDetailsArgs) ToModelCardBusinessDetailsPtrOutputWithContext(ctx context.Context) ModelCardBusinessDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardBusinessDetailsOutput).ToModelCardBusinessDetailsPtrOutputWithContext(ctx)
+}
+
+// ModelCardBusinessDetailsPtrInput is an input type that accepts ModelCardBusinessDetailsArgs, ModelCardBusinessDetailsPtr and ModelCardBusinessDetailsPtrOutput values.
+// You can construct a concrete instance of `ModelCardBusinessDetailsPtrInput` via:
+//
+//	        ModelCardBusinessDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardBusinessDetailsPtrInput interface {
+	pulumi.Input
+
+	ToModelCardBusinessDetailsPtrOutput() ModelCardBusinessDetailsPtrOutput
+	ToModelCardBusinessDetailsPtrOutputWithContext(context.Context) ModelCardBusinessDetailsPtrOutput
+}
+
+type modelCardBusinessDetailsPtrType ModelCardBusinessDetailsArgs
+
+func ModelCardBusinessDetailsPtr(v *ModelCardBusinessDetailsArgs) ModelCardBusinessDetailsPtrInput {
+	return (*modelCardBusinessDetailsPtrType)(v)
+}
+
+func (*modelCardBusinessDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardBusinessDetails)(nil)).Elem()
+}
+
+func (i *modelCardBusinessDetailsPtrType) ToModelCardBusinessDetailsPtrOutput() ModelCardBusinessDetailsPtrOutput {
+	return i.ToModelCardBusinessDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardBusinessDetailsPtrType) ToModelCardBusinessDetailsPtrOutputWithContext(ctx context.Context) ModelCardBusinessDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardBusinessDetailsPtrOutput)
+}
+
+// Business details.
+type ModelCardBusinessDetailsOutput struct{ *pulumi.OutputState }
+
+func (ModelCardBusinessDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardBusinessDetails)(nil)).Elem()
+}
+
+func (o ModelCardBusinessDetailsOutput) ToModelCardBusinessDetailsOutput() ModelCardBusinessDetailsOutput {
+	return o
+}
+
+func (o ModelCardBusinessDetailsOutput) ToModelCardBusinessDetailsOutputWithContext(ctx context.Context) ModelCardBusinessDetailsOutput {
+	return o
+}
+
+func (o ModelCardBusinessDetailsOutput) ToModelCardBusinessDetailsPtrOutput() ModelCardBusinessDetailsPtrOutput {
+	return o.ToModelCardBusinessDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardBusinessDetailsOutput) ToModelCardBusinessDetailsPtrOutputWithContext(ctx context.Context) ModelCardBusinessDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardBusinessDetails) *ModelCardBusinessDetails {
+		return &v
+	}).(ModelCardBusinessDetailsPtrOutput)
+}
+
+// What business problem does the model solve?
+func (o ModelCardBusinessDetailsOutput) BusinessProblem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardBusinessDetails) *string { return v.BusinessProblem }).(pulumi.StringPtrOutput)
+}
+
+// Business stakeholders.
+func (o ModelCardBusinessDetailsOutput) BusinessStakeholders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardBusinessDetails) *string { return v.BusinessStakeholders }).(pulumi.StringPtrOutput)
+}
+
+// Line of business.
+func (o ModelCardBusinessDetailsOutput) LineOfBusiness() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardBusinessDetails) *string { return v.LineOfBusiness }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardBusinessDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardBusinessDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardBusinessDetails)(nil)).Elem()
+}
+
+func (o ModelCardBusinessDetailsPtrOutput) ToModelCardBusinessDetailsPtrOutput() ModelCardBusinessDetailsPtrOutput {
+	return o
+}
+
+func (o ModelCardBusinessDetailsPtrOutput) ToModelCardBusinessDetailsPtrOutputWithContext(ctx context.Context) ModelCardBusinessDetailsPtrOutput {
+	return o
+}
+
+func (o ModelCardBusinessDetailsPtrOutput) Elem() ModelCardBusinessDetailsOutput {
+	return o.ApplyT(func(v *ModelCardBusinessDetails) ModelCardBusinessDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardBusinessDetails
+		return ret
+	}).(ModelCardBusinessDetailsOutput)
+}
+
+// What business problem does the model solve?
+func (o ModelCardBusinessDetailsPtrOutput) BusinessProblem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardBusinessDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BusinessProblem
+	}).(pulumi.StringPtrOutput)
+}
+
+// Business stakeholders.
+func (o ModelCardBusinessDetailsPtrOutput) BusinessStakeholders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardBusinessDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BusinessStakeholders
+	}).(pulumi.StringPtrOutput)
+}
+
+// Line of business.
+func (o ModelCardBusinessDetailsPtrOutput) LineOfBusiness() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardBusinessDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineOfBusiness
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of the model card.
+type ModelCardContent struct {
+	AdditionalInformation *ModelCardAdditionalInformation `pulumi:"additionalInformation"`
+	BusinessDetails       *ModelCardBusinessDetails       `pulumi:"businessDetails"`
+	EvaluationDetails     []ModelCardEvaluationDetail     `pulumi:"evaluationDetails"`
+	IntendedUses          *ModelCardIntendedUses          `pulumi:"intendedUses"`
+	ModelOverview         *ModelCardModelOverview         `pulumi:"modelOverview"`
+	TrainingDetails       *ModelCardTrainingDetails       `pulumi:"trainingDetails"`
+}
+
+// ModelCardContentInput is an input type that accepts ModelCardContentArgs and ModelCardContentOutput values.
+// You can construct a concrete instance of `ModelCardContentInput` via:
+//
+//	ModelCardContentArgs{...}
+type ModelCardContentInput interface {
+	pulumi.Input
+
+	ToModelCardContentOutput() ModelCardContentOutput
+	ToModelCardContentOutputWithContext(context.Context) ModelCardContentOutput
+}
+
+// The content of the model card.
+type ModelCardContentArgs struct {
+	AdditionalInformation ModelCardAdditionalInformationPtrInput `pulumi:"additionalInformation"`
+	BusinessDetails       ModelCardBusinessDetailsPtrInput       `pulumi:"businessDetails"`
+	EvaluationDetails     ModelCardEvaluationDetailArrayInput    `pulumi:"evaluationDetails"`
+	IntendedUses          ModelCardIntendedUsesPtrInput          `pulumi:"intendedUses"`
+	ModelOverview         ModelCardModelOverviewPtrInput         `pulumi:"modelOverview"`
+	TrainingDetails       ModelCardTrainingDetailsPtrInput       `pulumi:"trainingDetails"`
+}
+
+func (ModelCardContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardContent)(nil)).Elem()
+}
+
+func (i ModelCardContentArgs) ToModelCardContentOutput() ModelCardContentOutput {
+	return i.ToModelCardContentOutputWithContext(context.Background())
+}
+
+func (i ModelCardContentArgs) ToModelCardContentOutputWithContext(ctx context.Context) ModelCardContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardContentOutput)
+}
+
+// The content of the model card.
+type ModelCardContentOutput struct{ *pulumi.OutputState }
+
+func (ModelCardContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardContent)(nil)).Elem()
+}
+
+func (o ModelCardContentOutput) ToModelCardContentOutput() ModelCardContentOutput {
+	return o
+}
+
+func (o ModelCardContentOutput) ToModelCardContentOutputWithContext(ctx context.Context) ModelCardContentOutput {
+	return o
+}
+
+func (o ModelCardContentOutput) AdditionalInformation() ModelCardAdditionalInformationPtrOutput {
+	return o.ApplyT(func(v ModelCardContent) *ModelCardAdditionalInformation { return v.AdditionalInformation }).(ModelCardAdditionalInformationPtrOutput)
+}
+
+func (o ModelCardContentOutput) BusinessDetails() ModelCardBusinessDetailsPtrOutput {
+	return o.ApplyT(func(v ModelCardContent) *ModelCardBusinessDetails { return v.BusinessDetails }).(ModelCardBusinessDetailsPtrOutput)
+}
+
+func (o ModelCardContentOutput) EvaluationDetails() ModelCardEvaluationDetailArrayOutput {
+	return o.ApplyT(func(v ModelCardContent) []ModelCardEvaluationDetail { return v.EvaluationDetails }).(ModelCardEvaluationDetailArrayOutput)
+}
+
+func (o ModelCardContentOutput) IntendedUses() ModelCardIntendedUsesPtrOutput {
+	return o.ApplyT(func(v ModelCardContent) *ModelCardIntendedUses { return v.IntendedUses }).(ModelCardIntendedUsesPtrOutput)
+}
+
+func (o ModelCardContentOutput) ModelOverview() ModelCardModelOverviewPtrOutput {
+	return o.ApplyT(func(v ModelCardContent) *ModelCardModelOverview { return v.ModelOverview }).(ModelCardModelOverviewPtrOutput)
+}
+
+func (o ModelCardContentOutput) TrainingDetails() ModelCardTrainingDetailsPtrOutput {
+	return o.ApplyT(func(v ModelCardContent) *ModelCardTrainingDetails { return v.TrainingDetails }).(ModelCardTrainingDetailsPtrOutput)
+}
+
+type ModelCardContentPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardContent)(nil)).Elem()
+}
+
+func (o ModelCardContentPtrOutput) ToModelCardContentPtrOutput() ModelCardContentPtrOutput {
+	return o
+}
+
+func (o ModelCardContentPtrOutput) ToModelCardContentPtrOutputWithContext(ctx context.Context) ModelCardContentPtrOutput {
+	return o
+}
+
+func (o ModelCardContentPtrOutput) Elem() ModelCardContentOutput {
+	return o.ApplyT(func(v *ModelCardContent) ModelCardContent {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardContent
+		return ret
+	}).(ModelCardContentOutput)
+}
+
+func (o ModelCardContentPtrOutput) AdditionalInformation() ModelCardAdditionalInformationPtrOutput {
+	return o.ApplyT(func(v *ModelCardContent) *ModelCardAdditionalInformation {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalInformation
+	}).(ModelCardAdditionalInformationPtrOutput)
+}
+
+func (o ModelCardContentPtrOutput) BusinessDetails() ModelCardBusinessDetailsPtrOutput {
+	return o.ApplyT(func(v *ModelCardContent) *ModelCardBusinessDetails {
+		if v == nil {
+			return nil
+		}
+		return v.BusinessDetails
+	}).(ModelCardBusinessDetailsPtrOutput)
+}
+
+func (o ModelCardContentPtrOutput) EvaluationDetails() ModelCardEvaluationDetailArrayOutput {
+	return o.ApplyT(func(v *ModelCardContent) []ModelCardEvaluationDetail {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluationDetails
+	}).(ModelCardEvaluationDetailArrayOutput)
+}
+
+func (o ModelCardContentPtrOutput) IntendedUses() ModelCardIntendedUsesPtrOutput {
+	return o.ApplyT(func(v *ModelCardContent) *ModelCardIntendedUses {
+		if v == nil {
+			return nil
+		}
+		return v.IntendedUses
+	}).(ModelCardIntendedUsesPtrOutput)
+}
+
+func (o ModelCardContentPtrOutput) ModelOverview() ModelCardModelOverviewPtrOutput {
+	return o.ApplyT(func(v *ModelCardContent) *ModelCardModelOverview {
+		if v == nil {
+			return nil
+		}
+		return v.ModelOverview
+	}).(ModelCardModelOverviewPtrOutput)
+}
+
+func (o ModelCardContentPtrOutput) TrainingDetails() ModelCardTrainingDetailsPtrOutput {
+	return o.ApplyT(func(v *ModelCardContent) *ModelCardTrainingDetails {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingDetails
+	}).(ModelCardTrainingDetailsPtrOutput)
+}
+
+// item of evaluation details
+type ModelCardEvaluationDetail struct {
+	Datasets              []string `pulumi:"datasets"`
+	EvaluationJobArn      *string  `pulumi:"evaluationJobArn"`
+	EvaluationObservation *string  `pulumi:"evaluationObservation"`
+	// additional attributes associated with the evaluation results.
+	Metadata     interface{}            `pulumi:"metadata"`
+	MetricGroups []ModelCardMetricGroup `pulumi:"metricGroups"`
+	Name         string                 `pulumi:"name"`
+}
+
+// ModelCardEvaluationDetailInput is an input type that accepts ModelCardEvaluationDetailArgs and ModelCardEvaluationDetailOutput values.
+// You can construct a concrete instance of `ModelCardEvaluationDetailInput` via:
+//
+//	ModelCardEvaluationDetailArgs{...}
+type ModelCardEvaluationDetailInput interface {
+	pulumi.Input
+
+	ToModelCardEvaluationDetailOutput() ModelCardEvaluationDetailOutput
+	ToModelCardEvaluationDetailOutputWithContext(context.Context) ModelCardEvaluationDetailOutput
+}
+
+// item of evaluation details
+type ModelCardEvaluationDetailArgs struct {
+	Datasets              pulumi.StringArrayInput `pulumi:"datasets"`
+	EvaluationJobArn      pulumi.StringPtrInput   `pulumi:"evaluationJobArn"`
+	EvaluationObservation pulumi.StringPtrInput   `pulumi:"evaluationObservation"`
+	// additional attributes associated with the evaluation results.
+	Metadata     pulumi.Input                   `pulumi:"metadata"`
+	MetricGroups ModelCardMetricGroupArrayInput `pulumi:"metricGroups"`
+	Name         pulumi.StringInput             `pulumi:"name"`
+}
+
+func (ModelCardEvaluationDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardEvaluationDetail)(nil)).Elem()
+}
+
+func (i ModelCardEvaluationDetailArgs) ToModelCardEvaluationDetailOutput() ModelCardEvaluationDetailOutput {
+	return i.ToModelCardEvaluationDetailOutputWithContext(context.Background())
+}
+
+func (i ModelCardEvaluationDetailArgs) ToModelCardEvaluationDetailOutputWithContext(ctx context.Context) ModelCardEvaluationDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardEvaluationDetailOutput)
+}
+
+// ModelCardEvaluationDetailArrayInput is an input type that accepts ModelCardEvaluationDetailArray and ModelCardEvaluationDetailArrayOutput values.
+// You can construct a concrete instance of `ModelCardEvaluationDetailArrayInput` via:
+//
+//	ModelCardEvaluationDetailArray{ ModelCardEvaluationDetailArgs{...} }
+type ModelCardEvaluationDetailArrayInput interface {
+	pulumi.Input
+
+	ToModelCardEvaluationDetailArrayOutput() ModelCardEvaluationDetailArrayOutput
+	ToModelCardEvaluationDetailArrayOutputWithContext(context.Context) ModelCardEvaluationDetailArrayOutput
+}
+
+type ModelCardEvaluationDetailArray []ModelCardEvaluationDetailInput
+
+func (ModelCardEvaluationDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardEvaluationDetail)(nil)).Elem()
+}
+
+func (i ModelCardEvaluationDetailArray) ToModelCardEvaluationDetailArrayOutput() ModelCardEvaluationDetailArrayOutput {
+	return i.ToModelCardEvaluationDetailArrayOutputWithContext(context.Background())
+}
+
+func (i ModelCardEvaluationDetailArray) ToModelCardEvaluationDetailArrayOutputWithContext(ctx context.Context) ModelCardEvaluationDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardEvaluationDetailArrayOutput)
+}
+
+// item of evaluation details
+type ModelCardEvaluationDetailOutput struct{ *pulumi.OutputState }
+
+func (ModelCardEvaluationDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardEvaluationDetail)(nil)).Elem()
+}
+
+func (o ModelCardEvaluationDetailOutput) ToModelCardEvaluationDetailOutput() ModelCardEvaluationDetailOutput {
+	return o
+}
+
+func (o ModelCardEvaluationDetailOutput) ToModelCardEvaluationDetailOutputWithContext(ctx context.Context) ModelCardEvaluationDetailOutput {
+	return o
+}
+
+func (o ModelCardEvaluationDetailOutput) Datasets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelCardEvaluationDetail) []string { return v.Datasets }).(pulumi.StringArrayOutput)
+}
+
+func (o ModelCardEvaluationDetailOutput) EvaluationJobArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardEvaluationDetail) *string { return v.EvaluationJobArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelCardEvaluationDetailOutput) EvaluationObservation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardEvaluationDetail) *string { return v.EvaluationObservation }).(pulumi.StringPtrOutput)
+}
+
+// additional attributes associated with the evaluation results.
+func (o ModelCardEvaluationDetailOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v ModelCardEvaluationDetail) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+func (o ModelCardEvaluationDetailOutput) MetricGroups() ModelCardMetricGroupArrayOutput {
+	return o.ApplyT(func(v ModelCardEvaluationDetail) []ModelCardMetricGroup { return v.MetricGroups }).(ModelCardMetricGroupArrayOutput)
+}
+
+func (o ModelCardEvaluationDetailOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardEvaluationDetail) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ModelCardEvaluationDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelCardEvaluationDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardEvaluationDetail)(nil)).Elem()
+}
+
+func (o ModelCardEvaluationDetailArrayOutput) ToModelCardEvaluationDetailArrayOutput() ModelCardEvaluationDetailArrayOutput {
+	return o
+}
+
+func (o ModelCardEvaluationDetailArrayOutput) ToModelCardEvaluationDetailArrayOutputWithContext(ctx context.Context) ModelCardEvaluationDetailArrayOutput {
+	return o
+}
+
+func (o ModelCardEvaluationDetailArrayOutput) Index(i pulumi.IntInput) ModelCardEvaluationDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelCardEvaluationDetail {
+		return vs[0].([]ModelCardEvaluationDetail)[vs[1].(int)]
+	}).(ModelCardEvaluationDetailOutput)
+}
+
+// Intended usage of model.
+type ModelCardIntendedUses struct {
+	ExplanationsForRiskRating       *string `pulumi:"explanationsForRiskRating"`
+	FactorsAffectingModelEfficiency *string `pulumi:"factorsAffectingModelEfficiency"`
+	// intended use cases.
+	IntendedUses *string `pulumi:"intendedUses"`
+	// Why the model was developed?
+	PurposeOfModel *string              `pulumi:"purposeOfModel"`
+	RiskRating     *ModelCardRiskRating `pulumi:"riskRating"`
+}
+
+// ModelCardIntendedUsesInput is an input type that accepts ModelCardIntendedUsesArgs and ModelCardIntendedUsesOutput values.
+// You can construct a concrete instance of `ModelCardIntendedUsesInput` via:
+//
+//	ModelCardIntendedUsesArgs{...}
+type ModelCardIntendedUsesInput interface {
+	pulumi.Input
+
+	ToModelCardIntendedUsesOutput() ModelCardIntendedUsesOutput
+	ToModelCardIntendedUsesOutputWithContext(context.Context) ModelCardIntendedUsesOutput
+}
+
+// Intended usage of model.
+type ModelCardIntendedUsesArgs struct {
+	ExplanationsForRiskRating       pulumi.StringPtrInput `pulumi:"explanationsForRiskRating"`
+	FactorsAffectingModelEfficiency pulumi.StringPtrInput `pulumi:"factorsAffectingModelEfficiency"`
+	// intended use cases.
+	IntendedUses pulumi.StringPtrInput `pulumi:"intendedUses"`
+	// Why the model was developed?
+	PurposeOfModel pulumi.StringPtrInput       `pulumi:"purposeOfModel"`
+	RiskRating     ModelCardRiskRatingPtrInput `pulumi:"riskRating"`
+}
+
+func (ModelCardIntendedUsesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardIntendedUses)(nil)).Elem()
+}
+
+func (i ModelCardIntendedUsesArgs) ToModelCardIntendedUsesOutput() ModelCardIntendedUsesOutput {
+	return i.ToModelCardIntendedUsesOutputWithContext(context.Background())
+}
+
+func (i ModelCardIntendedUsesArgs) ToModelCardIntendedUsesOutputWithContext(ctx context.Context) ModelCardIntendedUsesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardIntendedUsesOutput)
+}
+
+func (i ModelCardIntendedUsesArgs) ToModelCardIntendedUsesPtrOutput() ModelCardIntendedUsesPtrOutput {
+	return i.ToModelCardIntendedUsesPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardIntendedUsesArgs) ToModelCardIntendedUsesPtrOutputWithContext(ctx context.Context) ModelCardIntendedUsesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardIntendedUsesOutput).ToModelCardIntendedUsesPtrOutputWithContext(ctx)
+}
+
+// ModelCardIntendedUsesPtrInput is an input type that accepts ModelCardIntendedUsesArgs, ModelCardIntendedUsesPtr and ModelCardIntendedUsesPtrOutput values.
+// You can construct a concrete instance of `ModelCardIntendedUsesPtrInput` via:
+//
+//	        ModelCardIntendedUsesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardIntendedUsesPtrInput interface {
+	pulumi.Input
+
+	ToModelCardIntendedUsesPtrOutput() ModelCardIntendedUsesPtrOutput
+	ToModelCardIntendedUsesPtrOutputWithContext(context.Context) ModelCardIntendedUsesPtrOutput
+}
+
+type modelCardIntendedUsesPtrType ModelCardIntendedUsesArgs
+
+func ModelCardIntendedUsesPtr(v *ModelCardIntendedUsesArgs) ModelCardIntendedUsesPtrInput {
+	return (*modelCardIntendedUsesPtrType)(v)
+}
+
+func (*modelCardIntendedUsesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardIntendedUses)(nil)).Elem()
+}
+
+func (i *modelCardIntendedUsesPtrType) ToModelCardIntendedUsesPtrOutput() ModelCardIntendedUsesPtrOutput {
+	return i.ToModelCardIntendedUsesPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardIntendedUsesPtrType) ToModelCardIntendedUsesPtrOutputWithContext(ctx context.Context) ModelCardIntendedUsesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardIntendedUsesPtrOutput)
+}
+
+// Intended usage of model.
+type ModelCardIntendedUsesOutput struct{ *pulumi.OutputState }
+
+func (ModelCardIntendedUsesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardIntendedUses)(nil)).Elem()
+}
+
+func (o ModelCardIntendedUsesOutput) ToModelCardIntendedUsesOutput() ModelCardIntendedUsesOutput {
+	return o
+}
+
+func (o ModelCardIntendedUsesOutput) ToModelCardIntendedUsesOutputWithContext(ctx context.Context) ModelCardIntendedUsesOutput {
+	return o
+}
+
+func (o ModelCardIntendedUsesOutput) ToModelCardIntendedUsesPtrOutput() ModelCardIntendedUsesPtrOutput {
+	return o.ToModelCardIntendedUsesPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardIntendedUsesOutput) ToModelCardIntendedUsesPtrOutputWithContext(ctx context.Context) ModelCardIntendedUsesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardIntendedUses) *ModelCardIntendedUses {
+		return &v
+	}).(ModelCardIntendedUsesPtrOutput)
+}
+
+func (o ModelCardIntendedUsesOutput) ExplanationsForRiskRating() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardIntendedUses) *string { return v.ExplanationsForRiskRating }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelCardIntendedUsesOutput) FactorsAffectingModelEfficiency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardIntendedUses) *string { return v.FactorsAffectingModelEfficiency }).(pulumi.StringPtrOutput)
+}
+
+// intended use cases.
+func (o ModelCardIntendedUsesOutput) IntendedUses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardIntendedUses) *string { return v.IntendedUses }).(pulumi.StringPtrOutput)
+}
+
+// Why the model was developed?
+func (o ModelCardIntendedUsesOutput) PurposeOfModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardIntendedUses) *string { return v.PurposeOfModel }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelCardIntendedUsesOutput) RiskRating() ModelCardRiskRatingPtrOutput {
+	return o.ApplyT(func(v ModelCardIntendedUses) *ModelCardRiskRating { return v.RiskRating }).(ModelCardRiskRatingPtrOutput)
+}
+
+type ModelCardIntendedUsesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardIntendedUsesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardIntendedUses)(nil)).Elem()
+}
+
+func (o ModelCardIntendedUsesPtrOutput) ToModelCardIntendedUsesPtrOutput() ModelCardIntendedUsesPtrOutput {
+	return o
+}
+
+func (o ModelCardIntendedUsesPtrOutput) ToModelCardIntendedUsesPtrOutputWithContext(ctx context.Context) ModelCardIntendedUsesPtrOutput {
+	return o
+}
+
+func (o ModelCardIntendedUsesPtrOutput) Elem() ModelCardIntendedUsesOutput {
+	return o.ApplyT(func(v *ModelCardIntendedUses) ModelCardIntendedUses {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardIntendedUses
+		return ret
+	}).(ModelCardIntendedUsesOutput)
+}
+
+func (o ModelCardIntendedUsesPtrOutput) ExplanationsForRiskRating() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardIntendedUses) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExplanationsForRiskRating
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelCardIntendedUsesPtrOutput) FactorsAffectingModelEfficiency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardIntendedUses) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FactorsAffectingModelEfficiency
+	}).(pulumi.StringPtrOutput)
+}
+
+// intended use cases.
+func (o ModelCardIntendedUsesPtrOutput) IntendedUses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardIntendedUses) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IntendedUses
+	}).(pulumi.StringPtrOutput)
+}
+
+// Why the model was developed?
+func (o ModelCardIntendedUsesPtrOutput) PurposeOfModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardIntendedUses) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PurposeOfModel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelCardIntendedUsesPtrOutput) RiskRating() ModelCardRiskRatingPtrOutput {
+	return o.ApplyT(func(v *ModelCardIntendedUses) *ModelCardRiskRating {
+		if v == nil {
+			return nil
+		}
+		return v.RiskRating
+	}).(ModelCardRiskRatingPtrOutput)
+}
+
+// Linear graph metric.
+type ModelCardLinearGraphMetric struct {
+	Name      string                         `pulumi:"name"`
+	Notes     *string                        `pulumi:"notes"`
+	Type      ModelCardLinearGraphMetricType `pulumi:"type"`
+	Value     [][]float64                    `pulumi:"value"`
+	XAxisName *string                        `pulumi:"xAxisName"`
+	YAxisName *string                        `pulumi:"yAxisName"`
+}
+
+type ModelCardMatrixMetric struct {
+	Name      string                    `pulumi:"name"`
+	Notes     *string                   `pulumi:"notes"`
+	Type      ModelCardMatrixMetricType `pulumi:"type"`
+	Value     [][]float64               `pulumi:"value"`
+	XAxisName []string                  `pulumi:"xAxisName"`
+	YAxisName []string                  `pulumi:"yAxisName"`
+}
+
+// item in metric groups
+type ModelCardMetricGroup struct {
+	MetricData []interface{} `pulumi:"metricData"`
+	Name       string        `pulumi:"name"`
+}
+
+// ModelCardMetricGroupInput is an input type that accepts ModelCardMetricGroupArgs and ModelCardMetricGroupOutput values.
+// You can construct a concrete instance of `ModelCardMetricGroupInput` via:
+//
+//	ModelCardMetricGroupArgs{...}
+type ModelCardMetricGroupInput interface {
+	pulumi.Input
+
+	ToModelCardMetricGroupOutput() ModelCardMetricGroupOutput
+	ToModelCardMetricGroupOutputWithContext(context.Context) ModelCardMetricGroupOutput
+}
+
+// item in metric groups
+type ModelCardMetricGroupArgs struct {
+	MetricData pulumi.ArrayInput  `pulumi:"metricData"`
+	Name       pulumi.StringInput `pulumi:"name"`
+}
+
+func (ModelCardMetricGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardMetricGroup)(nil)).Elem()
+}
+
+func (i ModelCardMetricGroupArgs) ToModelCardMetricGroupOutput() ModelCardMetricGroupOutput {
+	return i.ToModelCardMetricGroupOutputWithContext(context.Background())
+}
+
+func (i ModelCardMetricGroupArgs) ToModelCardMetricGroupOutputWithContext(ctx context.Context) ModelCardMetricGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardMetricGroupOutput)
+}
+
+// ModelCardMetricGroupArrayInput is an input type that accepts ModelCardMetricGroupArray and ModelCardMetricGroupArrayOutput values.
+// You can construct a concrete instance of `ModelCardMetricGroupArrayInput` via:
+//
+//	ModelCardMetricGroupArray{ ModelCardMetricGroupArgs{...} }
+type ModelCardMetricGroupArrayInput interface {
+	pulumi.Input
+
+	ToModelCardMetricGroupArrayOutput() ModelCardMetricGroupArrayOutput
+	ToModelCardMetricGroupArrayOutputWithContext(context.Context) ModelCardMetricGroupArrayOutput
+}
+
+type ModelCardMetricGroupArray []ModelCardMetricGroupInput
+
+func (ModelCardMetricGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardMetricGroup)(nil)).Elem()
+}
+
+func (i ModelCardMetricGroupArray) ToModelCardMetricGroupArrayOutput() ModelCardMetricGroupArrayOutput {
+	return i.ToModelCardMetricGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ModelCardMetricGroupArray) ToModelCardMetricGroupArrayOutputWithContext(ctx context.Context) ModelCardMetricGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardMetricGroupArrayOutput)
+}
+
+// item in metric groups
+type ModelCardMetricGroupOutput struct{ *pulumi.OutputState }
+
+func (ModelCardMetricGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardMetricGroup)(nil)).Elem()
+}
+
+func (o ModelCardMetricGroupOutput) ToModelCardMetricGroupOutput() ModelCardMetricGroupOutput {
+	return o
+}
+
+func (o ModelCardMetricGroupOutput) ToModelCardMetricGroupOutputWithContext(ctx context.Context) ModelCardMetricGroupOutput {
+	return o
+}
+
+func (o ModelCardMetricGroupOutput) MetricData() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ModelCardMetricGroup) []interface{} { return v.MetricData }).(pulumi.ArrayOutput)
+}
+
+func (o ModelCardMetricGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardMetricGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ModelCardMetricGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelCardMetricGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardMetricGroup)(nil)).Elem()
+}
+
+func (o ModelCardMetricGroupArrayOutput) ToModelCardMetricGroupArrayOutput() ModelCardMetricGroupArrayOutput {
+	return o
+}
+
+func (o ModelCardMetricGroupArrayOutput) ToModelCardMetricGroupArrayOutputWithContext(ctx context.Context) ModelCardMetricGroupArrayOutput {
+	return o
+}
+
+func (o ModelCardMetricGroupArrayOutput) Index(i pulumi.IntInput) ModelCardMetricGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelCardMetricGroup {
+		return vs[0].([]ModelCardMetricGroup)[vs[1].(int)]
+	}).(ModelCardMetricGroupOutput)
+}
+
+// Overview about the model.
+type ModelCardModelOverview struct {
+	// Algorithm used to solve the problem.
+	AlgorithmType *string `pulumi:"algorithmType"`
+	// Overview about the inference.
+	InferenceEnvironment *ModelCardModelOverviewInferenceEnvironmentProperties `pulumi:"inferenceEnvironment"`
+	// Location of the model artifact.
+	ModelArtifact []string `pulumi:"modelArtifact"`
+	// Creator of model.
+	ModelCreator *string `pulumi:"modelCreator"`
+	// description of model.
+	ModelDescription *string `pulumi:"modelDescription"`
+	// SageMaker Model Arn or Non SageMaker Model id.
+	ModelId *string `pulumi:"modelId"`
+	// Name of the model.
+	ModelName *string `pulumi:"modelName"`
+	// Owner of model.
+	ModelOwner *string `pulumi:"modelOwner"`
+	// Version of the model.
+	ModelVersion *float64 `pulumi:"modelVersion"`
+	// Problem being solved with the model.
+	ProblemType *string `pulumi:"problemType"`
+}
+
+// ModelCardModelOverviewInput is an input type that accepts ModelCardModelOverviewArgs and ModelCardModelOverviewOutput values.
+// You can construct a concrete instance of `ModelCardModelOverviewInput` via:
+//
+//	ModelCardModelOverviewArgs{...}
+type ModelCardModelOverviewInput interface {
+	pulumi.Input
+
+	ToModelCardModelOverviewOutput() ModelCardModelOverviewOutput
+	ToModelCardModelOverviewOutputWithContext(context.Context) ModelCardModelOverviewOutput
+}
+
+// Overview about the model.
+type ModelCardModelOverviewArgs struct {
+	// Algorithm used to solve the problem.
+	AlgorithmType pulumi.StringPtrInput `pulumi:"algorithmType"`
+	// Overview about the inference.
+	InferenceEnvironment ModelCardModelOverviewInferenceEnvironmentPropertiesPtrInput `pulumi:"inferenceEnvironment"`
+	// Location of the model artifact.
+	ModelArtifact pulumi.StringArrayInput `pulumi:"modelArtifact"`
+	// Creator of model.
+	ModelCreator pulumi.StringPtrInput `pulumi:"modelCreator"`
+	// description of model.
+	ModelDescription pulumi.StringPtrInput `pulumi:"modelDescription"`
+	// SageMaker Model Arn or Non SageMaker Model id.
+	ModelId pulumi.StringPtrInput `pulumi:"modelId"`
+	// Name of the model.
+	ModelName pulumi.StringPtrInput `pulumi:"modelName"`
+	// Owner of model.
+	ModelOwner pulumi.StringPtrInput `pulumi:"modelOwner"`
+	// Version of the model.
+	ModelVersion pulumi.Float64PtrInput `pulumi:"modelVersion"`
+	// Problem being solved with the model.
+	ProblemType pulumi.StringPtrInput `pulumi:"problemType"`
+}
+
+func (ModelCardModelOverviewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelOverview)(nil)).Elem()
+}
+
+func (i ModelCardModelOverviewArgs) ToModelCardModelOverviewOutput() ModelCardModelOverviewOutput {
+	return i.ToModelCardModelOverviewOutputWithContext(context.Background())
+}
+
+func (i ModelCardModelOverviewArgs) ToModelCardModelOverviewOutputWithContext(ctx context.Context) ModelCardModelOverviewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelOverviewOutput)
+}
+
+func (i ModelCardModelOverviewArgs) ToModelCardModelOverviewPtrOutput() ModelCardModelOverviewPtrOutput {
+	return i.ToModelCardModelOverviewPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardModelOverviewArgs) ToModelCardModelOverviewPtrOutputWithContext(ctx context.Context) ModelCardModelOverviewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelOverviewOutput).ToModelCardModelOverviewPtrOutputWithContext(ctx)
+}
+
+// ModelCardModelOverviewPtrInput is an input type that accepts ModelCardModelOverviewArgs, ModelCardModelOverviewPtr and ModelCardModelOverviewPtrOutput values.
+// You can construct a concrete instance of `ModelCardModelOverviewPtrInput` via:
+//
+//	        ModelCardModelOverviewArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardModelOverviewPtrInput interface {
+	pulumi.Input
+
+	ToModelCardModelOverviewPtrOutput() ModelCardModelOverviewPtrOutput
+	ToModelCardModelOverviewPtrOutputWithContext(context.Context) ModelCardModelOverviewPtrOutput
+}
+
+type modelCardModelOverviewPtrType ModelCardModelOverviewArgs
+
+func ModelCardModelOverviewPtr(v *ModelCardModelOverviewArgs) ModelCardModelOverviewPtrInput {
+	return (*modelCardModelOverviewPtrType)(v)
+}
+
+func (*modelCardModelOverviewPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardModelOverview)(nil)).Elem()
+}
+
+func (i *modelCardModelOverviewPtrType) ToModelCardModelOverviewPtrOutput() ModelCardModelOverviewPtrOutput {
+	return i.ToModelCardModelOverviewPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardModelOverviewPtrType) ToModelCardModelOverviewPtrOutputWithContext(ctx context.Context) ModelCardModelOverviewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelOverviewPtrOutput)
+}
+
+// Overview about the model.
+type ModelCardModelOverviewOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelOverviewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelOverview)(nil)).Elem()
+}
+
+func (o ModelCardModelOverviewOutput) ToModelCardModelOverviewOutput() ModelCardModelOverviewOutput {
+	return o
+}
+
+func (o ModelCardModelOverviewOutput) ToModelCardModelOverviewOutputWithContext(ctx context.Context) ModelCardModelOverviewOutput {
+	return o
+}
+
+func (o ModelCardModelOverviewOutput) ToModelCardModelOverviewPtrOutput() ModelCardModelOverviewPtrOutput {
+	return o.ToModelCardModelOverviewPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelOverviewOutput) ToModelCardModelOverviewPtrOutputWithContext(ctx context.Context) ModelCardModelOverviewPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardModelOverview) *ModelCardModelOverview {
+		return &v
+	}).(ModelCardModelOverviewPtrOutput)
+}
+
+// Algorithm used to solve the problem.
+func (o ModelCardModelOverviewOutput) AlgorithmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelOverview) *string { return v.AlgorithmType }).(pulumi.StringPtrOutput)
+}
+
+// Overview about the inference.
+func (o ModelCardModelOverviewOutput) InferenceEnvironment() ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput {
+	return o.ApplyT(func(v ModelCardModelOverview) *ModelCardModelOverviewInferenceEnvironmentProperties {
+		return v.InferenceEnvironment
+	}).(ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput)
+}
+
+// Location of the model artifact.
+func (o ModelCardModelOverviewOutput) ModelArtifact() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelCardModelOverview) []string { return v.ModelArtifact }).(pulumi.StringArrayOutput)
+}
+
+// Creator of model.
+func (o ModelCardModelOverviewOutput) ModelCreator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelOverview) *string { return v.ModelCreator }).(pulumi.StringPtrOutput)
+}
+
+// description of model.
+func (o ModelCardModelOverviewOutput) ModelDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelOverview) *string { return v.ModelDescription }).(pulumi.StringPtrOutput)
+}
+
+// SageMaker Model Arn or Non SageMaker Model id.
+func (o ModelCardModelOverviewOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelOverview) *string { return v.ModelId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the model.
+func (o ModelCardModelOverviewOutput) ModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelOverview) *string { return v.ModelName }).(pulumi.StringPtrOutput)
+}
+
+// Owner of model.
+func (o ModelCardModelOverviewOutput) ModelOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelOverview) *string { return v.ModelOwner }).(pulumi.StringPtrOutput)
+}
+
+// Version of the model.
+func (o ModelCardModelOverviewOutput) ModelVersion() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ModelCardModelOverview) *float64 { return v.ModelVersion }).(pulumi.Float64PtrOutput)
+}
+
+// Problem being solved with the model.
+func (o ModelCardModelOverviewOutput) ProblemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelOverview) *string { return v.ProblemType }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardModelOverviewPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelOverviewPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardModelOverview)(nil)).Elem()
+}
+
+func (o ModelCardModelOverviewPtrOutput) ToModelCardModelOverviewPtrOutput() ModelCardModelOverviewPtrOutput {
+	return o
+}
+
+func (o ModelCardModelOverviewPtrOutput) ToModelCardModelOverviewPtrOutputWithContext(ctx context.Context) ModelCardModelOverviewPtrOutput {
+	return o
+}
+
+func (o ModelCardModelOverviewPtrOutput) Elem() ModelCardModelOverviewOutput {
+	return o.ApplyT(func(v *ModelCardModelOverview) ModelCardModelOverview {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardModelOverview
+		return ret
+	}).(ModelCardModelOverviewOutput)
+}
+
+// Algorithm used to solve the problem.
+func (o ModelCardModelOverviewPtrOutput) AlgorithmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelOverview) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlgorithmType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Overview about the inference.
+func (o ModelCardModelOverviewPtrOutput) InferenceEnvironment() ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelOverview) *ModelCardModelOverviewInferenceEnvironmentProperties {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceEnvironment
+	}).(ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput)
+}
+
+// Location of the model artifact.
+func (o ModelCardModelOverviewPtrOutput) ModelArtifact() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelCardModelOverview) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelArtifact
+	}).(pulumi.StringArrayOutput)
+}
+
+// Creator of model.
+func (o ModelCardModelOverviewPtrOutput) ModelCreator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelOverview) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelCreator
+	}).(pulumi.StringPtrOutput)
+}
+
+// description of model.
+func (o ModelCardModelOverviewPtrOutput) ModelDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelOverview) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// SageMaker Model Arn or Non SageMaker Model id.
+func (o ModelCardModelOverviewPtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelOverview) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the model.
+func (o ModelCardModelOverviewPtrOutput) ModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelOverview) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Owner of model.
+func (o ModelCardModelOverviewPtrOutput) ModelOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelOverview) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the model.
+func (o ModelCardModelOverviewPtrOutput) ModelVersion() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ModelCardModelOverview) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ModelVersion
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Problem being solved with the model.
+func (o ModelCardModelOverviewPtrOutput) ProblemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelOverview) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProblemType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Overview about the inference.
+type ModelCardModelOverviewInferenceEnvironmentProperties struct {
+	// SageMaker inference image uri.
+	ContainerImage []string `pulumi:"containerImage"`
+}
+
+// ModelCardModelOverviewInferenceEnvironmentPropertiesInput is an input type that accepts ModelCardModelOverviewInferenceEnvironmentPropertiesArgs and ModelCardModelOverviewInferenceEnvironmentPropertiesOutput values.
+// You can construct a concrete instance of `ModelCardModelOverviewInferenceEnvironmentPropertiesInput` via:
+//
+//	ModelCardModelOverviewInferenceEnvironmentPropertiesArgs{...}
+type ModelCardModelOverviewInferenceEnvironmentPropertiesInput interface {
+	pulumi.Input
+
+	ToModelCardModelOverviewInferenceEnvironmentPropertiesOutput() ModelCardModelOverviewInferenceEnvironmentPropertiesOutput
+	ToModelCardModelOverviewInferenceEnvironmentPropertiesOutputWithContext(context.Context) ModelCardModelOverviewInferenceEnvironmentPropertiesOutput
+}
+
+// Overview about the inference.
+type ModelCardModelOverviewInferenceEnvironmentPropertiesArgs struct {
+	// SageMaker inference image uri.
+	ContainerImage pulumi.StringArrayInput `pulumi:"containerImage"`
+}
+
+func (ModelCardModelOverviewInferenceEnvironmentPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelOverviewInferenceEnvironmentProperties)(nil)).Elem()
+}
+
+func (i ModelCardModelOverviewInferenceEnvironmentPropertiesArgs) ToModelCardModelOverviewInferenceEnvironmentPropertiesOutput() ModelCardModelOverviewInferenceEnvironmentPropertiesOutput {
+	return i.ToModelCardModelOverviewInferenceEnvironmentPropertiesOutputWithContext(context.Background())
+}
+
+func (i ModelCardModelOverviewInferenceEnvironmentPropertiesArgs) ToModelCardModelOverviewInferenceEnvironmentPropertiesOutputWithContext(ctx context.Context) ModelCardModelOverviewInferenceEnvironmentPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelOverviewInferenceEnvironmentPropertiesOutput)
+}
+
+func (i ModelCardModelOverviewInferenceEnvironmentPropertiesArgs) ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput() ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput {
+	return i.ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardModelOverviewInferenceEnvironmentPropertiesArgs) ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelOverviewInferenceEnvironmentPropertiesOutput).ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutputWithContext(ctx)
+}
+
+// ModelCardModelOverviewInferenceEnvironmentPropertiesPtrInput is an input type that accepts ModelCardModelOverviewInferenceEnvironmentPropertiesArgs, ModelCardModelOverviewInferenceEnvironmentPropertiesPtr and ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput values.
+// You can construct a concrete instance of `ModelCardModelOverviewInferenceEnvironmentPropertiesPtrInput` via:
+//
+//	        ModelCardModelOverviewInferenceEnvironmentPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardModelOverviewInferenceEnvironmentPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput() ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput
+	ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutputWithContext(context.Context) ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput
+}
+
+type modelCardModelOverviewInferenceEnvironmentPropertiesPtrType ModelCardModelOverviewInferenceEnvironmentPropertiesArgs
+
+func ModelCardModelOverviewInferenceEnvironmentPropertiesPtr(v *ModelCardModelOverviewInferenceEnvironmentPropertiesArgs) ModelCardModelOverviewInferenceEnvironmentPropertiesPtrInput {
+	return (*modelCardModelOverviewInferenceEnvironmentPropertiesPtrType)(v)
+}
+
+func (*modelCardModelOverviewInferenceEnvironmentPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardModelOverviewInferenceEnvironmentProperties)(nil)).Elem()
+}
+
+func (i *modelCardModelOverviewInferenceEnvironmentPropertiesPtrType) ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput() ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput {
+	return i.ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardModelOverviewInferenceEnvironmentPropertiesPtrType) ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput)
+}
+
+// Overview about the inference.
+type ModelCardModelOverviewInferenceEnvironmentPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelOverviewInferenceEnvironmentPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelOverviewInferenceEnvironmentProperties)(nil)).Elem()
+}
+
+func (o ModelCardModelOverviewInferenceEnvironmentPropertiesOutput) ToModelCardModelOverviewInferenceEnvironmentPropertiesOutput() ModelCardModelOverviewInferenceEnvironmentPropertiesOutput {
+	return o
+}
+
+func (o ModelCardModelOverviewInferenceEnvironmentPropertiesOutput) ToModelCardModelOverviewInferenceEnvironmentPropertiesOutputWithContext(ctx context.Context) ModelCardModelOverviewInferenceEnvironmentPropertiesOutput {
+	return o
+}
+
+func (o ModelCardModelOverviewInferenceEnvironmentPropertiesOutput) ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput() ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput {
+	return o.ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelOverviewInferenceEnvironmentPropertiesOutput) ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardModelOverviewInferenceEnvironmentProperties) *ModelCardModelOverviewInferenceEnvironmentProperties {
+		return &v
+	}).(ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput)
+}
+
+// SageMaker inference image uri.
+func (o ModelCardModelOverviewInferenceEnvironmentPropertiesOutput) ContainerImage() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelCardModelOverviewInferenceEnvironmentProperties) []string { return v.ContainerImage }).(pulumi.StringArrayOutput)
+}
+
+type ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardModelOverviewInferenceEnvironmentProperties)(nil)).Elem()
+}
+
+func (o ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput) ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput() ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput) ToModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput) Elem() ModelCardModelOverviewInferenceEnvironmentPropertiesOutput {
+	return o.ApplyT(func(v *ModelCardModelOverviewInferenceEnvironmentProperties) ModelCardModelOverviewInferenceEnvironmentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardModelOverviewInferenceEnvironmentProperties
+		return ret
+	}).(ModelCardModelOverviewInferenceEnvironmentPropertiesOutput)
+}
+
+// SageMaker inference image uri.
+func (o ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput) ContainerImage() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelCardModelOverviewInferenceEnvironmentProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerImage
+	}).(pulumi.StringArrayOutput)
+}
+
+// the objective function the model will optimize for.
+type ModelCardObjectiveFunction struct {
+	// objective function that training job is optimized for.
+	Function *ModelCardObjectiveFunctionFunctionProperties `pulumi:"function"`
+	Notes    *string                                       `pulumi:"notes"`
+}
+
+// ModelCardObjectiveFunctionInput is an input type that accepts ModelCardObjectiveFunctionArgs and ModelCardObjectiveFunctionOutput values.
+// You can construct a concrete instance of `ModelCardObjectiveFunctionInput` via:
+//
+//	ModelCardObjectiveFunctionArgs{...}
+type ModelCardObjectiveFunctionInput interface {
+	pulumi.Input
+
+	ToModelCardObjectiveFunctionOutput() ModelCardObjectiveFunctionOutput
+	ToModelCardObjectiveFunctionOutputWithContext(context.Context) ModelCardObjectiveFunctionOutput
+}
+
+// the objective function the model will optimize for.
+type ModelCardObjectiveFunctionArgs struct {
+	// objective function that training job is optimized for.
+	Function ModelCardObjectiveFunctionFunctionPropertiesPtrInput `pulumi:"function"`
+	Notes    pulumi.StringPtrInput                                `pulumi:"notes"`
+}
+
+func (ModelCardObjectiveFunctionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardObjectiveFunction)(nil)).Elem()
+}
+
+func (i ModelCardObjectiveFunctionArgs) ToModelCardObjectiveFunctionOutput() ModelCardObjectiveFunctionOutput {
+	return i.ToModelCardObjectiveFunctionOutputWithContext(context.Background())
+}
+
+func (i ModelCardObjectiveFunctionArgs) ToModelCardObjectiveFunctionOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardObjectiveFunctionOutput)
+}
+
+func (i ModelCardObjectiveFunctionArgs) ToModelCardObjectiveFunctionPtrOutput() ModelCardObjectiveFunctionPtrOutput {
+	return i.ToModelCardObjectiveFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardObjectiveFunctionArgs) ToModelCardObjectiveFunctionPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardObjectiveFunctionOutput).ToModelCardObjectiveFunctionPtrOutputWithContext(ctx)
+}
+
+// ModelCardObjectiveFunctionPtrInput is an input type that accepts ModelCardObjectiveFunctionArgs, ModelCardObjectiveFunctionPtr and ModelCardObjectiveFunctionPtrOutput values.
+// You can construct a concrete instance of `ModelCardObjectiveFunctionPtrInput` via:
+//
+//	        ModelCardObjectiveFunctionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardObjectiveFunctionPtrInput interface {
+	pulumi.Input
+
+	ToModelCardObjectiveFunctionPtrOutput() ModelCardObjectiveFunctionPtrOutput
+	ToModelCardObjectiveFunctionPtrOutputWithContext(context.Context) ModelCardObjectiveFunctionPtrOutput
+}
+
+type modelCardObjectiveFunctionPtrType ModelCardObjectiveFunctionArgs
+
+func ModelCardObjectiveFunctionPtr(v *ModelCardObjectiveFunctionArgs) ModelCardObjectiveFunctionPtrInput {
+	return (*modelCardObjectiveFunctionPtrType)(v)
+}
+
+func (*modelCardObjectiveFunctionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardObjectiveFunction)(nil)).Elem()
+}
+
+func (i *modelCardObjectiveFunctionPtrType) ToModelCardObjectiveFunctionPtrOutput() ModelCardObjectiveFunctionPtrOutput {
+	return i.ToModelCardObjectiveFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardObjectiveFunctionPtrType) ToModelCardObjectiveFunctionPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardObjectiveFunctionPtrOutput)
+}
+
+// the objective function the model will optimize for.
+type ModelCardObjectiveFunctionOutput struct{ *pulumi.OutputState }
+
+func (ModelCardObjectiveFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardObjectiveFunction)(nil)).Elem()
+}
+
+func (o ModelCardObjectiveFunctionOutput) ToModelCardObjectiveFunctionOutput() ModelCardObjectiveFunctionOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionOutput) ToModelCardObjectiveFunctionOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionOutput) ToModelCardObjectiveFunctionPtrOutput() ModelCardObjectiveFunctionPtrOutput {
+	return o.ToModelCardObjectiveFunctionPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardObjectiveFunctionOutput) ToModelCardObjectiveFunctionPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardObjectiveFunction) *ModelCardObjectiveFunction {
+		return &v
+	}).(ModelCardObjectiveFunctionPtrOutput)
+}
+
+// objective function that training job is optimized for.
+func (o ModelCardObjectiveFunctionOutput) Function() ModelCardObjectiveFunctionFunctionPropertiesPtrOutput {
+	return o.ApplyT(func(v ModelCardObjectiveFunction) *ModelCardObjectiveFunctionFunctionProperties { return v.Function }).(ModelCardObjectiveFunctionFunctionPropertiesPtrOutput)
+}
+
+func (o ModelCardObjectiveFunctionOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardObjectiveFunction) *string { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardObjectiveFunctionPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardObjectiveFunctionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardObjectiveFunction)(nil)).Elem()
+}
+
+func (o ModelCardObjectiveFunctionPtrOutput) ToModelCardObjectiveFunctionPtrOutput() ModelCardObjectiveFunctionPtrOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionPtrOutput) ToModelCardObjectiveFunctionPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionPtrOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionPtrOutput) Elem() ModelCardObjectiveFunctionOutput {
+	return o.ApplyT(func(v *ModelCardObjectiveFunction) ModelCardObjectiveFunction {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardObjectiveFunction
+		return ret
+	}).(ModelCardObjectiveFunctionOutput)
+}
+
+// objective function that training job is optimized for.
+func (o ModelCardObjectiveFunctionPtrOutput) Function() ModelCardObjectiveFunctionFunctionPropertiesPtrOutput {
+	return o.ApplyT(func(v *ModelCardObjectiveFunction) *ModelCardObjectiveFunctionFunctionProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Function
+	}).(ModelCardObjectiveFunctionFunctionPropertiesPtrOutput)
+}
+
+func (o ModelCardObjectiveFunctionPtrOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardObjectiveFunction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Notes
+	}).(pulumi.StringPtrOutput)
+}
+
+// objective function that training job is optimized for.
+type ModelCardObjectiveFunctionFunctionProperties struct {
+	Condition *string                                               `pulumi:"condition"`
+	Facet     *string                                               `pulumi:"facet"`
+	Function  *ModelCardObjectiveFunctionFunctionPropertiesFunction `pulumi:"function"`
+}
+
+// ModelCardObjectiveFunctionFunctionPropertiesInput is an input type that accepts ModelCardObjectiveFunctionFunctionPropertiesArgs and ModelCardObjectiveFunctionFunctionPropertiesOutput values.
+// You can construct a concrete instance of `ModelCardObjectiveFunctionFunctionPropertiesInput` via:
+//
+//	ModelCardObjectiveFunctionFunctionPropertiesArgs{...}
+type ModelCardObjectiveFunctionFunctionPropertiesInput interface {
+	pulumi.Input
+
+	ToModelCardObjectiveFunctionFunctionPropertiesOutput() ModelCardObjectiveFunctionFunctionPropertiesOutput
+	ToModelCardObjectiveFunctionFunctionPropertiesOutputWithContext(context.Context) ModelCardObjectiveFunctionFunctionPropertiesOutput
+}
+
+// objective function that training job is optimized for.
+type ModelCardObjectiveFunctionFunctionPropertiesArgs struct {
+	Condition pulumi.StringPtrInput                                        `pulumi:"condition"`
+	Facet     pulumi.StringPtrInput                                        `pulumi:"facet"`
+	Function  ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrInput `pulumi:"function"`
+}
+
+func (ModelCardObjectiveFunctionFunctionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardObjectiveFunctionFunctionProperties)(nil)).Elem()
+}
+
+func (i ModelCardObjectiveFunctionFunctionPropertiesArgs) ToModelCardObjectiveFunctionFunctionPropertiesOutput() ModelCardObjectiveFunctionFunctionPropertiesOutput {
+	return i.ToModelCardObjectiveFunctionFunctionPropertiesOutputWithContext(context.Background())
+}
+
+func (i ModelCardObjectiveFunctionFunctionPropertiesArgs) ToModelCardObjectiveFunctionFunctionPropertiesOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardObjectiveFunctionFunctionPropertiesOutput)
+}
+
+func (i ModelCardObjectiveFunctionFunctionPropertiesArgs) ToModelCardObjectiveFunctionFunctionPropertiesPtrOutput() ModelCardObjectiveFunctionFunctionPropertiesPtrOutput {
+	return i.ToModelCardObjectiveFunctionFunctionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardObjectiveFunctionFunctionPropertiesArgs) ToModelCardObjectiveFunctionFunctionPropertiesPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardObjectiveFunctionFunctionPropertiesOutput).ToModelCardObjectiveFunctionFunctionPropertiesPtrOutputWithContext(ctx)
+}
+
+// ModelCardObjectiveFunctionFunctionPropertiesPtrInput is an input type that accepts ModelCardObjectiveFunctionFunctionPropertiesArgs, ModelCardObjectiveFunctionFunctionPropertiesPtr and ModelCardObjectiveFunctionFunctionPropertiesPtrOutput values.
+// You can construct a concrete instance of `ModelCardObjectiveFunctionFunctionPropertiesPtrInput` via:
+//
+//	        ModelCardObjectiveFunctionFunctionPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardObjectiveFunctionFunctionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToModelCardObjectiveFunctionFunctionPropertiesPtrOutput() ModelCardObjectiveFunctionFunctionPropertiesPtrOutput
+	ToModelCardObjectiveFunctionFunctionPropertiesPtrOutputWithContext(context.Context) ModelCardObjectiveFunctionFunctionPropertiesPtrOutput
+}
+
+type modelCardObjectiveFunctionFunctionPropertiesPtrType ModelCardObjectiveFunctionFunctionPropertiesArgs
+
+func ModelCardObjectiveFunctionFunctionPropertiesPtr(v *ModelCardObjectiveFunctionFunctionPropertiesArgs) ModelCardObjectiveFunctionFunctionPropertiesPtrInput {
+	return (*modelCardObjectiveFunctionFunctionPropertiesPtrType)(v)
+}
+
+func (*modelCardObjectiveFunctionFunctionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardObjectiveFunctionFunctionProperties)(nil)).Elem()
+}
+
+func (i *modelCardObjectiveFunctionFunctionPropertiesPtrType) ToModelCardObjectiveFunctionFunctionPropertiesPtrOutput() ModelCardObjectiveFunctionFunctionPropertiesPtrOutput {
+	return i.ToModelCardObjectiveFunctionFunctionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardObjectiveFunctionFunctionPropertiesPtrType) ToModelCardObjectiveFunctionFunctionPropertiesPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardObjectiveFunctionFunctionPropertiesPtrOutput)
+}
+
+// objective function that training job is optimized for.
+type ModelCardObjectiveFunctionFunctionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ModelCardObjectiveFunctionFunctionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardObjectiveFunctionFunctionProperties)(nil)).Elem()
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesOutput) ToModelCardObjectiveFunctionFunctionPropertiesOutput() ModelCardObjectiveFunctionFunctionPropertiesOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesOutput) ToModelCardObjectiveFunctionFunctionPropertiesOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesOutput) ToModelCardObjectiveFunctionFunctionPropertiesPtrOutput() ModelCardObjectiveFunctionFunctionPropertiesPtrOutput {
+	return o.ToModelCardObjectiveFunctionFunctionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesOutput) ToModelCardObjectiveFunctionFunctionPropertiesPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardObjectiveFunctionFunctionProperties) *ModelCardObjectiveFunctionFunctionProperties {
+		return &v
+	}).(ModelCardObjectiveFunctionFunctionPropertiesPtrOutput)
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardObjectiveFunctionFunctionProperties) *string { return v.Condition }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardObjectiveFunctionFunctionProperties) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesOutput) Function() ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput {
+	return o.ApplyT(func(v ModelCardObjectiveFunctionFunctionProperties) *ModelCardObjectiveFunctionFunctionPropertiesFunction {
+		return v.Function
+	}).(ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput)
+}
+
+type ModelCardObjectiveFunctionFunctionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardObjectiveFunctionFunctionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardObjectiveFunctionFunctionProperties)(nil)).Elem()
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesPtrOutput) ToModelCardObjectiveFunctionFunctionPropertiesPtrOutput() ModelCardObjectiveFunctionFunctionPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesPtrOutput) ToModelCardObjectiveFunctionFunctionPropertiesPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesPtrOutput) Elem() ModelCardObjectiveFunctionFunctionPropertiesOutput {
+	return o.ApplyT(func(v *ModelCardObjectiveFunctionFunctionProperties) ModelCardObjectiveFunctionFunctionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardObjectiveFunctionFunctionProperties
+		return ret
+	}).(ModelCardObjectiveFunctionFunctionPropertiesOutput)
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesPtrOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardObjectiveFunctionFunctionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Condition
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardObjectiveFunctionFunctionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesPtrOutput) Function() ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput {
+	return o.ApplyT(func(v *ModelCardObjectiveFunctionFunctionProperties) *ModelCardObjectiveFunctionFunctionPropertiesFunction {
+		if v == nil {
+			return nil
+		}
+		return v.Function
+	}).(ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput)
+}
+
+// An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
+type ModelCardSecurityConfig struct {
+	// A Key Management Service key ID to use for encrypting a model card.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+}
+
+// ModelCardSecurityConfigInput is an input type that accepts ModelCardSecurityConfigArgs and ModelCardSecurityConfigOutput values.
+// You can construct a concrete instance of `ModelCardSecurityConfigInput` via:
+//
+//	ModelCardSecurityConfigArgs{...}
+type ModelCardSecurityConfigInput interface {
+	pulumi.Input
+
+	ToModelCardSecurityConfigOutput() ModelCardSecurityConfigOutput
+	ToModelCardSecurityConfigOutputWithContext(context.Context) ModelCardSecurityConfigOutput
+}
+
+// An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
+type ModelCardSecurityConfigArgs struct {
+	// A Key Management Service key ID to use for encrypting a model card.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+}
+
+func (ModelCardSecurityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardSecurityConfig)(nil)).Elem()
+}
+
+func (i ModelCardSecurityConfigArgs) ToModelCardSecurityConfigOutput() ModelCardSecurityConfigOutput {
+	return i.ToModelCardSecurityConfigOutputWithContext(context.Background())
+}
+
+func (i ModelCardSecurityConfigArgs) ToModelCardSecurityConfigOutputWithContext(ctx context.Context) ModelCardSecurityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardSecurityConfigOutput)
+}
+
+func (i ModelCardSecurityConfigArgs) ToModelCardSecurityConfigPtrOutput() ModelCardSecurityConfigPtrOutput {
+	return i.ToModelCardSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardSecurityConfigArgs) ToModelCardSecurityConfigPtrOutputWithContext(ctx context.Context) ModelCardSecurityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardSecurityConfigOutput).ToModelCardSecurityConfigPtrOutputWithContext(ctx)
+}
+
+// ModelCardSecurityConfigPtrInput is an input type that accepts ModelCardSecurityConfigArgs, ModelCardSecurityConfigPtr and ModelCardSecurityConfigPtrOutput values.
+// You can construct a concrete instance of `ModelCardSecurityConfigPtrInput` via:
+//
+//	        ModelCardSecurityConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardSecurityConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelCardSecurityConfigPtrOutput() ModelCardSecurityConfigPtrOutput
+	ToModelCardSecurityConfigPtrOutputWithContext(context.Context) ModelCardSecurityConfigPtrOutput
+}
+
+type modelCardSecurityConfigPtrType ModelCardSecurityConfigArgs
+
+func ModelCardSecurityConfigPtr(v *ModelCardSecurityConfigArgs) ModelCardSecurityConfigPtrInput {
+	return (*modelCardSecurityConfigPtrType)(v)
+}
+
+func (*modelCardSecurityConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardSecurityConfig)(nil)).Elem()
+}
+
+func (i *modelCardSecurityConfigPtrType) ToModelCardSecurityConfigPtrOutput() ModelCardSecurityConfigPtrOutput {
+	return i.ToModelCardSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardSecurityConfigPtrType) ToModelCardSecurityConfigPtrOutputWithContext(ctx context.Context) ModelCardSecurityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardSecurityConfigPtrOutput)
+}
+
+// An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
+type ModelCardSecurityConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelCardSecurityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardSecurityConfig)(nil)).Elem()
+}
+
+func (o ModelCardSecurityConfigOutput) ToModelCardSecurityConfigOutput() ModelCardSecurityConfigOutput {
+	return o
+}
+
+func (o ModelCardSecurityConfigOutput) ToModelCardSecurityConfigOutputWithContext(ctx context.Context) ModelCardSecurityConfigOutput {
+	return o
+}
+
+func (o ModelCardSecurityConfigOutput) ToModelCardSecurityConfigPtrOutput() ModelCardSecurityConfigPtrOutput {
+	return o.ToModelCardSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardSecurityConfigOutput) ToModelCardSecurityConfigPtrOutputWithContext(ctx context.Context) ModelCardSecurityConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardSecurityConfig) *ModelCardSecurityConfig {
+		return &v
+	}).(ModelCardSecurityConfigPtrOutput)
+}
+
+// A Key Management Service key ID to use for encrypting a model card.
+func (o ModelCardSecurityConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardSecurityConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardSecurityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardSecurityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardSecurityConfig)(nil)).Elem()
+}
+
+func (o ModelCardSecurityConfigPtrOutput) ToModelCardSecurityConfigPtrOutput() ModelCardSecurityConfigPtrOutput {
+	return o
+}
+
+func (o ModelCardSecurityConfigPtrOutput) ToModelCardSecurityConfigPtrOutputWithContext(ctx context.Context) ModelCardSecurityConfigPtrOutput {
+	return o
+}
+
+func (o ModelCardSecurityConfigPtrOutput) Elem() ModelCardSecurityConfigOutput {
+	return o.ApplyT(func(v *ModelCardSecurityConfig) ModelCardSecurityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardSecurityConfig
+		return ret
+	}).(ModelCardSecurityConfigOutput)
+}
+
+// A Key Management Service key ID to use for encrypting a model card.
+func (o ModelCardSecurityConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardSecurityConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// metric data
+type ModelCardSimpleMetric struct {
+	Name      string                    `pulumi:"name"`
+	Notes     *string                   `pulumi:"notes"`
+	Type      ModelCardSimpleMetricType `pulumi:"type"`
+	Value     interface{}               `pulumi:"value"`
+	XAxisName *string                   `pulumi:"xAxisName"`
+	YAxisName *string                   `pulumi:"yAxisName"`
+}
+
+// A key-value pair to associate with a resource.
+type ModelCardTag struct {
+	// The tag key. Tag keys must be unique per resource.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// ModelCardTagInput is an input type that accepts ModelCardTagArgs and ModelCardTagOutput values.
+// You can construct a concrete instance of `ModelCardTagInput` via:
+//
+//	ModelCardTagArgs{...}
+type ModelCardTagInput interface {
+	pulumi.Input
+
+	ToModelCardTagOutput() ModelCardTagOutput
+	ToModelCardTagOutputWithContext(context.Context) ModelCardTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ModelCardTagArgs struct {
+	// The tag key. Tag keys must be unique per resource.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ModelCardTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTag)(nil)).Elem()
+}
+
+func (i ModelCardTagArgs) ToModelCardTagOutput() ModelCardTagOutput {
+	return i.ToModelCardTagOutputWithContext(context.Background())
+}
+
+func (i ModelCardTagArgs) ToModelCardTagOutputWithContext(ctx context.Context) ModelCardTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTagOutput)
+}
+
+// ModelCardTagArrayInput is an input type that accepts ModelCardTagArray and ModelCardTagArrayOutput values.
+// You can construct a concrete instance of `ModelCardTagArrayInput` via:
+//
+//	ModelCardTagArray{ ModelCardTagArgs{...} }
+type ModelCardTagArrayInput interface {
+	pulumi.Input
+
+	ToModelCardTagArrayOutput() ModelCardTagArrayOutput
+	ToModelCardTagArrayOutputWithContext(context.Context) ModelCardTagArrayOutput
+}
+
+type ModelCardTagArray []ModelCardTagInput
+
+func (ModelCardTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardTag)(nil)).Elem()
+}
+
+func (i ModelCardTagArray) ToModelCardTagArrayOutput() ModelCardTagArrayOutput {
+	return i.ToModelCardTagArrayOutputWithContext(context.Background())
+}
+
+func (i ModelCardTagArray) ToModelCardTagArrayOutputWithContext(ctx context.Context) ModelCardTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ModelCardTagOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTag)(nil)).Elem()
+}
+
+func (o ModelCardTagOutput) ToModelCardTagOutput() ModelCardTagOutput {
+	return o
+}
+
+func (o ModelCardTagOutput) ToModelCardTagOutputWithContext(ctx context.Context) ModelCardTagOutput {
+	return o
+}
+
+// The tag key. Tag keys must be unique per resource.
+func (o ModelCardTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag value.
+func (o ModelCardTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ModelCardTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardTag)(nil)).Elem()
+}
+
+func (o ModelCardTagArrayOutput) ToModelCardTagArrayOutput() ModelCardTagArrayOutput {
+	return o
+}
+
+func (o ModelCardTagArrayOutput) ToModelCardTagArrayOutputWithContext(ctx context.Context) ModelCardTagArrayOutput {
+	return o
+}
+
+func (o ModelCardTagArrayOutput) Index(i pulumi.IntInput) ModelCardTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelCardTag {
+		return vs[0].([]ModelCardTag)[vs[1].(int)]
+	}).(ModelCardTagOutput)
+}
+
+// Overview about the training.
+type ModelCardTrainingDetails struct {
+	ObjectiveFunction    *ModelCardObjectiveFunction                           `pulumi:"objectiveFunction"`
+	TrainingJobDetails   *ModelCardTrainingDetailsTrainingJobDetailsProperties `pulumi:"trainingJobDetails"`
+	TrainingObservations *string                                               `pulumi:"trainingObservations"`
+}
+
+// ModelCardTrainingDetailsInput is an input type that accepts ModelCardTrainingDetailsArgs and ModelCardTrainingDetailsOutput values.
+// You can construct a concrete instance of `ModelCardTrainingDetailsInput` via:
+//
+//	ModelCardTrainingDetailsArgs{...}
+type ModelCardTrainingDetailsInput interface {
+	pulumi.Input
+
+	ToModelCardTrainingDetailsOutput() ModelCardTrainingDetailsOutput
+	ToModelCardTrainingDetailsOutputWithContext(context.Context) ModelCardTrainingDetailsOutput
+}
+
+// Overview about the training.
+type ModelCardTrainingDetailsArgs struct {
+	ObjectiveFunction    ModelCardObjectiveFunctionPtrInput                           `pulumi:"objectiveFunction"`
+	TrainingJobDetails   ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrInput `pulumi:"trainingJobDetails"`
+	TrainingObservations pulumi.StringPtrInput                                        `pulumi:"trainingObservations"`
+}
+
+func (ModelCardTrainingDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTrainingDetails)(nil)).Elem()
+}
+
+func (i ModelCardTrainingDetailsArgs) ToModelCardTrainingDetailsOutput() ModelCardTrainingDetailsOutput {
+	return i.ToModelCardTrainingDetailsOutputWithContext(context.Background())
+}
+
+func (i ModelCardTrainingDetailsArgs) ToModelCardTrainingDetailsOutputWithContext(ctx context.Context) ModelCardTrainingDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingDetailsOutput)
+}
+
+func (i ModelCardTrainingDetailsArgs) ToModelCardTrainingDetailsPtrOutput() ModelCardTrainingDetailsPtrOutput {
+	return i.ToModelCardTrainingDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardTrainingDetailsArgs) ToModelCardTrainingDetailsPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingDetailsOutput).ToModelCardTrainingDetailsPtrOutputWithContext(ctx)
+}
+
+// ModelCardTrainingDetailsPtrInput is an input type that accepts ModelCardTrainingDetailsArgs, ModelCardTrainingDetailsPtr and ModelCardTrainingDetailsPtrOutput values.
+// You can construct a concrete instance of `ModelCardTrainingDetailsPtrInput` via:
+//
+//	        ModelCardTrainingDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardTrainingDetailsPtrInput interface {
+	pulumi.Input
+
+	ToModelCardTrainingDetailsPtrOutput() ModelCardTrainingDetailsPtrOutput
+	ToModelCardTrainingDetailsPtrOutputWithContext(context.Context) ModelCardTrainingDetailsPtrOutput
+}
+
+type modelCardTrainingDetailsPtrType ModelCardTrainingDetailsArgs
+
+func ModelCardTrainingDetailsPtr(v *ModelCardTrainingDetailsArgs) ModelCardTrainingDetailsPtrInput {
+	return (*modelCardTrainingDetailsPtrType)(v)
+}
+
+func (*modelCardTrainingDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardTrainingDetails)(nil)).Elem()
+}
+
+func (i *modelCardTrainingDetailsPtrType) ToModelCardTrainingDetailsPtrOutput() ModelCardTrainingDetailsPtrOutput {
+	return i.ToModelCardTrainingDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardTrainingDetailsPtrType) ToModelCardTrainingDetailsPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingDetailsPtrOutput)
+}
+
+// Overview about the training.
+type ModelCardTrainingDetailsOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTrainingDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTrainingDetails)(nil)).Elem()
+}
+
+func (o ModelCardTrainingDetailsOutput) ToModelCardTrainingDetailsOutput() ModelCardTrainingDetailsOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsOutput) ToModelCardTrainingDetailsOutputWithContext(ctx context.Context) ModelCardTrainingDetailsOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsOutput) ToModelCardTrainingDetailsPtrOutput() ModelCardTrainingDetailsPtrOutput {
+	return o.ToModelCardTrainingDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardTrainingDetailsOutput) ToModelCardTrainingDetailsPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardTrainingDetails) *ModelCardTrainingDetails {
+		return &v
+	}).(ModelCardTrainingDetailsPtrOutput)
+}
+
+func (o ModelCardTrainingDetailsOutput) ObjectiveFunction() ModelCardObjectiveFunctionPtrOutput {
+	return o.ApplyT(func(v ModelCardTrainingDetails) *ModelCardObjectiveFunction { return v.ObjectiveFunction }).(ModelCardObjectiveFunctionPtrOutput)
+}
+
+func (o ModelCardTrainingDetailsOutput) TrainingJobDetails() ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput {
+	return o.ApplyT(func(v ModelCardTrainingDetails) *ModelCardTrainingDetailsTrainingJobDetailsProperties {
+		return v.TrainingJobDetails
+	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput)
+}
+
+func (o ModelCardTrainingDetailsOutput) TrainingObservations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardTrainingDetails) *string { return v.TrainingObservations }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardTrainingDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTrainingDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardTrainingDetails)(nil)).Elem()
+}
+
+func (o ModelCardTrainingDetailsPtrOutput) ToModelCardTrainingDetailsPtrOutput() ModelCardTrainingDetailsPtrOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsPtrOutput) ToModelCardTrainingDetailsPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsPtrOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsPtrOutput) Elem() ModelCardTrainingDetailsOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetails) ModelCardTrainingDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardTrainingDetails
+		return ret
+	}).(ModelCardTrainingDetailsOutput)
+}
+
+func (o ModelCardTrainingDetailsPtrOutput) ObjectiveFunction() ModelCardObjectiveFunctionPtrOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetails) *ModelCardObjectiveFunction {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectiveFunction
+	}).(ModelCardObjectiveFunctionPtrOutput)
+}
+
+func (o ModelCardTrainingDetailsPtrOutput) TrainingJobDetails() ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetails) *ModelCardTrainingDetailsTrainingJobDetailsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingJobDetails
+	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput)
+}
+
+func (o ModelCardTrainingDetailsPtrOutput) TrainingObservations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingObservations
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelCardTrainingDetailsTrainingJobDetailsProperties struct {
+	HyperParameters []ModelCardTrainingHyperParameter `pulumi:"hyperParameters"`
+	// SageMaker Training job arn.
+	TrainingArn *string `pulumi:"trainingArn"`
+	// Location of the model datasets.
+	TrainingDatasets            []string                                                                           `pulumi:"trainingDatasets"`
+	TrainingEnvironment         *ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties `pulumi:"trainingEnvironment"`
+	TrainingMetrics             []ModelCardTrainingMetric                                                          `pulumi:"trainingMetrics"`
+	UserProvidedHyperParameters []ModelCardTrainingHyperParameter                                                  `pulumi:"userProvidedHyperParameters"`
+	UserProvidedTrainingMetrics []ModelCardTrainingMetric                                                          `pulumi:"userProvidedTrainingMetrics"`
+}
+
+// ModelCardTrainingDetailsTrainingJobDetailsPropertiesInput is an input type that accepts ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs and ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput values.
+// You can construct a concrete instance of `ModelCardTrainingDetailsTrainingJobDetailsPropertiesInput` via:
+//
+//	ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs{...}
+type ModelCardTrainingDetailsTrainingJobDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput
+	ToModelCardTrainingDetailsTrainingJobDetailsPropertiesOutputWithContext(context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput
+}
+
+type ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs struct {
+	HyperParameters ModelCardTrainingHyperParameterArrayInput `pulumi:"hyperParameters"`
+	// SageMaker Training job arn.
+	TrainingArn pulumi.StringPtrInput `pulumi:"trainingArn"`
+	// Location of the model datasets.
+	TrainingDatasets            pulumi.StringArrayInput                                                                   `pulumi:"trainingDatasets"`
+	TrainingEnvironment         ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrInput `pulumi:"trainingEnvironment"`
+	TrainingMetrics             ModelCardTrainingMetricArrayInput                                                         `pulumi:"trainingMetrics"`
+	UserProvidedHyperParameters ModelCardTrainingHyperParameterArrayInput                                                 `pulumi:"userProvidedHyperParameters"`
+	UserProvidedTrainingMetrics ModelCardTrainingMetricArrayInput                                                         `pulumi:"userProvidedTrainingMetrics"`
+}
+
+func (ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTrainingDetailsTrainingJobDetailsProperties)(nil)).Elem()
+}
+
+func (i ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput {
+	return i.ToModelCardTrainingDetailsTrainingJobDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput)
+}
+
+func (i ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput {
+	return i.ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput).ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutputWithContext(ctx)
+}
+
+// ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrInput is an input type that accepts ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs, ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtr and ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput values.
+// You can construct a concrete instance of `ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrInput` via:
+//
+//	        ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput
+	ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutputWithContext(context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput
+}
+
+type modelCardTrainingDetailsTrainingJobDetailsPropertiesPtrType ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs
+
+func ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtr(v *ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs) ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrInput {
+	return (*modelCardTrainingDetailsTrainingJobDetailsPropertiesPtrType)(v)
+}
+
+func (*modelCardTrainingDetailsTrainingJobDetailsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardTrainingDetailsTrainingJobDetailsProperties)(nil)).Elem()
+}
+
+func (i *modelCardTrainingDetailsTrainingJobDetailsPropertiesPtrType) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput {
+	return i.ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardTrainingDetailsTrainingJobDetailsPropertiesPtrType) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput)
+}
+
+type ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTrainingDetailsTrainingJobDetailsProperties)(nil)).Elem()
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput {
+	return o.ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardTrainingDetailsTrainingJobDetailsProperties) *ModelCardTrainingDetailsTrainingJobDetailsProperties {
+		return &v
+	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput)
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) HyperParameters() ModelCardTrainingHyperParameterArrayOutput {
+	return o.ApplyT(func(v ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingHyperParameter {
+		return v.HyperParameters
+	}).(ModelCardTrainingHyperParameterArrayOutput)
+}
+
+// SageMaker Training job arn.
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) TrainingArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardTrainingDetailsTrainingJobDetailsProperties) *string { return v.TrainingArn }).(pulumi.StringPtrOutput)
+}
+
+// Location of the model datasets.
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) TrainingDatasets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelCardTrainingDetailsTrainingJobDetailsProperties) []string { return v.TrainingDatasets }).(pulumi.StringArrayOutput)
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) TrainingEnvironment() ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput {
+	return o.ApplyT(func(v ModelCardTrainingDetailsTrainingJobDetailsProperties) *ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties {
+		return v.TrainingEnvironment
+	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput)
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) TrainingMetrics() ModelCardTrainingMetricArrayOutput {
+	return o.ApplyT(func(v ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingMetric {
+		return v.TrainingMetrics
+	}).(ModelCardTrainingMetricArrayOutput)
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) UserProvidedHyperParameters() ModelCardTrainingHyperParameterArrayOutput {
+	return o.ApplyT(func(v ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingHyperParameter {
+		return v.UserProvidedHyperParameters
+	}).(ModelCardTrainingHyperParameterArrayOutput)
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) UserProvidedTrainingMetrics() ModelCardTrainingMetricArrayOutput {
+	return o.ApplyT(func(v ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingMetric {
+		return v.UserProvidedTrainingMetrics
+	}).(ModelCardTrainingMetricArrayOutput)
+}
+
+type ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardTrainingDetailsTrainingJobDetailsProperties)(nil)).Elem()
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) Elem() ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsProperties) ModelCardTrainingDetailsTrainingJobDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardTrainingDetailsTrainingJobDetailsProperties
+		return ret
+	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput)
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) HyperParameters() ModelCardTrainingHyperParameterArrayOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingHyperParameter {
+		if v == nil {
+			return nil
+		}
+		return v.HyperParameters
+	}).(ModelCardTrainingHyperParameterArrayOutput)
+}
+
+// SageMaker Training job arn.
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) TrainingArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Location of the model datasets.
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) TrainingDatasets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingDatasets
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) TrainingEnvironment() ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsProperties) *ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingEnvironment
+	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput)
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) TrainingMetrics() ModelCardTrainingMetricArrayOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingMetric {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingMetrics
+	}).(ModelCardTrainingMetricArrayOutput)
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) UserProvidedHyperParameters() ModelCardTrainingHyperParameterArrayOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingHyperParameter {
+		if v == nil {
+			return nil
+		}
+		return v.UserProvidedHyperParameters
+	}).(ModelCardTrainingHyperParameterArrayOutput)
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) UserProvidedTrainingMetrics() ModelCardTrainingMetricArrayOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingMetric {
+		if v == nil {
+			return nil
+		}
+		return v.UserProvidedTrainingMetrics
+	}).(ModelCardTrainingMetricArrayOutput)
+}
+
+type ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties struct {
+	// SageMaker training image uri.
+	ContainerImage []string `pulumi:"containerImage"`
+}
+
+// ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesInput is an input type that accepts ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs and ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput values.
+// You can construct a concrete instance of `ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesInput` via:
+//
+//	ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs{...}
+type ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesInput interface {
+	pulumi.Input
+
+	ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput
+	ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutputWithContext(context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput
+}
+
+type ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs struct {
+	// SageMaker training image uri.
+	ContainerImage pulumi.StringArrayInput `pulumi:"containerImage"`
+}
+
+func (ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties)(nil)).Elem()
+}
+
+func (i ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput {
+	return i.ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutputWithContext(context.Background())
+}
+
+func (i ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput)
+}
+
+func (i ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput {
+	return i.ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput).ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutputWithContext(ctx)
+}
+
+// ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrInput is an input type that accepts ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs, ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtr and ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput values.
+// You can construct a concrete instance of `ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrInput` via:
+//
+//	        ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput
+	ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutputWithContext(context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput
+}
+
+type modelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrType ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs
+
+func ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtr(v *ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs) ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrInput {
+	return (*modelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrType)(v)
+}
+
+func (*modelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties)(nil)).Elem()
+}
+
+func (i *modelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrType) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput {
+	return i.ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrType) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput)
+}
+
+type ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties)(nil)).Elem()
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput {
+	return o.ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties) *ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties {
+		return &v
+	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput)
+}
+
+// SageMaker training image uri.
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput) ContainerImage() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties) []string {
+		return v.ContainerImage
+	}).(pulumi.StringArrayOutput)
+}
+
+type ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties)(nil)).Elem()
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput() ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput) ToModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput {
+	return o
+}
+
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput) Elem() ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties) ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties
+		return ret
+	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput)
+}
+
+// SageMaker training image uri.
+func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput) ContainerImage() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerImage
+	}).(pulumi.StringArrayOutput)
+}
+
+// training hyper parameter
+type ModelCardTrainingHyperParameter struct {
+	Name  string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+
+// ModelCardTrainingHyperParameterInput is an input type that accepts ModelCardTrainingHyperParameterArgs and ModelCardTrainingHyperParameterOutput values.
+// You can construct a concrete instance of `ModelCardTrainingHyperParameterInput` via:
+//
+//	ModelCardTrainingHyperParameterArgs{...}
+type ModelCardTrainingHyperParameterInput interface {
+	pulumi.Input
+
+	ToModelCardTrainingHyperParameterOutput() ModelCardTrainingHyperParameterOutput
+	ToModelCardTrainingHyperParameterOutputWithContext(context.Context) ModelCardTrainingHyperParameterOutput
+}
+
+// training hyper parameter
+type ModelCardTrainingHyperParameterArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ModelCardTrainingHyperParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTrainingHyperParameter)(nil)).Elem()
+}
+
+func (i ModelCardTrainingHyperParameterArgs) ToModelCardTrainingHyperParameterOutput() ModelCardTrainingHyperParameterOutput {
+	return i.ToModelCardTrainingHyperParameterOutputWithContext(context.Background())
+}
+
+func (i ModelCardTrainingHyperParameterArgs) ToModelCardTrainingHyperParameterOutputWithContext(ctx context.Context) ModelCardTrainingHyperParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingHyperParameterOutput)
+}
+
+// ModelCardTrainingHyperParameterArrayInput is an input type that accepts ModelCardTrainingHyperParameterArray and ModelCardTrainingHyperParameterArrayOutput values.
+// You can construct a concrete instance of `ModelCardTrainingHyperParameterArrayInput` via:
+//
+//	ModelCardTrainingHyperParameterArray{ ModelCardTrainingHyperParameterArgs{...} }
+type ModelCardTrainingHyperParameterArrayInput interface {
+	pulumi.Input
+
+	ToModelCardTrainingHyperParameterArrayOutput() ModelCardTrainingHyperParameterArrayOutput
+	ToModelCardTrainingHyperParameterArrayOutputWithContext(context.Context) ModelCardTrainingHyperParameterArrayOutput
+}
+
+type ModelCardTrainingHyperParameterArray []ModelCardTrainingHyperParameterInput
+
+func (ModelCardTrainingHyperParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardTrainingHyperParameter)(nil)).Elem()
+}
+
+func (i ModelCardTrainingHyperParameterArray) ToModelCardTrainingHyperParameterArrayOutput() ModelCardTrainingHyperParameterArrayOutput {
+	return i.ToModelCardTrainingHyperParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ModelCardTrainingHyperParameterArray) ToModelCardTrainingHyperParameterArrayOutputWithContext(ctx context.Context) ModelCardTrainingHyperParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingHyperParameterArrayOutput)
+}
+
+// training hyper parameter
+type ModelCardTrainingHyperParameterOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTrainingHyperParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTrainingHyperParameter)(nil)).Elem()
+}
+
+func (o ModelCardTrainingHyperParameterOutput) ToModelCardTrainingHyperParameterOutput() ModelCardTrainingHyperParameterOutput {
+	return o
+}
+
+func (o ModelCardTrainingHyperParameterOutput) ToModelCardTrainingHyperParameterOutputWithContext(ctx context.Context) ModelCardTrainingHyperParameterOutput {
+	return o
+}
+
+func (o ModelCardTrainingHyperParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardTrainingHyperParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ModelCardTrainingHyperParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardTrainingHyperParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ModelCardTrainingHyperParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTrainingHyperParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardTrainingHyperParameter)(nil)).Elem()
+}
+
+func (o ModelCardTrainingHyperParameterArrayOutput) ToModelCardTrainingHyperParameterArrayOutput() ModelCardTrainingHyperParameterArrayOutput {
+	return o
+}
+
+func (o ModelCardTrainingHyperParameterArrayOutput) ToModelCardTrainingHyperParameterArrayOutputWithContext(ctx context.Context) ModelCardTrainingHyperParameterArrayOutput {
+	return o
+}
+
+func (o ModelCardTrainingHyperParameterArrayOutput) Index(i pulumi.IntInput) ModelCardTrainingHyperParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelCardTrainingHyperParameter {
+		return vs[0].([]ModelCardTrainingHyperParameter)[vs[1].(int)]
+	}).(ModelCardTrainingHyperParameterOutput)
+}
+
+// training metric data.
+type ModelCardTrainingMetric struct {
+	Name  string  `pulumi:"name"`
+	Notes *string `pulumi:"notes"`
+	Value float64 `pulumi:"value"`
+}
+
+// ModelCardTrainingMetricInput is an input type that accepts ModelCardTrainingMetricArgs and ModelCardTrainingMetricOutput values.
+// You can construct a concrete instance of `ModelCardTrainingMetricInput` via:
+//
+//	ModelCardTrainingMetricArgs{...}
+type ModelCardTrainingMetricInput interface {
+	pulumi.Input
+
+	ToModelCardTrainingMetricOutput() ModelCardTrainingMetricOutput
+	ToModelCardTrainingMetricOutputWithContext(context.Context) ModelCardTrainingMetricOutput
+}
+
+// training metric data.
+type ModelCardTrainingMetricArgs struct {
+	Name  pulumi.StringInput    `pulumi:"name"`
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
+	Value pulumi.Float64Input   `pulumi:"value"`
+}
+
+func (ModelCardTrainingMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTrainingMetric)(nil)).Elem()
+}
+
+func (i ModelCardTrainingMetricArgs) ToModelCardTrainingMetricOutput() ModelCardTrainingMetricOutput {
+	return i.ToModelCardTrainingMetricOutputWithContext(context.Background())
+}
+
+func (i ModelCardTrainingMetricArgs) ToModelCardTrainingMetricOutputWithContext(ctx context.Context) ModelCardTrainingMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingMetricOutput)
+}
+
+// ModelCardTrainingMetricArrayInput is an input type that accepts ModelCardTrainingMetricArray and ModelCardTrainingMetricArrayOutput values.
+// You can construct a concrete instance of `ModelCardTrainingMetricArrayInput` via:
+//
+//	ModelCardTrainingMetricArray{ ModelCardTrainingMetricArgs{...} }
+type ModelCardTrainingMetricArrayInput interface {
+	pulumi.Input
+
+	ToModelCardTrainingMetricArrayOutput() ModelCardTrainingMetricArrayOutput
+	ToModelCardTrainingMetricArrayOutputWithContext(context.Context) ModelCardTrainingMetricArrayOutput
+}
+
+type ModelCardTrainingMetricArray []ModelCardTrainingMetricInput
+
+func (ModelCardTrainingMetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardTrainingMetric)(nil)).Elem()
+}
+
+func (i ModelCardTrainingMetricArray) ToModelCardTrainingMetricArrayOutput() ModelCardTrainingMetricArrayOutput {
+	return i.ToModelCardTrainingMetricArrayOutputWithContext(context.Background())
+}
+
+func (i ModelCardTrainingMetricArray) ToModelCardTrainingMetricArrayOutputWithContext(ctx context.Context) ModelCardTrainingMetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTrainingMetricArrayOutput)
+}
+
+// training metric data.
+type ModelCardTrainingMetricOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTrainingMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTrainingMetric)(nil)).Elem()
+}
+
+func (o ModelCardTrainingMetricOutput) ToModelCardTrainingMetricOutput() ModelCardTrainingMetricOutput {
+	return o
+}
+
+func (o ModelCardTrainingMetricOutput) ToModelCardTrainingMetricOutputWithContext(ctx context.Context) ModelCardTrainingMetricOutput {
+	return o
+}
+
+func (o ModelCardTrainingMetricOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardTrainingMetric) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ModelCardTrainingMetricOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardTrainingMetric) *string { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelCardTrainingMetricOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v ModelCardTrainingMetric) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type ModelCardTrainingMetricArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTrainingMetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardTrainingMetric)(nil)).Elem()
+}
+
+func (o ModelCardTrainingMetricArrayOutput) ToModelCardTrainingMetricArrayOutput() ModelCardTrainingMetricArrayOutput {
+	return o
+}
+
+func (o ModelCardTrainingMetricArrayOutput) ToModelCardTrainingMetricArrayOutputWithContext(ctx context.Context) ModelCardTrainingMetricArrayOutput {
+	return o
+}
+
+func (o ModelCardTrainingMetricArrayOutput) Index(i pulumi.IntInput) ModelCardTrainingMetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelCardTrainingMetric {
+		return vs[0].([]ModelCardTrainingMetric)[vs[1].(int)]
+	}).(ModelCardTrainingMetricOutput)
+}
+
+// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+type ModelCardUserContext struct {
+	// The domain associated with the user.
+	DomainId *string `pulumi:"domainId"`
+	// The Amazon Resource Name (ARN) of the user's profile.
+	UserProfileArn *string `pulumi:"userProfileArn"`
+	// The name of the user's profile.
+	UserProfileName *string `pulumi:"userProfileName"`
+}
+
+// ModelCardUserContextInput is an input type that accepts ModelCardUserContextArgs and ModelCardUserContextOutput values.
+// You can construct a concrete instance of `ModelCardUserContextInput` via:
+//
+//	ModelCardUserContextArgs{...}
+type ModelCardUserContextInput interface {
+	pulumi.Input
+
+	ToModelCardUserContextOutput() ModelCardUserContextOutput
+	ToModelCardUserContextOutputWithContext(context.Context) ModelCardUserContextOutput
+}
+
+// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+type ModelCardUserContextArgs struct {
+	// The domain associated with the user.
+	DomainId pulumi.StringPtrInput `pulumi:"domainId"`
+	// The Amazon Resource Name (ARN) of the user's profile.
+	UserProfileArn pulumi.StringPtrInput `pulumi:"userProfileArn"`
+	// The name of the user's profile.
+	UserProfileName pulumi.StringPtrInput `pulumi:"userProfileName"`
+}
+
+func (ModelCardUserContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardUserContext)(nil)).Elem()
+}
+
+func (i ModelCardUserContextArgs) ToModelCardUserContextOutput() ModelCardUserContextOutput {
+	return i.ToModelCardUserContextOutputWithContext(context.Background())
+}
+
+func (i ModelCardUserContextArgs) ToModelCardUserContextOutputWithContext(ctx context.Context) ModelCardUserContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardUserContextOutput)
+}
+
+func (i ModelCardUserContextArgs) ToModelCardUserContextPtrOutput() ModelCardUserContextPtrOutput {
+	return i.ToModelCardUserContextPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardUserContextArgs) ToModelCardUserContextPtrOutputWithContext(ctx context.Context) ModelCardUserContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardUserContextOutput).ToModelCardUserContextPtrOutputWithContext(ctx)
+}
+
+// ModelCardUserContextPtrInput is an input type that accepts ModelCardUserContextArgs, ModelCardUserContextPtr and ModelCardUserContextPtrOutput values.
+// You can construct a concrete instance of `ModelCardUserContextPtrInput` via:
+//
+//	        ModelCardUserContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardUserContextPtrInput interface {
+	pulumi.Input
+
+	ToModelCardUserContextPtrOutput() ModelCardUserContextPtrOutput
+	ToModelCardUserContextPtrOutputWithContext(context.Context) ModelCardUserContextPtrOutput
+}
+
+type modelCardUserContextPtrType ModelCardUserContextArgs
+
+func ModelCardUserContextPtr(v *ModelCardUserContextArgs) ModelCardUserContextPtrInput {
+	return (*modelCardUserContextPtrType)(v)
+}
+
+func (*modelCardUserContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardUserContext)(nil)).Elem()
+}
+
+func (i *modelCardUserContextPtrType) ToModelCardUserContextPtrOutput() ModelCardUserContextPtrOutput {
+	return i.ToModelCardUserContextPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardUserContextPtrType) ToModelCardUserContextPtrOutputWithContext(ctx context.Context) ModelCardUserContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardUserContextPtrOutput)
+}
+
+// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+type ModelCardUserContextOutput struct{ *pulumi.OutputState }
+
+func (ModelCardUserContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardUserContext)(nil)).Elem()
+}
+
+func (o ModelCardUserContextOutput) ToModelCardUserContextOutput() ModelCardUserContextOutput {
+	return o
+}
+
+func (o ModelCardUserContextOutput) ToModelCardUserContextOutputWithContext(ctx context.Context) ModelCardUserContextOutput {
+	return o
+}
+
+func (o ModelCardUserContextOutput) ToModelCardUserContextPtrOutput() ModelCardUserContextPtrOutput {
+	return o.ToModelCardUserContextPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardUserContextOutput) ToModelCardUserContextPtrOutputWithContext(ctx context.Context) ModelCardUserContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardUserContext) *ModelCardUserContext {
+		return &v
+	}).(ModelCardUserContextPtrOutput)
+}
+
+// The domain associated with the user.
+func (o ModelCardUserContextOutput) DomainId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardUserContext) *string { return v.DomainId }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the user's profile.
+func (o ModelCardUserContextOutput) UserProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardUserContext) *string { return v.UserProfileArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the user's profile.
+func (o ModelCardUserContextOutput) UserProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardUserContext) *string { return v.UserProfileName }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardUserContextPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardUserContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardUserContext)(nil)).Elem()
+}
+
+func (o ModelCardUserContextPtrOutput) ToModelCardUserContextPtrOutput() ModelCardUserContextPtrOutput {
+	return o
+}
+
+func (o ModelCardUserContextPtrOutput) ToModelCardUserContextPtrOutputWithContext(ctx context.Context) ModelCardUserContextPtrOutput {
+	return o
+}
+
+func (o ModelCardUserContextPtrOutput) Elem() ModelCardUserContextOutput {
+	return o.ApplyT(func(v *ModelCardUserContext) ModelCardUserContext {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardUserContext
+		return ret
+	}).(ModelCardUserContextOutput)
+}
+
+// The domain associated with the user.
+func (o ModelCardUserContextPtrOutput) DomainId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardUserContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the user's profile.
+func (o ModelCardUserContextPtrOutput) UserProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardUserContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserProfileArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the user's profile.
+func (o ModelCardUserContextPtrOutput) UserProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardUserContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserProfileName
+	}).(pulumi.StringPtrOutput)
 }
 
 type ModelContainerDefinition struct {
@@ -28947,6 +31898,853 @@ func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningParameter
 }
 
 // A custom SageMaker image.
+type SpaceCustomImage struct {
+	// The Name of the AppImageConfig.
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// The name of the CustomImage. Must be unique to your account.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the CustomImage.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
+}
+
+// SpaceCustomImageInput is an input type that accepts SpaceCustomImageArgs and SpaceCustomImageOutput values.
+// You can construct a concrete instance of `SpaceCustomImageInput` via:
+//
+//	SpaceCustomImageArgs{...}
+type SpaceCustomImageInput interface {
+	pulumi.Input
+
+	ToSpaceCustomImageOutput() SpaceCustomImageOutput
+	ToSpaceCustomImageOutputWithContext(context.Context) SpaceCustomImageOutput
+}
+
+// A custom SageMaker image.
+type SpaceCustomImageArgs struct {
+	// The Name of the AppImageConfig.
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
+	// The name of the CustomImage. Must be unique to your account.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the CustomImage.
+	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
+}
+
+func (SpaceCustomImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceCustomImage)(nil)).Elem()
+}
+
+func (i SpaceCustomImageArgs) ToSpaceCustomImageOutput() SpaceCustomImageOutput {
+	return i.ToSpaceCustomImageOutputWithContext(context.Background())
+}
+
+func (i SpaceCustomImageArgs) ToSpaceCustomImageOutputWithContext(ctx context.Context) SpaceCustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceCustomImageOutput)
+}
+
+// SpaceCustomImageArrayInput is an input type that accepts SpaceCustomImageArray and SpaceCustomImageArrayOutput values.
+// You can construct a concrete instance of `SpaceCustomImageArrayInput` via:
+//
+//	SpaceCustomImageArray{ SpaceCustomImageArgs{...} }
+type SpaceCustomImageArrayInput interface {
+	pulumi.Input
+
+	ToSpaceCustomImageArrayOutput() SpaceCustomImageArrayOutput
+	ToSpaceCustomImageArrayOutputWithContext(context.Context) SpaceCustomImageArrayOutput
+}
+
+type SpaceCustomImageArray []SpaceCustomImageInput
+
+func (SpaceCustomImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceCustomImage)(nil)).Elem()
+}
+
+func (i SpaceCustomImageArray) ToSpaceCustomImageArrayOutput() SpaceCustomImageArrayOutput {
+	return i.ToSpaceCustomImageArrayOutputWithContext(context.Background())
+}
+
+func (i SpaceCustomImageArray) ToSpaceCustomImageArrayOutputWithContext(ctx context.Context) SpaceCustomImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceCustomImageArrayOutput)
+}
+
+// A custom SageMaker image.
+type SpaceCustomImageOutput struct{ *pulumi.OutputState }
+
+func (SpaceCustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceCustomImage)(nil)).Elem()
+}
+
+func (o SpaceCustomImageOutput) ToSpaceCustomImageOutput() SpaceCustomImageOutput {
+	return o
+}
+
+func (o SpaceCustomImageOutput) ToSpaceCustomImageOutputWithContext(ctx context.Context) SpaceCustomImageOutput {
+	return o
+}
+
+// The Name of the AppImageConfig.
+func (o SpaceCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v SpaceCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// The name of the CustomImage. Must be unique to your account.
+func (o SpaceCustomImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v SpaceCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The version number of the CustomImage.
+func (o SpaceCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpaceCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type SpaceCustomImageArrayOutput struct{ *pulumi.OutputState }
+
+func (SpaceCustomImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceCustomImage)(nil)).Elem()
+}
+
+func (o SpaceCustomImageArrayOutput) ToSpaceCustomImageArrayOutput() SpaceCustomImageArrayOutput {
+	return o
+}
+
+func (o SpaceCustomImageArrayOutput) ToSpaceCustomImageArrayOutputWithContext(ctx context.Context) SpaceCustomImageArrayOutput {
+	return o
+}
+
+func (o SpaceCustomImageArrayOutput) Index(i pulumi.IntInput) SpaceCustomImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpaceCustomImage {
+		return vs[0].([]SpaceCustomImage)[vs[1].(int)]
+	}).(SpaceCustomImageOutput)
+}
+
+// The JupyterServer app settings.
+type SpaceJupyterServerAppSettings struct {
+	DefaultResourceSpec *SpaceResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// SpaceJupyterServerAppSettingsInput is an input type that accepts SpaceJupyterServerAppSettingsArgs and SpaceJupyterServerAppSettingsOutput values.
+// You can construct a concrete instance of `SpaceJupyterServerAppSettingsInput` via:
+//
+//	SpaceJupyterServerAppSettingsArgs{...}
+type SpaceJupyterServerAppSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceJupyterServerAppSettingsOutput() SpaceJupyterServerAppSettingsOutput
+	ToSpaceJupyterServerAppSettingsOutputWithContext(context.Context) SpaceJupyterServerAppSettingsOutput
+}
+
+// The JupyterServer app settings.
+type SpaceJupyterServerAppSettingsArgs struct {
+	DefaultResourceSpec SpaceResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+}
+
+func (SpaceJupyterServerAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (i SpaceJupyterServerAppSettingsArgs) ToSpaceJupyterServerAppSettingsOutput() SpaceJupyterServerAppSettingsOutput {
+	return i.ToSpaceJupyterServerAppSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceJupyterServerAppSettingsArgs) ToSpaceJupyterServerAppSettingsOutputWithContext(ctx context.Context) SpaceJupyterServerAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceJupyterServerAppSettingsOutput)
+}
+
+func (i SpaceJupyterServerAppSettingsArgs) ToSpaceJupyterServerAppSettingsPtrOutput() SpaceJupyterServerAppSettingsPtrOutput {
+	return i.ToSpaceJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceJupyterServerAppSettingsArgs) ToSpaceJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) SpaceJupyterServerAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceJupyterServerAppSettingsOutput).ToSpaceJupyterServerAppSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceJupyterServerAppSettingsPtrInput is an input type that accepts SpaceJupyterServerAppSettingsArgs, SpaceJupyterServerAppSettingsPtr and SpaceJupyterServerAppSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceJupyterServerAppSettingsPtrInput` via:
+//
+//	        SpaceJupyterServerAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceJupyterServerAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceJupyterServerAppSettingsPtrOutput() SpaceJupyterServerAppSettingsPtrOutput
+	ToSpaceJupyterServerAppSettingsPtrOutputWithContext(context.Context) SpaceJupyterServerAppSettingsPtrOutput
+}
+
+type spaceJupyterServerAppSettingsPtrType SpaceJupyterServerAppSettingsArgs
+
+func SpaceJupyterServerAppSettingsPtr(v *SpaceJupyterServerAppSettingsArgs) SpaceJupyterServerAppSettingsPtrInput {
+	return (*spaceJupyterServerAppSettingsPtrType)(v)
+}
+
+func (*spaceJupyterServerAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (i *spaceJupyterServerAppSettingsPtrType) ToSpaceJupyterServerAppSettingsPtrOutput() SpaceJupyterServerAppSettingsPtrOutput {
+	return i.ToSpaceJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceJupyterServerAppSettingsPtrType) ToSpaceJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) SpaceJupyterServerAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceJupyterServerAppSettingsPtrOutput)
+}
+
+// The JupyterServer app settings.
+type SpaceJupyterServerAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceJupyterServerAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (o SpaceJupyterServerAppSettingsOutput) ToSpaceJupyterServerAppSettingsOutput() SpaceJupyterServerAppSettingsOutput {
+	return o
+}
+
+func (o SpaceJupyterServerAppSettingsOutput) ToSpaceJupyterServerAppSettingsOutputWithContext(ctx context.Context) SpaceJupyterServerAppSettingsOutput {
+	return o
+}
+
+func (o SpaceJupyterServerAppSettingsOutput) ToSpaceJupyterServerAppSettingsPtrOutput() SpaceJupyterServerAppSettingsPtrOutput {
+	return o.ToSpaceJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceJupyterServerAppSettingsOutput) ToSpaceJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) SpaceJupyterServerAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceJupyterServerAppSettings) *SpaceJupyterServerAppSettings {
+		return &v
+	}).(SpaceJupyterServerAppSettingsPtrOutput)
+}
+
+func (o SpaceJupyterServerAppSettingsOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
+	return o.ApplyT(func(v SpaceJupyterServerAppSettings) *SpaceResourceSpec { return v.DefaultResourceSpec }).(SpaceResourceSpecPtrOutput)
+}
+
+type SpaceJupyterServerAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceJupyterServerAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (o SpaceJupyterServerAppSettingsPtrOutput) ToSpaceJupyterServerAppSettingsPtrOutput() SpaceJupyterServerAppSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceJupyterServerAppSettingsPtrOutput) ToSpaceJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) SpaceJupyterServerAppSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceJupyterServerAppSettingsPtrOutput) Elem() SpaceJupyterServerAppSettingsOutput {
+	return o.ApplyT(func(v *SpaceJupyterServerAppSettings) SpaceJupyterServerAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceJupyterServerAppSettings
+		return ret
+	}).(SpaceJupyterServerAppSettingsOutput)
+}
+
+func (o SpaceJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
+	return o.ApplyT(func(v *SpaceJupyterServerAppSettings) *SpaceResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(SpaceResourceSpecPtrOutput)
+}
+
+// The kernel gateway app settings.
+type SpaceKernelGatewayAppSettings struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
+	CustomImages []SpaceCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+	DefaultResourceSpec *SpaceResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// SpaceKernelGatewayAppSettingsInput is an input type that accepts SpaceKernelGatewayAppSettingsArgs and SpaceKernelGatewayAppSettingsOutput values.
+// You can construct a concrete instance of `SpaceKernelGatewayAppSettingsInput` via:
+//
+//	SpaceKernelGatewayAppSettingsArgs{...}
+type SpaceKernelGatewayAppSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceKernelGatewayAppSettingsOutput() SpaceKernelGatewayAppSettingsOutput
+	ToSpaceKernelGatewayAppSettingsOutputWithContext(context.Context) SpaceKernelGatewayAppSettingsOutput
+}
+
+// The kernel gateway app settings.
+type SpaceKernelGatewayAppSettingsArgs struct {
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
+	CustomImages SpaceCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+	DefaultResourceSpec SpaceResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+}
+
+func (SpaceKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (i SpaceKernelGatewayAppSettingsArgs) ToSpaceKernelGatewayAppSettingsOutput() SpaceKernelGatewayAppSettingsOutput {
+	return i.ToSpaceKernelGatewayAppSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceKernelGatewayAppSettingsArgs) ToSpaceKernelGatewayAppSettingsOutputWithContext(ctx context.Context) SpaceKernelGatewayAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceKernelGatewayAppSettingsOutput)
+}
+
+func (i SpaceKernelGatewayAppSettingsArgs) ToSpaceKernelGatewayAppSettingsPtrOutput() SpaceKernelGatewayAppSettingsPtrOutput {
+	return i.ToSpaceKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceKernelGatewayAppSettingsArgs) ToSpaceKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) SpaceKernelGatewayAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceKernelGatewayAppSettingsOutput).ToSpaceKernelGatewayAppSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceKernelGatewayAppSettingsPtrInput is an input type that accepts SpaceKernelGatewayAppSettingsArgs, SpaceKernelGatewayAppSettingsPtr and SpaceKernelGatewayAppSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceKernelGatewayAppSettingsPtrInput` via:
+//
+//	        SpaceKernelGatewayAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceKernelGatewayAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceKernelGatewayAppSettingsPtrOutput() SpaceKernelGatewayAppSettingsPtrOutput
+	ToSpaceKernelGatewayAppSettingsPtrOutputWithContext(context.Context) SpaceKernelGatewayAppSettingsPtrOutput
+}
+
+type spaceKernelGatewayAppSettingsPtrType SpaceKernelGatewayAppSettingsArgs
+
+func SpaceKernelGatewayAppSettingsPtr(v *SpaceKernelGatewayAppSettingsArgs) SpaceKernelGatewayAppSettingsPtrInput {
+	return (*spaceKernelGatewayAppSettingsPtrType)(v)
+}
+
+func (*spaceKernelGatewayAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (i *spaceKernelGatewayAppSettingsPtrType) ToSpaceKernelGatewayAppSettingsPtrOutput() SpaceKernelGatewayAppSettingsPtrOutput {
+	return i.ToSpaceKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceKernelGatewayAppSettingsPtrType) ToSpaceKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) SpaceKernelGatewayAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceKernelGatewayAppSettingsPtrOutput)
+}
+
+// The kernel gateway app settings.
+type SpaceKernelGatewayAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceKernelGatewayAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (o SpaceKernelGatewayAppSettingsOutput) ToSpaceKernelGatewayAppSettingsOutput() SpaceKernelGatewayAppSettingsOutput {
+	return o
+}
+
+func (o SpaceKernelGatewayAppSettingsOutput) ToSpaceKernelGatewayAppSettingsOutputWithContext(ctx context.Context) SpaceKernelGatewayAppSettingsOutput {
+	return o
+}
+
+func (o SpaceKernelGatewayAppSettingsOutput) ToSpaceKernelGatewayAppSettingsPtrOutput() SpaceKernelGatewayAppSettingsPtrOutput {
+	return o.ToSpaceKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceKernelGatewayAppSettingsOutput) ToSpaceKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) SpaceKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceKernelGatewayAppSettings) *SpaceKernelGatewayAppSettings {
+		return &v
+	}).(SpaceKernelGatewayAppSettingsPtrOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app.
+func (o SpaceKernelGatewayAppSettingsOutput) CustomImages() SpaceCustomImageArrayOutput {
+	return o.ApplyT(func(v SpaceKernelGatewayAppSettings) []SpaceCustomImage { return v.CustomImages }).(SpaceCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+func (o SpaceKernelGatewayAppSettingsOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
+	return o.ApplyT(func(v SpaceKernelGatewayAppSettings) *SpaceResourceSpec { return v.DefaultResourceSpec }).(SpaceResourceSpecPtrOutput)
+}
+
+type SpaceKernelGatewayAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceKernelGatewayAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (o SpaceKernelGatewayAppSettingsPtrOutput) ToSpaceKernelGatewayAppSettingsPtrOutput() SpaceKernelGatewayAppSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceKernelGatewayAppSettingsPtrOutput) ToSpaceKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) SpaceKernelGatewayAppSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceKernelGatewayAppSettingsPtrOutput) Elem() SpaceKernelGatewayAppSettingsOutput {
+	return o.ApplyT(func(v *SpaceKernelGatewayAppSettings) SpaceKernelGatewayAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceKernelGatewayAppSettings
+		return ret
+	}).(SpaceKernelGatewayAppSettingsOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app.
+func (o SpaceKernelGatewayAppSettingsPtrOutput) CustomImages() SpaceCustomImageArrayOutput {
+	return o.ApplyT(func(v *SpaceKernelGatewayAppSettings) []SpaceCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(SpaceCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+func (o SpaceKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
+	return o.ApplyT(func(v *SpaceKernelGatewayAppSettings) *SpaceResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(SpaceResourceSpecPtrOutput)
+}
+
+type SpaceResourceSpec struct {
+	// The instance type that the image version runs on.
+	InstanceType *SpaceResourceSpecInstanceType `pulumi:"instanceType"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
+	// The ARN of the image version created on the instance.
+	SageMakerImageVersionArn *string `pulumi:"sageMakerImageVersionArn"`
+}
+
+// SpaceResourceSpecInput is an input type that accepts SpaceResourceSpecArgs and SpaceResourceSpecOutput values.
+// You can construct a concrete instance of `SpaceResourceSpecInput` via:
+//
+//	SpaceResourceSpecArgs{...}
+type SpaceResourceSpecInput interface {
+	pulumi.Input
+
+	ToSpaceResourceSpecOutput() SpaceResourceSpecOutput
+	ToSpaceResourceSpecOutputWithContext(context.Context) SpaceResourceSpecOutput
+}
+
+type SpaceResourceSpecArgs struct {
+	// The instance type that the image version runs on.
+	InstanceType SpaceResourceSpecInstanceTypePtrInput `pulumi:"instanceType"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
+	// The ARN of the image version created on the instance.
+	SageMakerImageVersionArn pulumi.StringPtrInput `pulumi:"sageMakerImageVersionArn"`
+}
+
+func (SpaceResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceResourceSpec)(nil)).Elem()
+}
+
+func (i SpaceResourceSpecArgs) ToSpaceResourceSpecOutput() SpaceResourceSpecOutput {
+	return i.ToSpaceResourceSpecOutputWithContext(context.Background())
+}
+
+func (i SpaceResourceSpecArgs) ToSpaceResourceSpecOutputWithContext(ctx context.Context) SpaceResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceResourceSpecOutput)
+}
+
+func (i SpaceResourceSpecArgs) ToSpaceResourceSpecPtrOutput() SpaceResourceSpecPtrOutput {
+	return i.ToSpaceResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceResourceSpecArgs) ToSpaceResourceSpecPtrOutputWithContext(ctx context.Context) SpaceResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceResourceSpecOutput).ToSpaceResourceSpecPtrOutputWithContext(ctx)
+}
+
+// SpaceResourceSpecPtrInput is an input type that accepts SpaceResourceSpecArgs, SpaceResourceSpecPtr and SpaceResourceSpecPtrOutput values.
+// You can construct a concrete instance of `SpaceResourceSpecPtrInput` via:
+//
+//	        SpaceResourceSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToSpaceResourceSpecPtrOutput() SpaceResourceSpecPtrOutput
+	ToSpaceResourceSpecPtrOutputWithContext(context.Context) SpaceResourceSpecPtrOutput
+}
+
+type spaceResourceSpecPtrType SpaceResourceSpecArgs
+
+func SpaceResourceSpecPtr(v *SpaceResourceSpecArgs) SpaceResourceSpecPtrInput {
+	return (*spaceResourceSpecPtrType)(v)
+}
+
+func (*spaceResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceResourceSpec)(nil)).Elem()
+}
+
+func (i *spaceResourceSpecPtrType) ToSpaceResourceSpecPtrOutput() SpaceResourceSpecPtrOutput {
+	return i.ToSpaceResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceResourceSpecPtrType) ToSpaceResourceSpecPtrOutputWithContext(ctx context.Context) SpaceResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceResourceSpecPtrOutput)
+}
+
+type SpaceResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (SpaceResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceResourceSpec)(nil)).Elem()
+}
+
+func (o SpaceResourceSpecOutput) ToSpaceResourceSpecOutput() SpaceResourceSpecOutput {
+	return o
+}
+
+func (o SpaceResourceSpecOutput) ToSpaceResourceSpecOutputWithContext(ctx context.Context) SpaceResourceSpecOutput {
+	return o
+}
+
+func (o SpaceResourceSpecOutput) ToSpaceResourceSpecPtrOutput() SpaceResourceSpecPtrOutput {
+	return o.ToSpaceResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceResourceSpecOutput) ToSpaceResourceSpecPtrOutputWithContext(ctx context.Context) SpaceResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceResourceSpec) *SpaceResourceSpec {
+		return &v
+	}).(SpaceResourceSpecPtrOutput)
+}
+
+// The instance type that the image version runs on.
+func (o SpaceResourceSpecOutput) InstanceType() SpaceResourceSpecInstanceTypePtrOutput {
+	return o.ApplyT(func(v SpaceResourceSpec) *SpaceResourceSpecInstanceType { return v.InstanceType }).(SpaceResourceSpecInstanceTypePtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o SpaceResourceSpecOutput) SageMakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceResourceSpec) *string { return v.SageMakerImageArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o SpaceResourceSpecOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceResourceSpec) *string { return v.SageMakerImageVersionArn }).(pulumi.StringPtrOutput)
+}
+
+type SpaceResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceResourceSpec)(nil)).Elem()
+}
+
+func (o SpaceResourceSpecPtrOutput) ToSpaceResourceSpecPtrOutput() SpaceResourceSpecPtrOutput {
+	return o
+}
+
+func (o SpaceResourceSpecPtrOutput) ToSpaceResourceSpecPtrOutputWithContext(ctx context.Context) SpaceResourceSpecPtrOutput {
+	return o
+}
+
+func (o SpaceResourceSpecPtrOutput) Elem() SpaceResourceSpecOutput {
+	return o.ApplyT(func(v *SpaceResourceSpec) SpaceResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceResourceSpec
+		return ret
+	}).(SpaceResourceSpecOutput)
+}
+
+// The instance type that the image version runs on.
+func (o SpaceResourceSpecPtrOutput) InstanceType() SpaceResourceSpecInstanceTypePtrOutput {
+	return o.ApplyT(func(v *SpaceResourceSpec) *SpaceResourceSpecInstanceType {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(SpaceResourceSpecInstanceTypePtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o SpaceResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SageMakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o SpaceResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SageMakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+type SpaceSettings struct {
+	// The Jupyter server's app settings.
+	JupyterServerAppSettings *SpaceJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings.
+	KernelGatewayAppSettings *SpaceKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+}
+
+// SpaceSettingsInput is an input type that accepts SpaceSettingsArgs and SpaceSettingsOutput values.
+// You can construct a concrete instance of `SpaceSettingsInput` via:
+//
+//	SpaceSettingsArgs{...}
+type SpaceSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceSettingsOutput() SpaceSettingsOutput
+	ToSpaceSettingsOutputWithContext(context.Context) SpaceSettingsOutput
+}
+
+// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+type SpaceSettingsArgs struct {
+	// The Jupyter server's app settings.
+	JupyterServerAppSettings SpaceJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings.
+	KernelGatewayAppSettings SpaceKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+}
+
+func (SpaceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSettings)(nil)).Elem()
+}
+
+func (i SpaceSettingsArgs) ToSpaceSettingsOutput() SpaceSettingsOutput {
+	return i.ToSpaceSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceSettingsArgs) ToSpaceSettingsOutputWithContext(ctx context.Context) SpaceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSettingsOutput)
+}
+
+func (i SpaceSettingsArgs) ToSpaceSettingsPtrOutput() SpaceSettingsPtrOutput {
+	return i.ToSpaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSettingsArgs) ToSpaceSettingsPtrOutputWithContext(ctx context.Context) SpaceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSettingsOutput).ToSpaceSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceSettingsPtrInput is an input type that accepts SpaceSettingsArgs, SpaceSettingsPtr and SpaceSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceSettingsPtrInput` via:
+//
+//	        SpaceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSettingsPtrOutput() SpaceSettingsPtrOutput
+	ToSpaceSettingsPtrOutputWithContext(context.Context) SpaceSettingsPtrOutput
+}
+
+type spaceSettingsPtrType SpaceSettingsArgs
+
+func SpaceSettingsPtr(v *SpaceSettingsArgs) SpaceSettingsPtrInput {
+	return (*spaceSettingsPtrType)(v)
+}
+
+func (*spaceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSettings)(nil)).Elem()
+}
+
+func (i *spaceSettingsPtrType) ToSpaceSettingsPtrOutput() SpaceSettingsPtrOutput {
+	return i.ToSpaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSettingsPtrType) ToSpaceSettingsPtrOutputWithContext(ctx context.Context) SpaceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSettingsPtrOutput)
+}
+
+// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+type SpaceSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSettings)(nil)).Elem()
+}
+
+func (o SpaceSettingsOutput) ToSpaceSettingsOutput() SpaceSettingsOutput {
+	return o
+}
+
+func (o SpaceSettingsOutput) ToSpaceSettingsOutputWithContext(ctx context.Context) SpaceSettingsOutput {
+	return o
+}
+
+func (o SpaceSettingsOutput) ToSpaceSettingsPtrOutput() SpaceSettingsPtrOutput {
+	return o.ToSpaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSettingsOutput) ToSpaceSettingsPtrOutputWithContext(ctx context.Context) SpaceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSettings) *SpaceSettings {
+		return &v
+	}).(SpaceSettingsPtrOutput)
+}
+
+// The Jupyter server's app settings.
+func (o SpaceSettingsOutput) JupyterServerAppSettings() SpaceJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v SpaceSettings) *SpaceJupyterServerAppSettings { return v.JupyterServerAppSettings }).(SpaceJupyterServerAppSettingsPtrOutput)
+}
+
+// The kernel gateway app settings.
+func (o SpaceSettingsOutput) KernelGatewayAppSettings() SpaceKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v SpaceSettings) *SpaceKernelGatewayAppSettings { return v.KernelGatewayAppSettings }).(SpaceKernelGatewayAppSettingsPtrOutput)
+}
+
+type SpaceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSettings)(nil)).Elem()
+}
+
+func (o SpaceSettingsPtrOutput) ToSpaceSettingsPtrOutput() SpaceSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSettingsPtrOutput) ToSpaceSettingsPtrOutputWithContext(ctx context.Context) SpaceSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSettingsPtrOutput) Elem() SpaceSettingsOutput {
+	return o.ApplyT(func(v *SpaceSettings) SpaceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSettings
+		return ret
+	}).(SpaceSettingsOutput)
+}
+
+// The Jupyter server's app settings.
+func (o SpaceSettingsPtrOutput) JupyterServerAppSettings() SpaceJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v *SpaceSettings) *SpaceJupyterServerAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.JupyterServerAppSettings
+	}).(SpaceJupyterServerAppSettingsPtrOutput)
+}
+
+// The kernel gateway app settings.
+func (o SpaceSettingsPtrOutput) KernelGatewayAppSettings() SpaceKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v *SpaceSettings) *SpaceKernelGatewayAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.KernelGatewayAppSettings
+	}).(SpaceKernelGatewayAppSettingsPtrOutput)
+}
+
+type SpaceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// SpaceTagInput is an input type that accepts SpaceTagArgs and SpaceTagOutput values.
+// You can construct a concrete instance of `SpaceTagInput` via:
+//
+//	SpaceTagArgs{...}
+type SpaceTagInput interface {
+	pulumi.Input
+
+	ToSpaceTagOutput() SpaceTagOutput
+	ToSpaceTagOutputWithContext(context.Context) SpaceTagOutput
+}
+
+type SpaceTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SpaceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceTag)(nil)).Elem()
+}
+
+func (i SpaceTagArgs) ToSpaceTagOutput() SpaceTagOutput {
+	return i.ToSpaceTagOutputWithContext(context.Background())
+}
+
+func (i SpaceTagArgs) ToSpaceTagOutputWithContext(ctx context.Context) SpaceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceTagOutput)
+}
+
+// SpaceTagArrayInput is an input type that accepts SpaceTagArray and SpaceTagArrayOutput values.
+// You can construct a concrete instance of `SpaceTagArrayInput` via:
+//
+//	SpaceTagArray{ SpaceTagArgs{...} }
+type SpaceTagArrayInput interface {
+	pulumi.Input
+
+	ToSpaceTagArrayOutput() SpaceTagArrayOutput
+	ToSpaceTagArrayOutputWithContext(context.Context) SpaceTagArrayOutput
+}
+
+type SpaceTagArray []SpaceTagInput
+
+func (SpaceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceTag)(nil)).Elem()
+}
+
+func (i SpaceTagArray) ToSpaceTagArrayOutput() SpaceTagArrayOutput {
+	return i.ToSpaceTagArrayOutputWithContext(context.Background())
+}
+
+func (i SpaceTagArray) ToSpaceTagArrayOutputWithContext(ctx context.Context) SpaceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceTagArrayOutput)
+}
+
+type SpaceTagOutput struct{ *pulumi.OutputState }
+
+func (SpaceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceTag)(nil)).Elem()
+}
+
+func (o SpaceTagOutput) ToSpaceTagOutput() SpaceTagOutput {
+	return o
+}
+
+func (o SpaceTagOutput) ToSpaceTagOutputWithContext(ctx context.Context) SpaceTagOutput {
+	return o
+}
+
+func (o SpaceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SpaceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o SpaceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SpaceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SpaceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SpaceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceTag)(nil)).Elem()
+}
+
+func (o SpaceTagArrayOutput) ToSpaceTagArrayOutput() SpaceTagArrayOutput {
+	return o
+}
+
+func (o SpaceTagArrayOutput) ToSpaceTagArrayOutputWithContext(ctx context.Context) SpaceTagArrayOutput {
+	return o
+}
+
+func (o SpaceTagArrayOutput) Index(i pulumi.IntInput) SpaceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpaceTag {
+		return vs[0].([]SpaceTag)[vs[1].(int)]
+	}).(SpaceTagOutput)
+}
+
+// A custom SageMaker image.
 type UserProfileCustomImage struct {
 	// The Name of the AppImageConfig.
 	AppImageConfigName string `pulumi:"appImageConfigName"`
@@ -31016,6 +34814,41 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionTagArrayInput)(nil)).Elem(), ModelBiasJobDefinitionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionVpcConfigInput)(nil)).Elem(), ModelBiasJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionVpcConfigPtrInput)(nil)).Elem(), ModelBiasJobDefinitionVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardAdditionalInformationInput)(nil)).Elem(), ModelCardAdditionalInformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardAdditionalInformationPtrInput)(nil)).Elem(), ModelCardAdditionalInformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardBusinessDetailsInput)(nil)).Elem(), ModelCardBusinessDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardBusinessDetailsPtrInput)(nil)).Elem(), ModelCardBusinessDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardContentInput)(nil)).Elem(), ModelCardContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardEvaluationDetailInput)(nil)).Elem(), ModelCardEvaluationDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardEvaluationDetailArrayInput)(nil)).Elem(), ModelCardEvaluationDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardIntendedUsesInput)(nil)).Elem(), ModelCardIntendedUsesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardIntendedUsesPtrInput)(nil)).Elem(), ModelCardIntendedUsesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardMetricGroupInput)(nil)).Elem(), ModelCardMetricGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardMetricGroupArrayInput)(nil)).Elem(), ModelCardMetricGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelOverviewInput)(nil)).Elem(), ModelCardModelOverviewArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelOverviewPtrInput)(nil)).Elem(), ModelCardModelOverviewArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelOverviewInferenceEnvironmentPropertiesInput)(nil)).Elem(), ModelCardModelOverviewInferenceEnvironmentPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelOverviewInferenceEnvironmentPropertiesPtrInput)(nil)).Elem(), ModelCardModelOverviewInferenceEnvironmentPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionInput)(nil)).Elem(), ModelCardObjectiveFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionPtrInput)(nil)).Elem(), ModelCardObjectiveFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionFunctionPropertiesInput)(nil)).Elem(), ModelCardObjectiveFunctionFunctionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionFunctionPropertiesPtrInput)(nil)).Elem(), ModelCardObjectiveFunctionFunctionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardSecurityConfigInput)(nil)).Elem(), ModelCardSecurityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardSecurityConfigPtrInput)(nil)).Elem(), ModelCardSecurityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTagInput)(nil)).Elem(), ModelCardTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTagArrayInput)(nil)).Elem(), ModelCardTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingDetailsInput)(nil)).Elem(), ModelCardTrainingDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingDetailsPtrInput)(nil)).Elem(), ModelCardTrainingDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingDetailsTrainingJobDetailsPropertiesInput)(nil)).Elem(), ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrInput)(nil)).Elem(), ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesInput)(nil)).Elem(), ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrInput)(nil)).Elem(), ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingHyperParameterInput)(nil)).Elem(), ModelCardTrainingHyperParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingHyperParameterArrayInput)(nil)).Elem(), ModelCardTrainingHyperParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingMetricInput)(nil)).Elem(), ModelCardTrainingMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingMetricArrayInput)(nil)).Elem(), ModelCardTrainingMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardUserContextInput)(nil)).Elem(), ModelCardUserContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardUserContextPtrInput)(nil)).Elem(), ModelCardUserContextArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionInput)(nil)).Elem(), ModelContainerDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionPtrInput)(nil)).Elem(), ModelContainerDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionArrayInput)(nil)).Elem(), ModelContainerDefinitionArray{})
@@ -31221,6 +35054,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagInput)(nil)).Elem(), ProjectTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagArrayInput)(nil)).Elem(), ProjectTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisioningDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisioningDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceCustomImageInput)(nil)).Elem(), SpaceCustomImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceCustomImageArrayInput)(nil)).Elem(), SpaceCustomImageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceJupyterServerAppSettingsInput)(nil)).Elem(), SpaceJupyterServerAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceJupyterServerAppSettingsPtrInput)(nil)).Elem(), SpaceJupyterServerAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceKernelGatewayAppSettingsInput)(nil)).Elem(), SpaceKernelGatewayAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceKernelGatewayAppSettingsPtrInput)(nil)).Elem(), SpaceKernelGatewayAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecInput)(nil)).Elem(), SpaceResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecPtrInput)(nil)).Elem(), SpaceResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSettingsInput)(nil)).Elem(), SpaceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSettingsPtrInput)(nil)).Elem(), SpaceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceTagInput)(nil)).Elem(), SpaceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceTagArrayInput)(nil)).Elem(), SpaceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileCustomImageInput)(nil)).Elem(), UserProfileCustomImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileCustomImageArrayInput)(nil)).Elem(), UserProfileCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileJupyterServerAppSettingsInput)(nil)).Elem(), UserProfileJupyterServerAppSettingsArgs{})
@@ -31422,6 +35267,42 @@ func init() {
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardAdditionalInformationOutput{})
+	pulumi.RegisterOutputType(ModelCardAdditionalInformationPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardBusinessDetailsOutput{})
+	pulumi.RegisterOutputType(ModelCardBusinessDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardContentOutput{})
+	pulumi.RegisterOutputType(ModelCardContentPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardEvaluationDetailOutput{})
+	pulumi.RegisterOutputType(ModelCardEvaluationDetailArrayOutput{})
+	pulumi.RegisterOutputType(ModelCardIntendedUsesOutput{})
+	pulumi.RegisterOutputType(ModelCardIntendedUsesPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardMetricGroupOutput{})
+	pulumi.RegisterOutputType(ModelCardMetricGroupArrayOutput{})
+	pulumi.RegisterOutputType(ModelCardModelOverviewOutput{})
+	pulumi.RegisterOutputType(ModelCardModelOverviewPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardModelOverviewInferenceEnvironmentPropertiesOutput{})
+	pulumi.RegisterOutputType(ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardObjectiveFunctionOutput{})
+	pulumi.RegisterOutputType(ModelCardObjectiveFunctionPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardObjectiveFunctionFunctionPropertiesOutput{})
+	pulumi.RegisterOutputType(ModelCardObjectiveFunctionFunctionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardSecurityConfigOutput{})
+	pulumi.RegisterOutputType(ModelCardSecurityConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardTagOutput{})
+	pulumi.RegisterOutputType(ModelCardTagArrayOutput{})
+	pulumi.RegisterOutputType(ModelCardTrainingDetailsOutput{})
+	pulumi.RegisterOutputType(ModelCardTrainingDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesOutput{})
+	pulumi.RegisterOutputType(ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardTrainingHyperParameterOutput{})
+	pulumi.RegisterOutputType(ModelCardTrainingHyperParameterArrayOutput{})
+	pulumi.RegisterOutputType(ModelCardTrainingMetricOutput{})
+	pulumi.RegisterOutputType(ModelCardTrainingMetricArrayOutput{})
+	pulumi.RegisterOutputType(ModelCardUserContextOutput{})
+	pulumi.RegisterOutputType(ModelCardUserContextPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerDefinitionOutput{})
 	pulumi.RegisterOutputType(ModelContainerDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerDefinitionArrayOutput{})
@@ -31630,6 +35511,18 @@ func init() {
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisioningDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(SpaceCustomImageOutput{})
+	pulumi.RegisterOutputType(SpaceCustomImageArrayOutput{})
+	pulumi.RegisterOutputType(SpaceJupyterServerAppSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceJupyterServerAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SpaceKernelGatewayAppSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceKernelGatewayAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SpaceResourceSpecOutput{})
+	pulumi.RegisterOutputType(SpaceResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SpaceTagOutput{})
+	pulumi.RegisterOutputType(SpaceTagArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileCustomImageOutput{})
 	pulumi.RegisterOutputType(UserProfileCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileJupyterServerAppSettingsOutput{})

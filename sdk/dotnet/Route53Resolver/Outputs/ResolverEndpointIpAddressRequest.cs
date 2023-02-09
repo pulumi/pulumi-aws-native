@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
     public sealed class ResolverEndpointIpAddressRequest
     {
         public readonly string? Ip;
+        public readonly string? Ipv6;
         public readonly string SubnetId;
 
         [OutputConstructor]
         private ResolverEndpointIpAddressRequest(
             string? ip,
 
+            string? ipv6,
+
             string subnetId)
         {
             Ip = ip;
+            Ipv6 = ipv6;
             SubnetId = subnetId;
         }
     }

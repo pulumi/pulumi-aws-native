@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'LaunchProfileStreamConfigurationSessionBackupArgs',
     'LaunchProfileStreamConfigurationSessionStorageArgs',
     'LaunchProfileStreamConfigurationArgs',
     'LaunchProfileStreamingSessionStorageRootArgs',
@@ -24,6 +25,45 @@ __all__ = [
     'StudioEncryptionConfigurationArgs',
     'StudioTagsArgs',
 ]
+
+@pulumi.input_type
+class LaunchProfileStreamConfigurationSessionBackupArgs:
+    def __init__(__self__, *,
+                 max_backups_to_retain: Optional[pulumi.Input[float]] = None,
+                 mode: Optional[pulumi.Input['LaunchProfileSessionBackupMode']] = None):
+        """
+        <p>Configures how streaming sessions are backed up when launched from this launch
+                    profile.</p>
+        :param pulumi.Input[float] max_backups_to_retain: <p>The maximum number of backups that each streaming session created from this launch
+                           profile can have.</p>
+        """
+        if max_backups_to_retain is not None:
+            pulumi.set(__self__, "max_backups_to_retain", max_backups_to_retain)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="maxBackupsToRetain")
+    def max_backups_to_retain(self) -> Optional[pulumi.Input[float]]:
+        """
+        <p>The maximum number of backups that each streaming session created from this launch
+                    profile can have.</p>
+        """
+        return pulumi.get(self, "max_backups_to_retain")
+
+    @max_backups_to_retain.setter
+    def max_backups_to_retain(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_backups_to_retain", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input['LaunchProfileSessionBackupMode']]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input['LaunchProfileSessionBackupMode']]):
+        pulumi.set(self, "mode", value)
+
 
 @pulumi.input_type
 class LaunchProfileStreamConfigurationSessionStorageArgs:
@@ -71,6 +111,7 @@ class LaunchProfileStreamConfigurationArgs:
                  automatic_termination_mode: Optional[pulumi.Input['LaunchProfileAutomaticTerminationMode']] = None,
                  max_session_length_in_minutes: Optional[pulumi.Input[float]] = None,
                  max_stopped_session_length_in_minutes: Optional[pulumi.Input[float]] = None,
+                 session_backup: Optional[pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgs']] = None,
                  session_persistence_mode: Optional[pulumi.Input['LaunchProfileSessionPersistenceMode']] = None,
                  session_storage: Optional[pulumi.Input['LaunchProfileStreamConfigurationSessionStorageArgs']] = None,
                  volume_configuration: Optional[pulumi.Input['LaunchProfileVolumeConfigurationArgs']] = None):
@@ -85,14 +126,19 @@ class LaunchProfileStreamConfigurationArgs:
                            stops the session. The default length of time is 690 minutes, and the maximum length of
                            time is 30 days.</p>
         :param pulumi.Input[float] max_stopped_session_length_in_minutes: <p>Integer that determines if you can start and stop your sessions and how long a session
-                           can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-                        <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-                               <code>StopStreamingSession</code>, the session fails. If the time that a session
-                           stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-                           session will automatically be terminated (instead of stopped).</p>
+                           can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
+                           5760.</p>
+                        <p>This field is allowed only when <code>sessionPersistenceMode</code> is
+                               <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
+                               <code>ACTIVATED</code>.</p>
+                        <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
+                           call <code>StopStreamingSession</code>, the session fails. If the time that a session
+                           stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
+                           value, the session will automatically be terminated (instead of
+                           <code>STOPPED</code>).</p>
                         <p>If the value is set to a positive number, the session can be stopped. You can call
-                               <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
-                           that a session stays in the READY state exceeds the
+                               <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
+                           If the time that a session stays in the <code>READY</code> state exceeds the
                                <code>maxSessionLengthInMinutes</code> value, the session will automatically be
                            stopped (instead of terminated).</p>
         """
@@ -105,6 +151,8 @@ class LaunchProfileStreamConfigurationArgs:
             pulumi.set(__self__, "max_session_length_in_minutes", max_session_length_in_minutes)
         if max_stopped_session_length_in_minutes is not None:
             pulumi.set(__self__, "max_stopped_session_length_in_minutes", max_stopped_session_length_in_minutes)
+        if session_backup is not None:
+            pulumi.set(__self__, "session_backup", session_backup)
         if session_persistence_mode is not None:
             pulumi.set(__self__, "session_persistence_mode", session_persistence_mode)
         if session_storage is not None:
@@ -176,14 +224,19 @@ class LaunchProfileStreamConfigurationArgs:
     def max_stopped_session_length_in_minutes(self) -> Optional[pulumi.Input[float]]:
         """
         <p>Integer that determines if you can start and stop your sessions and how long a session
-                    can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-                 <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-                        <code>StopStreamingSession</code>, the session fails. If the time that a session
-                    stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-                    session will automatically be terminated (instead of stopped).</p>
+                    can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
+                    5760.</p>
+                 <p>This field is allowed only when <code>sessionPersistenceMode</code> is
+                        <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
+                        <code>ACTIVATED</code>.</p>
+                 <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
+                    call <code>StopStreamingSession</code>, the session fails. If the time that a session
+                    stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
+                    value, the session will automatically be terminated (instead of
+                    <code>STOPPED</code>).</p>
                  <p>If the value is set to a positive number, the session can be stopped. You can call
-                        <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
-                    that a session stays in the READY state exceeds the
+                        <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
+                    If the time that a session stays in the <code>READY</code> state exceeds the
                         <code>maxSessionLengthInMinutes</code> value, the session will automatically be
                     stopped (instead of terminated).</p>
         """
@@ -192,6 +245,15 @@ class LaunchProfileStreamConfigurationArgs:
     @max_stopped_session_length_in_minutes.setter
     def max_stopped_session_length_in_minutes(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_stopped_session_length_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="sessionBackup")
+    def session_backup(self) -> Optional[pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgs']]:
+        return pulumi.get(self, "session_backup")
+
+    @session_backup.setter
+    def session_backup(self, value: Optional[pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgs']]):
+        pulumi.set(self, "session_backup", value)
 
     @property
     @pulumi.getter(name="sessionPersistenceMode")
@@ -274,6 +336,18 @@ class LaunchProfileVolumeConfigurationArgs:
                  iops: Optional[pulumi.Input[float]] = None,
                  size: Optional[pulumi.Input[float]] = None,
                  throughput: Optional[pulumi.Input[float]] = None):
+        """
+        <p>Custom volume configuration for the root volumes that are attached to streaming
+                    sessions.</p>
+                 <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+                        <code>ACTIVATED</code>.</p>
+        :param pulumi.Input[float] iops: <p>The number of I/O operations per second for the root volume that is attached to
+                           streaming session.</p>
+        :param pulumi.Input[float] size: <p>The size of the root volume that is attached to the streaming session. The root volume
+                           size is measured in GiBs.</p>
+        :param pulumi.Input[float] throughput: <p>The throughput to provision for the root volume that is attached to the streaming
+                           session. The throughput is measured in MiB/s.</p>
+        """
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if size is not None:
@@ -284,6 +358,10 @@ class LaunchProfileVolumeConfigurationArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[float]]:
+        """
+        <p>The number of I/O operations per second for the root volume that is attached to
+                    streaming session.</p>
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -293,6 +371,10 @@ class LaunchProfileVolumeConfigurationArgs:
     @property
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[float]]:
+        """
+        <p>The size of the root volume that is attached to the streaming session. The root volume
+                    size is measured in GiBs.</p>
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -302,6 +384,10 @@ class LaunchProfileVolumeConfigurationArgs:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[float]]:
+        """
+        <p>The throughput to provision for the root volume that is attached to the streaming
+                    session. The throughput is measured in MiB/s.</p>
+        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter

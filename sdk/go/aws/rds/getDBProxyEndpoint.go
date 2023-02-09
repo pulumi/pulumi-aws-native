@@ -34,6 +34,8 @@ type LookupDBProxyEndpointResult struct {
 	IsDefault *bool `pulumi:"isDefault"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
 	Tags []DBProxyEndpointTagFormat `pulumi:"tags"`
+	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
+	TargetRole *DBProxyEndpointTargetRole `pulumi:"targetRole"`
 	// VPC ID to associate with the new DB proxy endpoint.
 	VpcId *string `pulumi:"vpcId"`
 	// VPC security group IDs to associate with the new DB proxy endpoint.
@@ -94,6 +96,11 @@ func (o LookupDBProxyEndpointResultOutput) IsDefault() pulumi.BoolPtrOutput {
 // An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
 func (o LookupDBProxyEndpointResultOutput) Tags() DBProxyEndpointTagFormatArrayOutput {
 	return o.ApplyT(func(v LookupDBProxyEndpointResult) []DBProxyEndpointTagFormat { return v.Tags }).(DBProxyEndpointTagFormatArrayOutput)
+}
+
+// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
+func (o LookupDBProxyEndpointResultOutput) TargetRole() DBProxyEndpointTargetRolePtrOutput {
+	return o.ApplyT(func(v LookupDBProxyEndpointResult) *DBProxyEndpointTargetRole { return v.TargetRole }).(DBProxyEndpointTargetRolePtrOutput)
 }
 
 // VPC ID to associate with the new DB proxy endpoint.

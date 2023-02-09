@@ -41,11 +41,12 @@ export class Workgroup extends pulumi.CustomResource {
     public readonly configParameters!: pulumi.Output<outputs.redshiftserverless.WorkgroupConfigParameter[] | undefined>;
     public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
     public readonly namespaceName!: pulumi.Output<string | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.redshiftserverless.WorkgroupTag[] | undefined>;
-    public readonly workgroup!: pulumi.Output<outputs.redshiftserverless.Workgroup | undefined>;
+    public /*out*/ readonly workgroup!: pulumi.Output<outputs.redshiftserverless.Workgroup>;
     public readonly workgroupName!: pulumi.Output<string>;
 
     /**
@@ -63,17 +64,19 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["configParameters"] = args ? args.configParameters : undefined;
             resourceInputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workgroup"] = args ? args.workgroup : undefined;
             resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
+            resourceInputs["workgroup"] = undefined /*out*/;
         } else {
             resourceInputs["baseCapacity"] = undefined /*out*/;
             resourceInputs["configParameters"] = undefined /*out*/;
             resourceInputs["enhancedVpcRouting"] = undefined /*out*/;
             resourceInputs["namespaceName"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
@@ -94,10 +97,10 @@ export interface WorkgroupArgs {
     configParameters?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupConfigParameterArgs>[]>;
     enhancedVpcRouting?: pulumi.Input<boolean>;
     namespaceName?: pulumi.Input<string>;
+    port?: pulumi.Input<number>;
     publiclyAccessible?: pulumi.Input<boolean>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupTagArgs>[]>;
-    workgroup?: pulumi.Input<inputs.redshiftserverless.WorkgroupArgs>;
     workgroupName?: pulumi.Input<string>;
 }

@@ -17,6 +17,8 @@ __all__ = ['ThemeArgs', 'Theme']
 class ThemeArgs:
     def __init__(__self__, *,
                  values: pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]],
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]] = None,
                  tags: Optional[pulumi.Input['ThemeTagsArgs']] = None):
@@ -24,6 +26,10 @@ class ThemeArgs:
         The set of arguments for constructing a Theme resource.
         """
         pulumi.set(__self__, "values", values)
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if environment_name is not None:
+            pulumi.set(__self__, "environment_name", environment_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if overrides is not None:
@@ -39,6 +45,24 @@ class ThemeArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]):
         pulumi.set(self, "values", value)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "environment_name")
+
+    @environment_name.setter
+    def environment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_name", value)
 
     @property
     @pulumi.getter
@@ -73,6 +97,8 @@ class Theme(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeValuesArgs']]]]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['ThemeTagsArgs']]] = None,
@@ -108,6 +134,8 @@ class Theme(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeValuesArgs']]]]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['ThemeTagsArgs']]] = None,
@@ -121,16 +149,14 @@ class Theme(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ThemeArgs.__new__(ThemeArgs)
 
+            __props__.__dict__["app_id"] = app_id
+            __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["name"] = name
             __props__.__dict__["overrides"] = overrides
             __props__.__dict__["tags"] = tags
             if values is None and not opts.urn:
                 raise TypeError("Missing required property 'values'")
             __props__.__dict__["values"] = values
-            __props__.__dict__["app_id"] = None
-            __props__.__dict__["created_at"] = None
-            __props__.__dict__["environment_name"] = None
-            __props__.__dict__["modified_at"] = None
         super(Theme, __self__).__init__(
             'aws-native:amplifyuibuilder:Theme',
             resource_name,
@@ -154,9 +180,7 @@ class Theme(pulumi.CustomResource):
         __props__ = ThemeArgs.__new__(ThemeArgs)
 
         __props__.__dict__["app_id"] = None
-        __props__.__dict__["created_at"] = None
         __props__.__dict__["environment_name"] = None
-        __props__.__dict__["modified_at"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["overrides"] = None
         __props__.__dict__["tags"] = None
@@ -165,23 +189,13 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appId")
-    def app_id(self) -> pulumi.Output[str]:
+    def app_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "app_id")
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "created_at")
-
-    @property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> pulumi.Output[str]:
+    def environment_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "environment_name")
-
-    @property
-    @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter

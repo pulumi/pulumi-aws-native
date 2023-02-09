@@ -243,47 +243,6 @@ func (i TrustAnchorSourceArgs) ToTrustAnchorSourceOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorSourceOutput)
 }
 
-func (i TrustAnchorSourceArgs) ToTrustAnchorSourcePtrOutput() TrustAnchorSourcePtrOutput {
-	return i.ToTrustAnchorSourcePtrOutputWithContext(context.Background())
-}
-
-func (i TrustAnchorSourceArgs) ToTrustAnchorSourcePtrOutputWithContext(ctx context.Context) TrustAnchorSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorSourceOutput).ToTrustAnchorSourcePtrOutputWithContext(ctx)
-}
-
-// TrustAnchorSourcePtrInput is an input type that accepts TrustAnchorSourceArgs, TrustAnchorSourcePtr and TrustAnchorSourcePtrOutput values.
-// You can construct a concrete instance of `TrustAnchorSourcePtrInput` via:
-//
-//	        TrustAnchorSourceArgs{...}
-//
-//	or:
-//
-//	        nil
-type TrustAnchorSourcePtrInput interface {
-	pulumi.Input
-
-	ToTrustAnchorSourcePtrOutput() TrustAnchorSourcePtrOutput
-	ToTrustAnchorSourcePtrOutputWithContext(context.Context) TrustAnchorSourcePtrOutput
-}
-
-type trustAnchorSourcePtrType TrustAnchorSourceArgs
-
-func TrustAnchorSourcePtr(v *TrustAnchorSourceArgs) TrustAnchorSourcePtrInput {
-	return (*trustAnchorSourcePtrType)(v)
-}
-
-func (*trustAnchorSourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TrustAnchorSource)(nil)).Elem()
-}
-
-func (i *trustAnchorSourcePtrType) ToTrustAnchorSourcePtrOutput() TrustAnchorSourcePtrOutput {
-	return i.ToTrustAnchorSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *trustAnchorSourcePtrType) ToTrustAnchorSourcePtrOutputWithContext(ctx context.Context) TrustAnchorSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorSourcePtrOutput)
-}
-
 type TrustAnchorSourceOutput struct{ *pulumi.OutputState }
 
 func (TrustAnchorSourceOutput) ElementType() reflect.Type {
@@ -296,16 +255,6 @@ func (o TrustAnchorSourceOutput) ToTrustAnchorSourceOutput() TrustAnchorSourceOu
 
 func (o TrustAnchorSourceOutput) ToTrustAnchorSourceOutputWithContext(ctx context.Context) TrustAnchorSourceOutput {
 	return o
-}
-
-func (o TrustAnchorSourceOutput) ToTrustAnchorSourcePtrOutput() TrustAnchorSourcePtrOutput {
-	return o.ToTrustAnchorSourcePtrOutputWithContext(context.Background())
-}
-
-func (o TrustAnchorSourceOutput) ToTrustAnchorSourcePtrOutputWithContext(ctx context.Context) TrustAnchorSourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustAnchorSource) *TrustAnchorSource {
-		return &v
-	}).(TrustAnchorSourcePtrOutput)
 }
 
 func (o TrustAnchorSourceOutput) SourceData() TrustAnchorSourceDataPtrOutput {
@@ -582,7 +531,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagInput)(nil)).Elem(), ProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagArrayInput)(nil)).Elem(), ProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorSourceInput)(nil)).Elem(), TrustAnchorSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorSourcePtrInput)(nil)).Elem(), TrustAnchorSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorSourceDataInput)(nil)).Elem(), TrustAnchorSourceDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorSourceDataPtrInput)(nil)).Elem(), TrustAnchorSourceDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustAnchorTagInput)(nil)).Elem(), TrustAnchorTagArgs{})

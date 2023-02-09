@@ -497,6 +497,7 @@ func (o FirewallRuleGroupTagArrayOutput) Index(i pulumi.IntInput) FirewallRuleGr
 
 type ResolverEndpointIpAddressRequest struct {
 	Ip       *string `pulumi:"ip"`
+	Ipv6     *string `pulumi:"ipv6"`
 	SubnetId string  `pulumi:"subnetId"`
 }
 
@@ -513,6 +514,7 @@ type ResolverEndpointIpAddressRequestInput interface {
 
 type ResolverEndpointIpAddressRequestArgs struct {
 	Ip       pulumi.StringPtrInput `pulumi:"ip"`
+	Ipv6     pulumi.StringPtrInput `pulumi:"ipv6"`
 	SubnetId pulumi.StringInput    `pulumi:"subnetId"`
 }
 
@@ -569,6 +571,10 @@ func (o ResolverEndpointIpAddressRequestOutput) ToResolverEndpointIpAddressReque
 
 func (o ResolverEndpointIpAddressRequestOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverEndpointIpAddressRequest) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverEndpointIpAddressRequestOutput) Ipv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverEndpointIpAddressRequest) *string { return v.Ipv6 }).(pulumi.StringPtrOutput)
 }
 
 func (o ResolverEndpointIpAddressRequestOutput) SubnetId() pulumi.StringOutput {
@@ -803,7 +809,9 @@ func (o ResolverRuleTagArrayOutput) Index(i pulumi.IntInput) ResolverRuleTagOutp
 
 type ResolverRuleTargetAddress struct {
 	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-	Ip string `pulumi:"ip"`
+	Ip *string `pulumi:"ip"`
+	// One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses.
+	Ipv6 *string `pulumi:"ipv6"`
 	// The port at Ip that you want to forward DNS queries to.
 	Port *string `pulumi:"port"`
 }
@@ -821,7 +829,9 @@ type ResolverRuleTargetAddressInput interface {
 
 type ResolverRuleTargetAddressArgs struct {
 	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-	Ip pulumi.StringInput `pulumi:"ip"`
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses.
+	Ipv6 pulumi.StringPtrInput `pulumi:"ipv6"`
 	// The port at Ip that you want to forward DNS queries to.
 	Port pulumi.StringPtrInput `pulumi:"port"`
 }
@@ -878,8 +888,13 @@ func (o ResolverRuleTargetAddressOutput) ToResolverRuleTargetAddressOutputWithCo
 }
 
 // One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-func (o ResolverRuleTargetAddressOutput) Ip() pulumi.StringOutput {
-	return o.ApplyT(func(v ResolverRuleTargetAddress) string { return v.Ip }).(pulumi.StringOutput)
+func (o ResolverRuleTargetAddressOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverRuleTargetAddress) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses.
+func (o ResolverRuleTargetAddressOutput) Ipv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverRuleTargetAddress) *string { return v.Ipv6 }).(pulumi.StringPtrOutput)
 }
 
 // The port at Ip that you want to forward DNS queries to.

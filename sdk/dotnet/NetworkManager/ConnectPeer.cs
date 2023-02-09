@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The ID of the attachment to connect.
         /// </summary>
         [Output("connectAttachmentId")]
-        public Output<string?> ConnectAttachmentId { get; private set; } = null!;
+        public Output<string> ConnectAttachmentId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Connect peer.
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The IP address of the Connect peer.
         /// </summary>
         [Output("peerAddress")]
-        public Output<string?> PeerAddress { get; private set; } = null!;
+        public Output<string> PeerAddress { get; private set; } = null!;
 
         /// <summary>
         /// State of the connect peer.
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ConnectPeer(string name, ConnectPeerArgs? args = null, CustomResourceOptions? options = null)
+        public ConnectPeer(string name, ConnectPeerArgs args, CustomResourceOptions? options = null)
             : base("aws-native:networkmanager:ConnectPeer", name, args ?? new ConnectPeerArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -141,8 +141,8 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of the attachment to connect.
         /// </summary>
-        [Input("connectAttachmentId")]
-        public Input<string>? ConnectAttachmentId { get; set; }
+        [Input("connectAttachmentId", required: true)]
+        public Input<string> ConnectAttachmentId { get; set; } = null!;
 
         /// <summary>
         /// The IP address of a core network.
@@ -150,7 +150,7 @@ namespace Pulumi.AwsNative.NetworkManager
         [Input("coreNetworkAddress")]
         public Input<string>? CoreNetworkAddress { get; set; }
 
-        [Input("insideCidrBlocks")]
+        [Input("insideCidrBlocks", required: true)]
         private InputList<string>? _insideCidrBlocks;
 
         /// <summary>
@@ -165,8 +165,8 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The IP address of the Connect peer.
         /// </summary>
-        [Input("peerAddress")]
-        public Input<string>? PeerAddress { get; set; }
+        [Input("peerAddress", required: true)]
+        public Input<string> PeerAddress { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.ConnectPeerTagArgs>? _tags;

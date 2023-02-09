@@ -22,6 +22,7 @@ class DeploymentArgs:
                  deployment_strategy_id: pulumi.Input[str],
                  environment_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentTagsArgs']]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
@@ -33,6 +34,8 @@ class DeploymentArgs:
         pulumi.set(__self__, "environment_id", environment_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if kms_key_identifier is not None:
+            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -91,6 +94,15 @@ class DeploymentArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_identifier")
+
+    @kms_key_identifier.setter
+    def kms_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_identifier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentTagsArgs']]]]:
         return pulumi.get(self, "tags")
@@ -116,6 +128,7 @@ class Deployment(pulumi.CustomResource):
                  deployment_strategy_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentTagsArgs']]]]] = None,
                  __props__=None):
         """
@@ -154,6 +167,7 @@ class Deployment(pulumi.CustomResource):
                  deployment_strategy_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentTagsArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Deployment is deprecated: Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -181,6 +195,7 @@ class Deployment(pulumi.CustomResource):
             if environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_id'")
             __props__.__dict__["environment_id"] = environment_id
+            __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["tags"] = tags
         super(Deployment, __self__).__init__(
             'aws-native:appconfig:Deployment',
@@ -210,6 +225,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["deployment_strategy_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["environment_id"] = None
+        __props__.__dict__["kms_key_identifier"] = None
         __props__.__dict__["tags"] = None
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
@@ -242,6 +258,11 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "kms_key_identifier")
 
     @property
     @pulumi.getter

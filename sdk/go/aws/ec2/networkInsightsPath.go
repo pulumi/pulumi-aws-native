@@ -16,7 +16,7 @@ type NetworkInsightsPath struct {
 	pulumi.CustomResourceState
 
 	CreatedDate            pulumi.StringOutput               `pulumi:"createdDate"`
-	Destination            pulumi.StringOutput               `pulumi:"destination"`
+	Destination            pulumi.StringPtrOutput            `pulumi:"destination"`
 	DestinationArn         pulumi.StringOutput               `pulumi:"destinationArn"`
 	DestinationIp          pulumi.StringPtrOutput            `pulumi:"destinationIp"`
 	DestinationPort        pulumi.IntPtrOutput               `pulumi:"destinationPort"`
@@ -36,9 +36,6 @@ func NewNetworkInsightsPath(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Destination == nil {
-		return nil, errors.New("invalid value for required argument 'Destination'")
-	}
 	if args.Protocol == nil {
 		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
@@ -77,7 +74,7 @@ func (NetworkInsightsPathState) ElementType() reflect.Type {
 }
 
 type networkInsightsPathArgs struct {
-	Destination     string                      `pulumi:"destination"`
+	Destination     *string                     `pulumi:"destination"`
 	DestinationIp   *string                     `pulumi:"destinationIp"`
 	DestinationPort *int                        `pulumi:"destinationPort"`
 	Protocol        NetworkInsightsPathProtocol `pulumi:"protocol"`
@@ -88,7 +85,7 @@ type networkInsightsPathArgs struct {
 
 // The set of arguments for constructing a NetworkInsightsPath resource.
 type NetworkInsightsPathArgs struct {
-	Destination     pulumi.StringInput
+	Destination     pulumi.StringPtrInput
 	DestinationIp   pulumi.StringPtrInput
 	DestinationPort pulumi.IntPtrInput
 	Protocol        NetworkInsightsPathProtocolInput
@@ -138,8 +135,8 @@ func (o NetworkInsightsPathOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-func (o NetworkInsightsPathOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
+func (o NetworkInsightsPathOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
 func (o NetworkInsightsPathOutput) DestinationArn() pulumi.StringOutput {

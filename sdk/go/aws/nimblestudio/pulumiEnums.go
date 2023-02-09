@@ -174,6 +174,170 @@ func (in *launchProfileAutomaticTerminationModePtr) ToLaunchProfileAutomaticTerm
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchProfileAutomaticTerminationModePtrOutput)
 }
 
+type LaunchProfileSessionBackupMode string
+
+const (
+	LaunchProfileSessionBackupModeAutomatic   = LaunchProfileSessionBackupMode("AUTOMATIC")
+	LaunchProfileSessionBackupModeDeactivated = LaunchProfileSessionBackupMode("DEACTIVATED")
+)
+
+func (LaunchProfileSessionBackupMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileSessionBackupMode)(nil)).Elem()
+}
+
+func (e LaunchProfileSessionBackupMode) ToLaunchProfileSessionBackupModeOutput() LaunchProfileSessionBackupModeOutput {
+	return pulumi.ToOutput(e).(LaunchProfileSessionBackupModeOutput)
+}
+
+func (e LaunchProfileSessionBackupMode) ToLaunchProfileSessionBackupModeOutputWithContext(ctx context.Context) LaunchProfileSessionBackupModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LaunchProfileSessionBackupModeOutput)
+}
+
+func (e LaunchProfileSessionBackupMode) ToLaunchProfileSessionBackupModePtrOutput() LaunchProfileSessionBackupModePtrOutput {
+	return e.ToLaunchProfileSessionBackupModePtrOutputWithContext(context.Background())
+}
+
+func (e LaunchProfileSessionBackupMode) ToLaunchProfileSessionBackupModePtrOutputWithContext(ctx context.Context) LaunchProfileSessionBackupModePtrOutput {
+	return LaunchProfileSessionBackupMode(e).ToLaunchProfileSessionBackupModeOutputWithContext(ctx).ToLaunchProfileSessionBackupModePtrOutputWithContext(ctx)
+}
+
+func (e LaunchProfileSessionBackupMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchProfileSessionBackupMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchProfileSessionBackupMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchProfileSessionBackupMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LaunchProfileSessionBackupModeOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileSessionBackupModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileSessionBackupMode)(nil)).Elem()
+}
+
+func (o LaunchProfileSessionBackupModeOutput) ToLaunchProfileSessionBackupModeOutput() LaunchProfileSessionBackupModeOutput {
+	return o
+}
+
+func (o LaunchProfileSessionBackupModeOutput) ToLaunchProfileSessionBackupModeOutputWithContext(ctx context.Context) LaunchProfileSessionBackupModeOutput {
+	return o
+}
+
+func (o LaunchProfileSessionBackupModeOutput) ToLaunchProfileSessionBackupModePtrOutput() LaunchProfileSessionBackupModePtrOutput {
+	return o.ToLaunchProfileSessionBackupModePtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileSessionBackupModeOutput) ToLaunchProfileSessionBackupModePtrOutputWithContext(ctx context.Context) LaunchProfileSessionBackupModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileSessionBackupMode) *LaunchProfileSessionBackupMode {
+		return &v
+	}).(LaunchProfileSessionBackupModePtrOutput)
+}
+
+func (o LaunchProfileSessionBackupModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileSessionBackupModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchProfileSessionBackupMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchProfileSessionBackupModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileSessionBackupModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchProfileSessionBackupMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchProfileSessionBackupModePtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileSessionBackupModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchProfileSessionBackupMode)(nil)).Elem()
+}
+
+func (o LaunchProfileSessionBackupModePtrOutput) ToLaunchProfileSessionBackupModePtrOutput() LaunchProfileSessionBackupModePtrOutput {
+	return o
+}
+
+func (o LaunchProfileSessionBackupModePtrOutput) ToLaunchProfileSessionBackupModePtrOutputWithContext(ctx context.Context) LaunchProfileSessionBackupModePtrOutput {
+	return o
+}
+
+func (o LaunchProfileSessionBackupModePtrOutput) Elem() LaunchProfileSessionBackupModeOutput {
+	return o.ApplyT(func(v *LaunchProfileSessionBackupMode) LaunchProfileSessionBackupMode {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchProfileSessionBackupMode
+		return ret
+	}).(LaunchProfileSessionBackupModeOutput)
+}
+
+func (o LaunchProfileSessionBackupModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileSessionBackupModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LaunchProfileSessionBackupMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LaunchProfileSessionBackupModeInput is an input type that accepts LaunchProfileSessionBackupModeArgs and LaunchProfileSessionBackupModeOutput values.
+// You can construct a concrete instance of `LaunchProfileSessionBackupModeInput` via:
+//
+//	LaunchProfileSessionBackupModeArgs{...}
+type LaunchProfileSessionBackupModeInput interface {
+	pulumi.Input
+
+	ToLaunchProfileSessionBackupModeOutput() LaunchProfileSessionBackupModeOutput
+	ToLaunchProfileSessionBackupModeOutputWithContext(context.Context) LaunchProfileSessionBackupModeOutput
+}
+
+var launchProfileSessionBackupModePtrType = reflect.TypeOf((**LaunchProfileSessionBackupMode)(nil)).Elem()
+
+type LaunchProfileSessionBackupModePtrInput interface {
+	pulumi.Input
+
+	ToLaunchProfileSessionBackupModePtrOutput() LaunchProfileSessionBackupModePtrOutput
+	ToLaunchProfileSessionBackupModePtrOutputWithContext(context.Context) LaunchProfileSessionBackupModePtrOutput
+}
+
+type launchProfileSessionBackupModePtr string
+
+func LaunchProfileSessionBackupModePtr(v string) LaunchProfileSessionBackupModePtrInput {
+	return (*launchProfileSessionBackupModePtr)(&v)
+}
+
+func (*launchProfileSessionBackupModePtr) ElementType() reflect.Type {
+	return launchProfileSessionBackupModePtrType
+}
+
+func (in *launchProfileSessionBackupModePtr) ToLaunchProfileSessionBackupModePtrOutput() LaunchProfileSessionBackupModePtrOutput {
+	return pulumi.ToOutput(in).(LaunchProfileSessionBackupModePtrOutput)
+}
+
+func (in *launchProfileSessionBackupModePtr) ToLaunchProfileSessionBackupModePtrOutputWithContext(ctx context.Context) LaunchProfileSessionBackupModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LaunchProfileSessionBackupModePtrOutput)
+}
+
 type LaunchProfileSessionPersistenceMode string
 
 const (
@@ -1849,6 +2013,8 @@ func (in *studioEncryptionConfigurationKeyTypePtr) ToStudioEncryptionConfigurati
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileAutomaticTerminationModeInput)(nil)).Elem(), LaunchProfileAutomaticTerminationMode("DEACTIVATED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileAutomaticTerminationModePtrInput)(nil)).Elem(), LaunchProfileAutomaticTerminationMode("DEACTIVATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileSessionBackupModeInput)(nil)).Elem(), LaunchProfileSessionBackupMode("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileSessionBackupModePtrInput)(nil)).Elem(), LaunchProfileSessionBackupMode("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileSessionPersistenceModeInput)(nil)).Elem(), LaunchProfileSessionPersistenceMode("DEACTIVATED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileSessionPersistenceModePtrInput)(nil)).Elem(), LaunchProfileSessionPersistenceMode("DEACTIVATED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingClipboardModeInput)(nil)).Elem(), LaunchProfileStreamingClipboardMode("ENABLED"))
@@ -1871,6 +2037,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioEncryptionConfigurationKeyTypePtrInput)(nil)).Elem(), StudioEncryptionConfigurationKeyType("AWS_OWNED_KEY"))
 	pulumi.RegisterOutputType(LaunchProfileAutomaticTerminationModeOutput{})
 	pulumi.RegisterOutputType(LaunchProfileAutomaticTerminationModePtrOutput{})
+	pulumi.RegisterOutputType(LaunchProfileSessionBackupModeOutput{})
+	pulumi.RegisterOutputType(LaunchProfileSessionBackupModePtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileSessionPersistenceModeOutput{})
 	pulumi.RegisterOutputType(LaunchProfileSessionPersistenceModePtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamingClipboardModeOutput{})

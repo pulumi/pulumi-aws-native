@@ -15,28 +15,20 @@ __all__ = ['LinkArgs', 'Link']
 @pulumi.input_type
 class LinkArgs:
     def __init__(__self__, *,
-                 label_template: pulumi.Input[str],
                  resource_types: pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]],
                  sink_identifier: pulumi.Input[str],
+                 label_template: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Link resource.
         :param Any tags: Tags to apply to the link
         """
-        pulumi.set(__self__, "label_template", label_template)
         pulumi.set(__self__, "resource_types", resource_types)
         pulumi.set(__self__, "sink_identifier", sink_identifier)
+        if label_template is not None:
+            pulumi.set(__self__, "label_template", label_template)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="labelTemplate")
-    def label_template(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "label_template")
-
-    @label_template.setter
-    def label_template(self, value: pulumi.Input[str]):
-        pulumi.set(self, "label_template", value)
 
     @property
     @pulumi.getter(name="resourceTypes")
@@ -55,6 +47,15 @@ class LinkArgs:
     @sink_identifier.setter
     def sink_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "sink_identifier", value)
+
+    @property
+    @pulumi.getter(name="labelTemplate")
+    def label_template(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label_template")
+
+    @label_template.setter
+    def label_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label_template", value)
 
     @property
     @pulumi.getter
@@ -123,8 +124,6 @@ class Link(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkArgs.__new__(LinkArgs)
 
-            if label_template is None and not opts.urn:
-                raise TypeError("Missing required property 'label_template'")
             __props__.__dict__["label_template"] = label_template
             if resource_types is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_types'")
@@ -177,7 +176,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="labelTemplate")
-    def label_template(self) -> pulumi.Output[str]:
+    def label_template(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "label_template")
 
     @property

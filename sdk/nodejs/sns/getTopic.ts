@@ -61,6 +61,10 @@ export interface GetTopicResult {
     readonly subscription?: outputs.sns.TopicSubscription[];
     readonly tags?: outputs.sns.TopicTag[];
     readonly topicArn?: string;
+    /**
+     * Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+     */
+    readonly tracingConfig?: string;
 }
 /**
  * Resource Type definition for AWS::SNS::Topic

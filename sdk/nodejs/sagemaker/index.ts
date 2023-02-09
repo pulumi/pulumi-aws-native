@@ -120,6 +120,11 @@ export const getModelBiasJobDefinition: typeof import("./getModelBiasJobDefiniti
 export const getModelBiasJobDefinitionOutput: typeof import("./getModelBiasJobDefinition").getModelBiasJobDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getModelBiasJobDefinition","getModelBiasJobDefinitionOutput"], () => require("./getModelBiasJobDefinition"));
 
+export { GetModelCardArgs, GetModelCardResult, GetModelCardOutputArgs } from "./getModelCard";
+export const getModelCard: typeof import("./getModelCard").getModelCard = null as any;
+export const getModelCardOutput: typeof import("./getModelCard").getModelCardOutput = null as any;
+utilities.lazyLoad(exports, ["getModelCard","getModelCardOutput"], () => require("./getModelCard"));
+
 export { GetModelExplainabilityJobDefinitionArgs, GetModelExplainabilityJobDefinitionResult, GetModelExplainabilityJobDefinitionOutputArgs } from "./getModelExplainabilityJobDefinition";
 export const getModelExplainabilityJobDefinition: typeof import("./getModelExplainabilityJobDefinition").getModelExplainabilityJobDefinition = null as any;
 export const getModelExplainabilityJobDefinitionOutput: typeof import("./getModelExplainabilityJobDefinition").getModelExplainabilityJobDefinitionOutput = null as any;
@@ -165,6 +170,11 @@ export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
 utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
 
+export { GetSpaceArgs, GetSpaceResult, GetSpaceOutputArgs } from "./getSpace";
+export const getSpace: typeof import("./getSpace").getSpace = null as any;
+export const getSpaceOutput: typeof import("./getSpace").getSpaceOutput = null as any;
+utilities.lazyLoad(exports, ["getSpace","getSpaceOutput"], () => require("./getSpace"));
+
 export { GetUserProfileArgs, GetUserProfileResult, GetUserProfileOutputArgs } from "./getUserProfile";
 export const getUserProfile: typeof import("./getUserProfile").getUserProfile = null as any;
 export const getUserProfileOutput: typeof import("./getUserProfile").getUserProfileOutput = null as any;
@@ -194,6 +204,11 @@ export { ModelBiasJobDefinitionArgs } from "./modelBiasJobDefinition";
 export type ModelBiasJobDefinition = import("./modelBiasJobDefinition").ModelBiasJobDefinition;
 export const ModelBiasJobDefinition: typeof import("./modelBiasJobDefinition").ModelBiasJobDefinition = null as any;
 utilities.lazyLoad(exports, ["ModelBiasJobDefinition"], () => require("./modelBiasJobDefinition"));
+
+export { ModelCardArgs } from "./modelCard";
+export type ModelCard = import("./modelCard").ModelCard;
+export const ModelCard: typeof import("./modelCard").ModelCard = null as any;
+utilities.lazyLoad(exports, ["ModelCard"], () => require("./modelCard"));
 
 export { ModelExplainabilityJobDefinitionArgs } from "./modelExplainabilityJobDefinition";
 export type ModelExplainabilityJobDefinition = import("./modelExplainabilityJobDefinition").ModelExplainabilityJobDefinition;
@@ -239,6 +254,11 @@ export { ProjectArgs } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
 utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+
+export { SpaceArgs } from "./space";
+export type Space = import("./space").Space;
+export const Space: typeof import("./space").Space = null as any;
+utilities.lazyLoad(exports, ["Space"], () => require("./space"));
 
 export { UserProfileArgs } from "./userProfile";
 export type UserProfile = import("./userProfile").UserProfile;
@@ -286,6 +306,8 @@ const _module = {
                 return new Model(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ModelBiasJobDefinition":
                 return new ModelBiasJobDefinition(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:ModelCard":
+                return new ModelCard(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ModelExplainabilityJobDefinition":
                 return new ModelExplainabilityJobDefinition(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ModelPackage":
@@ -304,6 +326,8 @@ const _module = {
                 return new Pipeline(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Project":
                 return new Project(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:Space":
+                return new Space(name, <any>undefined, { urn })
             case "aws-native:sagemaker:UserProfile":
                 return new UserProfile(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Workteam":

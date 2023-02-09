@@ -21,8 +21,10 @@ class ComponentArgs:
                  overrides: pulumi.Input['ComponentOverridesArgs'],
                  properties: pulumi.Input['ComponentPropertiesArgs'],
                  variants: pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]],
+                 app_id: Optional[pulumi.Input[str]] = None,
                  children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
                  collection_properties: Optional[pulumi.Input['ComponentCollectionPropertiesArgs']] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  events: Optional[pulumi.Input['ComponentEventsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema_version: Optional[pulumi.Input[str]] = None,
@@ -36,10 +38,14 @@ class ComponentArgs:
         pulumi.set(__self__, "overrides", overrides)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "variants", variants)
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
         if children is not None:
             pulumi.set(__self__, "children", children)
         if collection_properties is not None:
             pulumi.set(__self__, "collection_properties", collection_properties)
+        if environment_name is not None:
+            pulumi.set(__self__, "environment_name", environment_name)
         if events is not None:
             pulumi.set(__self__, "events", events)
         if name is not None:
@@ -97,6 +103,15 @@ class ComponentArgs:
         pulumi.set(self, "variants", value)
 
     @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id", value)
+
+    @property
     @pulumi.getter
     def children(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]]:
         return pulumi.get(self, "children")
@@ -113,6 +128,15 @@ class ComponentArgs:
     @collection_properties.setter
     def collection_properties(self, value: Optional[pulumi.Input['ComponentCollectionPropertiesArgs']]):
         pulumi.set(self, "collection_properties", value)
+
+    @property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "environment_name")
+
+    @environment_name.setter
+    def environment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_name", value)
 
     @property
     @pulumi.getter
@@ -165,10 +189,12 @@ class Component(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_id: Optional[pulumi.Input[str]] = None,
                  binding_properties: Optional[pulumi.Input[pulumi.InputType['ComponentBindingPropertiesArgs']]] = None,
                  children: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentChildArgs']]]]] = None,
                  collection_properties: Optional[pulumi.Input[pulumi.InputType['ComponentCollectionPropertiesArgs']]] = None,
                  component_type: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  events: Optional[pulumi.Input[pulumi.InputType['ComponentEventsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[pulumi.InputType['ComponentOverridesArgs']]] = None,
@@ -208,10 +234,12 @@ class Component(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_id: Optional[pulumi.Input[str]] = None,
                  binding_properties: Optional[pulumi.Input[pulumi.InputType['ComponentBindingPropertiesArgs']]] = None,
                  children: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentChildArgs']]]]] = None,
                  collection_properties: Optional[pulumi.Input[pulumi.InputType['ComponentCollectionPropertiesArgs']]] = None,
                  component_type: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  events: Optional[pulumi.Input[pulumi.InputType['ComponentEventsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[pulumi.InputType['ComponentOverridesArgs']]] = None,
@@ -229,6 +257,7 @@ class Component(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ComponentArgs.__new__(ComponentArgs)
 
+            __props__.__dict__["app_id"] = app_id
             if binding_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'binding_properties'")
             __props__.__dict__["binding_properties"] = binding_properties
@@ -237,6 +266,7 @@ class Component(pulumi.CustomResource):
             if component_type is None and not opts.urn:
                 raise TypeError("Missing required property 'component_type'")
             __props__.__dict__["component_type"] = component_type
+            __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["events"] = events
             __props__.__dict__["name"] = name
             if overrides is None and not opts.urn:
@@ -251,8 +281,6 @@ class Component(pulumi.CustomResource):
             if variants is None and not opts.urn:
                 raise TypeError("Missing required property 'variants'")
             __props__.__dict__["variants"] = variants
-            __props__.__dict__["app_id"] = None
-            __props__.__dict__["environment_name"] = None
         super(Component, __self__).__init__(
             'aws-native:amplifyuibuilder:Component',
             resource_name,
@@ -293,7 +321,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appId")
-    def app_id(self) -> pulumi.Output[str]:
+    def app_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "app_id")
 
     @property
@@ -318,7 +346,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> pulumi.Output[str]:
+    def environment_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "environment_name")
 
     @property

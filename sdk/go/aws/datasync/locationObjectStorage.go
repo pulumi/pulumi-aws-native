@@ -27,6 +27,8 @@ type LocationObjectStorage struct {
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
+	// X.509 PEM content containing a certificate authority or chain to trust.
+	ServerCertificate pulumi.StringPtrOutput `pulumi:"serverCertificate"`
 	// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
 	ServerHostname pulumi.StringPtrOutput `pulumi:"serverHostname"`
 	// The port that your self-managed server accepts inbound network traffic on.
@@ -89,6 +91,8 @@ type locationObjectStorageArgs struct {
 	BucketName *string `pulumi:"bucketName"`
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey *string `pulumi:"secretKey"`
+	// X.509 PEM content containing a certificate authority or chain to trust.
+	ServerCertificate *string `pulumi:"serverCertificate"`
 	// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
 	ServerHostname *string `pulumi:"serverHostname"`
 	// The port that your self-managed server accepts inbound network traffic on.
@@ -111,6 +115,8 @@ type LocationObjectStorageArgs struct {
 	BucketName pulumi.StringPtrInput
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey pulumi.StringPtrInput
+	// X.509 PEM content containing a certificate authority or chain to trust.
+	ServerCertificate pulumi.StringPtrInput
 	// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
 	ServerHostname pulumi.StringPtrInput
 	// The port that your self-managed server accepts inbound network traffic on.
@@ -188,6 +194,11 @@ func (o LocationObjectStorageOutput) LocationUri() pulumi.StringOutput {
 // Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 func (o LocationObjectStorageOutput) SecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.SecretKey }).(pulumi.StringPtrOutput)
+}
+
+// X.509 PEM content containing a certificate authority or chain to trust.
+func (o LocationObjectStorageOutput) ServerCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.ServerCertificate }).(pulumi.StringPtrOutput)
 }
 
 // The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.

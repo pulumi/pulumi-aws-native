@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetDBProxyEndpointResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBProxyEndpointResult:
-    def __init__(__self__, d_b_proxy_endpoint_arn=None, endpoint=None, is_default=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
+    def __init__(__self__, d_b_proxy_endpoint_arn=None, endpoint=None, is_default=None, tags=None, target_role=None, vpc_id=None, vpc_security_group_ids=None):
         if d_b_proxy_endpoint_arn and not isinstance(d_b_proxy_endpoint_arn, str):
             raise TypeError("Expected argument 'd_b_proxy_endpoint_arn' to be a str")
         pulumi.set(__self__, "d_b_proxy_endpoint_arn", d_b_proxy_endpoint_arn)
@@ -32,6 +33,9 @@ class GetDBProxyEndpointResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if target_role and not isinstance(target_role, str):
+            raise TypeError("Expected argument 'target_role' to be a str")
+        pulumi.set(__self__, "target_role", target_role)
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -72,6 +76,14 @@ class GetDBProxyEndpointResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="targetRole")
+    def target_role(self) -> Optional['DBProxyEndpointTargetRole']:
+        """
+        A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
+        """
+        return pulumi.get(self, "target_role")
+
+    @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
         """
@@ -98,6 +110,7 @@ class AwaitableGetDBProxyEndpointResult(GetDBProxyEndpointResult):
             endpoint=self.endpoint,
             is_default=self.is_default,
             tags=self.tags,
+            target_role=self.target_role,
             vpc_id=self.vpc_id,
             vpc_security_group_ids=self.vpc_security_group_ids)
 
@@ -120,6 +133,7 @@ def get_db_proxy_endpoint(d_b_proxy_endpoint_name: Optional[str] = None,
         endpoint=__ret__.endpoint,
         is_default=__ret__.is_default,
         tags=__ret__.tags,
+        target_role=__ret__.target_role,
         vpc_id=__ret__.vpc_id,
         vpc_security_group_ids=__ret__.vpc_security_group_ids)
 

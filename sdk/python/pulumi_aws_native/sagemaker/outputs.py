@@ -106,6 +106,28 @@ __all__ = [
     'ModelBiasJobDefinitionStoppingCondition',
     'ModelBiasJobDefinitionTag',
     'ModelBiasJobDefinitionVpcConfig',
+    'ModelCardAdditionalInformation',
+    'ModelCardBarChartMetric',
+    'ModelCardBusinessDetails',
+    'ModelCardContent',
+    'ModelCardEvaluationDetail',
+    'ModelCardIntendedUses',
+    'ModelCardLinearGraphMetric',
+    'ModelCardMatrixMetric',
+    'ModelCardMetricGroup',
+    'ModelCardModelOverview',
+    'ModelCardModelOverviewInferenceEnvironmentProperties',
+    'ModelCardObjectiveFunction',
+    'ModelCardObjectiveFunctionFunctionProperties',
+    'ModelCardSecurityConfig',
+    'ModelCardSimpleMetric',
+    'ModelCardTag',
+    'ModelCardTrainingDetails',
+    'ModelCardTrainingDetailsTrainingJobDetailsProperties',
+    'ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties',
+    'ModelCardTrainingHyperParameter',
+    'ModelCardTrainingMetric',
+    'ModelCardUserContext',
     'ModelContainerDefinition',
     'ModelExplainabilityJobDefinitionBatchTransformInput',
     'ModelExplainabilityJobDefinitionClusterConfig',
@@ -222,6 +244,12 @@ __all__ = [
     'ProjectTag',
     'ServiceCatalogProvisionedProductDetailsProperties',
     'ServiceCatalogProvisioningDetailsProperties',
+    'SpaceCustomImage',
+    'SpaceJupyterServerAppSettings',
+    'SpaceKernelGatewayAppSettings',
+    'SpaceResourceSpec',
+    'SpaceSettings',
+    'SpaceTag',
     'UserProfileCustomImage',
     'UserProfileJupyterServerAppSettings',
     'UserProfileKernelGatewayAppSettings',
@@ -1807,7 +1835,7 @@ class DomainCustomImage(dict):
 @pulumi.output_type
 class DomainDefaultSpaceSettings(dict):
     """
-    A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+    A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1838,7 +1866,7 @@ class DomainDefaultSpaceSettings(dict):
                  kernel_gateway_app_settings: Optional['outputs.DomainKernelGatewayAppSettings'] = None,
                  security_groups: Optional[Sequence[str]] = None):
         """
-        A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+        A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
         :param str execution_role: The execution role for the space.
         :param 'DomainJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
         :param 'DomainKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
@@ -4887,6 +4915,1386 @@ class ModelBiasJobDefinitionVpcConfig(dict):
         The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class ModelCardAdditionalInformation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caveatsAndRecommendations":
+            suggest = "caveats_and_recommendations"
+        elif key == "customDetails":
+            suggest = "custom_details"
+        elif key == "ethicalConsiderations":
+            suggest = "ethical_considerations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardAdditionalInformation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardAdditionalInformation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardAdditionalInformation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 caveats_and_recommendations: Optional[str] = None,
+                 custom_details: Optional[Any] = None,
+                 ethical_considerations: Optional[str] = None):
+        """
+        :param str caveats_and_recommendations: Caveats and recommendations for people who might use this model in their applications.
+        :param Any custom_details: customer details.
+        :param str ethical_considerations: Any ethical considerations that the author wants to provide.
+        """
+        if caveats_and_recommendations is not None:
+            pulumi.set(__self__, "caveats_and_recommendations", caveats_and_recommendations)
+        if custom_details is not None:
+            pulumi.set(__self__, "custom_details", custom_details)
+        if ethical_considerations is not None:
+            pulumi.set(__self__, "ethical_considerations", ethical_considerations)
+
+    @property
+    @pulumi.getter(name="caveatsAndRecommendations")
+    def caveats_and_recommendations(self) -> Optional[str]:
+        """
+        Caveats and recommendations for people who might use this model in their applications.
+        """
+        return pulumi.get(self, "caveats_and_recommendations")
+
+    @property
+    @pulumi.getter(name="customDetails")
+    def custom_details(self) -> Optional[Any]:
+        """
+        customer details.
+        """
+        return pulumi.get(self, "custom_details")
+
+    @property
+    @pulumi.getter(name="ethicalConsiderations")
+    def ethical_considerations(self) -> Optional[str]:
+        """
+        Any ethical considerations that the author wants to provide.
+        """
+        return pulumi.get(self, "ethical_considerations")
+
+
+@pulumi.output_type
+class ModelCardBarChartMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "xAxisName":
+            suggest = "x_axis_name"
+        elif key == "yAxisName":
+            suggest = "y_axis_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardBarChartMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardBarChartMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardBarChartMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: 'ModelCardBarChartMetricType',
+                 value: Sequence[float],
+                 notes: Optional[str] = None,
+                 x_axis_name: Optional[Sequence[str]] = None,
+                 y_axis_name: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if x_axis_name is not None:
+            pulumi.set(__self__, "x_axis_name", x_axis_name)
+        if y_axis_name is not None:
+            pulumi.set(__self__, "y_axis_name", y_axis_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'ModelCardBarChartMetricType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Sequence[float]:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter(name="xAxisName")
+    def x_axis_name(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "x_axis_name")
+
+    @property
+    @pulumi.getter(name="yAxisName")
+    def y_axis_name(self) -> Optional[str]:
+        return pulumi.get(self, "y_axis_name")
+
+
+@pulumi.output_type
+class ModelCardBusinessDetails(dict):
+    """
+    Business details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "businessProblem":
+            suggest = "business_problem"
+        elif key == "businessStakeholders":
+            suggest = "business_stakeholders"
+        elif key == "lineOfBusiness":
+            suggest = "line_of_business"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardBusinessDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardBusinessDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardBusinessDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 business_problem: Optional[str] = None,
+                 business_stakeholders: Optional[str] = None,
+                 line_of_business: Optional[str] = None):
+        """
+        Business details.
+        :param str business_problem: What business problem does the model solve?
+        :param str business_stakeholders: Business stakeholders.
+        :param str line_of_business: Line of business.
+        """
+        if business_problem is not None:
+            pulumi.set(__self__, "business_problem", business_problem)
+        if business_stakeholders is not None:
+            pulumi.set(__self__, "business_stakeholders", business_stakeholders)
+        if line_of_business is not None:
+            pulumi.set(__self__, "line_of_business", line_of_business)
+
+    @property
+    @pulumi.getter(name="businessProblem")
+    def business_problem(self) -> Optional[str]:
+        """
+        What business problem does the model solve?
+        """
+        return pulumi.get(self, "business_problem")
+
+    @property
+    @pulumi.getter(name="businessStakeholders")
+    def business_stakeholders(self) -> Optional[str]:
+        """
+        Business stakeholders.
+        """
+        return pulumi.get(self, "business_stakeholders")
+
+    @property
+    @pulumi.getter(name="lineOfBusiness")
+    def line_of_business(self) -> Optional[str]:
+        """
+        Line of business.
+        """
+        return pulumi.get(self, "line_of_business")
+
+
+@pulumi.output_type
+class ModelCardContent(dict):
+    """
+    The content of the model card.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInformation":
+            suggest = "additional_information"
+        elif key == "businessDetails":
+            suggest = "business_details"
+        elif key == "evaluationDetails":
+            suggest = "evaluation_details"
+        elif key == "intendedUses":
+            suggest = "intended_uses"
+        elif key == "modelOverview":
+            suggest = "model_overview"
+        elif key == "trainingDetails":
+            suggest = "training_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardContent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_information: Optional['outputs.ModelCardAdditionalInformation'] = None,
+                 business_details: Optional['outputs.ModelCardBusinessDetails'] = None,
+                 evaluation_details: Optional[Sequence['outputs.ModelCardEvaluationDetail']] = None,
+                 intended_uses: Optional['outputs.ModelCardIntendedUses'] = None,
+                 model_overview: Optional['outputs.ModelCardModelOverview'] = None,
+                 training_details: Optional['outputs.ModelCardTrainingDetails'] = None):
+        """
+        The content of the model card.
+        """
+        if additional_information is not None:
+            pulumi.set(__self__, "additional_information", additional_information)
+        if business_details is not None:
+            pulumi.set(__self__, "business_details", business_details)
+        if evaluation_details is not None:
+            pulumi.set(__self__, "evaluation_details", evaluation_details)
+        if intended_uses is not None:
+            pulumi.set(__self__, "intended_uses", intended_uses)
+        if model_overview is not None:
+            pulumi.set(__self__, "model_overview", model_overview)
+        if training_details is not None:
+            pulumi.set(__self__, "training_details", training_details)
+
+    @property
+    @pulumi.getter(name="additionalInformation")
+    def additional_information(self) -> Optional['outputs.ModelCardAdditionalInformation']:
+        return pulumi.get(self, "additional_information")
+
+    @property
+    @pulumi.getter(name="businessDetails")
+    def business_details(self) -> Optional['outputs.ModelCardBusinessDetails']:
+        return pulumi.get(self, "business_details")
+
+    @property
+    @pulumi.getter(name="evaluationDetails")
+    def evaluation_details(self) -> Optional[Sequence['outputs.ModelCardEvaluationDetail']]:
+        return pulumi.get(self, "evaluation_details")
+
+    @property
+    @pulumi.getter(name="intendedUses")
+    def intended_uses(self) -> Optional['outputs.ModelCardIntendedUses']:
+        return pulumi.get(self, "intended_uses")
+
+    @property
+    @pulumi.getter(name="modelOverview")
+    def model_overview(self) -> Optional['outputs.ModelCardModelOverview']:
+        return pulumi.get(self, "model_overview")
+
+    @property
+    @pulumi.getter(name="trainingDetails")
+    def training_details(self) -> Optional['outputs.ModelCardTrainingDetails']:
+        return pulumi.get(self, "training_details")
+
+
+@pulumi.output_type
+class ModelCardEvaluationDetail(dict):
+    """
+    item of evaluation details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluationJobArn":
+            suggest = "evaluation_job_arn"
+        elif key == "evaluationObservation":
+            suggest = "evaluation_observation"
+        elif key == "metricGroups":
+            suggest = "metric_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardEvaluationDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardEvaluationDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardEvaluationDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 datasets: Optional[Sequence[str]] = None,
+                 evaluation_job_arn: Optional[str] = None,
+                 evaluation_observation: Optional[str] = None,
+                 metadata: Optional[Any] = None,
+                 metric_groups: Optional[Sequence['outputs.ModelCardMetricGroup']] = None):
+        """
+        item of evaluation details
+        :param Any metadata: additional attributes associated with the evaluation results.
+        """
+        pulumi.set(__self__, "name", name)
+        if datasets is not None:
+            pulumi.set(__self__, "datasets", datasets)
+        if evaluation_job_arn is not None:
+            pulumi.set(__self__, "evaluation_job_arn", evaluation_job_arn)
+        if evaluation_observation is not None:
+            pulumi.set(__self__, "evaluation_observation", evaluation_observation)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if metric_groups is not None:
+            pulumi.set(__self__, "metric_groups", metric_groups)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def datasets(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "datasets")
+
+    @property
+    @pulumi.getter(name="evaluationJobArn")
+    def evaluation_job_arn(self) -> Optional[str]:
+        return pulumi.get(self, "evaluation_job_arn")
+
+    @property
+    @pulumi.getter(name="evaluationObservation")
+    def evaluation_observation(self) -> Optional[str]:
+        return pulumi.get(self, "evaluation_observation")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        additional attributes associated with the evaluation results.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="metricGroups")
+    def metric_groups(self) -> Optional[Sequence['outputs.ModelCardMetricGroup']]:
+        return pulumi.get(self, "metric_groups")
+
+
+@pulumi.output_type
+class ModelCardIntendedUses(dict):
+    """
+    Intended usage of model.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "explanationsForRiskRating":
+            suggest = "explanations_for_risk_rating"
+        elif key == "factorsAffectingModelEfficiency":
+            suggest = "factors_affecting_model_efficiency"
+        elif key == "intendedUses":
+            suggest = "intended_uses"
+        elif key == "purposeOfModel":
+            suggest = "purpose_of_model"
+        elif key == "riskRating":
+            suggest = "risk_rating"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardIntendedUses. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardIntendedUses.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardIntendedUses.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 explanations_for_risk_rating: Optional[str] = None,
+                 factors_affecting_model_efficiency: Optional[str] = None,
+                 intended_uses: Optional[str] = None,
+                 purpose_of_model: Optional[str] = None,
+                 risk_rating: Optional['ModelCardRiskRating'] = None):
+        """
+        Intended usage of model.
+        :param str intended_uses: intended use cases.
+        :param str purpose_of_model: Why the model was developed?
+        """
+        if explanations_for_risk_rating is not None:
+            pulumi.set(__self__, "explanations_for_risk_rating", explanations_for_risk_rating)
+        if factors_affecting_model_efficiency is not None:
+            pulumi.set(__self__, "factors_affecting_model_efficiency", factors_affecting_model_efficiency)
+        if intended_uses is not None:
+            pulumi.set(__self__, "intended_uses", intended_uses)
+        if purpose_of_model is not None:
+            pulumi.set(__self__, "purpose_of_model", purpose_of_model)
+        if risk_rating is not None:
+            pulumi.set(__self__, "risk_rating", risk_rating)
+
+    @property
+    @pulumi.getter(name="explanationsForRiskRating")
+    def explanations_for_risk_rating(self) -> Optional[str]:
+        return pulumi.get(self, "explanations_for_risk_rating")
+
+    @property
+    @pulumi.getter(name="factorsAffectingModelEfficiency")
+    def factors_affecting_model_efficiency(self) -> Optional[str]:
+        return pulumi.get(self, "factors_affecting_model_efficiency")
+
+    @property
+    @pulumi.getter(name="intendedUses")
+    def intended_uses(self) -> Optional[str]:
+        """
+        intended use cases.
+        """
+        return pulumi.get(self, "intended_uses")
+
+    @property
+    @pulumi.getter(name="purposeOfModel")
+    def purpose_of_model(self) -> Optional[str]:
+        """
+        Why the model was developed?
+        """
+        return pulumi.get(self, "purpose_of_model")
+
+    @property
+    @pulumi.getter(name="riskRating")
+    def risk_rating(self) -> Optional['ModelCardRiskRating']:
+        return pulumi.get(self, "risk_rating")
+
+
+@pulumi.output_type
+class ModelCardLinearGraphMetric(dict):
+    """
+    Linear graph metric.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "xAxisName":
+            suggest = "x_axis_name"
+        elif key == "yAxisName":
+            suggest = "y_axis_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardLinearGraphMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardLinearGraphMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardLinearGraphMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: 'ModelCardLinearGraphMetricType',
+                 value: Sequence[Sequence[float]],
+                 notes: Optional[str] = None,
+                 x_axis_name: Optional[str] = None,
+                 y_axis_name: Optional[str] = None):
+        """
+        Linear graph metric.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if x_axis_name is not None:
+            pulumi.set(__self__, "x_axis_name", x_axis_name)
+        if y_axis_name is not None:
+            pulumi.set(__self__, "y_axis_name", y_axis_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'ModelCardLinearGraphMetricType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Sequence[Sequence[float]]:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter(name="xAxisName")
+    def x_axis_name(self) -> Optional[str]:
+        return pulumi.get(self, "x_axis_name")
+
+    @property
+    @pulumi.getter(name="yAxisName")
+    def y_axis_name(self) -> Optional[str]:
+        return pulumi.get(self, "y_axis_name")
+
+
+@pulumi.output_type
+class ModelCardMatrixMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "xAxisName":
+            suggest = "x_axis_name"
+        elif key == "yAxisName":
+            suggest = "y_axis_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardMatrixMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardMatrixMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardMatrixMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: 'ModelCardMatrixMetricType',
+                 value: Sequence[Sequence[float]],
+                 notes: Optional[str] = None,
+                 x_axis_name: Optional[Sequence[str]] = None,
+                 y_axis_name: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if x_axis_name is not None:
+            pulumi.set(__self__, "x_axis_name", x_axis_name)
+        if y_axis_name is not None:
+            pulumi.set(__self__, "y_axis_name", y_axis_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'ModelCardMatrixMetricType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Sequence[Sequence[float]]:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter(name="xAxisName")
+    def x_axis_name(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "x_axis_name")
+
+    @property
+    @pulumi.getter(name="yAxisName")
+    def y_axis_name(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "y_axis_name")
+
+
+@pulumi.output_type
+class ModelCardMetricGroup(dict):
+    """
+    item in metric groups
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricData":
+            suggest = "metric_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardMetricGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardMetricGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardMetricGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_data: Sequence[Any],
+                 name: str):
+        """
+        item in metric groups
+        """
+        pulumi.set(__self__, "metric_data", metric_data)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="metricData")
+    def metric_data(self) -> Sequence[Any]:
+        return pulumi.get(self, "metric_data")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ModelCardModelOverview(dict):
+    """
+    Overview about the model.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "algorithmType":
+            suggest = "algorithm_type"
+        elif key == "inferenceEnvironment":
+            suggest = "inference_environment"
+        elif key == "modelArtifact":
+            suggest = "model_artifact"
+        elif key == "modelCreator":
+            suggest = "model_creator"
+        elif key == "modelDescription":
+            suggest = "model_description"
+        elif key == "modelId":
+            suggest = "model_id"
+        elif key == "modelName":
+            suggest = "model_name"
+        elif key == "modelOwner":
+            suggest = "model_owner"
+        elif key == "modelVersion":
+            suggest = "model_version"
+        elif key == "problemType":
+            suggest = "problem_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardModelOverview. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardModelOverview.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardModelOverview.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm_type: Optional[str] = None,
+                 inference_environment: Optional['outputs.ModelCardModelOverviewInferenceEnvironmentProperties'] = None,
+                 model_artifact: Optional[Sequence[str]] = None,
+                 model_creator: Optional[str] = None,
+                 model_description: Optional[str] = None,
+                 model_id: Optional[str] = None,
+                 model_name: Optional[str] = None,
+                 model_owner: Optional[str] = None,
+                 model_version: Optional[float] = None,
+                 problem_type: Optional[str] = None):
+        """
+        Overview about the model.
+        :param str algorithm_type: Algorithm used to solve the problem.
+        :param 'ModelCardModelOverviewInferenceEnvironmentProperties' inference_environment: Overview about the inference.
+        :param Sequence[str] model_artifact: Location of the model artifact.
+        :param str model_creator: Creator of model.
+        :param str model_description: description of model.
+        :param str model_id: SageMaker Model Arn or Non SageMaker Model id.
+        :param str model_name: Name of the model.
+        :param str model_owner: Owner of model.
+        :param float model_version: Version of the model.
+        :param str problem_type: Problem being solved with the model.
+        """
+        if algorithm_type is not None:
+            pulumi.set(__self__, "algorithm_type", algorithm_type)
+        if inference_environment is not None:
+            pulumi.set(__self__, "inference_environment", inference_environment)
+        if model_artifact is not None:
+            pulumi.set(__self__, "model_artifact", model_artifact)
+        if model_creator is not None:
+            pulumi.set(__self__, "model_creator", model_creator)
+        if model_description is not None:
+            pulumi.set(__self__, "model_description", model_description)
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
+        if model_owner is not None:
+            pulumi.set(__self__, "model_owner", model_owner)
+        if model_version is not None:
+            pulumi.set(__self__, "model_version", model_version)
+        if problem_type is not None:
+            pulumi.set(__self__, "problem_type", problem_type)
+
+    @property
+    @pulumi.getter(name="algorithmType")
+    def algorithm_type(self) -> Optional[str]:
+        """
+        Algorithm used to solve the problem.
+        """
+        return pulumi.get(self, "algorithm_type")
+
+    @property
+    @pulumi.getter(name="inferenceEnvironment")
+    def inference_environment(self) -> Optional['outputs.ModelCardModelOverviewInferenceEnvironmentProperties']:
+        """
+        Overview about the inference.
+        """
+        return pulumi.get(self, "inference_environment")
+
+    @property
+    @pulumi.getter(name="modelArtifact")
+    def model_artifact(self) -> Optional[Sequence[str]]:
+        """
+        Location of the model artifact.
+        """
+        return pulumi.get(self, "model_artifact")
+
+    @property
+    @pulumi.getter(name="modelCreator")
+    def model_creator(self) -> Optional[str]:
+        """
+        Creator of model.
+        """
+        return pulumi.get(self, "model_creator")
+
+    @property
+    @pulumi.getter(name="modelDescription")
+    def model_description(self) -> Optional[str]:
+        """
+        description of model.
+        """
+        return pulumi.get(self, "model_description")
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[str]:
+        """
+        SageMaker Model Arn or Non SageMaker Model id.
+        """
+        return pulumi.get(self, "model_id")
+
+    @property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> Optional[str]:
+        """
+        Name of the model.
+        """
+        return pulumi.get(self, "model_name")
+
+    @property
+    @pulumi.getter(name="modelOwner")
+    def model_owner(self) -> Optional[str]:
+        """
+        Owner of model.
+        """
+        return pulumi.get(self, "model_owner")
+
+    @property
+    @pulumi.getter(name="modelVersion")
+    def model_version(self) -> Optional[float]:
+        """
+        Version of the model.
+        """
+        return pulumi.get(self, "model_version")
+
+    @property
+    @pulumi.getter(name="problemType")
+    def problem_type(self) -> Optional[str]:
+        """
+        Problem being solved with the model.
+        """
+        return pulumi.get(self, "problem_type")
+
+
+@pulumi.output_type
+class ModelCardModelOverviewInferenceEnvironmentProperties(dict):
+    """
+    Overview about the inference.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerImage":
+            suggest = "container_image"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardModelOverviewInferenceEnvironmentProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardModelOverviewInferenceEnvironmentProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardModelOverviewInferenceEnvironmentProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_image: Optional[Sequence[str]] = None):
+        """
+        Overview about the inference.
+        :param Sequence[str] container_image: SageMaker inference image uri.
+        """
+        if container_image is not None:
+            pulumi.set(__self__, "container_image", container_image)
+
+    @property
+    @pulumi.getter(name="containerImage")
+    def container_image(self) -> Optional[Sequence[str]]:
+        """
+        SageMaker inference image uri.
+        """
+        return pulumi.get(self, "container_image")
+
+
+@pulumi.output_type
+class ModelCardObjectiveFunction(dict):
+    """
+    the objective function the model will optimize for.
+    """
+    def __init__(__self__, *,
+                 function: Optional['outputs.ModelCardObjectiveFunctionFunctionProperties'] = None,
+                 notes: Optional[str] = None):
+        """
+        the objective function the model will optimize for.
+        :param 'ModelCardObjectiveFunctionFunctionProperties' function: objective function that training job is optimized for.
+        """
+        if function is not None:
+            pulumi.set(__self__, "function", function)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+
+    @property
+    @pulumi.getter
+    def function(self) -> Optional['outputs.ModelCardObjectiveFunctionFunctionProperties']:
+        """
+        objective function that training job is optimized for.
+        """
+        return pulumi.get(self, "function")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        return pulumi.get(self, "notes")
+
+
+@pulumi.output_type
+class ModelCardObjectiveFunctionFunctionProperties(dict):
+    """
+    objective function that training job is optimized for.
+    """
+    def __init__(__self__, *,
+                 condition: Optional[str] = None,
+                 facet: Optional[str] = None,
+                 function: Optional['ModelCardObjectiveFunctionFunctionPropertiesFunction'] = None):
+        """
+        objective function that training job is optimized for.
+        """
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if function is not None:
+            pulumi.set(__self__, "function", function)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[str]:
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def function(self) -> Optional['ModelCardObjectiveFunctionFunctionPropertiesFunction']:
+        return pulumi.get(self, "function")
+
+
+@pulumi.output_type
+class ModelCardSecurityConfig(dict):
+    """
+    An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardSecurityConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardSecurityConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardSecurityConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[str] = None):
+        """
+        An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
+
+
+        :param str kms_key_id: A Key Management Service key ID to use for encrypting a model card.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        A Key Management Service key ID to use for encrypting a model card.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class ModelCardSimpleMetric(dict):
+    """
+    metric data
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "xAxisName":
+            suggest = "x_axis_name"
+        elif key == "yAxisName":
+            suggest = "y_axis_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardSimpleMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardSimpleMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardSimpleMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: 'ModelCardSimpleMetricType',
+                 value: Any,
+                 notes: Optional[str] = None,
+                 x_axis_name: Optional[str] = None,
+                 y_axis_name: Optional[str] = None):
+        """
+        metric data
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if x_axis_name is not None:
+            pulumi.set(__self__, "x_axis_name", x_axis_name)
+        if y_axis_name is not None:
+            pulumi.set(__self__, "y_axis_name", y_axis_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'ModelCardSimpleMetricType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Any:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter(name="xAxisName")
+    def x_axis_name(self) -> Optional[str]:
+        return pulumi.get(self, "x_axis_name")
+
+    @property
+    @pulumi.getter(name="yAxisName")
+    def y_axis_name(self) -> Optional[str]:
+        return pulumi.get(self, "y_axis_name")
+
+
+@pulumi.output_type
+class ModelCardTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The tag key. Tag keys must be unique per resource.
+        :param str value: The tag value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The tag key. Tag keys must be unique per resource.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The tag value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ModelCardTrainingDetails(dict):
+    """
+    Overview about the training.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectiveFunction":
+            suggest = "objective_function"
+        elif key == "trainingJobDetails":
+            suggest = "training_job_details"
+        elif key == "trainingObservations":
+            suggest = "training_observations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardTrainingDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardTrainingDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardTrainingDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 objective_function: Optional['outputs.ModelCardObjectiveFunction'] = None,
+                 training_job_details: Optional['outputs.ModelCardTrainingDetailsTrainingJobDetailsProperties'] = None,
+                 training_observations: Optional[str] = None):
+        """
+        Overview about the training.
+        """
+        if objective_function is not None:
+            pulumi.set(__self__, "objective_function", objective_function)
+        if training_job_details is not None:
+            pulumi.set(__self__, "training_job_details", training_job_details)
+        if training_observations is not None:
+            pulumi.set(__self__, "training_observations", training_observations)
+
+    @property
+    @pulumi.getter(name="objectiveFunction")
+    def objective_function(self) -> Optional['outputs.ModelCardObjectiveFunction']:
+        return pulumi.get(self, "objective_function")
+
+    @property
+    @pulumi.getter(name="trainingJobDetails")
+    def training_job_details(self) -> Optional['outputs.ModelCardTrainingDetailsTrainingJobDetailsProperties']:
+        return pulumi.get(self, "training_job_details")
+
+    @property
+    @pulumi.getter(name="trainingObservations")
+    def training_observations(self) -> Optional[str]:
+        return pulumi.get(self, "training_observations")
+
+
+@pulumi.output_type
+class ModelCardTrainingDetailsTrainingJobDetailsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hyperParameters":
+            suggest = "hyper_parameters"
+        elif key == "trainingArn":
+            suggest = "training_arn"
+        elif key == "trainingDatasets":
+            suggest = "training_datasets"
+        elif key == "trainingEnvironment":
+            suggest = "training_environment"
+        elif key == "trainingMetrics":
+            suggest = "training_metrics"
+        elif key == "userProvidedHyperParameters":
+            suggest = "user_provided_hyper_parameters"
+        elif key == "userProvidedTrainingMetrics":
+            suggest = "user_provided_training_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardTrainingDetailsTrainingJobDetailsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardTrainingDetailsTrainingJobDetailsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardTrainingDetailsTrainingJobDetailsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hyper_parameters: Optional[Sequence['outputs.ModelCardTrainingHyperParameter']] = None,
+                 training_arn: Optional[str] = None,
+                 training_datasets: Optional[Sequence[str]] = None,
+                 training_environment: Optional['outputs.ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties'] = None,
+                 training_metrics: Optional[Sequence['outputs.ModelCardTrainingMetric']] = None,
+                 user_provided_hyper_parameters: Optional[Sequence['outputs.ModelCardTrainingHyperParameter']] = None,
+                 user_provided_training_metrics: Optional[Sequence['outputs.ModelCardTrainingMetric']] = None):
+        """
+        :param str training_arn: SageMaker Training job arn.
+        :param Sequence[str] training_datasets: Location of the model datasets.
+        """
+        if hyper_parameters is not None:
+            pulumi.set(__self__, "hyper_parameters", hyper_parameters)
+        if training_arn is not None:
+            pulumi.set(__self__, "training_arn", training_arn)
+        if training_datasets is not None:
+            pulumi.set(__self__, "training_datasets", training_datasets)
+        if training_environment is not None:
+            pulumi.set(__self__, "training_environment", training_environment)
+        if training_metrics is not None:
+            pulumi.set(__self__, "training_metrics", training_metrics)
+        if user_provided_hyper_parameters is not None:
+            pulumi.set(__self__, "user_provided_hyper_parameters", user_provided_hyper_parameters)
+        if user_provided_training_metrics is not None:
+            pulumi.set(__self__, "user_provided_training_metrics", user_provided_training_metrics)
+
+    @property
+    @pulumi.getter(name="hyperParameters")
+    def hyper_parameters(self) -> Optional[Sequence['outputs.ModelCardTrainingHyperParameter']]:
+        return pulumi.get(self, "hyper_parameters")
+
+    @property
+    @pulumi.getter(name="trainingArn")
+    def training_arn(self) -> Optional[str]:
+        """
+        SageMaker Training job arn.
+        """
+        return pulumi.get(self, "training_arn")
+
+    @property
+    @pulumi.getter(name="trainingDatasets")
+    def training_datasets(self) -> Optional[Sequence[str]]:
+        """
+        Location of the model datasets.
+        """
+        return pulumi.get(self, "training_datasets")
+
+    @property
+    @pulumi.getter(name="trainingEnvironment")
+    def training_environment(self) -> Optional['outputs.ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties']:
+        return pulumi.get(self, "training_environment")
+
+    @property
+    @pulumi.getter(name="trainingMetrics")
+    def training_metrics(self) -> Optional[Sequence['outputs.ModelCardTrainingMetric']]:
+        return pulumi.get(self, "training_metrics")
+
+    @property
+    @pulumi.getter(name="userProvidedHyperParameters")
+    def user_provided_hyper_parameters(self) -> Optional[Sequence['outputs.ModelCardTrainingHyperParameter']]:
+        return pulumi.get(self, "user_provided_hyper_parameters")
+
+    @property
+    @pulumi.getter(name="userProvidedTrainingMetrics")
+    def user_provided_training_metrics(self) -> Optional[Sequence['outputs.ModelCardTrainingMetric']]:
+        return pulumi.get(self, "user_provided_training_metrics")
+
+
+@pulumi.output_type
+class ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerImage":
+            suggest = "container_image"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_image: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] container_image: SageMaker training image uri.
+        """
+        if container_image is not None:
+            pulumi.set(__self__, "container_image", container_image)
+
+    @property
+    @pulumi.getter(name="containerImage")
+    def container_image(self) -> Optional[Sequence[str]]:
+        """
+        SageMaker training image uri.
+        """
+        return pulumi.get(self, "container_image")
+
+
+@pulumi.output_type
+class ModelCardTrainingHyperParameter(dict):
+    """
+    training hyper parameter
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        training hyper parameter
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ModelCardTrainingMetric(dict):
+    """
+    training metric data.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: float,
+                 notes: Optional[str] = None):
+        """
+        training metric data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        return pulumi.get(self, "notes")
+
+
+@pulumi.output_type
+class ModelCardUserContext(dict):
+    """
+    Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainId":
+            suggest = "domain_id"
+        elif key == "userProfileArn":
+            suggest = "user_profile_arn"
+        elif key == "userProfileName":
+            suggest = "user_profile_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardUserContext. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardUserContext.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardUserContext.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_id: Optional[str] = None,
+                 user_profile_arn: Optional[str] = None,
+                 user_profile_name: Optional[str] = None):
+        """
+        Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+        :param str domain_id: The domain associated with the user.
+        :param str user_profile_arn: The Amazon Resource Name (ARN) of the user's profile.
+        :param str user_profile_name: The name of the user's profile.
+        """
+        if domain_id is not None:
+            pulumi.set(__self__, "domain_id", domain_id)
+        if user_profile_arn is not None:
+            pulumi.set(__self__, "user_profile_arn", user_profile_arn)
+        if user_profile_name is not None:
+            pulumi.set(__self__, "user_profile_name", user_profile_name)
+
+    @property
+    @pulumi.getter(name="domainId")
+    def domain_id(self) -> Optional[str]:
+        """
+        The domain associated with the user.
+        """
+        return pulumi.get(self, "domain_id")
+
+    @property
+    @pulumi.getter(name="userProfileArn")
+    def user_profile_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the user's profile.
+        """
+        return pulumi.get(self, "user_profile_arn")
+
+    @property
+    @pulumi.getter(name="userProfileName")
+    def user_profile_name(self) -> Optional[str]:
+        """
+        The name of the user's profile.
+        """
+        return pulumi.get(self, "user_profile_name")
 
 
 @pulumi.output_type
@@ -10931,6 +12339,299 @@ class ServiceCatalogProvisioningDetailsProperties(dict):
         Parameters specified by the administrator that are required for provisioning the product.
         """
         return pulumi.get(self, "provisioning_parameters")
+
+
+@pulumi.output_type
+class SpaceCustomImage(dict):
+    """
+    A custom SageMaker image.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appImageConfigName":
+            suggest = "app_image_config_name"
+        elif key == "imageName":
+            suggest = "image_name"
+        elif key == "imageVersionNumber":
+            suggest = "image_version_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceCustomImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceCustomImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceCustomImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_image_config_name: str,
+                 image_name: str,
+                 image_version_number: Optional[int] = None):
+        """
+        A custom SageMaker image.
+        :param str app_image_config_name: The Name of the AppImageConfig.
+        :param str image_name: The name of the CustomImage. Must be unique to your account.
+        :param int image_version_number: The version number of the CustomImage.
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> str:
+        """
+        The Name of the AppImageConfig.
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> str:
+        """
+        The name of the CustomImage. Must be unique to your account.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[int]:
+        """
+        The version number of the CustomImage.
+        """
+        return pulumi.get(self, "image_version_number")
+
+
+@pulumi.output_type
+class SpaceJupyterServerAppSettings(dict):
+    """
+    The JupyterServer app settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultResourceSpec":
+            suggest = "default_resource_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceJupyterServerAppSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceJupyterServerAppSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceJupyterServerAppSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None):
+        """
+        The JupyterServer app settings.
+        """
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional['outputs.SpaceResourceSpec']:
+        return pulumi.get(self, "default_resource_spec")
+
+
+@pulumi.output_type
+class SpaceKernelGatewayAppSettings(dict):
+    """
+    The kernel gateway app settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customImages":
+            suggest = "custom_images"
+        elif key == "defaultResourceSpec":
+            suggest = "default_resource_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceKernelGatewayAppSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceKernelGatewayAppSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceKernelGatewayAppSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_images: Optional[Sequence['outputs.SpaceCustomImage']] = None,
+                 default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None):
+        """
+        The kernel gateway app settings.
+        :param Sequence['SpaceCustomImage'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
+        :param 'SpaceResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+        """
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[Sequence['outputs.SpaceCustomImage']]:
+        """
+        A list of custom SageMaker images that are configured to run as a KernelGateway app.
+        """
+        return pulumi.get(self, "custom_images")
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional['outputs.SpaceResourceSpec']:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+
+@pulumi.output_type
+class SpaceResourceSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "sageMakerImageArn":
+            suggest = "sage_maker_image_arn"
+        elif key == "sageMakerImageVersionArn":
+            suggest = "sage_maker_image_version_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceResourceSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceResourceSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceResourceSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: Optional['SpaceResourceSpecInstanceType'] = None,
+                 sage_maker_image_arn: Optional[str] = None,
+                 sage_maker_image_version_arn: Optional[str] = None):
+        """
+        :param 'SpaceResourceSpecInstanceType' instance_type: The instance type that the image version runs on.
+        :param str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param str sage_maker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if sage_maker_image_arn is not None:
+            pulumi.set(__self__, "sage_maker_image_arn", sage_maker_image_arn)
+        if sage_maker_image_version_arn is not None:
+            pulumi.set(__self__, "sage_maker_image_version_arn", sage_maker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional['SpaceResourceSpecInstanceType']:
+        """
+        The instance type that the image version runs on.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="sageMakerImageArn")
+    def sage_maker_image_arn(self) -> Optional[str]:
+        """
+        The ARN of the SageMaker image that the image version belongs to.
+        """
+        return pulumi.get(self, "sage_maker_image_arn")
+
+    @property
+    @pulumi.getter(name="sageMakerImageVersionArn")
+    def sage_maker_image_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sage_maker_image_version_arn")
+
+
+@pulumi.output_type
+class SpaceSettings(dict):
+    """
+    A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jupyterServerAppSettings":
+            suggest = "jupyter_server_app_settings"
+        elif key == "kernelGatewayAppSettings":
+            suggest = "kernel_gateway_app_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 jupyter_server_app_settings: Optional['outputs.SpaceJupyterServerAppSettings'] = None,
+                 kernel_gateway_app_settings: Optional['outputs.SpaceKernelGatewayAppSettings'] = None):
+        """
+        A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+        :param 'SpaceJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
+        :param 'SpaceKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
+        """
+        if jupyter_server_app_settings is not None:
+            pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
+        if kernel_gateway_app_settings is not None:
+            pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+
+    @property
+    @pulumi.getter(name="jupyterServerAppSettings")
+    def jupyter_server_app_settings(self) -> Optional['outputs.SpaceJupyterServerAppSettings']:
+        """
+        The Jupyter server's app settings.
+        """
+        return pulumi.get(self, "jupyter_server_app_settings")
+
+    @property
+    @pulumi.getter(name="kernelGatewayAppSettings")
+    def kernel_gateway_app_settings(self) -> Optional['outputs.SpaceKernelGatewayAppSettings']:
+        """
+        The kernel gateway app settings.
+        """
+        return pulumi.get(self, "kernel_gateway_app_settings")
+
+
+@pulumi.output_type
+class SpaceTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

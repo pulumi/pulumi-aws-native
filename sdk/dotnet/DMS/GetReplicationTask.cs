@@ -59,6 +59,7 @@ namespace Pulumi.AwsNative.DMS
         public readonly string? ReplicationTaskIdentifier;
         public readonly string? ReplicationTaskSettings;
         public readonly string? TableMappings;
+        public readonly ImmutableArray<Outputs.ReplicationTaskTag> Tags;
         public readonly string? TaskData;
 
         [OutputConstructor]
@@ -79,6 +80,8 @@ namespace Pulumi.AwsNative.DMS
 
             string? tableMappings,
 
+            ImmutableArray<Outputs.ReplicationTaskTag> tags,
+
             string? taskData)
         {
             CdcStartPosition = cdcStartPosition;
@@ -89,6 +92,7 @@ namespace Pulumi.AwsNative.DMS
             ReplicationTaskIdentifier = replicationTaskIdentifier;
             ReplicationTaskSettings = replicationTaskSettings;
             TableMappings = tableMappings;
+            Tags = tags;
             TaskData = taskData;
         }
     }

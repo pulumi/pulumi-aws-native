@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,7 +18,7 @@ type Profile struct {
 	DurationSeconds           pulumi.Float64PtrOutput  `pulumi:"durationSeconds"`
 	Enabled                   pulumi.BoolPtrOutput     `pulumi:"enabled"`
 	ManagedPolicyArns         pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
-	Name                      pulumi.StringPtrOutput   `pulumi:"name"`
+	Name                      pulumi.StringOutput      `pulumi:"name"`
 	ProfileArn                pulumi.StringOutput      `pulumi:"profileArn"`
 	ProfileId                 pulumi.StringOutput      `pulumi:"profileId"`
 	RequireInstanceProperties pulumi.BoolPtrOutput     `pulumi:"requireInstanceProperties"`
@@ -30,9 +31,12 @@ type Profile struct {
 func NewProfile(ctx *pulumi.Context,
 	name string, args *ProfileArgs, opts ...pulumi.ResourceOption) (*Profile, error) {
 	if args == nil {
-		args = &ProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.RoleArns == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArns'")
+	}
 	var resource Profile
 	err := ctx.RegisterResource("aws-native:rolesanywhere:Profile", name, args, &resource, opts...)
 	if err != nil {
@@ -136,8 +140,8 @@ func (o ProfileOutput) ManagedPolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringArrayOutput { return v.ManagedPolicyArns }).(pulumi.StringArrayOutput)
 }
 
-func (o ProfileOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o ProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o ProfileOutput) ProfileArn() pulumi.StringOutput {

@@ -74,6 +74,10 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly ImmutableArray<Outputs.DBProxyEndpointTagFormat> Tags;
         /// <summary>
+        /// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
+        /// </summary>
+        public readonly Pulumi.AwsNative.RDS.DBProxyEndpointTargetRole? TargetRole;
+        /// <summary>
         /// VPC ID to associate with the new DB proxy endpoint.
         /// </summary>
         public readonly string? VpcId;
@@ -92,6 +96,8 @@ namespace Pulumi.AwsNative.RDS
 
             ImmutableArray<Outputs.DBProxyEndpointTagFormat> tags,
 
+            Pulumi.AwsNative.RDS.DBProxyEndpointTargetRole? targetRole,
+
             string? vpcId,
 
             ImmutableArray<string> vpcSecurityGroupIds)
@@ -100,6 +106,7 @@ namespace Pulumi.AwsNative.RDS
             Endpoint = endpoint;
             IsDefault = isDefault;
             Tags = tags;
+            TargetRole = targetRole;
             VpcId = vpcId;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
         }

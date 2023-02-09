@@ -289,6 +289,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public static RuleGroupStatefulRuleAction Pass { get; } = new RuleGroupStatefulRuleAction("PASS");
         public static RuleGroupStatefulRuleAction Drop { get; } = new RuleGroupStatefulRuleAction("DROP");
         public static RuleGroupStatefulRuleAction Alert { get; } = new RuleGroupStatefulRuleAction("ALERT");
+        public static RuleGroupStatefulRuleAction Reject { get; } = new RuleGroupStatefulRuleAction("REJECT");
 
         public static bool operator ==(RuleGroupStatefulRuleAction left, RuleGroupStatefulRuleAction right) => left.Equals(right);
         public static bool operator !=(RuleGroupStatefulRuleAction left, RuleGroupStatefulRuleAction right) => !left.Equals(right);

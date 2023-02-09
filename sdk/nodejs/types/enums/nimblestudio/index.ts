@@ -9,6 +9,13 @@ export const LaunchProfileAutomaticTerminationMode = {
 
 export type LaunchProfileAutomaticTerminationMode = (typeof LaunchProfileAutomaticTerminationMode)[keyof typeof LaunchProfileAutomaticTerminationMode];
 
+export const LaunchProfileSessionBackupMode = {
+    Automatic: "AUTOMATIC",
+    Deactivated: "DEACTIVATED",
+} as const;
+
+export type LaunchProfileSessionBackupMode = (typeof LaunchProfileSessionBackupMode)[keyof typeof LaunchProfileSessionBackupMode];
+
 export const LaunchProfileSessionPersistenceMode = {
     Deactivated: "DEACTIVATED",
     Activated: "ACTIVATED",

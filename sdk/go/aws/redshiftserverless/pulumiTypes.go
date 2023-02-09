@@ -24,84 +24,6 @@ type NamespaceType struct {
 	Status            *NamespaceStatus     `pulumi:"status"`
 }
 
-// NamespaceTypeInput is an input type that accepts NamespaceTypeArgs and NamespaceTypeOutput values.
-// You can construct a concrete instance of `NamespaceTypeInput` via:
-//
-//	NamespaceTypeArgs{...}
-type NamespaceTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceTypeOutput() NamespaceTypeOutput
-	ToNamespaceTypeOutputWithContext(context.Context) NamespaceTypeOutput
-}
-
-type NamespaceTypeArgs struct {
-	AdminUsername     pulumi.StringPtrInput        `pulumi:"adminUsername"`
-	CreationDate      pulumi.StringPtrInput        `pulumi:"creationDate"`
-	DbName            pulumi.StringPtrInput        `pulumi:"dbName"`
-	DefaultIamRoleArn pulumi.StringPtrInput        `pulumi:"defaultIamRoleArn"`
-	IamRoles          pulumi.StringArrayInput      `pulumi:"iamRoles"`
-	KmsKeyId          pulumi.StringPtrInput        `pulumi:"kmsKeyId"`
-	LogExports        NamespaceLogExportArrayInput `pulumi:"logExports"`
-	NamespaceArn      pulumi.StringPtrInput        `pulumi:"namespaceArn"`
-	NamespaceId       pulumi.StringPtrInput        `pulumi:"namespaceId"`
-	NamespaceName     pulumi.StringPtrInput        `pulumi:"namespaceName"`
-	Status            NamespaceStatusPtrInput      `pulumi:"status"`
-}
-
-func (NamespaceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceType)(nil)).Elem()
-}
-
-func (i NamespaceTypeArgs) ToNamespaceTypeOutput() NamespaceTypeOutput {
-	return i.ToNamespaceTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceTypeArgs) ToNamespaceTypeOutputWithContext(ctx context.Context) NamespaceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTypeOutput)
-}
-
-func (i NamespaceTypeArgs) ToNamespaceTypePtrOutput() NamespaceTypePtrOutput {
-	return i.ToNamespaceTypePtrOutputWithContext(context.Background())
-}
-
-func (i NamespaceTypeArgs) ToNamespaceTypePtrOutputWithContext(ctx context.Context) NamespaceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTypeOutput).ToNamespaceTypePtrOutputWithContext(ctx)
-}
-
-// NamespaceTypePtrInput is an input type that accepts NamespaceTypeArgs, NamespaceTypePtr and NamespaceTypePtrOutput values.
-// You can construct a concrete instance of `NamespaceTypePtrInput` via:
-//
-//	        NamespaceTypeArgs{...}
-//
-//	or:
-//
-//	        nil
-type NamespaceTypePtrInput interface {
-	pulumi.Input
-
-	ToNamespaceTypePtrOutput() NamespaceTypePtrOutput
-	ToNamespaceTypePtrOutputWithContext(context.Context) NamespaceTypePtrOutput
-}
-
-type namespaceTypePtrType NamespaceTypeArgs
-
-func NamespaceTypePtr(v *NamespaceTypeArgs) NamespaceTypePtrInput {
-	return (*namespaceTypePtrType)(v)
-}
-
-func (*namespaceTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamespaceType)(nil)).Elem()
-}
-
-func (i *namespaceTypePtrType) ToNamespaceTypePtrOutput() NamespaceTypePtrOutput {
-	return i.ToNamespaceTypePtrOutputWithContext(context.Background())
-}
-
-func (i *namespaceTypePtrType) ToNamespaceTypePtrOutputWithContext(ctx context.Context) NamespaceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTypePtrOutput)
-}
-
 type NamespaceTypeOutput struct{ *pulumi.OutputState }
 
 func (NamespaceTypeOutput) ElementType() reflect.Type {
@@ -114,16 +36,6 @@ func (o NamespaceTypeOutput) ToNamespaceTypeOutput() NamespaceTypeOutput {
 
 func (o NamespaceTypeOutput) ToNamespaceTypeOutputWithContext(ctx context.Context) NamespaceTypeOutput {
 	return o
-}
-
-func (o NamespaceTypeOutput) ToNamespaceTypePtrOutput() NamespaceTypePtrOutput {
-	return o.ToNamespaceTypePtrOutputWithContext(context.Background())
-}
-
-func (o NamespaceTypeOutput) ToNamespaceTypePtrOutputWithContext(ctx context.Context) NamespaceTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceType) *NamespaceType {
-		return &v
-	}).(NamespaceTypePtrOutput)
 }
 
 func (o NamespaceTypeOutput) AdminUsername() pulumi.StringPtrOutput {
@@ -409,86 +321,6 @@ type WorkgroupType struct {
 	WorkgroupName      *string                    `pulumi:"workgroupName"`
 }
 
-// WorkgroupTypeInput is an input type that accepts WorkgroupTypeArgs and WorkgroupTypeOutput values.
-// You can construct a concrete instance of `WorkgroupTypeInput` via:
-//
-//	WorkgroupTypeArgs{...}
-type WorkgroupTypeInput interface {
-	pulumi.Input
-
-	ToWorkgroupTypeOutput() WorkgroupTypeOutput
-	ToWorkgroupTypeOutputWithContext(context.Context) WorkgroupTypeOutput
-}
-
-type WorkgroupTypeArgs struct {
-	BaseCapacity       pulumi.IntPtrInput                 `pulumi:"baseCapacity"`
-	ConfigParameters   WorkgroupConfigParameterArrayInput `pulumi:"configParameters"`
-	CreationDate       pulumi.StringPtrInput              `pulumi:"creationDate"`
-	Endpoint           WorkgroupEndpointPtrInput          `pulumi:"endpoint"`
-	EnhancedVpcRouting pulumi.BoolPtrInput                `pulumi:"enhancedVpcRouting"`
-	NamespaceName      pulumi.StringPtrInput              `pulumi:"namespaceName"`
-	PubliclyAccessible pulumi.BoolPtrInput                `pulumi:"publiclyAccessible"`
-	SecurityGroupIds   pulumi.StringArrayInput            `pulumi:"securityGroupIds"`
-	Status             WorkgroupStatusPtrInput            `pulumi:"status"`
-	SubnetIds          pulumi.StringArrayInput            `pulumi:"subnetIds"`
-	WorkgroupArn       pulumi.StringPtrInput              `pulumi:"workgroupArn"`
-	WorkgroupId        pulumi.StringPtrInput              `pulumi:"workgroupId"`
-	WorkgroupName      pulumi.StringPtrInput              `pulumi:"workgroupName"`
-}
-
-func (WorkgroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkgroupType)(nil)).Elem()
-}
-
-func (i WorkgroupTypeArgs) ToWorkgroupTypeOutput() WorkgroupTypeOutput {
-	return i.ToWorkgroupTypeOutputWithContext(context.Background())
-}
-
-func (i WorkgroupTypeArgs) ToWorkgroupTypeOutputWithContext(ctx context.Context) WorkgroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupTypeOutput)
-}
-
-func (i WorkgroupTypeArgs) ToWorkgroupTypePtrOutput() WorkgroupTypePtrOutput {
-	return i.ToWorkgroupTypePtrOutputWithContext(context.Background())
-}
-
-func (i WorkgroupTypeArgs) ToWorkgroupTypePtrOutputWithContext(ctx context.Context) WorkgroupTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupTypeOutput).ToWorkgroupTypePtrOutputWithContext(ctx)
-}
-
-// WorkgroupTypePtrInput is an input type that accepts WorkgroupTypeArgs, WorkgroupTypePtr and WorkgroupTypePtrOutput values.
-// You can construct a concrete instance of `WorkgroupTypePtrInput` via:
-//
-//	        WorkgroupTypeArgs{...}
-//
-//	or:
-//
-//	        nil
-type WorkgroupTypePtrInput interface {
-	pulumi.Input
-
-	ToWorkgroupTypePtrOutput() WorkgroupTypePtrOutput
-	ToWorkgroupTypePtrOutputWithContext(context.Context) WorkgroupTypePtrOutput
-}
-
-type workgroupTypePtrType WorkgroupTypeArgs
-
-func WorkgroupTypePtr(v *WorkgroupTypeArgs) WorkgroupTypePtrInput {
-	return (*workgroupTypePtrType)(v)
-}
-
-func (*workgroupTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkgroupType)(nil)).Elem()
-}
-
-func (i *workgroupTypePtrType) ToWorkgroupTypePtrOutput() WorkgroupTypePtrOutput {
-	return i.ToWorkgroupTypePtrOutputWithContext(context.Background())
-}
-
-func (i *workgroupTypePtrType) ToWorkgroupTypePtrOutputWithContext(ctx context.Context) WorkgroupTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupTypePtrOutput)
-}
-
 type WorkgroupTypeOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupTypeOutput) ElementType() reflect.Type {
@@ -501,16 +333,6 @@ func (o WorkgroupTypeOutput) ToWorkgroupTypeOutput() WorkgroupTypeOutput {
 
 func (o WorkgroupTypeOutput) ToWorkgroupTypeOutputWithContext(ctx context.Context) WorkgroupTypeOutput {
 	return o
-}
-
-func (o WorkgroupTypeOutput) ToWorkgroupTypePtrOutput() WorkgroupTypePtrOutput {
-	return o.ToWorkgroupTypePtrOutputWithContext(context.Background())
-}
-
-func (o WorkgroupTypeOutput) ToWorkgroupTypePtrOutputWithContext(ctx context.Context) WorkgroupTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupType) *WorkgroupType {
-		return &v
-	}).(WorkgroupTypePtrOutput)
 }
 
 func (o WorkgroupTypeOutput) BaseCapacity() pulumi.IntPtrOutput {
@@ -812,76 +634,6 @@ type WorkgroupEndpoint struct {
 	VpcEndpoints []WorkgroupVpcEndpoint `pulumi:"vpcEndpoints"`
 }
 
-// WorkgroupEndpointInput is an input type that accepts WorkgroupEndpointArgs and WorkgroupEndpointOutput values.
-// You can construct a concrete instance of `WorkgroupEndpointInput` via:
-//
-//	WorkgroupEndpointArgs{...}
-type WorkgroupEndpointInput interface {
-	pulumi.Input
-
-	ToWorkgroupEndpointOutput() WorkgroupEndpointOutput
-	ToWorkgroupEndpointOutputWithContext(context.Context) WorkgroupEndpointOutput
-}
-
-type WorkgroupEndpointArgs struct {
-	Address      pulumi.StringPtrInput          `pulumi:"address"`
-	Port         pulumi.IntPtrInput             `pulumi:"port"`
-	VpcEndpoints WorkgroupVpcEndpointArrayInput `pulumi:"vpcEndpoints"`
-}
-
-func (WorkgroupEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkgroupEndpoint)(nil)).Elem()
-}
-
-func (i WorkgroupEndpointArgs) ToWorkgroupEndpointOutput() WorkgroupEndpointOutput {
-	return i.ToWorkgroupEndpointOutputWithContext(context.Background())
-}
-
-func (i WorkgroupEndpointArgs) ToWorkgroupEndpointOutputWithContext(ctx context.Context) WorkgroupEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointOutput)
-}
-
-func (i WorkgroupEndpointArgs) ToWorkgroupEndpointPtrOutput() WorkgroupEndpointPtrOutput {
-	return i.ToWorkgroupEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i WorkgroupEndpointArgs) ToWorkgroupEndpointPtrOutputWithContext(ctx context.Context) WorkgroupEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointOutput).ToWorkgroupEndpointPtrOutputWithContext(ctx)
-}
-
-// WorkgroupEndpointPtrInput is an input type that accepts WorkgroupEndpointArgs, WorkgroupEndpointPtr and WorkgroupEndpointPtrOutput values.
-// You can construct a concrete instance of `WorkgroupEndpointPtrInput` via:
-//
-//	        WorkgroupEndpointArgs{...}
-//
-//	or:
-//
-//	        nil
-type WorkgroupEndpointPtrInput interface {
-	pulumi.Input
-
-	ToWorkgroupEndpointPtrOutput() WorkgroupEndpointPtrOutput
-	ToWorkgroupEndpointPtrOutputWithContext(context.Context) WorkgroupEndpointPtrOutput
-}
-
-type workgroupEndpointPtrType WorkgroupEndpointArgs
-
-func WorkgroupEndpointPtr(v *WorkgroupEndpointArgs) WorkgroupEndpointPtrInput {
-	return (*workgroupEndpointPtrType)(v)
-}
-
-func (*workgroupEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkgroupEndpoint)(nil)).Elem()
-}
-
-func (i *workgroupEndpointPtrType) ToWorkgroupEndpointPtrOutput() WorkgroupEndpointPtrOutput {
-	return i.ToWorkgroupEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *workgroupEndpointPtrType) ToWorkgroupEndpointPtrOutputWithContext(ctx context.Context) WorkgroupEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointPtrOutput)
-}
-
 type WorkgroupEndpointOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupEndpointOutput) ElementType() reflect.Type {
@@ -894,16 +646,6 @@ func (o WorkgroupEndpointOutput) ToWorkgroupEndpointOutput() WorkgroupEndpointOu
 
 func (o WorkgroupEndpointOutput) ToWorkgroupEndpointOutputWithContext(ctx context.Context) WorkgroupEndpointOutput {
 	return o
-}
-
-func (o WorkgroupEndpointOutput) ToWorkgroupEndpointPtrOutput() WorkgroupEndpointPtrOutput {
-	return o.ToWorkgroupEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o WorkgroupEndpointOutput) ToWorkgroupEndpointPtrOutputWithContext(ctx context.Context) WorkgroupEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupEndpoint) *WorkgroupEndpoint {
-		return &v
-	}).(WorkgroupEndpointPtrOutput)
 }
 
 func (o WorkgroupEndpointOutput) Address() pulumi.StringPtrOutput {
@@ -974,61 +716,6 @@ type WorkgroupNetworkInterface struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	PrivateIpAddress   *string `pulumi:"privateIpAddress"`
 	SubnetId           *string `pulumi:"subnetId"`
-}
-
-// WorkgroupNetworkInterfaceInput is an input type that accepts WorkgroupNetworkInterfaceArgs and WorkgroupNetworkInterfaceOutput values.
-// You can construct a concrete instance of `WorkgroupNetworkInterfaceInput` via:
-//
-//	WorkgroupNetworkInterfaceArgs{...}
-type WorkgroupNetworkInterfaceInput interface {
-	pulumi.Input
-
-	ToWorkgroupNetworkInterfaceOutput() WorkgroupNetworkInterfaceOutput
-	ToWorkgroupNetworkInterfaceOutputWithContext(context.Context) WorkgroupNetworkInterfaceOutput
-}
-
-type WorkgroupNetworkInterfaceArgs struct {
-	AvailabilityZone   pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	PrivateIpAddress   pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	SubnetId           pulumi.StringPtrInput `pulumi:"subnetId"`
-}
-
-func (WorkgroupNetworkInterfaceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkgroupNetworkInterface)(nil)).Elem()
-}
-
-func (i WorkgroupNetworkInterfaceArgs) ToWorkgroupNetworkInterfaceOutput() WorkgroupNetworkInterfaceOutput {
-	return i.ToWorkgroupNetworkInterfaceOutputWithContext(context.Background())
-}
-
-func (i WorkgroupNetworkInterfaceArgs) ToWorkgroupNetworkInterfaceOutputWithContext(ctx context.Context) WorkgroupNetworkInterfaceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupNetworkInterfaceOutput)
-}
-
-// WorkgroupNetworkInterfaceArrayInput is an input type that accepts WorkgroupNetworkInterfaceArray and WorkgroupNetworkInterfaceArrayOutput values.
-// You can construct a concrete instance of `WorkgroupNetworkInterfaceArrayInput` via:
-//
-//	WorkgroupNetworkInterfaceArray{ WorkgroupNetworkInterfaceArgs{...} }
-type WorkgroupNetworkInterfaceArrayInput interface {
-	pulumi.Input
-
-	ToWorkgroupNetworkInterfaceArrayOutput() WorkgroupNetworkInterfaceArrayOutput
-	ToWorkgroupNetworkInterfaceArrayOutputWithContext(context.Context) WorkgroupNetworkInterfaceArrayOutput
-}
-
-type WorkgroupNetworkInterfaceArray []WorkgroupNetworkInterfaceInput
-
-func (WorkgroupNetworkInterfaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkgroupNetworkInterface)(nil)).Elem()
-}
-
-func (i WorkgroupNetworkInterfaceArray) ToWorkgroupNetworkInterfaceArrayOutput() WorkgroupNetworkInterfaceArrayOutput {
-	return i.ToWorkgroupNetworkInterfaceArrayOutputWithContext(context.Background())
-}
-
-func (i WorkgroupNetworkInterfaceArray) ToWorkgroupNetworkInterfaceArrayOutputWithContext(ctx context.Context) WorkgroupNetworkInterfaceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupNetworkInterfaceArrayOutput)
 }
 
 type WorkgroupNetworkInterfaceOutput struct{ *pulumi.OutputState }
@@ -1187,60 +874,6 @@ type WorkgroupVpcEndpoint struct {
 	VpcId             *string                     `pulumi:"vpcId"`
 }
 
-// WorkgroupVpcEndpointInput is an input type that accepts WorkgroupVpcEndpointArgs and WorkgroupVpcEndpointOutput values.
-// You can construct a concrete instance of `WorkgroupVpcEndpointInput` via:
-//
-//	WorkgroupVpcEndpointArgs{...}
-type WorkgroupVpcEndpointInput interface {
-	pulumi.Input
-
-	ToWorkgroupVpcEndpointOutput() WorkgroupVpcEndpointOutput
-	ToWorkgroupVpcEndpointOutputWithContext(context.Context) WorkgroupVpcEndpointOutput
-}
-
-type WorkgroupVpcEndpointArgs struct {
-	NetworkInterfaces WorkgroupNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
-	VpcEndpointId     pulumi.StringPtrInput               `pulumi:"vpcEndpointId"`
-	VpcId             pulumi.StringPtrInput               `pulumi:"vpcId"`
-}
-
-func (WorkgroupVpcEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkgroupVpcEndpoint)(nil)).Elem()
-}
-
-func (i WorkgroupVpcEndpointArgs) ToWorkgroupVpcEndpointOutput() WorkgroupVpcEndpointOutput {
-	return i.ToWorkgroupVpcEndpointOutputWithContext(context.Background())
-}
-
-func (i WorkgroupVpcEndpointArgs) ToWorkgroupVpcEndpointOutputWithContext(ctx context.Context) WorkgroupVpcEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupVpcEndpointOutput)
-}
-
-// WorkgroupVpcEndpointArrayInput is an input type that accepts WorkgroupVpcEndpointArray and WorkgroupVpcEndpointArrayOutput values.
-// You can construct a concrete instance of `WorkgroupVpcEndpointArrayInput` via:
-//
-//	WorkgroupVpcEndpointArray{ WorkgroupVpcEndpointArgs{...} }
-type WorkgroupVpcEndpointArrayInput interface {
-	pulumi.Input
-
-	ToWorkgroupVpcEndpointArrayOutput() WorkgroupVpcEndpointArrayOutput
-	ToWorkgroupVpcEndpointArrayOutputWithContext(context.Context) WorkgroupVpcEndpointArrayOutput
-}
-
-type WorkgroupVpcEndpointArray []WorkgroupVpcEndpointInput
-
-func (WorkgroupVpcEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkgroupVpcEndpoint)(nil)).Elem()
-}
-
-func (i WorkgroupVpcEndpointArray) ToWorkgroupVpcEndpointArrayOutput() WorkgroupVpcEndpointArrayOutput {
-	return i.ToWorkgroupVpcEndpointArrayOutputWithContext(context.Background())
-}
-
-func (i WorkgroupVpcEndpointArray) ToWorkgroupVpcEndpointArrayOutputWithContext(ctx context.Context) WorkgroupVpcEndpointArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupVpcEndpointArrayOutput)
-}
-
 type WorkgroupVpcEndpointOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupVpcEndpointOutput) ElementType() reflect.Type {
@@ -1288,22 +921,12 @@ func (o WorkgroupVpcEndpointArrayOutput) Index(i pulumi.IntInput) WorkgroupVpcEn
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTypeInput)(nil)).Elem(), NamespaceTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTypePtrInput)(nil)).Elem(), NamespaceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTagInput)(nil)).Elem(), NamespaceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTagArrayInput)(nil)).Elem(), NamespaceTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupTypeInput)(nil)).Elem(), WorkgroupTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupTypePtrInput)(nil)).Elem(), WorkgroupTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigParameterInput)(nil)).Elem(), WorkgroupConfigParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigParameterArrayInput)(nil)).Elem(), WorkgroupConfigParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupEndpointInput)(nil)).Elem(), WorkgroupEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupEndpointPtrInput)(nil)).Elem(), WorkgroupEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupNetworkInterfaceInput)(nil)).Elem(), WorkgroupNetworkInterfaceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupNetworkInterfaceArrayInput)(nil)).Elem(), WorkgroupNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupTagInput)(nil)).Elem(), WorkgroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupTagArrayInput)(nil)).Elem(), WorkgroupTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupVpcEndpointInput)(nil)).Elem(), WorkgroupVpcEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupVpcEndpointArrayInput)(nil)).Elem(), WorkgroupVpcEndpointArray{})
 	pulumi.RegisterOutputType(NamespaceTypeOutput{})
 	pulumi.RegisterOutputType(NamespaceTypePtrOutput{})
 	pulumi.RegisterOutputType(NamespaceTagOutput{})

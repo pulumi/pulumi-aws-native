@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = ['EndpointAccessArgs', 'EndpointAccess']
 
@@ -20,9 +19,7 @@ class EndpointAccessArgs:
                  endpoint_name: pulumi.Input[str],
                  subnet_group_name: pulumi.Input[str],
                  vpc_security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 resource_owner: Optional[pulumi.Input[str]] = None,
-                 vpc_endpoint: Optional[pulumi.Input['VpcEndpointPropertiesArgs']] = None,
-                 vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcSecurityGroupArgs']]]] = None):
+                 resource_owner: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EndpointAccess resource.
         :param pulumi.Input[str] cluster_identifier: A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
@@ -30,8 +27,6 @@ class EndpointAccessArgs:
         :param pulumi.Input[str] subnet_group_name: The subnet group name where Amazon Redshift chooses to deploy the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of vpc security group ids to apply to the created endpoint access.
         :param pulumi.Input[str] resource_owner: The AWS account ID of the owner of the cluster.
-        :param pulumi.Input['VpcEndpointPropertiesArgs'] vpc_endpoint: The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcSecurityGroupArgs']]] vpc_security_groups: A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "endpoint_name", endpoint_name)
@@ -39,10 +34,6 @@ class EndpointAccessArgs:
         pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
         if resource_owner is not None:
             pulumi.set(__self__, "resource_owner", resource_owner)
-        if vpc_endpoint is not None:
-            pulumi.set(__self__, "vpc_endpoint", vpc_endpoint)
-        if vpc_security_groups is not None:
-            pulumi.set(__self__, "vpc_security_groups", vpc_security_groups)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -104,30 +95,6 @@ class EndpointAccessArgs:
     def resource_owner(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_owner", value)
 
-    @property
-    @pulumi.getter(name="vpcEndpoint")
-    def vpc_endpoint(self) -> Optional[pulumi.Input['VpcEndpointPropertiesArgs']]:
-        """
-        The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-        """
-        return pulumi.get(self, "vpc_endpoint")
-
-    @vpc_endpoint.setter
-    def vpc_endpoint(self, value: Optional[pulumi.Input['VpcEndpointPropertiesArgs']]):
-        pulumi.set(self, "vpc_endpoint", value)
-
-    @property
-    @pulumi.getter(name="vpcSecurityGroups")
-    def vpc_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcSecurityGroupArgs']]]]:
-        """
-        A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
-        """
-        return pulumi.get(self, "vpc_security_groups")
-
-    @vpc_security_groups.setter
-    def vpc_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcSecurityGroupArgs']]]]):
-        pulumi.set(self, "vpc_security_groups", value)
-
 
 class EndpointAccess(pulumi.CustomResource):
     @overload
@@ -138,9 +105,7 @@ class EndpointAccess(pulumi.CustomResource):
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  resource_owner: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 vpc_endpoint: Optional[pulumi.Input[pulumi.InputType['VpcEndpointPropertiesArgs']]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcSecurityGroupArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for a Redshift-managed VPC endpoint.
@@ -151,9 +116,7 @@ class EndpointAccess(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_name: The name of the endpoint.
         :param pulumi.Input[str] resource_owner: The AWS account ID of the owner of the cluster.
         :param pulumi.Input[str] subnet_group_name: The subnet group name where Amazon Redshift chooses to deploy the endpoint.
-        :param pulumi.Input[pulumi.InputType['VpcEndpointPropertiesArgs']] vpc_endpoint: The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of vpc security group ids to apply to the created endpoint access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcSecurityGroupArgs']]]] vpc_security_groups: A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
         """
         ...
     @overload
@@ -183,9 +146,7 @@ class EndpointAccess(pulumi.CustomResource):
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  resource_owner: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 vpc_endpoint: Optional[pulumi.Input[pulumi.InputType['VpcEndpointPropertiesArgs']]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcSecurityGroupArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -205,15 +166,15 @@ class EndpointAccess(pulumi.CustomResource):
             if subnet_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_group_name'")
             __props__.__dict__["subnet_group_name"] = subnet_group_name
-            __props__.__dict__["vpc_endpoint"] = vpc_endpoint
             if vpc_security_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_security_group_ids'")
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
-            __props__.__dict__["vpc_security_groups"] = vpc_security_groups
             __props__.__dict__["address"] = None
             __props__.__dict__["endpoint_create_time"] = None
             __props__.__dict__["endpoint_status"] = None
             __props__.__dict__["port"] = None
+            __props__.__dict__["vpc_endpoint"] = None
+            __props__.__dict__["vpc_security_groups"] = None
         super(EndpointAccess, __self__).__init__(
             'aws-native:redshift:EndpointAccess',
             resource_name,
@@ -315,7 +276,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcEndpoint")
-    def vpc_endpoint(self) -> pulumi.Output[Optional['outputs.VpcEndpointProperties']]:
+    def vpc_endpoint(self) -> pulumi.Output['outputs.VpcEndpointProperties']:
         """
         The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
         """
@@ -331,7 +292,7 @@ class EndpointAccess(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroups")
-    def vpc_security_groups(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointAccessVpcSecurityGroup']]]:
+    def vpc_security_groups(self) -> pulumi.Output[Sequence['outputs.EndpointAccessVpcSecurityGroup']]:
         """
         A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
         """

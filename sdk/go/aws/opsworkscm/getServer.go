@@ -25,14 +25,12 @@ type LookupServerArgs struct {
 }
 
 type LookupServerResult struct {
-	Arn                        *string     `pulumi:"arn"`
-	BackupRetentionCount       *int        `pulumi:"backupRetentionCount"`
-	DisableAutomatedBackup     *bool       `pulumi:"disableAutomatedBackup"`
-	Endpoint                   *string     `pulumi:"endpoint"`
-	Id                         *string     `pulumi:"id"`
-	PreferredBackupWindow      *string     `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow *string     `pulumi:"preferredMaintenanceWindow"`
-	Tags                       []ServerTag `pulumi:"tags"`
+	Arn                        *string `pulumi:"arn"`
+	BackupRetentionCount       *int    `pulumi:"backupRetentionCount"`
+	DisableAutomatedBackup     *bool   `pulumi:"disableAutomatedBackup"`
+	Endpoint                   *string `pulumi:"endpoint"`
+	PreferredBackupWindow      *string `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 }
 
 func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts ...pulumi.InvokeOption) LookupServerResultOutput {
@@ -86,20 +84,12 @@ func (o LookupServerResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupServerResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupServerResultOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupServerResultOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupServerResultOutput) Tags() ServerTagArrayOutput {
-	return o.ApplyT(func(v LookupServerResult) []ServerTag { return v.Tags }).(ServerTagArrayOutput)
 }
 
 func init() {

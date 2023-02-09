@@ -15,8 +15,12 @@ type IPAM struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the IPAM.
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Id of the default association to the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryAssociationId pulumi.StringPtrOutput `pulumi:"defaultResourceDiscoveryAssociationId"`
+	// The Id of the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryId pulumi.StringPtrOutput `pulumi:"defaultResourceDiscoveryId"`
+	Description                pulumi.StringPtrOutput `pulumi:"description"`
 	// Id of the IPAM.
 	IpamId pulumi.StringOutput `pulumi:"ipamId"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
@@ -25,6 +29,8 @@ type IPAM struct {
 	PrivateDefaultScopeId pulumi.StringOutput `pulumi:"privateDefaultScopeId"`
 	// The Id of the default scope for publicly routable IP space, created with this IPAM.
 	PublicDefaultScopeId pulumi.StringOutput `pulumi:"publicDefaultScopeId"`
+	// The count of resource discoveries associated with this IPAM.
+	ResourceDiscoveryAssociationCount pulumi.IntPtrOutput `pulumi:"resourceDiscoveryAssociationCount"`
 	// The number of scopes that currently exist in this IPAM.
 	ScopeCount pulumi.IntOutput `pulumi:"scopeCount"`
 	// An array of key-value pairs to apply to this resource.
@@ -70,18 +76,30 @@ func (IPAMState) ElementType() reflect.Type {
 }
 
 type ipamArgs struct {
-	Description *string `pulumi:"description"`
+	// The Id of the default association to the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryAssociationId *string `pulumi:"defaultResourceDiscoveryAssociationId"`
+	// The Id of the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryId *string `pulumi:"defaultResourceDiscoveryId"`
+	Description                *string `pulumi:"description"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions []IPAMIpamOperatingRegion `pulumi:"operatingRegions"`
+	// The count of resource discoveries associated with this IPAM.
+	ResourceDiscoveryAssociationCount *int `pulumi:"resourceDiscoveryAssociationCount"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []IPAMTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IPAM resource.
 type IPAMArgs struct {
-	Description pulumi.StringPtrInput
+	// The Id of the default association to the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryAssociationId pulumi.StringPtrInput
+	// The Id of the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryId pulumi.StringPtrInput
+	Description                pulumi.StringPtrInput
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions IPAMIpamOperatingRegionArrayInput
+	// The count of resource discoveries associated with this IPAM.
+	ResourceDiscoveryAssociationCount pulumi.IntPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags IPAMTagArrayInput
 }
@@ -128,6 +146,16 @@ func (o IPAMOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The Id of the default association to the default resource discovery, created with this IPAM.
+func (o IPAMOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPAM) pulumi.StringPtrOutput { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringPtrOutput)
+}
+
+// The Id of the default resource discovery, created with this IPAM.
+func (o IPAMOutput) DefaultResourceDiscoveryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPAM) pulumi.StringPtrOutput { return v.DefaultResourceDiscoveryId }).(pulumi.StringPtrOutput)
+}
+
 func (o IPAMOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IPAM) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -150,6 +178,11 @@ func (o IPAMOutput) PrivateDefaultScopeId() pulumi.StringOutput {
 // The Id of the default scope for publicly routable IP space, created with this IPAM.
 func (o IPAMOutput) PublicDefaultScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IPAM) pulumi.StringOutput { return v.PublicDefaultScopeId }).(pulumi.StringOutput)
+}
+
+// The count of resource discoveries associated with this IPAM.
+func (o IPAMOutput) ResourceDiscoveryAssociationCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IPAM) pulumi.IntPtrOutput { return v.ResourceDiscoveryAssociationCount }).(pulumi.IntPtrOutput)
 }
 
 // The number of scopes that currently exist in this IPAM.

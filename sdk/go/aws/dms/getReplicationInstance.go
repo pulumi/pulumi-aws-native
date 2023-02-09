@@ -25,19 +25,20 @@ type LookupReplicationInstanceArgs struct {
 }
 
 type LookupReplicationInstanceResult struct {
-	AllocatedStorage                      *int     `pulumi:"allocatedStorage"`
-	AllowMajorVersionUpgrade              *bool    `pulumi:"allowMajorVersionUpgrade"`
-	AutoMinorVersionUpgrade               *bool    `pulumi:"autoMinorVersionUpgrade"`
-	AvailabilityZone                      *string  `pulumi:"availabilityZone"`
-	EngineVersion                         *string  `pulumi:"engineVersion"`
-	Id                                    *string  `pulumi:"id"`
-	MultiAZ                               *bool    `pulumi:"multiAZ"`
-	PreferredMaintenanceWindow            *string  `pulumi:"preferredMaintenanceWindow"`
-	ReplicationInstanceClass              *string  `pulumi:"replicationInstanceClass"`
-	ReplicationInstanceIdentifier         *string  `pulumi:"replicationInstanceIdentifier"`
-	ReplicationInstancePrivateIpAddresses *string  `pulumi:"replicationInstancePrivateIpAddresses"`
-	ReplicationInstancePublicIpAddresses  *string  `pulumi:"replicationInstancePublicIpAddresses"`
-	VpcSecurityGroupIds                   []string `pulumi:"vpcSecurityGroupIds"`
+	AllocatedStorage                      *int                     `pulumi:"allocatedStorage"`
+	AllowMajorVersionUpgrade              *bool                    `pulumi:"allowMajorVersionUpgrade"`
+	AutoMinorVersionUpgrade               *bool                    `pulumi:"autoMinorVersionUpgrade"`
+	AvailabilityZone                      *string                  `pulumi:"availabilityZone"`
+	EngineVersion                         *string                  `pulumi:"engineVersion"`
+	Id                                    *string                  `pulumi:"id"`
+	MultiAZ                               *bool                    `pulumi:"multiAZ"`
+	PreferredMaintenanceWindow            *string                  `pulumi:"preferredMaintenanceWindow"`
+	ReplicationInstanceClass              *string                  `pulumi:"replicationInstanceClass"`
+	ReplicationInstanceIdentifier         *string                  `pulumi:"replicationInstanceIdentifier"`
+	ReplicationInstancePrivateIpAddresses *string                  `pulumi:"replicationInstancePrivateIpAddresses"`
+	ReplicationInstancePublicIpAddresses  *string                  `pulumi:"replicationInstancePublicIpAddresses"`
+	Tags                                  []ReplicationInstanceTag `pulumi:"tags"`
+	VpcSecurityGroupIds                   []string                 `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupReplicationInstanceOutput(ctx *pulumi.Context, args LookupReplicationInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationInstanceResultOutput {
@@ -121,6 +122,10 @@ func (o LookupReplicationInstanceResultOutput) ReplicationInstancePrivateIpAddre
 
 func (o LookupReplicationInstanceResultOutput) ReplicationInstancePublicIpAddresses() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) *string { return v.ReplicationInstancePublicIpAddresses }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupReplicationInstanceResultOutput) Tags() ReplicationInstanceTagArrayOutput {
+	return o.ApplyT(func(v LookupReplicationInstanceResult) []ReplicationInstanceTag { return v.Tags }).(ReplicationInstanceTagArrayOutput)
 }
 
 func (o LookupReplicationInstanceResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

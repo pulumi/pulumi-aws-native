@@ -20,6 +20,7 @@ export interface GetApiMappingArgs {
 }
 
 export interface GetApiMappingResult {
+    readonly apiId?: string;
     readonly apiMappingKey?: string;
     readonly id?: string;
     readonly stage?: string;

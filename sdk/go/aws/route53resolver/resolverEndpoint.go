@@ -26,6 +26,7 @@ type ResolverEndpoint struct {
 	OutpostArn            pulumi.StringPtrOutput                      `pulumi:"outpostArn"`
 	PreferredInstanceType pulumi.StringPtrOutput                      `pulumi:"preferredInstanceType"`
 	ResolverEndpointId    pulumi.StringOutput                         `pulumi:"resolverEndpointId"`
+	ResolverEndpointType  pulumi.StringPtrOutput                      `pulumi:"resolverEndpointType"`
 	SecurityGroupIds      pulumi.StringArrayOutput                    `pulumi:"securityGroupIds"`
 	Tags                  ResolverEndpointTagArrayOutput              `pulumi:"tags"`
 }
@@ -83,6 +84,7 @@ type resolverEndpointArgs struct {
 	Name                  *string                            `pulumi:"name"`
 	OutpostArn            *string                            `pulumi:"outpostArn"`
 	PreferredInstanceType *string                            `pulumi:"preferredInstanceType"`
+	ResolverEndpointType  *string                            `pulumi:"resolverEndpointType"`
 	SecurityGroupIds      []string                           `pulumi:"securityGroupIds"`
 	Tags                  []ResolverEndpointTag              `pulumi:"tags"`
 }
@@ -94,6 +96,7 @@ type ResolverEndpointArgs struct {
 	Name                  pulumi.StringPtrInput
 	OutpostArn            pulumi.StringPtrInput
 	PreferredInstanceType pulumi.StringPtrInput
+	ResolverEndpointType  pulumi.StringPtrInput
 	SecurityGroupIds      pulumi.StringArrayInput
 	Tags                  ResolverEndpointTagArrayInput
 }
@@ -169,6 +172,10 @@ func (o ResolverEndpointOutput) PreferredInstanceType() pulumi.StringPtrOutput {
 
 func (o ResolverEndpointOutput) ResolverEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.ResolverEndpointId }).(pulumi.StringOutput)
+}
+
+func (o ResolverEndpointOutput) ResolverEndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringPtrOutput { return v.ResolverEndpointType }).(pulumi.StringPtrOutput)
 }
 
 func (o ResolverEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {

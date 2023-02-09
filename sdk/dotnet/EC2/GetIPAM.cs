@@ -61,6 +61,14 @@ namespace Pulumi.AwsNative.EC2
         /// The Amazon Resource Name (ARN) of the IPAM.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The Id of the default association to the default resource discovery, created with this IPAM.
+        /// </summary>
+        public readonly string? DefaultResourceDiscoveryAssociationId;
+        /// <summary>
+        /// The Id of the default resource discovery, created with this IPAM.
+        /// </summary>
+        public readonly string? DefaultResourceDiscoveryId;
         public readonly string? Description;
         /// <summary>
         /// Id of the IPAM.
@@ -79,6 +87,10 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         public readonly string? PublicDefaultScopeId;
         /// <summary>
+        /// The count of resource discoveries associated with this IPAM.
+        /// </summary>
+        public readonly int? ResourceDiscoveryAssociationCount;
+        /// <summary>
         /// The number of scopes that currently exist in this IPAM.
         /// </summary>
         public readonly int? ScopeCount;
@@ -91,6 +103,10 @@ namespace Pulumi.AwsNative.EC2
         private GetIPAMResult(
             string? arn,
 
+            string? defaultResourceDiscoveryAssociationId,
+
+            string? defaultResourceDiscoveryId,
+
             string? description,
 
             string? ipamId,
@@ -101,16 +117,21 @@ namespace Pulumi.AwsNative.EC2
 
             string? publicDefaultScopeId,
 
+            int? resourceDiscoveryAssociationCount,
+
             int? scopeCount,
 
             ImmutableArray<Outputs.IPAMTag> tags)
         {
             Arn = arn;
+            DefaultResourceDiscoveryAssociationId = defaultResourceDiscoveryAssociationId;
+            DefaultResourceDiscoveryId = defaultResourceDiscoveryId;
             Description = description;
             IpamId = ipamId;
             OperatingRegions = operatingRegions;
             PrivateDefaultScopeId = privateDefaultScopeId;
             PublicDefaultScopeId = publicDefaultScopeId;
+            ResourceDiscoveryAssociationCount = resourceDiscoveryAssociationCount;
             ScopeCount = scopeCount;
             Tags = tags;
         }

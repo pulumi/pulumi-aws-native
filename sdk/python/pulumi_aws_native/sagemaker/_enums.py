@@ -26,6 +26,14 @@ __all__ = [
     'ModelBiasJobDefinitionEndpointInputS3DataDistributionType',
     'ModelBiasJobDefinitionEndpointInputS3InputMode',
     'ModelBiasJobDefinitionS3OutputS3UploadMode',
+    'ModelCardBarChartMetricType',
+    'ModelCardLinearGraphMetricType',
+    'ModelCardMatrixMetricType',
+    'ModelCardObjectiveFunctionFunctionPropertiesFunction',
+    'ModelCardProcessingStatus',
+    'ModelCardRiskRating',
+    'ModelCardSimpleMetricType',
+    'ModelCardStatus',
     'ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType',
     'ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode',
     'ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType',
@@ -55,6 +63,7 @@ __all__ = [
     'MonitoringScheduleS3OutputS3UploadMode',
     'MonitoringScheduleStatus',
     'ProjectStatus',
+    'SpaceResourceSpecInstanceType',
     'UserProfileRStudioServerProAppSettingsAccessStatus',
     'UserProfileRStudioServerProAppSettingsUserGroup',
     'UserProfileResourceSpecInstanceType',
@@ -341,6 +350,62 @@ class ModelBiasJobDefinitionS3OutputS3UploadMode(str, Enum):
     END_OF_JOB = "EndOfJob"
 
 
+class ModelCardBarChartMetricType(str, Enum):
+    BAR_CHART = "bar_chart"
+
+
+class ModelCardLinearGraphMetricType(str, Enum):
+    LINEAR_GRAPH = "linear_graph"
+
+
+class ModelCardMatrixMetricType(str, Enum):
+    MATRIX = "matrix"
+
+
+class ModelCardObjectiveFunctionFunctionPropertiesFunction(str, Enum):
+    MAXIMIZE = "Maximize"
+    MINIMIZE = "Minimize"
+
+
+class ModelCardProcessingStatus(str, Enum):
+    """
+    The processing status of model card deletion. The ModelCardProcessingStatus updates throughout the different deletion steps.
+    """
+    UNSET_VALUE = "UnsetValue"
+    DELETE_IN_PROGRESS = "DeleteInProgress"
+    DELETE_PENDING = "DeletePending"
+    CONTENT_DELETED = "ContentDeleted"
+    EXPORT_JOBS_DELETED = "ExportJobsDeleted"
+    DELETE_COMPLETED = "DeleteCompleted"
+    DELETE_FAILED = "DeleteFailed"
+
+
+class ModelCardRiskRating(str, Enum):
+    """
+    Risk rating of model.
+    """
+    HIGH = "High"
+    MEDIUM = "Medium"
+    LOW = "Low"
+    UNKNOWN = "Unknown"
+
+
+class ModelCardSimpleMetricType(str, Enum):
+    NUMBER = "number"
+    STRING = "string"
+    BOOLEAN = "boolean"
+
+
+class ModelCardStatus(str, Enum):
+    """
+    The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
+    """
+    DRAFT = "Draft"
+    PENDING_REVIEW = "PendingReview"
+    APPROVED = "Approved"
+    ARCHIVED = "Archived"
+
+
 class ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType(str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -599,6 +664,69 @@ class ProjectStatus(str, Enum):
     DELETE_IN_PROGRESS = "DeleteInProgress"
     DELETE_FAILED = "DeleteFailed"
     DELETE_COMPLETED = "DeleteCompleted"
+
+
+class SpaceResourceSpecInstanceType(str, Enum):
+    """
+    The instance type that the image version runs on.
+    """
+    SYSTEM = "system"
+    ML_T3_MICRO = "ml.t3.micro"
+    ML_T3_SMALL = "ml.t3.small"
+    ML_T3_MEDIUM = "ml.t3.medium"
+    ML_T3_LARGE = "ml.t3.large"
+    ML_T3_XLARGE = "ml.t3.xlarge"
+    ML_T32XLARGE = "ml.t3.2xlarge"
+    ML_M5_LARGE = "ml.m5.large"
+    ML_M5_XLARGE = "ml.m5.xlarge"
+    ML_M52XLARGE = "ml.m5.2xlarge"
+    ML_M54XLARGE = "ml.m5.4xlarge"
+    ML_M58XLARGE = "ml.m5.8xlarge"
+    ML_M512XLARGE = "ml.m5.12xlarge"
+    ML_M516XLARGE = "ml.m5.16xlarge"
+    ML_M524XLARGE = "ml.m5.24xlarge"
+    ML_C5_LARGE = "ml.c5.large"
+    ML_C5_XLARGE = "ml.c5.xlarge"
+    ML_C52XLARGE = "ml.c5.2xlarge"
+    ML_C54XLARGE = "ml.c5.4xlarge"
+    ML_C59XLARGE = "ml.c5.9xlarge"
+    ML_C512XLARGE = "ml.c5.12xlarge"
+    ML_C518XLARGE = "ml.c5.18xlarge"
+    ML_C524XLARGE = "ml.c5.24xlarge"
+    ML_P32XLARGE = "ml.p3.2xlarge"
+    ML_P38XLARGE = "ml.p3.8xlarge"
+    ML_P316XLARGE = "ml.p3.16xlarge"
+    ML_G4DN_XLARGE = "ml.g4dn.xlarge"
+    ML_G4DN2XLARGE = "ml.g4dn.2xlarge"
+    ML_G4DN4XLARGE = "ml.g4dn.4xlarge"
+    ML_G4DN8XLARGE = "ml.g4dn.8xlarge"
+    ML_G4DN12XLARGE = "ml.g4dn.12xlarge"
+    ML_G4DN16XLARGE = "ml.g4dn.16xlarge"
+    ML_R5_LARGE = "ml.r5.large"
+    ML_R5_XLARGE = "ml.r5.xlarge"
+    ML_R52XLARGE = "ml.r5.2xlarge"
+    ML_R54XLARGE = "ml.r5.4xlarge"
+    ML_R58XLARGE = "ml.r5.8xlarge"
+    ML_R512XLARGE = "ml.r5.12xlarge"
+    ML_R516XLARGE = "ml.r5.16xlarge"
+    ML_R524XLARGE = "ml.r5.24xlarge"
+    ML_P3DN24XLARGE = "ml.p3dn.24xlarge"
+    ML_M5D_LARGE = "ml.m5d.large"
+    ML_M5D_XLARGE = "ml.m5d.xlarge"
+    ML_M5D2XLARGE = "ml.m5d.2xlarge"
+    ML_M5D4XLARGE = "ml.m5d.4xlarge"
+    ML_M5D8XLARGE = "ml.m5d.8xlarge"
+    ML_M5D12XLARGE = "ml.m5d.12xlarge"
+    ML_M5D16XLARGE = "ml.m5d.16xlarge"
+    ML_M5D24XLARGE = "ml.m5d.24xlarge"
+    ML_G5_XLARGE = "ml.g5.xlarge"
+    ML_G52XLARGE = "ml.g5.2xlarge"
+    ML_G54XLARGE = "ml.g5.4xlarge"
+    ML_G58XLARGE = "ml.g5.8xlarge"
+    ML_G512XLARGE = "ml.g5.12xlarge"
+    ML_G516XLARGE = "ml.g5.16xlarge"
+    ML_G524XLARGE = "ml.g5.24xlarge"
+    ML_G548XLARGE = "ml.g5.48xlarge"
 
 
 class UserProfileRStudioServerProAppSettingsAccessStatus(str, Enum):

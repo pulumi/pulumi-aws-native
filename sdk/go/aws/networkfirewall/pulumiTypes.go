@@ -1156,6 +1156,8 @@ func (o FirewallPolicyTagArrayOutput) Index(i pulumi.IntInput) FirewallPolicyTag
 }
 
 type FirewallSubnetMapping struct {
+	// A IPAddressType
+	IPAddressType *string `pulumi:"iPAddressType"`
 	// A SubnetId.
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -1172,6 +1174,8 @@ type FirewallSubnetMappingInput interface {
 }
 
 type FirewallSubnetMappingArgs struct {
+	// A IPAddressType
+	IPAddressType pulumi.StringPtrInput `pulumi:"iPAddressType"`
 	// A SubnetId.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -1225,6 +1229,11 @@ func (o FirewallSubnetMappingOutput) ToFirewallSubnetMappingOutput() FirewallSub
 
 func (o FirewallSubnetMappingOutput) ToFirewallSubnetMappingOutputWithContext(ctx context.Context) FirewallSubnetMappingOutput {
 	return o
+}
+
+// A IPAddressType
+func (o FirewallSubnetMappingOutput) IPAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallSubnetMapping) *string { return v.IPAddressType }).(pulumi.StringPtrOutput)
 }
 
 // A SubnetId.

@@ -86,6 +86,7 @@ export const RuleGroupStatefulRuleAction = {
     Pass: "PASS",
     Drop: "DROP",
     Alert: "ALERT",
+    Reject: "REJECT",
 } as const;
 
 export type RuleGroupStatefulRuleAction = (typeof RuleGroupStatefulRuleAction)[keyof typeof RuleGroupStatefulRuleAction];

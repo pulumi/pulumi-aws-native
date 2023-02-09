@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public Output<ImmutableArray<string>> ManagedPolicyArns { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("profileArn")]
         public Output<string> ProfileArn { get; private set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Profile(string name, ProfileArgs? args = null, CustomResourceOptions? options = null)
+        public Profile(string name, ProfileArgs args, CustomResourceOptions? options = null)
             : base("aws-native:rolesanywhere:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         [Input("requireInstanceProperties")]
         public Input<bool>? RequireInstanceProperties { get; set; }
 
-        [Input("roleArns")]
+        [Input("roleArns", required: true)]
         private InputList<string>? _roleArns;
         public InputList<string> RoleArns
         {

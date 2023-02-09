@@ -37,12 +37,12 @@ export class Component extends pulumi.CustomResource {
         return obj['__pulumiType'] === Component.__pulumiType;
     }
 
-    public /*out*/ readonly appId!: pulumi.Output<string>;
+    public readonly appId!: pulumi.Output<string | undefined>;
     public readonly bindingProperties!: pulumi.Output<outputs.amplifyuibuilder.ComponentBindingProperties>;
     public readonly children!: pulumi.Output<outputs.amplifyuibuilder.ComponentChild[] | undefined>;
     public readonly collectionProperties!: pulumi.Output<outputs.amplifyuibuilder.ComponentCollectionProperties | undefined>;
     public readonly componentType!: pulumi.Output<string>;
-    public /*out*/ readonly environmentName!: pulumi.Output<string>;
+    public readonly environmentName!: pulumi.Output<string | undefined>;
     public readonly events!: pulumi.Output<outputs.amplifyuibuilder.ComponentEvents | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly overrides!: pulumi.Output<outputs.amplifyuibuilder.ComponentOverrides>;
@@ -78,10 +78,12 @@ export class Component extends pulumi.CustomResource {
             if ((!args || args.variants === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'variants'");
             }
+            resourceInputs["appId"] = args ? args.appId : undefined;
             resourceInputs["bindingProperties"] = args ? args.bindingProperties : undefined;
             resourceInputs["children"] = args ? args.children : undefined;
             resourceInputs["collectionProperties"] = args ? args.collectionProperties : undefined;
             resourceInputs["componentType"] = args ? args.componentType : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["events"] = args ? args.events : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["overrides"] = args ? args.overrides : undefined;
@@ -90,8 +92,6 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["sourceId"] = args ? args.sourceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["variants"] = args ? args.variants : undefined;
-            resourceInputs["appId"] = undefined /*out*/;
-            resourceInputs["environmentName"] = undefined /*out*/;
         } else {
             resourceInputs["appId"] = undefined /*out*/;
             resourceInputs["bindingProperties"] = undefined /*out*/;
@@ -117,10 +117,12 @@ export class Component extends pulumi.CustomResource {
  * The set of arguments for constructing a Component resource.
  */
 export interface ComponentArgs {
+    appId?: pulumi.Input<string>;
     bindingProperties: pulumi.Input<inputs.amplifyuibuilder.ComponentBindingPropertiesArgs>;
     children?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentChildArgs>[]>;
     collectionProperties?: pulumi.Input<inputs.amplifyuibuilder.ComponentCollectionPropertiesArgs>;
     componentType: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string>;
     events?: pulumi.Input<inputs.amplifyuibuilder.ComponentEventsArgs>;
     name?: pulumi.Input<string>;
     overrides: pulumi.Input<inputs.amplifyuibuilder.ComponentOverridesArgs>;

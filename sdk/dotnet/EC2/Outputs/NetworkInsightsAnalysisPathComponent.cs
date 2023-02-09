@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly Outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute? RouteTableRoute;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule? SecurityGroupRule;
         public readonly int? SequenceNumber;
+        public readonly string? ServiceName;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? SourceVpc;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Subnet;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGateway;
@@ -54,6 +55,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             int? sequenceNumber,
 
+            string? serviceName,
+
             Outputs.NetworkInsightsAnalysisAnalysisComponent? sourceVpc,
 
             Outputs.NetworkInsightsAnalysisAnalysisComponent? subnet,
@@ -75,6 +78,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             RouteTableRoute = routeTableRoute;
             SecurityGroupRule = securityGroupRule;
             SequenceNumber = sequenceNumber;
+            ServiceName = serviceName;
             SourceVpc = sourceVpc;
             Subnet = subnet;
             TransitGateway = transitGateway;

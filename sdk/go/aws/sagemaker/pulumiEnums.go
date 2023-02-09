@@ -3588,6 +3588,626 @@ func (in *modelBiasJobDefinitionS3OutputS3UploadModePtr) ToModelBiasJobDefinitio
 	return pulumi.ToOutputWithContext(ctx, in).(ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput)
 }
 
+type ModelCardBarChartMetricType string
+
+const (
+	ModelCardBarChartMetricTypeBarChart = ModelCardBarChartMetricType("bar_chart")
+)
+
+type ModelCardLinearGraphMetricType string
+
+const (
+	ModelCardLinearGraphMetricTypeLinearGraph = ModelCardLinearGraphMetricType("linear_graph")
+)
+
+type ModelCardMatrixMetricType string
+
+const (
+	ModelCardMatrixMetricTypeMatrix = ModelCardMatrixMetricType("matrix")
+)
+
+type ModelCardObjectiveFunctionFunctionPropertiesFunction string
+
+const (
+	ModelCardObjectiveFunctionFunctionPropertiesFunctionMaximize = ModelCardObjectiveFunctionFunctionPropertiesFunction("Maximize")
+	ModelCardObjectiveFunctionFunctionPropertiesFunctionMinimize = ModelCardObjectiveFunctionFunctionPropertiesFunction("Minimize")
+)
+
+func (ModelCardObjectiveFunctionFunctionPropertiesFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardObjectiveFunctionFunctionPropertiesFunction)(nil)).Elem()
+}
+
+func (e ModelCardObjectiveFunctionFunctionPropertiesFunction) ToModelCardObjectiveFunctionFunctionPropertiesFunctionOutput() ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput {
+	return pulumi.ToOutput(e).(ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput)
+}
+
+func (e ModelCardObjectiveFunctionFunctionPropertiesFunction) ToModelCardObjectiveFunctionFunctionPropertiesFunctionOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput)
+}
+
+func (e ModelCardObjectiveFunctionFunctionPropertiesFunction) ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput() ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput {
+	return e.ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutputWithContext(context.Background())
+}
+
+func (e ModelCardObjectiveFunctionFunctionPropertiesFunction) ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput {
+	return ModelCardObjectiveFunctionFunctionPropertiesFunction(e).ToModelCardObjectiveFunctionFunctionPropertiesFunctionOutputWithContext(ctx).ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutputWithContext(ctx)
+}
+
+func (e ModelCardObjectiveFunctionFunctionPropertiesFunction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelCardObjectiveFunctionFunctionPropertiesFunction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelCardObjectiveFunctionFunctionPropertiesFunction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelCardObjectiveFunctionFunctionPropertiesFunction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput struct{ *pulumi.OutputState }
+
+func (ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardObjectiveFunctionFunctionPropertiesFunction)(nil)).Elem()
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ToModelCardObjectiveFunctionFunctionPropertiesFunctionOutput() ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ToModelCardObjectiveFunctionFunctionPropertiesFunctionOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput() ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput {
+	return o.ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardObjectiveFunctionFunctionPropertiesFunction) *ModelCardObjectiveFunctionFunctionPropertiesFunction {
+		return &v
+	}).(ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput)
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardObjectiveFunctionFunctionPropertiesFunction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardObjectiveFunctionFunctionPropertiesFunction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardObjectiveFunctionFunctionPropertiesFunction)(nil)).Elem()
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput) ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput() ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput) ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput {
+	return o
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput) Elem() ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput {
+	return o.ApplyT(func(v *ModelCardObjectiveFunctionFunctionPropertiesFunction) ModelCardObjectiveFunctionFunctionPropertiesFunction {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardObjectiveFunctionFunctionPropertiesFunction
+		return ret
+	}).(ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput)
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelCardObjectiveFunctionFunctionPropertiesFunction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelCardObjectiveFunctionFunctionPropertiesFunctionInput is an input type that accepts ModelCardObjectiveFunctionFunctionPropertiesFunctionArgs and ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput values.
+// You can construct a concrete instance of `ModelCardObjectiveFunctionFunctionPropertiesFunctionInput` via:
+//
+//	ModelCardObjectiveFunctionFunctionPropertiesFunctionArgs{...}
+type ModelCardObjectiveFunctionFunctionPropertiesFunctionInput interface {
+	pulumi.Input
+
+	ToModelCardObjectiveFunctionFunctionPropertiesFunctionOutput() ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput
+	ToModelCardObjectiveFunctionFunctionPropertiesFunctionOutputWithContext(context.Context) ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput
+}
+
+var modelCardObjectiveFunctionFunctionPropertiesFunctionPtrType = reflect.TypeOf((**ModelCardObjectiveFunctionFunctionPropertiesFunction)(nil)).Elem()
+
+type ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrInput interface {
+	pulumi.Input
+
+	ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput() ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput
+	ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutputWithContext(context.Context) ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput
+}
+
+type modelCardObjectiveFunctionFunctionPropertiesFunctionPtr string
+
+func ModelCardObjectiveFunctionFunctionPropertiesFunctionPtr(v string) ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrInput {
+	return (*modelCardObjectiveFunctionFunctionPropertiesFunctionPtr)(&v)
+}
+
+func (*modelCardObjectiveFunctionFunctionPropertiesFunctionPtr) ElementType() reflect.Type {
+	return modelCardObjectiveFunctionFunctionPropertiesFunctionPtrType
+}
+
+func (in *modelCardObjectiveFunctionFunctionPropertiesFunctionPtr) ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput() ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput {
+	return pulumi.ToOutput(in).(ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput)
+}
+
+func (in *modelCardObjectiveFunctionFunctionPropertiesFunctionPtr) ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput)
+}
+
+// The processing status of model card deletion. The ModelCardProcessingStatus updates throughout the different deletion steps.
+type ModelCardProcessingStatus string
+
+const (
+	ModelCardProcessingStatusUnsetValue        = ModelCardProcessingStatus("UnsetValue")
+	ModelCardProcessingStatusDeleteInProgress  = ModelCardProcessingStatus("DeleteInProgress")
+	ModelCardProcessingStatusDeletePending     = ModelCardProcessingStatus("DeletePending")
+	ModelCardProcessingStatusContentDeleted    = ModelCardProcessingStatus("ContentDeleted")
+	ModelCardProcessingStatusExportJobsDeleted = ModelCardProcessingStatus("ExportJobsDeleted")
+	ModelCardProcessingStatusDeleteCompleted   = ModelCardProcessingStatus("DeleteCompleted")
+	ModelCardProcessingStatusDeleteFailed      = ModelCardProcessingStatus("DeleteFailed")
+)
+
+type ModelCardProcessingStatusOutput struct{ *pulumi.OutputState }
+
+func (ModelCardProcessingStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardProcessingStatus)(nil)).Elem()
+}
+
+func (o ModelCardProcessingStatusOutput) ToModelCardProcessingStatusOutput() ModelCardProcessingStatusOutput {
+	return o
+}
+
+func (o ModelCardProcessingStatusOutput) ToModelCardProcessingStatusOutputWithContext(ctx context.Context) ModelCardProcessingStatusOutput {
+	return o
+}
+
+func (o ModelCardProcessingStatusOutput) ToModelCardProcessingStatusPtrOutput() ModelCardProcessingStatusPtrOutput {
+	return o.ToModelCardProcessingStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardProcessingStatusOutput) ToModelCardProcessingStatusPtrOutputWithContext(ctx context.Context) ModelCardProcessingStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardProcessingStatus) *ModelCardProcessingStatus {
+		return &v
+	}).(ModelCardProcessingStatusPtrOutput)
+}
+
+func (o ModelCardProcessingStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelCardProcessingStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardProcessingStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelCardProcessingStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardProcessingStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardProcessingStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelCardProcessingStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardProcessingStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardProcessingStatus)(nil)).Elem()
+}
+
+func (o ModelCardProcessingStatusPtrOutput) ToModelCardProcessingStatusPtrOutput() ModelCardProcessingStatusPtrOutput {
+	return o
+}
+
+func (o ModelCardProcessingStatusPtrOutput) ToModelCardProcessingStatusPtrOutputWithContext(ctx context.Context) ModelCardProcessingStatusPtrOutput {
+	return o
+}
+
+func (o ModelCardProcessingStatusPtrOutput) Elem() ModelCardProcessingStatusOutput {
+	return o.ApplyT(func(v *ModelCardProcessingStatus) ModelCardProcessingStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardProcessingStatus
+		return ret
+	}).(ModelCardProcessingStatusOutput)
+}
+
+func (o ModelCardProcessingStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardProcessingStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelCardProcessingStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Risk rating of model.
+type ModelCardRiskRating string
+
+const (
+	ModelCardRiskRatingHigh    = ModelCardRiskRating("High")
+	ModelCardRiskRatingMedium  = ModelCardRiskRating("Medium")
+	ModelCardRiskRatingLow     = ModelCardRiskRating("Low")
+	ModelCardRiskRatingUnknown = ModelCardRiskRating("Unknown")
+)
+
+func (ModelCardRiskRating) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardRiskRating)(nil)).Elem()
+}
+
+func (e ModelCardRiskRating) ToModelCardRiskRatingOutput() ModelCardRiskRatingOutput {
+	return pulumi.ToOutput(e).(ModelCardRiskRatingOutput)
+}
+
+func (e ModelCardRiskRating) ToModelCardRiskRatingOutputWithContext(ctx context.Context) ModelCardRiskRatingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelCardRiskRatingOutput)
+}
+
+func (e ModelCardRiskRating) ToModelCardRiskRatingPtrOutput() ModelCardRiskRatingPtrOutput {
+	return e.ToModelCardRiskRatingPtrOutputWithContext(context.Background())
+}
+
+func (e ModelCardRiskRating) ToModelCardRiskRatingPtrOutputWithContext(ctx context.Context) ModelCardRiskRatingPtrOutput {
+	return ModelCardRiskRating(e).ToModelCardRiskRatingOutputWithContext(ctx).ToModelCardRiskRatingPtrOutputWithContext(ctx)
+}
+
+func (e ModelCardRiskRating) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelCardRiskRating) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelCardRiskRating) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelCardRiskRating) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelCardRiskRatingOutput struct{ *pulumi.OutputState }
+
+func (ModelCardRiskRatingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardRiskRating)(nil)).Elem()
+}
+
+func (o ModelCardRiskRatingOutput) ToModelCardRiskRatingOutput() ModelCardRiskRatingOutput {
+	return o
+}
+
+func (o ModelCardRiskRatingOutput) ToModelCardRiskRatingOutputWithContext(ctx context.Context) ModelCardRiskRatingOutput {
+	return o
+}
+
+func (o ModelCardRiskRatingOutput) ToModelCardRiskRatingPtrOutput() ModelCardRiskRatingPtrOutput {
+	return o.ToModelCardRiskRatingPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardRiskRatingOutput) ToModelCardRiskRatingPtrOutputWithContext(ctx context.Context) ModelCardRiskRatingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardRiskRating) *ModelCardRiskRating {
+		return &v
+	}).(ModelCardRiskRatingPtrOutput)
+}
+
+func (o ModelCardRiskRatingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelCardRiskRatingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardRiskRating) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelCardRiskRatingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardRiskRatingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardRiskRating) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelCardRiskRatingPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardRiskRatingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardRiskRating)(nil)).Elem()
+}
+
+func (o ModelCardRiskRatingPtrOutput) ToModelCardRiskRatingPtrOutput() ModelCardRiskRatingPtrOutput {
+	return o
+}
+
+func (o ModelCardRiskRatingPtrOutput) ToModelCardRiskRatingPtrOutputWithContext(ctx context.Context) ModelCardRiskRatingPtrOutput {
+	return o
+}
+
+func (o ModelCardRiskRatingPtrOutput) Elem() ModelCardRiskRatingOutput {
+	return o.ApplyT(func(v *ModelCardRiskRating) ModelCardRiskRating {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardRiskRating
+		return ret
+	}).(ModelCardRiskRatingOutput)
+}
+
+func (o ModelCardRiskRatingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardRiskRatingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelCardRiskRating) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelCardRiskRatingInput is an input type that accepts ModelCardRiskRatingArgs and ModelCardRiskRatingOutput values.
+// You can construct a concrete instance of `ModelCardRiskRatingInput` via:
+//
+//	ModelCardRiskRatingArgs{...}
+type ModelCardRiskRatingInput interface {
+	pulumi.Input
+
+	ToModelCardRiskRatingOutput() ModelCardRiskRatingOutput
+	ToModelCardRiskRatingOutputWithContext(context.Context) ModelCardRiskRatingOutput
+}
+
+var modelCardRiskRatingPtrType = reflect.TypeOf((**ModelCardRiskRating)(nil)).Elem()
+
+type ModelCardRiskRatingPtrInput interface {
+	pulumi.Input
+
+	ToModelCardRiskRatingPtrOutput() ModelCardRiskRatingPtrOutput
+	ToModelCardRiskRatingPtrOutputWithContext(context.Context) ModelCardRiskRatingPtrOutput
+}
+
+type modelCardRiskRatingPtr string
+
+func ModelCardRiskRatingPtr(v string) ModelCardRiskRatingPtrInput {
+	return (*modelCardRiskRatingPtr)(&v)
+}
+
+func (*modelCardRiskRatingPtr) ElementType() reflect.Type {
+	return modelCardRiskRatingPtrType
+}
+
+func (in *modelCardRiskRatingPtr) ToModelCardRiskRatingPtrOutput() ModelCardRiskRatingPtrOutput {
+	return pulumi.ToOutput(in).(ModelCardRiskRatingPtrOutput)
+}
+
+func (in *modelCardRiskRatingPtr) ToModelCardRiskRatingPtrOutputWithContext(ctx context.Context) ModelCardRiskRatingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelCardRiskRatingPtrOutput)
+}
+
+type ModelCardSimpleMetricType string
+
+const (
+	ModelCardSimpleMetricTypeNumber  = ModelCardSimpleMetricType("number")
+	ModelCardSimpleMetricTypeString  = ModelCardSimpleMetricType("string")
+	ModelCardSimpleMetricTypeBoolean = ModelCardSimpleMetricType("boolean")
+)
+
+// The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
+type ModelCardStatus string
+
+const (
+	ModelCardStatusDraft         = ModelCardStatus("Draft")
+	ModelCardStatusPendingReview = ModelCardStatus("PendingReview")
+	ModelCardStatusApproved      = ModelCardStatus("Approved")
+	ModelCardStatusArchived      = ModelCardStatus("Archived")
+)
+
+func (ModelCardStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardStatus)(nil)).Elem()
+}
+
+func (e ModelCardStatus) ToModelCardStatusOutput() ModelCardStatusOutput {
+	return pulumi.ToOutput(e).(ModelCardStatusOutput)
+}
+
+func (e ModelCardStatus) ToModelCardStatusOutputWithContext(ctx context.Context) ModelCardStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelCardStatusOutput)
+}
+
+func (e ModelCardStatus) ToModelCardStatusPtrOutput() ModelCardStatusPtrOutput {
+	return e.ToModelCardStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ModelCardStatus) ToModelCardStatusPtrOutputWithContext(ctx context.Context) ModelCardStatusPtrOutput {
+	return ModelCardStatus(e).ToModelCardStatusOutputWithContext(ctx).ToModelCardStatusPtrOutputWithContext(ctx)
+}
+
+func (e ModelCardStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelCardStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelCardStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelCardStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelCardStatusOutput struct{ *pulumi.OutputState }
+
+func (ModelCardStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardStatus)(nil)).Elem()
+}
+
+func (o ModelCardStatusOutput) ToModelCardStatusOutput() ModelCardStatusOutput {
+	return o
+}
+
+func (o ModelCardStatusOutput) ToModelCardStatusOutputWithContext(ctx context.Context) ModelCardStatusOutput {
+	return o
+}
+
+func (o ModelCardStatusOutput) ToModelCardStatusPtrOutput() ModelCardStatusPtrOutput {
+	return o.ToModelCardStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardStatusOutput) ToModelCardStatusPtrOutputWithContext(ctx context.Context) ModelCardStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardStatus) *ModelCardStatus {
+		return &v
+	}).(ModelCardStatusPtrOutput)
+}
+
+func (o ModelCardStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelCardStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelCardStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelCardStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardStatus)(nil)).Elem()
+}
+
+func (o ModelCardStatusPtrOutput) ToModelCardStatusPtrOutput() ModelCardStatusPtrOutput {
+	return o
+}
+
+func (o ModelCardStatusPtrOutput) ToModelCardStatusPtrOutputWithContext(ctx context.Context) ModelCardStatusPtrOutput {
+	return o
+}
+
+func (o ModelCardStatusPtrOutput) Elem() ModelCardStatusOutput {
+	return o.ApplyT(func(v *ModelCardStatus) ModelCardStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardStatus
+		return ret
+	}).(ModelCardStatusOutput)
+}
+
+func (o ModelCardStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelCardStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelCardStatusInput is an input type that accepts ModelCardStatusArgs and ModelCardStatusOutput values.
+// You can construct a concrete instance of `ModelCardStatusInput` via:
+//
+//	ModelCardStatusArgs{...}
+type ModelCardStatusInput interface {
+	pulumi.Input
+
+	ToModelCardStatusOutput() ModelCardStatusOutput
+	ToModelCardStatusOutputWithContext(context.Context) ModelCardStatusOutput
+}
+
+var modelCardStatusPtrType = reflect.TypeOf((**ModelCardStatus)(nil)).Elem()
+
+type ModelCardStatusPtrInput interface {
+	pulumi.Input
+
+	ToModelCardStatusPtrOutput() ModelCardStatusPtrOutput
+	ToModelCardStatusPtrOutputWithContext(context.Context) ModelCardStatusPtrOutput
+}
+
+type modelCardStatusPtr string
+
+func ModelCardStatusPtr(v string) ModelCardStatusPtrInput {
+	return (*modelCardStatusPtr)(&v)
+}
+
+func (*modelCardStatusPtr) ElementType() reflect.Type {
+	return modelCardStatusPtrType
+}
+
+func (in *modelCardStatusPtr) ToModelCardStatusPtrOutput() ModelCardStatusPtrOutput {
+	return pulumi.ToOutput(in).(ModelCardStatusPtrOutput)
+}
+
+func (in *modelCardStatusPtr) ToModelCardStatusPtrOutputWithContext(ctx context.Context) ModelCardStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelCardStatusPtrOutput)
+}
+
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType string
 
@@ -8179,6 +8799,226 @@ func (o ProjectStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// The instance type that the image version runs on.
+type SpaceResourceSpecInstanceType string
+
+const (
+	SpaceResourceSpecInstanceTypeSystem         = SpaceResourceSpecInstanceType("system")
+	SpaceResourceSpecInstanceTypeMlT3Micro      = SpaceResourceSpecInstanceType("ml.t3.micro")
+	SpaceResourceSpecInstanceTypeMlT3Small      = SpaceResourceSpecInstanceType("ml.t3.small")
+	SpaceResourceSpecInstanceTypeMlT3Medium     = SpaceResourceSpecInstanceType("ml.t3.medium")
+	SpaceResourceSpecInstanceTypeMlT3Large      = SpaceResourceSpecInstanceType("ml.t3.large")
+	SpaceResourceSpecInstanceTypeMlT3Xlarge     = SpaceResourceSpecInstanceType("ml.t3.xlarge")
+	SpaceResourceSpecInstanceTypeMlT32xlarge    = SpaceResourceSpecInstanceType("ml.t3.2xlarge")
+	SpaceResourceSpecInstanceTypeMlM5Large      = SpaceResourceSpecInstanceType("ml.m5.large")
+	SpaceResourceSpecInstanceTypeMlM5Xlarge     = SpaceResourceSpecInstanceType("ml.m5.xlarge")
+	SpaceResourceSpecInstanceTypeMlM52xlarge    = SpaceResourceSpecInstanceType("ml.m5.2xlarge")
+	SpaceResourceSpecInstanceTypeMlM54xlarge    = SpaceResourceSpecInstanceType("ml.m5.4xlarge")
+	SpaceResourceSpecInstanceTypeMlM58xlarge    = SpaceResourceSpecInstanceType("ml.m5.8xlarge")
+	SpaceResourceSpecInstanceTypeMlM512xlarge   = SpaceResourceSpecInstanceType("ml.m5.12xlarge")
+	SpaceResourceSpecInstanceTypeMlM516xlarge   = SpaceResourceSpecInstanceType("ml.m5.16xlarge")
+	SpaceResourceSpecInstanceTypeMlM524xlarge   = SpaceResourceSpecInstanceType("ml.m5.24xlarge")
+	SpaceResourceSpecInstanceTypeMlC5Large      = SpaceResourceSpecInstanceType("ml.c5.large")
+	SpaceResourceSpecInstanceTypeMlC5Xlarge     = SpaceResourceSpecInstanceType("ml.c5.xlarge")
+	SpaceResourceSpecInstanceTypeMlC52xlarge    = SpaceResourceSpecInstanceType("ml.c5.2xlarge")
+	SpaceResourceSpecInstanceTypeMlC54xlarge    = SpaceResourceSpecInstanceType("ml.c5.4xlarge")
+	SpaceResourceSpecInstanceTypeMlC59xlarge    = SpaceResourceSpecInstanceType("ml.c5.9xlarge")
+	SpaceResourceSpecInstanceTypeMlC512xlarge   = SpaceResourceSpecInstanceType("ml.c5.12xlarge")
+	SpaceResourceSpecInstanceTypeMlC518xlarge   = SpaceResourceSpecInstanceType("ml.c5.18xlarge")
+	SpaceResourceSpecInstanceTypeMlC524xlarge   = SpaceResourceSpecInstanceType("ml.c5.24xlarge")
+	SpaceResourceSpecInstanceTypeMlP32xlarge    = SpaceResourceSpecInstanceType("ml.p3.2xlarge")
+	SpaceResourceSpecInstanceTypeMlP38xlarge    = SpaceResourceSpecInstanceType("ml.p3.8xlarge")
+	SpaceResourceSpecInstanceTypeMlP316xlarge   = SpaceResourceSpecInstanceType("ml.p3.16xlarge")
+	SpaceResourceSpecInstanceTypeMlG4dnXlarge   = SpaceResourceSpecInstanceType("ml.g4dn.xlarge")
+	SpaceResourceSpecInstanceTypeMlG4dn2xlarge  = SpaceResourceSpecInstanceType("ml.g4dn.2xlarge")
+	SpaceResourceSpecInstanceTypeMlG4dn4xlarge  = SpaceResourceSpecInstanceType("ml.g4dn.4xlarge")
+	SpaceResourceSpecInstanceTypeMlG4dn8xlarge  = SpaceResourceSpecInstanceType("ml.g4dn.8xlarge")
+	SpaceResourceSpecInstanceTypeMlG4dn12xlarge = SpaceResourceSpecInstanceType("ml.g4dn.12xlarge")
+	SpaceResourceSpecInstanceTypeMlG4dn16xlarge = SpaceResourceSpecInstanceType("ml.g4dn.16xlarge")
+	SpaceResourceSpecInstanceTypeMlR5Large      = SpaceResourceSpecInstanceType("ml.r5.large")
+	SpaceResourceSpecInstanceTypeMlR5Xlarge     = SpaceResourceSpecInstanceType("ml.r5.xlarge")
+	SpaceResourceSpecInstanceTypeMlR52xlarge    = SpaceResourceSpecInstanceType("ml.r5.2xlarge")
+	SpaceResourceSpecInstanceTypeMlR54xlarge    = SpaceResourceSpecInstanceType("ml.r5.4xlarge")
+	SpaceResourceSpecInstanceTypeMlR58xlarge    = SpaceResourceSpecInstanceType("ml.r5.8xlarge")
+	SpaceResourceSpecInstanceTypeMlR512xlarge   = SpaceResourceSpecInstanceType("ml.r5.12xlarge")
+	SpaceResourceSpecInstanceTypeMlR516xlarge   = SpaceResourceSpecInstanceType("ml.r5.16xlarge")
+	SpaceResourceSpecInstanceTypeMlR524xlarge   = SpaceResourceSpecInstanceType("ml.r5.24xlarge")
+	SpaceResourceSpecInstanceTypeMlP3dn24xlarge = SpaceResourceSpecInstanceType("ml.p3dn.24xlarge")
+	SpaceResourceSpecInstanceTypeMlM5dLarge     = SpaceResourceSpecInstanceType("ml.m5d.large")
+	SpaceResourceSpecInstanceTypeMlM5dXlarge    = SpaceResourceSpecInstanceType("ml.m5d.xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d2xlarge   = SpaceResourceSpecInstanceType("ml.m5d.2xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d4xlarge   = SpaceResourceSpecInstanceType("ml.m5d.4xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d8xlarge   = SpaceResourceSpecInstanceType("ml.m5d.8xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d12xlarge  = SpaceResourceSpecInstanceType("ml.m5d.12xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d16xlarge  = SpaceResourceSpecInstanceType("ml.m5d.16xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d24xlarge  = SpaceResourceSpecInstanceType("ml.m5d.24xlarge")
+	SpaceResourceSpecInstanceTypeMlG5Xlarge     = SpaceResourceSpecInstanceType("ml.g5.xlarge")
+	SpaceResourceSpecInstanceTypeMlG52xlarge    = SpaceResourceSpecInstanceType("ml.g5.2xlarge")
+	SpaceResourceSpecInstanceTypeMlG54xlarge    = SpaceResourceSpecInstanceType("ml.g5.4xlarge")
+	SpaceResourceSpecInstanceTypeMlG58xlarge    = SpaceResourceSpecInstanceType("ml.g5.8xlarge")
+	SpaceResourceSpecInstanceTypeMlG512xlarge   = SpaceResourceSpecInstanceType("ml.g5.12xlarge")
+	SpaceResourceSpecInstanceTypeMlG516xlarge   = SpaceResourceSpecInstanceType("ml.g5.16xlarge")
+	SpaceResourceSpecInstanceTypeMlG524xlarge   = SpaceResourceSpecInstanceType("ml.g5.24xlarge")
+	SpaceResourceSpecInstanceTypeMlG548xlarge   = SpaceResourceSpecInstanceType("ml.g5.48xlarge")
+)
+
+func (SpaceResourceSpecInstanceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceResourceSpecInstanceType)(nil)).Elem()
+}
+
+func (e SpaceResourceSpecInstanceType) ToSpaceResourceSpecInstanceTypeOutput() SpaceResourceSpecInstanceTypeOutput {
+	return pulumi.ToOutput(e).(SpaceResourceSpecInstanceTypeOutput)
+}
+
+func (e SpaceResourceSpecInstanceType) ToSpaceResourceSpecInstanceTypeOutputWithContext(ctx context.Context) SpaceResourceSpecInstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpaceResourceSpecInstanceTypeOutput)
+}
+
+func (e SpaceResourceSpecInstanceType) ToSpaceResourceSpecInstanceTypePtrOutput() SpaceResourceSpecInstanceTypePtrOutput {
+	return e.ToSpaceResourceSpecInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (e SpaceResourceSpecInstanceType) ToSpaceResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) SpaceResourceSpecInstanceTypePtrOutput {
+	return SpaceResourceSpecInstanceType(e).ToSpaceResourceSpecInstanceTypeOutputWithContext(ctx).ToSpaceResourceSpecInstanceTypePtrOutputWithContext(ctx)
+}
+
+func (e SpaceResourceSpecInstanceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceResourceSpecInstanceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceResourceSpecInstanceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpaceResourceSpecInstanceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpaceResourceSpecInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (SpaceResourceSpecInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceResourceSpecInstanceType)(nil)).Elem()
+}
+
+func (o SpaceResourceSpecInstanceTypeOutput) ToSpaceResourceSpecInstanceTypeOutput() SpaceResourceSpecInstanceTypeOutput {
+	return o
+}
+
+func (o SpaceResourceSpecInstanceTypeOutput) ToSpaceResourceSpecInstanceTypeOutputWithContext(ctx context.Context) SpaceResourceSpecInstanceTypeOutput {
+	return o
+}
+
+func (o SpaceResourceSpecInstanceTypeOutput) ToSpaceResourceSpecInstanceTypePtrOutput() SpaceResourceSpecInstanceTypePtrOutput {
+	return o.ToSpaceResourceSpecInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (o SpaceResourceSpecInstanceTypeOutput) ToSpaceResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) SpaceResourceSpecInstanceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceResourceSpecInstanceType) *SpaceResourceSpecInstanceType {
+		return &v
+	}).(SpaceResourceSpecInstanceTypePtrOutput)
+}
+
+func (o SpaceResourceSpecInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpaceResourceSpecInstanceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceResourceSpecInstanceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpaceResourceSpecInstanceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceResourceSpecInstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceResourceSpecInstanceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceResourceSpecInstanceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceResourceSpecInstanceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceResourceSpecInstanceType)(nil)).Elem()
+}
+
+func (o SpaceResourceSpecInstanceTypePtrOutput) ToSpaceResourceSpecInstanceTypePtrOutput() SpaceResourceSpecInstanceTypePtrOutput {
+	return o
+}
+
+func (o SpaceResourceSpecInstanceTypePtrOutput) ToSpaceResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) SpaceResourceSpecInstanceTypePtrOutput {
+	return o
+}
+
+func (o SpaceResourceSpecInstanceTypePtrOutput) Elem() SpaceResourceSpecInstanceTypeOutput {
+	return o.ApplyT(func(v *SpaceResourceSpecInstanceType) SpaceResourceSpecInstanceType {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceResourceSpecInstanceType
+		return ret
+	}).(SpaceResourceSpecInstanceTypeOutput)
+}
+
+func (o SpaceResourceSpecInstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpaceResourceSpecInstanceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpaceResourceSpecInstanceTypeInput is an input type that accepts SpaceResourceSpecInstanceTypeArgs and SpaceResourceSpecInstanceTypeOutput values.
+// You can construct a concrete instance of `SpaceResourceSpecInstanceTypeInput` via:
+//
+//	SpaceResourceSpecInstanceTypeArgs{...}
+type SpaceResourceSpecInstanceTypeInput interface {
+	pulumi.Input
+
+	ToSpaceResourceSpecInstanceTypeOutput() SpaceResourceSpecInstanceTypeOutput
+	ToSpaceResourceSpecInstanceTypeOutputWithContext(context.Context) SpaceResourceSpecInstanceTypeOutput
+}
+
+var spaceResourceSpecInstanceTypePtrType = reflect.TypeOf((**SpaceResourceSpecInstanceType)(nil)).Elem()
+
+type SpaceResourceSpecInstanceTypePtrInput interface {
+	pulumi.Input
+
+	ToSpaceResourceSpecInstanceTypePtrOutput() SpaceResourceSpecInstanceTypePtrOutput
+	ToSpaceResourceSpecInstanceTypePtrOutputWithContext(context.Context) SpaceResourceSpecInstanceTypePtrOutput
+}
+
+type spaceResourceSpecInstanceTypePtr string
+
+func SpaceResourceSpecInstanceTypePtr(v string) SpaceResourceSpecInstanceTypePtrInput {
+	return (*spaceResourceSpecInstanceTypePtr)(&v)
+}
+
+func (*spaceResourceSpecInstanceTypePtr) ElementType() reflect.Type {
+	return spaceResourceSpecInstanceTypePtrType
+}
+
+func (in *spaceResourceSpecInstanceTypePtr) ToSpaceResourceSpecInstanceTypePtrOutput() SpaceResourceSpecInstanceTypePtrOutput {
+	return pulumi.ToOutput(in).(SpaceResourceSpecInstanceTypePtrOutput)
+}
+
+func (in *spaceResourceSpecInstanceTypePtr) ToSpaceResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) SpaceResourceSpecInstanceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpaceResourceSpecInstanceTypePtrOutput)
+}
+
 // Indicates whether the current user has access to the RStudioServerPro app.
 type UserProfileRStudioServerProAppSettingsAccessStatus string
 
@@ -8937,6 +9777,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionEndpointInputS3InputModePtrInput)(nil)).Elem(), ModelBiasJobDefinitionEndpointInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionS3OutputS3UploadModeInput)(nil)).Elem(), ModelBiasJobDefinitionS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionS3OutputS3UploadModePtrInput)(nil)).Elem(), ModelBiasJobDefinitionS3OutputS3UploadMode("Continuous"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionFunctionPropertiesFunctionInput)(nil)).Elem(), ModelCardObjectiveFunctionFunctionPropertiesFunction("Maximize"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrInput)(nil)).Elem(), ModelCardObjectiveFunctionFunctionPropertiesFunction("Maximize"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardRiskRatingInput)(nil)).Elem(), ModelCardRiskRating("High"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardRiskRatingPtrInput)(nil)).Elem(), ModelCardRiskRating("High"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardStatusInput)(nil)).Elem(), ModelCardStatus("Draft"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardStatusPtrInput)(nil)).Elem(), ModelCardStatus("Draft"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode("Pipe"))
@@ -8989,6 +9835,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleS3OutputS3UploadModePtrInput)(nil)).Elem(), MonitoringScheduleS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleStatusInput)(nil)).Elem(), MonitoringScheduleStatus("Pending"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleStatusPtrInput)(nil)).Elem(), MonitoringScheduleStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecInstanceTypeInput)(nil)).Elem(), SpaceResourceSpecInstanceType("system"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecInstanceTypePtrInput)(nil)).Elem(), SpaceResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsAccessStatusInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsAccessStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsAccessStatusPtrInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsAccessStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsUserGroupInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
@@ -9039,6 +9887,14 @@ func init() {
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionS3OutputS3UploadModeOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput{})
+	pulumi.RegisterOutputType(ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput{})
+	pulumi.RegisterOutputType(ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardProcessingStatusOutput{})
+	pulumi.RegisterOutputType(ModelCardProcessingStatusPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardRiskRatingOutput{})
+	pulumi.RegisterOutputType(ModelCardRiskRatingPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardStatusOutput{})
+	pulumi.RegisterOutputType(ModelCardStatusPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput{})
@@ -9097,6 +9953,8 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleStatusPtrOutput{})
 	pulumi.RegisterOutputType(ProjectStatusOutput{})
 	pulumi.RegisterOutputType(ProjectStatusPtrOutput{})
+	pulumi.RegisterOutputType(SpaceResourceSpecInstanceTypeOutput{})
+	pulumi.RegisterOutputType(SpaceResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsAccessStatusOutput{})
 	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsUserGroupOutput{})

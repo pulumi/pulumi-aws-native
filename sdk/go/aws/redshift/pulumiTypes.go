@@ -851,66 +851,6 @@ type EndpointAccessNetworkInterface struct {
 	SubnetId *string `pulumi:"subnetId"`
 }
 
-// EndpointAccessNetworkInterfaceInput is an input type that accepts EndpointAccessNetworkInterfaceArgs and EndpointAccessNetworkInterfaceOutput values.
-// You can construct a concrete instance of `EndpointAccessNetworkInterfaceInput` via:
-//
-//	EndpointAccessNetworkInterfaceArgs{...}
-type EndpointAccessNetworkInterfaceInput interface {
-	pulumi.Input
-
-	ToEndpointAccessNetworkInterfaceOutput() EndpointAccessNetworkInterfaceOutput
-	ToEndpointAccessNetworkInterfaceOutputWithContext(context.Context) EndpointAccessNetworkInterfaceOutput
-}
-
-// Describes a network interface.
-type EndpointAccessNetworkInterfaceArgs struct {
-	// The Availability Zone.
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// The network interface identifier.
-	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	// The IPv4 address of the network interface within the subnet.
-	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The subnet identifier.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-}
-
-func (EndpointAccessNetworkInterfaceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAccessNetworkInterface)(nil)).Elem()
-}
-
-func (i EndpointAccessNetworkInterfaceArgs) ToEndpointAccessNetworkInterfaceOutput() EndpointAccessNetworkInterfaceOutput {
-	return i.ToEndpointAccessNetworkInterfaceOutputWithContext(context.Background())
-}
-
-func (i EndpointAccessNetworkInterfaceArgs) ToEndpointAccessNetworkInterfaceOutputWithContext(ctx context.Context) EndpointAccessNetworkInterfaceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessNetworkInterfaceOutput)
-}
-
-// EndpointAccessNetworkInterfaceArrayInput is an input type that accepts EndpointAccessNetworkInterfaceArray and EndpointAccessNetworkInterfaceArrayOutput values.
-// You can construct a concrete instance of `EndpointAccessNetworkInterfaceArrayInput` via:
-//
-//	EndpointAccessNetworkInterfaceArray{ EndpointAccessNetworkInterfaceArgs{...} }
-type EndpointAccessNetworkInterfaceArrayInput interface {
-	pulumi.Input
-
-	ToEndpointAccessNetworkInterfaceArrayOutput() EndpointAccessNetworkInterfaceArrayOutput
-	ToEndpointAccessNetworkInterfaceArrayOutputWithContext(context.Context) EndpointAccessNetworkInterfaceArrayOutput
-}
-
-type EndpointAccessNetworkInterfaceArray []EndpointAccessNetworkInterfaceInput
-
-func (EndpointAccessNetworkInterfaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EndpointAccessNetworkInterface)(nil)).Elem()
-}
-
-func (i EndpointAccessNetworkInterfaceArray) ToEndpointAccessNetworkInterfaceArrayOutput() EndpointAccessNetworkInterfaceArrayOutput {
-	return i.ToEndpointAccessNetworkInterfaceArrayOutputWithContext(context.Background())
-}
-
-func (i EndpointAccessNetworkInterfaceArray) ToEndpointAccessNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointAccessNetworkInterfaceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessNetworkInterfaceArrayOutput)
-}
-
 // Describes a network interface.
 type EndpointAccessNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
@@ -972,62 +912,6 @@ type EndpointAccessVpcSecurityGroup struct {
 	Status *string `pulumi:"status"`
 	// The identifier of the VPC security group.
 	VpcSecurityGroupId *string `pulumi:"vpcSecurityGroupId"`
-}
-
-// EndpointAccessVpcSecurityGroupInput is an input type that accepts EndpointAccessVpcSecurityGroupArgs and EndpointAccessVpcSecurityGroupOutput values.
-// You can construct a concrete instance of `EndpointAccessVpcSecurityGroupInput` via:
-//
-//	EndpointAccessVpcSecurityGroupArgs{...}
-type EndpointAccessVpcSecurityGroupInput interface {
-	pulumi.Input
-
-	ToEndpointAccessVpcSecurityGroupOutput() EndpointAccessVpcSecurityGroupOutput
-	ToEndpointAccessVpcSecurityGroupOutputWithContext(context.Context) EndpointAccessVpcSecurityGroupOutput
-}
-
-// Describes the members of a VPC security group.
-type EndpointAccessVpcSecurityGroupArgs struct {
-	// The status of the VPC security group.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The identifier of the VPC security group.
-	VpcSecurityGroupId pulumi.StringPtrInput `pulumi:"vpcSecurityGroupId"`
-}
-
-func (EndpointAccessVpcSecurityGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAccessVpcSecurityGroup)(nil)).Elem()
-}
-
-func (i EndpointAccessVpcSecurityGroupArgs) ToEndpointAccessVpcSecurityGroupOutput() EndpointAccessVpcSecurityGroupOutput {
-	return i.ToEndpointAccessVpcSecurityGroupOutputWithContext(context.Background())
-}
-
-func (i EndpointAccessVpcSecurityGroupArgs) ToEndpointAccessVpcSecurityGroupOutputWithContext(ctx context.Context) EndpointAccessVpcSecurityGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcSecurityGroupOutput)
-}
-
-// EndpointAccessVpcSecurityGroupArrayInput is an input type that accepts EndpointAccessVpcSecurityGroupArray and EndpointAccessVpcSecurityGroupArrayOutput values.
-// You can construct a concrete instance of `EndpointAccessVpcSecurityGroupArrayInput` via:
-//
-//	EndpointAccessVpcSecurityGroupArray{ EndpointAccessVpcSecurityGroupArgs{...} }
-type EndpointAccessVpcSecurityGroupArrayInput interface {
-	pulumi.Input
-
-	ToEndpointAccessVpcSecurityGroupArrayOutput() EndpointAccessVpcSecurityGroupArrayOutput
-	ToEndpointAccessVpcSecurityGroupArrayOutputWithContext(context.Context) EndpointAccessVpcSecurityGroupArrayOutput
-}
-
-type EndpointAccessVpcSecurityGroupArray []EndpointAccessVpcSecurityGroupInput
-
-func (EndpointAccessVpcSecurityGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EndpointAccessVpcSecurityGroup)(nil)).Elem()
-}
-
-func (i EndpointAccessVpcSecurityGroupArray) ToEndpointAccessVpcSecurityGroupArrayOutput() EndpointAccessVpcSecurityGroupArrayOutput {
-	return i.ToEndpointAccessVpcSecurityGroupArrayOutputWithContext(context.Background())
-}
-
-func (i EndpointAccessVpcSecurityGroupArray) ToEndpointAccessVpcSecurityGroupArrayOutputWithContext(ctx context.Context) EndpointAccessVpcSecurityGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcSecurityGroupArrayOutput)
 }
 
 // Describes the members of a VPC security group.
@@ -1312,80 +1196,6 @@ type VpcEndpointProperties struct {
 	VpcId *string `pulumi:"vpcId"`
 }
 
-// VpcEndpointPropertiesInput is an input type that accepts VpcEndpointPropertiesArgs and VpcEndpointPropertiesOutput values.
-// You can construct a concrete instance of `VpcEndpointPropertiesInput` via:
-//
-//	VpcEndpointPropertiesArgs{...}
-type VpcEndpointPropertiesInput interface {
-	pulumi.Input
-
-	ToVpcEndpointPropertiesOutput() VpcEndpointPropertiesOutput
-	ToVpcEndpointPropertiesOutputWithContext(context.Context) VpcEndpointPropertiesOutput
-}
-
-// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-type VpcEndpointPropertiesArgs struct {
-	// One or more network interfaces of the endpoint. Also known as an interface endpoint.
-	NetworkInterfaces EndpointAccessNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
-	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
-	// The VPC identifier that the endpoint is associated.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
-}
-
-func (VpcEndpointPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcEndpointProperties)(nil)).Elem()
-}
-
-func (i VpcEndpointPropertiesArgs) ToVpcEndpointPropertiesOutput() VpcEndpointPropertiesOutput {
-	return i.ToVpcEndpointPropertiesOutputWithContext(context.Background())
-}
-
-func (i VpcEndpointPropertiesArgs) ToVpcEndpointPropertiesOutputWithContext(ctx context.Context) VpcEndpointPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointPropertiesOutput)
-}
-
-func (i VpcEndpointPropertiesArgs) ToVpcEndpointPropertiesPtrOutput() VpcEndpointPropertiesPtrOutput {
-	return i.ToVpcEndpointPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i VpcEndpointPropertiesArgs) ToVpcEndpointPropertiesPtrOutputWithContext(ctx context.Context) VpcEndpointPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointPropertiesOutput).ToVpcEndpointPropertiesPtrOutputWithContext(ctx)
-}
-
-// VpcEndpointPropertiesPtrInput is an input type that accepts VpcEndpointPropertiesArgs, VpcEndpointPropertiesPtr and VpcEndpointPropertiesPtrOutput values.
-// You can construct a concrete instance of `VpcEndpointPropertiesPtrInput` via:
-//
-//	        VpcEndpointPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type VpcEndpointPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToVpcEndpointPropertiesPtrOutput() VpcEndpointPropertiesPtrOutput
-	ToVpcEndpointPropertiesPtrOutputWithContext(context.Context) VpcEndpointPropertiesPtrOutput
-}
-
-type vpcEndpointPropertiesPtrType VpcEndpointPropertiesArgs
-
-func VpcEndpointPropertiesPtr(v *VpcEndpointPropertiesArgs) VpcEndpointPropertiesPtrInput {
-	return (*vpcEndpointPropertiesPtrType)(v)
-}
-
-func (*vpcEndpointPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcEndpointProperties)(nil)).Elem()
-}
-
-func (i *vpcEndpointPropertiesPtrType) ToVpcEndpointPropertiesPtrOutput() VpcEndpointPropertiesPtrOutput {
-	return i.ToVpcEndpointPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *vpcEndpointPropertiesPtrType) ToVpcEndpointPropertiesPtrOutputWithContext(ctx context.Context) VpcEndpointPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointPropertiesPtrOutput)
-}
-
 // The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
 type VpcEndpointPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -1399,16 +1209,6 @@ func (o VpcEndpointPropertiesOutput) ToVpcEndpointPropertiesOutput() VpcEndpoint
 
 func (o VpcEndpointPropertiesOutput) ToVpcEndpointPropertiesOutputWithContext(ctx context.Context) VpcEndpointPropertiesOutput {
 	return o
-}
-
-func (o VpcEndpointPropertiesOutput) ToVpcEndpointPropertiesPtrOutput() VpcEndpointPropertiesPtrOutput {
-	return o.ToVpcEndpointPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o VpcEndpointPropertiesOutput) ToVpcEndpointPropertiesPtrOutputWithContext(ctx context.Context) VpcEndpointPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointProperties) *VpcEndpointProperties {
-		return &v
-	}).(VpcEndpointPropertiesPtrOutput)
 }
 
 // One or more network interfaces of the endpoint. Also known as an interface endpoint.
@@ -1495,16 +1295,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSubnetGroupTagArrayInput)(nil)).Elem(), ClusterSubnetGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagInput)(nil)).Elem(), ClusterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagArrayInput)(nil)).Elem(), ClusterTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessNetworkInterfaceInput)(nil)).Elem(), EndpointAccessNetworkInterfaceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessNetworkInterfaceArrayInput)(nil)).Elem(), EndpointAccessNetworkInterfaceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcSecurityGroupInput)(nil)).Elem(), EndpointAccessVpcSecurityGroupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcSecurityGroupArrayInput)(nil)).Elem(), EndpointAccessVpcSecurityGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagInput)(nil)).Elem(), EventSubscriptionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagArrayInput)(nil)).Elem(), EventSubscriptionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionTypeInput)(nil)).Elem(), ScheduledActionTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionTypePtrInput)(nil)).Elem(), ScheduledActionTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointPropertiesInput)(nil)).Elem(), VpcEndpointPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointPropertiesPtrInput)(nil)).Elem(), VpcEndpointPropertiesArgs{})
 	pulumi.RegisterOutputType(ClusterEndpointOutput{})
 	pulumi.RegisterOutputType(ClusterEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPropertiesOutput{})

@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
     public sealed class GetWorkgroupResult
     {
         public readonly bool? EnhancedVpcRouting;
+        public readonly int? Port;
         public readonly bool? PubliclyAccessible;
         public readonly Outputs.Workgroup? WorkgroupValue;
 
@@ -59,11 +60,14 @@ namespace Pulumi.AwsNative.RedshiftServerless
         private GetWorkgroupResult(
             bool? enhancedVpcRouting,
 
+            int? port,
+
             bool? publiclyAccessible,
 
             Outputs.Workgroup? workgroup)
         {
             EnhancedVpcRouting = enhancedVpcRouting;
+            Port = port;
             PubliclyAccessible = publiclyAccessible;
             WorkgroupValue = workgroup;
         }

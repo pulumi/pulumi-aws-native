@@ -15,8 +15,14 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         /// <summary>
         /// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
         /// </summary>
-        [Input("ip", required: true)]
-        public Input<string> Ip { get; set; } = null!;
+        [Input("ip")]
+        public Input<string>? Ip { get; set; }
+
+        /// <summary>
+        /// One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
+        /// </summary>
+        [Input("ipv6")]
+        public Input<string>? Ipv6 { get; set; }
 
         /// <summary>
         /// The port at Ip that you want to forward DNS queries to. 

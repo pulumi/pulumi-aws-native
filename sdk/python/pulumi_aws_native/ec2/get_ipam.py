@@ -19,10 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetIPAMResult:
-    def __init__(__self__, arn=None, description=None, ipam_id=None, operating_regions=None, private_default_scope_id=None, public_default_scope_id=None, scope_count=None, tags=None):
+    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, description=None, ipam_id=None, operating_regions=None, private_default_scope_id=None, public_default_scope_id=None, resource_discovery_association_count=None, scope_count=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if default_resource_discovery_association_id and not isinstance(default_resource_discovery_association_id, str):
+            raise TypeError("Expected argument 'default_resource_discovery_association_id' to be a str")
+        pulumi.set(__self__, "default_resource_discovery_association_id", default_resource_discovery_association_id)
+        if default_resource_discovery_id and not isinstance(default_resource_discovery_id, str):
+            raise TypeError("Expected argument 'default_resource_discovery_id' to be a str")
+        pulumi.set(__self__, "default_resource_discovery_id", default_resource_discovery_id)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -38,6 +44,9 @@ class GetIPAMResult:
         if public_default_scope_id and not isinstance(public_default_scope_id, str):
             raise TypeError("Expected argument 'public_default_scope_id' to be a str")
         pulumi.set(__self__, "public_default_scope_id", public_default_scope_id)
+        if resource_discovery_association_count and not isinstance(resource_discovery_association_count, int):
+            raise TypeError("Expected argument 'resource_discovery_association_count' to be a int")
+        pulumi.set(__self__, "resource_discovery_association_count", resource_discovery_association_count)
         if scope_count and not isinstance(scope_count, int):
             raise TypeError("Expected argument 'scope_count' to be a int")
         pulumi.set(__self__, "scope_count", scope_count)
@@ -52,6 +61,22 @@ class GetIPAMResult:
         The Amazon Resource Name (ARN) of the IPAM.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="defaultResourceDiscoveryAssociationId")
+    def default_resource_discovery_association_id(self) -> Optional[str]:
+        """
+        The Id of the default association to the default resource discovery, created with this IPAM.
+        """
+        return pulumi.get(self, "default_resource_discovery_association_id")
+
+    @property
+    @pulumi.getter(name="defaultResourceDiscoveryId")
+    def default_resource_discovery_id(self) -> Optional[str]:
+        """
+        The Id of the default resource discovery, created with this IPAM.
+        """
+        return pulumi.get(self, "default_resource_discovery_id")
 
     @property
     @pulumi.getter
@@ -91,6 +116,14 @@ class GetIPAMResult:
         return pulumi.get(self, "public_default_scope_id")
 
     @property
+    @pulumi.getter(name="resourceDiscoveryAssociationCount")
+    def resource_discovery_association_count(self) -> Optional[int]:
+        """
+        The count of resource discoveries associated with this IPAM.
+        """
+        return pulumi.get(self, "resource_discovery_association_count")
+
+    @property
     @pulumi.getter(name="scopeCount")
     def scope_count(self) -> Optional[int]:
         """
@@ -114,11 +147,14 @@ class AwaitableGetIPAMResult(GetIPAMResult):
             yield self
         return GetIPAMResult(
             arn=self.arn,
+            default_resource_discovery_association_id=self.default_resource_discovery_association_id,
+            default_resource_discovery_id=self.default_resource_discovery_id,
             description=self.description,
             ipam_id=self.ipam_id,
             operating_regions=self.operating_regions,
             private_default_scope_id=self.private_default_scope_id,
             public_default_scope_id=self.public_default_scope_id,
+            resource_discovery_association_count=self.resource_discovery_association_count,
             scope_count=self.scope_count,
             tags=self.tags)
 
@@ -138,11 +174,14 @@ def get_ipam(ipam_id: Optional[str] = None,
 
     return AwaitableGetIPAMResult(
         arn=__ret__.arn,
+        default_resource_discovery_association_id=__ret__.default_resource_discovery_association_id,
+        default_resource_discovery_id=__ret__.default_resource_discovery_id,
         description=__ret__.description,
         ipam_id=__ret__.ipam_id,
         operating_regions=__ret__.operating_regions,
         private_default_scope_id=__ret__.private_default_scope_id,
         public_default_scope_id=__ret__.public_default_scope_id,
+        resource_discovery_association_count=__ret__.resource_discovery_association_count,
         scope_count=__ret__.scope_count,
         tags=__ret__.tags)
 

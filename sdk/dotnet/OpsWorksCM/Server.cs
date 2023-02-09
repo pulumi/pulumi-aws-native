@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.OpsWorksCM
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         [Output("serverName")]
-        public Output<string?> ServerName { get; private set; } = null!;
+        public Output<string> ServerName { get; private set; } = null!;
 
         [Output("serviceRoleArn")]
         public Output<string> ServiceRoleArn { get; private set; } = null!;

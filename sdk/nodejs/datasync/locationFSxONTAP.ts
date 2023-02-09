@@ -49,7 +49,7 @@ export class LocationFSxONTAP extends pulumi.CustomResource {
      * The URL of the FSx ONTAP file system that was described.
      */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
-    public readonly protocol!: pulumi.Output<outputs.datasync.LocationFSxONTAPProtocol>;
+    public readonly protocol!: pulumi.Output<outputs.datasync.LocationFSxONTAPProtocol | undefined>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
      */
@@ -78,9 +78,6 @@ export class LocationFSxONTAP extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.protocol === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'protocol'");
-            }
             if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
@@ -114,7 +111,7 @@ export class LocationFSxONTAP extends pulumi.CustomResource {
  * The set of arguments for constructing a LocationFSxONTAP resource.
  */
 export interface LocationFSxONTAPArgs {
-    protocol: pulumi.Input<inputs.datasync.LocationFSxONTAPProtocolArgs>;
+    protocol?: pulumi.Input<inputs.datasync.LocationFSxONTAPProtocolArgs>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
      */

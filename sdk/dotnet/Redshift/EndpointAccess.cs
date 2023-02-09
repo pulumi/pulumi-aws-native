@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Redshift
         /// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
         /// </summary>
         [Output("vpcEndpoint")]
-        public Output<Outputs.VpcEndpointProperties?> VpcEndpoint { get; private set; } = null!;
+        public Output<Outputs.VpcEndpointProperties> VpcEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// A list of vpc security group ids to apply to the created endpoint access.
@@ -150,12 +150,6 @@ namespace Pulumi.AwsNative.Redshift
         [Input("subnetGroupName", required: true)]
         public Input<string> SubnetGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-        /// </summary>
-        [Input("vpcEndpoint")]
-        public Input<Inputs.VpcEndpointPropertiesArgs>? VpcEndpoint { get; set; }
-
         [Input("vpcSecurityGroupIds", required: true)]
         private InputList<string>? _vpcSecurityGroupIds;
 
@@ -166,18 +160,6 @@ namespace Pulumi.AwsNative.Redshift
         {
             get => _vpcSecurityGroupIds ?? (_vpcSecurityGroupIds = new InputList<string>());
             set => _vpcSecurityGroupIds = value;
-        }
-
-        [Input("vpcSecurityGroups")]
-        private InputList<Inputs.EndpointAccessVpcSecurityGroupArgs>? _vpcSecurityGroups;
-
-        /// <summary>
-        /// A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
-        /// </summary>
-        public InputList<Inputs.EndpointAccessVpcSecurityGroupArgs> VpcSecurityGroups
-        {
-            get => _vpcSecurityGroups ?? (_vpcSecurityGroups = new InputList<Inputs.EndpointAccessVpcSecurityGroupArgs>());
-            set => _vpcSecurityGroups = value;
         }
 
         public EndpointAccessArgs()

@@ -56,7 +56,7 @@
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false
   },
-  "required" : [ "LabelTemplate", "ResourceTypes", "SinkIdentifier" ],
+  "required" : [ "ResourceTypes", "SinkIdentifier" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Label" ],
   "createOnlyProperties" : [ "/properties/SinkIdentifier", "/properties/LabelTemplate" ],
   "writeOnlyProperties" : [ "/properties/LabelTemplate" ],

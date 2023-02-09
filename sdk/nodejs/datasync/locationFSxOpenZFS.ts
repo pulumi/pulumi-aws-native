@@ -40,7 +40,7 @@ export class LocationFSxOpenZFS extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
      */
-    public readonly fsxFilesystemArn!: pulumi.Output<string>;
+    public readonly fsxFilesystemArn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon FSx OpenZFS file system location that is created.
      */
@@ -74,9 +74,6 @@ export class LocationFSxOpenZFS extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fsxFilesystemArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fsxFilesystemArn'");
-            }
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
@@ -111,7 +108,7 @@ export interface LocationFSxOpenZFSArgs {
     /**
      * The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
      */
-    fsxFilesystemArn: pulumi.Input<string>;
+    fsxFilesystemArn?: pulumi.Input<string>;
     protocol: pulumi.Input<inputs.datasync.LocationFSxOpenZFSProtocolArgs>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.

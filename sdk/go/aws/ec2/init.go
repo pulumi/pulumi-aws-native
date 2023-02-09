@@ -61,6 +61,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IPAMAllocation{}
 	case "aws-native:ec2:IPAMPool":
 		r = &IPAMPool{}
+	case "aws-native:ec2:IPAMPoolCidr":
+		r = &IPAMPoolCidr{}
+	case "aws-native:ec2:IPAMResourceDiscovery":
+		r = &IPAMResourceDiscovery{}
+	case "aws-native:ec2:IPAMResourceDiscoveryAssociation":
+		r = &IPAMResourceDiscoveryAssociation{}
 	case "aws-native:ec2:IPAMScope":
 		r = &IPAMScope{}
 	case "aws-native:ec2:Instance":

@@ -323,6 +323,8 @@ if typing.TYPE_CHECKING:
     nimblestudio = __nimblestudio
     import pulumi_aws_native.oam as __oam
     oam = __oam
+    import pulumi_aws_native.omics as __omics
+    omics = __omics
     import pulumi_aws_native.opensearchserverless as __opensearchserverless
     opensearchserverless = __opensearchserverless
     import pulumi_aws_native.opensearchservice as __opensearchservice
@@ -405,6 +407,8 @@ if typing.TYPE_CHECKING:
     ses = __ses
     import pulumi_aws_native.signer as __signer
     signer = __signer
+    import pulumi_aws_native.simspaceweaver as __simspaceweaver
+    simspaceweaver = __simspaceweaver
     import pulumi_aws_native.sns as __sns
     sns = __sns
     import pulumi_aws_native.sqs as __sqs
@@ -593,6 +597,7 @@ else:
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
     nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
     oam = _utilities.lazy_import('pulumi_aws_native.oam')
+    omics = _utilities.lazy_import('pulumi_aws_native.omics')
     opensearchserverless = _utilities.lazy_import('pulumi_aws_native.opensearchserverless')
     opensearchservice = _utilities.lazy_import('pulumi_aws_native.opensearchservice')
     opsworks = _utilities.lazy_import('pulumi_aws_native.opsworks')
@@ -634,6 +639,7 @@ else:
     servicediscovery = _utilities.lazy_import('pulumi_aws_native.servicediscovery')
     ses = _utilities.lazy_import('pulumi_aws_native.ses')
     signer = _utilities.lazy_import('pulumi_aws_native.signer')
+    simspaceweaver = _utilities.lazy_import('pulumi_aws_native.simspaceweaver')
     sns = _utilities.lazy_import('pulumi_aws_native.sns')
     sqs = _utilities.lazy_import('pulumi_aws_native.sqs')
     ssm = _utilities.lazy_import('pulumi_aws_native.ssm')
@@ -1052,7 +1058,9 @@ _utilities.register(
   "mod": "cloudtrail",
   "fqn": "pulumi_aws_native.cloudtrail",
   "classes": {
+   "aws-native:cloudtrail:Channel": "Channel",
    "aws-native:cloudtrail:EventDataStore": "EventDataStore",
+   "aws-native:cloudtrail:ResourcePolicy": "ResourcePolicy",
    "aws-native:cloudtrail:Trail": "Trail"
   }
  },
@@ -1411,6 +1419,9 @@ _utilities.register(
    "aws-native:ec2:IPAM": "IPAM",
    "aws-native:ec2:IPAMAllocation": "IPAMAllocation",
    "aws-native:ec2:IPAMPool": "IPAMPool",
+   "aws-native:ec2:IPAMPoolCidr": "IPAMPoolCidr",
+   "aws-native:ec2:IPAMResourceDiscovery": "IPAMResourceDiscovery",
+   "aws-native:ec2:IPAMResourceDiscoveryAssociation": "IPAMResourceDiscoveryAssociation",
    "aws-native:ec2:IPAMScope": "IPAMScope",
    "aws-native:ec2:Instance": "Instance",
    "aws-native:ec2:InternetGateway": "InternetGateway",
@@ -2442,6 +2453,19 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "omics",
+  "fqn": "pulumi_aws_native.omics",
+  "classes": {
+   "aws-native:omics:AnnotationStore": "AnnotationStore",
+   "aws-native:omics:ReferenceStore": "ReferenceStore",
+   "aws-native:omics:RunGroup": "RunGroup",
+   "aws-native:omics:SequenceStore": "SequenceStore",
+   "aws-native:omics:VariantStore": "VariantStore",
+   "aws-native:omics:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "opensearchserverless",
   "fqn": "pulumi_aws_native.opensearchserverless",
   "classes": {
@@ -2817,6 +2841,7 @@ _utilities.register(
    "aws-native:sagemaker:ImageVersion": "ImageVersion",
    "aws-native:sagemaker:Model": "Model",
    "aws-native:sagemaker:ModelBiasJobDefinition": "ModelBiasJobDefinition",
+   "aws-native:sagemaker:ModelCard": "ModelCard",
    "aws-native:sagemaker:ModelExplainabilityJobDefinition": "ModelExplainabilityJobDefinition",
    "aws-native:sagemaker:ModelPackage": "ModelPackage",
    "aws-native:sagemaker:ModelPackageGroup": "ModelPackageGroup",
@@ -2826,6 +2851,7 @@ _utilities.register(
    "aws-native:sagemaker:NotebookInstanceLifecycleConfig": "NotebookInstanceLifecycleConfig",
    "aws-native:sagemaker:Pipeline": "Pipeline",
    "aws-native:sagemaker:Project": "Project",
+   "aws-native:sagemaker:Space": "Space",
    "aws-native:sagemaker:UserProfile": "UserProfile",
    "aws-native:sagemaker:Workteam": "Workteam"
   }
@@ -2936,6 +2962,14 @@ _utilities.register(
   "classes": {
    "aws-native:signer:ProfilePermission": "ProfilePermission",
    "aws-native:signer:SigningProfile": "SigningProfile"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "simspaceweaver",
+  "fqn": "pulumi_aws_native.simspaceweaver",
+  "classes": {
+   "aws-native:simspaceweaver:Simulation": "Simulation"
   }
  },
  {

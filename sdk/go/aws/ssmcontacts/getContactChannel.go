@@ -32,8 +32,6 @@ type LookupContactChannelResult struct {
 	ChannelAddress *string `pulumi:"channelAddress"`
 	// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
 	ChannelName *string `pulumi:"channelName"`
-	// If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
-	DeferActivation *bool `pulumi:"deferActivation"`
 }
 
 func LookupContactChannelOutput(ctx *pulumi.Context, args LookupContactChannelOutputArgs, opts ...pulumi.InvokeOption) LookupContactChannelResultOutput {
@@ -85,11 +83,6 @@ func (o LookupContactChannelResultOutput) ChannelAddress() pulumi.StringPtrOutpu
 // The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
 func (o LookupContactChannelResultOutput) ChannelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContactChannelResult) *string { return v.ChannelName }).(pulumi.StringPtrOutput)
-}
-
-// If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
-func (o LookupContactChannelResultOutput) DeferActivation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupContactChannelResult) *bool { return v.DeferActivation }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

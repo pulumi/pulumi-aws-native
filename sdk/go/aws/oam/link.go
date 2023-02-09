@@ -17,7 +17,7 @@ type Link struct {
 
 	Arn            pulumi.StringOutput         `pulumi:"arn"`
 	Label          pulumi.StringOutput         `pulumi:"label"`
-	LabelTemplate  pulumi.StringOutput         `pulumi:"labelTemplate"`
+	LabelTemplate  pulumi.StringPtrOutput      `pulumi:"labelTemplate"`
 	ResourceTypes  LinkResourceTypeArrayOutput `pulumi:"resourceTypes"`
 	SinkIdentifier pulumi.StringOutput         `pulumi:"sinkIdentifier"`
 	// Tags to apply to the link
@@ -31,9 +31,6 @@ func NewLink(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LabelTemplate == nil {
-		return nil, errors.New("invalid value for required argument 'LabelTemplate'")
-	}
 	if args.ResourceTypes == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceTypes'")
 	}
@@ -72,7 +69,7 @@ func (LinkState) ElementType() reflect.Type {
 }
 
 type linkArgs struct {
-	LabelTemplate  string             `pulumi:"labelTemplate"`
+	LabelTemplate  *string            `pulumi:"labelTemplate"`
 	ResourceTypes  []LinkResourceType `pulumi:"resourceTypes"`
 	SinkIdentifier string             `pulumi:"sinkIdentifier"`
 	// Tags to apply to the link
@@ -81,7 +78,7 @@ type linkArgs struct {
 
 // The set of arguments for constructing a Link resource.
 type LinkArgs struct {
-	LabelTemplate  pulumi.StringInput
+	LabelTemplate  pulumi.StringPtrInput
 	ResourceTypes  LinkResourceTypeArrayInput
 	SinkIdentifier pulumi.StringInput
 	// Tags to apply to the link
@@ -133,8 +130,8 @@ func (o LinkOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
 }
 
-func (o LinkOutput) LabelTemplate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.LabelTemplate }).(pulumi.StringOutput)
+func (o LinkOutput) LabelTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.LabelTemplate }).(pulumi.StringPtrOutput)
 }
 
 func (o LinkOutput) ResourceTypes() LinkResourceTypeArrayOutput {

@@ -33,10 +33,6 @@ namespace Pulumi.AwsNative.RDS.Outputs
         /// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         /// </summary>
         public readonly string? SecretArn;
-        /// <summary>
-        /// The name of the database user to which the proxy connects.
-        /// </summary>
-        public readonly string? UserName;
 
         [OutputConstructor]
         private DBProxyAuthFormat(
@@ -48,16 +44,13 @@ namespace Pulumi.AwsNative.RDS.Outputs
 
             Pulumi.AwsNative.RDS.DBProxyAuthFormatIAMAuth? iAMAuth,
 
-            string? secretArn,
-
-            string? userName)
+            string? secretArn)
         {
             AuthScheme = authScheme;
             ClientPasswordAuthType = clientPasswordAuthType;
             Description = description;
             IAMAuth = iAMAuth;
             SecretArn = secretArn;
-            UserName = userName;
         }
     }
 }

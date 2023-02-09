@@ -1505,6 +1505,142 @@ func (o RegexPatternSetTagArrayOutput) Index(i pulumi.IntInput) RegexPatternSetT
 	}).(RegexPatternSetTagOutput)
 }
 
+// Allow traffic towards application.
+type RuleGroupAllowAction struct {
+	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
+}
+
+// RuleGroupAllowActionInput is an input type that accepts RuleGroupAllowActionArgs and RuleGroupAllowActionOutput values.
+// You can construct a concrete instance of `RuleGroupAllowActionInput` via:
+//
+//	RuleGroupAllowActionArgs{...}
+type RuleGroupAllowActionInput interface {
+	pulumi.Input
+
+	ToRuleGroupAllowActionOutput() RuleGroupAllowActionOutput
+	ToRuleGroupAllowActionOutputWithContext(context.Context) RuleGroupAllowActionOutput
+}
+
+// Allow traffic towards application.
+type RuleGroupAllowActionArgs struct {
+	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
+}
+
+func (RuleGroupAllowActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupAllowAction)(nil)).Elem()
+}
+
+func (i RuleGroupAllowActionArgs) ToRuleGroupAllowActionOutput() RuleGroupAllowActionOutput {
+	return i.ToRuleGroupAllowActionOutputWithContext(context.Background())
+}
+
+func (i RuleGroupAllowActionArgs) ToRuleGroupAllowActionOutputWithContext(ctx context.Context) RuleGroupAllowActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAllowActionOutput)
+}
+
+func (i RuleGroupAllowActionArgs) ToRuleGroupAllowActionPtrOutput() RuleGroupAllowActionPtrOutput {
+	return i.ToRuleGroupAllowActionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupAllowActionArgs) ToRuleGroupAllowActionPtrOutputWithContext(ctx context.Context) RuleGroupAllowActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAllowActionOutput).ToRuleGroupAllowActionPtrOutputWithContext(ctx)
+}
+
+// RuleGroupAllowActionPtrInput is an input type that accepts RuleGroupAllowActionArgs, RuleGroupAllowActionPtr and RuleGroupAllowActionPtrOutput values.
+// You can construct a concrete instance of `RuleGroupAllowActionPtrInput` via:
+//
+//	        RuleGroupAllowActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupAllowActionPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupAllowActionPtrOutput() RuleGroupAllowActionPtrOutput
+	ToRuleGroupAllowActionPtrOutputWithContext(context.Context) RuleGroupAllowActionPtrOutput
+}
+
+type ruleGroupAllowActionPtrType RuleGroupAllowActionArgs
+
+func RuleGroupAllowActionPtr(v *RuleGroupAllowActionArgs) RuleGroupAllowActionPtrInput {
+	return (*ruleGroupAllowActionPtrType)(v)
+}
+
+func (*ruleGroupAllowActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupAllowAction)(nil)).Elem()
+}
+
+func (i *ruleGroupAllowActionPtrType) ToRuleGroupAllowActionPtrOutput() RuleGroupAllowActionPtrOutput {
+	return i.ToRuleGroupAllowActionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupAllowActionPtrType) ToRuleGroupAllowActionPtrOutputWithContext(ctx context.Context) RuleGroupAllowActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAllowActionPtrOutput)
+}
+
+// Allow traffic towards application.
+type RuleGroupAllowActionOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupAllowActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupAllowAction)(nil)).Elem()
+}
+
+func (o RuleGroupAllowActionOutput) ToRuleGroupAllowActionOutput() RuleGroupAllowActionOutput {
+	return o
+}
+
+func (o RuleGroupAllowActionOutput) ToRuleGroupAllowActionOutputWithContext(ctx context.Context) RuleGroupAllowActionOutput {
+	return o
+}
+
+func (o RuleGroupAllowActionOutput) ToRuleGroupAllowActionPtrOutput() RuleGroupAllowActionPtrOutput {
+	return o.ToRuleGroupAllowActionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupAllowActionOutput) ToRuleGroupAllowActionPtrOutputWithContext(ctx context.Context) RuleGroupAllowActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupAllowAction) *RuleGroupAllowAction {
+		return &v
+	}).(RuleGroupAllowActionPtrOutput)
+}
+
+func (o RuleGroupAllowActionOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v RuleGroupAllowAction) *RuleGroupCustomRequestHandling { return v.CustomRequestHandling }).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
+type RuleGroupAllowActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupAllowActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupAllowAction)(nil)).Elem()
+}
+
+func (o RuleGroupAllowActionPtrOutput) ToRuleGroupAllowActionPtrOutput() RuleGroupAllowActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupAllowActionPtrOutput) ToRuleGroupAllowActionPtrOutputWithContext(ctx context.Context) RuleGroupAllowActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupAllowActionPtrOutput) Elem() RuleGroupAllowActionOutput {
+	return o.ApplyT(func(v *RuleGroupAllowAction) RuleGroupAllowAction {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupAllowAction
+		return ret
+	}).(RuleGroupAllowActionOutput)
+}
+
+func (o RuleGroupAllowActionPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupAllowAction) *RuleGroupCustomRequestHandling {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRequestHandling
+	}).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
 type RuleGroupAndStatement struct {
 	Statements []RuleGroupStatement `pulumi:"statements"`
 }
@@ -1636,6 +1772,142 @@ func (o RuleGroupAndStatementPtrOutput) Statements() RuleGroupStatementArrayOutp
 		}
 		return v.Statements
 	}).(RuleGroupStatementArrayOutput)
+}
+
+// Block traffic towards application.
+type RuleGroupBlockAction struct {
+	CustomResponse *RuleGroupCustomResponse `pulumi:"customResponse"`
+}
+
+// RuleGroupBlockActionInput is an input type that accepts RuleGroupBlockActionArgs and RuleGroupBlockActionOutput values.
+// You can construct a concrete instance of `RuleGroupBlockActionInput` via:
+//
+//	RuleGroupBlockActionArgs{...}
+type RuleGroupBlockActionInput interface {
+	pulumi.Input
+
+	ToRuleGroupBlockActionOutput() RuleGroupBlockActionOutput
+	ToRuleGroupBlockActionOutputWithContext(context.Context) RuleGroupBlockActionOutput
+}
+
+// Block traffic towards application.
+type RuleGroupBlockActionArgs struct {
+	CustomResponse RuleGroupCustomResponsePtrInput `pulumi:"customResponse"`
+}
+
+func (RuleGroupBlockActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupBlockAction)(nil)).Elem()
+}
+
+func (i RuleGroupBlockActionArgs) ToRuleGroupBlockActionOutput() RuleGroupBlockActionOutput {
+	return i.ToRuleGroupBlockActionOutputWithContext(context.Background())
+}
+
+func (i RuleGroupBlockActionArgs) ToRuleGroupBlockActionOutputWithContext(ctx context.Context) RuleGroupBlockActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupBlockActionOutput)
+}
+
+func (i RuleGroupBlockActionArgs) ToRuleGroupBlockActionPtrOutput() RuleGroupBlockActionPtrOutput {
+	return i.ToRuleGroupBlockActionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupBlockActionArgs) ToRuleGroupBlockActionPtrOutputWithContext(ctx context.Context) RuleGroupBlockActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupBlockActionOutput).ToRuleGroupBlockActionPtrOutputWithContext(ctx)
+}
+
+// RuleGroupBlockActionPtrInput is an input type that accepts RuleGroupBlockActionArgs, RuleGroupBlockActionPtr and RuleGroupBlockActionPtrOutput values.
+// You can construct a concrete instance of `RuleGroupBlockActionPtrInput` via:
+//
+//	        RuleGroupBlockActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupBlockActionPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupBlockActionPtrOutput() RuleGroupBlockActionPtrOutput
+	ToRuleGroupBlockActionPtrOutputWithContext(context.Context) RuleGroupBlockActionPtrOutput
+}
+
+type ruleGroupBlockActionPtrType RuleGroupBlockActionArgs
+
+func RuleGroupBlockActionPtr(v *RuleGroupBlockActionArgs) RuleGroupBlockActionPtrInput {
+	return (*ruleGroupBlockActionPtrType)(v)
+}
+
+func (*ruleGroupBlockActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupBlockAction)(nil)).Elem()
+}
+
+func (i *ruleGroupBlockActionPtrType) ToRuleGroupBlockActionPtrOutput() RuleGroupBlockActionPtrOutput {
+	return i.ToRuleGroupBlockActionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupBlockActionPtrType) ToRuleGroupBlockActionPtrOutputWithContext(ctx context.Context) RuleGroupBlockActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupBlockActionPtrOutput)
+}
+
+// Block traffic towards application.
+type RuleGroupBlockActionOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupBlockActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupBlockAction)(nil)).Elem()
+}
+
+func (o RuleGroupBlockActionOutput) ToRuleGroupBlockActionOutput() RuleGroupBlockActionOutput {
+	return o
+}
+
+func (o RuleGroupBlockActionOutput) ToRuleGroupBlockActionOutputWithContext(ctx context.Context) RuleGroupBlockActionOutput {
+	return o
+}
+
+func (o RuleGroupBlockActionOutput) ToRuleGroupBlockActionPtrOutput() RuleGroupBlockActionPtrOutput {
+	return o.ToRuleGroupBlockActionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupBlockActionOutput) ToRuleGroupBlockActionPtrOutputWithContext(ctx context.Context) RuleGroupBlockActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupBlockAction) *RuleGroupBlockAction {
+		return &v
+	}).(RuleGroupBlockActionPtrOutput)
+}
+
+func (o RuleGroupBlockActionOutput) CustomResponse() RuleGroupCustomResponsePtrOutput {
+	return o.ApplyT(func(v RuleGroupBlockAction) *RuleGroupCustomResponse { return v.CustomResponse }).(RuleGroupCustomResponsePtrOutput)
+}
+
+type RuleGroupBlockActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupBlockActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupBlockAction)(nil)).Elem()
+}
+
+func (o RuleGroupBlockActionPtrOutput) ToRuleGroupBlockActionPtrOutput() RuleGroupBlockActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupBlockActionPtrOutput) ToRuleGroupBlockActionPtrOutputWithContext(ctx context.Context) RuleGroupBlockActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupBlockActionPtrOutput) Elem() RuleGroupBlockActionOutput {
+	return o.ApplyT(func(v *RuleGroupBlockAction) RuleGroupBlockAction {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupBlockAction
+		return ret
+	}).(RuleGroupBlockActionOutput)
+}
+
+func (o RuleGroupBlockActionPtrOutput) CustomResponse() RuleGroupCustomResponsePtrOutput {
+	return o.ApplyT(func(v *RuleGroupBlockAction) *RuleGroupCustomResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CustomResponse
+	}).(RuleGroupCustomResponsePtrOutput)
 }
 
 // The body of a web request. This immediately follows the request headers.
@@ -1970,6 +2242,142 @@ func (o RuleGroupByteMatchStatementPtrOutput) TextTransformations() RuleGroupTex
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
+// Checks valid token exists with request.
+type RuleGroupCaptchaAction struct {
+	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
+}
+
+// RuleGroupCaptchaActionInput is an input type that accepts RuleGroupCaptchaActionArgs and RuleGroupCaptchaActionOutput values.
+// You can construct a concrete instance of `RuleGroupCaptchaActionInput` via:
+//
+//	RuleGroupCaptchaActionArgs{...}
+type RuleGroupCaptchaActionInput interface {
+	pulumi.Input
+
+	ToRuleGroupCaptchaActionOutput() RuleGroupCaptchaActionOutput
+	ToRuleGroupCaptchaActionOutputWithContext(context.Context) RuleGroupCaptchaActionOutput
+}
+
+// Checks valid token exists with request.
+type RuleGroupCaptchaActionArgs struct {
+	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
+}
+
+func (RuleGroupCaptchaActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCaptchaAction)(nil)).Elem()
+}
+
+func (i RuleGroupCaptchaActionArgs) ToRuleGroupCaptchaActionOutput() RuleGroupCaptchaActionOutput {
+	return i.ToRuleGroupCaptchaActionOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCaptchaActionArgs) ToRuleGroupCaptchaActionOutputWithContext(ctx context.Context) RuleGroupCaptchaActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCaptchaActionOutput)
+}
+
+func (i RuleGroupCaptchaActionArgs) ToRuleGroupCaptchaActionPtrOutput() RuleGroupCaptchaActionPtrOutput {
+	return i.ToRuleGroupCaptchaActionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCaptchaActionArgs) ToRuleGroupCaptchaActionPtrOutputWithContext(ctx context.Context) RuleGroupCaptchaActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCaptchaActionOutput).ToRuleGroupCaptchaActionPtrOutputWithContext(ctx)
+}
+
+// RuleGroupCaptchaActionPtrInput is an input type that accepts RuleGroupCaptchaActionArgs, RuleGroupCaptchaActionPtr and RuleGroupCaptchaActionPtrOutput values.
+// You can construct a concrete instance of `RuleGroupCaptchaActionPtrInput` via:
+//
+//	        RuleGroupCaptchaActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupCaptchaActionPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupCaptchaActionPtrOutput() RuleGroupCaptchaActionPtrOutput
+	ToRuleGroupCaptchaActionPtrOutputWithContext(context.Context) RuleGroupCaptchaActionPtrOutput
+}
+
+type ruleGroupCaptchaActionPtrType RuleGroupCaptchaActionArgs
+
+func RuleGroupCaptchaActionPtr(v *RuleGroupCaptchaActionArgs) RuleGroupCaptchaActionPtrInput {
+	return (*ruleGroupCaptchaActionPtrType)(v)
+}
+
+func (*ruleGroupCaptchaActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCaptchaAction)(nil)).Elem()
+}
+
+func (i *ruleGroupCaptchaActionPtrType) ToRuleGroupCaptchaActionPtrOutput() RuleGroupCaptchaActionPtrOutput {
+	return i.ToRuleGroupCaptchaActionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupCaptchaActionPtrType) ToRuleGroupCaptchaActionPtrOutputWithContext(ctx context.Context) RuleGroupCaptchaActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCaptchaActionPtrOutput)
+}
+
+// Checks valid token exists with request.
+type RuleGroupCaptchaActionOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCaptchaActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCaptchaAction)(nil)).Elem()
+}
+
+func (o RuleGroupCaptchaActionOutput) ToRuleGroupCaptchaActionOutput() RuleGroupCaptchaActionOutput {
+	return o
+}
+
+func (o RuleGroupCaptchaActionOutput) ToRuleGroupCaptchaActionOutputWithContext(ctx context.Context) RuleGroupCaptchaActionOutput {
+	return o
+}
+
+func (o RuleGroupCaptchaActionOutput) ToRuleGroupCaptchaActionPtrOutput() RuleGroupCaptchaActionPtrOutput {
+	return o.ToRuleGroupCaptchaActionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCaptchaActionOutput) ToRuleGroupCaptchaActionPtrOutputWithContext(ctx context.Context) RuleGroupCaptchaActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCaptchaAction) *RuleGroupCaptchaAction {
+		return &v
+	}).(RuleGroupCaptchaActionPtrOutput)
+}
+
+func (o RuleGroupCaptchaActionOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v RuleGroupCaptchaAction) *RuleGroupCustomRequestHandling { return v.CustomRequestHandling }).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
+type RuleGroupCaptchaActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCaptchaActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCaptchaAction)(nil)).Elem()
+}
+
+func (o RuleGroupCaptchaActionPtrOutput) ToRuleGroupCaptchaActionPtrOutput() RuleGroupCaptchaActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupCaptchaActionPtrOutput) ToRuleGroupCaptchaActionPtrOutputWithContext(ctx context.Context) RuleGroupCaptchaActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupCaptchaActionPtrOutput) Elem() RuleGroupCaptchaActionOutput {
+	return o.ApplyT(func(v *RuleGroupCaptchaAction) RuleGroupCaptchaAction {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupCaptchaAction
+		return ret
+	}).(RuleGroupCaptchaActionOutput)
+}
+
+func (o RuleGroupCaptchaActionPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupCaptchaAction) *RuleGroupCustomRequestHandling {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRequestHandling
+	}).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
 type RuleGroupCaptchaConfig struct {
 	ImmunityTimeProperty *RuleGroupImmunityTimeProperty `pulumi:"immunityTimeProperty"`
 }
@@ -2101,6 +2509,142 @@ func (o RuleGroupCaptchaConfigPtrOutput) ImmunityTimeProperty() RuleGroupImmunit
 		}
 		return v.ImmunityTimeProperty
 	}).(RuleGroupImmunityTimePropertyPtrOutput)
+}
+
+// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+type RuleGroupChallengeAction struct {
+	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
+}
+
+// RuleGroupChallengeActionInput is an input type that accepts RuleGroupChallengeActionArgs and RuleGroupChallengeActionOutput values.
+// You can construct a concrete instance of `RuleGroupChallengeActionInput` via:
+//
+//	RuleGroupChallengeActionArgs{...}
+type RuleGroupChallengeActionInput interface {
+	pulumi.Input
+
+	ToRuleGroupChallengeActionOutput() RuleGroupChallengeActionOutput
+	ToRuleGroupChallengeActionOutputWithContext(context.Context) RuleGroupChallengeActionOutput
+}
+
+// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+type RuleGroupChallengeActionArgs struct {
+	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
+}
+
+func (RuleGroupChallengeActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupChallengeAction)(nil)).Elem()
+}
+
+func (i RuleGroupChallengeActionArgs) ToRuleGroupChallengeActionOutput() RuleGroupChallengeActionOutput {
+	return i.ToRuleGroupChallengeActionOutputWithContext(context.Background())
+}
+
+func (i RuleGroupChallengeActionArgs) ToRuleGroupChallengeActionOutputWithContext(ctx context.Context) RuleGroupChallengeActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupChallengeActionOutput)
+}
+
+func (i RuleGroupChallengeActionArgs) ToRuleGroupChallengeActionPtrOutput() RuleGroupChallengeActionPtrOutput {
+	return i.ToRuleGroupChallengeActionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupChallengeActionArgs) ToRuleGroupChallengeActionPtrOutputWithContext(ctx context.Context) RuleGroupChallengeActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupChallengeActionOutput).ToRuleGroupChallengeActionPtrOutputWithContext(ctx)
+}
+
+// RuleGroupChallengeActionPtrInput is an input type that accepts RuleGroupChallengeActionArgs, RuleGroupChallengeActionPtr and RuleGroupChallengeActionPtrOutput values.
+// You can construct a concrete instance of `RuleGroupChallengeActionPtrInput` via:
+//
+//	        RuleGroupChallengeActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupChallengeActionPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupChallengeActionPtrOutput() RuleGroupChallengeActionPtrOutput
+	ToRuleGroupChallengeActionPtrOutputWithContext(context.Context) RuleGroupChallengeActionPtrOutput
+}
+
+type ruleGroupChallengeActionPtrType RuleGroupChallengeActionArgs
+
+func RuleGroupChallengeActionPtr(v *RuleGroupChallengeActionArgs) RuleGroupChallengeActionPtrInput {
+	return (*ruleGroupChallengeActionPtrType)(v)
+}
+
+func (*ruleGroupChallengeActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupChallengeAction)(nil)).Elem()
+}
+
+func (i *ruleGroupChallengeActionPtrType) ToRuleGroupChallengeActionPtrOutput() RuleGroupChallengeActionPtrOutput {
+	return i.ToRuleGroupChallengeActionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupChallengeActionPtrType) ToRuleGroupChallengeActionPtrOutputWithContext(ctx context.Context) RuleGroupChallengeActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupChallengeActionPtrOutput)
+}
+
+// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+type RuleGroupChallengeActionOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupChallengeActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupChallengeAction)(nil)).Elem()
+}
+
+func (o RuleGroupChallengeActionOutput) ToRuleGroupChallengeActionOutput() RuleGroupChallengeActionOutput {
+	return o
+}
+
+func (o RuleGroupChallengeActionOutput) ToRuleGroupChallengeActionOutputWithContext(ctx context.Context) RuleGroupChallengeActionOutput {
+	return o
+}
+
+func (o RuleGroupChallengeActionOutput) ToRuleGroupChallengeActionPtrOutput() RuleGroupChallengeActionPtrOutput {
+	return o.ToRuleGroupChallengeActionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupChallengeActionOutput) ToRuleGroupChallengeActionPtrOutputWithContext(ctx context.Context) RuleGroupChallengeActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupChallengeAction) *RuleGroupChallengeAction {
+		return &v
+	}).(RuleGroupChallengeActionPtrOutput)
+}
+
+func (o RuleGroupChallengeActionOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v RuleGroupChallengeAction) *RuleGroupCustomRequestHandling { return v.CustomRequestHandling }).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
+type RuleGroupChallengeActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupChallengeActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupChallengeAction)(nil)).Elem()
+}
+
+func (o RuleGroupChallengeActionPtrOutput) ToRuleGroupChallengeActionPtrOutput() RuleGroupChallengeActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupChallengeActionPtrOutput) ToRuleGroupChallengeActionPtrOutputWithContext(ctx context.Context) RuleGroupChallengeActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupChallengeActionPtrOutput) Elem() RuleGroupChallengeActionOutput {
+	return o.ApplyT(func(v *RuleGroupChallengeAction) RuleGroupChallengeAction {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupChallengeAction
+		return ret
+	}).(RuleGroupChallengeActionOutput)
+}
+
+func (o RuleGroupChallengeActionPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupChallengeAction) *RuleGroupCustomRequestHandling {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRequestHandling
+	}).(RuleGroupCustomRequestHandlingPtrOutput)
 }
 
 type RuleGroupChallengeConfig struct {
@@ -2570,6 +3114,142 @@ func (o RuleGroupCookiesPtrOutput) OversizeHandling() RuleGroupOversizeHandlingP
 		}
 		return &v.OversizeHandling
 	}).(RuleGroupOversizeHandlingPtrOutput)
+}
+
+// Count traffic towards application.
+type RuleGroupCountAction struct {
+	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
+}
+
+// RuleGroupCountActionInput is an input type that accepts RuleGroupCountActionArgs and RuleGroupCountActionOutput values.
+// You can construct a concrete instance of `RuleGroupCountActionInput` via:
+//
+//	RuleGroupCountActionArgs{...}
+type RuleGroupCountActionInput interface {
+	pulumi.Input
+
+	ToRuleGroupCountActionOutput() RuleGroupCountActionOutput
+	ToRuleGroupCountActionOutputWithContext(context.Context) RuleGroupCountActionOutput
+}
+
+// Count traffic towards application.
+type RuleGroupCountActionArgs struct {
+	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
+}
+
+func (RuleGroupCountActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCountAction)(nil)).Elem()
+}
+
+func (i RuleGroupCountActionArgs) ToRuleGroupCountActionOutput() RuleGroupCountActionOutput {
+	return i.ToRuleGroupCountActionOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCountActionArgs) ToRuleGroupCountActionOutputWithContext(ctx context.Context) RuleGroupCountActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCountActionOutput)
+}
+
+func (i RuleGroupCountActionArgs) ToRuleGroupCountActionPtrOutput() RuleGroupCountActionPtrOutput {
+	return i.ToRuleGroupCountActionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCountActionArgs) ToRuleGroupCountActionPtrOutputWithContext(ctx context.Context) RuleGroupCountActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCountActionOutput).ToRuleGroupCountActionPtrOutputWithContext(ctx)
+}
+
+// RuleGroupCountActionPtrInput is an input type that accepts RuleGroupCountActionArgs, RuleGroupCountActionPtr and RuleGroupCountActionPtrOutput values.
+// You can construct a concrete instance of `RuleGroupCountActionPtrInput` via:
+//
+//	        RuleGroupCountActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupCountActionPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupCountActionPtrOutput() RuleGroupCountActionPtrOutput
+	ToRuleGroupCountActionPtrOutputWithContext(context.Context) RuleGroupCountActionPtrOutput
+}
+
+type ruleGroupCountActionPtrType RuleGroupCountActionArgs
+
+func RuleGroupCountActionPtr(v *RuleGroupCountActionArgs) RuleGroupCountActionPtrInput {
+	return (*ruleGroupCountActionPtrType)(v)
+}
+
+func (*ruleGroupCountActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCountAction)(nil)).Elem()
+}
+
+func (i *ruleGroupCountActionPtrType) ToRuleGroupCountActionPtrOutput() RuleGroupCountActionPtrOutput {
+	return i.ToRuleGroupCountActionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupCountActionPtrType) ToRuleGroupCountActionPtrOutputWithContext(ctx context.Context) RuleGroupCountActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCountActionPtrOutput)
+}
+
+// Count traffic towards application.
+type RuleGroupCountActionOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCountActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCountAction)(nil)).Elem()
+}
+
+func (o RuleGroupCountActionOutput) ToRuleGroupCountActionOutput() RuleGroupCountActionOutput {
+	return o
+}
+
+func (o RuleGroupCountActionOutput) ToRuleGroupCountActionOutputWithContext(ctx context.Context) RuleGroupCountActionOutput {
+	return o
+}
+
+func (o RuleGroupCountActionOutput) ToRuleGroupCountActionPtrOutput() RuleGroupCountActionPtrOutput {
+	return o.ToRuleGroupCountActionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCountActionOutput) ToRuleGroupCountActionPtrOutputWithContext(ctx context.Context) RuleGroupCountActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCountAction) *RuleGroupCountAction {
+		return &v
+	}).(RuleGroupCountActionPtrOutput)
+}
+
+func (o RuleGroupCountActionOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v RuleGroupCountAction) *RuleGroupCustomRequestHandling { return v.CustomRequestHandling }).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
+type RuleGroupCountActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCountActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCountAction)(nil)).Elem()
+}
+
+func (o RuleGroupCountActionPtrOutput) ToRuleGroupCountActionPtrOutput() RuleGroupCountActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupCountActionPtrOutput) ToRuleGroupCountActionPtrOutputWithContext(ctx context.Context) RuleGroupCountActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupCountActionPtrOutput) Elem() RuleGroupCountActionOutput {
+	return o.ApplyT(func(v *RuleGroupCountAction) RuleGroupCountAction {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupCountAction
+		return ret
+	}).(RuleGroupCountActionOutput)
+}
+
+func (o RuleGroupCountActionPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupCountAction) *RuleGroupCustomRequestHandling {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRequestHandling
+	}).(RuleGroupCustomRequestHandlingPtrOutput)
 }
 
 // HTTP header.
@@ -6346,16 +7026,11 @@ func (o RuleGroupRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleOutput {
 
 // Action taken when Rule matches its condition.
 type RuleGroupRuleAction struct {
-	// Allow traffic towards application.
-	Allow *RuleGroupRuleActionAllowProperties `pulumi:"allow"`
-	// Block traffic towards application.
-	Block *RuleGroupRuleActionBlockProperties `pulumi:"block"`
-	// Checks valid token exists with request.
-	Captcha *RuleGroupRuleActionCaptchaProperties `pulumi:"captcha"`
-	// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-	Challenge *RuleGroupRuleActionChallengeProperties `pulumi:"challenge"`
-	// Count traffic towards application.
-	Count *RuleGroupRuleActionCountProperties `pulumi:"count"`
+	Allow     *RuleGroupAllowAction     `pulumi:"allow"`
+	Block     *RuleGroupBlockAction     `pulumi:"block"`
+	Captcha   *RuleGroupCaptchaAction   `pulumi:"captcha"`
+	Challenge *RuleGroupChallengeAction `pulumi:"challenge"`
+	Count     *RuleGroupCountAction     `pulumi:"count"`
 }
 
 // RuleGroupRuleActionInput is an input type that accepts RuleGroupRuleActionArgs and RuleGroupRuleActionOutput values.
@@ -6371,16 +7046,11 @@ type RuleGroupRuleActionInput interface {
 
 // Action taken when Rule matches its condition.
 type RuleGroupRuleActionArgs struct {
-	// Allow traffic towards application.
-	Allow RuleGroupRuleActionAllowPropertiesPtrInput `pulumi:"allow"`
-	// Block traffic towards application.
-	Block RuleGroupRuleActionBlockPropertiesPtrInput `pulumi:"block"`
-	// Checks valid token exists with request.
-	Captcha RuleGroupRuleActionCaptchaPropertiesPtrInput `pulumi:"captcha"`
-	// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-	Challenge RuleGroupRuleActionChallengePropertiesPtrInput `pulumi:"challenge"`
-	// Count traffic towards application.
-	Count RuleGroupRuleActionCountPropertiesPtrInput `pulumi:"count"`
+	Allow     RuleGroupAllowActionPtrInput     `pulumi:"allow"`
+	Block     RuleGroupBlockActionPtrInput     `pulumi:"block"`
+	Captcha   RuleGroupCaptchaActionPtrInput   `pulumi:"captcha"`
+	Challenge RuleGroupChallengeActionPtrInput `pulumi:"challenge"`
+	Count     RuleGroupCountActionPtrInput     `pulumi:"count"`
 }
 
 func (RuleGroupRuleActionArgs) ElementType() reflect.Type {
@@ -6461,29 +7131,24 @@ func (o RuleGroupRuleActionOutput) ToRuleGroupRuleActionPtrOutputWithContext(ctx
 	}).(RuleGroupRuleActionPtrOutput)
 }
 
-// Allow traffic towards application.
-func (o RuleGroupRuleActionOutput) Allow() RuleGroupRuleActionAllowPropertiesPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionAllowProperties { return v.Allow }).(RuleGroupRuleActionAllowPropertiesPtrOutput)
+func (o RuleGroupRuleActionOutput) Allow() RuleGroupAllowActionPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupAllowAction { return v.Allow }).(RuleGroupAllowActionPtrOutput)
 }
 
-// Block traffic towards application.
-func (o RuleGroupRuleActionOutput) Block() RuleGroupRuleActionBlockPropertiesPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionBlockProperties { return v.Block }).(RuleGroupRuleActionBlockPropertiesPtrOutput)
+func (o RuleGroupRuleActionOutput) Block() RuleGroupBlockActionPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupBlockAction { return v.Block }).(RuleGroupBlockActionPtrOutput)
 }
 
-// Checks valid token exists with request.
-func (o RuleGroupRuleActionOutput) Captcha() RuleGroupRuleActionCaptchaPropertiesPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionCaptchaProperties { return v.Captcha }).(RuleGroupRuleActionCaptchaPropertiesPtrOutput)
+func (o RuleGroupRuleActionOutput) Captcha() RuleGroupCaptchaActionPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupCaptchaAction { return v.Captcha }).(RuleGroupCaptchaActionPtrOutput)
 }
 
-// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-func (o RuleGroupRuleActionOutput) Challenge() RuleGroupRuleActionChallengePropertiesPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionChallengeProperties { return v.Challenge }).(RuleGroupRuleActionChallengePropertiesPtrOutput)
+func (o RuleGroupRuleActionOutput) Challenge() RuleGroupChallengeActionPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupChallengeAction { return v.Challenge }).(RuleGroupChallengeActionPtrOutput)
 }
 
-// Count traffic towards application.
-func (o RuleGroupRuleActionOutput) Count() RuleGroupRuleActionCountPropertiesPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionCountProperties { return v.Count }).(RuleGroupRuleActionCountPropertiesPtrOutput)
+func (o RuleGroupRuleActionOutput) Count() RuleGroupCountActionPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupCountAction { return v.Count }).(RuleGroupCountActionPtrOutput)
 }
 
 type RuleGroupRuleActionPtrOutput struct{ *pulumi.OutputState }
@@ -6510,742 +7175,49 @@ func (o RuleGroupRuleActionPtrOutput) Elem() RuleGroupRuleActionOutput {
 	}).(RuleGroupRuleActionOutput)
 }
 
-// Allow traffic towards application.
-func (o RuleGroupRuleActionPtrOutput) Allow() RuleGroupRuleActionAllowPropertiesPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupRuleActionAllowProperties {
+func (o RuleGroupRuleActionPtrOutput) Allow() RuleGroupAllowActionPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupAllowAction {
 		if v == nil {
 			return nil
 		}
 		return v.Allow
-	}).(RuleGroupRuleActionAllowPropertiesPtrOutput)
+	}).(RuleGroupAllowActionPtrOutput)
 }
 
-// Block traffic towards application.
-func (o RuleGroupRuleActionPtrOutput) Block() RuleGroupRuleActionBlockPropertiesPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupRuleActionBlockProperties {
+func (o RuleGroupRuleActionPtrOutput) Block() RuleGroupBlockActionPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupBlockAction {
 		if v == nil {
 			return nil
 		}
 		return v.Block
-	}).(RuleGroupRuleActionBlockPropertiesPtrOutput)
+	}).(RuleGroupBlockActionPtrOutput)
 }
 
-// Checks valid token exists with request.
-func (o RuleGroupRuleActionPtrOutput) Captcha() RuleGroupRuleActionCaptchaPropertiesPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupRuleActionCaptchaProperties {
+func (o RuleGroupRuleActionPtrOutput) Captcha() RuleGroupCaptchaActionPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupCaptchaAction {
 		if v == nil {
 			return nil
 		}
 		return v.Captcha
-	}).(RuleGroupRuleActionCaptchaPropertiesPtrOutput)
+	}).(RuleGroupCaptchaActionPtrOutput)
 }
 
-// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-func (o RuleGroupRuleActionPtrOutput) Challenge() RuleGroupRuleActionChallengePropertiesPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupRuleActionChallengeProperties {
+func (o RuleGroupRuleActionPtrOutput) Challenge() RuleGroupChallengeActionPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupChallengeAction {
 		if v == nil {
 			return nil
 		}
 		return v.Challenge
-	}).(RuleGroupRuleActionChallengePropertiesPtrOutput)
+	}).(RuleGroupChallengeActionPtrOutput)
 }
 
-// Count traffic towards application.
-func (o RuleGroupRuleActionPtrOutput) Count() RuleGroupRuleActionCountPropertiesPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupRuleActionCountProperties {
+func (o RuleGroupRuleActionPtrOutput) Count() RuleGroupCountActionPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupCountAction {
 		if v == nil {
 			return nil
 		}
 		return v.Count
-	}).(RuleGroupRuleActionCountPropertiesPtrOutput)
-}
-
-// Allow traffic towards application.
-type RuleGroupRuleActionAllowProperties struct {
-	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
-}
-
-// RuleGroupRuleActionAllowPropertiesInput is an input type that accepts RuleGroupRuleActionAllowPropertiesArgs and RuleGroupRuleActionAllowPropertiesOutput values.
-// You can construct a concrete instance of `RuleGroupRuleActionAllowPropertiesInput` via:
-//
-//	RuleGroupRuleActionAllowPropertiesArgs{...}
-type RuleGroupRuleActionAllowPropertiesInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleActionAllowPropertiesOutput() RuleGroupRuleActionAllowPropertiesOutput
-	ToRuleGroupRuleActionAllowPropertiesOutputWithContext(context.Context) RuleGroupRuleActionAllowPropertiesOutput
-}
-
-// Allow traffic towards application.
-type RuleGroupRuleActionAllowPropertiesArgs struct {
-	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
-}
-
-func (RuleGroupRuleActionAllowPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleActionAllowProperties)(nil)).Elem()
-}
-
-func (i RuleGroupRuleActionAllowPropertiesArgs) ToRuleGroupRuleActionAllowPropertiesOutput() RuleGroupRuleActionAllowPropertiesOutput {
-	return i.ToRuleGroupRuleActionAllowPropertiesOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleActionAllowPropertiesArgs) ToRuleGroupRuleActionAllowPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionAllowPropertiesOutput)
-}
-
-func (i RuleGroupRuleActionAllowPropertiesArgs) ToRuleGroupRuleActionAllowPropertiesPtrOutput() RuleGroupRuleActionAllowPropertiesPtrOutput {
-	return i.ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleActionAllowPropertiesArgs) ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionAllowPropertiesOutput).ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(ctx)
-}
-
-// RuleGroupRuleActionAllowPropertiesPtrInput is an input type that accepts RuleGroupRuleActionAllowPropertiesArgs, RuleGroupRuleActionAllowPropertiesPtr and RuleGroupRuleActionAllowPropertiesPtrOutput values.
-// You can construct a concrete instance of `RuleGroupRuleActionAllowPropertiesPtrInput` via:
-//
-//	        RuleGroupRuleActionAllowPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type RuleGroupRuleActionAllowPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleActionAllowPropertiesPtrOutput() RuleGroupRuleActionAllowPropertiesPtrOutput
-	ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(context.Context) RuleGroupRuleActionAllowPropertiesPtrOutput
-}
-
-type ruleGroupRuleActionAllowPropertiesPtrType RuleGroupRuleActionAllowPropertiesArgs
-
-func RuleGroupRuleActionAllowPropertiesPtr(v *RuleGroupRuleActionAllowPropertiesArgs) RuleGroupRuleActionAllowPropertiesPtrInput {
-	return (*ruleGroupRuleActionAllowPropertiesPtrType)(v)
-}
-
-func (*ruleGroupRuleActionAllowPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleActionAllowProperties)(nil)).Elem()
-}
-
-func (i *ruleGroupRuleActionAllowPropertiesPtrType) ToRuleGroupRuleActionAllowPropertiesPtrOutput() RuleGroupRuleActionAllowPropertiesPtrOutput {
-	return i.ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupRuleActionAllowPropertiesPtrType) ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionAllowPropertiesPtrOutput)
-}
-
-// Allow traffic towards application.
-type RuleGroupRuleActionAllowPropertiesOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleActionAllowPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleActionAllowProperties)(nil)).Elem()
-}
-
-func (o RuleGroupRuleActionAllowPropertiesOutput) ToRuleGroupRuleActionAllowPropertiesOutput() RuleGroupRuleActionAllowPropertiesOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionAllowPropertiesOutput) ToRuleGroupRuleActionAllowPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionAllowPropertiesOutput) ToRuleGroupRuleActionAllowPropertiesPtrOutput() RuleGroupRuleActionAllowPropertiesPtrOutput {
-	return o.ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupRuleActionAllowPropertiesOutput) ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleActionAllowProperties) *RuleGroupRuleActionAllowProperties {
-		return &v
-	}).(RuleGroupRuleActionAllowPropertiesPtrOutput)
-}
-
-func (o RuleGroupRuleActionAllowPropertiesOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleActionAllowProperties) *RuleGroupCustomRequestHandling {
-		return v.CustomRequestHandling
-	}).(RuleGroupCustomRequestHandlingPtrOutput)
-}
-
-type RuleGroupRuleActionAllowPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleActionAllowPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleActionAllowProperties)(nil)).Elem()
-}
-
-func (o RuleGroupRuleActionAllowPropertiesPtrOutput) ToRuleGroupRuleActionAllowPropertiesPtrOutput() RuleGroupRuleActionAllowPropertiesPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionAllowPropertiesPtrOutput) ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionAllowPropertiesPtrOutput) Elem() RuleGroupRuleActionAllowPropertiesOutput {
-	return o.ApplyT(func(v *RuleGroupRuleActionAllowProperties) RuleGroupRuleActionAllowProperties {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupRuleActionAllowProperties
-		return ret
-	}).(RuleGroupRuleActionAllowPropertiesOutput)
-}
-
-func (o RuleGroupRuleActionAllowPropertiesPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleActionAllowProperties) *RuleGroupCustomRequestHandling {
-		if v == nil {
-			return nil
-		}
-		return v.CustomRequestHandling
-	}).(RuleGroupCustomRequestHandlingPtrOutput)
-}
-
-// Block traffic towards application.
-type RuleGroupRuleActionBlockProperties struct {
-	CustomResponse *RuleGroupCustomResponse `pulumi:"customResponse"`
-}
-
-// RuleGroupRuleActionBlockPropertiesInput is an input type that accepts RuleGroupRuleActionBlockPropertiesArgs and RuleGroupRuleActionBlockPropertiesOutput values.
-// You can construct a concrete instance of `RuleGroupRuleActionBlockPropertiesInput` via:
-//
-//	RuleGroupRuleActionBlockPropertiesArgs{...}
-type RuleGroupRuleActionBlockPropertiesInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleActionBlockPropertiesOutput() RuleGroupRuleActionBlockPropertiesOutput
-	ToRuleGroupRuleActionBlockPropertiesOutputWithContext(context.Context) RuleGroupRuleActionBlockPropertiesOutput
-}
-
-// Block traffic towards application.
-type RuleGroupRuleActionBlockPropertiesArgs struct {
-	CustomResponse RuleGroupCustomResponsePtrInput `pulumi:"customResponse"`
-}
-
-func (RuleGroupRuleActionBlockPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleActionBlockProperties)(nil)).Elem()
-}
-
-func (i RuleGroupRuleActionBlockPropertiesArgs) ToRuleGroupRuleActionBlockPropertiesOutput() RuleGroupRuleActionBlockPropertiesOutput {
-	return i.ToRuleGroupRuleActionBlockPropertiesOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleActionBlockPropertiesArgs) ToRuleGroupRuleActionBlockPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionBlockPropertiesOutput)
-}
-
-func (i RuleGroupRuleActionBlockPropertiesArgs) ToRuleGroupRuleActionBlockPropertiesPtrOutput() RuleGroupRuleActionBlockPropertiesPtrOutput {
-	return i.ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleActionBlockPropertiesArgs) ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionBlockPropertiesOutput).ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(ctx)
-}
-
-// RuleGroupRuleActionBlockPropertiesPtrInput is an input type that accepts RuleGroupRuleActionBlockPropertiesArgs, RuleGroupRuleActionBlockPropertiesPtr and RuleGroupRuleActionBlockPropertiesPtrOutput values.
-// You can construct a concrete instance of `RuleGroupRuleActionBlockPropertiesPtrInput` via:
-//
-//	        RuleGroupRuleActionBlockPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type RuleGroupRuleActionBlockPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleActionBlockPropertiesPtrOutput() RuleGroupRuleActionBlockPropertiesPtrOutput
-	ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(context.Context) RuleGroupRuleActionBlockPropertiesPtrOutput
-}
-
-type ruleGroupRuleActionBlockPropertiesPtrType RuleGroupRuleActionBlockPropertiesArgs
-
-func RuleGroupRuleActionBlockPropertiesPtr(v *RuleGroupRuleActionBlockPropertiesArgs) RuleGroupRuleActionBlockPropertiesPtrInput {
-	return (*ruleGroupRuleActionBlockPropertiesPtrType)(v)
-}
-
-func (*ruleGroupRuleActionBlockPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleActionBlockProperties)(nil)).Elem()
-}
-
-func (i *ruleGroupRuleActionBlockPropertiesPtrType) ToRuleGroupRuleActionBlockPropertiesPtrOutput() RuleGroupRuleActionBlockPropertiesPtrOutput {
-	return i.ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupRuleActionBlockPropertiesPtrType) ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionBlockPropertiesPtrOutput)
-}
-
-// Block traffic towards application.
-type RuleGroupRuleActionBlockPropertiesOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleActionBlockPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleActionBlockProperties)(nil)).Elem()
-}
-
-func (o RuleGroupRuleActionBlockPropertiesOutput) ToRuleGroupRuleActionBlockPropertiesOutput() RuleGroupRuleActionBlockPropertiesOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionBlockPropertiesOutput) ToRuleGroupRuleActionBlockPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionBlockPropertiesOutput) ToRuleGroupRuleActionBlockPropertiesPtrOutput() RuleGroupRuleActionBlockPropertiesPtrOutput {
-	return o.ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupRuleActionBlockPropertiesOutput) ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleActionBlockProperties) *RuleGroupRuleActionBlockProperties {
-		return &v
-	}).(RuleGroupRuleActionBlockPropertiesPtrOutput)
-}
-
-func (o RuleGroupRuleActionBlockPropertiesOutput) CustomResponse() RuleGroupCustomResponsePtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleActionBlockProperties) *RuleGroupCustomResponse { return v.CustomResponse }).(RuleGroupCustomResponsePtrOutput)
-}
-
-type RuleGroupRuleActionBlockPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleActionBlockPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleActionBlockProperties)(nil)).Elem()
-}
-
-func (o RuleGroupRuleActionBlockPropertiesPtrOutput) ToRuleGroupRuleActionBlockPropertiesPtrOutput() RuleGroupRuleActionBlockPropertiesPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionBlockPropertiesPtrOutput) ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionBlockPropertiesPtrOutput) Elem() RuleGroupRuleActionBlockPropertiesOutput {
-	return o.ApplyT(func(v *RuleGroupRuleActionBlockProperties) RuleGroupRuleActionBlockProperties {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupRuleActionBlockProperties
-		return ret
-	}).(RuleGroupRuleActionBlockPropertiesOutput)
-}
-
-func (o RuleGroupRuleActionBlockPropertiesPtrOutput) CustomResponse() RuleGroupCustomResponsePtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleActionBlockProperties) *RuleGroupCustomResponse {
-		if v == nil {
-			return nil
-		}
-		return v.CustomResponse
-	}).(RuleGroupCustomResponsePtrOutput)
-}
-
-// Checks valid token exists with request.
-type RuleGroupRuleActionCaptchaProperties struct {
-	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
-}
-
-// RuleGroupRuleActionCaptchaPropertiesInput is an input type that accepts RuleGroupRuleActionCaptchaPropertiesArgs and RuleGroupRuleActionCaptchaPropertiesOutput values.
-// You can construct a concrete instance of `RuleGroupRuleActionCaptchaPropertiesInput` via:
-//
-//	RuleGroupRuleActionCaptchaPropertiesArgs{...}
-type RuleGroupRuleActionCaptchaPropertiesInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleActionCaptchaPropertiesOutput() RuleGroupRuleActionCaptchaPropertiesOutput
-	ToRuleGroupRuleActionCaptchaPropertiesOutputWithContext(context.Context) RuleGroupRuleActionCaptchaPropertiesOutput
-}
-
-// Checks valid token exists with request.
-type RuleGroupRuleActionCaptchaPropertiesArgs struct {
-	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
-}
-
-func (RuleGroupRuleActionCaptchaPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleActionCaptchaProperties)(nil)).Elem()
-}
-
-func (i RuleGroupRuleActionCaptchaPropertiesArgs) ToRuleGroupRuleActionCaptchaPropertiesOutput() RuleGroupRuleActionCaptchaPropertiesOutput {
-	return i.ToRuleGroupRuleActionCaptchaPropertiesOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleActionCaptchaPropertiesArgs) ToRuleGroupRuleActionCaptchaPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionCaptchaPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionCaptchaPropertiesOutput)
-}
-
-func (i RuleGroupRuleActionCaptchaPropertiesArgs) ToRuleGroupRuleActionCaptchaPropertiesPtrOutput() RuleGroupRuleActionCaptchaPropertiesPtrOutput {
-	return i.ToRuleGroupRuleActionCaptchaPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleActionCaptchaPropertiesArgs) ToRuleGroupRuleActionCaptchaPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCaptchaPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionCaptchaPropertiesOutput).ToRuleGroupRuleActionCaptchaPropertiesPtrOutputWithContext(ctx)
-}
-
-// RuleGroupRuleActionCaptchaPropertiesPtrInput is an input type that accepts RuleGroupRuleActionCaptchaPropertiesArgs, RuleGroupRuleActionCaptchaPropertiesPtr and RuleGroupRuleActionCaptchaPropertiesPtrOutput values.
-// You can construct a concrete instance of `RuleGroupRuleActionCaptchaPropertiesPtrInput` via:
-//
-//	        RuleGroupRuleActionCaptchaPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type RuleGroupRuleActionCaptchaPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleActionCaptchaPropertiesPtrOutput() RuleGroupRuleActionCaptchaPropertiesPtrOutput
-	ToRuleGroupRuleActionCaptchaPropertiesPtrOutputWithContext(context.Context) RuleGroupRuleActionCaptchaPropertiesPtrOutput
-}
-
-type ruleGroupRuleActionCaptchaPropertiesPtrType RuleGroupRuleActionCaptchaPropertiesArgs
-
-func RuleGroupRuleActionCaptchaPropertiesPtr(v *RuleGroupRuleActionCaptchaPropertiesArgs) RuleGroupRuleActionCaptchaPropertiesPtrInput {
-	return (*ruleGroupRuleActionCaptchaPropertiesPtrType)(v)
-}
-
-func (*ruleGroupRuleActionCaptchaPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleActionCaptchaProperties)(nil)).Elem()
-}
-
-func (i *ruleGroupRuleActionCaptchaPropertiesPtrType) ToRuleGroupRuleActionCaptchaPropertiesPtrOutput() RuleGroupRuleActionCaptchaPropertiesPtrOutput {
-	return i.ToRuleGroupRuleActionCaptchaPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupRuleActionCaptchaPropertiesPtrType) ToRuleGroupRuleActionCaptchaPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCaptchaPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionCaptchaPropertiesPtrOutput)
-}
-
-// Checks valid token exists with request.
-type RuleGroupRuleActionCaptchaPropertiesOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleActionCaptchaPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleActionCaptchaProperties)(nil)).Elem()
-}
-
-func (o RuleGroupRuleActionCaptchaPropertiesOutput) ToRuleGroupRuleActionCaptchaPropertiesOutput() RuleGroupRuleActionCaptchaPropertiesOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionCaptchaPropertiesOutput) ToRuleGroupRuleActionCaptchaPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionCaptchaPropertiesOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionCaptchaPropertiesOutput) ToRuleGroupRuleActionCaptchaPropertiesPtrOutput() RuleGroupRuleActionCaptchaPropertiesPtrOutput {
-	return o.ToRuleGroupRuleActionCaptchaPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupRuleActionCaptchaPropertiesOutput) ToRuleGroupRuleActionCaptchaPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCaptchaPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleActionCaptchaProperties) *RuleGroupRuleActionCaptchaProperties {
-		return &v
-	}).(RuleGroupRuleActionCaptchaPropertiesPtrOutput)
-}
-
-func (o RuleGroupRuleActionCaptchaPropertiesOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleActionCaptchaProperties) *RuleGroupCustomRequestHandling {
-		return v.CustomRequestHandling
-	}).(RuleGroupCustomRequestHandlingPtrOutput)
-}
-
-type RuleGroupRuleActionCaptchaPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleActionCaptchaPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleActionCaptchaProperties)(nil)).Elem()
-}
-
-func (o RuleGroupRuleActionCaptchaPropertiesPtrOutput) ToRuleGroupRuleActionCaptchaPropertiesPtrOutput() RuleGroupRuleActionCaptchaPropertiesPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionCaptchaPropertiesPtrOutput) ToRuleGroupRuleActionCaptchaPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCaptchaPropertiesPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionCaptchaPropertiesPtrOutput) Elem() RuleGroupRuleActionCaptchaPropertiesOutput {
-	return o.ApplyT(func(v *RuleGroupRuleActionCaptchaProperties) RuleGroupRuleActionCaptchaProperties {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupRuleActionCaptchaProperties
-		return ret
-	}).(RuleGroupRuleActionCaptchaPropertiesOutput)
-}
-
-func (o RuleGroupRuleActionCaptchaPropertiesPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleActionCaptchaProperties) *RuleGroupCustomRequestHandling {
-		if v == nil {
-			return nil
-		}
-		return v.CustomRequestHandling
-	}).(RuleGroupCustomRequestHandlingPtrOutput)
-}
-
-// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-type RuleGroupRuleActionChallengeProperties struct {
-	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
-}
-
-// RuleGroupRuleActionChallengePropertiesInput is an input type that accepts RuleGroupRuleActionChallengePropertiesArgs and RuleGroupRuleActionChallengePropertiesOutput values.
-// You can construct a concrete instance of `RuleGroupRuleActionChallengePropertiesInput` via:
-//
-//	RuleGroupRuleActionChallengePropertiesArgs{...}
-type RuleGroupRuleActionChallengePropertiesInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleActionChallengePropertiesOutput() RuleGroupRuleActionChallengePropertiesOutput
-	ToRuleGroupRuleActionChallengePropertiesOutputWithContext(context.Context) RuleGroupRuleActionChallengePropertiesOutput
-}
-
-// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-type RuleGroupRuleActionChallengePropertiesArgs struct {
-	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
-}
-
-func (RuleGroupRuleActionChallengePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleActionChallengeProperties)(nil)).Elem()
-}
-
-func (i RuleGroupRuleActionChallengePropertiesArgs) ToRuleGroupRuleActionChallengePropertiesOutput() RuleGroupRuleActionChallengePropertiesOutput {
-	return i.ToRuleGroupRuleActionChallengePropertiesOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleActionChallengePropertiesArgs) ToRuleGroupRuleActionChallengePropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionChallengePropertiesOutput)
-}
-
-func (i RuleGroupRuleActionChallengePropertiesArgs) ToRuleGroupRuleActionChallengePropertiesPtrOutput() RuleGroupRuleActionChallengePropertiesPtrOutput {
-	return i.ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleActionChallengePropertiesArgs) ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionChallengePropertiesOutput).ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(ctx)
-}
-
-// RuleGroupRuleActionChallengePropertiesPtrInput is an input type that accepts RuleGroupRuleActionChallengePropertiesArgs, RuleGroupRuleActionChallengePropertiesPtr and RuleGroupRuleActionChallengePropertiesPtrOutput values.
-// You can construct a concrete instance of `RuleGroupRuleActionChallengePropertiesPtrInput` via:
-//
-//	        RuleGroupRuleActionChallengePropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type RuleGroupRuleActionChallengePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleActionChallengePropertiesPtrOutput() RuleGroupRuleActionChallengePropertiesPtrOutput
-	ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(context.Context) RuleGroupRuleActionChallengePropertiesPtrOutput
-}
-
-type ruleGroupRuleActionChallengePropertiesPtrType RuleGroupRuleActionChallengePropertiesArgs
-
-func RuleGroupRuleActionChallengePropertiesPtr(v *RuleGroupRuleActionChallengePropertiesArgs) RuleGroupRuleActionChallengePropertiesPtrInput {
-	return (*ruleGroupRuleActionChallengePropertiesPtrType)(v)
-}
-
-func (*ruleGroupRuleActionChallengePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleActionChallengeProperties)(nil)).Elem()
-}
-
-func (i *ruleGroupRuleActionChallengePropertiesPtrType) ToRuleGroupRuleActionChallengePropertiesPtrOutput() RuleGroupRuleActionChallengePropertiesPtrOutput {
-	return i.ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupRuleActionChallengePropertiesPtrType) ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionChallengePropertiesPtrOutput)
-}
-
-// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-type RuleGroupRuleActionChallengePropertiesOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleActionChallengePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleActionChallengeProperties)(nil)).Elem()
-}
-
-func (o RuleGroupRuleActionChallengePropertiesOutput) ToRuleGroupRuleActionChallengePropertiesOutput() RuleGroupRuleActionChallengePropertiesOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionChallengePropertiesOutput) ToRuleGroupRuleActionChallengePropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionChallengePropertiesOutput) ToRuleGroupRuleActionChallengePropertiesPtrOutput() RuleGroupRuleActionChallengePropertiesPtrOutput {
-	return o.ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupRuleActionChallengePropertiesOutput) ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleActionChallengeProperties) *RuleGroupRuleActionChallengeProperties {
-		return &v
-	}).(RuleGroupRuleActionChallengePropertiesPtrOutput)
-}
-
-func (o RuleGroupRuleActionChallengePropertiesOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleActionChallengeProperties) *RuleGroupCustomRequestHandling {
-		return v.CustomRequestHandling
-	}).(RuleGroupCustomRequestHandlingPtrOutput)
-}
-
-type RuleGroupRuleActionChallengePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleActionChallengePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleActionChallengeProperties)(nil)).Elem()
-}
-
-func (o RuleGroupRuleActionChallengePropertiesPtrOutput) ToRuleGroupRuleActionChallengePropertiesPtrOutput() RuleGroupRuleActionChallengePropertiesPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionChallengePropertiesPtrOutput) ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionChallengePropertiesPtrOutput) Elem() RuleGroupRuleActionChallengePropertiesOutput {
-	return o.ApplyT(func(v *RuleGroupRuleActionChallengeProperties) RuleGroupRuleActionChallengeProperties {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupRuleActionChallengeProperties
-		return ret
-	}).(RuleGroupRuleActionChallengePropertiesOutput)
-}
-
-func (o RuleGroupRuleActionChallengePropertiesPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleActionChallengeProperties) *RuleGroupCustomRequestHandling {
-		if v == nil {
-			return nil
-		}
-		return v.CustomRequestHandling
-	}).(RuleGroupCustomRequestHandlingPtrOutput)
-}
-
-// Count traffic towards application.
-type RuleGroupRuleActionCountProperties struct {
-	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
-}
-
-// RuleGroupRuleActionCountPropertiesInput is an input type that accepts RuleGroupRuleActionCountPropertiesArgs and RuleGroupRuleActionCountPropertiesOutput values.
-// You can construct a concrete instance of `RuleGroupRuleActionCountPropertiesInput` via:
-//
-//	RuleGroupRuleActionCountPropertiesArgs{...}
-type RuleGroupRuleActionCountPropertiesInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleActionCountPropertiesOutput() RuleGroupRuleActionCountPropertiesOutput
-	ToRuleGroupRuleActionCountPropertiesOutputWithContext(context.Context) RuleGroupRuleActionCountPropertiesOutput
-}
-
-// Count traffic towards application.
-type RuleGroupRuleActionCountPropertiesArgs struct {
-	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
-}
-
-func (RuleGroupRuleActionCountPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleActionCountProperties)(nil)).Elem()
-}
-
-func (i RuleGroupRuleActionCountPropertiesArgs) ToRuleGroupRuleActionCountPropertiesOutput() RuleGroupRuleActionCountPropertiesOutput {
-	return i.ToRuleGroupRuleActionCountPropertiesOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleActionCountPropertiesArgs) ToRuleGroupRuleActionCountPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionCountPropertiesOutput)
-}
-
-func (i RuleGroupRuleActionCountPropertiesArgs) ToRuleGroupRuleActionCountPropertiesPtrOutput() RuleGroupRuleActionCountPropertiesPtrOutput {
-	return i.ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleActionCountPropertiesArgs) ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionCountPropertiesOutput).ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(ctx)
-}
-
-// RuleGroupRuleActionCountPropertiesPtrInput is an input type that accepts RuleGroupRuleActionCountPropertiesArgs, RuleGroupRuleActionCountPropertiesPtr and RuleGroupRuleActionCountPropertiesPtrOutput values.
-// You can construct a concrete instance of `RuleGroupRuleActionCountPropertiesPtrInput` via:
-//
-//	        RuleGroupRuleActionCountPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type RuleGroupRuleActionCountPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleActionCountPropertiesPtrOutput() RuleGroupRuleActionCountPropertiesPtrOutput
-	ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(context.Context) RuleGroupRuleActionCountPropertiesPtrOutput
-}
-
-type ruleGroupRuleActionCountPropertiesPtrType RuleGroupRuleActionCountPropertiesArgs
-
-func RuleGroupRuleActionCountPropertiesPtr(v *RuleGroupRuleActionCountPropertiesArgs) RuleGroupRuleActionCountPropertiesPtrInput {
-	return (*ruleGroupRuleActionCountPropertiesPtrType)(v)
-}
-
-func (*ruleGroupRuleActionCountPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleActionCountProperties)(nil)).Elem()
-}
-
-func (i *ruleGroupRuleActionCountPropertiesPtrType) ToRuleGroupRuleActionCountPropertiesPtrOutput() RuleGroupRuleActionCountPropertiesPtrOutput {
-	return i.ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupRuleActionCountPropertiesPtrType) ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionCountPropertiesPtrOutput)
-}
-
-// Count traffic towards application.
-type RuleGroupRuleActionCountPropertiesOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleActionCountPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleActionCountProperties)(nil)).Elem()
-}
-
-func (o RuleGroupRuleActionCountPropertiesOutput) ToRuleGroupRuleActionCountPropertiesOutput() RuleGroupRuleActionCountPropertiesOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionCountPropertiesOutput) ToRuleGroupRuleActionCountPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionCountPropertiesOutput) ToRuleGroupRuleActionCountPropertiesPtrOutput() RuleGroupRuleActionCountPropertiesPtrOutput {
-	return o.ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupRuleActionCountPropertiesOutput) ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleActionCountProperties) *RuleGroupRuleActionCountProperties {
-		return &v
-	}).(RuleGroupRuleActionCountPropertiesPtrOutput)
-}
-
-func (o RuleGroupRuleActionCountPropertiesOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleActionCountProperties) *RuleGroupCustomRequestHandling {
-		return v.CustomRequestHandling
-	}).(RuleGroupCustomRequestHandlingPtrOutput)
-}
-
-type RuleGroupRuleActionCountPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleActionCountPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleActionCountProperties)(nil)).Elem()
-}
-
-func (o RuleGroupRuleActionCountPropertiesPtrOutput) ToRuleGroupRuleActionCountPropertiesPtrOutput() RuleGroupRuleActionCountPropertiesPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionCountPropertiesPtrOutput) ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleActionCountPropertiesPtrOutput) Elem() RuleGroupRuleActionCountPropertiesOutput {
-	return o.ApplyT(func(v *RuleGroupRuleActionCountProperties) RuleGroupRuleActionCountProperties {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupRuleActionCountProperties
-		return ret
-	}).(RuleGroupRuleActionCountPropertiesOutput)
-}
-
-func (o RuleGroupRuleActionCountPropertiesPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleActionCountProperties) *RuleGroupCustomRequestHandling {
-		if v == nil {
-			return nil
-		}
-		return v.CustomRequestHandling
-	}).(RuleGroupCustomRequestHandlingPtrOutput)
+	}).(RuleGroupCountActionPtrOutput)
 }
 
 // Size Constraint statement.
@@ -16541,20 +16513,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingFilterPropertiesPtrInput)(nil)).Elem(), LoggingFilterPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetTagInput)(nil)).Elem(), RegexPatternSetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetTagArrayInput)(nil)).Elem(), RegexPatternSetTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAllowActionInput)(nil)).Elem(), RuleGroupAllowActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAllowActionPtrInput)(nil)).Elem(), RuleGroupAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAndStatementInput)(nil)).Elem(), RuleGroupAndStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAndStatementPtrInput)(nil)).Elem(), RuleGroupAndStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBlockActionInput)(nil)).Elem(), RuleGroupBlockActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBlockActionPtrInput)(nil)).Elem(), RuleGroupBlockActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBodyInput)(nil)).Elem(), RuleGroupBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBodyPtrInput)(nil)).Elem(), RuleGroupBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupByteMatchStatementInput)(nil)).Elem(), RuleGroupByteMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupByteMatchStatementPtrInput)(nil)).Elem(), RuleGroupByteMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCaptchaActionInput)(nil)).Elem(), RuleGroupCaptchaActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCaptchaActionPtrInput)(nil)).Elem(), RuleGroupCaptchaActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCaptchaConfigInput)(nil)).Elem(), RuleGroupCaptchaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCaptchaConfigPtrInput)(nil)).Elem(), RuleGroupCaptchaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupChallengeActionInput)(nil)).Elem(), RuleGroupChallengeActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupChallengeActionPtrInput)(nil)).Elem(), RuleGroupChallengeActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupChallengeConfigInput)(nil)).Elem(), RuleGroupChallengeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupChallengeConfigPtrInput)(nil)).Elem(), RuleGroupChallengeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookieMatchPatternInput)(nil)).Elem(), RuleGroupCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookieMatchPatternPtrInput)(nil)).Elem(), RuleGroupCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookiesInput)(nil)).Elem(), RuleGroupCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookiesPtrInput)(nil)).Elem(), RuleGroupCookiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCountActionInput)(nil)).Elem(), RuleGroupCountActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCountActionPtrInput)(nil)).Elem(), RuleGroupCountActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomHTTPHeaderInput)(nil)).Elem(), RuleGroupCustomHTTPHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomHTTPHeaderArrayInput)(nil)).Elem(), RuleGroupCustomHTTPHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomRequestHandlingInput)(nil)).Elem(), RuleGroupCustomRequestHandlingArgs{})
@@ -16607,16 +16589,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleArrayInput)(nil)).Elem(), RuleGroupRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionInput)(nil)).Elem(), RuleGroupRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionPtrInput)(nil)).Elem(), RuleGroupRuleActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionAllowPropertiesInput)(nil)).Elem(), RuleGroupRuleActionAllowPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionAllowPropertiesPtrInput)(nil)).Elem(), RuleGroupRuleActionAllowPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionBlockPropertiesInput)(nil)).Elem(), RuleGroupRuleActionBlockPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionBlockPropertiesPtrInput)(nil)).Elem(), RuleGroupRuleActionBlockPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionCaptchaPropertiesInput)(nil)).Elem(), RuleGroupRuleActionCaptchaPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionCaptchaPropertiesPtrInput)(nil)).Elem(), RuleGroupRuleActionCaptchaPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionChallengePropertiesInput)(nil)).Elem(), RuleGroupRuleActionChallengePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionChallengePropertiesPtrInput)(nil)).Elem(), RuleGroupRuleActionChallengePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionCountPropertiesInput)(nil)).Elem(), RuleGroupRuleActionCountPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionCountPropertiesPtrInput)(nil)).Elem(), RuleGroupRuleActionCountPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSizeConstraintStatementInput)(nil)).Elem(), RuleGroupSizeConstraintStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSizeConstraintStatementPtrInput)(nil)).Elem(), RuleGroupSizeConstraintStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSqliMatchStatementInput)(nil)).Elem(), RuleGroupSqliMatchStatementArgs{})
@@ -16758,20 +16730,30 @@ func init() {
 	pulumi.RegisterOutputType(LoggingFilterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetTagOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetTagArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupAllowActionOutput{})
+	pulumi.RegisterOutputType(RuleGroupAllowActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupBlockActionOutput{})
+	pulumi.RegisterOutputType(RuleGroupBlockActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupBodyOutput{})
 	pulumi.RegisterOutputType(RuleGroupBodyPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupCaptchaActionOutput{})
+	pulumi.RegisterOutputType(RuleGroupCaptchaActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCaptchaConfigOutput{})
 	pulumi.RegisterOutputType(RuleGroupCaptchaConfigPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupChallengeActionOutput{})
+	pulumi.RegisterOutputType(RuleGroupChallengeActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupChallengeConfigOutput{})
 	pulumi.RegisterOutputType(RuleGroupChallengeConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCookieMatchPatternOutput{})
 	pulumi.RegisterOutputType(RuleGroupCookieMatchPatternPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCookiesOutput{})
 	pulumi.RegisterOutputType(RuleGroupCookiesPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupCountActionOutput{})
+	pulumi.RegisterOutputType(RuleGroupCountActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomHTTPHeaderOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomHTTPHeaderArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomRequestHandlingOutput{})
@@ -16824,16 +16806,6 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRuleArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleActionPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleActionAllowPropertiesOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleActionAllowPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleActionBlockPropertiesOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleActionBlockPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleActionCaptchaPropertiesOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleActionCaptchaPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleActionChallengePropertiesOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleActionChallengePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleActionCountPropertiesOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleActionCountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupSizeConstraintStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupSizeConstraintStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupSqliMatchStatementOutput{})

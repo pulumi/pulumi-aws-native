@@ -43,6 +43,10 @@ export interface GetLocationObjectStorageResult {
      */
     readonly locationUri?: string;
     /**
+     * X.509 PEM content containing a certificate authority or chain to trust.
+     */
+    readonly serverCertificate?: string;
+    /**
      * The port that your self-managed server accepts inbound network traffic on.
      */
     readonly serverPort?: number;

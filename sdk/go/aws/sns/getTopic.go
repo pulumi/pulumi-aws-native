@@ -51,6 +51,8 @@ type LookupTopicResult struct {
 	Subscription []TopicSubscription `pulumi:"subscription"`
 	Tags         []TopicTag          `pulumi:"tags"`
 	TopicArn     *string             `pulumi:"topicArn"`
+	// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+	TracingConfig *string `pulumi:"tracingConfig"`
 }
 
 func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
@@ -136,6 +138,11 @@ func (o LookupTopicResultOutput) Tags() TopicTagArrayOutput {
 
 func (o LookupTopicResultOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+func (o LookupTopicResultOutput) TracingConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.TracingConfig }).(pulumi.StringPtrOutput)
 }
 
 func init() {

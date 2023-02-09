@@ -21,14 +21,16 @@ func LookupDBProxyTargetGroup(ctx *pulumi.Context, args *LookupDBProxyTargetGrou
 }
 
 type LookupDBProxyTargetGroupArgs struct {
-	// The Amazon Resource Name (ARN) representing the target group.
-	TargetGroupArn string `pulumi:"targetGroupArn"`
+	// The identifier for the proxy.
+	DBProxyName string `pulumi:"dBProxyName"`
 }
 
 type LookupDBProxyTargetGroupResult struct {
 	ConnectionPoolConfigurationInfo *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat `pulumi:"connectionPoolConfigurationInfo"`
 	DBClusterIdentifiers            []string                                                 `pulumi:"dBClusterIdentifiers"`
 	DBInstanceIdentifiers           []string                                                 `pulumi:"dBInstanceIdentifiers"`
+	// The identifier for the proxy.
+	DBProxyName *string `pulumi:"dBProxyName"`
 	// The Amazon Resource Name (ARN) representing the target group.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 }
@@ -47,8 +49,8 @@ func LookupDBProxyTargetGroupOutput(ctx *pulumi.Context, args LookupDBProxyTarge
 }
 
 type LookupDBProxyTargetGroupOutputArgs struct {
-	// The Amazon Resource Name (ARN) representing the target group.
-	TargetGroupArn pulumi.StringInput `pulumi:"targetGroupArn"`
+	// The identifier for the proxy.
+	DBProxyName pulumi.StringInput `pulumi:"dBProxyName"`
 }
 
 func (LookupDBProxyTargetGroupOutputArgs) ElementType() reflect.Type {
@@ -81,6 +83,11 @@ func (o LookupDBProxyTargetGroupResultOutput) DBClusterIdentifiers() pulumi.Stri
 
 func (o LookupDBProxyTargetGroupResultOutput) DBInstanceIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDBProxyTargetGroupResult) []string { return v.DBInstanceIdentifiers }).(pulumi.StringArrayOutput)
+}
+
+// The identifier for the proxy.
+func (o LookupDBProxyTargetGroupResultOutput) DBProxyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBProxyTargetGroupResult) *string { return v.DBProxyName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) representing the target group.

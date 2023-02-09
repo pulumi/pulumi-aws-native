@@ -25,13 +25,14 @@ type LookupResolverEndpointArgs struct {
 }
 
 type LookupResolverEndpointResult struct {
-	Arn                *string                            `pulumi:"arn"`
-	HostVPCId          *string                            `pulumi:"hostVPCId"`
-	IpAddressCount     *string                            `pulumi:"ipAddressCount"`
-	IpAddresses        []ResolverEndpointIpAddressRequest `pulumi:"ipAddresses"`
-	Name               *string                            `pulumi:"name"`
-	ResolverEndpointId *string                            `pulumi:"resolverEndpointId"`
-	Tags               []ResolverEndpointTag              `pulumi:"tags"`
+	Arn                  *string                            `pulumi:"arn"`
+	HostVPCId            *string                            `pulumi:"hostVPCId"`
+	IpAddressCount       *string                            `pulumi:"ipAddressCount"`
+	IpAddresses          []ResolverEndpointIpAddressRequest `pulumi:"ipAddresses"`
+	Name                 *string                            `pulumi:"name"`
+	ResolverEndpointId   *string                            `pulumi:"resolverEndpointId"`
+	ResolverEndpointType *string                            `pulumi:"resolverEndpointType"`
+	Tags                 []ResolverEndpointTag              `pulumi:"tags"`
 }
 
 func LookupResolverEndpointOutput(ctx *pulumi.Context, args LookupResolverEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupResolverEndpointResultOutput {
@@ -91,6 +92,10 @@ func (o LookupResolverEndpointResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupResolverEndpointResultOutput) ResolverEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.ResolverEndpointId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) ResolverEndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.ResolverEndpointType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResolverEndpointResultOutput) Tags() ResolverEndpointTagArrayOutput {

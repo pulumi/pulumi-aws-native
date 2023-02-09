@@ -20,7 +20,9 @@
   "createOnlyProperties" : [ "/properties/SubnetId", "/properties/NetworkAclId" ],
   "primaryIdentifier" : [ "/properties/AssociationId" ],
   "readOnlyProperties" : [ "/properties/AssociationId" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:DescribeNetworkAcls", "ec2:ReplaceNetworkAclAssociation" ]

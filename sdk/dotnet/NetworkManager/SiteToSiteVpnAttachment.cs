@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The ID of a core network where you're creating a site-to-site VPN attachment.
         /// </summary>
         [Output("coreNetworkId")]
-        public Output<string?> CoreNetworkId { get; private set; } = null!;
+        public Output<string> CoreNetworkId { get; private set; } = null!;
 
         /// <summary>
         /// Creation time of the attachment.
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The ARN of the site-to-site VPN attachment.
         /// </summary>
         [Output("vpnConnectionArn")]
-        public Output<string?> VpnConnectionArn { get; private set; } = null!;
+        public Output<string> VpnConnectionArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SiteToSiteVpnAttachment(string name, SiteToSiteVpnAttachmentArgs? args = null, CustomResourceOptions? options = null)
+        public SiteToSiteVpnAttachment(string name, SiteToSiteVpnAttachmentArgs args, CustomResourceOptions? options = null)
             : base("aws-native:networkmanager:SiteToSiteVpnAttachment", name, args ?? new SiteToSiteVpnAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -153,8 +153,8 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of a core network where you're creating a site-to-site VPN attachment.
         /// </summary>
-        [Input("coreNetworkId")]
-        public Input<string>? CoreNetworkId { get; set; }
+        [Input("coreNetworkId", required: true)]
+        public Input<string> CoreNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.SiteToSiteVpnAttachmentTagArgs>? _tags;
@@ -171,8 +171,8 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ARN of the site-to-site VPN attachment.
         /// </summary>
-        [Input("vpnConnectionArn")]
-        public Input<string>? VpnConnectionArn { get; set; }
+        [Input("vpnConnectionArn", required: true)]
+        public Input<string> VpnConnectionArn { get; set; } = null!;
 
         public SiteToSiteVpnAttachmentArgs()
         {

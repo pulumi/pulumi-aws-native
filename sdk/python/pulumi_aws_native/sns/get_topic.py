@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTopicResult:
-    def __init__(__self__, content_based_deduplication=None, data_protection_policy=None, display_name=None, kms_master_key_id=None, signature_version=None, subscription=None, tags=None, topic_arn=None):
+    def __init__(__self__, content_based_deduplication=None, data_protection_policy=None, display_name=None, kms_master_key_id=None, signature_version=None, subscription=None, tags=None, topic_arn=None, tracing_config=None):
         if content_based_deduplication and not isinstance(content_based_deduplication, bool):
             raise TypeError("Expected argument 'content_based_deduplication' to be a bool")
         pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
@@ -44,6 +44,9 @@ class GetTopicResult:
         if topic_arn and not isinstance(topic_arn, str):
             raise TypeError("Expected argument 'topic_arn' to be a str")
         pulumi.set(__self__, "topic_arn", topic_arn)
+        if tracing_config and not isinstance(tracing_config, str):
+            raise TypeError("Expected argument 'tracing_config' to be a str")
+        pulumi.set(__self__, "tracing_config", tracing_config)
 
     @property
     @pulumi.getter(name="contentBasedDeduplication")
@@ -115,6 +118,14 @@ class GetTopicResult:
     def topic_arn(self) -> Optional[str]:
         return pulumi.get(self, "topic_arn")
 
+    @property
+    @pulumi.getter(name="tracingConfig")
+    def tracing_config(self) -> Optional[str]:
+        """
+        Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+        """
+        return pulumi.get(self, "tracing_config")
+
 
 class AwaitableGetTopicResult(GetTopicResult):
     # pylint: disable=using-constant-test
@@ -129,7 +140,8 @@ class AwaitableGetTopicResult(GetTopicResult):
             signature_version=self.signature_version,
             subscription=self.subscription,
             tags=self.tags,
-            topic_arn=self.topic_arn)
+            topic_arn=self.topic_arn,
+            tracing_config=self.tracing_config)
 
 
 def get_topic(topic_arn: Optional[str] = None,
@@ -150,7 +162,8 @@ def get_topic(topic_arn: Optional[str] = None,
         signature_version=__ret__.signature_version,
         subscription=__ret__.subscription,
         tags=__ret__.tags,
-        topic_arn=__ret__.topic_arn)
+        topic_arn=__ret__.topic_arn,
+        tracing_config=__ret__.tracing_config)
 
 
 @_utilities.lift_output_func(get_topic)

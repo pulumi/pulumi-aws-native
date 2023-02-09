@@ -16,16 +16,10 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
     public partial class Theme : global::Pulumi.CustomResource
     {
         [Output("appId")]
-        public Output<string> AppId { get; private set; } = null!;
-
-        [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> AppId { get; private set; } = null!;
 
         [Output("environmentName")]
-        public Output<string> EnvironmentName { get; private set; } = null!;
-
-        [Output("modifiedAt")]
-        public Output<string> ModifiedAt { get; private set; } = null!;
+        public Output<string?> EnvironmentName { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -84,6 +78,12 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
 
     public sealed class ThemeArgs : global::Pulumi.ResourceArgs
     {
+        [Input("appId")]
+        public Input<string>? AppId { get; set; }
+
+        [Input("environmentName")]
+        public Input<string>? EnvironmentName { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 

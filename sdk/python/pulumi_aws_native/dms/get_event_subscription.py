@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetEventSubscriptionResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSubscriptionResult:
-    def __init__(__self__, enabled=None, event_categories=None, id=None, sns_topic_arn=None, source_type=None):
+    def __init__(__self__, enabled=None, event_categories=None, id=None, sns_topic_arn=None, source_type=None, tags=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -34,6 +35,9 @@ class GetEventSubscriptionResult:
         if source_type and not isinstance(source_type, str):
             raise TypeError("Expected argument 'source_type' to be a str")
         pulumi.set(__self__, "source_type", source_type)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -60,6 +64,11 @@ class GetEventSubscriptionResult:
     def source_type(self) -> Optional[str]:
         return pulumi.get(self, "source_type")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.EventSubscriptionTag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetEventSubscriptionResult(GetEventSubscriptionResult):
     # pylint: disable=using-constant-test
@@ -71,7 +80,8 @@ class AwaitableGetEventSubscriptionResult(GetEventSubscriptionResult):
             event_categories=self.event_categories,
             id=self.id,
             sns_topic_arn=self.sns_topic_arn,
-            source_type=self.source_type)
+            source_type=self.source_type,
+            tags=self.tags)
 
 
 def get_event_subscription(id: Optional[str] = None,
@@ -89,7 +99,8 @@ def get_event_subscription(id: Optional[str] = None,
         event_categories=__ret__.event_categories,
         id=__ret__.id,
         sns_topic_arn=__ret__.sns_topic_arn,
-        source_type=__ret__.source_type)
+        source_type=__ret__.source_type,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_event_subscription)

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     /// <summary>
-    /// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+    /// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
     /// </summary>
     public sealed class DomainDefaultSpaceSettingsArgs : global::Pulumi.ResourceArgs
     {

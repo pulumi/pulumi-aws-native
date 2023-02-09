@@ -712,6 +712,47 @@ func (i LocationFSxONTAPProtocolArgs) ToLocationFSxONTAPProtocolOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPProtocolOutput)
 }
 
+func (i LocationFSxONTAPProtocolArgs) ToLocationFSxONTAPProtocolPtrOutput() LocationFSxONTAPProtocolPtrOutput {
+	return i.ToLocationFSxONTAPProtocolPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFSxONTAPProtocolArgs) ToLocationFSxONTAPProtocolPtrOutputWithContext(ctx context.Context) LocationFSxONTAPProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPProtocolOutput).ToLocationFSxONTAPProtocolPtrOutputWithContext(ctx)
+}
+
+// LocationFSxONTAPProtocolPtrInput is an input type that accepts LocationFSxONTAPProtocolArgs, LocationFSxONTAPProtocolPtr and LocationFSxONTAPProtocolPtrOutput values.
+// You can construct a concrete instance of `LocationFSxONTAPProtocolPtrInput` via:
+//
+//	        LocationFSxONTAPProtocolArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationFSxONTAPProtocolPtrInput interface {
+	pulumi.Input
+
+	ToLocationFSxONTAPProtocolPtrOutput() LocationFSxONTAPProtocolPtrOutput
+	ToLocationFSxONTAPProtocolPtrOutputWithContext(context.Context) LocationFSxONTAPProtocolPtrOutput
+}
+
+type locationFSxONTAPProtocolPtrType LocationFSxONTAPProtocolArgs
+
+func LocationFSxONTAPProtocolPtr(v *LocationFSxONTAPProtocolArgs) LocationFSxONTAPProtocolPtrInput {
+	return (*locationFSxONTAPProtocolPtrType)(v)
+}
+
+func (*locationFSxONTAPProtocolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxONTAPProtocol)(nil)).Elem()
+}
+
+func (i *locationFSxONTAPProtocolPtrType) ToLocationFSxONTAPProtocolPtrOutput() LocationFSxONTAPProtocolPtrOutput {
+	return i.ToLocationFSxONTAPProtocolPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFSxONTAPProtocolPtrType) ToLocationFSxONTAPProtocolPtrOutputWithContext(ctx context.Context) LocationFSxONTAPProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxONTAPProtocolPtrOutput)
+}
+
 // Configuration settings for NFS or SMB protocol.
 type LocationFSxONTAPProtocolOutput struct{ *pulumi.OutputState }
 
@@ -727,12 +768,64 @@ func (o LocationFSxONTAPProtocolOutput) ToLocationFSxONTAPProtocolOutputWithCont
 	return o
 }
 
+func (o LocationFSxONTAPProtocolOutput) ToLocationFSxONTAPProtocolPtrOutput() LocationFSxONTAPProtocolPtrOutput {
+	return o.ToLocationFSxONTAPProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFSxONTAPProtocolOutput) ToLocationFSxONTAPProtocolPtrOutputWithContext(ctx context.Context) LocationFSxONTAPProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFSxONTAPProtocol) *LocationFSxONTAPProtocol {
+		return &v
+	}).(LocationFSxONTAPProtocolPtrOutput)
+}
+
 func (o LocationFSxONTAPProtocolOutput) NFS() LocationFSxONTAPNFSPtrOutput {
 	return o.ApplyT(func(v LocationFSxONTAPProtocol) *LocationFSxONTAPNFS { return v.NFS }).(LocationFSxONTAPNFSPtrOutput)
 }
 
 func (o LocationFSxONTAPProtocolOutput) SMB() LocationFSxONTAPSMBPtrOutput {
 	return o.ApplyT(func(v LocationFSxONTAPProtocol) *LocationFSxONTAPSMB { return v.SMB }).(LocationFSxONTAPSMBPtrOutput)
+}
+
+type LocationFSxONTAPProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxONTAPProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxONTAPProtocol)(nil)).Elem()
+}
+
+func (o LocationFSxONTAPProtocolPtrOutput) ToLocationFSxONTAPProtocolPtrOutput() LocationFSxONTAPProtocolPtrOutput {
+	return o
+}
+
+func (o LocationFSxONTAPProtocolPtrOutput) ToLocationFSxONTAPProtocolPtrOutputWithContext(ctx context.Context) LocationFSxONTAPProtocolPtrOutput {
+	return o
+}
+
+func (o LocationFSxONTAPProtocolPtrOutput) Elem() LocationFSxONTAPProtocolOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPProtocol) LocationFSxONTAPProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFSxONTAPProtocol
+		return ret
+	}).(LocationFSxONTAPProtocolOutput)
+}
+
+func (o LocationFSxONTAPProtocolPtrOutput) NFS() LocationFSxONTAPNFSPtrOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPProtocol) *LocationFSxONTAPNFS {
+		if v == nil {
+			return nil
+		}
+		return v.NFS
+	}).(LocationFSxONTAPNFSPtrOutput)
+}
+
+func (o LocationFSxONTAPProtocolPtrOutput) SMB() LocationFSxONTAPSMBPtrOutput {
+	return o.ApplyT(func(v *LocationFSxONTAPProtocol) *LocationFSxONTAPSMB {
+		if v == nil {
+			return nil
+		}
+		return v.SMB
+	}).(LocationFSxONTAPSMBPtrOutput)
 }
 
 // SMB protocol configuration for FSx ONTAP file system.
@@ -3741,6 +3834,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPNfsMountOptionsInput)(nil)).Elem(), LocationFSxONTAPNfsMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPNfsMountOptionsPtrInput)(nil)).Elem(), LocationFSxONTAPNfsMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPProtocolInput)(nil)).Elem(), LocationFSxONTAPProtocolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPProtocolPtrInput)(nil)).Elem(), LocationFSxONTAPProtocolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPSMBInput)(nil)).Elem(), LocationFSxONTAPSMBArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPSMBPtrInput)(nil)).Elem(), LocationFSxONTAPSMBArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxONTAPSmbMountOptionsInput)(nil)).Elem(), LocationFSxONTAPSmbMountOptionsArgs{})
@@ -3796,6 +3890,7 @@ func init() {
 	pulumi.RegisterOutputType(LocationFSxONTAPNfsMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationFSxONTAPNfsMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LocationFSxONTAPProtocolOutput{})
+	pulumi.RegisterOutputType(LocationFSxONTAPProtocolPtrOutput{})
 	pulumi.RegisterOutputType(LocationFSxONTAPSMBOutput{})
 	pulumi.RegisterOutputType(LocationFSxONTAPSMBPtrOutput{})
 	pulumi.RegisterOutputType(LocationFSxONTAPSmbMountOptionsOutput{})

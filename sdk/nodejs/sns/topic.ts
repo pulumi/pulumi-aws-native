@@ -85,6 +85,10 @@ export class Topic extends pulumi.CustomResource {
      * If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
      */
     public readonly topicName!: pulumi.Output<string | undefined>;
+    /**
+     * Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+     */
+    public readonly tracingConfig!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.
@@ -106,6 +110,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["subscription"] = args ? args.subscription : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
             resourceInputs["topicArn"] = undefined /*out*/;
         } else {
             resourceInputs["contentBasedDeduplication"] = undefined /*out*/;
@@ -118,6 +123,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["topicArn"] = undefined /*out*/;
             resourceInputs["topicName"] = undefined /*out*/;
+            resourceInputs["tracingConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Topic.__pulumiType, name, resourceInputs, opts);
@@ -175,4 +181,8 @@ export interface TopicArgs {
      * If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
      */
     topicName?: pulumi.Input<string>;
+    /**
+     * Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+     */
+    tracingConfig?: pulumi.Input<string>;
 }

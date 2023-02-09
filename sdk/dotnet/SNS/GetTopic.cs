@@ -89,6 +89,10 @@ namespace Pulumi.AwsNative.SNS
         public readonly ImmutableArray<Outputs.TopicSubscription> Subscription;
         public readonly ImmutableArray<Outputs.TopicTag> Tags;
         public readonly string? TopicArn;
+        /// <summary>
+        /// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+        /// </summary>
+        public readonly string? TracingConfig;
 
         [OutputConstructor]
         private GetTopicResult(
@@ -106,7 +110,9 @@ namespace Pulumi.AwsNative.SNS
 
             ImmutableArray<Outputs.TopicTag> tags,
 
-            string? topicArn)
+            string? topicArn,
+
+            string? tracingConfig)
         {
             ContentBasedDeduplication = contentBasedDeduplication;
             DataProtectionPolicy = dataProtectionPolicy;
@@ -116,6 +122,7 @@ namespace Pulumi.AwsNative.SNS
             Subscription = subscription;
             Tags = tags;
             TopicArn = topicArn;
+            TracingConfig = tracingConfig;
         }
     }
 }

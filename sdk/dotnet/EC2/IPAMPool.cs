@@ -115,6 +115,12 @@ namespace Pulumi.AwsNative.EC2
         public Output<ImmutableArray<Outputs.IPAMPoolProvisionedCidr>> ProvisionedCidrs { get; private set; } = null!;
 
         /// <summary>
+        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+        /// </summary>
+        [Output("publicIpSource")]
+        public Output<Pulumi.AwsNative.EC2.IPAMPoolPublicIpSource?> PublicIpSource { get; private set; } = null!;
+
+        /// <summary>
         /// Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
         /// </summary>
         [Output("publiclyAdvertisable")]
@@ -263,6 +269,12 @@ namespace Pulumi.AwsNative.EC2
             get => _provisionedCidrs ?? (_provisionedCidrs = new InputList<Inputs.IPAMPoolProvisionedCidrArgs>());
             set => _provisionedCidrs = value;
         }
+
+        /// <summary>
+        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+        /// </summary>
+        [Input("publicIpSource")]
+        public Input<Pulumi.AwsNative.EC2.IPAMPoolPublicIpSource>? PublicIpSource { get; set; }
 
         /// <summary>
         /// Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.

@@ -530,7 +530,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> pulumi.Output[Optional[str]]:
+    def server_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "server_name")
 
     @property

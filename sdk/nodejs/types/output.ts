@@ -5806,6 +5806,34 @@ export namespace cloudfront {
 
 export namespace cloudtrail {
     /**
+     * The resource that receives events arriving from a channel.
+     */
+    export interface ChannelDestination {
+        /**
+         * The ARN of a resource that receives events from a channel.
+         */
+        location: string;
+        /**
+         * The type of destination for events arriving from a channel.
+         */
+        type: enums.cloudtrail.ChannelDestinationType;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ChannelTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
      * Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
      */
     export interface EventDataStoreAdvancedEventSelector {
@@ -8162,12 +8190,18 @@ export namespace connectcampaigns {
      * The possible types of dialer config parameters
      */
     export interface CampaignDialerConfig {
+        predictiveDialerConfig?: outputs.connectcampaigns.CampaignPredictiveDialerConfig;
+        progressiveDialerConfig?: outputs.connectcampaigns.CampaignProgressiveDialerConfig;
     }
 
     /**
      * The configuration used for outbound calls.
      */
     export interface CampaignOutboundCallConfig {
+        /**
+         * The configuration used for answering machine detection during outbound calls
+         */
+        answerMachineDetectionConfig?: outputs.connectcampaigns.CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties;
         /**
          * The identifier of the contact flow for the outbound call.
          */
@@ -8180,6 +8214,36 @@ export namespace connectcampaigns {
          * The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
          */
         connectSourcePhoneNumber?: string;
+    }
+
+    /**
+     * The configuration used for answering machine detection during outbound calls
+     */
+    export interface CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties {
+        /**
+         * Flag to decided whether outbound calls should have answering machine detection enabled or not
+         */
+        enableAnswerMachineDetection: boolean;
+    }
+
+    /**
+     * Predictive Dialer config
+     */
+    export interface CampaignPredictiveDialerConfig {
+        /**
+         * The bandwidth allocation of a queue resource.
+         */
+        bandwidthAllocation: number;
+    }
+
+    /**
+     * Progressive Dialer config
+     */
+    export interface CampaignProgressiveDialerConfig {
+        /**
+         * The bandwidth allocation of a queue resource.
+         */
+        bandwidthAllocation: number;
     }
 
     /**
@@ -10566,6 +10630,44 @@ export namespace ec2 {
     /**
      * A key-value pair to associate with a resource.
      */
+    export interface IPAMResourceDiscoveryAssociationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+     */
+    export interface IPAMResourceDiscoveryIpamOperatingRegion {
+        /**
+         * The name of the region.
+         */
+        regionName: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IPAMResourceDiscoveryTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface IPAMScopeTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -11049,6 +11151,8 @@ export namespace ec2 {
     export interface NetworkInsightsAnalysisAdditionalDetail {
         additionalDetailType?: string;
         component?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
+        loadBalancers?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent[];
+        serviceName?: string;
     }
 
     export interface NetworkInsightsAnalysisAlternatePathHint {
@@ -11179,6 +11283,7 @@ export namespace ec2 {
         routeTableRoute?: outputs.ec2.NetworkInsightsAnalysisAnalysisRouteTableRoute;
         securityGroupRule?: outputs.ec2.NetworkInsightsAnalysisAnalysisSecurityGroupRule;
         sequenceNumber?: number;
+        serviceName?: string;
         sourceVpc?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
         subnet?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
         transitGateway?: outputs.ec2.NetworkInsightsAnalysisAnalysisComponent;
@@ -27226,6 +27331,10 @@ export namespace networkfirewall {
 
     export interface FirewallSubnetMapping {
         /**
+         * A IPAddressType
+         */
+        iPAddressType?: string;
+        /**
          * A SubnetId.
          */
         subnetId: string;
@@ -27664,18 +27773,24 @@ export namespace nimblestudio {
         maxSessionLengthInMinutes?: number;
         /**
          * <p>Integer that determines if you can start and stop your sessions and how long a session
-         *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-         *          <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-         *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
-         *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-         *             session will automatically be terminated (instead of stopped).</p>
+         *             can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
+         *             5760.</p>
+         *          <p>This field is allowed only when <code>sessionPersistenceMode</code> is
+         *                 <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
+         *                 <code>ACTIVATED</code>.</p>
+         *          <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
+         *             call <code>StopStreamingSession</code>, the session fails. If the time that a session
+         *             stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
+         *             value, the session will automatically be terminated (instead of
+         *             <code>STOPPED</code>).</p>
          *          <p>If the value is set to a positive number, the session can be stopped. You can call
-         *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
-         *             that a session stays in the READY state exceeds the
+         *                 <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
+         *             If the time that a session stays in the <code>READY</code> state exceeds the
          *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
          *             stopped (instead of terminated).</p>
          */
         maxStoppedSessionLengthInMinutes?: number;
+        sessionBackup?: outputs.nimblestudio.LaunchProfileStreamConfigurationSessionBackup;
         sessionPersistenceMode?: enums.nimblestudio.LaunchProfileSessionPersistenceMode;
         sessionStorage?: outputs.nimblestudio.LaunchProfileStreamConfigurationSessionStorage;
         /**
@@ -27684,6 +27799,19 @@ export namespace nimblestudio {
          */
         streamingImageIds: string[];
         volumeConfiguration?: outputs.nimblestudio.LaunchProfileVolumeConfiguration;
+    }
+
+    /**
+     * <p>Configures how streaming sessions are backed up when launched from this launch
+     *             profile.</p>
+     */
+    export interface LaunchProfileStreamConfigurationSessionBackup {
+        /**
+         * <p>The maximum number of backups that each streaming session created from this launch
+         *             profile can have.</p>
+         */
+        maxBackupsToRetain?: number;
+        mode?: enums.nimblestudio.LaunchProfileSessionBackupMode;
     }
 
     /**
@@ -27716,9 +27844,27 @@ export namespace nimblestudio {
     export interface LaunchProfileTags {
     }
 
+    /**
+     * <p>Custom volume configuration for the root volumes that are attached to streaming
+     *             sessions.</p>
+     *          <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+     *                 <code>ACTIVATED</code>.</p>
+     */
     export interface LaunchProfileVolumeConfiguration {
+        /**
+         * <p>The number of I/O operations per second for the root volume that is attached to
+         *             streaming session.</p>
+         */
         iops?: number;
+        /**
+         * <p>The size of the root volume that is attached to the streaming session. The root volume
+         *             size is measured in GiBs.</p>
+         */
         size?: number;
+        /**
+         * <p>The throughput to provision for the root volume that is attached to the streaming
+         *             session. The throughput is measured in MiB/s.</p>
+         */
         throughput?: number;
     }
 
@@ -27788,6 +27934,79 @@ export namespace nimblestudio {
     }
 
     export interface StudioTags {
+    }
+
+}
+
+export namespace omics {
+    export interface AnnotationStoreReferenceItem {
+        referenceArn: string;
+    }
+
+    export interface AnnotationStoreSseConfig {
+        keyArn?: string;
+        type: enums.omics.AnnotationStoreEncryptionType;
+    }
+
+    export interface AnnotationStoreStoreOptions {
+    }
+
+    export interface AnnotationStoreTagMap {
+    }
+
+    /**
+     * Server-side encryption (SSE) settings for a store.
+     */
+    export interface ReferenceStoreSseConfig {
+        /**
+         * An encryption key ARN.
+         */
+        keyArn?: string;
+        type: enums.omics.ReferenceStoreEncryptionType;
+    }
+
+    export interface ReferenceStoreTagMap {
+    }
+
+    /**
+     * A map of resource tags
+     */
+    export interface RunGroupTagMap {
+    }
+
+    /**
+     * Server-side encryption (SSE) settings for a store.
+     */
+    export interface SequenceStoreSseConfig {
+        /**
+         * An encryption key ARN.
+         */
+        keyArn?: string;
+        type: enums.omics.SequenceStoreEncryptionType;
+    }
+
+    export interface SequenceStoreTagMap {
+    }
+
+    export interface VariantStoreReferenceItem {
+        referenceArn: string;
+    }
+
+    export interface VariantStoreSseConfig {
+        keyArn?: string;
+        type: enums.omics.VariantStoreEncryptionType;
+    }
+
+    export interface VariantStoreTagMap {
+    }
+
+    export interface WorkflowParameterTemplate {
+    }
+
+    /**
+     * A map of resource tags
+     */
+    export interface WorkflowTagMap {
     }
 
 }
@@ -30894,10 +31113,6 @@ export namespace rds {
          * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
          */
         secretArn?: string;
-        /**
-         * The name of the database user to which the proxy connects.
-         */
-        userName?: string;
     }
 
     export interface DBProxyEndpointTagFormat {
@@ -32097,6 +32312,7 @@ export namespace route53resolver {
 
     export interface ResolverEndpointIpAddressRequest {
         ip?: string;
+        ipv6?: string;
         subnetId: string;
     }
 
@@ -32120,7 +32336,11 @@ export namespace route53resolver {
         /**
          * One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
          */
-        ip: string;
+        ip?: string;
+        /**
+         * One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
+         */
+        ipv6?: string;
         /**
          * The port at Ip that you want to forward DNS queries to. 
          */
@@ -33814,7 +34034,7 @@ export namespace sagemaker {
     }
 
     /**
-     * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+     * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
      */
     export interface DomainDefaultSpaceSettings {
         /**
@@ -34460,6 +34680,300 @@ export namespace sagemaker {
          * The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
          */
         subnets: string[];
+    }
+
+    export interface ModelCardAdditionalInformation {
+        /**
+         * Caveats and recommendations for people who might use this model in their applications.
+         */
+        caveatsAndRecommendations?: string;
+        /**
+         * customer details.
+         */
+        customDetails?: any;
+        /**
+         * Any ethical considerations that the author wants to provide.
+         */
+        ethicalConsiderations?: string;
+    }
+
+    export interface ModelCardBarChartMetric {
+        name: string;
+        notes?: string;
+        type: enums.sagemaker.ModelCardBarChartMetricType;
+        value: number[];
+        xAxisName?: string[];
+        yAxisName?: string;
+    }
+
+    /**
+     * Business details.
+     */
+    export interface ModelCardBusinessDetails {
+        /**
+         * What business problem does the model solve?
+         */
+        businessProblem?: string;
+        /**
+         * Business stakeholders.
+         */
+        businessStakeholders?: string;
+        /**
+         * Line of business.
+         */
+        lineOfBusiness?: string;
+    }
+
+    /**
+     * The content of the model card.
+     */
+    export interface ModelCardContent {
+        additionalInformation?: outputs.sagemaker.ModelCardAdditionalInformation;
+        businessDetails?: outputs.sagemaker.ModelCardBusinessDetails;
+        evaluationDetails?: outputs.sagemaker.ModelCardEvaluationDetail[];
+        intendedUses?: outputs.sagemaker.ModelCardIntendedUses;
+        modelOverview?: outputs.sagemaker.ModelCardModelOverview;
+        trainingDetails?: outputs.sagemaker.ModelCardTrainingDetails;
+    }
+
+    /**
+     * item of evaluation details
+     */
+    export interface ModelCardEvaluationDetail {
+        datasets?: string[];
+        evaluationJobArn?: string;
+        evaluationObservation?: string;
+        /**
+         * additional attributes associated with the evaluation results.
+         */
+        metadata?: any;
+        metricGroups?: outputs.sagemaker.ModelCardMetricGroup[];
+        name: string;
+    }
+
+    /**
+     * Intended usage of model.
+     */
+    export interface ModelCardIntendedUses {
+        explanationsForRiskRating?: string;
+        factorsAffectingModelEfficiency?: string;
+        /**
+         * intended use cases.
+         */
+        intendedUses?: string;
+        /**
+         * Why the model was developed?
+         */
+        purposeOfModel?: string;
+        riskRating?: enums.sagemaker.ModelCardRiskRating;
+    }
+
+    /**
+     * Linear graph metric.
+     */
+    export interface ModelCardLinearGraphMetric {
+        name: string;
+        notes?: string;
+        type: enums.sagemaker.ModelCardLinearGraphMetricType;
+        value: number[][];
+        xAxisName?: string;
+        yAxisName?: string;
+    }
+
+    export interface ModelCardMatrixMetric {
+        name: string;
+        notes?: string;
+        type: enums.sagemaker.ModelCardMatrixMetricType;
+        value: number[][];
+        xAxisName?: string[];
+        yAxisName?: string[];
+    }
+
+    /**
+     * item in metric groups
+     */
+    export interface ModelCardMetricGroup {
+        metricData: (outputs.sagemaker.ModelCardSimpleMetric | outputs.sagemaker.ModelCardLinearGraphMetric | outputs.sagemaker.ModelCardBarChartMetric | outputs.sagemaker.ModelCardMatrixMetric)[];
+        name: string;
+    }
+
+    /**
+     * Overview about the model.
+     */
+    export interface ModelCardModelOverview {
+        /**
+         * Algorithm used to solve the problem.
+         */
+        algorithmType?: string;
+        /**
+         * Overview about the inference.
+         */
+        inferenceEnvironment?: outputs.sagemaker.ModelCardModelOverviewInferenceEnvironmentProperties;
+        /**
+         * Location of the model artifact.
+         */
+        modelArtifact?: string[];
+        /**
+         * Creator of model.
+         */
+        modelCreator?: string;
+        /**
+         * description of model.
+         */
+        modelDescription?: string;
+        /**
+         * SageMaker Model Arn or Non SageMaker Model id.
+         */
+        modelId?: string;
+        /**
+         * Name of the model.
+         */
+        modelName?: string;
+        /**
+         * Owner of model.
+         */
+        modelOwner?: string;
+        /**
+         * Version of the model.
+         */
+        modelVersion?: number;
+        /**
+         * Problem being solved with the model.
+         */
+        problemType?: string;
+    }
+
+    /**
+     * Overview about the inference.
+     */
+    export interface ModelCardModelOverviewInferenceEnvironmentProperties {
+        /**
+         * SageMaker inference image uri.
+         */
+        containerImage?: string[];
+    }
+
+    /**
+     * the objective function the model will optimize for.
+     */
+    export interface ModelCardObjectiveFunction {
+        /**
+         * objective function that training job is optimized for.
+         */
+        function?: outputs.sagemaker.ModelCardObjectiveFunctionFunctionProperties;
+        notes?: string;
+    }
+
+    /**
+     * objective function that training job is optimized for.
+     */
+    export interface ModelCardObjectiveFunctionFunctionProperties {
+        condition?: string;
+        facet?: string;
+        function?: enums.sagemaker.ModelCardObjectiveFunctionFunctionPropertiesFunction;
+    }
+
+    /**
+     * An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
+     */
+    export interface ModelCardSecurityConfig {
+        /**
+         * A Key Management Service key ID to use for encrypting a model card.
+         */
+        kmsKeyId?: string;
+    }
+
+    /**
+     * metric data
+     */
+    export interface ModelCardSimpleMetric {
+        name: string;
+        notes?: string;
+        type: enums.sagemaker.ModelCardSimpleMetricType;
+        value: number | string | boolean;
+        xAxisName?: string;
+        yAxisName?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ModelCardTag {
+        /**
+         * The tag key. Tag keys must be unique per resource.
+         */
+        key: string;
+        /**
+         * The tag value.
+         */
+        value: string;
+    }
+
+    /**
+     * Overview about the training.
+     */
+    export interface ModelCardTrainingDetails {
+        objectiveFunction?: outputs.sagemaker.ModelCardObjectiveFunction;
+        trainingJobDetails?: outputs.sagemaker.ModelCardTrainingDetailsTrainingJobDetailsProperties;
+        trainingObservations?: string;
+    }
+
+    export interface ModelCardTrainingDetailsTrainingJobDetailsProperties {
+        hyperParameters?: outputs.sagemaker.ModelCardTrainingHyperParameter[];
+        /**
+         * SageMaker Training job arn.
+         */
+        trainingArn?: string;
+        /**
+         * Location of the model datasets.
+         */
+        trainingDatasets?: string[];
+        trainingEnvironment?: outputs.sagemaker.ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties;
+        trainingMetrics?: outputs.sagemaker.ModelCardTrainingMetric[];
+        userProvidedHyperParameters?: outputs.sagemaker.ModelCardTrainingHyperParameter[];
+        userProvidedTrainingMetrics?: outputs.sagemaker.ModelCardTrainingMetric[];
+    }
+
+    export interface ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties {
+        /**
+         * SageMaker training image uri.
+         */
+        containerImage?: string[];
+    }
+
+    /**
+     * training hyper parameter
+     */
+    export interface ModelCardTrainingHyperParameter {
+        name: string;
+        value: string;
+    }
+
+    /**
+     * training metric data.
+     */
+    export interface ModelCardTrainingMetric {
+        name: string;
+        notes?: string;
+        value: number;
+    }
+
+    /**
+     * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+     */
+    export interface ModelCardUserContext {
+        /**
+         * The domain associated with the user.
+         */
+        domainId?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the user's profile.
+         */
+        userProfileArn?: string;
+        /**
+         * The name of the user's profile.
+         */
+        userProfileName?: string;
     }
 
     export interface ModelContainerDefinition {
@@ -35974,6 +36488,79 @@ export namespace sagemaker {
     /**
      * A custom SageMaker image.
      */
+    export interface SpaceCustomImage {
+        /**
+         * The Name of the AppImageConfig.
+         */
+        appImageConfigName: string;
+        /**
+         * The name of the CustomImage. Must be unique to your account.
+         */
+        imageName: string;
+        /**
+         * The version number of the CustomImage.
+         */
+        imageVersionNumber?: number;
+    }
+
+    /**
+     * The JupyterServer app settings.
+     */
+    export interface SpaceJupyterServerAppSettings {
+        defaultResourceSpec?: outputs.sagemaker.SpaceResourceSpec;
+    }
+
+    /**
+     * The kernel gateway app settings.
+     */
+    export interface SpaceKernelGatewayAppSettings {
+        /**
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app.
+         */
+        customImages?: outputs.sagemaker.SpaceCustomImage[];
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+         */
+        defaultResourceSpec?: outputs.sagemaker.SpaceResourceSpec;
+    }
+
+    export interface SpaceResourceSpec {
+        /**
+         * The instance type that the image version runs on.
+         */
+        instanceType?: enums.sagemaker.SpaceResourceSpecInstanceType;
+        /**
+         * The ARN of the SageMaker image that the image version belongs to.
+         */
+        sageMakerImageArn?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sageMakerImageVersionArn?: string;
+    }
+
+    /**
+     * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+     */
+    export interface SpaceSettings {
+        /**
+         * The Jupyter server's app settings.
+         */
+        jupyterServerAppSettings?: outputs.sagemaker.SpaceJupyterServerAppSettings;
+        /**
+         * The kernel gateway app settings.
+         */
+        kernelGatewayAppSettings?: outputs.sagemaker.SpaceKernelGatewayAppSettings;
+    }
+
+    export interface SpaceTag {
+        key: string;
+        value: string;
+    }
+
+    /**
+     * A custom SageMaker image.
+     */
     export interface UserProfileCustomImage {
         /**
          * The Name of the AppImageConfig.
@@ -36897,6 +37484,20 @@ export namespace signer {
     export interface SigningProfileTag {
         key?: string;
         value?: string;
+    }
+
+}
+
+export namespace simspaceweaver {
+    export interface SimulationS3Location {
+        /**
+         * The Schema S3 bucket name.
+         */
+        bucketName: string;
+        /**
+         * This is the schema S3 object key, which includes the full path of "folders" from the bucket root to the schema.
+         */
+        objectKey: string;
     }
 
 }
@@ -38355,8 +38956,22 @@ export namespace wafv2 {
         value?: string;
     }
 
+    /**
+     * Allow traffic towards application.
+     */
+    export interface RuleGroupAllowAction {
+        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
+    }
+
     export interface RuleGroupAndStatement {
         statements: outputs.wafv2.RuleGroupStatement[];
+    }
+
+    /**
+     * Block traffic towards application.
+     */
+    export interface RuleGroupBlockAction {
+        customResponse?: outputs.wafv2.RuleGroupCustomResponse;
     }
 
     /**
@@ -38377,8 +38992,22 @@ export namespace wafv2 {
         textTransformations: outputs.wafv2.RuleGroupTextTransformation[];
     }
 
+    /**
+     * Checks valid token exists with request.
+     */
+    export interface RuleGroupCaptchaAction {
+        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
+    }
+
     export interface RuleGroupCaptchaConfig {
         immunityTimeProperty?: outputs.wafv2.RuleGroupImmunityTimeProperty;
+    }
+
+    /**
+     * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+     */
+    export interface RuleGroupChallengeAction {
+        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
     }
 
     export interface RuleGroupChallengeConfig {
@@ -38404,6 +39033,13 @@ export namespace wafv2 {
         matchPattern: outputs.wafv2.RuleGroupCookieMatchPattern;
         matchScope: enums.wafv2.RuleGroupMapMatchScope;
         oversizeHandling: enums.wafv2.RuleGroupOversizeHandling;
+    }
+
+    /**
+     * Count traffic towards application.
+     */
+    export interface RuleGroupCountAction {
+        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
     }
 
     /**
@@ -38615,61 +39251,11 @@ export namespace wafv2 {
      * Action taken when Rule matches its condition.
      */
     export interface RuleGroupRuleAction {
-        /**
-         * Allow traffic towards application.
-         */
-        allow?: outputs.wafv2.RuleGroupRuleActionAllowProperties;
-        /**
-         * Block traffic towards application.
-         */
-        block?: outputs.wafv2.RuleGroupRuleActionBlockProperties;
-        /**
-         * Checks valid token exists with request.
-         */
-        captcha?: outputs.wafv2.RuleGroupRuleActionCaptchaProperties;
-        /**
-         * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-         */
-        challenge?: outputs.wafv2.RuleGroupRuleActionChallengeProperties;
-        /**
-         * Count traffic towards application.
-         */
-        count?: outputs.wafv2.RuleGroupRuleActionCountProperties;
-    }
-
-    /**
-     * Allow traffic towards application.
-     */
-    export interface RuleGroupRuleActionAllowProperties {
-        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
-    }
-
-    /**
-     * Block traffic towards application.
-     */
-    export interface RuleGroupRuleActionBlockProperties {
-        customResponse?: outputs.wafv2.RuleGroupCustomResponse;
-    }
-
-    /**
-     * Checks valid token exists with request.
-     */
-    export interface RuleGroupRuleActionCaptchaProperties {
-        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
-    }
-
-    /**
-     * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-     */
-    export interface RuleGroupRuleActionChallengeProperties {
-        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
-    }
-
-    /**
-     * Count traffic towards application.
-     */
-    export interface RuleGroupRuleActionCountProperties {
-        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
+        allow?: outputs.wafv2.RuleGroupAllowAction;
+        block?: outputs.wafv2.RuleGroupBlockAction;
+        captcha?: outputs.wafv2.RuleGroupCaptchaAction;
+        challenge?: outputs.wafv2.RuleGroupChallengeAction;
+        count?: outputs.wafv2.RuleGroupCountAction;
     }
 
     /**

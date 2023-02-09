@@ -57,6 +57,9 @@ __all__ = [
     'IPAMIpamOperatingRegion',
     'IPAMPoolProvisionedCidr',
     'IPAMPoolTag',
+    'IPAMResourceDiscoveryAssociationTag',
+    'IPAMResourceDiscoveryIpamOperatingRegion',
+    'IPAMResourceDiscoveryTag',
     'IPAMScopeTag',
     'IPAMTag',
     'InstanceAssociationParameter',
@@ -2066,6 +2069,111 @@ class IPAMPoolProvisionedCidr(dict):
 
 @pulumi.output_type
 class IPAMPoolTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IPAMResourceDiscoveryAssociationTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IPAMResourceDiscoveryIpamOperatingRegion(dict):
+    """
+    The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionName":
+            suggest = "region_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPAMResourceDiscoveryIpamOperatingRegion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPAMResourceDiscoveryIpamOperatingRegion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPAMResourceDiscoveryIpamOperatingRegion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region_name: str):
+        """
+        The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+        :param str region_name: The name of the region.
+        """
+        pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> str:
+        """
+        The name of the region.
+        """
+        return pulumi.get(self, "region_name")
+
+
+@pulumi.output_type
+class IPAMResourceDiscoveryTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -5298,6 +5406,10 @@ class NetworkInsightsAnalysisAdditionalDetail(dict):
         suggest = None
         if key == "additionalDetailType":
             suggest = "additional_detail_type"
+        elif key == "loadBalancers":
+            suggest = "load_balancers"
+        elif key == "serviceName":
+            suggest = "service_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisAdditionalDetail. Access the value via the '{suggest}' property getter instead.")
@@ -5312,11 +5424,17 @@ class NetworkInsightsAnalysisAdditionalDetail(dict):
 
     def __init__(__self__, *,
                  additional_detail_type: Optional[str] = None,
-                 component: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None):
+                 component: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 load_balancers: Optional[Sequence['outputs.NetworkInsightsAnalysisAnalysisComponent']] = None,
+                 service_name: Optional[str] = None):
         if additional_detail_type is not None:
             pulumi.set(__self__, "additional_detail_type", additional_detail_type)
         if component is not None:
             pulumi.set(__self__, "component", component)
+        if load_balancers is not None:
+            pulumi.set(__self__, "load_balancers", load_balancers)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter(name="additionalDetailType")
@@ -5327,6 +5445,16 @@ class NetworkInsightsAnalysisAdditionalDetail(dict):
     @pulumi.getter
     def component(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         return pulumi.get(self, "component")
+
+    @property
+    @pulumi.getter(name="loadBalancers")
+    def load_balancers(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisAnalysisComponent']]:
+        return pulumi.get(self, "load_balancers")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[str]:
+        return pulumi.get(self, "service_name")
 
 
 @pulumi.output_type
@@ -6355,6 +6483,8 @@ class NetworkInsightsAnalysisPathComponent(dict):
             suggest = "security_group_rule"
         elif key == "sequenceNumber":
             suggest = "sequence_number"
+        elif key == "serviceName":
+            suggest = "service_name"
         elif key == "sourceVpc":
             suggest = "source_vpc"
         elif key == "transitGateway":
@@ -6385,6 +6515,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
                  route_table_route: Optional['outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute'] = None,
                  security_group_rule: Optional['outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule'] = None,
                  sequence_number: Optional[int] = None,
+                 service_name: Optional[str] = None,
                  source_vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  subnet: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  transit_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
@@ -6412,6 +6543,8 @@ class NetworkInsightsAnalysisPathComponent(dict):
             pulumi.set(__self__, "security_group_rule", security_group_rule)
         if sequence_number is not None:
             pulumi.set(__self__, "sequence_number", sequence_number)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
         if source_vpc is not None:
             pulumi.set(__self__, "source_vpc", source_vpc)
         if subnet is not None:
@@ -6477,6 +6610,11 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="sequenceNumber")
     def sequence_number(self) -> Optional[int]:
         return pulumi.get(self, "sequence_number")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[str]:
+        return pulumi.get(self, "service_name")
 
     @property
     @pulumi.getter(name="sourceVpc")

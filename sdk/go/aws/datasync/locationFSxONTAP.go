@@ -20,8 +20,8 @@ type LocationFSxONTAP struct {
 	// The Amazon Resource Name (ARN) of the Amazon FSx ONTAP file system location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the FSx ONTAP file system that was described.
-	LocationUri pulumi.StringOutput            `pulumi:"locationUri"`
-	Protocol    LocationFSxONTAPProtocolOutput `pulumi:"protocol"`
+	LocationUri pulumi.StringOutput               `pulumi:"locationUri"`
+	Protocol    LocationFSxONTAPProtocolPtrOutput `pulumi:"protocol"`
 	// The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
@@ -39,9 +39,6 @@ func NewLocationFSxONTAP(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Protocol == nil {
-		return nil, errors.New("invalid value for required argument 'Protocol'")
-	}
 	if args.SecurityGroupArns == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupArns'")
 	}
@@ -80,7 +77,7 @@ func (LocationFSxONTAPState) ElementType() reflect.Type {
 }
 
 type locationFSxONTAPArgs struct {
-	Protocol LocationFSxONTAPProtocol `pulumi:"protocol"`
+	Protocol *LocationFSxONTAPProtocol `pulumi:"protocol"`
 	// The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
@@ -93,7 +90,7 @@ type locationFSxONTAPArgs struct {
 
 // The set of arguments for constructing a LocationFSxONTAP resource.
 type LocationFSxONTAPArgs struct {
-	Protocol LocationFSxONTAPProtocolInput
+	Protocol LocationFSxONTAPProtocolPtrInput
 	// The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
@@ -156,8 +153,8 @@ func (o LocationFSxONTAPOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFSxONTAP) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
 }
 
-func (o LocationFSxONTAPOutput) Protocol() LocationFSxONTAPProtocolOutput {
-	return o.ApplyT(func(v *LocationFSxONTAP) LocationFSxONTAPProtocolOutput { return v.Protocol }).(LocationFSxONTAPProtocolOutput)
+func (o LocationFSxONTAPOutput) Protocol() LocationFSxONTAPProtocolPtrOutput {
+	return o.ApplyT(func(v *LocationFSxONTAP) LocationFSxONTAPProtocolPtrOutput { return v.Protocol }).(LocationFSxONTAPProtocolPtrOutput)
 }
 
 // The ARNs of the security groups that are to use to configure the FSx ONTAP file system.

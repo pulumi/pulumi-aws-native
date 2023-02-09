@@ -34,6 +34,8 @@ type LookupLocationObjectStorageResult struct {
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the object storage location that was described.
 	LocationUri *string `pulumi:"locationUri"`
+	// X.509 PEM content containing a certificate authority or chain to trust.
+	ServerCertificate *string `pulumi:"serverCertificate"`
 	// The port that your self-managed server accepts inbound network traffic on.
 	ServerPort *int `pulumi:"serverPort"`
 	// The protocol that the object storage server uses to communicate.
@@ -96,6 +98,11 @@ func (o LookupLocationObjectStorageResultOutput) LocationArn() pulumi.StringPtrO
 // The URL of the object storage location that was described.
 func (o LookupLocationObjectStorageResultOutput) LocationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationObjectStorageResult) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
+}
+
+// X.509 PEM content containing a certificate authority or chain to trust.
+func (o LookupLocationObjectStorageResultOutput) ServerCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocationObjectStorageResult) *string { return v.ServerCertificate }).(pulumi.StringPtrOutput)
 }
 
 // The port that your self-managed server accepts inbound network traffic on.

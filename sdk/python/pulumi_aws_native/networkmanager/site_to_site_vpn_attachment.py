@@ -16,33 +16,43 @@ __all__ = ['SiteToSiteVpnAttachmentArgs', 'SiteToSiteVpnAttachment']
 @pulumi.input_type
 class SiteToSiteVpnAttachmentArgs:
     def __init__(__self__, *,
-                 core_network_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]] = None,
-                 vpn_connection_arn: Optional[pulumi.Input[str]] = None):
+                 core_network_id: pulumi.Input[str],
+                 vpn_connection_arn: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a SiteToSiteVpnAttachment resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you're creating a site-to-site VPN attachment.
-        :param pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]] tags: Tags for the attachment.
         :param pulumi.Input[str] vpn_connection_arn: The ARN of the site-to-site VPN attachment.
+        :param pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]] tags: Tags for the attachment.
         """
-        if core_network_id is not None:
-            pulumi.set(__self__, "core_network_id", core_network_id)
+        pulumi.set(__self__, "core_network_id", core_network_id)
+        pulumi.set(__self__, "vpn_connection_arn", vpn_connection_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vpn_connection_arn is not None:
-            pulumi.set(__self__, "vpn_connection_arn", vpn_connection_arn)
 
     @property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> Optional[pulumi.Input[str]]:
+    def core_network_id(self) -> pulumi.Input[str]:
         """
         The ID of a core network where you're creating a site-to-site VPN attachment.
         """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
-    def core_network_id(self, value: Optional[pulumi.Input[str]]):
+    def core_network_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "core_network_id", value)
+
+    @property
+    @pulumi.getter(name="vpnConnectionArn")
+    def vpn_connection_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the site-to-site VPN attachment.
+        """
+        return pulumi.get(self, "vpn_connection_arn")
+
+    @vpn_connection_arn.setter
+    def vpn_connection_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpn_connection_arn", value)
 
     @property
     @pulumi.getter
@@ -55,18 +65,6 @@ class SiteToSiteVpnAttachmentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="vpnConnectionArn")
-    def vpn_connection_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the site-to-site VPN attachment.
-        """
-        return pulumi.get(self, "vpn_connection_arn")
-
-    @vpn_connection_arn.setter
-    def vpn_connection_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vpn_connection_arn", value)
 
 
 class SiteToSiteVpnAttachment(pulumi.CustomResource):
@@ -91,7 +89,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[SiteToSiteVpnAttachmentArgs] = None,
+                 args: SiteToSiteVpnAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
@@ -123,8 +121,12 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SiteToSiteVpnAttachmentArgs.__new__(SiteToSiteVpnAttachmentArgs)
 
+            if core_network_id is None and not opts.urn:
+                raise TypeError("Missing required property 'core_network_id'")
             __props__.__dict__["core_network_id"] = core_network_id
             __props__.__dict__["tags"] = tags
+            if vpn_connection_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'vpn_connection_arn'")
             __props__.__dict__["vpn_connection_arn"] = vpn_connection_arn
             __props__.__dict__["attachment_id"] = None
             __props__.__dict__["attachment_policy_rule_number"] = None
@@ -211,7 +213,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> pulumi.Output[Optional[str]]:
+    def core_network_id(self) -> pulumi.Output[str]:
         """
         The ID of a core network where you're creating a site-to-site VPN attachment.
         """
@@ -291,7 +293,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnConnectionArn")
-    def vpn_connection_arn(self) -> pulumi.Output[Optional[str]]:
+    def vpn_connection_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the site-to-site VPN attachment.
         """

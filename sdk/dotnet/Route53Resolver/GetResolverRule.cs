@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+        /// </summary>
+        public readonly string? DomainName;
+        /// <summary>
         /// The name for the Resolver rule
         /// </summary>
         public readonly string? Name;
@@ -86,6 +90,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         private GetResolverRuleResult(
             string? arn,
 
+            string? domainName,
+
             string? name,
 
             string? resolverEndpointId,
@@ -97,6 +103,7 @@ namespace Pulumi.AwsNative.Route53Resolver
             ImmutableArray<Outputs.ResolverRuleTargetAddress> targetIps)
         {
             Arn = arn;
+            DomainName = domainName;
             Name = name;
             ResolverEndpointId = resolverEndpointId;
             ResolverRuleId = resolverRuleId;

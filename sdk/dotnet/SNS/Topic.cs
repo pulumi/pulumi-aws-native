@@ -83,6 +83,12 @@ namespace Pulumi.AwsNative.SNS
         [Output("topicName")]
         public Output<string?> TopicName { get; private set; } = null!;
 
+        /// <summary>
+        /// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+        /// </summary>
+        [Output("tracingConfig")]
+        public Output<string?> TracingConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Topic resource with the given unique name, arguments, and options.
@@ -203,6 +209,12 @@ namespace Pulumi.AwsNative.SNS
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }
+
+        /// <summary>
+        /// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+        /// </summary>
+        [Input("tracingConfig")]
+        public Input<string>? TracingConfig { get; set; }
 
         public TopicArgs()
         {

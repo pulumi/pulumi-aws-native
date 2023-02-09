@@ -6443,6 +6443,34 @@ export namespace cloudfront {
 
 export namespace cloudtrail {
     /**
+     * The resource that receives events arriving from a channel.
+     */
+    export interface ChannelDestinationArgs {
+        /**
+         * The ARN of a resource that receives events from a channel.
+         */
+        location: pulumi.Input<string>;
+        /**
+         * The type of destination for events arriving from a channel.
+         */
+        type: pulumi.Input<enums.cloudtrail.ChannelDestinationType>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ChannelTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
      */
     export interface EventDataStoreAdvancedEventSelectorArgs {
@@ -8080,12 +8108,18 @@ export namespace connectcampaigns {
      * The possible types of dialer config parameters
      */
     export interface CampaignDialerConfigArgs {
+        predictiveDialerConfig?: pulumi.Input<inputs.connectcampaigns.CampaignPredictiveDialerConfigArgs>;
+        progressiveDialerConfig?: pulumi.Input<inputs.connectcampaigns.CampaignProgressiveDialerConfigArgs>;
     }
 
     /**
      * The configuration used for outbound calls.
      */
     export interface CampaignOutboundCallConfigArgs {
+        /**
+         * The configuration used for answering machine detection during outbound calls
+         */
+        answerMachineDetectionConfig?: pulumi.Input<inputs.connectcampaigns.CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs>;
         /**
          * The identifier of the contact flow for the outbound call.
          */
@@ -8098,6 +8132,36 @@ export namespace connectcampaigns {
          * The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
          */
         connectSourcePhoneNumber?: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration used for answering machine detection during outbound calls
+     */
+    export interface CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs {
+        /**
+         * Flag to decided whether outbound calls should have answering machine detection enabled or not
+         */
+        enableAnswerMachineDetection: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Predictive Dialer config
+     */
+    export interface CampaignPredictiveDialerConfigArgs {
+        /**
+         * The bandwidth allocation of a queue resource.
+         */
+        bandwidthAllocation: pulumi.Input<number>;
+    }
+
+    /**
+     * Progressive Dialer config
+     */
+    export interface CampaignProgressiveDialerConfigArgs {
+        /**
+         * The bandwidth allocation of a queue resource.
+         */
+        bandwidthAllocation: pulumi.Input<number>;
     }
 
     /**
@@ -10456,6 +10520,44 @@ export namespace ec2 {
      * A key-value pair to associate with a resource.
      */
     export interface IPAMPoolTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IPAMResourceDiscoveryAssociationTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+     */
+    export interface IPAMResourceDiscoveryIpamOperatingRegionArgs {
+        /**
+         * The name of the region.
+         */
+        regionName: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface IPAMResourceDiscoveryTagArgs {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -26795,6 +26897,10 @@ export namespace networkfirewall {
 
     export interface FirewallSubnetMappingArgs {
         /**
+         * A IPAddressType
+         */
+        iPAddressType?: pulumi.Input<string>;
+        /**
          * A SubnetId.
          */
         subnetId: pulumi.Input<string>;
@@ -27138,18 +27244,24 @@ export namespace nimblestudio {
         maxSessionLengthInMinutes?: pulumi.Input<number>;
         /**
          * <p>Integer that determines if you can start and stop your sessions and how long a session
-         *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-         *          <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-         *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
-         *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-         *             session will automatically be terminated (instead of stopped).</p>
+         *             can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
+         *             5760.</p>
+         *          <p>This field is allowed only when <code>sessionPersistenceMode</code> is
+         *                 <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
+         *                 <code>ACTIVATED</code>.</p>
+         *          <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
+         *             call <code>StopStreamingSession</code>, the session fails. If the time that a session
+         *             stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
+         *             value, the session will automatically be terminated (instead of
+         *             <code>STOPPED</code>).</p>
          *          <p>If the value is set to a positive number, the session can be stopped. You can call
-         *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
-         *             that a session stays in the READY state exceeds the
+         *                 <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
+         *             If the time that a session stays in the <code>READY</code> state exceeds the
          *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
          *             stopped (instead of terminated).</p>
          */
         maxStoppedSessionLengthInMinutes?: pulumi.Input<number>;
+        sessionBackup?: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationSessionBackupArgs>;
         sessionPersistenceMode?: pulumi.Input<enums.nimblestudio.LaunchProfileSessionPersistenceMode>;
         sessionStorage?: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationSessionStorageArgs>;
         /**
@@ -27158,6 +27270,19 @@ export namespace nimblestudio {
          */
         streamingImageIds: pulumi.Input<pulumi.Input<string>[]>;
         volumeConfiguration?: pulumi.Input<inputs.nimblestudio.LaunchProfileVolumeConfigurationArgs>;
+    }
+
+    /**
+     * <p>Configures how streaming sessions are backed up when launched from this launch
+     *             profile.</p>
+     */
+    export interface LaunchProfileStreamConfigurationSessionBackupArgs {
+        /**
+         * <p>The maximum number of backups that each streaming session created from this launch
+         *             profile can have.</p>
+         */
+        maxBackupsToRetain?: pulumi.Input<number>;
+        mode?: pulumi.Input<enums.nimblestudio.LaunchProfileSessionBackupMode>;
     }
 
     /**
@@ -27190,9 +27315,27 @@ export namespace nimblestudio {
     export interface LaunchProfileTagsArgs {
     }
 
+    /**
+     * <p>Custom volume configuration for the root volumes that are attached to streaming
+     *             sessions.</p>
+     *          <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+     *                 <code>ACTIVATED</code>.</p>
+     */
     export interface LaunchProfileVolumeConfigurationArgs {
+        /**
+         * <p>The number of I/O operations per second for the root volume that is attached to
+         *             streaming session.</p>
+         */
         iops?: pulumi.Input<number>;
+        /**
+         * <p>The size of the root volume that is attached to the streaming session. The root volume
+         *             size is measured in GiBs.</p>
+         */
         size?: pulumi.Input<number>;
+        /**
+         * <p>The throughput to provision for the root volume that is attached to the streaming
+         *             session. The throughput is measured in MiB/s.</p>
+         */
         throughput?: pulumi.Input<number>;
     }
 
@@ -27251,6 +27394,78 @@ export namespace nimblestudio {
     }
 
     export interface StudioTagsArgs {
+    }
+}
+
+export namespace omics {
+    export interface AnnotationStoreReferenceItemArgs {
+        referenceArn: pulumi.Input<string>;
+    }
+
+    export interface AnnotationStoreSseConfigArgs {
+        keyArn?: pulumi.Input<string>;
+        type: pulumi.Input<enums.omics.AnnotationStoreEncryptionType>;
+    }
+
+    export interface AnnotationStoreStoreOptionsArgs {
+    }
+
+    export interface AnnotationStoreTagMapArgs {
+    }
+
+    /**
+     * Server-side encryption (SSE) settings for a store.
+     */
+    export interface ReferenceStoreSseConfigArgs {
+        /**
+         * An encryption key ARN.
+         */
+        keyArn?: pulumi.Input<string>;
+        type: pulumi.Input<enums.omics.ReferenceStoreEncryptionType>;
+    }
+
+    export interface ReferenceStoreTagMapArgs {
+    }
+
+    /**
+     * A map of resource tags
+     */
+    export interface RunGroupTagMapArgs {
+    }
+
+    /**
+     * Server-side encryption (SSE) settings for a store.
+     */
+    export interface SequenceStoreSseConfigArgs {
+        /**
+         * An encryption key ARN.
+         */
+        keyArn?: pulumi.Input<string>;
+        type: pulumi.Input<enums.omics.SequenceStoreEncryptionType>;
+    }
+
+    export interface SequenceStoreTagMapArgs {
+    }
+
+    export interface VariantStoreReferenceItemArgs {
+        referenceArn: pulumi.Input<string>;
+    }
+
+    export interface VariantStoreSseConfigArgs {
+        keyArn?: pulumi.Input<string>;
+        type: pulumi.Input<enums.omics.VariantStoreEncryptionType>;
+    }
+
+    export interface VariantStoreTagMapArgs {
+    }
+
+    export interface WorkflowParameterTemplateArgs {
+    }
+
+    /**
+     * A map of resource tags
+     */
+    export interface WorkflowTagMapArgs {
     }
 }
 
@@ -30031,10 +30246,6 @@ export namespace rds {
          * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
          */
         secretArn?: pulumi.Input<string>;
-        /**
-         * The name of the database user to which the proxy connects.
-         */
-        userName?: pulumi.Input<string>;
     }
 
     export interface DBProxyEndpointTagFormatArgs {
@@ -30239,42 +30450,6 @@ export namespace redshift {
     }
 
     /**
-     * Describes a network interface.
-     */
-    export interface EndpointAccessNetworkInterfaceArgs {
-        /**
-         * The Availability Zone.
-         */
-        availabilityZone?: pulumi.Input<string>;
-        /**
-         * The network interface identifier.
-         */
-        networkInterfaceId?: pulumi.Input<string>;
-        /**
-         * The IPv4 address of the network interface within the subnet.
-         */
-        privateIpAddress?: pulumi.Input<string>;
-        /**
-         * The subnet identifier.
-         */
-        subnetId?: pulumi.Input<string>;
-    }
-
-    /**
-     * Describes the members of a VPC security group.
-     */
-    export interface EndpointAccessVpcSecurityGroupArgs {
-        /**
-         * The status of the VPC security group.
-         */
-        status?: pulumi.Input<string>;
-        /**
-         * The identifier of the VPC security group.
-         */
-        vpcSecurityGroupId?: pulumi.Input<string>;
-    }
-
-    /**
      * A key-value pair to associate with a resource.
      */
     export interface EventSubscriptionTagArgs {
@@ -30291,59 +30466,12 @@ export namespace redshift {
     export interface ScheduledActionTypeArgs {
     }
 
-    /**
-     * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-     */
-    export interface VpcEndpointPropertiesArgs {
-        /**
-         * One or more network interfaces of the endpoint. Also known as an interface endpoint.
-         */
-        networkInterfaces?: pulumi.Input<pulumi.Input<inputs.redshift.EndpointAccessNetworkInterfaceArgs>[]>;
-        /**
-         * The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-         */
-        vpcEndpointId?: pulumi.Input<string>;
-        /**
-         * The VPC identifier that the endpoint is associated.
-         */
-        vpcId?: pulumi.Input<string>;
-    }
 }
 
 export namespace redshiftserverless {
-    export interface NamespaceArgs {
-        adminUsername?: pulumi.Input<string>;
-        creationDate?: pulumi.Input<string>;
-        dbName?: pulumi.Input<string>;
-        defaultIamRoleArn?: pulumi.Input<string>;
-        iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
-        kmsKeyId?: pulumi.Input<string>;
-        logExports?: pulumi.Input<pulumi.Input<enums.redshiftserverless.NamespaceLogExport>[]>;
-        namespaceArn?: pulumi.Input<string>;
-        namespaceId?: pulumi.Input<string>;
-        namespaceName?: pulumi.Input<string>;
-        status?: pulumi.Input<enums.redshiftserverless.NamespaceStatus>;
-    }
-
     export interface NamespaceTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
-    }
-
-    export interface WorkgroupArgs {
-        baseCapacity?: pulumi.Input<number>;
-        configParameters?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupConfigParameterArgs>[]>;
-        creationDate?: pulumi.Input<string>;
-        endpoint?: pulumi.Input<inputs.redshiftserverless.WorkgroupEndpointArgs>;
-        enhancedVpcRouting?: pulumi.Input<boolean>;
-        namespaceName?: pulumi.Input<string>;
-        publiclyAccessible?: pulumi.Input<boolean>;
-        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-        status?: pulumi.Input<enums.redshiftserverless.WorkgroupStatus>;
-        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-        workgroupArn?: pulumi.Input<string>;
-        workgroupId?: pulumi.Input<string>;
-        workgroupName?: pulumi.Input<string>;
     }
 
     export interface WorkgroupConfigParameterArgs {
@@ -30351,29 +30479,11 @@ export namespace redshiftserverless {
         parameterValue?: pulumi.Input<string>;
     }
 
-    export interface WorkgroupEndpointArgs {
-        address?: pulumi.Input<string>;
-        port?: pulumi.Input<number>;
-        vpcEndpoints?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupVpcEndpointArgs>[]>;
-    }
-
-    export interface WorkgroupNetworkInterfaceArgs {
-        availabilityZone?: pulumi.Input<string>;
-        networkInterfaceId?: pulumi.Input<string>;
-        privateIpAddress?: pulumi.Input<string>;
-        subnetId?: pulumi.Input<string>;
-    }
-
     export interface WorkgroupTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 
-    export interface WorkgroupVpcEndpointArgs {
-        networkInterfaces?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupNetworkInterfaceArgs>[]>;
-        vpcEndpointId?: pulumi.Input<string>;
-        vpcId?: pulumi.Input<string>;
-    }
 }
 
 export namespace refactorspaces {
@@ -31221,6 +31331,7 @@ export namespace route53resolver {
 
     export interface ResolverEndpointIpAddressRequestArgs {
         ip?: pulumi.Input<string>;
+        ipv6?: pulumi.Input<string>;
         subnetId: pulumi.Input<string>;
     }
 
@@ -31244,7 +31355,11 @@ export namespace route53resolver {
         /**
          * One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
          */
-        ip: pulumi.Input<string>;
+        ip?: pulumi.Input<string>;
+        /**
+         * One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
+         */
+        ipv6?: pulumi.Input<string>;
         /**
          * The port at Ip that you want to forward DNS queries to. 
          */
@@ -32894,7 +33009,7 @@ export namespace sagemaker {
     }
 
     /**
-     * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+     * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
      */
     export interface DomainDefaultSpaceSettingsArgs {
         /**
@@ -33540,6 +33655,300 @@ export namespace sagemaker {
          * The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
          */
         subnets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ModelCardAdditionalInformationArgs {
+        /**
+         * Caveats and recommendations for people who might use this model in their applications.
+         */
+        caveatsAndRecommendations?: pulumi.Input<string>;
+        /**
+         * customer details.
+         */
+        customDetails?: any;
+        /**
+         * Any ethical considerations that the author wants to provide.
+         */
+        ethicalConsiderations?: pulumi.Input<string>;
+    }
+
+    export interface ModelCardBarChartMetricArgs {
+        name: pulumi.Input<string>;
+        notes?: pulumi.Input<string>;
+        type: pulumi.Input<enums.sagemaker.ModelCardBarChartMetricType>;
+        value: pulumi.Input<pulumi.Input<number>[]>;
+        xAxisName?: pulumi.Input<pulumi.Input<string>[]>;
+        yAxisName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Business details.
+     */
+    export interface ModelCardBusinessDetailsArgs {
+        /**
+         * What business problem does the model solve?
+         */
+        businessProblem?: pulumi.Input<string>;
+        /**
+         * Business stakeholders.
+         */
+        businessStakeholders?: pulumi.Input<string>;
+        /**
+         * Line of business.
+         */
+        lineOfBusiness?: pulumi.Input<string>;
+    }
+
+    /**
+     * The content of the model card.
+     */
+    export interface ModelCardContentArgs {
+        additionalInformation?: pulumi.Input<inputs.sagemaker.ModelCardAdditionalInformationArgs>;
+        businessDetails?: pulumi.Input<inputs.sagemaker.ModelCardBusinessDetailsArgs>;
+        evaluationDetails?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardEvaluationDetailArgs>[]>;
+        intendedUses?: pulumi.Input<inputs.sagemaker.ModelCardIntendedUsesArgs>;
+        modelOverview?: pulumi.Input<inputs.sagemaker.ModelCardModelOverviewArgs>;
+        trainingDetails?: pulumi.Input<inputs.sagemaker.ModelCardTrainingDetailsArgs>;
+    }
+
+    /**
+     * item of evaluation details
+     */
+    export interface ModelCardEvaluationDetailArgs {
+        datasets?: pulumi.Input<pulumi.Input<string>[]>;
+        evaluationJobArn?: pulumi.Input<string>;
+        evaluationObservation?: pulumi.Input<string>;
+        /**
+         * additional attributes associated with the evaluation results.
+         */
+        metadata?: any;
+        metricGroups?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardMetricGroupArgs>[]>;
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * Intended usage of model.
+     */
+    export interface ModelCardIntendedUsesArgs {
+        explanationsForRiskRating?: pulumi.Input<string>;
+        factorsAffectingModelEfficiency?: pulumi.Input<string>;
+        /**
+         * intended use cases.
+         */
+        intendedUses?: pulumi.Input<string>;
+        /**
+         * Why the model was developed?
+         */
+        purposeOfModel?: pulumi.Input<string>;
+        riskRating?: pulumi.Input<enums.sagemaker.ModelCardRiskRating>;
+    }
+
+    /**
+     * Linear graph metric.
+     */
+    export interface ModelCardLinearGraphMetricArgs {
+        name: pulumi.Input<string>;
+        notes?: pulumi.Input<string>;
+        type: pulumi.Input<enums.sagemaker.ModelCardLinearGraphMetricType>;
+        value: pulumi.Input<pulumi.Input<pulumi.Input<number>[]>[]>;
+        xAxisName?: pulumi.Input<string>;
+        yAxisName?: pulumi.Input<string>;
+    }
+
+    export interface ModelCardMatrixMetricArgs {
+        name: pulumi.Input<string>;
+        notes?: pulumi.Input<string>;
+        type: pulumi.Input<enums.sagemaker.ModelCardMatrixMetricType>;
+        value: pulumi.Input<pulumi.Input<pulumi.Input<number>[]>[]>;
+        xAxisName?: pulumi.Input<pulumi.Input<string>[]>;
+        yAxisName?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * item in metric groups
+     */
+    export interface ModelCardMetricGroupArgs {
+        metricData: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardSimpleMetricArgs | inputs.sagemaker.ModelCardLinearGraphMetricArgs | inputs.sagemaker.ModelCardBarChartMetricArgs | inputs.sagemaker.ModelCardMatrixMetricArgs>[]>;
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * Overview about the model.
+     */
+    export interface ModelCardModelOverviewArgs {
+        /**
+         * Algorithm used to solve the problem.
+         */
+        algorithmType?: pulumi.Input<string>;
+        /**
+         * Overview about the inference.
+         */
+        inferenceEnvironment?: pulumi.Input<inputs.sagemaker.ModelCardModelOverviewInferenceEnvironmentPropertiesArgs>;
+        /**
+         * Location of the model artifact.
+         */
+        modelArtifact?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Creator of model.
+         */
+        modelCreator?: pulumi.Input<string>;
+        /**
+         * description of model.
+         */
+        modelDescription?: pulumi.Input<string>;
+        /**
+         * SageMaker Model Arn or Non SageMaker Model id.
+         */
+        modelId?: pulumi.Input<string>;
+        /**
+         * Name of the model.
+         */
+        modelName?: pulumi.Input<string>;
+        /**
+         * Owner of model.
+         */
+        modelOwner?: pulumi.Input<string>;
+        /**
+         * Version of the model.
+         */
+        modelVersion?: pulumi.Input<number>;
+        /**
+         * Problem being solved with the model.
+         */
+        problemType?: pulumi.Input<string>;
+    }
+
+    /**
+     * Overview about the inference.
+     */
+    export interface ModelCardModelOverviewInferenceEnvironmentPropertiesArgs {
+        /**
+         * SageMaker inference image uri.
+         */
+        containerImage?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * the objective function the model will optimize for.
+     */
+    export interface ModelCardObjectiveFunctionArgs {
+        /**
+         * objective function that training job is optimized for.
+         */
+        function?: pulumi.Input<inputs.sagemaker.ModelCardObjectiveFunctionFunctionPropertiesArgs>;
+        notes?: pulumi.Input<string>;
+    }
+
+    /**
+     * objective function that training job is optimized for.
+     */
+    export interface ModelCardObjectiveFunctionFunctionPropertiesArgs {
+        condition?: pulumi.Input<string>;
+        facet?: pulumi.Input<string>;
+        function?: pulumi.Input<enums.sagemaker.ModelCardObjectiveFunctionFunctionPropertiesFunction>;
+    }
+
+    /**
+     * An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
+     */
+    export interface ModelCardSecurityConfigArgs {
+        /**
+         * A Key Management Service key ID to use for encrypting a model card.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+    }
+
+    /**
+     * metric data
+     */
+    export interface ModelCardSimpleMetricArgs {
+        name: pulumi.Input<string>;
+        notes?: pulumi.Input<string>;
+        type: pulumi.Input<enums.sagemaker.ModelCardSimpleMetricType>;
+        value: pulumi.Input<number | string | boolean>;
+        xAxisName?: pulumi.Input<string>;
+        yAxisName?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ModelCardTagArgs {
+        /**
+         * The tag key. Tag keys must be unique per resource.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The tag value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Overview about the training.
+     */
+    export interface ModelCardTrainingDetailsArgs {
+        objectiveFunction?: pulumi.Input<inputs.sagemaker.ModelCardObjectiveFunctionArgs>;
+        trainingJobDetails?: pulumi.Input<inputs.sagemaker.ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs>;
+        trainingObservations?: pulumi.Input<string>;
+    }
+
+    export interface ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs {
+        hyperParameters?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardTrainingHyperParameterArgs>[]>;
+        /**
+         * SageMaker Training job arn.
+         */
+        trainingArn?: pulumi.Input<string>;
+        /**
+         * Location of the model datasets.
+         */
+        trainingDatasets?: pulumi.Input<pulumi.Input<string>[]>;
+        trainingEnvironment?: pulumi.Input<inputs.sagemaker.ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs>;
+        trainingMetrics?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardTrainingMetricArgs>[]>;
+        userProvidedHyperParameters?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardTrainingHyperParameterArgs>[]>;
+        userProvidedTrainingMetrics?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardTrainingMetricArgs>[]>;
+    }
+
+    export interface ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs {
+        /**
+         * SageMaker training image uri.
+         */
+        containerImage?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * training hyper parameter
+     */
+    export interface ModelCardTrainingHyperParameterArgs {
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * training metric data.
+     */
+    export interface ModelCardTrainingMetricArgs {
+        name: pulumi.Input<string>;
+        notes?: pulumi.Input<string>;
+        value: pulumi.Input<number>;
+    }
+
+    /**
+     * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+     */
+    export interface ModelCardUserContextArgs {
+        /**
+         * The domain associated with the user.
+         */
+        domainId?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the user's profile.
+         */
+        userProfileArn?: pulumi.Input<string>;
+        /**
+         * The name of the user's profile.
+         */
+        userProfileName?: pulumi.Input<string>;
     }
 
     export interface ModelContainerDefinitionArgs {
@@ -35046,6 +35455,79 @@ export namespace sagemaker {
     /**
      * A custom SageMaker image.
      */
+    export interface SpaceCustomImageArgs {
+        /**
+         * The Name of the AppImageConfig.
+         */
+        appImageConfigName: pulumi.Input<string>;
+        /**
+         * The name of the CustomImage. Must be unique to your account.
+         */
+        imageName: pulumi.Input<string>;
+        /**
+         * The version number of the CustomImage.
+         */
+        imageVersionNumber?: pulumi.Input<number>;
+    }
+
+    /**
+     * The JupyterServer app settings.
+     */
+    export interface SpaceJupyterServerAppSettingsArgs {
+        defaultResourceSpec?: pulumi.Input<inputs.sagemaker.SpaceResourceSpecArgs>;
+    }
+
+    /**
+     * The kernel gateway app settings.
+     */
+    export interface SpaceKernelGatewayAppSettingsArgs {
+        /**
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app.
+         */
+        customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceCustomImageArgs>[]>;
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+         */
+        defaultResourceSpec?: pulumi.Input<inputs.sagemaker.SpaceResourceSpecArgs>;
+    }
+
+    export interface SpaceResourceSpecArgs {
+        /**
+         * The instance type that the image version runs on.
+         */
+        instanceType?: pulumi.Input<enums.sagemaker.SpaceResourceSpecInstanceType>;
+        /**
+         * The ARN of the SageMaker image that the image version belongs to.
+         */
+        sageMakerImageArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sageMakerImageVersionArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+     */
+    export interface SpaceSettingsArgs {
+        /**
+         * The Jupyter server's app settings.
+         */
+        jupyterServerAppSettings?: pulumi.Input<inputs.sagemaker.SpaceJupyterServerAppSettingsArgs>;
+        /**
+         * The kernel gateway app settings.
+         */
+        kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.SpaceKernelGatewayAppSettingsArgs>;
+    }
+
+    export interface SpaceTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A custom SageMaker image.
+     */
     export interface UserProfileCustomImageArgs {
         /**
          * The Name of the AppImageConfig.
@@ -35962,6 +36444,19 @@ export namespace signer {
     export interface SigningProfileTagArgs {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+}
+
+export namespace simspaceweaver {
+    export interface SimulationS3LocationArgs {
+        /**
+         * The Schema S3 bucket name.
+         */
+        bucketName: pulumi.Input<string>;
+        /**
+         * This is the schema S3 object key, which includes the full path of "folders" from the bucket root to the schema.
+         */
+        objectKey: pulumi.Input<string>;
     }
 }
 
@@ -37406,8 +37901,22 @@ export namespace wafv2 {
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * Allow traffic towards application.
+     */
+    export interface RuleGroupAllowActionArgs {
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
+    }
+
     export interface RuleGroupAndStatementArgs {
         statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupStatementArgs>[]>;
+    }
+
+    /**
+     * Block traffic towards application.
+     */
+    export interface RuleGroupBlockActionArgs {
+        customResponse?: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseArgs>;
     }
 
     /**
@@ -37428,8 +37937,22 @@ export namespace wafv2 {
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTextTransformationArgs>[]>;
     }
 
+    /**
+     * Checks valid token exists with request.
+     */
+    export interface RuleGroupCaptchaActionArgs {
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
+    }
+
     export interface RuleGroupCaptchaConfigArgs {
         immunityTimeProperty?: pulumi.Input<inputs.wafv2.RuleGroupImmunityTimePropertyArgs>;
+    }
+
+    /**
+     * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+     */
+    export interface RuleGroupChallengeActionArgs {
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
     }
 
     export interface RuleGroupChallengeConfigArgs {
@@ -37455,6 +37978,13 @@ export namespace wafv2 {
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupCookieMatchPatternArgs>;
         matchScope: pulumi.Input<enums.wafv2.RuleGroupMapMatchScope>;
         oversizeHandling: pulumi.Input<enums.wafv2.RuleGroupOversizeHandling>;
+    }
+
+    /**
+     * Count traffic towards application.
+     */
+    export interface RuleGroupCountActionArgs {
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
     }
 
     /**
@@ -37666,61 +38196,11 @@ export namespace wafv2 {
      * Action taken when Rule matches its condition.
      */
     export interface RuleGroupRuleActionArgs {
-        /**
-         * Allow traffic towards application.
-         */
-        allow?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionAllowPropertiesArgs>;
-        /**
-         * Block traffic towards application.
-         */
-        block?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlockPropertiesArgs>;
-        /**
-         * Checks valid token exists with request.
-         */
-        captcha?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCaptchaPropertiesArgs>;
-        /**
-         * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-         */
-        challenge?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionChallengePropertiesArgs>;
-        /**
-         * Count traffic towards application.
-         */
-        count?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCountPropertiesArgs>;
-    }
-
-    /**
-     * Allow traffic towards application.
-     */
-    export interface RuleGroupRuleActionAllowPropertiesArgs {
-        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
-    }
-
-    /**
-     * Block traffic towards application.
-     */
-    export interface RuleGroupRuleActionBlockPropertiesArgs {
-        customResponse?: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseArgs>;
-    }
-
-    /**
-     * Checks valid token exists with request.
-     */
-    export interface RuleGroupRuleActionCaptchaPropertiesArgs {
-        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
-    }
-
-    /**
-     * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-     */
-    export interface RuleGroupRuleActionChallengePropertiesArgs {
-        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
-    }
-
-    /**
-     * Count traffic towards application.
-     */
-    export interface RuleGroupRuleActionCountPropertiesArgs {
-        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
+        allow?: pulumi.Input<inputs.wafv2.RuleGroupAllowActionArgs>;
+        block?: pulumi.Input<inputs.wafv2.RuleGroupBlockActionArgs>;
+        captcha?: pulumi.Input<inputs.wafv2.RuleGroupCaptchaActionArgs>;
+        challenge?: pulumi.Input<inputs.wafv2.RuleGroupChallengeActionArgs>;
+        count?: pulumi.Input<inputs.wafv2.RuleGroupCountActionArgs>;
     }
 
     /**

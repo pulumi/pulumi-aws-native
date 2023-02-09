@@ -15,10 +15,8 @@ import (
 type Theme struct {
 	pulumi.CustomResourceState
 
-	AppId           pulumi.StringOutput    `pulumi:"appId"`
-	CreatedAt       pulumi.StringOutput    `pulumi:"createdAt"`
-	EnvironmentName pulumi.StringOutput    `pulumi:"environmentName"`
-	ModifiedAt      pulumi.StringOutput    `pulumi:"modifiedAt"`
+	AppId           pulumi.StringPtrOutput `pulumi:"appId"`
+	EnvironmentName pulumi.StringPtrOutput `pulumi:"environmentName"`
 	Name            pulumi.StringOutput    `pulumi:"name"`
 	Overrides       ThemeValuesArrayOutput `pulumi:"overrides"`
 	Tags            ThemeTagsPtrOutput     `pulumi:"tags"`
@@ -67,18 +65,22 @@ func (ThemeState) ElementType() reflect.Type {
 }
 
 type themeArgs struct {
-	Name      *string       `pulumi:"name"`
-	Overrides []ThemeValues `pulumi:"overrides"`
-	Tags      *ThemeTags    `pulumi:"tags"`
-	Values    []ThemeValues `pulumi:"values"`
+	AppId           *string       `pulumi:"appId"`
+	EnvironmentName *string       `pulumi:"environmentName"`
+	Name            *string       `pulumi:"name"`
+	Overrides       []ThemeValues `pulumi:"overrides"`
+	Tags            *ThemeTags    `pulumi:"tags"`
+	Values          []ThemeValues `pulumi:"values"`
 }
 
 // The set of arguments for constructing a Theme resource.
 type ThemeArgs struct {
-	Name      pulumi.StringPtrInput
-	Overrides ThemeValuesArrayInput
-	Tags      ThemeTagsPtrInput
-	Values    ThemeValuesArrayInput
+	AppId           pulumi.StringPtrInput
+	EnvironmentName pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	Overrides       ThemeValuesArrayInput
+	Tags            ThemeTagsPtrInput
+	Values          ThemeValuesArrayInput
 }
 
 func (ThemeArgs) ElementType() reflect.Type {
@@ -118,20 +120,12 @@ func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 	return o
 }
 
-func (o ThemeOutput) AppId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+func (o ThemeOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-func (o ThemeOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
-}
-
-func (o ThemeOutput) EnvironmentName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.EnvironmentName }).(pulumi.StringOutput)
-}
-
-func (o ThemeOutput) ModifiedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
+func (o ThemeOutput) EnvironmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.EnvironmentName }).(pulumi.StringPtrOutput)
 }
 
 func (o ThemeOutput) Name() pulumi.StringOutput {

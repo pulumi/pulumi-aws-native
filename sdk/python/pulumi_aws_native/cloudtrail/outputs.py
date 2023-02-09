@@ -12,6 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ChannelDestination',
+    'ChannelTag',
     'EventDataStoreAdvancedEventSelector',
     'EventDataStoreAdvancedFieldSelector',
     'EventDataStoreTag',
@@ -20,6 +22,72 @@ __all__ = [
     'TrailInsightSelector',
     'TrailTag',
 ]
+
+@pulumi.output_type
+class ChannelDestination(dict):
+    """
+    The resource that receives events arriving from a channel.
+    """
+    def __init__(__self__, *,
+                 location: str,
+                 type: 'ChannelDestinationType'):
+        """
+        The resource that receives events arriving from a channel.
+        :param str location: The ARN of a resource that receives events from a channel.
+        :param 'ChannelDestinationType' type: The type of destination for events arriving from a channel.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The ARN of a resource that receives events from a channel.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'ChannelDestinationType':
+        """
+        The type of destination for events arriving from a channel.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ChannelTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class EventDataStoreAdvancedEventSelector(dict):

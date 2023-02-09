@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.DataSync
         public Output<string?> SecretKey { get; private set; } = null!;
 
         /// <summary>
+        /// X.509 PEM content containing a certificate authority or chain to trust.
+        /// </summary>
+        [Output("serverCertificate")]
+        public Output<string?> ServerCertificate { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         /// </summary>
         [Output("serverHostname")]
@@ -155,6 +161,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Input("secretKey")]
         public Input<string>? SecretKey { get; set; }
+
+        /// <summary>
+        /// X.509 PEM content containing a certificate authority or chain to trust.
+        /// </summary>
+        [Input("serverCertificate")]
+        public Input<string>? ServerCertificate { get; set; }
 
         /// <summary>
         /// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.

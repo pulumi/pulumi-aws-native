@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetServerResult',
@@ -19,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServerResult:
-    def __init__(__self__, arn=None, backup_retention_count=None, disable_automated_backup=None, endpoint=None, id=None, preferred_backup_window=None, preferred_maintenance_window=None, tags=None):
+    def __init__(__self__, arn=None, backup_retention_count=None, disable_automated_backup=None, endpoint=None, preferred_backup_window=None, preferred_maintenance_window=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -32,18 +31,12 @@ class GetServerResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if preferred_backup_window and not isinstance(preferred_backup_window, str):
             raise TypeError("Expected argument 'preferred_backup_window' to be a str")
         pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window and not isinstance(preferred_maintenance_window, str):
             raise TypeError("Expected argument 'preferred_maintenance_window' to be a str")
         pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -66,11 +59,6 @@ class GetServerResult:
         return pulumi.get(self, "endpoint")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[str]:
         return pulumi.get(self, "preferred_backup_window")
@@ -79,11 +67,6 @@ class GetServerResult:
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[str]:
         return pulumi.get(self, "preferred_maintenance_window")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ServerTag']]:
-        return pulumi.get(self, "tags")
 
 
 class AwaitableGetServerResult(GetServerResult):
@@ -96,10 +79,8 @@ class AwaitableGetServerResult(GetServerResult):
             backup_retention_count=self.backup_retention_count,
             disable_automated_backup=self.disable_automated_backup,
             endpoint=self.endpoint,
-            id=self.id,
             preferred_backup_window=self.preferred_backup_window,
-            preferred_maintenance_window=self.preferred_maintenance_window,
-            tags=self.tags)
+            preferred_maintenance_window=self.preferred_maintenance_window)
 
 
 def get_server(server_name: Optional[str] = None,
@@ -117,10 +98,8 @@ def get_server(server_name: Optional[str] = None,
         backup_retention_count=__ret__.backup_retention_count,
         disable_automated_backup=__ret__.disable_automated_backup,
         endpoint=__ret__.endpoint,
-        id=__ret__.id,
         preferred_backup_window=__ret__.preferred_backup_window,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        tags=__ret__.tags)
+        preferred_maintenance_window=__ret__.preferred_maintenance_window)
 
 
 @_utilities.lift_output_func(get_server)

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ type SiteToSiteVpnAttachment struct {
 	// The ARN of a core network for the VPC attachment.
 	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
 	// The ID of a core network where you're creating a site-to-site VPN attachment.
-	CoreNetworkId pulumi.StringPtrOutput `pulumi:"coreNetworkId"`
+	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
 	// Creation time of the attachment.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Region where the edge is located.
@@ -43,16 +44,22 @@ type SiteToSiteVpnAttachment struct {
 	// Last update time of the attachment.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 	// The ARN of the site-to-site VPN attachment.
-	VpnConnectionArn pulumi.StringPtrOutput `pulumi:"vpnConnectionArn"`
+	VpnConnectionArn pulumi.StringOutput `pulumi:"vpnConnectionArn"`
 }
 
 // NewSiteToSiteVpnAttachment registers a new resource with the given unique name, arguments, and options.
 func NewSiteToSiteVpnAttachment(ctx *pulumi.Context,
 	name string, args *SiteToSiteVpnAttachmentArgs, opts ...pulumi.ResourceOption) (*SiteToSiteVpnAttachment, error) {
 	if args == nil {
-		args = &SiteToSiteVpnAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.CoreNetworkId == nil {
+		return nil, errors.New("invalid value for required argument 'CoreNetworkId'")
+	}
+	if args.VpnConnectionArn == nil {
+		return nil, errors.New("invalid value for required argument 'VpnConnectionArn'")
+	}
 	var resource SiteToSiteVpnAttachment
 	err := ctx.RegisterResource("aws-native:networkmanager:SiteToSiteVpnAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -86,21 +93,21 @@ func (SiteToSiteVpnAttachmentState) ElementType() reflect.Type {
 
 type siteToSiteVpnAttachmentArgs struct {
 	// The ID of a core network where you're creating a site-to-site VPN attachment.
-	CoreNetworkId *string `pulumi:"coreNetworkId"`
+	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// Tags for the attachment.
 	Tags []SiteToSiteVpnAttachmentTag `pulumi:"tags"`
 	// The ARN of the site-to-site VPN attachment.
-	VpnConnectionArn *string `pulumi:"vpnConnectionArn"`
+	VpnConnectionArn string `pulumi:"vpnConnectionArn"`
 }
 
 // The set of arguments for constructing a SiteToSiteVpnAttachment resource.
 type SiteToSiteVpnAttachmentArgs struct {
 	// The ID of a core network where you're creating a site-to-site VPN attachment.
-	CoreNetworkId pulumi.StringPtrInput
+	CoreNetworkId pulumi.StringInput
 	// Tags for the attachment.
 	Tags SiteToSiteVpnAttachmentTagArrayInput
 	// The ARN of the site-to-site VPN attachment.
-	VpnConnectionArn pulumi.StringPtrInput
+	VpnConnectionArn pulumi.StringInput
 }
 
 func (SiteToSiteVpnAttachmentArgs) ElementType() reflect.Type {
@@ -161,8 +168,8 @@ func (o SiteToSiteVpnAttachmentOutput) CoreNetworkArn() pulumi.StringOutput {
 }
 
 // The ID of a core network where you're creating a site-to-site VPN attachment.
-func (o SiteToSiteVpnAttachmentOutput) CoreNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringPtrOutput { return v.CoreNetworkId }).(pulumi.StringPtrOutput)
+func (o SiteToSiteVpnAttachmentOutput) CoreNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
 // Creation time of the attachment.
@@ -213,8 +220,8 @@ func (o SiteToSiteVpnAttachmentOutput) UpdatedAt() pulumi.StringOutput {
 }
 
 // The ARN of the site-to-site VPN attachment.
-func (o SiteToSiteVpnAttachmentOutput) VpnConnectionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringPtrOutput { return v.VpnConnectionArn }).(pulumi.StringPtrOutput)
+func (o SiteToSiteVpnAttachmentOutput) VpnConnectionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.VpnConnectionArn }).(pulumi.StringOutput)
 }
 
 func init() {

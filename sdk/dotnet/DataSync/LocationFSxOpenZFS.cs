@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
         /// </summary>
         [Output("fsxFilesystemArn")]
-        public Output<string> FsxFilesystemArn { get; private set; } = null!;
+        public Output<string?> FsxFilesystemArn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx OpenZFS file system location that is created.
@@ -102,8 +102,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
         /// </summary>
-        [Input("fsxFilesystemArn", required: true)]
-        public Input<string> FsxFilesystemArn { get; set; } = null!;
+        [Input("fsxFilesystemArn")]
+        public Input<string>? FsxFilesystemArn { get; set; }
 
         [Input("protocol", required: true)]
         public Input<Inputs.LocationFSxOpenZFSProtocolArgs> Protocol { get; set; } = null!;

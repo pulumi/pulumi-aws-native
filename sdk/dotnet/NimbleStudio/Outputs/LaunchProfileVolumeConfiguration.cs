@@ -10,11 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Custom volume configuration for the root volumes that are attached to streaming
+    ///             sessions.&lt;/p&gt;
+    ///          &lt;p&gt;This parameter is only allowed when &lt;code&gt;sessionPersistenceMode&lt;/code&gt; is
+    ///                 &lt;code&gt;ACTIVATED&lt;/code&gt;.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class LaunchProfileVolumeConfiguration
     {
+        /// <summary>
+        /// &lt;p&gt;The number of I/O operations per second for the root volume that is attached to
+        ///             streaming session.&lt;/p&gt;
+        /// </summary>
         public readonly double? Iops;
+        /// <summary>
+        /// &lt;p&gt;The size of the root volume that is attached to the streaming session. The root volume
+        ///             size is measured in GiBs.&lt;/p&gt;
+        /// </summary>
         public readonly double? Size;
+        /// <summary>
+        /// &lt;p&gt;The throughput to provision for the root volume that is attached to the streaming
+        ///             session. The throughput is measured in MiB/s.&lt;/p&gt;
+        /// </summary>
         public readonly double? Throughput;
 
         [OutputConstructor]

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
+        [Input("ipv6")]
+        public Input<string>? Ipv6 { get; set; }
+
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 

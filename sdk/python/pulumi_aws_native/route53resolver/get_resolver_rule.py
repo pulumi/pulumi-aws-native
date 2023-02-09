@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetResolverRuleResult:
-    def __init__(__self__, arn=None, name=None, resolver_endpoint_id=None, resolver_rule_id=None, tags=None, target_ips=None):
+    def __init__(__self__, arn=None, domain_name=None, name=None, resolver_endpoint_id=None, resolver_rule_id=None, tags=None, target_ips=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if domain_name and not isinstance(domain_name, str):
+            raise TypeError("Expected argument 'domain_name' to be a str")
+        pulumi.set(__self__, "domain_name", domain_name)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -46,6 +49,14 @@ class GetResolverRuleResult:
         The Amazon Resource Name (ARN) of the resolver rule.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[str]:
+        """
+        DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+        """
+        return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetResolverRuleResult(GetResolverRuleResult):
             yield self
         return GetResolverRuleResult(
             arn=self.arn,
+            domain_name=self.domain_name,
             name=self.name,
             resolver_endpoint_id=self.resolver_endpoint_id,
             resolver_rule_id=self.resolver_rule_id,
@@ -117,6 +129,7 @@ def get_resolver_rule(resolver_rule_id: Optional[str] = None,
 
     return AwaitableGetResolverRuleResult(
         arn=__ret__.arn,
+        domain_name=__ret__.domain_name,
         name=__ret__.name,
         resolver_endpoint_id=__ret__.resolver_endpoint_id,
         resolver_rule_id=__ret__.resolver_rule_id,

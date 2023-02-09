@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,10 +15,10 @@ import (
 type CRL struct {
 	pulumi.CustomResourceState
 
-	CrlData        pulumi.StringPtrOutput `pulumi:"crlData"`
+	CrlData        pulumi.StringOutput    `pulumi:"crlData"`
 	CrlId          pulumi.StringOutput    `pulumi:"crlId"`
 	Enabled        pulumi.BoolPtrOutput   `pulumi:"enabled"`
-	Name           pulumi.StringPtrOutput `pulumi:"name"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
 	Tags           CRLTagArrayOutput      `pulumi:"tags"`
 	TrustAnchorArn pulumi.StringPtrOutput `pulumi:"trustAnchorArn"`
 }
@@ -26,9 +27,12 @@ type CRL struct {
 func NewCRL(ctx *pulumi.Context,
 	name string, args *CRLArgs, opts ...pulumi.ResourceOption) (*CRL, error) {
 	if args == nil {
-		args = &CRLArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.CrlData == nil {
+		return nil, errors.New("invalid value for required argument 'CrlData'")
+	}
 	var resource CRL
 	err := ctx.RegisterResource("aws-native:rolesanywhere:CRL", name, args, &resource, opts...)
 	if err != nil {
@@ -61,7 +65,7 @@ func (CRLState) ElementType() reflect.Type {
 }
 
 type crlArgs struct {
-	CrlData        *string  `pulumi:"crlData"`
+	CrlData        string   `pulumi:"crlData"`
 	Enabled        *bool    `pulumi:"enabled"`
 	Name           *string  `pulumi:"name"`
 	Tags           []CRLTag `pulumi:"tags"`
@@ -70,7 +74,7 @@ type crlArgs struct {
 
 // The set of arguments for constructing a CRL resource.
 type CRLArgs struct {
-	CrlData        pulumi.StringPtrInput
+	CrlData        pulumi.StringInput
 	Enabled        pulumi.BoolPtrInput
 	Name           pulumi.StringPtrInput
 	Tags           CRLTagArrayInput
@@ -114,8 +118,8 @@ func (o CRLOutput) ToCRLOutputWithContext(ctx context.Context) CRLOutput {
 	return o
 }
 
-func (o CRLOutput) CrlData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CRL) pulumi.StringPtrOutput { return v.CrlData }).(pulumi.StringPtrOutput)
+func (o CRLOutput) CrlData() pulumi.StringOutput {
+	return o.ApplyT(func(v *CRL) pulumi.StringOutput { return v.CrlData }).(pulumi.StringOutput)
 }
 
 func (o CRLOutput) CrlId() pulumi.StringOutput {
@@ -126,8 +130,8 @@ func (o CRLOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CRL) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o CRLOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CRL) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o CRLOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CRL) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o CRLOutput) Tags() CRLTagArrayOutput {

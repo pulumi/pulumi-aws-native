@@ -20,7 +20,7 @@ type LocationS3 struct {
 	// The URL of the S3 location that was described.
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
-	S3BucketArn pulumi.StringOutput      `pulumi:"s3BucketArn"`
+	S3BucketArn pulumi.StringPtrOutput   `pulumi:"s3BucketArn"`
 	S3Config    LocationS3S3ConfigOutput `pulumi:"s3Config"`
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass LocationS3S3StorageClassPtrOutput `pulumi:"s3StorageClass"`
@@ -37,9 +37,6 @@ func NewLocationS3(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.S3BucketArn == nil {
-		return nil, errors.New("invalid value for required argument 'S3BucketArn'")
-	}
 	if args.S3Config == nil {
 		return nil, errors.New("invalid value for required argument 'S3Config'")
 	}
@@ -76,7 +73,7 @@ func (LocationS3State) ElementType() reflect.Type {
 
 type locationS3Args struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
-	S3BucketArn string             `pulumi:"s3BucketArn"`
+	S3BucketArn *string            `pulumi:"s3BucketArn"`
 	S3Config    LocationS3S3Config `pulumi:"s3Config"`
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass *LocationS3S3StorageClass `pulumi:"s3StorageClass"`
@@ -89,7 +86,7 @@ type locationS3Args struct {
 // The set of arguments for constructing a LocationS3 resource.
 type LocationS3Args struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
-	S3BucketArn pulumi.StringInput
+	S3BucketArn pulumi.StringPtrInput
 	S3Config    LocationS3S3ConfigInput
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass LocationS3S3StorageClassPtrInput
@@ -147,8 +144,8 @@ func (o LocationS3Output) LocationUri() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) of the Amazon S3 bucket.
-func (o LocationS3Output) S3BucketArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationS3) pulumi.StringOutput { return v.S3BucketArn }).(pulumi.StringOutput)
+func (o LocationS3Output) S3BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationS3) pulumi.StringPtrOutput { return v.S3BucketArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LocationS3Output) S3Config() LocationS3S3ConfigOutput {

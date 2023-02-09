@@ -10,6 +10,224 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The resource that receives events arriving from a channel.
+type ChannelDestination struct {
+	// The ARN of a resource that receives events from a channel.
+	Location string `pulumi:"location"`
+	// The type of destination for events arriving from a channel.
+	Type ChannelDestinationType `pulumi:"type"`
+}
+
+// ChannelDestinationInput is an input type that accepts ChannelDestinationArgs and ChannelDestinationOutput values.
+// You can construct a concrete instance of `ChannelDestinationInput` via:
+//
+//	ChannelDestinationArgs{...}
+type ChannelDestinationInput interface {
+	pulumi.Input
+
+	ToChannelDestinationOutput() ChannelDestinationOutput
+	ToChannelDestinationOutputWithContext(context.Context) ChannelDestinationOutput
+}
+
+// The resource that receives events arriving from a channel.
+type ChannelDestinationArgs struct {
+	// The ARN of a resource that receives events from a channel.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The type of destination for events arriving from a channel.
+	Type ChannelDestinationTypeInput `pulumi:"type"`
+}
+
+func (ChannelDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelDestination)(nil)).Elem()
+}
+
+func (i ChannelDestinationArgs) ToChannelDestinationOutput() ChannelDestinationOutput {
+	return i.ToChannelDestinationOutputWithContext(context.Background())
+}
+
+func (i ChannelDestinationArgs) ToChannelDestinationOutputWithContext(ctx context.Context) ChannelDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelDestinationOutput)
+}
+
+// ChannelDestinationArrayInput is an input type that accepts ChannelDestinationArray and ChannelDestinationArrayOutput values.
+// You can construct a concrete instance of `ChannelDestinationArrayInput` via:
+//
+//	ChannelDestinationArray{ ChannelDestinationArgs{...} }
+type ChannelDestinationArrayInput interface {
+	pulumi.Input
+
+	ToChannelDestinationArrayOutput() ChannelDestinationArrayOutput
+	ToChannelDestinationArrayOutputWithContext(context.Context) ChannelDestinationArrayOutput
+}
+
+type ChannelDestinationArray []ChannelDestinationInput
+
+func (ChannelDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelDestination)(nil)).Elem()
+}
+
+func (i ChannelDestinationArray) ToChannelDestinationArrayOutput() ChannelDestinationArrayOutput {
+	return i.ToChannelDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelDestinationArray) ToChannelDestinationArrayOutputWithContext(ctx context.Context) ChannelDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelDestinationArrayOutput)
+}
+
+// The resource that receives events arriving from a channel.
+type ChannelDestinationOutput struct{ *pulumi.OutputState }
+
+func (ChannelDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelDestination)(nil)).Elem()
+}
+
+func (o ChannelDestinationOutput) ToChannelDestinationOutput() ChannelDestinationOutput {
+	return o
+}
+
+func (o ChannelDestinationOutput) ToChannelDestinationOutputWithContext(ctx context.Context) ChannelDestinationOutput {
+	return o
+}
+
+// The ARN of a resource that receives events from a channel.
+func (o ChannelDestinationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelDestination) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The type of destination for events arriving from a channel.
+func (o ChannelDestinationOutput) Type() ChannelDestinationTypeOutput {
+	return o.ApplyT(func(v ChannelDestination) ChannelDestinationType { return v.Type }).(ChannelDestinationTypeOutput)
+}
+
+type ChannelDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelDestination)(nil)).Elem()
+}
+
+func (o ChannelDestinationArrayOutput) ToChannelDestinationArrayOutput() ChannelDestinationArrayOutput {
+	return o
+}
+
+func (o ChannelDestinationArrayOutput) ToChannelDestinationArrayOutputWithContext(ctx context.Context) ChannelDestinationArrayOutput {
+	return o
+}
+
+func (o ChannelDestinationArrayOutput) Index(i pulumi.IntInput) ChannelDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelDestination {
+		return vs[0].([]ChannelDestination)[vs[1].(int)]
+	}).(ChannelDestinationOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ChannelTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ChannelTagInput is an input type that accepts ChannelTagArgs and ChannelTagOutput values.
+// You can construct a concrete instance of `ChannelTagInput` via:
+//
+//	ChannelTagArgs{...}
+type ChannelTagInput interface {
+	pulumi.Input
+
+	ToChannelTagOutput() ChannelTagOutput
+	ToChannelTagOutputWithContext(context.Context) ChannelTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ChannelTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ChannelTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
+}
+
+func (i ChannelTagArgs) ToChannelTagOutput() ChannelTagOutput {
+	return i.ToChannelTagOutputWithContext(context.Background())
+}
+
+func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
+}
+
+// ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
+// You can construct a concrete instance of `ChannelTagArrayInput` via:
+//
+//	ChannelTagArray{ ChannelTagArgs{...} }
+type ChannelTagArrayInput interface {
+	pulumi.Input
+
+	ToChannelTagArrayOutput() ChannelTagArrayOutput
+	ToChannelTagArrayOutputWithContext(context.Context) ChannelTagArrayOutput
+}
+
+type ChannelTagArray []ChannelTagInput
+
+func (ChannelTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
+}
+
+func (i ChannelTagArray) ToChannelTagArrayOutput() ChannelTagArrayOutput {
+	return i.ToChannelTagArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ChannelTagOutput struct{ *pulumi.OutputState }
+
+func (ChannelTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
+}
+
+func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
+	return o
+}
+
+func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ChannelTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ChannelTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ChannelTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
+}
+
+func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
+	return o
+}
+
+func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
+	return o
+}
+
+func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTag {
+		return vs[0].([]ChannelTag)[vs[1].(int)]
+	}).(ChannelTagOutput)
+}
+
 // Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
 type EventDataStoreAdvancedEventSelector struct {
 	// Contains all selector statements in an advanced event selector.
@@ -827,6 +1045,10 @@ func (o TrailTagArrayOutput) Index(i pulumi.IntInput) TrailTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDestinationInput)(nil)).Elem(), ChannelDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDestinationArrayInput)(nil)).Elem(), ChannelDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagInput)(nil)).Elem(), ChannelTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagArrayInput)(nil)).Elem(), ChannelTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorArrayInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedFieldSelectorInput)(nil)).Elem(), EventDataStoreAdvancedFieldSelectorArgs{})
@@ -841,6 +1063,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailInsightSelectorArrayInput)(nil)).Elem(), TrailInsightSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailTagInput)(nil)).Elem(), TrailTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailTagArrayInput)(nil)).Elem(), TrailTagArray{})
+	pulumi.RegisterOutputType(ChannelDestinationOutput{})
+	pulumi.RegisterOutputType(ChannelDestinationArrayOutput{})
+	pulumi.RegisterOutputType(ChannelTagOutput{})
+	pulumi.RegisterOutputType(ChannelTagArrayOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedFieldSelectorOutput{})

@@ -34,7 +34,7 @@ type Server struct {
 	PreferredBackupWindow      pulumi.StringPtrOutput           `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow pulumi.StringPtrOutput           `pulumi:"preferredMaintenanceWindow"`
 	SecurityGroupIds           pulumi.StringArrayOutput         `pulumi:"securityGroupIds"`
-	ServerName                 pulumi.StringPtrOutput           `pulumi:"serverName"`
+	ServerName                 pulumi.StringOutput              `pulumi:"serverName"`
 	ServiceRoleArn             pulumi.StringOutput              `pulumi:"serviceRoleArn"`
 	SubnetIds                  pulumi.StringArrayOutput         `pulumi:"subnetIds"`
 	Tags                       ServerTagArrayOutput             `pulumi:"tags"`
@@ -249,8 +249,8 @@ func (o ServerOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-func (o ServerOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.ServerName }).(pulumi.StringPtrOutput)
+func (o ServerOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ServerName }).(pulumi.StringOutput)
 }
 
 func (o ServerOutput) ServiceRoleArn() pulumi.StringOutput {

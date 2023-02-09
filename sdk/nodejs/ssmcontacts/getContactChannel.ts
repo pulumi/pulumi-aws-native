@@ -35,10 +35,6 @@ export interface GetContactChannelResult {
      * The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
      */
     readonly channelName?: string;
-    /**
-     * If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
-     */
-    readonly deferActivation?: boolean;
 }
 /**
  * Resource Type definition for AWS::SSMContacts::ContactChannel

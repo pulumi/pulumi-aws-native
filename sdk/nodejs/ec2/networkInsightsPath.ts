@@ -38,7 +38,7 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
-    public readonly destination!: pulumi.Output<string>;
+    public readonly destination!: pulumi.Output<string | undefined>;
     public /*out*/ readonly destinationArn!: pulumi.Output<string>;
     public readonly destinationIp!: pulumi.Output<string | undefined>;
     public readonly destinationPort!: pulumi.Output<number | undefined>;
@@ -61,9 +61,6 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destination === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'destination'");
-            }
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
@@ -105,7 +102,7 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkInsightsPath resource.
  */
 export interface NetworkInsightsPathArgs {
-    destination: pulumi.Input<string>;
+    destination?: pulumi.Input<string>;
     destinationIp?: pulumi.Input<string>;
     destinationPort?: pulumi.Input<number>;
     protocol: pulumi.Input<enums.ec2.NetworkInsightsPathProtocol>;

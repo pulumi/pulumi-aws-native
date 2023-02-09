@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkgroupResult:
-    def __init__(__self__, enhanced_vpc_routing=None, publicly_accessible=None, workgroup=None):
+    def __init__(__self__, enhanced_vpc_routing=None, port=None, publicly_accessible=None, workgroup=None):
         if enhanced_vpc_routing and not isinstance(enhanced_vpc_routing, bool):
             raise TypeError("Expected argument 'enhanced_vpc_routing' to be a bool")
         pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
+        pulumi.set(__self__, "port", port)
         if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError("Expected argument 'publicly_accessible' to be a bool")
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
@@ -35,6 +38,11 @@ class GetWorkgroupResult:
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> Optional[bool]:
         return pulumi.get(self, "enhanced_vpc_routing")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
@@ -54,6 +62,7 @@ class AwaitableGetWorkgroupResult(GetWorkgroupResult):
             yield self
         return GetWorkgroupResult(
             enhanced_vpc_routing=self.enhanced_vpc_routing,
+            port=self.port,
             publicly_accessible=self.publicly_accessible,
             workgroup=self.workgroup)
 
@@ -70,6 +79,7 @@ def get_workgroup(workgroup_name: Optional[str] = None,
 
     return AwaitableGetWorkgroupResult(
         enhanced_vpc_routing=__ret__.enhanced_vpc_routing,
+        port=__ret__.port,
         publicly_accessible=__ret__.publicly_accessible,
         workgroup=__ret__.workgroup)
 

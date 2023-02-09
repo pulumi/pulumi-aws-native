@@ -64,10 +64,8 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
     public sealed class GetThemeResult
     {
         public readonly string? AppId;
-        public readonly string? CreatedAt;
         public readonly string? EnvironmentName;
         public readonly string? Id;
-        public readonly string? ModifiedAt;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.ThemeValues> Overrides;
         public readonly ImmutableArray<Outputs.ThemeValues> Values;
@@ -76,13 +74,9 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         private GetThemeResult(
             string? appId,
 
-            string? createdAt,
-
             string? environmentName,
 
             string? id,
-
-            string? modifiedAt,
 
             string? name,
 
@@ -91,10 +85,8 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
             ImmutableArray<Outputs.ThemeValues> values)
         {
             AppId = appId;
-            CreatedAt = createdAt;
             EnvironmentName = environmentName;
             Id = id;
-            ModifiedAt = modifiedAt;
             Name = name;
             Overrides = overrides;
             Values = values;

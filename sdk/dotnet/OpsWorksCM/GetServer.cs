@@ -55,10 +55,8 @@ namespace Pulumi.AwsNative.OpsWorksCM
         public readonly int? BackupRetentionCount;
         public readonly bool? DisableAutomatedBackup;
         public readonly string? Endpoint;
-        public readonly string? Id;
         public readonly string? PreferredBackupWindow;
         public readonly string? PreferredMaintenanceWindow;
-        public readonly ImmutableArray<Outputs.ServerTag> Tags;
 
         [OutputConstructor]
         private GetServerResult(
@@ -70,22 +68,16 @@ namespace Pulumi.AwsNative.OpsWorksCM
 
             string? endpoint,
 
-            string? id,
-
             string? preferredBackupWindow,
 
-            string? preferredMaintenanceWindow,
-
-            ImmutableArray<Outputs.ServerTag> tags)
+            string? preferredMaintenanceWindow)
         {
             Arn = arn;
             BackupRetentionCount = backupRetentionCount;
             DisableAutomatedBackup = disableAutomatedBackup;
             Endpoint = endpoint;
-            Id = id;
             PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
-            Tags = tags;
         }
     }
 }

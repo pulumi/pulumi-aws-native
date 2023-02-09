@@ -45,19 +45,27 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
 
         /// <summary>
         /// &lt;p&gt;Integer that determines if you can start and stop your sessions and how long a session
-        ///             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.&lt;/p&gt;
-        ///          &lt;p&gt;If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-        ///                 &lt;code&gt;StopStreamingSession&lt;/code&gt;, the session fails. If the time that a session
-        ///             stays in the READY state exceeds the &lt;code&gt;maxSessionLengthInMinutes&lt;/code&gt; value, the
-        ///             session will automatically be terminated (instead of stopped).&lt;/p&gt;
+        ///             can stay in the &lt;code&gt;STOPPED&lt;/code&gt; state. The default value is 0. The maximum value is
+        ///             5760.&lt;/p&gt;
+        ///          &lt;p&gt;This field is allowed only when &lt;code&gt;sessionPersistenceMode&lt;/code&gt; is
+        ///                 &lt;code&gt;ACTIVATED&lt;/code&gt; and &lt;code&gt;automaticTerminationMode&lt;/code&gt; is
+        ///                 &lt;code&gt;ACTIVATED&lt;/code&gt;.&lt;/p&gt;
+        ///          &lt;p&gt;If the value is set to 0, your sessions can’t be &lt;code&gt;STOPPED&lt;/code&gt;. If you then
+        ///             call &lt;code&gt;StopStreamingSession&lt;/code&gt;, the session fails. If the time that a session
+        ///             stays in the &lt;code&gt;READY&lt;/code&gt; state exceeds the &lt;code&gt;maxSessionLengthInMinutes&lt;/code&gt;
+        ///             value, the session will automatically be terminated (instead of
+        ///             &lt;code&gt;STOPPED&lt;/code&gt;).&lt;/p&gt;
         ///          &lt;p&gt;If the value is set to a positive number, the session can be stopped. You can call
-        ///                 &lt;code&gt;StopStreamingSession&lt;/code&gt; to stop sessions in the READY state. If the time
-        ///             that a session stays in the READY state exceeds the
+        ///                 &lt;code&gt;StopStreamingSession&lt;/code&gt; to stop sessions in the &lt;code&gt;READY&lt;/code&gt; state.
+        ///             If the time that a session stays in the &lt;code&gt;READY&lt;/code&gt; state exceeds the
         ///                 &lt;code&gt;maxSessionLengthInMinutes&lt;/code&gt; value, the session will automatically be
         ///             stopped (instead of terminated).&lt;/p&gt;
         /// </summary>
         [Input("maxStoppedSessionLengthInMinutes")]
         public Input<double>? MaxStoppedSessionLengthInMinutes { get; set; }
+
+        [Input("sessionBackup")]
+        public Input<Inputs.LaunchProfileStreamConfigurationSessionBackupArgs>? SessionBackup { get; set; }
 
         [Input("sessionPersistenceMode")]
         public Input<Pulumi.AwsNative.NimbleStudio.LaunchProfileSessionPersistenceMode>? SessionPersistenceMode { get; set; }

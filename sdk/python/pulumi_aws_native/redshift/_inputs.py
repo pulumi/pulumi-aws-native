@@ -18,11 +18,8 @@ __all__ = [
     'ClusterSecurityGroupTagArgs',
     'ClusterSubnetGroupTagArgs',
     'ClusterTagArgs',
-    'EndpointAccessNetworkInterfaceArgs',
-    'EndpointAccessVpcSecurityGroupArgs',
     'EventSubscriptionTagArgs',
     'ScheduledActionTypeArgs',
-    'VpcEndpointPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -261,118 +258,6 @@ class ClusterTagArgs:
 
 
 @pulumi.input_type
-class EndpointAccessNetworkInterfaceArgs:
-    def __init__(__self__, *,
-                 availability_zone: Optional[pulumi.Input[str]] = None,
-                 network_interface_id: Optional[pulumi.Input[str]] = None,
-                 private_ip_address: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None):
-        """
-        Describes a network interface.
-        :param pulumi.Input[str] availability_zone: The Availability Zone.
-        :param pulumi.Input[str] network_interface_id: The network interface identifier.
-        :param pulumi.Input[str] private_ip_address: The IPv4 address of the network interface within the subnet.
-        :param pulumi.Input[str] subnet_id: The subnet identifier.
-        """
-        if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
-        if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
-        if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-
-    @property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Availability Zone.
-        """
-        return pulumi.get(self, "availability_zone")
-
-    @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "availability_zone", value)
-
-    @property
-    @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The network interface identifier.
-        """
-        return pulumi.get(self, "network_interface_id")
-
-    @network_interface_id.setter
-    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "network_interface_id", value)
-
-    @property
-    @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
-        return pulumi.get(self, "private_ip_address")
-
-    @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "private_ip_address", value)
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet identifier.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
-
-
-@pulumi.input_type
-class EndpointAccessVpcSecurityGroupArgs:
-    def __init__(__self__, *,
-                 status: Optional[pulumi.Input[str]] = None,
-                 vpc_security_group_id: Optional[pulumi.Input[str]] = None):
-        """
-        Describes the members of a VPC security group.
-        :param pulumi.Input[str] status: The status of the VPC security group.
-        :param pulumi.Input[str] vpc_security_group_id: The identifier of the VPC security group.
-        """
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if vpc_security_group_id is not None:
-            pulumi.set(__self__, "vpc_security_group_id", vpc_security_group_id)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The status of the VPC security group.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter(name="vpcSecurityGroupId")
-    def vpc_security_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier of the VPC security group.
-        """
-        return pulumi.get(self, "vpc_security_group_id")
-
-    @vpc_security_group_id.setter
-    def vpc_security_group_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vpc_security_group_id", value)
-
-
-@pulumi.input_type
 class EventSubscriptionTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -414,61 +299,5 @@ class EventSubscriptionTagArgs:
 class ScheduledActionTypeArgs:
     def __init__(__self__):
         pass
-
-
-@pulumi.input_type
-class VpcEndpointPropertiesArgs:
-    def __init__(__self__, *,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessNetworkInterfaceArgs']]]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
-                 vpc_id: Optional[pulumi.Input[str]] = None):
-        """
-        The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessNetworkInterfaceArgs']]] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint.
-        :param pulumi.Input[str] vpc_endpoint_id: The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-        :param pulumi.Input[str] vpc_id: The VPC identifier that the endpoint is associated.
-        """
-        if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
-        if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
-        if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
-
-    @property
-    @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessNetworkInterfaceArgs']]]]:
-        """
-        One or more network interfaces of the endpoint. Also known as an interface endpoint.
-        """
-        return pulumi.get(self, "network_interfaces")
-
-    @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessNetworkInterfaceArgs']]]]):
-        pulumi.set(self, "network_interfaces", value)
-
-    @property
-    @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-        """
-        return pulumi.get(self, "vpc_endpoint_id")
-
-    @vpc_endpoint_id.setter
-    def vpc_endpoint_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vpc_endpoint_id", value)
-
-    @property
-    @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The VPC identifier that the endpoint is associated.
-        """
-        return pulumi.get(self, "vpc_id")
-
-    @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vpc_id", value)
 
 

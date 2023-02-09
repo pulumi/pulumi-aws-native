@@ -680,42 +680,6 @@ const (
 	DBProxyEndpointTargetRoleReadOnly  = DBProxyEndpointTargetRole("READ_ONLY")
 )
 
-func (DBProxyEndpointTargetRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBProxyEndpointTargetRole)(nil)).Elem()
-}
-
-func (e DBProxyEndpointTargetRole) ToDBProxyEndpointTargetRoleOutput() DBProxyEndpointTargetRoleOutput {
-	return pulumi.ToOutput(e).(DBProxyEndpointTargetRoleOutput)
-}
-
-func (e DBProxyEndpointTargetRole) ToDBProxyEndpointTargetRoleOutputWithContext(ctx context.Context) DBProxyEndpointTargetRoleOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DBProxyEndpointTargetRoleOutput)
-}
-
-func (e DBProxyEndpointTargetRole) ToDBProxyEndpointTargetRolePtrOutput() DBProxyEndpointTargetRolePtrOutput {
-	return e.ToDBProxyEndpointTargetRolePtrOutputWithContext(context.Background())
-}
-
-func (e DBProxyEndpointTargetRole) ToDBProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DBProxyEndpointTargetRolePtrOutput {
-	return DBProxyEndpointTargetRole(e).ToDBProxyEndpointTargetRoleOutputWithContext(ctx).ToDBProxyEndpointTargetRolePtrOutputWithContext(ctx)
-}
-
-func (e DBProxyEndpointTargetRole) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DBProxyEndpointTargetRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DBProxyEndpointTargetRole) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DBProxyEndpointTargetRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type DBProxyEndpointTargetRoleOutput struct{ *pulumi.OutputState }
 
 func (DBProxyEndpointTargetRoleOutput) ElementType() reflect.Type {
@@ -797,44 +761,6 @@ func (o DBProxyEndpointTargetRolePtrOutput) ToStringPtrOutputWithContext(ctx con
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// DBProxyEndpointTargetRoleInput is an input type that accepts DBProxyEndpointTargetRoleArgs and DBProxyEndpointTargetRoleOutput values.
-// You can construct a concrete instance of `DBProxyEndpointTargetRoleInput` via:
-//
-//	DBProxyEndpointTargetRoleArgs{...}
-type DBProxyEndpointTargetRoleInput interface {
-	pulumi.Input
-
-	ToDBProxyEndpointTargetRoleOutput() DBProxyEndpointTargetRoleOutput
-	ToDBProxyEndpointTargetRoleOutputWithContext(context.Context) DBProxyEndpointTargetRoleOutput
-}
-
-var dbproxyEndpointTargetRolePtrType = reflect.TypeOf((**DBProxyEndpointTargetRole)(nil)).Elem()
-
-type DBProxyEndpointTargetRolePtrInput interface {
-	pulumi.Input
-
-	ToDBProxyEndpointTargetRolePtrOutput() DBProxyEndpointTargetRolePtrOutput
-	ToDBProxyEndpointTargetRolePtrOutputWithContext(context.Context) DBProxyEndpointTargetRolePtrOutput
-}
-
-type dbproxyEndpointTargetRolePtr string
-
-func DBProxyEndpointTargetRolePtr(v string) DBProxyEndpointTargetRolePtrInput {
-	return (*dbproxyEndpointTargetRolePtr)(&v)
-}
-
-func (*dbproxyEndpointTargetRolePtr) ElementType() reflect.Type {
-	return dbproxyEndpointTargetRolePtrType
-}
-
-func (in *dbproxyEndpointTargetRolePtr) ToDBProxyEndpointTargetRolePtrOutput() DBProxyEndpointTargetRolePtrOutput {
-	return pulumi.ToOutput(in).(DBProxyEndpointTargetRolePtrOutput)
-}
-
-func (in *dbproxyEndpointTargetRolePtr) ToDBProxyEndpointTargetRolePtrOutputWithContext(ctx context.Context) DBProxyEndpointTargetRolePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DBProxyEndpointTargetRolePtrOutput)
 }
 
 // The kinds of databases that the proxy can connect to.
@@ -1343,8 +1269,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatClientPasswordAuthTypePtrInput)(nil)).Elem(), DBProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatIAMAuthInput)(nil)).Elem(), DBProxyAuthFormatIAMAuth("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatIAMAuthPtrInput)(nil)).Elem(), DBProxyAuthFormatIAMAuth("DISABLED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEndpointTargetRoleInput)(nil)).Elem(), DBProxyEndpointTargetRole("READ_WRITE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEndpointTargetRolePtrInput)(nil)).Elem(), DBProxyEndpointTargetRole("READ_WRITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEngineFamilyInput)(nil)).Elem(), DBProxyEngineFamily("MYSQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEngineFamilyPtrInput)(nil)).Elem(), DBProxyEngineFamily("MYSQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTargetGroupTargetGroupNameInput)(nil)).Elem(), DBProxyTargetGroupTargetGroupName("default"))

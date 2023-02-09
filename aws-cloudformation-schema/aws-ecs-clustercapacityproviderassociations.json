@@ -72,7 +72,6 @@
   "required" : [ "CapacityProviders", "Cluster", "DefaultCapacityProviderStrategy" ],
   "createOnlyProperties" : [ "/properties/Cluster" ],
   "primaryIdentifier" : [ "/properties/Cluster" ],
-  "additionalIdentifiers" : [ [ "/properties/DefaultCapacityProviderStrategy", "/properties/CapacityProviders" ] ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ecs:DescribeClusters", "ecs:PutClusterCapacityProviders" ]

@@ -24,7 +24,8 @@ class TopicArgs:
                  signature_version: Optional[pulumi.Input[str]] = None,
                  subscription: Optional[pulumi.Input[Sequence[pulumi.Input['TopicSubscriptionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TopicTagArgs']]]] = None,
-                 topic_name: Optional[pulumi.Input[str]] = None):
+                 topic_name: Optional[pulumi.Input[str]] = None,
+                 tracing_config: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Topic resource.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
@@ -49,6 +50,7 @@ class TopicArgs:
         :param pulumi.Input[str] topic_name: The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
                
                If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+        :param pulumi.Input[str] tracing_config: Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
         """
         if content_based_deduplication is not None:
             pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
@@ -68,6 +70,8 @@ class TopicArgs:
             pulumi.set(__self__, "tags", tags)
         if topic_name is not None:
             pulumi.set(__self__, "topic_name", topic_name)
+        if tracing_config is not None:
+            pulumi.set(__self__, "tracing_config", tracing_config)
 
     @property
     @pulumi.getter(name="contentBasedDeduplication")
@@ -188,6 +192,18 @@ class TopicArgs:
     def topic_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "topic_name", value)
 
+    @property
+    @pulumi.getter(name="tracingConfig")
+    def tracing_config(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+        """
+        return pulumi.get(self, "tracing_config")
+
+    @tracing_config.setter
+    def tracing_config(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tracing_config", value)
+
 
 class Topic(pulumi.CustomResource):
     @overload
@@ -203,6 +219,7 @@ class Topic(pulumi.CustomResource):
                  subscription: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicSubscriptionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicTagArgs']]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
+                 tracing_config: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SNS::Topic
@@ -231,6 +248,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] topic_name: The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
                
                If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+        :param pulumi.Input[str] tracing_config: Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
         """
         ...
     @overload
@@ -265,6 +283,7 @@ class Topic(pulumi.CustomResource):
                  subscription: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicSubscriptionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicTagArgs']]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
+                 tracing_config: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -283,6 +302,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["subscription"] = subscription
             __props__.__dict__["tags"] = tags
             __props__.__dict__["topic_name"] = topic_name
+            __props__.__dict__["tracing_config"] = tracing_config
             __props__.__dict__["topic_arn"] = None
         super(Topic, __self__).__init__(
             'aws-native:sns:Topic',
@@ -316,6 +336,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["topic_arn"] = None
         __props__.__dict__["topic_name"] = None
+        __props__.__dict__["tracing_config"] = None
         return Topic(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -405,4 +426,12 @@ class Topic(pulumi.CustomResource):
         If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
         """
         return pulumi.get(self, "topic_name")
+
+    @property
+    @pulumi.getter(name="tracingConfig")
+    def tracing_config(self) -> pulumi.Output[Optional[str]]:
+        """
+        Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+        """
+        return pulumi.get(self, "tracing_config")
 

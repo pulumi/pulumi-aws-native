@@ -5,8 +5,16 @@
 from enum import Enum
 
 __all__ = [
+    'ChannelDestinationType',
     'TrailEventSelectorReadWriteType',
 ]
+
+
+class ChannelDestinationType(str, Enum):
+    """
+    The type of destination for events arriving from a channel.
+    """
+    EVENT_DATA_STORE = "EVENT_DATA_STORE"
 
 
 class TrailEventSelectorReadWriteType(str, Enum):

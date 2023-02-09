@@ -62,6 +62,10 @@ export class LocationObjectStorage extends pulumi.CustomResource {
      */
     public readonly secretKey!: pulumi.Output<string | undefined>;
     /**
+     * X.509 PEM content containing a certificate authority or chain to trust.
+     */
+    public readonly serverCertificate!: pulumi.Output<string | undefined>;
+    /**
      * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
      */
     public readonly serverHostname!: pulumi.Output<string | undefined>;
@@ -100,6 +104,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             resourceInputs["agentArns"] = args ? args.agentArns : undefined;
             resourceInputs["bucketName"] = args ? args.bucketName : undefined;
             resourceInputs["secretKey"] = args ? args.secretKey : undefined;
+            resourceInputs["serverCertificate"] = args ? args.serverCertificate : undefined;
             resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
             resourceInputs["serverPort"] = args ? args.serverPort : undefined;
             resourceInputs["serverProtocol"] = args ? args.serverProtocol : undefined;
@@ -114,6 +119,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
             resourceInputs["secretKey"] = undefined /*out*/;
+            resourceInputs["serverCertificate"] = undefined /*out*/;
             resourceInputs["serverHostname"] = undefined /*out*/;
             resourceInputs["serverPort"] = undefined /*out*/;
             resourceInputs["serverProtocol"] = undefined /*out*/;
@@ -145,6 +151,10 @@ export interface LocationObjectStorageArgs {
      * Optional. The secret key is used if credentials are required to access the self-managed object storage server.
      */
     secretKey?: pulumi.Input<string>;
+    /**
+     * X.509 PEM content containing a certificate authority or chain to trust.
+     */
+    serverCertificate?: pulumi.Input<string>;
     /**
      * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
      */

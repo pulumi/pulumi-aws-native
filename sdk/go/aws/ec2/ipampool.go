@@ -48,6 +48,8 @@ type IPAMPool struct {
 	PoolDepth pulumi.IntOutput `pulumi:"poolDepth"`
 	// A list of cidrs representing the address space available for allocation in this pool.
 	ProvisionedCidrs IPAMPoolProvisionedCidrArrayOutput `pulumi:"provisionedCidrs"`
+	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+	PublicIpSource IPAMPoolPublicIpSourcePtrOutput `pulumi:"publicIpSource"`
 	// Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
 	PubliclyAdvertisable pulumi.BoolPtrOutput `pulumi:"publiclyAdvertisable"`
 	// The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
@@ -126,6 +128,8 @@ type ipampoolArgs struct {
 	Locale *string `pulumi:"locale"`
 	// A list of cidrs representing the address space available for allocation in this pool.
 	ProvisionedCidrs []IPAMPoolProvisionedCidr `pulumi:"provisionedCidrs"`
+	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+	PublicIpSource *IPAMPoolPublicIpSource `pulumi:"publicIpSource"`
 	// Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
 	PubliclyAdvertisable *bool `pulumi:"publiclyAdvertisable"`
 	// The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
@@ -157,6 +161,8 @@ type IPAMPoolArgs struct {
 	Locale pulumi.StringPtrInput
 	// A list of cidrs representing the address space available for allocation in this pool.
 	ProvisionedCidrs IPAMPoolProvisionedCidrArrayInput
+	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+	PublicIpSource IPAMPoolPublicIpSourcePtrInput
 	// Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
 	PubliclyAdvertisable pulumi.BoolPtrInput
 	// The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
@@ -284,6 +290,11 @@ func (o IPAMPoolOutput) PoolDepth() pulumi.IntOutput {
 // A list of cidrs representing the address space available for allocation in this pool.
 func (o IPAMPoolOutput) ProvisionedCidrs() IPAMPoolProvisionedCidrArrayOutput {
 	return o.ApplyT(func(v *IPAMPool) IPAMPoolProvisionedCidrArrayOutput { return v.ProvisionedCidrs }).(IPAMPoolProvisionedCidrArrayOutput)
+}
+
+// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+func (o IPAMPoolOutput) PublicIpSource() IPAMPoolPublicIpSourcePtrOutput {
+	return o.ApplyT(func(v *IPAMPool) IPAMPoolPublicIpSourcePtrOutput { return v.PublicIpSource }).(IPAMPoolPublicIpSourcePtrOutput)
 }
 
 // Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.

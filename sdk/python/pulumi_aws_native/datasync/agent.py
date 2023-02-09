@@ -17,7 +17,7 @@ __all__ = ['AgentArgs', 'Agent']
 @pulumi.input_type
 class AgentArgs:
     def __init__(__self__, *,
-                 activation_key: pulumi.Input[str],
+                 activation_key: Optional[pulumi.Input[str]] = None,
                  agent_name: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -32,7 +32,8 @@ class AgentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint that the agent has access to.
         """
-        pulumi.set(__self__, "activation_key", activation_key)
+        if activation_key is not None:
+            pulumi.set(__self__, "activation_key", activation_key)
         if agent_name is not None:
             pulumi.set(__self__, "agent_name", agent_name)
         if security_group_arns is not None:
@@ -46,14 +47,14 @@ class AgentArgs:
 
     @property
     @pulumi.getter(name="activationKey")
-    def activation_key(self) -> pulumi.Input[str]:
+    def activation_key(self) -> Optional[pulumi.Input[str]]:
         """
         Activation key of the Agent.
         """
         return pulumi.get(self, "activation_key")
 
     @activation_key.setter
-    def activation_key(self, value: pulumi.Input[str]):
+    def activation_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "activation_key", value)
 
     @property
@@ -145,7 +146,7 @@ class Agent(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AgentArgs,
+                 args: Optional[AgentArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataSync::Agent.
@@ -180,8 +181,6 @@ class Agent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgentArgs.__new__(AgentArgs)
 
-            if activation_key is None and not opts.urn:
-                raise TypeError("Missing required property 'activation_key'")
             __props__.__dict__["activation_key"] = activation_key
             __props__.__dict__["agent_name"] = agent_name
             __props__.__dict__["security_group_arns"] = security_group_arns
@@ -224,7 +223,7 @@ class Agent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activationKey")
-    def activation_key(self) -> pulumi.Output[str]:
+    def activation_key(self) -> pulumi.Output[Optional[str]]:
         """
         Activation key of the Agent.
         """

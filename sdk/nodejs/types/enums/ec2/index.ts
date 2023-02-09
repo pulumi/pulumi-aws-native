@@ -265,6 +265,16 @@ export const IPAMPoolIpamScopeType = {
  */
 export type IPAMPoolIpamScopeType = (typeof IPAMPoolIpamScopeType)[keyof typeof IPAMPoolIpamScopeType];
 
+export const IPAMPoolPublicIpSource = {
+    Byoip: "byoip",
+    Amazon: "amazon",
+} as const;
+
+/**
+ * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+ */
+export type IPAMPoolPublicIpSource = (typeof IPAMPoolPublicIpSource)[keyof typeof IPAMPoolPublicIpSource];
+
 export const IPAMPoolState = {
     CreateInProgress: "create-in-progress",
     CreateComplete: "create-complete",

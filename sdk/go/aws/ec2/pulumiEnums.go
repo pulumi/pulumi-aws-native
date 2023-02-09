@@ -4541,6 +4541,171 @@ func (o IPAMPoolIpamScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+type IPAMPoolPublicIpSource string
+
+const (
+	IPAMPoolPublicIpSourceByoip  = IPAMPoolPublicIpSource("byoip")
+	IPAMPoolPublicIpSourceAmazon = IPAMPoolPublicIpSource("amazon")
+)
+
+func (IPAMPoolPublicIpSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMPoolPublicIpSource)(nil)).Elem()
+}
+
+func (e IPAMPoolPublicIpSource) ToIPAMPoolPublicIpSourceOutput() IPAMPoolPublicIpSourceOutput {
+	return pulumi.ToOutput(e).(IPAMPoolPublicIpSourceOutput)
+}
+
+func (e IPAMPoolPublicIpSource) ToIPAMPoolPublicIpSourceOutputWithContext(ctx context.Context) IPAMPoolPublicIpSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IPAMPoolPublicIpSourceOutput)
+}
+
+func (e IPAMPoolPublicIpSource) ToIPAMPoolPublicIpSourcePtrOutput() IPAMPoolPublicIpSourcePtrOutput {
+	return e.ToIPAMPoolPublicIpSourcePtrOutputWithContext(context.Background())
+}
+
+func (e IPAMPoolPublicIpSource) ToIPAMPoolPublicIpSourcePtrOutputWithContext(ctx context.Context) IPAMPoolPublicIpSourcePtrOutput {
+	return IPAMPoolPublicIpSource(e).ToIPAMPoolPublicIpSourceOutputWithContext(ctx).ToIPAMPoolPublicIpSourcePtrOutputWithContext(ctx)
+}
+
+func (e IPAMPoolPublicIpSource) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IPAMPoolPublicIpSource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IPAMPoolPublicIpSource) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IPAMPoolPublicIpSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IPAMPoolPublicIpSourceOutput struct{ *pulumi.OutputState }
+
+func (IPAMPoolPublicIpSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAMPoolPublicIpSource)(nil)).Elem()
+}
+
+func (o IPAMPoolPublicIpSourceOutput) ToIPAMPoolPublicIpSourceOutput() IPAMPoolPublicIpSourceOutput {
+	return o
+}
+
+func (o IPAMPoolPublicIpSourceOutput) ToIPAMPoolPublicIpSourceOutputWithContext(ctx context.Context) IPAMPoolPublicIpSourceOutput {
+	return o
+}
+
+func (o IPAMPoolPublicIpSourceOutput) ToIPAMPoolPublicIpSourcePtrOutput() IPAMPoolPublicIpSourcePtrOutput {
+	return o.ToIPAMPoolPublicIpSourcePtrOutputWithContext(context.Background())
+}
+
+func (o IPAMPoolPublicIpSourceOutput) ToIPAMPoolPublicIpSourcePtrOutputWithContext(ctx context.Context) IPAMPoolPublicIpSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAMPoolPublicIpSource) *IPAMPoolPublicIpSource {
+		return &v
+	}).(IPAMPoolPublicIpSourcePtrOutput)
+}
+
+func (o IPAMPoolPublicIpSourceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IPAMPoolPublicIpSourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IPAMPoolPublicIpSource) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IPAMPoolPublicIpSourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IPAMPoolPublicIpSourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IPAMPoolPublicIpSource) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IPAMPoolPublicIpSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (IPAMPoolPublicIpSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPAMPoolPublicIpSource)(nil)).Elem()
+}
+
+func (o IPAMPoolPublicIpSourcePtrOutput) ToIPAMPoolPublicIpSourcePtrOutput() IPAMPoolPublicIpSourcePtrOutput {
+	return o
+}
+
+func (o IPAMPoolPublicIpSourcePtrOutput) ToIPAMPoolPublicIpSourcePtrOutputWithContext(ctx context.Context) IPAMPoolPublicIpSourcePtrOutput {
+	return o
+}
+
+func (o IPAMPoolPublicIpSourcePtrOutput) Elem() IPAMPoolPublicIpSourceOutput {
+	return o.ApplyT(func(v *IPAMPoolPublicIpSource) IPAMPoolPublicIpSource {
+		if v != nil {
+			return *v
+		}
+		var ret IPAMPoolPublicIpSource
+		return ret
+	}).(IPAMPoolPublicIpSourceOutput)
+}
+
+func (o IPAMPoolPublicIpSourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IPAMPoolPublicIpSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IPAMPoolPublicIpSource) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IPAMPoolPublicIpSourceInput is an input type that accepts IPAMPoolPublicIpSourceArgs and IPAMPoolPublicIpSourceOutput values.
+// You can construct a concrete instance of `IPAMPoolPublicIpSourceInput` via:
+//
+//	IPAMPoolPublicIpSourceArgs{...}
+type IPAMPoolPublicIpSourceInput interface {
+	pulumi.Input
+
+	ToIPAMPoolPublicIpSourceOutput() IPAMPoolPublicIpSourceOutput
+	ToIPAMPoolPublicIpSourceOutputWithContext(context.Context) IPAMPoolPublicIpSourceOutput
+}
+
+var ipampoolPublicIpSourcePtrType = reflect.TypeOf((**IPAMPoolPublicIpSource)(nil)).Elem()
+
+type IPAMPoolPublicIpSourcePtrInput interface {
+	pulumi.Input
+
+	ToIPAMPoolPublicIpSourcePtrOutput() IPAMPoolPublicIpSourcePtrOutput
+	ToIPAMPoolPublicIpSourcePtrOutputWithContext(context.Context) IPAMPoolPublicIpSourcePtrOutput
+}
+
+type ipampoolPublicIpSourcePtr string
+
+func IPAMPoolPublicIpSourcePtr(v string) IPAMPoolPublicIpSourcePtrInput {
+	return (*ipampoolPublicIpSourcePtr)(&v)
+}
+
+func (*ipampoolPublicIpSourcePtr) ElementType() reflect.Type {
+	return ipampoolPublicIpSourcePtrType
+}
+
+func (in *ipampoolPublicIpSourcePtr) ToIPAMPoolPublicIpSourcePtrOutput() IPAMPoolPublicIpSourcePtrOutput {
+	return pulumi.ToOutput(in).(IPAMPoolPublicIpSourcePtrOutput)
+}
+
+func (in *ipampoolPublicIpSourcePtr) ToIPAMPoolPublicIpSourcePtrOutputWithContext(ctx context.Context) IPAMPoolPublicIpSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IPAMPoolPublicIpSourcePtrOutput)
+}
+
 // The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
 type IPAMPoolStateEnum string
 
@@ -9052,6 +9217,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTrafficTypePtrInput)(nil)).Elem(), FlowLogTrafficType("ACCEPT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolAwsServiceInput)(nil)).Elem(), IPAMPoolAwsService("ec2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolAwsServicePtrInput)(nil)).Elem(), IPAMPoolAwsService("ec2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolPublicIpSourceInput)(nil)).Elem(), IPAMPoolPublicIpSource("byoip"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolPublicIpSourcePtrInput)(nil)).Elem(), IPAMPoolPublicIpSource("byoip"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyTypeInput)(nil)).Elem(), KeyPairKeyType("rsa"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyTypePtrInput)(nil)).Elem(), KeyPairKeyType("rsa"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocol("tcp"))
@@ -9161,6 +9328,8 @@ func init() {
 	pulumi.RegisterOutputType(IPAMPoolAwsServicePtrOutput{})
 	pulumi.RegisterOutputType(IPAMPoolIpamScopeTypeOutput{})
 	pulumi.RegisterOutputType(IPAMPoolIpamScopeTypePtrOutput{})
+	pulumi.RegisterOutputType(IPAMPoolPublicIpSourceOutput{})
+	pulumi.RegisterOutputType(IPAMPoolPublicIpSourcePtrOutput{})
 	pulumi.RegisterOutputType(IPAMPoolStateEnumOutput{})
 	pulumi.RegisterOutputType(IPAMPoolStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(IPAMScopeIpamScopeTypeOutput{})

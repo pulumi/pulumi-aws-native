@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public Output<bool?> Enabled { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("source")]
-        public Output<Outputs.TrustAnchorSource?> Source { get; private set; } = null!;
+        public Output<Outputs.TrustAnchorSource> Source { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.TrustAnchorTag>> Tags { get; private set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TrustAnchor(string name, TrustAnchorArgs? args = null, CustomResourceOptions? options = null)
+        public TrustAnchor(string name, TrustAnchorArgs args, CustomResourceOptions? options = null)
             : base("aws-native:rolesanywhere:TrustAnchor", name, args ?? new TrustAnchorArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -84,8 +84,8 @@ namespace Pulumi.AwsNative.RolesAnywhere
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("source")]
-        public Input<Inputs.TrustAnchorSourceArgs>? Source { get; set; }
+        [Input("source", required: true)]
+        public Input<Inputs.TrustAnchorSourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.TrustAnchorTagArgs>? _tags;

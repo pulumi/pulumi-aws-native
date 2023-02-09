@@ -185,6 +185,21 @@ export const getIPAMPool: typeof import("./getIPAMPool").getIPAMPool = null as a
 export const getIPAMPoolOutput: typeof import("./getIPAMPool").getIPAMPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getIPAMPool","getIPAMPoolOutput"], () => require("./getIPAMPool"));
 
+export { GetIPAMPoolCidrArgs, GetIPAMPoolCidrResult, GetIPAMPoolCidrOutputArgs } from "./getIPAMPoolCidr";
+export const getIPAMPoolCidr: typeof import("./getIPAMPoolCidr").getIPAMPoolCidr = null as any;
+export const getIPAMPoolCidrOutput: typeof import("./getIPAMPoolCidr").getIPAMPoolCidrOutput = null as any;
+utilities.lazyLoad(exports, ["getIPAMPoolCidr","getIPAMPoolCidrOutput"], () => require("./getIPAMPoolCidr"));
+
+export { GetIPAMResourceDiscoveryArgs, GetIPAMResourceDiscoveryResult, GetIPAMResourceDiscoveryOutputArgs } from "./getIPAMResourceDiscovery";
+export const getIPAMResourceDiscovery: typeof import("./getIPAMResourceDiscovery").getIPAMResourceDiscovery = null as any;
+export const getIPAMResourceDiscoveryOutput: typeof import("./getIPAMResourceDiscovery").getIPAMResourceDiscoveryOutput = null as any;
+utilities.lazyLoad(exports, ["getIPAMResourceDiscovery","getIPAMResourceDiscoveryOutput"], () => require("./getIPAMResourceDiscovery"));
+
+export { GetIPAMResourceDiscoveryAssociationArgs, GetIPAMResourceDiscoveryAssociationResult, GetIPAMResourceDiscoveryAssociationOutputArgs } from "./getIPAMResourceDiscoveryAssociation";
+export const getIPAMResourceDiscoveryAssociation: typeof import("./getIPAMResourceDiscoveryAssociation").getIPAMResourceDiscoveryAssociation = null as any;
+export const getIPAMResourceDiscoveryAssociationOutput: typeof import("./getIPAMResourceDiscoveryAssociation").getIPAMResourceDiscoveryAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getIPAMResourceDiscoveryAssociation","getIPAMResourceDiscoveryAssociationOutput"], () => require("./getIPAMResourceDiscoveryAssociation"));
+
 export { GetIPAMScopeArgs, GetIPAMScopeResult, GetIPAMScopeOutputArgs } from "./getIPAMScope";
 export const getIPAMScope: typeof import("./getIPAMScope").getIPAMScope = null as any;
 export const getIPAMScopeOutput: typeof import("./getIPAMScope").getIPAMScopeOutput = null as any;
@@ -514,6 +529,21 @@ export { IPAMPoolArgs } from "./ipampool";
 export type IPAMPool = import("./ipampool").IPAMPool;
 export const IPAMPool: typeof import("./ipampool").IPAMPool = null as any;
 utilities.lazyLoad(exports, ["IPAMPool"], () => require("./ipampool"));
+
+export { IPAMPoolCidrArgs } from "./ipampoolCidr";
+export type IPAMPoolCidr = import("./ipampoolCidr").IPAMPoolCidr;
+export const IPAMPoolCidr: typeof import("./ipampoolCidr").IPAMPoolCidr = null as any;
+utilities.lazyLoad(exports, ["IPAMPoolCidr"], () => require("./ipampoolCidr"));
+
+export { IPAMResourceDiscoveryArgs } from "./ipamresourceDiscovery";
+export type IPAMResourceDiscovery = import("./ipamresourceDiscovery").IPAMResourceDiscovery;
+export const IPAMResourceDiscovery: typeof import("./ipamresourceDiscovery").IPAMResourceDiscovery = null as any;
+utilities.lazyLoad(exports, ["IPAMResourceDiscovery"], () => require("./ipamresourceDiscovery"));
+
+export { IPAMResourceDiscoveryAssociationArgs } from "./ipamresourceDiscoveryAssociation";
+export type IPAMResourceDiscoveryAssociation = import("./ipamresourceDiscoveryAssociation").IPAMResourceDiscoveryAssociation;
+export const IPAMResourceDiscoveryAssociation: typeof import("./ipamresourceDiscoveryAssociation").IPAMResourceDiscoveryAssociation = null as any;
+utilities.lazyLoad(exports, ["IPAMResourceDiscoveryAssociation"], () => require("./ipamresourceDiscoveryAssociation"));
 
 export { IPAMScopeArgs } from "./ipamscope";
 export type IPAMScope = import("./ipamscope").IPAMScope;
@@ -863,6 +893,12 @@ const _module = {
                 return new IPAMAllocation(name, <any>undefined, { urn })
             case "aws-native:ec2:IPAMPool":
                 return new IPAMPool(name, <any>undefined, { urn })
+            case "aws-native:ec2:IPAMPoolCidr":
+                return new IPAMPoolCidr(name, <any>undefined, { urn })
+            case "aws-native:ec2:IPAMResourceDiscovery":
+                return new IPAMResourceDiscovery(name, <any>undefined, { urn })
+            case "aws-native:ec2:IPAMResourceDiscoveryAssociation":
+                return new IPAMResourceDiscoveryAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:IPAMScope":
                 return new IPAMScope(name, <any>undefined, { urn })
             case "aws-native:ec2:Instance":

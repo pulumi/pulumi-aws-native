@@ -1,102 +1,102 @@
 {
-  "typeName" : "AWS::EC2::NetworkInsightsPath",
-  "description" : "Resource schema for AWS::EC2::NetworkInsightsPath",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2-ni.git",
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "ec2:DescribeNetworkInsightsPaths" ]
+    },
+    "create" : {
+      "permissions" : [ "ec2:CreateNetworkInsightsPath" ]
+    },
+    "update" : {
+      "permissions" : [ "ec2:DescribeNetworkInsightsPaths", "ec2:CreateTags", "ec2:DeleteTags" ]
+    },
+    "list" : {
+      "permissions" : [ "ec2:DescribeNetworkInsightsPaths" ]
+    },
+    "delete" : {
+      "permissions" : [ "ec2:DeleteNetworkInsightsPath" ]
+    }
+  },
+  "typeName" : "AWS::EC2::NetworkInsightsPath",
+  "readOnlyProperties" : [ "/properties/NetworkInsightsPathId", "/properties/NetworkInsightsPathArn", "/properties/CreatedDate", "/properties/SourceArn", "/properties/DestinationArn" ],
+  "description" : "Resource schema for AWS::EC2::NetworkInsightsPath",
+  "additionalIdentifiers" : [ [ "/properties/NetworkInsightsPathArn" ] ],
+  "createOnlyProperties" : [ "/properties/SourceIp", "/properties/DestinationIp", "/properties/Source", "/properties/Destination", "/properties/Protocol", "/properties/DestinationPort" ],
+  "additionalProperties" : false,
+  "primaryIdentifier" : [ "/properties/NetworkInsightsPathId" ],
   "definitions" : {
-    "Tags" : {
-      "type" : "array",
-      "uniqueItems" : true,
-      "items" : {
-        "$ref" : "#/definitions/Tag"
-      }
+    "Port" : {
+      "type" : "integer"
+    },
+    "IpAddress" : {
+      "type" : "string"
     },
     "Tag" : {
-      "type" : "object",
       "additionalProperties" : false,
+      "type" : "object",
       "properties" : {
-        "Key" : {
+        "Value" : {
           "type" : "string"
         },
-        "Value" : {
+        "Key" : {
           "type" : "string"
         }
       },
       "required" : [ "Key" ]
     },
-    "IpAddress" : {
-      "type" : "string"
-    },
     "Protocol" : {
       "type" : "string",
       "enum" : [ "tcp", "udp" ]
     },
-    "Port" : {
-      "type" : "integer"
+    "Tags" : {
+      "uniqueItems" : true,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
     }
   },
+  "required" : [ "Protocol", "Source" ],
   "properties" : {
+    "Destination" : {
+      "type" : "string"
+    },
     "NetworkInsightsPathId" : {
       "type" : "string"
     },
     "NetworkInsightsPathArn" : {
       "type" : "string"
     },
-    "CreatedDate" : {
-      "type" : "string"
-    },
-    "SourceIp" : {
-      "$ref" : "#/definitions/IpAddress"
-    },
-    "DestinationIp" : {
-      "$ref" : "#/definitions/IpAddress"
+    "DestinationPort" : {
+      "$ref" : "#/definitions/Port"
     },
     "Source" : {
       "type" : "string"
     },
-    "Destination" : {
-      "type" : "string"
+    "DestinationIp" : {
+      "$ref" : "#/definitions/IpAddress"
+    },
+    "SourceIp" : {
+      "$ref" : "#/definitions/IpAddress"
     },
     "SourceArn" : {
       "type" : "string"
     },
-    "DestinationArn" : {
+    "CreatedDate" : {
       "type" : "string"
     },
     "Protocol" : {
       "$ref" : "#/definitions/Protocol"
     },
-    "DestinationPort" : {
-      "$ref" : "#/definitions/Port"
+    "DestinationArn" : {
+      "type" : "string"
     },
     "Tags" : {
-      "type" : "array",
       "insertionOrder" : false,
+      "type" : "array",
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
-    }
-  },
-  "additionalProperties" : false,
-  "required" : [ "Protocol", "Source", "Destination" ],
-  "readOnlyProperties" : [ "/properties/NetworkInsightsPathId", "/properties/NetworkInsightsPathArn", "/properties/CreatedDate", "/properties/SourceArn", "/properties/DestinationArn" ],
-  "primaryIdentifier" : [ "/properties/NetworkInsightsPathId" ],
-  "createOnlyProperties" : [ "/properties/SourceIp", "/properties/DestinationIp", "/properties/Source", "/properties/Destination", "/properties/Protocol", "/properties/DestinationPort" ],
-  "additionalIdentifiers" : [ [ "/properties/NetworkInsightsPathArn" ] ],
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "ec2:CreateNetworkInsightsPath" ]
-    },
-    "delete" : {
-      "permissions" : [ "ec2:DeleteNetworkInsightsPath" ]
-    },
-    "read" : {
-      "permissions" : [ "ec2:DescribeNetworkInsightsPaths" ]
-    },
-    "list" : {
-      "permissions" : [ "ec2:DescribeNetworkInsightsPaths" ]
-    },
-    "update" : {
-      "permissions" : [ "ec2:DescribeNetworkInsightsPaths", "ec2:CreateTags", "ec2:DeleteTags" ]
     }
   }
 }

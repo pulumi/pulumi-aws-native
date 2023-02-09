@@ -677,15 +677,13 @@ class DBProxyAuthFormatArgs:
                  client_password_auth_type: Optional[pulumi.Input['DBProxyAuthFormatClientPasswordAuthType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  i_am_auth: Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']] = None,
-                 secret_arn: Optional[pulumi.Input[str]] = None,
-                 user_name: Optional[pulumi.Input[str]] = None):
+                 secret_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['DBProxyAuthFormatAuthScheme'] auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         :param pulumi.Input['DBProxyAuthFormatClientPasswordAuthType'] client_password_auth_type: The type of authentication the proxy uses for connections from clients.
         :param pulumi.Input[str] description: A user-specified description about the authentication used by a proxy to log in as a specific database user. 
         :param pulumi.Input['DBProxyAuthFormatIAMAuth'] i_am_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
-        :param pulumi.Input[str] user_name: The name of the database user to which the proxy connects.
         """
         if auth_scheme is not None:
             pulumi.set(__self__, "auth_scheme", auth_scheme)
@@ -697,8 +695,6 @@ class DBProxyAuthFormatArgs:
             pulumi.set(__self__, "i_am_auth", i_am_auth)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
-        if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="authScheme")
@@ -759,18 +755,6 @@ class DBProxyAuthFormatArgs:
     @secret_arn.setter
     def secret_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_arn", value)
-
-    @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the database user to which the proxy connects.
-        """
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type

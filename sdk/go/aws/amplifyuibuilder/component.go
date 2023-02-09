@@ -15,12 +15,12 @@ import (
 type Component struct {
 	pulumi.CustomResourceState
 
-	AppId                pulumi.StringOutput                    `pulumi:"appId"`
+	AppId                pulumi.StringPtrOutput                 `pulumi:"appId"`
 	BindingProperties    ComponentBindingPropertiesOutput       `pulumi:"bindingProperties"`
 	Children             ComponentChildArrayOutput              `pulumi:"children"`
 	CollectionProperties ComponentCollectionPropertiesPtrOutput `pulumi:"collectionProperties"`
 	ComponentType        pulumi.StringOutput                    `pulumi:"componentType"`
-	EnvironmentName      pulumi.StringOutput                    `pulumi:"environmentName"`
+	EnvironmentName      pulumi.StringPtrOutput                 `pulumi:"environmentName"`
 	Events               ComponentEventsPtrOutput               `pulumi:"events"`
 	Name                 pulumi.StringOutput                    `pulumi:"name"`
 	Overrides            ComponentOverridesOutput               `pulumi:"overrides"`
@@ -85,10 +85,12 @@ func (ComponentState) ElementType() reflect.Type {
 }
 
 type componentArgs struct {
+	AppId                *string                        `pulumi:"appId"`
 	BindingProperties    ComponentBindingProperties     `pulumi:"bindingProperties"`
 	Children             []ComponentChild               `pulumi:"children"`
 	CollectionProperties *ComponentCollectionProperties `pulumi:"collectionProperties"`
 	ComponentType        string                         `pulumi:"componentType"`
+	EnvironmentName      *string                        `pulumi:"environmentName"`
 	Events               *ComponentEvents               `pulumi:"events"`
 	Name                 *string                        `pulumi:"name"`
 	Overrides            ComponentOverrides             `pulumi:"overrides"`
@@ -101,10 +103,12 @@ type componentArgs struct {
 
 // The set of arguments for constructing a Component resource.
 type ComponentArgs struct {
+	AppId                pulumi.StringPtrInput
 	BindingProperties    ComponentBindingPropertiesInput
 	Children             ComponentChildArrayInput
 	CollectionProperties ComponentCollectionPropertiesPtrInput
 	ComponentType        pulumi.StringInput
+	EnvironmentName      pulumi.StringPtrInput
 	Events               ComponentEventsPtrInput
 	Name                 pulumi.StringPtrInput
 	Overrides            ComponentOverridesInput
@@ -152,8 +156,8 @@ func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) Compo
 	return o
 }
 
-func (o ComponentOutput) AppId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+func (o ComponentOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
 func (o ComponentOutput) BindingProperties() ComponentBindingPropertiesOutput {
@@ -172,8 +176,8 @@ func (o ComponentOutput) ComponentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.ComponentType }).(pulumi.StringOutput)
 }
 
-func (o ComponentOutput) EnvironmentName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.EnvironmentName }).(pulumi.StringOutput)
+func (o ComponentOutput) EnvironmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.EnvironmentName }).(pulumi.StringPtrOutput)
 }
 
 func (o ComponentOutput) Events() ComponentEventsPtrOutput {

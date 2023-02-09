@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -25,6 +28,7 @@ export interface GetEventSubscriptionResult {
     readonly id?: string;
     readonly snsTopicArn?: string;
     readonly sourceType?: string;
+    readonly tags?: outputs.dms.EventSubscriptionTag[];
 }
 /**
  * Resource Type definition for AWS::DMS::EventSubscription

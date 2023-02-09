@@ -21,6 +21,7 @@ class LocationObjectStorageArgs:
                  access_key: Optional[pulumi.Input[str]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
+                 server_certificate: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
@@ -32,6 +33,7 @@ class LocationObjectStorageArgs:
         :param pulumi.Input[str] access_key: Optional. The access key is used if credentials are required to access the self-managed object storage server.
         :param pulumi.Input[str] bucket_name: The name of the bucket on the self-managed object storage server.
         :param pulumi.Input[str] secret_key: Optional. The secret key is used if credentials are required to access the self-managed object storage server.
+        :param pulumi.Input[str] server_certificate: X.509 PEM content containing a certificate authority or chain to trust.
         :param pulumi.Input[str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         :param pulumi.Input[int] server_port: The port that your self-managed server accepts inbound network traffic on.
         :param pulumi.Input['LocationObjectStorageServerProtocol'] server_protocol: The protocol that the object storage server uses to communicate.
@@ -45,6 +47,8 @@ class LocationObjectStorageArgs:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
+        if server_certificate is not None:
+            pulumi.set(__self__, "server_certificate", server_certificate)
         if server_hostname is not None:
             pulumi.set(__self__, "server_hostname", server_hostname)
         if server_port is not None:
@@ -103,6 +107,18 @@ class LocationObjectStorageArgs:
     @secret_key.setter
     def secret_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_key", value)
+
+    @property
+    @pulumi.getter(name="serverCertificate")
+    def server_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        X.509 PEM content containing a certificate authority or chain to trust.
+        """
+        return pulumi.get(self, "server_certificate")
+
+    @server_certificate.setter
+    def server_certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_certificate", value)
 
     @property
     @pulumi.getter(name="serverHostname")
@@ -174,6 +190,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
+                 server_certificate: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
@@ -189,6 +206,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
         :param pulumi.Input[str] bucket_name: The name of the bucket on the self-managed object storage server.
         :param pulumi.Input[str] secret_key: Optional. The secret key is used if credentials are required to access the self-managed object storage server.
+        :param pulumi.Input[str] server_certificate: X.509 PEM content containing a certificate authority or chain to trust.
         :param pulumi.Input[str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         :param pulumi.Input[int] server_port: The port that your self-managed server accepts inbound network traffic on.
         :param pulumi.Input['LocationObjectStorageServerProtocol'] server_protocol: The protocol that the object storage server uses to communicate.
@@ -223,6 +241,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
+                 server_certificate: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
@@ -243,6 +262,7 @@ class LocationObjectStorage(pulumi.CustomResource):
             __props__.__dict__["agent_arns"] = agent_arns
             __props__.__dict__["bucket_name"] = bucket_name
             __props__.__dict__["secret_key"] = secret_key
+            __props__.__dict__["server_certificate"] = server_certificate
             __props__.__dict__["server_hostname"] = server_hostname
             __props__.__dict__["server_port"] = server_port
             __props__.__dict__["server_protocol"] = server_protocol
@@ -278,6 +298,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         __props__.__dict__["location_arn"] = None
         __props__.__dict__["location_uri"] = None
         __props__.__dict__["secret_key"] = None
+        __props__.__dict__["server_certificate"] = None
         __props__.__dict__["server_hostname"] = None
         __props__.__dict__["server_port"] = None
         __props__.__dict__["server_protocol"] = None
@@ -332,6 +353,14 @@ class LocationObjectStorage(pulumi.CustomResource):
         Optional. The secret key is used if credentials are required to access the self-managed object storage server.
         """
         return pulumi.get(self, "secret_key")
+
+    @property
+    @pulumi.getter(name="serverCertificate")
+    def server_certificate(self) -> pulumi.Output[Optional[str]]:
+        """
+        X.509 PEM content containing a certificate authority or chain to trust.
+        """
+        return pulumi.get(self, "server_certificate")
 
     @property
     @pulumi.getter(name="serverHostname")

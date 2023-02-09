@@ -323,6 +323,78 @@ export const ModelBiasJobDefinitionS3OutputS3UploadMode = {
  */
 export type ModelBiasJobDefinitionS3OutputS3UploadMode = (typeof ModelBiasJobDefinitionS3OutputS3UploadMode)[keyof typeof ModelBiasJobDefinitionS3OutputS3UploadMode];
 
+export const ModelCardBarChartMetricType = {
+    BarChart: "bar_chart",
+} as const;
+
+export type ModelCardBarChartMetricType = (typeof ModelCardBarChartMetricType)[keyof typeof ModelCardBarChartMetricType];
+
+export const ModelCardLinearGraphMetricType = {
+    LinearGraph: "linear_graph",
+} as const;
+
+export type ModelCardLinearGraphMetricType = (typeof ModelCardLinearGraphMetricType)[keyof typeof ModelCardLinearGraphMetricType];
+
+export const ModelCardMatrixMetricType = {
+    Matrix: "matrix",
+} as const;
+
+export type ModelCardMatrixMetricType = (typeof ModelCardMatrixMetricType)[keyof typeof ModelCardMatrixMetricType];
+
+export const ModelCardObjectiveFunctionFunctionPropertiesFunction = {
+    Maximize: "Maximize",
+    Minimize: "Minimize",
+} as const;
+
+export type ModelCardObjectiveFunctionFunctionPropertiesFunction = (typeof ModelCardObjectiveFunctionFunctionPropertiesFunction)[keyof typeof ModelCardObjectiveFunctionFunctionPropertiesFunction];
+
+export const ModelCardProcessingStatus = {
+    UnsetValue: "UnsetValue",
+    DeleteInProgress: "DeleteInProgress",
+    DeletePending: "DeletePending",
+    ContentDeleted: "ContentDeleted",
+    ExportJobsDeleted: "ExportJobsDeleted",
+    DeleteCompleted: "DeleteCompleted",
+    DeleteFailed: "DeleteFailed",
+} as const;
+
+/**
+ * The processing status of model card deletion. The ModelCardProcessingStatus updates throughout the different deletion steps.
+ */
+export type ModelCardProcessingStatus = (typeof ModelCardProcessingStatus)[keyof typeof ModelCardProcessingStatus];
+
+export const ModelCardRiskRating = {
+    High: "High",
+    Medium: "Medium",
+    Low: "Low",
+    Unknown: "Unknown",
+} as const;
+
+/**
+ * Risk rating of model.
+ */
+export type ModelCardRiskRating = (typeof ModelCardRiskRating)[keyof typeof ModelCardRiskRating];
+
+export const ModelCardSimpleMetricType = {
+    Number: "number",
+    String: "string",
+    Boolean: "boolean",
+} as const;
+
+export type ModelCardSimpleMetricType = (typeof ModelCardSimpleMetricType)[keyof typeof ModelCardSimpleMetricType];
+
+export const ModelCardStatus = {
+    Draft: "Draft",
+    PendingReview: "PendingReview",
+    Approved: "Approved",
+    Archived: "Archived",
+} as const;
+
+/**
+ * The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
+ */
+export type ModelCardStatus = (typeof ModelCardStatus)[keyof typeof ModelCardStatus];
+
 export const ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",
@@ -640,6 +712,71 @@ export const ProjectStatus = {
  * The status of a project.
  */
 export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
+
+export const SpaceResourceSpecInstanceType = {
+    System: "system",
+    MlT3Micro: "ml.t3.micro",
+    MlT3Small: "ml.t3.small",
+    MlT3Medium: "ml.t3.medium",
+    MlT3Large: "ml.t3.large",
+    MlT3Xlarge: "ml.t3.xlarge",
+    MlT32xlarge: "ml.t3.2xlarge",
+    MlM5Large: "ml.m5.large",
+    MlM5Xlarge: "ml.m5.xlarge",
+    MlM52xlarge: "ml.m5.2xlarge",
+    MlM54xlarge: "ml.m5.4xlarge",
+    MlM58xlarge: "ml.m5.8xlarge",
+    MlM512xlarge: "ml.m5.12xlarge",
+    MlM516xlarge: "ml.m5.16xlarge",
+    MlM524xlarge: "ml.m5.24xlarge",
+    MlC5Large: "ml.c5.large",
+    MlC5Xlarge: "ml.c5.xlarge",
+    MlC52xlarge: "ml.c5.2xlarge",
+    MlC54xlarge: "ml.c5.4xlarge",
+    MlC59xlarge: "ml.c5.9xlarge",
+    MlC512xlarge: "ml.c5.12xlarge",
+    MlC518xlarge: "ml.c5.18xlarge",
+    MlC524xlarge: "ml.c5.24xlarge",
+    MlP32xlarge: "ml.p3.2xlarge",
+    MlP38xlarge: "ml.p3.8xlarge",
+    MlP316xlarge: "ml.p3.16xlarge",
+    MlG4dnXlarge: "ml.g4dn.xlarge",
+    MlG4dn2xlarge: "ml.g4dn.2xlarge",
+    MlG4dn4xlarge: "ml.g4dn.4xlarge",
+    MlG4dn8xlarge: "ml.g4dn.8xlarge",
+    MlG4dn12xlarge: "ml.g4dn.12xlarge",
+    MlG4dn16xlarge: "ml.g4dn.16xlarge",
+    MlR5Large: "ml.r5.large",
+    MlR5Xlarge: "ml.r5.xlarge",
+    MlR52xlarge: "ml.r5.2xlarge",
+    MlR54xlarge: "ml.r5.4xlarge",
+    MlR58xlarge: "ml.r5.8xlarge",
+    MlR512xlarge: "ml.r5.12xlarge",
+    MlR516xlarge: "ml.r5.16xlarge",
+    MlR524xlarge: "ml.r5.24xlarge",
+    MlP3dn24xlarge: "ml.p3dn.24xlarge",
+    MlM5dLarge: "ml.m5d.large",
+    MlM5dXlarge: "ml.m5d.xlarge",
+    MlM5d2xlarge: "ml.m5d.2xlarge",
+    MlM5d4xlarge: "ml.m5d.4xlarge",
+    MlM5d8xlarge: "ml.m5d.8xlarge",
+    MlM5d12xlarge: "ml.m5d.12xlarge",
+    MlM5d16xlarge: "ml.m5d.16xlarge",
+    MlM5d24xlarge: "ml.m5d.24xlarge",
+    MlG5Xlarge: "ml.g5.xlarge",
+    MlG52xlarge: "ml.g5.2xlarge",
+    MlG54xlarge: "ml.g5.4xlarge",
+    MlG58xlarge: "ml.g5.8xlarge",
+    MlG512xlarge: "ml.g5.12xlarge",
+    MlG516xlarge: "ml.g5.16xlarge",
+    MlG524xlarge: "ml.g5.24xlarge",
+    MlG548xlarge: "ml.g5.48xlarge",
+} as const;
+
+/**
+ * The instance type that the image version runs on.
+ */
+export type SpaceResourceSpecInstanceType = (typeof SpaceResourceSpecInstanceType)[keyof typeof SpaceResourceSpecInstanceType];
 
 export const UserProfileRStudioServerProAppSettingsAccessStatus = {
     Enabled: "ENABLED",

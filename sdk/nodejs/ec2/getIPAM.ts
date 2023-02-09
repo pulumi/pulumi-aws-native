@@ -30,6 +30,14 @@ export interface GetIPAMResult {
      * The Amazon Resource Name (ARN) of the IPAM.
      */
     readonly arn?: string;
+    /**
+     * The Id of the default association to the default resource discovery, created with this IPAM.
+     */
+    readonly defaultResourceDiscoveryAssociationId?: string;
+    /**
+     * The Id of the default resource discovery, created with this IPAM.
+     */
+    readonly defaultResourceDiscoveryId?: string;
     readonly description?: string;
     /**
      * Id of the IPAM.
@@ -47,6 +55,10 @@ export interface GetIPAMResult {
      * The Id of the default scope for publicly routable IP space, created with this IPAM.
      */
     readonly publicDefaultScopeId?: string;
+    /**
+     * The count of resource discoveries associated with this IPAM.
+     */
+    readonly resourceDiscoveryAssociationCount?: number;
     /**
      * The number of scopes that currently exist in this IPAM.
      */

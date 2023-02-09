@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
         /// </summary>
         [Output("s3BucketArn")]
-        public Output<string> S3BucketArn { get; private set; } = null!;
+        public Output<string?> S3BucketArn { get; private set; } = null!;
 
         [Output("s3Config")]
         public Output<Outputs.LocationS3S3Config> S3Config { get; private set; } = null!;
@@ -102,8 +102,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
         /// </summary>
-        [Input("s3BucketArn", required: true)]
-        public Input<string> S3BucketArn { get; set; } = null!;
+        [Input("s3BucketArn")]
+        public Input<string>? S3BucketArn { get; set; }
 
         [Input("s3Config", required: true)]
         public Input<Inputs.LocationS3S3ConfigArgs> S3Config { get; set; } = null!;

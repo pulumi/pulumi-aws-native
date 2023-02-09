@@ -40,7 +40,7 @@ export class Agent extends pulumi.CustomResource {
     /**
      * Activation key of the Agent.
      */
-    public readonly activationKey!: pulumi.Output<string>;
+    public readonly activationKey!: pulumi.Output<string | undefined>;
     /**
      * The DataSync Agent ARN.
      */
@@ -77,13 +77,10 @@ export class Agent extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AgentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AgentArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.activationKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'activationKey'");
-            }
             resourceInputs["activationKey"] = args ? args.activationKey : undefined;
             resourceInputs["agentName"] = args ? args.agentName : undefined;
             resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
@@ -114,7 +111,7 @@ export interface AgentArgs {
     /**
      * Activation key of the Agent.
      */
-    activationKey: pulumi.Input<string>;
+    activationKey?: pulumi.Input<string>;
     /**
      * The name configured for the agent. Text reference used to identify the agent in the console.
      */

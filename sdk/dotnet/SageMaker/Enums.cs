@@ -769,6 +769,246 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ModelCardBarChartMetricType : IEquatable<ModelCardBarChartMetricType>
+    {
+        private readonly string _value;
+
+        private ModelCardBarChartMetricType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelCardBarChartMetricType BarChart { get; } = new ModelCardBarChartMetricType("bar_chart");
+
+        public static bool operator ==(ModelCardBarChartMetricType left, ModelCardBarChartMetricType right) => left.Equals(right);
+        public static bool operator !=(ModelCardBarChartMetricType left, ModelCardBarChartMetricType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelCardBarChartMetricType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelCardBarChartMetricType other && Equals(other);
+        public bool Equals(ModelCardBarChartMetricType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ModelCardLinearGraphMetricType : IEquatable<ModelCardLinearGraphMetricType>
+    {
+        private readonly string _value;
+
+        private ModelCardLinearGraphMetricType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelCardLinearGraphMetricType LinearGraph { get; } = new ModelCardLinearGraphMetricType("linear_graph");
+
+        public static bool operator ==(ModelCardLinearGraphMetricType left, ModelCardLinearGraphMetricType right) => left.Equals(right);
+        public static bool operator !=(ModelCardLinearGraphMetricType left, ModelCardLinearGraphMetricType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelCardLinearGraphMetricType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelCardLinearGraphMetricType other && Equals(other);
+        public bool Equals(ModelCardLinearGraphMetricType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ModelCardMatrixMetricType : IEquatable<ModelCardMatrixMetricType>
+    {
+        private readonly string _value;
+
+        private ModelCardMatrixMetricType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelCardMatrixMetricType Matrix { get; } = new ModelCardMatrixMetricType("matrix");
+
+        public static bool operator ==(ModelCardMatrixMetricType left, ModelCardMatrixMetricType right) => left.Equals(right);
+        public static bool operator !=(ModelCardMatrixMetricType left, ModelCardMatrixMetricType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelCardMatrixMetricType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelCardMatrixMetricType other && Equals(other);
+        public bool Equals(ModelCardMatrixMetricType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ModelCardObjectiveFunctionFunctionPropertiesFunction : IEquatable<ModelCardObjectiveFunctionFunctionPropertiesFunction>
+    {
+        private readonly string _value;
+
+        private ModelCardObjectiveFunctionFunctionPropertiesFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelCardObjectiveFunctionFunctionPropertiesFunction Maximize { get; } = new ModelCardObjectiveFunctionFunctionPropertiesFunction("Maximize");
+        public static ModelCardObjectiveFunctionFunctionPropertiesFunction Minimize { get; } = new ModelCardObjectiveFunctionFunctionPropertiesFunction("Minimize");
+
+        public static bool operator ==(ModelCardObjectiveFunctionFunctionPropertiesFunction left, ModelCardObjectiveFunctionFunctionPropertiesFunction right) => left.Equals(right);
+        public static bool operator !=(ModelCardObjectiveFunctionFunctionPropertiesFunction left, ModelCardObjectiveFunctionFunctionPropertiesFunction right) => !left.Equals(right);
+
+        public static explicit operator string(ModelCardObjectiveFunctionFunctionPropertiesFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelCardObjectiveFunctionFunctionPropertiesFunction other && Equals(other);
+        public bool Equals(ModelCardObjectiveFunctionFunctionPropertiesFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The processing status of model card deletion. The ModelCardProcessingStatus updates throughout the different deletion steps.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelCardProcessingStatus : IEquatable<ModelCardProcessingStatus>
+    {
+        private readonly string _value;
+
+        private ModelCardProcessingStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelCardProcessingStatus UnsetValue { get; } = new ModelCardProcessingStatus("UnsetValue");
+        public static ModelCardProcessingStatus DeleteInProgress { get; } = new ModelCardProcessingStatus("DeleteInProgress");
+        public static ModelCardProcessingStatus DeletePending { get; } = new ModelCardProcessingStatus("DeletePending");
+        public static ModelCardProcessingStatus ContentDeleted { get; } = new ModelCardProcessingStatus("ContentDeleted");
+        public static ModelCardProcessingStatus ExportJobsDeleted { get; } = new ModelCardProcessingStatus("ExportJobsDeleted");
+        public static ModelCardProcessingStatus DeleteCompleted { get; } = new ModelCardProcessingStatus("DeleteCompleted");
+        public static ModelCardProcessingStatus DeleteFailed { get; } = new ModelCardProcessingStatus("DeleteFailed");
+
+        public static bool operator ==(ModelCardProcessingStatus left, ModelCardProcessingStatus right) => left.Equals(right);
+        public static bool operator !=(ModelCardProcessingStatus left, ModelCardProcessingStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ModelCardProcessingStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelCardProcessingStatus other && Equals(other);
+        public bool Equals(ModelCardProcessingStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Risk rating of model.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelCardRiskRating : IEquatable<ModelCardRiskRating>
+    {
+        private readonly string _value;
+
+        private ModelCardRiskRating(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelCardRiskRating High { get; } = new ModelCardRiskRating("High");
+        public static ModelCardRiskRating Medium { get; } = new ModelCardRiskRating("Medium");
+        public static ModelCardRiskRating Low { get; } = new ModelCardRiskRating("Low");
+        public static ModelCardRiskRating Unknown { get; } = new ModelCardRiskRating("Unknown");
+
+        public static bool operator ==(ModelCardRiskRating left, ModelCardRiskRating right) => left.Equals(right);
+        public static bool operator !=(ModelCardRiskRating left, ModelCardRiskRating right) => !left.Equals(right);
+
+        public static explicit operator string(ModelCardRiskRating value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelCardRiskRating other && Equals(other);
+        public bool Equals(ModelCardRiskRating other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ModelCardSimpleMetricType : IEquatable<ModelCardSimpleMetricType>
+    {
+        private readonly string _value;
+
+        private ModelCardSimpleMetricType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelCardSimpleMetricType Number { get; } = new ModelCardSimpleMetricType("number");
+        public static ModelCardSimpleMetricType String { get; } = new ModelCardSimpleMetricType("string");
+        public static ModelCardSimpleMetricType Boolean { get; } = new ModelCardSimpleMetricType("boolean");
+
+        public static bool operator ==(ModelCardSimpleMetricType left, ModelCardSimpleMetricType right) => left.Equals(right);
+        public static bool operator !=(ModelCardSimpleMetricType left, ModelCardSimpleMetricType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelCardSimpleMetricType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelCardSimpleMetricType other && Equals(other);
+        public bool Equals(ModelCardSimpleMetricType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelCardStatus : IEquatable<ModelCardStatus>
+    {
+        private readonly string _value;
+
+        private ModelCardStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelCardStatus Draft { get; } = new ModelCardStatus("Draft");
+        public static ModelCardStatus PendingReview { get; } = new ModelCardStatus("PendingReview");
+        public static ModelCardStatus Approved { get; } = new ModelCardStatus("Approved");
+        public static ModelCardStatus Archived { get; } = new ModelCardStatus("Archived");
+
+        public static bool operator ==(ModelCardStatus left, ModelCardStatus right) => left.Equals(right);
+        public static bool operator !=(ModelCardStatus left, ModelCardStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ModelCardStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelCardStatus other && Equals(other);
+        public bool Equals(ModelCardStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
@@ -1689,6 +1929,92 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProjectStatus other && Equals(other);
         public bool Equals(ProjectStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The instance type that the image version runs on.
+    /// </summary>
+    [EnumType]
+    public readonly struct SpaceResourceSpecInstanceType : IEquatable<SpaceResourceSpecInstanceType>
+    {
+        private readonly string _value;
+
+        private SpaceResourceSpecInstanceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpaceResourceSpecInstanceType System { get; } = new SpaceResourceSpecInstanceType("system");
+        public static SpaceResourceSpecInstanceType MlT3Micro { get; } = new SpaceResourceSpecInstanceType("ml.t3.micro");
+        public static SpaceResourceSpecInstanceType MlT3Small { get; } = new SpaceResourceSpecInstanceType("ml.t3.small");
+        public static SpaceResourceSpecInstanceType MlT3Medium { get; } = new SpaceResourceSpecInstanceType("ml.t3.medium");
+        public static SpaceResourceSpecInstanceType MlT3Large { get; } = new SpaceResourceSpecInstanceType("ml.t3.large");
+        public static SpaceResourceSpecInstanceType MlT3Xlarge { get; } = new SpaceResourceSpecInstanceType("ml.t3.xlarge");
+        public static SpaceResourceSpecInstanceType MlT32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.t3.2xlarge");
+        public static SpaceResourceSpecInstanceType MlM5Large { get; } = new SpaceResourceSpecInstanceType("ml.m5.large");
+        public static SpaceResourceSpecInstanceType MlM5Xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5.xlarge");
+        public static SpaceResourceSpecInstanceType MlM52xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5.2xlarge");
+        public static SpaceResourceSpecInstanceType MlM54xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5.4xlarge");
+        public static SpaceResourceSpecInstanceType MlM58xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5.8xlarge");
+        public static SpaceResourceSpecInstanceType MlM512xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5.12xlarge");
+        public static SpaceResourceSpecInstanceType MlM516xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5.16xlarge");
+        public static SpaceResourceSpecInstanceType MlM524xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5.24xlarge");
+        public static SpaceResourceSpecInstanceType MlC5Large { get; } = new SpaceResourceSpecInstanceType("ml.c5.large");
+        public static SpaceResourceSpecInstanceType MlC5Xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c5.xlarge");
+        public static SpaceResourceSpecInstanceType MlC52xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c5.2xlarge");
+        public static SpaceResourceSpecInstanceType MlC54xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c5.4xlarge");
+        public static SpaceResourceSpecInstanceType MlC59xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c5.9xlarge");
+        public static SpaceResourceSpecInstanceType MlC512xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c5.12xlarge");
+        public static SpaceResourceSpecInstanceType MlC518xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c5.18xlarge");
+        public static SpaceResourceSpecInstanceType MlC524xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c5.24xlarge");
+        public static SpaceResourceSpecInstanceType MlP32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p3.2xlarge");
+        public static SpaceResourceSpecInstanceType MlP38xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p3.8xlarge");
+        public static SpaceResourceSpecInstanceType MlP316xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p3.16xlarge");
+        public static SpaceResourceSpecInstanceType MlG4dnXlarge { get; } = new SpaceResourceSpecInstanceType("ml.g4dn.xlarge");
+        public static SpaceResourceSpecInstanceType MlG4dn2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g4dn.2xlarge");
+        public static SpaceResourceSpecInstanceType MlG4dn4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g4dn.4xlarge");
+        public static SpaceResourceSpecInstanceType MlG4dn8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g4dn.8xlarge");
+        public static SpaceResourceSpecInstanceType MlG4dn12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g4dn.12xlarge");
+        public static SpaceResourceSpecInstanceType MlG4dn16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g4dn.16xlarge");
+        public static SpaceResourceSpecInstanceType MlR5Large { get; } = new SpaceResourceSpecInstanceType("ml.r5.large");
+        public static SpaceResourceSpecInstanceType MlR5Xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r5.xlarge");
+        public static SpaceResourceSpecInstanceType MlR52xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r5.2xlarge");
+        public static SpaceResourceSpecInstanceType MlR54xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r5.4xlarge");
+        public static SpaceResourceSpecInstanceType MlR58xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r5.8xlarge");
+        public static SpaceResourceSpecInstanceType MlR512xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r5.12xlarge");
+        public static SpaceResourceSpecInstanceType MlR516xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r5.16xlarge");
+        public static SpaceResourceSpecInstanceType MlR524xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r5.24xlarge");
+        public static SpaceResourceSpecInstanceType MlP3dn24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p3dn.24xlarge");
+        public static SpaceResourceSpecInstanceType MlM5dLarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.large");
+        public static SpaceResourceSpecInstanceType MlM5dXlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.2xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.4xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.8xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.12xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.16xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.24xlarge");
+        public static SpaceResourceSpecInstanceType MlG5Xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.xlarge");
+        public static SpaceResourceSpecInstanceType MlG52xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.2xlarge");
+        public static SpaceResourceSpecInstanceType MlG54xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.4xlarge");
+        public static SpaceResourceSpecInstanceType MlG58xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.8xlarge");
+        public static SpaceResourceSpecInstanceType MlG512xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.12xlarge");
+        public static SpaceResourceSpecInstanceType MlG516xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.16xlarge");
+        public static SpaceResourceSpecInstanceType MlG524xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.24xlarge");
+        public static SpaceResourceSpecInstanceType MlG548xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.48xlarge");
+
+        public static bool operator ==(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => left.Equals(right);
+        public static bool operator !=(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => !left.Equals(right);
+
+        public static explicit operator string(SpaceResourceSpecInstanceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpaceResourceSpecInstanceType other && Equals(other);
+        public bool Equals(SpaceResourceSpecInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

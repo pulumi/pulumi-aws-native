@@ -27,8 +27,12 @@ type LookupIPAMArgs struct {
 
 type LookupIPAMResult struct {
 	// The Amazon Resource Name (ARN) of the IPAM.
-	Arn         *string `pulumi:"arn"`
-	Description *string `pulumi:"description"`
+	Arn *string `pulumi:"arn"`
+	// The Id of the default association to the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryAssociationId *string `pulumi:"defaultResourceDiscoveryAssociationId"`
+	// The Id of the default resource discovery, created with this IPAM.
+	DefaultResourceDiscoveryId *string `pulumi:"defaultResourceDiscoveryId"`
+	Description                *string `pulumi:"description"`
 	// Id of the IPAM.
 	IpamId *string `pulumi:"ipamId"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
@@ -37,6 +41,8 @@ type LookupIPAMResult struct {
 	PrivateDefaultScopeId *string `pulumi:"privateDefaultScopeId"`
 	// The Id of the default scope for publicly routable IP space, created with this IPAM.
 	PublicDefaultScopeId *string `pulumi:"publicDefaultScopeId"`
+	// The count of resource discoveries associated with this IPAM.
+	ResourceDiscoveryAssociationCount *int `pulumi:"resourceDiscoveryAssociationCount"`
 	// The number of scopes that currently exist in this IPAM.
 	ScopeCount *int `pulumi:"scopeCount"`
 	// An array of key-value pairs to apply to this resource.
@@ -84,6 +90,16 @@ func (o LookupIPAMResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIPAMResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The Id of the default association to the default resource discovery, created with this IPAM.
+func (o LookupIPAMResultOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIPAMResult) *string { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringPtrOutput)
+}
+
+// The Id of the default resource discovery, created with this IPAM.
+func (o LookupIPAMResultOutput) DefaultResourceDiscoveryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIPAMResult) *string { return v.DefaultResourceDiscoveryId }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupIPAMResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIPAMResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -106,6 +122,11 @@ func (o LookupIPAMResultOutput) PrivateDefaultScopeId() pulumi.StringPtrOutput {
 // The Id of the default scope for publicly routable IP space, created with this IPAM.
 func (o LookupIPAMResultOutput) PublicDefaultScopeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIPAMResult) *string { return v.PublicDefaultScopeId }).(pulumi.StringPtrOutput)
+}
+
+// The count of resource discoveries associated with this IPAM.
+func (o LookupIPAMResultOutput) ResourceDiscoveryAssociationCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupIPAMResult) *int { return v.ResourceDiscoveryAssociationCount }).(pulumi.IntPtrOutput)
 }
 
 // The number of scopes that currently exist in this IPAM.

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLocationObjectStorageResult:
-    def __init__(__self__, access_key=None, agent_arns=None, location_arn=None, location_uri=None, server_port=None, server_protocol=None, tags=None):
+    def __init__(__self__, access_key=None, agent_arns=None, location_arn=None, location_uri=None, server_certificate=None, server_port=None, server_protocol=None, tags=None):
         if access_key and not isinstance(access_key, str):
             raise TypeError("Expected argument 'access_key' to be a str")
         pulumi.set(__self__, "access_key", access_key)
@@ -33,6 +33,9 @@ class GetLocationObjectStorageResult:
         if location_uri and not isinstance(location_uri, str):
             raise TypeError("Expected argument 'location_uri' to be a str")
         pulumi.set(__self__, "location_uri", location_uri)
+        if server_certificate and not isinstance(server_certificate, str):
+            raise TypeError("Expected argument 'server_certificate' to be a str")
+        pulumi.set(__self__, "server_certificate", server_certificate)
         if server_port and not isinstance(server_port, int):
             raise TypeError("Expected argument 'server_port' to be a int")
         pulumi.set(__self__, "server_port", server_port)
@@ -76,6 +79,14 @@ class GetLocationObjectStorageResult:
         return pulumi.get(self, "location_uri")
 
     @property
+    @pulumi.getter(name="serverCertificate")
+    def server_certificate(self) -> Optional[str]:
+        """
+        X.509 PEM content containing a certificate authority or chain to trust.
+        """
+        return pulumi.get(self, "server_certificate")
+
+    @property
     @pulumi.getter(name="serverPort")
     def server_port(self) -> Optional[int]:
         """
@@ -110,6 +121,7 @@ class AwaitableGetLocationObjectStorageResult(GetLocationObjectStorageResult):
             agent_arns=self.agent_arns,
             location_arn=self.location_arn,
             location_uri=self.location_uri,
+            server_certificate=self.server_certificate,
             server_port=self.server_port,
             server_protocol=self.server_protocol,
             tags=self.tags)
@@ -133,6 +145,7 @@ def get_location_object_storage(location_arn: Optional[str] = None,
         agent_arns=__ret__.agent_arns,
         location_arn=__ret__.location_arn,
         location_uri=__ret__.location_uri,
+        server_certificate=__ret__.server_certificate,
         server_port=__ret__.server_port,
         server_protocol=__ret__.server_protocol,
         tags=__ret__.tags)

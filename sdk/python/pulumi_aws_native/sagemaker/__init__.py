@@ -29,6 +29,7 @@ from .get_image import *
 from .get_image_version import *
 from .get_model import *
 from .get_model_bias_job_definition import *
+from .get_model_card import *
 from .get_model_explainability_job_definition import *
 from .get_model_package import *
 from .get_model_package_group import *
@@ -38,12 +39,14 @@ from .get_notebook_instance import *
 from .get_notebook_instance_lifecycle_config import *
 from .get_pipeline import *
 from .get_project import *
+from .get_space import *
 from .get_user_profile import *
 from .get_workteam import *
 from .image import *
 from .image_version import *
 from .model import *
 from .model_bias_job_definition import *
+from .model_card import *
 from .model_explainability_job_definition import *
 from .model_package import *
 from .model_package_group import *
@@ -53,6 +56,7 @@ from .notebook_instance import *
 from .notebook_instance_lifecycle_config import *
 from .pipeline import *
 from .project import *
+from .space import *
 from .user_profile import *
 from .workteam import *
 from ._inputs import *

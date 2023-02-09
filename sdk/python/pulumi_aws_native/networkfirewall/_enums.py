@@ -87,6 +87,7 @@ class RuleGroupStatefulRuleAction(str, Enum):
     PASS_ = "PASS"
     DROP = "DROP"
     ALERT = "ALERT"
+    REJECT = "REJECT"
 
 
 class RuleGroupTCPFlag(str, Enum):

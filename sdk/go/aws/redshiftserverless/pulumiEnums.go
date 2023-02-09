@@ -228,42 +228,6 @@ const (
 	NamespaceStatusDeleting  = NamespaceStatus("DELETING")
 )
 
-func (NamespaceStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceStatus)(nil)).Elem()
-}
-
-func (e NamespaceStatus) ToNamespaceStatusOutput() NamespaceStatusOutput {
-	return pulumi.ToOutput(e).(NamespaceStatusOutput)
-}
-
-func (e NamespaceStatus) ToNamespaceStatusOutputWithContext(ctx context.Context) NamespaceStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(NamespaceStatusOutput)
-}
-
-func (e NamespaceStatus) ToNamespaceStatusPtrOutput() NamespaceStatusPtrOutput {
-	return e.ToNamespaceStatusPtrOutputWithContext(context.Background())
-}
-
-func (e NamespaceStatus) ToNamespaceStatusPtrOutputWithContext(ctx context.Context) NamespaceStatusPtrOutput {
-	return NamespaceStatus(e).ToNamespaceStatusOutputWithContext(ctx).ToNamespaceStatusPtrOutputWithContext(ctx)
-}
-
-func (e NamespaceStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e NamespaceStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e NamespaceStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e NamespaceStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type NamespaceStatusOutput struct{ *pulumi.OutputState }
 
 func (NamespaceStatusOutput) ElementType() reflect.Type {
@@ -347,44 +311,6 @@ func (o NamespaceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// NamespaceStatusInput is an input type that accepts NamespaceStatusArgs and NamespaceStatusOutput values.
-// You can construct a concrete instance of `NamespaceStatusInput` via:
-//
-//	NamespaceStatusArgs{...}
-type NamespaceStatusInput interface {
-	pulumi.Input
-
-	ToNamespaceStatusOutput() NamespaceStatusOutput
-	ToNamespaceStatusOutputWithContext(context.Context) NamespaceStatusOutput
-}
-
-var namespaceStatusPtrType = reflect.TypeOf((**NamespaceStatus)(nil)).Elem()
-
-type NamespaceStatusPtrInput interface {
-	pulumi.Input
-
-	ToNamespaceStatusPtrOutput() NamespaceStatusPtrOutput
-	ToNamespaceStatusPtrOutputWithContext(context.Context) NamespaceStatusPtrOutput
-}
-
-type namespaceStatusPtr string
-
-func NamespaceStatusPtr(v string) NamespaceStatusPtrInput {
-	return (*namespaceStatusPtr)(&v)
-}
-
-func (*namespaceStatusPtr) ElementType() reflect.Type {
-	return namespaceStatusPtrType
-}
-
-func (in *namespaceStatusPtr) ToNamespaceStatusPtrOutput() NamespaceStatusPtrOutput {
-	return pulumi.ToOutput(in).(NamespaceStatusPtrOutput)
-}
-
-func (in *namespaceStatusPtr) ToNamespaceStatusPtrOutputWithContext(ctx context.Context) NamespaceStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(NamespaceStatusPtrOutput)
-}
-
 type WorkgroupStatus string
 
 const (
@@ -393,42 +319,6 @@ const (
 	WorkgroupStatusModifying = WorkgroupStatus("MODIFYING")
 	WorkgroupStatusDeleting  = WorkgroupStatus("DELETING")
 )
-
-func (WorkgroupStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkgroupStatus)(nil)).Elem()
-}
-
-func (e WorkgroupStatus) ToWorkgroupStatusOutput() WorkgroupStatusOutput {
-	return pulumi.ToOutput(e).(WorkgroupStatusOutput)
-}
-
-func (e WorkgroupStatus) ToWorkgroupStatusOutputWithContext(ctx context.Context) WorkgroupStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(WorkgroupStatusOutput)
-}
-
-func (e WorkgroupStatus) ToWorkgroupStatusPtrOutput() WorkgroupStatusPtrOutput {
-	return e.ToWorkgroupStatusPtrOutputWithContext(context.Background())
-}
-
-func (e WorkgroupStatus) ToWorkgroupStatusPtrOutputWithContext(ctx context.Context) WorkgroupStatusPtrOutput {
-	return WorkgroupStatus(e).ToWorkgroupStatusOutputWithContext(ctx).ToWorkgroupStatusPtrOutputWithContext(ctx)
-}
-
-func (e WorkgroupStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e WorkgroupStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e WorkgroupStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e WorkgroupStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
 
 type WorkgroupStatusOutput struct{ *pulumi.OutputState }
 
@@ -513,52 +403,10 @@ func (o WorkgroupStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkgroupStatusInput is an input type that accepts WorkgroupStatusArgs and WorkgroupStatusOutput values.
-// You can construct a concrete instance of `WorkgroupStatusInput` via:
-//
-//	WorkgroupStatusArgs{...}
-type WorkgroupStatusInput interface {
-	pulumi.Input
-
-	ToWorkgroupStatusOutput() WorkgroupStatusOutput
-	ToWorkgroupStatusOutputWithContext(context.Context) WorkgroupStatusOutput
-}
-
-var workgroupStatusPtrType = reflect.TypeOf((**WorkgroupStatus)(nil)).Elem()
-
-type WorkgroupStatusPtrInput interface {
-	pulumi.Input
-
-	ToWorkgroupStatusPtrOutput() WorkgroupStatusPtrOutput
-	ToWorkgroupStatusPtrOutputWithContext(context.Context) WorkgroupStatusPtrOutput
-}
-
-type workgroupStatusPtr string
-
-func WorkgroupStatusPtr(v string) WorkgroupStatusPtrInput {
-	return (*workgroupStatusPtr)(&v)
-}
-
-func (*workgroupStatusPtr) ElementType() reflect.Type {
-	return workgroupStatusPtrType
-}
-
-func (in *workgroupStatusPtr) ToWorkgroupStatusPtrOutput() WorkgroupStatusPtrOutput {
-	return pulumi.ToOutput(in).(WorkgroupStatusPtrOutput)
-}
-
-func (in *workgroupStatusPtr) ToWorkgroupStatusPtrOutputWithContext(ctx context.Context) WorkgroupStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(WorkgroupStatusPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceLogExportInput)(nil)).Elem(), NamespaceLogExport("useractivitylog"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceLogExportPtrInput)(nil)).Elem(), NamespaceLogExport("useractivitylog"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceLogExportArrayInput)(nil)).Elem(), NamespaceLogExportArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceStatusInput)(nil)).Elem(), NamespaceStatus("AVAILABLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceStatusPtrInput)(nil)).Elem(), NamespaceStatus("AVAILABLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupStatusInput)(nil)).Elem(), WorkgroupStatus("CREATING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupStatusPtrInput)(nil)).Elem(), WorkgroupStatus("CREATING"))
 	pulumi.RegisterOutputType(NamespaceLogExportOutput{})
 	pulumi.RegisterOutputType(NamespaceLogExportPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceLogExportArrayOutput{})

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetReplicationInstanceResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetReplicationInstanceResult:
-    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, auto_minor_version_upgrade=None, availability_zone=None, engine_version=None, id=None, multi_az=None, preferred_maintenance_window=None, replication_instance_class=None, replication_instance_identifier=None, replication_instance_private_ip_addresses=None, replication_instance_public_ip_addresses=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, auto_minor_version_upgrade=None, availability_zone=None, engine_version=None, id=None, multi_az=None, preferred_maintenance_window=None, replication_instance_class=None, replication_instance_identifier=None, replication_instance_private_ip_addresses=None, replication_instance_public_ip_addresses=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -55,6 +56,9 @@ class GetReplicationInstanceResult:
         if replication_instance_public_ip_addresses and not isinstance(replication_instance_public_ip_addresses, str):
             raise TypeError("Expected argument 'replication_instance_public_ip_addresses' to be a str")
         pulumi.set(__self__, "replication_instance_public_ip_addresses", replication_instance_public_ip_addresses)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError("Expected argument 'vpc_security_group_ids' to be a list")
         pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
@@ -120,6 +124,11 @@ class GetReplicationInstanceResult:
         return pulumi.get(self, "replication_instance_public_ip_addresses")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.ReplicationInstanceTag']]:
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "vpc_security_group_ids")
@@ -143,6 +152,7 @@ class AwaitableGetReplicationInstanceResult(GetReplicationInstanceResult):
             replication_instance_identifier=self.replication_instance_identifier,
             replication_instance_private_ip_addresses=self.replication_instance_private_ip_addresses,
             replication_instance_public_ip_addresses=self.replication_instance_public_ip_addresses,
+            tags=self.tags,
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
@@ -169,6 +179,7 @@ def get_replication_instance(id: Optional[str] = None,
         replication_instance_identifier=__ret__.replication_instance_identifier,
         replication_instance_private_ip_addresses=__ret__.replication_instance_private_ip_addresses,
         replication_instance_public_ip_addresses=__ret__.replication_instance_public_ip_addresses,
+        tags=__ret__.tags,
         vpc_security_group_ids=__ret__.vpc_security_group_ids)
 
 

@@ -256,10 +256,13 @@ class FirewallRuleGroupTagArgs:
 class ResolverEndpointIpAddressRequestArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
-                 ip: Optional[pulumi.Input[str]] = None):
+                 ip: Optional[pulumi.Input[str]] = None,
+                 ipv6: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -278,6 +281,15 @@ class ResolverEndpointIpAddressRequestArgs:
     @ip.setter
     def ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6")
+
+    @ipv6.setter
+    def ipv6(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6", value)
 
 
 @pulumi.input_type
@@ -347,27 +359,44 @@ class ResolverRuleTagArgs:
 @pulumi.input_type
 class ResolverRuleTargetAddressArgs:
     def __init__(__self__, *,
-                 ip: pulumi.Input[str],
+                 ip: Optional[pulumi.Input[str]] = None,
+                 ipv6: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
+        :param pulumi.Input[str] ipv6: One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
         :param pulumi.Input[str] port: The port at Ip that you want to forward DNS queries to. 
         """
-        pulumi.set(__self__, "ip", ip)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
         if port is not None:
             pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
-    def ip(self) -> pulumi.Input[str]:
+    def ip(self) -> Optional[pulumi.Input[str]]:
         """
         One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: pulumi.Input[str]):
+    def ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> Optional[pulumi.Input[str]]:
+        """
+        One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
+        """
+        return pulumi.get(self, "ipv6")
+
+    @ipv6.setter
+    def ipv6(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6", value)
 
     @property
     @pulumi.getter

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataSync
         /// Activation key of the Agent.
         /// </summary>
         [Output("activationKey")]
-        public Output<string> ActivationKey { get; private set; } = null!;
+        public Output<string?> ActivationKey { get; private set; } = null!;
 
         /// <summary>
         /// The DataSync Agent ARN.
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.DataSync
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Agent(string name, AgentArgs args, CustomResourceOptions? options = null)
+        public Agent(string name, AgentArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:datasync:Agent", name, args ?? new AgentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -111,8 +111,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// Activation key of the Agent.
         /// </summary>
-        [Input("activationKey", required: true)]
-        public Input<string> ActivationKey { get; set; } = null!;
+        [Input("activationKey")]
+        public Input<string>? ActivationKey { get; set; }
 
         /// <summary>
         /// The name configured for the agent. Text reference used to identify the agent in the console.

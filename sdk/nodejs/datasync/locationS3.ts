@@ -48,7 +48,7 @@ export class LocationS3 extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Amazon S3 bucket.
      */
-    public readonly s3BucketArn!: pulumi.Output<string>;
+    public readonly s3BucketArn!: pulumi.Output<string | undefined>;
     public readonly s3Config!: pulumi.Output<outputs.datasync.LocationS3S3Config>;
     /**
      * The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
@@ -74,9 +74,6 @@ export class LocationS3 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.s3BucketArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 's3BucketArn'");
-            }
             if ((!args || args.s3Config === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Config'");
             }
@@ -108,7 +105,7 @@ export interface LocationS3Args {
     /**
      * The Amazon Resource Name (ARN) of the Amazon S3 bucket.
      */
-    s3BucketArn: pulumi.Input<string>;
+    s3BucketArn?: pulumi.Input<string>;
     s3Config: pulumi.Input<inputs.datasync.LocationS3S3ConfigArgs>;
     /**
      * The Amazon S3 storage class you want to store your files in when this location is used as a task destination.

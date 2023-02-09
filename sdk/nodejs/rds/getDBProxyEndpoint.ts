@@ -43,6 +43,10 @@ export interface GetDBProxyEndpointResult {
      */
     readonly tags?: outputs.rds.DBProxyEndpointTagFormat[];
     /**
+     * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
+     */
+    readonly targetRole?: enums.rds.DBProxyEndpointTargetRole;
+    /**
      * VPC ID to associate with the new DB proxy endpoint.
      */
     readonly vpcId?: string;

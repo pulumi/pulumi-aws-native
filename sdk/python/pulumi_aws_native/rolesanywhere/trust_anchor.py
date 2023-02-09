@@ -17,21 +17,29 @@ __all__ = ['TrustAnchorArgs', 'TrustAnchor']
 @pulumi.input_type
 class TrustAnchorArgs:
     def __init__(__self__, *,
+                 source: pulumi.Input['TrustAnchorSourceArgs'],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input['TrustAnchorSourceArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorTagArgs']]]] = None):
         """
         The set of arguments for constructing a TrustAnchor resource.
         """
+        pulumi.set(__self__, "source", source)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['TrustAnchorSourceArgs']:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['TrustAnchorSourceArgs']):
+        pulumi.set(self, "source", value)
 
     @property
     @pulumi.getter
@@ -50,15 +58,6 @@ class TrustAnchorArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['TrustAnchorSourceArgs']]:
-        return pulumi.get(self, "source")
-
-    @source.setter
-    def source(self, value: Optional[pulumi.Input['TrustAnchorSourceArgs']]):
-        pulumi.set(self, "source", value)
 
     @property
     @pulumi.getter
@@ -90,7 +89,7 @@ class TrustAnchor(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TrustAnchorArgs] = None,
+                 args: TrustAnchorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
@@ -125,6 +124,8 @@ class TrustAnchor(pulumi.CustomResource):
 
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["name"] = name
+            if source is None and not opts.urn:
+                raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trust_anchor_arn"] = None
@@ -166,12 +167,12 @@ class TrustAnchor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Output[Optional['outputs.TrustAnchorSource']]:
+    def source(self) -> pulumi.Output['outputs.TrustAnchorSource']:
         return pulumi.get(self, "source")
 
     @property

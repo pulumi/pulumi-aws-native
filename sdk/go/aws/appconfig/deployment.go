@@ -23,6 +23,7 @@ type Deployment struct {
 	DeploymentStrategyId   pulumi.StringOutput       `pulumi:"deploymentStrategyId"`
 	Description            pulumi.StringPtrOutput    `pulumi:"description"`
 	EnvironmentId          pulumi.StringOutput       `pulumi:"environmentId"`
+	KmsKeyIdentifier       pulumi.StringPtrOutput    `pulumi:"kmsKeyIdentifier"`
 	Tags                   DeploymentTagsArrayOutput `pulumi:"tags"`
 }
 
@@ -86,6 +87,7 @@ type deploymentArgs struct {
 	DeploymentStrategyId   string           `pulumi:"deploymentStrategyId"`
 	Description            *string          `pulumi:"description"`
 	EnvironmentId          string           `pulumi:"environmentId"`
+	KmsKeyIdentifier       *string          `pulumi:"kmsKeyIdentifier"`
 	Tags                   []DeploymentTags `pulumi:"tags"`
 }
 
@@ -97,6 +99,7 @@ type DeploymentArgs struct {
 	DeploymentStrategyId   pulumi.StringInput
 	Description            pulumi.StringPtrInput
 	EnvironmentId          pulumi.StringInput
+	KmsKeyIdentifier       pulumi.StringPtrInput
 	Tags                   DeploymentTagsArrayInput
 }
 
@@ -159,6 +162,10 @@ func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 
 func (o DeploymentOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
+}
+
+func (o DeploymentOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 func (o DeploymentOutput) Tags() DeploymentTagsArrayOutput {

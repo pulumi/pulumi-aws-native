@@ -17,9 +17,9 @@ __all__ = ['LocationFSxONTAPArgs', 'LocationFSxONTAP']
 @pulumi.input_type
 class LocationFSxONTAPArgs:
     def __init__(__self__, *,
-                 protocol: pulumi.Input['LocationFSxONTAPProtocolArgs'],
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  storage_virtual_machine_arn: pulumi.Input[str],
+                 protocol: Optional[pulumi.Input['LocationFSxONTAPProtocolArgs']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxONTAPTagArgs']]]] = None):
         """
@@ -29,22 +29,14 @@ class LocationFSxONTAPArgs:
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
         :param pulumi.Input[Sequence[pulumi.Input['LocationFSxONTAPTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "security_group_arns", security_group_arns)
         pulumi.set(__self__, "storage_virtual_machine_arn", storage_virtual_machine_arn)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
         if subdirectory is not None:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> pulumi.Input['LocationFSxONTAPProtocolArgs']:
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: pulumi.Input['LocationFSxONTAPProtocolArgs']):
-        pulumi.set(self, "protocol", value)
 
     @property
     @pulumi.getter(name="securityGroupArns")
@@ -69,6 +61,15 @@ class LocationFSxONTAPArgs:
     @storage_virtual_machine_arn.setter
     def storage_virtual_machine_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "storage_virtual_machine_arn", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input['LocationFSxONTAPProtocolArgs']]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input['LocationFSxONTAPProtocolArgs']]):
+        pulumi.set(self, "protocol", value)
 
     @property
     @pulumi.getter
@@ -154,8 +155,6 @@ class LocationFSxONTAP(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LocationFSxONTAPArgs.__new__(LocationFSxONTAPArgs)
 
-            if protocol is None and not opts.urn:
-                raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
             if security_group_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_arns'")
@@ -226,7 +225,7 @@ class LocationFSxONTAP(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output['outputs.LocationFSxONTAPProtocol']:
+    def protocol(self) -> pulumi.Output[Optional['outputs.LocationFSxONTAPProtocol']]:
         return pulumi.get(self, "protocol")
 
     @property

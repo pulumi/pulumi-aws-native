@@ -72,7 +72,7 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
      */
-    public readonly vpcEndpoint!: pulumi.Output<outputs.redshift.VpcEndpointProperties | undefined>;
+    public /*out*/ readonly vpcEndpoint!: pulumi.Output<outputs.redshift.VpcEndpointProperties>;
     /**
      * A list of vpc security group ids to apply to the created endpoint access.
      */
@@ -80,7 +80,7 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
      */
-    public readonly vpcSecurityGroups!: pulumi.Output<outputs.redshift.EndpointAccessVpcSecurityGroup[] | undefined>;
+    public /*out*/ readonly vpcSecurityGroups!: pulumi.Output<outputs.redshift.EndpointAccessVpcSecurityGroup[]>;
 
     /**
      * Create a EndpointAccess resource with the given unique name, arguments, and options.
@@ -109,13 +109,13 @@ export class EndpointAccess extends pulumi.CustomResource {
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
             resourceInputs["resourceOwner"] = args ? args.resourceOwner : undefined;
             resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            resourceInputs["vpcEndpoint"] = args ? args.vpcEndpoint : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            resourceInputs["vpcSecurityGroups"] = args ? args.vpcSecurityGroups : undefined;
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["endpointCreateTime"] = undefined /*out*/;
             resourceInputs["endpointStatus"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["vpcEndpoint"] = undefined /*out*/;
+            resourceInputs["vpcSecurityGroups"] = undefined /*out*/;
         } else {
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["clusterIdentifier"] = undefined /*out*/;
@@ -155,15 +155,7 @@ export interface EndpointAccessArgs {
      */
     subnetGroupName: pulumi.Input<string>;
     /**
-     * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-     */
-    vpcEndpoint?: pulumi.Input<inputs.redshift.VpcEndpointPropertiesArgs>;
-    /**
      * A list of vpc security group ids to apply to the created endpoint access.
      */
     vpcSecurityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
-     */
-    vpcSecurityGroups?: pulumi.Input<pulumi.Input<inputs.redshift.EndpointAccessVpcSecurityGroupArgs>[]>;
 }

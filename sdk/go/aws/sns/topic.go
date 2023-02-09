@@ -46,6 +46,8 @@ type Topic struct {
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
 	TopicName pulumi.StringPtrOutput `pulumi:"topicName"`
+	// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+	TracingConfig pulumi.StringPtrOutput `pulumi:"tracingConfig"`
 }
 
 // NewTopic registers a new resource with the given unique name, arguments, and options.
@@ -118,6 +120,8 @@ type topicArgs struct {
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
 	TopicName *string `pulumi:"topicName"`
+	// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+	TracingConfig *string `pulumi:"tracingConfig"`
 }
 
 // The set of arguments for constructing a Topic resource.
@@ -153,6 +157,8 @@ type TopicArgs struct {
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
 	TopicName pulumi.StringPtrInput
+	// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+	TracingConfig pulumi.StringPtrInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {
@@ -252,6 +258,11 @@ func (o TopicOutput) TopicArn() pulumi.StringOutput {
 // If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
 func (o TopicOutput) TopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.TopicName }).(pulumi.StringPtrOutput)
+}
+
+// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+func (o TopicOutput) TracingConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.TracingConfig }).(pulumi.StringPtrOutput)
 }
 
 func init() {

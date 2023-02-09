@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.RedshiftServerless
         [Output("namespaceName")]
         public Output<string?> NamespaceName { get; private set; } = null!;
 
+        [Output("port")]
+        public Output<int?> Port { get; private set; } = null!;
+
         [Output("publiclyAccessible")]
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
@@ -40,7 +43,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public Output<ImmutableArray<Outputs.WorkgroupTag>> Tags { get; private set; } = null!;
 
         [Output("workgroup")]
-        public Output<Outputs.Workgroup?> WorkgroupValue { get; private set; } = null!;
+        public Output<Outputs.Workgroup> WorkgroupValue { get; private set; } = null!;
 
         [Output("workgroupName")]
         public Output<string> WorkgroupName { get; private set; } = null!;
@@ -107,6 +110,9 @@ namespace Pulumi.AwsNative.RedshiftServerless
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
 
@@ -133,9 +139,6 @@ namespace Pulumi.AwsNative.RedshiftServerless
             get => _tags ?? (_tags = new InputList<Inputs.WorkgroupTagArgs>());
             set => _tags = value;
         }
-
-        [Input("workgroup")]
-        public Input<Inputs.WorkgroupArgs>? WorkgroupValue { get; set; }
 
         [Input("workgroupName")]
         public Input<string>? WorkgroupName { get; set; }

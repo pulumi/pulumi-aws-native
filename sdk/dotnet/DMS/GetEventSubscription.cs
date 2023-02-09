@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.DMS
         public readonly string? Id;
         public readonly string? SnsTopicArn;
         public readonly string? SourceType;
+        public readonly ImmutableArray<Outputs.EventSubscriptionTag> Tags;
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
@@ -67,13 +68,16 @@ namespace Pulumi.AwsNative.DMS
 
             string? snsTopicArn,
 
-            string? sourceType)
+            string? sourceType,
+
+            ImmutableArray<Outputs.EventSubscriptionTag> tags)
         {
             Enabled = enabled;
             EventCategories = eventCategories;
             Id = id;
             SnsTopicArn = snsTopicArn;
             SourceType = sourceType;
+            Tags = tags;
         }
     }
 }

@@ -1773,6 +1773,8 @@ type LocationSMBMountOptionsVersion string
 
 const (
 	LocationSMBMountOptionsVersionAutomatic = LocationSMBMountOptionsVersion("AUTOMATIC")
+	LocationSMBMountOptionsVersionSmb1      = LocationSMBMountOptionsVersion("SMB1")
+	LocationSMBMountOptionsVersionSmb20     = LocationSMBMountOptionsVersion("SMB2_0")
 	LocationSMBMountOptionsVersionSmb2      = LocationSMBMountOptionsVersion("SMB2")
 	LocationSMBMountOptionsVersionSmb3      = LocationSMBMountOptionsVersion("SMB3")
 )

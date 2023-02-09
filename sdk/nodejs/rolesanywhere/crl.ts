@@ -37,10 +37,10 @@ export class CRL extends pulumi.CustomResource {
         return obj['__pulumiType'] === CRL.__pulumiType;
     }
 
-    public readonly crlData!: pulumi.Output<string | undefined>;
+    public readonly crlData!: pulumi.Output<string>;
     public /*out*/ readonly crlId!: pulumi.Output<string>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.rolesanywhere.CRLTag[] | undefined>;
     public readonly trustAnchorArn!: pulumi.Output<string | undefined>;
 
@@ -51,10 +51,13 @@ export class CRL extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: CRLArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CRLArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.crlData === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'crlData'");
+            }
             resourceInputs["crlData"] = args ? args.crlData : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -78,7 +81,7 @@ export class CRL extends pulumi.CustomResource {
  * The set of arguments for constructing a CRL resource.
  */
 export interface CRLArgs {
-    crlData?: pulumi.Input<string>;
+    crlData: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.CRLTagArgs>[]>;

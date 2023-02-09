@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Model{}
 	case "aws-native:sagemaker:ModelBiasJobDefinition":
 		r = &ModelBiasJobDefinition{}
+	case "aws-native:sagemaker:ModelCard":
+		r = &ModelCard{}
 	case "aws-native:sagemaker:ModelExplainabilityJobDefinition":
 		r = &ModelExplainabilityJobDefinition{}
 	case "aws-native:sagemaker:ModelPackage":
@@ -67,6 +69,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Pipeline{}
 	case "aws-native:sagemaker:Project":
 		r = &Project{}
+	case "aws-native:sagemaker:Space":
+		r = &Space{}
 	case "aws-native:sagemaker:UserProfile":
 		r = &UserProfile{}
 	case "aws-native:sagemaker:Workteam":

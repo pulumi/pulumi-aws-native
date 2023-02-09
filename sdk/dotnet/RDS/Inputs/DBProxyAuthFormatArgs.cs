@@ -42,12 +42,6 @@ namespace Pulumi.AwsNative.RDS.Inputs
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 
-        /// <summary>
-        /// The name of the database user to which the proxy connects.
-        /// </summary>
-        [Input("userName")]
-        public Input<string>? UserName { get; set; }
-
         public DBProxyAuthFormatArgs()
         {
         }

@@ -25,11 +25,12 @@ type LookupEventSubscriptionArgs struct {
 }
 
 type LookupEventSubscriptionResult struct {
-	Enabled         *bool    `pulumi:"enabled"`
-	EventCategories []string `pulumi:"eventCategories"`
-	Id              *string  `pulumi:"id"`
-	SnsTopicArn     *string  `pulumi:"snsTopicArn"`
-	SourceType      *string  `pulumi:"sourceType"`
+	Enabled         *bool                  `pulumi:"enabled"`
+	EventCategories []string               `pulumi:"eventCategories"`
+	Id              *string                `pulumi:"id"`
+	SnsTopicArn     *string                `pulumi:"snsTopicArn"`
+	SourceType      *string                `pulumi:"sourceType"`
+	Tags            []EventSubscriptionTag `pulumi:"tags"`
 }
 
 func LookupEventSubscriptionOutput(ctx *pulumi.Context, args LookupEventSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupEventSubscriptionResultOutput {
@@ -85,6 +86,10 @@ func (o LookupEventSubscriptionResultOutput) SnsTopicArn() pulumi.StringPtrOutpu
 
 func (o LookupEventSubscriptionResultOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventSubscriptionResult) *string { return v.SourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupEventSubscriptionResultOutput) Tags() EventSubscriptionTagArrayOutput {
+	return o.ApplyT(func(v LookupEventSubscriptionResult) []EventSubscriptionTag { return v.Tags }).(EventSubscriptionTagArrayOutput)
 }
 
 func init() {

@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.AppConfig
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
 
+        [Output("kmsKeyIdentifier")]
+        public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DeploymentTags>> Tags { get; private set; } = null!;
 
@@ -99,6 +102,9 @@ namespace Pulumi.AwsNative.AppConfig
 
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
+
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DeploymentTagsArgs>? _tags;

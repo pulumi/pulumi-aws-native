@@ -40,11 +40,11 @@ export class Profile extends pulumi.CustomResource {
     public readonly durationSeconds!: pulumi.Output<number | undefined>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly managedPolicyArns!: pulumi.Output<string[] | undefined>;
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly profileArn!: pulumi.Output<string>;
     public /*out*/ readonly profileId!: pulumi.Output<string>;
     public readonly requireInstanceProperties!: pulumi.Output<boolean | undefined>;
-    public readonly roleArns!: pulumi.Output<string[] | undefined>;
+    public readonly roleArns!: pulumi.Output<string[]>;
     public readonly sessionPolicy!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.rolesanywhere.ProfileTag[] | undefined>;
 
@@ -55,10 +55,13 @@ export class Profile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.roleArns === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'roleArns'");
+            }
             resourceInputs["durationSeconds"] = args ? args.durationSeconds : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
@@ -95,7 +98,7 @@ export interface ProfileArgs {
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
     name?: pulumi.Input<string>;
     requireInstanceProperties?: pulumi.Input<boolean>;
-    roleArns?: pulumi.Input<pulumi.Input<string>[]>;
+    roleArns: pulumi.Input<pulumi.Input<string>[]>;
     sessionPolicy?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.ProfileTagArgs>[]>;
 }

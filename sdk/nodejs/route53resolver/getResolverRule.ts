@@ -31,6 +31,10 @@ export interface GetResolverRuleResult {
      */
     readonly arn?: string;
     /**
+     * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+     */
+    readonly domainName?: string;
+    /**
      * The name for the Resolver rule
      */
     readonly name?: string;

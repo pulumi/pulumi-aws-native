@@ -105,6 +105,28 @@ __all__ = [
     'ModelBiasJobDefinitionStoppingConditionArgs',
     'ModelBiasJobDefinitionTagArgs',
     'ModelBiasJobDefinitionVpcConfigArgs',
+    'ModelCardAdditionalInformationArgs',
+    'ModelCardBarChartMetricArgs',
+    'ModelCardBusinessDetailsArgs',
+    'ModelCardContentArgs',
+    'ModelCardEvaluationDetailArgs',
+    'ModelCardIntendedUsesArgs',
+    'ModelCardLinearGraphMetricArgs',
+    'ModelCardMatrixMetricArgs',
+    'ModelCardMetricGroupArgs',
+    'ModelCardModelOverviewInferenceEnvironmentPropertiesArgs',
+    'ModelCardModelOverviewArgs',
+    'ModelCardObjectiveFunctionFunctionPropertiesArgs',
+    'ModelCardObjectiveFunctionArgs',
+    'ModelCardSecurityConfigArgs',
+    'ModelCardSimpleMetricArgs',
+    'ModelCardTagArgs',
+    'ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs',
+    'ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs',
+    'ModelCardTrainingDetailsArgs',
+    'ModelCardTrainingHyperParameterArgs',
+    'ModelCardTrainingMetricArgs',
+    'ModelCardUserContextArgs',
     'ModelContainerDefinitionArgs',
     'ModelExplainabilityJobDefinitionBatchTransformInputArgs',
     'ModelExplainabilityJobDefinitionClusterConfigArgs',
@@ -220,6 +242,12 @@ __all__ = [
     'ProjectProvisioningParameterArgs',
     'ProjectTagArgs',
     'ServiceCatalogProvisioningDetailsPropertiesArgs',
+    'SpaceCustomImageArgs',
+    'SpaceJupyterServerAppSettingsArgs',
+    'SpaceKernelGatewayAppSettingsArgs',
+    'SpaceResourceSpecArgs',
+    'SpaceSettingsArgs',
+    'SpaceTagArgs',
     'UserProfileCustomImageArgs',
     'UserProfileJupyterServerAppSettingsArgs',
     'UserProfileKernelGatewayAppSettingsArgs',
@@ -1591,7 +1619,7 @@ class DomainDefaultSpaceSettingsArgs:
                  kernel_gateway_app_settings: Optional[pulumi.Input['DomainKernelGatewayAppSettingsArgs']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+        A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
         :param pulumi.Input[str] execution_role: The execution role for the space.
         :param pulumi.Input['DomainJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['DomainKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
@@ -4256,6 +4284,1318 @@ class ModelBiasJobDefinitionVpcConfigArgs:
     @subnets.setter
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
+
+
+@pulumi.input_type
+class ModelCardAdditionalInformationArgs:
+    def __init__(__self__, *,
+                 caveats_and_recommendations: Optional[pulumi.Input[str]] = None,
+                 custom_details: Optional[Any] = None,
+                 ethical_considerations: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] caveats_and_recommendations: Caveats and recommendations for people who might use this model in their applications.
+        :param Any custom_details: customer details.
+        :param pulumi.Input[str] ethical_considerations: Any ethical considerations that the author wants to provide.
+        """
+        if caveats_and_recommendations is not None:
+            pulumi.set(__self__, "caveats_and_recommendations", caveats_and_recommendations)
+        if custom_details is not None:
+            pulumi.set(__self__, "custom_details", custom_details)
+        if ethical_considerations is not None:
+            pulumi.set(__self__, "ethical_considerations", ethical_considerations)
+
+    @property
+    @pulumi.getter(name="caveatsAndRecommendations")
+    def caveats_and_recommendations(self) -> Optional[pulumi.Input[str]]:
+        """
+        Caveats and recommendations for people who might use this model in their applications.
+        """
+        return pulumi.get(self, "caveats_and_recommendations")
+
+    @caveats_and_recommendations.setter
+    def caveats_and_recommendations(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "caveats_and_recommendations", value)
+
+    @property
+    @pulumi.getter(name="customDetails")
+    def custom_details(self) -> Optional[Any]:
+        """
+        customer details.
+        """
+        return pulumi.get(self, "custom_details")
+
+    @custom_details.setter
+    def custom_details(self, value: Optional[Any]):
+        pulumi.set(self, "custom_details", value)
+
+    @property
+    @pulumi.getter(name="ethicalConsiderations")
+    def ethical_considerations(self) -> Optional[pulumi.Input[str]]:
+        """
+        Any ethical considerations that the author wants to provide.
+        """
+        return pulumi.get(self, "ethical_considerations")
+
+    @ethical_considerations.setter
+    def ethical_considerations(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ethical_considerations", value)
+
+
+@pulumi.input_type
+class ModelCardBarChartMetricArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['ModelCardBarChartMetricType'],
+                 value: pulumi.Input[Sequence[pulumi.Input[float]]],
+                 notes: Optional[pulumi.Input[str]] = None,
+                 x_axis_name: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 y_axis_name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if x_axis_name is not None:
+            pulumi.set(__self__, "x_axis_name", x_axis_name)
+        if y_axis_name is not None:
+            pulumi.set(__self__, "y_axis_name", y_axis_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ModelCardBarChartMetricType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ModelCardBarChartMetricType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Sequence[pulumi.Input[float]]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter(name="xAxisName")
+    def x_axis_name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "x_axis_name")
+
+    @x_axis_name.setter
+    def x_axis_name(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_axis_name", value)
+
+    @property
+    @pulumi.getter(name="yAxisName")
+    def y_axis_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "y_axis_name")
+
+    @y_axis_name.setter
+    def y_axis_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "y_axis_name", value)
+
+
+@pulumi.input_type
+class ModelCardBusinessDetailsArgs:
+    def __init__(__self__, *,
+                 business_problem: Optional[pulumi.Input[str]] = None,
+                 business_stakeholders: Optional[pulumi.Input[str]] = None,
+                 line_of_business: Optional[pulumi.Input[str]] = None):
+        """
+        Business details.
+        :param pulumi.Input[str] business_problem: What business problem does the model solve?
+        :param pulumi.Input[str] business_stakeholders: Business stakeholders.
+        :param pulumi.Input[str] line_of_business: Line of business.
+        """
+        if business_problem is not None:
+            pulumi.set(__self__, "business_problem", business_problem)
+        if business_stakeholders is not None:
+            pulumi.set(__self__, "business_stakeholders", business_stakeholders)
+        if line_of_business is not None:
+            pulumi.set(__self__, "line_of_business", line_of_business)
+
+    @property
+    @pulumi.getter(name="businessProblem")
+    def business_problem(self) -> Optional[pulumi.Input[str]]:
+        """
+        What business problem does the model solve?
+        """
+        return pulumi.get(self, "business_problem")
+
+    @business_problem.setter
+    def business_problem(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "business_problem", value)
+
+    @property
+    @pulumi.getter(name="businessStakeholders")
+    def business_stakeholders(self) -> Optional[pulumi.Input[str]]:
+        """
+        Business stakeholders.
+        """
+        return pulumi.get(self, "business_stakeholders")
+
+    @business_stakeholders.setter
+    def business_stakeholders(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "business_stakeholders", value)
+
+    @property
+    @pulumi.getter(name="lineOfBusiness")
+    def line_of_business(self) -> Optional[pulumi.Input[str]]:
+        """
+        Line of business.
+        """
+        return pulumi.get(self, "line_of_business")
+
+    @line_of_business.setter
+    def line_of_business(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "line_of_business", value)
+
+
+@pulumi.input_type
+class ModelCardContentArgs:
+    def __init__(__self__, *,
+                 additional_information: Optional[pulumi.Input['ModelCardAdditionalInformationArgs']] = None,
+                 business_details: Optional[pulumi.Input['ModelCardBusinessDetailsArgs']] = None,
+                 evaluation_details: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardEvaluationDetailArgs']]]] = None,
+                 intended_uses: Optional[pulumi.Input['ModelCardIntendedUsesArgs']] = None,
+                 model_overview: Optional[pulumi.Input['ModelCardModelOverviewArgs']] = None,
+                 training_details: Optional[pulumi.Input['ModelCardTrainingDetailsArgs']] = None):
+        """
+        The content of the model card.
+        """
+        if additional_information is not None:
+            pulumi.set(__self__, "additional_information", additional_information)
+        if business_details is not None:
+            pulumi.set(__self__, "business_details", business_details)
+        if evaluation_details is not None:
+            pulumi.set(__self__, "evaluation_details", evaluation_details)
+        if intended_uses is not None:
+            pulumi.set(__self__, "intended_uses", intended_uses)
+        if model_overview is not None:
+            pulumi.set(__self__, "model_overview", model_overview)
+        if training_details is not None:
+            pulumi.set(__self__, "training_details", training_details)
+
+    @property
+    @pulumi.getter(name="additionalInformation")
+    def additional_information(self) -> Optional[pulumi.Input['ModelCardAdditionalInformationArgs']]:
+        return pulumi.get(self, "additional_information")
+
+    @additional_information.setter
+    def additional_information(self, value: Optional[pulumi.Input['ModelCardAdditionalInformationArgs']]):
+        pulumi.set(self, "additional_information", value)
+
+    @property
+    @pulumi.getter(name="businessDetails")
+    def business_details(self) -> Optional[pulumi.Input['ModelCardBusinessDetailsArgs']]:
+        return pulumi.get(self, "business_details")
+
+    @business_details.setter
+    def business_details(self, value: Optional[pulumi.Input['ModelCardBusinessDetailsArgs']]):
+        pulumi.set(self, "business_details", value)
+
+    @property
+    @pulumi.getter(name="evaluationDetails")
+    def evaluation_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardEvaluationDetailArgs']]]]:
+        return pulumi.get(self, "evaluation_details")
+
+    @evaluation_details.setter
+    def evaluation_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardEvaluationDetailArgs']]]]):
+        pulumi.set(self, "evaluation_details", value)
+
+    @property
+    @pulumi.getter(name="intendedUses")
+    def intended_uses(self) -> Optional[pulumi.Input['ModelCardIntendedUsesArgs']]:
+        return pulumi.get(self, "intended_uses")
+
+    @intended_uses.setter
+    def intended_uses(self, value: Optional[pulumi.Input['ModelCardIntendedUsesArgs']]):
+        pulumi.set(self, "intended_uses", value)
+
+    @property
+    @pulumi.getter(name="modelOverview")
+    def model_overview(self) -> Optional[pulumi.Input['ModelCardModelOverviewArgs']]:
+        return pulumi.get(self, "model_overview")
+
+    @model_overview.setter
+    def model_overview(self, value: Optional[pulumi.Input['ModelCardModelOverviewArgs']]):
+        pulumi.set(self, "model_overview", value)
+
+    @property
+    @pulumi.getter(name="trainingDetails")
+    def training_details(self) -> Optional[pulumi.Input['ModelCardTrainingDetailsArgs']]:
+        return pulumi.get(self, "training_details")
+
+    @training_details.setter
+    def training_details(self, value: Optional[pulumi.Input['ModelCardTrainingDetailsArgs']]):
+        pulumi.set(self, "training_details", value)
+
+
+@pulumi.input_type
+class ModelCardEvaluationDetailArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 evaluation_job_arn: Optional[pulumi.Input[str]] = None,
+                 evaluation_observation: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
+                 metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardMetricGroupArgs']]]] = None):
+        """
+        item of evaluation details
+        :param Any metadata: additional attributes associated with the evaluation results.
+        """
+        pulumi.set(__self__, "name", name)
+        if datasets is not None:
+            pulumi.set(__self__, "datasets", datasets)
+        if evaluation_job_arn is not None:
+            pulumi.set(__self__, "evaluation_job_arn", evaluation_job_arn)
+        if evaluation_observation is not None:
+            pulumi.set(__self__, "evaluation_observation", evaluation_observation)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if metric_groups is not None:
+            pulumi.set(__self__, "metric_groups", metric_groups)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "datasets")
+
+    @datasets.setter
+    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "datasets", value)
+
+    @property
+    @pulumi.getter(name="evaluationJobArn")
+    def evaluation_job_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "evaluation_job_arn")
+
+    @evaluation_job_arn.setter
+    def evaluation_job_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "evaluation_job_arn", value)
+
+    @property
+    @pulumi.getter(name="evaluationObservation")
+    def evaluation_observation(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "evaluation_observation")
+
+    @evaluation_observation.setter
+    def evaluation_observation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "evaluation_observation", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        additional attributes associated with the evaluation results.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="metricGroups")
+    def metric_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardMetricGroupArgs']]]]:
+        return pulumi.get(self, "metric_groups")
+
+    @metric_groups.setter
+    def metric_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardMetricGroupArgs']]]]):
+        pulumi.set(self, "metric_groups", value)
+
+
+@pulumi.input_type
+class ModelCardIntendedUsesArgs:
+    def __init__(__self__, *,
+                 explanations_for_risk_rating: Optional[pulumi.Input[str]] = None,
+                 factors_affecting_model_efficiency: Optional[pulumi.Input[str]] = None,
+                 intended_uses: Optional[pulumi.Input[str]] = None,
+                 purpose_of_model: Optional[pulumi.Input[str]] = None,
+                 risk_rating: Optional[pulumi.Input['ModelCardRiskRating']] = None):
+        """
+        Intended usage of model.
+        :param pulumi.Input[str] intended_uses: intended use cases.
+        :param pulumi.Input[str] purpose_of_model: Why the model was developed?
+        """
+        if explanations_for_risk_rating is not None:
+            pulumi.set(__self__, "explanations_for_risk_rating", explanations_for_risk_rating)
+        if factors_affecting_model_efficiency is not None:
+            pulumi.set(__self__, "factors_affecting_model_efficiency", factors_affecting_model_efficiency)
+        if intended_uses is not None:
+            pulumi.set(__self__, "intended_uses", intended_uses)
+        if purpose_of_model is not None:
+            pulumi.set(__self__, "purpose_of_model", purpose_of_model)
+        if risk_rating is not None:
+            pulumi.set(__self__, "risk_rating", risk_rating)
+
+    @property
+    @pulumi.getter(name="explanationsForRiskRating")
+    def explanations_for_risk_rating(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "explanations_for_risk_rating")
+
+    @explanations_for_risk_rating.setter
+    def explanations_for_risk_rating(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "explanations_for_risk_rating", value)
+
+    @property
+    @pulumi.getter(name="factorsAffectingModelEfficiency")
+    def factors_affecting_model_efficiency(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "factors_affecting_model_efficiency")
+
+    @factors_affecting_model_efficiency.setter
+    def factors_affecting_model_efficiency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "factors_affecting_model_efficiency", value)
+
+    @property
+    @pulumi.getter(name="intendedUses")
+    def intended_uses(self) -> Optional[pulumi.Input[str]]:
+        """
+        intended use cases.
+        """
+        return pulumi.get(self, "intended_uses")
+
+    @intended_uses.setter
+    def intended_uses(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "intended_uses", value)
+
+    @property
+    @pulumi.getter(name="purposeOfModel")
+    def purpose_of_model(self) -> Optional[pulumi.Input[str]]:
+        """
+        Why the model was developed?
+        """
+        return pulumi.get(self, "purpose_of_model")
+
+    @purpose_of_model.setter
+    def purpose_of_model(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "purpose_of_model", value)
+
+    @property
+    @pulumi.getter(name="riskRating")
+    def risk_rating(self) -> Optional[pulumi.Input['ModelCardRiskRating']]:
+        return pulumi.get(self, "risk_rating")
+
+    @risk_rating.setter
+    def risk_rating(self, value: Optional[pulumi.Input['ModelCardRiskRating']]):
+        pulumi.set(self, "risk_rating", value)
+
+
+@pulumi.input_type
+class ModelCardLinearGraphMetricArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['ModelCardLinearGraphMetricType'],
+                 value: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]],
+                 notes: Optional[pulumi.Input[str]] = None,
+                 x_axis_name: Optional[pulumi.Input[str]] = None,
+                 y_axis_name: Optional[pulumi.Input[str]] = None):
+        """
+        Linear graph metric.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if x_axis_name is not None:
+            pulumi.set(__self__, "x_axis_name", x_axis_name)
+        if y_axis_name is not None:
+            pulumi.set(__self__, "y_axis_name", y_axis_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ModelCardLinearGraphMetricType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ModelCardLinearGraphMetricType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter(name="xAxisName")
+    def x_axis_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "x_axis_name")
+
+    @x_axis_name.setter
+    def x_axis_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_axis_name", value)
+
+    @property
+    @pulumi.getter(name="yAxisName")
+    def y_axis_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "y_axis_name")
+
+    @y_axis_name.setter
+    def y_axis_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "y_axis_name", value)
+
+
+@pulumi.input_type
+class ModelCardMatrixMetricArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['ModelCardMatrixMetricType'],
+                 value: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]],
+                 notes: Optional[pulumi.Input[str]] = None,
+                 x_axis_name: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 y_axis_name: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if x_axis_name is not None:
+            pulumi.set(__self__, "x_axis_name", x_axis_name)
+        if y_axis_name is not None:
+            pulumi.set(__self__, "y_axis_name", y_axis_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ModelCardMatrixMetricType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ModelCardMatrixMetricType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter(name="xAxisName")
+    def x_axis_name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "x_axis_name")
+
+    @x_axis_name.setter
+    def x_axis_name(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_axis_name", value)
+
+    @property
+    @pulumi.getter(name="yAxisName")
+    def y_axis_name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "y_axis_name")
+
+    @y_axis_name.setter
+    def y_axis_name(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "y_axis_name", value)
+
+
+@pulumi.input_type
+class ModelCardMetricGroupArgs:
+    def __init__(__self__, *,
+                 metric_data: pulumi.Input[Sequence[pulumi.Input[Union['ModelCardSimpleMetricArgs', 'ModelCardLinearGraphMetricArgs', 'ModelCardBarChartMetricArgs', 'ModelCardMatrixMetricArgs']]]],
+                 name: pulumi.Input[str]):
+        """
+        item in metric groups
+        """
+        pulumi.set(__self__, "metric_data", metric_data)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="metricData")
+    def metric_data(self) -> pulumi.Input[Sequence[pulumi.Input[Union['ModelCardSimpleMetricArgs', 'ModelCardLinearGraphMetricArgs', 'ModelCardBarChartMetricArgs', 'ModelCardMatrixMetricArgs']]]]:
+        return pulumi.get(self, "metric_data")
+
+    @metric_data.setter
+    def metric_data(self, value: pulumi.Input[Sequence[pulumi.Input[Union['ModelCardSimpleMetricArgs', 'ModelCardLinearGraphMetricArgs', 'ModelCardBarChartMetricArgs', 'ModelCardMatrixMetricArgs']]]]):
+        pulumi.set(self, "metric_data", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ModelCardModelOverviewInferenceEnvironmentPropertiesArgs:
+    def __init__(__self__, *,
+                 container_image: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Overview about the inference.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_image: SageMaker inference image uri.
+        """
+        if container_image is not None:
+            pulumi.set(__self__, "container_image", container_image)
+
+    @property
+    @pulumi.getter(name="containerImage")
+    def container_image(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        SageMaker inference image uri.
+        """
+        return pulumi.get(self, "container_image")
+
+    @container_image.setter
+    def container_image(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "container_image", value)
+
+
+@pulumi.input_type
+class ModelCardModelOverviewArgs:
+    def __init__(__self__, *,
+                 algorithm_type: Optional[pulumi.Input[str]] = None,
+                 inference_environment: Optional[pulumi.Input['ModelCardModelOverviewInferenceEnvironmentPropertiesArgs']] = None,
+                 model_artifact: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 model_creator: Optional[pulumi.Input[str]] = None,
+                 model_description: Optional[pulumi.Input[str]] = None,
+                 model_id: Optional[pulumi.Input[str]] = None,
+                 model_name: Optional[pulumi.Input[str]] = None,
+                 model_owner: Optional[pulumi.Input[str]] = None,
+                 model_version: Optional[pulumi.Input[float]] = None,
+                 problem_type: Optional[pulumi.Input[str]] = None):
+        """
+        Overview about the model.
+        :param pulumi.Input[str] algorithm_type: Algorithm used to solve the problem.
+        :param pulumi.Input['ModelCardModelOverviewInferenceEnvironmentPropertiesArgs'] inference_environment: Overview about the inference.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] model_artifact: Location of the model artifact.
+        :param pulumi.Input[str] model_creator: Creator of model.
+        :param pulumi.Input[str] model_description: description of model.
+        :param pulumi.Input[str] model_id: SageMaker Model Arn or Non SageMaker Model id.
+        :param pulumi.Input[str] model_name: Name of the model.
+        :param pulumi.Input[str] model_owner: Owner of model.
+        :param pulumi.Input[float] model_version: Version of the model.
+        :param pulumi.Input[str] problem_type: Problem being solved with the model.
+        """
+        if algorithm_type is not None:
+            pulumi.set(__self__, "algorithm_type", algorithm_type)
+        if inference_environment is not None:
+            pulumi.set(__self__, "inference_environment", inference_environment)
+        if model_artifact is not None:
+            pulumi.set(__self__, "model_artifact", model_artifact)
+        if model_creator is not None:
+            pulumi.set(__self__, "model_creator", model_creator)
+        if model_description is not None:
+            pulumi.set(__self__, "model_description", model_description)
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
+        if model_owner is not None:
+            pulumi.set(__self__, "model_owner", model_owner)
+        if model_version is not None:
+            pulumi.set(__self__, "model_version", model_version)
+        if problem_type is not None:
+            pulumi.set(__self__, "problem_type", problem_type)
+
+    @property
+    @pulumi.getter(name="algorithmType")
+    def algorithm_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Algorithm used to solve the problem.
+        """
+        return pulumi.get(self, "algorithm_type")
+
+    @algorithm_type.setter
+    def algorithm_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "algorithm_type", value)
+
+    @property
+    @pulumi.getter(name="inferenceEnvironment")
+    def inference_environment(self) -> Optional[pulumi.Input['ModelCardModelOverviewInferenceEnvironmentPropertiesArgs']]:
+        """
+        Overview about the inference.
+        """
+        return pulumi.get(self, "inference_environment")
+
+    @inference_environment.setter
+    def inference_environment(self, value: Optional[pulumi.Input['ModelCardModelOverviewInferenceEnvironmentPropertiesArgs']]):
+        pulumi.set(self, "inference_environment", value)
+
+    @property
+    @pulumi.getter(name="modelArtifact")
+    def model_artifact(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Location of the model artifact.
+        """
+        return pulumi.get(self, "model_artifact")
+
+    @model_artifact.setter
+    def model_artifact(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "model_artifact", value)
+
+    @property
+    @pulumi.getter(name="modelCreator")
+    def model_creator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creator of model.
+        """
+        return pulumi.get(self, "model_creator")
+
+    @model_creator.setter
+    def model_creator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_creator", value)
+
+    @property
+    @pulumi.getter(name="modelDescription")
+    def model_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        description of model.
+        """
+        return pulumi.get(self, "model_description")
+
+    @model_description.setter
+    def model_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_description", value)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        SageMaker Model Arn or Non SageMaker Model id.
+        """
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_id", value)
+
+    @property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the model.
+        """
+        return pulumi.get(self, "model_name")
+
+    @model_name.setter
+    def model_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_name", value)
+
+    @property
+    @pulumi.getter(name="modelOwner")
+    def model_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner of model.
+        """
+        return pulumi.get(self, "model_owner")
+
+    @model_owner.setter
+    def model_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_owner", value)
+
+    @property
+    @pulumi.getter(name="modelVersion")
+    def model_version(self) -> Optional[pulumi.Input[float]]:
+        """
+        Version of the model.
+        """
+        return pulumi.get(self, "model_version")
+
+    @model_version.setter
+    def model_version(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "model_version", value)
+
+    @property
+    @pulumi.getter(name="problemType")
+    def problem_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Problem being solved with the model.
+        """
+        return pulumi.get(self, "problem_type")
+
+    @problem_type.setter
+    def problem_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "problem_type", value)
+
+
+@pulumi.input_type
+class ModelCardObjectiveFunctionFunctionPropertiesArgs:
+    def __init__(__self__, *,
+                 condition: Optional[pulumi.Input[str]] = None,
+                 facet: Optional[pulumi.Input[str]] = None,
+                 function: Optional[pulumi.Input['ModelCardObjectiveFunctionFunctionPropertiesFunction']] = None):
+        """
+        objective function that training job is optimized for.
+        """
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if function is not None:
+            pulumi.set(__self__, "function", function)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "facet")
+
+    @facet.setter
+    def facet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "facet", value)
+
+    @property
+    @pulumi.getter
+    def function(self) -> Optional[pulumi.Input['ModelCardObjectiveFunctionFunctionPropertiesFunction']]:
+        return pulumi.get(self, "function")
+
+    @function.setter
+    def function(self, value: Optional[pulumi.Input['ModelCardObjectiveFunctionFunctionPropertiesFunction']]):
+        pulumi.set(self, "function", value)
+
+
+@pulumi.input_type
+class ModelCardObjectiveFunctionArgs:
+    def __init__(__self__, *,
+                 function: Optional[pulumi.Input['ModelCardObjectiveFunctionFunctionPropertiesArgs']] = None,
+                 notes: Optional[pulumi.Input[str]] = None):
+        """
+        the objective function the model will optimize for.
+        :param pulumi.Input['ModelCardObjectiveFunctionFunctionPropertiesArgs'] function: objective function that training job is optimized for.
+        """
+        if function is not None:
+            pulumi.set(__self__, "function", function)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+
+    @property
+    @pulumi.getter
+    def function(self) -> Optional[pulumi.Input['ModelCardObjectiveFunctionFunctionPropertiesArgs']]:
+        """
+        objective function that training job is optimized for.
+        """
+        return pulumi.get(self, "function")
+
+    @function.setter
+    def function(self, value: Optional[pulumi.Input['ModelCardObjectiveFunctionFunctionPropertiesArgs']]):
+        pulumi.set(self, "function", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+
+@pulumi.input_type
+class ModelCardSecurityConfigArgs:
+    def __init__(__self__, *,
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
+
+
+        :param pulumi.Input[str] kms_key_id: A Key Management Service key ID to use for encrypting a model card.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A Key Management Service key ID to use for encrypting a model card.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class ModelCardSimpleMetricArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['ModelCardSimpleMetricType'],
+                 value: pulumi.Input[Union[float, str, bool]],
+                 notes: Optional[pulumi.Input[str]] = None,
+                 x_axis_name: Optional[pulumi.Input[str]] = None,
+                 y_axis_name: Optional[pulumi.Input[str]] = None):
+        """
+        metric data
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if x_axis_name is not None:
+            pulumi.set(__self__, "x_axis_name", x_axis_name)
+        if y_axis_name is not None:
+            pulumi.set(__self__, "y_axis_name", y_axis_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ModelCardSimpleMetricType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ModelCardSimpleMetricType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Union[float, str, bool]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Union[float, str, bool]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter(name="xAxisName")
+    def x_axis_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "x_axis_name")
+
+    @x_axis_name.setter
+    def x_axis_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_axis_name", value)
+
+    @property
+    @pulumi.getter(name="yAxisName")
+    def y_axis_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "y_axis_name")
+
+    @y_axis_name.setter
+    def y_axis_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "y_axis_name", value)
+
+
+@pulumi.input_type
+class ModelCardTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The tag key. Tag keys must be unique per resource.
+        :param pulumi.Input[str] value: The tag value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The tag key. Tag keys must be unique per resource.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The tag value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs:
+    def __init__(__self__, *,
+                 container_image: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_image: SageMaker training image uri.
+        """
+        if container_image is not None:
+            pulumi.set(__self__, "container_image", container_image)
+
+    @property
+    @pulumi.getter(name="containerImage")
+    def container_image(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        SageMaker training image uri.
+        """
+        return pulumi.get(self, "container_image")
+
+    @container_image.setter
+    def container_image(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "container_image", value)
+
+
+@pulumi.input_type
+class ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs:
+    def __init__(__self__, *,
+                 hyper_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingHyperParameterArgs']]]] = None,
+                 training_arn: Optional[pulumi.Input[str]] = None,
+                 training_datasets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 training_environment: Optional[pulumi.Input['ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs']] = None,
+                 training_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingMetricArgs']]]] = None,
+                 user_provided_hyper_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingHyperParameterArgs']]]] = None,
+                 user_provided_training_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingMetricArgs']]]] = None):
+        """
+        :param pulumi.Input[str] training_arn: SageMaker Training job arn.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] training_datasets: Location of the model datasets.
+        """
+        if hyper_parameters is not None:
+            pulumi.set(__self__, "hyper_parameters", hyper_parameters)
+        if training_arn is not None:
+            pulumi.set(__self__, "training_arn", training_arn)
+        if training_datasets is not None:
+            pulumi.set(__self__, "training_datasets", training_datasets)
+        if training_environment is not None:
+            pulumi.set(__self__, "training_environment", training_environment)
+        if training_metrics is not None:
+            pulumi.set(__self__, "training_metrics", training_metrics)
+        if user_provided_hyper_parameters is not None:
+            pulumi.set(__self__, "user_provided_hyper_parameters", user_provided_hyper_parameters)
+        if user_provided_training_metrics is not None:
+            pulumi.set(__self__, "user_provided_training_metrics", user_provided_training_metrics)
+
+    @property
+    @pulumi.getter(name="hyperParameters")
+    def hyper_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingHyperParameterArgs']]]]:
+        return pulumi.get(self, "hyper_parameters")
+
+    @hyper_parameters.setter
+    def hyper_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingHyperParameterArgs']]]]):
+        pulumi.set(self, "hyper_parameters", value)
+
+    @property
+    @pulumi.getter(name="trainingArn")
+    def training_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        SageMaker Training job arn.
+        """
+        return pulumi.get(self, "training_arn")
+
+    @training_arn.setter
+    def training_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "training_arn", value)
+
+    @property
+    @pulumi.getter(name="trainingDatasets")
+    def training_datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Location of the model datasets.
+        """
+        return pulumi.get(self, "training_datasets")
+
+    @training_datasets.setter
+    def training_datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "training_datasets", value)
+
+    @property
+    @pulumi.getter(name="trainingEnvironment")
+    def training_environment(self) -> Optional[pulumi.Input['ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs']]:
+        return pulumi.get(self, "training_environment")
+
+    @training_environment.setter
+    def training_environment(self, value: Optional[pulumi.Input['ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs']]):
+        pulumi.set(self, "training_environment", value)
+
+    @property
+    @pulumi.getter(name="trainingMetrics")
+    def training_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingMetricArgs']]]]:
+        return pulumi.get(self, "training_metrics")
+
+    @training_metrics.setter
+    def training_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingMetricArgs']]]]):
+        pulumi.set(self, "training_metrics", value)
+
+    @property
+    @pulumi.getter(name="userProvidedHyperParameters")
+    def user_provided_hyper_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingHyperParameterArgs']]]]:
+        return pulumi.get(self, "user_provided_hyper_parameters")
+
+    @user_provided_hyper_parameters.setter
+    def user_provided_hyper_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingHyperParameterArgs']]]]):
+        pulumi.set(self, "user_provided_hyper_parameters", value)
+
+    @property
+    @pulumi.getter(name="userProvidedTrainingMetrics")
+    def user_provided_training_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingMetricArgs']]]]:
+        return pulumi.get(self, "user_provided_training_metrics")
+
+    @user_provided_training_metrics.setter
+    def user_provided_training_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingMetricArgs']]]]):
+        pulumi.set(self, "user_provided_training_metrics", value)
+
+
+@pulumi.input_type
+class ModelCardTrainingDetailsArgs:
+    def __init__(__self__, *,
+                 objective_function: Optional[pulumi.Input['ModelCardObjectiveFunctionArgs']] = None,
+                 training_job_details: Optional[pulumi.Input['ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs']] = None,
+                 training_observations: Optional[pulumi.Input[str]] = None):
+        """
+        Overview about the training.
+        """
+        if objective_function is not None:
+            pulumi.set(__self__, "objective_function", objective_function)
+        if training_job_details is not None:
+            pulumi.set(__self__, "training_job_details", training_job_details)
+        if training_observations is not None:
+            pulumi.set(__self__, "training_observations", training_observations)
+
+    @property
+    @pulumi.getter(name="objectiveFunction")
+    def objective_function(self) -> Optional[pulumi.Input['ModelCardObjectiveFunctionArgs']]:
+        return pulumi.get(self, "objective_function")
+
+    @objective_function.setter
+    def objective_function(self, value: Optional[pulumi.Input['ModelCardObjectiveFunctionArgs']]):
+        pulumi.set(self, "objective_function", value)
+
+    @property
+    @pulumi.getter(name="trainingJobDetails")
+    def training_job_details(self) -> Optional[pulumi.Input['ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs']]:
+        return pulumi.get(self, "training_job_details")
+
+    @training_job_details.setter
+    def training_job_details(self, value: Optional[pulumi.Input['ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs']]):
+        pulumi.set(self, "training_job_details", value)
+
+    @property
+    @pulumi.getter(name="trainingObservations")
+    def training_observations(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "training_observations")
+
+    @training_observations.setter
+    def training_observations(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "training_observations", value)
+
+
+@pulumi.input_type
+class ModelCardTrainingHyperParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        training hyper parameter
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ModelCardTrainingMetricArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[float],
+                 notes: Optional[pulumi.Input[str]] = None):
+        """
+        training metric data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+
+@pulumi.input_type
+class ModelCardUserContextArgs:
+    def __init__(__self__, *,
+                 domain_id: Optional[pulumi.Input[str]] = None,
+                 user_profile_arn: Optional[pulumi.Input[str]] = None,
+                 user_profile_name: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+        :param pulumi.Input[str] domain_id: The domain associated with the user.
+        :param pulumi.Input[str] user_profile_arn: The Amazon Resource Name (ARN) of the user's profile.
+        :param pulumi.Input[str] user_profile_name: The name of the user's profile.
+        """
+        if domain_id is not None:
+            pulumi.set(__self__, "domain_id", domain_id)
+        if user_profile_arn is not None:
+            pulumi.set(__self__, "user_profile_arn", user_profile_arn)
+        if user_profile_name is not None:
+            pulumi.set(__self__, "user_profile_name", user_profile_name)
+
+    @property
+    @pulumi.getter(name="domainId")
+    def domain_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain associated with the user.
+        """
+        return pulumi.get(self, "domain_id")
+
+    @domain_id.setter
+    def domain_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_id", value)
+
+    @property
+    @pulumi.getter(name="userProfileArn")
+    def user_profile_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the user's profile.
+        """
+        return pulumi.get(self, "user_profile_arn")
+
+    @user_profile_arn.setter
+    def user_profile_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_profile_arn", value)
+
+    @property
+    @pulumi.getter(name="userProfileName")
+    def user_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user's profile.
+        """
+        return pulumi.get(self, "user_profile_name")
+
+    @user_profile_name.setter
+    def user_profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_profile_name", value)
 
 
 @pulumi.input_type
@@ -9468,6 +10808,242 @@ class ServiceCatalogProvisioningDetailsPropertiesArgs:
     @provisioning_parameters.setter
     def provisioning_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProvisioningParameterArgs']]]]):
         pulumi.set(self, "provisioning_parameters", value)
+
+
+@pulumi.input_type
+class SpaceCustomImageArgs:
+    def __init__(__self__, *,
+                 app_image_config_name: pulumi.Input[str],
+                 image_name: pulumi.Input[str],
+                 image_version_number: Optional[pulumi.Input[int]] = None):
+        """
+        A custom SageMaker image.
+        :param pulumi.Input[str] app_image_config_name: The Name of the AppImageConfig.
+        :param pulumi.Input[str] image_name: The name of the CustomImage. Must be unique to your account.
+        :param pulumi.Input[int] image_version_number: The version number of the CustomImage.
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the AppImageConfig.
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @app_image_config_name.setter
+    def app_image_config_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_image_config_name", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the CustomImage. Must be unique to your account.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version number of the CustomImage.
+        """
+        return pulumi.get(self, "image_version_number")
+
+    @image_version_number.setter
+    def image_version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_version_number", value)
+
+
+@pulumi.input_type
+class SpaceJupyterServerAppSettingsArgs:
+    def __init__(__self__, *,
+                 default_resource_spec: Optional[pulumi.Input['SpaceResourceSpecArgs']] = None):
+        """
+        The JupyterServer app settings.
+        """
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['SpaceResourceSpecArgs']]:
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['SpaceResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+
+@pulumi.input_type
+class SpaceKernelGatewayAppSettingsArgs:
+    def __init__(__self__, *,
+                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceCustomImageArgs']]]] = None,
+                 default_resource_spec: Optional[pulumi.Input['SpaceResourceSpecArgs']] = None):
+        """
+        The kernel gateway app settings.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
+        :param pulumi.Input['SpaceResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+        """
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceCustomImageArgs']]]]:
+        """
+        A list of custom SageMaker images that are configured to run as a KernelGateway app.
+        """
+        return pulumi.get(self, "custom_images")
+
+    @custom_images.setter
+    def custom_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceCustomImageArgs']]]]):
+        pulumi.set(self, "custom_images", value)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['SpaceResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['SpaceResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+
+@pulumi.input_type
+class SpaceResourceSpecArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input['SpaceResourceSpecInstanceType']] = None,
+                 sage_maker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sage_maker_image_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['SpaceResourceSpecInstanceType'] instance_type: The instance type that the image version runs on.
+        :param pulumi.Input[str] sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sage_maker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if sage_maker_image_arn is not None:
+            pulumi.set(__self__, "sage_maker_image_arn", sage_maker_image_arn)
+        if sage_maker_image_version_arn is not None:
+            pulumi.set(__self__, "sage_maker_image_version_arn", sage_maker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input['SpaceResourceSpecInstanceType']]:
+        """
+        The instance type that the image version runs on.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input['SpaceResourceSpecInstanceType']]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="sageMakerImageArn")
+    def sage_maker_image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the SageMaker image that the image version belongs to.
+        """
+        return pulumi.get(self, "sage_maker_image_arn")
+
+    @sage_maker_image_arn.setter
+    def sage_maker_image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sage_maker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sageMakerImageVersionArn")
+    def sage_maker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sage_maker_image_version_arn")
+
+    @sage_maker_image_version_arn.setter
+    def sage_maker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sage_maker_image_version_arn", value)
+
+
+@pulumi.input_type
+class SpaceSettingsArgs:
+    def __init__(__self__, *,
+                 jupyter_server_app_settings: Optional[pulumi.Input['SpaceJupyterServerAppSettingsArgs']] = None,
+                 kernel_gateway_app_settings: Optional[pulumi.Input['SpaceKernelGatewayAppSettingsArgs']] = None):
+        """
+        A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+        :param pulumi.Input['SpaceJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
+        :param pulumi.Input['SpaceKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
+        """
+        if jupyter_server_app_settings is not None:
+            pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
+        if kernel_gateway_app_settings is not None:
+            pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+
+    @property
+    @pulumi.getter(name="jupyterServerAppSettings")
+    def jupyter_server_app_settings(self) -> Optional[pulumi.Input['SpaceJupyterServerAppSettingsArgs']]:
+        """
+        The Jupyter server's app settings.
+        """
+        return pulumi.get(self, "jupyter_server_app_settings")
+
+    @jupyter_server_app_settings.setter
+    def jupyter_server_app_settings(self, value: Optional[pulumi.Input['SpaceJupyterServerAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_server_app_settings", value)
+
+    @property
+    @pulumi.getter(name="kernelGatewayAppSettings")
+    def kernel_gateway_app_settings(self) -> Optional[pulumi.Input['SpaceKernelGatewayAppSettingsArgs']]:
+        """
+        The kernel gateway app settings.
+        """
+        return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @kernel_gateway_app_settings.setter
+    def kernel_gateway_app_settings(self, value: Optional[pulumi.Input['SpaceKernelGatewayAppSettingsArgs']]):
+        pulumi.set(self, "kernel_gateway_app_settings", value)
+
+
+@pulumi.input_type
+class SpaceTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

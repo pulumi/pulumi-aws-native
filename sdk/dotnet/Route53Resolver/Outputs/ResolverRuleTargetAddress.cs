@@ -16,7 +16,11 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
         /// <summary>
         /// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
         /// </summary>
-        public readonly string Ip;
+        public readonly string? Ip;
+        /// <summary>
+        /// One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
+        /// </summary>
+        public readonly string? Ipv6;
         /// <summary>
         /// The port at Ip that you want to forward DNS queries to. 
         /// </summary>
@@ -24,11 +28,14 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
 
         [OutputConstructor]
         private ResolverRuleTargetAddress(
-            string ip,
+            string? ip,
+
+            string? ipv6,
 
             string? port)
         {
             Ip = ip;
+            Ipv6 = ipv6;
             Port = port;
         }
     }

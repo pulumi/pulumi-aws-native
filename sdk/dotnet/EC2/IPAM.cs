@@ -21,6 +21,18 @@ namespace Pulumi.AwsNative.EC2
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Id of the default association to the default resource discovery, created with this IPAM.
+        /// </summary>
+        [Output("defaultResourceDiscoveryAssociationId")]
+        public Output<string?> DefaultResourceDiscoveryAssociationId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Id of the default resource discovery, created with this IPAM.
+        /// </summary>
+        [Output("defaultResourceDiscoveryId")]
+        public Output<string?> DefaultResourceDiscoveryId { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -47,6 +59,12 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         [Output("publicDefaultScopeId")]
         public Output<string> PublicDefaultScopeId { get; private set; } = null!;
+
+        /// <summary>
+        /// The count of resource discoveries associated with this IPAM.
+        /// </summary>
+        [Output("resourceDiscoveryAssociationCount")]
+        public Output<int?> ResourceDiscoveryAssociationCount { get; private set; } = null!;
 
         /// <summary>
         /// The number of scopes that currently exist in this IPAM.
@@ -105,6 +123,18 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class IPAMArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Id of the default association to the default resource discovery, created with this IPAM.
+        /// </summary>
+        [Input("defaultResourceDiscoveryAssociationId")]
+        public Input<string>? DefaultResourceDiscoveryAssociationId { get; set; }
+
+        /// <summary>
+        /// The Id of the default resource discovery, created with this IPAM.
+        /// </summary>
+        [Input("defaultResourceDiscoveryId")]
+        public Input<string>? DefaultResourceDiscoveryId { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -119,6 +149,12 @@ namespace Pulumi.AwsNative.EC2
             get => _operatingRegions ?? (_operatingRegions = new InputList<Inputs.IPAMIpamOperatingRegionArgs>());
             set => _operatingRegions = value;
         }
+
+        /// <summary>
+        /// The count of resource discoveries associated with this IPAM.
+        /// </summary>
+        [Input("resourceDiscoveryAssociationCount")]
+        public Input<int>? ResourceDiscoveryAssociationCount { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.IPAMTagArgs>? _tags;

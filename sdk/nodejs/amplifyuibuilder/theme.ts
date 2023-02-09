@@ -37,10 +37,8 @@ export class Theme extends pulumi.CustomResource {
         return obj['__pulumiType'] === Theme.__pulumiType;
     }
 
-    public /*out*/ readonly appId!: pulumi.Output<string>;
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public /*out*/ readonly environmentName!: pulumi.Output<string>;
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    public readonly appId!: pulumi.Output<string | undefined>;
+    public readonly environmentName!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly overrides!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.amplifyuibuilder.ThemeTags | undefined>;
@@ -60,19 +58,15 @@ export class Theme extends pulumi.CustomResource {
             if ((!args || args.values === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'values'");
             }
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["overrides"] = args ? args.overrides : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["values"] = args ? args.values : undefined;
-            resourceInputs["appId"] = undefined /*out*/;
-            resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["environmentName"] = undefined /*out*/;
-            resourceInputs["modifiedAt"] = undefined /*out*/;
         } else {
             resourceInputs["appId"] = undefined /*out*/;
-            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["environmentName"] = undefined /*out*/;
-            resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["overrides"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -87,6 +81,8 @@ export class Theme extends pulumi.CustomResource {
  * The set of arguments for constructing a Theme resource.
  */
 export interface ThemeArgs {
+    appId?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     overrides?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
     tags?: pulumi.Input<inputs.amplifyuibuilder.ThemeTagsArgs>;

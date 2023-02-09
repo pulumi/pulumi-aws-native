@@ -26,6 +26,7 @@ type LookupWorkgroupArgs struct {
 
 type LookupWorkgroupResult struct {
 	EnhancedVpcRouting *bool          `pulumi:"enhancedVpcRouting"`
+	Port               *int           `pulumi:"port"`
 	PubliclyAccessible *bool          `pulumi:"publiclyAccessible"`
 	Workgroup          *WorkgroupType `pulumi:"workgroup"`
 }
@@ -67,6 +68,10 @@ func (o LookupWorkgroupResultOutput) ToLookupWorkgroupResultOutputWithContext(ct
 
 func (o LookupWorkgroupResultOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) *bool { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupWorkgroupResultOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupWorkgroupResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {

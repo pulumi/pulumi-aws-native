@@ -1506,9 +1506,10 @@ func (in *ruleGroupRuleOrderPtr) ToRuleGroupRuleOrderPtrOutputWithContext(ctx co
 type RuleGroupStatefulRuleAction string
 
 const (
-	RuleGroupStatefulRuleActionPass  = RuleGroupStatefulRuleAction("PASS")
-	RuleGroupStatefulRuleActionDrop  = RuleGroupStatefulRuleAction("DROP")
-	RuleGroupStatefulRuleActionAlert = RuleGroupStatefulRuleAction("ALERT")
+	RuleGroupStatefulRuleActionPass   = RuleGroupStatefulRuleAction("PASS")
+	RuleGroupStatefulRuleActionDrop   = RuleGroupStatefulRuleAction("DROP")
+	RuleGroupStatefulRuleActionAlert  = RuleGroupStatefulRuleAction("ALERT")
+	RuleGroupStatefulRuleActionReject = RuleGroupStatefulRuleAction("REJECT")
 )
 
 func (RuleGroupStatefulRuleAction) ElementType() reflect.Type {

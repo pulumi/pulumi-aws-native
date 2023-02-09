@@ -16,7 +16,7 @@ type LocationFSxOpenZFS struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
-	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
+	FsxFilesystemArn pulumi.StringPtrOutput `pulumi:"fsxFilesystemArn"`
 	// The Amazon Resource Name (ARN) of the Amazon FSx OpenZFS file system location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the FSx OpenZFS that was described.
@@ -37,9 +37,6 @@ func NewLocationFSxOpenZFS(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FsxFilesystemArn == nil {
-		return nil, errors.New("invalid value for required argument 'FsxFilesystemArn'")
-	}
 	if args.Protocol == nil {
 		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
@@ -79,7 +76,7 @@ func (LocationFSxOpenZFSState) ElementType() reflect.Type {
 
 type locationFSxOpenZFSArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
-	FsxFilesystemArn string                     `pulumi:"fsxFilesystemArn"`
+	FsxFilesystemArn *string                    `pulumi:"fsxFilesystemArn"`
 	Protocol         LocationFSxOpenZFSProtocol `pulumi:"protocol"`
 	// The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
@@ -92,7 +89,7 @@ type locationFSxOpenZFSArgs struct {
 // The set of arguments for constructing a LocationFSxOpenZFS resource.
 type LocationFSxOpenZFSArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
-	FsxFilesystemArn pulumi.StringInput
+	FsxFilesystemArn pulumi.StringPtrInput
 	Protocol         LocationFSxOpenZFSProtocolInput
 	// The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
 	SecurityGroupArns pulumi.StringArrayInput
@@ -140,8 +137,8 @@ func (o LocationFSxOpenZFSOutput) ToLocationFSxOpenZFSOutputWithContext(ctx cont
 }
 
 // The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
-func (o LocationFSxOpenZFSOutput) FsxFilesystemArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFSxOpenZFS) pulumi.StringOutput { return v.FsxFilesystemArn }).(pulumi.StringOutput)
+func (o LocationFSxOpenZFSOutput) FsxFilesystemArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZFS) pulumi.StringPtrOutput { return v.FsxFilesystemArn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon FSx OpenZFS file system location that is created.

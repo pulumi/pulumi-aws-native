@@ -56,7 +56,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
     /**
      * The ID of a core network where you're creating a site-to-site VPN attachment.
      */
-    public readonly coreNetworkId!: pulumi.Output<string | undefined>;
+    public readonly coreNetworkId!: pulumi.Output<string>;
     /**
      * Creation time of the attachment.
      */
@@ -96,7 +96,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
     /**
      * The ARN of the site-to-site VPN attachment.
      */
-    public readonly vpnConnectionArn!: pulumi.Output<string | undefined>;
+    public readonly vpnConnectionArn!: pulumi.Output<string>;
 
     /**
      * Create a SiteToSiteVpnAttachment resource with the given unique name, arguments, and options.
@@ -105,10 +105,16 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SiteToSiteVpnAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SiteToSiteVpnAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'coreNetworkId'");
+            }
+            if ((!args || args.vpnConnectionArn === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'vpnConnectionArn'");
+            }
             resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpnConnectionArn"] = args ? args.vpnConnectionArn : undefined;
@@ -153,7 +159,7 @@ export interface SiteToSiteVpnAttachmentArgs {
     /**
      * The ID of a core network where you're creating a site-to-site VPN attachment.
      */
-    coreNetworkId?: pulumi.Input<string>;
+    coreNetworkId: pulumi.Input<string>;
     /**
      * Tags for the attachment.
      */
@@ -161,5 +167,5 @@ export interface SiteToSiteVpnAttachmentArgs {
     /**
      * The ARN of the site-to-site VPN attachment.
      */
-    vpnConnectionArn?: pulumi.Input<string>;
+    vpnConnectionArn: pulumi.Input<string>;
 }

@@ -74,6 +74,10 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public readonly string? LocationUri;
         /// <summary>
+        /// X.509 PEM content containing a certificate authority or chain to trust.
+        /// </summary>
+        public readonly string? ServerCertificate;
+        /// <summary>
         /// The port that your self-managed server accepts inbound network traffic on.
         /// </summary>
         public readonly int? ServerPort;
@@ -96,6 +100,8 @@ namespace Pulumi.AwsNative.DataSync
 
             string? locationUri,
 
+            string? serverCertificate,
+
             int? serverPort,
 
             Pulumi.AwsNative.DataSync.LocationObjectStorageServerProtocol? serverProtocol,
@@ -106,6 +112,7 @@ namespace Pulumi.AwsNative.DataSync
             AgentArns = agentArns;
             LocationArn = locationArn;
             LocationUri = locationUri;
+            ServerCertificate = serverCertificate;
             ServerPort = serverPort;
             ServerProtocol = serverProtocol;
             Tags = tags;

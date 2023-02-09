@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AwsNative.CloudTrail
 {
     /// <summary>
+    /// The type of destination for events arriving from a channel.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelDestinationType : IEquatable<ChannelDestinationType>
+    {
+        private readonly string _value;
+
+        private ChannelDestinationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelDestinationType EventDataStore { get; } = new ChannelDestinationType("EVENT_DATA_STORE");
+
+        public static bool operator ==(ChannelDestinationType left, ChannelDestinationType right) => left.Equals(right);
+        public static bool operator !=(ChannelDestinationType left, ChannelDestinationType right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelDestinationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelDestinationType other && Equals(other);
+        public bool Equals(ChannelDestinationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
     /// </summary>
     [EnumType]

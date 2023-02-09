@@ -28,6 +28,8 @@ type LookupResolverRuleArgs struct {
 type LookupResolverRuleResult struct {
 	// The Amazon Resource Name (ARN) of the resolver rule.
 	Arn *string `pulumi:"arn"`
+	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+	DomainName *string `pulumi:"domainName"`
 	// The name for the Resolver rule
 	Name *string `pulumi:"name"`
 	// The ID of the endpoint that the rule is associated with.
@@ -79,6 +81,11 @@ func (o LookupResolverRuleResultOutput) ToLookupResolverRuleResultOutputWithCont
 // The Amazon Resource Name (ARN) of the resolver rule.
 func (o LookupResolverRuleResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+func (o LookupResolverRuleResultOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // The name for the Resolver rule

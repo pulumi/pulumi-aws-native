@@ -2071,8 +2071,6 @@ type DBProxyAuthFormat struct {
 	IAMAuth *DBProxyAuthFormatIAMAuth `pulumi:"iAMAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
-	// The name of the database user to which the proxy connects.
-	UserName *string `pulumi:"userName"`
 }
 
 // DBProxyAuthFormatInput is an input type that accepts DBProxyAuthFormatArgs and DBProxyAuthFormatOutput values.
@@ -2097,8 +2095,6 @@ type DBProxyAuthFormatArgs struct {
 	IAMAuth DBProxyAuthFormatIAMAuthPtrInput `pulumi:"iAMAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
-	// The name of the database user to which the proxy connects.
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
 }
 
 func (DBProxyAuthFormatArgs) ElementType() reflect.Type {
@@ -2175,11 +2171,6 @@ func (o DBProxyAuthFormatOutput) IAMAuth() DBProxyAuthFormatIAMAuthPtrOutput {
 // The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 func (o DBProxyAuthFormatOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
-}
-
-// The name of the database user to which the proxy connects.
-func (o DBProxyAuthFormatOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
 type DBProxyAuthFormatArrayOutput struct{ *pulumi.OutputState }

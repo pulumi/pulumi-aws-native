@@ -51,18 +51,22 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [OutputType]
     public sealed class GetApiMappingResult
     {
+        public readonly string? ApiId;
         public readonly string? ApiMappingKey;
         public readonly string? Id;
         public readonly string? Stage;
 
         [OutputConstructor]
         private GetApiMappingResult(
+            string? apiId,
+
             string? apiMappingKey,
 
             string? id,
 
             string? stage)
         {
+            ApiId = apiId;
             ApiMappingKey = apiMappingKey;
             Id = id;
             Stage = stage;

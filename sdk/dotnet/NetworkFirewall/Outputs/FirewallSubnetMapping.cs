@@ -14,13 +14,21 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class FirewallSubnetMapping
     {
         /// <summary>
+        /// A IPAddressType
+        /// </summary>
+        public readonly string? IPAddressType;
+        /// <summary>
         /// A SubnetId.
         /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]
-        private FirewallSubnetMapping(string subnetId)
+        private FirewallSubnetMapping(
+            string? iPAddressType,
+
+            string subnetId)
         {
+            IPAddressType = iPAddressType;
             SubnetId = subnetId;
         }
     }

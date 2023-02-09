@@ -22,13 +22,18 @@ __all__ = [
     'LoggingConfigurationFilterArgs',
     'LoggingFilterPropertiesArgs',
     'RegexPatternSetTagArgs',
+    'RuleGroupAllowActionArgs',
     'RuleGroupAndStatementArgs',
+    'RuleGroupBlockActionArgs',
     'RuleGroupBodyArgs',
     'RuleGroupByteMatchStatementArgs',
+    'RuleGroupCaptchaActionArgs',
     'RuleGroupCaptchaConfigArgs',
+    'RuleGroupChallengeActionArgs',
     'RuleGroupChallengeConfigArgs',
     'RuleGroupCookieMatchPatternArgs',
     'RuleGroupCookiesArgs',
+    'RuleGroupCountActionArgs',
     'RuleGroupCustomHTTPHeaderArgs',
     'RuleGroupCustomRequestHandlingArgs',
     'RuleGroupCustomResponseBodiesArgs',
@@ -53,11 +58,6 @@ __all__ = [
     'RuleGroupRateBasedStatementArgs',
     'RuleGroupRegexMatchStatementArgs',
     'RuleGroupRegexPatternSetReferenceStatementArgs',
-    'RuleGroupRuleActionAllowPropertiesArgs',
-    'RuleGroupRuleActionBlockPropertiesArgs',
-    'RuleGroupRuleActionCaptchaPropertiesArgs',
-    'RuleGroupRuleActionChallengePropertiesArgs',
-    'RuleGroupRuleActionCountPropertiesArgs',
     'RuleGroupRuleActionArgs',
     'RuleGroupRuleArgs',
     'RuleGroupSizeConstraintStatementArgs',
@@ -561,6 +561,26 @@ class RegexPatternSetTagArgs:
 
 
 @pulumi.input_type
+class RuleGroupAllowActionArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
+        """
+        Allow traffic towards application.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]:
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+@pulumi.input_type
 class RuleGroupAndStatementArgs:
     def __init__(__self__, *,
                  statements: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatementArgs']]]):
@@ -574,6 +594,26 @@ class RuleGroupAndStatementArgs:
     @statements.setter
     def statements(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatementArgs']]]):
         pulumi.set(self, "statements", value)
+
+
+@pulumi.input_type
+class RuleGroupBlockActionArgs:
+    def __init__(__self__, *,
+                 custom_response: Optional[pulumi.Input['RuleGroupCustomResponseArgs']] = None):
+        """
+        Block traffic towards application.
+        """
+        if custom_response is not None:
+            pulumi.set(__self__, "custom_response", custom_response)
+
+    @property
+    @pulumi.getter(name="customResponse")
+    def custom_response(self) -> Optional[pulumi.Input['RuleGroupCustomResponseArgs']]:
+        return pulumi.get(self, "custom_response")
+
+    @custom_response.setter
+    def custom_response(self, value: Optional[pulumi.Input['RuleGroupCustomResponseArgs']]):
+        pulumi.set(self, "custom_response", value)
 
 
 @pulumi.input_type
@@ -662,6 +702,26 @@ class RuleGroupByteMatchStatementArgs:
 
 
 @pulumi.input_type
+class RuleGroupCaptchaActionArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
+        """
+        Checks valid token exists with request.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]:
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+@pulumi.input_type
 class RuleGroupCaptchaConfigArgs:
     def __init__(__self__, *,
                  immunity_time_property: Optional[pulumi.Input['RuleGroupImmunityTimePropertyArgs']] = None):
@@ -676,6 +736,26 @@ class RuleGroupCaptchaConfigArgs:
     @immunity_time_property.setter
     def immunity_time_property(self, value: Optional[pulumi.Input['RuleGroupImmunityTimePropertyArgs']]):
         pulumi.set(self, "immunity_time_property", value)
+
+
+@pulumi.input_type
+class RuleGroupChallengeActionArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
+        """
+        Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]:
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
 
 
 @pulumi.input_type
@@ -782,6 +862,26 @@ class RuleGroupCookiesArgs:
     @oversize_handling.setter
     def oversize_handling(self, value: pulumi.Input['RuleGroupOversizeHandling']):
         pulumi.set(self, "oversize_handling", value)
+
+
+@pulumi.input_type
+class RuleGroupCountActionArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
+        """
+        Count traffic towards application.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]:
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
 
 
 @pulumi.input_type
@@ -1617,120 +1717,15 @@ class RuleGroupRegexPatternSetReferenceStatementArgs:
 
 
 @pulumi.input_type
-class RuleGroupRuleActionAllowPropertiesArgs:
-    def __init__(__self__, *,
-                 custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
-        """
-        Allow traffic towards application.
-        """
-        if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
-
-    @property
-    @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]:
-        return pulumi.get(self, "custom_request_handling")
-
-    @custom_request_handling.setter
-    def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
-        pulumi.set(self, "custom_request_handling", value)
-
-
-@pulumi.input_type
-class RuleGroupRuleActionBlockPropertiesArgs:
-    def __init__(__self__, *,
-                 custom_response: Optional[pulumi.Input['RuleGroupCustomResponseArgs']] = None):
-        """
-        Block traffic towards application.
-        """
-        if custom_response is not None:
-            pulumi.set(__self__, "custom_response", custom_response)
-
-    @property
-    @pulumi.getter(name="customResponse")
-    def custom_response(self) -> Optional[pulumi.Input['RuleGroupCustomResponseArgs']]:
-        return pulumi.get(self, "custom_response")
-
-    @custom_response.setter
-    def custom_response(self, value: Optional[pulumi.Input['RuleGroupCustomResponseArgs']]):
-        pulumi.set(self, "custom_response", value)
-
-
-@pulumi.input_type
-class RuleGroupRuleActionCaptchaPropertiesArgs:
-    def __init__(__self__, *,
-                 custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
-        """
-        Checks valid token exists with request.
-        """
-        if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
-
-    @property
-    @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]:
-        return pulumi.get(self, "custom_request_handling")
-
-    @custom_request_handling.setter
-    def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
-        pulumi.set(self, "custom_request_handling", value)
-
-
-@pulumi.input_type
-class RuleGroupRuleActionChallengePropertiesArgs:
-    def __init__(__self__, *,
-                 custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
-        """
-        Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-        """
-        if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
-
-    @property
-    @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]:
-        return pulumi.get(self, "custom_request_handling")
-
-    @custom_request_handling.setter
-    def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
-        pulumi.set(self, "custom_request_handling", value)
-
-
-@pulumi.input_type
-class RuleGroupRuleActionCountPropertiesArgs:
-    def __init__(__self__, *,
-                 custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
-        """
-        Count traffic towards application.
-        """
-        if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
-
-    @property
-    @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]:
-        return pulumi.get(self, "custom_request_handling")
-
-    @custom_request_handling.setter
-    def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
-        pulumi.set(self, "custom_request_handling", value)
-
-
-@pulumi.input_type
 class RuleGroupRuleActionArgs:
     def __init__(__self__, *,
-                 allow: Optional[pulumi.Input['RuleGroupRuleActionAllowPropertiesArgs']] = None,
-                 block: Optional[pulumi.Input['RuleGroupRuleActionBlockPropertiesArgs']] = None,
-                 captcha: Optional[pulumi.Input['RuleGroupRuleActionCaptchaPropertiesArgs']] = None,
-                 challenge: Optional[pulumi.Input['RuleGroupRuleActionChallengePropertiesArgs']] = None,
-                 count: Optional[pulumi.Input['RuleGroupRuleActionCountPropertiesArgs']] = None):
+                 allow: Optional[pulumi.Input['RuleGroupAllowActionArgs']] = None,
+                 block: Optional[pulumi.Input['RuleGroupBlockActionArgs']] = None,
+                 captcha: Optional[pulumi.Input['RuleGroupCaptchaActionArgs']] = None,
+                 challenge: Optional[pulumi.Input['RuleGroupChallengeActionArgs']] = None,
+                 count: Optional[pulumi.Input['RuleGroupCountActionArgs']] = None):
         """
         Action taken when Rule matches its condition.
-        :param pulumi.Input['RuleGroupRuleActionAllowPropertiesArgs'] allow: Allow traffic towards application.
-        :param pulumi.Input['RuleGroupRuleActionBlockPropertiesArgs'] block: Block traffic towards application.
-        :param pulumi.Input['RuleGroupRuleActionCaptchaPropertiesArgs'] captcha: Checks valid token exists with request.
-        :param pulumi.Input['RuleGroupRuleActionChallengePropertiesArgs'] challenge: Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-        :param pulumi.Input['RuleGroupRuleActionCountPropertiesArgs'] count: Count traffic towards application.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -1745,62 +1740,47 @@ class RuleGroupRuleActionArgs:
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[pulumi.Input['RuleGroupRuleActionAllowPropertiesArgs']]:
-        """
-        Allow traffic towards application.
-        """
+    def allow(self) -> Optional[pulumi.Input['RuleGroupAllowActionArgs']]:
         return pulumi.get(self, "allow")
 
     @allow.setter
-    def allow(self, value: Optional[pulumi.Input['RuleGroupRuleActionAllowPropertiesArgs']]):
+    def allow(self, value: Optional[pulumi.Input['RuleGroupAllowActionArgs']]):
         pulumi.set(self, "allow", value)
 
     @property
     @pulumi.getter
-    def block(self) -> Optional[pulumi.Input['RuleGroupRuleActionBlockPropertiesArgs']]:
-        """
-        Block traffic towards application.
-        """
+    def block(self) -> Optional[pulumi.Input['RuleGroupBlockActionArgs']]:
         return pulumi.get(self, "block")
 
     @block.setter
-    def block(self, value: Optional[pulumi.Input['RuleGroupRuleActionBlockPropertiesArgs']]):
+    def block(self, value: Optional[pulumi.Input['RuleGroupBlockActionArgs']]):
         pulumi.set(self, "block", value)
 
     @property
     @pulumi.getter
-    def captcha(self) -> Optional[pulumi.Input['RuleGroupRuleActionCaptchaPropertiesArgs']]:
-        """
-        Checks valid token exists with request.
-        """
+    def captcha(self) -> Optional[pulumi.Input['RuleGroupCaptchaActionArgs']]:
         return pulumi.get(self, "captcha")
 
     @captcha.setter
-    def captcha(self, value: Optional[pulumi.Input['RuleGroupRuleActionCaptchaPropertiesArgs']]):
+    def captcha(self, value: Optional[pulumi.Input['RuleGroupCaptchaActionArgs']]):
         pulumi.set(self, "captcha", value)
 
     @property
     @pulumi.getter
-    def challenge(self) -> Optional[pulumi.Input['RuleGroupRuleActionChallengePropertiesArgs']]:
-        """
-        Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-        """
+    def challenge(self) -> Optional[pulumi.Input['RuleGroupChallengeActionArgs']]:
         return pulumi.get(self, "challenge")
 
     @challenge.setter
-    def challenge(self, value: Optional[pulumi.Input['RuleGroupRuleActionChallengePropertiesArgs']]):
+    def challenge(self, value: Optional[pulumi.Input['RuleGroupChallengeActionArgs']]):
         pulumi.set(self, "challenge", value)
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input['RuleGroupRuleActionCountPropertiesArgs']]:
-        """
-        Count traffic towards application.
-        """
+    def count(self) -> Optional[pulumi.Input['RuleGroupCountActionArgs']]:
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input['RuleGroupRuleActionCountPropertiesArgs']]):
+    def count(self, value: Optional[pulumi.Input['RuleGroupCountActionArgs']]):
         pulumi.set(self, "count", value)
 
 

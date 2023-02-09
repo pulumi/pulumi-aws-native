@@ -16,7 +16,7 @@ __all__ = ['CRLArgs', 'CRL']
 @pulumi.input_type
 class CRLArgs:
     def __init__(__self__, *,
-                 crl_data: Optional[pulumi.Input[str]] = None,
+                 crl_data: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CRLTagArgs']]]] = None,
@@ -24,8 +24,7 @@ class CRLArgs:
         """
         The set of arguments for constructing a CRL resource.
         """
-        if crl_data is not None:
-            pulumi.set(__self__, "crl_data", crl_data)
+        pulumi.set(__self__, "crl_data", crl_data)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
@@ -37,11 +36,11 @@ class CRLArgs:
 
     @property
     @pulumi.getter(name="crlData")
-    def crl_data(self) -> Optional[pulumi.Input[str]]:
+    def crl_data(self) -> pulumi.Input[str]:
         return pulumi.get(self, "crl_data")
 
     @crl_data.setter
-    def crl_data(self, value: Optional[pulumi.Input[str]]):
+    def crl_data(self, value: pulumi.Input[str]):
         pulumi.set(self, "crl_data", value)
 
     @property
@@ -102,7 +101,7 @@ class CRL(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[CRLArgs] = None,
+                 args: CRLArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RolesAnywhere::CRL Resource Type
@@ -136,6 +135,8 @@ class CRL(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CRLArgs.__new__(CRLArgs)
 
+            if crl_data is None and not opts.urn:
+                raise TypeError("Missing required property 'crl_data'")
             __props__.__dict__["crl_data"] = crl_data
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["name"] = name
@@ -174,7 +175,7 @@ class CRL(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="crlData")
-    def crl_data(self) -> pulumi.Output[Optional[str]]:
+    def crl_data(self) -> pulumi.Output[str]:
         return pulumi.get(self, "crl_data")
 
     @property
@@ -189,7 +190,7 @@ class CRL(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property

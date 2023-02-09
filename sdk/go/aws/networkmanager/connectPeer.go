@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ type ConnectPeer struct {
 	// Configuration of the connect peer.
 	Configuration ConnectPeerConfigurationOutput `pulumi:"configuration"`
 	// The ID of the attachment to connect.
-	ConnectAttachmentId pulumi.StringPtrOutput `pulumi:"connectAttachmentId"`
+	ConnectAttachmentId pulumi.StringOutput `pulumi:"connectAttachmentId"`
 	// The ID of the Connect peer.
 	ConnectPeerId pulumi.StringOutput `pulumi:"connectPeerId"`
 	// The IP address of a core network.
@@ -33,7 +34,7 @@ type ConnectPeer struct {
 	// The inside IP addresses used for a Connect peer configuration.
 	InsideCidrBlocks pulumi.StringArrayOutput `pulumi:"insideCidrBlocks"`
 	// The IP address of the Connect peer.
-	PeerAddress pulumi.StringPtrOutput `pulumi:"peerAddress"`
+	PeerAddress pulumi.StringOutput `pulumi:"peerAddress"`
 	// State of the connect peer.
 	State pulumi.StringOutput `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
@@ -44,9 +45,18 @@ type ConnectPeer struct {
 func NewConnectPeer(ctx *pulumi.Context,
 	name string, args *ConnectPeerArgs, opts ...pulumi.ResourceOption) (*ConnectPeer, error) {
 	if args == nil {
-		args = &ConnectPeerArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ConnectAttachmentId == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectAttachmentId'")
+	}
+	if args.InsideCidrBlocks == nil {
+		return nil, errors.New("invalid value for required argument 'InsideCidrBlocks'")
+	}
+	if args.PeerAddress == nil {
+		return nil, errors.New("invalid value for required argument 'PeerAddress'")
+	}
 	var resource ConnectPeer
 	err := ctx.RegisterResource("aws-native:networkmanager:ConnectPeer", name, args, &resource, opts...)
 	if err != nil {
@@ -82,13 +92,13 @@ type connectPeerArgs struct {
 	// Bgp options for connect peer.
 	BgpOptions *ConnectPeerBgpOptions `pulumi:"bgpOptions"`
 	// The ID of the attachment to connect.
-	ConnectAttachmentId *string `pulumi:"connectAttachmentId"`
+	ConnectAttachmentId string `pulumi:"connectAttachmentId"`
 	// The IP address of a core network.
 	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
 	// The inside IP addresses used for a Connect peer configuration.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// The IP address of the Connect peer.
-	PeerAddress *string `pulumi:"peerAddress"`
+	PeerAddress string `pulumi:"peerAddress"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ConnectPeerTag `pulumi:"tags"`
 }
@@ -98,13 +108,13 @@ type ConnectPeerArgs struct {
 	// Bgp options for connect peer.
 	BgpOptions ConnectPeerBgpOptionsPtrInput
 	// The ID of the attachment to connect.
-	ConnectAttachmentId pulumi.StringPtrInput
+	ConnectAttachmentId pulumi.StringInput
 	// The IP address of a core network.
 	CoreNetworkAddress pulumi.StringPtrInput
 	// The inside IP addresses used for a Connect peer configuration.
 	InsideCidrBlocks pulumi.StringArrayInput
 	// The IP address of the Connect peer.
-	PeerAddress pulumi.StringPtrInput
+	PeerAddress pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags ConnectPeerTagArrayInput
 }
@@ -157,8 +167,8 @@ func (o ConnectPeerOutput) Configuration() ConnectPeerConfigurationOutput {
 }
 
 // The ID of the attachment to connect.
-func (o ConnectPeerOutput) ConnectAttachmentId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectPeer) pulumi.StringPtrOutput { return v.ConnectAttachmentId }).(pulumi.StringPtrOutput)
+func (o ConnectPeerOutput) ConnectAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.ConnectAttachmentId }).(pulumi.StringOutput)
 }
 
 // The ID of the Connect peer.
@@ -192,8 +202,8 @@ func (o ConnectPeerOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 }
 
 // The IP address of the Connect peer.
-func (o ConnectPeerOutput) PeerAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectPeer) pulumi.StringPtrOutput { return v.PeerAddress }).(pulumi.StringPtrOutput)
+func (o ConnectPeerOutput) PeerAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.PeerAddress }).(pulumi.StringOutput)
 }
 
 // State of the connect peer.

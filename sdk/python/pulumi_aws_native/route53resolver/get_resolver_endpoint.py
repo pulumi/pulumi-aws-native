@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetResolverEndpointResult:
-    def __init__(__self__, arn=None, host_vpc_id=None, ip_address_count=None, ip_addresses=None, name=None, resolver_endpoint_id=None, tags=None):
+    def __init__(__self__, arn=None, host_vpc_id=None, ip_address_count=None, ip_addresses=None, name=None, resolver_endpoint_id=None, resolver_endpoint_type=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,6 +38,9 @@ class GetResolverEndpointResult:
         if resolver_endpoint_id and not isinstance(resolver_endpoint_id, str):
             raise TypeError("Expected argument 'resolver_endpoint_id' to be a str")
         pulumi.set(__self__, "resolver_endpoint_id", resolver_endpoint_id)
+        if resolver_endpoint_type and not isinstance(resolver_endpoint_type, str):
+            raise TypeError("Expected argument 'resolver_endpoint_type' to be a str")
+        pulumi.set(__self__, "resolver_endpoint_type", resolver_endpoint_type)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -73,6 +76,11 @@ class GetResolverEndpointResult:
         return pulumi.get(self, "resolver_endpoint_id")
 
     @property
+    @pulumi.getter(name="resolverEndpointType")
+    def resolver_endpoint_type(self) -> Optional[str]:
+        return pulumi.get(self, "resolver_endpoint_type")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ResolverEndpointTag']]:
         return pulumi.get(self, "tags")
@@ -90,6 +98,7 @@ class AwaitableGetResolverEndpointResult(GetResolverEndpointResult):
             ip_addresses=self.ip_addresses,
             name=self.name,
             resolver_endpoint_id=self.resolver_endpoint_id,
+            resolver_endpoint_type=self.resolver_endpoint_type,
             tags=self.tags)
 
 
@@ -110,6 +119,7 @@ def get_resolver_endpoint(resolver_endpoint_id: Optional[str] = None,
         ip_addresses=__ret__.ip_addresses,
         name=__ret__.name,
         resolver_endpoint_id=__ret__.resolver_endpoint_id,
+        resolver_endpoint_type=__ret__.resolver_endpoint_type,
         tags=__ret__.tags)
 
 

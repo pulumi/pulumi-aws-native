@@ -131,6 +131,8 @@ export type LocationS3S3StorageClass = (typeof LocationS3S3StorageClass)[keyof t
 
 export const LocationSMBMountOptionsVersion = {
     Automatic: "AUTOMATIC",
+    Smb1: "SMB1",
+    Smb20: "SMB2_0",
     Smb2: "SMB2",
     Smb3: "SMB3",
 } as const;

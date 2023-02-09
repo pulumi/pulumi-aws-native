@@ -86,6 +86,7 @@ import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
+import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
 import * as organizations from "./organizations";
 import * as panorama from "./panorama";
@@ -210,6 +211,7 @@ export {
     networkfirewall,
     nimblestudio,
     oam,
+    omics,
     opensearchserverless,
     organizations,
     panorama,

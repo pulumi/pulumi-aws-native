@@ -17,9 +17,9 @@ __all__ = ['NetworkInsightsPathArgs', 'NetworkInsightsPath']
 @pulumi.input_type
 class NetworkInsightsPathArgs:
     def __init__(__self__, *,
-                 destination: pulumi.Input[str],
                  protocol: pulumi.Input['NetworkInsightsPathProtocol'],
                  source: pulumi.Input[str],
+                 destination: Optional[pulumi.Input[str]] = None,
                  destination_ip: Optional[pulumi.Input[str]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
@@ -27,9 +27,10 @@ class NetworkInsightsPathArgs:
         """
         The set of arguments for constructing a NetworkInsightsPath resource.
         """
-        pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "source", source)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
         if destination_ip is not None:
             pulumi.set(__self__, "destination_ip", destination_ip)
         if destination_port is not None:
@@ -38,15 +39,6 @@ class NetworkInsightsPathArgs:
             pulumi.set(__self__, "source_ip", source_ip)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def destination(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "destination")
-
-    @destination.setter
-    def destination(self, value: pulumi.Input[str]):
-        pulumi.set(self, "destination", value)
 
     @property
     @pulumi.getter
@@ -65,6 +57,15 @@ class NetworkInsightsPathArgs:
     @source.setter
     def source(self, value: pulumi.Input[str]):
         pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination", value)
 
     @property
     @pulumi.getter(name="destinationIp")
@@ -162,8 +163,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkInsightsPathArgs.__new__(NetworkInsightsPathArgs)
 
-            if destination is None and not opts.urn:
-                raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
             __props__.__dict__["destination_ip"] = destination_ip
             __props__.__dict__["destination_port"] = destination_port
@@ -223,7 +222,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Output[str]:
+    def destination(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "destination")
 
     @property

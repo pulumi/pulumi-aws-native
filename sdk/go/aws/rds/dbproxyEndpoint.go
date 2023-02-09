@@ -28,7 +28,7 @@ type DBProxyEndpoint struct {
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
 	Tags DBProxyEndpointTagFormatArrayOutput `pulumi:"tags"`
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-	TargetRole DBProxyEndpointTargetRolePtrOutput `pulumi:"targetRole"`
+	TargetRole DBProxyEndpointTargetRoleOutput `pulumi:"targetRole"`
 	// VPC ID to associate with the new DB proxy endpoint.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// VPC security group IDs to associate with the new DB proxy endpoint.
@@ -88,8 +88,6 @@ type dbproxyEndpointArgs struct {
 	DBProxyName string `pulumi:"dBProxyName"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
 	Tags []DBProxyEndpointTagFormat `pulumi:"tags"`
-	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-	TargetRole *DBProxyEndpointTargetRole `pulumi:"targetRole"`
 	// VPC security group IDs to associate with the new DB proxy endpoint.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 	// VPC subnet IDs to associate with the new DB proxy endpoint.
@@ -104,8 +102,6 @@ type DBProxyEndpointArgs struct {
 	DBProxyName pulumi.StringInput
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
 	Tags DBProxyEndpointTagFormatArrayInput
-	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-	TargetRole DBProxyEndpointTargetRolePtrInput
 	// VPC security group IDs to associate with the new DB proxy endpoint.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 	// VPC subnet IDs to associate with the new DB proxy endpoint.
@@ -180,8 +176,8 @@ func (o DBProxyEndpointOutput) Tags() DBProxyEndpointTagFormatArrayOutput {
 }
 
 // A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-func (o DBProxyEndpointOutput) TargetRole() DBProxyEndpointTargetRolePtrOutput {
-	return o.ApplyT(func(v *DBProxyEndpoint) DBProxyEndpointTargetRolePtrOutput { return v.TargetRole }).(DBProxyEndpointTargetRolePtrOutput)
+func (o DBProxyEndpointOutput) TargetRole() DBProxyEndpointTargetRoleOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) DBProxyEndpointTargetRoleOutput { return v.TargetRole }).(DBProxyEndpointTargetRoleOutput)
 }
 
 // VPC ID to associate with the new DB proxy endpoint.

@@ -48,7 +48,7 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * The ID of the attachment to connect.
      */
-    public readonly connectAttachmentId!: pulumi.Output<string | undefined>;
+    public readonly connectAttachmentId!: pulumi.Output<string>;
     /**
      * The ID of the Connect peer.
      */
@@ -72,11 +72,11 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * The inside IP addresses used for a Connect peer configuration.
      */
-    public readonly insideCidrBlocks!: pulumi.Output<string[] | undefined>;
+    public readonly insideCidrBlocks!: pulumi.Output<string[]>;
     /**
      * The IP address of the Connect peer.
      */
-    public readonly peerAddress!: pulumi.Output<string | undefined>;
+    public readonly peerAddress!: pulumi.Output<string>;
     /**
      * State of the connect peer.
      */
@@ -93,10 +93,19 @@ export class ConnectPeer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ConnectPeerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ConnectPeerArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.connectAttachmentId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'connectAttachmentId'");
+            }
+            if ((!args || args.insideCidrBlocks === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'insideCidrBlocks'");
+            }
+            if ((!args || args.peerAddress === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'peerAddress'");
+            }
             resourceInputs["bgpOptions"] = args ? args.bgpOptions : undefined;
             resourceInputs["connectAttachmentId"] = args ? args.connectAttachmentId : undefined;
             resourceInputs["coreNetworkAddress"] = args ? args.coreNetworkAddress : undefined;
@@ -139,7 +148,7 @@ export interface ConnectPeerArgs {
     /**
      * The ID of the attachment to connect.
      */
-    connectAttachmentId?: pulumi.Input<string>;
+    connectAttachmentId: pulumi.Input<string>;
     /**
      * The IP address of a core network.
      */
@@ -147,11 +156,11 @@ export interface ConnectPeerArgs {
     /**
      * The inside IP addresses used for a Connect peer configuration.
      */
-    insideCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    insideCidrBlocks: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The IP address of the Connect peer.
      */
-    peerAddress?: pulumi.Input<string>;
+    peerAddress: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ChannelDestinationType = {
+    EventDataStore: "EVENT_DATA_STORE",
+} as const;
+
+/**
+ * The type of destination for events arriving from a channel.
+ */
+export type ChannelDestinationType = (typeof ChannelDestinationType)[keyof typeof ChannelDestinationType];
+
 export const TrailEventSelectorReadWriteType = {
     All: "All",
     ReadOnly: "ReadOnly",

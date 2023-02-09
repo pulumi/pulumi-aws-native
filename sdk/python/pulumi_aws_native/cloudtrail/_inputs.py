@@ -11,6 +11,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ChannelDestinationArgs',
+    'ChannelTagArgs',
     'EventDataStoreAdvancedEventSelectorArgs',
     'EventDataStoreAdvancedFieldSelectorArgs',
     'EventDataStoreTagArgs',
@@ -19,6 +21,82 @@ __all__ = [
     'TrailInsightSelectorArgs',
     'TrailTagArgs',
 ]
+
+@pulumi.input_type
+class ChannelDestinationArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[str],
+                 type: pulumi.Input['ChannelDestinationType']):
+        """
+        The resource that receives events arriving from a channel.
+        :param pulumi.Input[str] location: The ARN of a resource that receives events from a channel.
+        :param pulumi.Input['ChannelDestinationType'] type: The type of destination for events arriving from a channel.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[str]:
+        """
+        The ARN of a resource that receives events from a channel.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ChannelDestinationType']:
+        """
+        The type of destination for events arriving from a channel.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ChannelDestinationType']):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ChannelTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class EventDataStoreAdvancedEventSelectorArgs:

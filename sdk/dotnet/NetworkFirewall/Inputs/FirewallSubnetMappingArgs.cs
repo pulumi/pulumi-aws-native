@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     public sealed class FirewallSubnetMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A IPAddressType
+        /// </summary>
+        [Input("iPAddressType")]
+        public Input<string>? IPAddressType { get; set; }
+
+        /// <summary>
         /// A SubnetId.
         /// </summary>
         [Input("subnetId", required: true)]

@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.DMS
         public readonly string? ReplicationInstanceIdentifier;
         public readonly string? ReplicationInstancePrivateIpAddresses;
         public readonly string? ReplicationInstancePublicIpAddresses;
+        public readonly ImmutableArray<Outputs.ReplicationInstanceTag> Tags;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
@@ -91,6 +92,8 @@ namespace Pulumi.AwsNative.DMS
 
             string? replicationInstancePublicIpAddresses,
 
+            ImmutableArray<Outputs.ReplicationInstanceTag> tags,
+
             ImmutableArray<string> vpcSecurityGroupIds)
         {
             AllocatedStorage = allocatedStorage;
@@ -105,6 +108,7 @@ namespace Pulumi.AwsNative.DMS
             ReplicationInstanceIdentifier = replicationInstanceIdentifier;
             ReplicationInstancePrivateIpAddresses = replicationInstancePrivateIpAddresses;
             ReplicationInstancePublicIpAddresses = replicationInstancePublicIpAddresses;
+            Tags = tags;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
         }
     }

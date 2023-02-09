@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
     public partial class Component : global::Pulumi.CustomResource
     {
         [Output("appId")]
-        public Output<string> AppId { get; private set; } = null!;
+        public Output<string?> AppId { get; private set; } = null!;
 
         [Output("bindingProperties")]
         public Output<Outputs.ComponentBindingProperties> BindingProperties { get; private set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         public Output<string> ComponentType { get; private set; } = null!;
 
         [Output("environmentName")]
-        public Output<string> EnvironmentName { get; private set; } = null!;
+        public Output<string?> EnvironmentName { get; private set; } = null!;
 
         [Output("events")]
         public Output<Outputs.ComponentEvents?> Events { get; private set; } = null!;
@@ -102,6 +102,9 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
 
     public sealed class ComponentArgs : global::Pulumi.ResourceArgs
     {
+        [Input("appId")]
+        public Input<string>? AppId { get; set; }
+
         [Input("bindingProperties", required: true)]
         public Input<Inputs.ComponentBindingPropertiesArgs> BindingProperties { get; set; } = null!;
 
@@ -118,6 +121,9 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
 
         [Input("componentType", required: true)]
         public Input<string> ComponentType { get; set; } = null!;
+
+        [Input("environmentName")]
+        public Input<string>? EnvironmentName { get; set; }
 
         [Input("events")]
         public Input<Inputs.ComponentEventsArgs>? Events { get; set; }

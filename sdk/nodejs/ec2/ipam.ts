@@ -41,6 +41,14 @@ export class IPAM extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the IPAM.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The Id of the default association to the default resource discovery, created with this IPAM.
+     */
+    public readonly defaultResourceDiscoveryAssociationId!: pulumi.Output<string | undefined>;
+    /**
+     * The Id of the default resource discovery, created with this IPAM.
+     */
+    public readonly defaultResourceDiscoveryId!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Id of the IPAM.
@@ -58,6 +66,10 @@ export class IPAM extends pulumi.CustomResource {
      * The Id of the default scope for publicly routable IP space, created with this IPAM.
      */
     public /*out*/ readonly publicDefaultScopeId!: pulumi.Output<string>;
+    /**
+     * The count of resource discoveries associated with this IPAM.
+     */
+    public readonly resourceDiscoveryAssociationCount!: pulumi.Output<number | undefined>;
     /**
      * The number of scopes that currently exist in this IPAM.
      */
@@ -78,8 +90,11 @@ export class IPAM extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["defaultResourceDiscoveryAssociationId"] = args ? args.defaultResourceDiscoveryAssociationId : undefined;
+            resourceInputs["defaultResourceDiscoveryId"] = args ? args.defaultResourceDiscoveryId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
+            resourceInputs["resourceDiscoveryAssociationCount"] = args ? args.resourceDiscoveryAssociationCount : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamId"] = undefined /*out*/;
@@ -88,11 +103,14 @@ export class IPAM extends pulumi.CustomResource {
             resourceInputs["scopeCount"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultResourceDiscoveryAssociationId"] = undefined /*out*/;
+            resourceInputs["defaultResourceDiscoveryId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["ipamId"] = undefined /*out*/;
             resourceInputs["operatingRegions"] = undefined /*out*/;
             resourceInputs["privateDefaultScopeId"] = undefined /*out*/;
             resourceInputs["publicDefaultScopeId"] = undefined /*out*/;
+            resourceInputs["resourceDiscoveryAssociationCount"] = undefined /*out*/;
             resourceInputs["scopeCount"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -105,11 +123,23 @@ export class IPAM extends pulumi.CustomResource {
  * The set of arguments for constructing a IPAM resource.
  */
 export interface IPAMArgs {
+    /**
+     * The Id of the default association to the default resource discovery, created with this IPAM.
+     */
+    defaultResourceDiscoveryAssociationId?: pulumi.Input<string>;
+    /**
+     * The Id of the default resource discovery, created with this IPAM.
+     */
+    defaultResourceDiscoveryId?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     /**
      * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
      */
     operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.IPAMIpamOperatingRegionArgs>[]>;
+    /**
+     * The count of resource discoveries associated with this IPAM.
+     */
+    resourceDiscoveryAssociationCount?: pulumi.Input<number>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

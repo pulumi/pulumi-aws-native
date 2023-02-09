@@ -354,11 +354,15 @@ class FirewallPolicyArgs:
 @pulumi.input_type
 class FirewallSubnetMappingArgs:
     def __init__(__self__, *,
-                 subnet_id: pulumi.Input[str]):
+                 subnet_id: pulumi.Input[str],
+                 i_p_address_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] subnet_id: A SubnetId.
+        :param pulumi.Input[str] i_p_address_type: A IPAddressType
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if i_p_address_type is not None:
+            pulumi.set(__self__, "i_p_address_type", i_p_address_type)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -371,6 +375,18 @@ class FirewallSubnetMappingArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="iPAddressType")
+    def i_p_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        A IPAddressType
+        """
+        return pulumi.get(self, "i_p_address_type")
+
+    @i_p_address_type.setter
+    def i_p_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "i_p_address_type", value)
 
 
 @pulumi.input_type

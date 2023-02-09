@@ -103,6 +103,10 @@ export class IPAMPool extends pulumi.CustomResource {
      */
     public readonly provisionedCidrs!: pulumi.Output<outputs.ec2.IPAMPoolProvisionedCidr[] | undefined>;
     /**
+     * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+     */
+    public readonly publicIpSource!: pulumi.Output<enums.ec2.IPAMPoolPublicIpSource | undefined>;
+    /**
      * Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
      */
     public readonly publiclyAdvertisable!: pulumi.Output<boolean | undefined>;
@@ -151,6 +155,7 @@ export class IPAMPool extends pulumi.CustomResource {
             resourceInputs["ipamScopeId"] = args ? args.ipamScopeId : undefined;
             resourceInputs["locale"] = args ? args.locale : undefined;
             resourceInputs["provisionedCidrs"] = args ? args.provisionedCidrs : undefined;
+            resourceInputs["publicIpSource"] = args ? args.publicIpSource : undefined;
             resourceInputs["publiclyAdvertisable"] = args ? args.publiclyAdvertisable : undefined;
             resourceInputs["sourceIpamPoolId"] = args ? args.sourceIpamPoolId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -180,6 +185,7 @@ export class IPAMPool extends pulumi.CustomResource {
             resourceInputs["locale"] = undefined /*out*/;
             resourceInputs["poolDepth"] = undefined /*out*/;
             resourceInputs["provisionedCidrs"] = undefined /*out*/;
+            resourceInputs["publicIpSource"] = undefined /*out*/;
             resourceInputs["publiclyAdvertisable"] = undefined /*out*/;
             resourceInputs["sourceIpamPoolId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -236,6 +242,10 @@ export interface IPAMPoolArgs {
      * A list of cidrs representing the address space available for allocation in this pool.
      */
     provisionedCidrs?: pulumi.Input<pulumi.Input<inputs.ec2.IPAMPoolProvisionedCidrArgs>[]>;
+    /**
+     * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+     */
+    publicIpSource?: pulumi.Input<enums.ec2.IPAMPoolPublicIpSource>;
     /**
      * Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
      */

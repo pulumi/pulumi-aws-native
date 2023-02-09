@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,21 +15,24 @@ import (
 type TrustAnchor struct {
 	pulumi.CustomResourceState
 
-	Enabled        pulumi.BoolPtrOutput       `pulumi:"enabled"`
-	Name           pulumi.StringPtrOutput     `pulumi:"name"`
-	Source         TrustAnchorSourcePtrOutput `pulumi:"source"`
-	Tags           TrustAnchorTagArrayOutput  `pulumi:"tags"`
-	TrustAnchorArn pulumi.StringOutput        `pulumi:"trustAnchorArn"`
-	TrustAnchorId  pulumi.StringOutput        `pulumi:"trustAnchorId"`
+	Enabled        pulumi.BoolPtrOutput      `pulumi:"enabled"`
+	Name           pulumi.StringOutput       `pulumi:"name"`
+	Source         TrustAnchorSourceOutput   `pulumi:"source"`
+	Tags           TrustAnchorTagArrayOutput `pulumi:"tags"`
+	TrustAnchorArn pulumi.StringOutput       `pulumi:"trustAnchorArn"`
+	TrustAnchorId  pulumi.StringOutput       `pulumi:"trustAnchorId"`
 }
 
 // NewTrustAnchor registers a new resource with the given unique name, arguments, and options.
 func NewTrustAnchor(ctx *pulumi.Context,
 	name string, args *TrustAnchorArgs, opts ...pulumi.ResourceOption) (*TrustAnchor, error) {
 	if args == nil {
-		args = &TrustAnchorArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Source == nil {
+		return nil, errors.New("invalid value for required argument 'Source'")
+	}
 	var resource TrustAnchor
 	err := ctx.RegisterResource("aws-native:rolesanywhere:TrustAnchor", name, args, &resource, opts...)
 	if err != nil {
@@ -61,17 +65,17 @@ func (TrustAnchorState) ElementType() reflect.Type {
 }
 
 type trustAnchorArgs struct {
-	Enabled *bool              `pulumi:"enabled"`
-	Name    *string            `pulumi:"name"`
-	Source  *TrustAnchorSource `pulumi:"source"`
-	Tags    []TrustAnchorTag   `pulumi:"tags"`
+	Enabled *bool             `pulumi:"enabled"`
+	Name    *string           `pulumi:"name"`
+	Source  TrustAnchorSource `pulumi:"source"`
+	Tags    []TrustAnchorTag  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrustAnchor resource.
 type TrustAnchorArgs struct {
 	Enabled pulumi.BoolPtrInput
 	Name    pulumi.StringPtrInput
-	Source  TrustAnchorSourcePtrInput
+	Source  TrustAnchorSourceInput
 	Tags    TrustAnchorTagArrayInput
 }
 
@@ -116,12 +120,12 @@ func (o TrustAnchorOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o TrustAnchorOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TrustAnchor) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o TrustAnchorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrustAnchor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o TrustAnchorOutput) Source() TrustAnchorSourcePtrOutput {
-	return o.ApplyT(func(v *TrustAnchor) TrustAnchorSourcePtrOutput { return v.Source }).(TrustAnchorSourcePtrOutput)
+func (o TrustAnchorOutput) Source() TrustAnchorSourceOutput {
+	return o.ApplyT(func(v *TrustAnchor) TrustAnchorSourceOutput { return v.Source }).(TrustAnchorSourceOutput)
 }
 
 func (o TrustAnchorOutput) Tags() TrustAnchorTagArrayOutput {

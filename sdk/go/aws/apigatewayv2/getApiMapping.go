@@ -25,6 +25,7 @@ type LookupApiMappingArgs struct {
 }
 
 type LookupApiMappingResult struct {
+	ApiId         *string `pulumi:"apiId"`
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
 	Id            *string `pulumi:"id"`
 	Stage         *string `pulumi:"stage"`
@@ -63,6 +64,10 @@ func (o LookupApiMappingResultOutput) ToLookupApiMappingResultOutput() LookupApi
 
 func (o LookupApiMappingResultOutput) ToLookupApiMappingResultOutputWithContext(ctx context.Context) LookupApiMappingResultOutput {
 	return o
+}
+
+func (o LookupApiMappingResultOutput) ApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiMappingResult) *string { return v.ApiId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupApiMappingResultOutput) ApiMappingKey() pulumi.StringPtrOutput {

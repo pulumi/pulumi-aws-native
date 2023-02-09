@@ -18,11 +18,12 @@ type Workgroup struct {
 	ConfigParameters   WorkgroupConfigParameterArrayOutput `pulumi:"configParameters"`
 	EnhancedVpcRouting pulumi.BoolPtrOutput                `pulumi:"enhancedVpcRouting"`
 	NamespaceName      pulumi.StringPtrOutput              `pulumi:"namespaceName"`
+	Port               pulumi.IntPtrOutput                 `pulumi:"port"`
 	PubliclyAccessible pulumi.BoolPtrOutput                `pulumi:"publiclyAccessible"`
 	SecurityGroupIds   pulumi.StringArrayOutput            `pulumi:"securityGroupIds"`
 	SubnetIds          pulumi.StringArrayOutput            `pulumi:"subnetIds"`
 	Tags               WorkgroupTagArrayOutput             `pulumi:"tags"`
-	Workgroup          WorkgroupTypePtrOutput              `pulumi:"workgroup"`
+	Workgroup          WorkgroupTypeOutput                 `pulumi:"workgroup"`
 	WorkgroupName      pulumi.StringOutput                 `pulumi:"workgroupName"`
 }
 
@@ -69,11 +70,11 @@ type workgroupArgs struct {
 	ConfigParameters   []WorkgroupConfigParameter `pulumi:"configParameters"`
 	EnhancedVpcRouting *bool                      `pulumi:"enhancedVpcRouting"`
 	NamespaceName      *string                    `pulumi:"namespaceName"`
+	Port               *int                       `pulumi:"port"`
 	PubliclyAccessible *bool                      `pulumi:"publiclyAccessible"`
 	SecurityGroupIds   []string                   `pulumi:"securityGroupIds"`
 	SubnetIds          []string                   `pulumi:"subnetIds"`
 	Tags               []WorkgroupTag             `pulumi:"tags"`
-	Workgroup          *WorkgroupType             `pulumi:"workgroup"`
 	WorkgroupName      *string                    `pulumi:"workgroupName"`
 }
 
@@ -83,11 +84,11 @@ type WorkgroupArgs struct {
 	ConfigParameters   WorkgroupConfigParameterArrayInput
 	EnhancedVpcRouting pulumi.BoolPtrInput
 	NamespaceName      pulumi.StringPtrInput
+	Port               pulumi.IntPtrInput
 	PubliclyAccessible pulumi.BoolPtrInput
 	SecurityGroupIds   pulumi.StringArrayInput
 	SubnetIds          pulumi.StringArrayInput
 	Tags               WorkgroupTagArrayInput
-	Workgroup          WorkgroupTypePtrInput
 	WorkgroupName      pulumi.StringPtrInput
 }
 
@@ -144,6 +145,10 @@ func (o WorkgroupOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
+func (o WorkgroupOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 func (o WorkgroupOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
@@ -160,8 +165,8 @@ func (o WorkgroupOutput) Tags() WorkgroupTagArrayOutput {
 	return o.ApplyT(func(v *Workgroup) WorkgroupTagArrayOutput { return v.Tags }).(WorkgroupTagArrayOutput)
 }
 
-func (o WorkgroupOutput) Workgroup() WorkgroupTypePtrOutput {
-	return o.ApplyT(func(v *Workgroup) WorkgroupTypePtrOutput { return v.Workgroup }).(WorkgroupTypePtrOutput)
+func (o WorkgroupOutput) Workgroup() WorkgroupTypeOutput {
+	return o.ApplyT(func(v *Workgroup) WorkgroupTypeOutput { return v.Workgroup }).(WorkgroupTypeOutput)
 }
 
 func (o WorkgroupOutput) WorkgroupName() pulumi.StringOutput {

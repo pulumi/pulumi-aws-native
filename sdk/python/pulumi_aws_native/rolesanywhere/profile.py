@@ -16,17 +16,18 @@ __all__ = ['ProfileArgs', 'Profile']
 @pulumi.input_type
 class ProfileArgs:
     def __init__(__self__, *,
+                 role_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  duration_seconds: Optional[pulumi.Input[float]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  require_instance_properties: Optional[pulumi.Input[bool]] = None,
-                 role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  session_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileTagArgs']]]] = None):
         """
         The set of arguments for constructing a Profile resource.
         """
+        pulumi.set(__self__, "role_arns", role_arns)
         if duration_seconds is not None:
             pulumi.set(__self__, "duration_seconds", duration_seconds)
         if enabled is not None:
@@ -37,12 +38,19 @@ class ProfileArgs:
             pulumi.set(__self__, "name", name)
         if require_instance_properties is not None:
             pulumi.set(__self__, "require_instance_properties", require_instance_properties)
-        if role_arns is not None:
-            pulumi.set(__self__, "role_arns", role_arns)
         if session_policy is not None:
             pulumi.set(__self__, "session_policy", session_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="roleArns")
+    def role_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "role_arns")
+
+    @role_arns.setter
+    def role_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "role_arns", value)
 
     @property
     @pulumi.getter(name="durationSeconds")
@@ -90,15 +98,6 @@ class ProfileArgs:
         pulumi.set(self, "require_instance_properties", value)
 
     @property
-    @pulumi.getter(name="roleArns")
-    def role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "role_arns")
-
-    @role_arns.setter
-    def role_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "role_arns", value)
-
-    @property
     @pulumi.getter(name="sessionPolicy")
     def session_policy(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "session_policy")
@@ -141,7 +140,7 @@ class Profile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ProfileArgs] = None,
+                 args: ProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RolesAnywhere::Profile Resource Type
@@ -183,6 +182,8 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["managed_policy_arns"] = managed_policy_arns
             __props__.__dict__["name"] = name
             __props__.__dict__["require_instance_properties"] = require_instance_properties
+            if role_arns is None and not opts.urn:
+                raise TypeError("Missing required property 'role_arns'")
             __props__.__dict__["role_arns"] = role_arns
             __props__.__dict__["session_policy"] = session_policy
             __props__.__dict__["tags"] = tags
@@ -239,7 +240,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
@@ -259,7 +260,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArns")
-    def role_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def role_arns(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "role_arns")
 
     @property

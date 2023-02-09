@@ -15,15 +15,23 @@ namespace Pulumi.AwsNative.EC2.Outputs
     {
         public readonly string? AdditionalDetailType;
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Component;
+        public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> LoadBalancers;
+        public readonly string? ServiceName;
 
         [OutputConstructor]
         private NetworkInsightsAnalysisAdditionalDetail(
             string? additionalDetailType,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? component)
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? component,
+
+            ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> loadBalancers,
+
+            string? serviceName)
         {
             AdditionalDetailType = additionalDetailType;
             Component = component;
+            LoadBalancers = loadBalancers;
+            ServiceName = serviceName;
         }
     }
 }

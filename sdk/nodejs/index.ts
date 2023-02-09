@@ -212,6 +212,7 @@ import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
+import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
 import * as opensearchservice from "./opensearchservice";
 import * as opsworks from "./opsworks";
@@ -253,6 +254,7 @@ import * as servicecatalogappregistry from "./servicecatalogappregistry";
 import * as servicediscovery from "./servicediscovery";
 import * as ses from "./ses";
 import * as signer from "./signer";
+import * as simspaceweaver from "./simspaceweaver";
 import * as sns from "./sns";
 import * as sqs from "./sqs";
 import * as ssm from "./ssm";
@@ -425,6 +427,7 @@ export {
     networkmanager,
     nimblestudio,
     oam,
+    omics,
     opensearchserverless,
     opensearchservice,
     opsworks,
@@ -466,6 +469,7 @@ export {
     servicediscovery,
     ses,
     signer,
+    simspaceweaver,
     sns,
     sqs,
     ssm,

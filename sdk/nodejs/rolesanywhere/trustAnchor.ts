@@ -38,8 +38,8 @@ export class TrustAnchor extends pulumi.CustomResource {
     }
 
     public readonly enabled!: pulumi.Output<boolean | undefined>;
-    public readonly name!: pulumi.Output<string | undefined>;
-    public readonly source!: pulumi.Output<outputs.rolesanywhere.TrustAnchorSource | undefined>;
+    public readonly name!: pulumi.Output<string>;
+    public readonly source!: pulumi.Output<outputs.rolesanywhere.TrustAnchorSource>;
     public readonly tags!: pulumi.Output<outputs.rolesanywhere.TrustAnchorTag[] | undefined>;
     public /*out*/ readonly trustAnchorArn!: pulumi.Output<string>;
     public /*out*/ readonly trustAnchorId!: pulumi.Output<string>;
@@ -51,10 +51,13 @@ export class TrustAnchor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TrustAnchorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TrustAnchorArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.source === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'source'");
+            }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
@@ -80,6 +83,6 @@ export class TrustAnchor extends pulumi.CustomResource {
 export interface TrustAnchorArgs {
     enabled?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
-    source?: pulumi.Input<inputs.rolesanywhere.TrustAnchorSourceArgs>;
+    source: pulumi.Input<inputs.rolesanywhere.TrustAnchorSourceArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorTagArgs>[]>;
 }

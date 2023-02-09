@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,7 +15,7 @@ type Agent struct {
 	pulumi.CustomResourceState
 
 	// Activation key of the Agent.
-	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
+	ActivationKey pulumi.StringPtrOutput `pulumi:"activationKey"`
 	// The DataSync Agent ARN.
 	AgentArn pulumi.StringOutput `pulumi:"agentArn"`
 	// The name configured for the agent. Text reference used to identify the agent in the console.
@@ -37,12 +36,9 @@ type Agent struct {
 func NewAgent(ctx *pulumi.Context,
 	name string, args *AgentArgs, opts ...pulumi.ResourceOption) (*Agent, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AgentArgs{}
 	}
 
-	if args.ActivationKey == nil {
-		return nil, errors.New("invalid value for required argument 'ActivationKey'")
-	}
 	var resource Agent
 	err := ctx.RegisterResource("aws-native:datasync:Agent", name, args, &resource, opts...)
 	if err != nil {
@@ -76,7 +72,7 @@ func (AgentState) ElementType() reflect.Type {
 
 type agentArgs struct {
 	// Activation key of the Agent.
-	ActivationKey string `pulumi:"activationKey"`
+	ActivationKey *string `pulumi:"activationKey"`
 	// The name configured for the agent. Text reference used to identify the agent in the console.
 	AgentName *string `pulumi:"agentName"`
 	// The ARNs of the security group used to protect your data transfer task subnets.
@@ -92,7 +88,7 @@ type agentArgs struct {
 // The set of arguments for constructing a Agent resource.
 type AgentArgs struct {
 	// Activation key of the Agent.
-	ActivationKey pulumi.StringInput
+	ActivationKey pulumi.StringPtrInput
 	// The name configured for the agent. Text reference used to identify the agent in the console.
 	AgentName pulumi.StringPtrInput
 	// The ARNs of the security group used to protect your data transfer task subnets.
@@ -143,8 +139,8 @@ func (o AgentOutput) ToAgentOutputWithContext(ctx context.Context) AgentOutput {
 }
 
 // Activation key of the Agent.
-func (o AgentOutput) ActivationKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.ActivationKey }).(pulumi.StringOutput)
+func (o AgentOutput) ActivationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.ActivationKey }).(pulumi.StringPtrOutput)
 }
 
 // The DataSync Agent ARN.

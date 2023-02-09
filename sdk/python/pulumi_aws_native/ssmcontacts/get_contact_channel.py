@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetContactChannelResult:
-    def __init__(__self__, arn=None, channel_address=None, channel_name=None, defer_activation=None):
+    def __init__(__self__, arn=None, channel_address=None, channel_name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -28,9 +28,6 @@ class GetContactChannelResult:
         if channel_name and not isinstance(channel_name, str):
             raise TypeError("Expected argument 'channel_name' to be a str")
         pulumi.set(__self__, "channel_name", channel_name)
-        if defer_activation and not isinstance(defer_activation, bool):
-            raise TypeError("Expected argument 'defer_activation' to be a bool")
-        pulumi.set(__self__, "defer_activation", defer_activation)
 
     @property
     @pulumi.getter
@@ -56,14 +53,6 @@ class GetContactChannelResult:
         """
         return pulumi.get(self, "channel_name")
 
-    @property
-    @pulumi.getter(name="deferActivation")
-    def defer_activation(self) -> Optional[bool]:
-        """
-        If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
-        """
-        return pulumi.get(self, "defer_activation")
-
 
 class AwaitableGetContactChannelResult(GetContactChannelResult):
     # pylint: disable=using-constant-test
@@ -73,8 +62,7 @@ class AwaitableGetContactChannelResult(GetContactChannelResult):
         return GetContactChannelResult(
             arn=self.arn,
             channel_address=self.channel_address,
-            channel_name=self.channel_name,
-            defer_activation=self.defer_activation)
+            channel_name=self.channel_name)
 
 
 def get_contact_channel(arn: Optional[str] = None,
@@ -93,8 +81,7 @@ def get_contact_channel(arn: Optional[str] = None,
     return AwaitableGetContactChannelResult(
         arn=__ret__.arn,
         channel_address=__ret__.channel_address,
-        channel_name=__ret__.channel_name,
-        defer_activation=__ret__.defer_activation)
+        channel_name=__ret__.channel_name)
 
 
 @_utilities.lift_output_func(get_contact_channel)

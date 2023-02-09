@@ -56,7 +56,7 @@ export class Server extends pulumi.CustomResource {
     public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
-    public readonly serverName!: pulumi.Output<string | undefined>;
+    public readonly serverName!: pulumi.Output<string>;
     public readonly serviceRoleArn!: pulumi.Output<string>;
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.opsworkscm.ServerTag[] | undefined>;

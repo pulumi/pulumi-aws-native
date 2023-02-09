@@ -379,6 +379,8 @@ namespace Pulumi.AwsNative.DataSync
         }
 
         public static LocationSMBMountOptionsVersion Automatic { get; } = new LocationSMBMountOptionsVersion("AUTOMATIC");
+        public static LocationSMBMountOptionsVersion Smb1 { get; } = new LocationSMBMountOptionsVersion("SMB1");
+        public static LocationSMBMountOptionsVersion Smb20 { get; } = new LocationSMBMountOptionsVersion("SMB2_0");
         public static LocationSMBMountOptionsVersion Smb2 { get; } = new LocationSMBMountOptionsVersion("SMB2");
         public static LocationSMBMountOptionsVersion Smb3 { get; } = new LocationSMBMountOptionsVersion("SMB3");
 

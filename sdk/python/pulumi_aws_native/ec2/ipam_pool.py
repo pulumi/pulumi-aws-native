@@ -28,6 +28,7 @@ class IPAMPoolArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
                  provisioned_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMPoolProvisionedCidrArgs']]]] = None,
+                 public_ip_source: Optional[pulumi.Input['IPAMPoolPublicIpSource']] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMPoolTagArgs']]]] = None):
@@ -43,6 +44,7 @@ class IPAMPoolArgs:
         :param pulumi.Input['IPAMPoolAwsService'] aws_service: Limits which service in Amazon Web Services that the pool can be used in.
         :param pulumi.Input[str] locale: The region of this pool. If not set, this will default to "None" which will disable non-custom allocations. If the locale has been specified for the source pool, this value must match.
         :param pulumi.Input[Sequence[pulumi.Input['IPAMPoolProvisionedCidrArgs']]] provisioned_cidrs: A list of cidrs representing the address space available for allocation in this pool.
+        :param pulumi.Input['IPAMPoolPublicIpSource'] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
         :param pulumi.Input[bool] publicly_advertisable: Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
         :param pulumi.Input[str] source_ipam_pool_id: The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
         :param pulumi.Input[Sequence[pulumi.Input['IPAMPoolTagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -67,6 +69,8 @@ class IPAMPoolArgs:
             pulumi.set(__self__, "locale", locale)
         if provisioned_cidrs is not None:
             pulumi.set(__self__, "provisioned_cidrs", provisioned_cidrs)
+        if public_ip_source is not None:
+            pulumi.set(__self__, "public_ip_source", public_ip_source)
         if publicly_advertisable is not None:
             pulumi.set(__self__, "publicly_advertisable", publicly_advertisable)
         if source_ipam_pool_id is not None:
@@ -204,6 +208,18 @@ class IPAMPoolArgs:
         pulumi.set(self, "provisioned_cidrs", value)
 
     @property
+    @pulumi.getter(name="publicIpSource")
+    def public_ip_source(self) -> Optional[pulumi.Input['IPAMPoolPublicIpSource']]:
+        """
+        The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+        """
+        return pulumi.get(self, "public_ip_source")
+
+    @public_ip_source.setter
+    def public_ip_source(self, value: Optional[pulumi.Input['IPAMPoolPublicIpSource']]):
+        pulumi.set(self, "public_ip_source", value)
+
+    @property
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -256,6 +272,7 @@ class IPAMPool(pulumi.CustomResource):
                  ipam_scope_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
                  provisioned_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMPoolProvisionedCidrArgs']]]]] = None,
+                 public_ip_source: Optional[pulumi.Input['IPAMPoolPublicIpSource']] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMPoolTagArgs']]]]] = None,
@@ -275,6 +292,7 @@ class IPAMPool(pulumi.CustomResource):
         :param pulumi.Input[str] ipam_scope_id: The Id of the scope this pool is a part of.
         :param pulumi.Input[str] locale: The region of this pool. If not set, this will default to "None" which will disable non-custom allocations. If the locale has been specified for the source pool, this value must match.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMPoolProvisionedCidrArgs']]]] provisioned_cidrs: A list of cidrs representing the address space available for allocation in this pool.
+        :param pulumi.Input['IPAMPoolPublicIpSource'] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
         :param pulumi.Input[bool] publicly_advertisable: Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
         :param pulumi.Input[str] source_ipam_pool_id: The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMPoolTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -314,6 +332,7 @@ class IPAMPool(pulumi.CustomResource):
                  ipam_scope_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
                  provisioned_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMPoolProvisionedCidrArgs']]]]] = None,
+                 public_ip_source: Optional[pulumi.Input['IPAMPoolPublicIpSource']] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMPoolTagArgs']]]]] = None,
@@ -341,6 +360,7 @@ class IPAMPool(pulumi.CustomResource):
             __props__.__dict__["ipam_scope_id"] = ipam_scope_id
             __props__.__dict__["locale"] = locale
             __props__.__dict__["provisioned_cidrs"] = provisioned_cidrs
+            __props__.__dict__["public_ip_source"] = public_ip_source
             __props__.__dict__["publicly_advertisable"] = publicly_advertisable
             __props__.__dict__["source_ipam_pool_id"] = source_ipam_pool_id
             __props__.__dict__["tags"] = tags
@@ -391,6 +411,7 @@ class IPAMPool(pulumi.CustomResource):
         __props__.__dict__["locale"] = None
         __props__.__dict__["pool_depth"] = None
         __props__.__dict__["provisioned_cidrs"] = None
+        __props__.__dict__["public_ip_source"] = None
         __props__.__dict__["publicly_advertisable"] = None
         __props__.__dict__["source_ipam_pool_id"] = None
         __props__.__dict__["state"] = None
@@ -530,6 +551,14 @@ class IPAMPool(pulumi.CustomResource):
         A list of cidrs representing the address space available for allocation in this pool.
         """
         return pulumi.get(self, "provisioned_cidrs")
+
+    @property
+    @pulumi.getter(name="publicIpSource")
+    def public_ip_source(self) -> pulumi.Output[Optional['IPAMPoolPublicIpSource']]:
+        """
+        The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+        """
+        return pulumi.get(self, "public_ip_source")
 
     @property
     @pulumi.getter(name="publiclyAdvertisable")

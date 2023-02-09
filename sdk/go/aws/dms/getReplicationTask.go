@@ -25,15 +25,16 @@ type LookupReplicationTaskArgs struct {
 }
 
 type LookupReplicationTaskResult struct {
-	CdcStartPosition          *string  `pulumi:"cdcStartPosition"`
-	CdcStartTime              *float64 `pulumi:"cdcStartTime"`
-	CdcStopPosition           *string  `pulumi:"cdcStopPosition"`
-	Id                        *string  `pulumi:"id"`
-	MigrationType             *string  `pulumi:"migrationType"`
-	ReplicationTaskIdentifier *string  `pulumi:"replicationTaskIdentifier"`
-	ReplicationTaskSettings   *string  `pulumi:"replicationTaskSettings"`
-	TableMappings             *string  `pulumi:"tableMappings"`
-	TaskData                  *string  `pulumi:"taskData"`
+	CdcStartPosition          *string              `pulumi:"cdcStartPosition"`
+	CdcStartTime              *float64             `pulumi:"cdcStartTime"`
+	CdcStopPosition           *string              `pulumi:"cdcStopPosition"`
+	Id                        *string              `pulumi:"id"`
+	MigrationType             *string              `pulumi:"migrationType"`
+	ReplicationTaskIdentifier *string              `pulumi:"replicationTaskIdentifier"`
+	ReplicationTaskSettings   *string              `pulumi:"replicationTaskSettings"`
+	TableMappings             *string              `pulumi:"tableMappings"`
+	Tags                      []ReplicationTaskTag `pulumi:"tags"`
+	TaskData                  *string              `pulumi:"taskData"`
 }
 
 func LookupReplicationTaskOutput(ctx *pulumi.Context, args LookupReplicationTaskOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationTaskResultOutput {
@@ -101,6 +102,10 @@ func (o LookupReplicationTaskResultOutput) ReplicationTaskSettings() pulumi.Stri
 
 func (o LookupReplicationTaskResultOutput) TableMappings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReplicationTaskResult) *string { return v.TableMappings }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupReplicationTaskResultOutput) Tags() ReplicationTaskTagArrayOutput {
+	return o.ApplyT(func(v LookupReplicationTaskResult) []ReplicationTaskTag { return v.Tags }).(ReplicationTaskTagArrayOutput)
 }
 
 func (o LookupReplicationTaskResultOutput) TaskData() pulumi.StringPtrOutput {

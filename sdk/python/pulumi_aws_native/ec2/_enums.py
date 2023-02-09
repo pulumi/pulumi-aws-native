@@ -31,6 +31,7 @@ __all__ = [
     'FlowLogTrafficType',
     'IPAMPoolAwsService',
     'IPAMPoolIpamScopeType',
+    'IPAMPoolPublicIpSource',
     'IPAMPoolState',
     'IPAMScopeIpamScopeType',
     'KeyPairKeyType',
@@ -270,6 +271,14 @@ class IPAMPoolIpamScopeType(str, Enum):
     """
     PUBLIC = "public"
     PRIVATE = "private"
+
+
+class IPAMPoolPublicIpSource(str, Enum):
+    """
+    The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
+    """
+    BYOIP = "byoip"
+    AMAZON = "amazon"
 
 
 class IPAMPoolState(str, Enum):

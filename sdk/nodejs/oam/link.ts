@@ -39,7 +39,7 @@ export class Link extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly label!: pulumi.Output<string>;
-    public readonly labelTemplate!: pulumi.Output<string>;
+    public readonly labelTemplate!: pulumi.Output<string | undefined>;
     public readonly resourceTypes!: pulumi.Output<enums.oam.LinkResourceType[]>;
     public readonly sinkIdentifier!: pulumi.Output<string>;
     /**
@@ -58,9 +58,6 @@ export class Link extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labelTemplate === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'labelTemplate'");
-            }
             if ((!args || args.resourceTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceTypes'");
             }
@@ -90,7 +87,7 @@ export class Link extends pulumi.CustomResource {
  * The set of arguments for constructing a Link resource.
  */
 export interface LinkArgs {
-    labelTemplate: pulumi.Input<string>;
+    labelTemplate?: pulumi.Input<string>;
     resourceTypes: pulumi.Input<pulumi.Input<enums.oam.LinkResourceType>[]>;
     sinkIdentifier: pulumi.Input<string>;
     /**

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetReplicationTaskResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetReplicationTaskResult:
-    def __init__(__self__, cdc_start_position=None, cdc_start_time=None, cdc_stop_position=None, id=None, migration_type=None, replication_task_identifier=None, replication_task_settings=None, table_mappings=None, task_data=None):
+    def __init__(__self__, cdc_start_position=None, cdc_start_time=None, cdc_stop_position=None, id=None, migration_type=None, replication_task_identifier=None, replication_task_settings=None, table_mappings=None, tags=None, task_data=None):
         if cdc_start_position and not isinstance(cdc_start_position, str):
             raise TypeError("Expected argument 'cdc_start_position' to be a str")
         pulumi.set(__self__, "cdc_start_position", cdc_start_position)
@@ -43,6 +44,9 @@ class GetReplicationTaskResult:
         if table_mappings and not isinstance(table_mappings, str):
             raise TypeError("Expected argument 'table_mappings' to be a str")
         pulumi.set(__self__, "table_mappings", table_mappings)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if task_data and not isinstance(task_data, str):
             raise TypeError("Expected argument 'task_data' to be a str")
         pulumi.set(__self__, "task_data", task_data)
@@ -88,6 +92,11 @@ class GetReplicationTaskResult:
         return pulumi.get(self, "table_mappings")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.ReplicationTaskTag']]:
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="taskData")
     def task_data(self) -> Optional[str]:
         return pulumi.get(self, "task_data")
@@ -107,6 +116,7 @@ class AwaitableGetReplicationTaskResult(GetReplicationTaskResult):
             replication_task_identifier=self.replication_task_identifier,
             replication_task_settings=self.replication_task_settings,
             table_mappings=self.table_mappings,
+            tags=self.tags,
             task_data=self.task_data)
 
 
@@ -129,6 +139,7 @@ def get_replication_task(id: Optional[str] = None,
         replication_task_identifier=__ret__.replication_task_identifier,
         replication_task_settings=__ret__.replication_task_settings,
         table_mappings=__ret__.table_mappings,
+        tags=__ret__.tags,
         task_data=__ret__.task_data)
 
 

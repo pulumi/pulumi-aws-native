@@ -23,13 +23,18 @@ __all__ = [
     'LoggingConfigurationFilter',
     'LoggingFilterProperties',
     'RegexPatternSetTag',
+    'RuleGroupAllowAction',
     'RuleGroupAndStatement',
+    'RuleGroupBlockAction',
     'RuleGroupBody',
     'RuleGroupByteMatchStatement',
+    'RuleGroupCaptchaAction',
     'RuleGroupCaptchaConfig',
+    'RuleGroupChallengeAction',
     'RuleGroupChallengeConfig',
     'RuleGroupCookieMatchPattern',
     'RuleGroupCookies',
+    'RuleGroupCountAction',
     'RuleGroupCustomHTTPHeader',
     'RuleGroupCustomRequestHandling',
     'RuleGroupCustomResponse',
@@ -56,11 +61,6 @@ __all__ = [
     'RuleGroupRegexPatternSetReferenceStatement',
     'RuleGroupRule',
     'RuleGroupRuleAction',
-    'RuleGroupRuleActionAllowProperties',
-    'RuleGroupRuleActionBlockProperties',
-    'RuleGroupRuleActionCaptchaProperties',
-    'RuleGroupRuleActionChallengeProperties',
-    'RuleGroupRuleActionCountProperties',
     'RuleGroupSizeConstraintStatement',
     'RuleGroupSqliMatchStatement',
     'RuleGroupStatement',
@@ -601,6 +601,42 @@ class RegexPatternSetTag(dict):
 
 
 @pulumi.output_type
+class RuleGroupAllowAction(dict):
+    """
+    Allow traffic towards application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRequestHandling":
+            suggest = "custom_request_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupAllowAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupAllowAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupAllowAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
+        """
+        Allow traffic towards application.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
+        return pulumi.get(self, "custom_request_handling")
+
+
+@pulumi.output_type
 class RuleGroupAndStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupStatement']):
@@ -610,6 +646,42 @@ class RuleGroupAndStatement(dict):
     @pulumi.getter
     def statements(self) -> Sequence['outputs.RuleGroupStatement']:
         return pulumi.get(self, "statements")
+
+
+@pulumi.output_type
+class RuleGroupBlockAction(dict):
+    """
+    Block traffic towards application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customResponse":
+            suggest = "custom_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupBlockAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupBlockAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupBlockAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_response: Optional['outputs.RuleGroupCustomResponse'] = None):
+        """
+        Block traffic towards application.
+        """
+        if custom_response is not None:
+            pulumi.set(__self__, "custom_response", custom_response)
+
+    @property
+    @pulumi.getter(name="customResponse")
+    def custom_response(self) -> Optional['outputs.RuleGroupCustomResponse']:
+        return pulumi.get(self, "custom_response")
 
 
 @pulumi.output_type
@@ -722,6 +794,42 @@ class RuleGroupByteMatchStatement(dict):
 
 
 @pulumi.output_type
+class RuleGroupCaptchaAction(dict):
+    """
+    Checks valid token exists with request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRequestHandling":
+            suggest = "custom_request_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCaptchaAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupCaptchaAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupCaptchaAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
+        """
+        Checks valid token exists with request.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
+        return pulumi.get(self, "custom_request_handling")
+
+
+@pulumi.output_type
 class RuleGroupCaptchaConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -749,6 +857,42 @@ class RuleGroupCaptchaConfig(dict):
     @pulumi.getter(name="immunityTimeProperty")
     def immunity_time_property(self) -> Optional['outputs.RuleGroupImmunityTimeProperty']:
         return pulumi.get(self, "immunity_time_property")
+
+
+@pulumi.output_type
+class RuleGroupChallengeAction(dict):
+    """
+    Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRequestHandling":
+            suggest = "custom_request_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupChallengeAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupChallengeAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupChallengeAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
+        """
+        Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
+        return pulumi.get(self, "custom_request_handling")
 
 
 @pulumi.output_type
@@ -890,6 +1034,42 @@ class RuleGroupCookies(dict):
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> 'RuleGroupOversizeHandling':
         return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
+class RuleGroupCountAction(dict):
+    """
+    Count traffic towards application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRequestHandling":
+            suggest = "custom_request_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCountAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupCountAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupCountAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
+        """
+        Count traffic towards application.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
+        return pulumi.get(self, "custom_request_handling")
 
 
 @pulumi.output_type
@@ -1931,18 +2111,13 @@ class RuleGroupRuleAction(dict):
     Action taken when Rule matches its condition.
     """
     def __init__(__self__, *,
-                 allow: Optional['outputs.RuleGroupRuleActionAllowProperties'] = None,
-                 block: Optional['outputs.RuleGroupRuleActionBlockProperties'] = None,
-                 captcha: Optional['outputs.RuleGroupRuleActionCaptchaProperties'] = None,
-                 challenge: Optional['outputs.RuleGroupRuleActionChallengeProperties'] = None,
-                 count: Optional['outputs.RuleGroupRuleActionCountProperties'] = None):
+                 allow: Optional['outputs.RuleGroupAllowAction'] = None,
+                 block: Optional['outputs.RuleGroupBlockAction'] = None,
+                 captcha: Optional['outputs.RuleGroupCaptchaAction'] = None,
+                 challenge: Optional['outputs.RuleGroupChallengeAction'] = None,
+                 count: Optional['outputs.RuleGroupCountAction'] = None):
         """
         Action taken when Rule matches its condition.
-        :param 'RuleGroupRuleActionAllowProperties' allow: Allow traffic towards application.
-        :param 'RuleGroupRuleActionBlockProperties' block: Block traffic towards application.
-        :param 'RuleGroupRuleActionCaptchaProperties' captcha: Checks valid token exists with request.
-        :param 'RuleGroupRuleActionChallengeProperties' challenge: Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-        :param 'RuleGroupRuleActionCountProperties' count: Count traffic towards application.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -1957,223 +2132,28 @@ class RuleGroupRuleAction(dict):
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional['outputs.RuleGroupRuleActionAllowProperties']:
-        """
-        Allow traffic towards application.
-        """
+    def allow(self) -> Optional['outputs.RuleGroupAllowAction']:
         return pulumi.get(self, "allow")
 
     @property
     @pulumi.getter
-    def block(self) -> Optional['outputs.RuleGroupRuleActionBlockProperties']:
-        """
-        Block traffic towards application.
-        """
+    def block(self) -> Optional['outputs.RuleGroupBlockAction']:
         return pulumi.get(self, "block")
 
     @property
     @pulumi.getter
-    def captcha(self) -> Optional['outputs.RuleGroupRuleActionCaptchaProperties']:
-        """
-        Checks valid token exists with request.
-        """
+    def captcha(self) -> Optional['outputs.RuleGroupCaptchaAction']:
         return pulumi.get(self, "captcha")
 
     @property
     @pulumi.getter
-    def challenge(self) -> Optional['outputs.RuleGroupRuleActionChallengeProperties']:
-        """
-        Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-        """
+    def challenge(self) -> Optional['outputs.RuleGroupChallengeAction']:
         return pulumi.get(self, "challenge")
 
     @property
     @pulumi.getter
-    def count(self) -> Optional['outputs.RuleGroupRuleActionCountProperties']:
-        """
-        Count traffic towards application.
-        """
+    def count(self) -> Optional['outputs.RuleGroupCountAction']:
         return pulumi.get(self, "count")
-
-
-@pulumi.output_type
-class RuleGroupRuleActionAllowProperties(dict):
-    """
-    Allow traffic towards application.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customRequestHandling":
-            suggest = "custom_request_handling"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleActionAllowProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RuleGroupRuleActionAllowProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RuleGroupRuleActionAllowProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
-        """
-        Allow traffic towards application.
-        """
-        if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
-
-    @property
-    @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
-        return pulumi.get(self, "custom_request_handling")
-
-
-@pulumi.output_type
-class RuleGroupRuleActionBlockProperties(dict):
-    """
-    Block traffic towards application.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customResponse":
-            suggest = "custom_response"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleActionBlockProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RuleGroupRuleActionBlockProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RuleGroupRuleActionBlockProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 custom_response: Optional['outputs.RuleGroupCustomResponse'] = None):
-        """
-        Block traffic towards application.
-        """
-        if custom_response is not None:
-            pulumi.set(__self__, "custom_response", custom_response)
-
-    @property
-    @pulumi.getter(name="customResponse")
-    def custom_response(self) -> Optional['outputs.RuleGroupCustomResponse']:
-        return pulumi.get(self, "custom_response")
-
-
-@pulumi.output_type
-class RuleGroupRuleActionCaptchaProperties(dict):
-    """
-    Checks valid token exists with request.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customRequestHandling":
-            suggest = "custom_request_handling"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleActionCaptchaProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RuleGroupRuleActionCaptchaProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RuleGroupRuleActionCaptchaProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
-        """
-        Checks valid token exists with request.
-        """
-        if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
-
-    @property
-    @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
-        return pulumi.get(self, "custom_request_handling")
-
-
-@pulumi.output_type
-class RuleGroupRuleActionChallengeProperties(dict):
-    """
-    Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customRequestHandling":
-            suggest = "custom_request_handling"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleActionChallengeProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RuleGroupRuleActionChallengeProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RuleGroupRuleActionChallengeProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
-        """
-        Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-        """
-        if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
-
-    @property
-    @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
-        return pulumi.get(self, "custom_request_handling")
-
-
-@pulumi.output_type
-class RuleGroupRuleActionCountProperties(dict):
-    """
-    Count traffic towards application.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customRequestHandling":
-            suggest = "custom_request_handling"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleActionCountProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RuleGroupRuleActionCountProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RuleGroupRuleActionCountProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
-        """
-        Count traffic towards application.
-        """
-        if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
-
-    @property
-    @pulumi.getter(name="customRequestHandling")
-    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
-        return pulumi.get(self, "custom_request_handling")
 
 
 @pulumi.output_type

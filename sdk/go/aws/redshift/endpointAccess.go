@@ -32,7 +32,7 @@ type EndpointAccess struct {
 	// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
 	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
 	// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-	VpcEndpoint VpcEndpointPropertiesPtrOutput `pulumi:"vpcEndpoint"`
+	VpcEndpoint VpcEndpointPropertiesOutput `pulumi:"vpcEndpoint"`
 	// A list of vpc security group ids to apply to the created endpoint access.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
@@ -98,12 +98,8 @@ type endpointAccessArgs struct {
 	ResourceOwner *string `pulumi:"resourceOwner"`
 	// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
 	SubnetGroupName string `pulumi:"subnetGroupName"`
-	// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-	VpcEndpoint *VpcEndpointProperties `pulumi:"vpcEndpoint"`
 	// A list of vpc security group ids to apply to the created endpoint access.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
-	// A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
-	VpcSecurityGroups []EndpointAccessVpcSecurityGroup `pulumi:"vpcSecurityGroups"`
 }
 
 // The set of arguments for constructing a EndpointAccess resource.
@@ -116,12 +112,8 @@ type EndpointAccessArgs struct {
 	ResourceOwner pulumi.StringPtrInput
 	// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
 	SubnetGroupName pulumi.StringInput
-	// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-	VpcEndpoint VpcEndpointPropertiesPtrInput
 	// A list of vpc security group ids to apply to the created endpoint access.
 	VpcSecurityGroupIds pulumi.StringArrayInput
-	// A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
-	VpcSecurityGroups EndpointAccessVpcSecurityGroupArrayInput
 }
 
 func (EndpointAccessArgs) ElementType() reflect.Type {
@@ -202,8 +194,8 @@ func (o EndpointAccessOutput) SubnetGroupName() pulumi.StringOutput {
 }
 
 // The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
-func (o EndpointAccessOutput) VpcEndpoint() VpcEndpointPropertiesPtrOutput {
-	return o.ApplyT(func(v *EndpointAccess) VpcEndpointPropertiesPtrOutput { return v.VpcEndpoint }).(VpcEndpointPropertiesPtrOutput)
+func (o EndpointAccessOutput) VpcEndpoint() VpcEndpointPropertiesOutput {
+	return o.ApplyT(func(v *EndpointAccess) VpcEndpointPropertiesOutput { return v.VpcEndpoint }).(VpcEndpointPropertiesOutput)
 }
 
 // A list of vpc security group ids to apply to the created endpoint access.

@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.DataSync
         public Output<string> LocationUri { get; private set; } = null!;
 
         [Output("protocol")]
-        public Output<Outputs.LocationFSxONTAPProtocol> Protocol { get; private set; } = null!;
+        public Output<Outputs.LocationFSxONTAPProtocol?> Protocol { get; private set; } = null!;
 
         /// <summary>
         /// The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.DataSync
 
     public sealed class LocationFSxONTAPArgs : global::Pulumi.ResourceArgs
     {
-        [Input("protocol", required: true)]
-        public Input<Inputs.LocationFSxONTAPProtocolArgs> Protocol { get; set; } = null!;
+        [Input("protocol")]
+        public Input<Inputs.LocationFSxONTAPProtocolArgs>? Protocol { get; set; }
 
         [Input("securityGroupArns", required: true)]
         private InputList<string>? _securityGroupArns;

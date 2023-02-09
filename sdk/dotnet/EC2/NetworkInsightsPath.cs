@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> CreatedDate { get; private set; } = null!;
 
         [Output("destination")]
-        public Output<string> Destination { get; private set; } = null!;
+        public Output<string?> Destination { get; private set; } = null!;
 
         [Output("destinationArn")]
         public Output<string> DestinationArn { get; private set; } = null!;
@@ -96,8 +96,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class NetworkInsightsPathArgs : global::Pulumi.ResourceArgs
     {
-        [Input("destination", required: true)]
-        public Input<string> Destination { get; set; } = null!;
+        [Input("destination")]
+        public Input<string>? Destination { get; set; }
 
         [Input("destinationIp")]
         public Input<string>? DestinationIp { get; set; }

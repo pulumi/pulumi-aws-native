@@ -15,35 +15,20 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// </summary>
     public sealed class RuleGroupRuleActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Allow traffic towards application.
-        /// </summary>
         [Input("allow")]
-        public Input<Inputs.RuleGroupRuleActionAllowPropertiesArgs>? Allow { get; set; }
+        public Input<Inputs.RuleGroupAllowActionArgs>? Allow { get; set; }
 
-        /// <summary>
-        /// Block traffic towards application.
-        /// </summary>
         [Input("block")]
-        public Input<Inputs.RuleGroupRuleActionBlockPropertiesArgs>? Block { get; set; }
+        public Input<Inputs.RuleGroupBlockActionArgs>? Block { get; set; }
 
-        /// <summary>
-        /// Checks valid token exists with request.
-        /// </summary>
         [Input("captcha")]
-        public Input<Inputs.RuleGroupRuleActionCaptchaPropertiesArgs>? Captcha { get; set; }
+        public Input<Inputs.RuleGroupCaptchaActionArgs>? Captcha { get; set; }
 
-        /// <summary>
-        /// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-        /// </summary>
         [Input("challenge")]
-        public Input<Inputs.RuleGroupRuleActionChallengePropertiesArgs>? Challenge { get; set; }
+        public Input<Inputs.RuleGroupChallengeActionArgs>? Challenge { get; set; }
 
-        /// <summary>
-        /// Count traffic towards application.
-        /// </summary>
         [Input("count")]
-        public Input<Inputs.RuleGroupRuleActionCountPropertiesArgs>? Count { get; set; }
+        public Input<Inputs.RuleGroupCountActionArgs>? Count { get; set; }
 
         public RuleGroupRuleActionArgs()
         {

@@ -17,37 +17,26 @@ __all__ = ['LocationFSxOpenZFSArgs', 'LocationFSxOpenZFS']
 @pulumi.input_type
 class LocationFSxOpenZFSArgs:
     def __init__(__self__, *,
-                 fsx_filesystem_arn: pulumi.Input[str],
                  protocol: pulumi.Input['LocationFSxOpenZFSProtocolArgs'],
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZFSTagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationFSxOpenZFS resource.
-        :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
+        :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
         :param pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZFSTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "security_group_arns", security_group_arns)
+        if fsx_filesystem_arn is not None:
+            pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
         if subdirectory is not None:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="fsxFilesystemArn")
-    def fsx_filesystem_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
-        """
-        return pulumi.get(self, "fsx_filesystem_arn")
-
-    @fsx_filesystem_arn.setter
-    def fsx_filesystem_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "fsx_filesystem_arn", value)
 
     @property
     @pulumi.getter
@@ -69,6 +58,18 @@ class LocationFSxOpenZFSArgs:
     @security_group_arns.setter
     def security_group_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "security_group_arns", value)
+
+    @property
+    @pulumi.getter(name="fsxFilesystemArn")
+    def fsx_filesystem_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
+        """
+        return pulumi.get(self, "fsx_filesystem_arn")
+
+    @fsx_filesystem_arn.setter
+    def fsx_filesystem_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fsx_filesystem_arn", value)
 
     @property
     @pulumi.getter
@@ -154,8 +155,6 @@ class LocationFSxOpenZFS(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LocationFSxOpenZFSArgs.__new__(LocationFSxOpenZFSArgs)
 
-            if fsx_filesystem_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'fsx_filesystem_arn'")
             __props__.__dict__["fsx_filesystem_arn"] = fsx_filesystem_arn
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
@@ -200,7 +199,7 @@ class LocationFSxOpenZFS(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fsxFilesystemArn")
-    def fsx_filesystem_arn(self) -> pulumi.Output[str]:
+    def fsx_filesystem_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
         """
