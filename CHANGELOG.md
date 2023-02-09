@@ -1,5 +1,63 @@
 ## HEAD (Unreleased)
 
+## 0.50.0 (February 09, 2023)
+
+Breaking changes:
+  - Resource "aws-native:rds:DBProxyEndpoint" missing input "targetRole"
+  - Resource "aws-native:redshift:EndpointAccess" missing input "vpcSecurityGroups"
+  - Resource "aws-native:redshift:EndpointAccess" missing input "vpcEndpoint"
+  - Resource "aws-native:amplifyuibuilder:Theme" missing output "createdAt"
+  - Resource "aws-native:amplifyuibuilder:Theme" missing output "modifiedAt"
+  - Resource "aws-native:redshiftserverless:Workgroup" missing input "workgroup"
+  - Resource "aws-native:redshiftserverless:Namespace" missing input "namespace"
+  - Function "aws-native:opsworkscm:getServer" missing output "id"
+  - Function "aws-native:opsworkscm:getServer" missing output "tags"
+  - Function "aws-native:amplifyuibuilder:getTheme" missing output "createdAt"
+  - Function "aws-native:amplifyuibuilder:getTheme" missing output "modifiedAt"
+  - Function "aws-native:ssmcontacts:getContactChannel" missing output "deferActivation"
+  - Function "aws-native:rds:getDBProxyTargetGroup" missing input "targetGroupArn"
+  - Type "aws-native:wafv2:RuleGroupRuleActionBlockProperties" missing
+  - Type "aws-native:rds:DBProxyAuthFormat" missing property "userName"
+  - Type "aws-native:wafv2:RuleGroupRuleActionChallengeProperties" missing
+  - Type "aws-native:wafv2:RuleGroupRuleAction" input "allow" type changed from "#/types/aws-native:wafv2:RuleGroupRuleActionAllowProperties" to "#/types/aws-native:wafv2:RuleGroupAllowAction"
+  - Type "aws-native:wafv2:RuleGroupRuleAction" input "block" type changed from "#/types/aws-native:wafv2:RuleGroupRuleActionBlockProperties" to "#/types/aws-native:wafv2:RuleGroupBlockAction"
+  - Type "aws-native:wafv2:RuleGroupRuleAction" input "captcha" type changed from "#/types/aws-native:wafv2:RuleGroupRuleActionCaptchaProperties" to "#/types/aws-native:wafv2:RuleGroupCaptchaAction"
+  - Type "aws-native:wafv2:RuleGroupRuleAction" input "challenge" type changed from "#/types/aws-native:wafv2:RuleGroupRuleActionChallengeProperties" to "#/types/aws-native:wafv2:RuleGroupChallengeAction"
+  - Type "aws-native:wafv2:RuleGroupRuleAction" input "count" type changed from "#/types/aws-native:wafv2:RuleGroupRuleActionCountProperties" to "#/types/aws-native:wafv2:RuleGroupCountAction"
+
+  New resources:
+  - `cloudtrail.Channel`
+  - `cloudtrail.ResourcePolicy`
+  - `ec2.IPAMPoolCidr`
+  - `ec2.IPAMResourceDiscovery`
+  - `ec2.IPAMResourceDiscoveryAssociation`
+  - `omics.AnnotationStore`
+  - `omics.ReferenceStore`
+  - `omics.RunGroup`
+  - `omics.SequenceStore`
+  - `omics.VariantStore`
+  - `omics.Workflow`
+  - `sagemaker.ModelCard`
+  - `sagemaker.Space`
+  - `simspaceweaver.Simulation`
+
+New functions:
+  - `cloudtrail.getChannel`
+  - `cloudtrail.getResourcePolicy`
+  - `ec2.getIPAMPoolCidr`
+  - `ec2.getIPAMResourceDiscovery`
+  - `ec2.getIPAMResourceDiscoveryAssociation`
+  - `omics.getAnnotationStore`
+  - `omics.getReferenceStore`
+  - `omics.getRunGroup`
+  - `omics.getSequenceStore`
+  - `omics.getVariantStore`
+  - `omics.getWorkflow`
+  - `sagemaker.getModelCard`
+  - `sagemaker.getSpace`
+  - `simspaceweaver.getSimulation`
+
+
 ## 0.49.0 (January 26, 2023)
 
 Breaking changes:
