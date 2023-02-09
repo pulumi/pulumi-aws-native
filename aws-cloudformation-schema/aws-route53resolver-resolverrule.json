@@ -63,14 +63,17 @@
           "type" : "string",
           "description" : "One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. "
         },
+        "Ipv6" : {
+          "type" : "string",
+          "description" : "One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. "
+        },
         "Port" : {
           "type" : "string",
           "description" : "The port at Ip that you want to forward DNS queries to. ",
           "minLength" : 0,
           "maxLength" : 65535
         }
-      },
-      "required" : [ "Ip" ]
+      }
     },
     "Tag" : {
       "type" : "object",
@@ -92,20 +95,30 @@
       "required" : [ "Value", "Key" ]
     }
   },
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "required" : [ "DomainName", "RuleType" ],
   "primaryIdentifier" : [ "/properties/ResolverRuleId" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/ResolverRuleId" ],
-  "createOnlyProperties" : [ "/properties/DomainName", "/properties/RuleType" ],
+  "createOnlyProperties" : [ "/properties/RuleType" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/DomainName" ],
+  "propertyTransform" : {
+    "/properties/DomainName" : "$join([DomainName, \".\"]) $OR DomainName"
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "route53resolver:CreateResolverRule", "route53resolver:GetResolverRule", "route53resolver:ListTagsForResource" ]
+      "permissions" : [ "route53resolver:CreateResolverRule", "route53resolver:GetResolverRule", "route53resolver:ListTagsForResource", "route53resolver:TagResource" ]
     },
     "read" : {
       "permissions" : [ "route53resolver:GetResolverRule", "route53resolver:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "route53resolver:UpdateResolverRule", "route53resolver:GetResolverRule", "route53resolver:ListTagsForResource" ]
+      "permissions" : [ "route53resolver:UpdateResolverRule", "route53resolver:GetResolverRule", "route53resolver:ListTagsForResource", "route53resolver:TagResource", "route53resolver:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "route53resolver:DeleteResolverRule", "route53resolver:GetResolverRule" ]

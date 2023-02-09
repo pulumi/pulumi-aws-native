@@ -119,7 +119,7 @@
     "tagProperty" : "/properties/Tags"
   },
   "additionalProperties" : false,
-  "required" : [ "SecurityGroupArns", "FsxFilesystemArn", "Protocol" ],
+  "required" : [ "SecurityGroupArns", "Protocol" ],
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri" ],
   "writeOnlyProperties" : [ "/properties/Subdirectory", "/properties/FsxFilesystemArn" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],

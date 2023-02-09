@@ -51,7 +51,9 @@
   "required" : [ "Name" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "devicefarm:CreateProject", "devicefarm:TagResource" ]

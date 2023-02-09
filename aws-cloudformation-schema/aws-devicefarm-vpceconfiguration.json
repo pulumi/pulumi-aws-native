@@ -61,7 +61,9 @@
   "required" : [ "ServiceDnsName", "VpceConfigurationName", "VpceServiceName" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "devicefarm:CreateVPCEConfiguration", "devicefarm:TagResource" ]

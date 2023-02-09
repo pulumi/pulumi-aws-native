@@ -169,9 +169,9 @@
     "tagProperty" : "/properties/Tags"
   },
   "additionalProperties" : false,
-  "required" : [ "Protocol", "SecurityGroupArns", "StorageVirtualMachineArn" ],
+  "required" : [ "SecurityGroupArns", "StorageVirtualMachineArn" ],
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri", "/properties/FsxFilesystemArn" ],
-  "writeOnlyProperties" : [ "/properties/Subdirectory" ],
+  "writeOnlyProperties" : [ "/properties/Protocol", "/properties/Subdirectory" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],
   "createOnlyProperties" : [ "/properties/StorageVirtualMachineArn", "/properties/SecurityGroupArns", "/properties/Protocol", "/properties/Subdirectory" ],
   "handlers" : {

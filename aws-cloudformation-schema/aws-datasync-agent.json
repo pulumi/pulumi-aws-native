@@ -95,7 +95,7 @@
     "tagProperty" : "/properties/Tags"
   },
   "additionalProperties" : false,
-  "required" : [ "ActivationKey" ],
+  "required" : [ ],
   "readOnlyProperties" : [ "/properties/AgentArn", "/properties/EndpointType" ],
   "primaryIdentifier" : [ "/properties/AgentArn" ],
   "createOnlyProperties" : [ "/properties/ActivationKey", "/properties/SecurityGroupArns", "/properties/SubnetArns", "/properties/VpcEndpointId" ],

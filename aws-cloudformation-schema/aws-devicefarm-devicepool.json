@@ -90,7 +90,9 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/ProjectArn" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "devicefarm:CreateDevicePool", "devicefarm:TagResource" ]

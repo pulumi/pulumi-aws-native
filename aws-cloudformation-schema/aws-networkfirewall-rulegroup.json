@@ -197,7 +197,7 @@
       "properties" : {
         "Action" : {
           "type" : "string",
-          "enum" : [ "PASS", "DROP", "ALERT" ]
+          "enum" : [ "PASS", "DROP", "ALERT", "REJECT" ]
         },
         "Header" : {
           "$ref" : "#/definitions/Header"
