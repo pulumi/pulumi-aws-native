@@ -102,7 +102,13 @@
   "readOnlyProperties" : [ "/properties/QueueUrl", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/QueueUrl" ],
   "createOnlyProperties" : [ "/properties/FifoQueue", "/properties/QueueName" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "sqs:CreateQueue", "sqs:GetQueueUrl", "sqs:GetQueueAttributes", "sqs:ListQueueTags", "sqs:TagQueue" ]
