@@ -1,4 +1,5 @@
 // Copyright 2016-2021, Pulumi Corporation.  All rights reserved.
+//go:build nodejs || all
 // +build nodejs all
 
 package examples
@@ -37,6 +38,22 @@ func TestUpdate(t *testing.T) {
 					Dir:      filepath.Join(getCwd(t), "update", "step2"),
 					Additive: true,
 				},
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestNamingConventions(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "aws-native-naming-conventions"),
+			ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+				// Check that the name of the created queue is correct.
+				queueName := stackInfo.Outputs["name"].(string)
+				if !(queueName[len(queueName)-5:] == ".fifo") {
+					t.Errorf("Expected queue name to end with '.fifo', got '%s'", queueName)
+				}
 			},
 		})
 

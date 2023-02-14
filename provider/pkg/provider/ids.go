@@ -21,6 +21,46 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
+var NamingTriviaPropMap map[string]NamingTrivia = map[string]NamingTrivia{
+	"queueName": {
+		Suffix: ".fifo",
+	},
+}
+
+// NamingTrivia is a struct which contains any derived information
+// about a resource's name that is used to generate a random name.
+type NamingTrivia struct {
+	Suffix string
+}
+
+// Builds naming trivia for a resource based on its properties.
+func createNamingTrivia(sdkName string, props resource.PropertyMap) NamingTrivia {
+	var namingTrivia NamingTrivia
+	switch sdkName {
+	case "queueName":
+		if fifoQueue, ok := props["fifoQueue"]; ok && fifoQueue.BoolValue() {
+			namingTrivia = NamingTriviaPropMap[sdkName]
+		}
+	}
+	return namingTrivia
+}
+
+// Extracts naming trivia from a resource name, returning the name and the trivia.
+func extractNamingTrivia(sdkName string, name string) (string, NamingTrivia) {
+	canonicalName := name
+	namingTrivia := NamingTriviaPropMap[sdkName]
+	if len(name) > len(namingTrivia.Suffix) && name[len(name)-len(namingTrivia.Suffix):] == namingTrivia.Suffix {
+		canonicalName = name[:len(name)-len(namingTrivia.Suffix)]
+	}
+	return canonicalName, namingTrivia
+}
+
+// Applies structured trivia data to an existing resource name.
+func (n NamingTrivia) applyTrivia(sdkName, name string) string {
+	canonicalName, _ := extractNamingTrivia(sdkName, name)
+	return fmt.Sprintf("%s%s", canonicalName, n.Suffix)
+}
+
 // getDefaultName retrieves either the explicitly specified name in inputs,
 // or the equivalent in the old values. If neither is specified, it generates
 // a random name for a resource's autonameable fields
@@ -53,14 +93,24 @@ func getDefaultName(
 		randLength = autoNamingSpec.MinLength - len(prefix)
 	}
 
+	// Generate naming trivia for the resource.
+	namingTrivia := createNamingTrivia(sdkName, news)
+
 	maxLength := 0
 	if autoNamingSpec.MaxLength > 0 {
-		left := autoNamingSpec.MaxLength - len(prefix)
+		left := autoNamingSpec.MaxLength - len(prefix) - len(namingTrivia.Suffix)
 
 		if left <= 0 {
-			return resource.PropertyValue{}, fmt.Errorf("failed to auto-generate value for %[1]q."+
-				" Prefix: %[2]q is too large to fix max length constraint of %[3]d. Please provide a value for %[1]q",
-				sdkName, prefix, autoNamingSpec.MaxLength)
+			if len(namingTrivia.Suffix) > 0 {
+				return resource.PropertyValue{}, fmt.Errorf("failed to auto-generate value for %[1]q."+
+					" Prefix: %[2]q is too large to fix max length constraint of %[3]d"+
+					" with required suffix %[4]q. Please provide a value for %[1]q",
+					sdkName, prefix, autoNamingSpec.MaxLength, namingTrivia.Suffix)
+			} else {
+				return resource.PropertyValue{}, fmt.Errorf("failed to auto-generate value for %[1]q."+
+					" Prefix: %[2]q is too large to fix max length constraint of %[3]d. Please provide a value for %[1]q",
+					sdkName, prefix, autoNamingSpec.MaxLength)
+			}
 		}
 		if left < randLength {
 			randLength = left
@@ -73,5 +123,9 @@ func getDefaultName(
 	if err != nil {
 		return resource.PropertyValue{}, err
 	}
+
+	// Apply naming trivia to the generated name.
+	random = namingTrivia.applyTrivia(sdkName, random)
+
 	return resource.NewStringProperty(random), nil
 }
