@@ -472,6 +472,7 @@ AWS::NetworkManager::Link
 AWS::NetworkManager::LinkAssociation
 AWS::NetworkManager::Site
 AWS::NetworkManager::SiteToSiteVpnAttachment
+AWS::NetworkManager::TransitGatewayPeering
 AWS::NetworkManager::TransitGatewayRegistration
 AWS::NetworkManager::VpcAttachment
 AWS::NimbleStudio::LaunchProfile
@@ -496,6 +497,7 @@ AWS::OpsWorksCM::Server
 AWS::Organizations::Account
 AWS::Organizations::OrganizationalUnit
 AWS::Organizations::Policy
+AWS::Organizations::ResourcePolicy
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
@@ -648,6 +650,7 @@ AWS::SupportApp::SlackChannelConfiguration
 AWS::SupportApp::SlackWorkspaceConfiguration
 AWS::Synthetics::Canary
 AWS::Synthetics::Group
+AWS::SystemsManagerSAP::Application
 AWS::Timestream::Database
 AWS::Timestream::ScheduledQuery
 AWS::Timestream::Table
