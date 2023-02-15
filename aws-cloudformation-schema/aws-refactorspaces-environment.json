@@ -4,7 +4,7 @@
   "definitions" : {
     "NetworkFabricType" : {
       "type" : "string",
-      "enum" : [ "TRANSIT_GATEWAY" ]
+      "enum" : [ "TRANSIT_GATEWAY", "NONE" ]
     },
     "Tag" : {
       "description" : "A label for tagging Environment resource",

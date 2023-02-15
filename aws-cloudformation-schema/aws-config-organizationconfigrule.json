@@ -19,11 +19,11 @@
     "OrganizationConfigRuleName" : {
       "type" : "string"
     },
-    "OrganizationCustomCodeRuleMetadata" : {
-      "$ref" : "#/definitions/OrganizationCustomCodeRuleMetadata"
-    },
     "Id" : {
       "type" : "string"
+    },
+    "OrganizationCustomPolicyRuleMetadata" : {
+      "$ref" : "#/definitions/OrganizationCustomPolicyRuleMetadata"
     }
   },
   "definitions" : {
@@ -104,7 +104,7 @@
       },
       "required" : [ "LambdaFunctionArn", "OrganizationConfigRuleTriggerTypes" ]
     },
-    "OrganizationCustomCodeRuleMetadata" : {
+    "OrganizationCustomPolicyRuleMetadata" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
@@ -117,10 +117,10 @@
         "Runtime" : {
           "type" : "string"
         },
-        "Description" : {
+        "PolicyText" : {
           "type" : "string"
         },
-        "CodeText" : {
+        "Description" : {
           "type" : "string"
         },
         "ResourceIdScope" : {
@@ -154,7 +154,7 @@
           "type" : "string"
         }
       },
-      "required" : [ "Runtime", "CodeText" ]
+      "required" : [ "Runtime", "PolicyText" ]
     }
   },
   "required" : [ "OrganizationConfigRuleName" ],
