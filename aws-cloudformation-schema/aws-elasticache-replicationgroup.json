@@ -142,6 +142,9 @@
     "SnapshotWindow" : {
       "type" : "string"
     },
+    "TransitEncryptionMode" : {
+      "type" : "string"
+    },
     "CacheNodeType" : {
       "type" : "string"
     },
@@ -277,7 +280,7 @@
     }
   },
   "required" : [ "ReplicationGroupDescription" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/Port", "/properties/SnapshotArns", "/properties/TransitEncryptionEnabled", "/properties/CacheSubnetGroupName", "/properties/NetworkType", "/properties/DataTieringEnabled", "/properties/AtRestEncryptionEnabled", "/properties/ReplicationGroupId", "/properties/GlobalReplicationGroupId", "/properties/ReplicasPerNodeGroup", "/properties/PreferredCacheClusterAZs", "/properties/SnapshotName", "/properties/Engine" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/Port", "/properties/SnapshotArns", "/properties/CacheSubnetGroupName", "/properties/NetworkType", "/properties/DataTieringEnabled", "/properties/AtRestEncryptionEnabled", "/properties/ReplicationGroupId", "/properties/GlobalReplicationGroupId", "/properties/ReplicasPerNodeGroup", "/properties/PreferredCacheClusterAZs", "/properties/SnapshotName", "/properties/Engine" ],
   "primaryIdentifier" : [ "/properties/ReplicationGroupId" ],
   "readOnlyProperties" : [ "/properties/ConfigurationEndPoint.Address", "/properties/PrimaryEndPoint.Address", "/properties/PrimaryEndPoint.Port", "/properties/ReaderEndPoint.Address", "/properties/ConfigurationEndPoint.Port", "/properties/ReadEndPoint.Addresses.List", "/properties/ReadEndPoint.Ports.List", "/properties/ReaderEndPoint.Port", "/properties/ReadEndPoint.Addresses", "/properties/ReadEndPoint.Ports", "/properties/ReplicationGroupId" ]
 }
