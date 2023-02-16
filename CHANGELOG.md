@@ -1,5 +1,32 @@
 ## HEAD (Unreleased)
 
+## 0.51.0 (February 16, 2023)
+
+Breaking Changes:
+  - Function "aws-native:applicationautoscaling:getScalableTarget" missing input "resourceId"
+  - Function "aws-native:applicationautoscaling:getScalableTarget" missing input "scalableDimension"
+  - Function "aws-native:applicationautoscaling:getScalableTarget" missing input "serviceNamespace"
+
+New resources:
+
+    apigatewayv2.RouteResponse
+    ec2.LocalGatewayRouteTable
+    ec2.LocalGatewayRouteTableVirtualInterfaceGroupAssociation
+    fms.ResourceSet
+    networkmanager.TransitGatewayPeering
+    organizations.ResourcePolicy
+    systemsmanagersap.Application
+
+New functions:
+
+    apigatewayv2.getRouteResponse
+    ec2.getLocalGatewayRouteTable
+    ec2.getLocalGatewayRouteTableVirtualInterfaceGroupAssociation
+    fms.getResourceSet
+    networkmanager.getTransitGatewayPeering
+    organizations.getResourcePolicy
+    systemsmanagersap.getApplication
+
 ## 0.50.0 (February 09, 2023)
 
 Breaking changes:
