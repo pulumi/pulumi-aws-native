@@ -120,6 +120,7 @@ import * as ssmincidents from "./ssmincidents";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
 import * as supportapp from "./supportapp";
+import * as systemsmanagersap from "./systemsmanagersap";
 import * as timestream from "./timestream";
 import * as transfer from "./transfer";
 import * as wafv2 from "./wafv2";
@@ -245,6 +246,7 @@ export {
     sso,
     stepfunctions,
     supportapp,
+    systemsmanagersap,
     timestream,
     transfer,
     wafv2,

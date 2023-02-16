@@ -70,6 +70,11 @@ export const getSiteToSiteVpnAttachment: typeof import("./getSiteToSiteVpnAttach
 export const getSiteToSiteVpnAttachmentOutput: typeof import("./getSiteToSiteVpnAttachment").getSiteToSiteVpnAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getSiteToSiteVpnAttachment","getSiteToSiteVpnAttachmentOutput"], () => require("./getSiteToSiteVpnAttachment"));
 
+export { GetTransitGatewayPeeringArgs, GetTransitGatewayPeeringResult, GetTransitGatewayPeeringOutputArgs } from "./getTransitGatewayPeering";
+export const getTransitGatewayPeering: typeof import("./getTransitGatewayPeering").getTransitGatewayPeering = null as any;
+export const getTransitGatewayPeeringOutput: typeof import("./getTransitGatewayPeering").getTransitGatewayPeeringOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitGatewayPeering","getTransitGatewayPeeringOutput"], () => require("./getTransitGatewayPeering"));
+
 export { GetVpcAttachmentArgs, GetVpcAttachmentResult, GetVpcAttachmentOutputArgs } from "./getVpcAttachment";
 export const getVpcAttachment: typeof import("./getVpcAttachment").getVpcAttachment = null as any;
 export const getVpcAttachmentOutput: typeof import("./getVpcAttachment").getVpcAttachmentOutput = null as any;
@@ -99,6 +104,11 @@ export { SiteToSiteVpnAttachmentArgs } from "./siteToSiteVpnAttachment";
 export type SiteToSiteVpnAttachment = import("./siteToSiteVpnAttachment").SiteToSiteVpnAttachment;
 export const SiteToSiteVpnAttachment: typeof import("./siteToSiteVpnAttachment").SiteToSiteVpnAttachment = null as any;
 utilities.lazyLoad(exports, ["SiteToSiteVpnAttachment"], () => require("./siteToSiteVpnAttachment"));
+
+export { TransitGatewayPeeringArgs } from "./transitGatewayPeering";
+export type TransitGatewayPeering = import("./transitGatewayPeering").TransitGatewayPeering;
+export const TransitGatewayPeering: typeof import("./transitGatewayPeering").TransitGatewayPeering = null as any;
+utilities.lazyLoad(exports, ["TransitGatewayPeering"], () => require("./transitGatewayPeering"));
 
 export { TransitGatewayRegistrationArgs } from "./transitGatewayRegistration";
 export type TransitGatewayRegistration = import("./transitGatewayRegistration").TransitGatewayRegistration;
@@ -135,6 +145,8 @@ const _module = {
                 return new Site(name, <any>undefined, { urn })
             case "aws-native:networkmanager:SiteToSiteVpnAttachment":
                 return new SiteToSiteVpnAttachment(name, <any>undefined, { urn })
+            case "aws-native:networkmanager:TransitGatewayPeering":
+                return new TransitGatewayPeering(name, <any>undefined, { urn })
             case "aws-native:networkmanager:TransitGatewayRegistration":
                 return new TransitGatewayRegistration(name, <any>undefined, { urn })
             case "aws-native:networkmanager:VpcAttachment":

@@ -22,7 +22,7 @@ __all__ = [
     'ConfigurationRecorderRecordingGroup',
     'ConformancePackInputParameter',
     'DeliveryChannelConfigSnapshotDeliveryProperties',
-    'OrganizationConfigRuleOrganizationCustomCodeRuleMetadata',
+    'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata',
     'OrganizationConfigRuleOrganizationCustomRuleMetadata',
     'OrganizationConfigRuleOrganizationManagedRuleMetadata',
     'OrganizationConformancePackConformancePackInputParameter',
@@ -536,12 +536,12 @@ class DeliveryChannelConfigSnapshotDeliveryProperties(dict):
 
 
 @pulumi.output_type
-class OrganizationConfigRuleOrganizationCustomCodeRuleMetadata(dict):
+class OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "codeText":
-            suggest = "code_text"
+        if key == "policyText":
+            suggest = "policy_text"
         elif key == "debugLogDeliveryAccounts":
             suggest = "debug_log_delivery_accounts"
         elif key == "inputParameters":
@@ -560,18 +560,18 @@ class OrganizationConfigRuleOrganizationCustomCodeRuleMetadata(dict):
             suggest = "tag_value_scope"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigRuleOrganizationCustomCodeRuleMetadata. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        OrganizationConfigRuleOrganizationCustomCodeRuleMetadata.__key_warning(key)
+        OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        OrganizationConfigRuleOrganizationCustomCodeRuleMetadata.__key_warning(key)
+        OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 code_text: str,
+                 policy_text: str,
                  runtime: str,
                  debug_log_delivery_accounts: Optional[Sequence[str]] = None,
                  description: Optional[str] = None,
@@ -582,7 +582,7 @@ class OrganizationConfigRuleOrganizationCustomCodeRuleMetadata(dict):
                  resource_types_scope: Optional[Sequence[str]] = None,
                  tag_key_scope: Optional[str] = None,
                  tag_value_scope: Optional[str] = None):
-        pulumi.set(__self__, "code_text", code_text)
+        pulumi.set(__self__, "policy_text", policy_text)
         pulumi.set(__self__, "runtime", runtime)
         if debug_log_delivery_accounts is not None:
             pulumi.set(__self__, "debug_log_delivery_accounts", debug_log_delivery_accounts)
@@ -604,9 +604,9 @@ class OrganizationConfigRuleOrganizationCustomCodeRuleMetadata(dict):
             pulumi.set(__self__, "tag_value_scope", tag_value_scope)
 
     @property
-    @pulumi.getter(name="codeText")
-    def code_text(self) -> str:
-        return pulumi.get(self, "code_text")
+    @pulumi.getter(name="policyText")
+    def policy_text(self) -> str:
+        return pulumi.get(self, "policy_text")
 
     @property
     @pulumi.getter

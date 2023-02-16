@@ -337,6 +337,115 @@ func (o PolicyTagArrayOutput) Index(i pulumi.IntInput) PolicyTagOutput {
 	}).(PolicyTagOutput)
 }
 
+// A custom key-value pair associated with a resource within your organization.
+type ResourcePolicyTag struct {
+	// The key identifier, or name, of the tag.
+	Key string `pulumi:"key"`
+	// The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+	Value string `pulumi:"value"`
+}
+
+// ResourcePolicyTagInput is an input type that accepts ResourcePolicyTagArgs and ResourcePolicyTagOutput values.
+// You can construct a concrete instance of `ResourcePolicyTagInput` via:
+//
+//	ResourcePolicyTagArgs{...}
+type ResourcePolicyTagInput interface {
+	pulumi.Input
+
+	ToResourcePolicyTagOutput() ResourcePolicyTagOutput
+	ToResourcePolicyTagOutputWithContext(context.Context) ResourcePolicyTagOutput
+}
+
+// A custom key-value pair associated with a resource within your organization.
+type ResourcePolicyTagArgs struct {
+	// The key identifier, or name, of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ResourcePolicyTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicyTag)(nil)).Elem()
+}
+
+func (i ResourcePolicyTagArgs) ToResourcePolicyTagOutput() ResourcePolicyTagOutput {
+	return i.ToResourcePolicyTagOutputWithContext(context.Background())
+}
+
+func (i ResourcePolicyTagArgs) ToResourcePolicyTagOutputWithContext(ctx context.Context) ResourcePolicyTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyTagOutput)
+}
+
+// ResourcePolicyTagArrayInput is an input type that accepts ResourcePolicyTagArray and ResourcePolicyTagArrayOutput values.
+// You can construct a concrete instance of `ResourcePolicyTagArrayInput` via:
+//
+//	ResourcePolicyTagArray{ ResourcePolicyTagArgs{...} }
+type ResourcePolicyTagArrayInput interface {
+	pulumi.Input
+
+	ToResourcePolicyTagArrayOutput() ResourcePolicyTagArrayOutput
+	ToResourcePolicyTagArrayOutputWithContext(context.Context) ResourcePolicyTagArrayOutput
+}
+
+type ResourcePolicyTagArray []ResourcePolicyTagInput
+
+func (ResourcePolicyTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourcePolicyTag)(nil)).Elem()
+}
+
+func (i ResourcePolicyTagArray) ToResourcePolicyTagArrayOutput() ResourcePolicyTagArrayOutput {
+	return i.ToResourcePolicyTagArrayOutputWithContext(context.Background())
+}
+
+func (i ResourcePolicyTagArray) ToResourcePolicyTagArrayOutputWithContext(ctx context.Context) ResourcePolicyTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyTagArrayOutput)
+}
+
+// A custom key-value pair associated with a resource within your organization.
+type ResourcePolicyTagOutput struct{ *pulumi.OutputState }
+
+func (ResourcePolicyTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicyTag)(nil)).Elem()
+}
+
+func (o ResourcePolicyTagOutput) ToResourcePolicyTagOutput() ResourcePolicyTagOutput {
+	return o
+}
+
+func (o ResourcePolicyTagOutput) ToResourcePolicyTagOutputWithContext(ctx context.Context) ResourcePolicyTagOutput {
+	return o
+}
+
+// The key identifier, or name, of the tag.
+func (o ResourcePolicyTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourcePolicyTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+func (o ResourcePolicyTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourcePolicyTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ResourcePolicyTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourcePolicyTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourcePolicyTag)(nil)).Elem()
+}
+
+func (o ResourcePolicyTagArrayOutput) ToResourcePolicyTagArrayOutput() ResourcePolicyTagArrayOutput {
+	return o
+}
+
+func (o ResourcePolicyTagArrayOutput) ToResourcePolicyTagArrayOutputWithContext(ctx context.Context) ResourcePolicyTagArrayOutput {
+	return o
+}
+
+func (o ResourcePolicyTagArrayOutput) Index(i pulumi.IntInput) ResourcePolicyTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourcePolicyTag {
+		return vs[0].([]ResourcePolicyTag)[vs[1].(int)]
+	}).(ResourcePolicyTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountTagInput)(nil)).Elem(), AccountTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountTagArrayInput)(nil)).Elem(), AccountTagArray{})
@@ -344,10 +453,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationalUnitTagArrayInput)(nil)).Elem(), OrganizationalUnitTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTagInput)(nil)).Elem(), PolicyTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTagArrayInput)(nil)).Elem(), PolicyTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyTagInput)(nil)).Elem(), ResourcePolicyTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyTagArrayInput)(nil)).Elem(), ResourcePolicyTagArray{})
 	pulumi.RegisterOutputType(AccountTagOutput{})
 	pulumi.RegisterOutputType(AccountTagArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationalUnitTagOutput{})
 	pulumi.RegisterOutputType(OrganizationalUnitTagArrayOutput{})
 	pulumi.RegisterOutputType(PolicyTagOutput{})
 	pulumi.RegisterOutputType(PolicyTagArrayOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyTagOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyTagArrayOutput{})
 }

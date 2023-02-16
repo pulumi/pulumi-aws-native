@@ -15,6 +15,7 @@ __all__ = [
     'GlobalTableContributorInsightsSpecificationArgs',
     'GlobalTableGlobalSecondaryIndexArgs',
     'GlobalTableKeySchemaArgs',
+    'GlobalTableKinesisStreamSpecificationArgs',
     'GlobalTableLocalSecondaryIndexArgs',
     'GlobalTablePointInTimeRecoverySpecificationArgs',
     'GlobalTableProjectionArgs',
@@ -218,6 +219,22 @@ class GlobalTableKeySchemaArgs:
 
 
 @pulumi.input_type
+class GlobalTableKinesisStreamSpecificationArgs:
+    def __init__(__self__, *,
+                 stream_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "stream_arn")
+
+    @stream_arn.setter
+    def stream_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stream_arn", value)
+
+
+@pulumi.input_type
 class GlobalTableLocalSecondaryIndexArgs:
     def __init__(__self__, *,
                  index_name: pulumi.Input[str],
@@ -392,6 +409,7 @@ class GlobalTableReplicaSpecificationArgs:
                  region: pulumi.Input[str],
                  contributor_insights_specification: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]] = None,
+                 kinesis_stream_specification: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationArgs']] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']] = None,
                  read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None,
                  s_se_specification: Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']] = None,
@@ -402,6 +420,8 @@ class GlobalTableReplicaSpecificationArgs:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if kinesis_stream_specification is not None:
+            pulumi.set(__self__, "kinesis_stream_specification", kinesis_stream_specification)
         if point_in_time_recovery_specification is not None:
             pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if read_provisioned_throughput_settings is not None:
@@ -439,6 +459,15 @@ class GlobalTableReplicaSpecificationArgs:
     @global_secondary_indexes.setter
     def global_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]]):
         pulumi.set(self, "global_secondary_indexes", value)
+
+    @property
+    @pulumi.getter(name="kinesisStreamSpecification")
+    def kinesis_stream_specification(self) -> Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationArgs']]:
+        return pulumi.get(self, "kinesis_stream_specification")
+
+    @kinesis_stream_specification.setter
+    def kinesis_stream_specification(self, value: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationArgs']]):
+        pulumi.set(self, "kinesis_stream_specification", value)
 
     @property
     @pulumi.getter(name="pointInTimeRecoverySpecification")

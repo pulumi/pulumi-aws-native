@@ -3,9 +3,6 @@
   "description" : "Resource Type definition for AWS::ApiGatewayV2::RouteResponse",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "RouteResponseKey" : {
       "type" : "string"
     },
@@ -23,10 +20,36 @@
     },
     "ResponseModels" : {
       "type" : "object"
+    },
+    "RouteResponseId" : {
+      "type" : "string"
     }
   },
   "required" : [ "RouteResponseKey", "RouteId", "ApiId" ],
   "createOnlyProperties" : [ "/properties/ApiId", "/properties/RouteId" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "readOnlyProperties" : [ "/properties/RouteResponseId" ],
+  "primaryIdentifier" : [ "/properties/ApiId", "/properties/RouteId", "/properties/RouteResponseId" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "apigateway:POST" ]
+    },
+    "update" : {
+      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT" ]
+    },
+    "read" : {
+      "permissions" : [ "apigateway:GET" ]
+    },
+    "delete" : {
+      "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]
+    },
+    "list" : {
+      "permissions" : [ "apigateway:GET" ]
+    }
+  }
 }

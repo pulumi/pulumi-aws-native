@@ -341,6 +341,7 @@ type EnvironmentNetworkFabricType string
 
 const (
 	EnvironmentNetworkFabricTypeTransitGateway = EnvironmentNetworkFabricType("TRANSIT_GATEWAY")
+	EnvironmentNetworkFabricTypeNone           = EnvironmentNetworkFabricType("NONE")
 )
 
 func (EnvironmentNetworkFabricType) ElementType() reflect.Type {

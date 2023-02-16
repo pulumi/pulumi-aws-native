@@ -83,6 +83,8 @@ namespace Pulumi.AwsNative.ElastiCache
         public readonly string? SnapshotWindow;
         public readonly string? SnapshottingClusterId;
         public readonly ImmutableArray<Outputs.ReplicationGroupTag> Tags;
+        public readonly bool? TransitEncryptionEnabled;
+        public readonly string? TransitEncryptionMode;
         public readonly ImmutableArray<string> UserGroupIds;
 
         [OutputConstructor]
@@ -151,6 +153,10 @@ namespace Pulumi.AwsNative.ElastiCache
 
             ImmutableArray<Outputs.ReplicationGroupTag> tags,
 
+            bool? transitEncryptionEnabled,
+
+            string? transitEncryptionMode,
+
             ImmutableArray<string> userGroupIds)
         {
             AuthToken = authToken;
@@ -185,6 +191,8 @@ namespace Pulumi.AwsNative.ElastiCache
             SnapshotWindow = snapshotWindow;
             SnapshottingClusterId = snapshottingClusterId;
             Tags = tags;
+            TransitEncryptionEnabled = transitEncryptionEnabled;
+            TransitEncryptionMode = transitEncryptionMode;
             UserGroupIds = userGroupIds;
         }
     }

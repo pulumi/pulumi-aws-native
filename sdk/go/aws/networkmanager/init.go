@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Site{}
 	case "aws-native:networkmanager:SiteToSiteVpnAttachment":
 		r = &SiteToSiteVpnAttachment{}
+	case "aws-native:networkmanager:TransitGatewayPeering":
+		r = &TransitGatewayPeering{}
 	case "aws-native:networkmanager:TransitGatewayRegistration":
 		r = &TransitGatewayRegistration{}
 	case "aws-native:networkmanager:VpcAttachment":

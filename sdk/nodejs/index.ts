@@ -264,6 +264,7 @@ import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
 import * as supportapp from "./supportapp";
 import * as synthetics from "./synthetics";
+import * as systemsmanagersap from "./systemsmanagersap";
 import * as timestream from "./timestream";
 import * as transfer from "./transfer";
 import * as types from "./types";
@@ -479,6 +480,7 @@ export {
     stepfunctions,
     supportapp,
     synthetics,
+    systemsmanagersap,
     timestream,
     transfer,
     types,

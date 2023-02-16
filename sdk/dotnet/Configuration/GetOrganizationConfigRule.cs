@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Configuration
     {
         public readonly ImmutableArray<string> ExcludedAccounts;
         public readonly string? Id;
-        public readonly Outputs.OrganizationConfigRuleOrganizationCustomCodeRuleMetadata? OrganizationCustomCodeRuleMetadata;
+        public readonly Outputs.OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata? OrganizationCustomPolicyRuleMetadata;
         public readonly Outputs.OrganizationConfigRuleOrganizationCustomRuleMetadata? OrganizationCustomRuleMetadata;
         public readonly Outputs.OrganizationConfigRuleOrganizationManagedRuleMetadata? OrganizationManagedRuleMetadata;
 
@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.Configuration
 
             string? id,
 
-            Outputs.OrganizationConfigRuleOrganizationCustomCodeRuleMetadata? organizationCustomCodeRuleMetadata,
+            Outputs.OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata? organizationCustomPolicyRuleMetadata,
 
             Outputs.OrganizationConfigRuleOrganizationCustomRuleMetadata? organizationCustomRuleMetadata,
 
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Configuration
         {
             ExcludedAccounts = excludedAccounts;
             Id = id;
-            OrganizationCustomCodeRuleMetadata = organizationCustomCodeRuleMetadata;
+            OrganizationCustomPolicyRuleMetadata = organizationCustomPolicyRuleMetadata;
             OrganizationCustomRuleMetadata = organizationCustomRuleMetadata;
             OrganizationManagedRuleMetadata = organizationManagedRuleMetadata;
         }

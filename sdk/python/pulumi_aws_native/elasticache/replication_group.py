@@ -62,6 +62,7 @@ class ReplicationGroupArgs:
                  snapshotting_cluster_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupTagArgs']]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 transit_encryption_mode: Optional[pulumi.Input[str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReplicationGroup resource.
@@ -157,6 +158,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "tags", tags)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+        if transit_encryption_mode is not None:
+            pulumi.set(__self__, "transit_encryption_mode", transit_encryption_mode)
         if user_group_ids is not None:
             pulumi.set(__self__, "user_group_ids", user_group_ids)
 
@@ -575,6 +578,15 @@ class ReplicationGroupArgs:
         pulumi.set(self, "transit_encryption_enabled", value)
 
     @property
+    @pulumi.getter(name="transitEncryptionMode")
+    def transit_encryption_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "transit_encryption_mode")
+
+    @transit_encryption_mode.setter
+    def transit_encryption_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transit_encryption_mode", value)
+
+    @property
     @pulumi.getter(name="userGroupIds")
     def user_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "user_group_ids")
@@ -640,6 +652,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  snapshotting_cluster_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupTagArgs']]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 transit_encryption_mode: Optional[pulumi.Input[str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -718,6 +731,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  snapshotting_cluster_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupTagArgs']]]]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 transit_encryption_mode: Optional[pulumi.Input[str]] = None,
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""ReplicationGroup is deprecated: ReplicationGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -777,6 +791,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["snapshotting_cluster_id"] = snapshotting_cluster_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
+            __props__.__dict__["transit_encryption_mode"] = transit_encryption_mode
             __props__.__dict__["user_group_ids"] = user_group_ids
         super(ReplicationGroup, __self__).__init__(
             'aws-native:elasticache:ReplicationGroup',
@@ -846,6 +861,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["snapshotting_cluster_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["transit_encryption_enabled"] = None
+        __props__.__dict__["transit_encryption_mode"] = None
         __props__.__dict__["user_group_ids"] = None
         return ReplicationGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -1078,6 +1094,11 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "transit_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="transitEncryptionMode")
+    def transit_encryption_mode(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "transit_encryption_mode")
 
     @property
     @pulumi.getter(name="userGroupIds")

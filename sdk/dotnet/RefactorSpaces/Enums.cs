@@ -73,6 +73,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         }
 
         public static EnvironmentNetworkFabricType TransitGateway { get; } = new EnvironmentNetworkFabricType("TRANSIT_GATEWAY");
+        public static EnvironmentNetworkFabricType None { get; } = new EnvironmentNetworkFabricType("NONE");
 
         public static bool operator ==(EnvironmentNetworkFabricType left, EnvironmentNetworkFabricType right) => left.Equals(right);
         public static bool operator !=(EnvironmentNetworkFabricType left, EnvironmentNetworkFabricType right) => !left.Equals(right);

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Events
     public partial class Archive : global::Pulumi.CustomResource
     {
         [Output("archiveName")]
-        public Output<string> ArchiveName { get; private set; } = null!;
+        public Output<string?> ArchiveName { get; private set; } = null!;
 
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;

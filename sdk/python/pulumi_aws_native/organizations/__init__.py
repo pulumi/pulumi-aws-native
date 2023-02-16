@@ -10,7 +10,9 @@ from .account import *
 from .get_account import *
 from .get_organizational_unit import *
 from .get_policy import *
+from .get_resource_policy import *
 from .organizational_unit import *
 from .policy import *
+from .resource_policy import *
 from ._inputs import *
 from . import outputs

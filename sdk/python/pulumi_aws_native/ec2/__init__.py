@@ -51,6 +51,8 @@ from .get_ipam_scope import *
 from .get_key_pair import *
 from .get_launch_template import *
 from .get_local_gateway_route import *
+from .get_local_gateway_route_table import *
+from .get_local_gateway_route_table_virtual_interface_group_association import *
 from .get_local_gateway_route_table_vpcassociation import *
 from .get_nat_gateway import *
 from .get_network_acl import *
@@ -118,6 +120,8 @@ from .ipam_scope import *
 from .key_pair import *
 from .launch_template import *
 from .local_gateway_route import *
+from .local_gateway_route_table import *
+from .local_gateway_route_table_virtual_interface_group_association import *
 from .local_gateway_route_table_vpcassociation import *
 from .nat_gateway import *
 from .network_acl import *

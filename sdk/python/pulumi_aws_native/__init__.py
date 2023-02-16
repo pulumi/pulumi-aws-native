@@ -427,6 +427,8 @@ if typing.TYPE_CHECKING:
     supportapp = __supportapp
     import pulumi_aws_native.synthetics as __synthetics
     synthetics = __synthetics
+    import pulumi_aws_native.systemsmanagersap as __systemsmanagersap
+    systemsmanagersap = __systemsmanagersap
     import pulumi_aws_native.timestream as __timestream
     timestream = __timestream
     import pulumi_aws_native.transfer as __transfer
@@ -649,6 +651,7 @@ else:
     stepfunctions = _utilities.lazy_import('pulumi_aws_native.stepfunctions')
     supportapp = _utilities.lazy_import('pulumi_aws_native.supportapp')
     synthetics = _utilities.lazy_import('pulumi_aws_native.synthetics')
+    systemsmanagersap = _utilities.lazy_import('pulumi_aws_native.systemsmanagersap')
     timestream = _utilities.lazy_import('pulumi_aws_native.timestream')
     transfer = _utilities.lazy_import('pulumi_aws_native.transfer')
     voiceid = _utilities.lazy_import('pulumi_aws_native.voiceid')
@@ -1428,7 +1431,9 @@ _utilities.register(
    "aws-native:ec2:KeyPair": "KeyPair",
    "aws-native:ec2:LaunchTemplate": "LaunchTemplate",
    "aws-native:ec2:LocalGatewayRoute": "LocalGatewayRoute",
+   "aws-native:ec2:LocalGatewayRouteTable": "LocalGatewayRouteTable",
    "aws-native:ec2:LocalGatewayRouteTableVPCAssociation": "LocalGatewayRouteTableVPCAssociation",
+   "aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation": "LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
    "aws-native:ec2:NatGateway": "NatGateway",
    "aws-native:ec2:NetworkAcl": "NetworkAcl",
    "aws-native:ec2:NetworkAclEntry": "NetworkAclEntry",
@@ -1678,7 +1683,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.fms",
   "classes": {
    "aws-native:fms:NotificationChannel": "NotificationChannel",
-   "aws-native:fms:Policy": "Policy"
+   "aws-native:fms:Policy": "Policy",
+   "aws-native:fms:ResourceSet": "ResourceSet"
   }
  },
  {
@@ -2427,6 +2433,7 @@ _utilities.register(
    "aws-native:networkmanager:LinkAssociation": "LinkAssociation",
    "aws-native:networkmanager:Site": "Site",
    "aws-native:networkmanager:SiteToSiteVpnAttachment": "SiteToSiteVpnAttachment",
+   "aws-native:networkmanager:TransitGatewayPeering": "TransitGatewayPeering",
    "aws-native:networkmanager:TransitGatewayRegistration": "TransitGatewayRegistration",
    "aws-native:networkmanager:VpcAttachment": "VpcAttachment"
   }
@@ -2513,7 +2520,8 @@ _utilities.register(
   "classes": {
    "aws-native:organizations:Account": "Account",
    "aws-native:organizations:OrganizationalUnit": "OrganizationalUnit",
-   "aws-native:organizations:Policy": "Policy"
+   "aws-native:organizations:Policy": "Policy",
+   "aws-native:organizations:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
@@ -3061,6 +3069,14 @@ _utilities.register(
   "classes": {
    "aws-native:synthetics:Canary": "Canary",
    "aws-native:synthetics:Group": "Group"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "systemsmanagersap",
+  "fqn": "pulumi_aws_native.systemsmanagersap",
+  "classes": {
+   "aws-native:systemsmanagersap:Application": "Application"
   }
  },
  {

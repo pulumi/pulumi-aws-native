@@ -34,7 +34,7 @@ export class Archive extends pulumi.CustomResource {
         return obj['__pulumiType'] === Archive.__pulumiType;
     }
 
-    public readonly archiveName!: pulumi.Output<string>;
+    public readonly archiveName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly eventPattern!: pulumi.Output<any | undefined>;

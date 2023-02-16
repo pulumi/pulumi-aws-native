@@ -10,11 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
-    public sealed class OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs : global::Pulumi.ResourceArgs
+    public sealed class OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs : global::Pulumi.ResourceArgs
     {
-        [Input("codeText", required: true)]
-        public Input<string> CodeText { get; set; } = null!;
-
         [Input("debugLogDeliveryAccounts")]
         private InputList<string>? _debugLogDeliveryAccounts;
         public InputList<string> DebugLogDeliveryAccounts
@@ -40,6 +37,9 @@ namespace Pulumi.AwsNative.Configuration.Inputs
             set => _organizationConfigRuleTriggerTypes = value;
         }
 
+        [Input("policyText", required: true)]
+        public Input<string> PolicyText { get; set; } = null!;
+
         [Input("resourceIdScope")]
         public Input<string>? ResourceIdScope { get; set; }
 
@@ -60,9 +60,9 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         [Input("tagValueScope")]
         public Input<string>? TagValueScope { get; set; }
 
-        public OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs()
+        public OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs()
         {
         }
-        public static new OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs Empty => new OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs();
+        public static new OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs Empty => new OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs();
     }
 }

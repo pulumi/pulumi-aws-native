@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
     {
         public readonly Outputs.GlobalTableContributorInsightsSpecification? ContributorInsightsSpecification;
         public readonly ImmutableArray<Outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification> GlobalSecondaryIndexes;
+        public readonly Outputs.GlobalTableKinesisStreamSpecification? KinesisStreamSpecification;
         public readonly Outputs.GlobalTablePointInTimeRecoverySpecification? PointInTimeRecoverySpecification;
         public readonly Outputs.GlobalTableReadProvisionedThroughputSettings? ReadProvisionedThroughputSettings;
         public readonly string Region;
@@ -27,6 +28,8 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
             Outputs.GlobalTableContributorInsightsSpecification? contributorInsightsSpecification,
 
             ImmutableArray<Outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification> globalSecondaryIndexes,
+
+            Outputs.GlobalTableKinesisStreamSpecification? kinesisStreamSpecification,
 
             Outputs.GlobalTablePointInTimeRecoverySpecification? pointInTimeRecoverySpecification,
 
@@ -42,6 +45,7 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
         {
             ContributorInsightsSpecification = contributorInsightsSpecification;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
+            KinesisStreamSpecification = kinesisStreamSpecification;
             PointInTimeRecoverySpecification = pointInTimeRecoverySpecification;
             ReadProvisionedThroughputSettings = readProvisionedThroughputSettings;
             Region = region;

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NotificationChannel{}
 	case "aws-native:fms:Policy":
 		r = &Policy{}
+	case "aws-native:fms:ResourceSet":
+		r = &ResourceSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

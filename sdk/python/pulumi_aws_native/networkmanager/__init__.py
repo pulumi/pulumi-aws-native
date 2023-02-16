@@ -18,12 +18,14 @@ from .get_global_network import *
 from .get_link import *
 from .get_site import *
 from .get_site_to_site_vpn_attachment import *
+from .get_transit_gateway_peering import *
 from .get_vpc_attachment import *
 from .global_network import *
 from .link import *
 from .link_association import *
 from .site import *
 from .site_to_site_vpn_attachment import *
+from .transit_gateway_peering import *
 from .transit_gateway_registration import *
 from .vpc_attachment import *
 from ._inputs import *

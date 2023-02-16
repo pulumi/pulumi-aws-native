@@ -27,8 +27,14 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetRouteResponseArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public string ApiId { get; set; } = null!;
+
+        [Input("routeId", required: true)]
+        public string RouteId { get; set; } = null!;
+
+        [Input("routeResponseId", required: true)]
+        public string RouteResponseId { get; set; } = null!;
 
         public GetRouteResponseArgs()
         {
@@ -38,8 +44,14 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetRouteResponseInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        [Input("routeId", required: true)]
+        public Input<string> RouteId { get; set; } = null!;
+
+        [Input("routeResponseId", required: true)]
+        public Input<string> RouteResponseId { get; set; } = null!;
 
         public GetRouteResponseInvokeArgs()
         {
@@ -51,28 +63,28 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [OutputType]
     public sealed class GetRouteResponseResult
     {
-        public readonly string? Id;
         public readonly string? ModelSelectionExpression;
         public readonly object? ResponseModels;
         public readonly object? ResponseParameters;
+        public readonly string? RouteResponseId;
         public readonly string? RouteResponseKey;
 
         [OutputConstructor]
         private GetRouteResponseResult(
-            string? id,
-
             string? modelSelectionExpression,
 
             object? responseModels,
 
             object? responseParameters,
 
+            string? routeResponseId,
+
             string? routeResponseKey)
         {
-            Id = id;
             ModelSelectionExpression = modelSelectionExpression;
             ResponseModels = responseModels;
             ResponseParameters = responseParameters;
+            RouteResponseId = routeResponseId;
             RouteResponseKey = routeResponseKey;
         }
     }

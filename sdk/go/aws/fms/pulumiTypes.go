@@ -905,6 +905,109 @@ func (o PolicyThirdPartyFirewallPolicyPtrOutput) FirewallDeploymentModel() Polic
 	}).(PolicyFirewallDeploymentModelPtrOutput)
 }
 
+// A tag.
+type ResourceSetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ResourceSetTagInput is an input type that accepts ResourceSetTagArgs and ResourceSetTagOutput values.
+// You can construct a concrete instance of `ResourceSetTagInput` via:
+//
+//	ResourceSetTagArgs{...}
+type ResourceSetTagInput interface {
+	pulumi.Input
+
+	ToResourceSetTagOutput() ResourceSetTagOutput
+	ToResourceSetTagOutputWithContext(context.Context) ResourceSetTagOutput
+}
+
+// A tag.
+type ResourceSetTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ResourceSetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetTag)(nil)).Elem()
+}
+
+func (i ResourceSetTagArgs) ToResourceSetTagOutput() ResourceSetTagOutput {
+	return i.ToResourceSetTagOutputWithContext(context.Background())
+}
+
+func (i ResourceSetTagArgs) ToResourceSetTagOutputWithContext(ctx context.Context) ResourceSetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTagOutput)
+}
+
+// ResourceSetTagArrayInput is an input type that accepts ResourceSetTagArray and ResourceSetTagArrayOutput values.
+// You can construct a concrete instance of `ResourceSetTagArrayInput` via:
+//
+//	ResourceSetTagArray{ ResourceSetTagArgs{...} }
+type ResourceSetTagArrayInput interface {
+	pulumi.Input
+
+	ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput
+	ToResourceSetTagArrayOutputWithContext(context.Context) ResourceSetTagArrayOutput
+}
+
+type ResourceSetTagArray []ResourceSetTagInput
+
+func (ResourceSetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceSetTag)(nil)).Elem()
+}
+
+func (i ResourceSetTagArray) ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput {
+	return i.ToResourceSetTagArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceSetTagArray) ToResourceSetTagArrayOutputWithContext(ctx context.Context) ResourceSetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTagArrayOutput)
+}
+
+// A tag.
+type ResourceSetTagOutput struct{ *pulumi.OutputState }
+
+func (ResourceSetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetTag)(nil)).Elem()
+}
+
+func (o ResourceSetTagOutput) ToResourceSetTagOutput() ResourceSetTagOutput {
+	return o
+}
+
+func (o ResourceSetTagOutput) ToResourceSetTagOutputWithContext(ctx context.Context) ResourceSetTagOutput {
+	return o
+}
+
+func (o ResourceSetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ResourceSetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ResourceSetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceSetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceSetTag)(nil)).Elem()
+}
+
+func (o ResourceSetTagArrayOutput) ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput {
+	return o
+}
+
+func (o ResourceSetTagArrayOutput) ToResourceSetTagArrayOutputWithContext(ctx context.Context) ResourceSetTagArrayOutput {
+	return o
+}
+
+func (o ResourceSetTagArrayOutput) Index(i pulumi.IntInput) ResourceSetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceSetTag {
+		return vs[0].([]ResourceSetTag)[vs[1].(int)]
+	}).(ResourceSetTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIEMapInput)(nil)).Elem(), PolicyIEMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIEMapPtrInput)(nil)).Elem(), PolicyIEMapArgs{})
@@ -919,6 +1022,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTagArrayInput)(nil)).Elem(), PolicyTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyThirdPartyFirewallPolicyInput)(nil)).Elem(), PolicyThirdPartyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyThirdPartyFirewallPolicyPtrInput)(nil)).Elem(), PolicyThirdPartyFirewallPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTagInput)(nil)).Elem(), ResourceSetTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTagArrayInput)(nil)).Elem(), ResourceSetTagArray{})
 	pulumi.RegisterOutputType(PolicyIEMapOutput{})
 	pulumi.RegisterOutputType(PolicyIEMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicyNetworkFirewallPolicyOutput{})
@@ -933,4 +1038,6 @@ func init() {
 	pulumi.RegisterOutputType(PolicyTagArrayOutput{})
 	pulumi.RegisterOutputType(PolicyThirdPartyFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(PolicyThirdPartyFirewallPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSetTagOutput{})
+	pulumi.RegisterOutputType(ResourceSetTagArrayOutput{})
 }

@@ -25,7 +25,7 @@ export interface GetOrganizationConfigRuleArgs {
 export interface GetOrganizationConfigRuleResult {
     readonly excludedAccounts?: string[];
     readonly id?: string;
-    readonly organizationCustomCodeRuleMetadata?: outputs.configuration.OrganizationConfigRuleOrganizationCustomCodeRuleMetadata;
+    readonly organizationCustomPolicyRuleMetadata?: outputs.configuration.OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata;
     readonly organizationCustomRuleMetadata?: outputs.configuration.OrganizationConfigRuleOrganizationCustomRuleMetadata;
     readonly organizationManagedRuleMetadata?: outputs.configuration.OrganizationConfigRuleOrganizationManagedRuleMetadata;
 }

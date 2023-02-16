@@ -154,6 +154,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("transitEncryptionEnabled")]
         public Output<bool?> TransitEncryptionEnabled { get; private set; } = null!;
 
+        [Output("transitEncryptionMode")]
+        public Output<string?> TransitEncryptionMode { get; private set; } = null!;
+
         [Output("userGroupIds")]
         public Output<ImmutableArray<string>> UserGroupIds { get; private set; } = null!;
 
@@ -384,6 +387,9 @@ namespace Pulumi.AwsNative.ElastiCache
 
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }
+
+        [Input("transitEncryptionMode")]
+        public Input<string>? TransitEncryptionMode { get; set; }
 
         [Input("userGroupIds")]
         private InputList<string>? _userGroupIds;

@@ -14,47 +14,20 @@ export function getScalableTarget(args: GetScalableTargetArgs, opts?: pulumi.Inv
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:applicationautoscaling:getScalableTarget", {
-        "resourceId": args.resourceId,
-        "scalableDimension": args.scalableDimension,
-        "serviceNamespace": args.serviceNamespace,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetScalableTargetArgs {
-    /**
-     * The identifier of the resource associated with the scalable target
-     */
-    resourceId: string;
-    /**
-     * The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
-     */
-    scalableDimension: string;
-    /**
-     * The namespace of the AWS service that provides the resource, or a custom-resource
-     */
-    serviceNamespace: string;
+    id: string;
 }
 
 export interface GetScalableTargetResult {
-    /**
-     * This value can be returned by using the Ref function. Ref returns the Cloudformation generated ID of the resource in format - ResourceId|ScalableDimension|ServiceNamespace
-     */
     readonly id?: string;
-    /**
-     * The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
-     */
     readonly maxCapacity?: number;
-    /**
-     * The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
-     */
     readonly minCapacity?: number;
-    /**
-     * The scheduled actions for the scalable target. Duplicates aren't allowed.
-     */
+    readonly roleARN?: string;
     readonly scheduledActions?: outputs.applicationautoscaling.ScalableTargetScheduledAction[];
-    /**
-     * An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
-     */
     readonly suspendedState?: outputs.applicationautoscaling.ScalableTargetSuspendedState;
 }
 /**
@@ -65,16 +38,5 @@ export function getScalableTargetOutput(args: GetScalableTargetOutputArgs, opts?
 }
 
 export interface GetScalableTargetOutputArgs {
-    /**
-     * The identifier of the resource associated with the scalable target
-     */
-    resourceId: pulumi.Input<string>;
-    /**
-     * The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
-     */
-    scalableDimension: pulumi.Input<string>;
-    /**
-     * The namespace of the AWS service that provides the resource, or a custom-resource
-     */
-    serviceNamespace: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

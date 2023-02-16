@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::ApiGatewayV2::RouteResponse
- *
- * @deprecated RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class RouteResponse extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class RouteResponse extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RouteResponse {
-        pulumi.log.warn("RouteResponse is deprecated: RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new RouteResponse(name, undefined as any, { ...opts, id: id });
     }
 
@@ -42,6 +39,7 @@ export class RouteResponse extends pulumi.CustomResource {
     public readonly responseModels!: pulumi.Output<any | undefined>;
     public readonly responseParameters!: pulumi.Output<any | undefined>;
     public readonly routeId!: pulumi.Output<string>;
+    public /*out*/ readonly routeResponseId!: pulumi.Output<string>;
     public readonly routeResponseKey!: pulumi.Output<string>;
 
     /**
@@ -51,9 +49,7 @@ export class RouteResponse extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RouteResponseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RouteResponse is deprecated: RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -72,12 +68,14 @@ export class RouteResponse extends pulumi.CustomResource {
             resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
             resourceInputs["routeId"] = args ? args.routeId : undefined;
             resourceInputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
+            resourceInputs["routeResponseId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["modelSelectionExpression"] = undefined /*out*/;
             resourceInputs["responseModels"] = undefined /*out*/;
             resourceInputs["responseParameters"] = undefined /*out*/;
             resourceInputs["routeId"] = undefined /*out*/;
+            resourceInputs["routeResponseId"] = undefined /*out*/;
             resourceInputs["routeResponseKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -63,6 +63,7 @@ type ReplicationGroup struct {
 	SnapshottingClusterId        pulumi.StringPtrOutput                                     `pulumi:"snapshottingClusterId"`
 	Tags                         ReplicationGroupTagArrayOutput                             `pulumi:"tags"`
 	TransitEncryptionEnabled     pulumi.BoolPtrOutput                                       `pulumi:"transitEncryptionEnabled"`
+	TransitEncryptionMode        pulumi.StringPtrOutput                                     `pulumi:"transitEncryptionMode"`
 	UserGroupIds                 pulumi.StringArrayOutput                                   `pulumi:"userGroupIds"`
 }
 
@@ -154,6 +155,7 @@ type replicationGroupArgs struct {
 	SnapshottingClusterId        *string                                           `pulumi:"snapshottingClusterId"`
 	Tags                         []ReplicationGroupTag                             `pulumi:"tags"`
 	TransitEncryptionEnabled     *bool                                             `pulumi:"transitEncryptionEnabled"`
+	TransitEncryptionMode        *string                                           `pulumi:"transitEncryptionMode"`
 	UserGroupIds                 []string                                          `pulumi:"userGroupIds"`
 }
 
@@ -205,6 +207,7 @@ type ReplicationGroupArgs struct {
 	SnapshottingClusterId        pulumi.StringPtrInput
 	Tags                         ReplicationGroupTagArrayInput
 	TransitEncryptionEnabled     pulumi.BoolPtrInput
+	TransitEncryptionMode        pulumi.StringPtrInput
 	UserGroupIds                 pulumi.StringArrayInput
 }
 
@@ -431,6 +434,10 @@ func (o ReplicationGroupOutput) Tags() ReplicationGroupTagArrayOutput {
 
 func (o ReplicationGroupOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationGroupOutput) TransitEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.TransitEncryptionMode }).(pulumi.StringPtrOutput)
 }
 
 func (o ReplicationGroupOutput) UserGroupIds() pulumi.StringArrayOutput {

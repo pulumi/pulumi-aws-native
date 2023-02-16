@@ -637,6 +637,139 @@ func (o GlobalTableKeySchemaArrayOutput) Index(i pulumi.IntInput) GlobalTableKey
 	}).(GlobalTableKeySchemaOutput)
 }
 
+type GlobalTableKinesisStreamSpecification struct {
+	StreamArn string `pulumi:"streamArn"`
+}
+
+// GlobalTableKinesisStreamSpecificationInput is an input type that accepts GlobalTableKinesisStreamSpecificationArgs and GlobalTableKinesisStreamSpecificationOutput values.
+// You can construct a concrete instance of `GlobalTableKinesisStreamSpecificationInput` via:
+//
+//	GlobalTableKinesisStreamSpecificationArgs{...}
+type GlobalTableKinesisStreamSpecificationInput interface {
+	pulumi.Input
+
+	ToGlobalTableKinesisStreamSpecificationOutput() GlobalTableKinesisStreamSpecificationOutput
+	ToGlobalTableKinesisStreamSpecificationOutputWithContext(context.Context) GlobalTableKinesisStreamSpecificationOutput
+}
+
+type GlobalTableKinesisStreamSpecificationArgs struct {
+	StreamArn pulumi.StringInput `pulumi:"streamArn"`
+}
+
+func (GlobalTableKinesisStreamSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableKinesisStreamSpecification)(nil)).Elem()
+}
+
+func (i GlobalTableKinesisStreamSpecificationArgs) ToGlobalTableKinesisStreamSpecificationOutput() GlobalTableKinesisStreamSpecificationOutput {
+	return i.ToGlobalTableKinesisStreamSpecificationOutputWithContext(context.Background())
+}
+
+func (i GlobalTableKinesisStreamSpecificationArgs) ToGlobalTableKinesisStreamSpecificationOutputWithContext(ctx context.Context) GlobalTableKinesisStreamSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableKinesisStreamSpecificationOutput)
+}
+
+func (i GlobalTableKinesisStreamSpecificationArgs) ToGlobalTableKinesisStreamSpecificationPtrOutput() GlobalTableKinesisStreamSpecificationPtrOutput {
+	return i.ToGlobalTableKinesisStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalTableKinesisStreamSpecificationArgs) ToGlobalTableKinesisStreamSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableKinesisStreamSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableKinesisStreamSpecificationOutput).ToGlobalTableKinesisStreamSpecificationPtrOutputWithContext(ctx)
+}
+
+// GlobalTableKinesisStreamSpecificationPtrInput is an input type that accepts GlobalTableKinesisStreamSpecificationArgs, GlobalTableKinesisStreamSpecificationPtr and GlobalTableKinesisStreamSpecificationPtrOutput values.
+// You can construct a concrete instance of `GlobalTableKinesisStreamSpecificationPtrInput` via:
+//
+//	        GlobalTableKinesisStreamSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalTableKinesisStreamSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToGlobalTableKinesisStreamSpecificationPtrOutput() GlobalTableKinesisStreamSpecificationPtrOutput
+	ToGlobalTableKinesisStreamSpecificationPtrOutputWithContext(context.Context) GlobalTableKinesisStreamSpecificationPtrOutput
+}
+
+type globalTableKinesisStreamSpecificationPtrType GlobalTableKinesisStreamSpecificationArgs
+
+func GlobalTableKinesisStreamSpecificationPtr(v *GlobalTableKinesisStreamSpecificationArgs) GlobalTableKinesisStreamSpecificationPtrInput {
+	return (*globalTableKinesisStreamSpecificationPtrType)(v)
+}
+
+func (*globalTableKinesisStreamSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableKinesisStreamSpecification)(nil)).Elem()
+}
+
+func (i *globalTableKinesisStreamSpecificationPtrType) ToGlobalTableKinesisStreamSpecificationPtrOutput() GlobalTableKinesisStreamSpecificationPtrOutput {
+	return i.ToGlobalTableKinesisStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *globalTableKinesisStreamSpecificationPtrType) ToGlobalTableKinesisStreamSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableKinesisStreamSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableKinesisStreamSpecificationPtrOutput)
+}
+
+type GlobalTableKinesisStreamSpecificationOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableKinesisStreamSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableKinesisStreamSpecification)(nil)).Elem()
+}
+
+func (o GlobalTableKinesisStreamSpecificationOutput) ToGlobalTableKinesisStreamSpecificationOutput() GlobalTableKinesisStreamSpecificationOutput {
+	return o
+}
+
+func (o GlobalTableKinesisStreamSpecificationOutput) ToGlobalTableKinesisStreamSpecificationOutputWithContext(ctx context.Context) GlobalTableKinesisStreamSpecificationOutput {
+	return o
+}
+
+func (o GlobalTableKinesisStreamSpecificationOutput) ToGlobalTableKinesisStreamSpecificationPtrOutput() GlobalTableKinesisStreamSpecificationPtrOutput {
+	return o.ToGlobalTableKinesisStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableKinesisStreamSpecificationOutput) ToGlobalTableKinesisStreamSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableKinesisStreamSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableKinesisStreamSpecification) *GlobalTableKinesisStreamSpecification {
+		return &v
+	}).(GlobalTableKinesisStreamSpecificationPtrOutput)
+}
+
+func (o GlobalTableKinesisStreamSpecificationOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalTableKinesisStreamSpecification) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+type GlobalTableKinesisStreamSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableKinesisStreamSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableKinesisStreamSpecification)(nil)).Elem()
+}
+
+func (o GlobalTableKinesisStreamSpecificationPtrOutput) ToGlobalTableKinesisStreamSpecificationPtrOutput() GlobalTableKinesisStreamSpecificationPtrOutput {
+	return o
+}
+
+func (o GlobalTableKinesisStreamSpecificationPtrOutput) ToGlobalTableKinesisStreamSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableKinesisStreamSpecificationPtrOutput {
+	return o
+}
+
+func (o GlobalTableKinesisStreamSpecificationPtrOutput) Elem() GlobalTableKinesisStreamSpecificationOutput {
+	return o.ApplyT(func(v *GlobalTableKinesisStreamSpecification) GlobalTableKinesisStreamSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTableKinesisStreamSpecification
+		return ret
+	}).(GlobalTableKinesisStreamSpecificationOutput)
+}
+
+func (o GlobalTableKinesisStreamSpecificationPtrOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalTableKinesisStreamSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type GlobalTableLocalSecondaryIndex struct {
 	IndexName  string                 `pulumi:"indexName"`
 	KeySchema  []GlobalTableKeySchema `pulumi:"keySchema"`
@@ -1327,6 +1460,7 @@ func (o GlobalTableReplicaSSESpecificationPtrOutput) KMSMasterKeyId() pulumi.Str
 type GlobalTableReplicaSpecification struct {
 	ContributorInsightsSpecification  *GlobalTableContributorInsightsSpecification          `pulumi:"contributorInsightsSpecification"`
 	GlobalSecondaryIndexes            []GlobalTableReplicaGlobalSecondaryIndexSpecification `pulumi:"globalSecondaryIndexes"`
+	KinesisStreamSpecification        *GlobalTableKinesisStreamSpecification                `pulumi:"kinesisStreamSpecification"`
 	PointInTimeRecoverySpecification  *GlobalTablePointInTimeRecoverySpecification          `pulumi:"pointInTimeRecoverySpecification"`
 	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings         `pulumi:"readProvisionedThroughputSettings"`
 	Region                            string                                                `pulumi:"region"`
@@ -1349,6 +1483,7 @@ type GlobalTableReplicaSpecificationInput interface {
 type GlobalTableReplicaSpecificationArgs struct {
 	ContributorInsightsSpecification  GlobalTableContributorInsightsSpecificationPtrInput           `pulumi:"contributorInsightsSpecification"`
 	GlobalSecondaryIndexes            GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput `pulumi:"globalSecondaryIndexes"`
+	KinesisStreamSpecification        GlobalTableKinesisStreamSpecificationPtrInput                 `pulumi:"kinesisStreamSpecification"`
 	PointInTimeRecoverySpecification  GlobalTablePointInTimeRecoverySpecificationPtrInput           `pulumi:"pointInTimeRecoverySpecification"`
 	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput          `pulumi:"readProvisionedThroughputSettings"`
 	Region                            pulumi.StringInput                                            `pulumi:"region"`
@@ -1418,6 +1553,12 @@ func (o GlobalTableReplicaSpecificationOutput) GlobalSecondaryIndexes() GlobalTa
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) []GlobalTableReplicaGlobalSecondaryIndexSpecification {
 		return v.GlobalSecondaryIndexes
 	}).(GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput)
+}
+
+func (o GlobalTableReplicaSpecificationOutput) KinesisStreamSpecification() GlobalTableKinesisStreamSpecificationPtrOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableKinesisStreamSpecification {
+		return v.KinesisStreamSpecification
+	}).(GlobalTableKinesisStreamSpecificationPtrOutput)
 }
 
 func (o GlobalTableReplicaSpecificationOutput) PointInTimeRecoverySpecification() GlobalTablePointInTimeRecoverySpecificationPtrOutput {
@@ -4515,6 +4656,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableGlobalSecondaryIndexArrayInput)(nil)).Elem(), GlobalTableGlobalSecondaryIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableKeySchemaInput)(nil)).Elem(), GlobalTableKeySchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableKeySchemaArrayInput)(nil)).Elem(), GlobalTableKeySchemaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableKinesisStreamSpecificationInput)(nil)).Elem(), GlobalTableKinesisStreamSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableKinesisStreamSpecificationPtrInput)(nil)).Elem(), GlobalTableKinesisStreamSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableLocalSecondaryIndexInput)(nil)).Elem(), GlobalTableLocalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableLocalSecondaryIndexArrayInput)(nil)).Elem(), GlobalTableLocalSecondaryIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTablePointInTimeRecoverySpecificationInput)(nil)).Elem(), GlobalTablePointInTimeRecoverySpecificationArgs{})
@@ -4583,6 +4726,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableGlobalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(GlobalTableKeySchemaOutput{})
 	pulumi.RegisterOutputType(GlobalTableKeySchemaArrayOutput{})
+	pulumi.RegisterOutputType(GlobalTableKinesisStreamSpecificationOutput{})
+	pulumi.RegisterOutputType(GlobalTableKinesisStreamSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableLocalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(GlobalTableLocalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(GlobalTablePointInTimeRecoverySpecificationOutput{})

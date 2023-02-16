@@ -21,7 +21,7 @@ __all__ = [
     'ConfigurationRecorderRecordingGroupArgs',
     'ConformancePackInputParameterArgs',
     'DeliveryChannelConfigSnapshotDeliveryPropertiesArgs',
-    'OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs',
+    'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs',
     'OrganizationConfigRuleOrganizationCustomRuleMetadataArgs',
     'OrganizationConfigRuleOrganizationManagedRuleMetadataArgs',
     'OrganizationConformancePackConformancePackInputParameterArgs',
@@ -461,9 +461,9 @@ class DeliveryChannelConfigSnapshotDeliveryPropertiesArgs:
 
 
 @pulumi.input_type
-class OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs:
+class OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs:
     def __init__(__self__, *,
-                 code_text: pulumi.Input[str],
+                 policy_text: pulumi.Input[str],
                  runtime: pulumi.Input[str],
                  debug_log_delivery_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -474,7 +474,7 @@ class OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs:
                  resource_types_scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_key_scope: Optional[pulumi.Input[str]] = None,
                  tag_value_scope: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "code_text", code_text)
+        pulumi.set(__self__, "policy_text", policy_text)
         pulumi.set(__self__, "runtime", runtime)
         if debug_log_delivery_accounts is not None:
             pulumi.set(__self__, "debug_log_delivery_accounts", debug_log_delivery_accounts)
@@ -496,13 +496,13 @@ class OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs:
             pulumi.set(__self__, "tag_value_scope", tag_value_scope)
 
     @property
-    @pulumi.getter(name="codeText")
-    def code_text(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "code_text")
+    @pulumi.getter(name="policyText")
+    def policy_text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "policy_text")
 
-    @code_text.setter
-    def code_text(self, value: pulumi.Input[str]):
-        pulumi.set(self, "code_text", value)
+    @policy_text.setter
+    def policy_text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_text", value)
 
     @property
     @pulumi.getter

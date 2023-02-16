@@ -15,6 +15,11 @@ export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
 
+export { GetResourceSetArgs, GetResourceSetResult, GetResourceSetOutputArgs } from "./getResourceSet";
+export const getResourceSet: typeof import("./getResourceSet").getResourceSet = null as any;
+export const getResourceSetOutput: typeof import("./getResourceSet").getResourceSetOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceSet","getResourceSetOutput"], () => require("./getResourceSet"));
+
 export { NotificationChannelArgs } from "./notificationChannel";
 export type NotificationChannel = import("./notificationChannel").NotificationChannel;
 export const NotificationChannel: typeof import("./notificationChannel").NotificationChannel = null as any;
@@ -24,6 +29,11 @@ export { PolicyArgs } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
 utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
+export { ResourceSetArgs } from "./resourceSet";
+export type ResourceSet = import("./resourceSet").ResourceSet;
+export const ResourceSet: typeof import("./resourceSet").ResourceSet = null as any;
+utilities.lazyLoad(exports, ["ResourceSet"], () => require("./resourceSet"));
 
 
 // Export enums:
@@ -37,6 +47,8 @@ const _module = {
                 return new NotificationChannel(name, <any>undefined, { urn })
             case "aws-native:fms:Policy":
                 return new Policy(name, <any>undefined, { urn })
+            case "aws-native:fms:ResourceSet":
+                return new ResourceSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -17,6 +17,7 @@ export type ApplicationProxyType = (typeof ApplicationProxyType)[keyof typeof Ap
 
 export const EnvironmentNetworkFabricType = {
     TransitGateway: "TRANSIT_GATEWAY",
+    None: "NONE",
 } as const;
 
 export type EnvironmentNetworkFabricType = (typeof EnvironmentNetworkFabricType)[keyof typeof EnvironmentNetworkFabricType];

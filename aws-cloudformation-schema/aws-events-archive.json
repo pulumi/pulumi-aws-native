@@ -25,7 +25,7 @@
     }
   },
   "required" : [ "SourceArn" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/ArchiveName" ],
+  "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/ArchiveName", "/properties/SourceArn" ],
   "primaryIdentifier" : [ "/properties/ArchiveName" ],
   "handlers" : {

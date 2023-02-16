@@ -12,8 +12,6 @@ import (
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::RouteResponse
-//
-// Deprecated: RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type RouteResponse struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +20,7 @@ type RouteResponse struct {
 	ResponseModels           pulumi.AnyOutput       `pulumi:"responseModels"`
 	ResponseParameters       pulumi.AnyOutput       `pulumi:"responseParameters"`
 	RouteId                  pulumi.StringOutput    `pulumi:"routeId"`
+	RouteResponseId          pulumi.StringOutput    `pulumi:"routeResponseId"`
 	RouteResponseKey         pulumi.StringOutput    `pulumi:"routeResponseKey"`
 }
 
@@ -146,6 +145,10 @@ func (o RouteResponseOutput) ResponseParameters() pulumi.AnyOutput {
 
 func (o RouteResponseOutput) RouteId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteId }).(pulumi.StringOutput)
+}
+
+func (o RouteResponseOutput) RouteResponseId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteResponseId }).(pulumi.StringOutput)
 }
 
 func (o RouteResponseOutput) RouteResponseKey() pulumi.StringOutput {

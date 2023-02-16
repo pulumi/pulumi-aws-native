@@ -230,10 +230,20 @@ export const getLocalGatewayRoute: typeof import("./getLocalGatewayRoute").getLo
 export const getLocalGatewayRouteOutput: typeof import("./getLocalGatewayRoute").getLocalGatewayRouteOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalGatewayRoute","getLocalGatewayRouteOutput"], () => require("./getLocalGatewayRoute"));
 
+export { GetLocalGatewayRouteTableArgs, GetLocalGatewayRouteTableResult, GetLocalGatewayRouteTableOutputArgs } from "./getLocalGatewayRouteTable";
+export const getLocalGatewayRouteTable: typeof import("./getLocalGatewayRouteTable").getLocalGatewayRouteTable = null as any;
+export const getLocalGatewayRouteTableOutput: typeof import("./getLocalGatewayRouteTable").getLocalGatewayRouteTableOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalGatewayRouteTable","getLocalGatewayRouteTableOutput"], () => require("./getLocalGatewayRouteTable"));
+
 export { GetLocalGatewayRouteTableVPCAssociationArgs, GetLocalGatewayRouteTableVPCAssociationResult, GetLocalGatewayRouteTableVPCAssociationOutputArgs } from "./getLocalGatewayRouteTableVPCAssociation";
 export const getLocalGatewayRouteTableVPCAssociation: typeof import("./getLocalGatewayRouteTableVPCAssociation").getLocalGatewayRouteTableVPCAssociation = null as any;
 export const getLocalGatewayRouteTableVPCAssociationOutput: typeof import("./getLocalGatewayRouteTableVPCAssociation").getLocalGatewayRouteTableVPCAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalGatewayRouteTableVPCAssociation","getLocalGatewayRouteTableVPCAssociationOutput"], () => require("./getLocalGatewayRouteTableVPCAssociation"));
+
+export { GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs, GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult, GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutputArgs } from "./getLocalGatewayRouteTableVirtualInterfaceGroupAssociation";
+export const getLocalGatewayRouteTableVirtualInterfaceGroupAssociation: typeof import("./getLocalGatewayRouteTableVirtualInterfaceGroupAssociation").getLocalGatewayRouteTableVirtualInterfaceGroupAssociation = null as any;
+export const getLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput: typeof import("./getLocalGatewayRouteTableVirtualInterfaceGroupAssociation").getLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalGatewayRouteTableVirtualInterfaceGroupAssociation","getLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput"], () => require("./getLocalGatewayRouteTableVirtualInterfaceGroupAssociation"));
 
 export { GetNatGatewayArgs, GetNatGatewayResult, GetNatGatewayOutputArgs } from "./getNatGateway";
 export const getNatGateway: typeof import("./getNatGateway").getNatGateway = null as any;
@@ -565,10 +575,20 @@ export type LocalGatewayRoute = import("./localGatewayRoute").LocalGatewayRoute;
 export const LocalGatewayRoute: typeof import("./localGatewayRoute").LocalGatewayRoute = null as any;
 utilities.lazyLoad(exports, ["LocalGatewayRoute"], () => require("./localGatewayRoute"));
 
+export { LocalGatewayRouteTableArgs } from "./localGatewayRouteTable";
+export type LocalGatewayRouteTable = import("./localGatewayRouteTable").LocalGatewayRouteTable;
+export const LocalGatewayRouteTable: typeof import("./localGatewayRouteTable").LocalGatewayRouteTable = null as any;
+utilities.lazyLoad(exports, ["LocalGatewayRouteTable"], () => require("./localGatewayRouteTable"));
+
 export { LocalGatewayRouteTableVPCAssociationArgs } from "./localGatewayRouteTableVPCAssociation";
 export type LocalGatewayRouteTableVPCAssociation = import("./localGatewayRouteTableVPCAssociation").LocalGatewayRouteTableVPCAssociation;
 export const LocalGatewayRouteTableVPCAssociation: typeof import("./localGatewayRouteTableVPCAssociation").LocalGatewayRouteTableVPCAssociation = null as any;
 utilities.lazyLoad(exports, ["LocalGatewayRouteTableVPCAssociation"], () => require("./localGatewayRouteTableVPCAssociation"));
+
+export { LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs } from "./localGatewayRouteTableVirtualInterfaceGroupAssociation";
+export type LocalGatewayRouteTableVirtualInterfaceGroupAssociation = import("./localGatewayRouteTableVirtualInterfaceGroupAssociation").LocalGatewayRouteTableVirtualInterfaceGroupAssociation;
+export const LocalGatewayRouteTableVirtualInterfaceGroupAssociation: typeof import("./localGatewayRouteTableVirtualInterfaceGroupAssociation").LocalGatewayRouteTableVirtualInterfaceGroupAssociation = null as any;
+utilities.lazyLoad(exports, ["LocalGatewayRouteTableVirtualInterfaceGroupAssociation"], () => require("./localGatewayRouteTableVirtualInterfaceGroupAssociation"));
 
 export { NatGatewayArgs } from "./natGateway";
 export type NatGateway = import("./natGateway").NatGateway;
@@ -911,8 +931,12 @@ const _module = {
                 return new LaunchTemplate(name, <any>undefined, { urn })
             case "aws-native:ec2:LocalGatewayRoute":
                 return new LocalGatewayRoute(name, <any>undefined, { urn })
+            case "aws-native:ec2:LocalGatewayRouteTable":
+                return new LocalGatewayRouteTable(name, <any>undefined, { urn })
             case "aws-native:ec2:LocalGatewayRouteTableVPCAssociation":
                 return new LocalGatewayRouteTableVPCAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation":
+                return new LocalGatewayRouteTableVirtualInterfaceGroupAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:NatGateway":
                 return new NatGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:NetworkAcl":

@@ -16,6 +16,7 @@ __all__ = [
     'GlobalTableContributorInsightsSpecification',
     'GlobalTableGlobalSecondaryIndex',
     'GlobalTableKeySchema',
+    'GlobalTableKinesisStreamSpecification',
     'GlobalTableLocalSecondaryIndex',
     'GlobalTablePointInTimeRecoverySpecification',
     'GlobalTableProjection',
@@ -246,6 +247,35 @@ class GlobalTableKeySchema(dict):
     @pulumi.getter(name="keyType")
     def key_type(self) -> str:
         return pulumi.get(self, "key_type")
+
+
+@pulumi.output_type
+class GlobalTableKinesisStreamSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamArn":
+            suggest = "stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalTableKinesisStreamSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalTableKinesisStreamSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalTableKinesisStreamSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stream_arn: str):
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> str:
+        return pulumi.get(self, "stream_arn")
 
 
 @pulumi.output_type
@@ -490,6 +520,8 @@ class GlobalTableReplicaSpecification(dict):
             suggest = "contributor_insights_specification"
         elif key == "globalSecondaryIndexes":
             suggest = "global_secondary_indexes"
+        elif key == "kinesisStreamSpecification":
+            suggest = "kinesis_stream_specification"
         elif key == "pointInTimeRecoverySpecification":
             suggest = "point_in_time_recovery_specification"
         elif key == "readProvisionedThroughputSettings":
@@ -514,6 +546,7 @@ class GlobalTableReplicaSpecification(dict):
                  region: str,
                  contributor_insights_specification: Optional['outputs.GlobalTableContributorInsightsSpecification'] = None,
                  global_secondary_indexes: Optional[Sequence['outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification']] = None,
+                 kinesis_stream_specification: Optional['outputs.GlobalTableKinesisStreamSpecification'] = None,
                  point_in_time_recovery_specification: Optional['outputs.GlobalTablePointInTimeRecoverySpecification'] = None,
                  read_provisioned_throughput_settings: Optional['outputs.GlobalTableReadProvisionedThroughputSettings'] = None,
                  s_se_specification: Optional['outputs.GlobalTableReplicaSSESpecification'] = None,
@@ -524,6 +557,8 @@ class GlobalTableReplicaSpecification(dict):
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if kinesis_stream_specification is not None:
+            pulumi.set(__self__, "kinesis_stream_specification", kinesis_stream_specification)
         if point_in_time_recovery_specification is not None:
             pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if read_provisioned_throughput_settings is not None:
@@ -549,6 +584,11 @@ class GlobalTableReplicaSpecification(dict):
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> Optional[Sequence['outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification']]:
         return pulumi.get(self, "global_secondary_indexes")
+
+    @property
+    @pulumi.getter(name="kinesisStreamSpecification")
+    def kinesis_stream_specification(self) -> Optional['outputs.GlobalTableKinesisStreamSpecification']:
+        return pulumi.get(self, "kinesis_stream_specification")
 
     @property
     @pulumi.getter(name="pointInTimeRecoverySpecification")

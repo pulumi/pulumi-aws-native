@@ -8,7 +8,9 @@ import typing
 from ._enums import *
 from .get_notification_channel import *
 from .get_policy import *
+from .get_resource_set import *
 from .notification_channel import *
 from .policy import *
+from .resource_set import *
 from ._inputs import *
 from . import outputs

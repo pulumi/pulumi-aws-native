@@ -15,7 +15,7 @@ import (
 type Archive struct {
 	pulumi.CustomResourceState
 
-	ArchiveName   pulumi.StringOutput    `pulumi:"archiveName"`
+	ArchiveName   pulumi.StringPtrOutput `pulumi:"archiveName"`
 	Arn           pulumi.StringOutput    `pulumi:"arn"`
 	Description   pulumi.StringPtrOutput `pulumi:"description"`
 	EventPattern  pulumi.AnyOutput       `pulumi:"eventPattern"`
@@ -118,8 +118,8 @@ func (o ArchiveOutput) ToArchiveOutputWithContext(ctx context.Context) ArchiveOu
 	return o
 }
 
-func (o ArchiveOutput) ArchiveName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Archive) pulumi.StringOutput { return v.ArchiveName }).(pulumi.StringOutput)
+func (o ArchiveOutput) ArchiveName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Archive) pulumi.StringPtrOutput { return v.ArchiveName }).(pulumi.StringPtrOutput)
 }
 
 func (o ArchiveOutput) Arn() pulumi.StringOutput {

@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetReplicationGroupResult:
-    def __init__(__self__, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, configuration_end_point_address=None, configuration_end_point_port=None, engine_version=None, ip_discovery=None, log_delivery_configurations=None, multi_az_enabled=None, node_group_configuration=None, notification_topic_arn=None, num_cache_clusters=None, num_node_groups=None, preferred_maintenance_window=None, primary_cluster_id=None, primary_end_point_address=None, primary_end_point_port=None, read_end_point_addresses=None, read_end_point_addresses_list=None, read_end_point_ports=None, read_end_point_ports_list=None, reader_end_point_address=None, reader_end_point_port=None, replication_group_description=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, snapshotting_cluster_id=None, tags=None, user_group_ids=None):
+    def __init__(__self__, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, configuration_end_point_address=None, configuration_end_point_port=None, engine_version=None, ip_discovery=None, log_delivery_configurations=None, multi_az_enabled=None, node_group_configuration=None, notification_topic_arn=None, num_cache_clusters=None, num_node_groups=None, preferred_maintenance_window=None, primary_cluster_id=None, primary_end_point_address=None, primary_end_point_port=None, read_end_point_addresses=None, read_end_point_addresses_list=None, read_end_point_ports=None, read_end_point_ports_list=None, reader_end_point_address=None, reader_end_point_port=None, replication_group_description=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, snapshotting_cluster_id=None, tags=None, transit_encryption_enabled=None, transit_encryption_mode=None, user_group_ids=None):
         if auth_token and not isinstance(auth_token, str):
             raise TypeError("Expected argument 'auth_token' to be a str")
         pulumi.set(__self__, "auth_token", auth_token)
@@ -116,6 +116,12 @@ class GetReplicationGroupResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if transit_encryption_enabled and not isinstance(transit_encryption_enabled, bool):
+            raise TypeError("Expected argument 'transit_encryption_enabled' to be a bool")
+        pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+        if transit_encryption_mode and not isinstance(transit_encryption_mode, str):
+            raise TypeError("Expected argument 'transit_encryption_mode' to be a str")
+        pulumi.set(__self__, "transit_encryption_mode", transit_encryption_mode)
         if user_group_ids and not isinstance(user_group_ids, list):
             raise TypeError("Expected argument 'user_group_ids' to be a list")
         pulumi.set(__self__, "user_group_ids", user_group_ids)
@@ -281,6 +287,16 @@ class GetReplicationGroupResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="transitEncryptionEnabled")
+    def transit_encryption_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "transit_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="transitEncryptionMode")
+    def transit_encryption_mode(self) -> Optional[str]:
+        return pulumi.get(self, "transit_encryption_mode")
+
+    @property
     @pulumi.getter(name="userGroupIds")
     def user_group_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "user_group_ids")
@@ -324,6 +340,8 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             snapshot_window=self.snapshot_window,
             snapshotting_cluster_id=self.snapshotting_cluster_id,
             tags=self.tags,
+            transit_encryption_enabled=self.transit_encryption_enabled,
+            transit_encryption_mode=self.transit_encryption_mode,
             user_group_ids=self.user_group_ids)
 
 
@@ -370,6 +388,8 @@ def get_replication_group(replication_group_id: Optional[str] = None,
         snapshot_window=__ret__.snapshot_window,
         snapshotting_cluster_id=__ret__.snapshotting_cluster_id,
         tags=__ret__.tags,
+        transit_encryption_enabled=__ret__.transit_encryption_enabled,
+        transit_encryption_mode=__ret__.transit_encryption_mode,
         user_group_ids=__ret__.user_group_ids)
 
 

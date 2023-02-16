@@ -1981,6 +1981,115 @@ func (o SiteToSiteVpnAttachmentTagArrayOutput) Index(i pulumi.IntInput) SiteToSi
 	}).(SiteToSiteVpnAttachmentTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type TransitGatewayPeeringTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// TransitGatewayPeeringTagInput is an input type that accepts TransitGatewayPeeringTagArgs and TransitGatewayPeeringTagOutput values.
+// You can construct a concrete instance of `TransitGatewayPeeringTagInput` via:
+//
+//	TransitGatewayPeeringTagArgs{...}
+type TransitGatewayPeeringTagInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPeeringTagOutput() TransitGatewayPeeringTagOutput
+	ToTransitGatewayPeeringTagOutputWithContext(context.Context) TransitGatewayPeeringTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type TransitGatewayPeeringTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TransitGatewayPeeringTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayPeeringTag)(nil)).Elem()
+}
+
+func (i TransitGatewayPeeringTagArgs) ToTransitGatewayPeeringTagOutput() TransitGatewayPeeringTagOutput {
+	return i.ToTransitGatewayPeeringTagOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayPeeringTagArgs) ToTransitGatewayPeeringTagOutputWithContext(ctx context.Context) TransitGatewayPeeringTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringTagOutput)
+}
+
+// TransitGatewayPeeringTagArrayInput is an input type that accepts TransitGatewayPeeringTagArray and TransitGatewayPeeringTagArrayOutput values.
+// You can construct a concrete instance of `TransitGatewayPeeringTagArrayInput` via:
+//
+//	TransitGatewayPeeringTagArray{ TransitGatewayPeeringTagArgs{...} }
+type TransitGatewayPeeringTagArrayInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPeeringTagArrayOutput() TransitGatewayPeeringTagArrayOutput
+	ToTransitGatewayPeeringTagArrayOutputWithContext(context.Context) TransitGatewayPeeringTagArrayOutput
+}
+
+type TransitGatewayPeeringTagArray []TransitGatewayPeeringTagInput
+
+func (TransitGatewayPeeringTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayPeeringTag)(nil)).Elem()
+}
+
+func (i TransitGatewayPeeringTagArray) ToTransitGatewayPeeringTagArrayOutput() TransitGatewayPeeringTagArrayOutput {
+	return i.ToTransitGatewayPeeringTagArrayOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayPeeringTagArray) ToTransitGatewayPeeringTagArrayOutputWithContext(ctx context.Context) TransitGatewayPeeringTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type TransitGatewayPeeringTagOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPeeringTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayPeeringTag)(nil)).Elem()
+}
+
+func (o TransitGatewayPeeringTagOutput) ToTransitGatewayPeeringTagOutput() TransitGatewayPeeringTagOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringTagOutput) ToTransitGatewayPeeringTagOutputWithContext(ctx context.Context) TransitGatewayPeeringTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o TransitGatewayPeeringTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayPeeringTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o TransitGatewayPeeringTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayPeeringTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TransitGatewayPeeringTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPeeringTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayPeeringTag)(nil)).Elem()
+}
+
+func (o TransitGatewayPeeringTagArrayOutput) ToTransitGatewayPeeringTagArrayOutput() TransitGatewayPeeringTagArrayOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringTagArrayOutput) ToTransitGatewayPeeringTagArrayOutputWithContext(ctx context.Context) TransitGatewayPeeringTagArrayOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringTagArrayOutput) Index(i pulumi.IntInput) TransitGatewayPeeringTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayPeeringTag {
+		return vs[0].([]TransitGatewayPeeringTag)[vs[1].(int)]
+	}).(TransitGatewayPeeringTagOutput)
+}
+
 // The attachment to move from one segment to another.
 type VpcAttachmentProposedSegmentChange struct {
 	// The rule number in the policy document that applies to this change.
@@ -2368,6 +2477,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteTagArrayInput)(nil)).Elem(), SiteTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentTagInput)(nil)).Elem(), SiteToSiteVpnAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentTagArrayInput)(nil)).Elem(), SiteToSiteVpnAttachmentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringTagInput)(nil)).Elem(), TransitGatewayPeeringTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringTagArrayInput)(nil)).Elem(), TransitGatewayPeeringTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentTagInput)(nil)).Elem(), VpcAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentTagArrayInput)(nil)).Elem(), VpcAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentVpcOptionsInput)(nil)).Elem(), VpcAttachmentVpcOptionsArgs{})
@@ -2409,6 +2520,8 @@ func init() {
 	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput{})
 	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentTagOutput{})
 	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentTagArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringTagOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringTagArrayOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentProposedSegmentChangeOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentProposedSegmentChangePtrOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentTagOutput{})

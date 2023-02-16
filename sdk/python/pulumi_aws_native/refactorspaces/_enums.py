@@ -26,6 +26,7 @@ class ApplicationProxyType(str, Enum):
 
 class EnvironmentNetworkFabricType(str, Enum):
     TRANSIT_GATEWAY = "TRANSIT_GATEWAY"
+    NONE = "NONE"
 
 
 class RouteActivationState(str, Enum):

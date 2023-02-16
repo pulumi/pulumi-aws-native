@@ -22,8 +22,8 @@ namespace Pulumi.AwsNative.Configuration
         [Output("organizationConfigRuleName")]
         public Output<string> OrganizationConfigRuleName { get; private set; } = null!;
 
-        [Output("organizationCustomCodeRuleMetadata")]
-        public Output<Outputs.OrganizationConfigRuleOrganizationCustomCodeRuleMetadata?> OrganizationCustomCodeRuleMetadata { get; private set; } = null!;
+        [Output("organizationCustomPolicyRuleMetadata")]
+        public Output<Outputs.OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata?> OrganizationCustomPolicyRuleMetadata { get; private set; } = null!;
 
         [Output("organizationCustomRuleMetadata")]
         public Output<Outputs.OrganizationConfigRuleOrganizationCustomRuleMetadata?> OrganizationCustomRuleMetadata { get; private set; } = null!;
@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.Configuration
         [Input("organizationConfigRuleName")]
         public Input<string>? OrganizationConfigRuleName { get; set; }
 
-        [Input("organizationCustomCodeRuleMetadata")]
-        public Input<Inputs.OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs>? OrganizationCustomCodeRuleMetadata { get; set; }
+        [Input("organizationCustomPolicyRuleMetadata")]
+        public Input<Inputs.OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs>? OrganizationCustomPolicyRuleMetadata { get; set; }
 
         [Input("organizationCustomRuleMetadata")]
         public Input<Inputs.OrganizationConfigRuleOrganizationCustomRuleMetadataArgs>? OrganizationCustomRuleMetadata { get; set; }

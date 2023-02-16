@@ -86,6 +86,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly snapshottingClusterId!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.elasticache.ReplicationGroupTag[] | undefined>;
     public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly transitEncryptionMode!: pulumi.Output<string | undefined>;
     public readonly userGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -150,6 +151,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["snapshottingClusterId"] = args ? args.snapshottingClusterId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
+            resourceInputs["transitEncryptionMode"] = args ? args.transitEncryptionMode : undefined;
             resourceInputs["userGroupIds"] = args ? args.userGroupIds : undefined;
         } else {
             resourceInputs["atRestEncryptionEnabled"] = undefined /*out*/;
@@ -198,6 +200,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["snapshottingClusterId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["transitEncryptionEnabled"] = undefined /*out*/;
+            resourceInputs["transitEncryptionMode"] = undefined /*out*/;
             resourceInputs["userGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -255,5 +258,6 @@ export interface ReplicationGroupArgs {
     snapshottingClusterId?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupTagArgs>[]>;
     transitEncryptionEnabled?: pulumi.Input<boolean>;
+    transitEncryptionMode?: pulumi.Input<string>;
     userGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

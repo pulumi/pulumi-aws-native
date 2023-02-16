@@ -7708,13 +7708,13 @@ export namespace configuration {
         deliveryFrequency?: string;
     }
 
-    export interface OrganizationConfigRuleOrganizationCustomCodeRuleMetadata {
-        codeText: string;
+    export interface OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata {
         debugLogDeliveryAccounts?: string[];
         description?: string;
         inputParameters?: string;
         maximumExecutionFrequency?: string;
         organizationConfigRuleTriggerTypes?: string[];
+        policyText: string;
         resourceIdScope?: string;
         resourceTypesScope?: string[];
         runtime: string;
@@ -10172,6 +10172,10 @@ export namespace dynamodb {
         keyType: string;
     }
 
+    export interface GlobalTableKinesisStreamSpecification {
+        streamArn: string;
+    }
+
     export interface GlobalTableLocalSecondaryIndex {
         indexName: string;
         keySchema: outputs.dynamodb.GlobalTableKeySchema[];
@@ -10205,6 +10209,7 @@ export namespace dynamodb {
     export interface GlobalTableReplicaSpecification {
         contributorInsightsSpecification?: outputs.dynamodb.GlobalTableContributorInsightsSpecification;
         globalSecondaryIndexes?: outputs.dynamodb.GlobalTableReplicaGlobalSecondaryIndexSpecification[];
+        kinesisStreamSpecification?: outputs.dynamodb.GlobalTableKinesisStreamSpecification;
         pointInTimeRecoverySpecification?: outputs.dynamodb.GlobalTablePointInTimeRecoverySpecification;
         readProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableReadProvisionedThroughputSettings;
         region: string;
@@ -11083,7 +11088,17 @@ export namespace ec2 {
         min?: number;
     }
 
+    export interface LocalGatewayRouteTableTag {
+        key?: string;
+        value?: string;
+    }
+
     export interface LocalGatewayRouteTableVPCAssociationTag {
+        key?: string;
+        value?: string;
+    }
+
+    export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag {
         key?: string;
         value?: string;
     }
@@ -14532,6 +14547,14 @@ export namespace fms {
      */
     export interface PolicyThirdPartyFirewallPolicy {
         firewallDeploymentModel: enums.fms.PolicyFirewallDeploymentModel;
+    }
+
+    /**
+     * A tag.
+     */
+    export interface ResourceSetTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -27705,6 +27728,20 @@ export namespace networkmanager {
     }
 
     /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface TransitGatewayPeeringTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
      * The attachment to move from one segment to another.
      */
     export interface VpcAttachmentProposedSegmentChange {
@@ -28346,6 +28383,20 @@ export namespace organizations {
      * A custom key-value pair associated with a resource within your organization.
      */
     export interface PolicyTag {
+        /**
+         * The key identifier, or name, of the tag.
+         */
+        key: string;
+        /**
+         * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+         */
+        value: string;
+    }
+
+    /**
+     * A custom key-value pair associated with a resource within your organization.
+     */
+    export interface ResourcePolicyTag {
         /**
          * The key identifier, or name, of the tag.
          */
@@ -38111,6 +38162,29 @@ export namespace synthetics {
      * A key-value pair to associate with a resource.
      */
     export interface GroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+}
+
+export namespace systemsmanagersap {
+    export interface ApplicationCredential {
+        credentialType?: enums.systemsmanagersap.ApplicationCredentialCredentialType;
+        databaseName?: string;
+        secretId?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ApplicationTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */

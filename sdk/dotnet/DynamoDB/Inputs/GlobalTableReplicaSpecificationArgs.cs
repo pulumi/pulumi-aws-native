@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
             set => _globalSecondaryIndexes = value;
         }
 
+        [Input("kinesisStreamSpecification")]
+        public Input<Inputs.GlobalTableKinesisStreamSpecificationArgs>? KinesisStreamSpecification { get; set; }
+
         [Input("pointInTimeRecoverySpecification")]
         public Input<Inputs.GlobalTablePointInTimeRecoverySpecificationArgs>? PointInTimeRecoverySpecification { get; set; }
 

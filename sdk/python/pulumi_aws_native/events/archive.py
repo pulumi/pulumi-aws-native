@@ -173,7 +173,7 @@ class Archive(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="archiveName")
-    def archive_name(self) -> pulumi.Output[str]:
+    def archive_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "archive_name")
 
     @property

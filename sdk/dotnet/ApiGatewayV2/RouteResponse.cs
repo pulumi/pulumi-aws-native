@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// <summary>
     /// Resource Type definition for AWS::ApiGatewayV2::RouteResponse
     /// </summary>
-    [Obsolete(@"RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:RouteResponse")]
     public partial class RouteResponse : global::Pulumi.CustomResource
     {
@@ -30,6 +29,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         [Output("routeId")]
         public Output<string> RouteId { get; private set; } = null!;
+
+        [Output("routeResponseId")]
+        public Output<string> RouteResponseId { get; private set; } = null!;
 
         [Output("routeResponseKey")]
         public Output<string> RouteResponseKey { get; private set; } = null!;

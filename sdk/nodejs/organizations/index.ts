@@ -25,6 +25,11 @@ export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
 
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
 export { OrganizationalUnitArgs } from "./organizationalUnit";
 export type OrganizationalUnit = import("./organizationalUnit").OrganizationalUnit;
 export const OrganizationalUnit: typeof import("./organizationalUnit").OrganizationalUnit = null as any;
@@ -34,6 +39,11 @@ export { PolicyArgs } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
 utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 
 // Export enums:
@@ -49,6 +59,8 @@ const _module = {
                 return new OrganizationalUnit(name, <any>undefined, { urn })
             case "aws-native:organizations:Policy":
                 return new Policy(name, <any>undefined, { urn })
+            case "aws-native:organizations:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

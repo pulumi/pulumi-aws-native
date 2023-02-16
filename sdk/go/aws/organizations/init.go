@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OrganizationalUnit{}
 	case "aws-native:organizations:Policy":
 		r = &Policy{}
+	case "aws-native:organizations:ResourcePolicy":
+		r = &ResourcePolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

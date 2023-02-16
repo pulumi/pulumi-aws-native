@@ -1470,13 +1470,13 @@ func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) DeliveryFreque
 	}).(pulumi.StringPtrOutput)
 }
 
-type OrganizationConfigRuleOrganizationCustomCodeRuleMetadata struct {
-	CodeText                           string   `pulumi:"codeText"`
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata struct {
 	DebugLogDeliveryAccounts           []string `pulumi:"debugLogDeliveryAccounts"`
 	Description                        *string  `pulumi:"description"`
 	InputParameters                    *string  `pulumi:"inputParameters"`
 	MaximumExecutionFrequency          *string  `pulumi:"maximumExecutionFrequency"`
 	OrganizationConfigRuleTriggerTypes []string `pulumi:"organizationConfigRuleTriggerTypes"`
+	PolicyText                         string   `pulumi:"policyText"`
 	ResourceIdScope                    *string  `pulumi:"resourceIdScope"`
 	ResourceTypesScope                 []string `pulumi:"resourceTypesScope"`
 	Runtime                            string   `pulumi:"runtime"`
@@ -1484,24 +1484,24 @@ type OrganizationConfigRuleOrganizationCustomCodeRuleMetadata struct {
 	TagValueScope                      *string  `pulumi:"tagValueScope"`
 }
 
-// OrganizationConfigRuleOrganizationCustomCodeRuleMetadataInput is an input type that accepts OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs and OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput values.
-// You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomCodeRuleMetadataInput` via:
+// OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataInput is an input type that accepts OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs and OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataInput` via:
 //
-//	OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs{...}
-type OrganizationConfigRuleOrganizationCustomCodeRuleMetadataInput interface {
+//	OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs{...}
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataInput interface {
 	pulumi.Input
 
-	ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput
-	ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutputWithContext(context.Context) OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput
+	ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput
+	ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutputWithContext(context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput
 }
 
-type OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs struct {
-	CodeText                           pulumi.StringInput      `pulumi:"codeText"`
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs struct {
 	DebugLogDeliveryAccounts           pulumi.StringArrayInput `pulumi:"debugLogDeliveryAccounts"`
 	Description                        pulumi.StringPtrInput   `pulumi:"description"`
 	InputParameters                    pulumi.StringPtrInput   `pulumi:"inputParameters"`
 	MaximumExecutionFrequency          pulumi.StringPtrInput   `pulumi:"maximumExecutionFrequency"`
 	OrganizationConfigRuleTriggerTypes pulumi.StringArrayInput `pulumi:"organizationConfigRuleTriggerTypes"`
+	PolicyText                         pulumi.StringInput      `pulumi:"policyText"`
 	ResourceIdScope                    pulumi.StringPtrInput   `pulumi:"resourceIdScope"`
 	ResourceTypesScope                 pulumi.StringArrayInput `pulumi:"resourceTypesScope"`
 	Runtime                            pulumi.StringInput      `pulumi:"runtime"`
@@ -1509,168 +1509,161 @@ type OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs struct {
 	TagValueScope                      pulumi.StringPtrInput   `pulumi:"tagValueScope"`
 }
 
-func (OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomCodeRuleMetadata)(nil)).Elem()
+func (OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata)(nil)).Elem()
 }
 
-func (i OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput {
-	return i.ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutputWithContext(context.Background())
+func (i OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutputWithContext(context.Background())
 }
 
-func (i OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput)
+func (i OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput)
 }
 
-func (i OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
-	return i.ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutputWithContext(context.Background())
+func (i OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(context.Background())
 }
 
-func (i OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput).ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutputWithContext(ctx)
+func (i OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput).ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx)
 }
 
-// OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrInput is an input type that accepts OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs, OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtr and OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput values.
-// You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrInput` via:
+// OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrInput is an input type that accepts OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs, OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtr and OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrInput` via:
 //
-//	        OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs{...}
+//	        OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs{...}
 //
 //	or:
 //
 //	        nil
-type OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrInput interface {
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrInput interface {
 	pulumi.Input
 
-	ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput
-	ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutputWithContext(context.Context) OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput
+	ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput
+	ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput
 }
 
-type organizationConfigRuleOrganizationCustomCodeRuleMetadataPtrType OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs
+type organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs
 
-func OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtr(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs) OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrInput {
-	return (*organizationConfigRuleOrganizationCustomCodeRuleMetadataPtrType)(v)
+func OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtr(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrInput {
+	return (*organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType)(v)
 }
 
-func (*organizationConfigRuleOrganizationCustomCodeRuleMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationConfigRuleOrganizationCustomCodeRuleMetadata)(nil)).Elem()
+func (*organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata)(nil)).Elem()
 }
 
-func (i *organizationConfigRuleOrganizationCustomCodeRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
-	return i.ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutputWithContext(context.Background())
+func (i *organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(context.Background())
 }
 
-func (i *organizationConfigRuleOrganizationCustomCodeRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput)
+func (i *organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput)
 }
 
-type OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput struct{ *pulumi.OutputState }
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput struct{ *pulumi.OutputState }
 
-func (OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomCodeRuleMetadata)(nil)).Elem()
+func (OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata)(nil)).Elem()
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput {
 	return o
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput {
 	return o
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
-	return o.ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutputWithContext(context.Background())
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return o.ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(context.Background())
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata {
 		return &v
-	}).(OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput)
+	}).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) CodeText() pulumi.StringOutput {
-	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) string { return v.CodeText }).(pulumi.StringOutput)
-}
-
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) DebugLogDeliveryAccounts() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) []string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) DebugLogDeliveryAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
 		return v.DebugLogDeliveryAccounts
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) InputParameters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string { return v.InputParameters }).(pulumi.StringPtrOutput)
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string { return v.InputParameters }).(pulumi.StringPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
 		return v.MaximumExecutionFrequency
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) OrganizationConfigRuleTriggerTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) []string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) OrganizationConfigRuleTriggerTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
 		return v.OrganizationConfigRuleTriggerTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) ResourceIdScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string { return v.ResourceIdScope }).(pulumi.StringPtrOutput)
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) PolicyText() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) string { return v.PolicyText }).(pulumi.StringOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) ResourceTypesScope() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) []string { return v.ResourceTypesScope }).(pulumi.StringArrayOutput)
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string { return v.ResourceIdScope }).(pulumi.StringPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) Runtime() pulumi.StringOutput {
-	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) string { return v.Runtime }).(pulumi.StringOutput)
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
+		return v.ResourceTypesScope
+	}).(pulumi.StringArrayOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) TagKeyScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string { return v.TagKeyScope }).(pulumi.StringPtrOutput)
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) Runtime() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) string { return v.Runtime }).(pulumi.StringOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput) TagValueScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string { return v.TagValueScope }).(pulumi.StringPtrOutput)
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string { return v.TagKeyScope }).(pulumi.StringPtrOutput)
 }
 
-type OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationConfigRuleOrganizationCustomCodeRuleMetadata)(nil)).Elem()
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string { return v.TagValueScope }).(pulumi.StringPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata)(nil)).Elem()
+}
+
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
 	return o
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
 	return o
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) Elem() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) OrganizationConfigRuleOrganizationCustomCodeRuleMetadata {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) Elem() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata {
 		if v != nil {
 			return *v
 		}
-		var ret OrganizationConfigRuleOrganizationCustomCodeRuleMetadata
+		var ret OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata
 		return ret
-	}).(OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput)
+	}).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) CodeText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CodeText
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) DebugLogDeliveryAccounts() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) []string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) DebugLogDeliveryAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
 		if v == nil {
 			return nil
 		}
@@ -1678,8 +1671,8 @@ func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) Debug
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
 		if v == nil {
 			return nil
 		}
@@ -1687,8 +1680,8 @@ func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) Descr
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) InputParameters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
 		if v == nil {
 			return nil
 		}
@@ -1696,8 +1689,8 @@ func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) Input
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
 		if v == nil {
 			return nil
 		}
@@ -1705,8 +1698,8 @@ func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) Maxim
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) OrganizationConfigRuleTriggerTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) []string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) OrganizationConfigRuleTriggerTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
 		if v == nil {
 			return nil
 		}
@@ -1714,8 +1707,17 @@ func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) Organ
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) ResourceIdScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) PolicyText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyText
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
 		if v == nil {
 			return nil
 		}
@@ -1723,8 +1725,8 @@ func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) Resou
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) ResourceTypesScope() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) []string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
 		if v == nil {
 			return nil
 		}
@@ -1732,8 +1734,8 @@ func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) Resou
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) Runtime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
 		if v == nil {
 			return nil
 		}
@@ -1741,8 +1743,8 @@ func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) Runti
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) TagKeyScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
 		if v == nil {
 			return nil
 		}
@@ -1750,8 +1752,8 @@ func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) TagKe
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput) TagValueScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata) *string {
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
 		if v == nil {
 			return nil
 		}
@@ -2924,8 +2926,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInputParameterArrayInput)(nil)).Elem(), ConformancePackInputParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryPropertiesInput)(nil)).Elem(), DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput)(nil)).Elem(), DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomCodeRuleMetadataInput)(nil)).Elem(), OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrInput)(nil)).Elem(), OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataInput)(nil)).Elem(), OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrInput)(nil)).Elem(), OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomRuleMetadataInput)(nil)).Elem(), OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput)(nil)).Elem(), OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationManagedRuleMetadataInput)(nil)).Elem(), OrganizationConfigRuleOrganizationManagedRuleMetadataArgs{})
@@ -2962,8 +2964,8 @@ func init() {
 	pulumi.RegisterOutputType(ConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomCodeRuleMetadataOutput{})
-	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomRuleMetadataOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationManagedRuleMetadataOutput{})

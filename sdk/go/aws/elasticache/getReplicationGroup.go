@@ -57,6 +57,8 @@ type LookupReplicationGroupResult struct {
 	SnapshotWindow               *string                                           `pulumi:"snapshotWindow"`
 	SnapshottingClusterId        *string                                           `pulumi:"snapshottingClusterId"`
 	Tags                         []ReplicationGroupTag                             `pulumi:"tags"`
+	TransitEncryptionEnabled     *bool                                             `pulumi:"transitEncryptionEnabled"`
+	TransitEncryptionMode        *string                                           `pulumi:"transitEncryptionMode"`
 	UserGroupIds                 []string                                          `pulumi:"userGroupIds"`
 }
 
@@ -225,6 +227,14 @@ func (o LookupReplicationGroupResultOutput) SnapshottingClusterId() pulumi.Strin
 
 func (o LookupReplicationGroupResultOutput) Tags() ReplicationGroupTagArrayOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) []ReplicationGroupTag { return v.Tags }).(ReplicationGroupTagArrayOutput)
+}
+
+func (o LookupReplicationGroupResultOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) *bool { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupReplicationGroupResultOutput) TransitEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) *string { return v.TransitEncryptionMode }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupReplicationGroupResultOutput) UserGroupIds() pulumi.StringArrayOutput {

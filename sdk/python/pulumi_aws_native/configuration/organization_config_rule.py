@@ -18,7 +18,7 @@ class OrganizationConfigRuleArgs:
     def __init__(__self__, *,
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_config_rule_name: Optional[pulumi.Input[str]] = None,
-                 organization_custom_code_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs']] = None,
+                 organization_custom_policy_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs']] = None,
                  organization_custom_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs']] = None,
                  organization_managed_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs']] = None):
         """
@@ -28,8 +28,8 @@ class OrganizationConfigRuleArgs:
             pulumi.set(__self__, "excluded_accounts", excluded_accounts)
         if organization_config_rule_name is not None:
             pulumi.set(__self__, "organization_config_rule_name", organization_config_rule_name)
-        if organization_custom_code_rule_metadata is not None:
-            pulumi.set(__self__, "organization_custom_code_rule_metadata", organization_custom_code_rule_metadata)
+        if organization_custom_policy_rule_metadata is not None:
+            pulumi.set(__self__, "organization_custom_policy_rule_metadata", organization_custom_policy_rule_metadata)
         if organization_custom_rule_metadata is not None:
             pulumi.set(__self__, "organization_custom_rule_metadata", organization_custom_rule_metadata)
         if organization_managed_rule_metadata is not None:
@@ -54,13 +54,13 @@ class OrganizationConfigRuleArgs:
         pulumi.set(self, "organization_config_rule_name", value)
 
     @property
-    @pulumi.getter(name="organizationCustomCodeRuleMetadata")
-    def organization_custom_code_rule_metadata(self) -> Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs']]:
-        return pulumi.get(self, "organization_custom_code_rule_metadata")
+    @pulumi.getter(name="organizationCustomPolicyRuleMetadata")
+    def organization_custom_policy_rule_metadata(self) -> Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs']]:
+        return pulumi.get(self, "organization_custom_policy_rule_metadata")
 
-    @organization_custom_code_rule_metadata.setter
-    def organization_custom_code_rule_metadata(self, value: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs']]):
-        pulumi.set(self, "organization_custom_code_rule_metadata", value)
+    @organization_custom_policy_rule_metadata.setter
+    def organization_custom_policy_rule_metadata(self, value: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs']]):
+        pulumi.set(self, "organization_custom_policy_rule_metadata", value)
 
     @property
     @pulumi.getter(name="organizationCustomRuleMetadata")
@@ -93,7 +93,7 @@ class OrganizationConfigRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_config_rule_name: Optional[pulumi.Input[str]] = None,
-                 organization_custom_code_rule_metadata: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs']]] = None,
+                 organization_custom_policy_rule_metadata: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs']]] = None,
                  organization_custom_rule_metadata: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs']]] = None,
                  organization_managed_rule_metadata: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs']]] = None,
                  __props__=None):
@@ -129,7 +129,7 @@ class OrganizationConfigRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_config_rule_name: Optional[pulumi.Input[str]] = None,
-                 organization_custom_code_rule_metadata: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs']]] = None,
+                 organization_custom_policy_rule_metadata: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs']]] = None,
                  organization_custom_rule_metadata: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs']]] = None,
                  organization_managed_rule_metadata: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs']]] = None,
                  __props__=None):
@@ -144,7 +144,7 @@ class OrganizationConfigRule(pulumi.CustomResource):
 
             __props__.__dict__["excluded_accounts"] = excluded_accounts
             __props__.__dict__["organization_config_rule_name"] = organization_config_rule_name
-            __props__.__dict__["organization_custom_code_rule_metadata"] = organization_custom_code_rule_metadata
+            __props__.__dict__["organization_custom_policy_rule_metadata"] = organization_custom_policy_rule_metadata
             __props__.__dict__["organization_custom_rule_metadata"] = organization_custom_rule_metadata
             __props__.__dict__["organization_managed_rule_metadata"] = organization_managed_rule_metadata
         super(OrganizationConfigRule, __self__).__init__(
@@ -171,7 +171,7 @@ class OrganizationConfigRule(pulumi.CustomResource):
 
         __props__.__dict__["excluded_accounts"] = None
         __props__.__dict__["organization_config_rule_name"] = None
-        __props__.__dict__["organization_custom_code_rule_metadata"] = None
+        __props__.__dict__["organization_custom_policy_rule_metadata"] = None
         __props__.__dict__["organization_custom_rule_metadata"] = None
         __props__.__dict__["organization_managed_rule_metadata"] = None
         return OrganizationConfigRule(resource_name, opts=opts, __props__=__props__)
@@ -187,9 +187,9 @@ class OrganizationConfigRule(pulumi.CustomResource):
         return pulumi.get(self, "organization_config_rule_name")
 
     @property
-    @pulumi.getter(name="organizationCustomCodeRuleMetadata")
-    def organization_custom_code_rule_metadata(self) -> pulumi.Output[Optional['outputs.OrganizationConfigRuleOrganizationCustomCodeRuleMetadata']]:
-        return pulumi.get(self, "organization_custom_code_rule_metadata")
+    @pulumi.getter(name="organizationCustomPolicyRuleMetadata")
+    def organization_custom_policy_rule_metadata(self) -> pulumi.Output[Optional['outputs.OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata']]:
+        return pulumi.get(self, "organization_custom_policy_rule_metadata")
 
     @property
     @pulumi.getter(name="organizationCustomRuleMetadata")

@@ -120,7 +120,9 @@ __all__ = [
     'LaunchTemplateTagSpecification',
     'LaunchTemplateTotalLocalStorageGB',
     'LaunchTemplateVCpuCount',
+    'LocalGatewayRouteTableTag',
     'LocalGatewayRouteTableVPCAssociationTag',
+    'LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag',
     'NatGatewayTag',
     'NetworkAclEntryIcmp',
     'NetworkAclEntryPortRange',
@@ -5000,7 +5002,49 @@ class LaunchTemplateVCpuCount(dict):
 
 
 @pulumi.output_type
+class LocalGatewayRouteTableTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class LocalGatewayRouteTableVPCAssociationTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):

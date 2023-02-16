@@ -15430,6 +15430,106 @@ func (o LaunchTemplateVCpuCountPtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type LocalGatewayRouteTableTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// LocalGatewayRouteTableTagInput is an input type that accepts LocalGatewayRouteTableTagArgs and LocalGatewayRouteTableTagOutput values.
+// You can construct a concrete instance of `LocalGatewayRouteTableTagInput` via:
+//
+//	LocalGatewayRouteTableTagArgs{...}
+type LocalGatewayRouteTableTagInput interface {
+	pulumi.Input
+
+	ToLocalGatewayRouteTableTagOutput() LocalGatewayRouteTableTagOutput
+	ToLocalGatewayRouteTableTagOutputWithContext(context.Context) LocalGatewayRouteTableTagOutput
+}
+
+type LocalGatewayRouteTableTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LocalGatewayRouteTableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalGatewayRouteTableTag)(nil)).Elem()
+}
+
+func (i LocalGatewayRouteTableTagArgs) ToLocalGatewayRouteTableTagOutput() LocalGatewayRouteTableTagOutput {
+	return i.ToLocalGatewayRouteTableTagOutputWithContext(context.Background())
+}
+
+func (i LocalGatewayRouteTableTagArgs) ToLocalGatewayRouteTableTagOutputWithContext(ctx context.Context) LocalGatewayRouteTableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableTagOutput)
+}
+
+// LocalGatewayRouteTableTagArrayInput is an input type that accepts LocalGatewayRouteTableTagArray and LocalGatewayRouteTableTagArrayOutput values.
+// You can construct a concrete instance of `LocalGatewayRouteTableTagArrayInput` via:
+//
+//	LocalGatewayRouteTableTagArray{ LocalGatewayRouteTableTagArgs{...} }
+type LocalGatewayRouteTableTagArrayInput interface {
+	pulumi.Input
+
+	ToLocalGatewayRouteTableTagArrayOutput() LocalGatewayRouteTableTagArrayOutput
+	ToLocalGatewayRouteTableTagArrayOutputWithContext(context.Context) LocalGatewayRouteTableTagArrayOutput
+}
+
+type LocalGatewayRouteTableTagArray []LocalGatewayRouteTableTagInput
+
+func (LocalGatewayRouteTableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalGatewayRouteTableTag)(nil)).Elem()
+}
+
+func (i LocalGatewayRouteTableTagArray) ToLocalGatewayRouteTableTagArrayOutput() LocalGatewayRouteTableTagArrayOutput {
+	return i.ToLocalGatewayRouteTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocalGatewayRouteTableTagArray) ToLocalGatewayRouteTableTagArrayOutputWithContext(ctx context.Context) LocalGatewayRouteTableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableTagArrayOutput)
+}
+
+type LocalGatewayRouteTableTagOutput struct{ *pulumi.OutputState }
+
+func (LocalGatewayRouteTableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalGatewayRouteTableTag)(nil)).Elem()
+}
+
+func (o LocalGatewayRouteTableTagOutput) ToLocalGatewayRouteTableTagOutput() LocalGatewayRouteTableTagOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableTagOutput) ToLocalGatewayRouteTableTagOutputWithContext(ctx context.Context) LocalGatewayRouteTableTagOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalGatewayRouteTableTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LocalGatewayRouteTableTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalGatewayRouteTableTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LocalGatewayRouteTableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocalGatewayRouteTableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalGatewayRouteTableTag)(nil)).Elem()
+}
+
+func (o LocalGatewayRouteTableTagArrayOutput) ToLocalGatewayRouteTableTagArrayOutput() LocalGatewayRouteTableTagArrayOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableTagArrayOutput) ToLocalGatewayRouteTableTagArrayOutputWithContext(ctx context.Context) LocalGatewayRouteTableTagArrayOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableTagArrayOutput) Index(i pulumi.IntInput) LocalGatewayRouteTableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGatewayRouteTableTag {
+		return vs[0].([]LocalGatewayRouteTableTag)[vs[1].(int)]
+	}).(LocalGatewayRouteTableTagOutput)
+}
+
 type LocalGatewayRouteTableVPCAssociationTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
@@ -15528,6 +15628,106 @@ func (o LocalGatewayRouteTableVPCAssociationTagArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGatewayRouteTableVPCAssociationTag {
 		return vs[0].([]LocalGatewayRouteTableVPCAssociationTag)[vs[1].(int)]
 	}).(LocalGatewayRouteTableVPCAssociationTagOutput)
+}
+
+type LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagInput is an input type that accepts LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs and LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput values.
+// You can construct a concrete instance of `LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagInput` via:
+//
+//	LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs{...}
+type LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagInput interface {
+	pulumi.Input
+
+	ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput() LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput
+	ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutputWithContext(context.Context) LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput
+}
+
+type LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag)(nil)).Elem()
+}
+
+func (i LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs) ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput() LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput {
+	return i.ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutputWithContext(context.Background())
+}
+
+func (i LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs) ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutputWithContext(ctx context.Context) LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput)
+}
+
+// LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayInput is an input type that accepts LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArray and LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput values.
+// You can construct a concrete instance of `LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayInput` via:
+//
+//	LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArray{ LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs{...} }
+type LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayInput interface {
+	pulumi.Input
+
+	ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput() LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput
+	ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutputWithContext(context.Context) LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput
+}
+
+type LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArray []LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagInput
+
+func (LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag)(nil)).Elem()
+}
+
+func (i LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArray) ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput() LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput {
+	return i.ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArray) ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutputWithContext(ctx context.Context) LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput)
+}
+
+type LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput struct{ *pulumi.OutputState }
+
+func (LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag)(nil)).Elem()
+}
+
+func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput) ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput() LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput) ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutputWithContext(ctx context.Context) LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag)(nil)).Elem()
+}
+
+func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput) ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput() LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput) ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutputWithContext(ctx context.Context) LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput {
+	return o
+}
+
+func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput) Index(i pulumi.IntInput) LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag {
+		return vs[0].([]LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag)[vs[1].(int)]
+	}).(LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput)
 }
 
 type NatGatewayTag struct {
@@ -27598,8 +27798,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTotalLocalStorageGBPtrInput)(nil)).Elem(), LaunchTemplateTotalLocalStorageGBArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateVCpuCountInput)(nil)).Elem(), LaunchTemplateVCpuCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateVCpuCountPtrInput)(nil)).Elem(), LaunchTemplateVCpuCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableTagInput)(nil)).Elem(), LocalGatewayRouteTableTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableTagArrayInput)(nil)).Elem(), LocalGatewayRouteTableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationTagInput)(nil)).Elem(), LocalGatewayRouteTableVPCAssociationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationTagArrayInput)(nil)).Elem(), LocalGatewayRouteTableVPCAssociationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagInput)(nil)).Elem(), LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayInput)(nil)).Elem(), LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayTagInput)(nil)).Elem(), NatGatewayTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayTagArrayInput)(nil)).Elem(), NatGatewayTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEntryIcmpInput)(nil)).Elem(), NetworkAclEntryIcmpArgs{})
@@ -27968,8 +28172,12 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateTotalLocalStorageGBPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateVCpuCountOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateVCpuCountPtrOutput{})
+	pulumi.RegisterOutputType(LocalGatewayRouteTableTagOutput{})
+	pulumi.RegisterOutputType(LocalGatewayRouteTableTagArrayOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationTagOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationTagArrayOutput{})
+	pulumi.RegisterOutputType(LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagOutput{})
+	pulumi.RegisterOutputType(LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(NatGatewayTagOutput{})
 	pulumi.RegisterOutputType(NatGatewayTagArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclEntryIcmpOutput{})

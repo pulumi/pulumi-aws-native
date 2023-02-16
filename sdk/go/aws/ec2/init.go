@@ -79,8 +79,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LaunchTemplate{}
 	case "aws-native:ec2:LocalGatewayRoute":
 		r = &LocalGatewayRoute{}
+	case "aws-native:ec2:LocalGatewayRouteTable":
+		r = &LocalGatewayRouteTable{}
 	case "aws-native:ec2:LocalGatewayRouteTableVPCAssociation":
 		r = &LocalGatewayRouteTableVPCAssociation{}
+	case "aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation":
+		r = &LocalGatewayRouteTableVirtualInterfaceGroupAssociation{}
 	case "aws-native:ec2:NatGateway":
 		r = &NatGateway{}
 	case "aws-native:ec2:NetworkAcl":

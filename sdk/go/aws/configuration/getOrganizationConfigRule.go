@@ -25,11 +25,11 @@ type LookupOrganizationConfigRuleArgs struct {
 }
 
 type LookupOrganizationConfigRuleResult struct {
-	ExcludedAccounts                   []string                                                  `pulumi:"excludedAccounts"`
-	Id                                 *string                                                   `pulumi:"id"`
-	OrganizationCustomCodeRuleMetadata *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata `pulumi:"organizationCustomCodeRuleMetadata"`
-	OrganizationCustomRuleMetadata     *OrganizationConfigRuleOrganizationCustomRuleMetadata     `pulumi:"organizationCustomRuleMetadata"`
-	OrganizationManagedRuleMetadata    *OrganizationConfigRuleOrganizationManagedRuleMetadata    `pulumi:"organizationManagedRuleMetadata"`
+	ExcludedAccounts                     []string                                                    `pulumi:"excludedAccounts"`
+	Id                                   *string                                                     `pulumi:"id"`
+	OrganizationCustomPolicyRuleMetadata *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata `pulumi:"organizationCustomPolicyRuleMetadata"`
+	OrganizationCustomRuleMetadata       *OrganizationConfigRuleOrganizationCustomRuleMetadata       `pulumi:"organizationCustomRuleMetadata"`
+	OrganizationManagedRuleMetadata      *OrganizationConfigRuleOrganizationManagedRuleMetadata      `pulumi:"organizationManagedRuleMetadata"`
 }
 
 func LookupOrganizationConfigRuleOutput(ctx *pulumi.Context, args LookupOrganizationConfigRuleOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationConfigRuleResultOutput {
@@ -75,10 +75,10 @@ func (o LookupOrganizationConfigRuleResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOrganizationConfigRuleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupOrganizationConfigRuleResultOutput) OrganizationCustomCodeRuleMetadata() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
-	return o.ApplyT(func(v LookupOrganizationConfigRuleResult) *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata {
-		return v.OrganizationCustomCodeRuleMetadata
-	}).(OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput)
+func (o LookupOrganizationConfigRuleResultOutput) OrganizationCustomPolicyRuleMetadata() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationConfigRuleResult) *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata {
+		return v.OrganizationCustomPolicyRuleMetadata
+	}).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput)
 }
 
 func (o LookupOrganizationConfigRuleResultOutput) OrganizationCustomRuleMetadata() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {

@@ -21,14 +21,16 @@ func LookupRouteResponse(ctx *pulumi.Context, args *LookupRouteResponseArgs, opt
 }
 
 type LookupRouteResponseArgs struct {
-	Id string `pulumi:"id"`
+	ApiId           string `pulumi:"apiId"`
+	RouteId         string `pulumi:"routeId"`
+	RouteResponseId string `pulumi:"routeResponseId"`
 }
 
 type LookupRouteResponseResult struct {
-	Id                       *string     `pulumi:"id"`
 	ModelSelectionExpression *string     `pulumi:"modelSelectionExpression"`
 	ResponseModels           interface{} `pulumi:"responseModels"`
 	ResponseParameters       interface{} `pulumi:"responseParameters"`
+	RouteResponseId          *string     `pulumi:"routeResponseId"`
 	RouteResponseKey         *string     `pulumi:"routeResponseKey"`
 }
 
@@ -46,7 +48,9 @@ func LookupRouteResponseOutput(ctx *pulumi.Context, args LookupRouteResponseOutp
 }
 
 type LookupRouteResponseOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ApiId           pulumi.StringInput `pulumi:"apiId"`
+	RouteId         pulumi.StringInput `pulumi:"routeId"`
+	RouteResponseId pulumi.StringInput `pulumi:"routeResponseId"`
 }
 
 func (LookupRouteResponseOutputArgs) ElementType() reflect.Type {
@@ -67,10 +71,6 @@ func (o LookupRouteResponseResultOutput) ToLookupRouteResponseResultOutputWithCo
 	return o
 }
 
-func (o LookupRouteResponseResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRouteResponseResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupRouteResponseResultOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResponseResult) *string { return v.ModelSelectionExpression }).(pulumi.StringPtrOutput)
 }
@@ -81,6 +81,10 @@ func (o LookupRouteResponseResultOutput) ResponseModels() pulumi.AnyOutput {
 
 func (o LookupRouteResponseResultOutput) ResponseParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRouteResponseResult) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
+}
+
+func (o LookupRouteResponseResultOutput) RouteResponseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResponseResult) *string { return v.RouteResponseId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRouteResponseResultOutput) RouteResponseKey() pulumi.StringPtrOutput {

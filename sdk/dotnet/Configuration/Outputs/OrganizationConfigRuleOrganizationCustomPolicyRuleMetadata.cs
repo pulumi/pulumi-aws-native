@@ -11,14 +11,14 @@ namespace Pulumi.AwsNative.Configuration.Outputs
 {
 
     [OutputType]
-    public sealed class OrganizationConfigRuleOrganizationCustomCodeRuleMetadata
+    public sealed class OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata
     {
-        public readonly string CodeText;
         public readonly ImmutableArray<string> DebugLogDeliveryAccounts;
         public readonly string? Description;
         public readonly string? InputParameters;
         public readonly string? MaximumExecutionFrequency;
         public readonly ImmutableArray<string> OrganizationConfigRuleTriggerTypes;
+        public readonly string PolicyText;
         public readonly string? ResourceIdScope;
         public readonly ImmutableArray<string> ResourceTypesScope;
         public readonly string Runtime;
@@ -26,9 +26,7 @@ namespace Pulumi.AwsNative.Configuration.Outputs
         public readonly string? TagValueScope;
 
         [OutputConstructor]
-        private OrganizationConfigRuleOrganizationCustomCodeRuleMetadata(
-            string codeText,
-
+        private OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata(
             ImmutableArray<string> debugLogDeliveryAccounts,
 
             string? description,
@@ -38,6 +36,8 @@ namespace Pulumi.AwsNative.Configuration.Outputs
             string? maximumExecutionFrequency,
 
             ImmutableArray<string> organizationConfigRuleTriggerTypes,
+
+            string policyText,
 
             string? resourceIdScope,
 
@@ -49,12 +49,12 @@ namespace Pulumi.AwsNative.Configuration.Outputs
 
             string? tagValueScope)
         {
-            CodeText = codeText;
             DebugLogDeliveryAccounts = debugLogDeliveryAccounts;
             Description = description;
             InputParameters = inputParameters;
             MaximumExecutionFrequency = maximumExecutionFrequency;
             OrganizationConfigRuleTriggerTypes = organizationConfigRuleTriggerTypes;
+            PolicyText = policyText;
             ResourceIdScope = resourceIdScope;
             ResourceTypesScope = resourceTypesScope;
             Runtime = runtime;

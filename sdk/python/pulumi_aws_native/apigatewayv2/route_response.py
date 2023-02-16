@@ -88,12 +88,7 @@ class RouteResponseArgs:
         pulumi.set(self, "response_parameters", value)
 
 
-warnings.warn("""RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class RouteResponse(pulumi.CustomResource):
-    warnings.warn("""RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -142,7 +137,6 @@ class RouteResponse(pulumi.CustomResource):
                  route_id: Optional[pulumi.Input[str]] = None,
                  route_response_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""RouteResponse is deprecated: RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -163,6 +157,7 @@ class RouteResponse(pulumi.CustomResource):
             if route_response_key is None and not opts.urn:
                 raise TypeError("Missing required property 'route_response_key'")
             __props__.__dict__["route_response_key"] = route_response_key
+            __props__.__dict__["route_response_id"] = None
         super(RouteResponse, __self__).__init__(
             'aws-native:apigatewayv2:RouteResponse',
             resource_name,
@@ -190,6 +185,7 @@ class RouteResponse(pulumi.CustomResource):
         __props__.__dict__["response_models"] = None
         __props__.__dict__["response_parameters"] = None
         __props__.__dict__["route_id"] = None
+        __props__.__dict__["route_response_id"] = None
         __props__.__dict__["route_response_key"] = None
         return RouteResponse(resource_name, opts=opts, __props__=__props__)
 
@@ -217,6 +213,11 @@ class RouteResponse(pulumi.CustomResource):
     @pulumi.getter(name="routeId")
     def route_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "route_id")
+
+    @property
+    @pulumi.getter(name="routeResponseId")
+    def route_response_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "route_response_id")
 
     @property
     @pulumi.getter(name="routeResponseKey")
