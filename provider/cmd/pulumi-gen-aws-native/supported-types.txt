@@ -332,6 +332,7 @@ AWS::Inspector::AssessmentTarget
 AWS::Inspector::AssessmentTemplate
 AWS::Inspector::ResourceGroup
 AWS::InspectorV2::Filter
+AWS::InternetMonitor::Monitor
 AWS::IoT::AccountAuditConfiguration
 AWS::IoT::Authorizer
 AWS::IoT::CACertificate
