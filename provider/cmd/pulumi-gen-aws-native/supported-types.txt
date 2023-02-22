@@ -28,6 +28,7 @@ AWS::ApiGateway::RestApi
 AWS::ApiGateway::Stage
 AWS::ApiGateway::UsagePlan
 AWS::ApiGateway::UsagePlanKey
+AWS::ApiGateway::VpcLink
 AWS::ApiGatewayV2::Api
 AWS::ApiGatewayV2::Authorizer
 AWS::ApiGatewayV2::Deployment
@@ -224,6 +225,7 @@ AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
+AWS::EC2::VPCEndpointService
 AWS::EC2::VPCPeeringConnection
 AWS::EC2::VPNConnection
 AWS::EC2::VPNConnectionRoute
@@ -332,6 +334,7 @@ AWS::Inspector::AssessmentTarget
 AWS::Inspector::AssessmentTemplate
 AWS::Inspector::ResourceGroup
 AWS::InspectorV2::Filter
+AWS::InternetMonitor::Monitor
 AWS::IoT::AccountAuditConfiguration
 AWS::IoT::Authorizer
 AWS::IoT::CACertificate
