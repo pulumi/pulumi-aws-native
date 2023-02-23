@@ -75,8 +75,8 @@
   "additionalProperties" : false,
   "required" : [ "DBProxyName", "TargetGroupName" ],
   "readOnlyProperties" : [ "/properties/TargetGroupArn" ],
-  "createOnlyProperties" : [ "/properties/TargetGroupName" ],
-  "primaryIdentifier" : [ "/properties/DBProxyName" ],
+  "createOnlyProperties" : [ "/properties/DBProxyName", "/properties/TargetGroupName" ],
+  "primaryIdentifier" : [ "/properties/TargetGroupArn" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "rds:DescribeDBProxies", "rds:DescribeDBProxyTargetGroups", "rds:ModifyDBProxyTargetGroup", "rds:RegisterDBProxyTargets" ]
