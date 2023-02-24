@@ -74,9 +74,8 @@
     "taggable" : true
   },
   "required" : [ "Description", "ParameterGroupFamily" ],
-  "createOnlyProperties" : [ "/properties/ParameterGroupFamily", "/properties/Description" ],
+  "createOnlyProperties" : [ "/properties/ParameterGroupName", "/properties/ParameterGroupFamily", "/properties/Description" ],
   "primaryIdentifier" : [ "/properties/ParameterGroupName" ],
-  "readOnlyProperties" : [ "/properties/ParameterGroupName" ],
   "writeOnlyProperties" : [ "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
   "handlers" : {
     "create" : {
