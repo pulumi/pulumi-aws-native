@@ -58,6 +58,18 @@ func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interfa
 		return c.sdkObjectValueToCfn(typName, v)
 	}
 
+	if spec.OneOf != nil {
+		for _, item := range spec.OneOf {
+			converted := c.sdkTypedValueToCfn(&item, v)
+			// If the conversion resulted in a different value, return it.
+			// We should probably fail if we can't convert rather than considering change a success.
+			// This is likely to happen if one of the types is any.
+			if !reflect.DeepEqual(converted, v) {
+				return converted
+			}
+		}
+	}
+
 	switch spec.Type {
 	case "array":
 		array := v.([]interface{})
