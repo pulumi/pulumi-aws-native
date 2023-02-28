@@ -121,7 +121,7 @@
       "permissions" : [ "route53:DeleteHostedZone", "route53:DeleteQueryLoggingConfig", "route53:ListQueryLoggingConfigs", "route53:GetChange" ]
     },
     "list" : {
-      "permissions" : [ "route53:GetHostedZone", "route53:ListHostedZones", "route53:ListHostedZonesByName", "route53:ListQueryLoggingConfigs" ]
+      "permissions" : [ "route53:GetHostedZone", "route53:ListHostedZones", "route53:ListHostedZonesByName", "route53:ListQueryLoggingConfigs", "route53:ListTagsForResource" ]
     }
   }
 }

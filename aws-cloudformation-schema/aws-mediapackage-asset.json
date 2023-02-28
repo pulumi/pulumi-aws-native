@@ -80,7 +80,7 @@
   },
   "additionalProperties" : false,
   "required" : [ "Id", "PackagingGroupId", "SourceArn", "SourceRoleArn" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/EgressEndpoints" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/EgressEndpoints/*/PackagingConfigurationId", "/properties/EgressEndpoints/*/Url" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {

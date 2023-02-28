@@ -12,6 +12,9 @@
     "RouteId" : {
       "type" : "string"
     },
+    "Id" : {
+      "type" : "string"
+    },
     "ModelSelectionExpression" : {
       "type" : "string"
     },
@@ -20,36 +23,10 @@
     },
     "ResponseModels" : {
       "type" : "object"
-    },
-    "RouteResponseId" : {
-      "type" : "string"
     }
   },
   "required" : [ "RouteResponseKey", "RouteId", "ApiId" ],
   "createOnlyProperties" : [ "/properties/ApiId", "/properties/RouteId" ],
-  "readOnlyProperties" : [ "/properties/RouteResponseId" ],
-  "primaryIdentifier" : [ "/properties/ApiId", "/properties/RouteId", "/properties/RouteResponseId" ],
-  "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
-  },
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "apigateway:POST" ]
-    },
-    "update" : {
-      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT" ]
-    },
-    "read" : {
-      "permissions" : [ "apigateway:GET" ]
-    },
-    "delete" : {
-      "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]
-    },
-    "list" : {
-      "permissions" : [ "apigateway:GET" ]
-    }
-  }
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id" ]
 }

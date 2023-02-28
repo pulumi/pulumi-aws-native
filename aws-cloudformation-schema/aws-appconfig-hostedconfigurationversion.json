@@ -18,6 +18,9 @@
     "Content" : {
       "type" : "string"
     },
+    "VersionLabel" : {
+      "type" : "string"
+    },
     "Id" : {
       "type" : "string"
     },
@@ -26,7 +29,7 @@
     }
   },
   "required" : [ "ConfigurationProfileId", "ContentType", "Content", "ApplicationId" ],
-  "createOnlyProperties" : [ "/properties/ApplicationId", "/properties/ConfigurationProfileId", "/properties/ContentType", "/properties/Description", "/properties/LatestVersionNumber", "/properties/Content" ],
+  "createOnlyProperties" : [ "/properties/VersionLabel", "/properties/ApplicationId", "/properties/ConfigurationProfileId", "/properties/ContentType", "/properties/Description", "/properties/LatestVersionNumber", "/properties/Content" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }
