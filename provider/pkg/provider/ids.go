@@ -1,4 +1,4 @@
-// Copyright 2016-2021, Pulumi Corporation.
+// Copyright 2016-2023, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,46 +20,6 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
-
-var NamingTriviaPropMap map[string]NamingTrivia = map[string]NamingTrivia{
-	"queueName": {
-		Suffix: ".fifo",
-	},
-}
-
-// NamingTrivia is a struct which contains any derived information
-// about a resource's name that is used to generate a random name.
-type NamingTrivia struct {
-	Suffix string
-}
-
-// Builds naming trivia for a resource based on its properties.
-func createNamingTrivia(sdkName string, props resource.PropertyMap) NamingTrivia {
-	var namingTrivia NamingTrivia
-	switch sdkName {
-	case "queueName":
-		if fifoQueue, ok := props["fifoQueue"]; ok && fifoQueue.BoolValue() {
-			namingTrivia = NamingTriviaPropMap[sdkName]
-		}
-	}
-	return namingTrivia
-}
-
-// Extracts naming trivia from a resource name, returning the name and the trivia.
-func extractNamingTrivia(sdkName string, name string) (string, NamingTrivia) {
-	canonicalName := name
-	namingTrivia := NamingTriviaPropMap[sdkName]
-	if len(name) > len(namingTrivia.Suffix) && name[len(name)-len(namingTrivia.Suffix):] == namingTrivia.Suffix {
-		canonicalName = name[:len(name)-len(namingTrivia.Suffix)]
-	}
-	return canonicalName, namingTrivia
-}
-
-// Applies structured trivia data to an existing resource name.
-func (n NamingTrivia) applyTrivia(sdkName, name string) string {
-	canonicalName, _ := extractNamingTrivia(sdkName, name)
-	return fmt.Sprintf("%s%s", canonicalName, n.Suffix)
-}
 
 // getDefaultName retrieves either the explicitly specified name in inputs,
 // or the equivalent in the old values. If neither is specified, it generates
@@ -85,23 +45,26 @@ func getDefaultName(
 		return v, nil
 	}
 
+	// Generate naming trivia for the resource.
+	namingTriviaApplies, namingTrivia, err := schema.CheckNamingTrivia(sdkName, news, autoNamingSpec.TriviaSpec)
+	if err != nil {
+		return resource.PropertyValue{}, err
+	}
+
 	// Generate random name that fits the length constraints.
 	name := urn.Name().String()
 	prefix := name + "-"
 	randLength := 7
-	if len(prefix)+randLength < autoNamingSpec.MinLength {
-		randLength = autoNamingSpec.MinLength - len(prefix)
+	if len(prefix)+namingTrivia.Length()+randLength < autoNamingSpec.MinLength {
+		randLength = autoNamingSpec.MinLength - len(prefix) - namingTrivia.Length()
 	}
-
-	// Generate naming trivia for the resource.
-	namingTrivia := createNamingTrivia(sdkName, news)
 
 	maxLength := 0
 	if autoNamingSpec.MaxLength > 0 {
-		left := autoNamingSpec.MaxLength - len(prefix) - len(namingTrivia.Suffix)
+		left := autoNamingSpec.MaxLength - len(prefix) - namingTrivia.Length()
 
 		if left <= 0 {
-			if len(namingTrivia.Suffix) > 0 {
+			if namingTrivia.Length() > 0 {
 				return resource.PropertyValue{}, fmt.Errorf("failed to auto-generate value for %[1]q."+
 					" Prefix: %[2]q is too large to fix max length constraint of %[3]d"+
 					" with required suffix %[4]q. Please provide a value for %[1]q",
@@ -125,7 +88,9 @@ func getDefaultName(
 	}
 
 	// Apply naming trivia to the generated name.
-	random = namingTrivia.applyTrivia(sdkName, random)
+	if namingTriviaApplies {
+		random = namingTrivia.ApplyTrivia(sdkName, random)
+	}
 
 	return resource.NewStringProperty(random), nil
 }

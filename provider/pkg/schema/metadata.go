@@ -23,9 +23,10 @@ type CloudAPIResource struct {
 }
 
 type AutoNamingSpec struct {
-	SdkName   string `json:"sdkName"`
-	MinLength int    `json:"minLength,omitempty"`
-	MaxLength int    `json:"maxLength,omitempty"`
+	SdkName    string            `json:"sdkName"`
+	MinLength  int               `json:"minLength,omitempty"`
+	MaxLength  int               `json:"maxLength,omitempty"`
+	TriviaSpec *NamingTriviaSpec `json:"namingTriviaSpec,omitempty"`
 }
 
 // CloudAPIType contains metadata for an auxiliary type.
