@@ -17,6 +17,7 @@ type RotationScheduleHostedRotationLambda struct {
 	MasterSecretKmsKeyArn    *string `pulumi:"masterSecretKmsKeyArn"`
 	RotationLambdaName       *string `pulumi:"rotationLambdaName"`
 	RotationType             string  `pulumi:"rotationType"`
+	Runtime                  *string `pulumi:"runtime"`
 	SuperuserSecretArn       *string `pulumi:"superuserSecretArn"`
 	SuperuserSecretKmsKeyArn *string `pulumi:"superuserSecretKmsKeyArn"`
 	VpcSecurityGroupIds      *string `pulumi:"vpcSecurityGroupIds"`
@@ -41,6 +42,7 @@ type RotationScheduleHostedRotationLambdaArgs struct {
 	MasterSecretKmsKeyArn    pulumi.StringPtrInput `pulumi:"masterSecretKmsKeyArn"`
 	RotationLambdaName       pulumi.StringPtrInput `pulumi:"rotationLambdaName"`
 	RotationType             pulumi.StringInput    `pulumi:"rotationType"`
+	Runtime                  pulumi.StringPtrInput `pulumi:"runtime"`
 	SuperuserSecretArn       pulumi.StringPtrInput `pulumi:"superuserSecretArn"`
 	SuperuserSecretKmsKeyArn pulumi.StringPtrInput `pulumi:"superuserSecretKmsKeyArn"`
 	VpcSecurityGroupIds      pulumi.StringPtrInput `pulumi:"vpcSecurityGroupIds"`
@@ -148,6 +150,10 @@ func (o RotationScheduleHostedRotationLambdaOutput) RotationType() pulumi.String
 	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) string { return v.RotationType }).(pulumi.StringOutput)
 }
 
+func (o RotationScheduleHostedRotationLambdaOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
 func (o RotationScheduleHostedRotationLambdaOutput) SuperuserSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.SuperuserSecretArn }).(pulumi.StringPtrOutput)
 }
@@ -239,6 +245,15 @@ func (o RotationScheduleHostedRotationLambdaPtrOutput) RotationType() pulumi.Str
 			return nil
 		}
 		return &v.RotationType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RotationScheduleHostedRotationLambdaPtrOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Runtime
 	}).(pulumi.StringPtrOutput)
 }
 

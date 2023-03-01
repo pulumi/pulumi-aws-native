@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.AppConfig
         [Output("latestVersionNumber")]
         public Output<double?> LatestVersionNumber { get; private set; } = null!;
 
+        [Output("versionLabel")]
+        public Output<string?> VersionLabel { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a HostedConfigurationVersion resource with the given unique name, arguments, and options.
@@ -96,6 +99,9 @@ namespace Pulumi.AwsNative.AppConfig
 
         [Input("latestVersionNumber")]
         public Input<double>? LatestVersionNumber { get; set; }
+
+        [Input("versionLabel")]
+        public Input<string>? VersionLabel { get; set; }
 
         public HostedConfigurationVersionArgs()
         {

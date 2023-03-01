@@ -19,7 +19,7 @@ type Cluster struct {
 	// Endpoints for the cluster.
 	ClusterEndpoints ClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
 	// Name of a Cluster. You can use any non-white space character in the name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 	Status ClusterStatusOutput `pulumi:"status"`
 	// A collection of tags associated with a resource
@@ -65,8 +65,6 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// Endpoints for the cluster.
-	ClusterEndpoints []ClusterEndpoint `pulumi:"clusterEndpoints"`
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name *string `pulumi:"name"`
 	// A collection of tags associated with a resource
@@ -75,8 +73,6 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// Endpoints for the cluster.
-	ClusterEndpoints ClusterEndpointArrayInput
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name pulumi.StringPtrInput
 	// A collection of tags associated with a resource
@@ -131,8 +127,8 @@ func (o ClusterOutput) ClusterEndpoints() ClusterEndpointArrayOutput {
 }
 
 // Name of a Cluster. You can use any non-white space character in the name
-func (o ClusterOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.

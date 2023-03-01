@@ -8187,6 +8187,16 @@ export namespace connect {
 
 export namespace connectcampaigns {
     /**
+     * The configuration used for answering machine detection during outbound calls
+     */
+    export interface CampaignAnswerMachineDetectionConfig {
+        /**
+         * Flag to decided whether outbound calls should have answering machine detection enabled or not
+         */
+        enableAnswerMachineDetection: boolean;
+    }
+
+    /**
      * The possible types of dialer config parameters
      */
     export interface CampaignDialerConfig {
@@ -8198,10 +8208,7 @@ export namespace connectcampaigns {
      * The configuration used for outbound calls.
      */
     export interface CampaignOutboundCallConfig {
-        /**
-         * The configuration used for answering machine detection during outbound calls
-         */
-        answerMachineDetectionConfig?: outputs.connectcampaigns.CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties;
+        answerMachineDetectionConfig?: outputs.connectcampaigns.CampaignAnswerMachineDetectionConfig;
         /**
          * The identifier of the contact flow for the outbound call.
          */
@@ -8214,16 +8221,6 @@ export namespace connectcampaigns {
          * The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
          */
         connectSourcePhoneNumber?: string;
-    }
-
-    /**
-     * The configuration used for answering machine detection during outbound calls
-     */
-    export interface CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties {
-        /**
-         * Flag to decided whether outbound calls should have answering machine detection enabled or not
-         */
-        enableAnswerMachineDetection: boolean;
     }
 
     /**
@@ -12920,6 +12917,34 @@ export namespace elasticache {
         value: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface UserGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface UserTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
 }
 
 export namespace elasticbeanstalk {
@@ -17396,6 +17421,17 @@ export namespace inspectorv2 {
 
 }
 
+export namespace internetmonitor {
+    /**
+     * The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+     */
+    export interface MonitorTag {
+        key?: string;
+        value?: string;
+    }
+
+}
+
 export namespace iot {
     /**
      * The criteria that determine when and how a job abort takes place.
@@ -19799,20 +19835,26 @@ export namespace iotthingsgraph {
 
 export namespace iottwinmaker {
     export interface ComponentTypeStatus {
-        error?: outputs.iottwinmaker.ComponentTypeStatusErrorProperties;
+        error?: any | outputs.iottwinmaker.ComponentTypeStatusErrorProperties;
         state?: enums.iottwinmaker.ComponentTypeStatusState;
     }
 
+    /**
+     * Error object with Message and Code.
+     */
     export interface ComponentTypeStatusErrorProperties {
         code?: enums.iottwinmaker.ComponentTypeStatusErrorPropertiesCode;
         message?: string;
     }
 
     export interface EntityStatus {
-        error?: outputs.iottwinmaker.EntityStatusErrorProperties;
+        error?: any | outputs.iottwinmaker.EntityStatusErrorProperties;
         state?: enums.iottwinmaker.EntityStatusState;
     }
 
+    /**
+     * Error object with Message and Code.
+     */
     export interface EntityStatusErrorProperties {
         code?: enums.iottwinmaker.EntityStatusErrorPropertiesCode;
         message?: string;
@@ -20096,6 +20138,90 @@ export namespace ivs {
 
     export interface StreamKeyTag {
         key: string;
+        value: string;
+    }
+
+}
+
+export namespace ivschat {
+    /**
+     * CloudWatch destination configuration for IVS Chat logging.
+     */
+    export interface LoggingConfigurationCloudWatchLogsDestinationConfiguration {
+        /**
+         * Name of the Amazon CloudWatch Logs log group where chat activity will be logged.
+         */
+        logGroupName: string;
+    }
+
+    /**
+     * Destination configuration for IVS Chat logging.
+     */
+    export interface LoggingConfigurationDestinationConfiguration {
+        cloudWatchLogs?: outputs.ivschat.LoggingConfigurationCloudWatchLogsDestinationConfiguration;
+        firehose?: outputs.ivschat.LoggingConfigurationFirehoseDestinationConfiguration;
+        s3?: outputs.ivschat.LoggingConfigurationS3DestinationConfiguration;
+    }
+
+    /**
+     * Kinesis Firehose destination configuration for IVS Chat logging.
+     */
+    export interface LoggingConfigurationFirehoseDestinationConfiguration {
+        /**
+         * Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+         */
+        deliveryStreamName: string;
+    }
+
+    /**
+     * S3 destination configuration for IVS Chat logging.
+     */
+    export interface LoggingConfigurationS3DestinationConfiguration {
+        /**
+         * Name of the Amazon S3 bucket where chat activity will be logged.
+         */
+        bucketName: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LoggingConfigurationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * Configuration information for optional review of messages.
+     */
+    export interface RoomMessageReviewHandler {
+        /**
+         * Specifies the fallback behavior if the handler does not return a valid response, encounters an error, or times out.
+         */
+        fallbackResult?: enums.ivschat.RoomMessageReviewHandlerFallbackResult;
+        /**
+         * Identifier of the message review handler.
+         */
+        uri?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RoomTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
@@ -22216,6 +22342,24 @@ export namespace lambda {
          * The destination configuration for failed invocations.
          */
         onFailure?: outputs.lambda.EventSourceMappingOnFailure;
+    }
+
+    /**
+     * Document db event source config.
+     */
+    export interface EventSourceMappingDocumentDBEventSourceConfig {
+        /**
+         * The collection name to connect to.
+         */
+        collectionName?: string;
+        /**
+         * The database name to connect to.
+         */
+        databaseName?: string;
+        /**
+         * Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+         */
+        fullDocument?: enums.lambda.EventSourceMappingDocumentDBEventSourceConfigFullDocument;
     }
 
     /**
@@ -24727,6 +24871,20 @@ export namespace macie {
 }
 
 export namespace managedblockchain {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AccessorTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
     export interface MemberApprovalThresholdPolicy {
         proposalDurationInHours?: number;
         thresholdComparator?: string;
@@ -27731,6 +27889,38 @@ export namespace networkmanager {
      * A key-value pair to associate with a resource.
      */
     export interface TransitGatewayPeeringTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * The attachment to move from one segment to another.
+     */
+    export interface TransitGatewayRouteTableAttachmentProposedSegmentChange {
+        /**
+         * The rule number in the policy document that applies to this change.
+         */
+        attachmentPolicyRuleNumber?: number;
+        /**
+         * The name of the segment to change.
+         */
+        segmentName?: string;
+        /**
+         * The key-value tags that changed for the segment.
+         */
+        tags?: outputs.networkmanager.TransitGatewayRouteTableAttachmentTag[];
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface TransitGatewayRouteTableAttachmentTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -37014,6 +37204,7 @@ export namespace secretsmanager {
         masterSecretKmsKeyArn?: string;
         rotationLambdaName?: string;
         rotationType: string;
+        runtime?: string;
         superuserSecretArn?: string;
         superuserSecretKmsKeyArn?: string;
         vpcSecurityGroupIds?: string;
@@ -39401,6 +39592,15 @@ export namespace wafv2 {
     }
 
     /**
+     * Configures how to use the Account Takeover Prevention managed rule group in the web ACL
+     */
+    export interface WebACLAWSManagedRulesATPRuleSet {
+        loginPath: string;
+        requestInspection?: outputs.wafv2.WebACLRequestInspection;
+        responseInspection?: outputs.wafv2.WebACLResponseInspection;
+    }
+
+    /**
      * Configures how to use the Bot Control managed rule group in the web ACL
      */
     export interface WebACLAWSManagedRulesBotControlRuleSet {
@@ -39673,6 +39873,7 @@ export namespace wafv2 {
      * ManagedRuleGroupConfig.
      */
     export interface WebACLManagedRuleGroupConfig {
+        aWSManagedRulesATPRuleSet?: outputs.wafv2.WebACLAWSManagedRulesATPRuleSet;
         aWSManagedRulesBotControlRuleSet?: outputs.wafv2.WebACLAWSManagedRulesBotControlRuleSet;
         loginPath?: string;
         passwordField?: outputs.wafv2.WebACLFieldIdentifier;
@@ -39735,6 +39936,59 @@ export namespace wafv2 {
         arn: string;
         fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
         textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    }
+
+    /**
+     * Configures the inspection of login requests
+     */
+    export interface WebACLRequestInspection {
+        passwordField: outputs.wafv2.WebACLFieldIdentifier;
+        payloadType: enums.wafv2.WebACLRequestInspectionPayloadType;
+        usernameField: outputs.wafv2.WebACLFieldIdentifier;
+    }
+
+    /**
+     * Configures the inspection of login responses
+     */
+    export interface WebACLResponseInspection {
+        bodyContains?: outputs.wafv2.WebACLResponseInspectionBodyContains;
+        header?: outputs.wafv2.WebACLResponseInspectionHeader;
+        json?: outputs.wafv2.WebACLResponseInspectionJson;
+        statusCode?: outputs.wafv2.WebACLResponseInspectionStatusCode;
+    }
+
+    /**
+     * Response body contents that indicate success or failure of a login request
+     */
+    export interface WebACLResponseInspectionBodyContains {
+        failureStrings: string[];
+        successStrings: string[];
+    }
+
+    /**
+     * Response headers that indicate success or failure of a login request
+     */
+    export interface WebACLResponseInspectionHeader {
+        failureValues: string[];
+        name: string;
+        successValues: string[];
+    }
+
+    /**
+     * Response JSON that indicate success or failure of a login request
+     */
+    export interface WebACLResponseInspectionJson {
+        failureValues: string[];
+        identifier: string;
+        successValues: string[];
+    }
+
+    /**
+     * Response status codes that indicate success or failure of a login request
+     */
+    export interface WebACLResponseInspectionStatusCode {
+        failureCodes: number[];
+        successCodes: number[];
     }
 
     /**

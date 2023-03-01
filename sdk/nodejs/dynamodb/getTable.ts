@@ -27,6 +27,7 @@ export interface GetTableResult {
     readonly attributeDefinitions?: outputs.dynamodb.TableAttributeDefinition[];
     readonly billingMode?: string;
     readonly contributorInsightsSpecification?: outputs.dynamodb.TableContributorInsightsSpecification;
+    readonly deletionProtectionEnabled?: boolean;
     readonly globalSecondaryIndexes?: outputs.dynamodb.TableGlobalSecondaryIndex[];
     readonly keySchema?: outputs.dynamodb.TableKeySchema[] | any;
     readonly kinesisStreamSpecification?: outputs.dynamodb.TableKinesisStreamSpecification;

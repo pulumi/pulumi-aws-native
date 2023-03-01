@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
 {
 
+    /// <summary>
+    /// Error object with Message and Code.
+    /// </summary>
     [OutputType]
     public sealed class EntityStatusErrorProperties
     {

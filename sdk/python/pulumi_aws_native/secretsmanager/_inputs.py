@@ -26,6 +26,7 @@ class RotationScheduleHostedRotationLambdaArgs:
                  master_secret_arn: Optional[pulumi.Input[str]] = None,
                  master_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
                  rotation_lambda_name: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input[str]] = None,
                  superuser_secret_arn: Optional[pulumi.Input[str]] = None,
                  superuser_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[str]] = None,
@@ -41,6 +42,8 @@ class RotationScheduleHostedRotationLambdaArgs:
             pulumi.set(__self__, "master_secret_kms_key_arn", master_secret_kms_key_arn)
         if rotation_lambda_name is not None:
             pulumi.set(__self__, "rotation_lambda_name", rotation_lambda_name)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
         if superuser_secret_arn is not None:
             pulumi.set(__self__, "superuser_secret_arn", superuser_secret_arn)
         if superuser_secret_kms_key_arn is not None:
@@ -103,6 +106,15 @@ class RotationScheduleHostedRotationLambdaArgs:
     @rotation_lambda_name.setter
     def rotation_lambda_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rotation_lambda_name", value)
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime", value)
 
     @property
     @pulumi.getter(name="superuserSecretArn")

@@ -157,7 +157,6 @@ class RouteResponse(pulumi.CustomResource):
             if route_response_key is None and not opts.urn:
                 raise TypeError("Missing required property 'route_response_key'")
             __props__.__dict__["route_response_key"] = route_response_key
-            __props__.__dict__["route_response_id"] = None
         super(RouteResponse, __self__).__init__(
             'aws-native:apigatewayv2:RouteResponse',
             resource_name,
@@ -185,7 +184,6 @@ class RouteResponse(pulumi.CustomResource):
         __props__.__dict__["response_models"] = None
         __props__.__dict__["response_parameters"] = None
         __props__.__dict__["route_id"] = None
-        __props__.__dict__["route_response_id"] = None
         __props__.__dict__["route_response_key"] = None
         return RouteResponse(resource_name, opts=opts, __props__=__props__)
 
@@ -213,11 +211,6 @@ class RouteResponse(pulumi.CustomResource):
     @pulumi.getter(name="routeId")
     def route_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "route_id")
-
-    @property
-    @pulumi.getter(name="routeResponseId")
-    def route_response_id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "route_response_id")
 
     @property
     @pulumi.getter(name="routeResponseKey")

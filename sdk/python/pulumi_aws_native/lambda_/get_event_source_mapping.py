@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSourceMappingResult:
-    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, enabled=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, queues=None, scaling_config=None, source_access_configurations=None, topics=None, tumbling_window_in_seconds=None):
+    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, document_db_event_source_config=None, enabled=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, queues=None, scaling_config=None, source_access_configurations=None, topics=None, tumbling_window_in_seconds=None):
         if batch_size and not isinstance(batch_size, int):
             raise TypeError("Expected argument 'batch_size' to be a int")
         pulumi.set(__self__, "batch_size", batch_size)
@@ -30,6 +30,9 @@ class GetEventSourceMappingResult:
         if destination_config and not isinstance(destination_config, dict):
             raise TypeError("Expected argument 'destination_config' to be a dict")
         pulumi.set(__self__, "destination_config", destination_config)
+        if document_db_event_source_config and not isinstance(document_db_event_source_config, dict):
+            raise TypeError("Expected argument 'document_db_event_source_config' to be a dict")
+        pulumi.set(__self__, "document_db_event_source_config", document_db_event_source_config)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -96,6 +99,14 @@ class GetEventSourceMappingResult:
         (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
         """
         return pulumi.get(self, "destination_config")
+
+    @property
+    @pulumi.getter(name="documentDBEventSourceConfig")
+    def document_db_event_source_config(self) -> Optional['outputs.EventSourceMappingDocumentDBEventSourceConfig']:
+        """
+        Document db event source config.
+        """
+        return pulumi.get(self, "document_db_event_source_config")
 
     @property
     @pulumi.getter
@@ -219,6 +230,7 @@ class AwaitableGetEventSourceMappingResult(GetEventSourceMappingResult):
             batch_size=self.batch_size,
             bisect_batch_on_function_error=self.bisect_batch_on_function_error,
             destination_config=self.destination_config,
+            document_db_event_source_config=self.document_db_event_source_config,
             enabled=self.enabled,
             filter_criteria=self.filter_criteria,
             function_name=self.function_name,
@@ -252,6 +264,7 @@ def get_event_source_mapping(id: Optional[str] = None,
         batch_size=__ret__.batch_size,
         bisect_batch_on_function_error=__ret__.bisect_batch_on_function_error,
         destination_config=__ret__.destination_config,
+        document_db_event_source_config=__ret__.document_db_event_source_config,
         enabled=__ret__.enabled,
         filter_criteria=__ret__.filter_criteria,
         function_name=__ret__.function_name,

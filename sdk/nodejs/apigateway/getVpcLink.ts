@@ -8,33 +8,51 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::VpcLink
+ * Schema for AWS ApiGateway VpcLink
  */
 export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getVpcLink", {
-        "id": args.id,
+        "vpcLinkId": args.vpcLinkId,
     }, opts);
 }
 
 export interface GetVpcLinkArgs {
-    id: string;
+    /**
+     * The ID of the instance that backs VPC link.
+     */
+    vpcLinkId: string;
 }
 
 export interface GetVpcLinkResult {
+    /**
+     * A description of the VPC link.
+     */
     readonly description?: string;
-    readonly id?: string;
+    /**
+     * A name for the VPC link.
+     */
     readonly name?: string;
+    /**
+     * An array of arbitrary tags (key-value pairs) to associate with the stage.
+     */
     readonly tags?: outputs.apigateway.VpcLinkTag[];
+    /**
+     * The ID of the instance that backs VPC link.
+     */
+    readonly vpcLinkId?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGateway::VpcLink
+ * Schema for AWS ApiGateway VpcLink
  */
 export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
     return pulumi.output(args).apply((a: any) => getVpcLink(a, opts))
 }
 
 export interface GetVpcLinkOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The ID of the instance that backs VPC link.
+     */
+    vpcLinkId: pulumi.Input<string>;
 }

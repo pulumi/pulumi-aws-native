@@ -28,6 +28,8 @@ type User struct {
 	Passwords pulumi.StringArrayOutput `pulumi:"passwords"`
 	// Indicates the user status. Can be "active", "modifying" or "deleting".
 	Status pulumi.StringOutput `pulumi:"status"`
+	// An array of key-value pairs to apply to this user.
+	Tags UserTagArrayOutput `pulumi:"tags"`
 	// The ID of the user.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 	// The username of the user.
@@ -88,6 +90,8 @@ type userArgs struct {
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
 	// Passwords used for this user account. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
+	// An array of key-value pairs to apply to this user.
+	Tags []UserTag `pulumi:"tags"`
 	// The ID of the user.
 	UserId string `pulumi:"userId"`
 	// The username of the user.
@@ -105,6 +109,8 @@ type UserArgs struct {
 	NoPasswordRequired pulumi.BoolPtrInput
 	// Passwords used for this user account. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput
+	// An array of key-value pairs to apply to this user.
+	Tags UserTagArrayInput
 	// The ID of the user.
 	UserId pulumi.StringInput
 	// The username of the user.
@@ -180,6 +186,11 @@ func (o UserOutput) Passwords() pulumi.StringArrayOutput {
 // Indicates the user status. Can be "active", "modifying" or "deleting".
 func (o UserOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this user.
+func (o UserOutput) Tags() UserTagArrayOutput {
+	return o.ApplyT(func(v *User) UserTagArrayOutput { return v.Tags }).(UserTagArrayOutput)
 }
 
 // The ID of the user.

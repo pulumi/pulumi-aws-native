@@ -42,7 +42,7 @@ export class Endpoint extends pulumi.CustomResource {
     public /*out*/ readonly endpointId!: pulumi.Output<string>;
     public /*out*/ readonly endpointUrl!: pulumi.Output<string>;
     public readonly eventBuses!: pulumi.Output<outputs.events.EndpointEventBus[]>;
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     public readonly replicationConfig!: pulumi.Output<outputs.events.EndpointReplicationConfig | undefined>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
     public readonly routingConfig!: pulumi.Output<outputs.events.EndpointRoutingConfig>;

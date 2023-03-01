@@ -58,21 +58,13 @@ namespace Pulumi.AwsNative.Redshift
     public sealed class GetClusterParameterGroupResult
     {
         /// <summary>
-        /// The name of the cluster parameter group.
-        /// </summary>
-        public readonly string? ParameterGroupName;
-        /// <summary>
         /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterParameterGroupParameter> Parameters;
 
         [OutputConstructor]
-        private GetClusterParameterGroupResult(
-            string? parameterGroupName,
-
-            ImmutableArray<Outputs.ClusterParameterGroupParameter> parameters)
+        private GetClusterParameterGroupResult(ImmutableArray<Outputs.ClusterParameterGroupParameter> parameters)
         {
-            ParameterGroupName = parameterGroupName;
             Parameters = parameters;
         }
     }

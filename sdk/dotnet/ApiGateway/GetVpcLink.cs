@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetVpcLink
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::VpcLink
+        /// Schema for AWS ApiGateway VpcLink
         /// </summary>
         public static Task<GetVpcLinkResult> InvokeAsync(GetVpcLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcLinkResult>("aws-native:apigateway:getVpcLink", args ?? new GetVpcLinkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::VpcLink
+        /// Schema for AWS ApiGateway VpcLink
         /// </summary>
         public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws-native:apigateway:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetVpcLinkArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The ID of the instance that backs VPC link.
+        /// </summary>
+        [Input("vpcLinkId", required: true)]
+        public string VpcLinkId { get; set; } = null!;
 
         public GetVpcLinkArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetVpcLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The ID of the instance that backs VPC link.
+        /// </summary>
+        [Input("vpcLinkId", required: true)]
+        public Input<string> VpcLinkId { get; set; } = null!;
 
         public GetVpcLinkInvokeArgs()
         {
@@ -51,25 +57,37 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetVpcLinkResult
     {
+        /// <summary>
+        /// A description of the VPC link.
+        /// </summary>
         public readonly string? Description;
-        public readonly string? Id;
+        /// <summary>
+        /// A name for the VPC link.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// An array of arbitrary tags (key-value pairs) to associate with the stage.
+        /// </summary>
         public readonly ImmutableArray<Outputs.VpcLinkTag> Tags;
+        /// <summary>
+        /// The ID of the instance that backs VPC link.
+        /// </summary>
+        public readonly string? VpcLinkId;
 
         [OutputConstructor]
         private GetVpcLinkResult(
             string? description,
 
-            string? id,
-
             string? name,
 
-            ImmutableArray<Outputs.VpcLinkTag> tags)
+            ImmutableArray<Outputs.VpcLinkTag> tags,
+
+            string? vpcLinkId)
         {
             Description = description;
-            Id = id;
             Name = name;
             Tags = tags;
+            VpcLinkId = vpcLinkId;
         }
     }
 }

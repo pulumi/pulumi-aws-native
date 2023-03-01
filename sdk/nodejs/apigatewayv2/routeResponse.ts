@@ -39,7 +39,6 @@ export class RouteResponse extends pulumi.CustomResource {
     public readonly responseModels!: pulumi.Output<any | undefined>;
     public readonly responseParameters!: pulumi.Output<any | undefined>;
     public readonly routeId!: pulumi.Output<string>;
-    public /*out*/ readonly routeResponseId!: pulumi.Output<string>;
     public readonly routeResponseKey!: pulumi.Output<string>;
 
     /**
@@ -68,14 +67,12 @@ export class RouteResponse extends pulumi.CustomResource {
             resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
             resourceInputs["routeId"] = args ? args.routeId : undefined;
             resourceInputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
-            resourceInputs["routeResponseId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["modelSelectionExpression"] = undefined /*out*/;
             resourceInputs["responseModels"] = undefined /*out*/;
             resourceInputs["responseParameters"] = undefined /*out*/;
             resourceInputs["routeId"] = undefined /*out*/;
-            resourceInputs["routeResponseId"] = undefined /*out*/;
             resourceInputs["routeResponseKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

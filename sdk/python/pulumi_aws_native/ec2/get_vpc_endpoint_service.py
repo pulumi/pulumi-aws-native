@@ -18,25 +18,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetVPCEndpointServiceResult:
-    def __init__(__self__, acceptance_required=None, contributor_insights_enabled=None, gateway_load_balancer_arns=None, id=None, network_load_balancer_arns=None, payer_responsibility=None):
+    def __init__(__self__, acceptance_required=None, gateway_load_balancer_arns=None, network_load_balancer_arns=None, payer_responsibility=None, service_id=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         pulumi.set(__self__, "acceptance_required", acceptance_required)
-        if contributor_insights_enabled and not isinstance(contributor_insights_enabled, bool):
-            raise TypeError("Expected argument 'contributor_insights_enabled' to be a bool")
-        pulumi.set(__self__, "contributor_insights_enabled", contributor_insights_enabled)
         if gateway_load_balancer_arns and not isinstance(gateway_load_balancer_arns, list):
             raise TypeError("Expected argument 'gateway_load_balancer_arns' to be a list")
         pulumi.set(__self__, "gateway_load_balancer_arns", gateway_load_balancer_arns)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if network_load_balancer_arns and not isinstance(network_load_balancer_arns, list):
             raise TypeError("Expected argument 'network_load_balancer_arns' to be a list")
         pulumi.set(__self__, "network_load_balancer_arns", network_load_balancer_arns)
         if payer_responsibility and not isinstance(payer_responsibility, str):
             raise TypeError("Expected argument 'payer_responsibility' to be a str")
         pulumi.set(__self__, "payer_responsibility", payer_responsibility)
+        if service_id and not isinstance(service_id, str):
+            raise TypeError("Expected argument 'service_id' to be a str")
+        pulumi.set(__self__, "service_id", service_id)
 
     @property
     @pulumi.getter(name="acceptanceRequired")
@@ -44,19 +41,9 @@ class GetVPCEndpointServiceResult:
         return pulumi.get(self, "acceptance_required")
 
     @property
-    @pulumi.getter(name="contributorInsightsEnabled")
-    def contributor_insights_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "contributor_insights_enabled")
-
-    @property
     @pulumi.getter(name="gatewayLoadBalancerArns")
     def gateway_load_balancer_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "gateway_load_balancer_arns")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="networkLoadBalancerArns")
@@ -68,6 +55,11 @@ class GetVPCEndpointServiceResult:
     def payer_responsibility(self) -> Optional[str]:
         return pulumi.get(self, "payer_responsibility")
 
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> Optional[str]:
+        return pulumi.get(self, "service_id")
+
 
 class AwaitableGetVPCEndpointServiceResult(GetVPCEndpointServiceResult):
     # pylint: disable=using-constant-test
@@ -76,34 +68,32 @@ class AwaitableGetVPCEndpointServiceResult(GetVPCEndpointServiceResult):
             yield self
         return GetVPCEndpointServiceResult(
             acceptance_required=self.acceptance_required,
-            contributor_insights_enabled=self.contributor_insights_enabled,
             gateway_load_balancer_arns=self.gateway_load_balancer_arns,
-            id=self.id,
             network_load_balancer_arns=self.network_load_balancer_arns,
-            payer_responsibility=self.payer_responsibility)
+            payer_responsibility=self.payer_responsibility,
+            service_id=self.service_id)
 
 
-def get_vpc_endpoint_service(id: Optional[str] = None,
+def get_vpc_endpoint_service(service_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPCEndpointServiceResult:
     """
     Resource Type definition for AWS::EC2::VPCEndpointService
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['serviceId'] = service_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCEndpointService', __args__, opts=opts, typ=GetVPCEndpointServiceResult).value
 
     return AwaitableGetVPCEndpointServiceResult(
         acceptance_required=__ret__.acceptance_required,
-        contributor_insights_enabled=__ret__.contributor_insights_enabled,
         gateway_load_balancer_arns=__ret__.gateway_load_balancer_arns,
-        id=__ret__.id,
         network_load_balancer_arns=__ret__.network_load_balancer_arns,
-        payer_responsibility=__ret__.payer_responsibility)
+        payer_responsibility=__ret__.payer_responsibility,
+        service_id=__ret__.service_id)
 
 
 @_utilities.lift_output_func(get_vpc_endpoint_service)
-def get_vpc_endpoint_service_output(id: Optional[pulumi.Input[str]] = None,
+def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCEndpointServiceResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointService

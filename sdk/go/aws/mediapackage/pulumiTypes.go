@@ -18,6 +18,62 @@ type AssetEgressEndpoint struct {
 	Url string `pulumi:"url"`
 }
 
+// AssetEgressEndpointInput is an input type that accepts AssetEgressEndpointArgs and AssetEgressEndpointOutput values.
+// You can construct a concrete instance of `AssetEgressEndpointInput` via:
+//
+//	AssetEgressEndpointArgs{...}
+type AssetEgressEndpointInput interface {
+	pulumi.Input
+
+	ToAssetEgressEndpointOutput() AssetEgressEndpointOutput
+	ToAssetEgressEndpointOutputWithContext(context.Context) AssetEgressEndpointOutput
+}
+
+// The endpoint URL used to access an Asset using one PackagingConfiguration.
+type AssetEgressEndpointArgs struct {
+	// The ID of the PackagingConfiguration being applied to the Asset.
+	PackagingConfigurationId pulumi.StringInput `pulumi:"packagingConfigurationId"`
+	// The URL of the parent manifest for the repackaged Asset.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (AssetEgressEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetEgressEndpoint)(nil)).Elem()
+}
+
+func (i AssetEgressEndpointArgs) ToAssetEgressEndpointOutput() AssetEgressEndpointOutput {
+	return i.ToAssetEgressEndpointOutputWithContext(context.Background())
+}
+
+func (i AssetEgressEndpointArgs) ToAssetEgressEndpointOutputWithContext(ctx context.Context) AssetEgressEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetEgressEndpointOutput)
+}
+
+// AssetEgressEndpointArrayInput is an input type that accepts AssetEgressEndpointArray and AssetEgressEndpointArrayOutput values.
+// You can construct a concrete instance of `AssetEgressEndpointArrayInput` via:
+//
+//	AssetEgressEndpointArray{ AssetEgressEndpointArgs{...} }
+type AssetEgressEndpointArrayInput interface {
+	pulumi.Input
+
+	ToAssetEgressEndpointArrayOutput() AssetEgressEndpointArrayOutput
+	ToAssetEgressEndpointArrayOutputWithContext(context.Context) AssetEgressEndpointArrayOutput
+}
+
+type AssetEgressEndpointArray []AssetEgressEndpointInput
+
+func (AssetEgressEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetEgressEndpoint)(nil)).Elem()
+}
+
+func (i AssetEgressEndpointArray) ToAssetEgressEndpointArrayOutput() AssetEgressEndpointArrayOutput {
+	return i.ToAssetEgressEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i AssetEgressEndpointArray) ToAssetEgressEndpointArrayOutputWithContext(ctx context.Context) AssetEgressEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetEgressEndpointArrayOutput)
+}
+
 // The endpoint URL used to access an Asset using one PackagingConfiguration.
 type AssetEgressEndpointOutput struct{ *pulumi.OutputState }
 
@@ -6367,6 +6423,8 @@ func (o PackagingGroupTagArrayOutput) Index(i pulumi.IntInput) PackagingGroupTag
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetEgressEndpointInput)(nil)).Elem(), AssetEgressEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetEgressEndpointArrayInput)(nil)).Elem(), AssetEgressEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetTagInput)(nil)).Elem(), AssetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetTagArrayInput)(nil)).Elem(), AssetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelHlsIngestInput)(nil)).Elem(), ChannelHlsIngestArgs{})

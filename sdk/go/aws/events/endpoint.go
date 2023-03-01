@@ -20,7 +20,7 @@ type Endpoint struct {
 	EndpointId        pulumi.StringOutput                `pulumi:"endpointId"`
 	EndpointUrl       pulumi.StringOutput                `pulumi:"endpointUrl"`
 	EventBuses        EndpointEventBusArrayOutput        `pulumi:"eventBuses"`
-	Name              pulumi.StringOutput                `pulumi:"name"`
+	Name              pulumi.StringPtrOutput             `pulumi:"name"`
 	ReplicationConfig EndpointReplicationConfigPtrOutput `pulumi:"replicationConfig"`
 	RoleArn           pulumi.StringPtrOutput             `pulumi:"roleArn"`
 	RoutingConfig     EndpointRoutingConfigOutput        `pulumi:"routingConfig"`
@@ -148,8 +148,8 @@ func (o EndpointOutput) EventBuses() EndpointEventBusArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointEventBusArrayOutput { return v.EventBuses }).(EndpointEventBusArrayOutput)
 }
 
-func (o EndpointOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o EndpointOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointOutput) ReplicationConfig() EndpointReplicationConfigPtrOutput {

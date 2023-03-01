@@ -5817,6 +5817,170 @@ func (in *webACLRateBasedStatementAggregateKeyTypePtr) ToWebACLRateBasedStatemen
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
+type WebACLRequestInspectionPayloadType string
+
+const (
+	WebACLRequestInspectionPayloadTypeJson        = WebACLRequestInspectionPayloadType("JSON")
+	WebACLRequestInspectionPayloadTypeFormEncoded = WebACLRequestInspectionPayloadType("FORM_ENCODED")
+)
+
+func (WebACLRequestInspectionPayloadType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRequestInspectionPayloadType)(nil)).Elem()
+}
+
+func (e WebACLRequestInspectionPayloadType) ToWebACLRequestInspectionPayloadTypeOutput() WebACLRequestInspectionPayloadTypeOutput {
+	return pulumi.ToOutput(e).(WebACLRequestInspectionPayloadTypeOutput)
+}
+
+func (e WebACLRequestInspectionPayloadType) ToWebACLRequestInspectionPayloadTypeOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebACLRequestInspectionPayloadTypeOutput)
+}
+
+func (e WebACLRequestInspectionPayloadType) ToWebACLRequestInspectionPayloadTypePtrOutput() WebACLRequestInspectionPayloadTypePtrOutput {
+	return e.ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(context.Background())
+}
+
+func (e WebACLRequestInspectionPayloadType) ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypePtrOutput {
+	return WebACLRequestInspectionPayloadType(e).ToWebACLRequestInspectionPayloadTypeOutputWithContext(ctx).ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx)
+}
+
+func (e WebACLRequestInspectionPayloadType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLRequestInspectionPayloadType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLRequestInspectionPayloadType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebACLRequestInspectionPayloadType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebACLRequestInspectionPayloadTypeOutput struct{ *pulumi.OutputState }
+
+func (WebACLRequestInspectionPayloadTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRequestInspectionPayloadType)(nil)).Elem()
+}
+
+func (o WebACLRequestInspectionPayloadTypeOutput) ToWebACLRequestInspectionPayloadTypeOutput() WebACLRequestInspectionPayloadTypeOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionPayloadTypeOutput) ToWebACLRequestInspectionPayloadTypeOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypeOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionPayloadTypeOutput) ToWebACLRequestInspectionPayloadTypePtrOutput() WebACLRequestInspectionPayloadTypePtrOutput {
+	return o.ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRequestInspectionPayloadTypeOutput) ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRequestInspectionPayloadType) *WebACLRequestInspectionPayloadType {
+		return &v
+	}).(WebACLRequestInspectionPayloadTypePtrOutput)
+}
+
+func (o WebACLRequestInspectionPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebACLRequestInspectionPayloadTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLRequestInspectionPayloadType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebACLRequestInspectionPayloadTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRequestInspectionPayloadTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLRequestInspectionPayloadType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebACLRequestInspectionPayloadTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRequestInspectionPayloadTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRequestInspectionPayloadType)(nil)).Elem()
+}
+
+func (o WebACLRequestInspectionPayloadTypePtrOutput) ToWebACLRequestInspectionPayloadTypePtrOutput() WebACLRequestInspectionPayloadTypePtrOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionPayloadTypePtrOutput) ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypePtrOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionPayloadTypePtrOutput) Elem() WebACLRequestInspectionPayloadTypeOutput {
+	return o.ApplyT(func(v *WebACLRequestInspectionPayloadType) WebACLRequestInspectionPayloadType {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRequestInspectionPayloadType
+		return ret
+	}).(WebACLRequestInspectionPayloadTypeOutput)
+}
+
+func (o WebACLRequestInspectionPayloadTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRequestInspectionPayloadTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLRequestInspectionPayloadType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebACLRequestInspectionPayloadTypeInput is an input type that accepts WebACLRequestInspectionPayloadTypeArgs and WebACLRequestInspectionPayloadTypeOutput values.
+// You can construct a concrete instance of `WebACLRequestInspectionPayloadTypeInput` via:
+//
+//	WebACLRequestInspectionPayloadTypeArgs{...}
+type WebACLRequestInspectionPayloadTypeInput interface {
+	pulumi.Input
+
+	ToWebACLRequestInspectionPayloadTypeOutput() WebACLRequestInspectionPayloadTypeOutput
+	ToWebACLRequestInspectionPayloadTypeOutputWithContext(context.Context) WebACLRequestInspectionPayloadTypeOutput
+}
+
+var webACLRequestInspectionPayloadTypePtrType = reflect.TypeOf((**WebACLRequestInspectionPayloadType)(nil)).Elem()
+
+type WebACLRequestInspectionPayloadTypePtrInput interface {
+	pulumi.Input
+
+	ToWebACLRequestInspectionPayloadTypePtrOutput() WebACLRequestInspectionPayloadTypePtrOutput
+	ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(context.Context) WebACLRequestInspectionPayloadTypePtrOutput
+}
+
+type webACLRequestInspectionPayloadTypePtr string
+
+func WebACLRequestInspectionPayloadTypePtr(v string) WebACLRequestInspectionPayloadTypePtrInput {
+	return (*webACLRequestInspectionPayloadTypePtr)(&v)
+}
+
+func (*webACLRequestInspectionPayloadTypePtr) ElementType() reflect.Type {
+	return webACLRequestInspectionPayloadTypePtrType
+}
+
+func (in *webACLRequestInspectionPayloadTypePtr) ToWebACLRequestInspectionPayloadTypePtrOutput() WebACLRequestInspectionPayloadTypePtrOutput {
+	return pulumi.ToOutput(in).(WebACLRequestInspectionPayloadTypePtrOutput)
+}
+
+func (in *webACLRequestInspectionPayloadTypePtr) ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebACLRequestInspectionPayloadTypePtrOutput)
+}
+
 // Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
 type WebACLScope string
 
@@ -6570,6 +6734,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLPositionalConstraintPtrInput)(nil)).Elem(), WebACLPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), WebACLRateBasedStatementAggregateKeyType("IP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), WebACLRateBasedStatementAggregateKeyType("IP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionPayloadTypeInput)(nil)).Elem(), WebACLRequestInspectionPayloadType("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionPayloadTypePtrInput)(nil)).Elem(), WebACLRequestInspectionPayloadType("JSON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLScopeInput)(nil)).Elem(), WebACLScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLScopePtrInput)(nil)).Elem(), WebACLScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLSensitivityLevelInput)(nil)).Elem(), WebACLSensitivityLevel("LOW"))
@@ -6648,6 +6814,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLPositionalConstraintPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementAggregateKeyTypeOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementAggregateKeyTypePtrOutput{})
+	pulumi.RegisterOutputType(WebACLRequestInspectionPayloadTypeOutput{})
+	pulumi.RegisterOutputType(WebACLRequestInspectionPayloadTypePtrOutput{})
 	pulumi.RegisterOutputType(WebACLScopeOutput{})
 	pulumi.RegisterOutputType(WebACLScopePtrOutput{})
 	pulumi.RegisterOutputType(WebACLSensitivityLevelOutput{})

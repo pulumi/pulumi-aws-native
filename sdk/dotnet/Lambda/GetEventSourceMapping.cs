@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly Outputs.EventSourceMappingDestinationConfig? DestinationConfig;
         /// <summary>
+        /// Document db event source config.
+        /// </summary>
+        public readonly Outputs.EventSourceMappingDocumentDBEventSourceConfig? DocumentDBEventSourceConfig;
+        /// <summary>
         /// Disables the event source mapping to pause polling and invocation.
         /// </summary>
         public readonly bool? Enabled;
@@ -134,6 +138,8 @@ namespace Pulumi.AwsNative.Lambda
 
             Outputs.EventSourceMappingDestinationConfig? destinationConfig,
 
+            Outputs.EventSourceMappingDocumentDBEventSourceConfig? documentDBEventSourceConfig,
+
             bool? enabled,
 
             Outputs.EventSourceMappingFilterCriteria? filterCriteria,
@@ -165,6 +171,7 @@ namespace Pulumi.AwsNative.Lambda
             BatchSize = batchSize;
             BisectBatchOnFunctionError = bisectBatchOnFunctionError;
             DestinationConfig = destinationConfig;
+            DocumentDBEventSourceConfig = documentDBEventSourceConfig;
             Enabled = enabled;
             FilterCriteria = filterCriteria;
             FunctionName = functionName;

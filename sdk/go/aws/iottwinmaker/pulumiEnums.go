@@ -17,89 +17,6 @@ const (
 	ComponentTypeStatusErrorPropertiesCodeInternalFailure = ComponentTypeStatusErrorPropertiesCode("INTERNAL_FAILURE")
 )
 
-type ComponentTypeStatusErrorPropertiesCodeOutput struct{ *pulumi.OutputState }
-
-func (ComponentTypeStatusErrorPropertiesCodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentTypeStatusErrorPropertiesCode)(nil)).Elem()
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodeOutput) ToComponentTypeStatusErrorPropertiesCodeOutput() ComponentTypeStatusErrorPropertiesCodeOutput {
-	return o
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodeOutput) ToComponentTypeStatusErrorPropertiesCodeOutputWithContext(ctx context.Context) ComponentTypeStatusErrorPropertiesCodeOutput {
-	return o
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodeOutput) ToComponentTypeStatusErrorPropertiesCodePtrOutput() ComponentTypeStatusErrorPropertiesCodePtrOutput {
-	return o.ToComponentTypeStatusErrorPropertiesCodePtrOutputWithContext(context.Background())
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodeOutput) ToComponentTypeStatusErrorPropertiesCodePtrOutputWithContext(ctx context.Context) ComponentTypeStatusErrorPropertiesCodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentTypeStatusErrorPropertiesCode) *ComponentTypeStatusErrorPropertiesCode {
-		return &v
-	}).(ComponentTypeStatusErrorPropertiesCodePtrOutput)
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentTypeStatusErrorPropertiesCode) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComponentTypeStatusErrorPropertiesCode) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ComponentTypeStatusErrorPropertiesCodePtrOutput struct{ *pulumi.OutputState }
-
-func (ComponentTypeStatusErrorPropertiesCodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentTypeStatusErrorPropertiesCode)(nil)).Elem()
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodePtrOutput) ToComponentTypeStatusErrorPropertiesCodePtrOutput() ComponentTypeStatusErrorPropertiesCodePtrOutput {
-	return o
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodePtrOutput) ToComponentTypeStatusErrorPropertiesCodePtrOutputWithContext(ctx context.Context) ComponentTypeStatusErrorPropertiesCodePtrOutput {
-	return o
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodePtrOutput) Elem() ComponentTypeStatusErrorPropertiesCodeOutput {
-	return o.ApplyT(func(v *ComponentTypeStatusErrorPropertiesCode) ComponentTypeStatusErrorPropertiesCode {
-		if v != nil {
-			return *v
-		}
-		var ret ComponentTypeStatusErrorPropertiesCode
-		return ret
-	}).(ComponentTypeStatusErrorPropertiesCodeOutput)
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ComponentTypeStatusErrorPropertiesCodePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComponentTypeStatusErrorPropertiesCode) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
 type ComponentTypeStatusState string
 
 const (
@@ -200,89 +117,6 @@ const (
 	EntityStatusErrorPropertiesCodeInternalFailure = EntityStatusErrorPropertiesCode("INTERNAL_FAILURE")
 )
 
-type EntityStatusErrorPropertiesCodeOutput struct{ *pulumi.OutputState }
-
-func (EntityStatusErrorPropertiesCodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityStatusErrorPropertiesCode)(nil)).Elem()
-}
-
-func (o EntityStatusErrorPropertiesCodeOutput) ToEntityStatusErrorPropertiesCodeOutput() EntityStatusErrorPropertiesCodeOutput {
-	return o
-}
-
-func (o EntityStatusErrorPropertiesCodeOutput) ToEntityStatusErrorPropertiesCodeOutputWithContext(ctx context.Context) EntityStatusErrorPropertiesCodeOutput {
-	return o
-}
-
-func (o EntityStatusErrorPropertiesCodeOutput) ToEntityStatusErrorPropertiesCodePtrOutput() EntityStatusErrorPropertiesCodePtrOutput {
-	return o.ToEntityStatusErrorPropertiesCodePtrOutputWithContext(context.Background())
-}
-
-func (o EntityStatusErrorPropertiesCodeOutput) ToEntityStatusErrorPropertiesCodePtrOutputWithContext(ctx context.Context) EntityStatusErrorPropertiesCodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityStatusErrorPropertiesCode) *EntityStatusErrorPropertiesCode {
-		return &v
-	}).(EntityStatusErrorPropertiesCodePtrOutput)
-}
-
-func (o EntityStatusErrorPropertiesCodeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o EntityStatusErrorPropertiesCodeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityStatusErrorPropertiesCode) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o EntityStatusErrorPropertiesCodeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EntityStatusErrorPropertiesCodeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityStatusErrorPropertiesCode) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type EntityStatusErrorPropertiesCodePtrOutput struct{ *pulumi.OutputState }
-
-func (EntityStatusErrorPropertiesCodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntityStatusErrorPropertiesCode)(nil)).Elem()
-}
-
-func (o EntityStatusErrorPropertiesCodePtrOutput) ToEntityStatusErrorPropertiesCodePtrOutput() EntityStatusErrorPropertiesCodePtrOutput {
-	return o
-}
-
-func (o EntityStatusErrorPropertiesCodePtrOutput) ToEntityStatusErrorPropertiesCodePtrOutputWithContext(ctx context.Context) EntityStatusErrorPropertiesCodePtrOutput {
-	return o
-}
-
-func (o EntityStatusErrorPropertiesCodePtrOutput) Elem() EntityStatusErrorPropertiesCodeOutput {
-	return o.ApplyT(func(v *EntityStatusErrorPropertiesCode) EntityStatusErrorPropertiesCode {
-		if v != nil {
-			return *v
-		}
-		var ret EntityStatusErrorPropertiesCode
-		return ret
-	}).(EntityStatusErrorPropertiesCodeOutput)
-}
-
-func (o EntityStatusErrorPropertiesCodePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EntityStatusErrorPropertiesCodePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EntityStatusErrorPropertiesCode) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
 type EntityStatusState string
 
 const (
@@ -377,12 +211,8 @@ func (o EntityStatusStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 }
 
 func init() {
-	pulumi.RegisterOutputType(ComponentTypeStatusErrorPropertiesCodeOutput{})
-	pulumi.RegisterOutputType(ComponentTypeStatusErrorPropertiesCodePtrOutput{})
 	pulumi.RegisterOutputType(ComponentTypeStatusStateOutput{})
 	pulumi.RegisterOutputType(ComponentTypeStatusStatePtrOutput{})
-	pulumi.RegisterOutputType(EntityStatusErrorPropertiesCodeOutput{})
-	pulumi.RegisterOutputType(EntityStatusErrorPropertiesCodePtrOutput{})
 	pulumi.RegisterOutputType(EntityStatusStateOutput{})
 	pulumi.RegisterOutputType(EntityStatusStatePtrOutput{})
 }

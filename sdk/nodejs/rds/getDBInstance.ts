@@ -31,10 +31,6 @@ export interface GetDBInstanceResult {
      */
     readonly allocatedStorage?: string;
     /**
-     * A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
-     */
-    readonly allowMajorVersionUpgrade?: boolean;
-    /**
      * The AWS Identity and Access Management (IAM) roles associated with the DB instance.
      */
     readonly associatedRoles?: outputs.rds.DBInstanceRole[];
@@ -98,10 +94,6 @@ export interface GetDBInstanceResult {
      * The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
      */
     readonly dbiResourceId?: string;
-    /**
-     * A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
-     */
-    readonly deleteAutomatedBackups?: boolean;
     /**
      * A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */

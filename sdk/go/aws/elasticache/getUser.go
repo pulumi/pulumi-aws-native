@@ -30,6 +30,8 @@ type LookupUserResult struct {
 	Arn *string `pulumi:"arn"`
 	// Indicates the user status. Can be "active", "modifying" or "deleting".
 	Status *string `pulumi:"status"`
+	// An array of key-value pairs to apply to this user.
+	Tags []UserTag `pulumi:"tags"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -76,6 +78,11 @@ func (o LookupUserResultOutput) Arn() pulumi.StringPtrOutput {
 // Indicates the user status. Can be "active", "modifying" or "deleting".
 func (o LookupUserResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this user.
+func (o LookupUserResultOutput) Tags() UserTagArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []UserTag { return v.Tags }).(UserTagArrayOutput)
 }
 
 func init() {

@@ -19,6 +19,7 @@ type Table struct {
 	AttributeDefinitions             TableAttributeDefinitionArrayOutput            `pulumi:"attributeDefinitions"`
 	BillingMode                      pulumi.StringPtrOutput                         `pulumi:"billingMode"`
 	ContributorInsightsSpecification TableContributorInsightsSpecificationPtrOutput `pulumi:"contributorInsightsSpecification"`
+	DeletionProtectionEnabled        pulumi.BoolPtrOutput                           `pulumi:"deletionProtectionEnabled"`
 	GlobalSecondaryIndexes           TableGlobalSecondaryIndexArrayOutput           `pulumi:"globalSecondaryIndexes"`
 	ImportSourceSpecification        TableImportSourceSpecificationPtrOutput        `pulumi:"importSourceSpecification"`
 	KeySchema                        pulumi.AnyOutput                               `pulumi:"keySchema"`
@@ -80,6 +81,7 @@ type tableArgs struct {
 	AttributeDefinitions             []TableAttributeDefinition             `pulumi:"attributeDefinitions"`
 	BillingMode                      *string                                `pulumi:"billingMode"`
 	ContributorInsightsSpecification *TableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
+	DeletionProtectionEnabled        *bool                                  `pulumi:"deletionProtectionEnabled"`
 	GlobalSecondaryIndexes           []TableGlobalSecondaryIndex            `pulumi:"globalSecondaryIndexes"`
 	ImportSourceSpecification        *TableImportSourceSpecification        `pulumi:"importSourceSpecification"`
 	KeySchema                        interface{}                            `pulumi:"keySchema"`
@@ -100,6 +102,7 @@ type TableArgs struct {
 	AttributeDefinitions             TableAttributeDefinitionArrayInput
 	BillingMode                      pulumi.StringPtrInput
 	ContributorInsightsSpecification TableContributorInsightsSpecificationPtrInput
+	DeletionProtectionEnabled        pulumi.BoolPtrInput
 	GlobalSecondaryIndexes           TableGlobalSecondaryIndexArrayInput
 	ImportSourceSpecification        TableImportSourceSpecificationPtrInput
 	KeySchema                        pulumi.Input
@@ -168,6 +171,10 @@ func (o TableOutput) ContributorInsightsSpecification() TableContributorInsights
 	return o.ApplyT(func(v *Table) TableContributorInsightsSpecificationPtrOutput {
 		return v.ContributorInsightsSpecification
 	}).(TableContributorInsightsSpecificationPtrOutput)
+}
+
+func (o TableOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.BoolPtrOutput { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o TableOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutput {

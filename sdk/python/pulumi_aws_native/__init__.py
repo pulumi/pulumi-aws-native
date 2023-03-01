@@ -227,6 +227,8 @@ if typing.TYPE_CHECKING:
     inspector = __inspector
     import pulumi_aws_native.inspectorv2 as __inspectorv2
     inspectorv2 = __inspectorv2
+    import pulumi_aws_native.internetmonitor as __internetmonitor
+    internetmonitor = __internetmonitor
     import pulumi_aws_native.iot as __iot
     iot = __iot
     import pulumi_aws_native.iot1click as __iot1click
@@ -251,6 +253,8 @@ if typing.TYPE_CHECKING:
     iotwireless = __iotwireless
     import pulumi_aws_native.ivs as __ivs
     ivs = __ivs
+    import pulumi_aws_native.ivschat as __ivschat
+    ivschat = __ivschat
     import pulumi_aws_native.kafkaconnect as __kafkaconnect
     kafkaconnect = __kafkaconnect
     import pulumi_aws_native.kendra as __kendra
@@ -551,6 +555,7 @@ else:
     imagebuilder = _utilities.lazy_import('pulumi_aws_native.imagebuilder')
     inspector = _utilities.lazy_import('pulumi_aws_native.inspector')
     inspectorv2 = _utilities.lazy_import('pulumi_aws_native.inspectorv2')
+    internetmonitor = _utilities.lazy_import('pulumi_aws_native.internetmonitor')
     iot = _utilities.lazy_import('pulumi_aws_native.iot')
     iot1click = _utilities.lazy_import('pulumi_aws_native.iot1click')
     iotanalytics = _utilities.lazy_import('pulumi_aws_native.iotanalytics')
@@ -563,6 +568,7 @@ else:
     iottwinmaker = _utilities.lazy_import('pulumi_aws_native.iottwinmaker')
     iotwireless = _utilities.lazy_import('pulumi_aws_native.iotwireless')
     ivs = _utilities.lazy_import('pulumi_aws_native.ivs')
+    ivschat = _utilities.lazy_import('pulumi_aws_native.ivschat')
     kafkaconnect = _utilities.lazy_import('pulumi_aws_native.kafkaconnect')
     kendra = _utilities.lazy_import('pulumi_aws_native.kendra')
     kendraranking = _utilities.lazy_import('pulumi_aws_native.kendraranking')
@@ -1922,6 +1928,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "internetmonitor",
+  "fqn": "pulumi_aws_native.internetmonitor",
+  "classes": {
+   "aws-native:internetmonitor:Monitor": "Monitor"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "iot",
   "fqn": "pulumi_aws_native.iot",
   "classes": {
@@ -2069,6 +2083,15 @@ _utilities.register(
    "aws-native:ivs:PlaybackKeyPair": "PlaybackKeyPair",
    "aws-native:ivs:RecordingConfiguration": "RecordingConfiguration",
    "aws-native:ivs:StreamKey": "StreamKey"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "ivschat",
+  "fqn": "pulumi_aws_native.ivschat",
+  "classes": {
+   "aws-native:ivschat:LoggingConfiguration": "LoggingConfiguration",
+   "aws-native:ivschat:Room": "Room"
   }
  },
  {
@@ -2300,6 +2323,7 @@ _utilities.register(
   "mod": "managedblockchain",
   "fqn": "pulumi_aws_native.managedblockchain",
   "classes": {
+   "aws-native:managedblockchain:Accessor": "Accessor",
    "aws-native:managedblockchain:Member": "Member",
    "aws-native:managedblockchain:Node": "Node"
   }
@@ -2435,6 +2459,7 @@ _utilities.register(
    "aws-native:networkmanager:SiteToSiteVpnAttachment": "SiteToSiteVpnAttachment",
    "aws-native:networkmanager:TransitGatewayPeering": "TransitGatewayPeering",
    "aws-native:networkmanager:TransitGatewayRegistration": "TransitGatewayRegistration",
+   "aws-native:networkmanager:TransitGatewayRouteTableAttachment": "TransitGatewayRouteTableAttachment",
    "aws-native:networkmanager:VpcAttachment": "VpcAttachment"
   }
  },

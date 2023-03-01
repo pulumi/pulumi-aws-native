@@ -21,7 +21,7 @@ __all__ = [
 @pulumi.output_type
 class ComponentTypeStatus(dict):
     def __init__(__self__, *,
-                 error: Optional['outputs.ComponentTypeStatusErrorProperties'] = None,
+                 error: Optional[Any] = None,
                  state: Optional['ComponentTypeStatusState'] = None):
         if error is not None:
             pulumi.set(__self__, "error", error)
@@ -30,7 +30,7 @@ class ComponentTypeStatus(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ComponentTypeStatusErrorProperties']:
+    def error(self) -> Optional[Any]:
         return pulumi.get(self, "error")
 
     @property
@@ -41,9 +41,15 @@ class ComponentTypeStatus(dict):
 
 @pulumi.output_type
 class ComponentTypeStatusErrorProperties(dict):
+    """
+    Error object with Message and Code.
+    """
     def __init__(__self__, *,
                  code: Optional['ComponentTypeStatusErrorPropertiesCode'] = None,
                  message: Optional[str] = None):
+        """
+        Error object with Message and Code.
+        """
         if code is not None:
             pulumi.set(__self__, "code", code)
         if message is not None:
@@ -63,7 +69,7 @@ class ComponentTypeStatusErrorProperties(dict):
 @pulumi.output_type
 class EntityStatus(dict):
     def __init__(__self__, *,
-                 error: Optional['outputs.EntityStatusErrorProperties'] = None,
+                 error: Optional[Any] = None,
                  state: Optional['EntityStatusState'] = None):
         if error is not None:
             pulumi.set(__self__, "error", error)
@@ -72,7 +78,7 @@ class EntityStatus(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.EntityStatusErrorProperties']:
+    def error(self) -> Optional[Any]:
         return pulumi.get(self, "error")
 
     @property
@@ -83,9 +89,15 @@ class EntityStatus(dict):
 
 @pulumi.output_type
 class EntityStatusErrorProperties(dict):
+    """
+    Error object with Message and Code.
+    """
     def __init__(__self__, *,
                  code: Optional['EntityStatusErrorPropertiesCode'] = None,
                  message: Optional[str] = None):
+        """
+        Error object with Message and Code.
+        """
         if code is not None:
             pulumi.set(__self__, "code", code)
         if message is not None:

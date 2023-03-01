@@ -23,6 +23,7 @@ class UserArgs:
                  authentication_mode: Optional[pulumi.Input['AuthenticationModePropertiesArgs']] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
@@ -31,6 +32,7 @@ class UserArgs:
         :param pulumi.Input[str] access_string: Access permissions string used for this user account.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
+        :param pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]] tags: An array of key-value pairs to apply to this user.
         :param pulumi.Input[str] user_name: The username of the user.
         """
         pulumi.set(__self__, "engine", engine)
@@ -43,6 +45,8 @@ class UserArgs:
             pulumi.set(__self__, "no_password_required", no_password_required)
         if passwords is not None:
             pulumi.set(__self__, "passwords", passwords)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
 
@@ -116,6 +120,18 @@ class UserArgs:
         pulumi.set(self, "passwords", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this user.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -138,6 +154,7 @@ class User(pulumi.CustomResource):
                  engine: Optional[pulumi.Input['UserEngine']] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -150,6 +167,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input['UserEngine'] engine: Must be redis.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]] tags: An array of key-value pairs to apply to this user.
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] user_name: The username of the user.
         """
@@ -182,6 +200,7 @@ class User(pulumi.CustomResource):
                  engine: Optional[pulumi.Input['UserEngine']] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -200,6 +219,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["engine"] = engine
             __props__.__dict__["no_password_required"] = no_password_required
             __props__.__dict__["passwords"] = passwords
+            __props__.__dict__["tags"] = tags
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
             __props__.__dict__["user_id"] = user_id
@@ -235,6 +255,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["no_password_required"] = None
         __props__.__dict__["passwords"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["user_id"] = None
         __props__.__dict__["user_name"] = None
         return User(resource_name, opts=opts, __props__=__props__)
@@ -291,6 +312,14 @@ class User(pulumi.CustomResource):
         Indicates the user status. Can be "active", "modifying" or "deleting".
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.UserTag']]]:
+        """
+        An array of key-value pairs to apply to this user.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userId")

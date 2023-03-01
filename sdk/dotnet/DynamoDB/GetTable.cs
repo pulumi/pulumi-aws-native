@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.DynamoDB
         public readonly ImmutableArray<Outputs.TableAttributeDefinition> AttributeDefinitions;
         public readonly string? BillingMode;
         public readonly Outputs.TableContributorInsightsSpecification? ContributorInsightsSpecification;
+        public readonly bool? DeletionProtectionEnabled;
         public readonly ImmutableArray<Outputs.TableGlobalSecondaryIndex> GlobalSecondaryIndexes;
         public readonly Union<ImmutableArray<Outputs.TableKeySchema>, object>? KeySchema;
         public readonly Outputs.TableKinesisStreamSpecification? KinesisStreamSpecification;
@@ -77,6 +78,8 @@ namespace Pulumi.AwsNative.DynamoDB
             string? billingMode,
 
             Outputs.TableContributorInsightsSpecification? contributorInsightsSpecification,
+
+            bool? deletionProtectionEnabled,
 
             ImmutableArray<Outputs.TableGlobalSecondaryIndex> globalSecondaryIndexes,
 
@@ -106,6 +109,7 @@ namespace Pulumi.AwsNative.DynamoDB
             AttributeDefinitions = attributeDefinitions;
             BillingMode = billingMode;
             ContributorInsightsSpecification = contributorInsightsSpecification;
+            DeletionProtectionEnabled = deletionProtectionEnabled;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
             KeySchema = keySchema;
             KinesisStreamSpecification = kinesisStreamSpecification;

@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
     [OutputType]
     public sealed class EntityStatus
     {
-        public readonly Outputs.EntityStatusErrorProperties? Error;
+        public readonly Union<object, Outputs.EntityStatusErrorProperties>? Error;
         public readonly Pulumi.AwsNative.IoTTwinMaker.EntityStatusState? State;
 
         [OutputConstructor]
         private EntityStatus(
-            Outputs.EntityStatusErrorProperties? error,
+            Union<object, Outputs.EntityStatusErrorProperties>? error,
 
             Pulumi.AwsNative.IoTTwinMaker.EntityStatusState? state)
         {

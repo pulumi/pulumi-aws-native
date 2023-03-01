@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Events
         public Output<ImmutableArray<Outputs.EndpointEventBus>> EventBuses { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         [Output("replicationConfig")]
         public Output<Outputs.EndpointReplicationConfig?> ReplicationConfig { get; private set; } = null!;

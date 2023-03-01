@@ -67,6 +67,7 @@ __all__ = [
     'RuleGroupTextTransformationArgs',
     'RuleGroupVisibilityConfigArgs',
     'RuleGroupXssMatchStatementArgs',
+    'WebACLAWSManagedRulesATPRuleSetArgs',
     'WebACLAWSManagedRulesBotControlRuleSetArgs',
     'WebACLAllowActionArgs',
     'WebACLAndStatementArgs',
@@ -109,6 +110,12 @@ __all__ = [
     'WebACLRateBasedStatementArgs',
     'WebACLRegexMatchStatementArgs',
     'WebACLRegexPatternSetReferenceStatementArgs',
+    'WebACLRequestInspectionArgs',
+    'WebACLResponseInspectionBodyContainsArgs',
+    'WebACLResponseInspectionHeaderArgs',
+    'WebACLResponseInspectionJsonArgs',
+    'WebACLResponseInspectionStatusCodeArgs',
+    'WebACLResponseInspectionArgs',
     'WebACLRuleActionOverrideArgs',
     'WebACLRuleActionArgs',
     'WebACLRuleGroupReferenceStatementArgs',
@@ -2277,6 +2284,49 @@ class RuleGroupXssMatchStatementArgs:
 
 
 @pulumi.input_type
+class WebACLAWSManagedRulesATPRuleSetArgs:
+    def __init__(__self__, *,
+                 login_path: pulumi.Input[str],
+                 request_inspection: Optional[pulumi.Input['WebACLRequestInspectionArgs']] = None,
+                 response_inspection: Optional[pulumi.Input['WebACLResponseInspectionArgs']] = None):
+        """
+        Configures how to use the Account Takeover Prevention managed rule group in the web ACL
+        """
+        pulumi.set(__self__, "login_path", login_path)
+        if request_inspection is not None:
+            pulumi.set(__self__, "request_inspection", request_inspection)
+        if response_inspection is not None:
+            pulumi.set(__self__, "response_inspection", response_inspection)
+
+    @property
+    @pulumi.getter(name="loginPath")
+    def login_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "login_path")
+
+    @login_path.setter
+    def login_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "login_path", value)
+
+    @property
+    @pulumi.getter(name="requestInspection")
+    def request_inspection(self) -> Optional[pulumi.Input['WebACLRequestInspectionArgs']]:
+        return pulumi.get(self, "request_inspection")
+
+    @request_inspection.setter
+    def request_inspection(self, value: Optional[pulumi.Input['WebACLRequestInspectionArgs']]):
+        pulumi.set(self, "request_inspection", value)
+
+    @property
+    @pulumi.getter(name="responseInspection")
+    def response_inspection(self) -> Optional[pulumi.Input['WebACLResponseInspectionArgs']]:
+        return pulumi.get(self, "response_inspection")
+
+    @response_inspection.setter
+    def response_inspection(self, value: Optional[pulumi.Input['WebACLResponseInspectionArgs']]):
+        pulumi.set(self, "response_inspection", value)
+
+
+@pulumi.input_type
 class WebACLAWSManagedRulesBotControlRuleSetArgs:
     def __init__(__self__, *,
                  inspection_level: pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetInspectionLevel']):
@@ -3345,6 +3395,7 @@ class WebACLLabelArgs:
 @pulumi.input_type
 class WebACLManagedRuleGroupConfigArgs:
     def __init__(__self__, *,
+                 a_ws_managed_rules_atp_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']] = None,
                  a_ws_managed_rules_bot_control_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetArgs']] = None,
                  login_path: Optional[pulumi.Input[str]] = None,
                  password_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None,
@@ -3353,6 +3404,8 @@ class WebACLManagedRuleGroupConfigArgs:
         """
         ManagedRuleGroupConfig.
         """
+        if a_ws_managed_rules_atp_rule_set is not None:
+            pulumi.set(__self__, "a_ws_managed_rules_atp_rule_set", a_ws_managed_rules_atp_rule_set)
         if a_ws_managed_rules_bot_control_rule_set is not None:
             pulumi.set(__self__, "a_ws_managed_rules_bot_control_rule_set", a_ws_managed_rules_bot_control_rule_set)
         if login_path is not None:
@@ -3363,6 +3416,15 @@ class WebACLManagedRuleGroupConfigArgs:
             pulumi.set(__self__, "payload_type", payload_type)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="aWSManagedRulesATPRuleSet")
+    def a_ws_managed_rules_atp_rule_set(self) -> Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']]:
+        return pulumi.get(self, "a_ws_managed_rules_atp_rule_set")
+
+    @a_ws_managed_rules_atp_rule_set.setter
+    def a_ws_managed_rules_atp_rule_set(self, value: Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']]):
+        pulumi.set(self, "a_ws_managed_rules_atp_rule_set", value)
 
     @property
     @pulumi.getter(name="aWSManagedRulesBotControlRuleSet")
@@ -3704,6 +3766,245 @@ class WebACLRegexPatternSetReferenceStatementArgs:
     @text_transformations.setter
     def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class WebACLRequestInspectionArgs:
+    def __init__(__self__, *,
+                 password_field: pulumi.Input['WebACLFieldIdentifierArgs'],
+                 payload_type: pulumi.Input['WebACLRequestInspectionPayloadType'],
+                 username_field: pulumi.Input['WebACLFieldIdentifierArgs']):
+        """
+        Configures the inspection of login requests
+        """
+        pulumi.set(__self__, "password_field", password_field)
+        pulumi.set(__self__, "payload_type", payload_type)
+        pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="passwordField")
+    def password_field(self) -> pulumi.Input['WebACLFieldIdentifierArgs']:
+        return pulumi.get(self, "password_field")
+
+    @password_field.setter
+    def password_field(self, value: pulumi.Input['WebACLFieldIdentifierArgs']):
+        pulumi.set(self, "password_field", value)
+
+    @property
+    @pulumi.getter(name="payloadType")
+    def payload_type(self) -> pulumi.Input['WebACLRequestInspectionPayloadType']:
+        return pulumi.get(self, "payload_type")
+
+    @payload_type.setter
+    def payload_type(self, value: pulumi.Input['WebACLRequestInspectionPayloadType']):
+        pulumi.set(self, "payload_type", value)
+
+    @property
+    @pulumi.getter(name="usernameField")
+    def username_field(self) -> pulumi.Input['WebACLFieldIdentifierArgs']:
+        return pulumi.get(self, "username_field")
+
+    @username_field.setter
+    def username_field(self, value: pulumi.Input['WebACLFieldIdentifierArgs']):
+        pulumi.set(self, "username_field", value)
+
+
+@pulumi.input_type
+class WebACLResponseInspectionBodyContainsArgs:
+    def __init__(__self__, *,
+                 failure_strings: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 success_strings: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Response body contents that indicate success or failure of a login request
+        """
+        pulumi.set(__self__, "failure_strings", failure_strings)
+        pulumi.set(__self__, "success_strings", success_strings)
+
+    @property
+    @pulumi.getter(name="failureStrings")
+    def failure_strings(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "failure_strings")
+
+    @failure_strings.setter
+    def failure_strings(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "failure_strings", value)
+
+    @property
+    @pulumi.getter(name="successStrings")
+    def success_strings(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "success_strings")
+
+    @success_strings.setter
+    def success_strings(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "success_strings", value)
+
+
+@pulumi.input_type
+class WebACLResponseInspectionHeaderArgs:
+    def __init__(__self__, *,
+                 failure_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: pulumi.Input[str],
+                 success_values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Response headers that indicate success or failure of a login request
+        """
+        pulumi.set(__self__, "failure_values", failure_values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "success_values", success_values)
+
+    @property
+    @pulumi.getter(name="failureValues")
+    def failure_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "failure_values")
+
+    @failure_values.setter
+    def failure_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "failure_values", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="successValues")
+    def success_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "success_values")
+
+    @success_values.setter
+    def success_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "success_values", value)
+
+
+@pulumi.input_type
+class WebACLResponseInspectionJsonArgs:
+    def __init__(__self__, *,
+                 failure_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 identifier: pulumi.Input[str],
+                 success_values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Response JSON that indicate success or failure of a login request
+        """
+        pulumi.set(__self__, "failure_values", failure_values)
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "success_values", success_values)
+
+    @property
+    @pulumi.getter(name="failureValues")
+    def failure_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "failure_values")
+
+    @failure_values.setter
+    def failure_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "failure_values", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identifier", value)
+
+    @property
+    @pulumi.getter(name="successValues")
+    def success_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "success_values")
+
+    @success_values.setter
+    def success_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "success_values", value)
+
+
+@pulumi.input_type
+class WebACLResponseInspectionStatusCodeArgs:
+    def __init__(__self__, *,
+                 failure_codes: pulumi.Input[Sequence[pulumi.Input[int]]],
+                 success_codes: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        """
+        Response status codes that indicate success or failure of a login request
+        """
+        pulumi.set(__self__, "failure_codes", failure_codes)
+        pulumi.set(__self__, "success_codes", success_codes)
+
+    @property
+    @pulumi.getter(name="failureCodes")
+    def failure_codes(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        return pulumi.get(self, "failure_codes")
+
+    @failure_codes.setter
+    def failure_codes(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "failure_codes", value)
+
+    @property
+    @pulumi.getter(name="successCodes")
+    def success_codes(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        return pulumi.get(self, "success_codes")
+
+    @success_codes.setter
+    def success_codes(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "success_codes", value)
+
+
+@pulumi.input_type
+class WebACLResponseInspectionArgs:
+    def __init__(__self__, *,
+                 body_contains: Optional[pulumi.Input['WebACLResponseInspectionBodyContainsArgs']] = None,
+                 header: Optional[pulumi.Input['WebACLResponseInspectionHeaderArgs']] = None,
+                 json: Optional[pulumi.Input['WebACLResponseInspectionJsonArgs']] = None,
+                 status_code: Optional[pulumi.Input['WebACLResponseInspectionStatusCodeArgs']] = None):
+        """
+        Configures the inspection of login responses
+        """
+        if body_contains is not None:
+            pulumi.set(__self__, "body_contains", body_contains)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="bodyContains")
+    def body_contains(self) -> Optional[pulumi.Input['WebACLResponseInspectionBodyContainsArgs']]:
+        return pulumi.get(self, "body_contains")
+
+    @body_contains.setter
+    def body_contains(self, value: Optional[pulumi.Input['WebACLResponseInspectionBodyContainsArgs']]):
+        pulumi.set(self, "body_contains", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[pulumi.Input['WebACLResponseInspectionHeaderArgs']]:
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: Optional[pulumi.Input['WebACLResponseInspectionHeaderArgs']]):
+        pulumi.set(self, "header", value)
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional[pulumi.Input['WebACLResponseInspectionJsonArgs']]:
+        return pulumi.get(self, "json")
+
+    @json.setter
+    def json(self, value: Optional[pulumi.Input['WebACLResponseInspectionJsonArgs']]):
+        pulumi.set(self, "json", value)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[pulumi.Input['WebACLResponseInspectionStatusCodeArgs']]:
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: Optional[pulumi.Input['WebACLResponseInspectionStatusCodeArgs']]):
+        pulumi.set(self, "status_code", value)
 
 
 @pulumi.input_type

@@ -15,11 +15,8 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Inputs
     /// </summary>
     public sealed class CampaignOutboundCallConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration used for answering machine detection during outbound calls
-        /// </summary>
         [Input("answerMachineDetectionConfig")]
-        public Input<Inputs.CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs>? AnswerMachineDetectionConfig { get; set; }
+        public Input<Inputs.CampaignAnswerMachineDetectionConfigArgs>? AnswerMachineDetectionConfig { get; set; }
 
         /// <summary>
         /// The identifier of the contact flow for the outbound call.

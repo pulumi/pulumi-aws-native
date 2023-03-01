@@ -27,10 +27,6 @@ export interface GetClusterParameterGroupArgs {
 
 export interface GetClusterParameterGroupResult {
     /**
-     * The name of the cluster parameter group.
-     */
-    readonly parameterGroupName?: string;
-    /**
      * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
      */
     readonly parameters?: outputs.redshift.ClusterParameterGroupParameter[];

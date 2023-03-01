@@ -23,6 +23,7 @@ type HostedConfigurationVersion struct {
 	ContentType            pulumi.StringOutput     `pulumi:"contentType"`
 	Description            pulumi.StringPtrOutput  `pulumi:"description"`
 	LatestVersionNumber    pulumi.Float64PtrOutput `pulumi:"latestVersionNumber"`
+	VersionLabel           pulumi.StringPtrOutput  `pulumi:"versionLabel"`
 }
 
 // NewHostedConfigurationVersion registers a new resource with the given unique name, arguments, and options.
@@ -82,6 +83,7 @@ type hostedConfigurationVersionArgs struct {
 	ContentType            string   `pulumi:"contentType"`
 	Description            *string  `pulumi:"description"`
 	LatestVersionNumber    *float64 `pulumi:"latestVersionNumber"`
+	VersionLabel           *string  `pulumi:"versionLabel"`
 }
 
 // The set of arguments for constructing a HostedConfigurationVersion resource.
@@ -92,6 +94,7 @@ type HostedConfigurationVersionArgs struct {
 	ContentType            pulumi.StringInput
 	Description            pulumi.StringPtrInput
 	LatestVersionNumber    pulumi.Float64PtrInput
+	VersionLabel           pulumi.StringPtrInput
 }
 
 func (HostedConfigurationVersionArgs) ElementType() reflect.Type {
@@ -153,6 +156,10 @@ func (o HostedConfigurationVersionOutput) Description() pulumi.StringPtrOutput {
 
 func (o HostedConfigurationVersionOutput) LatestVersionNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.Float64PtrOutput { return v.LatestVersionNumber }).(pulumi.Float64PtrOutput)
+}
+
+func (o HostedConfigurationVersionOutput) VersionLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringPtrOutput { return v.VersionLabel }).(pulumi.StringPtrOutput)
 }
 
 func init() {

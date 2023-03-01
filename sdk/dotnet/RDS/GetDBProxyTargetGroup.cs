@@ -28,10 +28,10 @@ namespace Pulumi.AwsNative.RDS
     public sealed class GetDBProxyTargetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the proxy.
+        /// The Amazon Resource Name (ARN) representing the target group.
         /// </summary>
-        [Input("dBProxyName", required: true)]
-        public string DBProxyName { get; set; } = null!;
+        [Input("targetGroupArn", required: true)]
+        public string TargetGroupArn { get; set; } = null!;
 
         public GetDBProxyTargetGroupArgs()
         {
@@ -42,10 +42,10 @@ namespace Pulumi.AwsNative.RDS
     public sealed class GetDBProxyTargetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the proxy.
+        /// The Amazon Resource Name (ARN) representing the target group.
         /// </summary>
-        [Input("dBProxyName", required: true)]
-        public Input<string> DBProxyName { get; set; } = null!;
+        [Input("targetGroupArn", required: true)]
+        public Input<string> TargetGroupArn { get; set; } = null!;
 
         public GetDBProxyTargetGroupInvokeArgs()
         {
@@ -61,10 +61,6 @@ namespace Pulumi.AwsNative.RDS
         public readonly ImmutableArray<string> DBClusterIdentifiers;
         public readonly ImmutableArray<string> DBInstanceIdentifiers;
         /// <summary>
-        /// The identifier for the proxy.
-        /// </summary>
-        public readonly string? DBProxyName;
-        /// <summary>
         /// The Amazon Resource Name (ARN) representing the target group.
         /// </summary>
         public readonly string? TargetGroupArn;
@@ -77,14 +73,11 @@ namespace Pulumi.AwsNative.RDS
 
             ImmutableArray<string> dBInstanceIdentifiers,
 
-            string? dBProxyName,
-
             string? targetGroupArn)
         {
             ConnectionPoolConfigurationInfo = connectionPoolConfigurationInfo;
             DBClusterIdentifiers = dBClusterIdentifiers;
             DBInstanceIdentifiers = dBInstanceIdentifiers;
-            DBProxyName = dBProxyName;
             TargetGroupArn = targetGroupArn;
         }
     }

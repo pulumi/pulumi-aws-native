@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.DynamoDB
         [Output("contributorInsightsSpecification")]
         public Output<Outputs.TableContributorInsightsSpecification?> ContributorInsightsSpecification { get; private set; } = null!;
 
+        [Output("deletionProtectionEnabled")]
+        public Output<bool?> DeletionProtectionEnabled { get; private set; } = null!;
+
         [Output("globalSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.TableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
@@ -127,6 +130,9 @@ namespace Pulumi.AwsNative.DynamoDB
 
         [Input("contributorInsightsSpecification")]
         public Input<Inputs.TableContributorInsightsSpecificationArgs>? ContributorInsightsSpecification { get; set; }
+
+        [Input("deletionProtectionEnabled")]
+        public Input<bool>? DeletionProtectionEnabled { get; set; }
 
         [Input("globalSecondaryIndexes")]
         private InputList<Inputs.TableGlobalSecondaryIndexArgs>? _globalSecondaryIndexes;

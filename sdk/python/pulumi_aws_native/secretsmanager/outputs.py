@@ -61,6 +61,7 @@ class RotationScheduleHostedRotationLambda(dict):
                  master_secret_arn: Optional[str] = None,
                  master_secret_kms_key_arn: Optional[str] = None,
                  rotation_lambda_name: Optional[str] = None,
+                 runtime: Optional[str] = None,
                  superuser_secret_arn: Optional[str] = None,
                  superuser_secret_kms_key_arn: Optional[str] = None,
                  vpc_security_group_ids: Optional[str] = None,
@@ -76,6 +77,8 @@ class RotationScheduleHostedRotationLambda(dict):
             pulumi.set(__self__, "master_secret_kms_key_arn", master_secret_kms_key_arn)
         if rotation_lambda_name is not None:
             pulumi.set(__self__, "rotation_lambda_name", rotation_lambda_name)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
         if superuser_secret_arn is not None:
             pulumi.set(__self__, "superuser_secret_arn", superuser_secret_arn)
         if superuser_secret_kms_key_arn is not None:
@@ -114,6 +117,11 @@ class RotationScheduleHostedRotationLambda(dict):
     @pulumi.getter(name="rotationLambdaName")
     def rotation_lambda_name(self) -> Optional[str]:
         return pulumi.get(self, "rotation_lambda_name")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[str]:
+        return pulumi.get(self, "runtime")
 
     @property
     @pulumi.getter(name="superuserSecretArn")

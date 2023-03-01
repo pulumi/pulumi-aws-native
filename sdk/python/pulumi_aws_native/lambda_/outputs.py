@@ -22,6 +22,7 @@ __all__ = [
     'EventInvokeConfigOnSuccess',
     'EventSourceMappingAmazonManagedKafkaEventSourceConfig',
     'EventSourceMappingDestinationConfig',
+    'EventSourceMappingDocumentDBEventSourceConfig',
     'EventSourceMappingEndpoints',
     'EventSourceMappingFilter',
     'EventSourceMappingFilterCriteria',
@@ -363,6 +364,74 @@ class EventSourceMappingDestinationConfig(dict):
         The destination configuration for failed invocations.
         """
         return pulumi.get(self, "on_failure")
+
+
+@pulumi.output_type
+class EventSourceMappingDocumentDBEventSourceConfig(dict):
+    """
+    Document db event source config.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionName":
+            suggest = "collection_name"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "fullDocument":
+            suggest = "full_document"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingDocumentDBEventSourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingDocumentDBEventSourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingDocumentDBEventSourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_name: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 full_document: Optional['EventSourceMappingDocumentDBEventSourceConfigFullDocument'] = None):
+        """
+        Document db event source config.
+        :param str collection_name: The collection name to connect to.
+        :param str database_name: The database name to connect to.
+        :param 'EventSourceMappingDocumentDBEventSourceConfigFullDocument' full_document: Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+        """
+        if collection_name is not None:
+            pulumi.set(__self__, "collection_name", collection_name)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if full_document is not None:
+            pulumi.set(__self__, "full_document", full_document)
+
+    @property
+    @pulumi.getter(name="collectionName")
+    def collection_name(self) -> Optional[str]:
+        """
+        The collection name to connect to.
+        """
+        return pulumi.get(self, "collection_name")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The database name to connect to.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="fullDocument")
+    def full_document(self) -> Optional['EventSourceMappingDocumentDBEventSourceConfigFullDocument']:
+        """
+        Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+        """
+        return pulumi.get(self, "full_document")
 
 
 @pulumi.output_type

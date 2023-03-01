@@ -20,6 +20,7 @@ type Deployment struct {
 	DeploymentName      pulumi.StringPtrOutput                 `pulumi:"deploymentName"`
 	DeploymentPolicies  DeploymentPoliciesPtrOutput            `pulumi:"deploymentPolicies"`
 	IotJobConfiguration DeploymentIoTJobConfigurationPtrOutput `pulumi:"iotJobConfiguration"`
+	ParentTargetArn     pulumi.StringPtrOutput                 `pulumi:"parentTargetArn"`
 	Tags                pulumi.AnyOutput                       `pulumi:"tags"`
 	TargetArn           pulumi.StringOutput                    `pulumi:"targetArn"`
 }
@@ -70,6 +71,7 @@ type deploymentArgs struct {
 	DeploymentName      *string                        `pulumi:"deploymentName"`
 	DeploymentPolicies  *DeploymentPolicies            `pulumi:"deploymentPolicies"`
 	IotJobConfiguration *DeploymentIoTJobConfiguration `pulumi:"iotJobConfiguration"`
+	ParentTargetArn     *string                        `pulumi:"parentTargetArn"`
 	Tags                interface{}                    `pulumi:"tags"`
 	TargetArn           string                         `pulumi:"targetArn"`
 }
@@ -80,6 +82,7 @@ type DeploymentArgs struct {
 	DeploymentName      pulumi.StringPtrInput
 	DeploymentPolicies  DeploymentPoliciesPtrInput
 	IotJobConfiguration DeploymentIoTJobConfigurationPtrInput
+	ParentTargetArn     pulumi.StringPtrInput
 	Tags                pulumi.Input
 	TargetArn           pulumi.StringInput
 }
@@ -139,6 +142,10 @@ func (o DeploymentOutput) DeploymentPolicies() DeploymentPoliciesPtrOutput {
 
 func (o DeploymentOutput) IotJobConfiguration() DeploymentIoTJobConfigurationPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentIoTJobConfigurationPtrOutput { return v.IotJobConfiguration }).(DeploymentIoTJobConfigurationPtrOutput)
+}
+
+func (o DeploymentOutput) ParentTargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.ParentTargetArn }).(pulumi.StringPtrOutput)
 }
 
 func (o DeploymentOutput) Tags() pulumi.AnyOutput {

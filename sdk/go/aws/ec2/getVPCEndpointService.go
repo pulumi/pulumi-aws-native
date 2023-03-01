@@ -21,16 +21,15 @@ func LookupVPCEndpointService(ctx *pulumi.Context, args *LookupVPCEndpointServic
 }
 
 type LookupVPCEndpointServiceArgs struct {
-	Id string `pulumi:"id"`
+	ServiceId string `pulumi:"serviceId"`
 }
 
 type LookupVPCEndpointServiceResult struct {
-	AcceptanceRequired         *bool    `pulumi:"acceptanceRequired"`
-	ContributorInsightsEnabled *bool    `pulumi:"contributorInsightsEnabled"`
-	GatewayLoadBalancerArns    []string `pulumi:"gatewayLoadBalancerArns"`
-	Id                         *string  `pulumi:"id"`
-	NetworkLoadBalancerArns    []string `pulumi:"networkLoadBalancerArns"`
-	PayerResponsibility        *string  `pulumi:"payerResponsibility"`
+	AcceptanceRequired      *bool    `pulumi:"acceptanceRequired"`
+	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
+	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
+	PayerResponsibility     *string  `pulumi:"payerResponsibility"`
+	ServiceId               *string  `pulumi:"serviceId"`
 }
 
 func LookupVPCEndpointServiceOutput(ctx *pulumi.Context, args LookupVPCEndpointServiceOutputArgs, opts ...pulumi.InvokeOption) LookupVPCEndpointServiceResultOutput {
@@ -47,7 +46,7 @@ func LookupVPCEndpointServiceOutput(ctx *pulumi.Context, args LookupVPCEndpointS
 }
 
 type LookupVPCEndpointServiceOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ServiceId pulumi.StringInput `pulumi:"serviceId"`
 }
 
 func (LookupVPCEndpointServiceOutputArgs) ElementType() reflect.Type {
@@ -72,16 +71,8 @@ func (o LookupVPCEndpointServiceResultOutput) AcceptanceRequired() pulumi.BoolPt
 	return o.ApplyT(func(v LookupVPCEndpointServiceResult) *bool { return v.AcceptanceRequired }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupVPCEndpointServiceResultOutput) ContributorInsightsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupVPCEndpointServiceResult) *bool { return v.ContributorInsightsEnabled }).(pulumi.BoolPtrOutput)
-}
-
 func (o LookupVPCEndpointServiceResultOutput) GatewayLoadBalancerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVPCEndpointServiceResult) []string { return v.GatewayLoadBalancerArns }).(pulumi.StringArrayOutput)
-}
-
-func (o LookupVPCEndpointServiceResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVPCEndpointServiceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVPCEndpointServiceResultOutput) NetworkLoadBalancerArns() pulumi.StringArrayOutput {
@@ -90,6 +81,10 @@ func (o LookupVPCEndpointServiceResultOutput) NetworkLoadBalancerArns() pulumi.S
 
 func (o LookupVPCEndpointServiceResultOutput) PayerResponsibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVPCEndpointServiceResult) *string { return v.PayerResponsibility }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVPCEndpointServiceResultOutput) ServiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVPCEndpointServiceResult) *string { return v.ServiceId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

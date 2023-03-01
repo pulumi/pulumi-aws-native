@@ -11,8 +11,6 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::VPCEndpointService
-//
-// Deprecated: VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type VPCEndpointService struct {
 	pulumi.CustomResourceState
 
@@ -21,6 +19,7 @@ type VPCEndpointService struct {
 	GatewayLoadBalancerArns    pulumi.StringArrayOutput `pulumi:"gatewayLoadBalancerArns"`
 	NetworkLoadBalancerArns    pulumi.StringArrayOutput `pulumi:"networkLoadBalancerArns"`
 	PayerResponsibility        pulumi.StringPtrOutput   `pulumi:"payerResponsibility"`
+	ServiceId                  pulumi.StringOutput      `pulumi:"serviceId"`
 }
 
 // NewVPCEndpointService registers a new resource with the given unique name, arguments, and options.
@@ -133,6 +132,10 @@ func (o VPCEndpointServiceOutput) NetworkLoadBalancerArns() pulumi.StringArrayOu
 
 func (o VPCEndpointServiceOutput) PayerResponsibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VPCEndpointService) pulumi.StringPtrOutput { return v.PayerResponsibility }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCEndpointServiceOutput) ServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCEndpointService) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
 }
 
 func init() {

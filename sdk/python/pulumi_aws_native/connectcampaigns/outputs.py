@@ -11,13 +11,52 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'CampaignAnswerMachineDetectionConfig',
     'CampaignDialerConfig',
     'CampaignOutboundCallConfig',
-    'CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties',
     'CampaignPredictiveDialerConfig',
     'CampaignProgressiveDialerConfig',
     'CampaignTag',
 ]
+
+@pulumi.output_type
+class CampaignAnswerMachineDetectionConfig(dict):
+    """
+    The configuration used for answering machine detection during outbound calls
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableAnswerMachineDetection":
+            suggest = "enable_answer_machine_detection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignAnswerMachineDetectionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignAnswerMachineDetectionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignAnswerMachineDetectionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_answer_machine_detection: bool):
+        """
+        The configuration used for answering machine detection during outbound calls
+        :param bool enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
+        """
+        pulumi.set(__self__, "enable_answer_machine_detection", enable_answer_machine_detection)
+
+    @property
+    @pulumi.getter(name="enableAnswerMachineDetection")
+    def enable_answer_machine_detection(self) -> bool:
+        """
+        Flag to decided whether outbound calls should have answering machine detection enabled or not
+        """
+        return pulumi.get(self, "enable_answer_machine_detection")
+
 
 @pulumi.output_type
 class CampaignDialerConfig(dict):
@@ -96,13 +135,12 @@ class CampaignOutboundCallConfig(dict):
     def __init__(__self__, *,
                  connect_contact_flow_arn: str,
                  connect_queue_arn: str,
-                 answer_machine_detection_config: Optional['outputs.CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties'] = None,
+                 answer_machine_detection_config: Optional['outputs.CampaignAnswerMachineDetectionConfig'] = None,
                  connect_source_phone_number: Optional[str] = None):
         """
         The configuration used for outbound calls.
         :param str connect_contact_flow_arn: The identifier of the contact flow for the outbound call.
         :param str connect_queue_arn: The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
-        :param 'CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties' answer_machine_detection_config: The configuration used for answering machine detection during outbound calls
         :param str connect_source_phone_number: The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
         """
         pulumi.set(__self__, "connect_contact_flow_arn", connect_contact_flow_arn)
@@ -130,10 +168,7 @@ class CampaignOutboundCallConfig(dict):
 
     @property
     @pulumi.getter(name="answerMachineDetectionConfig")
-    def answer_machine_detection_config(self) -> Optional['outputs.CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties']:
-        """
-        The configuration used for answering machine detection during outbound calls
-        """
+    def answer_machine_detection_config(self) -> Optional['outputs.CampaignAnswerMachineDetectionConfig']:
         return pulumi.get(self, "answer_machine_detection_config")
 
     @property
@@ -143,45 +178,6 @@ class CampaignOutboundCallConfig(dict):
         The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
         """
         return pulumi.get(self, "connect_source_phone_number")
-
-
-@pulumi.output_type
-class CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties(dict):
-    """
-    The configuration used for answering machine detection during outbound calls
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "enableAnswerMachineDetection":
-            suggest = "enable_answer_machine_detection"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enable_answer_machine_detection: bool):
-        """
-        The configuration used for answering machine detection during outbound calls
-        :param bool enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
-        """
-        pulumi.set(__self__, "enable_answer_machine_detection", enable_answer_machine_detection)
-
-    @property
-    @pulumi.getter(name="enableAnswerMachineDetection")
-    def enable_answer_machine_detection(self) -> bool:
-        """
-        Flag to decided whether outbound calls should have answering machine detection enabled or not
-        """
-        return pulumi.get(self, "enable_answer_machine_detection")
 
 
 @pulumi.output_type

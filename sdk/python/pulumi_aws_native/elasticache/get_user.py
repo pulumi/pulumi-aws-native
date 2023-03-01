@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetUserResult',
@@ -18,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserResult:
-    def __init__(__self__, arn=None, status=None):
+    def __init__(__self__, arn=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -42,6 +46,14 @@ class GetUserResult:
         """
         return pulumi.get(self, "status")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.UserTag']]:
+        """
+        An array of key-value pairs to apply to this user.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
@@ -50,7 +62,8 @@ class AwaitableGetUserResult(GetUserResult):
             yield self
         return GetUserResult(
             arn=self.arn,
-            status=self.status)
+            status=self.status,
+            tags=self.tags)
 
 
 def get_user(user_id: Optional[str] = None,
@@ -68,7 +81,8 @@ def get_user(user_id: Optional[str] = None,
 
     return AwaitableGetUserResult(
         arn=__ret__.arn,
-        status=__ret__.status)
+        status=__ret__.status,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_user)

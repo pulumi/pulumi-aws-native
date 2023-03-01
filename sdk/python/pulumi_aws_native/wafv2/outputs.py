@@ -68,6 +68,7 @@ __all__ = [
     'RuleGroupTextTransformation',
     'RuleGroupVisibilityConfig',
     'RuleGroupXssMatchStatement',
+    'WebACLAWSManagedRulesATPRuleSet',
     'WebACLAWSManagedRulesBotControlRuleSet',
     'WebACLAllowAction',
     'WebACLAndStatement',
@@ -110,6 +111,12 @@ __all__ = [
     'WebACLRateBasedStatement',
     'WebACLRegexMatchStatement',
     'WebACLRegexPatternSetReferenceStatement',
+    'WebACLRequestInspection',
+    'WebACLResponseInspection',
+    'WebACLResponseInspectionBodyContains',
+    'WebACLResponseInspectionHeader',
+    'WebACLResponseInspectionJson',
+    'WebACLResponseInspectionStatusCode',
     'WebACLRule',
     'WebACLRuleAction',
     'WebACLRuleActionOverride',
@@ -2570,6 +2577,61 @@ class RuleGroupXssMatchStatement(dict):
 
 
 @pulumi.output_type
+class WebACLAWSManagedRulesATPRuleSet(dict):
+    """
+    Configures how to use the Account Takeover Prevention managed rule group in the web ACL
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loginPath":
+            suggest = "login_path"
+        elif key == "requestInspection":
+            suggest = "request_inspection"
+        elif key == "responseInspection":
+            suggest = "response_inspection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLAWSManagedRulesATPRuleSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLAWSManagedRulesATPRuleSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLAWSManagedRulesATPRuleSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 login_path: str,
+                 request_inspection: Optional['outputs.WebACLRequestInspection'] = None,
+                 response_inspection: Optional['outputs.WebACLResponseInspection'] = None):
+        """
+        Configures how to use the Account Takeover Prevention managed rule group in the web ACL
+        """
+        pulumi.set(__self__, "login_path", login_path)
+        if request_inspection is not None:
+            pulumi.set(__self__, "request_inspection", request_inspection)
+        if response_inspection is not None:
+            pulumi.set(__self__, "response_inspection", response_inspection)
+
+    @property
+    @pulumi.getter(name="loginPath")
+    def login_path(self) -> str:
+        return pulumi.get(self, "login_path")
+
+    @property
+    @pulumi.getter(name="requestInspection")
+    def request_inspection(self) -> Optional['outputs.WebACLRequestInspection']:
+        return pulumi.get(self, "request_inspection")
+
+    @property
+    @pulumi.getter(name="responseInspection")
+    def response_inspection(self) -> Optional['outputs.WebACLResponseInspection']:
+        return pulumi.get(self, "response_inspection")
+
+
+@pulumi.output_type
 class WebACLAWSManagedRulesBotControlRuleSet(dict):
     """
     Configures how to use the Bot Control managed rule group in the web ACL
@@ -3891,7 +3953,9 @@ class WebACLManagedRuleGroupConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aWSManagedRulesBotControlRuleSet":
+        if key == "aWSManagedRulesATPRuleSet":
+            suggest = "a_ws_managed_rules_atp_rule_set"
+        elif key == "aWSManagedRulesBotControlRuleSet":
             suggest = "a_ws_managed_rules_bot_control_rule_set"
         elif key == "loginPath":
             suggest = "login_path"
@@ -3914,6 +3978,7 @@ class WebACLManagedRuleGroupConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 a_ws_managed_rules_atp_rule_set: Optional['outputs.WebACLAWSManagedRulesATPRuleSet'] = None,
                  a_ws_managed_rules_bot_control_rule_set: Optional['outputs.WebACLAWSManagedRulesBotControlRuleSet'] = None,
                  login_path: Optional[str] = None,
                  password_field: Optional['outputs.WebACLFieldIdentifier'] = None,
@@ -3922,6 +3987,8 @@ class WebACLManagedRuleGroupConfig(dict):
         """
         ManagedRuleGroupConfig.
         """
+        if a_ws_managed_rules_atp_rule_set is not None:
+            pulumi.set(__self__, "a_ws_managed_rules_atp_rule_set", a_ws_managed_rules_atp_rule_set)
         if a_ws_managed_rules_bot_control_rule_set is not None:
             pulumi.set(__self__, "a_ws_managed_rules_bot_control_rule_set", a_ws_managed_rules_bot_control_rule_set)
         if login_path is not None:
@@ -3932,6 +3999,11 @@ class WebACLManagedRuleGroupConfig(dict):
             pulumi.set(__self__, "payload_type", payload_type)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="aWSManagedRulesATPRuleSet")
+    def a_ws_managed_rules_atp_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesATPRuleSet']:
+        return pulumi.get(self, "a_ws_managed_rules_atp_rule_set")
 
     @property
     @pulumi.getter(name="aWSManagedRulesBotControlRuleSet")
@@ -4258,6 +4330,311 @@ class WebACLRegexPatternSetReferenceStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
         return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
+class WebACLRequestInspection(dict):
+    """
+    Configures the inspection of login requests
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordField":
+            suggest = "password_field"
+        elif key == "payloadType":
+            suggest = "payload_type"
+        elif key == "usernameField":
+            suggest = "username_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRequestInspection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRequestInspection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRequestInspection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password_field: 'outputs.WebACLFieldIdentifier',
+                 payload_type: 'WebACLRequestInspectionPayloadType',
+                 username_field: 'outputs.WebACLFieldIdentifier'):
+        """
+        Configures the inspection of login requests
+        """
+        pulumi.set(__self__, "password_field", password_field)
+        pulumi.set(__self__, "payload_type", payload_type)
+        pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="passwordField")
+    def password_field(self) -> 'outputs.WebACLFieldIdentifier':
+        return pulumi.get(self, "password_field")
+
+    @property
+    @pulumi.getter(name="payloadType")
+    def payload_type(self) -> 'WebACLRequestInspectionPayloadType':
+        return pulumi.get(self, "payload_type")
+
+    @property
+    @pulumi.getter(name="usernameField")
+    def username_field(self) -> 'outputs.WebACLFieldIdentifier':
+        return pulumi.get(self, "username_field")
+
+
+@pulumi.output_type
+class WebACLResponseInspection(dict):
+    """
+    Configures the inspection of login responses
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bodyContains":
+            suggest = "body_contains"
+        elif key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLResponseInspection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLResponseInspection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLResponseInspection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 body_contains: Optional['outputs.WebACLResponseInspectionBodyContains'] = None,
+                 header: Optional['outputs.WebACLResponseInspectionHeader'] = None,
+                 json: Optional['outputs.WebACLResponseInspectionJson'] = None,
+                 status_code: Optional['outputs.WebACLResponseInspectionStatusCode'] = None):
+        """
+        Configures the inspection of login responses
+        """
+        if body_contains is not None:
+            pulumi.set(__self__, "body_contains", body_contains)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="bodyContains")
+    def body_contains(self) -> Optional['outputs.WebACLResponseInspectionBodyContains']:
+        return pulumi.get(self, "body_contains")
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional['outputs.WebACLResponseInspectionHeader']:
+        return pulumi.get(self, "header")
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.WebACLResponseInspectionJson']:
+        return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional['outputs.WebACLResponseInspectionStatusCode']:
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class WebACLResponseInspectionBodyContains(dict):
+    """
+    Response body contents that indicate success or failure of a login request
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureStrings":
+            suggest = "failure_strings"
+        elif key == "successStrings":
+            suggest = "success_strings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLResponseInspectionBodyContains. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLResponseInspectionBodyContains.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLResponseInspectionBodyContains.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_strings: Sequence[str],
+                 success_strings: Sequence[str]):
+        """
+        Response body contents that indicate success or failure of a login request
+        """
+        pulumi.set(__self__, "failure_strings", failure_strings)
+        pulumi.set(__self__, "success_strings", success_strings)
+
+    @property
+    @pulumi.getter(name="failureStrings")
+    def failure_strings(self) -> Sequence[str]:
+        return pulumi.get(self, "failure_strings")
+
+    @property
+    @pulumi.getter(name="successStrings")
+    def success_strings(self) -> Sequence[str]:
+        return pulumi.get(self, "success_strings")
+
+
+@pulumi.output_type
+class WebACLResponseInspectionHeader(dict):
+    """
+    Response headers that indicate success or failure of a login request
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureValues":
+            suggest = "failure_values"
+        elif key == "successValues":
+            suggest = "success_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLResponseInspectionHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLResponseInspectionHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLResponseInspectionHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_values: Sequence[str],
+                 name: str,
+                 success_values: Sequence[str]):
+        """
+        Response headers that indicate success or failure of a login request
+        """
+        pulumi.set(__self__, "failure_values", failure_values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "success_values", success_values)
+
+    @property
+    @pulumi.getter(name="failureValues")
+    def failure_values(self) -> Sequence[str]:
+        return pulumi.get(self, "failure_values")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="successValues")
+    def success_values(self) -> Sequence[str]:
+        return pulumi.get(self, "success_values")
+
+
+@pulumi.output_type
+class WebACLResponseInspectionJson(dict):
+    """
+    Response JSON that indicate success or failure of a login request
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureValues":
+            suggest = "failure_values"
+        elif key == "successValues":
+            suggest = "success_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLResponseInspectionJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLResponseInspectionJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLResponseInspectionJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_values: Sequence[str],
+                 identifier: str,
+                 success_values: Sequence[str]):
+        """
+        Response JSON that indicate success or failure of a login request
+        """
+        pulumi.set(__self__, "failure_values", failure_values)
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "success_values", success_values)
+
+    @property
+    @pulumi.getter(name="failureValues")
+    def failure_values(self) -> Sequence[str]:
+        return pulumi.get(self, "failure_values")
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> str:
+        return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter(name="successValues")
+    def success_values(self) -> Sequence[str]:
+        return pulumi.get(self, "success_values")
+
+
+@pulumi.output_type
+class WebACLResponseInspectionStatusCode(dict):
+    """
+    Response status codes that indicate success or failure of a login request
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureCodes":
+            suggest = "failure_codes"
+        elif key == "successCodes":
+            suggest = "success_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLResponseInspectionStatusCode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLResponseInspectionStatusCode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLResponseInspectionStatusCode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_codes: Sequence[int],
+                 success_codes: Sequence[int]):
+        """
+        Response status codes that indicate success or failure of a login request
+        """
+        pulumi.set(__self__, "failure_codes", failure_codes)
+        pulumi.set(__self__, "success_codes", success_codes)
+
+    @property
+    @pulumi.getter(name="failureCodes")
+    def failure_codes(self) -> Sequence[int]:
+        return pulumi.get(self, "failure_codes")
+
+    @property
+    @pulumi.getter(name="successCodes")
+    def success_codes(self) -> Sequence[int]:
+        return pulumi.get(self, "success_codes")
 
 
 @pulumi.output_type

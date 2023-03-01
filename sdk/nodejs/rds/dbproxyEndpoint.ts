@@ -64,7 +64,7 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
     /**
      * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
      */
-    public /*out*/ readonly targetRole!: pulumi.Output<enums.rds.DBProxyEndpointTargetRole>;
+    public readonly targetRole!: pulumi.Output<enums.rds.DBProxyEndpointTargetRole | undefined>;
     /**
      * VPC ID to associate with the new DB proxy endpoint.
      */
@@ -98,12 +98,12 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
             resourceInputs["dBProxyEndpointName"] = args ? args.dBProxyEndpointName : undefined;
             resourceInputs["dBProxyName"] = args ? args.dBProxyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetRole"] = args ? args.targetRole : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
             resourceInputs["dBProxyEndpointArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
-            resourceInputs["targetRole"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         } else {
             resourceInputs["dBProxyEndpointArn"] = undefined /*out*/;
@@ -138,6 +138,10 @@ export interface DBProxyEndpointArgs {
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.rds.DBProxyEndpointTagFormatArgs>[]>;
+    /**
+     * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
+     */
+    targetRole?: pulumi.Input<enums.rds.DBProxyEndpointTargetRole>;
     /**
      * VPC security group IDs to associate with the new DB proxy endpoint.
      */

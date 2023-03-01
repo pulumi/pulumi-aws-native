@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.GreengrassV2
         [Output("iotJobConfiguration")]
         public Output<Outputs.DeploymentIoTJobConfiguration?> IotJobConfiguration { get; private set; } = null!;
 
+        [Output("parentTargetArn")]
+        public Output<string?> ParentTargetArn { get; private set; } = null!;
+
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -92,6 +95,9 @@ namespace Pulumi.AwsNative.GreengrassV2
 
         [Input("iotJobConfiguration")]
         public Input<Inputs.DeploymentIoTJobConfigurationArgs>? IotJobConfiguration { get; set; }
+
+        [Input("parentTargetArn")]
+        public Input<string>? ParentTargetArn { get; set; }
 
         [Input("tags")]
         public Input<object>? Tags { get; set; }

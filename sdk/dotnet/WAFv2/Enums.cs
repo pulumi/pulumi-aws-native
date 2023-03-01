@@ -1098,6 +1098,34 @@ namespace Pulumi.AwsNative.WAFv2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct WebACLRequestInspectionPayloadType : IEquatable<WebACLRequestInspectionPayloadType>
+    {
+        private readonly string _value;
+
+        private WebACLRequestInspectionPayloadType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebACLRequestInspectionPayloadType Json { get; } = new WebACLRequestInspectionPayloadType("JSON");
+        public static WebACLRequestInspectionPayloadType FormEncoded { get; } = new WebACLRequestInspectionPayloadType("FORM_ENCODED");
+
+        public static bool operator ==(WebACLRequestInspectionPayloadType left, WebACLRequestInspectionPayloadType right) => left.Equals(right);
+        public static bool operator !=(WebACLRequestInspectionPayloadType left, WebACLRequestInspectionPayloadType right) => !left.Equals(right);
+
+        public static explicit operator string(WebACLRequestInspectionPayloadType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebACLRequestInspectionPayloadType other && Equals(other);
+        public bool Equals(WebACLRequestInspectionPayloadType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
     /// </summary>

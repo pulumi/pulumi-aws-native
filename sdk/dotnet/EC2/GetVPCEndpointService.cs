@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPCEndpointServiceArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("serviceId", required: true)]
+        public string ServiceId { get; set; } = null!;
 
         public GetVPCEndpointServiceArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPCEndpointServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("serviceId", required: true)]
+        public Input<string> ServiceId { get; set; } = null!;
 
         public GetVPCEndpointServiceInvokeArgs()
         {
@@ -52,32 +52,28 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetVPCEndpointServiceResult
     {
         public readonly bool? AcceptanceRequired;
-        public readonly bool? ContributorInsightsEnabled;
         public readonly ImmutableArray<string> GatewayLoadBalancerArns;
-        public readonly string? Id;
         public readonly ImmutableArray<string> NetworkLoadBalancerArns;
         public readonly string? PayerResponsibility;
+        public readonly string? ServiceId;
 
         [OutputConstructor]
         private GetVPCEndpointServiceResult(
             bool? acceptanceRequired,
 
-            bool? contributorInsightsEnabled,
-
             ImmutableArray<string> gatewayLoadBalancerArns,
-
-            string? id,
 
             ImmutableArray<string> networkLoadBalancerArns,
 
-            string? payerResponsibility)
+            string? payerResponsibility,
+
+            string? serviceId)
         {
             AcceptanceRequired = acceptanceRequired;
-            ContributorInsightsEnabled = contributorInsightsEnabled;
             GatewayLoadBalancerArns = gatewayLoadBalancerArns;
-            Id = id;
             NetworkLoadBalancerArns = networkLoadBalancerArns;
             PayerResponsibility = payerResponsibility;
+            ServiceId = serviceId;
         }
     }
 }

@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TransitGatewayPeering{}
 	case "aws-native:networkmanager:TransitGatewayRegistration":
 		r = &TransitGatewayRegistration{}
+	case "aws-native:networkmanager:TransitGatewayRouteTableAttachment":
+		r = &TransitGatewayRouteTableAttachment{}
 	case "aws-native:networkmanager:VpcAttachment":
 		r = &VpcAttachment{}
 	default:

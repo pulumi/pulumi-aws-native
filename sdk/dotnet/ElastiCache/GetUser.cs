@@ -65,15 +65,22 @@ namespace Pulumi.AwsNative.ElastiCache
         /// Indicates the user status. Can be "active", "modifying" or "deleting".
         /// </summary>
         public readonly string? Status;
+        /// <summary>
+        /// An array of key-value pairs to apply to this user.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserTag> Tags;
 
         [OutputConstructor]
         private GetUserResult(
             string? arn,
 
-            string? status)
+            string? status,
+
+            ImmutableArray<Outputs.UserTag> tags)
         {
             Arn = arn;
             Status = status;
+            Tags = tags;
         }
     }
 }

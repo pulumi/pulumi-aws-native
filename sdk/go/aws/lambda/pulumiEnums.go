@@ -175,6 +175,171 @@ func (in *codeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtr) 
 	return pulumi.ToOutputWithContext(ctx, in).(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput)
 }
 
+// Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+type EventSourceMappingDocumentDBEventSourceConfigFullDocument string
+
+const (
+	EventSourceMappingDocumentDBEventSourceConfigFullDocumentUpdateLookup = EventSourceMappingDocumentDBEventSourceConfigFullDocument("UpdateLookup")
+	EventSourceMappingDocumentDBEventSourceConfigFullDocumentDefault      = EventSourceMappingDocumentDBEventSourceConfigFullDocument("Default")
+)
+
+func (EventSourceMappingDocumentDBEventSourceConfigFullDocument) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingDocumentDBEventSourceConfigFullDocument)(nil)).Elem()
+}
+
+func (e EventSourceMappingDocumentDBEventSourceConfigFullDocument) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput() EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput {
+	return pulumi.ToOutput(e).(EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput)
+}
+
+func (e EventSourceMappingDocumentDBEventSourceConfigFullDocument) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentOutputWithContext(ctx context.Context) EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput)
+}
+
+func (e EventSourceMappingDocumentDBEventSourceConfigFullDocument) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput() EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput {
+	return e.ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingDocumentDBEventSourceConfigFullDocument) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutputWithContext(ctx context.Context) EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput {
+	return EventSourceMappingDocumentDBEventSourceConfigFullDocument(e).ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentOutputWithContext(ctx).ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutputWithContext(ctx)
+}
+
+func (e EventSourceMappingDocumentDBEventSourceConfigFullDocument) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingDocumentDBEventSourceConfigFullDocument) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingDocumentDBEventSourceConfigFullDocument) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingDocumentDBEventSourceConfigFullDocument) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingDocumentDBEventSourceConfigFullDocument)(nil)).Elem()
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput() EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput {
+	return o
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentOutputWithContext(ctx context.Context) EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput {
+	return o
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput() EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput {
+	return o.ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutputWithContext(ctx context.Context) EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingDocumentDBEventSourceConfigFullDocument) *EventSourceMappingDocumentDBEventSourceConfigFullDocument {
+		return &v
+	}).(EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput)
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingDocumentDBEventSourceConfigFullDocument) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingDocumentDBEventSourceConfigFullDocument) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingDocumentDBEventSourceConfigFullDocument)(nil)).Elem()
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput() EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutputWithContext(ctx context.Context) EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput) Elem() EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput {
+	return o.ApplyT(func(v *EventSourceMappingDocumentDBEventSourceConfigFullDocument) EventSourceMappingDocumentDBEventSourceConfigFullDocument {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingDocumentDBEventSourceConfigFullDocument
+		return ret
+	}).(EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput)
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceMappingDocumentDBEventSourceConfigFullDocument) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceMappingDocumentDBEventSourceConfigFullDocumentInput is an input type that accepts EventSourceMappingDocumentDBEventSourceConfigFullDocumentArgs and EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput values.
+// You can construct a concrete instance of `EventSourceMappingDocumentDBEventSourceConfigFullDocumentInput` via:
+//
+//	EventSourceMappingDocumentDBEventSourceConfigFullDocumentArgs{...}
+type EventSourceMappingDocumentDBEventSourceConfigFullDocumentInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput() EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput
+	ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentOutputWithContext(context.Context) EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput
+}
+
+var eventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrType = reflect.TypeOf((**EventSourceMappingDocumentDBEventSourceConfigFullDocument)(nil)).Elem()
+
+type EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput() EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput
+	ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutputWithContext(context.Context) EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput
+}
+
+type eventSourceMappingDocumentDBEventSourceConfigFullDocumentPtr string
+
+func EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtr(v string) EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrInput {
+	return (*eventSourceMappingDocumentDBEventSourceConfigFullDocumentPtr)(&v)
+}
+
+func (*eventSourceMappingDocumentDBEventSourceConfigFullDocumentPtr) ElementType() reflect.Type {
+	return eventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrType
+}
+
+func (in *eventSourceMappingDocumentDBEventSourceConfigFullDocumentPtr) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput() EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput {
+	return pulumi.ToOutput(in).(EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput)
+}
+
+func (in *eventSourceMappingDocumentDBEventSourceConfigFullDocumentPtr) ToEventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutputWithContext(ctx context.Context) EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput)
+}
+
 type EventSourceMappingFunctionResponseTypesItem string
 
 const (
@@ -2153,6 +2318,8 @@ func (in *urlInvokeModePtr) ToUrlInvokeModePtrOutputWithContext(ctx context.Cont
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDocumentDBEventSourceConfigFullDocumentInput)(nil)).Elem(), EventSourceMappingDocumentDBEventSourceConfigFullDocument("UpdateLookup"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrInput)(nil)).Elem(), EventSourceMappingDocumentDBEventSourceConfigFullDocument("UpdateLookup"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItem("ReportBatchItemFailures"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemPtrInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItem("ReportBatchItemFailures"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemArrayInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItemArray{})
@@ -2178,6 +2345,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlInvokeModePtrInput)(nil)).Elem(), UrlInvokeMode("BUFFERED"))
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingDocumentDBEventSourceConfigFullDocumentOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingDocumentDBEventSourceConfigFullDocumentPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemArrayOutput{})

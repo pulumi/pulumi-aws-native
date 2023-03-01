@@ -38,6 +38,37 @@ namespace Pulumi.AwsNative.Lambda
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceMappingDocumentDBEventSourceConfigFullDocument : IEquatable<EventSourceMappingDocumentDBEventSourceConfigFullDocument>
+    {
+        private readonly string _value;
+
+        private EventSourceMappingDocumentDBEventSourceConfigFullDocument(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceMappingDocumentDBEventSourceConfigFullDocument UpdateLookup { get; } = new EventSourceMappingDocumentDBEventSourceConfigFullDocument("UpdateLookup");
+        public static EventSourceMappingDocumentDBEventSourceConfigFullDocument Default { get; } = new EventSourceMappingDocumentDBEventSourceConfigFullDocument("Default");
+
+        public static bool operator ==(EventSourceMappingDocumentDBEventSourceConfigFullDocument left, EventSourceMappingDocumentDBEventSourceConfigFullDocument right) => left.Equals(right);
+        public static bool operator !=(EventSourceMappingDocumentDBEventSourceConfigFullDocument left, EventSourceMappingDocumentDBEventSourceConfigFullDocument right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceMappingDocumentDBEventSourceConfigFullDocument value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceMappingDocumentDBEventSourceConfigFullDocument other && Equals(other);
+        public bool Equals(EventSourceMappingDocumentDBEventSourceConfigFullDocument other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct EventSourceMappingFunctionResponseTypesItem : IEquatable<EventSourceMappingFunctionResponseTypesItem>
     {

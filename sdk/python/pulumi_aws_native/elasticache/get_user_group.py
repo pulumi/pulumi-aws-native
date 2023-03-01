@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetUserGroupResult',
@@ -18,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserGroupResult:
-    def __init__(__self__, arn=None, status=None, user_ids=None):
+    def __init__(__self__, arn=None, status=None, tags=None, user_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if user_ids and not isinstance(user_ids, list):
             raise TypeError("Expected argument 'user_ids' to be a list")
         pulumi.set(__self__, "user_ids", user_ids)
@@ -46,6 +50,14 @@ class GetUserGroupResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.UserGroupTag']]:
+        """
+        An array of key-value pairs to apply to this user.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="userIds")
     def user_ids(self) -> Optional[Sequence[str]]:
         """
@@ -62,6 +74,7 @@ class AwaitableGetUserGroupResult(GetUserGroupResult):
         return GetUserGroupResult(
             arn=self.arn,
             status=self.status,
+            tags=self.tags,
             user_ids=self.user_ids)
 
 
@@ -81,6 +94,7 @@ def get_user_group(user_group_id: Optional[str] = None,
     return AwaitableGetUserGroupResult(
         arn=__ret__.arn,
         status=__ret__.status,
+        tags=__ret__.tags,
         user_ids=__ret__.user_ids)
 
 

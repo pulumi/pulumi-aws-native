@@ -11,16 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ApiGateway::VpcLink
-//
-// Deprecated: VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Schema for AWS ApiGateway VpcLink
 type VpcLink struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput   `pulumi:"description"`
-	Name        pulumi.StringOutput      `pulumi:"name"`
-	Tags        VpcLinkTagArrayOutput    `pulumi:"tags"`
-	TargetArns  pulumi.StringArrayOutput `pulumi:"targetArns"`
+	// A description of the VPC link.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A name for the VPC link.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// An array of arbitrary tags (key-value pairs) to associate with the stage.
+	Tags VpcLinkTagArrayOutput `pulumi:"tags"`
+	// The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+	TargetArns pulumi.StringArrayOutput `pulumi:"targetArns"`
+	// The ID of the instance that backs VPC link.
+	VpcLinkId pulumi.StringOutput `pulumi:"vpcLinkId"`
 }
 
 // NewVpcLink registers a new resource with the given unique name, arguments, and options.
@@ -65,18 +69,26 @@ func (VpcLinkState) ElementType() reflect.Type {
 }
 
 type vpcLinkArgs struct {
-	Description *string      `pulumi:"description"`
-	Name        *string      `pulumi:"name"`
-	Tags        []VpcLinkTag `pulumi:"tags"`
-	TargetArns  []string     `pulumi:"targetArns"`
+	// A description of the VPC link.
+	Description *string `pulumi:"description"`
+	// A name for the VPC link.
+	Name *string `pulumi:"name"`
+	// An array of arbitrary tags (key-value pairs) to associate with the stage.
+	Tags []VpcLinkTag `pulumi:"tags"`
+	// The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+	TargetArns []string `pulumi:"targetArns"`
 }
 
 // The set of arguments for constructing a VpcLink resource.
 type VpcLinkArgs struct {
+	// A description of the VPC link.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Tags        VpcLinkTagArrayInput
-	TargetArns  pulumi.StringArrayInput
+	// A name for the VPC link.
+	Name pulumi.StringPtrInput
+	// An array of arbitrary tags (key-value pairs) to associate with the stage.
+	Tags VpcLinkTagArrayInput
+	// The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+	TargetArns pulumi.StringArrayInput
 }
 
 func (VpcLinkArgs) ElementType() reflect.Type {
@@ -116,20 +128,29 @@ func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOu
 	return o
 }
 
+// A description of the VPC link.
 func (o VpcLinkOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A name for the VPC link.
 func (o VpcLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// An array of arbitrary tags (key-value pairs) to associate with the stage.
 func (o VpcLinkOutput) Tags() VpcLinkTagArrayOutput {
 	return o.ApplyT(func(v *VpcLink) VpcLinkTagArrayOutput { return v.Tags }).(VpcLinkTagArrayOutput)
 }
 
+// The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
 func (o VpcLinkOutput) TargetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringArrayOutput { return v.TargetArns }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the instance that backs VPC link.
+func (o VpcLinkOutput) VpcLinkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.VpcLinkId }).(pulumi.StringOutput)
 }
 
 func init() {

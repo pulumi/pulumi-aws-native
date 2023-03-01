@@ -30,6 +30,8 @@ type LookupUserGroupResult struct {
 	Arn *string `pulumi:"arn"`
 	// Indicates user group status. Can be "creating", "active", "modifying", "deleting".
 	Status *string `pulumi:"status"`
+	// An array of key-value pairs to apply to this user.
+	Tags []UserGroupTag `pulumi:"tags"`
 	// List of users associated to this user group.
 	UserIds []string `pulumi:"userIds"`
 }
@@ -78,6 +80,11 @@ func (o LookupUserGroupResultOutput) Arn() pulumi.StringPtrOutput {
 // Indicates user group status. Can be "creating", "active", "modifying", "deleting".
 func (o LookupUserGroupResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserGroupResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this user.
+func (o LookupUserGroupResultOutput) Tags() UserGroupTagArrayOutput {
+	return o.ApplyT(func(v LookupUserGroupResult) []UserGroupTag { return v.Tags }).(UserGroupTagArrayOutput)
 }
 
 // List of users associated to this user group.

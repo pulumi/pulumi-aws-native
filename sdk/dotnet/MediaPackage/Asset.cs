@@ -108,6 +108,18 @@ namespace Pulumi.AwsNative.MediaPackage
 
     public sealed class AssetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("egressEndpoints")]
+        private InputList<Inputs.AssetEgressEndpointArgs>? _egressEndpoints;
+
+        /// <summary>
+        /// The list of egress endpoints available for the Asset.
+        /// </summary>
+        public InputList<Inputs.AssetEgressEndpointArgs> EgressEndpoints
+        {
+            get => _egressEndpoints ?? (_egressEndpoints = new InputList<Inputs.AssetEgressEndpointArgs>());
+            set => _egressEndpoints = value;
+        }
+
         /// <summary>
         /// The ID of the PackagingGroup for the Asset.
         /// </summary>

@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AssetEgressEndpointArgs',
     'AssetTagArgs',
     'ChannelHlsIngestArgs',
     'ChannelIngestEndpointArgs',
@@ -49,6 +50,44 @@ __all__ = [
     'PackagingGroupLogConfigurationArgs',
     'PackagingGroupTagArgs',
 ]
+
+@pulumi.input_type
+class AssetEgressEndpointArgs:
+    def __init__(__self__, *,
+                 packaging_configuration_id: pulumi.Input[str],
+                 url: pulumi.Input[str]):
+        """
+        The endpoint URL used to access an Asset using one PackagingConfiguration.
+        :param pulumi.Input[str] packaging_configuration_id: The ID of the PackagingConfiguration being applied to the Asset.
+        :param pulumi.Input[str] url: The URL of the parent manifest for the repackaged Asset.
+        """
+        pulumi.set(__self__, "packaging_configuration_id", packaging_configuration_id)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="packagingConfigurationId")
+    def packaging_configuration_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the PackagingConfiguration being applied to the Asset.
+        """
+        return pulumi.get(self, "packaging_configuration_id")
+
+    @packaging_configuration_id.setter
+    def packaging_configuration_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "packaging_configuration_id", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The URL of the parent manifest for the repackaged Asset.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
 
 @pulumi.input_type
 class AssetTagArgs:

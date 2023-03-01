@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::VpcLink
- *
- * @deprecated VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * Schema for AWS ApiGateway VpcLink
  */
 export class VpcLink extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class VpcLink extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VpcLink {
-        pulumi.log.warn("VpcLink is deprecated: VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new VpcLink(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,10 +37,26 @@ export class VpcLink extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcLink.__pulumiType;
     }
 
+    /**
+     * A description of the VPC link.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A name for the VPC link.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * An array of arbitrary tags (key-value pairs) to associate with the stage.
+     */
     public readonly tags!: pulumi.Output<outputs.apigateway.VpcLinkTag[] | undefined>;
+    /**
+     * The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+     */
     public readonly targetArns!: pulumi.Output<string[]>;
+    /**
+     * The ID of the instance that backs VPC link.
+     */
+    public /*out*/ readonly vpcLinkId!: pulumi.Output<string>;
 
     /**
      * Create a VpcLink resource with the given unique name, arguments, and options.
@@ -52,9 +65,7 @@ export class VpcLink extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VpcLinkArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VpcLink is deprecated: VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -65,11 +76,13 @@ export class VpcLink extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetArns"] = args ? args.targetArns : undefined;
+            resourceInputs["vpcLinkId"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetArns"] = undefined /*out*/;
+            resourceInputs["vpcLinkId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcLink.__pulumiType, name, resourceInputs, opts);
@@ -80,8 +93,20 @@ export class VpcLink extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcLink resource.
  */
 export interface VpcLinkArgs {
+    /**
+     * A description of the VPC link.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A name for the VPC link.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * An array of arbitrary tags (key-value pairs) to associate with the stage.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.apigateway.VpcLinkTagArgs>[]>;
+    /**
+     * The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+     */
     targetArns: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -52,6 +52,7 @@ import * as groundstation from "./groundstation";
 import * as healthlake from "./healthlake";
 import * as imagebuilder from "./imagebuilder";
 import * as inspectorv2 from "./inspectorv2";
+import * as internetmonitor from "./internetmonitor";
 import * as iot from "./iot";
 import * as iotanalytics from "./iotanalytics";
 import * as iotevents from "./iotevents";
@@ -60,6 +61,7 @@ import * as iotsitewise from "./iotsitewise";
 import * as iottwinmaker from "./iottwinmaker";
 import * as iotwireless from "./iotwireless";
 import * as ivs from "./ivs";
+import * as ivschat from "./ivschat";
 import * as kafkaconnect from "./kafkaconnect";
 import * as kendra from "./kendra";
 import * as kinesis from "./kinesis";
@@ -77,6 +79,7 @@ import * as lookoutequipment from "./lookoutequipment";
 import * as lookoutmetrics from "./lookoutmetrics";
 import * as m2 from "./m2";
 import * as macie from "./macie";
+import * as managedblockchain from "./managedblockchain";
 import * as mediaconnect from "./mediaconnect";
 import * as mediapackage from "./mediapackage";
 import * as mediatailor from "./mediatailor";
@@ -178,6 +181,7 @@ export {
     healthlake,
     imagebuilder,
     inspectorv2,
+    internetmonitor,
     iot,
     iotanalytics,
     iotevents,
@@ -186,6 +190,7 @@ export {
     iottwinmaker,
     iotwireless,
     ivs,
+    ivschat,
     kafkaconnect,
     kendra,
     kinesis,
@@ -203,6 +208,7 @@ export {
     lookoutmetrics,
     m2,
     macie,
+    managedblockchain,
     mediaconnect,
     mediapackage,
     mediatailor,

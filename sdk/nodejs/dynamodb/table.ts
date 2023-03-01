@@ -41,6 +41,7 @@ export class Table extends pulumi.CustomResource {
     public readonly attributeDefinitions!: pulumi.Output<outputs.dynamodb.TableAttributeDefinition[] | undefined>;
     public readonly billingMode!: pulumi.Output<string | undefined>;
     public readonly contributorInsightsSpecification!: pulumi.Output<outputs.dynamodb.TableContributorInsightsSpecification | undefined>;
+    public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
     public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
     public readonly importSourceSpecification!: pulumi.Output<outputs.dynamodb.TableImportSourceSpecification | undefined>;
     public readonly keySchema!: pulumi.Output<outputs.dynamodb.TableKeySchema[] | any>;
@@ -73,6 +74,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["attributeDefinitions"] = args ? args.attributeDefinitions : undefined;
             resourceInputs["billingMode"] = args ? args.billingMode : undefined;
             resourceInputs["contributorInsightsSpecification"] = args ? args.contributorInsightsSpecification : undefined;
+            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
             resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
             resourceInputs["importSourceSpecification"] = args ? args.importSourceSpecification : undefined;
             resourceInputs["keySchema"] = args ? args.keySchema : undefined;
@@ -93,6 +95,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["attributeDefinitions"] = undefined /*out*/;
             resourceInputs["billingMode"] = undefined /*out*/;
             resourceInputs["contributorInsightsSpecification"] = undefined /*out*/;
+            resourceInputs["deletionProtectionEnabled"] = undefined /*out*/;
             resourceInputs["globalSecondaryIndexes"] = undefined /*out*/;
             resourceInputs["importSourceSpecification"] = undefined /*out*/;
             resourceInputs["keySchema"] = undefined /*out*/;
@@ -120,6 +123,7 @@ export interface TableArgs {
     attributeDefinitions?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableAttributeDefinitionArgs>[]>;
     billingMode?: pulumi.Input<string>;
     contributorInsightsSpecification?: pulumi.Input<inputs.dynamodb.TableContributorInsightsSpecificationArgs>;
+    deletionProtectionEnabled?: pulumi.Input<boolean>;
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndexArgs>[]>;
     importSourceSpecification?: pulumi.Input<inputs.dynamodb.TableImportSourceSpecificationArgs>;
     keySchema: pulumi.Input<pulumi.Input<inputs.dynamodb.TableKeySchemaArgs>[] | any>;

@@ -2091,6 +2091,297 @@ func (o TransitGatewayPeeringTagArrayOutput) Index(i pulumi.IntInput) TransitGat
 }
 
 // The attachment to move from one segment to another.
+type TransitGatewayRouteTableAttachmentProposedSegmentChange struct {
+	// The rule number in the policy document that applies to this change.
+	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
+	// The name of the segment to change.
+	SegmentName *string `pulumi:"segmentName"`
+	// The key-value tags that changed for the segment.
+	Tags []TransitGatewayRouteTableAttachmentTag `pulumi:"tags"`
+}
+
+// TransitGatewayRouteTableAttachmentProposedSegmentChangeInput is an input type that accepts TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs and TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput values.
+// You can construct a concrete instance of `TransitGatewayRouteTableAttachmentProposedSegmentChangeInput` via:
+//
+//	TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs{...}
+type TransitGatewayRouteTableAttachmentProposedSegmentChangeInput interface {
+	pulumi.Input
+
+	ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput
+	ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutputWithContext(context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput
+}
+
+// The attachment to move from one segment to another.
+type TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs struct {
+	// The rule number in the policy document that applies to this change.
+	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
+	// The name of the segment to change.
+	SegmentName pulumi.StringPtrInput `pulumi:"segmentName"`
+	// The key-value tags that changed for the segment.
+	Tags TransitGatewayRouteTableAttachmentTagArrayInput `pulumi:"tags"`
+}
+
+func (TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (i TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput {
+	return i.ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput)
+}
+
+func (i TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
+	return i.ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput).ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(ctx)
+}
+
+// TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput is an input type that accepts TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs, TransitGatewayRouteTableAttachmentProposedSegmentChangePtr and TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput values.
+// You can construct a concrete instance of `TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput` via:
+//
+//	        TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput
+	ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput
+}
+
+type transitGatewayRouteTableAttachmentProposedSegmentChangePtrType TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs
+
+func TransitGatewayRouteTableAttachmentProposedSegmentChangePtr(v *TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput {
+	return (*transitGatewayRouteTableAttachmentProposedSegmentChangePtrType)(v)
+}
+
+func (*transitGatewayRouteTableAttachmentProposedSegmentChangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayRouteTableAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (i *transitGatewayRouteTableAttachmentProposedSegmentChangePtrType) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
+	return i.ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (i *transitGatewayRouteTableAttachmentProposedSegmentChangePtrType) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput)
+}
+
+// The attachment to move from one segment to another.
+type TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
+	return o.ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayRouteTableAttachmentProposedSegmentChange) *TransitGatewayRouteTableAttachmentProposedSegmentChange {
+		return &v
+	}).(TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput)
+}
+
+// The rule number in the policy document that applies to this change.
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransitGatewayRouteTableAttachmentProposedSegmentChange) *int {
+		return v.AttachmentPolicyRuleNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the segment to change.
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayRouteTableAttachmentProposedSegmentChange) *string { return v.SegmentName }).(pulumi.StringPtrOutput)
+}
+
+// The key-value tags that changed for the segment.
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) Tags() TransitGatewayRouteTableAttachmentTagArrayOutput {
+	return o.ApplyT(func(v TransitGatewayRouteTableAttachmentProposedSegmentChange) []TransitGatewayRouteTableAttachmentTag {
+		return v.Tags
+	}).(TransitGatewayRouteTableAttachmentTagArrayOutput)
+}
+
+type TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayRouteTableAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput) Elem() TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachmentProposedSegmentChange) TransitGatewayRouteTableAttachmentProposedSegmentChange {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayRouteTableAttachmentProposedSegmentChange
+		return ret
+	}).(TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput)
+}
+
+// The rule number in the policy document that applies to this change.
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachmentProposedSegmentChange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AttachmentPolicyRuleNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the segment to change.
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachmentProposedSegmentChange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SegmentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key-value tags that changed for the segment.
+func (o TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput) Tags() TransitGatewayRouteTableAttachmentTagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachmentProposedSegmentChange) []TransitGatewayRouteTableAttachmentTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(TransitGatewayRouteTableAttachmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type TransitGatewayRouteTableAttachmentTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// TransitGatewayRouteTableAttachmentTagInput is an input type that accepts TransitGatewayRouteTableAttachmentTagArgs and TransitGatewayRouteTableAttachmentTagOutput values.
+// You can construct a concrete instance of `TransitGatewayRouteTableAttachmentTagInput` via:
+//
+//	TransitGatewayRouteTableAttachmentTagArgs{...}
+type TransitGatewayRouteTableAttachmentTagInput interface {
+	pulumi.Input
+
+	ToTransitGatewayRouteTableAttachmentTagOutput() TransitGatewayRouteTableAttachmentTagOutput
+	ToTransitGatewayRouteTableAttachmentTagOutputWithContext(context.Context) TransitGatewayRouteTableAttachmentTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type TransitGatewayRouteTableAttachmentTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TransitGatewayRouteTableAttachmentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTableAttachmentTag)(nil)).Elem()
+}
+
+func (i TransitGatewayRouteTableAttachmentTagArgs) ToTransitGatewayRouteTableAttachmentTagOutput() TransitGatewayRouteTableAttachmentTagOutput {
+	return i.ToTransitGatewayRouteTableAttachmentTagOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayRouteTableAttachmentTagArgs) ToTransitGatewayRouteTableAttachmentTagOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentTagOutput)
+}
+
+// TransitGatewayRouteTableAttachmentTagArrayInput is an input type that accepts TransitGatewayRouteTableAttachmentTagArray and TransitGatewayRouteTableAttachmentTagArrayOutput values.
+// You can construct a concrete instance of `TransitGatewayRouteTableAttachmentTagArrayInput` via:
+//
+//	TransitGatewayRouteTableAttachmentTagArray{ TransitGatewayRouteTableAttachmentTagArgs{...} }
+type TransitGatewayRouteTableAttachmentTagArrayInput interface {
+	pulumi.Input
+
+	ToTransitGatewayRouteTableAttachmentTagArrayOutput() TransitGatewayRouteTableAttachmentTagArrayOutput
+	ToTransitGatewayRouteTableAttachmentTagArrayOutputWithContext(context.Context) TransitGatewayRouteTableAttachmentTagArrayOutput
+}
+
+type TransitGatewayRouteTableAttachmentTagArray []TransitGatewayRouteTableAttachmentTagInput
+
+func (TransitGatewayRouteTableAttachmentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayRouteTableAttachmentTag)(nil)).Elem()
+}
+
+func (i TransitGatewayRouteTableAttachmentTagArray) ToTransitGatewayRouteTableAttachmentTagArrayOutput() TransitGatewayRouteTableAttachmentTagArrayOutput {
+	return i.ToTransitGatewayRouteTableAttachmentTagArrayOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayRouteTableAttachmentTagArray) ToTransitGatewayRouteTableAttachmentTagArrayOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type TransitGatewayRouteTableAttachmentTagOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayRouteTableAttachmentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTableAttachmentTag)(nil)).Elem()
+}
+
+func (o TransitGatewayRouteTableAttachmentTagOutput) ToTransitGatewayRouteTableAttachmentTagOutput() TransitGatewayRouteTableAttachmentTagOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentTagOutput) ToTransitGatewayRouteTableAttachmentTagOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o TransitGatewayRouteTableAttachmentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayRouteTableAttachmentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o TransitGatewayRouteTableAttachmentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayRouteTableAttachmentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TransitGatewayRouteTableAttachmentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayRouteTableAttachmentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayRouteTableAttachmentTag)(nil)).Elem()
+}
+
+func (o TransitGatewayRouteTableAttachmentTagArrayOutput) ToTransitGatewayRouteTableAttachmentTagArrayOutput() TransitGatewayRouteTableAttachmentTagArrayOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentTagArrayOutput) ToTransitGatewayRouteTableAttachmentTagArrayOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentTagArrayOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentTagArrayOutput) Index(i pulumi.IntInput) TransitGatewayRouteTableAttachmentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayRouteTableAttachmentTag {
+		return vs[0].([]TransitGatewayRouteTableAttachmentTag)[vs[1].(int)]
+	}).(TransitGatewayRouteTableAttachmentTagOutput)
+}
+
+// The attachment to move from one segment to another.
 type VpcAttachmentProposedSegmentChange struct {
 	// The rule number in the policy document that applies to this change.
 	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
@@ -2479,6 +2770,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentTagArrayInput)(nil)).Elem(), SiteToSiteVpnAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringTagInput)(nil)).Elem(), TransitGatewayPeeringTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringTagArrayInput)(nil)).Elem(), TransitGatewayPeeringTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedSegmentChangeInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentTagInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentTagArrayInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentTagInput)(nil)).Elem(), VpcAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentTagArrayInput)(nil)).Elem(), VpcAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentVpcOptionsInput)(nil)).Elem(), VpcAttachmentVpcOptionsArgs{})
@@ -2522,6 +2817,10 @@ func init() {
 	pulumi.RegisterOutputType(SiteToSiteVpnAttachmentTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringTagArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput{})
+	pulumi.RegisterOutputType(TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayRouteTableAttachmentTagOutput{})
+	pulumi.RegisterOutputType(TransitGatewayRouteTableAttachmentTagArrayOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentProposedSegmentChangeOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentProposedSegmentChangePtrOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentTagOutput{})

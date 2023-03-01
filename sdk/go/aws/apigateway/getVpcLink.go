@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ApiGateway::VpcLink
+// Schema for AWS ApiGateway VpcLink
 func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.InvokeOption) (*LookupVpcLinkResult, error) {
 	var rv LookupVpcLinkResult
 	err := ctx.Invoke("aws-native:apigateway:getVpcLink", args, &rv, opts...)
@@ -21,14 +21,19 @@ func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.
 }
 
 type LookupVpcLinkArgs struct {
-	Id string `pulumi:"id"`
+	// The ID of the instance that backs VPC link.
+	VpcLinkId string `pulumi:"vpcLinkId"`
 }
 
 type LookupVpcLinkResult struct {
-	Description *string      `pulumi:"description"`
-	Id          *string      `pulumi:"id"`
-	Name        *string      `pulumi:"name"`
-	Tags        []VpcLinkTag `pulumi:"tags"`
+	// A description of the VPC link.
+	Description *string `pulumi:"description"`
+	// A name for the VPC link.
+	Name *string `pulumi:"name"`
+	// An array of arbitrary tags (key-value pairs) to associate with the stage.
+	Tags []VpcLinkTag `pulumi:"tags"`
+	// The ID of the instance that backs VPC link.
+	VpcLinkId *string `pulumi:"vpcLinkId"`
 }
 
 func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts ...pulumi.InvokeOption) LookupVpcLinkResultOutput {
@@ -45,7 +50,8 @@ func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts
 }
 
 type LookupVpcLinkOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The ID of the instance that backs VPC link.
+	VpcLinkId pulumi.StringInput `pulumi:"vpcLinkId"`
 }
 
 func (LookupVpcLinkOutputArgs) ElementType() reflect.Type {
@@ -66,20 +72,24 @@ func (o LookupVpcLinkResultOutput) ToLookupVpcLinkResultOutputWithContext(ctx co
 	return o
 }
 
+// A description of the VPC link.
 func (o LookupVpcLinkResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVpcLinkResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// A name for the VPC link.
 func (o LookupVpcLinkResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// An array of arbitrary tags (key-value pairs) to associate with the stage.
 func (o LookupVpcLinkResultOutput) Tags() VpcLinkTagArrayOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) []VpcLinkTag { return v.Tags }).(VpcLinkTagArrayOutput)
+}
+
+// The ID of the instance that backs VPC link.
+func (o LookupVpcLinkResultOutput) VpcLinkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.VpcLinkId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

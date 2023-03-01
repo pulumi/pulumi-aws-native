@@ -48,7 +48,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
      * The name of the cluster parameter group.
      */
-    public /*out*/ readonly parameterGroupName!: pulumi.Output<string>;
+    public readonly parameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
      */
@@ -77,9 +77,9 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["parameterGroupFamily"] = args ? args.parameterGroupFamily : undefined;
+            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["parameterGroupName"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["parameterGroupFamily"] = undefined /*out*/;
@@ -104,6 +104,10 @@ export interface ClusterParameterGroupArgs {
      * The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
      */
     parameterGroupFamily: pulumi.Input<string>;
+    /**
+     * The name of the cluster parameter group.
+     */
+    parameterGroupName?: pulumi.Input<string>;
     /**
      * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
      */

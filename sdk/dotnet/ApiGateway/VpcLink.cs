@@ -10,23 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::VpcLink
+    /// Schema for AWS ApiGateway VpcLink
     /// </summary>
-    [Obsolete(@"VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigateway:VpcLink")]
     public partial class VpcLink : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A description of the VPC link.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the VPC link.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of arbitrary tags (key-value pairs) to associate with the stage.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.VpcLinkTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+        /// </summary>
         [Output("targetArns")]
         public Output<ImmutableArray<string>> TargetArns { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the instance that backs VPC link.
+        /// </summary>
+        [Output("vpcLinkId")]
+        public Output<string> VpcLinkId { get; private set; } = null!;
 
 
         /// <summary>
@@ -73,14 +90,24 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class VpcLinkArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the VPC link.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A name for the VPC link.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.VpcLinkTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of arbitrary tags (key-value pairs) to associate with the stage.
+        /// </summary>
         public InputList<Inputs.VpcLinkTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.VpcLinkTagArgs>());
@@ -89,6 +116,10 @@ namespace Pulumi.AwsNative.ApiGateway
 
         [Input("targetArns", required: true)]
         private InputList<string>? _targetArns;
+
+        /// <summary>
+        /// The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+        /// </summary>
         public InputList<string> TargetArns
         {
             get => _targetArns ?? (_targetArns = new InputList<string>());

@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, global_secondary_indexes=None, key_schema=None, kinesis_stream_specification=None, local_secondary_indexes=None, point_in_time_recovery_specification=None, provisioned_throughput=None, s_se_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, deletion_protection_enabled=None, global_secondary_indexes=None, key_schema=None, kinesis_stream_specification=None, local_secondary_indexes=None, point_in_time_recovery_specification=None, provisioned_throughput=None, s_se_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -32,6 +32,9 @@ class GetTableResult:
         if contributor_insights_specification and not isinstance(contributor_insights_specification, dict):
             raise TypeError("Expected argument 'contributor_insights_specification' to be a dict")
         pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
+        if deletion_protection_enabled and not isinstance(deletion_protection_enabled, bool):
+            raise TypeError("Expected argument 'deletion_protection_enabled' to be a bool")
+        pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
             raise TypeError("Expected argument 'global_secondary_indexes' to be a list")
         pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
@@ -88,6 +91,11 @@ class GetTableResult:
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> Optional['outputs.TableContributorInsightsSpecification']:
         return pulumi.get(self, "contributor_insights_specification")
+
+    @property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "deletion_protection_enabled")
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
@@ -160,6 +168,7 @@ class AwaitableGetTableResult(GetTableResult):
             attribute_definitions=self.attribute_definitions,
             billing_mode=self.billing_mode,
             contributor_insights_specification=self.contributor_insights_specification,
+            deletion_protection_enabled=self.deletion_protection_enabled,
             global_secondary_indexes=self.global_secondary_indexes,
             key_schema=self.key_schema,
             kinesis_stream_specification=self.kinesis_stream_specification,
@@ -189,6 +198,7 @@ def get_table(table_name: Optional[str] = None,
         attribute_definitions=__ret__.attribute_definitions,
         billing_mode=__ret__.billing_mode,
         contributor_insights_specification=__ret__.contributor_insights_specification,
+        deletion_protection_enabled=__ret__.deletion_protection_enabled,
         global_secondary_indexes=__ret__.global_secondary_indexes,
         key_schema=__ret__.key_schema,
         kinesis_stream_specification=__ret__.kinesis_stream_specification,

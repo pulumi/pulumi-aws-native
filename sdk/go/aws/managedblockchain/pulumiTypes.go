@@ -10,6 +10,115 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// A key-value pair to associate with a resource.
+type AccessorTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// AccessorTagInput is an input type that accepts AccessorTagArgs and AccessorTagOutput values.
+// You can construct a concrete instance of `AccessorTagInput` via:
+//
+//	AccessorTagArgs{...}
+type AccessorTagInput interface {
+	pulumi.Input
+
+	ToAccessorTagOutput() AccessorTagOutput
+	ToAccessorTagOutputWithContext(context.Context) AccessorTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type AccessorTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AccessorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessorTag)(nil)).Elem()
+}
+
+func (i AccessorTagArgs) ToAccessorTagOutput() AccessorTagOutput {
+	return i.ToAccessorTagOutputWithContext(context.Background())
+}
+
+func (i AccessorTagArgs) ToAccessorTagOutputWithContext(ctx context.Context) AccessorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessorTagOutput)
+}
+
+// AccessorTagArrayInput is an input type that accepts AccessorTagArray and AccessorTagArrayOutput values.
+// You can construct a concrete instance of `AccessorTagArrayInput` via:
+//
+//	AccessorTagArray{ AccessorTagArgs{...} }
+type AccessorTagArrayInput interface {
+	pulumi.Input
+
+	ToAccessorTagArrayOutput() AccessorTagArrayOutput
+	ToAccessorTagArrayOutputWithContext(context.Context) AccessorTagArrayOutput
+}
+
+type AccessorTagArray []AccessorTagInput
+
+func (AccessorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessorTag)(nil)).Elem()
+}
+
+func (i AccessorTagArray) ToAccessorTagArrayOutput() AccessorTagArrayOutput {
+	return i.ToAccessorTagArrayOutputWithContext(context.Background())
+}
+
+func (i AccessorTagArray) ToAccessorTagArrayOutputWithContext(ctx context.Context) AccessorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessorTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AccessorTagOutput struct{ *pulumi.OutputState }
+
+func (AccessorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessorTag)(nil)).Elem()
+}
+
+func (o AccessorTagOutput) ToAccessorTagOutput() AccessorTagOutput {
+	return o
+}
+
+func (o AccessorTagOutput) ToAccessorTagOutputWithContext(ctx context.Context) AccessorTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AccessorTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessorTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AccessorTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessorTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AccessorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessorTag)(nil)).Elem()
+}
+
+func (o AccessorTagArrayOutput) ToAccessorTagArrayOutput() AccessorTagArrayOutput {
+	return o
+}
+
+func (o AccessorTagArrayOutput) ToAccessorTagArrayOutputWithContext(ctx context.Context) AccessorTagArrayOutput {
+	return o
+}
+
+func (o AccessorTagArrayOutput) Index(i pulumi.IntInput) AccessorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessorTag {
+		return vs[0].([]AccessorTag)[vs[1].(int)]
+	}).(AccessorTagOutput)
+}
+
 type MemberApprovalThresholdPolicy struct {
 	ProposalDurationInHours *int    `pulumi:"proposalDurationInHours"`
 	ThresholdComparator     *string `pulumi:"thresholdComparator"`
@@ -1275,6 +1384,8 @@ func (o NodeConfigurationPtrOutput) InstanceType() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessorTagInput)(nil)).Elem(), AccessorTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessorTagArrayInput)(nil)).Elem(), AccessorTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberApprovalThresholdPolicyInput)(nil)).Elem(), MemberApprovalThresholdPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberApprovalThresholdPolicyPtrInput)(nil)).Elem(), MemberApprovalThresholdPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberConfigurationInput)(nil)).Elem(), MemberConfigurationArgs{})
@@ -1291,6 +1402,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberVotingPolicyInput)(nil)).Elem(), MemberVotingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemberVotingPolicyPtrInput)(nil)).Elem(), MemberVotingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeConfigurationInput)(nil)).Elem(), NodeConfigurationArgs{})
+	pulumi.RegisterOutputType(AccessorTagOutput{})
+	pulumi.RegisterOutputType(AccessorTagArrayOutput{})
 	pulumi.RegisterOutputType(MemberApprovalThresholdPolicyOutput{})
 	pulumi.RegisterOutputType(MemberApprovalThresholdPolicyPtrOutput{})
 	pulumi.RegisterOutputType(MemberConfigurationOutput{})

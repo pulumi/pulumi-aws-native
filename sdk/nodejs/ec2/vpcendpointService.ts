@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::VPCEndpointService
- *
- * @deprecated VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class VPCEndpointService extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class VPCEndpointService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VPCEndpointService {
-        pulumi.log.warn("VPCEndpointService is deprecated: VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new VPCEndpointService(name, undefined as any, { ...opts, id: id });
     }
 
@@ -42,6 +39,7 @@ export class VPCEndpointService extends pulumi.CustomResource {
     public readonly gatewayLoadBalancerArns!: pulumi.Output<string[] | undefined>;
     public readonly networkLoadBalancerArns!: pulumi.Output<string[] | undefined>;
     public readonly payerResponsibility!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly serviceId!: pulumi.Output<string>;
 
     /**
      * Create a VPCEndpointService resource with the given unique name, arguments, and options.
@@ -50,9 +48,7 @@ export class VPCEndpointService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: VPCEndpointServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VPCEndpointService is deprecated: VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -61,12 +57,14 @@ export class VPCEndpointService extends pulumi.CustomResource {
             resourceInputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
             resourceInputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
             resourceInputs["payerResponsibility"] = args ? args.payerResponsibility : undefined;
+            resourceInputs["serviceId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptanceRequired"] = undefined /*out*/;
             resourceInputs["contributorInsightsEnabled"] = undefined /*out*/;
             resourceInputs["gatewayLoadBalancerArns"] = undefined /*out*/;
             resourceInputs["networkLoadBalancerArns"] = undefined /*out*/;
             resourceInputs["payerResponsibility"] = undefined /*out*/;
+            resourceInputs["serviceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VPCEndpointService.__pulumiType, name, resourceInputs, opts);

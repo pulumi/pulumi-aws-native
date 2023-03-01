@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.ElastiCache
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// An array of key-value pairs to apply to this user.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.UserGroupTag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the user group.
         /// </summary>
         [Output("userGroupId")]
@@ -96,13 +102,25 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("engine", required: true)]
         public Input<Pulumi.AwsNative.ElastiCache.UserGroupEngine> Engine { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Inputs.UserGroupTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this user.
+        /// </summary>
+        public InputList<Inputs.UserGroupTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.UserGroupTagArgs>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The ID of the user group.
         /// </summary>
         [Input("userGroupId", required: true)]
         public Input<string> UserGroupId { get; set; } = null!;
 
-        [Input("userIds")]
+        [Input("userIds", required: true)]
         private InputList<string>? _userIds;
 
         /// <summary>

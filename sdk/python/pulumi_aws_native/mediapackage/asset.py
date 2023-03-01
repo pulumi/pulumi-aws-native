@@ -19,6 +19,7 @@ class AssetArgs:
                  packaging_group_id: pulumi.Input[str],
                  source_arn: pulumi.Input[str],
                  source_role_arn: pulumi.Input[str],
+                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]] = None):
         """
@@ -26,12 +27,15 @@ class AssetArgs:
         :param pulumi.Input[str] packaging_group_id: The ID of the PackagingGroup for the Asset.
         :param pulumi.Input[str] source_arn: ARN of the source object in S3.
         :param pulumi.Input[str] source_role_arn: The IAM role_arn used to access the source S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]] egress_endpoints: The list of egress endpoints available for the Asset.
         :param pulumi.Input[str] resource_id: The resource ID to include in SPEKE key requests.
         :param pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]] tags: A collection of tags associated with a resource
         """
         pulumi.set(__self__, "packaging_group_id", packaging_group_id)
         pulumi.set(__self__, "source_arn", source_arn)
         pulumi.set(__self__, "source_role_arn", source_role_arn)
+        if egress_endpoints is not None:
+            pulumi.set(__self__, "egress_endpoints", egress_endpoints)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if tags is not None:
@@ -74,6 +78,18 @@ class AssetArgs:
         pulumi.set(self, "source_role_arn", value)
 
     @property
+    @pulumi.getter(name="egressEndpoints")
+    def egress_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]]:
+        """
+        The list of egress endpoints available for the Asset.
+        """
+        return pulumi.get(self, "egress_endpoints")
+
+    @egress_endpoints.setter
+    def egress_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]]):
+        pulumi.set(self, "egress_endpoints", value)
+
+    @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -103,6 +119,7 @@ class Asset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetEgressEndpointArgs']]]]] = None,
                  packaging_group_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
@@ -114,6 +131,7 @@ class Asset(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetEgressEndpointArgs']]]] egress_endpoints: The list of egress endpoints available for the Asset.
         :param pulumi.Input[str] packaging_group_id: The ID of the PackagingGroup for the Asset.
         :param pulumi.Input[str] resource_id: The resource ID to include in SPEKE key requests.
         :param pulumi.Input[str] source_arn: ARN of the source object in S3.
@@ -144,6 +162,7 @@ class Asset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetEgressEndpointArgs']]]]] = None,
                  packaging_group_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
@@ -158,6 +177,7 @@ class Asset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssetArgs.__new__(AssetArgs)
 
+            __props__.__dict__["egress_endpoints"] = egress_endpoints
             if packaging_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'packaging_group_id'")
             __props__.__dict__["packaging_group_id"] = packaging_group_id
@@ -171,7 +191,6 @@ class Asset(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
-            __props__.__dict__["egress_endpoints"] = None
         super(Asset, __self__).__init__(
             'aws-native:mediapackage:Asset',
             resource_name,
@@ -222,7 +241,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="egressEndpoints")
-    def egress_endpoints(self) -> pulumi.Output[Sequence['outputs.AssetEgressEndpoint']]:
+    def egress_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.AssetEgressEndpoint']]]:
         """
         The list of egress endpoints available for the Asset.
         """

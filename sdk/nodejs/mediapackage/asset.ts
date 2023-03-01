@@ -48,7 +48,7 @@ export class Asset extends pulumi.CustomResource {
     /**
      * The list of egress endpoints available for the Asset.
      */
-    public /*out*/ readonly egressEndpoints!: pulumi.Output<outputs.mediapackage.AssetEgressEndpoint[]>;
+    public readonly egressEndpoints!: pulumi.Output<outputs.mediapackage.AssetEgressEndpoint[] | undefined>;
     /**
      * The ID of the PackagingGroup for the Asset.
      */
@@ -90,6 +90,7 @@ export class Asset extends pulumi.CustomResource {
             if ((!args || args.sourceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRoleArn'");
             }
+            resourceInputs["egressEndpoints"] = args ? args.egressEndpoints : undefined;
             resourceInputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
@@ -97,7 +98,6 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["egressEndpoints"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -117,6 +117,10 @@ export class Asset extends pulumi.CustomResource {
  * The set of arguments for constructing a Asset resource.
  */
 export interface AssetArgs {
+    /**
+     * The list of egress endpoints available for the Asset.
+     */
+    egressEndpoints?: pulumi.Input<pulumi.Input<inputs.mediapackage.AssetEgressEndpointArgs>[]>;
     /**
      * The ID of the PackagingGroup for the Asset.
      */

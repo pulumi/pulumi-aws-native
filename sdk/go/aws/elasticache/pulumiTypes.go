@@ -2003,6 +2003,224 @@ func (o SubnetGroupTagArrayOutput) Index(i pulumi.IntInput) SubnetGroupTagOutput
 	}).(SubnetGroupTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type UserGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// UserGroupTagInput is an input type that accepts UserGroupTagArgs and UserGroupTagOutput values.
+// You can construct a concrete instance of `UserGroupTagInput` via:
+//
+//	UserGroupTagArgs{...}
+type UserGroupTagInput interface {
+	pulumi.Input
+
+	ToUserGroupTagOutput() UserGroupTagOutput
+	ToUserGroupTagOutputWithContext(context.Context) UserGroupTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type UserGroupTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (UserGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserGroupTag)(nil)).Elem()
+}
+
+func (i UserGroupTagArgs) ToUserGroupTagOutput() UserGroupTagOutput {
+	return i.ToUserGroupTagOutputWithContext(context.Background())
+}
+
+func (i UserGroupTagArgs) ToUserGroupTagOutputWithContext(ctx context.Context) UserGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserGroupTagOutput)
+}
+
+// UserGroupTagArrayInput is an input type that accepts UserGroupTagArray and UserGroupTagArrayOutput values.
+// You can construct a concrete instance of `UserGroupTagArrayInput` via:
+//
+//	UserGroupTagArray{ UserGroupTagArgs{...} }
+type UserGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToUserGroupTagArrayOutput() UserGroupTagArrayOutput
+	ToUserGroupTagArrayOutputWithContext(context.Context) UserGroupTagArrayOutput
+}
+
+type UserGroupTagArray []UserGroupTagInput
+
+func (UserGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserGroupTag)(nil)).Elem()
+}
+
+func (i UserGroupTagArray) ToUserGroupTagArrayOutput() UserGroupTagArrayOutput {
+	return i.ToUserGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i UserGroupTagArray) ToUserGroupTagArrayOutputWithContext(ctx context.Context) UserGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserGroupTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type UserGroupTagOutput struct{ *pulumi.OutputState }
+
+func (UserGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserGroupTag)(nil)).Elem()
+}
+
+func (o UserGroupTagOutput) ToUserGroupTagOutput() UserGroupTagOutput {
+	return o
+}
+
+func (o UserGroupTagOutput) ToUserGroupTagOutputWithContext(ctx context.Context) UserGroupTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o UserGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v UserGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o UserGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type UserGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (UserGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserGroupTag)(nil)).Elem()
+}
+
+func (o UserGroupTagArrayOutput) ToUserGroupTagArrayOutput() UserGroupTagArrayOutput {
+	return o
+}
+
+func (o UserGroupTagArrayOutput) ToUserGroupTagArrayOutputWithContext(ctx context.Context) UserGroupTagArrayOutput {
+	return o
+}
+
+func (o UserGroupTagArrayOutput) Index(i pulumi.IntInput) UserGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserGroupTag {
+		return vs[0].([]UserGroupTag)[vs[1].(int)]
+	}).(UserGroupTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type UserTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
+// You can construct a concrete instance of `UserTagInput` via:
+//
+//	UserTagArgs{...}
+type UserTagInput interface {
+	pulumi.Input
+
+	ToUserTagOutput() UserTagOutput
+	ToUserTagOutputWithContext(context.Context) UserTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type UserTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (UserTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserTag)(nil)).Elem()
+}
+
+func (i UserTagArgs) ToUserTagOutput() UserTagOutput {
+	return i.ToUserTagOutputWithContext(context.Background())
+}
+
+func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTagOutput)
+}
+
+// UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
+// You can construct a concrete instance of `UserTagArrayInput` via:
+//
+//	UserTagArray{ UserTagArgs{...} }
+type UserTagArrayInput interface {
+	pulumi.Input
+
+	ToUserTagArrayOutput() UserTagArrayOutput
+	ToUserTagArrayOutputWithContext(context.Context) UserTagArrayOutput
+}
+
+type UserTagArray []UserTagInput
+
+func (UserTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
+}
+
+func (i UserTagArray) ToUserTagArrayOutput() UserTagArrayOutput {
+	return i.ToUserTagArrayOutputWithContext(context.Background())
+}
+
+func (i UserTagArray) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type UserTagOutput struct{ *pulumi.OutputState }
+
+func (UserTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserTag)(nil)).Elem()
+}
+
+func (o UserTagOutput) ToUserTagOutput() UserTagOutput {
+	return o
+}
+
+func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o UserTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v UserTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o UserTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type UserTagArrayOutput struct{ *pulumi.OutputState }
+
+func (UserTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
+}
+
+func (o UserTagArrayOutput) ToUserTagArrayOutput() UserTagArrayOutput {
+	return o
+}
+
+func (o UserTagArrayOutput) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
+	return o
+}
+
+func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserTag {
+		return vs[0].([]UserTag)[vs[1].(int)]
+	}).(UserTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesPtrInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
@@ -2038,6 +2256,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupTagArrayInput)(nil)).Elem(), SecurityGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupTagInput)(nil)).Elem(), SubnetGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupTagArrayInput)(nil)).Elem(), SubnetGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserGroupTagInput)(nil)).Elem(), UserGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserGroupTagArrayInput)(nil)).Elem(), UserGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
 	pulumi.RegisterOutputType(AuthenticationModePropertiesOutput{})
 	pulumi.RegisterOutputType(AuthenticationModePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CacheClusterCloudWatchLogsDestinationDetailsOutput{})
@@ -2072,4 +2294,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(SubnetGroupTagOutput{})
 	pulumi.RegisterOutputType(SubnetGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(UserGroupTagOutput{})
+	pulumi.RegisterOutputType(UserGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(UserTagOutput{})
+	pulumi.RegisterOutputType(UserTagArrayOutput{})
 }

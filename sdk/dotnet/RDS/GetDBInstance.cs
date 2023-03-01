@@ -62,10 +62,6 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly string? AllocatedStorage;
         /// <summary>
-        /// A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
-        /// </summary>
-        public readonly bool? AllowMajorVersionUpgrade;
-        /// <summary>
         /// The AWS Identity and Access Management (IAM) roles associated with the DB instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.DBInstanceRole> AssociatedRoles;
@@ -129,10 +125,6 @@ namespace Pulumi.AwsNative.RDS
         /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
         /// </summary>
         public readonly string? DbiResourceId;
-        /// <summary>
-        /// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
-        /// </summary>
-        public readonly bool? DeleteAutomatedBackups;
         /// <summary>
         /// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         /// </summary>
@@ -270,8 +262,6 @@ namespace Pulumi.AwsNative.RDS
         private GetDBInstanceResult(
             string? allocatedStorage,
 
-            bool? allowMajorVersionUpgrade,
-
             ImmutableArray<Outputs.DBInstanceRole> associatedRoles,
 
             bool? autoMinorVersionUpgrade,
@@ -299,8 +289,6 @@ namespace Pulumi.AwsNative.RDS
             string? dBSystemId,
 
             string? dbiResourceId,
-
-            bool? deleteAutomatedBackups,
 
             bool? deletionProtection,
 
@@ -369,7 +357,6 @@ namespace Pulumi.AwsNative.RDS
             ImmutableArray<string> vPCSecurityGroups)
         {
             AllocatedStorage = allocatedStorage;
-            AllowMajorVersionUpgrade = allowMajorVersionUpgrade;
             AssociatedRoles = associatedRoles;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
             AvailabilityZone = availabilityZone;
@@ -384,7 +371,6 @@ namespace Pulumi.AwsNative.RDS
             DBSecurityGroups = dBSecurityGroups;
             DBSystemId = dBSystemId;
             DbiResourceId = dbiResourceId;
-            DeleteAutomatedBackups = deleteAutomatedBackups;
             DeletionProtection = deletionProtection;
             Domain = domain;
             DomainIAMRoleName = domainIAMRoleName;

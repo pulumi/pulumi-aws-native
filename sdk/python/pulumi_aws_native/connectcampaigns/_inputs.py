@@ -10,13 +10,36 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CampaignAnswerMachineDetectionConfigArgs',
     'CampaignDialerConfigArgs',
-    'CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs',
     'CampaignOutboundCallConfigArgs',
     'CampaignPredictiveDialerConfigArgs',
     'CampaignProgressiveDialerConfigArgs',
     'CampaignTagArgs',
 ]
+
+@pulumi.input_type
+class CampaignAnswerMachineDetectionConfigArgs:
+    def __init__(__self__, *,
+                 enable_answer_machine_detection: pulumi.Input[bool]):
+        """
+        The configuration used for answering machine detection during outbound calls
+        :param pulumi.Input[bool] enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
+        """
+        pulumi.set(__self__, "enable_answer_machine_detection", enable_answer_machine_detection)
+
+    @property
+    @pulumi.getter(name="enableAnswerMachineDetection")
+    def enable_answer_machine_detection(self) -> pulumi.Input[bool]:
+        """
+        Flag to decided whether outbound calls should have answering machine detection enabled or not
+        """
+        return pulumi.get(self, "enable_answer_machine_detection")
+
+    @enable_answer_machine_detection.setter
+    def enable_answer_machine_detection(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enable_answer_machine_detection", value)
+
 
 @pulumi.input_type
 class CampaignDialerConfigArgs:
@@ -51,40 +74,16 @@ class CampaignDialerConfigArgs:
 
 
 @pulumi.input_type
-class CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs:
-    def __init__(__self__, *,
-                 enable_answer_machine_detection: pulumi.Input[bool]):
-        """
-        The configuration used for answering machine detection during outbound calls
-        :param pulumi.Input[bool] enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
-        """
-        pulumi.set(__self__, "enable_answer_machine_detection", enable_answer_machine_detection)
-
-    @property
-    @pulumi.getter(name="enableAnswerMachineDetection")
-    def enable_answer_machine_detection(self) -> pulumi.Input[bool]:
-        """
-        Flag to decided whether outbound calls should have answering machine detection enabled or not
-        """
-        return pulumi.get(self, "enable_answer_machine_detection")
-
-    @enable_answer_machine_detection.setter
-    def enable_answer_machine_detection(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enable_answer_machine_detection", value)
-
-
-@pulumi.input_type
 class CampaignOutboundCallConfigArgs:
     def __init__(__self__, *,
                  connect_contact_flow_arn: pulumi.Input[str],
                  connect_queue_arn: pulumi.Input[str],
-                 answer_machine_detection_config: Optional[pulumi.Input['CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs']] = None,
+                 answer_machine_detection_config: Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']] = None,
                  connect_source_phone_number: Optional[pulumi.Input[str]] = None):
         """
         The configuration used for outbound calls.
         :param pulumi.Input[str] connect_contact_flow_arn: The identifier of the contact flow for the outbound call.
         :param pulumi.Input[str] connect_queue_arn: The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
-        :param pulumi.Input['CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs'] answer_machine_detection_config: The configuration used for answering machine detection during outbound calls
         :param pulumi.Input[str] connect_source_phone_number: The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
         """
         pulumi.set(__self__, "connect_contact_flow_arn", connect_contact_flow_arn)
@@ -120,14 +119,11 @@ class CampaignOutboundCallConfigArgs:
 
     @property
     @pulumi.getter(name="answerMachineDetectionConfig")
-    def answer_machine_detection_config(self) -> Optional[pulumi.Input['CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs']]:
-        """
-        The configuration used for answering machine detection during outbound calls
-        """
+    def answer_machine_detection_config(self) -> Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']]:
         return pulumi.get(self, "answer_machine_detection_config")
 
     @answer_machine_detection_config.setter
-    def answer_machine_detection_config(self, value: Optional[pulumi.Input['CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs']]):
+    def answer_machine_detection_config(self, value: Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']]):
         pulumi.set(self, "answer_machine_detection_config", value)
 
     @property

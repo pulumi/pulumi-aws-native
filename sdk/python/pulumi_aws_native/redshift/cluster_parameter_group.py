@@ -18,17 +18,21 @@ class ClusterParameterGroupArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  parameter_group_family: pulumi.Input[str],
+                 parameter_group_name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a ClusterParameterGroup resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] parameter_group_family: The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+        :param pulumi.Input[str] parameter_group_name: The name of the cluster parameter group.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]] parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "parameter_group_family", parameter_group_family)
+        if parameter_group_name is not None:
+            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if tags is not None:
@@ -57,6 +61,18 @@ class ClusterParameterGroupArgs:
     @parameter_group_family.setter
     def parameter_group_family(self, value: pulumi.Input[str]):
         pulumi.set(self, "parameter_group_family", value)
+
+    @property
+    @pulumi.getter(name="parameterGroupName")
+    def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the cluster parameter group.
+        """
+        return pulumi.get(self, "parameter_group_name")
+
+    @parameter_group_name.setter
+    def parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameter_group_name", value)
 
     @property
     @pulumi.getter
@@ -90,6 +106,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameter_group_family: Optional[pulumi.Input[str]] = None,
+                 parameter_group_name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupTagArgs']]]]] = None,
                  __props__=None):
@@ -100,6 +117,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] parameter_group_family: The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+        :param pulumi.Input[str] parameter_group_name: The name of the cluster parameter group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]] parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -129,6 +147,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameter_group_family: Optional[pulumi.Input[str]] = None,
+                 parameter_group_name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupTagArgs']]]]] = None,
                  __props__=None):
@@ -146,9 +165,9 @@ class ClusterParameterGroup(pulumi.CustomResource):
             if parameter_group_family is None and not opts.urn:
                 raise TypeError("Missing required property 'parameter_group_family'")
             __props__.__dict__["parameter_group_family"] = parameter_group_family
+            __props__.__dict__["parameter_group_name"] = parameter_group_name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["parameter_group_name"] = None
         super(ClusterParameterGroup, __self__).__init__(
             'aws-native:redshift:ClusterParameterGroup',
             resource_name,
@@ -196,7 +215,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> pulumi.Output[str]:
+    def parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the cluster parameter group.
         """

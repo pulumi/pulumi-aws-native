@@ -1,3 +1,4 @@
+AWS::ApiGatewayV2::RouteResponse
 AWS::ApplicationAutoScaling::ScalableTarget
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup

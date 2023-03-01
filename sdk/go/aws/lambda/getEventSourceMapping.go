@@ -32,6 +32,8 @@ type LookupEventSourceMappingResult struct {
 	BisectBatchOnFunctionError *bool `pulumi:"bisectBatchOnFunctionError"`
 	// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
+	// Document db event source config.
+	DocumentDBEventSourceConfig *EventSourceMappingDocumentDBEventSourceConfig `pulumi:"documentDBEventSourceConfig"`
 	// Disables the event source mapping to pause polling and invocation.
 	Enabled *bool `pulumi:"enabled"`
 	// The filter criteria to control event filtering.
@@ -113,6 +115,13 @@ func (o LookupEventSourceMappingResultOutput) DestinationConfig() EventSourceMap
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingDestinationConfig {
 		return v.DestinationConfig
 	}).(EventSourceMappingDestinationConfigPtrOutput)
+}
+
+// Document db event source config.
+func (o LookupEventSourceMappingResultOutput) DocumentDBEventSourceConfig() EventSourceMappingDocumentDBEventSourceConfigPtrOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingDocumentDBEventSourceConfig {
+		return v.DocumentDBEventSourceConfig
+	}).(EventSourceMappingDocumentDBEventSourceConfigPtrOutput)
 }
 
 // Disables the event source mapping to pause polling and invocation.

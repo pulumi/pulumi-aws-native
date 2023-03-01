@@ -29,6 +29,7 @@ type LookupTableResult struct {
 	AttributeDefinitions             []TableAttributeDefinition             `pulumi:"attributeDefinitions"`
 	BillingMode                      *string                                `pulumi:"billingMode"`
 	ContributorInsightsSpecification *TableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
+	DeletionProtectionEnabled        *bool                                  `pulumi:"deletionProtectionEnabled"`
 	GlobalSecondaryIndexes           []TableGlobalSecondaryIndex            `pulumi:"globalSecondaryIndexes"`
 	KeySchema                        interface{}                            `pulumi:"keySchema"`
 	KinesisStreamSpecification       *TableKinesisStreamSpecification       `pulumi:"kinesisStreamSpecification"`
@@ -94,6 +95,10 @@ func (o LookupTableResultOutput) ContributorInsightsSpecification() TableContrib
 	return o.ApplyT(func(v LookupTableResult) *TableContributorInsightsSpecification {
 		return v.ContributorInsightsSpecification
 	}).(TableContributorInsightsSpecificationPtrOutput)
+}
+
+func (o LookupTableResultOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTableResult) *bool { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupTableResultOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutput {

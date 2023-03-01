@@ -17,33 +17,17 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEndpointArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterEndpointArgs']]] cluster_endpoints: Endpoints for the cluster.
         :param pulumi.Input[str] name: Name of a Cluster. You can use any non-white space character in the name
         :param pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]] tags: A collection of tags associated with a resource
         """
-        if cluster_endpoints is not None:
-            pulumi.set(__self__, "cluster_endpoints", cluster_endpoints)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="clusterEndpoints")
-    def cluster_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEndpointArgs']]]]:
-        """
-        Endpoints for the cluster.
-        """
-        return pulumi.get(self, "cluster_endpoints")
-
-    @cluster_endpoints.setter
-    def cluster_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEndpointArgs']]]]):
-        pulumi.set(self, "cluster_endpoints", value)
 
     @property
     @pulumi.getter
@@ -75,7 +59,6 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
                  __props__=None):
@@ -84,7 +67,6 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]]] cluster_endpoints: Endpoints for the cluster.
         :param pulumi.Input[str] name: Name of a Cluster. You can use any non-white space character in the name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]] tags: A collection of tags associated with a resource
         """
@@ -112,7 +94,6 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
                  __props__=None):
@@ -124,10 +105,10 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            __props__.__dict__["cluster_endpoints"] = cluster_endpoints
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cluster_arn"] = None
+            __props__.__dict__["cluster_endpoints"] = None
             __props__.__dict__["status"] = None
         super(Cluster, __self__).__init__(
             'aws-native:route53recoverycontrol:Cluster',
@@ -168,7 +149,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterEndpoints")
-    def cluster_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterEndpoint']]]:
+    def cluster_endpoints(self) -> pulumi.Output[Sequence['outputs.ClusterEndpoint']]:
         """
         Endpoints for the cluster.
         """
@@ -176,7 +157,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of a Cluster. You can use any non-white space character in the name
         """

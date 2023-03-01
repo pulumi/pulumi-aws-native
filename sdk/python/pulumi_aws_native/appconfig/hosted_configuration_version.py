@@ -19,7 +19,8 @@ class HostedConfigurationVersionArgs:
                  content: pulumi.Input[str],
                  content_type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 latest_version_number: Optional[pulumi.Input[float]] = None):
+                 latest_version_number: Optional[pulumi.Input[float]] = None,
+                 version_label: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a HostedConfigurationVersion resource.
         """
@@ -31,6 +32,8 @@ class HostedConfigurationVersionArgs:
             pulumi.set(__self__, "description", description)
         if latest_version_number is not None:
             pulumi.set(__self__, "latest_version_number", latest_version_number)
+        if version_label is not None:
+            pulumi.set(__self__, "version_label", version_label)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -86,6 +89,15 @@ class HostedConfigurationVersionArgs:
     def latest_version_number(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "latest_version_number", value)
 
+    @property
+    @pulumi.getter(name="versionLabel")
+    def version_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "version_label")
+
+    @version_label.setter
+    def version_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_label", value)
+
 
 warnings.warn("""HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -103,6 +115,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  content_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  latest_version_number: Optional[pulumi.Input[float]] = None,
+                 version_label: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
@@ -140,6 +153,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  content_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  latest_version_number: Optional[pulumi.Input[float]] = None,
+                 version_label: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""HostedConfigurationVersion is deprecated: HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -164,6 +178,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["description"] = description
             __props__.__dict__["latest_version_number"] = latest_version_number
+            __props__.__dict__["version_label"] = version_label
         super(HostedConfigurationVersion, __self__).__init__(
             'aws-native:appconfig:HostedConfigurationVersion',
             resource_name,
@@ -192,6 +207,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         __props__.__dict__["content_type"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["latest_version_number"] = None
+        __props__.__dict__["version_label"] = None
         return HostedConfigurationVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -223,4 +239,9 @@ class HostedConfigurationVersion(pulumi.CustomResource):
     @pulumi.getter(name="latestVersionNumber")
     def latest_version_number(self) -> pulumi.Output[Optional[float]]:
         return pulumi.get(self, "latest_version_number")
+
+    @property
+    @pulumi.getter(name="versionLabel")
+    def version_label(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "version_label")
 

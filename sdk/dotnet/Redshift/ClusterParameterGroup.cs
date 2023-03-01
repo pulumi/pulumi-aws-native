@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Redshift
         /// The name of the cluster parameter group.
         /// </summary>
         [Output("parameterGroupName")]
-        public Output<string> ParameterGroupName { get; private set; } = null!;
+        public Output<string?> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
@@ -101,6 +101,12 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         [Input("parameterGroupFamily", required: true)]
         public Input<string> ParameterGroupFamily { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the cluster parameter group.
+        /// </summary>
+        [Input("parameterGroupName")]
+        public Input<string>? ParameterGroupName { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.ClusterParameterGroupParameterArgs>? _parameters;

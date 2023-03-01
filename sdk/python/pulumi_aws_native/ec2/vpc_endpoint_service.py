@@ -79,12 +79,7 @@ class VPCEndpointServiceArgs:
         pulumi.set(self, "payer_responsibility", value)
 
 
-warnings.warn("""VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class VPCEndpointService(pulumi.CustomResource):
-    warnings.warn("""VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,7 +126,6 @@ class VPCEndpointService(pulumi.CustomResource):
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  payer_responsibility: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VPCEndpointService is deprecated: VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -145,6 +139,7 @@ class VPCEndpointService(pulumi.CustomResource):
             __props__.__dict__["gateway_load_balancer_arns"] = gateway_load_balancer_arns
             __props__.__dict__["network_load_balancer_arns"] = network_load_balancer_arns
             __props__.__dict__["payer_responsibility"] = payer_responsibility
+            __props__.__dict__["service_id"] = None
         super(VPCEndpointService, __self__).__init__(
             'aws-native:ec2:VPCEndpointService',
             resource_name,
@@ -172,6 +167,7 @@ class VPCEndpointService(pulumi.CustomResource):
         __props__.__dict__["gateway_load_balancer_arns"] = None
         __props__.__dict__["network_load_balancer_arns"] = None
         __props__.__dict__["payer_responsibility"] = None
+        __props__.__dict__["service_id"] = None
         return VPCEndpointService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -198,4 +194,9 @@ class VPCEndpointService(pulumi.CustomResource):
     @pulumi.getter(name="payerResponsibility")
     def payer_responsibility(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "payer_responsibility")
+
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "service_id")
 

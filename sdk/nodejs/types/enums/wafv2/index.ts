@@ -358,6 +358,13 @@ export const WebACLRateBasedStatementAggregateKeyType = {
 
 export type WebACLRateBasedStatementAggregateKeyType = (typeof WebACLRateBasedStatementAggregateKeyType)[keyof typeof WebACLRateBasedStatementAggregateKeyType];
 
+export const WebACLRequestInspectionPayloadType = {
+    Json: "JSON",
+    FormEncoded: "FORM_ENCODED",
+} as const;
+
+export type WebACLRequestInspectionPayloadType = (typeof WebACLRequestInspectionPayloadType)[keyof typeof WebACLRequestInspectionPayloadType];
+
 export const WebACLScope = {
     Cloudfront: "CLOUDFRONT",
     Regional: "REGIONAL",

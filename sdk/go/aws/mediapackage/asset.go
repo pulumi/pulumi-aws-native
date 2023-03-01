@@ -81,6 +81,8 @@ func (AssetState) ElementType() reflect.Type {
 }
 
 type assetArgs struct {
+	// The list of egress endpoints available for the Asset.
+	EgressEndpoints []AssetEgressEndpoint `pulumi:"egressEndpoints"`
 	// The ID of the PackagingGroup for the Asset.
 	PackagingGroupId string `pulumi:"packagingGroupId"`
 	// The resource ID to include in SPEKE key requests.
@@ -95,6 +97,8 @@ type assetArgs struct {
 
 // The set of arguments for constructing a Asset resource.
 type AssetArgs struct {
+	// The list of egress endpoints available for the Asset.
+	EgressEndpoints AssetEgressEndpointArrayInput
 	// The ID of the PackagingGroup for the Asset.
 	PackagingGroupId pulumi.StringInput
 	// The resource ID to include in SPEKE key requests.

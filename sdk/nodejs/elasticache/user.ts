@@ -63,6 +63,10 @@ export class User extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * An array of key-value pairs to apply to this user.
+     */
+    public readonly tags!: pulumi.Output<outputs.elasticache.UserTag[] | undefined>;
+    /**
      * The ID of the user.
      */
     public readonly userId!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
             resourceInputs["passwords"] = args ? args.passwords : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -105,6 +110,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["noPasswordRequired"] = undefined /*out*/;
             resourceInputs["passwords"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["userId"] = undefined /*out*/;
             resourceInputs["userName"] = undefined /*out*/;
         }
@@ -134,6 +140,10 @@ export interface UserArgs {
      * Passwords used for this user account. You can create up to two passwords for each user.
      */
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An array of key-value pairs to apply to this user.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.elasticache.UserTagArgs>[]>;
     /**
      * The ID of the user.
      */

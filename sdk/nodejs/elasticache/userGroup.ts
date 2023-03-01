@@ -50,13 +50,17 @@ export class UserGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * An array of key-value pairs to apply to this user.
+     */
+    public readonly tags!: pulumi.Output<outputs.elasticache.UserGroupTag[] | undefined>;
+    /**
      * The ID of the user group.
      */
     public readonly userGroupId!: pulumi.Output<string>;
     /**
      * List of users associated to this user group.
      */
-    public readonly userIds!: pulumi.Output<string[] | undefined>;
+    public readonly userIds!: pulumi.Output<string[]>;
 
     /**
      * Create a UserGroup resource with the given unique name, arguments, and options.
@@ -75,7 +79,11 @@ export class UserGroup extends pulumi.CustomResource {
             if ((!args || args.userGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userGroupId'");
             }
+            if ((!args || args.userIds === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'userIds'");
+            }
             resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
             resourceInputs["userIds"] = args ? args.userIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -84,6 +92,7 @@ export class UserGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["userGroupId"] = undefined /*out*/;
             resourceInputs["userIds"] = undefined /*out*/;
         }
@@ -101,11 +110,15 @@ export interface UserGroupArgs {
      */
     engine: pulumi.Input<enums.elasticache.UserGroupEngine>;
     /**
+     * An array of key-value pairs to apply to this user.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.elasticache.UserGroupTagArgs>[]>;
+    /**
      * The ID of the user group.
      */
     userGroupId: pulumi.Input<string>;
     /**
      * List of users associated to this user group.
      */
-    userIds?: pulumi.Input<pulumi.Input<string>[]>;
+    userIds: pulumi.Input<pulumi.Input<string>[]>;
 }

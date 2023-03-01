@@ -20,13 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, d_b_system_id=None, dbi_resource_id=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, d_b_system_id=None, dbi_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
-        if allow_major_version_upgrade and not isinstance(allow_major_version_upgrade, bool):
-            raise TypeError("Expected argument 'allow_major_version_upgrade' to be a bool")
-        pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
         if associated_roles and not isinstance(associated_roles, list):
             raise TypeError("Expected argument 'associated_roles' to be a list")
         pulumi.set(__self__, "associated_roles", associated_roles)
@@ -69,9 +66,6 @@ class GetDBInstanceResult:
         if dbi_resource_id and not isinstance(dbi_resource_id, str):
             raise TypeError("Expected argument 'dbi_resource_id' to be a str")
         pulumi.set(__self__, "dbi_resource_id", dbi_resource_id)
-        if delete_automated_backups and not isinstance(delete_automated_backups, bool):
-            raise TypeError("Expected argument 'delete_automated_backups' to be a bool")
-        pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection and not isinstance(deletion_protection, bool):
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -179,14 +173,6 @@ class GetDBInstanceResult:
         The amount of storage (in gigabytes) to be initially allocated for the database instance.
         """
         return pulumi.get(self, "allocated_storage")
-
-    @property
-    @pulumi.getter(name="allowMajorVersionUpgrade")
-    def allow_major_version_upgrade(self) -> Optional[bool]:
-        """
-        A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
-        """
-        return pulumi.get(self, "allow_major_version_upgrade")
 
     @property
     @pulumi.getter(name="associatedRoles")
@@ -307,14 +293,6 @@ class GetDBInstanceResult:
         The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
         """
         return pulumi.get(self, "dbi_resource_id")
-
-    @property
-    @pulumi.getter(name="deleteAutomatedBackups")
-    def delete_automated_backups(self) -> Optional[bool]:
-        """
-        A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
-        """
-        return pulumi.get(self, "delete_automated_backups")
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -588,7 +566,6 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             yield self
         return GetDBInstanceResult(
             allocated_storage=self.allocated_storage,
-            allow_major_version_upgrade=self.allow_major_version_upgrade,
             associated_roles=self.associated_roles,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
             availability_zone=self.availability_zone,
@@ -603,7 +580,6 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             d_b_security_groups=self.d_b_security_groups,
             d_b_system_id=self.d_b_system_id,
             dbi_resource_id=self.dbi_resource_id,
-            delete_automated_backups=self.delete_automated_backups,
             deletion_protection=self.deletion_protection,
             domain=self.domain,
             domain_iam_role_name=self.domain_iam_role_name,
@@ -654,7 +630,6 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
 
     return AwaitableGetDBInstanceResult(
         allocated_storage=__ret__.allocated_storage,
-        allow_major_version_upgrade=__ret__.allow_major_version_upgrade,
         associated_roles=__ret__.associated_roles,
         auto_minor_version_upgrade=__ret__.auto_minor_version_upgrade,
         availability_zone=__ret__.availability_zone,
@@ -669,7 +644,6 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         d_b_security_groups=__ret__.d_b_security_groups,
         d_b_system_id=__ret__.d_b_system_id,
         dbi_resource_id=__ret__.dbi_resource_id,
-        delete_automated_backups=__ret__.delete_automated_backups,
         deletion_protection=__ret__.deletion_protection,
         domain=__ret__.domain,
         domain_iam_role_name=__ret__.domain_iam_role_name,

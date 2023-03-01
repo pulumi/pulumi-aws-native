@@ -7,24 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ConnectCampaigns.Outputs
+namespace Pulumi.AwsNative.ConnectCampaigns.Inputs
 {
 
     /// <summary>
     /// The configuration used for answering machine detection during outbound calls
     /// </summary>
-    [OutputType]
-    public sealed class CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties
+    public sealed class CampaignAnswerMachineDetectionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to decided whether outbound calls should have answering machine detection enabled or not
         /// </summary>
-        public readonly bool EnableAnswerMachineDetection;
+        [Input("enableAnswerMachineDetection", required: true)]
+        public Input<bool> EnableAnswerMachineDetection { get; set; } = null!;
 
-        [OutputConstructor]
-        private CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties(bool enableAnswerMachineDetection)
+        public CampaignAnswerMachineDetectionConfigArgs()
         {
-            EnableAnswerMachineDetection = enableAnswerMachineDetection;
         }
+        public static new CampaignAnswerMachineDetectionConfigArgs Empty => new CampaignAnswerMachineDetectionConfigArgs();
     }
 }

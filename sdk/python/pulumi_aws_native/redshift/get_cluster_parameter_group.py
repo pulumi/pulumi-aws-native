@@ -19,21 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterParameterGroupResult:
-    def __init__(__self__, parameter_group_name=None, parameters=None):
-        if parameter_group_name and not isinstance(parameter_group_name, str):
-            raise TypeError("Expected argument 'parameter_group_name' to be a str")
-        pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+    def __init__(__self__, parameters=None):
         if parameters and not isinstance(parameters, list):
             raise TypeError("Expected argument 'parameters' to be a list")
         pulumi.set(__self__, "parameters", parameters)
-
-    @property
-    @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> Optional[str]:
-        """
-        The name of the cluster parameter group.
-        """
-        return pulumi.get(self, "parameter_group_name")
 
     @property
     @pulumi.getter
@@ -50,7 +39,6 @@ class AwaitableGetClusterParameterGroupResult(GetClusterParameterGroupResult):
         if False:
             yield self
         return GetClusterParameterGroupResult(
-            parameter_group_name=self.parameter_group_name,
             parameters=self.parameters)
 
 
@@ -68,7 +56,6 @@ def get_cluster_parameter_group(parameter_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getClusterParameterGroup', __args__, opts=opts, typ=GetClusterParameterGroupResult).value
 
     return AwaitableGetClusterParameterGroupResult(
-        parameter_group_name=__ret__.parameter_group_name,
         parameters=__ret__.parameters)
 
 

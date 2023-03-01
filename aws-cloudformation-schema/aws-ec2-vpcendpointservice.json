@@ -10,10 +10,13 @@
         "type" : "string"
       }
     },
+    "ContributorInsightsEnabled" : {
+      "type" : "boolean"
+    },
     "PayerResponsibility" : {
       "type" : "string"
     },
-    "Id" : {
+    "ServiceId" : {
       "type" : "string"
     },
     "AcceptanceRequired" : {
@@ -25,11 +28,32 @@
       "items" : {
         "type" : "string"
       }
-    },
-    "ContributorInsightsEnabled" : {
-      "type" : "boolean"
     }
   },
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/ServiceId" ],
+  "readOnlyProperties" : [ "/properties/ServiceId" ],
+  "writeOnlyProperties" : [ "/properties/ContributorInsightsEnabled" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "ec2:CreateVpcEndpointServiceConfiguration", "ec2:ModifyVpcEndpointServiceConfiguration", "ec2:ModifyVpcEndpointServicePayerResponsibility", "cloudwatch:ListManagedInsightRules", "cloudwatch:DeleteInsightRules", "cloudwatch:PutManagedInsightsRules" ]
+    },
+    "update" : {
+      "permissions" : [ "ec2:ModifyVpcEndpointServiceConfiguration", "ec2:DeleteVpcEndpointServiceConfigurations", "ec2:DescribeVpcEndpointServiceConfigurations", "ec2:ModifyVpcEndpointServicePayerResponsibility", "cloudwatch:ListManagedInsightRules", "cloudwatch:DeleteInsightRules", "cloudwatch:PutManagedInsightsRules" ]
+    },
+    "read" : {
+      "permissions" : [ "ec2:DescribeVpcEndpointServiceConfigurations", "cloudwatch:ListManagedInsightRules" ]
+    },
+    "delete" : {
+      "permissions" : [ "ec2:DeleteVpcEndpointServiceConfigurations", "ec2:DescribeVpcEndpointServiceConfigurations", "cloudwatch:ListManagedInsightRules", "cloudwatch:DeleteInsightRules" ]
+    },
+    "list" : {
+      "permissions" : [ "ec2:DescribeVpcEndpointServiceConfigurations", "cloudwatch:ListManagedInsightRules" ]
+    }
+  }
 }

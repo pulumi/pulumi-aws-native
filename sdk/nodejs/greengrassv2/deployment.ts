@@ -42,6 +42,7 @@ export class Deployment extends pulumi.CustomResource {
     public readonly deploymentName!: pulumi.Output<string | undefined>;
     public readonly deploymentPolicies!: pulumi.Output<outputs.greengrassv2.DeploymentPolicies | undefined>;
     public readonly iotJobConfiguration!: pulumi.Output<outputs.greengrassv2.DeploymentIoTJobConfiguration | undefined>;
+    public readonly parentTargetArn!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly targetArn!: pulumi.Output<string>;
 
@@ -63,6 +64,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
             resourceInputs["deploymentPolicies"] = args ? args.deploymentPolicies : undefined;
             resourceInputs["iotJobConfiguration"] = args ? args.iotJobConfiguration : undefined;
+            resourceInputs["parentTargetArn"] = args ? args.parentTargetArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetArn"] = args ? args.targetArn : undefined;
             resourceInputs["deploymentId"] = undefined /*out*/;
@@ -72,6 +74,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["deploymentName"] = undefined /*out*/;
             resourceInputs["deploymentPolicies"] = undefined /*out*/;
             resourceInputs["iotJobConfiguration"] = undefined /*out*/;
+            resourceInputs["parentTargetArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetArn"] = undefined /*out*/;
         }
@@ -88,6 +91,7 @@ export interface DeploymentArgs {
     deploymentName?: pulumi.Input<string>;
     deploymentPolicies?: pulumi.Input<inputs.greengrassv2.DeploymentPoliciesArgs>;
     iotJobConfiguration?: pulumi.Input<inputs.greengrassv2.DeploymentIoTJobConfigurationArgs>;
+    parentTargetArn?: pulumi.Input<string>;
     tags?: any;
     targetArn: pulumi.Input<string>;
 }

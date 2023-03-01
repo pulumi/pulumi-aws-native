@@ -55,6 +55,12 @@ namespace Pulumi.AwsNative.ElastiCache
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// An array of key-value pairs to apply to this user.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.UserTag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the user.
         /// </summary>
         [Output("userId")]
@@ -142,6 +148,18 @@ namespace Pulumi.AwsNative.ElastiCache
         {
             get => _passwords ?? (_passwords = new InputList<string>());
             set => _passwords = value;
+        }
+
+        [Input("tags")]
+        private InputList<Inputs.UserTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this user.
+        /// </summary>
+        public InputList<Inputs.UserTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.UserTagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>

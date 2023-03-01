@@ -20,6 +20,7 @@ class TableArgs:
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
                  contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
                  import_source_specification: Optional[pulumi.Input['TableImportSourceSpecificationArgs']] = None,
                  kinesis_stream_specification: Optional[pulumi.Input['TableKinesisStreamSpecificationArgs']] = None,
@@ -42,6 +43,8 @@ class TableArgs:
             pulumi.set(__self__, "billing_mode", billing_mode)
         if contributor_insights_specification is not None:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
+        if deletion_protection_enabled is not None:
+            pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
         if import_source_specification is not None:
@@ -102,6 +105,15 @@ class TableArgs:
     @contributor_insights_specification.setter
     def contributor_insights_specification(self, value: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]):
         pulumi.set(self, "contributor_insights_specification", value)
+
+    @property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "deletion_protection_enabled")
+
+    @deletion_protection_enabled.setter
+    def deletion_protection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deletion_protection_enabled", value)
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
@@ -220,6 +232,7 @@ class Table(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeDefinitionArgs']]]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
                  contributor_insights_specification: Optional[pulumi.Input[pulumi.InputType['TableContributorInsightsSpecificationArgs']]] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
                  import_source_specification: Optional[pulumi.Input[pulumi.InputType['TableImportSourceSpecificationArgs']]] = None,
                  key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]], Any]]] = None,
@@ -267,6 +280,7 @@ class Table(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeDefinitionArgs']]]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
                  contributor_insights_specification: Optional[pulumi.Input[pulumi.InputType['TableContributorInsightsSpecificationArgs']]] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
                  import_source_specification: Optional[pulumi.Input[pulumi.InputType['TableImportSourceSpecificationArgs']]] = None,
                  key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]], Any]]] = None,
@@ -292,6 +306,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["attribute_definitions"] = attribute_definitions
             __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["contributor_insights_specification"] = contributor_insights_specification
+            __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
             __props__.__dict__["import_source_specification"] = import_source_specification
             if key_schema is None and not opts.urn:
@@ -335,6 +350,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["attribute_definitions"] = None
         __props__.__dict__["billing_mode"] = None
         __props__.__dict__["contributor_insights_specification"] = None
+        __props__.__dict__["deletion_protection_enabled"] = None
         __props__.__dict__["global_secondary_indexes"] = None
         __props__.__dict__["import_source_specification"] = None
         __props__.__dict__["key_schema"] = None
@@ -370,6 +386,11 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> pulumi.Output[Optional['outputs.TableContributorInsightsSpecification']]:
         return pulumi.get(self, "contributor_insights_specification")
+
+    @property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "deletion_protection_enabled")
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")

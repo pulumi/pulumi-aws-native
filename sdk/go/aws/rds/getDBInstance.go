@@ -28,8 +28,6 @@ type LookupDBInstanceArgs struct {
 type LookupDBInstanceResult struct {
 	// The amount of storage (in gigabytes) to be initially allocated for the database instance.
 	AllocatedStorage *string `pulumi:"allocatedStorage"`
-	// A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
-	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`
 	// The AWS Identity and Access Management (IAM) roles associated with the DB instance.
 	AssociatedRoles []DBInstanceRole `pulumi:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
@@ -66,8 +64,6 @@ type LookupDBInstanceResult struct {
 	DBSystemId *string `pulumi:"dBSystemId"`
 	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	DbiResourceId *string `pulumi:"dbiResourceId"`
-	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
-	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
 	// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
@@ -177,11 +173,6 @@ func (o LookupDBInstanceResultOutput) AllocatedStorage() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.AllocatedStorage }).(pulumi.StringPtrOutput)
 }
 
-// A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
-func (o LookupDBInstanceResultOutput) AllowMajorVersionUpgrade() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.AllowMajorVersionUpgrade }).(pulumi.BoolPtrOutput)
-}
-
 // The AWS Identity and Access Management (IAM) roles associated with the DB instance.
 func (o LookupDBInstanceResultOutput) AssociatedRoles() DBInstanceRoleArrayOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) []DBInstanceRole { return v.AssociatedRoles }).(DBInstanceRoleArrayOutput)
@@ -258,11 +249,6 @@ func (o LookupDBInstanceResultOutput) DBSystemId() pulumi.StringPtrOutput {
 // The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 func (o LookupDBInstanceResultOutput) DbiResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DbiResourceId }).(pulumi.StringPtrOutput)
-}
-
-// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
-func (o LookupDBInstanceResultOutput) DeleteAutomatedBackups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.DeleteAutomatedBackups }).(pulumi.BoolPtrOutput)
 }
 
 // A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.

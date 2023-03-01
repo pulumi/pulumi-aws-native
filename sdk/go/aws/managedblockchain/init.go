@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:managedblockchain:Accessor":
+		r = &Accessor{}
 	case "aws-native:managedblockchain:Member":
 		r = &Member{}
 	case "aws-native:managedblockchain:Node":

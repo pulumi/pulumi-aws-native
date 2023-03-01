@@ -11,21 +11,20 @@ export function getVPCEndpointService(args: GetVPCEndpointServiceArgs, opts?: pu
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPCEndpointService", {
-        "id": args.id,
+        "serviceId": args.serviceId,
     }, opts);
 }
 
 export interface GetVPCEndpointServiceArgs {
-    id: string;
+    serviceId: string;
 }
 
 export interface GetVPCEndpointServiceResult {
     readonly acceptanceRequired?: boolean;
-    readonly contributorInsightsEnabled?: boolean;
     readonly gatewayLoadBalancerArns?: string[];
-    readonly id?: string;
     readonly networkLoadBalancerArns?: string[];
     readonly payerResponsibility?: string;
+    readonly serviceId?: string;
 }
 /**
  * Resource Type definition for AWS::EC2::VPCEndpointService
@@ -35,5 +34,5 @@ export function getVPCEndpointServiceOutput(args: GetVPCEndpointServiceOutputArg
 }
 
 export interface GetVPCEndpointServiceOutputArgs {
-    id: pulumi.Input<string>;
+    serviceId: pulumi.Input<string>;
 }

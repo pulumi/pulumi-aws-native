@@ -24,6 +24,8 @@ __all__ = [
     'SiteTagArgs',
     'SiteToSiteVpnAttachmentTagArgs',
     'TransitGatewayPeeringTagArgs',
+    'TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs',
+    'TransitGatewayRouteTableAttachmentTagArgs',
     'VpcAttachmentTagArgs',
     'VpcAttachmentVpcOptionsArgs',
 ]
@@ -506,6 +508,100 @@ class SiteToSiteVpnAttachmentTagArgs:
 
 @pulumi.input_type
 class TransitGatewayPeeringTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs:
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
+                 segment_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]] = None):
+        """
+        The attachment to move from one segment to another.
+        :param pulumi.Input[int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param pulumi.Input[str] segment_name: The name of the segment to change.
+        :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]] tags: The key-value tags that changed for the segment.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if segment_name is not None:
+            pulumi.set(__self__, "segment_name", segment_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @attachment_policy_rule_number.setter
+    def attachment_policy_rule_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "attachment_policy_rule_number", value)
+
+    @property
+    @pulumi.getter(name="segmentName")
+    def segment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the segment to change.
+        """
+        return pulumi.get(self, "segment_name")
+
+    @segment_name.setter
+    def segment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "segment_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]]:
+        """
+        The key-value tags that changed for the segment.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class TransitGatewayRouteTableAttachmentTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

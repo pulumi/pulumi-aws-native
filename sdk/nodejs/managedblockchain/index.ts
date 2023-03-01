@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessorArgs } from "./accessor";
+export type Accessor = import("./accessor").Accessor;
+export const Accessor: typeof import("./accessor").Accessor = null as any;
+utilities.lazyLoad(exports, ["Accessor"], () => require("./accessor"));
+
+export { GetAccessorArgs, GetAccessorResult, GetAccessorOutputArgs } from "./getAccessor";
+export const getAccessor: typeof import("./getAccessor").getAccessor = null as any;
+export const getAccessorOutput: typeof import("./getAccessor").getAccessorOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessor","getAccessorOutput"], () => require("./getAccessor"));
+
 export { GetMemberArgs, GetMemberResult, GetMemberOutputArgs } from "./getMember";
 export const getMember: typeof import("./getMember").getMember = null as any;
 export const getMemberOutput: typeof import("./getMember").getMemberOutput = null as any;
@@ -26,10 +36,15 @@ export const Node: typeof import("./node").Node = null as any;
 utilities.lazyLoad(exports, ["Node"], () => require("./node"));
 
 
+// Export enums:
+export * from "../types/enums/managedblockchain";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:managedblockchain:Accessor":
+                return new Accessor(name, <any>undefined, { urn })
             case "aws-native:managedblockchain:Member":
                 return new Member(name, <any>undefined, { urn })
             case "aws-native:managedblockchain:Node":

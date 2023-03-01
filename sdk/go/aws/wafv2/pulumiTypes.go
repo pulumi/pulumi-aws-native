@@ -8401,6 +8401,172 @@ func (o RuleGroupXssMatchStatementPtrOutput) TextTransformations() RuleGroupText
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
+// Configures how to use the Account Takeover Prevention managed rule group in the web ACL
+type WebACLAWSManagedRulesATPRuleSet struct {
+	LoginPath          string                    `pulumi:"loginPath"`
+	RequestInspection  *WebACLRequestInspection  `pulumi:"requestInspection"`
+	ResponseInspection *WebACLResponseInspection `pulumi:"responseInspection"`
+}
+
+// WebACLAWSManagedRulesATPRuleSetInput is an input type that accepts WebACLAWSManagedRulesATPRuleSetArgs and WebACLAWSManagedRulesATPRuleSetOutput values.
+// You can construct a concrete instance of `WebACLAWSManagedRulesATPRuleSetInput` via:
+//
+//	WebACLAWSManagedRulesATPRuleSetArgs{...}
+type WebACLAWSManagedRulesATPRuleSetInput interface {
+	pulumi.Input
+
+	ToWebACLAWSManagedRulesATPRuleSetOutput() WebACLAWSManagedRulesATPRuleSetOutput
+	ToWebACLAWSManagedRulesATPRuleSetOutputWithContext(context.Context) WebACLAWSManagedRulesATPRuleSetOutput
+}
+
+// Configures how to use the Account Takeover Prevention managed rule group in the web ACL
+type WebACLAWSManagedRulesATPRuleSetArgs struct {
+	LoginPath          pulumi.StringInput               `pulumi:"loginPath"`
+	RequestInspection  WebACLRequestInspectionPtrInput  `pulumi:"requestInspection"`
+	ResponseInspection WebACLResponseInspectionPtrInput `pulumi:"responseInspection"`
+}
+
+func (WebACLAWSManagedRulesATPRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAWSManagedRulesATPRuleSet)(nil)).Elem()
+}
+
+func (i WebACLAWSManagedRulesATPRuleSetArgs) ToWebACLAWSManagedRulesATPRuleSetOutput() WebACLAWSManagedRulesATPRuleSetOutput {
+	return i.ToWebACLAWSManagedRulesATPRuleSetOutputWithContext(context.Background())
+}
+
+func (i WebACLAWSManagedRulesATPRuleSetArgs) ToWebACLAWSManagedRulesATPRuleSetOutputWithContext(ctx context.Context) WebACLAWSManagedRulesATPRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAWSManagedRulesATPRuleSetOutput)
+}
+
+func (i WebACLAWSManagedRulesATPRuleSetArgs) ToWebACLAWSManagedRulesATPRuleSetPtrOutput() WebACLAWSManagedRulesATPRuleSetPtrOutput {
+	return i.ToWebACLAWSManagedRulesATPRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLAWSManagedRulesATPRuleSetArgs) ToWebACLAWSManagedRulesATPRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesATPRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAWSManagedRulesATPRuleSetOutput).ToWebACLAWSManagedRulesATPRuleSetPtrOutputWithContext(ctx)
+}
+
+// WebACLAWSManagedRulesATPRuleSetPtrInput is an input type that accepts WebACLAWSManagedRulesATPRuleSetArgs, WebACLAWSManagedRulesATPRuleSetPtr and WebACLAWSManagedRulesATPRuleSetPtrOutput values.
+// You can construct a concrete instance of `WebACLAWSManagedRulesATPRuleSetPtrInput` via:
+//
+//	        WebACLAWSManagedRulesATPRuleSetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLAWSManagedRulesATPRuleSetPtrInput interface {
+	pulumi.Input
+
+	ToWebACLAWSManagedRulesATPRuleSetPtrOutput() WebACLAWSManagedRulesATPRuleSetPtrOutput
+	ToWebACLAWSManagedRulesATPRuleSetPtrOutputWithContext(context.Context) WebACLAWSManagedRulesATPRuleSetPtrOutput
+}
+
+type webACLAWSManagedRulesATPRuleSetPtrType WebACLAWSManagedRulesATPRuleSetArgs
+
+func WebACLAWSManagedRulesATPRuleSetPtr(v *WebACLAWSManagedRulesATPRuleSetArgs) WebACLAWSManagedRulesATPRuleSetPtrInput {
+	return (*webACLAWSManagedRulesATPRuleSetPtrType)(v)
+}
+
+func (*webACLAWSManagedRulesATPRuleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAWSManagedRulesATPRuleSet)(nil)).Elem()
+}
+
+func (i *webACLAWSManagedRulesATPRuleSetPtrType) ToWebACLAWSManagedRulesATPRuleSetPtrOutput() WebACLAWSManagedRulesATPRuleSetPtrOutput {
+	return i.ToWebACLAWSManagedRulesATPRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLAWSManagedRulesATPRuleSetPtrType) ToWebACLAWSManagedRulesATPRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesATPRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAWSManagedRulesATPRuleSetPtrOutput)
+}
+
+// Configures how to use the Account Takeover Prevention managed rule group in the web ACL
+type WebACLAWSManagedRulesATPRuleSetOutput struct{ *pulumi.OutputState }
+
+func (WebACLAWSManagedRulesATPRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAWSManagedRulesATPRuleSet)(nil)).Elem()
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetOutput) ToWebACLAWSManagedRulesATPRuleSetOutput() WebACLAWSManagedRulesATPRuleSetOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetOutput) ToWebACLAWSManagedRulesATPRuleSetOutputWithContext(ctx context.Context) WebACLAWSManagedRulesATPRuleSetOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetOutput) ToWebACLAWSManagedRulesATPRuleSetPtrOutput() WebACLAWSManagedRulesATPRuleSetPtrOutput {
+	return o.ToWebACLAWSManagedRulesATPRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetOutput) ToWebACLAWSManagedRulesATPRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesATPRuleSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLAWSManagedRulesATPRuleSet) *WebACLAWSManagedRulesATPRuleSet {
+		return &v
+	}).(WebACLAWSManagedRulesATPRuleSetPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetOutput) LoginPath() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLAWSManagedRulesATPRuleSet) string { return v.LoginPath }).(pulumi.StringOutput)
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetOutput) RequestInspection() WebACLRequestInspectionPtrOutput {
+	return o.ApplyT(func(v WebACLAWSManagedRulesATPRuleSet) *WebACLRequestInspection { return v.RequestInspection }).(WebACLRequestInspectionPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetOutput) ResponseInspection() WebACLResponseInspectionPtrOutput {
+	return o.ApplyT(func(v WebACLAWSManagedRulesATPRuleSet) *WebACLResponseInspection { return v.ResponseInspection }).(WebACLResponseInspectionPtrOutput)
+}
+
+type WebACLAWSManagedRulesATPRuleSetPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLAWSManagedRulesATPRuleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAWSManagedRulesATPRuleSet)(nil)).Elem()
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetPtrOutput) ToWebACLAWSManagedRulesATPRuleSetPtrOutput() WebACLAWSManagedRulesATPRuleSetPtrOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetPtrOutput) ToWebACLAWSManagedRulesATPRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesATPRuleSetPtrOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetPtrOutput) Elem() WebACLAWSManagedRulesATPRuleSetOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesATPRuleSet) WebACLAWSManagedRulesATPRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLAWSManagedRulesATPRuleSet
+		return ret
+	}).(WebACLAWSManagedRulesATPRuleSetOutput)
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetPtrOutput) LoginPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesATPRuleSet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LoginPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetPtrOutput) RequestInspection() WebACLRequestInspectionPtrOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesATPRuleSet) *WebACLRequestInspection {
+		if v == nil {
+			return nil
+		}
+		return v.RequestInspection
+	}).(WebACLRequestInspectionPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetPtrOutput) ResponseInspection() WebACLResponseInspectionPtrOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesATPRuleSet) *WebACLResponseInspection {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseInspection
+	}).(WebACLResponseInspectionPtrOutput)
+}
+
 // Configures how to use the Bot Control managed rule group in the web ACL
 type WebACLAWSManagedRulesBotControlRuleSet struct {
 	InspectionLevel WebACLAWSManagedRulesBotControlRuleSetInspectionLevel `pulumi:"inspectionLevel"`
@@ -13380,6 +13546,7 @@ func (o WebACLLabelMatchStatementPtrOutput) Scope() WebACLLabelMatchScopePtrOutp
 
 // ManagedRuleGroupConfig.
 type WebACLManagedRuleGroupConfig struct {
+	AWSManagedRulesATPRuleSet        *WebACLAWSManagedRulesATPRuleSet         `pulumi:"aWSManagedRulesATPRuleSet"`
 	AWSManagedRulesBotControlRuleSet *WebACLAWSManagedRulesBotControlRuleSet  `pulumi:"aWSManagedRulesBotControlRuleSet"`
 	LoginPath                        *string                                  `pulumi:"loginPath"`
 	PasswordField                    *WebACLFieldIdentifier                   `pulumi:"passwordField"`
@@ -13400,6 +13567,7 @@ type WebACLManagedRuleGroupConfigInput interface {
 
 // ManagedRuleGroupConfig.
 type WebACLManagedRuleGroupConfigArgs struct {
+	AWSManagedRulesATPRuleSet        WebACLAWSManagedRulesATPRuleSetPtrInput         `pulumi:"aWSManagedRulesATPRuleSet"`
 	AWSManagedRulesBotControlRuleSet WebACLAWSManagedRulesBotControlRuleSetPtrInput  `pulumi:"aWSManagedRulesBotControlRuleSet"`
 	LoginPath                        pulumi.StringPtrInput                           `pulumi:"loginPath"`
 	PasswordField                    WebACLFieldIdentifierPtrInput                   `pulumi:"passwordField"`
@@ -13457,6 +13625,12 @@ func (o WebACLManagedRuleGroupConfigOutput) ToWebACLManagedRuleGroupConfigOutput
 
 func (o WebACLManagedRuleGroupConfigOutput) ToWebACLManagedRuleGroupConfigOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigOutput {
 	return o
+}
+
+func (o WebACLManagedRuleGroupConfigOutput) AWSManagedRulesATPRuleSet() WebACLAWSManagedRulesATPRuleSetPtrOutput {
+	return o.ApplyT(func(v WebACLManagedRuleGroupConfig) *WebACLAWSManagedRulesATPRuleSet {
+		return v.AWSManagedRulesATPRuleSet
+	}).(WebACLAWSManagedRulesATPRuleSetPtrOutput)
 }
 
 func (o WebACLManagedRuleGroupConfigOutput) AWSManagedRulesBotControlRuleSet() WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
@@ -14663,6 +14837,987 @@ func (o WebACLRegexPatternSetReferenceStatementPtrOutput) TextTransformations() 
 		}
 		return v.TextTransformations
 	}).(WebACLTextTransformationArrayOutput)
+}
+
+// Configures the inspection of login requests
+type WebACLRequestInspection struct {
+	PasswordField WebACLFieldIdentifier              `pulumi:"passwordField"`
+	PayloadType   WebACLRequestInspectionPayloadType `pulumi:"payloadType"`
+	UsernameField WebACLFieldIdentifier              `pulumi:"usernameField"`
+}
+
+// WebACLRequestInspectionInput is an input type that accepts WebACLRequestInspectionArgs and WebACLRequestInspectionOutput values.
+// You can construct a concrete instance of `WebACLRequestInspectionInput` via:
+//
+//	WebACLRequestInspectionArgs{...}
+type WebACLRequestInspectionInput interface {
+	pulumi.Input
+
+	ToWebACLRequestInspectionOutput() WebACLRequestInspectionOutput
+	ToWebACLRequestInspectionOutputWithContext(context.Context) WebACLRequestInspectionOutput
+}
+
+// Configures the inspection of login requests
+type WebACLRequestInspectionArgs struct {
+	PasswordField WebACLFieldIdentifierInput              `pulumi:"passwordField"`
+	PayloadType   WebACLRequestInspectionPayloadTypeInput `pulumi:"payloadType"`
+	UsernameField WebACLFieldIdentifierInput              `pulumi:"usernameField"`
+}
+
+func (WebACLRequestInspectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRequestInspection)(nil)).Elem()
+}
+
+func (i WebACLRequestInspectionArgs) ToWebACLRequestInspectionOutput() WebACLRequestInspectionOutput {
+	return i.ToWebACLRequestInspectionOutputWithContext(context.Background())
+}
+
+func (i WebACLRequestInspectionArgs) ToWebACLRequestInspectionOutputWithContext(ctx context.Context) WebACLRequestInspectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRequestInspectionOutput)
+}
+
+func (i WebACLRequestInspectionArgs) ToWebACLRequestInspectionPtrOutput() WebACLRequestInspectionPtrOutput {
+	return i.ToWebACLRequestInspectionPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRequestInspectionArgs) ToWebACLRequestInspectionPtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRequestInspectionOutput).ToWebACLRequestInspectionPtrOutputWithContext(ctx)
+}
+
+// WebACLRequestInspectionPtrInput is an input type that accepts WebACLRequestInspectionArgs, WebACLRequestInspectionPtr and WebACLRequestInspectionPtrOutput values.
+// You can construct a concrete instance of `WebACLRequestInspectionPtrInput` via:
+//
+//	        WebACLRequestInspectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRequestInspectionPtrInput interface {
+	pulumi.Input
+
+	ToWebACLRequestInspectionPtrOutput() WebACLRequestInspectionPtrOutput
+	ToWebACLRequestInspectionPtrOutputWithContext(context.Context) WebACLRequestInspectionPtrOutput
+}
+
+type webACLRequestInspectionPtrType WebACLRequestInspectionArgs
+
+func WebACLRequestInspectionPtr(v *WebACLRequestInspectionArgs) WebACLRequestInspectionPtrInput {
+	return (*webACLRequestInspectionPtrType)(v)
+}
+
+func (*webACLRequestInspectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRequestInspection)(nil)).Elem()
+}
+
+func (i *webACLRequestInspectionPtrType) ToWebACLRequestInspectionPtrOutput() WebACLRequestInspectionPtrOutput {
+	return i.ToWebACLRequestInspectionPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRequestInspectionPtrType) ToWebACLRequestInspectionPtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRequestInspectionPtrOutput)
+}
+
+// Configures the inspection of login requests
+type WebACLRequestInspectionOutput struct{ *pulumi.OutputState }
+
+func (WebACLRequestInspectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRequestInspection)(nil)).Elem()
+}
+
+func (o WebACLRequestInspectionOutput) ToWebACLRequestInspectionOutput() WebACLRequestInspectionOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionOutput) ToWebACLRequestInspectionOutputWithContext(ctx context.Context) WebACLRequestInspectionOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionOutput) ToWebACLRequestInspectionPtrOutput() WebACLRequestInspectionPtrOutput {
+	return o.ToWebACLRequestInspectionPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRequestInspectionOutput) ToWebACLRequestInspectionPtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRequestInspection) *WebACLRequestInspection {
+		return &v
+	}).(WebACLRequestInspectionPtrOutput)
+}
+
+func (o WebACLRequestInspectionOutput) PasswordField() WebACLFieldIdentifierOutput {
+	return o.ApplyT(func(v WebACLRequestInspection) WebACLFieldIdentifier { return v.PasswordField }).(WebACLFieldIdentifierOutput)
+}
+
+func (o WebACLRequestInspectionOutput) PayloadType() WebACLRequestInspectionPayloadTypeOutput {
+	return o.ApplyT(func(v WebACLRequestInspection) WebACLRequestInspectionPayloadType { return v.PayloadType }).(WebACLRequestInspectionPayloadTypeOutput)
+}
+
+func (o WebACLRequestInspectionOutput) UsernameField() WebACLFieldIdentifierOutput {
+	return o.ApplyT(func(v WebACLRequestInspection) WebACLFieldIdentifier { return v.UsernameField }).(WebACLFieldIdentifierOutput)
+}
+
+type WebACLRequestInspectionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRequestInspectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRequestInspection)(nil)).Elem()
+}
+
+func (o WebACLRequestInspectionPtrOutput) ToWebACLRequestInspectionPtrOutput() WebACLRequestInspectionPtrOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionPtrOutput) ToWebACLRequestInspectionPtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPtrOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionPtrOutput) Elem() WebACLRequestInspectionOutput {
+	return o.ApplyT(func(v *WebACLRequestInspection) WebACLRequestInspection {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRequestInspection
+		return ret
+	}).(WebACLRequestInspectionOutput)
+}
+
+func (o WebACLRequestInspectionPtrOutput) PasswordField() WebACLFieldIdentifierPtrOutput {
+	return o.ApplyT(func(v *WebACLRequestInspection) *WebACLFieldIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.PasswordField
+	}).(WebACLFieldIdentifierPtrOutput)
+}
+
+func (o WebACLRequestInspectionPtrOutput) PayloadType() WebACLRequestInspectionPayloadTypePtrOutput {
+	return o.ApplyT(func(v *WebACLRequestInspection) *WebACLRequestInspectionPayloadType {
+		if v == nil {
+			return nil
+		}
+		return &v.PayloadType
+	}).(WebACLRequestInspectionPayloadTypePtrOutput)
+}
+
+func (o WebACLRequestInspectionPtrOutput) UsernameField() WebACLFieldIdentifierPtrOutput {
+	return o.ApplyT(func(v *WebACLRequestInspection) *WebACLFieldIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.UsernameField
+	}).(WebACLFieldIdentifierPtrOutput)
+}
+
+// Configures the inspection of login responses
+type WebACLResponseInspection struct {
+	BodyContains *WebACLResponseInspectionBodyContains `pulumi:"bodyContains"`
+	Header       *WebACLResponseInspectionHeader       `pulumi:"header"`
+	Json         *WebACLResponseInspectionJson         `pulumi:"json"`
+	StatusCode   *WebACLResponseInspectionStatusCode   `pulumi:"statusCode"`
+}
+
+// WebACLResponseInspectionInput is an input type that accepts WebACLResponseInspectionArgs and WebACLResponseInspectionOutput values.
+// You can construct a concrete instance of `WebACLResponseInspectionInput` via:
+//
+//	WebACLResponseInspectionArgs{...}
+type WebACLResponseInspectionInput interface {
+	pulumi.Input
+
+	ToWebACLResponseInspectionOutput() WebACLResponseInspectionOutput
+	ToWebACLResponseInspectionOutputWithContext(context.Context) WebACLResponseInspectionOutput
+}
+
+// Configures the inspection of login responses
+type WebACLResponseInspectionArgs struct {
+	BodyContains WebACLResponseInspectionBodyContainsPtrInput `pulumi:"bodyContains"`
+	Header       WebACLResponseInspectionHeaderPtrInput       `pulumi:"header"`
+	Json         WebACLResponseInspectionJsonPtrInput         `pulumi:"json"`
+	StatusCode   WebACLResponseInspectionStatusCodePtrInput   `pulumi:"statusCode"`
+}
+
+func (WebACLResponseInspectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLResponseInspection)(nil)).Elem()
+}
+
+func (i WebACLResponseInspectionArgs) ToWebACLResponseInspectionOutput() WebACLResponseInspectionOutput {
+	return i.ToWebACLResponseInspectionOutputWithContext(context.Background())
+}
+
+func (i WebACLResponseInspectionArgs) ToWebACLResponseInspectionOutputWithContext(ctx context.Context) WebACLResponseInspectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionOutput)
+}
+
+func (i WebACLResponseInspectionArgs) ToWebACLResponseInspectionPtrOutput() WebACLResponseInspectionPtrOutput {
+	return i.ToWebACLResponseInspectionPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLResponseInspectionArgs) ToWebACLResponseInspectionPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionOutput).ToWebACLResponseInspectionPtrOutputWithContext(ctx)
+}
+
+// WebACLResponseInspectionPtrInput is an input type that accepts WebACLResponseInspectionArgs, WebACLResponseInspectionPtr and WebACLResponseInspectionPtrOutput values.
+// You can construct a concrete instance of `WebACLResponseInspectionPtrInput` via:
+//
+//	        WebACLResponseInspectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLResponseInspectionPtrInput interface {
+	pulumi.Input
+
+	ToWebACLResponseInspectionPtrOutput() WebACLResponseInspectionPtrOutput
+	ToWebACLResponseInspectionPtrOutputWithContext(context.Context) WebACLResponseInspectionPtrOutput
+}
+
+type webACLResponseInspectionPtrType WebACLResponseInspectionArgs
+
+func WebACLResponseInspectionPtr(v *WebACLResponseInspectionArgs) WebACLResponseInspectionPtrInput {
+	return (*webACLResponseInspectionPtrType)(v)
+}
+
+func (*webACLResponseInspectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLResponseInspection)(nil)).Elem()
+}
+
+func (i *webACLResponseInspectionPtrType) ToWebACLResponseInspectionPtrOutput() WebACLResponseInspectionPtrOutput {
+	return i.ToWebACLResponseInspectionPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLResponseInspectionPtrType) ToWebACLResponseInspectionPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionPtrOutput)
+}
+
+// Configures the inspection of login responses
+type WebACLResponseInspectionOutput struct{ *pulumi.OutputState }
+
+func (WebACLResponseInspectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLResponseInspection)(nil)).Elem()
+}
+
+func (o WebACLResponseInspectionOutput) ToWebACLResponseInspectionOutput() WebACLResponseInspectionOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionOutput) ToWebACLResponseInspectionOutputWithContext(ctx context.Context) WebACLResponseInspectionOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionOutput) ToWebACLResponseInspectionPtrOutput() WebACLResponseInspectionPtrOutput {
+	return o.ToWebACLResponseInspectionPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLResponseInspectionOutput) ToWebACLResponseInspectionPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLResponseInspection) *WebACLResponseInspection {
+		return &v
+	}).(WebACLResponseInspectionPtrOutput)
+}
+
+func (o WebACLResponseInspectionOutput) BodyContains() WebACLResponseInspectionBodyContainsPtrOutput {
+	return o.ApplyT(func(v WebACLResponseInspection) *WebACLResponseInspectionBodyContains { return v.BodyContains }).(WebACLResponseInspectionBodyContainsPtrOutput)
+}
+
+func (o WebACLResponseInspectionOutput) Header() WebACLResponseInspectionHeaderPtrOutput {
+	return o.ApplyT(func(v WebACLResponseInspection) *WebACLResponseInspectionHeader { return v.Header }).(WebACLResponseInspectionHeaderPtrOutput)
+}
+
+func (o WebACLResponseInspectionOutput) Json() WebACLResponseInspectionJsonPtrOutput {
+	return o.ApplyT(func(v WebACLResponseInspection) *WebACLResponseInspectionJson { return v.Json }).(WebACLResponseInspectionJsonPtrOutput)
+}
+
+func (o WebACLResponseInspectionOutput) StatusCode() WebACLResponseInspectionStatusCodePtrOutput {
+	return o.ApplyT(func(v WebACLResponseInspection) *WebACLResponseInspectionStatusCode { return v.StatusCode }).(WebACLResponseInspectionStatusCodePtrOutput)
+}
+
+type WebACLResponseInspectionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLResponseInspectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLResponseInspection)(nil)).Elem()
+}
+
+func (o WebACLResponseInspectionPtrOutput) ToWebACLResponseInspectionPtrOutput() WebACLResponseInspectionPtrOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionPtrOutput) ToWebACLResponseInspectionPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionPtrOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionPtrOutput) Elem() WebACLResponseInspectionOutput {
+	return o.ApplyT(func(v *WebACLResponseInspection) WebACLResponseInspection {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLResponseInspection
+		return ret
+	}).(WebACLResponseInspectionOutput)
+}
+
+func (o WebACLResponseInspectionPtrOutput) BodyContains() WebACLResponseInspectionBodyContainsPtrOutput {
+	return o.ApplyT(func(v *WebACLResponseInspection) *WebACLResponseInspectionBodyContains {
+		if v == nil {
+			return nil
+		}
+		return v.BodyContains
+	}).(WebACLResponseInspectionBodyContainsPtrOutput)
+}
+
+func (o WebACLResponseInspectionPtrOutput) Header() WebACLResponseInspectionHeaderPtrOutput {
+	return o.ApplyT(func(v *WebACLResponseInspection) *WebACLResponseInspectionHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(WebACLResponseInspectionHeaderPtrOutput)
+}
+
+func (o WebACLResponseInspectionPtrOutput) Json() WebACLResponseInspectionJsonPtrOutput {
+	return o.ApplyT(func(v *WebACLResponseInspection) *WebACLResponseInspectionJson {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(WebACLResponseInspectionJsonPtrOutput)
+}
+
+func (o WebACLResponseInspectionPtrOutput) StatusCode() WebACLResponseInspectionStatusCodePtrOutput {
+	return o.ApplyT(func(v *WebACLResponseInspection) *WebACLResponseInspectionStatusCode {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCode
+	}).(WebACLResponseInspectionStatusCodePtrOutput)
+}
+
+// Response body contents that indicate success or failure of a login request
+type WebACLResponseInspectionBodyContains struct {
+	FailureStrings []string `pulumi:"failureStrings"`
+	SuccessStrings []string `pulumi:"successStrings"`
+}
+
+// WebACLResponseInspectionBodyContainsInput is an input type that accepts WebACLResponseInspectionBodyContainsArgs and WebACLResponseInspectionBodyContainsOutput values.
+// You can construct a concrete instance of `WebACLResponseInspectionBodyContainsInput` via:
+//
+//	WebACLResponseInspectionBodyContainsArgs{...}
+type WebACLResponseInspectionBodyContainsInput interface {
+	pulumi.Input
+
+	ToWebACLResponseInspectionBodyContainsOutput() WebACLResponseInspectionBodyContainsOutput
+	ToWebACLResponseInspectionBodyContainsOutputWithContext(context.Context) WebACLResponseInspectionBodyContainsOutput
+}
+
+// Response body contents that indicate success or failure of a login request
+type WebACLResponseInspectionBodyContainsArgs struct {
+	FailureStrings pulumi.StringArrayInput `pulumi:"failureStrings"`
+	SuccessStrings pulumi.StringArrayInput `pulumi:"successStrings"`
+}
+
+func (WebACLResponseInspectionBodyContainsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLResponseInspectionBodyContains)(nil)).Elem()
+}
+
+func (i WebACLResponseInspectionBodyContainsArgs) ToWebACLResponseInspectionBodyContainsOutput() WebACLResponseInspectionBodyContainsOutput {
+	return i.ToWebACLResponseInspectionBodyContainsOutputWithContext(context.Background())
+}
+
+func (i WebACLResponseInspectionBodyContainsArgs) ToWebACLResponseInspectionBodyContainsOutputWithContext(ctx context.Context) WebACLResponseInspectionBodyContainsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionBodyContainsOutput)
+}
+
+func (i WebACLResponseInspectionBodyContainsArgs) ToWebACLResponseInspectionBodyContainsPtrOutput() WebACLResponseInspectionBodyContainsPtrOutput {
+	return i.ToWebACLResponseInspectionBodyContainsPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLResponseInspectionBodyContainsArgs) ToWebACLResponseInspectionBodyContainsPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionBodyContainsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionBodyContainsOutput).ToWebACLResponseInspectionBodyContainsPtrOutputWithContext(ctx)
+}
+
+// WebACLResponseInspectionBodyContainsPtrInput is an input type that accepts WebACLResponseInspectionBodyContainsArgs, WebACLResponseInspectionBodyContainsPtr and WebACLResponseInspectionBodyContainsPtrOutput values.
+// You can construct a concrete instance of `WebACLResponseInspectionBodyContainsPtrInput` via:
+//
+//	        WebACLResponseInspectionBodyContainsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLResponseInspectionBodyContainsPtrInput interface {
+	pulumi.Input
+
+	ToWebACLResponseInspectionBodyContainsPtrOutput() WebACLResponseInspectionBodyContainsPtrOutput
+	ToWebACLResponseInspectionBodyContainsPtrOutputWithContext(context.Context) WebACLResponseInspectionBodyContainsPtrOutput
+}
+
+type webACLResponseInspectionBodyContainsPtrType WebACLResponseInspectionBodyContainsArgs
+
+func WebACLResponseInspectionBodyContainsPtr(v *WebACLResponseInspectionBodyContainsArgs) WebACLResponseInspectionBodyContainsPtrInput {
+	return (*webACLResponseInspectionBodyContainsPtrType)(v)
+}
+
+func (*webACLResponseInspectionBodyContainsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLResponseInspectionBodyContains)(nil)).Elem()
+}
+
+func (i *webACLResponseInspectionBodyContainsPtrType) ToWebACLResponseInspectionBodyContainsPtrOutput() WebACLResponseInspectionBodyContainsPtrOutput {
+	return i.ToWebACLResponseInspectionBodyContainsPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLResponseInspectionBodyContainsPtrType) ToWebACLResponseInspectionBodyContainsPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionBodyContainsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionBodyContainsPtrOutput)
+}
+
+// Response body contents that indicate success or failure of a login request
+type WebACLResponseInspectionBodyContainsOutput struct{ *pulumi.OutputState }
+
+func (WebACLResponseInspectionBodyContainsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLResponseInspectionBodyContains)(nil)).Elem()
+}
+
+func (o WebACLResponseInspectionBodyContainsOutput) ToWebACLResponseInspectionBodyContainsOutput() WebACLResponseInspectionBodyContainsOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionBodyContainsOutput) ToWebACLResponseInspectionBodyContainsOutputWithContext(ctx context.Context) WebACLResponseInspectionBodyContainsOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionBodyContainsOutput) ToWebACLResponseInspectionBodyContainsPtrOutput() WebACLResponseInspectionBodyContainsPtrOutput {
+	return o.ToWebACLResponseInspectionBodyContainsPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLResponseInspectionBodyContainsOutput) ToWebACLResponseInspectionBodyContainsPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionBodyContainsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLResponseInspectionBodyContains) *WebACLResponseInspectionBodyContains {
+		return &v
+	}).(WebACLResponseInspectionBodyContainsPtrOutput)
+}
+
+func (o WebACLResponseInspectionBodyContainsOutput) FailureStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebACLResponseInspectionBodyContains) []string { return v.FailureStrings }).(pulumi.StringArrayOutput)
+}
+
+func (o WebACLResponseInspectionBodyContainsOutput) SuccessStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebACLResponseInspectionBodyContains) []string { return v.SuccessStrings }).(pulumi.StringArrayOutput)
+}
+
+type WebACLResponseInspectionBodyContainsPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLResponseInspectionBodyContainsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLResponseInspectionBodyContains)(nil)).Elem()
+}
+
+func (o WebACLResponseInspectionBodyContainsPtrOutput) ToWebACLResponseInspectionBodyContainsPtrOutput() WebACLResponseInspectionBodyContainsPtrOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionBodyContainsPtrOutput) ToWebACLResponseInspectionBodyContainsPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionBodyContainsPtrOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionBodyContainsPtrOutput) Elem() WebACLResponseInspectionBodyContainsOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionBodyContains) WebACLResponseInspectionBodyContains {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLResponseInspectionBodyContains
+		return ret
+	}).(WebACLResponseInspectionBodyContainsOutput)
+}
+
+func (o WebACLResponseInspectionBodyContainsPtrOutput) FailureStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionBodyContains) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FailureStrings
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WebACLResponseInspectionBodyContainsPtrOutput) SuccessStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionBodyContains) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessStrings
+	}).(pulumi.StringArrayOutput)
+}
+
+// Response headers that indicate success or failure of a login request
+type WebACLResponseInspectionHeader struct {
+	FailureValues []string `pulumi:"failureValues"`
+	Name          string   `pulumi:"name"`
+	SuccessValues []string `pulumi:"successValues"`
+}
+
+// WebACLResponseInspectionHeaderInput is an input type that accepts WebACLResponseInspectionHeaderArgs and WebACLResponseInspectionHeaderOutput values.
+// You can construct a concrete instance of `WebACLResponseInspectionHeaderInput` via:
+//
+//	WebACLResponseInspectionHeaderArgs{...}
+type WebACLResponseInspectionHeaderInput interface {
+	pulumi.Input
+
+	ToWebACLResponseInspectionHeaderOutput() WebACLResponseInspectionHeaderOutput
+	ToWebACLResponseInspectionHeaderOutputWithContext(context.Context) WebACLResponseInspectionHeaderOutput
+}
+
+// Response headers that indicate success or failure of a login request
+type WebACLResponseInspectionHeaderArgs struct {
+	FailureValues pulumi.StringArrayInput `pulumi:"failureValues"`
+	Name          pulumi.StringInput      `pulumi:"name"`
+	SuccessValues pulumi.StringArrayInput `pulumi:"successValues"`
+}
+
+func (WebACLResponseInspectionHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLResponseInspectionHeader)(nil)).Elem()
+}
+
+func (i WebACLResponseInspectionHeaderArgs) ToWebACLResponseInspectionHeaderOutput() WebACLResponseInspectionHeaderOutput {
+	return i.ToWebACLResponseInspectionHeaderOutputWithContext(context.Background())
+}
+
+func (i WebACLResponseInspectionHeaderArgs) ToWebACLResponseInspectionHeaderOutputWithContext(ctx context.Context) WebACLResponseInspectionHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionHeaderOutput)
+}
+
+func (i WebACLResponseInspectionHeaderArgs) ToWebACLResponseInspectionHeaderPtrOutput() WebACLResponseInspectionHeaderPtrOutput {
+	return i.ToWebACLResponseInspectionHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLResponseInspectionHeaderArgs) ToWebACLResponseInspectionHeaderPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionHeaderOutput).ToWebACLResponseInspectionHeaderPtrOutputWithContext(ctx)
+}
+
+// WebACLResponseInspectionHeaderPtrInput is an input type that accepts WebACLResponseInspectionHeaderArgs, WebACLResponseInspectionHeaderPtr and WebACLResponseInspectionHeaderPtrOutput values.
+// You can construct a concrete instance of `WebACLResponseInspectionHeaderPtrInput` via:
+//
+//	        WebACLResponseInspectionHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLResponseInspectionHeaderPtrInput interface {
+	pulumi.Input
+
+	ToWebACLResponseInspectionHeaderPtrOutput() WebACLResponseInspectionHeaderPtrOutput
+	ToWebACLResponseInspectionHeaderPtrOutputWithContext(context.Context) WebACLResponseInspectionHeaderPtrOutput
+}
+
+type webACLResponseInspectionHeaderPtrType WebACLResponseInspectionHeaderArgs
+
+func WebACLResponseInspectionHeaderPtr(v *WebACLResponseInspectionHeaderArgs) WebACLResponseInspectionHeaderPtrInput {
+	return (*webACLResponseInspectionHeaderPtrType)(v)
+}
+
+func (*webACLResponseInspectionHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLResponseInspectionHeader)(nil)).Elem()
+}
+
+func (i *webACLResponseInspectionHeaderPtrType) ToWebACLResponseInspectionHeaderPtrOutput() WebACLResponseInspectionHeaderPtrOutput {
+	return i.ToWebACLResponseInspectionHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLResponseInspectionHeaderPtrType) ToWebACLResponseInspectionHeaderPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionHeaderPtrOutput)
+}
+
+// Response headers that indicate success or failure of a login request
+type WebACLResponseInspectionHeaderOutput struct{ *pulumi.OutputState }
+
+func (WebACLResponseInspectionHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLResponseInspectionHeader)(nil)).Elem()
+}
+
+func (o WebACLResponseInspectionHeaderOutput) ToWebACLResponseInspectionHeaderOutput() WebACLResponseInspectionHeaderOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionHeaderOutput) ToWebACLResponseInspectionHeaderOutputWithContext(ctx context.Context) WebACLResponseInspectionHeaderOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionHeaderOutput) ToWebACLResponseInspectionHeaderPtrOutput() WebACLResponseInspectionHeaderPtrOutput {
+	return o.ToWebACLResponseInspectionHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLResponseInspectionHeaderOutput) ToWebACLResponseInspectionHeaderPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLResponseInspectionHeader) *WebACLResponseInspectionHeader {
+		return &v
+	}).(WebACLResponseInspectionHeaderPtrOutput)
+}
+
+func (o WebACLResponseInspectionHeaderOutput) FailureValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebACLResponseInspectionHeader) []string { return v.FailureValues }).(pulumi.StringArrayOutput)
+}
+
+func (o WebACLResponseInspectionHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLResponseInspectionHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WebACLResponseInspectionHeaderOutput) SuccessValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebACLResponseInspectionHeader) []string { return v.SuccessValues }).(pulumi.StringArrayOutput)
+}
+
+type WebACLResponseInspectionHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLResponseInspectionHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLResponseInspectionHeader)(nil)).Elem()
+}
+
+func (o WebACLResponseInspectionHeaderPtrOutput) ToWebACLResponseInspectionHeaderPtrOutput() WebACLResponseInspectionHeaderPtrOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionHeaderPtrOutput) ToWebACLResponseInspectionHeaderPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionHeaderPtrOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionHeaderPtrOutput) Elem() WebACLResponseInspectionHeaderOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionHeader) WebACLResponseInspectionHeader {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLResponseInspectionHeader
+		return ret
+	}).(WebACLResponseInspectionHeaderOutput)
+}
+
+func (o WebACLResponseInspectionHeaderPtrOutput) FailureValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FailureValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WebACLResponseInspectionHeaderPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLResponseInspectionHeaderPtrOutput) SuccessValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// Response JSON that indicate success or failure of a login request
+type WebACLResponseInspectionJson struct {
+	FailureValues []string `pulumi:"failureValues"`
+	Identifier    string   `pulumi:"identifier"`
+	SuccessValues []string `pulumi:"successValues"`
+}
+
+// WebACLResponseInspectionJsonInput is an input type that accepts WebACLResponseInspectionJsonArgs and WebACLResponseInspectionJsonOutput values.
+// You can construct a concrete instance of `WebACLResponseInspectionJsonInput` via:
+//
+//	WebACLResponseInspectionJsonArgs{...}
+type WebACLResponseInspectionJsonInput interface {
+	pulumi.Input
+
+	ToWebACLResponseInspectionJsonOutput() WebACLResponseInspectionJsonOutput
+	ToWebACLResponseInspectionJsonOutputWithContext(context.Context) WebACLResponseInspectionJsonOutput
+}
+
+// Response JSON that indicate success or failure of a login request
+type WebACLResponseInspectionJsonArgs struct {
+	FailureValues pulumi.StringArrayInput `pulumi:"failureValues"`
+	Identifier    pulumi.StringInput      `pulumi:"identifier"`
+	SuccessValues pulumi.StringArrayInput `pulumi:"successValues"`
+}
+
+func (WebACLResponseInspectionJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLResponseInspectionJson)(nil)).Elem()
+}
+
+func (i WebACLResponseInspectionJsonArgs) ToWebACLResponseInspectionJsonOutput() WebACLResponseInspectionJsonOutput {
+	return i.ToWebACLResponseInspectionJsonOutputWithContext(context.Background())
+}
+
+func (i WebACLResponseInspectionJsonArgs) ToWebACLResponseInspectionJsonOutputWithContext(ctx context.Context) WebACLResponseInspectionJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionJsonOutput)
+}
+
+func (i WebACLResponseInspectionJsonArgs) ToWebACLResponseInspectionJsonPtrOutput() WebACLResponseInspectionJsonPtrOutput {
+	return i.ToWebACLResponseInspectionJsonPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLResponseInspectionJsonArgs) ToWebACLResponseInspectionJsonPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionJsonOutput).ToWebACLResponseInspectionJsonPtrOutputWithContext(ctx)
+}
+
+// WebACLResponseInspectionJsonPtrInput is an input type that accepts WebACLResponseInspectionJsonArgs, WebACLResponseInspectionJsonPtr and WebACLResponseInspectionJsonPtrOutput values.
+// You can construct a concrete instance of `WebACLResponseInspectionJsonPtrInput` via:
+//
+//	        WebACLResponseInspectionJsonArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLResponseInspectionJsonPtrInput interface {
+	pulumi.Input
+
+	ToWebACLResponseInspectionJsonPtrOutput() WebACLResponseInspectionJsonPtrOutput
+	ToWebACLResponseInspectionJsonPtrOutputWithContext(context.Context) WebACLResponseInspectionJsonPtrOutput
+}
+
+type webACLResponseInspectionJsonPtrType WebACLResponseInspectionJsonArgs
+
+func WebACLResponseInspectionJsonPtr(v *WebACLResponseInspectionJsonArgs) WebACLResponseInspectionJsonPtrInput {
+	return (*webACLResponseInspectionJsonPtrType)(v)
+}
+
+func (*webACLResponseInspectionJsonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLResponseInspectionJson)(nil)).Elem()
+}
+
+func (i *webACLResponseInspectionJsonPtrType) ToWebACLResponseInspectionJsonPtrOutput() WebACLResponseInspectionJsonPtrOutput {
+	return i.ToWebACLResponseInspectionJsonPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLResponseInspectionJsonPtrType) ToWebACLResponseInspectionJsonPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionJsonPtrOutput)
+}
+
+// Response JSON that indicate success or failure of a login request
+type WebACLResponseInspectionJsonOutput struct{ *pulumi.OutputState }
+
+func (WebACLResponseInspectionJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLResponseInspectionJson)(nil)).Elem()
+}
+
+func (o WebACLResponseInspectionJsonOutput) ToWebACLResponseInspectionJsonOutput() WebACLResponseInspectionJsonOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionJsonOutput) ToWebACLResponseInspectionJsonOutputWithContext(ctx context.Context) WebACLResponseInspectionJsonOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionJsonOutput) ToWebACLResponseInspectionJsonPtrOutput() WebACLResponseInspectionJsonPtrOutput {
+	return o.ToWebACLResponseInspectionJsonPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLResponseInspectionJsonOutput) ToWebACLResponseInspectionJsonPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionJsonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLResponseInspectionJson) *WebACLResponseInspectionJson {
+		return &v
+	}).(WebACLResponseInspectionJsonPtrOutput)
+}
+
+func (o WebACLResponseInspectionJsonOutput) FailureValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebACLResponseInspectionJson) []string { return v.FailureValues }).(pulumi.StringArrayOutput)
+}
+
+func (o WebACLResponseInspectionJsonOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLResponseInspectionJson) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+func (o WebACLResponseInspectionJsonOutput) SuccessValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebACLResponseInspectionJson) []string { return v.SuccessValues }).(pulumi.StringArrayOutput)
+}
+
+type WebACLResponseInspectionJsonPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLResponseInspectionJsonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLResponseInspectionJson)(nil)).Elem()
+}
+
+func (o WebACLResponseInspectionJsonPtrOutput) ToWebACLResponseInspectionJsonPtrOutput() WebACLResponseInspectionJsonPtrOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionJsonPtrOutput) ToWebACLResponseInspectionJsonPtrOutputWithContext(ctx context.Context) WebACLResponseInspectionJsonPtrOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionJsonPtrOutput) Elem() WebACLResponseInspectionJsonOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionJson) WebACLResponseInspectionJson {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLResponseInspectionJson
+		return ret
+	}).(WebACLResponseInspectionJsonOutput)
+}
+
+func (o WebACLResponseInspectionJsonPtrOutput) FailureValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionJson) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FailureValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WebACLResponseInspectionJsonPtrOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionJson) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Identifier
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLResponseInspectionJsonPtrOutput) SuccessValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionJson) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// Response status codes that indicate success or failure of a login request
+type WebACLResponseInspectionStatusCode struct {
+	FailureCodes []int `pulumi:"failureCodes"`
+	SuccessCodes []int `pulumi:"successCodes"`
+}
+
+// WebACLResponseInspectionStatusCodeInput is an input type that accepts WebACLResponseInspectionStatusCodeArgs and WebACLResponseInspectionStatusCodeOutput values.
+// You can construct a concrete instance of `WebACLResponseInspectionStatusCodeInput` via:
+//
+//	WebACLResponseInspectionStatusCodeArgs{...}
+type WebACLResponseInspectionStatusCodeInput interface {
+	pulumi.Input
+
+	ToWebACLResponseInspectionStatusCodeOutput() WebACLResponseInspectionStatusCodeOutput
+	ToWebACLResponseInspectionStatusCodeOutputWithContext(context.Context) WebACLResponseInspectionStatusCodeOutput
+}
+
+// Response status codes that indicate success or failure of a login request
+type WebACLResponseInspectionStatusCodeArgs struct {
+	FailureCodes pulumi.IntArrayInput `pulumi:"failureCodes"`
+	SuccessCodes pulumi.IntArrayInput `pulumi:"successCodes"`
+}
+
+func (WebACLResponseInspectionStatusCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLResponseInspectionStatusCode)(nil)).Elem()
+}
+
+func (i WebACLResponseInspectionStatusCodeArgs) ToWebACLResponseInspectionStatusCodeOutput() WebACLResponseInspectionStatusCodeOutput {
+	return i.ToWebACLResponseInspectionStatusCodeOutputWithContext(context.Background())
+}
+
+func (i WebACLResponseInspectionStatusCodeArgs) ToWebACLResponseInspectionStatusCodeOutputWithContext(ctx context.Context) WebACLResponseInspectionStatusCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionStatusCodeOutput)
+}
+
+func (i WebACLResponseInspectionStatusCodeArgs) ToWebACLResponseInspectionStatusCodePtrOutput() WebACLResponseInspectionStatusCodePtrOutput {
+	return i.ToWebACLResponseInspectionStatusCodePtrOutputWithContext(context.Background())
+}
+
+func (i WebACLResponseInspectionStatusCodeArgs) ToWebACLResponseInspectionStatusCodePtrOutputWithContext(ctx context.Context) WebACLResponseInspectionStatusCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionStatusCodeOutput).ToWebACLResponseInspectionStatusCodePtrOutputWithContext(ctx)
+}
+
+// WebACLResponseInspectionStatusCodePtrInput is an input type that accepts WebACLResponseInspectionStatusCodeArgs, WebACLResponseInspectionStatusCodePtr and WebACLResponseInspectionStatusCodePtrOutput values.
+// You can construct a concrete instance of `WebACLResponseInspectionStatusCodePtrInput` via:
+//
+//	        WebACLResponseInspectionStatusCodeArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLResponseInspectionStatusCodePtrInput interface {
+	pulumi.Input
+
+	ToWebACLResponseInspectionStatusCodePtrOutput() WebACLResponseInspectionStatusCodePtrOutput
+	ToWebACLResponseInspectionStatusCodePtrOutputWithContext(context.Context) WebACLResponseInspectionStatusCodePtrOutput
+}
+
+type webACLResponseInspectionStatusCodePtrType WebACLResponseInspectionStatusCodeArgs
+
+func WebACLResponseInspectionStatusCodePtr(v *WebACLResponseInspectionStatusCodeArgs) WebACLResponseInspectionStatusCodePtrInput {
+	return (*webACLResponseInspectionStatusCodePtrType)(v)
+}
+
+func (*webACLResponseInspectionStatusCodePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLResponseInspectionStatusCode)(nil)).Elem()
+}
+
+func (i *webACLResponseInspectionStatusCodePtrType) ToWebACLResponseInspectionStatusCodePtrOutput() WebACLResponseInspectionStatusCodePtrOutput {
+	return i.ToWebACLResponseInspectionStatusCodePtrOutputWithContext(context.Background())
+}
+
+func (i *webACLResponseInspectionStatusCodePtrType) ToWebACLResponseInspectionStatusCodePtrOutputWithContext(ctx context.Context) WebACLResponseInspectionStatusCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLResponseInspectionStatusCodePtrOutput)
+}
+
+// Response status codes that indicate success or failure of a login request
+type WebACLResponseInspectionStatusCodeOutput struct{ *pulumi.OutputState }
+
+func (WebACLResponseInspectionStatusCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLResponseInspectionStatusCode)(nil)).Elem()
+}
+
+func (o WebACLResponseInspectionStatusCodeOutput) ToWebACLResponseInspectionStatusCodeOutput() WebACLResponseInspectionStatusCodeOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionStatusCodeOutput) ToWebACLResponseInspectionStatusCodeOutputWithContext(ctx context.Context) WebACLResponseInspectionStatusCodeOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionStatusCodeOutput) ToWebACLResponseInspectionStatusCodePtrOutput() WebACLResponseInspectionStatusCodePtrOutput {
+	return o.ToWebACLResponseInspectionStatusCodePtrOutputWithContext(context.Background())
+}
+
+func (o WebACLResponseInspectionStatusCodeOutput) ToWebACLResponseInspectionStatusCodePtrOutputWithContext(ctx context.Context) WebACLResponseInspectionStatusCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLResponseInspectionStatusCode) *WebACLResponseInspectionStatusCode {
+		return &v
+	}).(WebACLResponseInspectionStatusCodePtrOutput)
+}
+
+func (o WebACLResponseInspectionStatusCodeOutput) FailureCodes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v WebACLResponseInspectionStatusCode) []int { return v.FailureCodes }).(pulumi.IntArrayOutput)
+}
+
+func (o WebACLResponseInspectionStatusCodeOutput) SuccessCodes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v WebACLResponseInspectionStatusCode) []int { return v.SuccessCodes }).(pulumi.IntArrayOutput)
+}
+
+type WebACLResponseInspectionStatusCodePtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLResponseInspectionStatusCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLResponseInspectionStatusCode)(nil)).Elem()
+}
+
+func (o WebACLResponseInspectionStatusCodePtrOutput) ToWebACLResponseInspectionStatusCodePtrOutput() WebACLResponseInspectionStatusCodePtrOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionStatusCodePtrOutput) ToWebACLResponseInspectionStatusCodePtrOutputWithContext(ctx context.Context) WebACLResponseInspectionStatusCodePtrOutput {
+	return o
+}
+
+func (o WebACLResponseInspectionStatusCodePtrOutput) Elem() WebACLResponseInspectionStatusCodeOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionStatusCode) WebACLResponseInspectionStatusCode {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLResponseInspectionStatusCode
+		return ret
+	}).(WebACLResponseInspectionStatusCodeOutput)
+}
+
+func (o WebACLResponseInspectionStatusCodePtrOutput) FailureCodes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionStatusCode) []int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureCodes
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o WebACLResponseInspectionStatusCodePtrOutput) SuccessCodes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *WebACLResponseInspectionStatusCode) []int {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessCodes
+	}).(pulumi.IntArrayOutput)
 }
 
 // Rule of WebACL that contains condition and action.
@@ -16603,6 +17758,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupVisibilityConfigInput)(nil)).Elem(), RuleGroupVisibilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupXssMatchStatementInput)(nil)).Elem(), RuleGroupXssMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupXssMatchStatementPtrInput)(nil)).Elem(), RuleGroupXssMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesATPRuleSetInput)(nil)).Elem(), WebACLAWSManagedRulesATPRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesATPRuleSetPtrInput)(nil)).Elem(), WebACLAWSManagedRulesATPRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetPtrInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAllowActionInput)(nil)).Elem(), WebACLAllowActionArgs{})
@@ -16686,6 +17843,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRegexMatchStatementPtrInput)(nil)).Elem(), WebACLRegexMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRegexPatternSetReferenceStatementInput)(nil)).Elem(), WebACLRegexPatternSetReferenceStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRegexPatternSetReferenceStatementPtrInput)(nil)).Elem(), WebACLRegexPatternSetReferenceStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionInput)(nil)).Elem(), WebACLRequestInspectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionPtrInput)(nil)).Elem(), WebACLRequestInspectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionInput)(nil)).Elem(), WebACLResponseInspectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionPtrInput)(nil)).Elem(), WebACLResponseInspectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionBodyContainsInput)(nil)).Elem(), WebACLResponseInspectionBodyContainsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionBodyContainsPtrInput)(nil)).Elem(), WebACLResponseInspectionBodyContainsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionHeaderInput)(nil)).Elem(), WebACLResponseInspectionHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionHeaderPtrInput)(nil)).Elem(), WebACLResponseInspectionHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionJsonInput)(nil)).Elem(), WebACLResponseInspectionJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionJsonPtrInput)(nil)).Elem(), WebACLResponseInspectionJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionStatusCodeInput)(nil)).Elem(), WebACLResponseInspectionStatusCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionStatusCodePtrInput)(nil)).Elem(), WebACLResponseInspectionStatusCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRuleInput)(nil)).Elem(), WebACLRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRuleArrayInput)(nil)).Elem(), WebACLRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRuleActionInput)(nil)).Elem(), WebACLRuleActionArgs{})
@@ -16821,6 +17990,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupVisibilityConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLAWSManagedRulesATPRuleSetOutput{})
+	pulumi.RegisterOutputType(WebACLAWSManagedRulesATPRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetOutput{})
 	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(WebACLAllowActionOutput{})
@@ -16905,6 +18076,18 @@ func init() {
 	pulumi.RegisterOutputType(WebACLRegexMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRegexPatternSetReferenceStatementOutput{})
 	pulumi.RegisterOutputType(WebACLRegexPatternSetReferenceStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRequestInspectionOutput{})
+	pulumi.RegisterOutputType(WebACLRequestInspectionPtrOutput{})
+	pulumi.RegisterOutputType(WebACLResponseInspectionOutput{})
+	pulumi.RegisterOutputType(WebACLResponseInspectionPtrOutput{})
+	pulumi.RegisterOutputType(WebACLResponseInspectionBodyContainsOutput{})
+	pulumi.RegisterOutputType(WebACLResponseInspectionBodyContainsPtrOutput{})
+	pulumi.RegisterOutputType(WebACLResponseInspectionHeaderOutput{})
+	pulumi.RegisterOutputType(WebACLResponseInspectionHeaderPtrOutput{})
+	pulumi.RegisterOutputType(WebACLResponseInspectionJsonOutput{})
+	pulumi.RegisterOutputType(WebACLResponseInspectionJsonPtrOutput{})
+	pulumi.RegisterOutputType(WebACLResponseInspectionStatusCodeOutput{})
+	pulumi.RegisterOutputType(WebACLResponseInspectionStatusCodePtrOutput{})
 	pulumi.RegisterOutputType(WebACLRuleOutput{})
 	pulumi.RegisterOutputType(WebACLRuleArrayOutput{})
 	pulumi.RegisterOutputType(WebACLRuleActionOutput{})

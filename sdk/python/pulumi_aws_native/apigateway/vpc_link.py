@@ -22,6 +22,10 @@ class VpcLinkArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcLinkTagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcLink resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+        :param pulumi.Input[str] description: A description of the VPC link.
+        :param pulumi.Input[str] name: A name for the VPC link.
+        :param pulumi.Input[Sequence[pulumi.Input['VpcLinkTagArgs']]] tags: An array of arbitrary tags (key-value pairs) to associate with the stage.
         """
         pulumi.set(__self__, "target_arns", target_arns)
         if description is not None:
@@ -34,6 +38,9 @@ class VpcLinkArgs:
     @property
     @pulumi.getter(name="targetArns")
     def target_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+        """
         return pulumi.get(self, "target_arns")
 
     @target_arns.setter
@@ -43,6 +50,9 @@ class VpcLinkArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the VPC link.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -52,6 +62,9 @@ class VpcLinkArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the VPC link.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -61,6 +74,9 @@ class VpcLinkArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcLinkTagArgs']]]]:
+        """
+        An array of arbitrary tags (key-value pairs) to associate with the stage.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -68,12 +84,7 @@ class VpcLinkArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class VpcLink(pulumi.CustomResource):
-    warnings.warn("""VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -84,10 +95,14 @@ class VpcLink(pulumi.CustomResource):
                  target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::VpcLink
+        Schema for AWS ApiGateway VpcLink
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the VPC link.
+        :param pulumi.Input[str] name: A name for the VPC link.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcLinkTagArgs']]]] tags: An array of arbitrary tags (key-value pairs) to associate with the stage.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
         """
         ...
     @overload
@@ -96,7 +111,7 @@ class VpcLink(pulumi.CustomResource):
                  args: VpcLinkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::VpcLink
+        Schema for AWS ApiGateway VpcLink
 
         :param str resource_name: The name of the resource.
         :param VpcLinkArgs args: The arguments to use to populate this resource's properties.
@@ -118,7 +133,6 @@ class VpcLink(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcLinkTagArgs']]]]] = None,
                  target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""VpcLink is deprecated: VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -133,6 +147,7 @@ class VpcLink(pulumi.CustomResource):
             if target_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'target_arns'")
             __props__.__dict__["target_arns"] = target_arns
+            __props__.__dict__["vpc_link_id"] = None
         super(VpcLink, __self__).__init__(
             'aws-native:apigateway:VpcLink',
             resource_name,
@@ -159,25 +174,46 @@ class VpcLink(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_arns"] = None
+        __props__.__dict__["vpc_link_id"] = None
         return VpcLink(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the VPC link.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A name for the VPC link.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VpcLinkTag']]]:
+        """
+        An array of arbitrary tags (key-value pairs) to associate with the stage.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetArns")
     def target_arns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+        """
         return pulumi.get(self, "target_arns")
+
+    @property
+    @pulumi.getter(name="vpcLinkId")
+    def vpc_link_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the instance that backs VPC link.
+        """
+        return pulumi.get(self, "vpc_link_id")
 

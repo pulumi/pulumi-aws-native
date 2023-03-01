@@ -23,6 +23,8 @@ type EventSourceMapping struct {
 	BisectBatchOnFunctionError pulumi.BoolPtrOutput `pulumi:"bisectBatchOnFunctionError"`
 	// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	DestinationConfig EventSourceMappingDestinationConfigPtrOutput `pulumi:"destinationConfig"`
+	// Document db event source config.
+	DocumentDBEventSourceConfig EventSourceMappingDocumentDBEventSourceConfigPtrOutput `pulumi:"documentDBEventSourceConfig"`
 	// Disables the event source mapping to pause polling and invocation.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
@@ -111,6 +113,8 @@ type eventSourceMappingArgs struct {
 	BisectBatchOnFunctionError *bool `pulumi:"bisectBatchOnFunctionError"`
 	// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
+	// Document db event source config.
+	DocumentDBEventSourceConfig *EventSourceMappingDocumentDBEventSourceConfig `pulumi:"documentDBEventSourceConfig"`
 	// Disables the event source mapping to pause polling and invocation.
 	Enabled *bool `pulumi:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
@@ -159,6 +163,8 @@ type EventSourceMappingArgs struct {
 	BisectBatchOnFunctionError pulumi.BoolPtrInput
 	// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	DestinationConfig EventSourceMappingDestinationConfigPtrInput
+	// Document db event source config.
+	DocumentDBEventSourceConfig EventSourceMappingDocumentDBEventSourceConfigPtrInput
 	// Disables the event source mapping to pause polling and invocation.
 	Enabled pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the event source.
@@ -254,6 +260,13 @@ func (o EventSourceMappingOutput) BisectBatchOnFunctionError() pulumi.BoolPtrOut
 // (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 func (o EventSourceMappingOutput) DestinationConfig() EventSourceMappingDestinationConfigPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingDestinationConfigPtrOutput { return v.DestinationConfig }).(EventSourceMappingDestinationConfigPtrOutput)
+}
+
+// Document db event source config.
+func (o EventSourceMappingOutput) DocumentDBEventSourceConfig() EventSourceMappingDocumentDBEventSourceConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingDocumentDBEventSourceConfigPtrOutput {
+		return v.DocumentDBEventSourceConfig
+	}).(EventSourceMappingDocumentDBEventSourceConfigPtrOutput)
 }
 
 // Disables the event source mapping to pause polling and invocation.

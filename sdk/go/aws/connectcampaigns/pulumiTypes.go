@@ -10,6 +10,146 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The configuration used for answering machine detection during outbound calls
+type CampaignAnswerMachineDetectionConfig struct {
+	// Flag to decided whether outbound calls should have answering machine detection enabled or not
+	EnableAnswerMachineDetection bool `pulumi:"enableAnswerMachineDetection"`
+}
+
+// CampaignAnswerMachineDetectionConfigInput is an input type that accepts CampaignAnswerMachineDetectionConfigArgs and CampaignAnswerMachineDetectionConfigOutput values.
+// You can construct a concrete instance of `CampaignAnswerMachineDetectionConfigInput` via:
+//
+//	CampaignAnswerMachineDetectionConfigArgs{...}
+type CampaignAnswerMachineDetectionConfigInput interface {
+	pulumi.Input
+
+	ToCampaignAnswerMachineDetectionConfigOutput() CampaignAnswerMachineDetectionConfigOutput
+	ToCampaignAnswerMachineDetectionConfigOutputWithContext(context.Context) CampaignAnswerMachineDetectionConfigOutput
+}
+
+// The configuration used for answering machine detection during outbound calls
+type CampaignAnswerMachineDetectionConfigArgs struct {
+	// Flag to decided whether outbound calls should have answering machine detection enabled or not
+	EnableAnswerMachineDetection pulumi.BoolInput `pulumi:"enableAnswerMachineDetection"`
+}
+
+func (CampaignAnswerMachineDetectionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignAnswerMachineDetectionConfig)(nil)).Elem()
+}
+
+func (i CampaignAnswerMachineDetectionConfigArgs) ToCampaignAnswerMachineDetectionConfigOutput() CampaignAnswerMachineDetectionConfigOutput {
+	return i.ToCampaignAnswerMachineDetectionConfigOutputWithContext(context.Background())
+}
+
+func (i CampaignAnswerMachineDetectionConfigArgs) ToCampaignAnswerMachineDetectionConfigOutputWithContext(ctx context.Context) CampaignAnswerMachineDetectionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignAnswerMachineDetectionConfigOutput)
+}
+
+func (i CampaignAnswerMachineDetectionConfigArgs) ToCampaignAnswerMachineDetectionConfigPtrOutput() CampaignAnswerMachineDetectionConfigPtrOutput {
+	return i.ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignAnswerMachineDetectionConfigArgs) ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(ctx context.Context) CampaignAnswerMachineDetectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignAnswerMachineDetectionConfigOutput).ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(ctx)
+}
+
+// CampaignAnswerMachineDetectionConfigPtrInput is an input type that accepts CampaignAnswerMachineDetectionConfigArgs, CampaignAnswerMachineDetectionConfigPtr and CampaignAnswerMachineDetectionConfigPtrOutput values.
+// You can construct a concrete instance of `CampaignAnswerMachineDetectionConfigPtrInput` via:
+//
+//	        CampaignAnswerMachineDetectionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignAnswerMachineDetectionConfigPtrInput interface {
+	pulumi.Input
+
+	ToCampaignAnswerMachineDetectionConfigPtrOutput() CampaignAnswerMachineDetectionConfigPtrOutput
+	ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(context.Context) CampaignAnswerMachineDetectionConfigPtrOutput
+}
+
+type campaignAnswerMachineDetectionConfigPtrType CampaignAnswerMachineDetectionConfigArgs
+
+func CampaignAnswerMachineDetectionConfigPtr(v *CampaignAnswerMachineDetectionConfigArgs) CampaignAnswerMachineDetectionConfigPtrInput {
+	return (*campaignAnswerMachineDetectionConfigPtrType)(v)
+}
+
+func (*campaignAnswerMachineDetectionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignAnswerMachineDetectionConfig)(nil)).Elem()
+}
+
+func (i *campaignAnswerMachineDetectionConfigPtrType) ToCampaignAnswerMachineDetectionConfigPtrOutput() CampaignAnswerMachineDetectionConfigPtrOutput {
+	return i.ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignAnswerMachineDetectionConfigPtrType) ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(ctx context.Context) CampaignAnswerMachineDetectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignAnswerMachineDetectionConfigPtrOutput)
+}
+
+// The configuration used for answering machine detection during outbound calls
+type CampaignAnswerMachineDetectionConfigOutput struct{ *pulumi.OutputState }
+
+func (CampaignAnswerMachineDetectionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignAnswerMachineDetectionConfig)(nil)).Elem()
+}
+
+func (o CampaignAnswerMachineDetectionConfigOutput) ToCampaignAnswerMachineDetectionConfigOutput() CampaignAnswerMachineDetectionConfigOutput {
+	return o
+}
+
+func (o CampaignAnswerMachineDetectionConfigOutput) ToCampaignAnswerMachineDetectionConfigOutputWithContext(ctx context.Context) CampaignAnswerMachineDetectionConfigOutput {
+	return o
+}
+
+func (o CampaignAnswerMachineDetectionConfigOutput) ToCampaignAnswerMachineDetectionConfigPtrOutput() CampaignAnswerMachineDetectionConfigPtrOutput {
+	return o.ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignAnswerMachineDetectionConfigOutput) ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(ctx context.Context) CampaignAnswerMachineDetectionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignAnswerMachineDetectionConfig) *CampaignAnswerMachineDetectionConfig {
+		return &v
+	}).(CampaignAnswerMachineDetectionConfigPtrOutput)
+}
+
+// Flag to decided whether outbound calls should have answering machine detection enabled or not
+func (o CampaignAnswerMachineDetectionConfigOutput) EnableAnswerMachineDetection() pulumi.BoolOutput {
+	return o.ApplyT(func(v CampaignAnswerMachineDetectionConfig) bool { return v.EnableAnswerMachineDetection }).(pulumi.BoolOutput)
+}
+
+type CampaignAnswerMachineDetectionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignAnswerMachineDetectionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignAnswerMachineDetectionConfig)(nil)).Elem()
+}
+
+func (o CampaignAnswerMachineDetectionConfigPtrOutput) ToCampaignAnswerMachineDetectionConfigPtrOutput() CampaignAnswerMachineDetectionConfigPtrOutput {
+	return o
+}
+
+func (o CampaignAnswerMachineDetectionConfigPtrOutput) ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(ctx context.Context) CampaignAnswerMachineDetectionConfigPtrOutput {
+	return o
+}
+
+func (o CampaignAnswerMachineDetectionConfigPtrOutput) Elem() CampaignAnswerMachineDetectionConfigOutput {
+	return o.ApplyT(func(v *CampaignAnswerMachineDetectionConfig) CampaignAnswerMachineDetectionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignAnswerMachineDetectionConfig
+		return ret
+	}).(CampaignAnswerMachineDetectionConfigOutput)
+}
+
+// Flag to decided whether outbound calls should have answering machine detection enabled or not
+func (o CampaignAnswerMachineDetectionConfigPtrOutput) EnableAnswerMachineDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignAnswerMachineDetectionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableAnswerMachineDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The possible types of dialer config parameters
 type CampaignDialerConfig struct {
 	PredictiveDialerConfig  *CampaignPredictiveDialerConfig  `pulumi:"predictiveDialerConfig"`
@@ -112,8 +252,7 @@ func (o CampaignDialerConfigPtrOutput) ProgressiveDialerConfig() CampaignProgres
 
 // The configuration used for outbound calls.
 type CampaignOutboundCallConfig struct {
-	// The configuration used for answering machine detection during outbound calls
-	AnswerMachineDetectionConfig *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties `pulumi:"answerMachineDetectionConfig"`
+	AnswerMachineDetectionConfig *CampaignAnswerMachineDetectionConfig `pulumi:"answerMachineDetectionConfig"`
 	// The identifier of the contact flow for the outbound call.
 	ConnectContactFlowArn string `pulumi:"connectContactFlowArn"`
 	// The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
@@ -135,8 +274,7 @@ type CampaignOutboundCallConfigInput interface {
 
 // The configuration used for outbound calls.
 type CampaignOutboundCallConfigArgs struct {
-	// The configuration used for answering machine detection during outbound calls
-	AnswerMachineDetectionConfig CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput `pulumi:"answerMachineDetectionConfig"`
+	AnswerMachineDetectionConfig CampaignAnswerMachineDetectionConfigPtrInput `pulumi:"answerMachineDetectionConfig"`
 	// The identifier of the contact flow for the outbound call.
 	ConnectContactFlowArn pulumi.StringInput `pulumi:"connectContactFlowArn"`
 	// The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
@@ -172,11 +310,10 @@ func (o CampaignOutboundCallConfigOutput) ToCampaignOutboundCallConfigOutputWith
 	return o
 }
 
-// The configuration used for answering machine detection during outbound calls
-func (o CampaignOutboundCallConfigOutput) AnswerMachineDetectionConfig() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
-	return o.ApplyT(func(v CampaignOutboundCallConfig) *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties {
+func (o CampaignOutboundCallConfigOutput) AnswerMachineDetectionConfig() CampaignAnswerMachineDetectionConfigPtrOutput {
+	return o.ApplyT(func(v CampaignOutboundCallConfig) *CampaignAnswerMachineDetectionConfig {
 		return v.AnswerMachineDetectionConfig
-	}).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput)
+	}).(CampaignAnswerMachineDetectionConfigPtrOutput)
 }
 
 // The identifier of the contact flow for the outbound call.
@@ -218,14 +355,13 @@ func (o CampaignOutboundCallConfigPtrOutput) Elem() CampaignOutboundCallConfigOu
 	}).(CampaignOutboundCallConfigOutput)
 }
 
-// The configuration used for answering machine detection during outbound calls
-func (o CampaignOutboundCallConfigPtrOutput) AnswerMachineDetectionConfig() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
-	return o.ApplyT(func(v *CampaignOutboundCallConfig) *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties {
+func (o CampaignOutboundCallConfigPtrOutput) AnswerMachineDetectionConfig() CampaignAnswerMachineDetectionConfigPtrOutput {
+	return o.ApplyT(func(v *CampaignOutboundCallConfig) *CampaignAnswerMachineDetectionConfig {
 		if v == nil {
 			return nil
 		}
 		return v.AnswerMachineDetectionConfig
-	}).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput)
+	}).(CampaignAnswerMachineDetectionConfigPtrOutput)
 }
 
 // The identifier of the contact flow for the outbound call.
@@ -256,148 +392,6 @@ func (o CampaignOutboundCallConfigPtrOutput) ConnectSourcePhoneNumber() pulumi.S
 		}
 		return v.ConnectSourcePhoneNumber
 	}).(pulumi.StringPtrOutput)
-}
-
-// The configuration used for answering machine detection during outbound calls
-type CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties struct {
-	// Flag to decided whether outbound calls should have answering machine detection enabled or not
-	EnableAnswerMachineDetection bool `pulumi:"enableAnswerMachineDetection"`
-}
-
-// CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesInput is an input type that accepts CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs and CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput values.
-// You can construct a concrete instance of `CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesInput` via:
-//
-//	CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs{...}
-type CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesInput interface {
-	pulumi.Input
-
-	ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput
-	ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutputWithContext(context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput
-}
-
-// The configuration used for answering machine detection during outbound calls
-type CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs struct {
-	// Flag to decided whether outbound calls should have answering machine detection enabled or not
-	EnableAnswerMachineDetection pulumi.BoolInput `pulumi:"enableAnswerMachineDetection"`
-}
-
-func (CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties)(nil)).Elem()
-}
-
-func (i CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput {
-	return i.ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutputWithContext(context.Background())
-}
-
-func (i CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput)
-}
-
-func (i CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
-	return i.ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput).ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(ctx)
-}
-
-// CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput is an input type that accepts CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs, CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtr and CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput values.
-// You can construct a concrete instance of `CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput` via:
-//
-//	        CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput
-	ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput
-}
-
-type campaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrType CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs
-
-func CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtr(v *CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput {
-	return (*campaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrType)(v)
-}
-
-func (*campaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties)(nil)).Elem()
-}
-
-func (i *campaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrType) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
-	return i.ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *campaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrType) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput)
-}
-
-// The configuration used for answering machine detection during outbound calls
-type CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties)(nil)).Elem()
-}
-
-func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput {
-	return o
-}
-
-func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput {
-	return o
-}
-
-func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
-	return o.ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties) *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties {
-		return &v
-	}).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput)
-}
-
-// Flag to decided whether outbound calls should have answering machine detection enabled or not
-func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput) EnableAnswerMachineDetection() pulumi.BoolOutput {
-	return o.ApplyT(func(v CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties) bool {
-		return v.EnableAnswerMachineDetection
-	}).(pulumi.BoolOutput)
-}
-
-type CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties)(nil)).Elem()
-}
-
-func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
-	return o
-}
-
-func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput) ToCampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutputWithContext(ctx context.Context) CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput {
-	return o
-}
-
-func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput) Elem() CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput {
-	return o.ApplyT(func(v *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties) CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties
-		return ret
-	}).(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput)
-}
-
-// Flag to decided whether outbound calls should have answering machine detection enabled or not
-func (o CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput) EnableAnswerMachineDetection() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.EnableAnswerMachineDetection
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Predictive Dialer config
@@ -790,22 +784,22 @@ func (o CampaignTagArrayOutput) Index(i pulumi.IntInput) CampaignTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAnswerMachineDetectionConfigInput)(nil)).Elem(), CampaignAnswerMachineDetectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAnswerMachineDetectionConfigPtrInput)(nil)).Elem(), CampaignAnswerMachineDetectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDialerConfigInput)(nil)).Elem(), CampaignDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignOutboundCallConfigInput)(nil)).Elem(), CampaignOutboundCallConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesInput)(nil)).Elem(), CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrInput)(nil)).Elem(), CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPredictiveDialerConfigInput)(nil)).Elem(), CampaignPredictiveDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPredictiveDialerConfigPtrInput)(nil)).Elem(), CampaignPredictiveDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignProgressiveDialerConfigInput)(nil)).Elem(), CampaignProgressiveDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignProgressiveDialerConfigPtrInput)(nil)).Elem(), CampaignProgressiveDialerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagInput)(nil)).Elem(), CampaignTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagArrayInput)(nil)).Elem(), CampaignTagArray{})
+	pulumi.RegisterOutputType(CampaignAnswerMachineDetectionConfigOutput{})
+	pulumi.RegisterOutputType(CampaignAnswerMachineDetectionConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignDialerConfigOutput{})
 	pulumi.RegisterOutputType(CampaignDialerConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignOutboundCallConfigOutput{})
 	pulumi.RegisterOutputType(CampaignOutboundCallConfigPtrOutput{})
-	pulumi.RegisterOutputType(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesOutput{})
-	pulumi.RegisterOutputType(CampaignOutboundCallConfigAnswerMachineDetectionConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CampaignPredictiveDialerConfigOutput{})
 	pulumi.RegisterOutputType(CampaignPredictiveDialerConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignProgressiveDialerConfigOutput{})

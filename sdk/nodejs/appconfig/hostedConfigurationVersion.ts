@@ -43,6 +43,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
     public readonly contentType!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly latestVersionNumber!: pulumi.Output<number | undefined>;
+    public readonly versionLabel!: pulumi.Output<string | undefined>;
 
     /**
      * Create a HostedConfigurationVersion resource with the given unique name, arguments, and options.
@@ -75,6 +76,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             resourceInputs["contentType"] = args ? args.contentType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["latestVersionNumber"] = args ? args.latestVersionNumber : undefined;
+            resourceInputs["versionLabel"] = args ? args.versionLabel : undefined;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["configurationProfileId"] = undefined /*out*/;
@@ -82,6 +84,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             resourceInputs["contentType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["latestVersionNumber"] = undefined /*out*/;
+            resourceInputs["versionLabel"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HostedConfigurationVersion.__pulumiType, name, resourceInputs, opts);
@@ -98,4 +101,5 @@ export interface HostedConfigurationVersionArgs {
     contentType: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     latestVersionNumber?: pulumi.Input<number>;
+    versionLabel?: pulumi.Input<string>;
 }

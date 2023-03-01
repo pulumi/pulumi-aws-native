@@ -75,6 +75,11 @@ export const getTransitGatewayPeering: typeof import("./getTransitGatewayPeering
 export const getTransitGatewayPeeringOutput: typeof import("./getTransitGatewayPeering").getTransitGatewayPeeringOutput = null as any;
 utilities.lazyLoad(exports, ["getTransitGatewayPeering","getTransitGatewayPeeringOutput"], () => require("./getTransitGatewayPeering"));
 
+export { GetTransitGatewayRouteTableAttachmentArgs, GetTransitGatewayRouteTableAttachmentResult, GetTransitGatewayRouteTableAttachmentOutputArgs } from "./getTransitGatewayRouteTableAttachment";
+export const getTransitGatewayRouteTableAttachment: typeof import("./getTransitGatewayRouteTableAttachment").getTransitGatewayRouteTableAttachment = null as any;
+export const getTransitGatewayRouteTableAttachmentOutput: typeof import("./getTransitGatewayRouteTableAttachment").getTransitGatewayRouteTableAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitGatewayRouteTableAttachment","getTransitGatewayRouteTableAttachmentOutput"], () => require("./getTransitGatewayRouteTableAttachment"));
+
 export { GetVpcAttachmentArgs, GetVpcAttachmentResult, GetVpcAttachmentOutputArgs } from "./getVpcAttachment";
 export const getVpcAttachment: typeof import("./getVpcAttachment").getVpcAttachment = null as any;
 export const getVpcAttachmentOutput: typeof import("./getVpcAttachment").getVpcAttachmentOutput = null as any;
@@ -115,6 +120,11 @@ export type TransitGatewayRegistration = import("./transitGatewayRegistration").
 export const TransitGatewayRegistration: typeof import("./transitGatewayRegistration").TransitGatewayRegistration = null as any;
 utilities.lazyLoad(exports, ["TransitGatewayRegistration"], () => require("./transitGatewayRegistration"));
 
+export { TransitGatewayRouteTableAttachmentArgs } from "./transitGatewayRouteTableAttachment";
+export type TransitGatewayRouteTableAttachment = import("./transitGatewayRouteTableAttachment").TransitGatewayRouteTableAttachment;
+export const TransitGatewayRouteTableAttachment: typeof import("./transitGatewayRouteTableAttachment").TransitGatewayRouteTableAttachment = null as any;
+utilities.lazyLoad(exports, ["TransitGatewayRouteTableAttachment"], () => require("./transitGatewayRouteTableAttachment"));
+
 export { VpcAttachmentArgs } from "./vpcAttachment";
 export type VpcAttachment = import("./vpcAttachment").VpcAttachment;
 export const VpcAttachment: typeof import("./vpcAttachment").VpcAttachment = null as any;
@@ -149,6 +159,8 @@ const _module = {
                 return new TransitGatewayPeering(name, <any>undefined, { urn })
             case "aws-native:networkmanager:TransitGatewayRegistration":
                 return new TransitGatewayRegistration(name, <any>undefined, { urn })
+            case "aws-native:networkmanager:TransitGatewayRouteTableAttachment":
+                return new TransitGatewayRouteTableAttachment(name, <any>undefined, { urn })
             case "aws-native:networkmanager:VpcAttachment":
                 return new VpcAttachment(name, <any>undefined, { urn })
             default:

@@ -39,6 +39,10 @@ export interface GetEventSourceMappingResult {
      */
     readonly destinationConfig?: outputs.lambda.EventSourceMappingDestinationConfig;
     /**
+     * Document db event source config.
+     */
+    readonly documentDBEventSourceConfig?: outputs.lambda.EventSourceMappingDocumentDBEventSourceConfig;
+    /**
      * Disables the event source mapping to pause polling and invocation.
      */
     readonly enabled?: boolean;

@@ -22,6 +22,7 @@ class DeploymentArgs:
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  deployment_policies: Optional[pulumi.Input['DeploymentPoliciesArgs']] = None,
                  iot_job_configuration: Optional[pulumi.Input['DeploymentIoTJobConfigurationArgs']] = None,
+                 parent_target_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Deployment resource.
@@ -35,6 +36,8 @@ class DeploymentArgs:
             pulumi.set(__self__, "deployment_policies", deployment_policies)
         if iot_job_configuration is not None:
             pulumi.set(__self__, "iot_job_configuration", iot_job_configuration)
+        if parent_target_arn is not None:
+            pulumi.set(__self__, "parent_target_arn", parent_target_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -84,6 +87,15 @@ class DeploymentArgs:
         pulumi.set(self, "iot_job_configuration", value)
 
     @property
+    @pulumi.getter(name="parentTargetArn")
+    def parent_target_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "parent_target_arn")
+
+    @parent_target_arn.setter
+    def parent_target_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_target_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         return pulumi.get(self, "tags")
@@ -102,6 +114,7 @@ class Deployment(pulumi.CustomResource):
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  deployment_policies: Optional[pulumi.Input[pulumi.InputType['DeploymentPoliciesArgs']]] = None,
                  iot_job_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentIoTJobConfigurationArgs']]] = None,
+                 parent_target_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -139,6 +152,7 @@ class Deployment(pulumi.CustomResource):
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  deployment_policies: Optional[pulumi.Input[pulumi.InputType['DeploymentPoliciesArgs']]] = None,
                  iot_job_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentIoTJobConfigurationArgs']]] = None,
+                 parent_target_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -154,6 +168,7 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["deployment_name"] = deployment_name
             __props__.__dict__["deployment_policies"] = deployment_policies
             __props__.__dict__["iot_job_configuration"] = iot_job_configuration
+            __props__.__dict__["parent_target_arn"] = parent_target_arn
             __props__.__dict__["tags"] = tags
             if target_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_arn'")
@@ -186,6 +201,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["deployment_name"] = None
         __props__.__dict__["deployment_policies"] = None
         __props__.__dict__["iot_job_configuration"] = None
+        __props__.__dict__["parent_target_arn"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_arn"] = None
         return Deployment(resource_name, opts=opts, __props__=__props__)
@@ -214,6 +230,11 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="iotJobConfiguration")
     def iot_job_configuration(self) -> pulumi.Output[Optional['outputs.DeploymentIoTJobConfiguration']]:
         return pulumi.get(self, "iot_job_configuration")
+
+    @property
+    @pulumi.getter(name="parentTargetArn")
+    def parent_target_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "parent_target_arn")
 
     @property
     @pulumi.getter

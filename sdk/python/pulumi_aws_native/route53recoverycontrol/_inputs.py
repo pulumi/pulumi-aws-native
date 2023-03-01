@@ -11,7 +11,6 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ClusterEndpointArgs',
     'ClusterTagArgs',
     'ControlPanelTagArgs',
     'SafetyRuleAssertionRuleArgs',
@@ -19,35 +18,6 @@ __all__ = [
     'SafetyRuleRuleConfigArgs',
     'SafetyRuleTagArgs',
 ]
-
-@pulumi.input_type
-class ClusterEndpointArgs:
-    def __init__(__self__, *,
-                 endpoint: Optional[pulumi.Input[str]] = None,
-                 region: Optional[pulumi.Input[str]] = None):
-        if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "endpoint")
-
-    @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "endpoint", value)
-
-    @property
-    @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "region", value)
-
 
 @pulumi.input_type
 class ClusterTagArgs:

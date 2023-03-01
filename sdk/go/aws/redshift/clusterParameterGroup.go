@@ -20,7 +20,7 @@ type ClusterParameterGroup struct {
 	// The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
 	ParameterGroupFamily pulumi.StringOutput `pulumi:"parameterGroupFamily"`
 	// The name of the cluster parameter group.
-	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
+	ParameterGroupName pulumi.StringPtrOutput `pulumi:"parameterGroupName"`
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 	Parameters ClusterParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this resource.
@@ -76,6 +76,8 @@ type clusterParameterGroupArgs struct {
 	Description string `pulumi:"description"`
 	// The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
 	ParameterGroupFamily string `pulumi:"parameterGroupFamily"`
+	// The name of the cluster parameter group.
+	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this resource.
@@ -88,6 +90,8 @@ type ClusterParameterGroupArgs struct {
 	Description pulumi.StringInput
 	// The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
 	ParameterGroupFamily pulumi.StringInput
+	// The name of the cluster parameter group.
+	ParameterGroupName pulumi.StringPtrInput
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 	Parameters ClusterParameterGroupParameterArrayInput
 	// An array of key-value pairs to apply to this resource.
@@ -142,8 +146,8 @@ func (o ClusterParameterGroupOutput) ParameterGroupFamily() pulumi.StringOutput 
 }
 
 // The name of the cluster parameter group.
-func (o ClusterParameterGroupOutput) ParameterGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.ParameterGroupName }).(pulumi.StringOutput)
+func (o ClusterParameterGroupOutput) ParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringPtrOutput { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.

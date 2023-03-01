@@ -164,6 +164,7 @@ import * as identitystore from "./identitystore";
 import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
 import * as inspectorv2 from "./inspectorv2";
+import * as internetmonitor from "./internetmonitor";
 import * as iot from "./iot";
 import * as iot1click from "./iot1click";
 import * as iotanalytics from "./iotanalytics";
@@ -176,6 +177,7 @@ import * as iotthingsgraph from "./iotthingsgraph";
 import * as iottwinmaker from "./iottwinmaker";
 import * as iotwireless from "./iotwireless";
 import * as ivs from "./ivs";
+import * as ivschat from "./ivschat";
 import * as kafkaconnect from "./kafkaconnect";
 import * as kendra from "./kendra";
 import * as kendraranking from "./kendraranking";
@@ -380,6 +382,7 @@ export {
     imagebuilder,
     inspector,
     inspectorv2,
+    internetmonitor,
     iot,
     iot1click,
     iotanalytics,
@@ -392,6 +395,7 @@ export {
     iottwinmaker,
     iotwireless,
     ivs,
+    ivschat,
     kafkaconnect,
     kendra,
     kendraranking,

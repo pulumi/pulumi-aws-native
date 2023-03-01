@@ -11,23 +11,19 @@ export function getRouteResponse(args: GetRouteResponseArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getRouteResponse", {
-        "apiId": args.apiId,
-        "routeId": args.routeId,
-        "routeResponseId": args.routeResponseId,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetRouteResponseArgs {
-    apiId: string;
-    routeId: string;
-    routeResponseId: string;
+    id: string;
 }
 
 export interface GetRouteResponseResult {
+    readonly id?: string;
     readonly modelSelectionExpression?: string;
     readonly responseModels?: any;
     readonly responseParameters?: any;
-    readonly routeResponseId?: string;
     readonly routeResponseKey?: string;
 }
 /**
@@ -38,7 +34,5 @@ export function getRouteResponseOutput(args: GetRouteResponseOutputArgs, opts?: 
 }
 
 export interface GetRouteResponseOutputArgs {
-    apiId: pulumi.Input<string>;
-    routeId: pulumi.Input<string>;
-    routeResponseId: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

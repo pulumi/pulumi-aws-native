@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::VPCEndpointService
     /// </summary>
-    [Obsolete(@"VPCEndpointService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPCEndpointService")]
     public partial class VPCEndpointService : global::Pulumi.CustomResource
     {
@@ -30,6 +29,9 @@ namespace Pulumi.AwsNative.EC2
 
         [Output("payerResponsibility")]
         public Output<string?> PayerResponsibility { get; private set; } = null!;
+
+        [Output("serviceId")]
+        public Output<string> ServiceId { get; private set; } = null!;
 
 
         /// <summary>

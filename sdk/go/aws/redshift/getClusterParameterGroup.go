@@ -26,8 +26,6 @@ type LookupClusterParameterGroupArgs struct {
 }
 
 type LookupClusterParameterGroupResult struct {
-	// The name of the cluster parameter group.
-	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
 }
@@ -66,11 +64,6 @@ func (o LookupClusterParameterGroupResultOutput) ToLookupClusterParameterGroupRe
 
 func (o LookupClusterParameterGroupResultOutput) ToLookupClusterParameterGroupResultOutputWithContext(ctx context.Context) LookupClusterParameterGroupResultOutput {
 	return o
-}
-
-// The name of the cluster parameter group.
-func (o LookupClusterParameterGroupResultOutput) ParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterParameterGroupResult) *string { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.

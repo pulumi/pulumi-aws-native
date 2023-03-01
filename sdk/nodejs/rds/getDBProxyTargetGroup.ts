@@ -14,25 +14,21 @@ export function getDBProxyTargetGroup(args: GetDBProxyTargetGroupArgs, opts?: pu
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBProxyTargetGroup", {
-        "dBProxyName": args.dBProxyName,
+        "targetGroupArn": args.targetGroupArn,
     }, opts);
 }
 
 export interface GetDBProxyTargetGroupArgs {
     /**
-     * The identifier for the proxy.
+     * The Amazon Resource Name (ARN) representing the target group.
      */
-    dBProxyName: string;
+    targetGroupArn: string;
 }
 
 export interface GetDBProxyTargetGroupResult {
     readonly connectionPoolConfigurationInfo?: outputs.rds.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat;
     readonly dBClusterIdentifiers?: string[];
     readonly dBInstanceIdentifiers?: string[];
-    /**
-     * The identifier for the proxy.
-     */
-    readonly dBProxyName?: string;
     /**
      * The Amazon Resource Name (ARN) representing the target group.
      */
@@ -47,7 +43,7 @@ export function getDBProxyTargetGroupOutput(args: GetDBProxyTargetGroupOutputArg
 
 export interface GetDBProxyTargetGroupOutputArgs {
     /**
-     * The identifier for the proxy.
+     * The Amazon Resource Name (ARN) representing the target group.
      */
-    dBProxyName: pulumi.Input<string>;
+    targetGroupArn: pulumi.Input<string>;
 }
