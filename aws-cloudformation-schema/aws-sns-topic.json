@@ -99,7 +99,7 @@
   "readOnlyProperties" : [ "/properties/TopicArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sns:CreateTopic", "sns:TagResource", "sns:Subscribe", "sns:GetTopicAttributes", "sns:ListTagsForResource", "sns:ListSubscriptionsByTopic", "sns:GetDataProtectionPolicy", "sns:PutDataProtectionPolicy" ]
+      "permissions" : [ "sns:CreateTopic", "sns:TagResource", "sns:Subscribe", "sns:GetTopicAttributes", "sns:PutDataProtectionPolicy" ]
     },
     "read" : {
       "permissions" : [ "sns:GetTopicAttributes", "sns:ListTagsForResource", "sns:ListSubscriptionsByTopic", "sns:GetDataProtectionPolicy" ]
@@ -108,7 +108,7 @@
       "permissions" : [ "sns:SetTopicAttributes", "sns:TagResource", "sns:UntagResource", "sns:Subscribe", "sns:Unsubscribe", "sns:GetTopicAttributes", "sns:ListTagsForResource", "sns:ListSubscriptionsByTopic", "sns:GetDataProtectionPolicy", "sns:PutDataProtectionPolicy" ]
     },
     "delete" : {
-      "permissions" : [ "sns:DeleteTopic", "sns:ListSubscriptionsByTopic", "sns:Unsubscribe" ]
+      "permissions" : [ "sns:DeleteTopic" ]
     },
     "list" : {
       "permissions" : [ "sns:ListTopics" ]

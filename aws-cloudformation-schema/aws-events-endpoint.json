@@ -161,7 +161,7 @@
     "cloudFormationSystemTags" : false
   },
   "additionalProperties" : false,
-  "required" : [ "Name", "RoutingConfig", "EventBuses" ],
+  "required" : [ "RoutingConfig", "EventBuses" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/EndpointId", "/properties/EndpointUrl", "/properties/State", "/properties/StateReason" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Name" ],

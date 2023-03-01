@@ -245,6 +245,10 @@
       "type" : "string",
       "pattern" : "arn:[^:]*:iot:[^:]*:[0-9]+:(thing|thinggroup)/.+"
     },
+    "ParentTargetArn" : {
+      "type" : "string",
+      "pattern" : "arn:[^:]*:iot:[^:]*:[0-9]+:thinggroup/.+"
+    },
     "DeploymentId" : {
       "type" : "string",
       "pattern" : ".+"
@@ -285,7 +289,7 @@
   "primaryIdentifier" : [ "/properties/DeploymentId" ],
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/DeploymentId" ],
-  "createOnlyProperties" : [ "/properties/TargetArn", "/properties/DeploymentName", "/properties/Components", "/properties/IotJobConfiguration", "/properties/DeploymentPolicies" ],
+  "createOnlyProperties" : [ "/properties/TargetArn", "/properties/ParentTargetArn", "/properties/DeploymentName", "/properties/Components", "/properties/IotJobConfiguration", "/properties/DeploymentPolicies" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "greengrass:CreateDeployment", "greengrass:GetDeployment", "iot:CancelJob", "iot:CreateJob", "iot:DeleteThingShadow", "iot:DescribeJob", "iot:DescribeThing", "iot:DescribeThingGroup", "iot:GetThingShadow", "iot:UpdateJob", "iot:UpdateThingShadow" ]
