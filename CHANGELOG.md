@@ -1,5 +1,42 @@
 ## HEAD (Unreleased)
 
+## 0.52.0 (March 1, 2023)
+
+Breaking Changes:
+  - Resource "aws-native:apigatewayv2:RouteResponse" missing output "routeResponseId"
+  - Resource "aws-native:route53recoverycontrol:Cluster" missing input "clusterEndpoints"
+  - Function "aws-native:rds:getDBInstance" missing output "deleteAutomatedBackups"
+  - Function "aws-native:rds:getDBInstance" missing output "allowMajorVersionUpgrade"
+  - Function "aws-native:redshift:getClusterParameterGroup" missing output "parameterGroupName"
+  - Function "aws-native:apigatewayv2:getRouteResponse" missing input "apiId"
+  - Function "aws-native:apigatewayv2:getRouteResponse" missing input "routeId"
+  - Function "aws-native:apigatewayv2:getRouteResponse" missing input "routeResponseId"
+  - Function "aws-native:apigatewayv2:getRouteResponse" missing output "routeResponseId"
+  - Function "aws-native:rds:getDBProxyTargetGroup" missing input "dBProxyName"
+  - Function "aws-native:rds:getDBProxyTargetGroup" missing output "dBProxyName"
+  - Type "aws-native:iottwinmaker:ComponentTypeStatus" input "error" type changed from "#/types/aws-native:iottwinmaker:ComponentTypeStatusErrorProperties" to ""
+  - Type "aws-native:connectcampaigns:CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties" missing
+  - Type "aws-native:iottwinmaker:EntityStatus" input "error" type changed from "#/types/aws-native:iottwinmaker:EntityStatusErrorProperties" to ""
+  - Type "aws-native:connectcampaigns:CampaignOutboundCallConfig" input "answerMachineDetectionConfig" type changed from "#/types/aws-native:connectcampaigns:CampaignOutboundCallConfigAnswerMachineDetectionConfigProperties" to "#/types/aws-native:connectcampaigns:CampaignAnswerMachineDetectionConfig"
+
+New resources:
+
+    apigateway.VpcLink
+    ec2.VPCEndpointService
+    internetmonitor.Monitor
+    ivschat.LoggingConfiguration
+    ivschat.Room
+    networkmanager.TransitGatewayRouteTableAttachment
+
+New functions:
+
+    apigateway.getVpcLink
+    ec2.getVPCEndpointService
+    internetmonitor.getMonitor
+    ivschat.getLoggingConfiguration
+    ivschat.getRoom
+    networkmanager.getTransitGatewayRouteTableAttachment
+
 ## 0.51.0 (February 16, 2023)
 
 Breaking Changes:
