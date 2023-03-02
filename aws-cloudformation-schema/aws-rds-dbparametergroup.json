@@ -60,13 +60,12 @@
   "required" : [ "Family", "Description" ],
   "primaryIdentifier" : [ "/properties/DBParameterGroupName" ],
   "createOnlyProperties" : [ "/properties/DBParameterGroupName", "/properties/Description", "/properties/Family" ],
-  "writeOnlyProperties" : [ "/properties/Parameters" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:AddTagsToResource", "rds:CreateDBParameterGroup", "rds:DescribeDBParameterGroups", "rds:DescribeEngineDefaultParameters", "rds:ModifyDBParameterGroup", "rds:ListTagsForResource" ]
+      "permissions" : [ "rds:AddTagsToResource", "rds:CreateDBParameterGroup", "rds:DescribeDBParameterGroups", "rds:DescribeDBParameters", "rds:DescribeEngineDefaultParameters", "rds:ListTagsForResource", "rds:ModifyDBParameterGroup" ]
     },
     "read" : {
-      "permissions" : [ "rds:DescribeDBParameterGroups", "rds:ListTagsForResource" ]
+      "permissions" : [ "rds:DescribeDBParameterGroups", "rds:DescribeDBParameters", "rds:DescribeEngineDefaultParameters", "rds:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "rds:AddTagsToResource", "rds:DescribeDBParameterGroups", "rds:DescribeDBParameters", "rds:DescribeEngineDefaultParameters", "rds:ListTagsForResource", "rds:ModifyDBParameterGroup", "rds:ResetDBParameterGroup", "rds:RemoveTagsFromResource" ]
