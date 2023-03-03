@@ -10,7 +10,6 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -18,6 +17,8 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
@@ -54,6 +55,7 @@ func main() {
 
 	languages, schemaFolder, version := args[0], args[1], args[2]
 	genDir := filepath.Join(".", "provider", "cmd", "pulumi-gen-aws-native")
+	semanticsDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
 
 	if languages == "discovery" {
 		if len(args) < 4 {
@@ -73,8 +75,11 @@ func main() {
 
 	supportedTypes := readSupportedResourceTypes(genDir)
 	jsonSchemas := readJsonSchemas(schemaFolder)
-
-	fullSpec, _, err := schema.GatherPackage(supportedTypes, jsonSchemas, true)
+	semanticsDocument, err := schema.GatherSemantics(semanticsDir)
+	if err != nil {
+		panic(fmt.Sprintf("error gathering semantics: %v", err))
+	}
+	fullSpec, _, err := schema.GatherPackage(supportedTypes, jsonSchemas, true, &semanticsDocument)
 	if err != nil {
 		panic(fmt.Sprintf("error generating schema: %v", err))
 	}
@@ -90,7 +95,7 @@ func main() {
 			cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
 			writePulumiSchema(*fullSpec, cf2pulumiDir, "schema-full.json")
 
-			supportedSpec, meta, err := schema.GatherPackage(supportedTypes, jsonSchemas, false)
+			supportedSpec, meta, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument)
 			if err != nil {
 				panic(fmt.Sprintf("error generating schema: %v", err))
 			}
@@ -113,6 +118,9 @@ func main() {
 			}
 		default:
 			panic(fmt.Sprintf("Unrecognized language '%s'", language))
+		}
+		if err != nil {
+			panic(err)
 		}
 	}
 }

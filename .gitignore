@@ -16,6 +16,7 @@ provider/cmd/cf2pulumi/metadata.go
 **/.DS_Store
 ci-scripts
 .vscode
+.envrc
 
 sdk/java/build
 sdk/java/src

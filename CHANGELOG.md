@@ -1,5 +1,8 @@
 ## HEAD (Unreleased)
 
+Bug Fixes:
+  - Adds semantics around FIFO queue naming conventions as expected by AWS (#794)
+
 ## 0.52.0 (March 1, 2023)
 
 Breaking Changes:

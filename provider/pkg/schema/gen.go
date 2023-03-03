@@ -5,6 +5,8 @@ package schema
 import (
 	"encoding/json"
 	"fmt"
+	"os"
+	"path/filepath"
 	"strings"
 
 	jsschema "github.com/lestrrat-go/jsschema"
@@ -19,7 +21,7 @@ const packageName = "aws-native"
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
 func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema,
-	genAll bool) (*pschema.PackageSpec, *CloudAPIMetadata, error) {
+	genAll bool, semanticsDocument *SemanticsSpecDocument) (*pschema.PackageSpec, *CloudAPIMetadata, error) {
 	p := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
@@ -444,6 +446,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				resourceSpec:  &jsonSchema,
 				visitedTypes:  codegen.NewStringSet(),
 				isSupported:   isSupported,
+				semantics:     semanticsDocument,
 			}
 			err := ctx.gatherResourceType()
 			if err != nil {
@@ -602,6 +605,7 @@ type context struct {
 	resourceSpec  *jsschema.Schema
 	visitedTypes  codegen.StringSet
 	isSupported   bool
+	semantics     *SemanticsSpecDocument
 }
 
 func (ctx *context) gatherInvoke() error {
@@ -785,6 +789,8 @@ func (ctx *context) createAutoNamingSpec(inputProperties map[string]pschema.Prop
 	// ** Autonaming **
 	var autoNameSpec *AutoNamingSpec
 
+	semanticsSpec := ctx.semantics.Resources[ctx.resourceToken]
+
 	lookForField := func(fieldName string) func(map[string]pschema.PropertySpec) {
 		return func(properties map[string]pschema.PropertySpec) {
 			sdkName := ToSdkName(fieldName)
@@ -796,6 +802,10 @@ func (ctx *context) createAutoNamingSpec(inputProperties map[string]pschema.Prop
 				if ok {
 					autoNameSpec.MinLength = spec.MinLength.Val
 					autoNameSpec.MaxLength = spec.MaxLength.Val
+				}
+				namingTriviaSpec, ok := semanticsSpec.NamingTriviaSpec[sdkName]
+				if ok {
+					autoNameSpec.TriviaSpec = &namingTriviaSpec
 				}
 			}
 		}
@@ -1184,4 +1194,18 @@ func primitiveTypeSpec(primitiveType string) pschema.TypeSpec {
 		contract.Failf("unexpected primitive type '%v'", primitiveType)
 		return pschema.TypeSpec{Ref: "pulumi.json#/Any"}
 	}
+}
+
+func GatherSemantics(schemaDir string) (SemanticsSpecDocument, error) {
+	var semanticsDocument SemanticsSpecDocument
+	semanticsPath := filepath.Join(schemaDir, "semantics.json")
+	semanticsBytes, err := os.ReadFile(semanticsPath)
+	if err != nil {
+		return semanticsDocument, err
+	}
+	err = json.Unmarshal(semanticsBytes, &semanticsDocument)
+	if err != nil {
+		return semanticsDocument, err
+	}
+	return semanticsDocument, nil
 }

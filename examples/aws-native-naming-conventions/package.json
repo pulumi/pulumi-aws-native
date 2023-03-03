@@ -1,0 +1,11 @@
+{
+    "name": "aws-native-naming-conventions",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^16"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/aws-native": "^0.8.0"
+    }
+}
