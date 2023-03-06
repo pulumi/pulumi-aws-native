@@ -143,6 +143,9 @@
         "TableClass" : {
           "type" : "string"
         },
+        "DeletionProtectionEnabled" : {
+          "type" : "boolean"
+        },
         "SSESpecification" : {
           "$ref" : "#/definitions/ReplicaSSESpecification"
         },
