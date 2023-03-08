@@ -53,12 +53,19 @@
     },
     "Tags" : {
       "type" : "array",
+      "insertionOrder" : true,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
     }
   },
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "additionalProperties" : false,
   "required" : [ "RoleArn" ],
   "readOnlyProperties" : [ "/properties/RoleAliasArn" ],
@@ -66,16 +73,16 @@
   "primaryIdentifier" : [ "/properties/RoleAlias" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:CreateRoleAlias" ]
+      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:CreateRoleAlias", "iot:DescribeRoleAlias", "iot:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:DescribeRoleAlias" ]
+      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:DescribeRoleAlias", "iot:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:UpdateRoleAlias" ]
+      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:UpdateRoleAlias", "iot:DescribeRoleAlias", "iot:TagResource", "iot:UntagResource", "iot:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "iot:DeleteRoleAlias" ]
+      "permissions" : [ "iot:DeleteRoleAlias", "iot:DescribeRoleAlias" ]
     },
     "list" : {
       "permissions" : [ "iot:ListRoleAliases" ]
