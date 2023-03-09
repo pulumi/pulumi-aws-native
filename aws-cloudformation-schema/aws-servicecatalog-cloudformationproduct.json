@@ -42,6 +42,9 @@
     "Id" : {
       "type" : "string"
     },
+    "SourceConnection" : {
+      "$ref" : "#/definitions/SourceConnection"
+    },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -58,6 +61,34 @@
     }
   },
   "definitions" : {
+    "CodeStarParameters" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ArtifactPath" : {
+          "type" : "string"
+        },
+        "ConnectionArn" : {
+          "type" : "string"
+        },
+        "Repository" : {
+          "type" : "string"
+        },
+        "Branch" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ArtifactPath", "Repository", "Branch", "ConnectionArn" ]
+    },
+    "ConnectionParameters" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CodeStar" : {
+          "$ref" : "#/definitions/CodeStarParameters"
+        }
+      }
+    },
     "ProvisioningArtifactProperties" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -89,9 +120,22 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "SourceConnection" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ConnectionParameters" : {
+          "$ref" : "#/definitions/ConnectionParameters"
+        },
+        "Type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Type", "ConnectionParameters" ]
     }
   },
-  "required" : [ "Owner", "Name", "ProvisioningArtifactParameters" ],
+  "required" : [ "Owner", "Name" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/ProvisioningArtifactIds", "/properties/Id", "/properties/ProvisioningArtifactNames", "/properties/ProductName" ]
 }

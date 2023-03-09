@@ -149,7 +149,8 @@
           "$ref" : "#/definitions/SharingSettings",
           "description" : "The sharing settings."
         }
-      }
+      },
+      "required" : [ "ExecutionRole" ]
     },
     "DefaultSpaceSettings" : {
       "type" : "object",
@@ -184,7 +185,8 @@
             "pattern" : "[-0-9a-zA-Z]+"
           }
         }
-      }
+      },
+      "required" : [ "ExecutionRole" ]
     },
     "JupyterServerAppSettings" : {
       "type" : "object",
