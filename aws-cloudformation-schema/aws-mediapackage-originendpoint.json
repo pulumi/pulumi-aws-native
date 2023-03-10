@@ -505,9 +505,19 @@
   },
   "additionalProperties" : false,
   "required" : [ "Id", "ChannelId" ],
+  "oneOf" : [ {
+    "required" : [ "HlsPackage" ]
+  }, {
+    "required" : [ "DashPackage" ]
+  }, {
+    "required" : [ "MssPackage" ]
+  }, {
+    "required" : [ "CmafPackage" ]
+  } ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Url" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "createOnlyProperties" : [ "/properties/Id" ],
+  "deprecatedProperties" : [ "/properties/HlsPackage/Encryption/SpekeKeyProvider/EncryptionContractConfiguration/PresetSpeke20Audio", "/properties/HlsPackage/Encryption/SpekeKeyProvider/EncryptionContractConfiguration/PresetSpeke20Video", "/properties/MssPackage/Encryption/SpekeKeyProvider/EncryptionContractConfiguration/PresetSpeke20Audio", "/properties/MssPackage/Encryption/SpekeKeyProvider/EncryptionContractConfiguration/PresetSpeke20Video", "/properties/CmafPackage/HlsManifests/*/Url" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "mediapackage:CreateOriginEndpoint", "mediapackage:DescribeChannel", "mediapackage:TagResource", "iam:PassRole" ]

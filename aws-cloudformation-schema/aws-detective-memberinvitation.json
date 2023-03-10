@@ -34,6 +34,7 @@
   "required" : [ "GraphArn", "MemberId", "MemberEmailAddress" ],
   "primaryIdentifier" : [ "/properties/GraphArn", "/properties/MemberId" ],
   "createOnlyProperties" : [ "/properties/GraphArn", "/properties/MemberId" ],
+  "writeOnlyProperties" : [ "/properties/Message", "/properties/DisableEmailNotification" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "detective:CreateMembers", "detective:GetMembers" ]

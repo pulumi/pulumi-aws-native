@@ -56,7 +56,7 @@
       "description" : "The ID of the VPC in which the endpoint will be used."
     }
   },
-  "required" : [ "Name", "VpcId" ],
+  "required" : [ "Name", "VpcId", "SubnetIds" ],
   "readOnlyProperties" : [ "/properties/Id" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/VpcId" ],
   "primaryIdentifier" : [ "/properties/Id" ],

@@ -773,6 +773,9 @@ MongoDB::Atlas::ThirdPartyIntegration
 MongoDB::Atlas::Trigger
 MongoDB::Atlas::X509AuthenticationDatabaseUser
 MongoDb::Atlas::AwsIamDatabaseUser
+NewRelic::Agent::Configuration
+NewRelic::Alert::AlertsPolicy
+NewRelic::Alert::NrqlConditionStatic
 Okta::Application::Application
 Okta::Group::Group
 Okta::Group::GroupApplicationAssociation
