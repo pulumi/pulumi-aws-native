@@ -357,11 +357,11 @@
       }
     }
   },
-  "required" : [ "ListenerArn", "Actions", "Priority", "Conditions" ],
+  "required" : [ "Actions", "Priority", "Conditions" ],
   "createOnlyProperties" : [ "/properties/ListenerArn" ],
   "primaryIdentifier" : [ "/properties/RuleArn" ],
   "readOnlyProperties" : [ "/properties/RuleArn", "/properties/IsDefault" ],
-  "writeOnlyProperties" : [ "/properties/Actions/*/AuthenticateOidcConfig/ClientSecret", "/properties/Actions/*/ForwardConfig", "/properties/Actions/*/TargetGroupArn" ],
+  "writeOnlyProperties" : [ "/properties/Actions/*/AuthenticateOidcConfig/ClientSecret", "/properties/ListenerArn" ],
   "taggable" : false,
   "handlers" : {
     "create" : {

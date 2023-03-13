@@ -76,6 +76,10 @@
         "TriggerProperties" : {
           "description" : "Details required based on the type of trigger",
           "$ref" : "#/definitions/ScheduledTriggerProperties"
+        },
+        "ActivateFlowOnCreate" : {
+          "description" : "Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.",
+          "type" : "boolean"
         }
       },
       "required" : [ "TriggerType" ],
@@ -1161,12 +1165,12 @@
     }
   },
   "required" : [ "FlowName", "Tasks", "SourceFlowConfig", "DestinationFlowConfigList", "TriggerConfig" ],
-  "createOnlyProperties" : [ "/properties/FlowName", "/properties/KMSArn" ],
+  "createOnlyProperties" : [ "/properties/FlowName", "/properties/KMSArn", "/properties/TriggerConfig/ActivateFlowOnCreate" ],
   "readOnlyProperties" : [ "/properties/FlowArn" ],
   "primaryIdentifier" : [ "/properties/FlowName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "appflow:CreateFlow", "appflow:TagResource", "appflow:ListTagsForResource", "appflow:UseConnectorProfile", "iam:PassRole", "s3:ListAllMyBuckets", "s3:GetBucketLocation", "s3:GetBucketPolicy", "kms:ListGrants", "kms:ListKeys", "kms:DescribeKey", "kms:ListAliases", "kms:CreateGrant", "secretsmanager:CreateSecret", "secretsmanager:PutResourcePolicy" ]
+      "permissions" : [ "appflow:CreateFlow", "appflow:StartFlow", "appflow:TagResource", "appflow:ListTagsForResource", "appflow:UseConnectorProfile", "iam:PassRole", "s3:ListAllMyBuckets", "s3:GetBucketLocation", "s3:GetBucketPolicy", "kms:ListGrants", "kms:ListKeys", "kms:DescribeKey", "kms:ListAliases", "kms:CreateGrant", "secretsmanager:CreateSecret", "secretsmanager:PutResourcePolicy" ]
     },
     "read" : {
       "permissions" : [ "appflow:DescribeFlow", "appflow:ListTagsForResource" ]

@@ -411,14 +411,14 @@
   "writeOnlyProperties" : [ "/properties/DBInstanceParameterGroupName", "/properties/MasterUserPassword", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/UseLatestRestorableTime" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
+      "permissions" : [ "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:DescribeEvents", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {
       "permissions" : [ "rds:DescribeDBClusters" ]
     },
     "update" : {
-      "permissions" : [ "ec2:DescribeSecurityGroups", "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:DescribeDBClusters", "rds:DescribeDBSubnetGroups", "rds:DescribeGlobalClusters", "rds:ModifyDBCluster", "rds:ModifyDBInstance", "rds:RemoveFromGlobalCluster", "rds:RemoveRoleFromDBCluster", "rds:RemoveTagsFromResource", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
+      "permissions" : [ "ec2:DescribeSecurityGroups", "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:DescribeDBClusters", "rds:DescribeDBSubnetGroups", "rds:DescribeEvents", "rds:DescribeGlobalClusters", "rds:ModifyDBCluster", "rds:ModifyDBInstance", "rds:RemoveFromGlobalCluster", "rds:RemoveRoleFromDBCluster", "rds:RemoveTagsFromResource", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {
