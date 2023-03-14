@@ -251,7 +251,7 @@
   "createOnlyProperties" : [ "/properties/LoadBalancerArn" ],
   "primaryIdentifier" : [ "/properties/ListenerArn" ],
   "readOnlyProperties" : [ "/properties/ListenerArn" ],
-  "writeOnlyProperties" : [ "/properties/DefaultActions/*/AuthenticateOidcConfig/ClientSecret", "/properties/DefaultActions/*/ForwardConfig", "/properties/DefaultActions/*/TargetGroupArn" ],
+  "writeOnlyProperties" : [ "/properties/DefaultActions/*/AuthenticateOidcConfig/ClientSecret" ],
   "taggable" : false,
   "handlers" : {
     "create" : {

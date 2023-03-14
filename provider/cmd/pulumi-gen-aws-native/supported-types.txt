@@ -225,6 +225,7 @@ AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
+AWS::EC2::VPCEndpoint
 AWS::EC2::VPCEndpointService
 AWS::EC2::VPCPeeringConnection
 AWS::EC2::VPNConnection
@@ -670,6 +671,16 @@ AWS::Transfer::Connector
 AWS::Transfer::Profile
 AWS::Transfer::Workflow
 AWS::VoiceID::Domain
+AWS::VpcLattice::AccessLogSubscription
+AWS::VpcLattice::AuthPolicy
+AWS::VpcLattice::Listener
+AWS::VpcLattice::ResourcePolicy
+AWS::VpcLattice::Rule
+AWS::VpcLattice::Service
+AWS::VpcLattice::ServiceNetwork
+AWS::VpcLattice::ServiceNetworkServiceAssociation
+AWS::VpcLattice::ServiceNetworkVpcAssociation
+AWS::VpcLattice::TargetGroup
 AWS::WAFv2::IPSet
 AWS::WAFv2::LoggingConfiguration
 AWS::WAFv2::RegexPatternSet
@@ -773,6 +784,9 @@ MongoDB::Atlas::ThirdPartyIntegration
 MongoDB::Atlas::Trigger
 MongoDB::Atlas::X509AuthenticationDatabaseUser
 MongoDb::Atlas::AwsIamDatabaseUser
+NewRelic::Agent::Configuration
+NewRelic::Alert::AlertsPolicy
+NewRelic::Alert::NrqlConditionStatic
 Okta::Application::Application
 Okta::Group::Group
 Okta::Group::GroupApplicationAssociation
