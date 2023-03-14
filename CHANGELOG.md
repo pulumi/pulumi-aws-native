@@ -3,6 +3,14 @@
 Bug Fixes:
   - Adds semantics around FIFO queue naming conventions as expected by AWS (#794)
 
+Upstream breaking changes
+- Resource `aws-native:appintegrations:EventIntegration` removed output `associations`.
+- Resource `aws-native:organizations:Policy` `content` type changed from `string` to `pulumi.json#/Any`
+- Function `aws-native:organizations:getPolicy` output `content` type changed from `string` to `pulumi.json#/Any`
+- Function `aws-native:detective:getMemberInvitation` removed outputs `disableEmailNotification` and `message`. These are write-only properties.
+- Function `aws-native:appintegrations:getEventIntegration` removed output `associations`.
+- Function `aws-native:ec2:getVPCDHCPOptionsAssociation` removed. The Id properter was removed so the only remaining properties are the primary identifier which are the inputs to the function, so there's no output remaining, so it no longer makes sense to fetch this resource.
+
 ## 0.52.0 (March 1, 2023)
 
 Breaking Changes:
