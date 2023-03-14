@@ -53,15 +53,19 @@ namespace Pulumi.AwsNative.IoT
     {
         public readonly string? Arn;
         public readonly Outputs.JobExecutionsRetryConfigProperties? JobExecutionsRetryConfig;
+        public readonly ImmutableArray<Outputs.JobTemplateMaintenanceWindow> MaintenanceWindows;
 
         [OutputConstructor]
         private GetJobTemplateResult(
             string? arn,
 
-            Outputs.JobExecutionsRetryConfigProperties? jobExecutionsRetryConfig)
+            Outputs.JobExecutionsRetryConfigProperties? jobExecutionsRetryConfig,
+
+            ImmutableArray<Outputs.JobTemplateMaintenanceWindow> maintenanceWindows)
         {
             Arn = arn;
             JobExecutionsRetryConfig = jobExecutionsRetryConfig;
+            MaintenanceWindows = maintenanceWindows;
         }
     }
 }

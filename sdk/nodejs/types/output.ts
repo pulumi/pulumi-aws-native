@@ -1548,6 +1548,10 @@ export namespace appflow {
          * Indicates whether the connector profile applies to a sandbox or production environment
          */
         isSandboxEnvironment?: boolean;
+        /**
+         * Indicates whether to make Metadata And Authorization calls over Pivate Network
+         */
+        usePrivateLinkForMetadataAndAuthorization?: boolean;
     }
 
     export interface ConnectorProfileServiceNowConnectorProfileCredentials {
@@ -2093,6 +2097,10 @@ export namespace appflow {
      */
     export interface FlowTriggerConfig {
         /**
+         * Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
+         */
+        activateFlowOnCreate?: boolean;
+        /**
          * Details required based on the type of trigger
          */
         triggerProperties?: outputs.appflow.FlowScheduledTriggerProperties;
@@ -2168,45 +2176,11 @@ export namespace appintegrations {
         value: string;
     }
 
-    export interface EventIntegrationAssociation {
-        /**
-         * The metadata associated with the client.
-         */
-        clientAssociationMetadata?: outputs.appintegrations.EventIntegrationMetadata[];
-        /**
-         * The identifier for the client that is associated with the event integration.
-         */
-        clientId?: string;
-        /**
-         * The name of the Eventbridge rule.
-         */
-        eventBridgeRuleName?: string;
-        /**
-         * The Amazon Resource Name (ARN) for the event integration association.
-         */
-        eventIntegrationAssociationArn?: string;
-        /**
-         * The identifier for the event integration association.
-         */
-        eventIntegrationAssociationId?: string;
-    }
-
     export interface EventIntegrationEventFilter {
         /**
          * The source of the events.
          */
         source: string;
-    }
-
-    export interface EventIntegrationMetadata {
-        /**
-         * A key to identify the metadata.
-         */
-        key: string;
-        /**
-         * Corresponding metadata value for the key.
-         */
-        value: string;
     }
 
     export interface EventIntegrationTag {
@@ -10205,6 +10179,7 @@ export namespace dynamodb {
 
     export interface GlobalTableReplicaSpecification {
         contributorInsightsSpecification?: outputs.dynamodb.GlobalTableContributorInsightsSpecification;
+        deletionProtectionEnabled?: boolean;
         globalSecondaryIndexes?: outputs.dynamodb.GlobalTableReplicaGlobalSecondaryIndexSpecification[];
         kinesisStreamSpecification?: outputs.dynamodb.GlobalTableKinesisStreamSpecification;
         pointInTimeRecoverySpecification?: outputs.dynamodb.GlobalTablePointInTimeRecoverySpecification;
@@ -17649,6 +17624,14 @@ export namespace iot {
         rateIncreaseCriteria: outputs.iot.JobTemplateRateIncreaseCriteria;
     }
 
+    /**
+     * Specifies a start time and duration for a scheduled Job.
+     */
+    export interface JobTemplateMaintenanceWindow {
+        durationInMinutes?: number;
+        startTime?: string;
+    }
+
     export interface JobTemplateRateIncreaseCriteria {
         numberOfNotifiedThings?: number;
         numberOfSucceededThings?: number;
@@ -22883,11 +22866,15 @@ export namespace lex {
      */
     export interface BotCustomVocabularyItem {
         /**
+         * Defines how you want your phrase to look in your transcription output.
+         */
+        displayAs?: string;
+        /**
          * Phrase that should be recognized.
          */
         phrase: string;
         /**
-         * The degree to which the phrase recognition is boosted.
+         * The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
          */
         weight?: number;
     }
@@ -32654,7 +32641,7 @@ export namespace rum {
         /**
          * Use this field only if you are sending the metric to CloudWatch.
          *
-         * This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+         * This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
          *
          * "metadata.pageId": "PageId"
          *
@@ -32688,7 +32675,7 @@ export namespace rum {
          */
         eventPattern?: string;
         /**
-         * The name for the metric that is defined in this structure. Valid values are the following:
+         * The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
          *
          * PerformanceNavigationDuration
          *
@@ -32713,6 +32700,10 @@ export namespace rum {
          * SessionCount
          */
         name: string;
+        /**
+         * The namespace used by CloudWatch Metrics for the metric that is defined in this structure
+         */
+        namespace?: string;
         /**
          * The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
          */
@@ -33504,6 +33495,7 @@ export namespace s3 {
 
     export interface MultiRegionAccessPointRegion {
         bucket: string;
+        bucketAccountId?: string;
     }
 
     /**
@@ -34281,7 +34273,7 @@ export namespace sagemaker {
         /**
          * The execution role for the space.
          */
-        executionRole?: string;
+        executionRole: string;
         /**
          * The Jupyter server's app settings.
          */
@@ -34421,7 +34413,7 @@ export namespace sagemaker {
         /**
          * The execution role for the user.
          */
-        executionRole?: string;
+        executionRole: string;
         /**
          * The Jupyter server's app settings.
          */
@@ -37243,11 +37235,27 @@ export namespace secretsmanager {
 }
 
 export namespace servicecatalog {
+    export interface CloudFormationProductCodeStarParameters {
+        artifactPath: string;
+        branch: string;
+        connectionArn: string;
+        repository: string;
+    }
+
+    export interface CloudFormationProductConnectionParameters {
+        codeStar?: outputs.servicecatalog.CloudFormationProductCodeStarParameters;
+    }
+
     export interface CloudFormationProductProvisioningArtifactProperties {
         description?: string;
         disableTemplateValidation?: boolean;
         info: any;
         name?: string;
+    }
+
+    export interface CloudFormationProductSourceConnection {
+        connectionParameters: outputs.servicecatalog.CloudFormationProductConnectionParameters;
+        type: string;
     }
 
     export interface CloudFormationProductTag {
@@ -38929,6 +38937,146 @@ export namespace voiceid {
     export interface DomainTag {
         key: string;
         value: string;
+    }
+
+}
+
+export namespace vpclattice {
+    export interface AccessLogSubscriptionTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ListenerDefaultAction {
+        forward: outputs.vpclattice.ListenerForward;
+    }
+
+    export interface ListenerForward {
+        targetGroups: outputs.vpclattice.ListenerWeightedTargetGroup[];
+    }
+
+    export interface ListenerTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ListenerWeightedTargetGroup {
+        targetGroupIdentifier: string;
+        weight?: number;
+    }
+
+    export interface RuleAction {
+        forward: outputs.vpclattice.RuleForward;
+    }
+
+    export interface RuleForward {
+        targetGroups: outputs.vpclattice.RuleWeightedTargetGroup[];
+    }
+
+    export interface RuleHeaderMatch {
+        caseSensitive?: boolean;
+        match: outputs.vpclattice.RuleHeaderMatchType;
+        name: string;
+    }
+
+    export interface RuleHeaderMatchType {
+        contains?: string;
+        exact?: string;
+        prefix?: string;
+    }
+
+    export interface RuleHttpMatch {
+        headerMatches?: outputs.vpclattice.RuleHeaderMatch[];
+        method?: enums.vpclattice.RuleHttpMatchMethod;
+        pathMatch?: outputs.vpclattice.RulePathMatch;
+    }
+
+    export interface RuleMatch {
+        httpMatch: outputs.vpclattice.RuleHttpMatch;
+    }
+
+    export interface RulePathMatch {
+        caseSensitive?: boolean;
+        match: outputs.vpclattice.RulePathMatchType;
+    }
+
+    export interface RulePathMatchType {
+        exact?: string;
+        prefix?: string;
+    }
+
+    export interface RuleTag {
+        key: string;
+        value: string;
+    }
+
+    export interface RuleWeightedTargetGroup {
+        targetGroupIdentifier: string;
+        weight?: number;
+    }
+
+    export interface ServiceDnsEntry {
+        domainName?: string;
+        hostedZoneId?: string;
+    }
+
+    export interface ServiceNetworkServiceAssociationDnsEntry {
+        domainName?: string;
+        hostedZoneId?: string;
+    }
+
+    export interface ServiceNetworkServiceAssociationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ServiceNetworkTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ServiceNetworkVpcAssociationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ServiceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TargetGroupConfig {
+        healthCheck?: outputs.vpclattice.TargetGroupHealthCheckConfig;
+        port: number;
+        protocol: enums.vpclattice.TargetGroupConfigProtocol;
+        protocolVersion?: enums.vpclattice.TargetGroupConfigProtocolVersion;
+        vpcIdentifier: string;
+    }
+
+    export interface TargetGroupHealthCheckConfig {
+        enabled?: boolean;
+        healthCheckIntervalSeconds?: number;
+        healthCheckTimeoutSeconds?: number;
+        healthyThresholdCount?: number;
+        matcher?: outputs.vpclattice.TargetGroupMatcher;
+        path?: string;
+        port?: number;
+        protocol?: enums.vpclattice.TargetGroupHealthCheckConfigProtocol;
+        unhealthyThresholdCount?: number;
+    }
+
+    export interface TargetGroupMatcher {
+        httpCode: string;
+    }
+
+    export interface TargetGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TargetGroupTarget {
+        id: string;
+        port?: number;
     }
 
 }

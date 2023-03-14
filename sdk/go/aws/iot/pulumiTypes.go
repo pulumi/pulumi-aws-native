@@ -2702,6 +2702,109 @@ func (o JobTemplateExponentialRolloutRatePtrOutput) RateIncreaseCriteria() JobTe
 	}).(JobTemplateRateIncreaseCriteriaPtrOutput)
 }
 
+// Specifies a start time and duration for a scheduled Job.
+type JobTemplateMaintenanceWindow struct {
+	DurationInMinutes *int    `pulumi:"durationInMinutes"`
+	StartTime         *string `pulumi:"startTime"`
+}
+
+// JobTemplateMaintenanceWindowInput is an input type that accepts JobTemplateMaintenanceWindowArgs and JobTemplateMaintenanceWindowOutput values.
+// You can construct a concrete instance of `JobTemplateMaintenanceWindowInput` via:
+//
+//	JobTemplateMaintenanceWindowArgs{...}
+type JobTemplateMaintenanceWindowInput interface {
+	pulumi.Input
+
+	ToJobTemplateMaintenanceWindowOutput() JobTemplateMaintenanceWindowOutput
+	ToJobTemplateMaintenanceWindowOutputWithContext(context.Context) JobTemplateMaintenanceWindowOutput
+}
+
+// Specifies a start time and duration for a scheduled Job.
+type JobTemplateMaintenanceWindowArgs struct {
+	DurationInMinutes pulumi.IntPtrInput    `pulumi:"durationInMinutes"`
+	StartTime         pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (JobTemplateMaintenanceWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateMaintenanceWindow)(nil)).Elem()
+}
+
+func (i JobTemplateMaintenanceWindowArgs) ToJobTemplateMaintenanceWindowOutput() JobTemplateMaintenanceWindowOutput {
+	return i.ToJobTemplateMaintenanceWindowOutputWithContext(context.Background())
+}
+
+func (i JobTemplateMaintenanceWindowArgs) ToJobTemplateMaintenanceWindowOutputWithContext(ctx context.Context) JobTemplateMaintenanceWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateMaintenanceWindowOutput)
+}
+
+// JobTemplateMaintenanceWindowArrayInput is an input type that accepts JobTemplateMaintenanceWindowArray and JobTemplateMaintenanceWindowArrayOutput values.
+// You can construct a concrete instance of `JobTemplateMaintenanceWindowArrayInput` via:
+//
+//	JobTemplateMaintenanceWindowArray{ JobTemplateMaintenanceWindowArgs{...} }
+type JobTemplateMaintenanceWindowArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateMaintenanceWindowArrayOutput() JobTemplateMaintenanceWindowArrayOutput
+	ToJobTemplateMaintenanceWindowArrayOutputWithContext(context.Context) JobTemplateMaintenanceWindowArrayOutput
+}
+
+type JobTemplateMaintenanceWindowArray []JobTemplateMaintenanceWindowInput
+
+func (JobTemplateMaintenanceWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateMaintenanceWindow)(nil)).Elem()
+}
+
+func (i JobTemplateMaintenanceWindowArray) ToJobTemplateMaintenanceWindowArrayOutput() JobTemplateMaintenanceWindowArrayOutput {
+	return i.ToJobTemplateMaintenanceWindowArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateMaintenanceWindowArray) ToJobTemplateMaintenanceWindowArrayOutputWithContext(ctx context.Context) JobTemplateMaintenanceWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateMaintenanceWindowArrayOutput)
+}
+
+// Specifies a start time and duration for a scheduled Job.
+type JobTemplateMaintenanceWindowOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateMaintenanceWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateMaintenanceWindow)(nil)).Elem()
+}
+
+func (o JobTemplateMaintenanceWindowOutput) ToJobTemplateMaintenanceWindowOutput() JobTemplateMaintenanceWindowOutput {
+	return o
+}
+
+func (o JobTemplateMaintenanceWindowOutput) ToJobTemplateMaintenanceWindowOutputWithContext(ctx context.Context) JobTemplateMaintenanceWindowOutput {
+	return o
+}
+
+func (o JobTemplateMaintenanceWindowOutput) DurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateMaintenanceWindow) *int { return v.DurationInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o JobTemplateMaintenanceWindowOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateMaintenanceWindow) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateMaintenanceWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateMaintenanceWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateMaintenanceWindow)(nil)).Elem()
+}
+
+func (o JobTemplateMaintenanceWindowArrayOutput) ToJobTemplateMaintenanceWindowArrayOutput() JobTemplateMaintenanceWindowArrayOutput {
+	return o
+}
+
+func (o JobTemplateMaintenanceWindowArrayOutput) ToJobTemplateMaintenanceWindowArrayOutputWithContext(ctx context.Context) JobTemplateMaintenanceWindowArrayOutput {
+	return o
+}
+
+func (o JobTemplateMaintenanceWindowArrayOutput) Index(i pulumi.IntInput) JobTemplateMaintenanceWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateMaintenanceWindow {
+		return vs[0].([]JobTemplateMaintenanceWindow)[vs[1].(int)]
+	}).(JobTemplateMaintenanceWindowOutput)
+}
+
 type JobTemplateRateIncreaseCriteria struct {
 	NumberOfNotifiedThings  *int `pulumi:"numberOfNotifiedThings"`
 	NumberOfSucceededThings *int `pulumi:"numberOfSucceededThings"`
@@ -12968,6 +13071,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateAbortCriteriaArrayInput)(nil)).Elem(), JobTemplateAbortCriteriaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateExponentialRolloutRateInput)(nil)).Elem(), JobTemplateExponentialRolloutRateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateExponentialRolloutRatePtrInput)(nil)).Elem(), JobTemplateExponentialRolloutRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateMaintenanceWindowInput)(nil)).Elem(), JobTemplateMaintenanceWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateMaintenanceWindowArrayInput)(nil)).Elem(), JobTemplateMaintenanceWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRateIncreaseCriteriaInput)(nil)).Elem(), JobTemplateRateIncreaseCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRateIncreaseCriteriaPtrInput)(nil)).Elem(), JobTemplateRateIncreaseCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRetryCriteriaInput)(nil)).Elem(), JobTemplateRetryCriteriaArgs{})
@@ -13135,6 +13240,8 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateAbortCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(JobTemplateExponentialRolloutRateOutput{})
 	pulumi.RegisterOutputType(JobTemplateExponentialRolloutRatePtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateMaintenanceWindowOutput{})
+	pulumi.RegisterOutputType(JobTemplateMaintenanceWindowArrayOutput{})
 	pulumi.RegisterOutputType(JobTemplateRateIncreaseCriteriaOutput{})
 	pulumi.RegisterOutputType(JobTemplateRateIncreaseCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateRetryCriteriaOutput{})

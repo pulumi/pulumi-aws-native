@@ -518,6 +518,8 @@ class GlobalTableReplicaSpecification(dict):
         suggest = None
         if key == "contributorInsightsSpecification":
             suggest = "contributor_insights_specification"
+        elif key == "deletionProtectionEnabled":
+            suggest = "deletion_protection_enabled"
         elif key == "globalSecondaryIndexes":
             suggest = "global_secondary_indexes"
         elif key == "kinesisStreamSpecification":
@@ -545,6 +547,7 @@ class GlobalTableReplicaSpecification(dict):
     def __init__(__self__, *,
                  region: str,
                  contributor_insights_specification: Optional['outputs.GlobalTableContributorInsightsSpecification'] = None,
+                 deletion_protection_enabled: Optional[bool] = None,
                  global_secondary_indexes: Optional[Sequence['outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification']] = None,
                  kinesis_stream_specification: Optional['outputs.GlobalTableKinesisStreamSpecification'] = None,
                  point_in_time_recovery_specification: Optional['outputs.GlobalTablePointInTimeRecoverySpecification'] = None,
@@ -555,6 +558,8 @@ class GlobalTableReplicaSpecification(dict):
         pulumi.set(__self__, "region", region)
         if contributor_insights_specification is not None:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
+        if deletion_protection_enabled is not None:
+            pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
         if kinesis_stream_specification is not None:
@@ -579,6 +584,11 @@ class GlobalTableReplicaSpecification(dict):
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> Optional['outputs.GlobalTableContributorInsightsSpecification']:
         return pulumi.get(self, "contributor_insights_specification")
+
+    @property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "deletion_protection_enabled")
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")

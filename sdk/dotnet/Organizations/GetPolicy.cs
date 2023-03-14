@@ -66,9 +66,9 @@ namespace Pulumi.AwsNative.Organizations
         /// </summary>
         public readonly bool? AwsManaged;
         /// <summary>
-        /// The Policy text content
+        /// The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
         /// </summary>
-        public readonly string? Content;
+        public readonly object? Content;
         /// <summary>
         /// Human readable description of the policy
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.Organizations
 
             bool? awsManaged,
 
-            string? content,
+            object? content,
 
             string? description,
 

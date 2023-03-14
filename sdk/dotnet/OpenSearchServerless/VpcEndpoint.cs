@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
             set => _securityGroupIds = value;
         }
 
-        [Input("subnetIds")]
+        [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
 
         /// <summary>

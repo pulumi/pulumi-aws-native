@@ -28,12 +28,8 @@ type LookupMemberInvitationArgs struct {
 }
 
 type LookupMemberInvitationResult struct {
-	// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
-	DisableEmailNotification *bool `pulumi:"disableEmailNotification"`
 	// The root email address for the account to be invited, for validation. Updating this field has no effect.
 	MemberEmailAddress *string `pulumi:"memberEmailAddress"`
-	// A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
-	Message *string `pulumi:"message"`
 }
 
 func LookupMemberInvitationOutput(ctx *pulumi.Context, args LookupMemberInvitationOutputArgs, opts ...pulumi.InvokeOption) LookupMemberInvitationResultOutput {
@@ -74,19 +70,9 @@ func (o LookupMemberInvitationResultOutput) ToLookupMemberInvitationResultOutput
 	return o
 }
 
-// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
-func (o LookupMemberInvitationResultOutput) DisableEmailNotification() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupMemberInvitationResult) *bool { return v.DisableEmailNotification }).(pulumi.BoolPtrOutput)
-}
-
 // The root email address for the account to be invited, for validation. Updating this field has no effect.
 func (o LookupMemberInvitationResultOutput) MemberEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMemberInvitationResult) *string { return v.MemberEmailAddress }).(pulumi.StringPtrOutput)
-}
-
-// A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
-func (o LookupMemberInvitationResultOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupMemberInvitationResult) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
 func init() {

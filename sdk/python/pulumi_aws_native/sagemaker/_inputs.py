@@ -1614,7 +1614,7 @@ class DomainCustomImageArgs:
 @pulumi.input_type
 class DomainDefaultSpaceSettingsArgs:
     def __init__(__self__, *,
-                 execution_role: Optional[pulumi.Input[str]] = None,
+                 execution_role: pulumi.Input[str],
                  jupyter_server_app_settings: Optional[pulumi.Input['DomainJupyterServerAppSettingsArgs']] = None,
                  kernel_gateway_app_settings: Optional[pulumi.Input['DomainKernelGatewayAppSettingsArgs']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1625,8 +1625,7 @@ class DomainDefaultSpaceSettingsArgs:
         :param pulumi.Input['DomainKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         """
-        if execution_role is not None:
-            pulumi.set(__self__, "execution_role", execution_role)
+        pulumi.set(__self__, "execution_role", execution_role)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
@@ -1636,14 +1635,14 @@ class DomainDefaultSpaceSettingsArgs:
 
     @property
     @pulumi.getter(name="executionRole")
-    def execution_role(self) -> Optional[pulumi.Input[str]]:
+    def execution_role(self) -> pulumi.Input[str]:
         """
         The execution role for the space.
         """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
-    def execution_role(self, value: Optional[pulumi.Input[str]]):
+    def execution_role(self, value: pulumi.Input[str]):
         pulumi.set(self, "execution_role", value)
 
     @property
@@ -2079,7 +2078,7 @@ class DomainTagArgs:
 @pulumi.input_type
 class DomainUserSettingsArgs:
     def __init__(__self__, *,
-                 execution_role: Optional[pulumi.Input[str]] = None,
+                 execution_role: pulumi.Input[str],
                  jupyter_server_app_settings: Optional[pulumi.Input['DomainJupyterServerAppSettingsArgs']] = None,
                  kernel_gateway_app_settings: Optional[pulumi.Input['DomainKernelGatewayAppSettingsArgs']] = None,
                  r_session_app_settings: Optional[pulumi.Input['DomainRSessionAppSettingsArgs']] = None,
@@ -2094,8 +2093,7 @@ class DomainUserSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input['DomainSharingSettingsArgs'] sharing_settings: The sharing settings.
         """
-        if execution_role is not None:
-            pulumi.set(__self__, "execution_role", execution_role)
+        pulumi.set(__self__, "execution_role", execution_role)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
@@ -2111,14 +2109,14 @@ class DomainUserSettingsArgs:
 
     @property
     @pulumi.getter(name="executionRole")
-    def execution_role(self) -> Optional[pulumi.Input[str]]:
+    def execution_role(self) -> pulumi.Input[str]:
         """
         The execution role for the user.
         """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
-    def execution_role(self, value: Optional[pulumi.Input[str]]):
+    def execution_role(self, value: pulumi.Input[str]):
         pulumi.set(self, "execution_role", value)
 
     @property

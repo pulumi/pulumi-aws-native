@@ -25,12 +25,14 @@ type LookupClusterArgs struct {
 }
 
 type LookupClusterResult struct {
-	ClusterArn          *string      `pulumi:"clusterArn"`
-	ShardCapacity       *int         `pulumi:"shardCapacity"`
-	ShardCount          *int         `pulumi:"shardCount"`
-	SubnetIds           []string     `pulumi:"subnetIds"`
-	Tags                []ClusterTag `pulumi:"tags"`
-	VpcSecurityGroupIds []string     `pulumi:"vpcSecurityGroupIds"`
+	ClusterArn                 *string      `pulumi:"clusterArn"`
+	ClusterEndpoint            *string      `pulumi:"clusterEndpoint"`
+	PreferredMaintenanceWindow *string      `pulumi:"preferredMaintenanceWindow"`
+	ShardCapacity              *int         `pulumi:"shardCapacity"`
+	ShardCount                 *int         `pulumi:"shardCount"`
+	SubnetIds                  []string     `pulumi:"subnetIds"`
+	Tags                       []ClusterTag `pulumi:"tags"`
+	VpcSecurityGroupIds        []string     `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -70,6 +72,14 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 
 func (o LookupClusterResultOutput) ClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupClusterResultOutput) ClusterEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) ShardCapacity() pulumi.IntPtrOutput {

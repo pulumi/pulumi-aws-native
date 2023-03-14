@@ -27,10 +27,6 @@ export interface GetEventIntegrationArgs {
 
 export interface GetEventIntegrationResult {
     /**
-     * The associations with the event integration.
-     */
-    readonly associations?: outputs.appintegrations.EventIntegrationAssociation[];
-    /**
      * The event integration description.
      */
     readonly description?: string;

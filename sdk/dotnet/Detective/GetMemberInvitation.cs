@@ -70,29 +70,14 @@ namespace Pulumi.AwsNative.Detective
     public sealed class GetMemberInvitationResult
     {
         /// <summary>
-        /// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
-        /// </summary>
-        public readonly bool? DisableEmailNotification;
-        /// <summary>
         /// The root email address for the account to be invited, for validation. Updating this field has no effect.
         /// </summary>
         public readonly string? MemberEmailAddress;
-        /// <summary>
-        /// A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
-        /// </summary>
-        public readonly string? Message;
 
         [OutputConstructor]
-        private GetMemberInvitationResult(
-            bool? disableEmailNotification,
-
-            string? memberEmailAddress,
-
-            string? message)
+        private GetMemberInvitationResult(string? memberEmailAddress)
         {
-            DisableEmailNotification = disableEmailNotification;
             MemberEmailAddress = memberEmailAddress;
-            Message = message;
         }
     }
 }

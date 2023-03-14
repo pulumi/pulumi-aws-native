@@ -8724,7 +8724,8 @@ func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) RestrictP
 }
 
 type MultiRegionAccessPointRegion struct {
-	Bucket string `pulumi:"bucket"`
+	Bucket          string  `pulumi:"bucket"`
+	BucketAccountId *string `pulumi:"bucketAccountId"`
 }
 
 // MultiRegionAccessPointRegionInput is an input type that accepts MultiRegionAccessPointRegionArgs and MultiRegionAccessPointRegionOutput values.
@@ -8739,7 +8740,8 @@ type MultiRegionAccessPointRegionInput interface {
 }
 
 type MultiRegionAccessPointRegionArgs struct {
-	Bucket pulumi.StringInput `pulumi:"bucket"`
+	Bucket          pulumi.StringInput    `pulumi:"bucket"`
+	BucketAccountId pulumi.StringPtrInput `pulumi:"bucketAccountId"`
 }
 
 func (MultiRegionAccessPointRegionArgs) ElementType() reflect.Type {
@@ -8795,6 +8797,10 @@ func (o MultiRegionAccessPointRegionOutput) ToMultiRegionAccessPointRegionOutput
 
 func (o MultiRegionAccessPointRegionOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointRegion) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o MultiRegionAccessPointRegionOutput) BucketAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointRegion) *string { return v.BucketAccountId }).(pulumi.StringPtrOutput)
 }
 
 type MultiRegionAccessPointRegionArrayOutput struct{ *pulumi.OutputState }

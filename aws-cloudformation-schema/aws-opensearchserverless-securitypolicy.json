@@ -39,7 +39,7 @@
       "$ref" : "#/definitions/SecurityPolicyType"
     }
   },
-  "required" : [ "Policy" ],
+  "required" : [ "Type", "Name", "Policy" ],
   "createOnlyProperties" : [ "/properties/Type", "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Type", "/properties/Name" ],
   "handlers" : {

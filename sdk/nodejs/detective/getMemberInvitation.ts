@@ -29,17 +29,9 @@ export interface GetMemberInvitationArgs {
 
 export interface GetMemberInvitationResult {
     /**
-     * When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
-     */
-    readonly disableEmailNotification?: boolean;
-    /**
      * The root email address for the account to be invited, for validation. Updating this field has no effect.
      */
     readonly memberEmailAddress?: string;
-    /**
-     * A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
-     */
-    readonly message?: string;
 }
 /**
  * Resource schema for AWS::Detective::MemberInvitation

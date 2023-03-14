@@ -38,10 +38,6 @@ export class EventIntegration extends pulumi.CustomResource {
     }
 
     /**
-     * The associations with the event integration.
-     */
-    public /*out*/ readonly associations!: pulumi.Output<outputs.appintegrations.EventIntegrationAssociation[]>;
-    /**
      * The event integration description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -88,10 +84,8 @@ export class EventIntegration extends pulumi.CustomResource {
             resourceInputs["eventFilter"] = args ? args.eventFilter : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["associations"] = undefined /*out*/;
             resourceInputs["eventIntegrationArn"] = undefined /*out*/;
         } else {
-            resourceInputs["associations"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["eventBridgeBus"] = undefined /*out*/;
             resourceInputs["eventFilter"] = undefined /*out*/;

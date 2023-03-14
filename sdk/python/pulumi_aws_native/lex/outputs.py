@@ -1059,15 +1059,36 @@ class BotCustomVocabularyItem(dict):
     """
     A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayAs":
+            suggest = "display_as"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotCustomVocabularyItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotCustomVocabularyItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotCustomVocabularyItem.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  phrase: str,
+                 display_as: Optional[str] = None,
                  weight: Optional[int] = None):
         """
         A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
         :param str phrase: Phrase that should be recognized.
-        :param int weight: The degree to which the phrase recognition is boosted.
+        :param str display_as: Defines how you want your phrase to look in your transcription output.
+        :param int weight: The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
         """
         pulumi.set(__self__, "phrase", phrase)
+        if display_as is not None:
+            pulumi.set(__self__, "display_as", display_as)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
 
@@ -1080,10 +1101,18 @@ class BotCustomVocabularyItem(dict):
         return pulumi.get(self, "phrase")
 
     @property
+    @pulumi.getter(name="displayAs")
+    def display_as(self) -> Optional[str]:
+        """
+        Defines how you want your phrase to look in your transcription output.
+        """
+        return pulumi.get(self, "display_as")
+
+    @property
     @pulumi.getter
     def weight(self) -> Optional[int]:
         """
-        The degree to which the phrase recognition is boosted.
+        The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
         """
         return pulumi.get(self, "weight")
 

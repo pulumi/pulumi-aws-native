@@ -62,6 +62,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public readonly string? ProvisioningArtifactNames;
         public readonly ImmutableArray<Outputs.CloudFormationProductProvisioningArtifactProperties> ProvisioningArtifactParameters;
         public readonly bool? ReplaceProvisioningArtifacts;
+        public readonly Outputs.CloudFormationProductSourceConnection? SourceConnection;
         public readonly string? SupportDescription;
         public readonly string? SupportEmail;
         public readonly string? SupportUrl;
@@ -91,6 +92,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
             bool? replaceProvisioningArtifacts,
 
+            Outputs.CloudFormationProductSourceConnection? sourceConnection,
+
             string? supportDescription,
 
             string? supportEmail,
@@ -110,6 +113,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
             ProvisioningArtifactNames = provisioningArtifactNames;
             ProvisioningArtifactParameters = provisioningArtifactParameters;
             ReplaceProvisioningArtifacts = replaceProvisioningArtifacts;
+            SourceConnection = sourceConnection;
             SupportDescription = supportDescription;
             SupportEmail = supportEmail;
             SupportUrl = supportUrl;

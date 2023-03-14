@@ -834,13 +834,17 @@ class BotCustomPayloadArgs:
 class BotCustomVocabularyItemArgs:
     def __init__(__self__, *,
                  phrase: pulumi.Input[str],
+                 display_as: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
         A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
         :param pulumi.Input[str] phrase: Phrase that should be recognized.
-        :param pulumi.Input[int] weight: The degree to which the phrase recognition is boosted.
+        :param pulumi.Input[str] display_as: Defines how you want your phrase to look in your transcription output.
+        :param pulumi.Input[int] weight: The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
         """
         pulumi.set(__self__, "phrase", phrase)
+        if display_as is not None:
+            pulumi.set(__self__, "display_as", display_as)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
 
@@ -857,10 +861,22 @@ class BotCustomVocabularyItemArgs:
         pulumi.set(self, "phrase", value)
 
     @property
+    @pulumi.getter(name="displayAs")
+    def display_as(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines how you want your phrase to look in your transcription output.
+        """
+        return pulumi.get(self, "display_as")
+
+    @display_as.setter
+    def display_as(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_as", value)
+
+    @property
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
         """
-        The degree to which the phrase recognition is boosted.
+        The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
         """
         return pulumi.get(self, "weight")
 

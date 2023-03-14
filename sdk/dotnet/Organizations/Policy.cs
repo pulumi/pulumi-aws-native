@@ -28,10 +28,10 @@ namespace Pulumi.AwsNative.Organizations
         public Output<bool> AwsManaged { get; private set; } = null!;
 
         /// <summary>
-        /// The Policy text content
+        /// The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
         /// </summary>
         [Output("content")]
-        public Output<string> Content { get; private set; } = null!;
+        public Output<object> Content { get; private set; } = null!;
 
         /// <summary>
         /// Human readable description of the policy
@@ -109,10 +109,10 @@ namespace Pulumi.AwsNative.Organizations
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Policy text content
+        /// The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
         /// </summary>
         [Input("content", required: true)]
-        public Input<string> Content { get; set; } = null!;
+        public Input<object> Content { get; set; } = null!;
 
         /// <summary>
         /// Human readable description of the policy

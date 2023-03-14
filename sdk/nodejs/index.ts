@@ -271,6 +271,7 @@ import * as timestream from "./timestream";
 import * as transfer from "./transfer";
 import * as types from "./types";
 import * as voiceid from "./voiceid";
+import * as vpclattice from "./vpclattice";
 import * as waf from "./waf";
 import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
@@ -489,6 +490,7 @@ export {
     transfer,
     types,
     voiceid,
+    vpclattice,
     waf,
     wafregional,
     wafv2,

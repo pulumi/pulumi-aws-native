@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// The execution role for the space.
         /// </summary>
-        [Input("executionRole")]
-        public Input<string>? ExecutionRole { get; set; }
+        [Input("executionRole", required: true)]
+        public Input<string> ExecutionRole { get; set; } = null!;
 
         /// <summary>
         /// The Jupyter server's app settings.

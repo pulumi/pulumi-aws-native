@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.DocDBElastic
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
 
+        [Output("clusterEndpoint")]
+        public Output<string> ClusterEndpoint { get; private set; } = null!;
+
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 

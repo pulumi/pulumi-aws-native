@@ -44,12 +44,12 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The name of the policy
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The JSON policy document that is the content for the policy
      */
-    public readonly policy!: pulumi.Output<string | undefined>;
-    public readonly type!: pulumi.Output<enums.opensearchserverless.AccessPolicyType | undefined>;
+    public readonly policy!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<enums.opensearchserverless.AccessPolicyType>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -58,10 +58,16 @@ export class AccessPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'policy'");
+            }
+            if ((!args || args.type === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'type'");
+            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
@@ -92,6 +98,6 @@ export interface AccessPolicyArgs {
     /**
      * The JSON policy document that is the content for the policy
      */
-    policy?: pulumi.Input<string>;
-    type?: pulumi.Input<enums.opensearchserverless.AccessPolicyType>;
+    policy: pulumi.Input<string>;
+    type: pulumi.Input<enums.opensearchserverless.AccessPolicyType>;
 }

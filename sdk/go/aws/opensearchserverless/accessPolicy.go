@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,19 +18,25 @@ type AccessPolicy struct {
 	// The description of the policy
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the policy
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The JSON policy document that is the content for the policy
-	Policy pulumi.StringPtrOutput    `pulumi:"policy"`
-	Type   AccessPolicyTypePtrOutput `pulumi:"type"`
+	Policy pulumi.StringOutput    `pulumi:"policy"`
+	Type   AccessPolicyTypeOutput `pulumi:"type"`
 }
 
 // NewAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewAccessPolicy(ctx *pulumi.Context,
 	name string, args *AccessPolicyArgs, opts ...pulumi.ResourceOption) (*AccessPolicy, error) {
 	if args == nil {
-		args = &AccessPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
+	}
 	var resource AccessPolicy
 	err := ctx.RegisterResource("aws-native:opensearchserverless:AccessPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -67,8 +74,8 @@ type accessPolicyArgs struct {
 	// The name of the policy
 	Name *string `pulumi:"name"`
 	// The JSON policy document that is the content for the policy
-	Policy *string           `pulumi:"policy"`
-	Type   *AccessPolicyType `pulumi:"type"`
+	Policy string           `pulumi:"policy"`
+	Type   AccessPolicyType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a AccessPolicy resource.
@@ -78,8 +85,8 @@ type AccessPolicyArgs struct {
 	// The name of the policy
 	Name pulumi.StringPtrInput
 	// The JSON policy document that is the content for the policy
-	Policy pulumi.StringPtrInput
-	Type   AccessPolicyTypePtrInput
+	Policy pulumi.StringInput
+	Type   AccessPolicyTypeInput
 }
 
 func (AccessPolicyArgs) ElementType() reflect.Type {
@@ -125,17 +132,17 @@ func (o AccessPolicyOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The name of the policy
-func (o AccessPolicyOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccessPolicy) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o AccessPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The JSON policy document that is the content for the policy
-func (o AccessPolicyOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccessPolicy) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
+func (o AccessPolicyOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-func (o AccessPolicyOutput) Type() AccessPolicyTypePtrOutput {
-	return o.ApplyT(func(v *AccessPolicy) AccessPolicyTypePtrOutput { return v.Type }).(AccessPolicyTypePtrOutput)
+func (o AccessPolicyOutput) Type() AccessPolicyTypeOutput {
+	return o.ApplyT(func(v *AccessPolicy) AccessPolicyTypeOutput { return v.Type }).(AccessPolicyTypeOutput)
 }
 
 func init() {

@@ -31,6 +31,7 @@ __all__ = [
     'JobExecutionsRolloutConfigProperties',
     'JobTemplateAbortCriteria',
     'JobTemplateExponentialRolloutRate',
+    'JobTemplateMaintenanceWindow',
     'JobTemplateRateIncreaseCriteria',
     'JobTemplateRetryCriteria',
     'JobTemplateTag',
@@ -990,6 +991,52 @@ class JobTemplateExponentialRolloutRate(dict):
         The criteria to initiate the increase in rate of rollout for a job.
         """
         return pulumi.get(self, "rate_increase_criteria")
+
+
+@pulumi.output_type
+class JobTemplateMaintenanceWindow(dict):
+    """
+    Specifies a start time and duration for a scheduled Job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationInMinutes":
+            suggest = "duration_in_minutes"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateMaintenanceWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateMaintenanceWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateMaintenanceWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration_in_minutes: Optional[int] = None,
+                 start_time: Optional[str] = None):
+        """
+        Specifies a start time and duration for a scheduled Job.
+        """
+        if duration_in_minutes is not None:
+            pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="durationInMinutes")
+    def duration_in_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "duration_in_minutes")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        return pulumi.get(self, "start_time")
 
 
 @pulumi.output_type

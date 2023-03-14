@@ -18,15 +18,16 @@ class ListenerRuleArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]],
                  conditions: pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]],
-                 listener_arn: pulumi.Input[str],
-                 priority: pulumi.Input[int]):
+                 priority: pulumi.Input[int],
+                 listener_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ListenerRule resource.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "conditions", conditions)
-        pulumi.set(__self__, "listener_arn", listener_arn)
         pulumi.set(__self__, "priority", priority)
+        if listener_arn is not None:
+            pulumi.set(__self__, "listener_arn", listener_arn)
 
     @property
     @pulumi.getter
@@ -47,15 +48,6 @@ class ListenerRuleArgs:
         pulumi.set(self, "conditions", value)
 
     @property
-    @pulumi.getter(name="listenerArn")
-    def listener_arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "listener_arn")
-
-    @listener_arn.setter
-    def listener_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "listener_arn", value)
-
-    @property
     @pulumi.getter
     def priority(self) -> pulumi.Input[int]:
         return pulumi.get(self, "priority")
@@ -63,6 +55,15 @@ class ListenerRuleArgs:
     @priority.setter
     def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="listenerArn")
+    def listener_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "listener_arn")
+
+    @listener_arn.setter
+    def listener_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "listener_arn", value)
 
 
 class ListenerRule(pulumi.CustomResource):
@@ -124,8 +125,6 @@ class ListenerRule(pulumi.CustomResource):
             if conditions is None and not opts.urn:
                 raise TypeError("Missing required property 'conditions'")
             __props__.__dict__["conditions"] = conditions
-            if listener_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'listener_arn'")
             __props__.__dict__["listener_arn"] = listener_arn
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
@@ -179,7 +178,7 @@ class ListenerRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="listenerArn")
-    def listener_arn(self) -> pulumi.Output[str]:
+    def listener_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "listener_arn")
 
     @property

@@ -29,6 +29,7 @@ __all__ = [
     'JobExecutionsRolloutConfigPropertiesArgs',
     'JobTemplateAbortCriteriaArgs',
     'JobTemplateExponentialRolloutRateArgs',
+    'JobTemplateMaintenanceWindowArgs',
     'JobTemplateRateIncreaseCriteriaArgs',
     'JobTemplateRetryCriteriaArgs',
     'JobTemplateTagArgs',
@@ -905,6 +906,38 @@ class JobTemplateExponentialRolloutRateArgs:
     @rate_increase_criteria.setter
     def rate_increase_criteria(self, value: pulumi.Input['JobTemplateRateIncreaseCriteriaArgs']):
         pulumi.set(self, "rate_increase_criteria", value)
+
+
+@pulumi.input_type
+class JobTemplateMaintenanceWindowArgs:
+    def __init__(__self__, *,
+                 duration_in_minutes: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies a start time and duration for a scheduled Job.
+        """
+        if duration_in_minutes is not None:
+            pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="durationInMinutes")
+    def duration_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "duration_in_minutes")
+
+    @duration_in_minutes.setter
+    def duration_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "duration_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
 
 
 @pulumi.input_type

@@ -36,6 +36,7 @@ type LookupCloudFormationProductResult struct {
 	ProvisioningArtifactNames      *string                                               `pulumi:"provisioningArtifactNames"`
 	ProvisioningArtifactParameters []CloudFormationProductProvisioningArtifactProperties `pulumi:"provisioningArtifactParameters"`
 	ReplaceProvisioningArtifacts   *bool                                                 `pulumi:"replaceProvisioningArtifacts"`
+	SourceConnection               *CloudFormationProductSourceConnection                `pulumi:"sourceConnection"`
 	SupportDescription             *string                                               `pulumi:"supportDescription"`
 	SupportEmail                   *string                                               `pulumi:"supportEmail"`
 	SupportUrl                     *string                                               `pulumi:"supportUrl"`
@@ -121,6 +122,12 @@ func (o LookupCloudFormationProductResultOutput) ProvisioningArtifactParameters(
 
 func (o LookupCloudFormationProductResultOutput) ReplaceProvisioningArtifacts() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupCloudFormationProductResult) *bool { return v.ReplaceProvisioningArtifacts }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupCloudFormationProductResultOutput) SourceConnection() CloudFormationProductSourceConnectionPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationProductResult) *CloudFormationProductSourceConnection {
+		return v.SourceConnection
+	}).(CloudFormationProductSourceConnectionPtrOutput)
 }
 
 func (o LookupCloudFormationProductResultOutput) SupportDescription() pulumi.StringPtrOutput {

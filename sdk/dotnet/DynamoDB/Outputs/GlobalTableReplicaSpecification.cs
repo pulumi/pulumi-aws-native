@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
     public sealed class GlobalTableReplicaSpecification
     {
         public readonly Outputs.GlobalTableContributorInsightsSpecification? ContributorInsightsSpecification;
+        public readonly bool? DeletionProtectionEnabled;
         public readonly ImmutableArray<Outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification> GlobalSecondaryIndexes;
         public readonly Outputs.GlobalTableKinesisStreamSpecification? KinesisStreamSpecification;
         public readonly Outputs.GlobalTablePointInTimeRecoverySpecification? PointInTimeRecoverySpecification;
@@ -26,6 +27,8 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
         [OutputConstructor]
         private GlobalTableReplicaSpecification(
             Outputs.GlobalTableContributorInsightsSpecification? contributorInsightsSpecification,
+
+            bool? deletionProtectionEnabled,
 
             ImmutableArray<Outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification> globalSecondaryIndexes,
 
@@ -44,6 +47,7 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
             ImmutableArray<Outputs.GlobalTableTag> tags)
         {
             ContributorInsightsSpecification = contributorInsightsSpecification;
+            DeletionProtectionEnabled = deletionProtectionEnabled;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
             KinesisStreamSpecification = kinesisStreamSpecification;
             PointInTimeRecoverySpecification = pointInTimeRecoverySpecification;

@@ -60,6 +60,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("jobTemplateId")]
         public Output<string> JobTemplateId { get; private set; } = null!;
 
+        [Output("maintenanceWindows")]
+        public Output<ImmutableArray<Outputs.JobTemplateMaintenanceWindow>> MaintenanceWindows { get; private set; } = null!;
+
         /// <summary>
         /// Configuration for pre-signed S3 URLs.
         /// </summary>
@@ -164,6 +167,14 @@ namespace Pulumi.AwsNative.IoT
 
         [Input("jobTemplateId", required: true)]
         public Input<string> JobTemplateId { get; set; } = null!;
+
+        [Input("maintenanceWindows")]
+        private InputList<Inputs.JobTemplateMaintenanceWindowArgs>? _maintenanceWindows;
+        public InputList<Inputs.JobTemplateMaintenanceWindowArgs> MaintenanceWindows
+        {
+            get => _maintenanceWindows ?? (_maintenanceWindows = new InputList<Inputs.JobTemplateMaintenanceWindowArgs>());
+            set => _maintenanceWindows = value;
+        }
 
         /// <summary>
         /// Configuration for pre-signed S3 URLs.

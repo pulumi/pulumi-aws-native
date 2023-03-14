@@ -189,78 +189,6 @@ func (o DataIntegrationTagArrayOutput) Index(i pulumi.IntInput) DataIntegrationT
 	}).(DataIntegrationTagOutput)
 }
 
-type EventIntegrationAssociation struct {
-	// The metadata associated with the client.
-	ClientAssociationMetadata []EventIntegrationMetadata `pulumi:"clientAssociationMetadata"`
-	// The identifier for the client that is associated with the event integration.
-	ClientId *string `pulumi:"clientId"`
-	// The name of the Eventbridge rule.
-	EventBridgeRuleName *string `pulumi:"eventBridgeRuleName"`
-	// The Amazon Resource Name (ARN) for the event integration association.
-	EventIntegrationAssociationArn *string `pulumi:"eventIntegrationAssociationArn"`
-	// The identifier for the event integration association.
-	EventIntegrationAssociationId *string `pulumi:"eventIntegrationAssociationId"`
-}
-
-type EventIntegrationAssociationOutput struct{ *pulumi.OutputState }
-
-func (EventIntegrationAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventIntegrationAssociation)(nil)).Elem()
-}
-
-func (o EventIntegrationAssociationOutput) ToEventIntegrationAssociationOutput() EventIntegrationAssociationOutput {
-	return o
-}
-
-func (o EventIntegrationAssociationOutput) ToEventIntegrationAssociationOutputWithContext(ctx context.Context) EventIntegrationAssociationOutput {
-	return o
-}
-
-// The metadata associated with the client.
-func (o EventIntegrationAssociationOutput) ClientAssociationMetadata() EventIntegrationMetadataArrayOutput {
-	return o.ApplyT(func(v EventIntegrationAssociation) []EventIntegrationMetadata { return v.ClientAssociationMetadata }).(EventIntegrationMetadataArrayOutput)
-}
-
-// The identifier for the client that is associated with the event integration.
-func (o EventIntegrationAssociationOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventIntegrationAssociation) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// The name of the Eventbridge rule.
-func (o EventIntegrationAssociationOutput) EventBridgeRuleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventIntegrationAssociation) *string { return v.EventBridgeRuleName }).(pulumi.StringPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) for the event integration association.
-func (o EventIntegrationAssociationOutput) EventIntegrationAssociationArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventIntegrationAssociation) *string { return v.EventIntegrationAssociationArn }).(pulumi.StringPtrOutput)
-}
-
-// The identifier for the event integration association.
-func (o EventIntegrationAssociationOutput) EventIntegrationAssociationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventIntegrationAssociation) *string { return v.EventIntegrationAssociationId }).(pulumi.StringPtrOutput)
-}
-
-type EventIntegrationAssociationArrayOutput struct{ *pulumi.OutputState }
-
-func (EventIntegrationAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventIntegrationAssociation)(nil)).Elem()
-}
-
-func (o EventIntegrationAssociationArrayOutput) ToEventIntegrationAssociationArrayOutput() EventIntegrationAssociationArrayOutput {
-	return o
-}
-
-func (o EventIntegrationAssociationArrayOutput) ToEventIntegrationAssociationArrayOutputWithContext(ctx context.Context) EventIntegrationAssociationArrayOutput {
-	return o
-}
-
-func (o EventIntegrationAssociationArrayOutput) Index(i pulumi.IntInput) EventIntegrationAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventIntegrationAssociation {
-		return vs[0].([]EventIntegrationAssociation)[vs[1].(int)]
-	}).(EventIntegrationAssociationOutput)
-}
-
 type EventIntegrationEventFilter struct {
 	// The source of the events.
 	Source string `pulumi:"source"`
@@ -311,57 +239,6 @@ func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterOutputWi
 // The source of the events.
 func (o EventIntegrationEventFilterOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v EventIntegrationEventFilter) string { return v.Source }).(pulumi.StringOutput)
-}
-
-type EventIntegrationMetadata struct {
-	// A key to identify the metadata.
-	Key string `pulumi:"key"`
-	// Corresponding metadata value for the key.
-	Value string `pulumi:"value"`
-}
-
-type EventIntegrationMetadataOutput struct{ *pulumi.OutputState }
-
-func (EventIntegrationMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventIntegrationMetadata)(nil)).Elem()
-}
-
-func (o EventIntegrationMetadataOutput) ToEventIntegrationMetadataOutput() EventIntegrationMetadataOutput {
-	return o
-}
-
-func (o EventIntegrationMetadataOutput) ToEventIntegrationMetadataOutputWithContext(ctx context.Context) EventIntegrationMetadataOutput {
-	return o
-}
-
-// A key to identify the metadata.
-func (o EventIntegrationMetadataOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v EventIntegrationMetadata) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Corresponding metadata value for the key.
-func (o EventIntegrationMetadataOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v EventIntegrationMetadata) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type EventIntegrationMetadataArrayOutput struct{ *pulumi.OutputState }
-
-func (EventIntegrationMetadataArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventIntegrationMetadata)(nil)).Elem()
-}
-
-func (o EventIntegrationMetadataArrayOutput) ToEventIntegrationMetadataArrayOutput() EventIntegrationMetadataArrayOutput {
-	return o
-}
-
-func (o EventIntegrationMetadataArrayOutput) ToEventIntegrationMetadataArrayOutputWithContext(ctx context.Context) EventIntegrationMetadataArrayOutput {
-	return o
-}
-
-func (o EventIntegrationMetadataArrayOutput) Index(i pulumi.IntInput) EventIntegrationMetadataOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventIntegrationMetadata {
-		return vs[0].([]EventIntegrationMetadata)[vs[1].(int)]
-	}).(EventIntegrationMetadataOutput)
 }
 
 type EventIntegrationTag struct {
@@ -480,11 +357,7 @@ func init() {
 	pulumi.RegisterOutputType(DataIntegrationScheduleConfigOutput{})
 	pulumi.RegisterOutputType(DataIntegrationTagOutput{})
 	pulumi.RegisterOutputType(DataIntegrationTagArrayOutput{})
-	pulumi.RegisterOutputType(EventIntegrationAssociationOutput{})
-	pulumi.RegisterOutputType(EventIntegrationAssociationArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterOutput{})
-	pulumi.RegisterOutputType(EventIntegrationMetadataOutput{})
-	pulumi.RegisterOutputType(EventIntegrationMetadataArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationTagOutput{})
 	pulumi.RegisterOutputType(EventIntegrationTagArrayOutput{})
 }

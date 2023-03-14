@@ -21,15 +21,22 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// Indicates whether the connector profile applies to a sandbox or production environment
         /// </summary>
         public readonly bool? IsSandboxEnvironment;
+        /// <summary>
+        /// Indicates whether to make Metadata And Authorization calls over Pivate Network
+        /// </summary>
+        public readonly bool? UsePrivateLinkForMetadataAndAuthorization;
 
         [OutputConstructor]
         private ConnectorProfileSalesforceConnectorProfileProperties(
             string? instanceUrl,
 
-            bool? isSandboxEnvironment)
+            bool? isSandboxEnvironment,
+
+            bool? usePrivateLinkForMetadataAndAuthorization)
         {
             InstanceUrl = instanceUrl;
             IsSandboxEnvironment = isSandboxEnvironment;
+            UsePrivateLinkForMetadataAndAuthorization = usePrivateLinkForMetadataAndAuthorization;
         }
     }
 }

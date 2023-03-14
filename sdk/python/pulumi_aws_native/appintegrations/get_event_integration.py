@@ -19,10 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventIntegrationResult:
-    def __init__(__self__, associations=None, description=None, event_integration_arn=None, tags=None):
-        if associations and not isinstance(associations, list):
-            raise TypeError("Expected argument 'associations' to be a list")
-        pulumi.set(__self__, "associations", associations)
+    def __init__(__self__, description=None, event_integration_arn=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -32,14 +29,6 @@ class GetEventIntegrationResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def associations(self) -> Optional[Sequence['outputs.EventIntegrationAssociation']]:
-        """
-        The associations with the event integration.
-        """
-        return pulumi.get(self, "associations")
 
     @property
     @pulumi.getter
@@ -72,7 +61,6 @@ class AwaitableGetEventIntegrationResult(GetEventIntegrationResult):
         if False:
             yield self
         return GetEventIntegrationResult(
-            associations=self.associations,
             description=self.description,
             event_integration_arn=self.event_integration_arn,
             tags=self.tags)
@@ -92,7 +80,6 @@ def get_event_integration(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appintegrations:getEventIntegration', __args__, opts=opts, typ=GetEventIntegrationResult).value
 
     return AwaitableGetEventIntegrationResult(
-        associations=__ret__.associations,
         description=__ret__.description,
         event_integration_arn=__ret__.event_integration_arn,
         tags=__ret__.tags)

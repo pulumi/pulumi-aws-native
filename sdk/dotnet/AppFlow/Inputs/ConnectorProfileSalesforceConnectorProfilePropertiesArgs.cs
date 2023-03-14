@@ -24,6 +24,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("isSandboxEnvironment")]
         public Input<bool>? IsSandboxEnvironment { get; set; }
 
+        /// <summary>
+        /// Indicates whether to make Metadata And Authorization calls over Pivate Network
+        /// </summary>
+        [Input("usePrivateLinkForMetadataAndAuthorization")]
+        public Input<bool>? UsePrivateLinkForMetadataAndAuthorization { get; set; }
+
         public ConnectorProfileSalesforceConnectorProfilePropertiesArgs()
         {
         }

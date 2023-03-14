@@ -216,11 +216,12 @@ class AppMonitorMetricDefinitionArgs:
                  name: pulumi.Input[str],
                  dimension_keys: Optional[Any] = None,
                  event_pattern: Optional[pulumi.Input[str]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None,
                  unit_label: Optional[pulumi.Input[str]] = None,
                  value_key: Optional[pulumi.Input[str]] = None):
         """
         A single metric definition
-        :param pulumi.Input[str] name: The name for the metric that is defined in this structure. Valid values are the following:
+        :param pulumi.Input[str] name: The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
                
                PerformanceNavigationDuration
                
@@ -245,7 +246,7 @@ class AppMonitorMetricDefinitionArgs:
                SessionCount
         :param Any dimension_keys: Use this field only if you are sending the metric to CloudWatch.
                
-               This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+               This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
                
                "metadata.pageId": "PageId"
                
@@ -273,6 +274,7 @@ class AppMonitorMetricDefinitionArgs:
                '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], "countryCode": [ "US" ] }, "event_details": { "duration": [{ "numeric": [ ">=", 2000, "<", 8000 ] }] } }'
                
                If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
+        :param pulumi.Input[str] namespace: The namespace used by CloudWatch Metrics for the metric that is defined in this structure
         :param pulumi.Input[str] unit_label: The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
         :param pulumi.Input[str] value_key: The field within the event object that the metric value is sourced from.
                
@@ -285,6 +287,8 @@ class AppMonitorMetricDefinitionArgs:
             pulumi.set(__self__, "dimension_keys", dimension_keys)
         if event_pattern is not None:
             pulumi.set(__self__, "event_pattern", event_pattern)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
         if unit_label is not None:
             pulumi.set(__self__, "unit_label", unit_label)
         if value_key is not None:
@@ -294,7 +298,7 @@ class AppMonitorMetricDefinitionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name for the metric that is defined in this structure. Valid values are the following:
+        The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
 
         PerformanceNavigationDuration
 
@@ -330,7 +334,7 @@ class AppMonitorMetricDefinitionArgs:
         """
         Use this field only if you are sending the metric to CloudWatch.
 
-        This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+        This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
 
         "metadata.pageId": "PageId"
 
@@ -375,6 +379,18 @@ class AppMonitorMetricDefinitionArgs:
     @event_pattern.setter
     def event_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_pattern", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace used by CloudWatch Metrics for the metric that is defined in this structure
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
 
     @property
     @pulumi.getter(name="unitLabel")

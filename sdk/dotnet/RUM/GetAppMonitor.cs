@@ -67,6 +67,10 @@ namespace Pulumi.AwsNative.RUM
         /// The top-level internet domain name for which your application has administrative authority.
         /// </summary>
         public readonly string? Domain;
+        /// <summary>
+        /// The unique ID of the new app monitor.
+        /// </summary>
+        public readonly string? Id;
         public readonly ImmutableArray<Outputs.AppMonitorTag> Tags;
 
         [OutputConstructor]
@@ -79,12 +83,15 @@ namespace Pulumi.AwsNative.RUM
 
             string? domain,
 
+            string? id,
+
             ImmutableArray<Outputs.AppMonitorTag> tags)
         {
             AppMonitorConfiguration = appMonitorConfiguration;
             CustomEvents = customEvents;
             CwLogEnabled = cwLogEnabled;
             Domain = domain;
+            Id = id;
             Tags = tags;
         }
     }

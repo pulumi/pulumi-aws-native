@@ -168,7 +168,6 @@ class EventIntegration(pulumi.CustomResource):
             __props__.__dict__["event_filter"] = event_filter
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["associations"] = None
             __props__.__dict__["event_integration_arn"] = None
         super(EventIntegration, __self__).__init__(
             'aws-native:appintegrations:EventIntegration',
@@ -192,7 +191,6 @@ class EventIntegration(pulumi.CustomResource):
 
         __props__ = EventIntegrationArgs.__new__(EventIntegrationArgs)
 
-        __props__.__dict__["associations"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["event_bridge_bus"] = None
         __props__.__dict__["event_filter"] = None
@@ -200,14 +198,6 @@ class EventIntegration(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return EventIntegration(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def associations(self) -> pulumi.Output[Sequence['outputs.EventIntegrationAssociation']]:
-        """
-        The associations with the event integration.
-        """
-        return pulumi.get(self, "associations")
 
     @property
     @pulumi.getter

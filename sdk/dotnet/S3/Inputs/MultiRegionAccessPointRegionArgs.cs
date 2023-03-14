@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        [Input("bucketAccountId")]
+        public Input<string>? BucketAccountId { get; set; }
+
         public MultiRegionAccessPointRegionArgs()
         {
         }

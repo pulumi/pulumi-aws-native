@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> HostId { get; private set; } = null!;
 
         /// <summary>
+        /// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+        /// </summary>
+        [Output("hostMaintenance")]
+        public Output<string?> HostMaintenance { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
         /// </summary>
         [Output("hostRecovery")]
@@ -113,6 +119,12 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
+
+        /// <summary>
+        /// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+        /// </summary>
+        [Input("hostMaintenance")]
+        public Input<string>? HostMaintenance { get; set; }
 
         /// <summary>
         /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.

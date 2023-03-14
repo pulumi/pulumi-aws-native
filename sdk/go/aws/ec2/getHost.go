@@ -30,6 +30,8 @@ type LookupHostResult struct {
 	AutoPlacement *string `pulumi:"autoPlacement"`
 	// Id of the host created.
 	HostId *string `pulumi:"hostId"`
+	// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+	HostMaintenance *string `pulumi:"hostMaintenance"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
 	HostRecovery *string `pulumi:"hostRecovery"`
 }
@@ -78,6 +80,11 @@ func (o LookupHostResultOutput) AutoPlacement() pulumi.StringPtrOutput {
 // Id of the host created.
 func (o LookupHostResultOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHostResult) *string { return v.HostId }).(pulumi.StringPtrOutput)
+}
+
+// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+func (o LookupHostResultOutput) HostMaintenance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHostResult) *string { return v.HostMaintenance }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.

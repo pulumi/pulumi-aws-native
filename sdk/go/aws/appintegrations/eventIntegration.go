@@ -15,8 +15,6 @@ import (
 type EventIntegration struct {
 	pulumi.CustomResourceState
 
-	// The associations with the event integration.
-	Associations EventIntegrationAssociationArrayOutput `pulumi:"associations"`
 	// The event integration description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Amazon Eventbridge bus for the event integration.
@@ -137,11 +135,6 @@ func (o EventIntegrationOutput) ToEventIntegrationOutput() EventIntegrationOutpu
 
 func (o EventIntegrationOutput) ToEventIntegrationOutputWithContext(ctx context.Context) EventIntegrationOutput {
 	return o
-}
-
-// The associations with the event integration.
-func (o EventIntegrationOutput) Associations() EventIntegrationAssociationArrayOutput {
-	return o.ApplyT(func(v *EventIntegration) EventIntegrationAssociationArrayOutput { return v.Associations }).(EventIntegrationAssociationArrayOutput)
 }
 
 // The event integration description.

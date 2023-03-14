@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.RUM.Outputs
         /// <summary>
         /// Use this field only if you are sending the metric to CloudWatch.
         /// 
-        /// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+        /// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
         /// 
         /// "metadata.pageId": "PageId"
         /// 
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.RUM.Outputs
         /// </summary>
         public readonly string? EventPattern;
         /// <summary>
-        /// The name for the metric that is defined in this structure. Valid values are the following:
+        /// The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
         /// 
         /// PerformanceNavigationDuration
         /// 
@@ -79,6 +79,10 @@ namespace Pulumi.AwsNative.RUM.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The namespace used by CloudWatch Metrics for the metric that is defined in this structure
+        /// </summary>
+        public readonly string? Namespace;
+        /// <summary>
         /// The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
         /// </summary>
         public readonly string? UnitLabel;
@@ -99,6 +103,8 @@ namespace Pulumi.AwsNative.RUM.Outputs
 
             string name,
 
+            string? @namespace,
+
             string? unitLabel,
 
             string? valueKey)
@@ -106,6 +112,7 @@ namespace Pulumi.AwsNative.RUM.Outputs
             DimensionKeys = dimensionKeys;
             EventPattern = eventPattern;
             Name = name;
+            Namespace = @namespace;
             UnitLabel = unitLabel;
             ValueKey = valueKey;
         }

@@ -25,16 +25,16 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// The name of the policy
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The JSON policy document that is the content for the policy
         /// </summary>
         [Output("policy")]
-        public Output<string?> Policy { get; private set; } = null!;
+        public Output<string> Policy { get; private set; } = null!;
 
         [Output("type")]
-        public Output<Pulumi.AwsNative.OpenSearchServerless.AccessPolicyType?> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.OpenSearchServerless.AccessPolicyType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AccessPolicy(string name, AccessPolicyArgs? args = null, CustomResourceOptions? options = null)
+        public AccessPolicy(string name, AccessPolicyArgs args, CustomResourceOptions? options = null)
             : base("aws-native:opensearchserverless:AccessPolicy", name, args ?? new AccessPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -96,11 +96,11 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// <summary>
         /// The JSON policy document that is the content for the policy
         /// </summary>
-        [Input("policy")]
-        public Input<string>? Policy { get; set; }
+        [Input("policy", required: true)]
+        public Input<string> Policy { get; set; } = null!;
 
-        [Input("type")]
-        public Input<Pulumi.AwsNative.OpenSearchServerless.AccessPolicyType>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<Pulumi.AwsNative.OpenSearchServerless.AccessPolicyType> Type { get; set; } = null!;
 
         public AccessPolicyArgs()
         {

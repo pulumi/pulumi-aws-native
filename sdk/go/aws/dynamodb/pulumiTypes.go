@@ -1459,6 +1459,7 @@ func (o GlobalTableReplicaSSESpecificationPtrOutput) KMSMasterKeyId() pulumi.Str
 
 type GlobalTableReplicaSpecification struct {
 	ContributorInsightsSpecification  *GlobalTableContributorInsightsSpecification          `pulumi:"contributorInsightsSpecification"`
+	DeletionProtectionEnabled         *bool                                                 `pulumi:"deletionProtectionEnabled"`
 	GlobalSecondaryIndexes            []GlobalTableReplicaGlobalSecondaryIndexSpecification `pulumi:"globalSecondaryIndexes"`
 	KinesisStreamSpecification        *GlobalTableKinesisStreamSpecification                `pulumi:"kinesisStreamSpecification"`
 	PointInTimeRecoverySpecification  *GlobalTablePointInTimeRecoverySpecification          `pulumi:"pointInTimeRecoverySpecification"`
@@ -1482,6 +1483,7 @@ type GlobalTableReplicaSpecificationInput interface {
 
 type GlobalTableReplicaSpecificationArgs struct {
 	ContributorInsightsSpecification  GlobalTableContributorInsightsSpecificationPtrInput           `pulumi:"contributorInsightsSpecification"`
+	DeletionProtectionEnabled         pulumi.BoolPtrInput                                           `pulumi:"deletionProtectionEnabled"`
 	GlobalSecondaryIndexes            GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput `pulumi:"globalSecondaryIndexes"`
 	KinesisStreamSpecification        GlobalTableKinesisStreamSpecificationPtrInput                 `pulumi:"kinesisStreamSpecification"`
 	PointInTimeRecoverySpecification  GlobalTablePointInTimeRecoverySpecificationPtrInput           `pulumi:"pointInTimeRecoverySpecification"`
@@ -1547,6 +1549,10 @@ func (o GlobalTableReplicaSpecificationOutput) ContributorInsightsSpecification(
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableContributorInsightsSpecification {
 		return v.ContributorInsightsSpecification
 	}).(GlobalTableContributorInsightsSpecificationPtrOutput)
+}
+
+func (o GlobalTableReplicaSpecificationOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSpecification) *bool { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o GlobalTableReplicaSpecificationOutput) GlobalSecondaryIndexes() GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput {

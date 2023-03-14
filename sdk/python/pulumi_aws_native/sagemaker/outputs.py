@@ -1861,7 +1861,7 @@ class DomainDefaultSpaceSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 execution_role: Optional[str] = None,
+                 execution_role: str,
                  jupyter_server_app_settings: Optional['outputs.DomainJupyterServerAppSettings'] = None,
                  kernel_gateway_app_settings: Optional['outputs.DomainKernelGatewayAppSettings'] = None,
                  security_groups: Optional[Sequence[str]] = None):
@@ -1872,8 +1872,7 @@ class DomainDefaultSpaceSettings(dict):
         :param 'DomainKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
         :param Sequence[str] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         """
-        if execution_role is not None:
-            pulumi.set(__self__, "execution_role", execution_role)
+        pulumi.set(__self__, "execution_role", execution_role)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
@@ -1883,7 +1882,7 @@ class DomainDefaultSpaceSettings(dict):
 
     @property
     @pulumi.getter(name="executionRole")
-    def execution_role(self) -> Optional[str]:
+    def execution_role(self) -> str:
         """
         The execution role for the space.
         """
@@ -2435,7 +2434,7 @@ class DomainUserSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 execution_role: Optional[str] = None,
+                 execution_role: str,
                  jupyter_server_app_settings: Optional['outputs.DomainJupyterServerAppSettings'] = None,
                  kernel_gateway_app_settings: Optional['outputs.DomainKernelGatewayAppSettings'] = None,
                  r_session_app_settings: Optional['outputs.DomainRSessionAppSettings'] = None,
@@ -2450,8 +2449,7 @@ class DomainUserSettings(dict):
         :param Sequence[str] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param 'DomainSharingSettings' sharing_settings: The sharing settings.
         """
-        if execution_role is not None:
-            pulumi.set(__self__, "execution_role", execution_role)
+        pulumi.set(__self__, "execution_role", execution_role)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
@@ -2467,7 +2465,7 @@ class DomainUserSettings(dict):
 
     @property
     @pulumi.getter(name="executionRole")
-    def execution_role(self) -> Optional[str]:
+    def execution_role(self) -> str:
         """
         The execution role for the user.
         """

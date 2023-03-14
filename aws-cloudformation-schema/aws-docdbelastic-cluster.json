@@ -32,6 +32,9 @@
     "ClusterArn" : {
       "type" : "string"
     },
+    "ClusterEndpoint" : {
+      "type" : "string"
+    },
     "AdminUserName" : {
       "type" : "string"
     },
@@ -82,8 +85,8 @@
   },
   "required" : [ "ClusterName", "AdminUserName", "ShardCapacity", "ShardCount", "AuthType" ],
   "primaryIdentifier" : [ "/properties/ClusterArn" ],
-  "readOnlyProperties" : [ "/properties/ClusterArn" ],
-  "createOnlyProperties" : [ "/properties/AdminUserName", "/properties/AuthType", "/properties/ClusterName", "/properties/PreferredMaintenanceWindow", "/properties/KmsKeyId" ],
+  "readOnlyProperties" : [ "/properties/ClusterArn", "/properties/ClusterEndpoint" ],
+  "createOnlyProperties" : [ "/properties/AdminUserName", "/properties/AuthType", "/properties/ClusterName", "/properties/KmsKeyId" ],
   "writeOnlyProperties" : [ "/properties/AdminUserPassword" ],
   "tagging" : {
     "taggable" : true,

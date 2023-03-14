@@ -19,8 +19,8 @@ type Policy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
 	AwsManaged pulumi.BoolOutput `pulumi:"awsManaged"`
-	// The Policy text content
-	Content pulumi.StringOutput `pulumi:"content"`
+	// The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+	Content pulumi.AnyOutput `pulumi:"content"`
 	// Human readable description of the policy
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the Policy
@@ -78,8 +78,8 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// The Policy text content
-	Content string `pulumi:"content"`
+	// The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+	Content interface{} `pulumi:"content"`
 	// Human readable description of the policy
 	Description *string `pulumi:"description"`
 	// Name of the Policy
@@ -94,8 +94,8 @@ type policyArgs struct {
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// The Policy text content
-	Content pulumi.StringInput
+	// The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+	Content pulumi.Input
 	// Human readable description of the policy
 	Description pulumi.StringPtrInput
 	// Name of the Policy
@@ -155,9 +155,9 @@ func (o PolicyOutput) AwsManaged() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Policy) pulumi.BoolOutput { return v.AwsManaged }).(pulumi.BoolOutput)
 }
 
-// The Policy text content
-func (o PolicyOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+// The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+func (o PolicyOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Policy) pulumi.AnyOutput { return v.Content }).(pulumi.AnyOutput)
 }
 
 // Human readable description of the policy

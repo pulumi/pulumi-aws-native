@@ -5996,6 +5996,8 @@ type ConnectorProfileSalesforceConnectorProfileProperties struct {
 	InstanceUrl *string `pulumi:"instanceUrl"`
 	// Indicates whether the connector profile applies to a sandbox or production environment
 	IsSandboxEnvironment *bool `pulumi:"isSandboxEnvironment"`
+	// Indicates whether to make Metadata And Authorization calls over Pivate Network
+	UsePrivateLinkForMetadataAndAuthorization *bool `pulumi:"usePrivateLinkForMetadataAndAuthorization"`
 }
 
 // ConnectorProfileSalesforceConnectorProfilePropertiesInput is an input type that accepts ConnectorProfileSalesforceConnectorProfilePropertiesArgs and ConnectorProfileSalesforceConnectorProfilePropertiesOutput values.
@@ -6014,6 +6016,8 @@ type ConnectorProfileSalesforceConnectorProfilePropertiesArgs struct {
 	InstanceUrl pulumi.StringPtrInput `pulumi:"instanceUrl"`
 	// Indicates whether the connector profile applies to a sandbox or production environment
 	IsSandboxEnvironment pulumi.BoolPtrInput `pulumi:"isSandboxEnvironment"`
+	// Indicates whether to make Metadata And Authorization calls over Pivate Network
+	UsePrivateLinkForMetadataAndAuthorization pulumi.BoolPtrInput `pulumi:"usePrivateLinkForMetadataAndAuthorization"`
 }
 
 func (ConnectorProfileSalesforceConnectorProfilePropertiesArgs) ElementType() reflect.Type {
@@ -6103,6 +6107,13 @@ func (o ConnectorProfileSalesforceConnectorProfilePropertiesOutput) IsSandboxEnv
 	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileProperties) *bool { return v.IsSandboxEnvironment }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to make Metadata And Authorization calls over Pivate Network
+func (o ConnectorProfileSalesforceConnectorProfilePropertiesOutput) UsePrivateLinkForMetadataAndAuthorization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileProperties) *bool {
+		return v.UsePrivateLinkForMetadataAndAuthorization
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) ElementType() reflect.Type {
@@ -6144,6 +6155,16 @@ func (o ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) IsSandbox
 			return nil
 		}
 		return v.IsSandboxEnvironment
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to make Metadata And Authorization calls over Pivate Network
+func (o ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) UsePrivateLinkForMetadataAndAuthorization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSalesforceConnectorProfileProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UsePrivateLinkForMetadataAndAuthorization
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -15131,6 +15152,8 @@ func (o FlowTrendmicroSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput
 
 // Trigger settings of the flow.
 type FlowTriggerConfig struct {
+	// Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
+	ActivateFlowOnCreate *bool `pulumi:"activateFlowOnCreate"`
 	// Details required based on the type of trigger
 	TriggerProperties *FlowScheduledTriggerProperties `pulumi:"triggerProperties"`
 	// Trigger type of the flow
@@ -15150,6 +15173,8 @@ type FlowTriggerConfigInput interface {
 
 // Trigger settings of the flow.
 type FlowTriggerConfigArgs struct {
+	// Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
+	ActivateFlowOnCreate pulumi.BoolPtrInput `pulumi:"activateFlowOnCreate"`
 	// Details required based on the type of trigger
 	TriggerProperties FlowScheduledTriggerPropertiesPtrInput `pulumi:"triggerProperties"`
 	// Trigger type of the flow
@@ -15181,6 +15206,11 @@ func (o FlowTriggerConfigOutput) ToFlowTriggerConfigOutput() FlowTriggerConfigOu
 
 func (o FlowTriggerConfigOutput) ToFlowTriggerConfigOutputWithContext(ctx context.Context) FlowTriggerConfigOutput {
 	return o
+}
+
+// Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
+func (o FlowTriggerConfigOutput) ActivateFlowOnCreate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlowTriggerConfig) *bool { return v.ActivateFlowOnCreate }).(pulumi.BoolPtrOutput)
 }
 
 // Details required based on the type of trigger
@@ -15215,6 +15245,16 @@ func (o FlowTriggerConfigPtrOutput) Elem() FlowTriggerConfigOutput {
 		var ret FlowTriggerConfig
 		return ret
 	}).(FlowTriggerConfigOutput)
+}
+
+// Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
+func (o FlowTriggerConfigPtrOutput) ActivateFlowOnCreate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlowTriggerConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ActivateFlowOnCreate
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Details required based on the type of trigger

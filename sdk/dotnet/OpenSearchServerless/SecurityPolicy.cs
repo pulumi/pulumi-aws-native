@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// The name of the policy
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The JSON policy document that is the content for the policy
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Output<string> Policy { get; private set; } = null!;
 
         [Output("type")]
-        public Output<Pulumi.AwsNative.OpenSearchServerless.SecurityPolicyType?> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.OpenSearchServerless.SecurityPolicyType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        [Input("type")]
-        public Input<Pulumi.AwsNative.OpenSearchServerless.SecurityPolicyType>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<Pulumi.AwsNative.OpenSearchServerless.SecurityPolicyType> Type { get; set; } = null!;
 
         public SecurityPolicyArgs()
         {

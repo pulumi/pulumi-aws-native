@@ -35,9 +35,9 @@ export interface GetPolicyResult {
      */
     readonly awsManaged?: boolean;
     /**
-     * The Policy text content
+     * The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
      */
-    readonly content?: string;
+    readonly content?: any;
     /**
      * Human readable description of the policy
      */

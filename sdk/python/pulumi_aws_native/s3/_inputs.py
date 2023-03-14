@@ -2802,8 +2802,11 @@ class MultiRegionAccessPointPublicAccessBlockConfigurationArgs:
 @pulumi.input_type
 class MultiRegionAccessPointRegionArgs:
     def __init__(__self__, *,
-                 bucket: pulumi.Input[str]):
+                 bucket: pulumi.Input[str],
+                 bucket_account_id: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "bucket", bucket)
+        if bucket_account_id is not None:
+            pulumi.set(__self__, "bucket_account_id", bucket_account_id)
 
     @property
     @pulumi.getter
@@ -2813,6 +2816,15 @@ class MultiRegionAccessPointRegionArgs:
     @bucket.setter
     def bucket(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="bucketAccountId")
+    def bucket_account_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_account_id")
+
+    @bucket_account_id.setter
+    def bucket_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_account_id", value)
 
 
 @pulumi.input_type

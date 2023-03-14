@@ -3087,14 +3087,39 @@ class MultiRegionAccessPointPublicAccessBlockConfiguration(dict):
 
 @pulumi.output_type
 class MultiRegionAccessPointRegion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketAccountId":
+            suggest = "bucket_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiRegionAccessPointRegion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiRegionAccessPointRegion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiRegionAccessPointRegion.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 bucket: str):
+                 bucket: str,
+                 bucket_account_id: Optional[str] = None):
         pulumi.set(__self__, "bucket", bucket)
+        if bucket_account_id is not None:
+            pulumi.set(__self__, "bucket_account_id", bucket_account_id)
 
     @property
     @pulumi.getter
     def bucket(self) -> str:
         return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="bucketAccountId")
+    def bucket_account_id(self) -> Optional[str]:
+        return pulumi.get(self, "bucket_account_id")
 
 
 @pulumi.output_type

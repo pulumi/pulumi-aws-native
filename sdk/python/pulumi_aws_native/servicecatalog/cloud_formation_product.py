@@ -17,12 +17,13 @@ __all__ = ['CloudFormationProductArgs', 'CloudFormationProduct']
 class CloudFormationProductArgs:
     def __init__(__self__, *,
                  owner: pulumi.Input[str],
-                 provisioning_artifact_parameters: pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]],
                  accept_language: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  distributor: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]] = None,
                  replace_provisioning_artifacts: Optional[pulumi.Input[bool]] = None,
+                 source_connection: Optional[pulumi.Input['CloudFormationProductSourceConnectionArgs']] = None,
                  support_description: Optional[pulumi.Input[str]] = None,
                  support_email: Optional[pulumi.Input[str]] = None,
                  support_url: Optional[pulumi.Input[str]] = None,
@@ -31,7 +32,6 @@ class CloudFormationProductArgs:
         The set of arguments for constructing a CloudFormationProduct resource.
         """
         pulumi.set(__self__, "owner", owner)
-        pulumi.set(__self__, "provisioning_artifact_parameters", provisioning_artifact_parameters)
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
         if description is not None:
@@ -40,8 +40,12 @@ class CloudFormationProductArgs:
             pulumi.set(__self__, "distributor", distributor)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if provisioning_artifact_parameters is not None:
+            pulumi.set(__self__, "provisioning_artifact_parameters", provisioning_artifact_parameters)
         if replace_provisioning_artifacts is not None:
             pulumi.set(__self__, "replace_provisioning_artifacts", replace_provisioning_artifacts)
+        if source_connection is not None:
+            pulumi.set(__self__, "source_connection", source_connection)
         if support_description is not None:
             pulumi.set(__self__, "support_description", support_description)
         if support_email is not None:
@@ -59,15 +63,6 @@ class CloudFormationProductArgs:
     @owner.setter
     def owner(self, value: pulumi.Input[str]):
         pulumi.set(self, "owner", value)
-
-    @property
-    @pulumi.getter(name="provisioningArtifactParameters")
-    def provisioning_artifact_parameters(self) -> pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]:
-        return pulumi.get(self, "provisioning_artifact_parameters")
-
-    @provisioning_artifact_parameters.setter
-    def provisioning_artifact_parameters(self, value: pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]):
-        pulumi.set(self, "provisioning_artifact_parameters", value)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -106,6 +101,15 @@ class CloudFormationProductArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="provisioningArtifactParameters")
+    def provisioning_artifact_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]]:
+        return pulumi.get(self, "provisioning_artifact_parameters")
+
+    @provisioning_artifact_parameters.setter
+    def provisioning_artifact_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]]):
+        pulumi.set(self, "provisioning_artifact_parameters", value)
+
+    @property
     @pulumi.getter(name="replaceProvisioningArtifacts")
     def replace_provisioning_artifacts(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "replace_provisioning_artifacts")
@@ -113,6 +117,15 @@ class CloudFormationProductArgs:
     @replace_provisioning_artifacts.setter
     def replace_provisioning_artifacts(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "replace_provisioning_artifacts", value)
+
+    @property
+    @pulumi.getter(name="sourceConnection")
+    def source_connection(self) -> Optional[pulumi.Input['CloudFormationProductSourceConnectionArgs']]:
+        return pulumi.get(self, "source_connection")
+
+    @source_connection.setter
+    def source_connection(self, value: Optional[pulumi.Input['CloudFormationProductSourceConnectionArgs']]):
+        pulumi.set(self, "source_connection", value)
 
     @property
     @pulumi.getter(name="supportDescription")
@@ -168,6 +181,7 @@ class CloudFormationProduct(pulumi.CustomResource):
                  owner: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProductProvisioningArtifactPropertiesArgs']]]]] = None,
                  replace_provisioning_artifacts: Optional[pulumi.Input[bool]] = None,
+                 source_connection: Optional[pulumi.Input[pulumi.InputType['CloudFormationProductSourceConnectionArgs']]] = None,
                  support_description: Optional[pulumi.Input[str]] = None,
                  support_email: Optional[pulumi.Input[str]] = None,
                  support_url: Optional[pulumi.Input[str]] = None,
@@ -210,6 +224,7 @@ class CloudFormationProduct(pulumi.CustomResource):
                  owner: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProductProvisioningArtifactPropertiesArgs']]]]] = None,
                  replace_provisioning_artifacts: Optional[pulumi.Input[bool]] = None,
+                 source_connection: Optional[pulumi.Input[pulumi.InputType['CloudFormationProductSourceConnectionArgs']]] = None,
                  support_description: Optional[pulumi.Input[str]] = None,
                  support_email: Optional[pulumi.Input[str]] = None,
                  support_url: Optional[pulumi.Input[str]] = None,
@@ -231,10 +246,9 @@ class CloudFormationProduct(pulumi.CustomResource):
             if owner is None and not opts.urn:
                 raise TypeError("Missing required property 'owner'")
             __props__.__dict__["owner"] = owner
-            if provisioning_artifact_parameters is None and not opts.urn:
-                raise TypeError("Missing required property 'provisioning_artifact_parameters'")
             __props__.__dict__["provisioning_artifact_parameters"] = provisioning_artifact_parameters
             __props__.__dict__["replace_provisioning_artifacts"] = replace_provisioning_artifacts
+            __props__.__dict__["source_connection"] = source_connection
             __props__.__dict__["support_description"] = support_description
             __props__.__dict__["support_email"] = support_email
             __props__.__dict__["support_url"] = support_url
@@ -274,6 +288,7 @@ class CloudFormationProduct(pulumi.CustomResource):
         __props__.__dict__["provisioning_artifact_names"] = None
         __props__.__dict__["provisioning_artifact_parameters"] = None
         __props__.__dict__["replace_provisioning_artifacts"] = None
+        __props__.__dict__["source_connection"] = None
         __props__.__dict__["support_description"] = None
         __props__.__dict__["support_email"] = None
         __props__.__dict__["support_url"] = None
@@ -322,13 +337,18 @@ class CloudFormationProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningArtifactParameters")
-    def provisioning_artifact_parameters(self) -> pulumi.Output[Sequence['outputs.CloudFormationProductProvisioningArtifactProperties']]:
+    def provisioning_artifact_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.CloudFormationProductProvisioningArtifactProperties']]]:
         return pulumi.get(self, "provisioning_artifact_parameters")
 
     @property
     @pulumi.getter(name="replaceProvisioningArtifacts")
     def replace_provisioning_artifacts(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "replace_provisioning_artifacts")
+
+    @property
+    @pulumi.getter(name="sourceConnection")
+    def source_connection(self) -> pulumi.Output[Optional['outputs.CloudFormationProductSourceConnection']]:
+        return pulumi.get(self, "source_connection")
 
     @property
     @pulumi.getter(name="supportDescription")

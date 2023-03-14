@@ -236,6 +236,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["cluster_arn"] = None
+            __props__.__dict__["cluster_endpoint"] = None
         super(Cluster, __self__).__init__(
             'aws-native:docdbelastic:Cluster',
             resource_name,
@@ -262,6 +263,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["admin_user_password"] = None
         __props__.__dict__["auth_type"] = None
         __props__.__dict__["cluster_arn"] = None
+        __props__.__dict__["cluster_endpoint"] = None
         __props__.__dict__["cluster_name"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["preferred_maintenance_window"] = None
@@ -291,6 +293,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "cluster_arn")
+
+    @property
+    @pulumi.getter(name="clusterEndpoint")
+    def cluster_endpoint(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "cluster_endpoint")
 
     @property
     @pulumi.getter(name="clusterName")

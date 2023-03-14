@@ -26,8 +26,8 @@ class GetPolicyResult:
         if aws_managed and not isinstance(aws_managed, bool):
             raise TypeError("Expected argument 'aws_managed' to be a bool")
         pulumi.set(__self__, "aws_managed", aws_managed)
-        if content and not isinstance(content, str):
-            raise TypeError("Expected argument 'content' to be a str")
+        if content and not isinstance(content, dict):
+            raise TypeError("Expected argument 'content' to be a dict")
         pulumi.set(__self__, "content", content)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
@@ -63,9 +63,9 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[str]:
+    def content(self) -> Optional[Any]:
         """
-        The Policy text content
+        The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
         """
         return pulumi.get(self, "content")
 

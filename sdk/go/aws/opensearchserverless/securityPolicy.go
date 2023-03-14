@@ -18,10 +18,10 @@ type SecurityPolicy struct {
 	// The description of the policy
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the policy
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The JSON policy document that is the content for the policy
-	Policy pulumi.StringOutput         `pulumi:"policy"`
-	Type   SecurityPolicyTypePtrOutput `pulumi:"type"`
+	Policy pulumi.StringOutput      `pulumi:"policy"`
+	Type   SecurityPolicyTypeOutput `pulumi:"type"`
 }
 
 // NewSecurityPolicy registers a new resource with the given unique name, arguments, and options.
@@ -33,6 +33,9 @@ func NewSecurityPolicy(ctx *pulumi.Context,
 
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource SecurityPolicy
 	err := ctx.RegisterResource("aws-native:opensearchserverless:SecurityPolicy", name, args, &resource, opts...)
@@ -71,8 +74,8 @@ type securityPolicyArgs struct {
 	// The name of the policy
 	Name *string `pulumi:"name"`
 	// The JSON policy document that is the content for the policy
-	Policy string              `pulumi:"policy"`
-	Type   *SecurityPolicyType `pulumi:"type"`
+	Policy string             `pulumi:"policy"`
+	Type   SecurityPolicyType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SecurityPolicy resource.
@@ -83,7 +86,7 @@ type SecurityPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// The JSON policy document that is the content for the policy
 	Policy pulumi.StringInput
-	Type   SecurityPolicyTypePtrInput
+	Type   SecurityPolicyTypeInput
 }
 
 func (SecurityPolicyArgs) ElementType() reflect.Type {
@@ -129,8 +132,8 @@ func (o SecurityPolicyOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The name of the policy
-func (o SecurityPolicyOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityPolicy) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o SecurityPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The JSON policy document that is the content for the policy
@@ -138,8 +141,8 @@ func (o SecurityPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-func (o SecurityPolicyOutput) Type() SecurityPolicyTypePtrOutput {
-	return o.ApplyT(func(v *SecurityPolicy) SecurityPolicyTypePtrOutput { return v.Type }).(SecurityPolicyTypePtrOutput)
+func (o SecurityPolicyOutput) Type() SecurityPolicyTypeOutput {
+	return o.ApplyT(func(v *SecurityPolicy) SecurityPolicyTypeOutput { return v.Type }).(SecurityPolicyTypeOutput)
 }
 
 func init() {

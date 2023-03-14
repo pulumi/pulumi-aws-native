@@ -27,6 +27,10 @@ export interface GetDBParameterGroupArgs {
 
 export interface GetDBParameterGroupResult {
     /**
+     * An array of parameter names and values for the parameter update.
+     */
+    readonly parameters?: any;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.rds.DBParameterGroupTag[];

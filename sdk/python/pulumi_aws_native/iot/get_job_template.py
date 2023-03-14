@@ -20,13 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobTemplateResult:
-    def __init__(__self__, arn=None, job_executions_retry_config=None):
+    def __init__(__self__, arn=None, job_executions_retry_config=None, maintenance_windows=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if job_executions_retry_config and not isinstance(job_executions_retry_config, dict):
             raise TypeError("Expected argument 'job_executions_retry_config' to be a dict")
         pulumi.set(__self__, "job_executions_retry_config", job_executions_retry_config)
+        if maintenance_windows and not isinstance(maintenance_windows, list):
+            raise TypeError("Expected argument 'maintenance_windows' to be a list")
+        pulumi.set(__self__, "maintenance_windows", maintenance_windows)
 
     @property
     @pulumi.getter
@@ -38,6 +41,11 @@ class GetJobTemplateResult:
     def job_executions_retry_config(self) -> Optional['outputs.JobExecutionsRetryConfigProperties']:
         return pulumi.get(self, "job_executions_retry_config")
 
+    @property
+    @pulumi.getter(name="maintenanceWindows")
+    def maintenance_windows(self) -> Optional[Sequence['outputs.JobTemplateMaintenanceWindow']]:
+        return pulumi.get(self, "maintenance_windows")
+
 
 class AwaitableGetJobTemplateResult(GetJobTemplateResult):
     # pylint: disable=using-constant-test
@@ -46,7 +54,8 @@ class AwaitableGetJobTemplateResult(GetJobTemplateResult):
             yield self
         return GetJobTemplateResult(
             arn=self.arn,
-            job_executions_retry_config=self.job_executions_retry_config)
+            job_executions_retry_config=self.job_executions_retry_config,
+            maintenance_windows=self.maintenance_windows)
 
 
 def get_job_template(job_template_id: Optional[str] = None,
@@ -61,7 +70,8 @@ def get_job_template(job_template_id: Optional[str] = None,
 
     return AwaitableGetJobTemplateResult(
         arn=__ret__.arn,
-        job_executions_retry_config=__ret__.job_executions_retry_config)
+        job_executions_retry_config=__ret__.job_executions_retry_config,
+        maintenance_windows=__ret__.maintenance_windows)
 
 
 @_utilities.lift_output_func(get_job_template)

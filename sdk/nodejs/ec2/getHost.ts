@@ -32,6 +32,10 @@ export interface GetHostResult {
      */
     readonly hostId?: string;
     /**
+     * Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+     */
+    readonly hostMaintenance?: string;
+    /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
     readonly hostRecovery?: string;

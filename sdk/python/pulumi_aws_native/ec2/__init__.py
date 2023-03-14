@@ -103,7 +103,6 @@ from .get_vpc_endpoint_service import *
 from .get_vpc_endpoint_service_permissions import *
 from .get_vpc_gateway_attachment import *
 from .get_vpc_peering_connection import *
-from .get_vpcdhcp_options_association import *
 from .get_vpn_connection import *
 from .get_vpn_gateway import *
 from .get_vpn_gateway_route_propagation import *

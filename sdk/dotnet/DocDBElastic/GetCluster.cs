@@ -52,6 +52,8 @@ namespace Pulumi.AwsNative.DocDBElastic
     public sealed class GetClusterResult
     {
         public readonly string? ClusterArn;
+        public readonly string? ClusterEndpoint;
+        public readonly string? PreferredMaintenanceWindow;
         public readonly int? ShardCapacity;
         public readonly int? ShardCount;
         public readonly ImmutableArray<string> SubnetIds;
@@ -61,6 +63,10 @@ namespace Pulumi.AwsNative.DocDBElastic
         [OutputConstructor]
         private GetClusterResult(
             string? clusterArn,
+
+            string? clusterEndpoint,
+
+            string? preferredMaintenanceWindow,
 
             int? shardCapacity,
 
@@ -73,6 +79,8 @@ namespace Pulumi.AwsNative.DocDBElastic
             ImmutableArray<string> vpcSecurityGroupIds)
         {
             ClusterArn = clusterArn;
+            ClusterEndpoint = clusterEndpoint;
+            PreferredMaintenanceWindow = preferredMaintenanceWindow;
             ShardCapacity = shardCapacity;
             ShardCount = shardCount;
             SubnetIds = subnetIds;

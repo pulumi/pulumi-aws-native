@@ -11,7 +11,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CloudFormationProductCodeStarParametersArgs',
+    'CloudFormationProductConnectionParametersArgs',
     'CloudFormationProductProvisioningArtifactPropertiesArgs',
+    'CloudFormationProductSourceConnectionArgs',
     'CloudFormationProductTagArgs',
     'CloudFormationProvisionedProductProvisioningParameterArgs',
     'CloudFormationProvisionedProductProvisioningPreferencesArgs',
@@ -19,6 +22,72 @@ __all__ = [
     'PortfolioTagArgs',
     'ServiceActionDefinitionParameterArgs',
 ]
+
+@pulumi.input_type
+class CloudFormationProductCodeStarParametersArgs:
+    def __init__(__self__, *,
+                 artifact_path: pulumi.Input[str],
+                 branch: pulumi.Input[str],
+                 connection_arn: pulumi.Input[str],
+                 repository: pulumi.Input[str]):
+        pulumi.set(__self__, "artifact_path", artifact_path)
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "connection_arn", connection_arn)
+        pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter(name="artifactPath")
+    def artifact_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "artifact_path")
+
+    @artifact_path.setter
+    def artifact_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "artifact_path", value)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: pulumi.Input[str]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="connectionArn")
+    def connection_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "connection_arn")
+
+    @connection_arn.setter
+    def connection_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connection_arn", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository", value)
+
+
+@pulumi.input_type
+class CloudFormationProductConnectionParametersArgs:
+    def __init__(__self__, *,
+                 code_star: Optional[pulumi.Input['CloudFormationProductCodeStarParametersArgs']] = None):
+        if code_star is not None:
+            pulumi.set(__self__, "code_star", code_star)
+
+    @property
+    @pulumi.getter(name="codeStar")
+    def code_star(self) -> Optional[pulumi.Input['CloudFormationProductCodeStarParametersArgs']]:
+        return pulumi.get(self, "code_star")
+
+    @code_star.setter
+    def code_star(self, value: Optional[pulumi.Input['CloudFormationProductCodeStarParametersArgs']]):
+        pulumi.set(self, "code_star", value)
+
 
 @pulumi.input_type
 class CloudFormationProductProvisioningArtifactPropertiesArgs:
@@ -70,6 +139,33 @@ class CloudFormationProductProvisioningArtifactPropertiesArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class CloudFormationProductSourceConnectionArgs:
+    def __init__(__self__, *,
+                 connection_parameters: pulumi.Input['CloudFormationProductConnectionParametersArgs'],
+                 type: pulumi.Input[str]):
+        pulumi.set(__self__, "connection_parameters", connection_parameters)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="connectionParameters")
+    def connection_parameters(self) -> pulumi.Input['CloudFormationProductConnectionParametersArgs']:
+        return pulumi.get(self, "connection_parameters")
+
+    @connection_parameters.setter
+    def connection_parameters(self, value: pulumi.Input['CloudFormationProductConnectionParametersArgs']):
+        pulumi.set(self, "connection_parameters", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

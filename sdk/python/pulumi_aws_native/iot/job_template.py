@@ -25,6 +25,7 @@ class JobTemplateArgs:
                  job_arn: Optional[pulumi.Input[str]] = None,
                  job_executions_retry_config: Optional[pulumi.Input['JobExecutionsRetryConfigPropertiesArgs']] = None,
                  job_executions_rollout_config: Optional[pulumi.Input['JobExecutionsRolloutConfigPropertiesArgs']] = None,
+                 maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateMaintenanceWindowArgs']]]] = None,
                  presigned_url_config: Optional[pulumi.Input['PresignedUrlConfigPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateTagArgs']]]] = None,
                  timeout_config: Optional[pulumi.Input['TimeoutConfigPropertiesArgs']] = None):
@@ -54,6 +55,8 @@ class JobTemplateArgs:
             pulumi.set(__self__, "job_executions_retry_config", job_executions_retry_config)
         if job_executions_rollout_config is not None:
             pulumi.set(__self__, "job_executions_rollout_config", job_executions_rollout_config)
+        if maintenance_windows is not None:
+            pulumi.set(__self__, "maintenance_windows", maintenance_windows)
         if presigned_url_config is not None:
             pulumi.set(__self__, "presigned_url_config", presigned_url_config)
         if tags is not None:
@@ -152,6 +155,15 @@ class JobTemplateArgs:
         pulumi.set(self, "job_executions_rollout_config", value)
 
     @property
+    @pulumi.getter(name="maintenanceWindows")
+    def maintenance_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateMaintenanceWindowArgs']]]]:
+        return pulumi.get(self, "maintenance_windows")
+
+    @maintenance_windows.setter
+    def maintenance_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateMaintenanceWindowArgs']]]]):
+        pulumi.set(self, "maintenance_windows", value)
+
+    @property
     @pulumi.getter(name="presignedUrlConfig")
     def presigned_url_config(self) -> Optional[pulumi.Input['PresignedUrlConfigPropertiesArgs']]:
         """
@@ -201,6 +213,7 @@ class JobTemplate(pulumi.CustomResource):
                  job_executions_retry_config: Optional[pulumi.Input[pulumi.InputType['JobExecutionsRetryConfigPropertiesArgs']]] = None,
                  job_executions_rollout_config: Optional[pulumi.Input[pulumi.InputType['JobExecutionsRolloutConfigPropertiesArgs']]] = None,
                  job_template_id: Optional[pulumi.Input[str]] = None,
+                 maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateMaintenanceWindowArgs']]]]] = None,
                  presigned_url_config: Optional[pulumi.Input[pulumi.InputType['PresignedUrlConfigPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateTagArgs']]]]] = None,
                  timeout_config: Optional[pulumi.Input[pulumi.InputType['TimeoutConfigPropertiesArgs']]] = None,
@@ -252,6 +265,7 @@ class JobTemplate(pulumi.CustomResource):
                  job_executions_retry_config: Optional[pulumi.Input[pulumi.InputType['JobExecutionsRetryConfigPropertiesArgs']]] = None,
                  job_executions_rollout_config: Optional[pulumi.Input[pulumi.InputType['JobExecutionsRolloutConfigPropertiesArgs']]] = None,
                  job_template_id: Optional[pulumi.Input[str]] = None,
+                 maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateMaintenanceWindowArgs']]]]] = None,
                  presigned_url_config: Optional[pulumi.Input[pulumi.InputType['PresignedUrlConfigPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateTagArgs']]]]] = None,
                  timeout_config: Optional[pulumi.Input[pulumi.InputType['TimeoutConfigPropertiesArgs']]] = None,
@@ -276,6 +290,7 @@ class JobTemplate(pulumi.CustomResource):
             if job_template_id is None and not opts.urn:
                 raise TypeError("Missing required property 'job_template_id'")
             __props__.__dict__["job_template_id"] = job_template_id
+            __props__.__dict__["maintenance_windows"] = maintenance_windows
             __props__.__dict__["presigned_url_config"] = presigned_url_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_config"] = timeout_config
@@ -311,6 +326,7 @@ class JobTemplate(pulumi.CustomResource):
         __props__.__dict__["job_executions_retry_config"] = None
         __props__.__dict__["job_executions_rollout_config"] = None
         __props__.__dict__["job_template_id"] = None
+        __props__.__dict__["maintenance_windows"] = None
         __props__.__dict__["presigned_url_config"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["timeout_config"] = None
@@ -378,6 +394,11 @@ class JobTemplate(pulumi.CustomResource):
     @pulumi.getter(name="jobTemplateId")
     def job_template_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "job_template_id")
+
+    @property
+    @pulumi.getter(name="maintenanceWindows")
+    def maintenance_windows(self) -> pulumi.Output[Optional[Sequence['outputs.JobTemplateMaintenanceWindow']]]:
+        return pulumi.get(self, "maintenance_windows")
 
     @property
     @pulumi.getter(name="presignedUrlConfig")

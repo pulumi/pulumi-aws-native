@@ -34,6 +34,7 @@ export interface GetCloudFormationProductResult {
     readonly provisioningArtifactNames?: string;
     readonly provisioningArtifactParameters?: outputs.servicecatalog.CloudFormationProductProvisioningArtifactProperties[];
     readonly replaceProvisioningArtifacts?: boolean;
+    readonly sourceConnection?: outputs.servicecatalog.CloudFormationProductSourceConnection;
     readonly supportDescription?: string;
     readonly supportEmail?: string;
     readonly supportUrl?: string;

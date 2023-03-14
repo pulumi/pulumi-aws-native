@@ -10,6 +10,319 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CloudFormationProductCodeStarParameters struct {
+	ArtifactPath  string `pulumi:"artifactPath"`
+	Branch        string `pulumi:"branch"`
+	ConnectionArn string `pulumi:"connectionArn"`
+	Repository    string `pulumi:"repository"`
+}
+
+// CloudFormationProductCodeStarParametersInput is an input type that accepts CloudFormationProductCodeStarParametersArgs and CloudFormationProductCodeStarParametersOutput values.
+// You can construct a concrete instance of `CloudFormationProductCodeStarParametersInput` via:
+//
+//	CloudFormationProductCodeStarParametersArgs{...}
+type CloudFormationProductCodeStarParametersInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductCodeStarParametersOutput() CloudFormationProductCodeStarParametersOutput
+	ToCloudFormationProductCodeStarParametersOutputWithContext(context.Context) CloudFormationProductCodeStarParametersOutput
+}
+
+type CloudFormationProductCodeStarParametersArgs struct {
+	ArtifactPath  pulumi.StringInput `pulumi:"artifactPath"`
+	Branch        pulumi.StringInput `pulumi:"branch"`
+	ConnectionArn pulumi.StringInput `pulumi:"connectionArn"`
+	Repository    pulumi.StringInput `pulumi:"repository"`
+}
+
+func (CloudFormationProductCodeStarParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductCodeStarParameters)(nil)).Elem()
+}
+
+func (i CloudFormationProductCodeStarParametersArgs) ToCloudFormationProductCodeStarParametersOutput() CloudFormationProductCodeStarParametersOutput {
+	return i.ToCloudFormationProductCodeStarParametersOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProductCodeStarParametersArgs) ToCloudFormationProductCodeStarParametersOutputWithContext(ctx context.Context) CloudFormationProductCodeStarParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductCodeStarParametersOutput)
+}
+
+func (i CloudFormationProductCodeStarParametersArgs) ToCloudFormationProductCodeStarParametersPtrOutput() CloudFormationProductCodeStarParametersPtrOutput {
+	return i.ToCloudFormationProductCodeStarParametersPtrOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProductCodeStarParametersArgs) ToCloudFormationProductCodeStarParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductCodeStarParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductCodeStarParametersOutput).ToCloudFormationProductCodeStarParametersPtrOutputWithContext(ctx)
+}
+
+// CloudFormationProductCodeStarParametersPtrInput is an input type that accepts CloudFormationProductCodeStarParametersArgs, CloudFormationProductCodeStarParametersPtr and CloudFormationProductCodeStarParametersPtrOutput values.
+// You can construct a concrete instance of `CloudFormationProductCodeStarParametersPtrInput` via:
+//
+//	        CloudFormationProductCodeStarParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudFormationProductCodeStarParametersPtrInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductCodeStarParametersPtrOutput() CloudFormationProductCodeStarParametersPtrOutput
+	ToCloudFormationProductCodeStarParametersPtrOutputWithContext(context.Context) CloudFormationProductCodeStarParametersPtrOutput
+}
+
+type cloudFormationProductCodeStarParametersPtrType CloudFormationProductCodeStarParametersArgs
+
+func CloudFormationProductCodeStarParametersPtr(v *CloudFormationProductCodeStarParametersArgs) CloudFormationProductCodeStarParametersPtrInput {
+	return (*cloudFormationProductCodeStarParametersPtrType)(v)
+}
+
+func (*cloudFormationProductCodeStarParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationProductCodeStarParameters)(nil)).Elem()
+}
+
+func (i *cloudFormationProductCodeStarParametersPtrType) ToCloudFormationProductCodeStarParametersPtrOutput() CloudFormationProductCodeStarParametersPtrOutput {
+	return i.ToCloudFormationProductCodeStarParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudFormationProductCodeStarParametersPtrType) ToCloudFormationProductCodeStarParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductCodeStarParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductCodeStarParametersPtrOutput)
+}
+
+type CloudFormationProductCodeStarParametersOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductCodeStarParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductCodeStarParameters)(nil)).Elem()
+}
+
+func (o CloudFormationProductCodeStarParametersOutput) ToCloudFormationProductCodeStarParametersOutput() CloudFormationProductCodeStarParametersOutput {
+	return o
+}
+
+func (o CloudFormationProductCodeStarParametersOutput) ToCloudFormationProductCodeStarParametersOutputWithContext(ctx context.Context) CloudFormationProductCodeStarParametersOutput {
+	return o
+}
+
+func (o CloudFormationProductCodeStarParametersOutput) ToCloudFormationProductCodeStarParametersPtrOutput() CloudFormationProductCodeStarParametersPtrOutput {
+	return o.ToCloudFormationProductCodeStarParametersPtrOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductCodeStarParametersOutput) ToCloudFormationProductCodeStarParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductCodeStarParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationProductCodeStarParameters) *CloudFormationProductCodeStarParameters {
+		return &v
+	}).(CloudFormationProductCodeStarParametersPtrOutput)
+}
+
+func (o CloudFormationProductCodeStarParametersOutput) ArtifactPath() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudFormationProductCodeStarParameters) string { return v.ArtifactPath }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProductCodeStarParametersOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudFormationProductCodeStarParameters) string { return v.Branch }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProductCodeStarParametersOutput) ConnectionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudFormationProductCodeStarParameters) string { return v.ConnectionArn }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProductCodeStarParametersOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudFormationProductCodeStarParameters) string { return v.Repository }).(pulumi.StringOutput)
+}
+
+type CloudFormationProductCodeStarParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductCodeStarParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationProductCodeStarParameters)(nil)).Elem()
+}
+
+func (o CloudFormationProductCodeStarParametersPtrOutput) ToCloudFormationProductCodeStarParametersPtrOutput() CloudFormationProductCodeStarParametersPtrOutput {
+	return o
+}
+
+func (o CloudFormationProductCodeStarParametersPtrOutput) ToCloudFormationProductCodeStarParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductCodeStarParametersPtrOutput {
+	return o
+}
+
+func (o CloudFormationProductCodeStarParametersPtrOutput) Elem() CloudFormationProductCodeStarParametersOutput {
+	return o.ApplyT(func(v *CloudFormationProductCodeStarParameters) CloudFormationProductCodeStarParameters {
+		if v != nil {
+			return *v
+		}
+		var ret CloudFormationProductCodeStarParameters
+		return ret
+	}).(CloudFormationProductCodeStarParametersOutput)
+}
+
+func (o CloudFormationProductCodeStarParametersPtrOutput) ArtifactPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProductCodeStarParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ArtifactPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProductCodeStarParametersPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProductCodeStarParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProductCodeStarParametersPtrOutput) ConnectionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProductCodeStarParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProductCodeStarParametersPtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProductCodeStarParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Repository
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudFormationProductConnectionParameters struct {
+	CodeStar *CloudFormationProductCodeStarParameters `pulumi:"codeStar"`
+}
+
+// CloudFormationProductConnectionParametersInput is an input type that accepts CloudFormationProductConnectionParametersArgs and CloudFormationProductConnectionParametersOutput values.
+// You can construct a concrete instance of `CloudFormationProductConnectionParametersInput` via:
+//
+//	CloudFormationProductConnectionParametersArgs{...}
+type CloudFormationProductConnectionParametersInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductConnectionParametersOutput() CloudFormationProductConnectionParametersOutput
+	ToCloudFormationProductConnectionParametersOutputWithContext(context.Context) CloudFormationProductConnectionParametersOutput
+}
+
+type CloudFormationProductConnectionParametersArgs struct {
+	CodeStar CloudFormationProductCodeStarParametersPtrInput `pulumi:"codeStar"`
+}
+
+func (CloudFormationProductConnectionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductConnectionParameters)(nil)).Elem()
+}
+
+func (i CloudFormationProductConnectionParametersArgs) ToCloudFormationProductConnectionParametersOutput() CloudFormationProductConnectionParametersOutput {
+	return i.ToCloudFormationProductConnectionParametersOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProductConnectionParametersArgs) ToCloudFormationProductConnectionParametersOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductConnectionParametersOutput)
+}
+
+func (i CloudFormationProductConnectionParametersArgs) ToCloudFormationProductConnectionParametersPtrOutput() CloudFormationProductConnectionParametersPtrOutput {
+	return i.ToCloudFormationProductConnectionParametersPtrOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProductConnectionParametersArgs) ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductConnectionParametersOutput).ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx)
+}
+
+// CloudFormationProductConnectionParametersPtrInput is an input type that accepts CloudFormationProductConnectionParametersArgs, CloudFormationProductConnectionParametersPtr and CloudFormationProductConnectionParametersPtrOutput values.
+// You can construct a concrete instance of `CloudFormationProductConnectionParametersPtrInput` via:
+//
+//	        CloudFormationProductConnectionParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudFormationProductConnectionParametersPtrInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductConnectionParametersPtrOutput() CloudFormationProductConnectionParametersPtrOutput
+	ToCloudFormationProductConnectionParametersPtrOutputWithContext(context.Context) CloudFormationProductConnectionParametersPtrOutput
+}
+
+type cloudFormationProductConnectionParametersPtrType CloudFormationProductConnectionParametersArgs
+
+func CloudFormationProductConnectionParametersPtr(v *CloudFormationProductConnectionParametersArgs) CloudFormationProductConnectionParametersPtrInput {
+	return (*cloudFormationProductConnectionParametersPtrType)(v)
+}
+
+func (*cloudFormationProductConnectionParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationProductConnectionParameters)(nil)).Elem()
+}
+
+func (i *cloudFormationProductConnectionParametersPtrType) ToCloudFormationProductConnectionParametersPtrOutput() CloudFormationProductConnectionParametersPtrOutput {
+	return i.ToCloudFormationProductConnectionParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudFormationProductConnectionParametersPtrType) ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductConnectionParametersPtrOutput)
+}
+
+type CloudFormationProductConnectionParametersOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductConnectionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductConnectionParameters)(nil)).Elem()
+}
+
+func (o CloudFormationProductConnectionParametersOutput) ToCloudFormationProductConnectionParametersOutput() CloudFormationProductConnectionParametersOutput {
+	return o
+}
+
+func (o CloudFormationProductConnectionParametersOutput) ToCloudFormationProductConnectionParametersOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersOutput {
+	return o
+}
+
+func (o CloudFormationProductConnectionParametersOutput) ToCloudFormationProductConnectionParametersPtrOutput() CloudFormationProductConnectionParametersPtrOutput {
+	return o.ToCloudFormationProductConnectionParametersPtrOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductConnectionParametersOutput) ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationProductConnectionParameters) *CloudFormationProductConnectionParameters {
+		return &v
+	}).(CloudFormationProductConnectionParametersPtrOutput)
+}
+
+func (o CloudFormationProductConnectionParametersOutput) CodeStar() CloudFormationProductCodeStarParametersPtrOutput {
+	return o.ApplyT(func(v CloudFormationProductConnectionParameters) *CloudFormationProductCodeStarParameters {
+		return v.CodeStar
+	}).(CloudFormationProductCodeStarParametersPtrOutput)
+}
+
+type CloudFormationProductConnectionParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductConnectionParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationProductConnectionParameters)(nil)).Elem()
+}
+
+func (o CloudFormationProductConnectionParametersPtrOutput) ToCloudFormationProductConnectionParametersPtrOutput() CloudFormationProductConnectionParametersPtrOutput {
+	return o
+}
+
+func (o CloudFormationProductConnectionParametersPtrOutput) ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersPtrOutput {
+	return o
+}
+
+func (o CloudFormationProductConnectionParametersPtrOutput) Elem() CloudFormationProductConnectionParametersOutput {
+	return o.ApplyT(func(v *CloudFormationProductConnectionParameters) CloudFormationProductConnectionParameters {
+		if v != nil {
+			return *v
+		}
+		var ret CloudFormationProductConnectionParameters
+		return ret
+	}).(CloudFormationProductConnectionParametersOutput)
+}
+
+func (o CloudFormationProductConnectionParametersPtrOutput) CodeStar() CloudFormationProductCodeStarParametersPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProductConnectionParameters) *CloudFormationProductCodeStarParameters {
+		if v == nil {
+			return nil
+		}
+		return v.CodeStar
+	}).(CloudFormationProductCodeStarParametersPtrOutput)
+}
+
 type CloudFormationProductProvisioningArtifactProperties struct {
 	Description               *string     `pulumi:"description"`
 	DisableTemplateValidation *bool       `pulumi:"disableTemplateValidation"`
@@ -120,6 +433,156 @@ func (o CloudFormationProductProvisioningArtifactPropertiesArrayOutput) Index(i 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudFormationProductProvisioningArtifactProperties {
 		return vs[0].([]CloudFormationProductProvisioningArtifactProperties)[vs[1].(int)]
 	}).(CloudFormationProductProvisioningArtifactPropertiesOutput)
+}
+
+type CloudFormationProductSourceConnection struct {
+	ConnectionParameters CloudFormationProductConnectionParameters `pulumi:"connectionParameters"`
+	Type                 string                                    `pulumi:"type"`
+}
+
+// CloudFormationProductSourceConnectionInput is an input type that accepts CloudFormationProductSourceConnectionArgs and CloudFormationProductSourceConnectionOutput values.
+// You can construct a concrete instance of `CloudFormationProductSourceConnectionInput` via:
+//
+//	CloudFormationProductSourceConnectionArgs{...}
+type CloudFormationProductSourceConnectionInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductSourceConnectionOutput() CloudFormationProductSourceConnectionOutput
+	ToCloudFormationProductSourceConnectionOutputWithContext(context.Context) CloudFormationProductSourceConnectionOutput
+}
+
+type CloudFormationProductSourceConnectionArgs struct {
+	ConnectionParameters CloudFormationProductConnectionParametersInput `pulumi:"connectionParameters"`
+	Type                 pulumi.StringInput                             `pulumi:"type"`
+}
+
+func (CloudFormationProductSourceConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductSourceConnection)(nil)).Elem()
+}
+
+func (i CloudFormationProductSourceConnectionArgs) ToCloudFormationProductSourceConnectionOutput() CloudFormationProductSourceConnectionOutput {
+	return i.ToCloudFormationProductSourceConnectionOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProductSourceConnectionArgs) ToCloudFormationProductSourceConnectionOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductSourceConnectionOutput)
+}
+
+func (i CloudFormationProductSourceConnectionArgs) ToCloudFormationProductSourceConnectionPtrOutput() CloudFormationProductSourceConnectionPtrOutput {
+	return i.ToCloudFormationProductSourceConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProductSourceConnectionArgs) ToCloudFormationProductSourceConnectionPtrOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductSourceConnectionOutput).ToCloudFormationProductSourceConnectionPtrOutputWithContext(ctx)
+}
+
+// CloudFormationProductSourceConnectionPtrInput is an input type that accepts CloudFormationProductSourceConnectionArgs, CloudFormationProductSourceConnectionPtr and CloudFormationProductSourceConnectionPtrOutput values.
+// You can construct a concrete instance of `CloudFormationProductSourceConnectionPtrInput` via:
+//
+//	        CloudFormationProductSourceConnectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudFormationProductSourceConnectionPtrInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductSourceConnectionPtrOutput() CloudFormationProductSourceConnectionPtrOutput
+	ToCloudFormationProductSourceConnectionPtrOutputWithContext(context.Context) CloudFormationProductSourceConnectionPtrOutput
+}
+
+type cloudFormationProductSourceConnectionPtrType CloudFormationProductSourceConnectionArgs
+
+func CloudFormationProductSourceConnectionPtr(v *CloudFormationProductSourceConnectionArgs) CloudFormationProductSourceConnectionPtrInput {
+	return (*cloudFormationProductSourceConnectionPtrType)(v)
+}
+
+func (*cloudFormationProductSourceConnectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationProductSourceConnection)(nil)).Elem()
+}
+
+func (i *cloudFormationProductSourceConnectionPtrType) ToCloudFormationProductSourceConnectionPtrOutput() CloudFormationProductSourceConnectionPtrOutput {
+	return i.ToCloudFormationProductSourceConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudFormationProductSourceConnectionPtrType) ToCloudFormationProductSourceConnectionPtrOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductSourceConnectionPtrOutput)
+}
+
+type CloudFormationProductSourceConnectionOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductSourceConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductSourceConnection)(nil)).Elem()
+}
+
+func (o CloudFormationProductSourceConnectionOutput) ToCloudFormationProductSourceConnectionOutput() CloudFormationProductSourceConnectionOutput {
+	return o
+}
+
+func (o CloudFormationProductSourceConnectionOutput) ToCloudFormationProductSourceConnectionOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionOutput {
+	return o
+}
+
+func (o CloudFormationProductSourceConnectionOutput) ToCloudFormationProductSourceConnectionPtrOutput() CloudFormationProductSourceConnectionPtrOutput {
+	return o.ToCloudFormationProductSourceConnectionPtrOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductSourceConnectionOutput) ToCloudFormationProductSourceConnectionPtrOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationProductSourceConnection) *CloudFormationProductSourceConnection {
+		return &v
+	}).(CloudFormationProductSourceConnectionPtrOutput)
+}
+
+func (o CloudFormationProductSourceConnectionOutput) ConnectionParameters() CloudFormationProductConnectionParametersOutput {
+	return o.ApplyT(func(v CloudFormationProductSourceConnection) CloudFormationProductConnectionParameters {
+		return v.ConnectionParameters
+	}).(CloudFormationProductConnectionParametersOutput)
+}
+
+func (o CloudFormationProductSourceConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudFormationProductSourceConnection) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type CloudFormationProductSourceConnectionPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductSourceConnectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationProductSourceConnection)(nil)).Elem()
+}
+
+func (o CloudFormationProductSourceConnectionPtrOutput) ToCloudFormationProductSourceConnectionPtrOutput() CloudFormationProductSourceConnectionPtrOutput {
+	return o
+}
+
+func (o CloudFormationProductSourceConnectionPtrOutput) ToCloudFormationProductSourceConnectionPtrOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionPtrOutput {
+	return o
+}
+
+func (o CloudFormationProductSourceConnectionPtrOutput) Elem() CloudFormationProductSourceConnectionOutput {
+	return o.ApplyT(func(v *CloudFormationProductSourceConnection) CloudFormationProductSourceConnection {
+		if v != nil {
+			return *v
+		}
+		var ret CloudFormationProductSourceConnection
+		return ret
+	}).(CloudFormationProductSourceConnectionOutput)
+}
+
+func (o CloudFormationProductSourceConnectionPtrOutput) ConnectionParameters() CloudFormationProductConnectionParametersPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProductSourceConnection) *CloudFormationProductConnectionParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionParameters
+	}).(CloudFormationProductConnectionParametersPtrOutput)
+}
+
+func (o CloudFormationProductSourceConnectionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProductSourceConnection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type CloudFormationProductTag struct {
@@ -856,8 +1319,14 @@ func (o ServiceActionDefinitionParameterArrayOutput) Index(i pulumi.IntInput) Se
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductCodeStarParametersInput)(nil)).Elem(), CloudFormationProductCodeStarParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductCodeStarParametersPtrInput)(nil)).Elem(), CloudFormationProductCodeStarParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductConnectionParametersInput)(nil)).Elem(), CloudFormationProductConnectionParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductConnectionParametersPtrInput)(nil)).Elem(), CloudFormationProductConnectionParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesInput)(nil)).Elem(), CloudFormationProductProvisioningArtifactPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesArrayInput)(nil)).Elem(), CloudFormationProductProvisioningArtifactPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductSourceConnectionInput)(nil)).Elem(), CloudFormationProductSourceConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductSourceConnectionPtrInput)(nil)).Elem(), CloudFormationProductSourceConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductTagInput)(nil)).Elem(), CloudFormationProductTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductTagArrayInput)(nil)).Elem(), CloudFormationProductTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningParameterInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningParameterArgs{})
@@ -870,8 +1339,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioTagArrayInput)(nil)).Elem(), PortfolioTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionParameterInput)(nil)).Elem(), ServiceActionDefinitionParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionParameterArrayInput)(nil)).Elem(), ServiceActionDefinitionParameterArray{})
+	pulumi.RegisterOutputType(CloudFormationProductCodeStarParametersOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductCodeStarParametersPtrOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductConnectionParametersOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductConnectionParametersPtrOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductSourceConnectionOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductSourceConnectionPtrOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductTagOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductTagArrayOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningParameterOutput{})

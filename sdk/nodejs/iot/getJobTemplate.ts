@@ -25,6 +25,7 @@ export interface GetJobTemplateArgs {
 export interface GetJobTemplateResult {
     readonly arn?: string;
     readonly jobExecutionsRetryConfig?: outputs.iot.JobExecutionsRetryConfigProperties;
+    readonly maintenanceWindows?: outputs.iot.JobTemplateMaintenanceWindow[];
 }
 /**
  * Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.

@@ -16,12 +16,6 @@ namespace Pulumi.AwsNative.AppIntegrations
     public partial class EventIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The associations with the event integration.
-        /// </summary>
-        [Output("associations")]
-        public Output<ImmutableArray<Outputs.EventIntegrationAssociation>> Associations { get; private set; } = null!;
-
-        /// <summary>
         /// The event integration description.
         /// </summary>
         [Output("description")]

@@ -2431,9 +2431,11 @@ func (o BotCustomVocabularyPtrOutput) CustomVocabularyItems() BotCustomVocabular
 
 // A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
 type BotCustomVocabularyItem struct {
+	// Defines how you want your phrase to look in your transcription output.
+	DisplayAs *string `pulumi:"displayAs"`
 	// Phrase that should be recognized.
 	Phrase string `pulumi:"phrase"`
-	// The degree to which the phrase recognition is boosted.
+	// The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -2450,9 +2452,11 @@ type BotCustomVocabularyItemInput interface {
 
 // A custom vocabulary item that contains the phrase to recognize and a weight to give the boost.
 type BotCustomVocabularyItemArgs struct {
+	// Defines how you want your phrase to look in your transcription output.
+	DisplayAs pulumi.StringPtrInput `pulumi:"displayAs"`
 	// Phrase that should be recognized.
 	Phrase pulumi.StringInput `pulumi:"phrase"`
-	// The degree to which the phrase recognition is boosted.
+	// The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -2508,12 +2512,17 @@ func (o BotCustomVocabularyItemOutput) ToBotCustomVocabularyItemOutputWithContex
 	return o
 }
 
+// Defines how you want your phrase to look in your transcription output.
+func (o BotCustomVocabularyItemOutput) DisplayAs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotCustomVocabularyItem) *string { return v.DisplayAs }).(pulumi.StringPtrOutput)
+}
+
 // Phrase that should be recognized.
 func (o BotCustomVocabularyItemOutput) Phrase() pulumi.StringOutput {
 	return o.ApplyT(func(v BotCustomVocabularyItem) string { return v.Phrase }).(pulumi.StringOutput)
 }
 
-// The degree to which the phrase recognition is boosted.
+// The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
 func (o BotCustomVocabularyItemOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BotCustomVocabularyItem) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }

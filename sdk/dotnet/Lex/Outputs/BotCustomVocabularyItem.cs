@@ -17,20 +17,27 @@ namespace Pulumi.AwsNative.Lex.Outputs
     public sealed class BotCustomVocabularyItem
     {
         /// <summary>
+        /// Defines how you want your phrase to look in your transcription output.
+        /// </summary>
+        public readonly string? DisplayAs;
+        /// <summary>
         /// Phrase that should be recognized.
         /// </summary>
         public readonly string Phrase;
         /// <summary>
-        /// The degree to which the phrase recognition is boosted.
+        /// The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
         /// </summary>
         public readonly int? Weight;
 
         [OutputConstructor]
         private BotCustomVocabularyItem(
+            string? displayAs,
+
             string phrase,
 
             int? weight)
         {
+            DisplayAs = displayAs;
             Phrase = phrase;
             Weight = weight;
         }

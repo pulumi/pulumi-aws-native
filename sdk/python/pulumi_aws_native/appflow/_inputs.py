@@ -1919,15 +1919,19 @@ class ConnectorProfileSalesforceConnectorProfileCredentialsArgs:
 class ConnectorProfileSalesforceConnectorProfilePropertiesArgs:
     def __init__(__self__, *,
                  instance_url: Optional[pulumi.Input[str]] = None,
-                 is_sandbox_environment: Optional[pulumi.Input[bool]] = None):
+                 is_sandbox_environment: Optional[pulumi.Input[bool]] = None,
+                 use_private_link_for_metadata_and_authorization: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] instance_url: The location of the Salesforce resource
         :param pulumi.Input[bool] is_sandbox_environment: Indicates whether the connector profile applies to a sandbox or production environment
+        :param pulumi.Input[bool] use_private_link_for_metadata_and_authorization: Indicates whether to make Metadata And Authorization calls over Pivate Network
         """
         if instance_url is not None:
             pulumi.set(__self__, "instance_url", instance_url)
         if is_sandbox_environment is not None:
             pulumi.set(__self__, "is_sandbox_environment", is_sandbox_environment)
+        if use_private_link_for_metadata_and_authorization is not None:
+            pulumi.set(__self__, "use_private_link_for_metadata_and_authorization", use_private_link_for_metadata_and_authorization)
 
     @property
     @pulumi.getter(name="instanceUrl")
@@ -1952,6 +1956,18 @@ class ConnectorProfileSalesforceConnectorProfilePropertiesArgs:
     @is_sandbox_environment.setter
     def is_sandbox_environment(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_sandbox_environment", value)
+
+    @property
+    @pulumi.getter(name="usePrivateLinkForMetadataAndAuthorization")
+    def use_private_link_for_metadata_and_authorization(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to make Metadata And Authorization calls over Pivate Network
+        """
+        return pulumi.get(self, "use_private_link_for_metadata_and_authorization")
+
+    @use_private_link_for_metadata_and_authorization.setter
+    def use_private_link_for_metadata_and_authorization(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_private_link_for_metadata_and_authorization", value)
 
 
 @pulumi.input_type
@@ -4518,13 +4534,17 @@ class FlowTrendmicroSourcePropertiesArgs:
 class FlowTriggerConfigArgs:
     def __init__(__self__, *,
                  trigger_type: pulumi.Input['FlowTriggerType'],
+                 activate_flow_on_create: Optional[pulumi.Input[bool]] = None,
                  trigger_properties: Optional[pulumi.Input['FlowScheduledTriggerPropertiesArgs']] = None):
         """
         Trigger settings of the flow.
         :param pulumi.Input['FlowTriggerType'] trigger_type: Trigger type of the flow
+        :param pulumi.Input[bool] activate_flow_on_create: Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
         :param pulumi.Input['FlowScheduledTriggerPropertiesArgs'] trigger_properties: Details required based on the type of trigger
         """
         pulumi.set(__self__, "trigger_type", trigger_type)
+        if activate_flow_on_create is not None:
+            pulumi.set(__self__, "activate_flow_on_create", activate_flow_on_create)
         if trigger_properties is not None:
             pulumi.set(__self__, "trigger_properties", trigger_properties)
 
@@ -4539,6 +4559,18 @@ class FlowTriggerConfigArgs:
     @trigger_type.setter
     def trigger_type(self, value: pulumi.Input['FlowTriggerType']):
         pulumi.set(self, "trigger_type", value)
+
+    @property
+    @pulumi.getter(name="activateFlowOnCreate")
+    def activate_flow_on_create(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
+        """
+        return pulumi.get(self, "activate_flow_on_create")
+
+    @activate_flow_on_create.setter
+    def activate_flow_on_create(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "activate_flow_on_create", value)
 
     @property
     @pulumi.getter(name="triggerProperties")

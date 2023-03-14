@@ -19,6 +19,7 @@ type Cluster struct {
 	AdminUserPassword          pulumi.StringPtrOutput   `pulumi:"adminUserPassword"`
 	AuthType                   pulumi.StringOutput      `pulumi:"authType"`
 	ClusterArn                 pulumi.StringOutput      `pulumi:"clusterArn"`
+	ClusterEndpoint            pulumi.StringOutput      `pulumi:"clusterEndpoint"`
 	ClusterName                pulumi.StringOutput      `pulumi:"clusterName"`
 	KmsKeyId                   pulumi.StringPtrOutput   `pulumi:"kmsKeyId"`
 	PreferredMaintenanceWindow pulumi.StringPtrOutput   `pulumi:"preferredMaintenanceWindow"`
@@ -159,6 +160,10 @@ func (o ClusterOutput) AuthType() pulumi.StringOutput {
 
 func (o ClusterOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) ClusterEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterEndpoint }).(pulumi.StringOutput)
 }
 
 func (o ClusterOutput) ClusterName() pulumi.StringOutput {

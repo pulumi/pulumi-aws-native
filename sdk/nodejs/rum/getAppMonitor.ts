@@ -36,6 +36,10 @@ export interface GetAppMonitorResult {
      * The top-level internet domain name for which your application has administrative authority.
      */
     readonly domain?: string;
+    /**
+     * The unique ID of the new app monitor.
+     */
+    readonly id?: string;
     readonly tags?: outputs.rum.AppMonitorTag[];
 }
 /**

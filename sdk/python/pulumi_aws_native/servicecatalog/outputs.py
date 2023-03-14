@@ -8,10 +8,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CloudFormationProductCodeStarParameters',
+    'CloudFormationProductConnectionParameters',
     'CloudFormationProductProvisioningArtifactProperties',
+    'CloudFormationProductSourceConnection',
     'CloudFormationProductTag',
     'CloudFormationProvisionedProductProvisioningParameter',
     'CloudFormationProvisionedProductProvisioningPreferences',
@@ -19,6 +23,88 @@ __all__ = [
     'PortfolioTag',
     'ServiceActionDefinitionParameter',
 ]
+
+@pulumi.output_type
+class CloudFormationProductCodeStarParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactPath":
+            suggest = "artifact_path"
+        elif key == "connectionArn":
+            suggest = "connection_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudFormationProductCodeStarParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudFormationProductCodeStarParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudFormationProductCodeStarParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 artifact_path: str,
+                 branch: str,
+                 connection_arn: str,
+                 repository: str):
+        pulumi.set(__self__, "artifact_path", artifact_path)
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "connection_arn", connection_arn)
+        pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter(name="artifactPath")
+    def artifact_path(self) -> str:
+        return pulumi.get(self, "artifact_path")
+
+    @property
+    @pulumi.getter
+    def branch(self) -> str:
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="connectionArn")
+    def connection_arn(self) -> str:
+        return pulumi.get(self, "connection_arn")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> str:
+        return pulumi.get(self, "repository")
+
+
+@pulumi.output_type
+class CloudFormationProductConnectionParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeStar":
+            suggest = "code_star"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudFormationProductConnectionParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudFormationProductConnectionParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudFormationProductConnectionParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_star: Optional['outputs.CloudFormationProductCodeStarParameters'] = None):
+        if code_star is not None:
+            pulumi.set(__self__, "code_star", code_star)
+
+    @property
+    @pulumi.getter(name="codeStar")
+    def code_star(self) -> Optional['outputs.CloudFormationProductCodeStarParameters']:
+        return pulumi.get(self, "code_star")
+
 
 @pulumi.output_type
 class CloudFormationProductProvisioningArtifactProperties(dict):
@@ -71,6 +157,42 @@ class CloudFormationProductProvisioningArtifactProperties(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class CloudFormationProductSourceConnection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionParameters":
+            suggest = "connection_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudFormationProductSourceConnection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudFormationProductSourceConnection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudFormationProductSourceConnection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_parameters: 'outputs.CloudFormationProductConnectionParameters',
+                 type: str):
+        pulumi.set(__self__, "connection_parameters", connection_parameters)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="connectionParameters")
+    def connection_parameters(self) -> 'outputs.CloudFormationProductConnectionParameters':
+        return pulumi.get(self, "connection_parameters")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -64,6 +64,7 @@ export class JobTemplate extends pulumi.CustomResource {
      */
     public readonly jobExecutionsRolloutConfig!: pulumi.Output<outputs.iot.JobExecutionsRolloutConfigProperties | undefined>;
     public readonly jobTemplateId!: pulumi.Output<string>;
+    public readonly maintenanceWindows!: pulumi.Output<outputs.iot.JobTemplateMaintenanceWindow[] | undefined>;
     /**
      * Configuration for pre-signed S3 URLs.
      */
@@ -102,6 +103,7 @@ export class JobTemplate extends pulumi.CustomResource {
             resourceInputs["jobExecutionsRetryConfig"] = args ? args.jobExecutionsRetryConfig : undefined;
             resourceInputs["jobExecutionsRolloutConfig"] = args ? args.jobExecutionsRolloutConfig : undefined;
             resourceInputs["jobTemplateId"] = args ? args.jobTemplateId : undefined;
+            resourceInputs["maintenanceWindows"] = args ? args.maintenanceWindows : undefined;
             resourceInputs["presignedUrlConfig"] = args ? args.presignedUrlConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeoutConfig"] = args ? args.timeoutConfig : undefined;
@@ -116,6 +118,7 @@ export class JobTemplate extends pulumi.CustomResource {
             resourceInputs["jobExecutionsRetryConfig"] = undefined /*out*/;
             resourceInputs["jobExecutionsRolloutConfig"] = undefined /*out*/;
             resourceInputs["jobTemplateId"] = undefined /*out*/;
+            resourceInputs["maintenanceWindows"] = undefined /*out*/;
             resourceInputs["presignedUrlConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeoutConfig"] = undefined /*out*/;
@@ -155,6 +158,7 @@ export interface JobTemplateArgs {
      */
     jobExecutionsRolloutConfig?: pulumi.Input<inputs.iot.JobExecutionsRolloutConfigPropertiesArgs>;
     jobTemplateId: pulumi.Input<string>;
+    maintenanceWindows?: pulumi.Input<pulumi.Input<inputs.iot.JobTemplateMaintenanceWindowArgs>[]>;
     /**
      * Configuration for pre-signed S3 URLs.
      */

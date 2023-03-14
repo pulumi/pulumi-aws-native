@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Output<bool> IsDefault { get; private set; } = null!;
 
         [Output("listenerArn")]
-        public Output<string> ListenerArn { get; private set; } = null!;
+        public Output<string?> ListenerArn { get; private set; } = null!;
 
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
@@ -94,8 +94,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
             set => _conditions = value;
         }
 
-        [Input("listenerArn", required: true)]
-        public Input<string> ListenerArn { get; set; } = null!;
+        [Input("listenerArn")]
+        public Input<string>? ListenerArn { get; set; }
 
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;

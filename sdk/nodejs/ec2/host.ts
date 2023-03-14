@@ -47,6 +47,10 @@ export class Host extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostId!: pulumi.Output<string>;
     /**
+     * Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+     */
+    public readonly hostMaintenance!: pulumi.Output<string | undefined>;
+    /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
     public readonly hostRecovery!: pulumi.Output<string | undefined>;
@@ -79,6 +83,7 @@ export class Host extends pulumi.CustomResource {
             }
             resourceInputs["autoPlacement"] = args ? args.autoPlacement : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["hostMaintenance"] = args ? args.hostMaintenance : undefined;
             resourceInputs["hostRecovery"] = args ? args.hostRecovery : undefined;
             resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
@@ -88,6 +93,7 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["autoPlacement"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["hostId"] = undefined /*out*/;
+            resourceInputs["hostMaintenance"] = undefined /*out*/;
             resourceInputs["hostRecovery"] = undefined /*out*/;
             resourceInputs["instanceFamily"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
@@ -110,6 +116,10 @@ export interface HostArgs {
      * The Availability Zone in which to allocate the Dedicated Host.
      */
     availabilityZone: pulumi.Input<string>;
+    /**
+     * Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+     */
+    hostMaintenance?: pulumi.Input<string>;
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */

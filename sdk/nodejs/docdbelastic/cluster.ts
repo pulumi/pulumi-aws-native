@@ -41,6 +41,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly adminUserPassword!: pulumi.Output<string | undefined>;
     public readonly authType!: pulumi.Output<string>;
     public /*out*/ readonly clusterArn!: pulumi.Output<string>;
+    public /*out*/ readonly clusterEndpoint!: pulumi.Output<string>;
     public readonly clusterName!: pulumi.Output<string>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
@@ -85,11 +86,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["clusterArn"] = undefined /*out*/;
+            resourceInputs["clusterEndpoint"] = undefined /*out*/;
         } else {
             resourceInputs["adminUserName"] = undefined /*out*/;
             resourceInputs["adminUserPassword"] = undefined /*out*/;
             resourceInputs["authType"] = undefined /*out*/;
             resourceInputs["clusterArn"] = undefined /*out*/;
+            resourceInputs["clusterEndpoint"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;

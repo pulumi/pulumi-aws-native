@@ -18,7 +18,7 @@ type ListenerRule struct {
 	Actions     ListenerRuleActionArrayOutput        `pulumi:"actions"`
 	Conditions  ListenerRuleRuleConditionArrayOutput `pulumi:"conditions"`
 	IsDefault   pulumi.BoolOutput                    `pulumi:"isDefault"`
-	ListenerArn pulumi.StringOutput                  `pulumi:"listenerArn"`
+	ListenerArn pulumi.StringPtrOutput               `pulumi:"listenerArn"`
 	Priority    pulumi.IntOutput                     `pulumi:"priority"`
 	RuleArn     pulumi.StringOutput                  `pulumi:"ruleArn"`
 }
@@ -35,9 +35,6 @@ func NewListenerRule(ctx *pulumi.Context,
 	}
 	if args.Conditions == nil {
 		return nil, errors.New("invalid value for required argument 'Conditions'")
-	}
-	if args.ListenerArn == nil {
-		return nil, errors.New("invalid value for required argument 'ListenerArn'")
 	}
 	if args.Priority == nil {
 		return nil, errors.New("invalid value for required argument 'Priority'")
@@ -76,7 +73,7 @@ func (ListenerRuleState) ElementType() reflect.Type {
 type listenerRuleArgs struct {
 	Actions     []ListenerRuleAction        `pulumi:"actions"`
 	Conditions  []ListenerRuleRuleCondition `pulumi:"conditions"`
-	ListenerArn string                      `pulumi:"listenerArn"`
+	ListenerArn *string                     `pulumi:"listenerArn"`
 	Priority    int                         `pulumi:"priority"`
 }
 
@@ -84,7 +81,7 @@ type listenerRuleArgs struct {
 type ListenerRuleArgs struct {
 	Actions     ListenerRuleActionArrayInput
 	Conditions  ListenerRuleRuleConditionArrayInput
-	ListenerArn pulumi.StringInput
+	ListenerArn pulumi.StringPtrInput
 	Priority    pulumi.IntInput
 }
 
@@ -137,8 +134,8 @@ func (o ListenerRuleOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-func (o ListenerRuleOutput) ListenerArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
+func (o ListenerRuleOutput) ListenerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRule) pulumi.StringPtrOutput { return v.ListenerArn }).(pulumi.StringPtrOutput)
 }
 
 func (o ListenerRuleOutput) Priority() pulumi.IntOutput {

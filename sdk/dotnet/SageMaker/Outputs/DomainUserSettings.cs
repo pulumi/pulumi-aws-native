@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// The execution role for the user.
         /// </summary>
-        public readonly string? ExecutionRole;
+        public readonly string ExecutionRole;
         /// <summary>
         /// The Jupyter server's app settings.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private DomainUserSettings(
-            string? executionRole,
+            string executionRole,
 
             Outputs.DomainJupyterServerAppSettings? jupyterServerAppSettings,
 

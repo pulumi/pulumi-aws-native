@@ -439,6 +439,8 @@ if typing.TYPE_CHECKING:
     transfer = __transfer
     import pulumi_aws_native.voiceid as __voiceid
     voiceid = __voiceid
+    import pulumi_aws_native.vpclattice as __vpclattice
+    vpclattice = __vpclattice
     import pulumi_aws_native.waf as __waf
     waf = __waf
     import pulumi_aws_native.wafregional as __wafregional
@@ -661,6 +663,7 @@ else:
     timestream = _utilities.lazy_import('pulumi_aws_native.timestream')
     transfer = _utilities.lazy_import('pulumi_aws_native.transfer')
     voiceid = _utilities.lazy_import('pulumi_aws_native.voiceid')
+    vpclattice = _utilities.lazy_import('pulumi_aws_native.vpclattice')
     waf = _utilities.lazy_import('pulumi_aws_native.waf')
     wafregional = _utilities.lazy_import('pulumi_aws_native.wafregional')
     wafv2 = _utilities.lazy_import('pulumi_aws_native.wafv2')
@@ -3134,6 +3137,23 @@ _utilities.register(
   "fqn": "pulumi_aws_native.voiceid",
   "classes": {
    "aws-native:voiceid:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "vpclattice",
+  "fqn": "pulumi_aws_native.vpclattice",
+  "classes": {
+   "aws-native:vpclattice:AccessLogSubscription": "AccessLogSubscription",
+   "aws-native:vpclattice:AuthPolicy": "AuthPolicy",
+   "aws-native:vpclattice:Listener": "Listener",
+   "aws-native:vpclattice:ResourcePolicy": "ResourcePolicy",
+   "aws-native:vpclattice:Rule": "Rule",
+   "aws-native:vpclattice:Service": "Service",
+   "aws-native:vpclattice:ServiceNetwork": "ServiceNetwork",
+   "aws-native:vpclattice:ServiceNetworkServiceAssociation": "ServiceNetworkServiceAssociation",
+   "aws-native:vpclattice:ServiceNetworkVpcAssociation": "ServiceNetworkVpcAssociation",
+   "aws-native:vpclattice:TargetGroup": "TargetGroup"
   }
  },
  {

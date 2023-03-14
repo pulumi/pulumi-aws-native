@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
         [Input("contributorInsightsSpecification")]
         public Input<Inputs.GlobalTableContributorInsightsSpecificationArgs>? ContributorInsightsSpecification { get; set; }
 
+        [Input("deletionProtectionEnabled")]
+        public Input<bool>? DeletionProtectionEnabled { get; set; }
+
         [Input("globalSecondaryIndexes")]
         private InputList<Inputs.GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs>? _globalSecondaryIndexes;
         public InputList<Inputs.GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs> GlobalSecondaryIndexes

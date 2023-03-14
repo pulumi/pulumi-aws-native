@@ -48,8 +48,9 @@ export class CloudFormationProduct extends pulumi.CustomResource {
     public /*out*/ readonly productName!: pulumi.Output<string>;
     public /*out*/ readonly provisioningArtifactIds!: pulumi.Output<string>;
     public /*out*/ readonly provisioningArtifactNames!: pulumi.Output<string>;
-    public readonly provisioningArtifactParameters!: pulumi.Output<outputs.servicecatalog.CloudFormationProductProvisioningArtifactProperties[]>;
+    public readonly provisioningArtifactParameters!: pulumi.Output<outputs.servicecatalog.CloudFormationProductProvisioningArtifactProperties[] | undefined>;
     public readonly replaceProvisioningArtifacts!: pulumi.Output<boolean | undefined>;
+    public readonly sourceConnection!: pulumi.Output<outputs.servicecatalog.CloudFormationProductSourceConnection | undefined>;
     public readonly supportDescription!: pulumi.Output<string | undefined>;
     public readonly supportEmail!: pulumi.Output<string | undefined>;
     public readonly supportUrl!: pulumi.Output<string | undefined>;
@@ -71,9 +72,6 @@ export class CloudFormationProduct extends pulumi.CustomResource {
             if ((!args || args.owner === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'owner'");
             }
-            if ((!args || args.provisioningArtifactParameters === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'provisioningArtifactParameters'");
-            }
             resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["distributor"] = args ? args.distributor : undefined;
@@ -81,6 +79,7 @@ export class CloudFormationProduct extends pulumi.CustomResource {
             resourceInputs["owner"] = args ? args.owner : undefined;
             resourceInputs["provisioningArtifactParameters"] = args ? args.provisioningArtifactParameters : undefined;
             resourceInputs["replaceProvisioningArtifacts"] = args ? args.replaceProvisioningArtifacts : undefined;
+            resourceInputs["sourceConnection"] = args ? args.sourceConnection : undefined;
             resourceInputs["supportDescription"] = args ? args.supportDescription : undefined;
             resourceInputs["supportEmail"] = args ? args.supportEmail : undefined;
             resourceInputs["supportUrl"] = args ? args.supportUrl : undefined;
@@ -99,6 +98,7 @@ export class CloudFormationProduct extends pulumi.CustomResource {
             resourceInputs["provisioningArtifactNames"] = undefined /*out*/;
             resourceInputs["provisioningArtifactParameters"] = undefined /*out*/;
             resourceInputs["replaceProvisioningArtifacts"] = undefined /*out*/;
+            resourceInputs["sourceConnection"] = undefined /*out*/;
             resourceInputs["supportDescription"] = undefined /*out*/;
             resourceInputs["supportEmail"] = undefined /*out*/;
             resourceInputs["supportUrl"] = undefined /*out*/;
@@ -118,8 +118,9 @@ export interface CloudFormationProductArgs {
     distributor?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     owner: pulumi.Input<string>;
-    provisioningArtifactParameters: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProductProvisioningArtifactPropertiesArgs>[]>;
+    provisioningArtifactParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProductProvisioningArtifactPropertiesArgs>[]>;
     replaceProvisioningArtifacts?: pulumi.Input<boolean>;
+    sourceConnection?: pulumi.Input<inputs.servicecatalog.CloudFormationProductSourceConnectionArgs>;
     supportDescription?: pulumi.Input<string>;
     supportEmail?: pulumi.Input<string>;
     supportUrl?: pulumi.Input<string>;

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppMonitorResult:
-    def __init__(__self__, app_monitor_configuration=None, custom_events=None, cw_log_enabled=None, domain=None, tags=None):
+    def __init__(__self__, app_monitor_configuration=None, custom_events=None, cw_log_enabled=None, domain=None, id=None, tags=None):
         if app_monitor_configuration and not isinstance(app_monitor_configuration, dict):
             raise TypeError("Expected argument 'app_monitor_configuration' to be a dict")
         pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
@@ -33,6 +33,9 @@ class GetAppMonitorResult:
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
         pulumi.set(__self__, "domain", domain)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -65,6 +68,14 @@ class GetAppMonitorResult:
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The unique ID of the new app monitor.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.AppMonitorTag']]:
         return pulumi.get(self, "tags")
 
@@ -79,6 +90,7 @@ class AwaitableGetAppMonitorResult(GetAppMonitorResult):
             custom_events=self.custom_events,
             cw_log_enabled=self.cw_log_enabled,
             domain=self.domain,
+            id=self.id,
             tags=self.tags)
 
 
@@ -100,6 +112,7 @@ def get_app_monitor(name: Optional[str] = None,
         custom_events=__ret__.custom_events,
         cw_log_enabled=__ret__.cw_log_enabled,
         domain=__ret__.domain,
+        id=__ret__.id,
         tags=__ret__.tags)
 
 

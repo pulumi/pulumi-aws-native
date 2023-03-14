@@ -26,8 +26,6 @@ type LookupEventIntegrationArgs struct {
 }
 
 type LookupEventIntegrationResult struct {
-	// The associations with the event integration.
-	Associations []EventIntegrationAssociation `pulumi:"associations"`
 	// The event integration description.
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the event integration.
@@ -70,11 +68,6 @@ func (o LookupEventIntegrationResultOutput) ToLookupEventIntegrationResultOutput
 
 func (o LookupEventIntegrationResultOutput) ToLookupEventIntegrationResultOutputWithContext(ctx context.Context) LookupEventIntegrationResultOutput {
 	return o
-}
-
-// The associations with the event integration.
-func (o LookupEventIntegrationResultOutput) Associations() EventIntegrationAssociationArrayOutput {
-	return o.ApplyT(func(v LookupEventIntegrationResult) []EventIntegrationAssociation { return v.Associations }).(EventIntegrationAssociationArrayOutput)
 }
 
 // The event integration description.

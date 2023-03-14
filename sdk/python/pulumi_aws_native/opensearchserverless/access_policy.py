@@ -15,24 +15,43 @@ __all__ = ['AccessPolicyArgs', 'AccessPolicy']
 @pulumi.input_type
 class AccessPolicyArgs:
     def __init__(__self__, *,
+                 policy: pulumi.Input[str],
+                 type: pulumi.Input['AccessPolicyType'],
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['AccessPolicyType']] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccessPolicy resource.
+        :param pulumi.Input[str] policy: The JSON policy document that is the content for the policy
         :param pulumi.Input[str] description: The description of the policy
         :param pulumi.Input[str] name: The name of the policy
-        :param pulumi.Input[str] policy: The JSON policy document that is the content for the policy
         """
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if policy is not None:
-            pulumi.set(__self__, "policy", policy)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        """
+        The JSON policy document that is the content for the policy
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AccessPolicyType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AccessPolicyType']):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
@@ -58,27 +77,6 @@ class AccessPolicyArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The JSON policy document that is the content for the policy
-        """
-        return pulumi.get(self, "policy")
-
-    @policy.setter
-    def policy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['AccessPolicyType']]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['AccessPolicyType']]):
-        pulumi.set(self, "type", value)
-
 
 class AccessPolicy(pulumi.CustomResource):
     @overload
@@ -103,7 +101,7 @@ class AccessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AccessPolicyArgs] = None,
+                 args: AccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Amazon OpenSearchServerless access policy resource
@@ -138,7 +136,11 @@ class AccessPolicy(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if policy is None and not opts.urn:
+                raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            if type is None and not opts.urn:
+                raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
         super(AccessPolicy, __self__).__init__(
             'aws-native:opensearchserverless:AccessPolicy',
@@ -178,7 +180,7 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy
         """
@@ -186,7 +188,7 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[Optional[str]]:
+    def policy(self) -> pulumi.Output[str]:
         """
         The JSON policy document that is the content for the policy
         """
@@ -194,6 +196,6 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['AccessPolicyType']]:
+    def type(self) -> pulumi.Output['AccessPolicyType']:
         return pulumi.get(self, "type")
 

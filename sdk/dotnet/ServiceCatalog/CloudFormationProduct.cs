@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
         [Output("replaceProvisioningArtifacts")]
         public Output<bool?> ReplaceProvisioningArtifacts { get; private set; } = null!;
 
+        [Output("sourceConnection")]
+        public Output<Outputs.CloudFormationProductSourceConnection?> SourceConnection { get; private set; } = null!;
+
         [Output("supportDescription")]
         public Output<string?> SupportDescription { get; private set; } = null!;
 
@@ -118,7 +121,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 
-        [Input("provisioningArtifactParameters", required: true)]
+        [Input("provisioningArtifactParameters")]
         private InputList<Inputs.CloudFormationProductProvisioningArtifactPropertiesArgs>? _provisioningArtifactParameters;
         public InputList<Inputs.CloudFormationProductProvisioningArtifactPropertiesArgs> ProvisioningArtifactParameters
         {
@@ -128,6 +131,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
         [Input("replaceProvisioningArtifacts")]
         public Input<bool>? ReplaceProvisioningArtifacts { get; set; }
+
+        [Input("sourceConnection")]
+        public Input<Inputs.CloudFormationProductSourceConnectionArgs>? SourceConnection { get; set; }
 
         [Input("supportDescription")]
         public Input<string>? SupportDescription { get; set; }

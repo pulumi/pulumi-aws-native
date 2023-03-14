@@ -24,6 +24,8 @@ export interface GetClusterArgs {
 
 export interface GetClusterResult {
     readonly clusterArn?: string;
+    readonly clusterEndpoint?: string;
+    readonly preferredMaintenanceWindow?: string;
     readonly shardCapacity?: number;
     readonly shardCount?: number;
     readonly subnetIds?: string[];

@@ -16,9 +16,9 @@ __all__ = ['SecurityPolicyArgs', 'SecurityPolicy']
 class SecurityPolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
+                 type: pulumi.Input['SecurityPolicyType'],
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['SecurityPolicyType']] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityPolicy resource.
         :param pulumi.Input[str] policy: The JSON policy document that is the content for the policy
@@ -26,12 +26,11 @@ class SecurityPolicyArgs:
         :param pulumi.Input[str] name: The name of the policy
         """
         pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -44,6 +43,15 @@ class SecurityPolicyArgs:
     @policy.setter
     def policy(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['SecurityPolicyType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['SecurityPolicyType']):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
@@ -68,15 +76,6 @@ class SecurityPolicyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['SecurityPolicyType']]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['SecurityPolicyType']]):
-        pulumi.set(self, "type", value)
 
 
 class SecurityPolicy(pulumi.CustomResource):
@@ -140,6 +139,8 @@ class SecurityPolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            if type is None and not opts.urn:
+                raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
         super(SecurityPolicy, __self__).__init__(
             'aws-native:opensearchserverless:SecurityPolicy',
@@ -179,7 +180,7 @@ class SecurityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy
         """
@@ -195,6 +196,6 @@ class SecurityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['SecurityPolicyType']]:
+    def type(self) -> pulumi.Output['SecurityPolicyType']:
         return pulumi.get(self, "type")
 

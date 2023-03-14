@@ -31,8 +31,10 @@ type LookupAppMonitorResult struct {
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
 	// The top-level internet domain name for which your application has administrative authority.
-	Domain *string         `pulumi:"domain"`
-	Tags   []AppMonitorTag `pulumi:"tags"`
+	Domain *string `pulumi:"domain"`
+	// The unique ID of the new app monitor.
+	Id   *string         `pulumi:"id"`
+	Tags []AppMonitorTag `pulumi:"tags"`
 }
 
 func LookupAppMonitorOutput(ctx *pulumi.Context, args LookupAppMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupAppMonitorResultOutput {
@@ -87,6 +89,11 @@ func (o LookupAppMonitorResultOutput) CwLogEnabled() pulumi.BoolPtrOutput {
 // The top-level internet domain name for which your application has administrative authority.
 func (o LookupAppMonitorResultOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The unique ID of the new app monitor.
+func (o LookupAppMonitorResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAppMonitorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAppMonitorResultOutput) Tags() AppMonitorTagArrayOutput {

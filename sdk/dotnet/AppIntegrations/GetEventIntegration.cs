@@ -58,10 +58,6 @@ namespace Pulumi.AwsNative.AppIntegrations
     public sealed class GetEventIntegrationResult
     {
         /// <summary>
-        /// The associations with the event integration.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.EventIntegrationAssociation> Associations;
-        /// <summary>
         /// The event integration description.
         /// </summary>
         public readonly string? Description;
@@ -76,15 +72,12 @@ namespace Pulumi.AwsNative.AppIntegrations
 
         [OutputConstructor]
         private GetEventIntegrationResult(
-            ImmutableArray<Outputs.EventIntegrationAssociation> associations,
-
             string? description,
 
             string? eventIntegrationArn,
 
             ImmutableArray<Outputs.EventIntegrationTag> tags)
         {
-            Associations = associations;
             Description = description;
             EventIntegrationArn = eventIntegrationArn;
             Tags = tags;

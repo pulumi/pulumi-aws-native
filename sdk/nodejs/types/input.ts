@@ -2243,6 +2243,10 @@ export namespace appflow {
          * Indicates whether the connector profile applies to a sandbox or production environment
          */
         isSandboxEnvironment?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether to make Metadata And Authorization calls over Pivate Network
+         */
+        usePrivateLinkForMetadataAndAuthorization?: pulumi.Input<boolean>;
     }
 
     export interface ConnectorProfileServiceNowConnectorProfileCredentialsArgs {
@@ -2787,6 +2791,10 @@ export namespace appflow {
      * Trigger settings of the flow.
      */
     export interface FlowTriggerConfigArgs {
+        /**
+         * Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
+         */
+        activateFlowOnCreate?: pulumi.Input<boolean>;
         /**
          * Details required based on the type of trigger
          */
@@ -10109,6 +10117,7 @@ export namespace dynamodb {
 
     export interface GlobalTableReplicaSpecificationArgs {
         contributorInsightsSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableContributorInsightsSpecificationArgs>;
+        deletionProtectionEnabled?: pulumi.Input<boolean>;
         globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs>[]>;
         kinesisStreamSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableKinesisStreamSpecificationArgs>;
         pointInTimeRecoverySpecification?: pulumi.Input<inputs.dynamodb.GlobalTablePointInTimeRecoverySpecificationArgs>;
@@ -17325,6 +17334,14 @@ export namespace iot {
         rateIncreaseCriteria: pulumi.Input<inputs.iot.JobTemplateRateIncreaseCriteriaArgs>;
     }
 
+    /**
+     * Specifies a start time and duration for a scheduled Job.
+     */
+    export interface JobTemplateMaintenanceWindowArgs {
+        durationInMinutes?: pulumi.Input<number>;
+        startTime?: pulumi.Input<string>;
+    }
+
     export interface JobTemplateRateIncreaseCriteriaArgs {
         numberOfNotifiedThings?: pulumi.Input<number>;
         numberOfSucceededThings?: pulumi.Input<number>;
@@ -22496,11 +22513,15 @@ export namespace lex {
      */
     export interface BotCustomVocabularyItemArgs {
         /**
+         * Defines how you want your phrase to look in your transcription output.
+         */
+        displayAs?: pulumi.Input<string>;
+        /**
          * Phrase that should be recognized.
          */
         phrase: pulumi.Input<string>;
         /**
-         * The degree to which the phrase recognition is boosted.
+         * The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
          */
         weight?: pulumi.Input<number>;
     }
@@ -31673,7 +31694,7 @@ export namespace rum {
         /**
          * Use this field only if you are sending the metric to CloudWatch.
          *
-         * This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+         * This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
          *
          * "metadata.pageId": "PageId"
          *
@@ -31707,7 +31728,7 @@ export namespace rum {
          */
         eventPattern?: pulumi.Input<string>;
         /**
-         * The name for the metric that is defined in this structure. Valid values are the following:
+         * The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
          *
          * PerformanceNavigationDuration
          *
@@ -31732,6 +31753,10 @@ export namespace rum {
          * SessionCount
          */
         name: pulumi.Input<string>;
+        /**
+         * The namespace used by CloudWatch Metrics for the metric that is defined in this structure
+         */
+        namespace?: pulumi.Input<string>;
         /**
          * The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
          */
@@ -32522,6 +32547,7 @@ export namespace s3 {
 
     export interface MultiRegionAccessPointRegionArgs {
         bucket: pulumi.Input<string>;
+        bucketAccountId?: pulumi.Input<string>;
     }
 
     /**
@@ -33257,7 +33283,7 @@ export namespace sagemaker {
         /**
          * The execution role for the space.
          */
-        executionRole?: pulumi.Input<string>;
+        executionRole: pulumi.Input<string>;
         /**
          * The Jupyter server's app settings.
          */
@@ -33397,7 +33423,7 @@ export namespace sagemaker {
         /**
          * The execution role for the user.
          */
-        executionRole?: pulumi.Input<string>;
+        executionRole: pulumi.Input<string>;
         /**
          * The Jupyter server's app settings.
          */
@@ -36208,11 +36234,27 @@ export namespace secretsmanager {
 }
 
 export namespace servicecatalog {
+    export interface CloudFormationProductCodeStarParametersArgs {
+        artifactPath: pulumi.Input<string>;
+        branch: pulumi.Input<string>;
+        connectionArn: pulumi.Input<string>;
+        repository: pulumi.Input<string>;
+    }
+
+    export interface CloudFormationProductConnectionParametersArgs {
+        codeStar?: pulumi.Input<inputs.servicecatalog.CloudFormationProductCodeStarParametersArgs>;
+    }
+
     export interface CloudFormationProductProvisioningArtifactPropertiesArgs {
         description?: pulumi.Input<string>;
         disableTemplateValidation?: pulumi.Input<boolean>;
         info: any;
         name?: pulumi.Input<string>;
+    }
+
+    export interface CloudFormationProductSourceConnectionArgs {
+        connectionParameters: pulumi.Input<inputs.servicecatalog.CloudFormationProductConnectionParametersArgs>;
+        type: pulumi.Input<string>;
     }
 
     export interface CloudFormationProductTagArgs {
@@ -37877,6 +37919,145 @@ export namespace voiceid {
     export interface DomainTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+}
+
+export namespace vpclattice {
+    export interface AccessLogSubscriptionTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ListenerDefaultActionArgs {
+        forward: pulumi.Input<inputs.vpclattice.ListenerForwardArgs>;
+    }
+
+    export interface ListenerForwardArgs {
+        targetGroups: pulumi.Input<pulumi.Input<inputs.vpclattice.ListenerWeightedTargetGroupArgs>[]>;
+    }
+
+    export interface ListenerTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ListenerWeightedTargetGroupArgs {
+        targetGroupIdentifier: pulumi.Input<string>;
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface RuleActionArgs {
+        forward: pulumi.Input<inputs.vpclattice.RuleForwardArgs>;
+    }
+
+    export interface RuleForwardArgs {
+        targetGroups: pulumi.Input<pulumi.Input<inputs.vpclattice.RuleWeightedTargetGroupArgs>[]>;
+    }
+
+    export interface RuleHeaderMatchArgs {
+        caseSensitive?: pulumi.Input<boolean>;
+        match: pulumi.Input<inputs.vpclattice.RuleHeaderMatchTypeArgs>;
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleHeaderMatchTypeArgs {
+        contains?: pulumi.Input<string>;
+        exact?: pulumi.Input<string>;
+        prefix?: pulumi.Input<string>;
+    }
+
+    export interface RuleHttpMatchArgs {
+        headerMatches?: pulumi.Input<pulumi.Input<inputs.vpclattice.RuleHeaderMatchArgs>[]>;
+        method?: pulumi.Input<enums.vpclattice.RuleHttpMatchMethod>;
+        pathMatch?: pulumi.Input<inputs.vpclattice.RulePathMatchArgs>;
+    }
+
+    export interface RuleMatchArgs {
+        httpMatch: pulumi.Input<inputs.vpclattice.RuleHttpMatchArgs>;
+    }
+
+    export interface RulePathMatchArgs {
+        caseSensitive?: pulumi.Input<boolean>;
+        match: pulumi.Input<inputs.vpclattice.RulePathMatchTypeArgs>;
+    }
+
+    export interface RulePathMatchTypeArgs {
+        exact?: pulumi.Input<string>;
+        prefix?: pulumi.Input<string>;
+    }
+
+    export interface RuleTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface RuleWeightedTargetGroupArgs {
+        targetGroupIdentifier: pulumi.Input<string>;
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface ServiceDnsEntryArgs {
+        domainName?: pulumi.Input<string>;
+        hostedZoneId?: pulumi.Input<string>;
+    }
+
+    export interface ServiceNetworkServiceAssociationDnsEntryArgs {
+        domainName?: pulumi.Input<string>;
+        hostedZoneId?: pulumi.Input<string>;
+    }
+
+    export interface ServiceNetworkServiceAssociationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ServiceNetworkTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ServiceNetworkVpcAssociationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ServiceTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface TargetGroupConfigArgs {
+        healthCheck?: pulumi.Input<inputs.vpclattice.TargetGroupHealthCheckConfigArgs>;
+        port: pulumi.Input<number>;
+        protocol: pulumi.Input<enums.vpclattice.TargetGroupConfigProtocol>;
+        protocolVersion?: pulumi.Input<enums.vpclattice.TargetGroupConfigProtocolVersion>;
+        vpcIdentifier: pulumi.Input<string>;
+    }
+
+    export interface TargetGroupHealthCheckConfigArgs {
+        enabled?: pulumi.Input<boolean>;
+        healthCheckIntervalSeconds?: pulumi.Input<number>;
+        healthCheckTimeoutSeconds?: pulumi.Input<number>;
+        healthyThresholdCount?: pulumi.Input<number>;
+        matcher?: pulumi.Input<inputs.vpclattice.TargetGroupMatcherArgs>;
+        path?: pulumi.Input<string>;
+        port?: pulumi.Input<number>;
+        protocol?: pulumi.Input<enums.vpclattice.TargetGroupHealthCheckConfigProtocol>;
+        unhealthyThresholdCount?: pulumi.Input<number>;
+    }
+
+    export interface TargetGroupMatcherArgs {
+        httpCode: pulumi.Input<string>;
+    }
+
+    export interface TargetGroupTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface TargetGroupTargetArgs {
+        id: pulumi.Input<string>;
+        port?: pulumi.Input<number>;
     }
 }
 

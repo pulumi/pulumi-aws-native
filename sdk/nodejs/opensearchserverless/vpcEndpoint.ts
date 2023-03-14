@@ -45,7 +45,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
     /**
      * The ID of one or more subnets in which to create an endpoint network interface
      */
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * The ID of the VPC in which the endpoint will be used.
      */
@@ -62,6 +62,9 @@ export class VpcEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'subnetIds'");
+            }
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
@@ -95,7 +98,7 @@ export interface VpcEndpointArgs {
     /**
      * The ID of one or more subnets in which to create an endpoint network interface
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the VPC in which the endpoint will be used.
      */

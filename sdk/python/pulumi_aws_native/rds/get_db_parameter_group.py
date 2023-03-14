@@ -19,10 +19,21 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBParameterGroupResult:
-    def __init__(__self__, tags=None):
+    def __init__(__self__, parameters=None, tags=None):
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        pulumi.set(__self__, "parameters", parameters)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        An array of parameter names and values for the parameter update.
+        """
+        return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
@@ -39,6 +50,7 @@ class AwaitableGetDBParameterGroupResult(GetDBParameterGroupResult):
         if False:
             yield self
         return GetDBParameterGroupResult(
+            parameters=self.parameters,
             tags=self.tags)
 
 
@@ -56,6 +68,7 @@ def get_db_parameter_group(d_b_parameter_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBParameterGroup', __args__, opts=opts, typ=GetDBParameterGroupResult).value
 
     return AwaitableGetDBParameterGroupResult(
+        parameters=__ret__.parameters,
         tags=__ret__.tags)
 
 

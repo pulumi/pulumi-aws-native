@@ -126,6 +126,7 @@ import * as supportapp from "./supportapp";
 import * as systemsmanagersap from "./systemsmanagersap";
 import * as timestream from "./timestream";
 import * as transfer from "./transfer";
+import * as vpclattice from "./vpclattice";
 import * as wafv2 from "./wafv2";
 import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
@@ -255,6 +256,7 @@ export {
     systemsmanagersap,
     timestream,
     transfer,
+    vpclattice,
     wafv2,
     wisdom,
     workspaces,

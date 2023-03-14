@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.RUM.Inputs
         /// <summary>
         /// Use this field only if you are sending the metric to CloudWatch.
         /// 
-        /// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+        /// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
         /// 
         /// "metadata.pageId": "PageId"
         /// 
@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.RUM.Inputs
         public Input<string>? EventPattern { get; set; }
 
         /// <summary>
-        /// The name for the metric that is defined in this structure. Valid values are the following:
+        /// The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
         /// 
         /// PerformanceNavigationDuration
         /// 
@@ -82,6 +82,12 @@ namespace Pulumi.AwsNative.RUM.Inputs
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace used by CloudWatch Metrics for the metric that is defined in this structure
+        /// </summary>
+        [Input("namespace")]
+        public Input<string>? Namespace { get; set; }
 
         /// <summary>
         /// The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.

@@ -14,24 +14,35 @@ __all__ = ['VpcEndpointArgs', 'VpcEndpoint']
 @pulumi.input_type
 class VpcEndpointArgs:
     def __init__(__self__, *,
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcEndpoint resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
         :param pulumi.Input[str] name: The name of the VPC Endpoint
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the endpoint network interface
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface
         """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_id", vpc_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The ID of one or more subnets in which to create an endpoint network interface
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -68,18 +79,6 @@ class VpcEndpointArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_group_ids", value)
-
-    @property
-    @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The ID of one or more subnets in which to create an endpoint network interface
-        """
-        return pulumi.get(self, "subnet_ids")
-
-    @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "subnet_ids", value)
 
 
 class VpcEndpoint(pulumi.CustomResource):
@@ -141,6 +140,8 @@ class VpcEndpoint(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["security_group_ids"] = security_group_ids
+            if subnet_ids is None and not opts.urn:
+                raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
@@ -191,7 +192,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         The ID of one or more subnets in which to create an endpoint network interface
         """

@@ -450,11 +450,6 @@ export const getVPCCidrBlock: typeof import("./getVPCCidrBlock").getVPCCidrBlock
 export const getVPCCidrBlockOutput: typeof import("./getVPCCidrBlock").getVPCCidrBlockOutput = null as any;
 utilities.lazyLoad(exports, ["getVPCCidrBlock","getVPCCidrBlockOutput"], () => require("./getVPCCidrBlock"));
 
-export { GetVPCDHCPOptionsAssociationArgs, GetVPCDHCPOptionsAssociationResult, GetVPCDHCPOptionsAssociationOutputArgs } from "./getVPCDHCPOptionsAssociation";
-export const getVPCDHCPOptionsAssociation: typeof import("./getVPCDHCPOptionsAssociation").getVPCDHCPOptionsAssociation = null as any;
-export const getVPCDHCPOptionsAssociationOutput: typeof import("./getVPCDHCPOptionsAssociation").getVPCDHCPOptionsAssociationOutput = null as any;
-utilities.lazyLoad(exports, ["getVPCDHCPOptionsAssociation","getVPCDHCPOptionsAssociationOutput"], () => require("./getVPCDHCPOptionsAssociation"));
-
 export { GetVPCEndpointArgs, GetVPCEndpointResult, GetVPCEndpointOutputArgs } from "./getVPCEndpoint";
 export const getVPCEndpoint: typeof import("./getVPCEndpoint").getVPCEndpoint = null as any;
 export const getVPCEndpointOutput: typeof import("./getVPCEndpoint").getVPCEndpointOutput = null as any;

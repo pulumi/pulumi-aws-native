@@ -19,10 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, cluster_arn=None, shard_capacity=None, shard_count=None, subnet_ids=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, cluster_arn=None, cluster_endpoint=None, preferred_maintenance_window=None, shard_capacity=None, shard_count=None, subnet_ids=None, tags=None, vpc_security_group_ids=None):
         if cluster_arn and not isinstance(cluster_arn, str):
             raise TypeError("Expected argument 'cluster_arn' to be a str")
         pulumi.set(__self__, "cluster_arn", cluster_arn)
+        if cluster_endpoint and not isinstance(cluster_endpoint, str):
+            raise TypeError("Expected argument 'cluster_endpoint' to be a str")
+        pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+        if preferred_maintenance_window and not isinstance(preferred_maintenance_window, str):
+            raise TypeError("Expected argument 'preferred_maintenance_window' to be a str")
+        pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if shard_capacity and not isinstance(shard_capacity, int):
             raise TypeError("Expected argument 'shard_capacity' to be a int")
         pulumi.set(__self__, "shard_capacity", shard_capacity)
@@ -43,6 +49,16 @@ class GetClusterResult:
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> Optional[str]:
         return pulumi.get(self, "cluster_arn")
+
+    @property
+    @pulumi.getter(name="clusterEndpoint")
+    def cluster_endpoint(self) -> Optional[str]:
+        return pulumi.get(self, "cluster_endpoint")
+
+    @property
+    @pulumi.getter(name="preferredMaintenanceWindow")
+    def preferred_maintenance_window(self) -> Optional[str]:
+        return pulumi.get(self, "preferred_maintenance_window")
 
     @property
     @pulumi.getter(name="shardCapacity")
@@ -77,6 +93,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             yield self
         return GetClusterResult(
             cluster_arn=self.cluster_arn,
+            cluster_endpoint=self.cluster_endpoint,
+            preferred_maintenance_window=self.preferred_maintenance_window,
             shard_capacity=self.shard_capacity,
             shard_count=self.shard_count,
             subnet_ids=self.subnet_ids,
@@ -96,6 +114,8 @@ def get_cluster(cluster_arn: Optional[str] = None,
 
     return AwaitableGetClusterResult(
         cluster_arn=__ret__.cluster_arn,
+        cluster_endpoint=__ret__.cluster_endpoint,
+        preferred_maintenance_window=__ret__.preferred_maintenance_window,
         shard_capacity=__ret__.shard_capacity,
         shard_count=__ret__.shard_count,
         subnet_ids=__ret__.subnet_ids,

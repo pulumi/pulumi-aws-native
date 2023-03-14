@@ -4094,7 +4094,7 @@ func (o DomainCustomImageArrayOutput) Index(i pulumi.IntInput) DomainCustomImage
 // A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
 type DomainDefaultSpaceSettings struct {
 	// The execution role for the space.
-	ExecutionRole *string `pulumi:"executionRole"`
+	ExecutionRole string `pulumi:"executionRole"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings *DomainJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
@@ -4117,7 +4117,7 @@ type DomainDefaultSpaceSettingsInput interface {
 // A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
 type DomainDefaultSpaceSettingsArgs struct {
 	// The execution role for the space.
-	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings DomainJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
@@ -4205,8 +4205,8 @@ func (o DomainDefaultSpaceSettingsOutput) ToDomainDefaultSpaceSettingsPtrOutputW
 }
 
 // The execution role for the space.
-func (o DomainDefaultSpaceSettingsOutput) ExecutionRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainDefaultSpaceSettings) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
+func (o DomainDefaultSpaceSettingsOutput) ExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
 }
 
 // The Jupyter server's app settings.
@@ -4254,7 +4254,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOut
 		if v == nil {
 			return nil
 		}
-		return v.ExecutionRole
+		return &v.ExecutionRole
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5726,7 +5726,7 @@ func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettings struct {
 	// The execution role for the user.
-	ExecutionRole *string `pulumi:"executionRole"`
+	ExecutionRole string `pulumi:"executionRole"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings *DomainJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
@@ -5753,7 +5753,7 @@ type DomainUserSettingsInput interface {
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettingsArgs struct {
 	// The execution role for the user.
-	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings DomainJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
@@ -5794,8 +5794,8 @@ func (o DomainUserSettingsOutput) ToDomainUserSettingsOutputWithContext(ctx cont
 }
 
 // The execution role for the user.
-func (o DomainUserSettingsOutput) ExecutionRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainUserSettings) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
+func (o DomainUserSettingsOutput) ExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainUserSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
 }
 
 // The Jupyter server's app settings.
@@ -5856,7 +5856,7 @@ func (o DomainUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.ExecutionRole
+		return &v.ExecutionRole
 	}).(pulumi.StringPtrOutput)
 }
 

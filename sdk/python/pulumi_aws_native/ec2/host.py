@@ -16,6 +16,7 @@ class HostArgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
                  auto_placement: Optional[pulumi.Input[str]] = None,
+                 host_maintenance: Optional[pulumi.Input[str]] = None,
                  host_recovery: Optional[pulumi.Input[str]] = None,
                  instance_family: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -24,6 +25,7 @@ class HostArgs:
         The set of arguments for constructing a Host resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
         :param pulumi.Input[str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        :param pulumi.Input[str] host_maintenance: Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
         :param pulumi.Input[str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
         :param pulumi.Input[str] instance_family: Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
         :param pulumi.Input[str] instance_type: Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
@@ -32,6 +34,8 @@ class HostArgs:
         pulumi.set(__self__, "availability_zone", availability_zone)
         if auto_placement is not None:
             pulumi.set(__self__, "auto_placement", auto_placement)
+        if host_maintenance is not None:
+            pulumi.set(__self__, "host_maintenance", host_maintenance)
         if host_recovery is not None:
             pulumi.set(__self__, "host_recovery", host_recovery)
         if instance_family is not None:
@@ -64,6 +68,18 @@ class HostArgs:
     @auto_placement.setter
     def auto_placement(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_placement", value)
+
+    @property
+    @pulumi.getter(name="hostMaintenance")
+    def host_maintenance(self) -> Optional[pulumi.Input[str]]:
+        """
+        Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+        """
+        return pulumi.get(self, "host_maintenance")
+
+    @host_maintenance.setter
+    def host_maintenance(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_maintenance", value)
 
     @property
     @pulumi.getter(name="hostRecovery")
@@ -121,6 +137,7 @@ class Host(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_placement: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 host_maintenance: Optional[pulumi.Input[str]] = None,
                  host_recovery: Optional[pulumi.Input[str]] = None,
                  instance_family: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -133,6 +150,7 @@ class Host(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
+        :param pulumi.Input[str] host_maintenance: Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
         :param pulumi.Input[str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
         :param pulumi.Input[str] instance_family: Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
         :param pulumi.Input[str] instance_type: Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
@@ -164,6 +182,7 @@ class Host(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_placement: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 host_maintenance: Optional[pulumi.Input[str]] = None,
                  host_recovery: Optional[pulumi.Input[str]] = None,
                  instance_family: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -181,6 +200,7 @@ class Host(pulumi.CustomResource):
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["host_maintenance"] = host_maintenance
             __props__.__dict__["host_recovery"] = host_recovery
             __props__.__dict__["instance_family"] = instance_family
             __props__.__dict__["instance_type"] = instance_type
@@ -211,6 +231,7 @@ class Host(pulumi.CustomResource):
         __props__.__dict__["auto_placement"] = None
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["host_id"] = None
+        __props__.__dict__["host_maintenance"] = None
         __props__.__dict__["host_recovery"] = None
         __props__.__dict__["instance_family"] = None
         __props__.__dict__["instance_type"] = None
@@ -240,6 +261,14 @@ class Host(pulumi.CustomResource):
         Id of the host created.
         """
         return pulumi.get(self, "host_id")
+
+    @property
+    @pulumi.getter(name="hostMaintenance")
+    def host_maintenance(self) -> pulumi.Output[Optional[str]]:
+        """
+        Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+        """
+        return pulumi.get(self, "host_maintenance")
 
     @property
     @pulumi.getter(name="hostRecovery")

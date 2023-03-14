@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCloudFormationProductResult:
-    def __init__(__self__, accept_language=None, description=None, distributor=None, id=None, name=None, owner=None, product_name=None, provisioning_artifact_ids=None, provisioning_artifact_names=None, provisioning_artifact_parameters=None, replace_provisioning_artifacts=None, support_description=None, support_email=None, support_url=None, tags=None):
+    def __init__(__self__, accept_language=None, description=None, distributor=None, id=None, name=None, owner=None, product_name=None, provisioning_artifact_ids=None, provisioning_artifact_names=None, provisioning_artifact_parameters=None, replace_provisioning_artifacts=None, source_connection=None, support_description=None, support_email=None, support_url=None, tags=None):
         if accept_language and not isinstance(accept_language, str):
             raise TypeError("Expected argument 'accept_language' to be a str")
         pulumi.set(__self__, "accept_language", accept_language)
@@ -53,6 +53,9 @@ class GetCloudFormationProductResult:
         if replace_provisioning_artifacts and not isinstance(replace_provisioning_artifacts, bool):
             raise TypeError("Expected argument 'replace_provisioning_artifacts' to be a bool")
         pulumi.set(__self__, "replace_provisioning_artifacts", replace_provisioning_artifacts)
+        if source_connection and not isinstance(source_connection, dict):
+            raise TypeError("Expected argument 'source_connection' to be a dict")
+        pulumi.set(__self__, "source_connection", source_connection)
         if support_description and not isinstance(support_description, str):
             raise TypeError("Expected argument 'support_description' to be a str")
         pulumi.set(__self__, "support_description", support_description)
@@ -122,6 +125,11 @@ class GetCloudFormationProductResult:
         return pulumi.get(self, "replace_provisioning_artifacts")
 
     @property
+    @pulumi.getter(name="sourceConnection")
+    def source_connection(self) -> Optional['outputs.CloudFormationProductSourceConnection']:
+        return pulumi.get(self, "source_connection")
+
+    @property
     @pulumi.getter(name="supportDescription")
     def support_description(self) -> Optional[str]:
         return pulumi.get(self, "support_description")
@@ -159,6 +167,7 @@ class AwaitableGetCloudFormationProductResult(GetCloudFormationProductResult):
             provisioning_artifact_names=self.provisioning_artifact_names,
             provisioning_artifact_parameters=self.provisioning_artifact_parameters,
             replace_provisioning_artifacts=self.replace_provisioning_artifacts,
+            source_connection=self.source_connection,
             support_description=self.support_description,
             support_email=self.support_email,
             support_url=self.support_url,
@@ -187,6 +196,7 @@ def get_cloud_formation_product(id: Optional[str] = None,
         provisioning_artifact_names=__ret__.provisioning_artifact_names,
         provisioning_artifact_parameters=__ret__.provisioning_artifact_parameters,
         replace_provisioning_artifacts=__ret__.replace_provisioning_artifacts,
+        source_connection=__ret__.source_connection,
         support_description=__ret__.support_description,
         support_email=__ret__.support_email,
         support_url=__ret__.support_url,

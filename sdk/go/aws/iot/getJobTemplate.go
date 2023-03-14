@@ -27,6 +27,7 @@ type LookupJobTemplateArgs struct {
 type LookupJobTemplateResult struct {
 	Arn                      *string                             `pulumi:"arn"`
 	JobExecutionsRetryConfig *JobExecutionsRetryConfigProperties `pulumi:"jobExecutionsRetryConfig"`
+	MaintenanceWindows       []JobTemplateMaintenanceWindow      `pulumi:"maintenanceWindows"`
 }
 
 func LookupJobTemplateOutput(ctx *pulumi.Context, args LookupJobTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupJobTemplateResultOutput {
@@ -70,6 +71,10 @@ func (o LookupJobTemplateResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupJobTemplateResultOutput) JobExecutionsRetryConfig() JobExecutionsRetryConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupJobTemplateResult) *JobExecutionsRetryConfigProperties { return v.JobExecutionsRetryConfig }).(JobExecutionsRetryConfigPropertiesPtrOutput)
+}
+
+func (o LookupJobTemplateResultOutput) MaintenanceWindows() JobTemplateMaintenanceWindowArrayOutput {
+	return o.ApplyT(func(v LookupJobTemplateResult) []JobTemplateMaintenanceWindow { return v.MaintenanceWindows }).(JobTemplateMaintenanceWindowArrayOutput)
 }
 
 func init() {

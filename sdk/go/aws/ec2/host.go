@@ -21,6 +21,8 @@ type Host struct {
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Id of the host created.
 	HostId pulumi.StringOutput `pulumi:"hostId"`
+	// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+	HostMaintenance pulumi.StringPtrOutput `pulumi:"hostMaintenance"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
 	HostRecovery pulumi.StringPtrOutput `pulumi:"hostRecovery"`
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
@@ -77,6 +79,8 @@ type hostArgs struct {
 	AutoPlacement *string `pulumi:"autoPlacement"`
 	// The Availability Zone in which to allocate the Dedicated Host.
 	AvailabilityZone string `pulumi:"availabilityZone"`
+	// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+	HostMaintenance *string `pulumi:"hostMaintenance"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
 	HostRecovery *string `pulumi:"hostRecovery"`
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
@@ -93,6 +97,8 @@ type HostArgs struct {
 	AutoPlacement pulumi.StringPtrInput
 	// The Availability Zone in which to allocate the Dedicated Host.
 	AvailabilityZone pulumi.StringInput
+	// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+	HostMaintenance pulumi.StringPtrInput
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
 	HostRecovery pulumi.StringPtrInput
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
@@ -153,6 +159,11 @@ func (o HostOutput) AvailabilityZone() pulumi.StringOutput {
 // Id of the host created.
 func (o HostOutput) HostId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.HostId }).(pulumi.StringOutput)
+}
+
+// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+func (o HostOutput) HostMaintenance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.HostMaintenance }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.

@@ -27,6 +27,7 @@ type CloudFormationProduct struct {
 	ProvisioningArtifactNames      pulumi.StringOutput                                            `pulumi:"provisioningArtifactNames"`
 	ProvisioningArtifactParameters CloudFormationProductProvisioningArtifactPropertiesArrayOutput `pulumi:"provisioningArtifactParameters"`
 	ReplaceProvisioningArtifacts   pulumi.BoolPtrOutput                                           `pulumi:"replaceProvisioningArtifacts"`
+	SourceConnection               CloudFormationProductSourceConnectionPtrOutput                 `pulumi:"sourceConnection"`
 	SupportDescription             pulumi.StringPtrOutput                                         `pulumi:"supportDescription"`
 	SupportEmail                   pulumi.StringPtrOutput                                         `pulumi:"supportEmail"`
 	SupportUrl                     pulumi.StringPtrOutput                                         `pulumi:"supportUrl"`
@@ -42,9 +43,6 @@ func NewCloudFormationProduct(ctx *pulumi.Context,
 
 	if args.Owner == nil {
 		return nil, errors.New("invalid value for required argument 'Owner'")
-	}
-	if args.ProvisioningArtifactParameters == nil {
-		return nil, errors.New("invalid value for required argument 'ProvisioningArtifactParameters'")
 	}
 	var resource CloudFormationProduct
 	err := ctx.RegisterResource("aws-native:servicecatalog:CloudFormationProduct", name, args, &resource, opts...)
@@ -85,6 +83,7 @@ type cloudFormationProductArgs struct {
 	Owner                          string                                                `pulumi:"owner"`
 	ProvisioningArtifactParameters []CloudFormationProductProvisioningArtifactProperties `pulumi:"provisioningArtifactParameters"`
 	ReplaceProvisioningArtifacts   *bool                                                 `pulumi:"replaceProvisioningArtifacts"`
+	SourceConnection               *CloudFormationProductSourceConnection                `pulumi:"sourceConnection"`
 	SupportDescription             *string                                               `pulumi:"supportDescription"`
 	SupportEmail                   *string                                               `pulumi:"supportEmail"`
 	SupportUrl                     *string                                               `pulumi:"supportUrl"`
@@ -100,6 +99,7 @@ type CloudFormationProductArgs struct {
 	Owner                          pulumi.StringInput
 	ProvisioningArtifactParameters CloudFormationProductProvisioningArtifactPropertiesArrayInput
 	ReplaceProvisioningArtifacts   pulumi.BoolPtrInput
+	SourceConnection               CloudFormationProductSourceConnectionPtrInput
 	SupportDescription             pulumi.StringPtrInput
 	SupportEmail                   pulumi.StringPtrInput
 	SupportUrl                     pulumi.StringPtrInput
@@ -183,6 +183,12 @@ func (o CloudFormationProductOutput) ProvisioningArtifactParameters() CloudForma
 
 func (o CloudFormationProductOutput) ReplaceProvisioningArtifacts() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProduct) pulumi.BoolPtrOutput { return v.ReplaceProvisioningArtifacts }).(pulumi.BoolPtrOutput)
+}
+
+func (o CloudFormationProductOutput) SourceConnection() CloudFormationProductSourceConnectionPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) CloudFormationProductSourceConnectionPtrOutput {
+		return v.SourceConnection
+	}).(CloudFormationProductSourceConnectionPtrOutput)
 }
 
 func (o CloudFormationProductOutput) SupportDescription() pulumi.StringPtrOutput {

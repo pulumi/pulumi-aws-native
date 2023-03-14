@@ -465,7 +465,7 @@ func (o AppMonitorCustomEventsPtrOutput) Status() AppMonitorCustomEventsStatusPt
 type AppMonitorMetricDefinition struct {
 	// Use this field only if you are sending the metric to CloudWatch.
 	//
-	// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+	// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
 	//
 	// "metadata.pageId": "PageId"
 	//
@@ -495,7 +495,7 @@ type AppMonitorMetricDefinition struct {
 	//
 	// If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
 	EventPattern *string `pulumi:"eventPattern"`
-	// The name for the metric that is defined in this structure. Valid values are the following:
+	// The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
 	//
 	// PerformanceNavigationDuration
 	//
@@ -519,6 +519,8 @@ type AppMonitorMetricDefinition struct {
 	//
 	// SessionCount
 	Name string `pulumi:"name"`
+	// The namespace used by CloudWatch Metrics for the metric that is defined in this structure
+	Namespace *string `pulumi:"namespace"`
 	// The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
 	UnitLabel *string `pulumi:"unitLabel"`
 	// The field within the event object that the metric value is sourced from.
@@ -544,7 +546,7 @@ type AppMonitorMetricDefinitionInput interface {
 type AppMonitorMetricDefinitionArgs struct {
 	// Use this field only if you are sending the metric to CloudWatch.
 	//
-	// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+	// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
 	//
 	// "metadata.pageId": "PageId"
 	//
@@ -574,7 +576,7 @@ type AppMonitorMetricDefinitionArgs struct {
 	//
 	// If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
 	EventPattern pulumi.StringPtrInput `pulumi:"eventPattern"`
-	// The name for the metric that is defined in this structure. Valid values are the following:
+	// The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
 	//
 	// PerformanceNavigationDuration
 	//
@@ -598,6 +600,8 @@ type AppMonitorMetricDefinitionArgs struct {
 	//
 	// SessionCount
 	Name pulumi.StringInput `pulumi:"name"`
+	// The namespace used by CloudWatch Metrics for the metric that is defined in this structure
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
 	UnitLabel pulumi.StringPtrInput `pulumi:"unitLabel"`
 	// The field within the event object that the metric value is sourced from.
@@ -662,7 +666,7 @@ func (o AppMonitorMetricDefinitionOutput) ToAppMonitorMetricDefinitionOutputWith
 
 // Use this field only if you are sending the metric to CloudWatch.
 //
-// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
 //
 // "metadata.pageId": "PageId"
 //
@@ -698,7 +702,7 @@ func (o AppMonitorMetricDefinitionOutput) EventPattern() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v AppMonitorMetricDefinition) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
-// The name for the metric that is defined in this structure. Valid values are the following:
+// The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
 //
 // # PerformanceNavigationDuration
 //
@@ -723,6 +727,11 @@ func (o AppMonitorMetricDefinitionOutput) EventPattern() pulumi.StringPtrOutput 
 // SessionCount
 func (o AppMonitorMetricDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppMonitorMetricDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The namespace used by CloudWatch Metrics for the metric that is defined in this structure
+func (o AppMonitorMetricDefinitionOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppMonitorMetricDefinition) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
 // The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.

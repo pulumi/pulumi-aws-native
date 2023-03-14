@@ -40,7 +40,7 @@ export class ListenerRule extends pulumi.CustomResource {
     public readonly actions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleAction[]>;
     public readonly conditions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleRuleCondition[]>;
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
-    public readonly listenerArn!: pulumi.Output<string>;
+    public readonly listenerArn!: pulumi.Output<string | undefined>;
     public readonly priority!: pulumi.Output<number>;
     public /*out*/ readonly ruleArn!: pulumi.Output<string>;
 
@@ -60,9 +60,6 @@ export class ListenerRule extends pulumi.CustomResource {
             }
             if ((!args || args.conditions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'conditions'");
-            }
-            if ((!args || args.listenerArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'listenerArn'");
             }
             if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
@@ -92,6 +89,6 @@ export class ListenerRule extends pulumi.CustomResource {
 export interface ListenerRuleArgs {
     actions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleActionArgs>[]>;
     conditions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleRuleConditionArgs>[]>;
-    listenerArn: pulumi.Input<string>;
+    listenerArn?: pulumi.Input<string>;
     priority: pulumi.Input<number>;
 }

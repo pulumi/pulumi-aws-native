@@ -18,13 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetHostResult:
-    def __init__(__self__, auto_placement=None, host_id=None, host_recovery=None):
+    def __init__(__self__, auto_placement=None, host_id=None, host_maintenance=None, host_recovery=None):
         if auto_placement and not isinstance(auto_placement, str):
             raise TypeError("Expected argument 'auto_placement' to be a str")
         pulumi.set(__self__, "auto_placement", auto_placement)
         if host_id and not isinstance(host_id, str):
             raise TypeError("Expected argument 'host_id' to be a str")
         pulumi.set(__self__, "host_id", host_id)
+        if host_maintenance and not isinstance(host_maintenance, str):
+            raise TypeError("Expected argument 'host_maintenance' to be a str")
+        pulumi.set(__self__, "host_maintenance", host_maintenance)
         if host_recovery and not isinstance(host_recovery, str):
             raise TypeError("Expected argument 'host_recovery' to be a str")
         pulumi.set(__self__, "host_recovery", host_recovery)
@@ -46,6 +49,14 @@ class GetHostResult:
         return pulumi.get(self, "host_id")
 
     @property
+    @pulumi.getter(name="hostMaintenance")
+    def host_maintenance(self) -> Optional[str]:
+        """
+        Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+        """
+        return pulumi.get(self, "host_maintenance")
+
+    @property
     @pulumi.getter(name="hostRecovery")
     def host_recovery(self) -> Optional[str]:
         """
@@ -62,6 +73,7 @@ class AwaitableGetHostResult(GetHostResult):
         return GetHostResult(
             auto_placement=self.auto_placement,
             host_id=self.host_id,
+            host_maintenance=self.host_maintenance,
             host_recovery=self.host_recovery)
 
 
@@ -81,6 +93,7 @@ def get_host(host_id: Optional[str] = None,
     return AwaitableGetHostResult(
         auto_placement=__ret__.auto_placement,
         host_id=__ret__.host_id,
+        host_maintenance=__ret__.host_maintenance,
         host_recovery=__ret__.host_recovery)
 
 

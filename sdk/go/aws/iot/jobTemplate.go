@@ -30,6 +30,7 @@ type JobTemplate struct {
 	// Allows you to create a staged rollout of a job.
 	JobExecutionsRolloutConfig JobExecutionsRolloutConfigPropertiesPtrOutput `pulumi:"jobExecutionsRolloutConfig"`
 	JobTemplateId              pulumi.StringOutput                           `pulumi:"jobTemplateId"`
+	MaintenanceWindows         JobTemplateMaintenanceWindowArrayOutput       `pulumi:"maintenanceWindows"`
 	// Configuration for pre-signed S3 URLs.
 	PresignedUrlConfig PresignedUrlConfigPropertiesPtrOutput `pulumi:"presignedUrlConfig"`
 	// Metadata that can be used to manage the JobTemplate.
@@ -97,6 +98,7 @@ type jobTemplateArgs struct {
 	// Allows you to create a staged rollout of a job.
 	JobExecutionsRolloutConfig *JobExecutionsRolloutConfigProperties `pulumi:"jobExecutionsRolloutConfig"`
 	JobTemplateId              string                                `pulumi:"jobTemplateId"`
+	MaintenanceWindows         []JobTemplateMaintenanceWindow        `pulumi:"maintenanceWindows"`
 	// Configuration for pre-signed S3 URLs.
 	PresignedUrlConfig *PresignedUrlConfigProperties `pulumi:"presignedUrlConfig"`
 	// Metadata that can be used to manage the JobTemplate.
@@ -121,6 +123,7 @@ type JobTemplateArgs struct {
 	// Allows you to create a staged rollout of a job.
 	JobExecutionsRolloutConfig JobExecutionsRolloutConfigPropertiesPtrInput
 	JobTemplateId              pulumi.StringInput
+	MaintenanceWindows         JobTemplateMaintenanceWindowArrayInput
 	// Configuration for pre-signed S3 URLs.
 	PresignedUrlConfig PresignedUrlConfigPropertiesPtrInput
 	// Metadata that can be used to manage the JobTemplate.
@@ -208,6 +211,10 @@ func (o JobTemplateOutput) JobExecutionsRolloutConfig() JobExecutionsRolloutConf
 
 func (o JobTemplateOutput) JobTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.JobTemplateId }).(pulumi.StringOutput)
+}
+
+func (o JobTemplateOutput) MaintenanceWindows() JobTemplateMaintenanceWindowArrayOutput {
+	return o.ApplyT(func(v *JobTemplate) JobTemplateMaintenanceWindowArrayOutput { return v.MaintenanceWindows }).(JobTemplateMaintenanceWindowArrayOutput)
 }
 
 // Configuration for pre-signed S3 URLs.
