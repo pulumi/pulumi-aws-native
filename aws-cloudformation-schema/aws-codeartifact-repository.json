@@ -93,7 +93,7 @@
   "additionalProperties" : false,
   "required" : [ "RepositoryName", "DomainName" ],
   "createOnlyProperties" : [ "/properties/RepositoryName", "/properties/DomainName", "/properties/DomainOwner" ],
-  "readOnlyProperties" : [ "/properties/Name", "/properties/DomainName", "/properties/DomainOwner", "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/Name", "/properties/DomainOwner", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {

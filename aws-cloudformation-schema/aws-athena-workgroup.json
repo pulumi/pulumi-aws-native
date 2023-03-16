@@ -104,6 +104,32 @@
     "RemoveOutputLocation" : {
       "type" : "boolean"
     },
+    "ExpectedBucketOwner" : {
+      "description" : "The AWS account ID of the owner of S3 bucket where query results are stored",
+      "type" : "string"
+    },
+    "RemoveExpectedBucketOwner" : {
+      "type" : "boolean"
+    },
+    "S3AclOption" : {
+      "description" : "The Amazon S3 canned ACL that Athena should specify when storing query results. Currently the only supported canned ACL is BUCKET_OWNER_FULL_CONTROL",
+      "type" : "string",
+      "enum" : [ "BUCKET_OWNER_FULL_CONTROL" ]
+    },
+    "AclConfiguration" : {
+      "description" : "Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results",
+      "type" : "object",
+      "properties" : {
+        "S3AclOption" : {
+          "$ref" : "#/definitions/S3AclOption"
+        }
+      },
+      "required" : [ "S3AclOption" ],
+      "additionalProperties" : false
+    },
+    "RemoveAclConfiguration" : {
+      "type" : "boolean"
+    },
     "ResultConfiguration" : {
       "description" : "The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as \"client-side settings\". If workgroup settings override client-side settings, then the query uses the workgroup settings.\n",
       "type" : "object",
@@ -113,6 +139,12 @@
         },
         "OutputLocation" : {
           "$ref" : "#/definitions/OutputLocation"
+        },
+        "ExpectedBucketOwner" : {
+          "$ref" : "#/definitions/ExpectedBucketOwner"
+        },
+        "AclConfiguration" : {
+          "$ref" : "#/definitions/AclConfiguration"
         }
       },
       "additionalProperties" : false
@@ -127,11 +159,23 @@
         "OutputLocation" : {
           "$ref" : "#/definitions/OutputLocation"
         },
+        "ExpectedBucketOwner" : {
+          "$ref" : "#/definitions/ExpectedBucketOwner"
+        },
+        "AclConfiguration" : {
+          "$ref" : "#/definitions/AclConfiguration"
+        },
         "RemoveEncryptionConfiguration" : {
           "$ref" : "#/definitions/RemoveEncryptionConfiguration"
         },
         "RemoveOutputLocation" : {
           "$ref" : "#/definitions/RemoveOutputLocation"
+        },
+        "RemoveExpectedBucketOwner" : {
+          "$ref" : "#/definitions/RemoveExpectedBucketOwner"
+        },
+        "RemoveAclConfiguration" : {
+          "$ref" : "#/definitions/RemoveAclConfiguration"
         }
       },
       "additionalProperties" : false
@@ -248,7 +292,7 @@
   "readOnlyProperties" : [ "/properties/CreationTime", "/properties/WorkGroupConfiguration/EngineVersion/EffectiveEngineVersion", "/properties/WorkGroupConfigurationUpdates/EngineVersion/EffectiveEngineVersion" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "deprecatedProperties" : [ "/properties/WorkGroupConfigurationUpdates" ],
-  "writeOnlyProperties" : [ "/properties/WorkGroupConfigurationUpdates" ],
+  "writeOnlyProperties" : [ "/properties/WorkGroupConfigurationUpdates", "/properties/RecursiveDeleteOption" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "additionalProperties" : false,
   "taggable" : true

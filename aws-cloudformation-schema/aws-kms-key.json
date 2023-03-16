@@ -87,7 +87,12 @@
   "readOnlyProperties" : [ "/properties/Arn", "/properties/KeyId" ],
   "primaryIdentifier" : [ "/properties/KeyId" ],
   "writeOnlyProperties" : [ "/properties/PendingWindowInDays" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "kms:CreateKey", "kms:EnableKeyRotation", "kms:DisableKey", "kms:TagResource" ]

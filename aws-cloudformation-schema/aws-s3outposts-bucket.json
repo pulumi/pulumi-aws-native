@@ -208,13 +208,13 @@
   "required" : [ "BucketName", "OutpostId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "s3-outposts:CreateBucket", "s3-outposts:PutBucketTagging", "s3-outposts:PutBucketLifecycleConfiguration" ]
+      "permissions" : [ "s3-outposts:CreateBucket", "s3-outposts:PutBucketTagging", "s3-outposts:PutLifecycleConfiguration" ]
     },
     "read" : {
-      "permissions" : [ "s3-outposts:GetBucket", "s3-outposts:GetBucketTagging", "s3-outposts:GetBucketLifecycleConfiguration" ]
+      "permissions" : [ "s3-outposts:GetBucket", "s3-outposts:GetBucketTagging", "s3-outposts:GetLifecycleConfiguration" ]
     },
     "update" : {
-      "permissions" : [ "s3-outposts:PutBucketTagging", "s3-outposts:DeleteBucketTagging", "s3-outposts:PutBucketLifecycleConfiguration", "s3-outposts:DeleteBucketLifecycleConfiguration" ]
+      "permissions" : [ "s3-outposts:PutBucketTagging", "s3-outposts:DeleteBucketTagging", "s3-outposts:PutLifecycleConfiguration" ]
     },
     "delete" : {
       "permissions" : [ "s3-outposts:DeleteBucket" ]

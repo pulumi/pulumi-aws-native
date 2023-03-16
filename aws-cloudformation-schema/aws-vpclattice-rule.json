@@ -71,6 +71,7 @@
         },
         "HeaderMatches" : {
           "type" : "array",
+          "maxItems" : 5,
           "items" : {
             "$ref" : "#/definitions/HeaderMatch"
           },
@@ -101,13 +102,13 @@
           "type" : "string",
           "maxLength" : 128,
           "minLength" : 1,
-          "pattern" : "^\\/[a-zA-Z0-9@:%_+.~#?&\\/=]*$"
+          "pattern" : "^\\/[a-zA-Z0-9@:%_+.~#?&\\/=-]*$"
         },
         "Prefix" : {
           "type" : "string",
           "maxLength" : 128,
           "minLength" : 1,
-          "pattern" : "^\\/[a-zA-Z0-9@:%_+.~#?&\\/=]*$"
+          "pattern" : "^\\/[a-zA-Z0-9@:%_+.~#?&\\/=-]*$"
         }
       }
     },
@@ -139,12 +140,12 @@
         "TargetGroupIdentifier" : {
           "type" : "string",
           "maxLength" : 2048,
-          "minLength" : 17,
-          "pattern" : "^((tg-[0-9a-z]{17})|(arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:targetgroup/tg-[0-9a-z]{17}))$"
+          "minLength" : 20,
+          "pattern" : "^((tg-[0-9a-z]{17})|(arn:[a-z0-9\\\\-]+:vpc-lattice:[a-zA-Z0-9\\\\-]+:\\\\d{12}:targetgroup/tg-[0-9a-z]{17}))$"
         },
         "Weight" : {
           "type" : "integer",
-          "maximum" : 100,
+          "maximum" : 999,
           "minimum" : 1
         }
       },
