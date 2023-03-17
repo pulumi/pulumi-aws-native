@@ -106,7 +106,7 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "Alias", "DisplayName", "Type", "Plan" ],
+  "required" : [ "Alias", "DisplayName", "Type" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/Plan" ],
   "readOnlyProperties" : [ "/properties/Arn" ],

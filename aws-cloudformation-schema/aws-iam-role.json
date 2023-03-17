@@ -112,13 +112,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:CreateRole", "iam:PutRolePolicy", "iam:AttachRolePolicy", "iam:GetRole", "iam:ListAttachedRolePolicies", "iam:ListRolePolicies", "iam:GetRolePolicy" ]
+      "permissions" : [ "iam:CreateRole", "iam:PutRolePolicy", "iam:AttachRolePolicy", "iam:GetRolePolicy" ]
     },
     "read" : {
       "permissions" : [ "iam:GetRole", "iam:ListAttachedRolePolicies", "iam:ListRolePolicies", "iam:GetRolePolicy" ]
     },
     "update" : {
-      "permissions" : [ "iam:UpdateRole", "iam:UpdateRoleDescription", "iam:UpdateAssumeRolePolicy", "iam:DetachRolePolicy", "iam:AttachRolePolicy", "iam:DeleteRolePermissionsBoundary", "iam:PutRolePermissionsBoundary", "iam:DeleteRolePolicy", "iam:PutRolePolicy", "iam:TagRole", "iam:UntagRole", "iam:GetRole", "iam:ListAttachedRolePolicies", "iam:ListRolePolicies", "iam:GetRolePolicy" ]
+      "permissions" : [ "iam:UpdateRole", "iam:UpdateRoleDescription", "iam:UpdateAssumeRolePolicy", "iam:DetachRolePolicy", "iam:AttachRolePolicy", "iam:DeleteRolePermissionsBoundary", "iam:PutRolePermissionsBoundary", "iam:DeleteRolePolicy", "iam:PutRolePolicy", "iam:TagRole", "iam:UntagRole" ]
     },
     "delete" : {
       "permissions" : [ "iam:DeleteRole", "iam:DetachRolePolicy", "iam:DeleteRolePolicy", "iam:GetRole", "iam:ListAttachedRolePolicies", "iam:ListRolePolicies" ]
