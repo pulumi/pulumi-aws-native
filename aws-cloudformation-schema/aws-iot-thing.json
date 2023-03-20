@@ -36,7 +36,12 @@
       }
     }
   },
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : true
+  },
   "createOnlyProperties" : [ "/properties/ThingName" ],
   "primaryIdentifier" : [ "/properties/ThingName" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
