@@ -1,5 +1,21 @@
 ## HEAD (Unreleased)
 
+
+## 0.54.0 (March 21, 2023)
+
+Upstream breaking changes
+  - Resource `aws-native:quicksight:Analysis` removed input `errors`
+  - Function `aws-native:athena:getWorkGroup` removed output `recursiveDeleteOption`
+
+New resources:
+  - `chatbot.MicrosoftTeamsChannelConfiguration`
+  - `comprehend.Flywheel`
+  - `ec2.VPCEndpoint`
+  - `sagemaker.InferenceExperiment`
+
+
+## 0.53.0 (March 14, 2023)
+
 Bug Fixes:
   - Adds semantics around FIFO queue naming conventions as expected by AWS (#794)
 
