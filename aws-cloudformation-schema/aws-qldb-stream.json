@@ -89,7 +89,7 @@
       "permissions" : [ "qldb:CancelJournalKinesisStream", "qldb:DescribeJournalKinesisStream" ]
     },
     "read" : {
-      "permissions" : [ "qldb:DescribeJournalKinesisStream" ]
+      "permissions" : [ "qldb:DescribeJournalKinesisStream", "qldb:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "qldb:DescribeJournalKinesisStream", "qldb:UntagResource", "qldb:TagResource" ]

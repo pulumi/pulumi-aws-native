@@ -90,6 +90,13 @@
   "required" : [ "ResourceType", "ResourceId" ],
   "createOnlyProperties" : [ "/properties/DeliverLogsPermissionArn", "/properties/LogGroupName", "/properties/LogDestination", "/properties/ResourceId", "/properties/TrafficType", "/properties/LogDestinationType", "/properties/ResourceType", "/properties/LogFormat", "/properties/MaxAggregationInterval", "/properties/DestinationOptions" ],
   "readOnlyProperties" : [ "/properties/Id" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {

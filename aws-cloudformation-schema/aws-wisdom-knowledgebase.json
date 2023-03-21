@@ -23,7 +23,7 @@
           "pattern" : "^arn:[a-z-]+?:[a-z-]+?:[a-z0-9-]*?:([0-9]{12})?:[a-zA-Z0-9-:/]+$"
         }
       },
-      "required" : [ "AppIntegrationArn", "ObjectFields" ],
+      "required" : [ "AppIntegrationArn" ],
       "additionalProperties" : false
     },
     "KnowledgeBaseType" : {
@@ -134,6 +134,9 @@
   "handlers" : {
     "create" : {
       "permissions" : [ "wisdom:CreateKnowledgeBase" ]
+    },
+    "update" : {
+      "permissions" : [ ]
     },
     "delete" : {
       "permissions" : [ "wisdom:DeleteKnowledgeBase" ]
