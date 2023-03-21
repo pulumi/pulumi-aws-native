@@ -26,14 +26,10 @@ type LookupTemplateArgs struct {
 }
 
 type LookupTemplateResult struct {
-	// <p>The Amazon Resource Name (ARN) of the template.</p>
-	Arn *string `pulumi:"arn"`
-	// <p>A display name for the template.</p>
-	Name *string `pulumi:"name"`
-	// <p>A list of resource permissions to be set on the template. </p>
+	Arn         *string                      `pulumi:"arn"`
+	Name        *string                      `pulumi:"name"`
 	Permissions []TemplateResourcePermission `pulumi:"permissions"`
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-	Tags []TemplateTag `pulumi:"tags"`
+	Tags        []TemplateTag                `pulumi:"tags"`
 }
 
 func LookupTemplateOutput(ctx *pulumi.Context, args LookupTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupTemplateResultOutput {
@@ -72,22 +68,18 @@ func (o LookupTemplateResultOutput) ToLookupTemplateResultOutputWithContext(ctx 
 	return o
 }
 
-// <p>The Amazon Resource Name (ARN) of the template.</p>
 func (o LookupTemplateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// <p>A display name for the template.</p>
 func (o LookupTemplateResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// <p>A list of resource permissions to be set on the template. </p>
 func (o LookupTemplateResultOutput) Permissions() TemplateResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupTemplateResult) []TemplateResourcePermission { return v.Permissions }).(TemplateResourcePermissionArrayOutput)
 }
 
-// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
 func (o LookupTemplateResultOutput) Tags() TemplateTagArrayOutput {
 	return o.ApplyT(func(v LookupTemplateResult) []TemplateTag { return v.Tags }).(TemplateTagArrayOutput)
 }

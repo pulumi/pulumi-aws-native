@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoints=None, e_bs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, log_publishing_options=None, node_to_node_encryption_options=None, service_software_options=None, snapshot_options=None, tags=None, v_pc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoints=None, e_bs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, snapshot_options=None, software_update_options=None, tags=None, v_pc_options=None):
         if access_policies and not isinstance(access_policies, dict):
             raise TypeError("Expected argument 'access_policies' to be a dict")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -68,12 +68,18 @@ class GetDomainResult:
         if node_to_node_encryption_options and not isinstance(node_to_node_encryption_options, dict):
             raise TypeError("Expected argument 'node_to_node_encryption_options' to be a dict")
         pulumi.set(__self__, "node_to_node_encryption_options", node_to_node_encryption_options)
+        if off_peak_window_options and not isinstance(off_peak_window_options, dict):
+            raise TypeError("Expected argument 'off_peak_window_options' to be a dict")
+        pulumi.set(__self__, "off_peak_window_options", off_peak_window_options)
         if service_software_options and not isinstance(service_software_options, dict):
             raise TypeError("Expected argument 'service_software_options' to be a dict")
         pulumi.set(__self__, "service_software_options", service_software_options)
         if snapshot_options and not isinstance(snapshot_options, dict):
             raise TypeError("Expected argument 'snapshot_options' to be a dict")
         pulumi.set(__self__, "snapshot_options", snapshot_options)
+        if software_update_options and not isinstance(software_update_options, dict):
+            raise TypeError("Expected argument 'software_update_options' to be a dict")
+        pulumi.set(__self__, "software_update_options", software_update_options)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -162,6 +168,11 @@ class GetDomainResult:
         return pulumi.get(self, "node_to_node_encryption_options")
 
     @property
+    @pulumi.getter(name="offPeakWindowOptions")
+    def off_peak_window_options(self) -> Optional['outputs.DomainOffPeakWindowOptions']:
+        return pulumi.get(self, "off_peak_window_options")
+
+    @property
     @pulumi.getter(name="serviceSoftwareOptions")
     def service_software_options(self) -> Optional['outputs.DomainServiceSoftwareOptions']:
         return pulumi.get(self, "service_software_options")
@@ -170,6 +181,11 @@ class GetDomainResult:
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Optional['outputs.DomainSnapshotOptions']:
         return pulumi.get(self, "snapshot_options")
+
+    @property
+    @pulumi.getter(name="softwareUpdateOptions")
+    def software_update_options(self) -> Optional['outputs.DomainSoftwareUpdateOptions']:
+        return pulumi.get(self, "software_update_options")
 
     @property
     @pulumi.getter
@@ -207,8 +223,10 @@ class AwaitableGetDomainResult(GetDomainResult):
             id=self.id,
             log_publishing_options=self.log_publishing_options,
             node_to_node_encryption_options=self.node_to_node_encryption_options,
+            off_peak_window_options=self.off_peak_window_options,
             service_software_options=self.service_software_options,
             snapshot_options=self.snapshot_options,
+            software_update_options=self.software_update_options,
             tags=self.tags,
             v_pc_options=self.v_pc_options)
 
@@ -240,8 +258,10 @@ def get_domain(domain_name: Optional[str] = None,
         id=__ret__.id,
         log_publishing_options=__ret__.log_publishing_options,
         node_to_node_encryption_options=__ret__.node_to_node_encryption_options,
+        off_peak_window_options=__ret__.off_peak_window_options,
         service_software_options=__ret__.service_software_options,
         snapshot_options=__ret__.snapshot_options,
+        software_update_options=__ret__.software_update_options,
         tags=__ret__.tags,
         v_pc_options=__ret__.v_pc_options)
 

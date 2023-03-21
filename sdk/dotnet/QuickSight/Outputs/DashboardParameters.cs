@@ -10,27 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;A list of QuickSight parameters and the list's override values.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class DashboardParameters
     {
-        /// <summary>
-        /// &lt;p&gt;Date-time parameters.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDateTimeParameter> DateTimeParameters;
-        /// <summary>
-        /// &lt;p&gt;Decimal parameters.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDecimalParameter> DecimalParameters;
-        /// <summary>
-        /// &lt;p&gt;Integer parameters.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardIntegerParameter> IntegerParameters;
-        /// <summary>
-        /// &lt;p&gt;String parameters.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardStringParameter> StringParameters;
 
         [OutputConstructor]

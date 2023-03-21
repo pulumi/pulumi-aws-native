@@ -57,43 +57,14 @@ namespace Pulumi.AwsNative.QuickSight
     [OutputType]
     public sealed class GetAnalysisResult
     {
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the analysis.&lt;/p&gt;
-        /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// &lt;p&gt;The time that the analysis was created.&lt;/p&gt;
-        /// </summary>
         public readonly string? CreatedTime;
-        /// <summary>
-        /// &lt;p&gt;The ARNs of the datasets of the analysis.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<string> DataSetArns;
-        /// <summary>
-        /// &lt;p&gt;Errors associated with the analysis.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisError> Errors;
-        /// <summary>
-        /// &lt;p&gt;The descriptive name of the analysis.&lt;/p&gt;
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// &lt;p&gt;A structure that describes the principals and the resource-level permissions on an
-        ///             analysis. You can use the &lt;code&gt;Permissions&lt;/code&gt; structure to grant permissions by
-        ///             providing a list of AWS Identity and Access Management (IAM) action information for each
-        ///             principal listed by Amazon Resource Name (ARN). &lt;/p&gt;
-        /// 
-        ///         &lt;p&gt;To specify no permissions, omit &lt;code&gt;Permissions&lt;/code&gt;.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisResourcePermission> Permissions;
-        /// <summary>
-        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the
-        ///             analysis.&lt;/p&gt;
-        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisResourceStatus? Status;
         public readonly ImmutableArray<Outputs.AnalysisTag> Tags;
-        /// <summary>
-        /// &lt;p&gt;The ARN of the theme of the analysis.&lt;/p&gt;
-        /// </summary>
         public readonly string? ThemeArn;
 
         [OutputConstructor]
@@ -110,6 +81,8 @@ namespace Pulumi.AwsNative.QuickSight
 
             ImmutableArray<Outputs.AnalysisResourcePermission> permissions,
 
+            Pulumi.AwsNative.QuickSight.AnalysisResourceStatus? status,
+
             ImmutableArray<Outputs.AnalysisTag> tags,
 
             string? themeArn)
@@ -120,6 +93,7 @@ namespace Pulumi.AwsNative.QuickSight
             Errors = errors;
             Name = name;
             Permissions = permissions;
+            Status = status;
             Tags = tags;
             ThemeArn = themeArn;
         }

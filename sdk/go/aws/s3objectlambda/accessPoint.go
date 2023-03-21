@@ -15,7 +15,8 @@ import (
 type AccessPoint struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Alias AliasPropertiesOutput `pulumi:"alias"`
+	Arn   pulumi.StringOutput   `pulumi:"arn"`
 	// The date and time when the Object lambda Access Point was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The name you want to assign to this Object lambda Access Point.
@@ -118,6 +119,10 @@ func (o AccessPointOutput) ToAccessPointOutput() AccessPointOutput {
 
 func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput {
 	return o
+}
+
+func (o AccessPointOutput) Alias() AliasPropertiesOutput {
+	return o.ApplyT(func(v *AccessPoint) AliasPropertiesOutput { return v.Alias }).(AliasPropertiesOutput)
 }
 
 func (o AccessPointOutput) Arn() pulumi.StringOutput {

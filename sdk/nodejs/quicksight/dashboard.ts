@@ -37,55 +37,21 @@ export class Dashboard extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dashboard.__pulumiType;
     }
 
-    /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly awsAccountId!: pulumi.Output<string>;
-    /**
-     * <p>The time that this dataset was created.</p>
-     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public readonly dashboardId!: pulumi.Output<string>;
     public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardPublishOptions | undefined>;
-    /**
-     * <p>The last time that this dataset was published.</p>
-     */
+    public readonly definition!: pulumi.Output<outputs.quicksight.DashboardVersionDefinition | undefined>;
     public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
-    /**
-     * <p>The last time that this dataset was updated.</p>
-     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
-    /**
-     * <p>The display name of the dashboard.</p>
-     */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     public readonly parameters!: pulumi.Output<outputs.quicksight.DashboardParameters | undefined>;
-    /**
-     * <p>A structure that contains the permissions of the dashboard. You can use this structure
-     *             for granting permissions by providing a list of IAM action information for each
-     *             principal ARN. </p>
-     *
-     *         <p>To specify no permissions, omit the permissions list.</p>
-     */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DashboardResourcePermission[] | undefined>;
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardSourceEntity>;
-    /**
-     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-     *             dashboard.</p>
-     */
+    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
     public readonly tags!: pulumi.Output<outputs.quicksight.DashboardTag[] | undefined>;
-    /**
-     * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-     *             you add a value for this field, it overrides the value that is used in the source
-     *             entity. The theme ARN must exist in the same AWS account where you create the
-     *             dashboard.</p>
-     */
     public readonly themeArn!: pulumi.Output<string | undefined>;
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.DashboardVersion>;
-    /**
-     * <p>A description for the first version of the dashboard being created.</p>
-     */
     public readonly versionDescription!: pulumi.Output<string | undefined>;
 
     /**
@@ -105,12 +71,10 @@ export class Dashboard extends pulumi.CustomResource {
             if ((!args || args.dashboardId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dashboardId'");
             }
-            if ((!args || args.sourceEntity === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sourceEntity'");
-            }
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["dashboardId"] = args ? args.dashboardId : undefined;
             resourceInputs["dashboardPublishOptions"] = args ? args.dashboardPublishOptions : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
@@ -129,6 +93,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["dashboardId"] = undefined /*out*/;
             resourceInputs["dashboardPublishOptions"] = undefined /*out*/;
+            resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["lastPublishedTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -152,34 +117,12 @@ export interface DashboardArgs {
     awsAccountId: pulumi.Input<string>;
     dashboardId: pulumi.Input<string>;
     dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardPublishOptionsArgs>;
-    /**
-     * <p>The display name of the dashboard.</p>
-     */
+    definition?: pulumi.Input<inputs.quicksight.DashboardVersionDefinitionArgs>;
     name?: pulumi.Input<string>;
     parameters?: pulumi.Input<inputs.quicksight.DashboardParametersArgs>;
-    /**
-     * <p>A structure that contains the permissions of the dashboard. You can use this structure
-     *             for granting permissions by providing a list of IAM action information for each
-     *             principal ARN. </p>
-     *
-     *         <p>To specify no permissions, omit the permissions list.</p>
-     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardResourcePermissionArgs>[]>;
-    sourceEntity: pulumi.Input<inputs.quicksight.DashboardSourceEntityArgs>;
-    /**
-     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-     *             dashboard.</p>
-     */
+    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntityArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardTagArgs>[]>;
-    /**
-     * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-     *             you add a value for this field, it overrides the value that is used in the source
-     *             entity. The theme ARN must exist in the same AWS account where you create the
-     *             dashboard.</p>
-     */
     themeArn?: pulumi.Input<string>;
-    /**
-     * <p>A description for the first version of the dashboard being created.</p>
-     */
     versionDescription?: pulumi.Input<string>;
 }

@@ -165,7 +165,6 @@ namespace Pulumi.AwsNative.VpcLattice
 
         public static ServiceNetworkServiceAssociationStatus CreateInProgress { get; } = new ServiceNetworkServiceAssociationStatus("CREATE_IN_PROGRESS");
         public static ServiceNetworkServiceAssociationStatus Active { get; } = new ServiceNetworkServiceAssociationStatus("ACTIVE");
-        public static ServiceNetworkServiceAssociationStatus UpdateInProgress { get; } = new ServiceNetworkServiceAssociationStatus("UPDATE_IN_PROGRESS");
         public static ServiceNetworkServiceAssociationStatus DeleteInProgress { get; } = new ServiceNetworkServiceAssociationStatus("DELETE_IN_PROGRESS");
         public static ServiceNetworkServiceAssociationStatus CreateFailed { get; } = new ServiceNetworkServiceAssociationStatus("CREATE_FAILED");
         public static ServiceNetworkServiceAssociationStatus DeleteFailed { get; } = new ServiceNetworkServiceAssociationStatus("DELETE_FAILED");

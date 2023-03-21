@@ -10,24 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The source analysis of the template.&lt;/p&gt;
-    /// </summary>
     public sealed class TemplateSourceAnalysisArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         [Input("dataSetReferences", required: true)]
         private InputList<Inputs.TemplateDataSetReferenceArgs>? _dataSetReferences;
-
-        /// <summary>
-        /// &lt;p&gt;A structure containing information about the dataset references used as placeholders
-        ///             in the template.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.TemplateDataSetReferenceArgs> DataSetReferences
         {
             get => _dataSetReferences ?? (_dataSetReferences = new InputList<Inputs.TemplateDataSetReferenceArgs>());

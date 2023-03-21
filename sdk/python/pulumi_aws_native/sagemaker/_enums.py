@@ -21,6 +21,11 @@ __all__ = [
     'DomainSharingSettingsNotebookOutputOption',
     'FeatureGroupFeatureDefinitionFeatureType',
     'FeatureGroupTableFormat',
+    'InferenceExperimentDesiredState',
+    'InferenceExperimentEndpointMetadataEndpointStatus',
+    'InferenceExperimentModelInfrastructureConfigInfrastructureType',
+    'InferenceExperimentStatus',
+    'InferenceExperimentType',
     'ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType',
     'ModelBiasJobDefinitionBatchTransformInputS3InputMode',
     'ModelBiasJobDefinitionEndpointInputS3DataDistributionType',
@@ -308,6 +313,57 @@ class FeatureGroupTableFormat(str, Enum):
     """
     ICEBERG = "Iceberg"
     GLUE = "Glue"
+
+
+class InferenceExperimentDesiredState(str, Enum):
+    """
+    The desired state of the experiment after starting or stopping operation.
+    """
+    RUNNING = "Running"
+    COMPLETED = "Completed"
+    CANCELLED = "Cancelled"
+
+
+class InferenceExperimentEndpointMetadataEndpointStatus(str, Enum):
+    """
+    The status of the endpoint. For possible values of the status of an endpoint.
+    """
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    SYSTEM_UPDATING = "SystemUpdating"
+    ROLLING_BACK = "RollingBack"
+    IN_SERVICE = "InService"
+    OUT_OF_SERVICE = "OutOfService"
+    DELETING = "Deleting"
+    FAILED = "Failed"
+
+
+class InferenceExperimentModelInfrastructureConfigInfrastructureType(str, Enum):
+    """
+    The type of the inference experiment that you want to run.
+    """
+    REAL_TIME_INFERENCE = "RealTimeInference"
+
+
+class InferenceExperimentStatus(str, Enum):
+    """
+    The status of the inference experiment.
+    """
+    CREATING = "Creating"
+    CREATED = "Created"
+    UPDATING = "Updating"
+    STARTING = "Starting"
+    STOPPING = "Stopping"
+    RUNNING = "Running"
+    COMPLETED = "Completed"
+    CANCELLED = "Cancelled"
+
+
+class InferenceExperimentType(str, Enum):
+    """
+    The type of the inference experiment that you want to run.
+    """
+    SHADOW_MODE = "ShadowMode"
 
 
 class ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType(str, Enum):

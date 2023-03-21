@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Delivers logs from a Mesh or Service to the provided destination
+ * Delivers logs from a Service Network or Service to the provided destination
  */
 export class AccessLogSubscription extends pulumi.CustomResource {
     /**

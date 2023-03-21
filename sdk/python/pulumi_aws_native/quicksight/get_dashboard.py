@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetDashboardResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDashboardResult:
-    def __init__(__self__, arn=None, last_published_time=None, name=None, permissions=None, tags=None):
+    def __init__(__self__, arn=None, last_published_time=None, name=None, permissions=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,51 +36,39 @@ class GetDashboardResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if version and not isinstance(version, dict):
+            raise TypeError("Expected argument 'version' to be a dict")
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the resource.</p>
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="lastPublishedTime")
     def last_published_time(self) -> Optional[str]:
-        """
-        <p>The last time that this dataset was published.</p>
-        """
         return pulumi.get(self, "last_published_time")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        <p>The display name of the dashboard.</p>
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.DashboardResourcePermission']]:
-        """
-        <p>A structure that contains the permissions of the dashboard. You can use this structure
-                    for granting permissions by providing a list of IAM action information for each
-                    principal ARN. </p>
-
-                <p>To specify no permissions, omit the permissions list.</p>
-        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DashboardTag']]:
-        """
-        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-                    dashboard.</p>
-        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional['outputs.DashboardVersion']:
+        return pulumi.get(self, "version")
 
 
 class AwaitableGetDashboardResult(GetDashboardResult):
@@ -92,7 +81,8 @@ class AwaitableGetDashboardResult(GetDashboardResult):
             last_published_time=self.last_published_time,
             name=self.name,
             permissions=self.permissions,
-            tags=self.tags)
+            tags=self.tags,
+            version=self.version)
 
 
 def get_dashboard(aws_account_id: Optional[str] = None,
@@ -112,7 +102,8 @@ def get_dashboard(aws_account_id: Optional[str] = None,
         last_published_time=__ret__.last_published_time,
         name=__ret__.name,
         permissions=__ret__.permissions,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        version=__ret__.version)
 
 
 @_utilities.lift_output_func(get_dashboard)

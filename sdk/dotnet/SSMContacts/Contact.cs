@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.SSMContacts
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        [Input("plan", required: true)]
+        [Input("plan")]
         private InputList<Inputs.ContactStageArgs>? _plan;
 
         /// <summary>

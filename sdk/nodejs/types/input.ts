@@ -4604,10 +4604,20 @@ export namespace athena {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results
+     */
+    export interface WorkGroupAclConfigurationArgs {
+        s3AclOption: pulumi.Input<enums.athena.WorkGroupS3AclOption>;
+    }
+
     export interface WorkGroupConfigurationArgs {
+        additionalConfiguration?: pulumi.Input<string>;
         bytesScannedCutoffPerQuery?: pulumi.Input<number>;
+        customerContentEncryptionConfiguration?: pulumi.Input<inputs.athena.WorkGroupCustomerContentEncryptionConfigurationArgs>;
         enforceWorkGroupConfiguration?: pulumi.Input<boolean>;
         engineVersion?: pulumi.Input<inputs.athena.WorkGroupEngineVersionArgs>;
+        executionRole?: pulumi.Input<string>;
         publishCloudWatchMetricsEnabled?: pulumi.Input<boolean>;
         requesterPaysEnabled?: pulumi.Input<boolean>;
         resultConfiguration?: pulumi.Input<inputs.athena.WorkGroupResultConfigurationArgs>;
@@ -4617,13 +4627,24 @@ export namespace athena {
      * The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
      */
     export interface WorkGroupConfigurationUpdatesArgs {
+        additionalConfiguration?: pulumi.Input<string>;
         bytesScannedCutoffPerQuery?: pulumi.Input<number>;
+        customerContentEncryptionConfiguration?: pulumi.Input<inputs.athena.WorkGroupCustomerContentEncryptionConfigurationArgs>;
         enforceWorkGroupConfiguration?: pulumi.Input<boolean>;
         engineVersion?: pulumi.Input<inputs.athena.WorkGroupEngineVersionArgs>;
+        executionRole?: pulumi.Input<string>;
         publishCloudWatchMetricsEnabled?: pulumi.Input<boolean>;
         removeBytesScannedCutoffPerQuery?: pulumi.Input<boolean>;
+        removeCustomerContentEncryptionConfiguration?: pulumi.Input<boolean>;
         requesterPaysEnabled?: pulumi.Input<boolean>;
         resultConfigurationUpdates?: pulumi.Input<inputs.athena.WorkGroupResultConfigurationUpdatesArgs>;
+    }
+
+    /**
+     * Indicates the KMS key for encrypting notebook content.
+     */
+    export interface WorkGroupCustomerContentEncryptionConfigurationArgs {
+        kmsKey: pulumi.Input<string>;
     }
 
     /**
@@ -4646,7 +4667,9 @@ export namespace athena {
      * The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
      */
     export interface WorkGroupResultConfigurationArgs {
+        aclConfiguration?: pulumi.Input<inputs.athena.WorkGroupAclConfigurationArgs>;
         encryptionConfiguration?: pulumi.Input<inputs.athena.WorkGroupEncryptionConfigurationArgs>;
+        expectedBucketOwner?: pulumi.Input<string>;
         outputLocation?: pulumi.Input<string>;
     }
 
@@ -4654,9 +4677,13 @@ export namespace athena {
      * The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results. 
      */
     export interface WorkGroupResultConfigurationUpdatesArgs {
+        aclConfiguration?: pulumi.Input<inputs.athena.WorkGroupAclConfigurationArgs>;
         encryptionConfiguration?: pulumi.Input<inputs.athena.WorkGroupEncryptionConfigurationArgs>;
+        expectedBucketOwner?: pulumi.Input<string>;
         outputLocation?: pulumi.Input<string>;
+        removeAclConfiguration?: pulumi.Input<boolean>;
         removeEncryptionConfiguration?: pulumi.Input<boolean>;
+        removeExpectedBucketOwner?: pulumi.Input<boolean>;
         removeOutputLocation?: pulumi.Input<boolean>;
     }
 
@@ -7545,6 +7572,44 @@ export namespace cognito {
         emailSubject?: pulumi.Input<string>;
         emailSubjectByLink?: pulumi.Input<string>;
         smsMessage?: pulumi.Input<string>;
+    }
+}
+
+export namespace comprehend {
+    export interface FlywheelDataSecurityConfigArgs {
+        dataLakeKmsKeyId?: pulumi.Input<string>;
+        modelKmsKeyId?: pulumi.Input<string>;
+        volumeKmsKeyId?: pulumi.Input<string>;
+        vpcConfig?: pulumi.Input<inputs.comprehend.FlywheelVpcConfigArgs>;
+    }
+
+    export interface FlywheelDocumentClassificationConfigArgs {
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+        mode: pulumi.Input<enums.comprehend.FlywheelDocumentClassificationConfigMode>;
+    }
+
+    export interface FlywheelEntityRecognitionConfigArgs {
+        entityTypes?: pulumi.Input<pulumi.Input<inputs.comprehend.FlywheelEntityTypesListItemArgs>[]>;
+    }
+
+    export interface FlywheelEntityTypesListItemArgs {
+        type: pulumi.Input<string>;
+    }
+
+    export interface FlywheelTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface FlywheelTaskConfigArgs {
+        documentClassificationConfig?: pulumi.Input<inputs.comprehend.FlywheelDocumentClassificationConfigArgs>;
+        entityRecognitionConfig?: pulumi.Input<inputs.comprehend.FlywheelEntityRecognitionConfigArgs>;
+        languageCode: pulumi.Input<enums.comprehend.FlywheelTaskConfigLanguageCode>;
+    }
+
+    export interface FlywheelVpcConfigArgs {
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -27827,6 +27892,15 @@ export namespace opensearchservice {
         enabled?: pulumi.Input<boolean>;
     }
 
+    export interface DomainOffPeakWindowArgs {
+        windowStartTime?: pulumi.Input<inputs.opensearchservice.DomainWindowStartTimeArgs>;
+    }
+
+    export interface DomainOffPeakWindowOptionsArgs {
+        enabled?: pulumi.Input<boolean>;
+        offPeakWindow?: pulumi.Input<inputs.opensearchservice.DomainOffPeakWindowArgs>;
+    }
+
     export interface DomainSAMLOptionsArgs {
         enabled?: pulumi.Input<boolean>;
         idp?: pulumi.Input<inputs.opensearchservice.DomainIdpArgs>;
@@ -27839,6 +27913,10 @@ export namespace opensearchservice {
 
     export interface DomainSnapshotOptionsArgs {
         automatedSnapshotStartHour?: pulumi.Input<number>;
+    }
+
+    export interface DomainSoftwareUpdateOptionsArgs {
+        autoSoftwareUpdateEnabled?: pulumi.Input<boolean>;
     }
 
     export interface DomainTagArgs {
@@ -27855,6 +27933,11 @@ export namespace opensearchservice {
     export interface DomainVPCOptionsArgs {
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainWindowStartTimeArgs {
+        hours: pulumi.Input<number>;
+        minutes: pulumi.Input<number>;
     }
 
     export interface DomainZoneAwarenessConfigArgs {
@@ -29057,357 +29140,5830 @@ export namespace qldb {
 }
 
 export namespace quicksight {
-    /**
-     * <p>Dataset reference.</p>
-     */
-    export interface AnalysisDataSetReferenceArgs {
+    export interface AnalysisAggregationFunctionArgs {
+        categoricalAggregationFunction?: pulumi.Input<enums.quicksight.AnalysisCategoricalAggregationFunction>;
+        dateAggregationFunction?: pulumi.Input<enums.quicksight.AnalysisDateAggregationFunction>;
+        numericalAggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisNumericalAggregationFunctionArgs>;
+    }
+
+    export interface AnalysisAggregationSortConfigurationArgs {
+        aggregationFunction: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        sortDirection: pulumi.Input<enums.quicksight.AnalysisSortDirection>;
+    }
+
+    export interface AnalysisAnchorDateConfigurationArgs {
+        anchorOption?: pulumi.Input<enums.quicksight.AnalysisAnchorOption>;
+        parameterName?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisArcAxisConfigurationArgs {
+        range?: pulumi.Input<inputs.quicksight.AnalysisArcAxisDisplayRangeArgs>;
+        reserveRange?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisArcAxisDisplayRangeArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisArcConfigurationArgs {
+        arcAngle?: pulumi.Input<number>;
+        arcThickness?: pulumi.Input<enums.quicksight.AnalysisArcThicknessOptions>;
+    }
+
+    export interface AnalysisArcOptionsArgs {
+        arcThickness?: pulumi.Input<enums.quicksight.AnalysisArcThickness>;
+    }
+
+    export interface AnalysisAxisDataOptionsArgs {
+        dateAxisOptions?: pulumi.Input<inputs.quicksight.AnalysisDateAxisOptionsArgs>;
+        numericAxisOptions?: pulumi.Input<inputs.quicksight.AnalysisNumericAxisOptionsArgs>;
+    }
+
+    export interface AnalysisAxisDisplayDataDrivenRangeArgs {
+    }
+
+    export interface AnalysisAxisDisplayMinMaxRangeArgs {
+        maximum?: pulumi.Input<number>;
+        minimum?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisAxisDisplayOptionsArgs {
+        axisLineVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         /**
-         * <p>Dataset Amazon Resource Name (ARN).</p>
+         * String based length that is composed of value and unit in px
          */
+        axisOffset?: pulumi.Input<string>;
+        dataOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDataOptionsArgs>;
+        gridLineVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        scrollbarOptions?: pulumi.Input<inputs.quicksight.AnalysisScrollBarOptionsArgs>;
+        tickLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisTickLabelOptionsArgs>;
+    }
+
+    export interface AnalysisAxisDisplayRangeArgs {
+        dataDriven?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayDataDrivenRangeArgs>;
+        minMax?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayMinMaxRangeArgs>;
+    }
+
+    export interface AnalysisAxisLabelOptionsArgs {
+        applyTo?: pulumi.Input<inputs.quicksight.AnalysisAxisLabelReferenceOptionsArgs>;
+        customLabel?: pulumi.Input<string>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+    }
+
+    export interface AnalysisAxisLabelReferenceOptionsArgs {
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisAxisLinearScaleArgs {
+        stepCount?: pulumi.Input<number>;
+        stepSize?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisAxisLogarithmicScaleArgs {
+        base?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisAxisScaleArgs {
+        linear?: pulumi.Input<inputs.quicksight.AnalysisAxisLinearScaleArgs>;
+        logarithmic?: pulumi.Input<inputs.quicksight.AnalysisAxisLogarithmicScaleArgs>;
+    }
+
+    export interface AnalysisAxisTickLabelOptionsArgs {
+        labelOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
+        rotationAngle?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisBarChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        smallMultiples?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisBarChartConfigurationArgs {
+        barsArrangement?: pulumi.Input<enums.quicksight.AnalysisBarsArrangement>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        contributionAnalysisDefaults?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisContributionAnalysisDefaultArgs>[]>;
+        dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisBarChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        orientation?: pulumi.Input<enums.quicksight.AnalysisBarChartOrientation>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisReferenceLineArgs>[]>;
+        smallMultiplesOptions?: pulumi.Input<inputs.quicksight.AnalysisSmallMultiplesOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisBarChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+        valueAxis?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        valueLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+    }
+
+    export interface AnalysisBarChartFieldWellsArgs {
+        barChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisBarChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisBarChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+        colorItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        colorSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+        smallMultiplesLimitConfiguration?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        smallMultiplesSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisBarChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisBarChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisBinCountOptionsArgs {
+        value?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisBinWidthOptionsArgs {
+        binCountLimit?: pulumi.Input<number>;
+        value?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisBodySectionConfigurationArgs {
+        content: pulumi.Input<inputs.quicksight.AnalysisBodySectionContentArgs>;
+        pageBreakConfiguration?: pulumi.Input<inputs.quicksight.AnalysisSectionPageBreakConfigurationArgs>;
+        sectionId: pulumi.Input<string>;
+        style?: pulumi.Input<inputs.quicksight.AnalysisSectionStyleArgs>;
+    }
+
+    export interface AnalysisBodySectionContentArgs {
+        layout?: pulumi.Input<inputs.quicksight.AnalysisSectionLayoutConfigurationArgs>;
+    }
+
+    export interface AnalysisBoxPlotAggregatedFieldWellsArgs {
+        groupBy?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisBoxPlotChartConfigurationArgs {
+        boxPlotOptions?: pulumi.Input<inputs.quicksight.AnalysisBoxPlotOptionsArgs>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisBoxPlotFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisReferenceLineArgs>[]>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisBoxPlotSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+    }
+
+    export interface AnalysisBoxPlotFieldWellsArgs {
+        boxPlotAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisBoxPlotAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisBoxPlotOptionsArgs {
+        allDataPointsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        outlierVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        styleOptions?: pulumi.Input<inputs.quicksight.AnalysisBoxPlotStyleOptionsArgs>;
+    }
+
+    export interface AnalysisBoxPlotSortConfigurationArgs {
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+        paginationConfiguration?: pulumi.Input<inputs.quicksight.AnalysisPaginationConfigurationArgs>;
+    }
+
+    export interface AnalysisBoxPlotStyleOptionsArgs {
+        fillStyle?: pulumi.Input<enums.quicksight.AnalysisBoxPlotFillStyle>;
+    }
+
+    export interface AnalysisBoxPlotVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisBoxPlotChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCalculatedFieldArgs {
+        dataSetIdentifier: pulumi.Input<string>;
+        expression: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCalculatedMeasureFieldArgs {
+        expression: pulumi.Input<string>;
+        fieldId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCascadingControlConfigurationArgs {
+        sourceControls?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisCascadingControlSourceArgs>[]>;
+    }
+
+    export interface AnalysisCascadingControlSourceArgs {
+        columnToMatch?: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        sourceSheetControlId?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCategoricalDimensionFieldArgs {
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisStringFormatConfigurationArgs>;
+        hierarchyId?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCategoricalMeasureFieldArgs {
+        aggregationFunction?: pulumi.Input<enums.quicksight.AnalysisCategoricalAggregationFunction>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisStringFormatConfigurationArgs>;
+    }
+
+    export interface AnalysisCategoryDrillDownFilterArgs {
+        categoryValues: pulumi.Input<pulumi.Input<string>[]>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+    }
+
+    export interface AnalysisCategoryFilterArgs {
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        configuration: pulumi.Input<inputs.quicksight.AnalysisCategoryFilterConfigurationArgs>;
+        filterId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCategoryFilterConfigurationArgs {
+        customFilterConfiguration?: pulumi.Input<inputs.quicksight.AnalysisCustomFilterConfigurationArgs>;
+        customFilterListConfiguration?: pulumi.Input<inputs.quicksight.AnalysisCustomFilterListConfigurationArgs>;
+        filterListConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFilterListConfigurationArgs>;
+    }
+
+    export interface AnalysisChartAxisLabelOptionsArgs {
+        axisLabelOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisAxisLabelOptionsArgs>[]>;
+        sortIconVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisClusterMarkerArgs {
+        simpleClusterMarker?: pulumi.Input<inputs.quicksight.AnalysisSimpleClusterMarkerArgs>;
+    }
+
+    export interface AnalysisClusterMarkerConfigurationArgs {
+        clusterMarker?: pulumi.Input<inputs.quicksight.AnalysisClusterMarkerArgs>;
+    }
+
+    export interface AnalysisColorScaleArgs {
+        colorFillType: pulumi.Input<enums.quicksight.AnalysisColorFillType>;
+        colors: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDataColorArgs>[]>;
+        nullValueColor?: pulumi.Input<inputs.quicksight.AnalysisDataColorArgs>;
+    }
+
+    export interface AnalysisColorsConfigurationArgs {
+        customColors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisCustomColorArgs>[]>;
+    }
+
+    export interface AnalysisColumnConfigurationArgs {
+        colorsConfiguration?: pulumi.Input<inputs.quicksight.AnalysisColorsConfigurationArgs>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFormatConfigurationArgs>;
+        role?: pulumi.Input<enums.quicksight.AnalysisColumnRole>;
+    }
+
+    export interface AnalysisColumnHierarchyArgs {
+        dateTimeHierarchy?: pulumi.Input<inputs.quicksight.AnalysisDateTimeHierarchyArgs>;
+        explicitHierarchy?: pulumi.Input<inputs.quicksight.AnalysisExplicitHierarchyArgs>;
+        predefinedHierarchy?: pulumi.Input<inputs.quicksight.AnalysisPredefinedHierarchyArgs>;
+    }
+
+    export interface AnalysisColumnIdentifierArgs {
+        columnName: pulumi.Input<string>;
+        dataSetIdentifier: pulumi.Input<string>;
+    }
+
+    export interface AnalysisColumnSortArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
+        direction: pulumi.Input<enums.quicksight.AnalysisSortDirection>;
+        sortBy: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+    }
+
+    export interface AnalysisColumnTooltipItemArgs {
+        aggregation?: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        label?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisComboChartAggregatedFieldWellsArgs {
+        barValues?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        lineValues?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisComboChartConfigurationArgs {
+        barDataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        barsArrangement?: pulumi.Input<enums.quicksight.AnalysisBarsArrangement>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisComboChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        lineDataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisReferenceLineArgs>[]>;
+        secondaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        secondaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisComboChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+    }
+
+    export interface AnalysisComboChartFieldWellsArgs {
+        comboChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisComboChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisComboChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+        colorItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        colorSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisComboChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisComboChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisComparisonConfigurationArgs {
+        comparisonFormat?: pulumi.Input<inputs.quicksight.AnalysisComparisonFormatConfigurationArgs>;
+        comparisonMethod?: pulumi.Input<enums.quicksight.AnalysisComparisonMethod>;
+    }
+
+    export interface AnalysisComparisonFormatConfigurationArgs {
+        numberDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumberDisplayFormatConfigurationArgs>;
+        percentageDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisPercentageDisplayFormatConfigurationArgs>;
+    }
+
+    export interface AnalysisComputationArgs {
+        forecast?: pulumi.Input<inputs.quicksight.AnalysisForecastComputationArgs>;
+        growthRate?: pulumi.Input<inputs.quicksight.AnalysisGrowthRateComputationArgs>;
+        maximumMinimum?: pulumi.Input<inputs.quicksight.AnalysisMaximumMinimumComputationArgs>;
+        metricComparison?: pulumi.Input<inputs.quicksight.AnalysisMetricComparisonComputationArgs>;
+        periodOverPeriod?: pulumi.Input<inputs.quicksight.AnalysisPeriodOverPeriodComputationArgs>;
+        periodToDate?: pulumi.Input<inputs.quicksight.AnalysisPeriodToDateComputationArgs>;
+        topBottomMovers?: pulumi.Input<inputs.quicksight.AnalysisTopBottomMoversComputationArgs>;
+        topBottomRanked?: pulumi.Input<inputs.quicksight.AnalysisTopBottomRankedComputationArgs>;
+        totalAggregation?: pulumi.Input<inputs.quicksight.AnalysisTotalAggregationComputationArgs>;
+        uniqueValues?: pulumi.Input<inputs.quicksight.AnalysisUniqueValuesComputationArgs>;
+    }
+
+    export interface AnalysisConditionalFormattingColorArgs {
+        gradient?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingGradientColorArgs>;
+        solid?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingSolidColorArgs>;
+    }
+
+    export interface AnalysisConditionalFormattingCustomIconConditionArgs {
+        color?: pulumi.Input<string>;
+        displayConfiguration?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingIconDisplayConfigurationArgs>;
+        expression: pulumi.Input<string>;
+        iconOptions: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingCustomIconOptionsArgs>;
+    }
+
+    export interface AnalysisConditionalFormattingCustomIconOptionsArgs {
+        icon?: pulumi.Input<enums.quicksight.AnalysisIcon>;
+        unicodeIcon?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisConditionalFormattingGradientColorArgs {
+        color: pulumi.Input<inputs.quicksight.AnalysisGradientColorArgs>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface AnalysisConditionalFormattingIconArgs {
+        customCondition?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingCustomIconConditionArgs>;
+        iconSet?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingIconSetArgs>;
+    }
+
+    export interface AnalysisConditionalFormattingIconDisplayConfigurationArgs {
+        iconDisplayOption?: pulumi.Input<enums.quicksight.AnalysisConditionalFormattingIconDisplayOption>;
+    }
+
+    export interface AnalysisConditionalFormattingIconSetArgs {
+        expression: pulumi.Input<string>;
+        iconSetType?: pulumi.Input<enums.quicksight.AnalysisConditionalFormattingIconSetType>;
+    }
+
+    export interface AnalysisConditionalFormattingSolidColorArgs {
+        color?: pulumi.Input<string>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface AnalysisContributionAnalysisDefaultArgs {
+        contributorDimensions: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>[]>;
+        measureFieldId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCurrencyDisplayFormatConfigurationArgs {
+        decimalPlacesConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDecimalPlacesConfigurationArgs>;
+        negativeValueConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNegativeValueConfigurationArgs>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNullValueFormatConfigurationArgs>;
+        numberScale?: pulumi.Input<enums.quicksight.AnalysisNumberScale>;
+        prefix?: pulumi.Input<string>;
+        separatorConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumericSeparatorConfigurationArgs>;
+        suffix?: pulumi.Input<string>;
+        symbol?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCustomActionFilterOperationArgs {
+        selectedFieldsConfiguration: pulumi.Input<inputs.quicksight.AnalysisFilterOperationSelectedFieldsConfigurationArgs>;
+        targetVisualsConfiguration: pulumi.Input<inputs.quicksight.AnalysisFilterOperationTargetVisualsConfigurationArgs>;
+    }
+
+    export interface AnalysisCustomActionNavigationOperationArgs {
+        localNavigationConfiguration?: pulumi.Input<inputs.quicksight.AnalysisLocalNavigationConfigurationArgs>;
+    }
+
+    export interface AnalysisCustomActionSetParametersOperationArgs {
+        parameterValueConfigurations: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSetParameterValueConfigurationArgs>[]>;
+    }
+
+    export interface AnalysisCustomActionURLOperationArgs {
+        uRLTarget: pulumi.Input<enums.quicksight.AnalysisURLTargetConfiguration>;
+        uRLTemplate: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCustomColorArgs {
+        color: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        specialValue?: pulumi.Input<enums.quicksight.AnalysisSpecialValue>;
+    }
+
+    export interface AnalysisCustomContentConfigurationArgs {
+        contentType?: pulumi.Input<enums.quicksight.AnalysisCustomContentType>;
+        contentUrl?: pulumi.Input<string>;
+        imageScaling?: pulumi.Input<enums.quicksight.AnalysisCustomContentImageScalingConfiguration>;
+    }
+
+    export interface AnalysisCustomContentVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisCustomContentConfigurationArgs>;
+        dataSetIdentifier: pulumi.Input<string>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCustomFilterConfigurationArgs {
+        categoryValue?: pulumi.Input<string>;
+        matchOperator: pulumi.Input<enums.quicksight.AnalysisCategoryFilterMatchOperator>;
+        nullOption: pulumi.Input<enums.quicksight.AnalysisFilterNullOption>;
+        parameterName?: pulumi.Input<string>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.AnalysisCategoryFilterSelectAllOptions>;
+    }
+
+    export interface AnalysisCustomFilterListConfigurationArgs {
+        categoryValues?: pulumi.Input<pulumi.Input<string>[]>;
+        matchOperator: pulumi.Input<enums.quicksight.AnalysisCategoryFilterMatchOperator>;
+        nullOption: pulumi.Input<enums.quicksight.AnalysisFilterNullOption>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.AnalysisCategoryFilterSelectAllOptions>;
+    }
+
+    export interface AnalysisCustomNarrativeOptionsArgs {
+        narrative: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCustomParameterValuesArgs {
+        dateTimeValues?: pulumi.Input<pulumi.Input<string>[]>;
+        decimalValues?: pulumi.Input<pulumi.Input<number>[]>;
+        integerValues?: pulumi.Input<pulumi.Input<number>[]>;
+        stringValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AnalysisCustomValuesConfigurationArgs {
+        customValues: pulumi.Input<inputs.quicksight.AnalysisCustomParameterValuesArgs>;
+        includeNullValue?: pulumi.Input<boolean>;
+    }
+
+    export interface AnalysisDataBarsOptionsArgs {
+        fieldId: pulumi.Input<string>;
+        negativeColor?: pulumi.Input<string>;
+        positiveColor?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisDataColorArgs {
+        color?: pulumi.Input<string>;
+        dataValue?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisDataFieldSeriesItemArgs {
+        axisBinding: pulumi.Input<enums.quicksight.AnalysisAxisBinding>;
+        fieldId: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        settings?: pulumi.Input<inputs.quicksight.AnalysisLineChartSeriesSettingsArgs>;
+    }
+
+    export interface AnalysisDataLabelOptionsArgs {
+        categoryLabelVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        dataLabelTypes?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDataLabelTypeArgs>[]>;
+        labelColor?: pulumi.Input<string>;
+        labelContent?: pulumi.Input<enums.quicksight.AnalysisDataLabelContent>;
+        labelFontConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+        measureLabelVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        overlap?: pulumi.Input<enums.quicksight.AnalysisDataLabelOverlap>;
+        position?: pulumi.Input<enums.quicksight.AnalysisDataLabelPosition>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisDataLabelTypeArgs {
+        dataPathLabelType?: pulumi.Input<inputs.quicksight.AnalysisDataPathLabelTypeArgs>;
+        fieldLabelType?: pulumi.Input<inputs.quicksight.AnalysisFieldLabelTypeArgs>;
+        maximumLabelType?: pulumi.Input<inputs.quicksight.AnalysisMaximumLabelTypeArgs>;
+        minimumLabelType?: pulumi.Input<inputs.quicksight.AnalysisMinimumLabelTypeArgs>;
+        rangeEndsLabelType?: pulumi.Input<inputs.quicksight.AnalysisRangeEndsLabelTypeArgs>;
+    }
+
+    export interface AnalysisDataPathColorArgs {
+        color: pulumi.Input<string>;
+        element: pulumi.Input<inputs.quicksight.AnalysisDataPathValueArgs>;
+        timeGranularity?: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
+    }
+
+    export interface AnalysisDataPathLabelTypeArgs {
+        fieldId?: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisDataPathSortArgs {
+        direction: pulumi.Input<enums.quicksight.AnalysisSortDirection>;
+        sortPaths: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDataPathValueArgs>[]>;
+    }
+
+    export interface AnalysisDataPathValueArgs {
+        fieldId: pulumi.Input<string>;
+        fieldValue: pulumi.Input<string>;
+    }
+
+    export interface AnalysisDataSetIdentifierDeclarationArgs {
         dataSetArn: pulumi.Input<string>;
-        /**
-         * <p>Dataset placeholder.</p>
-         */
+        identifier: pulumi.Input<string>;
+    }
+
+    export interface AnalysisDataSetReferenceArgs {
+        dataSetArn: pulumi.Input<string>;
         dataSetPlaceholder: pulumi.Input<string>;
     }
 
-    /**
-     * <p>A date-time parameter.</p>
-     */
+    export interface AnalysisDateAxisOptionsArgs {
+        missingDateVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisDateDimensionFieldArgs {
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        dateGranularity?: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDateTimeFormatConfigurationArgs>;
+        hierarchyId?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisDateMeasureFieldArgs {
+        aggregationFunction?: pulumi.Input<enums.quicksight.AnalysisDateAggregationFunction>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDateTimeFormatConfigurationArgs>;
+    }
+
+    export interface AnalysisDateTimeDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.AnalysisDynamicDefaultValueArgs>;
+        rollingDate?: pulumi.Input<inputs.quicksight.AnalysisRollingDateConfigurationArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AnalysisDateTimeFormatConfigurationArgs {
+        dateTimeFormat?: pulumi.Input<string>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNullValueFormatConfigurationArgs>;
+        numericFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumericFormatConfigurationArgs>;
+    }
+
+    export interface AnalysisDateTimeHierarchyArgs {
+        drillDownFilters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDrillDownFilterArgs>[]>;
+        hierarchyId: pulumi.Input<string>;
+    }
+
     export interface AnalysisDateTimeParameterArgs {
-        /**
-         * <p>A display name for the date-time parameter.</p>
-         */
         name: pulumi.Input<string>;
-        /**
-         * <p>The values for the date-time parameter.</p>
-         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    /**
-     * <p>A decimal parameter.</p>
-     */
+    export interface AnalysisDateTimeParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.AnalysisDateTimeDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMappedDataSetParameterArgs>[]>;
+        name: pulumi.Input<string>;
+        timeGranularity?: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.AnalysisDateTimeValueWhenUnsetConfigurationArgs>;
+    }
+
+    export interface AnalysisDateTimePickerControlDisplayOptionsArgs {
+        dateTimeFormat?: pulumi.Input<string>;
+        titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
+    }
+
+    export interface AnalysisDateTimeValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<string>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.AnalysisValueWhenUnsetOption>;
+    }
+
+    export interface AnalysisDecimalDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.AnalysisDynamicDefaultValueArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
     export interface AnalysisDecimalParameterArgs {
-        /**
-         * <p>A display name for the decimal parameter.</p>
-         */
         name: pulumi.Input<string>;
-        /**
-         * <p>The values for the decimal parameter.</p>
-         */
         values: pulumi.Input<pulumi.Input<number>[]>;
     }
 
-    /**
-     * <p>A metadata error structure for an analysis.</p>
-     */
-    export interface AnalysisErrorArgs {
-        /**
-         * <p>The message associated with the analysis error.</p>
-         */
-        message?: pulumi.Input<string>;
-        type?: pulumi.Input<enums.quicksight.AnalysisErrorType>;
+    export interface AnalysisDecimalParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.AnalysisDecimalDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMappedDataSetParameterArgs>[]>;
+        name: pulumi.Input<string>;
+        parameterValueType: pulumi.Input<enums.quicksight.AnalysisParameterValueType>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.AnalysisDecimalValueWhenUnsetConfigurationArgs>;
     }
 
-    /**
-     * <p>An integer parameter.</p>
-     */
+    export interface AnalysisDecimalPlacesConfigurationArgs {
+        decimalPlaces: pulumi.Input<number>;
+    }
+
+    export interface AnalysisDecimalValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<number>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.AnalysisValueWhenUnsetOption>;
+    }
+
+    export interface AnalysisDefaultFreeFormLayoutConfigurationArgs {
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface AnalysisDefaultGridLayoutConfigurationArgs {
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.AnalysisGridLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface AnalysisDefaultInteractiveLayoutConfigurationArgs {
+        freeForm?: pulumi.Input<inputs.quicksight.AnalysisDefaultFreeFormLayoutConfigurationArgs>;
+        grid?: pulumi.Input<inputs.quicksight.AnalysisDefaultGridLayoutConfigurationArgs>;
+    }
+
+    export interface AnalysisDefaultNewSheetConfigurationArgs {
+        interactiveLayoutConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDefaultInteractiveLayoutConfigurationArgs>;
+        paginatedLayoutConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDefaultPaginatedLayoutConfigurationArgs>;
+        sheetContentType?: pulumi.Input<enums.quicksight.AnalysisSheetContentType>;
+    }
+
+    export interface AnalysisDefaultPaginatedLayoutConfigurationArgs {
+        sectionBased?: pulumi.Input<inputs.quicksight.AnalysisDefaultSectionBasedLayoutConfigurationArgs>;
+    }
+
+    export interface AnalysisDefaultSectionBasedLayoutConfigurationArgs {
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.AnalysisSectionBasedLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface AnalysisDefaultsArgs {
+        defaultNewSheetConfiguration: pulumi.Input<inputs.quicksight.AnalysisDefaultNewSheetConfigurationArgs>;
+    }
+
+    export interface AnalysisDefinitionArgs {
+        analysisDefaults?: pulumi.Input<inputs.quicksight.AnalysisDefaultsArgs>;
+        calculatedFields?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisCalculatedFieldArgs>[]>;
+        columnConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnConfigurationArgs>[]>;
+        dataSetIdentifierDeclarations: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDataSetIdentifierDeclarationArgs>[]>;
+        filterGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFilterGroupArgs>[]>;
+        parameterDeclarations?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisParameterDeclarationArgs>[]>;
+        sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetDefinitionArgs>[]>;
+    }
+
+    export interface AnalysisDestinationParameterValueConfigurationArgs {
+        customValuesConfiguration?: pulumi.Input<inputs.quicksight.AnalysisCustomValuesConfigurationArgs>;
+        selectAllValueOptions?: pulumi.Input<enums.quicksight.AnalysisSelectAllValueOptions>;
+        sourceField?: pulumi.Input<string>;
+        sourceParameterName?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisDimensionFieldArgs {
+        categoricalDimensionField?: pulumi.Input<inputs.quicksight.AnalysisCategoricalDimensionFieldArgs>;
+        dateDimensionField?: pulumi.Input<inputs.quicksight.AnalysisDateDimensionFieldArgs>;
+        numericalDimensionField?: pulumi.Input<inputs.quicksight.AnalysisNumericalDimensionFieldArgs>;
+    }
+
+    export interface AnalysisDonutCenterOptionsArgs {
+        labelVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisDonutOptionsArgs {
+        arcOptions?: pulumi.Input<inputs.quicksight.AnalysisArcOptionsArgs>;
+        donutCenterOptions?: pulumi.Input<inputs.quicksight.AnalysisDonutCenterOptionsArgs>;
+    }
+
+    export interface AnalysisDrillDownFilterArgs {
+        categoryFilter?: pulumi.Input<inputs.quicksight.AnalysisCategoryDrillDownFilterArgs>;
+        numericEqualityFilter?: pulumi.Input<inputs.quicksight.AnalysisNumericEqualityDrillDownFilterArgs>;
+        timeRangeFilter?: pulumi.Input<inputs.quicksight.AnalysisTimeRangeDrillDownFilterArgs>;
+    }
+
+    export interface AnalysisDropDownControlDisplayOptionsArgs {
+        selectAllOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlSelectAllOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
+    }
+
+    export interface AnalysisDynamicDefaultValueArgs {
+        defaultValueColumn: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        groupNameColumn?: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        userNameColumn?: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+    }
+
+    export interface AnalysisEmptyVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        dataSetIdentifier: pulumi.Input<string>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisExcludePeriodConfigurationArgs {
+        amount: pulumi.Input<number>;
+        granularity: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
+        status?: pulumi.Input<enums.quicksight.AnalysisWidgetStatus>;
+    }
+
+    export interface AnalysisExplicitHierarchyArgs {
+        columns: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>[]>;
+        drillDownFilters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDrillDownFilterArgs>[]>;
+        hierarchyId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisFieldBasedTooltipArgs {
+        aggregationVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        tooltipFields?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTooltipItemArgs>[]>;
+        tooltipTitleType?: pulumi.Input<enums.quicksight.AnalysisTooltipTitleType>;
+    }
+
+    export interface AnalysisFieldLabelTypeArgs {
+        fieldId?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisFieldSeriesItemArgs {
+        axisBinding: pulumi.Input<enums.quicksight.AnalysisAxisBinding>;
+        fieldId: pulumi.Input<string>;
+        settings?: pulumi.Input<inputs.quicksight.AnalysisLineChartSeriesSettingsArgs>;
+    }
+
+    export interface AnalysisFieldSortArgs {
+        direction: pulumi.Input<enums.quicksight.AnalysisSortDirection>;
+        fieldId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisFieldSortOptionsArgs {
+        columnSort?: pulumi.Input<inputs.quicksight.AnalysisColumnSortArgs>;
+        fieldSort?: pulumi.Input<inputs.quicksight.AnalysisFieldSortArgs>;
+    }
+
+    export interface AnalysisFieldTooltipItemArgs {
+        fieldId: pulumi.Input<string>;
+        label?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisFilledMapAggregatedFieldWellsArgs {
+        geospatial?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisFilledMapConditionalFormattingArgs {
+        conditionalFormattingOptions: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFilledMapConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface AnalysisFilledMapConditionalFormattingOptionArgs {
+        shape: pulumi.Input<inputs.quicksight.AnalysisFilledMapShapeConditionalFormattingArgs>;
+    }
+
+    export interface AnalysisFilledMapConfigurationArgs {
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisFilledMapFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        mapStyleOptions?: pulumi.Input<inputs.quicksight.AnalysisGeospatialMapStyleOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFilledMapSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+        windowOptions?: pulumi.Input<inputs.quicksight.AnalysisGeospatialWindowOptionsArgs>;
+    }
+
+    export interface AnalysisFilledMapFieldWellsArgs {
+        filledMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisFilledMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisFilledMapShapeConditionalFormattingArgs {
+        fieldId: pulumi.Input<string>;
+        format?: pulumi.Input<inputs.quicksight.AnalysisShapeConditionalFormatArgs>;
+    }
+
+    export interface AnalysisFilledMapSortConfigurationArgs {
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisFilledMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFilledMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.AnalysisFilledMapConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisFilterArgs {
+        categoryFilter?: pulumi.Input<inputs.quicksight.AnalysisCategoryFilterArgs>;
+        numericEqualityFilter?: pulumi.Input<inputs.quicksight.AnalysisNumericEqualityFilterArgs>;
+        numericRangeFilter?: pulumi.Input<inputs.quicksight.AnalysisNumericRangeFilterArgs>;
+        relativeDatesFilter?: pulumi.Input<inputs.quicksight.AnalysisRelativeDatesFilterArgs>;
+        timeEqualityFilter?: pulumi.Input<inputs.quicksight.AnalysisTimeEqualityFilterArgs>;
+        timeRangeFilter?: pulumi.Input<inputs.quicksight.AnalysisTimeRangeFilterArgs>;
+        topBottomFilter?: pulumi.Input<inputs.quicksight.AnalysisTopBottomFilterArgs>;
+    }
+
+    export interface AnalysisFilterControlArgs {
+        dateTimePicker?: pulumi.Input<inputs.quicksight.AnalysisFilterDateTimePickerControlArgs>;
+        dropdown?: pulumi.Input<inputs.quicksight.AnalysisFilterDropDownControlArgs>;
+        list?: pulumi.Input<inputs.quicksight.AnalysisFilterListControlArgs>;
+        relativeDateTime?: pulumi.Input<inputs.quicksight.AnalysisFilterRelativeDateTimeControlArgs>;
+        slider?: pulumi.Input<inputs.quicksight.AnalysisFilterSliderControlArgs>;
+        textArea?: pulumi.Input<inputs.quicksight.AnalysisFilterTextAreaControlArgs>;
+        textField?: pulumi.Input<inputs.quicksight.AnalysisFilterTextFieldControlArgs>;
+    }
+
+    export interface AnalysisFilterDateTimePickerControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisDateTimePickerControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.AnalysisSheetControlDateTimePickerType>;
+    }
+
+    export interface AnalysisFilterDropDownControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisDropDownControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.AnalysisFilterSelectableValuesArgs>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.AnalysisSheetControlListType>;
+    }
+
+    export interface AnalysisFilterGroupArgs {
+        crossDataset: pulumi.Input<enums.quicksight.AnalysisCrossDatasetTypes>;
+        filterGroupId: pulumi.Input<string>;
+        filters: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFilterArgs>[]>;
+        scopeConfiguration: pulumi.Input<inputs.quicksight.AnalysisFilterScopeConfigurationArgs>;
+        status?: pulumi.Input<enums.quicksight.AnalysisWidgetStatus>;
+    }
+
+    export interface AnalysisFilterListConfigurationArgs {
+        categoryValues?: pulumi.Input<pulumi.Input<string>[]>;
+        matchOperator: pulumi.Input<enums.quicksight.AnalysisCategoryFilterMatchOperator>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.AnalysisCategoryFilterSelectAllOptions>;
+    }
+
+    export interface AnalysisFilterListControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.AnalysisFilterSelectableValuesArgs>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.AnalysisSheetControlListType>;
+    }
+
+    export interface AnalysisFilterOperationSelectedFieldsConfigurationArgs {
+        selectedFieldOptions?: pulumi.Input<enums.quicksight.AnalysisSelectedFieldOptions>;
+        selectedFields?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AnalysisFilterOperationTargetVisualsConfigurationArgs {
+        sameSheetTargetVisualConfiguration?: pulumi.Input<inputs.quicksight.AnalysisSameSheetTargetVisualConfigurationArgs>;
+    }
+
+    export interface AnalysisFilterRelativeDateTimeControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisRelativeDateTimeControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface AnalysisFilterScopeConfigurationArgs {
+        selectedSheets?: pulumi.Input<inputs.quicksight.AnalysisSelectedSheetsFilterScopeConfigurationArgs>;
+    }
+
+    export interface AnalysisFilterSelectableValuesArgs {
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AnalysisFilterSliderControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisSliderControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        maximumValue: pulumi.Input<number>;
+        minimumValue: pulumi.Input<number>;
+        sourceFilterId: pulumi.Input<string>;
+        stepSize: pulumi.Input<number>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.AnalysisSheetControlSliderType>;
+    }
+
+    export interface AnalysisFilterTextAreaControlArgs {
+        delimiter?: pulumi.Input<string>;
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisTextAreaControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface AnalysisFilterTextFieldControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisTextFieldControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface AnalysisFontConfigurationArgs {
+        fontColor?: pulumi.Input<string>;
+        fontDecoration?: pulumi.Input<enums.quicksight.AnalysisFontDecoration>;
+        fontSize?: pulumi.Input<inputs.quicksight.AnalysisFontSizeArgs>;
+        fontStyle?: pulumi.Input<enums.quicksight.AnalysisFontStyle>;
+        fontWeight?: pulumi.Input<inputs.quicksight.AnalysisFontWeightArgs>;
+    }
+
+    export interface AnalysisFontSizeArgs {
+        relative?: pulumi.Input<enums.quicksight.AnalysisRelativeFontSize>;
+    }
+
+    export interface AnalysisFontWeightArgs {
+        name?: pulumi.Input<enums.quicksight.AnalysisFontWeightName>;
+    }
+
+    export interface AnalysisForecastComputationArgs {
+        computationId: pulumi.Input<string>;
+        customSeasonalityValue?: pulumi.Input<number>;
+        lowerBoundary?: pulumi.Input<number>;
+        name?: pulumi.Input<string>;
+        periodsBackward?: pulumi.Input<number>;
+        periodsForward?: pulumi.Input<number>;
+        predictionInterval?: pulumi.Input<number>;
+        seasonality?: pulumi.Input<enums.quicksight.AnalysisForecastComputationSeasonality>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        upperBoundary?: pulumi.Input<number>;
+        value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+    }
+
+    export interface AnalysisForecastConfigurationArgs {
+        forecastProperties?: pulumi.Input<inputs.quicksight.AnalysisTimeBasedForecastPropertiesArgs>;
+        scenario?: pulumi.Input<inputs.quicksight.AnalysisForecastScenarioArgs>;
+    }
+
+    export interface AnalysisForecastScenarioArgs {
+        whatIfPointScenario?: pulumi.Input<inputs.quicksight.AnalysisWhatIfPointScenarioArgs>;
+        whatIfRangeScenario?: pulumi.Input<inputs.quicksight.AnalysisWhatIfRangeScenarioArgs>;
+    }
+
+    export interface AnalysisFormatConfigurationArgs {
+        dateTimeFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDateTimeFormatConfigurationArgs>;
+        numberFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumberFormatConfigurationArgs>;
+        stringFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisStringFormatConfigurationArgs>;
+    }
+
+    export interface AnalysisFreeFormLayoutCanvasSizeOptionsArgs {
+        screenCanvasSizeOptions?: pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutScreenCanvasSizeOptionsArgs>;
+    }
+
+    export interface AnalysisFreeFormLayoutConfigurationArgs {
+        canvasSizeOptions?: pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutCanvasSizeOptionsArgs>;
+        elements: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutElementArgs>[]>;
+    }
+
+    export interface AnalysisFreeFormLayoutElementArgs {
+        backgroundStyle?: pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutElementBackgroundStyleArgs>;
+        borderStyle?: pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutElementBorderStyleArgs>;
+        elementId: pulumi.Input<string>;
+        elementType: pulumi.Input<enums.quicksight.AnalysisLayoutElementType>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height: pulumi.Input<string>;
+        loadingAnimation?: pulumi.Input<inputs.quicksight.AnalysisLoadingAnimationArgs>;
+        renderingRules?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetElementRenderingRuleArgs>[]>;
+        selectedBorderStyle?: pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutElementBorderStyleArgs>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        xAxisLocation: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit in px with Integer.MAX_VALUE as maximum value
+         */
+        yAxisLocation: pulumi.Input<string>;
+    }
+
+    export interface AnalysisFreeFormLayoutElementBackgroundStyleArgs {
+        color?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisFreeFormLayoutElementBorderStyleArgs {
+        color?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisFreeFormLayoutScreenCanvasSizeOptionsArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth: pulumi.Input<string>;
+    }
+
+    export interface AnalysisFreeFormSectionLayoutConfigurationArgs {
+        elements: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutElementArgs>[]>;
+    }
+
+    export interface AnalysisFunnelChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisFunnelChartConfigurationArgs {
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        dataLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisFunnelChartDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisFunnelChartFieldWellsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFunnelChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+        valueLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+    }
+
+    export interface AnalysisFunnelChartDataLabelOptionsArgs {
+        categoryLabelVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        labelColor?: pulumi.Input<string>;
+        labelFontConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+        measureDataLabelStyle?: pulumi.Input<enums.quicksight.AnalysisFunnelChartMeasureDataLabelStyle>;
+        measureLabelVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        position?: pulumi.Input<enums.quicksight.AnalysisDataLabelPosition>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisFunnelChartFieldWellsArgs {
+        funnelChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisFunnelChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisFunnelChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisFunnelChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFunnelChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisGaugeChartArcConditionalFormattingArgs {
+        foregroundColor?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+    }
+
+    export interface AnalysisGaugeChartConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisGaugeChartConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface AnalysisGaugeChartConditionalFormattingOptionArgs {
+        arc?: pulumi.Input<inputs.quicksight.AnalysisGaugeChartArcConditionalFormattingArgs>;
+        primaryValue?: pulumi.Input<inputs.quicksight.AnalysisGaugeChartPrimaryValueConditionalFormattingArgs>;
+    }
+
+    export interface AnalysisGaugeChartConfigurationArgs {
+        dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisGaugeChartFieldWellsArgs>;
+        gaugeChartOptions?: pulumi.Input<inputs.quicksight.AnalysisGaugeChartOptionsArgs>;
+        tooltipOptions?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+    }
+
+    export interface AnalysisGaugeChartFieldWellsArgs {
+        targetValues?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisGaugeChartOptionsArgs {
+        arc?: pulumi.Input<inputs.quicksight.AnalysisArcConfigurationArgs>;
+        arcAxis?: pulumi.Input<inputs.quicksight.AnalysisArcAxisConfigurationArgs>;
+        comparison?: pulumi.Input<inputs.quicksight.AnalysisComparisonConfigurationArgs>;
+        primaryValueDisplayType?: pulumi.Input<enums.quicksight.AnalysisPrimaryValueDisplayType>;
+        primaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+    }
+
+    export interface AnalysisGaugeChartPrimaryValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+    }
+
+    export interface AnalysisGaugeChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisGaugeChartConfigurationArgs>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.AnalysisGaugeChartConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisGeospatialCoordinateBoundsArgs {
+        east: pulumi.Input<number>;
+        north: pulumi.Input<number>;
+        south: pulumi.Input<number>;
+        west: pulumi.Input<number>;
+    }
+
+    export interface AnalysisGeospatialMapAggregatedFieldWellsArgs {
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        geospatial?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisGeospatialMapConfigurationArgs {
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisGeospatialMapFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        mapStyleOptions?: pulumi.Input<inputs.quicksight.AnalysisGeospatialMapStyleOptionsArgs>;
+        pointStyleOptions?: pulumi.Input<inputs.quicksight.AnalysisGeospatialPointStyleOptionsArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+        windowOptions?: pulumi.Input<inputs.quicksight.AnalysisGeospatialWindowOptionsArgs>;
+    }
+
+    export interface AnalysisGeospatialMapFieldWellsArgs {
+        geospatialMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisGeospatialMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisGeospatialMapStyleOptionsArgs {
+        baseMapStyle?: pulumi.Input<enums.quicksight.AnalysisBaseMapStyleType>;
+    }
+
+    export interface AnalysisGeospatialMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisGeospatialMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisGeospatialPointStyleOptionsArgs {
+        clusterMarkerConfiguration?: pulumi.Input<inputs.quicksight.AnalysisClusterMarkerConfigurationArgs>;
+        selectedPointStyle?: pulumi.Input<enums.quicksight.AnalysisGeospatialSelectedPointStyle>;
+    }
+
+    export interface AnalysisGeospatialWindowOptionsArgs {
+        bounds?: pulumi.Input<inputs.quicksight.AnalysisGeospatialCoordinateBoundsArgs>;
+        mapZoomMode?: pulumi.Input<enums.quicksight.AnalysisMapZoomMode>;
+    }
+
+    export interface AnalysisGlobalTableBorderOptionsArgs {
+        sideSpecificBorder?: pulumi.Input<inputs.quicksight.AnalysisTableSideBorderOptionsArgs>;
+        uniformBorder?: pulumi.Input<inputs.quicksight.AnalysisTableBorderOptionsArgs>;
+    }
+
+    export interface AnalysisGradientColorArgs {
+        stops?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisGradientStopArgs>[]>;
+    }
+
+    export interface AnalysisGradientStopArgs {
+        color?: pulumi.Input<string>;
+        dataValue?: pulumi.Input<number>;
+        gradientOffset: pulumi.Input<number>;
+    }
+
+    export interface AnalysisGridLayoutCanvasSizeOptionsArgs {
+        screenCanvasSizeOptions?: pulumi.Input<inputs.quicksight.AnalysisGridLayoutScreenCanvasSizeOptionsArgs>;
+    }
+
+    export interface AnalysisGridLayoutConfigurationArgs {
+        canvasSizeOptions?: pulumi.Input<inputs.quicksight.AnalysisGridLayoutCanvasSizeOptionsArgs>;
+        elements: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisGridLayoutElementArgs>[]>;
+    }
+
+    export interface AnalysisGridLayoutElementArgs {
+        columnIndex?: pulumi.Input<number>;
+        columnSpan: pulumi.Input<number>;
+        elementId: pulumi.Input<string>;
+        elementType: pulumi.Input<enums.quicksight.AnalysisLayoutElementType>;
+        rowIndex?: pulumi.Input<number>;
+        rowSpan: pulumi.Input<number>;
+    }
+
+    export interface AnalysisGridLayoutScreenCanvasSizeOptionsArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth?: pulumi.Input<string>;
+        resizeOption: pulumi.Input<enums.quicksight.AnalysisResizeOption>;
+    }
+
+    export interface AnalysisGrowthRateComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        periodSize?: pulumi.Input<number>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+    }
+
+    export interface AnalysisHeaderFooterSectionConfigurationArgs {
+        layout: pulumi.Input<inputs.quicksight.AnalysisSectionLayoutConfigurationArgs>;
+        sectionId: pulumi.Input<string>;
+        style?: pulumi.Input<inputs.quicksight.AnalysisSectionStyleArgs>;
+    }
+
+    export interface AnalysisHeatMapAggregatedFieldWellsArgs {
+        columns?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        rows?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisHeatMapConfigurationArgs {
+        colorScale?: pulumi.Input<inputs.quicksight.AnalysisColorScaleArgs>;
+        columnLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisHeatMapFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        rowLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisHeatMapSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+    }
+
+    export interface AnalysisHeatMapFieldWellsArgs {
+        heatMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisHeatMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisHeatMapSortConfigurationArgs {
+        heatMapColumnItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        heatMapColumnSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+        heatMapRowItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        heatMapRowSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisHeatMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisHeatMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisHistogramAggregatedFieldWellsArgs {
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisHistogramBinOptionsArgs {
+        binCount?: pulumi.Input<inputs.quicksight.AnalysisBinCountOptionsArgs>;
+        binWidth?: pulumi.Input<inputs.quicksight.AnalysisBinWidthOptionsArgs>;
+        selectedBinType?: pulumi.Input<enums.quicksight.AnalysisHistogramBinType>;
+        startValue?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisHistogramConfigurationArgs {
+        binOptions?: pulumi.Input<inputs.quicksight.AnalysisHistogramBinOptionsArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisHistogramFieldWellsArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+        xAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        xAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        yAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+    }
+
+    export interface AnalysisHistogramFieldWellsArgs {
+        histogramAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisHistogramAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisHistogramVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisHistogramConfigurationArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisInsightConfigurationArgs {
+        computations?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisComputationArgs>[]>;
+        customNarrative?: pulumi.Input<inputs.quicksight.AnalysisCustomNarrativeOptionsArgs>;
+    }
+
+    export interface AnalysisInsightVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        dataSetIdentifier: pulumi.Input<string>;
+        insightConfiguration?: pulumi.Input<inputs.quicksight.AnalysisInsightConfigurationArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisIntegerDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.AnalysisDynamicDefaultValueArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
     export interface AnalysisIntegerParameterArgs {
-        /**
-         * <p>The name of the integer parameter.</p>
-         */
         name: pulumi.Input<string>;
-        /**
-         * <p>The values for the integer parameter.</p>
-         */
         values: pulumi.Input<pulumi.Input<number>[]>;
     }
 
-    /**
-     * <p>A list of QuickSight parameters and the list's override values.</p>
-     */
+    export interface AnalysisIntegerParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.AnalysisIntegerDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMappedDataSetParameterArgs>[]>;
+        name: pulumi.Input<string>;
+        parameterValueType: pulumi.Input<enums.quicksight.AnalysisParameterValueType>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.AnalysisIntegerValueWhenUnsetConfigurationArgs>;
+    }
+
+    export interface AnalysisIntegerValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<number>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.AnalysisValueWhenUnsetOption>;
+    }
+
+    export interface AnalysisItemsLimitConfigurationArgs {
+        itemsLimit?: pulumi.Input<number>;
+        otherCategories?: pulumi.Input<enums.quicksight.AnalysisOtherCategories>;
+    }
+
+    export interface AnalysisKPIConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisKPIConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface AnalysisKPIConditionalFormattingOptionArgs {
+        primaryValue?: pulumi.Input<inputs.quicksight.AnalysisKPIPrimaryValueConditionalFormattingArgs>;
+        progressBar?: pulumi.Input<inputs.quicksight.AnalysisKPIProgressBarConditionalFormattingArgs>;
+    }
+
+    export interface AnalysisKPIConfigurationArgs {
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisKPIFieldWellsArgs>;
+        kPIOptions?: pulumi.Input<inputs.quicksight.AnalysisKPIOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisKPISortConfigurationArgs>;
+    }
+
+    export interface AnalysisKPIFieldWellsArgs {
+        targetValues?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+        trendGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisKPIOptionsArgs {
+        comparison?: pulumi.Input<inputs.quicksight.AnalysisComparisonConfigurationArgs>;
+        primaryValueDisplayType?: pulumi.Input<enums.quicksight.AnalysisPrimaryValueDisplayType>;
+        primaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+        progressBar?: pulumi.Input<inputs.quicksight.AnalysisProgressBarOptionsArgs>;
+        secondaryValue?: pulumi.Input<inputs.quicksight.AnalysisSecondaryValueOptionsArgs>;
+        secondaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+        trendArrows?: pulumi.Input<inputs.quicksight.AnalysisTrendArrowOptionsArgs>;
+    }
+
+    export interface AnalysisKPIPrimaryValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+    }
+
+    export interface AnalysisKPIProgressBarConditionalFormattingArgs {
+        foregroundColor?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+    }
+
+    export interface AnalysisKPISortConfigurationArgs {
+        trendGroupSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisKPIVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisKPIConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.AnalysisKPIConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisLabelOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisLayoutArgs {
+        configuration: pulumi.Input<inputs.quicksight.AnalysisLayoutConfigurationArgs>;
+    }
+
+    export interface AnalysisLayoutConfigurationArgs {
+        freeFormLayout?: pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutConfigurationArgs>;
+        gridLayout?: pulumi.Input<inputs.quicksight.AnalysisGridLayoutConfigurationArgs>;
+        sectionBasedLayout?: pulumi.Input<inputs.quicksight.AnalysisSectionBasedLayoutConfigurationArgs>;
+    }
+
+    export interface AnalysisLegendOptionsArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: pulumi.Input<string>;
+        position?: pulumi.Input<enums.quicksight.AnalysisLegendPosition>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisLineChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        smallMultiples?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisLineChartConfigurationArgs {
+        contributionAnalysisDefaults?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisContributionAnalysisDefaultArgs>[]>;
+        dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        defaultSeriesSettings?: pulumi.Input<inputs.quicksight.AnalysisLineChartDefaultSeriesSettingsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisLineChartFieldWellsArgs>;
+        forecastConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisForecastConfigurationArgs>[]>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisLineSeriesAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisReferenceLineArgs>[]>;
+        secondaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisLineSeriesAxisDisplayOptionsArgs>;
+        secondaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        series?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSeriesItemArgs>[]>;
+        smallMultiplesOptions?: pulumi.Input<inputs.quicksight.AnalysisSmallMultiplesOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisLineChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+        type?: pulumi.Input<enums.quicksight.AnalysisLineChartType>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+        xAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        xAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+    }
+
+    export interface AnalysisLineChartDefaultSeriesSettingsArgs {
+        axisBinding?: pulumi.Input<enums.quicksight.AnalysisAxisBinding>;
+        lineStyleSettings?: pulumi.Input<inputs.quicksight.AnalysisLineChartLineStyleSettingsArgs>;
+        markerStyleSettings?: pulumi.Input<inputs.quicksight.AnalysisLineChartMarkerStyleSettingsArgs>;
+    }
+
+    export interface AnalysisLineChartFieldWellsArgs {
+        lineChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisLineChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisLineChartLineStyleSettingsArgs {
+        lineInterpolation?: pulumi.Input<enums.quicksight.AnalysisLineInterpolation>;
+        lineStyle?: pulumi.Input<enums.quicksight.AnalysisLineChartLineStyle>;
+        lineVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        lineWidth?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisLineChartMarkerStyleSettingsArgs {
+        markerColor?: pulumi.Input<string>;
+        markerShape?: pulumi.Input<enums.quicksight.AnalysisLineChartMarkerShape>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        markerSize?: pulumi.Input<string>;
+        markerVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisLineChartSeriesSettingsArgs {
+        lineStyleSettings?: pulumi.Input<inputs.quicksight.AnalysisLineChartLineStyleSettingsArgs>;
+        markerStyleSettings?: pulumi.Input<inputs.quicksight.AnalysisLineChartMarkerStyleSettingsArgs>;
+    }
+
+    export interface AnalysisLineChartSortConfigurationArgs {
+        categoryItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+        colorItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        smallMultiplesLimitConfiguration?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        smallMultiplesSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisLineChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisLineChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisLineSeriesAxisDisplayOptionsArgs {
+        axisOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        missingDataConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMissingDataConfigurationArgs>[]>;
+    }
+
+    export interface AnalysisListControlDisplayOptionsArgs {
+        searchOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlSearchOptionsArgs>;
+        selectAllOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlSelectAllOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
+    }
+
+    export interface AnalysisListControlSearchOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisListControlSelectAllOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisLoadingAnimationArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisLocalNavigationConfigurationArgs {
+        targetSheetId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisLongFormatTextArgs {
+        plainText?: pulumi.Input<string>;
+        richText?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisMappedDataSetParameterArgs {
+        dataSetIdentifier: pulumi.Input<string>;
+        dataSetParameterName: pulumi.Input<string>;
+    }
+
+    export interface AnalysisMaximumLabelTypeArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisMaximumMinimumComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        type: pulumi.Input<enums.quicksight.AnalysisMaximumMinimumComputationType>;
+        value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+    }
+
+    export interface AnalysisMeasureFieldArgs {
+        calculatedMeasureField?: pulumi.Input<inputs.quicksight.AnalysisCalculatedMeasureFieldArgs>;
+        categoricalMeasureField?: pulumi.Input<inputs.quicksight.AnalysisCategoricalMeasureFieldArgs>;
+        dateMeasureField?: pulumi.Input<inputs.quicksight.AnalysisDateMeasureFieldArgs>;
+        numericalMeasureField?: pulumi.Input<inputs.quicksight.AnalysisNumericalMeasureFieldArgs>;
+    }
+
+    export interface AnalysisMetricComparisonComputationArgs {
+        computationId: pulumi.Input<string>;
+        fromValue: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+        name?: pulumi.Input<string>;
+        targetValue: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+    }
+
+    export interface AnalysisMinimumLabelTypeArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisMissingDataConfigurationArgs {
+        treatmentOption?: pulumi.Input<enums.quicksight.AnalysisMissingDataTreatmentOption>;
+    }
+
+    export interface AnalysisNegativeValueConfigurationArgs {
+        displayMode: pulumi.Input<enums.quicksight.AnalysisNegativeValueDisplayMode>;
+    }
+
+    export interface AnalysisNullValueFormatConfigurationArgs {
+        nullString: pulumi.Input<string>;
+    }
+
+    export interface AnalysisNumberDisplayFormatConfigurationArgs {
+        decimalPlacesConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDecimalPlacesConfigurationArgs>;
+        negativeValueConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNegativeValueConfigurationArgs>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNullValueFormatConfigurationArgs>;
+        numberScale?: pulumi.Input<enums.quicksight.AnalysisNumberScale>;
+        prefix?: pulumi.Input<string>;
+        separatorConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumericSeparatorConfigurationArgs>;
+        suffix?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisNumberFormatConfigurationArgs {
+        formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumericFormatConfigurationArgs>;
+    }
+
+    export interface AnalysisNumericAxisOptionsArgs {
+        range?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayRangeArgs>;
+        scale?: pulumi.Input<inputs.quicksight.AnalysisAxisScaleArgs>;
+    }
+
+    export interface AnalysisNumericEqualityDrillDownFilterArgs {
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        value: pulumi.Input<number>;
+    }
+
+    export interface AnalysisNumericEqualityFilterArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        matchOperator: pulumi.Input<enums.quicksight.AnalysisNumericEqualityMatchOperator>;
+        nullOption: pulumi.Input<enums.quicksight.AnalysisFilterNullOption>;
+        parameterName?: pulumi.Input<string>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.AnalysisNumericFilterSelectAllOptions>;
+        value?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisNumericFormatConfigurationArgs {
+        currencyDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisCurrencyDisplayFormatConfigurationArgs>;
+        numberDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumberDisplayFormatConfigurationArgs>;
+        percentageDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisPercentageDisplayFormatConfigurationArgs>;
+    }
+
+    export interface AnalysisNumericRangeFilterArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        includeMaximum?: pulumi.Input<boolean>;
+        includeMinimum?: pulumi.Input<boolean>;
+        nullOption: pulumi.Input<enums.quicksight.AnalysisFilterNullOption>;
+        rangeMaximum?: pulumi.Input<inputs.quicksight.AnalysisNumericRangeFilterValueArgs>;
+        rangeMinimum?: pulumi.Input<inputs.quicksight.AnalysisNumericRangeFilterValueArgs>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.AnalysisNumericFilterSelectAllOptions>;
+    }
+
+    export interface AnalysisNumericRangeFilterValueArgs {
+        parameter?: pulumi.Input<string>;
+        staticValue?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisNumericSeparatorConfigurationArgs {
+        decimalSeparator?: pulumi.Input<enums.quicksight.AnalysisNumericSeparatorSymbol>;
+        thousandsSeparator?: pulumi.Input<inputs.quicksight.AnalysisThousandSeparatorOptionsArgs>;
+    }
+
+    export interface AnalysisNumericalAggregationFunctionArgs {
+        percentileAggregation?: pulumi.Input<inputs.quicksight.AnalysisPercentileAggregationArgs>;
+        simpleNumericalAggregation?: pulumi.Input<enums.quicksight.AnalysisSimpleNumericalAggregationFunction>;
+    }
+
+    export interface AnalysisNumericalDimensionFieldArgs {
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumberFormatConfigurationArgs>;
+        hierarchyId?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisNumericalMeasureFieldArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisNumericalAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumberFormatConfigurationArgs>;
+    }
+
+    export interface AnalysisPaginationConfigurationArgs {
+        pageNumber: pulumi.Input<number>;
+        pageSize: pulumi.Input<number>;
+    }
+
+    export interface AnalysisPanelConfigurationArgs {
+        backgroundColor?: pulumi.Input<string>;
+        backgroundVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        borderColor?: pulumi.Input<string>;
+        borderStyle?: pulumi.Input<enums.quicksight.AnalysisPanelBorderStyle>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderThickness?: pulumi.Input<string>;
+        borderVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        gutterSpacing?: pulumi.Input<string>;
+        gutterVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisPanelTitleOptionsArgs>;
+    }
+
+    export interface AnalysisPanelTitleOptionsArgs {
+        fontConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+        horizontalTextAlignment?: pulumi.Input<enums.quicksight.AnalysisHorizontalTextAlignment>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisParameterControlArgs {
+        dateTimePicker?: pulumi.Input<inputs.quicksight.AnalysisParameterDateTimePickerControlArgs>;
+        dropdown?: pulumi.Input<inputs.quicksight.AnalysisParameterDropDownControlArgs>;
+        list?: pulumi.Input<inputs.quicksight.AnalysisParameterListControlArgs>;
+        slider?: pulumi.Input<inputs.quicksight.AnalysisParameterSliderControlArgs>;
+        textArea?: pulumi.Input<inputs.quicksight.AnalysisParameterTextAreaControlArgs>;
+        textField?: pulumi.Input<inputs.quicksight.AnalysisParameterTextFieldControlArgs>;
+    }
+
+    export interface AnalysisParameterDateTimePickerControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisDateTimePickerControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface AnalysisParameterDeclarationArgs {
+        dateTimeParameterDeclaration?: pulumi.Input<inputs.quicksight.AnalysisDateTimeParameterDeclarationArgs>;
+        decimalParameterDeclaration?: pulumi.Input<inputs.quicksight.AnalysisDecimalParameterDeclarationArgs>;
+        integerParameterDeclaration?: pulumi.Input<inputs.quicksight.AnalysisIntegerParameterDeclarationArgs>;
+        stringParameterDeclaration?: pulumi.Input<inputs.quicksight.AnalysisStringParameterDeclarationArgs>;
+    }
+
+    export interface AnalysisParameterDropDownControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisDropDownControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.AnalysisParameterSelectableValuesArgs>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.AnalysisSheetControlListType>;
+    }
+
+    export interface AnalysisParameterListControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.AnalysisParameterSelectableValuesArgs>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.AnalysisSheetControlListType>;
+    }
+
+    export interface AnalysisParameterSelectableValuesArgs {
+        linkToDataSetColumn?: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AnalysisParameterSliderControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisSliderControlDisplayOptionsArgs>;
+        maximumValue: pulumi.Input<number>;
+        minimumValue: pulumi.Input<number>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        stepSize: pulumi.Input<number>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface AnalysisParameterTextAreaControlArgs {
+        delimiter?: pulumi.Input<string>;
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisTextAreaControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface AnalysisParameterTextFieldControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisTextFieldControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
     export interface AnalysisParametersArgs {
-        /**
-         * <p>Date-time parameters.</p>
-         */
         dateTimeParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDateTimeParameterArgs>[]>;
-        /**
-         * <p>Decimal parameters.</p>
-         */
         decimalParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDecimalParameterArgs>[]>;
-        /**
-         * <p>Integer parameters.</p>
-         */
         integerParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisIntegerParameterArgs>[]>;
-        /**
-         * <p>String parameters.</p>
-         */
         stringParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisStringParameterArgs>[]>;
     }
 
-    /**
-     * <p>Permission for the resource.</p>
-     */
-    export interface AnalysisResourcePermissionArgs {
-        /**
-         * <p>The IAM action to grant or revoke permissions on.</p>
-         */
-        actions: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-         *             following:</p>
-         *         <ul>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
-         *                     (This is less common.) </p>
-         *             </li>
-         *          </ul>
-         */
-        principal: pulumi.Input<string>;
+    export interface AnalysisPercentVisibleRangeArgs {
+        from?: pulumi.Input<number>;
+        to?: pulumi.Input<number>;
     }
 
-    /**
-     * <p>The source entity of an analysis.</p>
-     */
+    export interface AnalysisPercentageDisplayFormatConfigurationArgs {
+        decimalPlacesConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDecimalPlacesConfigurationArgs>;
+        negativeValueConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNegativeValueConfigurationArgs>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNullValueFormatConfigurationArgs>;
+        prefix?: pulumi.Input<string>;
+        separatorConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumericSeparatorConfigurationArgs>;
+        suffix?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisPercentileAggregationArgs {
+        percentileValue?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisPeriodOverPeriodComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+    }
+
+    export interface AnalysisPeriodToDateComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        periodTimeGranularity?: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+    }
+
+    export interface AnalysisPieChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        smallMultiples?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisPieChartConfigurationArgs {
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        contributionAnalysisDefaults?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisContributionAnalysisDefaultArgs>[]>;
+        dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        donutOptions?: pulumi.Input<inputs.quicksight.AnalysisDonutOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisPieChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        smallMultiplesOptions?: pulumi.Input<inputs.quicksight.AnalysisSmallMultiplesOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisPieChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+        valueLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+    }
+
+    export interface AnalysisPieChartFieldWellsArgs {
+        pieChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisPieChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisPieChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+        smallMultiplesLimitConfiguration?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        smallMultiplesSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisPieChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisPieChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisPivotFieldSortOptionsArgs {
+        fieldId: pulumi.Input<string>;
+        sortBy: pulumi.Input<inputs.quicksight.AnalysisPivotTableSortByArgs>;
+    }
+
+    export interface AnalysisPivotTableAggregatedFieldWellsArgs {
+        columns?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        rows?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisPivotTableCellConditionalFormattingArgs {
+        fieldId: pulumi.Input<string>;
+        scope?: pulumi.Input<inputs.quicksight.AnalysisPivotTableConditionalFormattingScopeArgs>;
+        textFormat?: pulumi.Input<inputs.quicksight.AnalysisTextConditionalFormatArgs>;
+    }
+
+    export interface AnalysisPivotTableConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPivotTableConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface AnalysisPivotTableConditionalFormattingOptionArgs {
+        cell?: pulumi.Input<inputs.quicksight.AnalysisPivotTableCellConditionalFormattingArgs>;
+    }
+
+    export interface AnalysisPivotTableConditionalFormattingScopeArgs {
+        role?: pulumi.Input<enums.quicksight.AnalysisPivotTableConditionalFormattingScopeRole>;
+    }
+
+    export interface AnalysisPivotTableConfigurationArgs {
+        fieldOptions?: pulumi.Input<inputs.quicksight.AnalysisPivotTableFieldOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisPivotTableFieldWellsArgs>;
+        paginatedReportOptions?: pulumi.Input<inputs.quicksight.AnalysisPivotTablePaginatedReportOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisPivotTableSortConfigurationArgs>;
+        tableOptions?: pulumi.Input<inputs.quicksight.AnalysisPivotTableOptionsArgs>;
+        totalOptions?: pulumi.Input<inputs.quicksight.AnalysisPivotTableTotalOptionsArgs>;
+    }
+
+    export interface AnalysisPivotTableDataPathOptionArgs {
+        dataPathList: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDataPathValueArgs>[]>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisPivotTableFieldOptionArgs {
+        customLabel?: pulumi.Input<string>;
+        fieldId: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisPivotTableFieldOptionsArgs {
+        dataPathOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPivotTableDataPathOptionArgs>[]>;
+        selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPivotTableFieldOptionArgs>[]>;
+    }
+
+    export interface AnalysisPivotTableFieldSubtotalOptionsArgs {
+        fieldId?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisPivotTableFieldWellsArgs {
+        pivotTableAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisPivotTableAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisPivotTableOptionsArgs {
+        cellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        columnHeaderStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        columnNamesVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        metricPlacement?: pulumi.Input<enums.quicksight.AnalysisPivotTableMetricPlacement>;
+        rowAlternateColorOptions?: pulumi.Input<inputs.quicksight.AnalysisRowAlternateColorOptionsArgs>;
+        rowFieldNamesStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        rowHeaderStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        singleMetricVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        toggleButtonsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisPivotTablePaginatedReportOptionsArgs {
+        overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        verticalOverflowVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisPivotTableSortByArgs {
+        column?: pulumi.Input<inputs.quicksight.AnalysisColumnSortArgs>;
+        dataPath?: pulumi.Input<inputs.quicksight.AnalysisDataPathSortArgs>;
+        field?: pulumi.Input<inputs.quicksight.AnalysisFieldSortArgs>;
+    }
+
+    export interface AnalysisPivotTableSortConfigurationArgs {
+        fieldSortOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPivotFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisPivotTableTotalOptionsArgs {
+        columnSubtotalOptions?: pulumi.Input<inputs.quicksight.AnalysisSubtotalOptionsArgs>;
+        columnTotalOptions?: pulumi.Input<inputs.quicksight.AnalysisPivotTotalOptionsArgs>;
+        rowSubtotalOptions?: pulumi.Input<inputs.quicksight.AnalysisSubtotalOptionsArgs>;
+        rowTotalOptions?: pulumi.Input<inputs.quicksight.AnalysisPivotTotalOptionsArgs>;
+    }
+
+    export interface AnalysisPivotTableVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisPivotTableConfigurationArgs>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.AnalysisPivotTableConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisPivotTotalOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        metricHeaderCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        placement?: pulumi.Input<enums.quicksight.AnalysisTableTotalsPlacement>;
+        scrollStatus?: pulumi.Input<enums.quicksight.AnalysisTableTotalsScrollStatus>;
+        totalCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        valueCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+    }
+
+    export interface AnalysisPredefinedHierarchyArgs {
+        columns: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>[]>;
+        drillDownFilters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDrillDownFilterArgs>[]>;
+        hierarchyId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisProgressBarOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisRadarChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        color?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisRadarChartAreaStyleSettingsArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisRadarChartConfigurationArgs {
+        alternateBandColorsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        alternateBandEvenColor?: pulumi.Input<string>;
+        alternateBandOddColor?: pulumi.Input<string>;
+        baseSeriesSettings?: pulumi.Input<inputs.quicksight.AnalysisRadarChartSeriesSettingsArgs>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        colorAxis?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisRadarChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        shape?: pulumi.Input<enums.quicksight.AnalysisRadarChartShape>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisRadarChartSortConfigurationArgs>;
+        startAngle?: pulumi.Input<number>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+    }
+
+    export interface AnalysisRadarChartFieldWellsArgs {
+        radarChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisRadarChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisRadarChartSeriesSettingsArgs {
+        areaStyleSettings?: pulumi.Input<inputs.quicksight.AnalysisRadarChartAreaStyleSettingsArgs>;
+    }
+
+    export interface AnalysisRadarChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+        colorItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        colorSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisRadarChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisRadarChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisRangeEndsLabelTypeArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisReferenceLineArgs {
+        dataConfiguration: pulumi.Input<inputs.quicksight.AnalysisReferenceLineDataConfigurationArgs>;
+        labelConfiguration?: pulumi.Input<inputs.quicksight.AnalysisReferenceLineLabelConfigurationArgs>;
+        status?: pulumi.Input<enums.quicksight.AnalysisWidgetStatus>;
+        styleConfiguration?: pulumi.Input<inputs.quicksight.AnalysisReferenceLineStyleConfigurationArgs>;
+    }
+
+    export interface AnalysisReferenceLineCustomLabelConfigurationArgs {
+        customLabel: pulumi.Input<string>;
+    }
+
+    export interface AnalysisReferenceLineDataConfigurationArgs {
+        axisBinding?: pulumi.Input<enums.quicksight.AnalysisAxisBinding>;
+        dynamicConfiguration?: pulumi.Input<inputs.quicksight.AnalysisReferenceLineDynamicDataConfigurationArgs>;
+        staticConfiguration?: pulumi.Input<inputs.quicksight.AnalysisReferenceLineStaticDataConfigurationArgs>;
+    }
+
+    export interface AnalysisReferenceLineDynamicDataConfigurationArgs {
+        calculation: pulumi.Input<inputs.quicksight.AnalysisNumericalAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        measureAggregationFunction: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
+    }
+
+    export interface AnalysisReferenceLineLabelConfigurationArgs {
+        customLabelConfiguration?: pulumi.Input<inputs.quicksight.AnalysisReferenceLineCustomLabelConfigurationArgs>;
+        fontColor?: pulumi.Input<string>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+        horizontalPosition?: pulumi.Input<enums.quicksight.AnalysisReferenceLineLabelHorizontalPosition>;
+        valueLabelConfiguration?: pulumi.Input<inputs.quicksight.AnalysisReferenceLineValueLabelConfigurationArgs>;
+        verticalPosition?: pulumi.Input<enums.quicksight.AnalysisReferenceLineLabelVerticalPosition>;
+    }
+
+    export interface AnalysisReferenceLineStaticDataConfigurationArgs {
+        value: pulumi.Input<number>;
+    }
+
+    export interface AnalysisReferenceLineStyleConfigurationArgs {
+        color?: pulumi.Input<string>;
+        pattern?: pulumi.Input<enums.quicksight.AnalysisReferenceLinePatternType>;
+    }
+
+    export interface AnalysisReferenceLineValueLabelConfigurationArgs {
+        formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumericFormatConfigurationArgs>;
+        relativePosition?: pulumi.Input<enums.quicksight.AnalysisReferenceLineValueLabelRelativePosition>;
+    }
+
+    export interface AnalysisRelativeDateTimeControlDisplayOptionsArgs {
+        dateTimeFormat?: pulumi.Input<string>;
+        titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
+    }
+
+    export interface AnalysisRelativeDatesFilterArgs {
+        anchorDateConfiguration: pulumi.Input<inputs.quicksight.AnalysisAnchorDateConfigurationArgs>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.AnalysisExcludePeriodConfigurationArgs>;
+        filterId: pulumi.Input<string>;
+        minimumGranularity?: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
+        nullOption: pulumi.Input<enums.quicksight.AnalysisFilterNullOption>;
+        parameterName?: pulumi.Input<string>;
+        relativeDateType: pulumi.Input<enums.quicksight.AnalysisRelativeDateType>;
+        relativeDateValue?: pulumi.Input<number>;
+        timeGranularity: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
+    }
+
+    export interface AnalysisResourcePermissionArgs {
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        principal: pulumi.Input<string>;
+        resource?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisRollingDateConfigurationArgs {
+        dataSetIdentifier?: pulumi.Input<string>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface AnalysisRowAlternateColorOptionsArgs {
+        rowAlternateColors?: pulumi.Input<pulumi.Input<string>[]>;
+        status?: pulumi.Input<enums.quicksight.AnalysisWidgetStatus>;
+    }
+
+    export interface AnalysisSameSheetTargetVisualConfigurationArgs {
+        targetVisualOptions?: pulumi.Input<enums.quicksight.AnalysisTargetVisualOptions>;
+        targetVisuals?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AnalysisSankeyDiagramAggregatedFieldWellsArgs {
+        destination?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        source?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        weight?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisSankeyDiagramChartConfigurationArgs {
+        dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisSankeyDiagramFieldWellsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisSankeyDiagramSortConfigurationArgs>;
+    }
+
+    export interface AnalysisSankeyDiagramFieldWellsArgs {
+        sankeyDiagramAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisSankeyDiagramAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisSankeyDiagramSortConfigurationArgs {
+        destinationItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        sourceItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        weightSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisSankeyDiagramVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisSankeyDiagramChartConfigurationArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisScatterPlotCategoricallyAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        size?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+        xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+        yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisScatterPlotConfigurationArgs {
+        dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisScatterPlotFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+        xAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        xAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        yAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        yAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+    }
+
+    export interface AnalysisScatterPlotFieldWellsArgs {
+        scatterPlotCategoricallyAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisScatterPlotCategoricallyAggregatedFieldWellsArgs>;
+        scatterPlotUnaggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisScatterPlotUnaggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisScatterPlotUnaggregatedFieldWellsArgs {
+        size?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+        xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+    }
+
+    export interface AnalysisScatterPlotVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisScatterPlotConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisScrollBarOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        visibleRange?: pulumi.Input<inputs.quicksight.AnalysisVisibleRangeOptionsArgs>;
+    }
+
+    export interface AnalysisSecondaryValueOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisSectionAfterPageBreakArgs {
+        status?: pulumi.Input<enums.quicksight.AnalysisSectionPageBreakStatus>;
+    }
+
+    export interface AnalysisSectionBasedLayoutCanvasSizeOptionsArgs {
+        paperCanvasSizeOptions?: pulumi.Input<inputs.quicksight.AnalysisSectionBasedLayoutPaperCanvasSizeOptionsArgs>;
+    }
+
+    export interface AnalysisSectionBasedLayoutConfigurationArgs {
+        bodySections: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisBodySectionConfigurationArgs>[]>;
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.AnalysisSectionBasedLayoutCanvasSizeOptionsArgs>;
+        footerSections: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisHeaderFooterSectionConfigurationArgs>[]>;
+        headerSections: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisHeaderFooterSectionConfigurationArgs>[]>;
+    }
+
+    export interface AnalysisSectionBasedLayoutPaperCanvasSizeOptionsArgs {
+        paperMargin?: pulumi.Input<inputs.quicksight.AnalysisSpacingArgs>;
+        paperOrientation?: pulumi.Input<enums.quicksight.AnalysisPaperOrientation>;
+        paperSize?: pulumi.Input<enums.quicksight.AnalysisPaperSize>;
+    }
+
+    export interface AnalysisSectionLayoutConfigurationArgs {
+        freeFormLayout: pulumi.Input<inputs.quicksight.AnalysisFreeFormSectionLayoutConfigurationArgs>;
+    }
+
+    export interface AnalysisSectionPageBreakConfigurationArgs {
+        after?: pulumi.Input<inputs.quicksight.AnalysisSectionAfterPageBreakArgs>;
+    }
+
+    export interface AnalysisSectionStyleArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: pulumi.Input<string>;
+        padding?: pulumi.Input<inputs.quicksight.AnalysisSpacingArgs>;
+    }
+
+    export interface AnalysisSelectedSheetsFilterScopeConfigurationArgs {
+        sheetVisualScopingConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetVisualScopingConfigurationArgs>[]>;
+    }
+
+    export interface AnalysisSeriesItemArgs {
+        dataFieldSeriesItem?: pulumi.Input<inputs.quicksight.AnalysisDataFieldSeriesItemArgs>;
+        fieldSeriesItem?: pulumi.Input<inputs.quicksight.AnalysisFieldSeriesItemArgs>;
+    }
+
+    export interface AnalysisSetParameterValueConfigurationArgs {
+        destinationParameterName: pulumi.Input<string>;
+        value: pulumi.Input<inputs.quicksight.AnalysisDestinationParameterValueConfigurationArgs>;
+    }
+
+    export interface AnalysisShapeConditionalFormatArgs {
+        backgroundColor: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+    }
+
+    export interface AnalysisSheetControlLayoutArgs {
+        configuration: pulumi.Input<inputs.quicksight.AnalysisSheetControlLayoutConfigurationArgs>;
+    }
+
+    export interface AnalysisSheetControlLayoutConfigurationArgs {
+        gridLayout?: pulumi.Input<inputs.quicksight.AnalysisGridLayoutConfigurationArgs>;
+    }
+
+    export interface AnalysisSheetDefinitionArgs {
+        contentType?: pulumi.Input<enums.quicksight.AnalysisSheetContentType>;
+        description?: pulumi.Input<string>;
+        filterControls?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFilterControlArgs>[]>;
+        layouts?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisLayoutArgs>[]>;
+        name?: pulumi.Input<string>;
+        parameterControls?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisParameterControlArgs>[]>;
+        sheetControlLayouts?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetControlLayoutArgs>[]>;
+        sheetId: pulumi.Input<string>;
+        textBoxes?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetTextBoxArgs>[]>;
+        title?: pulumi.Input<string>;
+        visuals?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualArgs>[]>;
+    }
+
+    export interface AnalysisSheetElementConfigurationOverridesArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisSheetElementRenderingRuleArgs {
+        configurationOverrides: pulumi.Input<inputs.quicksight.AnalysisSheetElementConfigurationOverridesArgs>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface AnalysisSheetTextBoxArgs {
+        content?: pulumi.Input<string>;
+        sheetTextBoxId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisSheetVisualScopingConfigurationArgs {
+        scope: pulumi.Input<enums.quicksight.AnalysisFilterVisualScope>;
+        sheetId: pulumi.Input<string>;
+        visualIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AnalysisShortFormatTextArgs {
+        plainText?: pulumi.Input<string>;
+        richText?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisSimpleClusterMarkerArgs {
+        color?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisSliderControlDisplayOptionsArgs {
+        titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
+    }
+
+    export interface AnalysisSmallMultiplesOptionsArgs {
+        maxVisibleColumns?: pulumi.Input<number>;
+        maxVisibleRows?: pulumi.Input<number>;
+        panelConfiguration?: pulumi.Input<inputs.quicksight.AnalysisPanelConfigurationArgs>;
+    }
+
     export interface AnalysisSourceEntityArgs {
         sourceTemplate?: pulumi.Input<inputs.quicksight.AnalysisSourceTemplateArgs>;
     }
 
-    /**
-     * <p>The source template of an analysis.</p>
-     */
     export interface AnalysisSourceTemplateArgs {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-         */
         arn: pulumi.Input<string>;
-        /**
-         * <p>The dataset references of the source template of an analysis.</p>
-         */
         dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDataSetReferenceArgs>[]>;
     }
 
-    /**
-     * <p>A string parameter.</p>
-     */
+    export interface AnalysisSpacingArgs {
+        /**
+         * String based length that is composed of value and unit
+         */
+        bottom?: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit
+         */
+        left?: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit
+         */
+        right?: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit
+         */
+        top?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisStringDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.AnalysisDynamicDefaultValueArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AnalysisStringFormatConfigurationArgs {
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNullValueFormatConfigurationArgs>;
+        numericFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumericFormatConfigurationArgs>;
+    }
+
     export interface AnalysisStringParameterArgs {
-        /**
-         * <p>A display name for a string parameter.</p>
-         */
         name: pulumi.Input<string>;
-        /**
-         * <p>The values of a string parameter.</p>
-         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    /**
-     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-     *             resource.</p>
-     */
+    export interface AnalysisStringParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.AnalysisStringDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMappedDataSetParameterArgs>[]>;
+        name: pulumi.Input<string>;
+        parameterValueType: pulumi.Input<enums.quicksight.AnalysisParameterValueType>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.AnalysisStringValueWhenUnsetConfigurationArgs>;
+    }
+
+    export interface AnalysisStringValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<string>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.AnalysisValueWhenUnsetOption>;
+    }
+
+    export interface AnalysisSubtotalOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        fieldLevel?: pulumi.Input<enums.quicksight.AnalysisPivotTableSubtotalLevel>;
+        fieldLevelOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPivotTableFieldSubtotalOptionsArgs>[]>;
+        metricHeaderCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        totalCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        valueCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+    }
+
+    export interface AnalysisTableAggregatedFieldWellsArgs {
+        groupBy?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisTableBorderOptionsArgs {
+        color?: pulumi.Input<string>;
+        style?: pulumi.Input<enums.quicksight.AnalysisTableBorderStyle>;
+        thickness?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisTableCellConditionalFormattingArgs {
+        fieldId: pulumi.Input<string>;
+        textFormat?: pulumi.Input<inputs.quicksight.AnalysisTextConditionalFormatArgs>;
+    }
+
+    export interface AnalysisTableCellImageSizingConfigurationArgs {
+        tableCellImageScalingConfiguration?: pulumi.Input<enums.quicksight.AnalysisTableCellImageScalingConfiguration>;
+    }
+
+    export interface AnalysisTableCellStyleArgs {
+        backgroundColor?: pulumi.Input<string>;
+        border?: pulumi.Input<inputs.quicksight.AnalysisGlobalTableBorderOptionsArgs>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+        height?: pulumi.Input<number>;
+        horizontalTextAlignment?: pulumi.Input<enums.quicksight.AnalysisHorizontalTextAlignment>;
+        textWrap?: pulumi.Input<enums.quicksight.AnalysisTextWrap>;
+        verticalTextAlignment?: pulumi.Input<enums.quicksight.AnalysisVerticalTextAlignment>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisTableConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTableConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface AnalysisTableConditionalFormattingOptionArgs {
+        cell?: pulumi.Input<inputs.quicksight.AnalysisTableCellConditionalFormattingArgs>;
+        row?: pulumi.Input<inputs.quicksight.AnalysisTableRowConditionalFormattingArgs>;
+    }
+
+    export interface AnalysisTableConfigurationArgs {
+        fieldOptions?: pulumi.Input<inputs.quicksight.AnalysisTableFieldOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisTableFieldWellsArgs>;
+        paginatedReportOptions?: pulumi.Input<inputs.quicksight.AnalysisTablePaginatedReportOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisTableSortConfigurationArgs>;
+        tableInlineVisualizations?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTableInlineVisualizationArgs>[]>;
+        tableOptions?: pulumi.Input<inputs.quicksight.AnalysisTableOptionsArgs>;
+        totalOptions?: pulumi.Input<inputs.quicksight.AnalysisTotalOptionsArgs>;
+    }
+
+    export interface AnalysisTableFieldCustomIconContentArgs {
+        icon?: pulumi.Input<enums.quicksight.AnalysisTableFieldIconSetType>;
+    }
+
+    export interface AnalysisTableFieldCustomTextContentArgs {
+        fontConfiguration: pulumi.Input<inputs.quicksight.AnalysisFontConfigurationArgs>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisTableFieldImageConfigurationArgs {
+        sizingOptions?: pulumi.Input<inputs.quicksight.AnalysisTableCellImageSizingConfigurationArgs>;
+    }
+
+    export interface AnalysisTableFieldLinkConfigurationArgs {
+        content: pulumi.Input<inputs.quicksight.AnalysisTableFieldLinkContentConfigurationArgs>;
+        target: pulumi.Input<enums.quicksight.AnalysisURLTargetConfiguration>;
+    }
+
+    export interface AnalysisTableFieldLinkContentConfigurationArgs {
+        customIconContent?: pulumi.Input<inputs.quicksight.AnalysisTableFieldCustomIconContentArgs>;
+        customTextContent?: pulumi.Input<inputs.quicksight.AnalysisTableFieldCustomTextContentArgs>;
+    }
+
+    export interface AnalysisTableFieldOptionArgs {
+        customLabel?: pulumi.Input<string>;
+        fieldId: pulumi.Input<string>;
+        uRLStyling?: pulumi.Input<inputs.quicksight.AnalysisTableFieldURLConfigurationArgs>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisTableFieldOptionsArgs {
+        order?: pulumi.Input<pulumi.Input<string>[]>;
+        selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTableFieldOptionArgs>[]>;
+    }
+
+    export interface AnalysisTableFieldURLConfigurationArgs {
+        imageConfiguration?: pulumi.Input<inputs.quicksight.AnalysisTableFieldImageConfigurationArgs>;
+        linkConfiguration?: pulumi.Input<inputs.quicksight.AnalysisTableFieldLinkConfigurationArgs>;
+    }
+
+    export interface AnalysisTableFieldWellsArgs {
+        tableAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisTableAggregatedFieldWellsArgs>;
+        tableUnaggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisTableUnaggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisTableInlineVisualizationArgs {
+        dataBars?: pulumi.Input<inputs.quicksight.AnalysisDataBarsOptionsArgs>;
+    }
+
+    export interface AnalysisTableOptionsArgs {
+        cellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        headerStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        orientation?: pulumi.Input<enums.quicksight.AnalysisTableOrientation>;
+        rowAlternateColorOptions?: pulumi.Input<inputs.quicksight.AnalysisRowAlternateColorOptionsArgs>;
+    }
+
+    export interface AnalysisTablePaginatedReportOptionsArgs {
+        overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+        verticalOverflowVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisTableRowConditionalFormattingArgs {
+        backgroundColor?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+    }
+
+    export interface AnalysisTableSideBorderOptionsArgs {
+        bottom?: pulumi.Input<inputs.quicksight.AnalysisTableBorderOptionsArgs>;
+        innerHorizontal?: pulumi.Input<inputs.quicksight.AnalysisTableBorderOptionsArgs>;
+        innerVertical?: pulumi.Input<inputs.quicksight.AnalysisTableBorderOptionsArgs>;
+        left?: pulumi.Input<inputs.quicksight.AnalysisTableBorderOptionsArgs>;
+        right?: pulumi.Input<inputs.quicksight.AnalysisTableBorderOptionsArgs>;
+        top?: pulumi.Input<inputs.quicksight.AnalysisTableBorderOptionsArgs>;
+    }
+
+    export interface AnalysisTableSortConfigurationArgs {
+        paginationConfiguration?: pulumi.Input<inputs.quicksight.AnalysisPaginationConfigurationArgs>;
+        rowSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisTableUnaggregatedFieldWellsArgs {
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisUnaggregatedFieldArgs>[]>;
+    }
+
+    export interface AnalysisTableVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisTableConfigurationArgs>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.AnalysisTableConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
     export interface AnalysisTagArgs {
-        /**
-         * <p>Tag key.</p>
-         */
         key: pulumi.Input<string>;
-        /**
-         * <p>Tag value.</p>
-         */
         value: pulumi.Input<string>;
     }
 
-    /**
-     * <p>Ad hoc (one-time) filtering option.</p>
-     */
+    export interface AnalysisTextAreaControlDisplayOptionsArgs {
+        placeholderOptions?: pulumi.Input<inputs.quicksight.AnalysisTextControlPlaceholderOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
+    }
+
+    export interface AnalysisTextConditionalFormatArgs {
+        backgroundColor?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+        icon?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
+    }
+
+    export interface AnalysisTextControlPlaceholderOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisTextFieldControlDisplayOptionsArgs {
+        placeholderOptions?: pulumi.Input<inputs.quicksight.AnalysisTextControlPlaceholderOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.AnalysisLabelOptionsArgs>;
+    }
+
+    export interface AnalysisThousandSeparatorOptionsArgs {
+        symbol?: pulumi.Input<enums.quicksight.AnalysisNumericSeparatorSymbol>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisTimeBasedForecastPropertiesArgs {
+        lowerBoundary?: pulumi.Input<number>;
+        periodsBackward?: pulumi.Input<number>;
+        periodsForward?: pulumi.Input<number>;
+        predictionInterval?: pulumi.Input<number>;
+        seasonality?: pulumi.Input<number>;
+        upperBoundary?: pulumi.Input<number>;
+    }
+
+    export interface AnalysisTimeEqualityFilterArgs {
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        parameterName?: pulumi.Input<string>;
+        timeGranularity?: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisTimeRangeDrillDownFilterArgs {
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        rangeMaximum: pulumi.Input<string>;
+        rangeMinimum: pulumi.Input<string>;
+        timeGranularity: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
+    }
+
+    export interface AnalysisTimeRangeFilterArgs {
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.AnalysisExcludePeriodConfigurationArgs>;
+        filterId: pulumi.Input<string>;
+        includeMaximum?: pulumi.Input<boolean>;
+        includeMinimum?: pulumi.Input<boolean>;
+        nullOption: pulumi.Input<enums.quicksight.AnalysisFilterNullOption>;
+        rangeMaximumValue?: pulumi.Input<inputs.quicksight.AnalysisTimeRangeFilterValueArgs>;
+        rangeMinimumValue?: pulumi.Input<inputs.quicksight.AnalysisTimeRangeFilterValueArgs>;
+        timeGranularity?: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
+    }
+
+    export interface AnalysisTimeRangeFilterValueArgs {
+        parameter?: pulumi.Input<string>;
+        rollingDate?: pulumi.Input<inputs.quicksight.AnalysisRollingDateConfigurationArgs>;
+        staticValue?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisTooltipItemArgs {
+        columnTooltipItem?: pulumi.Input<inputs.quicksight.AnalysisColumnTooltipItemArgs>;
+        fieldTooltipItem?: pulumi.Input<inputs.quicksight.AnalysisFieldTooltipItemArgs>;
+    }
+
+    export interface AnalysisTooltipOptionsArgs {
+        fieldBasedTooltip?: pulumi.Input<inputs.quicksight.AnalysisFieldBasedTooltipArgs>;
+        selectedTooltipType?: pulumi.Input<enums.quicksight.AnalysisSelectedTooltipType>;
+        tooltipVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisTopBottomFilterArgs {
+        aggregationSortConfigurations: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisAggregationSortConfigurationArgs>[]>;
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        limit?: pulumi.Input<number>;
+        parameterName?: pulumi.Input<string>;
+        timeGranularity?: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
+    }
+
+    export interface AnalysisTopBottomMoversComputationArgs {
+        category: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        computationId: pulumi.Input<string>;
+        moverSize?: pulumi.Input<number>;
+        name?: pulumi.Input<string>;
+        sortOrder?: pulumi.Input<enums.quicksight.AnalysisTopBottomSortOrder>;
+        time: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        type: pulumi.Input<enums.quicksight.AnalysisTopBottomComputationType>;
+        value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+    }
+
+    export interface AnalysisTopBottomRankedComputationArgs {
+        category: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        resultSize?: pulumi.Input<number>;
+        type: pulumi.Input<enums.quicksight.AnalysisTopBottomComputationType>;
+        value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+    }
+
+    export interface AnalysisTotalAggregationComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        value: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>;
+    }
+
+    export interface AnalysisTotalOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        placement?: pulumi.Input<enums.quicksight.AnalysisTableTotalsPlacement>;
+        scrollStatus?: pulumi.Input<enums.quicksight.AnalysisTableTotalsScrollStatus>;
+        totalCellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisTreeMapAggregatedFieldWellsArgs {
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+        groups?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        sizes?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisTreeMapConfigurationArgs {
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        colorScale?: pulumi.Input<inputs.quicksight.AnalysisColorScaleArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisTreeMapFieldWellsArgs>;
+        groupLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        sizeLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisTreeMapSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.AnalysisTooltipOptionsArgs>;
+    }
+
+    export interface AnalysisTreeMapFieldWellsArgs {
+        treeMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisTreeMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisTreeMapSortConfigurationArgs {
+        treeMapGroupItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        treeMapSort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisTreeMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisTreeMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisTrendArrowOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisUnaggregatedFieldArgs {
+        column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFormatConfigurationArgs>;
+    }
+
+    export interface AnalysisUniqueValuesComputationArgs {
+        category: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisVisibleRangeOptionsArgs {
+        percentRange?: pulumi.Input<inputs.quicksight.AnalysisPercentVisibleRangeArgs>;
+    }
+
+    export interface AnalysisVisualArgs {
+        barChartVisual?: pulumi.Input<inputs.quicksight.AnalysisBarChartVisualArgs>;
+        boxPlotVisual?: pulumi.Input<inputs.quicksight.AnalysisBoxPlotVisualArgs>;
+        comboChartVisual?: pulumi.Input<inputs.quicksight.AnalysisComboChartVisualArgs>;
+        customContentVisual?: pulumi.Input<inputs.quicksight.AnalysisCustomContentVisualArgs>;
+        emptyVisual?: pulumi.Input<inputs.quicksight.AnalysisEmptyVisualArgs>;
+        filledMapVisual?: pulumi.Input<inputs.quicksight.AnalysisFilledMapVisualArgs>;
+        funnelChartVisual?: pulumi.Input<inputs.quicksight.AnalysisFunnelChartVisualArgs>;
+        gaugeChartVisual?: pulumi.Input<inputs.quicksight.AnalysisGaugeChartVisualArgs>;
+        geospatialMapVisual?: pulumi.Input<inputs.quicksight.AnalysisGeospatialMapVisualArgs>;
+        heatMapVisual?: pulumi.Input<inputs.quicksight.AnalysisHeatMapVisualArgs>;
+        histogramVisual?: pulumi.Input<inputs.quicksight.AnalysisHistogramVisualArgs>;
+        insightVisual?: pulumi.Input<inputs.quicksight.AnalysisInsightVisualArgs>;
+        kPIVisual?: pulumi.Input<inputs.quicksight.AnalysisKPIVisualArgs>;
+        lineChartVisual?: pulumi.Input<inputs.quicksight.AnalysisLineChartVisualArgs>;
+        pieChartVisual?: pulumi.Input<inputs.quicksight.AnalysisPieChartVisualArgs>;
+        pivotTableVisual?: pulumi.Input<inputs.quicksight.AnalysisPivotTableVisualArgs>;
+        radarChartVisual?: pulumi.Input<inputs.quicksight.AnalysisRadarChartVisualArgs>;
+        sankeyDiagramVisual?: pulumi.Input<inputs.quicksight.AnalysisSankeyDiagramVisualArgs>;
+        scatterPlotVisual?: pulumi.Input<inputs.quicksight.AnalysisScatterPlotVisualArgs>;
+        tableVisual?: pulumi.Input<inputs.quicksight.AnalysisTableVisualArgs>;
+        treeMapVisual?: pulumi.Input<inputs.quicksight.AnalysisTreeMapVisualArgs>;
+        waterfallVisual?: pulumi.Input<inputs.quicksight.AnalysisWaterfallVisualArgs>;
+        wordCloudVisual?: pulumi.Input<inputs.quicksight.AnalysisWordCloudVisualArgs>;
+    }
+
+    export interface AnalysisVisualCustomActionArgs {
+        actionOperations: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionOperationArgs>[]>;
+        customActionId: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        status?: pulumi.Input<enums.quicksight.AnalysisWidgetStatus>;
+        trigger: pulumi.Input<enums.quicksight.AnalysisVisualCustomActionTrigger>;
+    }
+
+    export interface AnalysisVisualCustomActionOperationArgs {
+        filterOperation?: pulumi.Input<inputs.quicksight.AnalysisCustomActionFilterOperationArgs>;
+        navigationOperation?: pulumi.Input<inputs.quicksight.AnalysisCustomActionNavigationOperationArgs>;
+        setParametersOperation?: pulumi.Input<inputs.quicksight.AnalysisCustomActionSetParametersOperationArgs>;
+        uRLOperation?: pulumi.Input<inputs.quicksight.AnalysisCustomActionURLOperationArgs>;
+    }
+
+    export interface AnalysisVisualPaletteArgs {
+        chartColor?: pulumi.Input<string>;
+        colorMap?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDataPathColorArgs>[]>;
+    }
+
+    export interface AnalysisVisualSubtitleLabelOptionsArgs {
+        formatText?: pulumi.Input<inputs.quicksight.AnalysisLongFormatTextArgs>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisVisualTitleLabelOptionsArgs {
+        formatText?: pulumi.Input<inputs.quicksight.AnalysisShortFormatTextArgs>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
+    }
+
+    export interface AnalysisWaterfallChartAggregatedFieldWellsArgs {
+        breakdowns?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        categories?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisWaterfallChartConfigurationArgs {
+        categoryAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        categoryAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisWaterfallChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisWaterfallChartSortConfigurationArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs>;
+        waterfallChartOptions?: pulumi.Input<inputs.quicksight.AnalysisWaterfallChartOptionsArgs>;
+    }
+
+    export interface AnalysisWaterfallChartFieldWellsArgs {
+        waterfallChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisWaterfallChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisWaterfallChartOptionsArgs {
+        totalBarLabel?: pulumi.Input<string>;
+    }
+
+    export interface AnalysisWaterfallChartSortConfigurationArgs {
+        breakdownItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisWaterfallVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisWaterfallChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisWhatIfPointScenarioArgs {
+        date: pulumi.Input<string>;
+        value: pulumi.Input<number>;
+    }
+
+    export interface AnalysisWhatIfRangeScenarioArgs {
+        endDate: pulumi.Input<string>;
+        startDate: pulumi.Input<string>;
+        value: pulumi.Input<number>;
+    }
+
+    export interface AnalysisWordCloudAggregatedFieldWellsArgs {
+        groupBy?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        size?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
+    }
+
+    export interface AnalysisWordCloudChartConfigurationArgs {
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.AnalysisWordCloudFieldWellsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisWordCloudSortConfigurationArgs>;
+        wordCloudOptions?: pulumi.Input<inputs.quicksight.AnalysisWordCloudOptionsArgs>;
+    }
+
+    export interface AnalysisWordCloudFieldWellsArgs {
+        wordCloudAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisWordCloudAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisWordCloudOptionsArgs {
+        cloudLayout?: pulumi.Input<enums.quicksight.AnalysisWordCloudCloudLayout>;
+        maximumStringLength?: pulumi.Input<number>;
+        wordCasing?: pulumi.Input<enums.quicksight.AnalysisWordCloudWordCasing>;
+        wordOrientation?: pulumi.Input<enums.quicksight.AnalysisWordCloudWordOrientation>;
+        wordPadding?: pulumi.Input<enums.quicksight.AnalysisWordCloudWordPadding>;
+        wordScaling?: pulumi.Input<enums.quicksight.AnalysisWordCloudWordScaling>;
+    }
+
+    export interface AnalysisWordCloudSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.AnalysisItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFieldSortOptionsArgs>[]>;
+    }
+
+    export interface AnalysisWordCloudVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.AnalysisWordCloudChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
     export interface DashboardAdHocFilteringOptionArgs {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
     }
 
-    /**
-     * <p>Dataset reference.</p>
-     */
-    export interface DashboardDataSetReferenceArgs {
+    export interface DashboardAggregationFunctionArgs {
+        categoricalAggregationFunction?: pulumi.Input<enums.quicksight.DashboardCategoricalAggregationFunction>;
+        dateAggregationFunction?: pulumi.Input<enums.quicksight.DashboardDateAggregationFunction>;
+        numericalAggregationFunction?: pulumi.Input<inputs.quicksight.DashboardNumericalAggregationFunctionArgs>;
+    }
+
+    export interface DashboardAggregationSortConfigurationArgs {
+        aggregationFunction: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        sortDirection: pulumi.Input<enums.quicksight.DashboardSortDirection>;
+    }
+
+    export interface DashboardAnalysisDefaultsArgs {
+        defaultNewSheetConfiguration: pulumi.Input<inputs.quicksight.DashboardDefaultNewSheetConfigurationArgs>;
+    }
+
+    export interface DashboardAnchorDateConfigurationArgs {
+        anchorOption?: pulumi.Input<enums.quicksight.DashboardAnchorOption>;
+        parameterName?: pulumi.Input<string>;
+    }
+
+    export interface DashboardArcAxisConfigurationArgs {
+        range?: pulumi.Input<inputs.quicksight.DashboardArcAxisDisplayRangeArgs>;
+        reserveRange?: pulumi.Input<number>;
+    }
+
+    export interface DashboardArcAxisDisplayRangeArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface DashboardArcConfigurationArgs {
+        arcAngle?: pulumi.Input<number>;
+        arcThickness?: pulumi.Input<enums.quicksight.DashboardArcThicknessOptions>;
+    }
+
+    export interface DashboardArcOptionsArgs {
+        arcThickness?: pulumi.Input<enums.quicksight.DashboardArcThickness>;
+    }
+
+    export interface DashboardAxisDataOptionsArgs {
+        dateAxisOptions?: pulumi.Input<inputs.quicksight.DashboardDateAxisOptionsArgs>;
+        numericAxisOptions?: pulumi.Input<inputs.quicksight.DashboardNumericAxisOptionsArgs>;
+    }
+
+    export interface DashboardAxisDisplayDataDrivenRangeArgs {
+    }
+
+    export interface DashboardAxisDisplayMinMaxRangeArgs {
+        maximum?: pulumi.Input<number>;
+        minimum?: pulumi.Input<number>;
+    }
+
+    export interface DashboardAxisDisplayOptionsArgs {
+        axisLineVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
         /**
-         * <p>Dataset Amazon Resource Name (ARN).</p>
+         * String based length that is composed of value and unit in px
          */
+        axisOffset?: pulumi.Input<string>;
+        dataOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDataOptionsArgs>;
+        gridLineVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        scrollbarOptions?: pulumi.Input<inputs.quicksight.DashboardScrollBarOptionsArgs>;
+        tickLabelOptions?: pulumi.Input<inputs.quicksight.DashboardAxisTickLabelOptionsArgs>;
+    }
+
+    export interface DashboardAxisDisplayRangeArgs {
+        dataDriven?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayDataDrivenRangeArgs>;
+        minMax?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayMinMaxRangeArgs>;
+    }
+
+    export interface DashboardAxisLabelOptionsArgs {
+        applyTo?: pulumi.Input<inputs.quicksight.DashboardAxisLabelReferenceOptionsArgs>;
+        customLabel?: pulumi.Input<string>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+    }
+
+    export interface DashboardAxisLabelReferenceOptionsArgs {
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+    }
+
+    export interface DashboardAxisLinearScaleArgs {
+        stepCount?: pulumi.Input<number>;
+        stepSize?: pulumi.Input<number>;
+    }
+
+    export interface DashboardAxisLogarithmicScaleArgs {
+        base?: pulumi.Input<number>;
+    }
+
+    export interface DashboardAxisScaleArgs {
+        linear?: pulumi.Input<inputs.quicksight.DashboardAxisLinearScaleArgs>;
+        logarithmic?: pulumi.Input<inputs.quicksight.DashboardAxisLogarithmicScaleArgs>;
+    }
+
+    export interface DashboardAxisTickLabelOptionsArgs {
+        labelOptions?: pulumi.Input<inputs.quicksight.DashboardLabelOptionsArgs>;
+        rotationAngle?: pulumi.Input<number>;
+    }
+
+    export interface DashboardBarChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        smallMultiples?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardBarChartConfigurationArgs {
+        barsArrangement?: pulumi.Input<enums.quicksight.DashboardBarsArrangement>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        contributionAnalysisDefaults?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardContributionAnalysisDefaultArgs>[]>;
+        dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardBarChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        orientation?: pulumi.Input<enums.quicksight.DashboardBarChartOrientation>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardReferenceLineArgs>[]>;
+        smallMultiplesOptions?: pulumi.Input<inputs.quicksight.DashboardSmallMultiplesOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardBarChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+        valueAxis?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        valueLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+    }
+
+    export interface DashboardBarChartFieldWellsArgs {
+        barChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardBarChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardBarChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+        colorItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        colorSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+        smallMultiplesLimitConfiguration?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        smallMultiplesSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardBarChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardBarChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardBinCountOptionsArgs {
+        value?: pulumi.Input<number>;
+    }
+
+    export interface DashboardBinWidthOptionsArgs {
+        binCountLimit?: pulumi.Input<number>;
+        value?: pulumi.Input<number>;
+    }
+
+    export interface DashboardBodySectionConfigurationArgs {
+        content: pulumi.Input<inputs.quicksight.DashboardBodySectionContentArgs>;
+        pageBreakConfiguration?: pulumi.Input<inputs.quicksight.DashboardSectionPageBreakConfigurationArgs>;
+        sectionId: pulumi.Input<string>;
+        style?: pulumi.Input<inputs.quicksight.DashboardSectionStyleArgs>;
+    }
+
+    export interface DashboardBodySectionContentArgs {
+        layout?: pulumi.Input<inputs.quicksight.DashboardSectionLayoutConfigurationArgs>;
+    }
+
+    export interface DashboardBoxPlotAggregatedFieldWellsArgs {
+        groupBy?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardBoxPlotChartConfigurationArgs {
+        boxPlotOptions?: pulumi.Input<inputs.quicksight.DashboardBoxPlotOptionsArgs>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardBoxPlotFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardReferenceLineArgs>[]>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardBoxPlotSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+    }
+
+    export interface DashboardBoxPlotFieldWellsArgs {
+        boxPlotAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardBoxPlotAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardBoxPlotOptionsArgs {
+        allDataPointsVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        outlierVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        styleOptions?: pulumi.Input<inputs.quicksight.DashboardBoxPlotStyleOptionsArgs>;
+    }
+
+    export interface DashboardBoxPlotSortConfigurationArgs {
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+        paginationConfiguration?: pulumi.Input<inputs.quicksight.DashboardPaginationConfigurationArgs>;
+    }
+
+    export interface DashboardBoxPlotStyleOptionsArgs {
+        fillStyle?: pulumi.Input<enums.quicksight.DashboardBoxPlotFillStyle>;
+    }
+
+    export interface DashboardBoxPlotVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardBoxPlotChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardCalculatedFieldArgs {
+        dataSetIdentifier: pulumi.Input<string>;
+        expression: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+    }
+
+    export interface DashboardCalculatedMeasureFieldArgs {
+        expression: pulumi.Input<string>;
+        fieldId: pulumi.Input<string>;
+    }
+
+    export interface DashboardCascadingControlConfigurationArgs {
+        sourceControls?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardCascadingControlSourceArgs>[]>;
+    }
+
+    export interface DashboardCascadingControlSourceArgs {
+        columnToMatch?: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        sourceSheetControlId?: pulumi.Input<string>;
+    }
+
+    export interface DashboardCategoricalDimensionFieldArgs {
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardStringFormatConfigurationArgs>;
+        hierarchyId?: pulumi.Input<string>;
+    }
+
+    export interface DashboardCategoricalMeasureFieldArgs {
+        aggregationFunction?: pulumi.Input<enums.quicksight.DashboardCategoricalAggregationFunction>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardStringFormatConfigurationArgs>;
+    }
+
+    export interface DashboardCategoryDrillDownFilterArgs {
+        categoryValues: pulumi.Input<pulumi.Input<string>[]>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+    }
+
+    export interface DashboardCategoryFilterArgs {
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        configuration: pulumi.Input<inputs.quicksight.DashboardCategoryFilterConfigurationArgs>;
+        filterId: pulumi.Input<string>;
+    }
+
+    export interface DashboardCategoryFilterConfigurationArgs {
+        customFilterConfiguration?: pulumi.Input<inputs.quicksight.DashboardCustomFilterConfigurationArgs>;
+        customFilterListConfiguration?: pulumi.Input<inputs.quicksight.DashboardCustomFilterListConfigurationArgs>;
+        filterListConfiguration?: pulumi.Input<inputs.quicksight.DashboardFilterListConfigurationArgs>;
+    }
+
+    export interface DashboardChartAxisLabelOptionsArgs {
+        axisLabelOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardAxisLabelOptionsArgs>[]>;
+        sortIconVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardClusterMarkerArgs {
+        simpleClusterMarker?: pulumi.Input<inputs.quicksight.DashboardSimpleClusterMarkerArgs>;
+    }
+
+    export interface DashboardClusterMarkerConfigurationArgs {
+        clusterMarker?: pulumi.Input<inputs.quicksight.DashboardClusterMarkerArgs>;
+    }
+
+    export interface DashboardColorScaleArgs {
+        colorFillType: pulumi.Input<enums.quicksight.DashboardColorFillType>;
+        colors: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataColorArgs>[]>;
+        nullValueColor?: pulumi.Input<inputs.quicksight.DashboardDataColorArgs>;
+    }
+
+    export interface DashboardColorsConfigurationArgs {
+        customColors?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardCustomColorArgs>[]>;
+    }
+
+    export interface DashboardColumnConfigurationArgs {
+        colorsConfiguration?: pulumi.Input<inputs.quicksight.DashboardColorsConfigurationArgs>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardFormatConfigurationArgs>;
+        role?: pulumi.Input<enums.quicksight.DashboardColumnRole>;
+    }
+
+    export interface DashboardColumnHierarchyArgs {
+        dateTimeHierarchy?: pulumi.Input<inputs.quicksight.DashboardDateTimeHierarchyArgs>;
+        explicitHierarchy?: pulumi.Input<inputs.quicksight.DashboardExplicitHierarchyArgs>;
+        predefinedHierarchy?: pulumi.Input<inputs.quicksight.DashboardPredefinedHierarchyArgs>;
+    }
+
+    export interface DashboardColumnIdentifierArgs {
+        columnName: pulumi.Input<string>;
+        dataSetIdentifier: pulumi.Input<string>;
+    }
+
+    export interface DashboardColumnSortArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
+        direction: pulumi.Input<enums.quicksight.DashboardSortDirection>;
+        sortBy: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+    }
+
+    export interface DashboardColumnTooltipItemArgs {
+        aggregation?: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        label?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardComboChartAggregatedFieldWellsArgs {
+        barValues?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        lineValues?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardComboChartConfigurationArgs {
+        barDataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        barsArrangement?: pulumi.Input<enums.quicksight.DashboardBarsArrangement>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardComboChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        lineDataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardReferenceLineArgs>[]>;
+        secondaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        secondaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardComboChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+    }
+
+    export interface DashboardComboChartFieldWellsArgs {
+        comboChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardComboChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardComboChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+        colorItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        colorSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardComboChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardComboChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardComparisonConfigurationArgs {
+        comparisonFormat?: pulumi.Input<inputs.quicksight.DashboardComparisonFormatConfigurationArgs>;
+        comparisonMethod?: pulumi.Input<enums.quicksight.DashboardComparisonMethod>;
+    }
+
+    export interface DashboardComparisonFormatConfigurationArgs {
+        numberDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumberDisplayFormatConfigurationArgs>;
+        percentageDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardPercentageDisplayFormatConfigurationArgs>;
+    }
+
+    export interface DashboardComputationArgs {
+        forecast?: pulumi.Input<inputs.quicksight.DashboardForecastComputationArgs>;
+        growthRate?: pulumi.Input<inputs.quicksight.DashboardGrowthRateComputationArgs>;
+        maximumMinimum?: pulumi.Input<inputs.quicksight.DashboardMaximumMinimumComputationArgs>;
+        metricComparison?: pulumi.Input<inputs.quicksight.DashboardMetricComparisonComputationArgs>;
+        periodOverPeriod?: pulumi.Input<inputs.quicksight.DashboardPeriodOverPeriodComputationArgs>;
+        periodToDate?: pulumi.Input<inputs.quicksight.DashboardPeriodToDateComputationArgs>;
+        topBottomMovers?: pulumi.Input<inputs.quicksight.DashboardTopBottomMoversComputationArgs>;
+        topBottomRanked?: pulumi.Input<inputs.quicksight.DashboardTopBottomRankedComputationArgs>;
+        totalAggregation?: pulumi.Input<inputs.quicksight.DashboardTotalAggregationComputationArgs>;
+        uniqueValues?: pulumi.Input<inputs.quicksight.DashboardUniqueValuesComputationArgs>;
+    }
+
+    export interface DashboardConditionalFormattingColorArgs {
+        gradient?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingGradientColorArgs>;
+        solid?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingSolidColorArgs>;
+    }
+
+    export interface DashboardConditionalFormattingCustomIconConditionArgs {
+        color?: pulumi.Input<string>;
+        displayConfiguration?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingIconDisplayConfigurationArgs>;
+        expression: pulumi.Input<string>;
+        iconOptions: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingCustomIconOptionsArgs>;
+    }
+
+    export interface DashboardConditionalFormattingCustomIconOptionsArgs {
+        icon?: pulumi.Input<enums.quicksight.DashboardIcon>;
+        unicodeIcon?: pulumi.Input<string>;
+    }
+
+    export interface DashboardConditionalFormattingGradientColorArgs {
+        color: pulumi.Input<inputs.quicksight.DashboardGradientColorArgs>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface DashboardConditionalFormattingIconArgs {
+        customCondition?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingCustomIconConditionArgs>;
+        iconSet?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingIconSetArgs>;
+    }
+
+    export interface DashboardConditionalFormattingIconDisplayConfigurationArgs {
+        iconDisplayOption?: pulumi.Input<enums.quicksight.DashboardConditionalFormattingIconDisplayOption>;
+    }
+
+    export interface DashboardConditionalFormattingIconSetArgs {
+        expression: pulumi.Input<string>;
+        iconSetType?: pulumi.Input<enums.quicksight.DashboardConditionalFormattingIconSetType>;
+    }
+
+    export interface DashboardConditionalFormattingSolidColorArgs {
+        color?: pulumi.Input<string>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface DashboardContributionAnalysisDefaultArgs {
+        contributorDimensions: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>[]>;
+        measureFieldId: pulumi.Input<string>;
+    }
+
+    export interface DashboardCurrencyDisplayFormatConfigurationArgs {
+        decimalPlacesConfiguration?: pulumi.Input<inputs.quicksight.DashboardDecimalPlacesConfigurationArgs>;
+        negativeValueConfiguration?: pulumi.Input<inputs.quicksight.DashboardNegativeValueConfigurationArgs>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNullValueFormatConfigurationArgs>;
+        numberScale?: pulumi.Input<enums.quicksight.DashboardNumberScale>;
+        prefix?: pulumi.Input<string>;
+        separatorConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumericSeparatorConfigurationArgs>;
+        suffix?: pulumi.Input<string>;
+        symbol?: pulumi.Input<string>;
+    }
+
+    export interface DashboardCustomActionFilterOperationArgs {
+        selectedFieldsConfiguration: pulumi.Input<inputs.quicksight.DashboardFilterOperationSelectedFieldsConfigurationArgs>;
+        targetVisualsConfiguration: pulumi.Input<inputs.quicksight.DashboardFilterOperationTargetVisualsConfigurationArgs>;
+    }
+
+    export interface DashboardCustomActionNavigationOperationArgs {
+        localNavigationConfiguration?: pulumi.Input<inputs.quicksight.DashboardLocalNavigationConfigurationArgs>;
+    }
+
+    export interface DashboardCustomActionSetParametersOperationArgs {
+        parameterValueConfigurations: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSetParameterValueConfigurationArgs>[]>;
+    }
+
+    export interface DashboardCustomActionURLOperationArgs {
+        uRLTarget: pulumi.Input<enums.quicksight.DashboardURLTargetConfiguration>;
+        uRLTemplate: pulumi.Input<string>;
+    }
+
+    export interface DashboardCustomColorArgs {
+        color: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        specialValue?: pulumi.Input<enums.quicksight.DashboardSpecialValue>;
+    }
+
+    export interface DashboardCustomContentConfigurationArgs {
+        contentType?: pulumi.Input<enums.quicksight.DashboardCustomContentType>;
+        contentUrl?: pulumi.Input<string>;
+        imageScaling?: pulumi.Input<enums.quicksight.DashboardCustomContentImageScalingConfiguration>;
+    }
+
+    export interface DashboardCustomContentVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardCustomContentConfigurationArgs>;
+        dataSetIdentifier: pulumi.Input<string>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardCustomFilterConfigurationArgs {
+        categoryValue?: pulumi.Input<string>;
+        matchOperator: pulumi.Input<enums.quicksight.DashboardCategoryFilterMatchOperator>;
+        nullOption: pulumi.Input<enums.quicksight.DashboardFilterNullOption>;
+        parameterName?: pulumi.Input<string>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.DashboardCategoryFilterSelectAllOptions>;
+    }
+
+    export interface DashboardCustomFilterListConfigurationArgs {
+        categoryValues?: pulumi.Input<pulumi.Input<string>[]>;
+        matchOperator: pulumi.Input<enums.quicksight.DashboardCategoryFilterMatchOperator>;
+        nullOption: pulumi.Input<enums.quicksight.DashboardFilterNullOption>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.DashboardCategoryFilterSelectAllOptions>;
+    }
+
+    export interface DashboardCustomNarrativeOptionsArgs {
+        narrative: pulumi.Input<string>;
+    }
+
+    export interface DashboardCustomParameterValuesArgs {
+        dateTimeValues?: pulumi.Input<pulumi.Input<string>[]>;
+        decimalValues?: pulumi.Input<pulumi.Input<number>[]>;
+        integerValues?: pulumi.Input<pulumi.Input<number>[]>;
+        stringValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DashboardCustomValuesConfigurationArgs {
+        customValues: pulumi.Input<inputs.quicksight.DashboardCustomParameterValuesArgs>;
+        includeNullValue?: pulumi.Input<boolean>;
+    }
+
+    export interface DashboardDataBarsOptionsArgs {
+        fieldId: pulumi.Input<string>;
+        negativeColor?: pulumi.Input<string>;
+        positiveColor?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDataColorArgs {
+        color?: pulumi.Input<string>;
+        dataValue?: pulumi.Input<number>;
+    }
+
+    export interface DashboardDataFieldSeriesItemArgs {
+        axisBinding: pulumi.Input<enums.quicksight.DashboardAxisBinding>;
+        fieldId: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        settings?: pulumi.Input<inputs.quicksight.DashboardLineChartSeriesSettingsArgs>;
+    }
+
+    export interface DashboardDataLabelOptionsArgs {
+        categoryLabelVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        dataLabelTypes?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataLabelTypeArgs>[]>;
+        labelColor?: pulumi.Input<string>;
+        labelContent?: pulumi.Input<enums.quicksight.DashboardDataLabelContent>;
+        labelFontConfiguration?: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+        measureLabelVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        overlap?: pulumi.Input<enums.quicksight.DashboardDataLabelOverlap>;
+        position?: pulumi.Input<enums.quicksight.DashboardDataLabelPosition>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardDataLabelTypeArgs {
+        dataPathLabelType?: pulumi.Input<inputs.quicksight.DashboardDataPathLabelTypeArgs>;
+        fieldLabelType?: pulumi.Input<inputs.quicksight.DashboardFieldLabelTypeArgs>;
+        maximumLabelType?: pulumi.Input<inputs.quicksight.DashboardMaximumLabelTypeArgs>;
+        minimumLabelType?: pulumi.Input<inputs.quicksight.DashboardMinimumLabelTypeArgs>;
+        rangeEndsLabelType?: pulumi.Input<inputs.quicksight.DashboardRangeEndsLabelTypeArgs>;
+    }
+
+    export interface DashboardDataPathColorArgs {
+        color: pulumi.Input<string>;
+        element: pulumi.Input<inputs.quicksight.DashboardDataPathValueArgs>;
+        timeGranularity?: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
+    }
+
+    export interface DashboardDataPathLabelTypeArgs {
+        fieldId?: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardDataPathSortArgs {
+        direction: pulumi.Input<enums.quicksight.DashboardSortDirection>;
+        sortPaths: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataPathValueArgs>[]>;
+    }
+
+    export interface DashboardDataPathValueArgs {
+        fieldId: pulumi.Input<string>;
+        fieldValue: pulumi.Input<string>;
+    }
+
+    export interface DashboardDataPointDrillUpDownOptionArgs {
+        availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
+    }
+
+    export interface DashboardDataPointMenuLabelOptionArgs {
+        availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
+    }
+
+    export interface DashboardDataPointTooltipOptionArgs {
+        availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
+    }
+
+    export interface DashboardDataSetIdentifierDeclarationArgs {
         dataSetArn: pulumi.Input<string>;
-        /**
-         * <p>Dataset placeholder.</p>
-         */
+        identifier: pulumi.Input<string>;
+    }
+
+    export interface DashboardDataSetReferenceArgs {
+        dataSetArn: pulumi.Input<string>;
         dataSetPlaceholder: pulumi.Input<string>;
     }
 
-    /**
-     * <p>A date-time parameter.</p>
-     */
+    export interface DashboardDateAxisOptionsArgs {
+        missingDateVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardDateDimensionFieldArgs {
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        dateGranularity?: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardDateTimeFormatConfigurationArgs>;
+        hierarchyId?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDateMeasureFieldArgs {
+        aggregationFunction?: pulumi.Input<enums.quicksight.DashboardDateAggregationFunction>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardDateTimeFormatConfigurationArgs>;
+    }
+
+    export interface DashboardDateTimeDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.DashboardDynamicDefaultValueArgs>;
+        rollingDate?: pulumi.Input<inputs.quicksight.DashboardRollingDateConfigurationArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DashboardDateTimeFormatConfigurationArgs {
+        dateTimeFormat?: pulumi.Input<string>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNullValueFormatConfigurationArgs>;
+        numericFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumericFormatConfigurationArgs>;
+    }
+
+    export interface DashboardDateTimeHierarchyArgs {
+        drillDownFilters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDrillDownFilterArgs>[]>;
+        hierarchyId: pulumi.Input<string>;
+    }
+
     export interface DashboardDateTimeParameterArgs {
-        /**
-         * <p>A display name for the date-time parameter.</p>
-         */
         name: pulumi.Input<string>;
-        /**
-         * <p>The values for the date-time parameter.</p>
-         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    /**
-     * <p>A decimal parameter.</p>
-     */
-    export interface DashboardDecimalParameterArgs {
-        /**
-         * <p>A display name for the decimal parameter.</p>
-         */
+    export interface DashboardDateTimeParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.DashboardDateTimeDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMappedDataSetParameterArgs>[]>;
         name: pulumi.Input<string>;
-        /**
-         * <p>The values for the decimal parameter.</p>
-         */
+        timeGranularity?: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.DashboardDateTimeValueWhenUnsetConfigurationArgs>;
+    }
+
+    export interface DashboardDateTimePickerControlDisplayOptionsArgs {
+        dateTimeFormat?: pulumi.Input<string>;
+        titleOptions?: pulumi.Input<inputs.quicksight.DashboardLabelOptionsArgs>;
+    }
+
+    export interface DashboardDateTimeValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<string>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.DashboardValueWhenUnsetOption>;
+    }
+
+    export interface DashboardDecimalDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.DashboardDynamicDefaultValueArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface DashboardDecimalParameterArgs {
+        name: pulumi.Input<string>;
         values: pulumi.Input<pulumi.Input<number>[]>;
     }
 
-    /**
-     * <p>Export to .csv option.</p>
-     */
+    export interface DashboardDecimalParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.DashboardDecimalDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMappedDataSetParameterArgs>[]>;
+        name: pulumi.Input<string>;
+        parameterValueType: pulumi.Input<enums.quicksight.DashboardParameterValueType>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.DashboardDecimalValueWhenUnsetConfigurationArgs>;
+    }
+
+    export interface DashboardDecimalPlacesConfigurationArgs {
+        decimalPlaces: pulumi.Input<number>;
+    }
+
+    export interface DashboardDecimalValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<number>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.DashboardValueWhenUnsetOption>;
+    }
+
+    export interface DashboardDefaultFreeFormLayoutConfigurationArgs {
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.DashboardFreeFormLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface DashboardDefaultGridLayoutConfigurationArgs {
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.DashboardGridLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface DashboardDefaultInteractiveLayoutConfigurationArgs {
+        freeForm?: pulumi.Input<inputs.quicksight.DashboardDefaultFreeFormLayoutConfigurationArgs>;
+        grid?: pulumi.Input<inputs.quicksight.DashboardDefaultGridLayoutConfigurationArgs>;
+    }
+
+    export interface DashboardDefaultNewSheetConfigurationArgs {
+        interactiveLayoutConfiguration?: pulumi.Input<inputs.quicksight.DashboardDefaultInteractiveLayoutConfigurationArgs>;
+        paginatedLayoutConfiguration?: pulumi.Input<inputs.quicksight.DashboardDefaultPaginatedLayoutConfigurationArgs>;
+        sheetContentType?: pulumi.Input<enums.quicksight.DashboardSheetContentType>;
+    }
+
+    export interface DashboardDefaultPaginatedLayoutConfigurationArgs {
+        sectionBased?: pulumi.Input<inputs.quicksight.DashboardDefaultSectionBasedLayoutConfigurationArgs>;
+    }
+
+    export interface DashboardDefaultSectionBasedLayoutConfigurationArgs {
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.DashboardSectionBasedLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface DashboardDestinationParameterValueConfigurationArgs {
+        customValuesConfiguration?: pulumi.Input<inputs.quicksight.DashboardCustomValuesConfigurationArgs>;
+        selectAllValueOptions?: pulumi.Input<enums.quicksight.DashboardSelectAllValueOptions>;
+        sourceField?: pulumi.Input<string>;
+        sourceParameterName?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDimensionFieldArgs {
+        categoricalDimensionField?: pulumi.Input<inputs.quicksight.DashboardCategoricalDimensionFieldArgs>;
+        dateDimensionField?: pulumi.Input<inputs.quicksight.DashboardDateDimensionFieldArgs>;
+        numericalDimensionField?: pulumi.Input<inputs.quicksight.DashboardNumericalDimensionFieldArgs>;
+    }
+
+    export interface DashboardDonutCenterOptionsArgs {
+        labelVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardDonutOptionsArgs {
+        arcOptions?: pulumi.Input<inputs.quicksight.DashboardArcOptionsArgs>;
+        donutCenterOptions?: pulumi.Input<inputs.quicksight.DashboardDonutCenterOptionsArgs>;
+    }
+
+    export interface DashboardDrillDownFilterArgs {
+        categoryFilter?: pulumi.Input<inputs.quicksight.DashboardCategoryDrillDownFilterArgs>;
+        numericEqualityFilter?: pulumi.Input<inputs.quicksight.DashboardNumericEqualityDrillDownFilterArgs>;
+        timeRangeFilter?: pulumi.Input<inputs.quicksight.DashboardTimeRangeDrillDownFilterArgs>;
+    }
+
+    export interface DashboardDropDownControlDisplayOptionsArgs {
+        selectAllOptions?: pulumi.Input<inputs.quicksight.DashboardListControlSelectAllOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.DashboardLabelOptionsArgs>;
+    }
+
+    export interface DashboardDynamicDefaultValueArgs {
+        defaultValueColumn: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        groupNameColumn?: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        userNameColumn?: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+    }
+
+    export interface DashboardEmptyVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        dataSetIdentifier: pulumi.Input<string>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardExcludePeriodConfigurationArgs {
+        amount: pulumi.Input<number>;
+        granularity: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
+        status?: pulumi.Input<enums.quicksight.DashboardWidgetStatus>;
+    }
+
+    export interface DashboardExplicitHierarchyArgs {
+        columns: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>[]>;
+        drillDownFilters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDrillDownFilterArgs>[]>;
+        hierarchyId: pulumi.Input<string>;
+    }
+
+    export interface DashboardExportHiddenFieldsOptionArgs {
+        availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
+    }
+
     export interface DashboardExportToCSVOptionArgs {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
     }
 
-    /**
-     * <p>An integer parameter.</p>
-     */
+    export interface DashboardExportWithHiddenFieldsOptionArgs {
+        availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
+    }
+
+    export interface DashboardFieldBasedTooltipArgs {
+        aggregationVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        tooltipFields?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardTooltipItemArgs>[]>;
+        tooltipTitleType?: pulumi.Input<enums.quicksight.DashboardTooltipTitleType>;
+    }
+
+    export interface DashboardFieldLabelTypeArgs {
+        fieldId?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardFieldSeriesItemArgs {
+        axisBinding: pulumi.Input<enums.quicksight.DashboardAxisBinding>;
+        fieldId: pulumi.Input<string>;
+        settings?: pulumi.Input<inputs.quicksight.DashboardLineChartSeriesSettingsArgs>;
+    }
+
+    export interface DashboardFieldSortArgs {
+        direction: pulumi.Input<enums.quicksight.DashboardSortDirection>;
+        fieldId: pulumi.Input<string>;
+    }
+
+    export interface DashboardFieldSortOptionsArgs {
+        columnSort?: pulumi.Input<inputs.quicksight.DashboardColumnSortArgs>;
+        fieldSort?: pulumi.Input<inputs.quicksight.DashboardFieldSortArgs>;
+    }
+
+    export interface DashboardFieldTooltipItemArgs {
+        fieldId: pulumi.Input<string>;
+        label?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardFilledMapAggregatedFieldWellsArgs {
+        geospatial?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardFilledMapConditionalFormattingArgs {
+        conditionalFormattingOptions: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFilledMapConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface DashboardFilledMapConditionalFormattingOptionArgs {
+        shape: pulumi.Input<inputs.quicksight.DashboardFilledMapShapeConditionalFormattingArgs>;
+    }
+
+    export interface DashboardFilledMapConfigurationArgs {
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardFilledMapFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        mapStyleOptions?: pulumi.Input<inputs.quicksight.DashboardGeospatialMapStyleOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardFilledMapSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+        windowOptions?: pulumi.Input<inputs.quicksight.DashboardGeospatialWindowOptionsArgs>;
+    }
+
+    export interface DashboardFilledMapFieldWellsArgs {
+        filledMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardFilledMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardFilledMapShapeConditionalFormattingArgs {
+        fieldId: pulumi.Input<string>;
+        format?: pulumi.Input<inputs.quicksight.DashboardShapeConditionalFormatArgs>;
+    }
+
+    export interface DashboardFilledMapSortConfigurationArgs {
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardFilledMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardFilledMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.DashboardFilledMapConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardFilterArgs {
+        categoryFilter?: pulumi.Input<inputs.quicksight.DashboardCategoryFilterArgs>;
+        numericEqualityFilter?: pulumi.Input<inputs.quicksight.DashboardNumericEqualityFilterArgs>;
+        numericRangeFilter?: pulumi.Input<inputs.quicksight.DashboardNumericRangeFilterArgs>;
+        relativeDatesFilter?: pulumi.Input<inputs.quicksight.DashboardRelativeDatesFilterArgs>;
+        timeEqualityFilter?: pulumi.Input<inputs.quicksight.DashboardTimeEqualityFilterArgs>;
+        timeRangeFilter?: pulumi.Input<inputs.quicksight.DashboardTimeRangeFilterArgs>;
+        topBottomFilter?: pulumi.Input<inputs.quicksight.DashboardTopBottomFilterArgs>;
+    }
+
+    export interface DashboardFilterControlArgs {
+        dateTimePicker?: pulumi.Input<inputs.quicksight.DashboardFilterDateTimePickerControlArgs>;
+        dropdown?: pulumi.Input<inputs.quicksight.DashboardFilterDropDownControlArgs>;
+        list?: pulumi.Input<inputs.quicksight.DashboardFilterListControlArgs>;
+        relativeDateTime?: pulumi.Input<inputs.quicksight.DashboardFilterRelativeDateTimeControlArgs>;
+        slider?: pulumi.Input<inputs.quicksight.DashboardFilterSliderControlArgs>;
+        textArea?: pulumi.Input<inputs.quicksight.DashboardFilterTextAreaControlArgs>;
+        textField?: pulumi.Input<inputs.quicksight.DashboardFilterTextFieldControlArgs>;
+    }
+
+    export interface DashboardFilterDateTimePickerControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardDateTimePickerControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.DashboardSheetControlDateTimePickerType>;
+    }
+
+    export interface DashboardFilterDropDownControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardDropDownControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.DashboardFilterSelectableValuesArgs>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.DashboardSheetControlListType>;
+    }
+
+    export interface DashboardFilterGroupArgs {
+        crossDataset: pulumi.Input<enums.quicksight.DashboardCrossDatasetTypes>;
+        filterGroupId: pulumi.Input<string>;
+        filters: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFilterArgs>[]>;
+        scopeConfiguration: pulumi.Input<inputs.quicksight.DashboardFilterScopeConfigurationArgs>;
+        status?: pulumi.Input<enums.quicksight.DashboardWidgetStatus>;
+    }
+
+    export interface DashboardFilterListConfigurationArgs {
+        categoryValues?: pulumi.Input<pulumi.Input<string>[]>;
+        matchOperator: pulumi.Input<enums.quicksight.DashboardCategoryFilterMatchOperator>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.DashboardCategoryFilterSelectAllOptions>;
+    }
+
+    export interface DashboardFilterListControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardListControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.DashboardFilterSelectableValuesArgs>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.DashboardSheetControlListType>;
+    }
+
+    export interface DashboardFilterOperationSelectedFieldsConfigurationArgs {
+        selectedFieldOptions?: pulumi.Input<enums.quicksight.DashboardSelectedFieldOptions>;
+        selectedFields?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DashboardFilterOperationTargetVisualsConfigurationArgs {
+        sameSheetTargetVisualConfiguration?: pulumi.Input<inputs.quicksight.DashboardSameSheetTargetVisualConfigurationArgs>;
+    }
+
+    export interface DashboardFilterRelativeDateTimeControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardRelativeDateTimeControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface DashboardFilterScopeConfigurationArgs {
+        selectedSheets?: pulumi.Input<inputs.quicksight.DashboardSelectedSheetsFilterScopeConfigurationArgs>;
+    }
+
+    export interface DashboardFilterSelectableValuesArgs {
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DashboardFilterSliderControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardSliderControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        maximumValue: pulumi.Input<number>;
+        minimumValue: pulumi.Input<number>;
+        sourceFilterId: pulumi.Input<string>;
+        stepSize: pulumi.Input<number>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.DashboardSheetControlSliderType>;
+    }
+
+    export interface DashboardFilterTextAreaControlArgs {
+        delimiter?: pulumi.Input<string>;
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardTextAreaControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface DashboardFilterTextFieldControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardTextFieldControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface DashboardFontConfigurationArgs {
+        fontColor?: pulumi.Input<string>;
+        fontDecoration?: pulumi.Input<enums.quicksight.DashboardFontDecoration>;
+        fontSize?: pulumi.Input<inputs.quicksight.DashboardFontSizeArgs>;
+        fontStyle?: pulumi.Input<enums.quicksight.DashboardFontStyle>;
+        fontWeight?: pulumi.Input<inputs.quicksight.DashboardFontWeightArgs>;
+    }
+
+    export interface DashboardFontSizeArgs {
+        relative?: pulumi.Input<enums.quicksight.DashboardRelativeFontSize>;
+    }
+
+    export interface DashboardFontWeightArgs {
+        name?: pulumi.Input<enums.quicksight.DashboardFontWeightName>;
+    }
+
+    export interface DashboardForecastComputationArgs {
+        computationId: pulumi.Input<string>;
+        customSeasonalityValue?: pulumi.Input<number>;
+        lowerBoundary?: pulumi.Input<number>;
+        name?: pulumi.Input<string>;
+        periodsBackward?: pulumi.Input<number>;
+        periodsForward?: pulumi.Input<number>;
+        predictionInterval?: pulumi.Input<number>;
+        seasonality?: pulumi.Input<enums.quicksight.DashboardForecastComputationSeasonality>;
+        time: pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>;
+        upperBoundary?: pulumi.Input<number>;
+        value?: pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>;
+    }
+
+    export interface DashboardForecastConfigurationArgs {
+        forecastProperties?: pulumi.Input<inputs.quicksight.DashboardTimeBasedForecastPropertiesArgs>;
+        scenario?: pulumi.Input<inputs.quicksight.DashboardForecastScenarioArgs>;
+    }
+
+    export interface DashboardForecastScenarioArgs {
+        whatIfPointScenario?: pulumi.Input<inputs.quicksight.DashboardWhatIfPointScenarioArgs>;
+        whatIfRangeScenario?: pulumi.Input<inputs.quicksight.DashboardWhatIfRangeScenarioArgs>;
+    }
+
+    export interface DashboardFormatConfigurationArgs {
+        dateTimeFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardDateTimeFormatConfigurationArgs>;
+        numberFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumberFormatConfigurationArgs>;
+        stringFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardStringFormatConfigurationArgs>;
+    }
+
+    export interface DashboardFreeFormLayoutCanvasSizeOptionsArgs {
+        screenCanvasSizeOptions?: pulumi.Input<inputs.quicksight.DashboardFreeFormLayoutScreenCanvasSizeOptionsArgs>;
+    }
+
+    export interface DashboardFreeFormLayoutConfigurationArgs {
+        canvasSizeOptions?: pulumi.Input<inputs.quicksight.DashboardFreeFormLayoutCanvasSizeOptionsArgs>;
+        elements: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFreeFormLayoutElementArgs>[]>;
+    }
+
+    export interface DashboardFreeFormLayoutElementArgs {
+        backgroundStyle?: pulumi.Input<inputs.quicksight.DashboardFreeFormLayoutElementBackgroundStyleArgs>;
+        borderStyle?: pulumi.Input<inputs.quicksight.DashboardFreeFormLayoutElementBorderStyleArgs>;
+        elementId: pulumi.Input<string>;
+        elementType: pulumi.Input<enums.quicksight.DashboardLayoutElementType>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height: pulumi.Input<string>;
+        loadingAnimation?: pulumi.Input<inputs.quicksight.DashboardLoadingAnimationArgs>;
+        renderingRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSheetElementRenderingRuleArgs>[]>;
+        selectedBorderStyle?: pulumi.Input<inputs.quicksight.DashboardFreeFormLayoutElementBorderStyleArgs>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        xAxisLocation: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit in px with Integer.MAX_VALUE as maximum value
+         */
+        yAxisLocation: pulumi.Input<string>;
+    }
+
+    export interface DashboardFreeFormLayoutElementBackgroundStyleArgs {
+        color?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardFreeFormLayoutElementBorderStyleArgs {
+        color?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardFreeFormLayoutScreenCanvasSizeOptionsArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth: pulumi.Input<string>;
+    }
+
+    export interface DashboardFreeFormSectionLayoutConfigurationArgs {
+        elements: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFreeFormLayoutElementArgs>[]>;
+    }
+
+    export interface DashboardFunnelChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardFunnelChartConfigurationArgs {
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        dataLabelOptions?: pulumi.Input<inputs.quicksight.DashboardFunnelChartDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardFunnelChartFieldWellsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardFunnelChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+        valueLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+    }
+
+    export interface DashboardFunnelChartDataLabelOptionsArgs {
+        categoryLabelVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        labelColor?: pulumi.Input<string>;
+        labelFontConfiguration?: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+        measureDataLabelStyle?: pulumi.Input<enums.quicksight.DashboardFunnelChartMeasureDataLabelStyle>;
+        measureLabelVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        position?: pulumi.Input<enums.quicksight.DashboardDataLabelPosition>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardFunnelChartFieldWellsArgs {
+        funnelChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardFunnelChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardFunnelChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardFunnelChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardFunnelChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardGaugeChartArcConditionalFormattingArgs {
+        foregroundColor?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingColorArgs>;
+    }
+
+    export interface DashboardGaugeChartConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardGaugeChartConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface DashboardGaugeChartConditionalFormattingOptionArgs {
+        arc?: pulumi.Input<inputs.quicksight.DashboardGaugeChartArcConditionalFormattingArgs>;
+        primaryValue?: pulumi.Input<inputs.quicksight.DashboardGaugeChartPrimaryValueConditionalFormattingArgs>;
+    }
+
+    export interface DashboardGaugeChartConfigurationArgs {
+        dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardGaugeChartFieldWellsArgs>;
+        gaugeChartOptions?: pulumi.Input<inputs.quicksight.DashboardGaugeChartOptionsArgs>;
+        tooltipOptions?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+    }
+
+    export interface DashboardGaugeChartFieldWellsArgs {
+        targetValues?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardGaugeChartOptionsArgs {
+        arc?: pulumi.Input<inputs.quicksight.DashboardArcConfigurationArgs>;
+        arcAxis?: pulumi.Input<inputs.quicksight.DashboardArcAxisConfigurationArgs>;
+        comparison?: pulumi.Input<inputs.quicksight.DashboardComparisonConfigurationArgs>;
+        primaryValueDisplayType?: pulumi.Input<enums.quicksight.DashboardPrimaryValueDisplayType>;
+        primaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+    }
+
+    export interface DashboardGaugeChartPrimaryValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingColorArgs>;
+    }
+
+    export interface DashboardGaugeChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardGaugeChartConfigurationArgs>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.DashboardGaugeChartConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardGeospatialCoordinateBoundsArgs {
+        east: pulumi.Input<number>;
+        north: pulumi.Input<number>;
+        south: pulumi.Input<number>;
+        west: pulumi.Input<number>;
+    }
+
+    export interface DashboardGeospatialMapAggregatedFieldWellsArgs {
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        geospatial?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardGeospatialMapConfigurationArgs {
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardGeospatialMapFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        mapStyleOptions?: pulumi.Input<inputs.quicksight.DashboardGeospatialMapStyleOptionsArgs>;
+        pointStyleOptions?: pulumi.Input<inputs.quicksight.DashboardGeospatialPointStyleOptionsArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+        windowOptions?: pulumi.Input<inputs.quicksight.DashboardGeospatialWindowOptionsArgs>;
+    }
+
+    export interface DashboardGeospatialMapFieldWellsArgs {
+        geospatialMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardGeospatialMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardGeospatialMapStyleOptionsArgs {
+        baseMapStyle?: pulumi.Input<enums.quicksight.DashboardBaseMapStyleType>;
+    }
+
+    export interface DashboardGeospatialMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardGeospatialMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardGeospatialPointStyleOptionsArgs {
+        clusterMarkerConfiguration?: pulumi.Input<inputs.quicksight.DashboardClusterMarkerConfigurationArgs>;
+        selectedPointStyle?: pulumi.Input<enums.quicksight.DashboardGeospatialSelectedPointStyle>;
+    }
+
+    export interface DashboardGeospatialWindowOptionsArgs {
+        bounds?: pulumi.Input<inputs.quicksight.DashboardGeospatialCoordinateBoundsArgs>;
+        mapZoomMode?: pulumi.Input<enums.quicksight.DashboardMapZoomMode>;
+    }
+
+    export interface DashboardGlobalTableBorderOptionsArgs {
+        sideSpecificBorder?: pulumi.Input<inputs.quicksight.DashboardTableSideBorderOptionsArgs>;
+        uniformBorder?: pulumi.Input<inputs.quicksight.DashboardTableBorderOptionsArgs>;
+    }
+
+    export interface DashboardGradientColorArgs {
+        stops?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardGradientStopArgs>[]>;
+    }
+
+    export interface DashboardGradientStopArgs {
+        color?: pulumi.Input<string>;
+        dataValue?: pulumi.Input<number>;
+        gradientOffset: pulumi.Input<number>;
+    }
+
+    export interface DashboardGridLayoutCanvasSizeOptionsArgs {
+        screenCanvasSizeOptions?: pulumi.Input<inputs.quicksight.DashboardGridLayoutScreenCanvasSizeOptionsArgs>;
+    }
+
+    export interface DashboardGridLayoutConfigurationArgs {
+        canvasSizeOptions?: pulumi.Input<inputs.quicksight.DashboardGridLayoutCanvasSizeOptionsArgs>;
+        elements: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardGridLayoutElementArgs>[]>;
+    }
+
+    export interface DashboardGridLayoutElementArgs {
+        columnIndex?: pulumi.Input<number>;
+        columnSpan: pulumi.Input<number>;
+        elementId: pulumi.Input<string>;
+        elementType: pulumi.Input<enums.quicksight.DashboardLayoutElementType>;
+        rowIndex?: pulumi.Input<number>;
+        rowSpan: pulumi.Input<number>;
+    }
+
+    export interface DashboardGridLayoutScreenCanvasSizeOptionsArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth?: pulumi.Input<string>;
+        resizeOption: pulumi.Input<enums.quicksight.DashboardResizeOption>;
+    }
+
+    export interface DashboardGrowthRateComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        periodSize?: pulumi.Input<number>;
+        time: pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>;
+        value?: pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>;
+    }
+
+    export interface DashboardHeaderFooterSectionConfigurationArgs {
+        layout: pulumi.Input<inputs.quicksight.DashboardSectionLayoutConfigurationArgs>;
+        sectionId: pulumi.Input<string>;
+        style?: pulumi.Input<inputs.quicksight.DashboardSectionStyleArgs>;
+    }
+
+    export interface DashboardHeatMapAggregatedFieldWellsArgs {
+        columns?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        rows?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardHeatMapConfigurationArgs {
+        colorScale?: pulumi.Input<inputs.quicksight.DashboardColorScaleArgs>;
+        columnLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardHeatMapFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        rowLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardHeatMapSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+    }
+
+    export interface DashboardHeatMapFieldWellsArgs {
+        heatMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardHeatMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardHeatMapSortConfigurationArgs {
+        heatMapColumnItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        heatMapColumnSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+        heatMapRowItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        heatMapRowSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardHeatMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardHeatMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardHistogramAggregatedFieldWellsArgs {
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardHistogramBinOptionsArgs {
+        binCount?: pulumi.Input<inputs.quicksight.DashboardBinCountOptionsArgs>;
+        binWidth?: pulumi.Input<inputs.quicksight.DashboardBinWidthOptionsArgs>;
+        selectedBinType?: pulumi.Input<enums.quicksight.DashboardHistogramBinType>;
+        startValue?: pulumi.Input<number>;
+    }
+
+    export interface DashboardHistogramConfigurationArgs {
+        binOptions?: pulumi.Input<inputs.quicksight.DashboardHistogramBinOptionsArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardHistogramFieldWellsArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+        xAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        xAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        yAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+    }
+
+    export interface DashboardHistogramFieldWellsArgs {
+        histogramAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardHistogramAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardHistogramVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardHistogramConfigurationArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardInsightConfigurationArgs {
+        computations?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardComputationArgs>[]>;
+        customNarrative?: pulumi.Input<inputs.quicksight.DashboardCustomNarrativeOptionsArgs>;
+    }
+
+    export interface DashboardInsightVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        dataSetIdentifier: pulumi.Input<string>;
+        insightConfiguration?: pulumi.Input<inputs.quicksight.DashboardInsightConfigurationArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardIntegerDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.DashboardDynamicDefaultValueArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
     export interface DashboardIntegerParameterArgs {
-        /**
-         * <p>The name of the integer parameter.</p>
-         */
         name: pulumi.Input<string>;
-        /**
-         * <p>The values for the integer parameter.</p>
-         */
         values: pulumi.Input<pulumi.Input<number>[]>;
     }
 
-    /**
-     * <p>A list of QuickSight parameters and the list's override values.</p>
-     */
+    export interface DashboardIntegerParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.DashboardIntegerDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMappedDataSetParameterArgs>[]>;
+        name: pulumi.Input<string>;
+        parameterValueType: pulumi.Input<enums.quicksight.DashboardParameterValueType>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.DashboardIntegerValueWhenUnsetConfigurationArgs>;
+    }
+
+    export interface DashboardIntegerValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<number>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.DashboardValueWhenUnsetOption>;
+    }
+
+    export interface DashboardItemsLimitConfigurationArgs {
+        itemsLimit?: pulumi.Input<number>;
+        otherCategories?: pulumi.Input<enums.quicksight.DashboardOtherCategories>;
+    }
+
+    export interface DashboardKPIConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardKPIConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface DashboardKPIConditionalFormattingOptionArgs {
+        primaryValue?: pulumi.Input<inputs.quicksight.DashboardKPIPrimaryValueConditionalFormattingArgs>;
+        progressBar?: pulumi.Input<inputs.quicksight.DashboardKPIProgressBarConditionalFormattingArgs>;
+    }
+
+    export interface DashboardKPIConfigurationArgs {
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardKPIFieldWellsArgs>;
+        kPIOptions?: pulumi.Input<inputs.quicksight.DashboardKPIOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardKPISortConfigurationArgs>;
+    }
+
+    export interface DashboardKPIFieldWellsArgs {
+        targetValues?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+        trendGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardKPIOptionsArgs {
+        comparison?: pulumi.Input<inputs.quicksight.DashboardComparisonConfigurationArgs>;
+        primaryValueDisplayType?: pulumi.Input<enums.quicksight.DashboardPrimaryValueDisplayType>;
+        primaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+        progressBar?: pulumi.Input<inputs.quicksight.DashboardProgressBarOptionsArgs>;
+        secondaryValue?: pulumi.Input<inputs.quicksight.DashboardSecondaryValueOptionsArgs>;
+        secondaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+        trendArrows?: pulumi.Input<inputs.quicksight.DashboardTrendArrowOptionsArgs>;
+    }
+
+    export interface DashboardKPIPrimaryValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingColorArgs>;
+    }
+
+    export interface DashboardKPIProgressBarConditionalFormattingArgs {
+        foregroundColor?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingColorArgs>;
+    }
+
+    export interface DashboardKPISortConfigurationArgs {
+        trendGroupSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardKPIVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardKPIConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.DashboardKPIConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardLabelOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardLayoutArgs {
+        configuration: pulumi.Input<inputs.quicksight.DashboardLayoutConfigurationArgs>;
+    }
+
+    export interface DashboardLayoutConfigurationArgs {
+        freeFormLayout?: pulumi.Input<inputs.quicksight.DashboardFreeFormLayoutConfigurationArgs>;
+        gridLayout?: pulumi.Input<inputs.quicksight.DashboardGridLayoutConfigurationArgs>;
+        sectionBasedLayout?: pulumi.Input<inputs.quicksight.DashboardSectionBasedLayoutConfigurationArgs>;
+    }
+
+    export interface DashboardLegendOptionsArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: pulumi.Input<string>;
+        position?: pulumi.Input<enums.quicksight.DashboardLegendPosition>;
+        title?: pulumi.Input<inputs.quicksight.DashboardLabelOptionsArgs>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: pulumi.Input<string>;
+    }
+
+    export interface DashboardLineChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        smallMultiples?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardLineChartConfigurationArgs {
+        contributionAnalysisDefaults?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardContributionAnalysisDefaultArgs>[]>;
+        dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        defaultSeriesSettings?: pulumi.Input<inputs.quicksight.DashboardLineChartDefaultSeriesSettingsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardLineChartFieldWellsArgs>;
+        forecastConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardForecastConfigurationArgs>[]>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardLineSeriesAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardReferenceLineArgs>[]>;
+        secondaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardLineSeriesAxisDisplayOptionsArgs>;
+        secondaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        series?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSeriesItemArgs>[]>;
+        smallMultiplesOptions?: pulumi.Input<inputs.quicksight.DashboardSmallMultiplesOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardLineChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+        type?: pulumi.Input<enums.quicksight.DashboardLineChartType>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+        xAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        xAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+    }
+
+    export interface DashboardLineChartDefaultSeriesSettingsArgs {
+        axisBinding?: pulumi.Input<enums.quicksight.DashboardAxisBinding>;
+        lineStyleSettings?: pulumi.Input<inputs.quicksight.DashboardLineChartLineStyleSettingsArgs>;
+        markerStyleSettings?: pulumi.Input<inputs.quicksight.DashboardLineChartMarkerStyleSettingsArgs>;
+    }
+
+    export interface DashboardLineChartFieldWellsArgs {
+        lineChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardLineChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardLineChartLineStyleSettingsArgs {
+        lineInterpolation?: pulumi.Input<enums.quicksight.DashboardLineInterpolation>;
+        lineStyle?: pulumi.Input<enums.quicksight.DashboardLineChartLineStyle>;
+        lineVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        lineWidth?: pulumi.Input<string>;
+    }
+
+    export interface DashboardLineChartMarkerStyleSettingsArgs {
+        markerColor?: pulumi.Input<string>;
+        markerShape?: pulumi.Input<enums.quicksight.DashboardLineChartMarkerShape>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        markerSize?: pulumi.Input<string>;
+        markerVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardLineChartSeriesSettingsArgs {
+        lineStyleSettings?: pulumi.Input<inputs.quicksight.DashboardLineChartLineStyleSettingsArgs>;
+        markerStyleSettings?: pulumi.Input<inputs.quicksight.DashboardLineChartMarkerStyleSettingsArgs>;
+    }
+
+    export interface DashboardLineChartSortConfigurationArgs {
+        categoryItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+        colorItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        smallMultiplesLimitConfiguration?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        smallMultiplesSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardLineChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardLineChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardLineSeriesAxisDisplayOptionsArgs {
+        axisOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        missingDataConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMissingDataConfigurationArgs>[]>;
+    }
+
+    export interface DashboardListControlDisplayOptionsArgs {
+        searchOptions?: pulumi.Input<inputs.quicksight.DashboardListControlSearchOptionsArgs>;
+        selectAllOptions?: pulumi.Input<inputs.quicksight.DashboardListControlSelectAllOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.DashboardLabelOptionsArgs>;
+    }
+
+    export interface DashboardListControlSearchOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardListControlSelectAllOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardLoadingAnimationArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardLocalNavigationConfigurationArgs {
+        targetSheetId: pulumi.Input<string>;
+    }
+
+    export interface DashboardLongFormatTextArgs {
+        plainText?: pulumi.Input<string>;
+        richText?: pulumi.Input<string>;
+    }
+
+    export interface DashboardMappedDataSetParameterArgs {
+        dataSetIdentifier: pulumi.Input<string>;
+        dataSetParameterName: pulumi.Input<string>;
+    }
+
+    export interface DashboardMaximumLabelTypeArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardMaximumMinimumComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        time: pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>;
+        type: pulumi.Input<enums.quicksight.DashboardMaximumMinimumComputationType>;
+        value?: pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>;
+    }
+
+    export interface DashboardMeasureFieldArgs {
+        calculatedMeasureField?: pulumi.Input<inputs.quicksight.DashboardCalculatedMeasureFieldArgs>;
+        categoricalMeasureField?: pulumi.Input<inputs.quicksight.DashboardCategoricalMeasureFieldArgs>;
+        dateMeasureField?: pulumi.Input<inputs.quicksight.DashboardDateMeasureFieldArgs>;
+        numericalMeasureField?: pulumi.Input<inputs.quicksight.DashboardNumericalMeasureFieldArgs>;
+    }
+
+    export interface DashboardMetricComparisonComputationArgs {
+        computationId: pulumi.Input<string>;
+        fromValue: pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>;
+        name?: pulumi.Input<string>;
+        targetValue: pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>;
+    }
+
+    export interface DashboardMinimumLabelTypeArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardMissingDataConfigurationArgs {
+        treatmentOption?: pulumi.Input<enums.quicksight.DashboardMissingDataTreatmentOption>;
+    }
+
+    export interface DashboardNegativeValueConfigurationArgs {
+        displayMode: pulumi.Input<enums.quicksight.DashboardNegativeValueDisplayMode>;
+    }
+
+    export interface DashboardNullValueFormatConfigurationArgs {
+        nullString: pulumi.Input<string>;
+    }
+
+    export interface DashboardNumberDisplayFormatConfigurationArgs {
+        decimalPlacesConfiguration?: pulumi.Input<inputs.quicksight.DashboardDecimalPlacesConfigurationArgs>;
+        negativeValueConfiguration?: pulumi.Input<inputs.quicksight.DashboardNegativeValueConfigurationArgs>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNullValueFormatConfigurationArgs>;
+        numberScale?: pulumi.Input<enums.quicksight.DashboardNumberScale>;
+        prefix?: pulumi.Input<string>;
+        separatorConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumericSeparatorConfigurationArgs>;
+        suffix?: pulumi.Input<string>;
+    }
+
+    export interface DashboardNumberFormatConfigurationArgs {
+        formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumericFormatConfigurationArgs>;
+    }
+
+    export interface DashboardNumericAxisOptionsArgs {
+        range?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayRangeArgs>;
+        scale?: pulumi.Input<inputs.quicksight.DashboardAxisScaleArgs>;
+    }
+
+    export interface DashboardNumericEqualityDrillDownFilterArgs {
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        value: pulumi.Input<number>;
+    }
+
+    export interface DashboardNumericEqualityFilterArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        matchOperator: pulumi.Input<enums.quicksight.DashboardNumericEqualityMatchOperator>;
+        nullOption: pulumi.Input<enums.quicksight.DashboardFilterNullOption>;
+        parameterName?: pulumi.Input<string>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.DashboardNumericFilterSelectAllOptions>;
+        value?: pulumi.Input<number>;
+    }
+
+    export interface DashboardNumericFormatConfigurationArgs {
+        currencyDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardCurrencyDisplayFormatConfigurationArgs>;
+        numberDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumberDisplayFormatConfigurationArgs>;
+        percentageDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardPercentageDisplayFormatConfigurationArgs>;
+    }
+
+    export interface DashboardNumericRangeFilterArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        includeMaximum?: pulumi.Input<boolean>;
+        includeMinimum?: pulumi.Input<boolean>;
+        nullOption: pulumi.Input<enums.quicksight.DashboardFilterNullOption>;
+        rangeMaximum?: pulumi.Input<inputs.quicksight.DashboardNumericRangeFilterValueArgs>;
+        rangeMinimum?: pulumi.Input<inputs.quicksight.DashboardNumericRangeFilterValueArgs>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.DashboardNumericFilterSelectAllOptions>;
+    }
+
+    export interface DashboardNumericRangeFilterValueArgs {
+        parameter?: pulumi.Input<string>;
+        staticValue?: pulumi.Input<number>;
+    }
+
+    export interface DashboardNumericSeparatorConfigurationArgs {
+        decimalSeparator?: pulumi.Input<enums.quicksight.DashboardNumericSeparatorSymbol>;
+        thousandsSeparator?: pulumi.Input<inputs.quicksight.DashboardThousandSeparatorOptionsArgs>;
+    }
+
+    export interface DashboardNumericalAggregationFunctionArgs {
+        percentileAggregation?: pulumi.Input<inputs.quicksight.DashboardPercentileAggregationArgs>;
+        simpleNumericalAggregation?: pulumi.Input<enums.quicksight.DashboardSimpleNumericalAggregationFunction>;
+    }
+
+    export interface DashboardNumericalDimensionFieldArgs {
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumberFormatConfigurationArgs>;
+        hierarchyId?: pulumi.Input<string>;
+    }
+
+    export interface DashboardNumericalMeasureFieldArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.DashboardNumericalAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumberFormatConfigurationArgs>;
+    }
+
+    export interface DashboardPaginationConfigurationArgs {
+        pageNumber: pulumi.Input<number>;
+        pageSize: pulumi.Input<number>;
+    }
+
+    export interface DashboardPanelConfigurationArgs {
+        backgroundColor?: pulumi.Input<string>;
+        backgroundVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        borderColor?: pulumi.Input<string>;
+        borderStyle?: pulumi.Input<enums.quicksight.DashboardPanelBorderStyle>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderThickness?: pulumi.Input<string>;
+        borderVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        gutterSpacing?: pulumi.Input<string>;
+        gutterVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        title?: pulumi.Input<inputs.quicksight.DashboardPanelTitleOptionsArgs>;
+    }
+
+    export interface DashboardPanelTitleOptionsArgs {
+        fontConfiguration?: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+        horizontalTextAlignment?: pulumi.Input<enums.quicksight.DashboardHorizontalTextAlignment>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardParameterControlArgs {
+        dateTimePicker?: pulumi.Input<inputs.quicksight.DashboardParameterDateTimePickerControlArgs>;
+        dropdown?: pulumi.Input<inputs.quicksight.DashboardParameterDropDownControlArgs>;
+        list?: pulumi.Input<inputs.quicksight.DashboardParameterListControlArgs>;
+        slider?: pulumi.Input<inputs.quicksight.DashboardParameterSliderControlArgs>;
+        textArea?: pulumi.Input<inputs.quicksight.DashboardParameterTextAreaControlArgs>;
+        textField?: pulumi.Input<inputs.quicksight.DashboardParameterTextFieldControlArgs>;
+    }
+
+    export interface DashboardParameterDateTimePickerControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardDateTimePickerControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface DashboardParameterDeclarationArgs {
+        dateTimeParameterDeclaration?: pulumi.Input<inputs.quicksight.DashboardDateTimeParameterDeclarationArgs>;
+        decimalParameterDeclaration?: pulumi.Input<inputs.quicksight.DashboardDecimalParameterDeclarationArgs>;
+        integerParameterDeclaration?: pulumi.Input<inputs.quicksight.DashboardIntegerParameterDeclarationArgs>;
+        stringParameterDeclaration?: pulumi.Input<inputs.quicksight.DashboardStringParameterDeclarationArgs>;
+    }
+
+    export interface DashboardParameterDropDownControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardDropDownControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.DashboardParameterSelectableValuesArgs>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.DashboardSheetControlListType>;
+    }
+
+    export interface DashboardParameterListControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardListControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.DashboardParameterSelectableValuesArgs>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.DashboardSheetControlListType>;
+    }
+
+    export interface DashboardParameterSelectableValuesArgs {
+        linkToDataSetColumn?: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DashboardParameterSliderControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardSliderControlDisplayOptionsArgs>;
+        maximumValue: pulumi.Input<number>;
+        minimumValue: pulumi.Input<number>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        stepSize: pulumi.Input<number>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface DashboardParameterTextAreaControlArgs {
+        delimiter?: pulumi.Input<string>;
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardTextAreaControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface DashboardParameterTextFieldControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardTextFieldControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
     export interface DashboardParametersArgs {
-        /**
-         * <p>Date-time parameters.</p>
-         */
         dateTimeParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDateTimeParameterArgs>[]>;
-        /**
-         * <p>Decimal parameters.</p>
-         */
         decimalParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDecimalParameterArgs>[]>;
-        /**
-         * <p>Integer parameters.</p>
-         */
         integerParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardIntegerParameterArgs>[]>;
-        /**
-         * <p>String parameters.</p>
-         */
         stringParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardStringParameterArgs>[]>;
     }
 
-    /**
-     * <p>Dashboard publish options.</p>
-     */
+    export interface DashboardPercentVisibleRangeArgs {
+        from?: pulumi.Input<number>;
+        to?: pulumi.Input<number>;
+    }
+
+    export interface DashboardPercentageDisplayFormatConfigurationArgs {
+        decimalPlacesConfiguration?: pulumi.Input<inputs.quicksight.DashboardDecimalPlacesConfigurationArgs>;
+        negativeValueConfiguration?: pulumi.Input<inputs.quicksight.DashboardNegativeValueConfigurationArgs>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNullValueFormatConfigurationArgs>;
+        prefix?: pulumi.Input<string>;
+        separatorConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumericSeparatorConfigurationArgs>;
+        suffix?: pulumi.Input<string>;
+    }
+
+    export interface DashboardPercentileAggregationArgs {
+        percentileValue?: pulumi.Input<number>;
+    }
+
+    export interface DashboardPeriodOverPeriodComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        time: pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>;
+        value?: pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>;
+    }
+
+    export interface DashboardPeriodToDateComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        periodTimeGranularity?: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
+        time: pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>;
+        value?: pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>;
+    }
+
+    export interface DashboardPieChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        smallMultiples?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardPieChartConfigurationArgs {
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        contributionAnalysisDefaults?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardContributionAnalysisDefaultArgs>[]>;
+        dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        donutOptions?: pulumi.Input<inputs.quicksight.DashboardDonutOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardPieChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        smallMultiplesOptions?: pulumi.Input<inputs.quicksight.DashboardSmallMultiplesOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardPieChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+        valueLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+    }
+
+    export interface DashboardPieChartFieldWellsArgs {
+        pieChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardPieChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardPieChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+        smallMultiplesLimitConfiguration?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        smallMultiplesSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardPieChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardPieChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardPivotFieldSortOptionsArgs {
+        fieldId: pulumi.Input<string>;
+        sortBy: pulumi.Input<inputs.quicksight.DashboardPivotTableSortByArgs>;
+    }
+
+    export interface DashboardPivotTableAggregatedFieldWellsArgs {
+        columns?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        rows?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardPivotTableCellConditionalFormattingArgs {
+        fieldId: pulumi.Input<string>;
+        scope?: pulumi.Input<inputs.quicksight.DashboardPivotTableConditionalFormattingScopeArgs>;
+        textFormat?: pulumi.Input<inputs.quicksight.DashboardTextConditionalFormatArgs>;
+    }
+
+    export interface DashboardPivotTableConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPivotTableConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface DashboardPivotTableConditionalFormattingOptionArgs {
+        cell?: pulumi.Input<inputs.quicksight.DashboardPivotTableCellConditionalFormattingArgs>;
+    }
+
+    export interface DashboardPivotTableConditionalFormattingScopeArgs {
+        role?: pulumi.Input<enums.quicksight.DashboardPivotTableConditionalFormattingScopeRole>;
+    }
+
+    export interface DashboardPivotTableConfigurationArgs {
+        fieldOptions?: pulumi.Input<inputs.quicksight.DashboardPivotTableFieldOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardPivotTableFieldWellsArgs>;
+        paginatedReportOptions?: pulumi.Input<inputs.quicksight.DashboardPivotTablePaginatedReportOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardPivotTableSortConfigurationArgs>;
+        tableOptions?: pulumi.Input<inputs.quicksight.DashboardPivotTableOptionsArgs>;
+        totalOptions?: pulumi.Input<inputs.quicksight.DashboardPivotTableTotalOptionsArgs>;
+    }
+
+    export interface DashboardPivotTableDataPathOptionArgs {
+        dataPathList: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataPathValueArgs>[]>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: pulumi.Input<string>;
+    }
+
+    export interface DashboardPivotTableFieldOptionArgs {
+        customLabel?: pulumi.Input<string>;
+        fieldId: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardPivotTableFieldOptionsArgs {
+        dataPathOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPivotTableDataPathOptionArgs>[]>;
+        selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPivotTableFieldOptionArgs>[]>;
+    }
+
+    export interface DashboardPivotTableFieldSubtotalOptionsArgs {
+        fieldId?: pulumi.Input<string>;
+    }
+
+    export interface DashboardPivotTableFieldWellsArgs {
+        pivotTableAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardPivotTableAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardPivotTableOptionsArgs {
+        cellStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        columnHeaderStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        columnNamesVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        metricPlacement?: pulumi.Input<enums.quicksight.DashboardPivotTableMetricPlacement>;
+        rowAlternateColorOptions?: pulumi.Input<inputs.quicksight.DashboardRowAlternateColorOptionsArgs>;
+        rowFieldNamesStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        rowHeaderStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        singleMetricVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        toggleButtonsVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardPivotTablePaginatedReportOptionsArgs {
+        overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        verticalOverflowVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardPivotTableSortByArgs {
+        column?: pulumi.Input<inputs.quicksight.DashboardColumnSortArgs>;
+        dataPath?: pulumi.Input<inputs.quicksight.DashboardDataPathSortArgs>;
+        field?: pulumi.Input<inputs.quicksight.DashboardFieldSortArgs>;
+    }
+
+    export interface DashboardPivotTableSortConfigurationArgs {
+        fieldSortOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPivotFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardPivotTableTotalOptionsArgs {
+        columnSubtotalOptions?: pulumi.Input<inputs.quicksight.DashboardSubtotalOptionsArgs>;
+        columnTotalOptions?: pulumi.Input<inputs.quicksight.DashboardPivotTotalOptionsArgs>;
+        rowSubtotalOptions?: pulumi.Input<inputs.quicksight.DashboardSubtotalOptionsArgs>;
+        rowTotalOptions?: pulumi.Input<inputs.quicksight.DashboardPivotTotalOptionsArgs>;
+    }
+
+    export interface DashboardPivotTableVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardPivotTableConfigurationArgs>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.DashboardPivotTableConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardPivotTotalOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        metricHeaderCellStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        placement?: pulumi.Input<enums.quicksight.DashboardTableTotalsPlacement>;
+        scrollStatus?: pulumi.Input<enums.quicksight.DashboardTableTotalsScrollStatus>;
+        totalCellStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        valueCellStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+    }
+
+    export interface DashboardPredefinedHierarchyArgs {
+        columns: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>[]>;
+        drillDownFilters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDrillDownFilterArgs>[]>;
+        hierarchyId: pulumi.Input<string>;
+    }
+
+    export interface DashboardProgressBarOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
     export interface DashboardPublishOptionsArgs {
         adHocFilteringOption?: pulumi.Input<inputs.quicksight.DashboardAdHocFilteringOptionArgs>;
+        dataPointDrillUpDownOption?: pulumi.Input<inputs.quicksight.DashboardDataPointDrillUpDownOptionArgs>;
+        dataPointMenuLabelOption?: pulumi.Input<inputs.quicksight.DashboardDataPointMenuLabelOptionArgs>;
+        dataPointTooltipOption?: pulumi.Input<inputs.quicksight.DashboardDataPointTooltipOptionArgs>;
         exportToCSVOption?: pulumi.Input<inputs.quicksight.DashboardExportToCSVOptionArgs>;
+        exportWithHiddenFieldsOption?: pulumi.Input<inputs.quicksight.DashboardExportWithHiddenFieldsOptionArgs>;
         sheetControlsOption?: pulumi.Input<inputs.quicksight.DashboardSheetControlsOptionArgs>;
+        sheetLayoutElementMaximizationOption?: pulumi.Input<inputs.quicksight.DashboardSheetLayoutElementMaximizationOptionArgs>;
+        visualAxisSortOption?: pulumi.Input<inputs.quicksight.DashboardVisualAxisSortOptionArgs>;
+        visualMenuOption?: pulumi.Input<inputs.quicksight.DashboardVisualMenuOptionArgs>;
+        visualPublishOptions?: pulumi.Input<inputs.quicksight.DashboardVisualPublishOptionsArgs>;
     }
 
-    /**
-     * <p>Permission for the resource.</p>
-     */
+    export interface DashboardRadarChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        color?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardRadarChartAreaStyleSettingsArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardRadarChartConfigurationArgs {
+        alternateBandColorsVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        alternateBandEvenColor?: pulumi.Input<string>;
+        alternateBandOddColor?: pulumi.Input<string>;
+        baseSeriesSettings?: pulumi.Input<inputs.quicksight.DashboardRadarChartSeriesSettingsArgs>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        colorAxis?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardRadarChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        shape?: pulumi.Input<enums.quicksight.DashboardRadarChartShape>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardRadarChartSortConfigurationArgs>;
+        startAngle?: pulumi.Input<number>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+    }
+
+    export interface DashboardRadarChartFieldWellsArgs {
+        radarChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardRadarChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardRadarChartSeriesSettingsArgs {
+        areaStyleSettings?: pulumi.Input<inputs.quicksight.DashboardRadarChartAreaStyleSettingsArgs>;
+    }
+
+    export interface DashboardRadarChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+        colorItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        colorSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardRadarChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardRadarChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardRangeEndsLabelTypeArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardReferenceLineArgs {
+        dataConfiguration: pulumi.Input<inputs.quicksight.DashboardReferenceLineDataConfigurationArgs>;
+        labelConfiguration?: pulumi.Input<inputs.quicksight.DashboardReferenceLineLabelConfigurationArgs>;
+        status?: pulumi.Input<enums.quicksight.DashboardWidgetStatus>;
+        styleConfiguration?: pulumi.Input<inputs.quicksight.DashboardReferenceLineStyleConfigurationArgs>;
+    }
+
+    export interface DashboardReferenceLineCustomLabelConfigurationArgs {
+        customLabel: pulumi.Input<string>;
+    }
+
+    export interface DashboardReferenceLineDataConfigurationArgs {
+        axisBinding?: pulumi.Input<enums.quicksight.DashboardAxisBinding>;
+        dynamicConfiguration?: pulumi.Input<inputs.quicksight.DashboardReferenceLineDynamicDataConfigurationArgs>;
+        staticConfiguration?: pulumi.Input<inputs.quicksight.DashboardReferenceLineStaticDataConfigurationArgs>;
+    }
+
+    export interface DashboardReferenceLineDynamicDataConfigurationArgs {
+        calculation: pulumi.Input<inputs.quicksight.DashboardNumericalAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        measureAggregationFunction: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
+    }
+
+    export interface DashboardReferenceLineLabelConfigurationArgs {
+        customLabelConfiguration?: pulumi.Input<inputs.quicksight.DashboardReferenceLineCustomLabelConfigurationArgs>;
+        fontColor?: pulumi.Input<string>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+        horizontalPosition?: pulumi.Input<enums.quicksight.DashboardReferenceLineLabelHorizontalPosition>;
+        valueLabelConfiguration?: pulumi.Input<inputs.quicksight.DashboardReferenceLineValueLabelConfigurationArgs>;
+        verticalPosition?: pulumi.Input<enums.quicksight.DashboardReferenceLineLabelVerticalPosition>;
+    }
+
+    export interface DashboardReferenceLineStaticDataConfigurationArgs {
+        value: pulumi.Input<number>;
+    }
+
+    export interface DashboardReferenceLineStyleConfigurationArgs {
+        color?: pulumi.Input<string>;
+        pattern?: pulumi.Input<enums.quicksight.DashboardReferenceLinePatternType>;
+    }
+
+    export interface DashboardReferenceLineValueLabelConfigurationArgs {
+        formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumericFormatConfigurationArgs>;
+        relativePosition?: pulumi.Input<enums.quicksight.DashboardReferenceLineValueLabelRelativePosition>;
+    }
+
+    export interface DashboardRelativeDateTimeControlDisplayOptionsArgs {
+        dateTimeFormat?: pulumi.Input<string>;
+        titleOptions?: pulumi.Input<inputs.quicksight.DashboardLabelOptionsArgs>;
+    }
+
+    export interface DashboardRelativeDatesFilterArgs {
+        anchorDateConfiguration: pulumi.Input<inputs.quicksight.DashboardAnchorDateConfigurationArgs>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.DashboardExcludePeriodConfigurationArgs>;
+        filterId: pulumi.Input<string>;
+        minimumGranularity?: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
+        nullOption: pulumi.Input<enums.quicksight.DashboardFilterNullOption>;
+        parameterName?: pulumi.Input<string>;
+        relativeDateType: pulumi.Input<enums.quicksight.DashboardRelativeDateType>;
+        relativeDateValue?: pulumi.Input<number>;
+        timeGranularity: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
+    }
+
     export interface DashboardResourcePermissionArgs {
-        /**
-         * <p>The IAM action to grant or revoke permissions on.</p>
-         */
         actions: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-         *             following:</p>
-         *         <ul>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
-         *                     (This is less common.) </p>
-         *             </li>
-         *          </ul>
-         */
         principal: pulumi.Input<string>;
+        resource?: pulumi.Input<string>;
     }
 
-    /**
-     * <p>Sheet controls option.</p>
-     */
+    export interface DashboardRollingDateConfigurationArgs {
+        dataSetIdentifier?: pulumi.Input<string>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface DashboardRowAlternateColorOptionsArgs {
+        rowAlternateColors?: pulumi.Input<pulumi.Input<string>[]>;
+        status?: pulumi.Input<enums.quicksight.DashboardWidgetStatus>;
+    }
+
+    export interface DashboardSameSheetTargetVisualConfigurationArgs {
+        targetVisualOptions?: pulumi.Input<enums.quicksight.DashboardTargetVisualOptions>;
+        targetVisuals?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DashboardSankeyDiagramAggregatedFieldWellsArgs {
+        destination?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        source?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        weight?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardSankeyDiagramChartConfigurationArgs {
+        dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardSankeyDiagramFieldWellsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardSankeyDiagramSortConfigurationArgs>;
+    }
+
+    export interface DashboardSankeyDiagramFieldWellsArgs {
+        sankeyDiagramAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardSankeyDiagramAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardSankeyDiagramSortConfigurationArgs {
+        destinationItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        sourceItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        weightSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardSankeyDiagramVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardSankeyDiagramChartConfigurationArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardScatterPlotCategoricallyAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        size?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+        xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+        yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardScatterPlotConfigurationArgs {
+        dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardScatterPlotFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+        xAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        xAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        yAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        yAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+    }
+
+    export interface DashboardScatterPlotFieldWellsArgs {
+        scatterPlotCategoricallyAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardScatterPlotCategoricallyAggregatedFieldWellsArgs>;
+        scatterPlotUnaggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardScatterPlotUnaggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardScatterPlotUnaggregatedFieldWellsArgs {
+        size?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+        xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+    }
+
+    export interface DashboardScatterPlotVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardScatterPlotConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardScrollBarOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        visibleRange?: pulumi.Input<inputs.quicksight.DashboardVisibleRangeOptionsArgs>;
+    }
+
+    export interface DashboardSecondaryValueOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardSectionAfterPageBreakArgs {
+        status?: pulumi.Input<enums.quicksight.DashboardSectionPageBreakStatus>;
+    }
+
+    export interface DashboardSectionBasedLayoutCanvasSizeOptionsArgs {
+        paperCanvasSizeOptions?: pulumi.Input<inputs.quicksight.DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs>;
+    }
+
+    export interface DashboardSectionBasedLayoutConfigurationArgs {
+        bodySections: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardBodySectionConfigurationArgs>[]>;
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.DashboardSectionBasedLayoutCanvasSizeOptionsArgs>;
+        footerSections: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardHeaderFooterSectionConfigurationArgs>[]>;
+        headerSections: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardHeaderFooterSectionConfigurationArgs>[]>;
+    }
+
+    export interface DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs {
+        paperMargin?: pulumi.Input<inputs.quicksight.DashboardSpacingArgs>;
+        paperOrientation?: pulumi.Input<enums.quicksight.DashboardPaperOrientation>;
+        paperSize?: pulumi.Input<enums.quicksight.DashboardPaperSize>;
+    }
+
+    export interface DashboardSectionLayoutConfigurationArgs {
+        freeFormLayout: pulumi.Input<inputs.quicksight.DashboardFreeFormSectionLayoutConfigurationArgs>;
+    }
+
+    export interface DashboardSectionPageBreakConfigurationArgs {
+        after?: pulumi.Input<inputs.quicksight.DashboardSectionAfterPageBreakArgs>;
+    }
+
+    export interface DashboardSectionStyleArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: pulumi.Input<string>;
+        padding?: pulumi.Input<inputs.quicksight.DashboardSpacingArgs>;
+    }
+
+    export interface DashboardSelectedSheetsFilterScopeConfigurationArgs {
+        sheetVisualScopingConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSheetVisualScopingConfigurationArgs>[]>;
+    }
+
+    export interface DashboardSeriesItemArgs {
+        dataFieldSeriesItem?: pulumi.Input<inputs.quicksight.DashboardDataFieldSeriesItemArgs>;
+        fieldSeriesItem?: pulumi.Input<inputs.quicksight.DashboardFieldSeriesItemArgs>;
+    }
+
+    export interface DashboardSetParameterValueConfigurationArgs {
+        destinationParameterName: pulumi.Input<string>;
+        value: pulumi.Input<inputs.quicksight.DashboardDestinationParameterValueConfigurationArgs>;
+    }
+
+    export interface DashboardShapeConditionalFormatArgs {
+        backgroundColor: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingColorArgs>;
+    }
+
+    export interface DashboardSheetControlLayoutArgs {
+        configuration: pulumi.Input<inputs.quicksight.DashboardSheetControlLayoutConfigurationArgs>;
+    }
+
+    export interface DashboardSheetControlLayoutConfigurationArgs {
+        gridLayout?: pulumi.Input<inputs.quicksight.DashboardGridLayoutConfigurationArgs>;
+    }
+
     export interface DashboardSheetControlsOptionArgs {
         visibilityState?: pulumi.Input<enums.quicksight.DashboardUIState>;
     }
 
-    /**
-     * <p>Dashboard source entity.</p>
-     */
+    export interface DashboardSheetDefinitionArgs {
+        contentType?: pulumi.Input<enums.quicksight.DashboardSheetContentType>;
+        description?: pulumi.Input<string>;
+        filterControls?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFilterControlArgs>[]>;
+        layouts?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardLayoutArgs>[]>;
+        name?: pulumi.Input<string>;
+        parameterControls?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardParameterControlArgs>[]>;
+        sheetControlLayouts?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSheetControlLayoutArgs>[]>;
+        sheetId: pulumi.Input<string>;
+        textBoxes?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSheetTextBoxArgs>[]>;
+        title?: pulumi.Input<string>;
+        visuals?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualArgs>[]>;
+    }
+
+    export interface DashboardSheetElementConfigurationOverridesArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardSheetElementRenderingRuleArgs {
+        configurationOverrides: pulumi.Input<inputs.quicksight.DashboardSheetElementConfigurationOverridesArgs>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface DashboardSheetLayoutElementMaximizationOptionArgs {
+        availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
+    }
+
+    export interface DashboardSheetTextBoxArgs {
+        content?: pulumi.Input<string>;
+        sheetTextBoxId: pulumi.Input<string>;
+    }
+
+    export interface DashboardSheetVisualScopingConfigurationArgs {
+        scope: pulumi.Input<enums.quicksight.DashboardFilterVisualScope>;
+        sheetId: pulumi.Input<string>;
+        visualIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DashboardShortFormatTextArgs {
+        plainText?: pulumi.Input<string>;
+        richText?: pulumi.Input<string>;
+    }
+
+    export interface DashboardSimpleClusterMarkerArgs {
+        color?: pulumi.Input<string>;
+    }
+
+    export interface DashboardSliderControlDisplayOptionsArgs {
+        titleOptions?: pulumi.Input<inputs.quicksight.DashboardLabelOptionsArgs>;
+    }
+
+    export interface DashboardSmallMultiplesOptionsArgs {
+        maxVisibleColumns?: pulumi.Input<number>;
+        maxVisibleRows?: pulumi.Input<number>;
+        panelConfiguration?: pulumi.Input<inputs.quicksight.DashboardPanelConfigurationArgs>;
+    }
+
     export interface DashboardSourceEntityArgs {
         sourceTemplate?: pulumi.Input<inputs.quicksight.DashboardSourceTemplateArgs>;
     }
 
-    /**
-     * <p>Dashboard source template.</p>
-     */
     export interface DashboardSourceTemplateArgs {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
         arn: pulumi.Input<string>;
-        /**
-         * <p>Dataset references.</p>
-         */
         dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataSetReferenceArgs>[]>;
     }
 
-    /**
-     * <p>A string parameter.</p>
-     */
+    export interface DashboardSpacingArgs {
+        /**
+         * String based length that is composed of value and unit
+         */
+        bottom?: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit
+         */
+        left?: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit
+         */
+        right?: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit
+         */
+        top?: pulumi.Input<string>;
+    }
+
+    export interface DashboardStringDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.DashboardDynamicDefaultValueArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DashboardStringFormatConfigurationArgs {
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNullValueFormatConfigurationArgs>;
+        numericFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumericFormatConfigurationArgs>;
+    }
+
     export interface DashboardStringParameterArgs {
-        /**
-         * <p>A display name for a string parameter.</p>
-         */
         name: pulumi.Input<string>;
-        /**
-         * <p>The values of a string parameter.</p>
-         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    /**
-     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-     *             resource.</p>
-     */
+    export interface DashboardStringParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.DashboardStringDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMappedDataSetParameterArgs>[]>;
+        name: pulumi.Input<string>;
+        parameterValueType: pulumi.Input<enums.quicksight.DashboardParameterValueType>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.DashboardStringValueWhenUnsetConfigurationArgs>;
+    }
+
+    export interface DashboardStringValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<string>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.DashboardValueWhenUnsetOption>;
+    }
+
+    export interface DashboardSubtotalOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        fieldLevel?: pulumi.Input<enums.quicksight.DashboardPivotTableSubtotalLevel>;
+        fieldLevelOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPivotTableFieldSubtotalOptionsArgs>[]>;
+        metricHeaderCellStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        totalCellStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        valueCellStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+    }
+
+    export interface DashboardTableAggregatedFieldWellsArgs {
+        groupBy?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardTableBorderOptionsArgs {
+        color?: pulumi.Input<string>;
+        style?: pulumi.Input<enums.quicksight.DashboardTableBorderStyle>;
+        thickness?: pulumi.Input<number>;
+    }
+
+    export interface DashboardTableCellConditionalFormattingArgs {
+        fieldId: pulumi.Input<string>;
+        textFormat?: pulumi.Input<inputs.quicksight.DashboardTextConditionalFormatArgs>;
+    }
+
+    export interface DashboardTableCellImageSizingConfigurationArgs {
+        tableCellImageScalingConfiguration?: pulumi.Input<enums.quicksight.DashboardTableCellImageScalingConfiguration>;
+    }
+
+    export interface DashboardTableCellStyleArgs {
+        backgroundColor?: pulumi.Input<string>;
+        border?: pulumi.Input<inputs.quicksight.DashboardGlobalTableBorderOptionsArgs>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+        height?: pulumi.Input<number>;
+        horizontalTextAlignment?: pulumi.Input<enums.quicksight.DashboardHorizontalTextAlignment>;
+        textWrap?: pulumi.Input<enums.quicksight.DashboardTextWrap>;
+        verticalTextAlignment?: pulumi.Input<enums.quicksight.DashboardVerticalTextAlignment>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardTableConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardTableConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface DashboardTableConditionalFormattingOptionArgs {
+        cell?: pulumi.Input<inputs.quicksight.DashboardTableCellConditionalFormattingArgs>;
+        row?: pulumi.Input<inputs.quicksight.DashboardTableRowConditionalFormattingArgs>;
+    }
+
+    export interface DashboardTableConfigurationArgs {
+        fieldOptions?: pulumi.Input<inputs.quicksight.DashboardTableFieldOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardTableFieldWellsArgs>;
+        paginatedReportOptions?: pulumi.Input<inputs.quicksight.DashboardTablePaginatedReportOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardTableSortConfigurationArgs>;
+        tableInlineVisualizations?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardTableInlineVisualizationArgs>[]>;
+        tableOptions?: pulumi.Input<inputs.quicksight.DashboardTableOptionsArgs>;
+        totalOptions?: pulumi.Input<inputs.quicksight.DashboardTotalOptionsArgs>;
+    }
+
+    export interface DashboardTableFieldCustomIconContentArgs {
+        icon?: pulumi.Input<enums.quicksight.DashboardTableFieldIconSetType>;
+    }
+
+    export interface DashboardTableFieldCustomTextContentArgs {
+        fontConfiguration: pulumi.Input<inputs.quicksight.DashboardFontConfigurationArgs>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DashboardTableFieldImageConfigurationArgs {
+        sizingOptions?: pulumi.Input<inputs.quicksight.DashboardTableCellImageSizingConfigurationArgs>;
+    }
+
+    export interface DashboardTableFieldLinkConfigurationArgs {
+        content: pulumi.Input<inputs.quicksight.DashboardTableFieldLinkContentConfigurationArgs>;
+        target: pulumi.Input<enums.quicksight.DashboardURLTargetConfiguration>;
+    }
+
+    export interface DashboardTableFieldLinkContentConfigurationArgs {
+        customIconContent?: pulumi.Input<inputs.quicksight.DashboardTableFieldCustomIconContentArgs>;
+        customTextContent?: pulumi.Input<inputs.quicksight.DashboardTableFieldCustomTextContentArgs>;
+    }
+
+    export interface DashboardTableFieldOptionArgs {
+        customLabel?: pulumi.Input<string>;
+        fieldId: pulumi.Input<string>;
+        uRLStyling?: pulumi.Input<inputs.quicksight.DashboardTableFieldURLConfigurationArgs>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: pulumi.Input<string>;
+    }
+
+    export interface DashboardTableFieldOptionsArgs {
+        order?: pulumi.Input<pulumi.Input<string>[]>;
+        selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardTableFieldOptionArgs>[]>;
+    }
+
+    export interface DashboardTableFieldURLConfigurationArgs {
+        imageConfiguration?: pulumi.Input<inputs.quicksight.DashboardTableFieldImageConfigurationArgs>;
+        linkConfiguration?: pulumi.Input<inputs.quicksight.DashboardTableFieldLinkConfigurationArgs>;
+    }
+
+    export interface DashboardTableFieldWellsArgs {
+        tableAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardTableAggregatedFieldWellsArgs>;
+        tableUnaggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardTableUnaggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardTableInlineVisualizationArgs {
+        dataBars?: pulumi.Input<inputs.quicksight.DashboardDataBarsOptionsArgs>;
+    }
+
+    export interface DashboardTableOptionsArgs {
+        cellStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        headerStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        orientation?: pulumi.Input<enums.quicksight.DashboardTableOrientation>;
+        rowAlternateColorOptions?: pulumi.Input<inputs.quicksight.DashboardRowAlternateColorOptionsArgs>;
+    }
+
+    export interface DashboardTablePaginatedReportOptionsArgs {
+        overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+        verticalOverflowVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardTableRowConditionalFormattingArgs {
+        backgroundColor?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingColorArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingColorArgs>;
+    }
+
+    export interface DashboardTableSideBorderOptionsArgs {
+        bottom?: pulumi.Input<inputs.quicksight.DashboardTableBorderOptionsArgs>;
+        innerHorizontal?: pulumi.Input<inputs.quicksight.DashboardTableBorderOptionsArgs>;
+        innerVertical?: pulumi.Input<inputs.quicksight.DashboardTableBorderOptionsArgs>;
+        left?: pulumi.Input<inputs.quicksight.DashboardTableBorderOptionsArgs>;
+        right?: pulumi.Input<inputs.quicksight.DashboardTableBorderOptionsArgs>;
+        top?: pulumi.Input<inputs.quicksight.DashboardTableBorderOptionsArgs>;
+    }
+
+    export interface DashboardTableSortConfigurationArgs {
+        paginationConfiguration?: pulumi.Input<inputs.quicksight.DashboardPaginationConfigurationArgs>;
+        rowSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardTableUnaggregatedFieldWellsArgs {
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardUnaggregatedFieldArgs>[]>;
+    }
+
+    export interface DashboardTableVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardTableConfigurationArgs>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.DashboardTableConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
     export interface DashboardTagArgs {
-        /**
-         * <p>Tag key.</p>
-         */
         key: pulumi.Input<string>;
-        /**
-         * <p>Tag value.</p>
-         */
         value: pulumi.Input<string>;
+    }
+
+    export interface DashboardTextAreaControlDisplayOptionsArgs {
+        placeholderOptions?: pulumi.Input<inputs.quicksight.DashboardTextControlPlaceholderOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.DashboardLabelOptionsArgs>;
+    }
+
+    export interface DashboardTextConditionalFormatArgs {
+        backgroundColor?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingColorArgs>;
+        icon?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.DashboardConditionalFormattingColorArgs>;
+    }
+
+    export interface DashboardTextControlPlaceholderOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardTextFieldControlDisplayOptionsArgs {
+        placeholderOptions?: pulumi.Input<inputs.quicksight.DashboardTextControlPlaceholderOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.DashboardLabelOptionsArgs>;
+    }
+
+    export interface DashboardThousandSeparatorOptionsArgs {
+        symbol?: pulumi.Input<enums.quicksight.DashboardNumericSeparatorSymbol>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardTimeBasedForecastPropertiesArgs {
+        lowerBoundary?: pulumi.Input<number>;
+        periodsBackward?: pulumi.Input<number>;
+        periodsForward?: pulumi.Input<number>;
+        predictionInterval?: pulumi.Input<number>;
+        seasonality?: pulumi.Input<number>;
+        upperBoundary?: pulumi.Input<number>;
+    }
+
+    export interface DashboardTimeEqualityFilterArgs {
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        parameterName?: pulumi.Input<string>;
+        timeGranularity?: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DashboardTimeRangeDrillDownFilterArgs {
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        rangeMaximum: pulumi.Input<string>;
+        rangeMinimum: pulumi.Input<string>;
+        timeGranularity: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
+    }
+
+    export interface DashboardTimeRangeFilterArgs {
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.DashboardExcludePeriodConfigurationArgs>;
+        filterId: pulumi.Input<string>;
+        includeMaximum?: pulumi.Input<boolean>;
+        includeMinimum?: pulumi.Input<boolean>;
+        nullOption: pulumi.Input<enums.quicksight.DashboardFilterNullOption>;
+        rangeMaximumValue?: pulumi.Input<inputs.quicksight.DashboardTimeRangeFilterValueArgs>;
+        rangeMinimumValue?: pulumi.Input<inputs.quicksight.DashboardTimeRangeFilterValueArgs>;
+        timeGranularity?: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
+    }
+
+    export interface DashboardTimeRangeFilterValueArgs {
+        parameter?: pulumi.Input<string>;
+        rollingDate?: pulumi.Input<inputs.quicksight.DashboardRollingDateConfigurationArgs>;
+        staticValue?: pulumi.Input<string>;
+    }
+
+    export interface DashboardTooltipItemArgs {
+        columnTooltipItem?: pulumi.Input<inputs.quicksight.DashboardColumnTooltipItemArgs>;
+        fieldTooltipItem?: pulumi.Input<inputs.quicksight.DashboardFieldTooltipItemArgs>;
+    }
+
+    export interface DashboardTooltipOptionsArgs {
+        fieldBasedTooltip?: pulumi.Input<inputs.quicksight.DashboardFieldBasedTooltipArgs>;
+        selectedTooltipType?: pulumi.Input<enums.quicksight.DashboardSelectedTooltipType>;
+        tooltipVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardTopBottomFilterArgs {
+        aggregationSortConfigurations: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardAggregationSortConfigurationArgs>[]>;
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        limit?: pulumi.Input<number>;
+        parameterName?: pulumi.Input<string>;
+        timeGranularity?: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
+    }
+
+    export interface DashboardTopBottomMoversComputationArgs {
+        category: pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>;
+        computationId: pulumi.Input<string>;
+        moverSize?: pulumi.Input<number>;
+        name?: pulumi.Input<string>;
+        sortOrder?: pulumi.Input<enums.quicksight.DashboardTopBottomSortOrder>;
+        time: pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>;
+        type: pulumi.Input<enums.quicksight.DashboardTopBottomComputationType>;
+        value?: pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>;
+    }
+
+    export interface DashboardTopBottomRankedComputationArgs {
+        category: pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>;
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        resultSize?: pulumi.Input<number>;
+        type: pulumi.Input<enums.quicksight.DashboardTopBottomComputationType>;
+        value?: pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>;
+    }
+
+    export interface DashboardTotalAggregationComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        value: pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>;
+    }
+
+    export interface DashboardTotalOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        placement?: pulumi.Input<enums.quicksight.DashboardTableTotalsPlacement>;
+        scrollStatus?: pulumi.Input<enums.quicksight.DashboardTableTotalsScrollStatus>;
+        totalCellStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardTreeMapAggregatedFieldWellsArgs {
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+        groups?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        sizes?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardTreeMapConfigurationArgs {
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        colorScale?: pulumi.Input<inputs.quicksight.DashboardColorScaleArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardTreeMapFieldWellsArgs>;
+        groupLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        sizeLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardTreeMapSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.DashboardTooltipOptionsArgs>;
+    }
+
+    export interface DashboardTreeMapFieldWellsArgs {
+        treeMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardTreeMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardTreeMapSortConfigurationArgs {
+        treeMapGroupItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        treeMapSort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardTreeMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardTreeMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardTrendArrowOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardUnaggregatedFieldArgs {
+        column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardFormatConfigurationArgs>;
+    }
+
+    export interface DashboardUniqueValuesComputationArgs {
+        category: pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>;
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+    }
+
+    export interface DashboardVersionDefinitionArgs {
+        analysisDefaults?: pulumi.Input<inputs.quicksight.DashboardAnalysisDefaultsArgs>;
+        calculatedFields?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardCalculatedFieldArgs>[]>;
+        columnConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnConfigurationArgs>[]>;
+        dataSetIdentifierDeclarations: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataSetIdentifierDeclarationArgs>[]>;
+        filterGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFilterGroupArgs>[]>;
+        parameterDeclarations?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardParameterDeclarationArgs>[]>;
+        sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSheetDefinitionArgs>[]>;
+    }
+
+    export interface DashboardVisibleRangeOptionsArgs {
+        percentRange?: pulumi.Input<inputs.quicksight.DashboardPercentVisibleRangeArgs>;
+    }
+
+    export interface DashboardVisualArgs {
+        barChartVisual?: pulumi.Input<inputs.quicksight.DashboardBarChartVisualArgs>;
+        boxPlotVisual?: pulumi.Input<inputs.quicksight.DashboardBoxPlotVisualArgs>;
+        comboChartVisual?: pulumi.Input<inputs.quicksight.DashboardComboChartVisualArgs>;
+        customContentVisual?: pulumi.Input<inputs.quicksight.DashboardCustomContentVisualArgs>;
+        emptyVisual?: pulumi.Input<inputs.quicksight.DashboardEmptyVisualArgs>;
+        filledMapVisual?: pulumi.Input<inputs.quicksight.DashboardFilledMapVisualArgs>;
+        funnelChartVisual?: pulumi.Input<inputs.quicksight.DashboardFunnelChartVisualArgs>;
+        gaugeChartVisual?: pulumi.Input<inputs.quicksight.DashboardGaugeChartVisualArgs>;
+        geospatialMapVisual?: pulumi.Input<inputs.quicksight.DashboardGeospatialMapVisualArgs>;
+        heatMapVisual?: pulumi.Input<inputs.quicksight.DashboardHeatMapVisualArgs>;
+        histogramVisual?: pulumi.Input<inputs.quicksight.DashboardHistogramVisualArgs>;
+        insightVisual?: pulumi.Input<inputs.quicksight.DashboardInsightVisualArgs>;
+        kPIVisual?: pulumi.Input<inputs.quicksight.DashboardKPIVisualArgs>;
+        lineChartVisual?: pulumi.Input<inputs.quicksight.DashboardLineChartVisualArgs>;
+        pieChartVisual?: pulumi.Input<inputs.quicksight.DashboardPieChartVisualArgs>;
+        pivotTableVisual?: pulumi.Input<inputs.quicksight.DashboardPivotTableVisualArgs>;
+        radarChartVisual?: pulumi.Input<inputs.quicksight.DashboardRadarChartVisualArgs>;
+        sankeyDiagramVisual?: pulumi.Input<inputs.quicksight.DashboardSankeyDiagramVisualArgs>;
+        scatterPlotVisual?: pulumi.Input<inputs.quicksight.DashboardScatterPlotVisualArgs>;
+        tableVisual?: pulumi.Input<inputs.quicksight.DashboardTableVisualArgs>;
+        treeMapVisual?: pulumi.Input<inputs.quicksight.DashboardTreeMapVisualArgs>;
+        waterfallVisual?: pulumi.Input<inputs.quicksight.DashboardWaterfallVisualArgs>;
+        wordCloudVisual?: pulumi.Input<inputs.quicksight.DashboardWordCloudVisualArgs>;
+    }
+
+    export interface DashboardVisualAxisSortOptionArgs {
+        availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
+    }
+
+    export interface DashboardVisualCustomActionArgs {
+        actionOperations: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionOperationArgs>[]>;
+        customActionId: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        status?: pulumi.Input<enums.quicksight.DashboardWidgetStatus>;
+        trigger: pulumi.Input<enums.quicksight.DashboardVisualCustomActionTrigger>;
+    }
+
+    export interface DashboardVisualCustomActionOperationArgs {
+        filterOperation?: pulumi.Input<inputs.quicksight.DashboardCustomActionFilterOperationArgs>;
+        navigationOperation?: pulumi.Input<inputs.quicksight.DashboardCustomActionNavigationOperationArgs>;
+        setParametersOperation?: pulumi.Input<inputs.quicksight.DashboardCustomActionSetParametersOperationArgs>;
+        uRLOperation?: pulumi.Input<inputs.quicksight.DashboardCustomActionURLOperationArgs>;
+    }
+
+    export interface DashboardVisualMenuOptionArgs {
+        availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
+    }
+
+    export interface DashboardVisualPaletteArgs {
+        chartColor?: pulumi.Input<string>;
+        colorMap?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataPathColorArgs>[]>;
+    }
+
+    export interface DashboardVisualPublishOptionsArgs {
+        exportHiddenFieldsOption?: pulumi.Input<inputs.quicksight.DashboardExportHiddenFieldsOptionArgs>;
+    }
+
+    export interface DashboardVisualSubtitleLabelOptionsArgs {
+        formatText?: pulumi.Input<inputs.quicksight.DashboardLongFormatTextArgs>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardVisualTitleLabelOptionsArgs {
+        formatText?: pulumi.Input<inputs.quicksight.DashboardShortFormatTextArgs>;
+        visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
+    }
+
+    export interface DashboardWaterfallChartAggregatedFieldWellsArgs {
+        breakdowns?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        categories?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardWaterfallChartConfigurationArgs {
+        categoryAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        categoryAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardWaterfallChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardWaterfallChartSortConfigurationArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs>;
+        waterfallChartOptions?: pulumi.Input<inputs.quicksight.DashboardWaterfallChartOptionsArgs>;
+    }
+
+    export interface DashboardWaterfallChartFieldWellsArgs {
+        waterfallChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardWaterfallChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardWaterfallChartOptionsArgs {
+        totalBarLabel?: pulumi.Input<string>;
+    }
+
+    export interface DashboardWaterfallChartSortConfigurationArgs {
+        breakdownItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardWaterfallVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardWaterfallChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardWhatIfPointScenarioArgs {
+        date: pulumi.Input<string>;
+        value: pulumi.Input<number>;
+    }
+
+    export interface DashboardWhatIfRangeScenarioArgs {
+        endDate: pulumi.Input<string>;
+        startDate: pulumi.Input<string>;
+        value: pulumi.Input<number>;
+    }
+
+    export interface DashboardWordCloudAggregatedFieldWellsArgs {
+        groupBy?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        size?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
+    }
+
+    export interface DashboardWordCloudChartConfigurationArgs {
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.DashboardWordCloudFieldWellsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardWordCloudSortConfigurationArgs>;
+        wordCloudOptions?: pulumi.Input<inputs.quicksight.DashboardWordCloudOptionsArgs>;
+    }
+
+    export interface DashboardWordCloudFieldWellsArgs {
+        wordCloudAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardWordCloudAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardWordCloudOptionsArgs {
+        cloudLayout?: pulumi.Input<enums.quicksight.DashboardWordCloudCloudLayout>;
+        maximumStringLength?: pulumi.Input<number>;
+        wordCasing?: pulumi.Input<enums.quicksight.DashboardWordCloudWordCasing>;
+        wordOrientation?: pulumi.Input<enums.quicksight.DashboardWordCloudWordOrientation>;
+        wordPadding?: pulumi.Input<enums.quicksight.DashboardWordCloudWordPadding>;
+        wordScaling?: pulumi.Input<enums.quicksight.DashboardWordCloudWordScaling>;
+    }
+
+    export interface DashboardWordCloudSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.DashboardItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFieldSortOptionsArgs>[]>;
+    }
+
+    export interface DashboardWordCloudVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.DashboardWordCloudChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
     }
 
     /**
@@ -29967,94 +35523,2884 @@ export namespace quicksight {
         vpcConnectionArn: pulumi.Input<string>;
     }
 
-    /**
-     * <p>Dataset reference.</p>
-     */
+    export interface TemplateAggregationFunctionArgs {
+        categoricalAggregationFunction?: pulumi.Input<enums.quicksight.TemplateCategoricalAggregationFunction>;
+        dateAggregationFunction?: pulumi.Input<enums.quicksight.TemplateDateAggregationFunction>;
+        numericalAggregationFunction?: pulumi.Input<inputs.quicksight.TemplateNumericalAggregationFunctionArgs>;
+    }
+
+    export interface TemplateAggregationSortConfigurationArgs {
+        aggregationFunction: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        sortDirection: pulumi.Input<enums.quicksight.TemplateSortDirection>;
+    }
+
+    export interface TemplateAnalysisDefaultsArgs {
+        defaultNewSheetConfiguration: pulumi.Input<inputs.quicksight.TemplateDefaultNewSheetConfigurationArgs>;
+    }
+
+    export interface TemplateAnchorDateConfigurationArgs {
+        anchorOption?: pulumi.Input<enums.quicksight.TemplateAnchorOption>;
+        parameterName?: pulumi.Input<string>;
+    }
+
+    export interface TemplateArcAxisConfigurationArgs {
+        range?: pulumi.Input<inputs.quicksight.TemplateArcAxisDisplayRangeArgs>;
+        reserveRange?: pulumi.Input<number>;
+    }
+
+    export interface TemplateArcAxisDisplayRangeArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface TemplateArcConfigurationArgs {
+        arcAngle?: pulumi.Input<number>;
+        arcThickness?: pulumi.Input<enums.quicksight.TemplateArcThicknessOptions>;
+    }
+
+    export interface TemplateArcOptionsArgs {
+        arcThickness?: pulumi.Input<enums.quicksight.TemplateArcThickness>;
+    }
+
+    export interface TemplateAxisDataOptionsArgs {
+        dateAxisOptions?: pulumi.Input<inputs.quicksight.TemplateDateAxisOptionsArgs>;
+        numericAxisOptions?: pulumi.Input<inputs.quicksight.TemplateNumericAxisOptionsArgs>;
+    }
+
+    export interface TemplateAxisDisplayDataDrivenRangeArgs {
+    }
+
+    export interface TemplateAxisDisplayMinMaxRangeArgs {
+        maximum?: pulumi.Input<number>;
+        minimum?: pulumi.Input<number>;
+    }
+
+    export interface TemplateAxisDisplayOptionsArgs {
+        axisLineVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        axisOffset?: pulumi.Input<string>;
+        dataOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDataOptionsArgs>;
+        gridLineVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        scrollbarOptions?: pulumi.Input<inputs.quicksight.TemplateScrollBarOptionsArgs>;
+        tickLabelOptions?: pulumi.Input<inputs.quicksight.TemplateAxisTickLabelOptionsArgs>;
+    }
+
+    export interface TemplateAxisDisplayRangeArgs {
+        dataDriven?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayDataDrivenRangeArgs>;
+        minMax?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayMinMaxRangeArgs>;
+    }
+
+    export interface TemplateAxisLabelOptionsArgs {
+        applyTo?: pulumi.Input<inputs.quicksight.TemplateAxisLabelReferenceOptionsArgs>;
+        customLabel?: pulumi.Input<string>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+    }
+
+    export interface TemplateAxisLabelReferenceOptionsArgs {
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+    }
+
+    export interface TemplateAxisLinearScaleArgs {
+        stepCount?: pulumi.Input<number>;
+        stepSize?: pulumi.Input<number>;
+    }
+
+    export interface TemplateAxisLogarithmicScaleArgs {
+        base?: pulumi.Input<number>;
+    }
+
+    export interface TemplateAxisScaleArgs {
+        linear?: pulumi.Input<inputs.quicksight.TemplateAxisLinearScaleArgs>;
+        logarithmic?: pulumi.Input<inputs.quicksight.TemplateAxisLogarithmicScaleArgs>;
+    }
+
+    export interface TemplateAxisTickLabelOptionsArgs {
+        labelOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
+        rotationAngle?: pulumi.Input<number>;
+    }
+
+    export interface TemplateBarChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        smallMultiples?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateBarChartConfigurationArgs {
+        barsArrangement?: pulumi.Input<enums.quicksight.TemplateBarsArrangement>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        contributionAnalysisDefaults?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateContributionAnalysisDefaultArgs>[]>;
+        dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateBarChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        orientation?: pulumi.Input<enums.quicksight.TemplateBarChartOrientation>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateReferenceLineArgs>[]>;
+        smallMultiplesOptions?: pulumi.Input<inputs.quicksight.TemplateSmallMultiplesOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateBarChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+        valueAxis?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        valueLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+    }
+
+    export interface TemplateBarChartFieldWellsArgs {
+        barChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateBarChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateBarChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+        colorItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        colorSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+        smallMultiplesLimitConfiguration?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        smallMultiplesSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateBarChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateBarChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateBinCountOptionsArgs {
+        value?: pulumi.Input<number>;
+    }
+
+    export interface TemplateBinWidthOptionsArgs {
+        binCountLimit?: pulumi.Input<number>;
+        value?: pulumi.Input<number>;
+    }
+
+    export interface TemplateBodySectionConfigurationArgs {
+        content: pulumi.Input<inputs.quicksight.TemplateBodySectionContentArgs>;
+        pageBreakConfiguration?: pulumi.Input<inputs.quicksight.TemplateSectionPageBreakConfigurationArgs>;
+        sectionId: pulumi.Input<string>;
+        style?: pulumi.Input<inputs.quicksight.TemplateSectionStyleArgs>;
+    }
+
+    export interface TemplateBodySectionContentArgs {
+        layout?: pulumi.Input<inputs.quicksight.TemplateSectionLayoutConfigurationArgs>;
+    }
+
+    export interface TemplateBoxPlotAggregatedFieldWellsArgs {
+        groupBy?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateBoxPlotChartConfigurationArgs {
+        boxPlotOptions?: pulumi.Input<inputs.quicksight.TemplateBoxPlotOptionsArgs>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateBoxPlotFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateReferenceLineArgs>[]>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateBoxPlotSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+    }
+
+    export interface TemplateBoxPlotFieldWellsArgs {
+        boxPlotAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateBoxPlotAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateBoxPlotOptionsArgs {
+        allDataPointsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        outlierVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        styleOptions?: pulumi.Input<inputs.quicksight.TemplateBoxPlotStyleOptionsArgs>;
+    }
+
+    export interface TemplateBoxPlotSortConfigurationArgs {
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+        paginationConfiguration?: pulumi.Input<inputs.quicksight.TemplatePaginationConfigurationArgs>;
+    }
+
+    export interface TemplateBoxPlotStyleOptionsArgs {
+        fillStyle?: pulumi.Input<enums.quicksight.TemplateBoxPlotFillStyle>;
+    }
+
+    export interface TemplateBoxPlotVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateBoxPlotChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateCalculatedFieldArgs {
+        dataSetIdentifier: pulumi.Input<string>;
+        expression: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+    }
+
+    export interface TemplateCalculatedMeasureFieldArgs {
+        expression: pulumi.Input<string>;
+        fieldId: pulumi.Input<string>;
+    }
+
+    export interface TemplateCascadingControlConfigurationArgs {
+        sourceControls?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateCascadingControlSourceArgs>[]>;
+    }
+
+    export interface TemplateCascadingControlSourceArgs {
+        columnToMatch?: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        sourceSheetControlId?: pulumi.Input<string>;
+    }
+
+    export interface TemplateCategoricalDimensionFieldArgs {
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateStringFormatConfigurationArgs>;
+        hierarchyId?: pulumi.Input<string>;
+    }
+
+    export interface TemplateCategoricalMeasureFieldArgs {
+        aggregationFunction?: pulumi.Input<enums.quicksight.TemplateCategoricalAggregationFunction>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateStringFormatConfigurationArgs>;
+    }
+
+    export interface TemplateCategoryDrillDownFilterArgs {
+        categoryValues: pulumi.Input<pulumi.Input<string>[]>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+    }
+
+    export interface TemplateCategoryFilterArgs {
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        configuration: pulumi.Input<inputs.quicksight.TemplateCategoryFilterConfigurationArgs>;
+        filterId: pulumi.Input<string>;
+    }
+
+    export interface TemplateCategoryFilterConfigurationArgs {
+        customFilterConfiguration?: pulumi.Input<inputs.quicksight.TemplateCustomFilterConfigurationArgs>;
+        customFilterListConfiguration?: pulumi.Input<inputs.quicksight.TemplateCustomFilterListConfigurationArgs>;
+        filterListConfiguration?: pulumi.Input<inputs.quicksight.TemplateFilterListConfigurationArgs>;
+    }
+
+    export interface TemplateChartAxisLabelOptionsArgs {
+        axisLabelOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateAxisLabelOptionsArgs>[]>;
+        sortIconVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateClusterMarkerArgs {
+        simpleClusterMarker?: pulumi.Input<inputs.quicksight.TemplateSimpleClusterMarkerArgs>;
+    }
+
+    export interface TemplateClusterMarkerConfigurationArgs {
+        clusterMarker?: pulumi.Input<inputs.quicksight.TemplateClusterMarkerArgs>;
+    }
+
+    export interface TemplateColorScaleArgs {
+        colorFillType: pulumi.Input<enums.quicksight.TemplateColorFillType>;
+        colors: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDataColorArgs>[]>;
+        nullValueColor?: pulumi.Input<inputs.quicksight.TemplateDataColorArgs>;
+    }
+
+    export interface TemplateColorsConfigurationArgs {
+        customColors?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateCustomColorArgs>[]>;
+    }
+
+    export interface TemplateColumnConfigurationArgs {
+        colorsConfiguration?: pulumi.Input<inputs.quicksight.TemplateColorsConfigurationArgs>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateFormatConfigurationArgs>;
+        role?: pulumi.Input<enums.quicksight.TemplateColumnRole>;
+    }
+
+    export interface TemplateColumnGroupColumnSchemaArgs {
+        name?: pulumi.Input<string>;
+    }
+
+    export interface TemplateColumnGroupSchemaArgs {
+        columnGroupColumnSchemaList?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnGroupColumnSchemaArgs>[]>;
+        name?: pulumi.Input<string>;
+    }
+
+    export interface TemplateColumnHierarchyArgs {
+        dateTimeHierarchy?: pulumi.Input<inputs.quicksight.TemplateDateTimeHierarchyArgs>;
+        explicitHierarchy?: pulumi.Input<inputs.quicksight.TemplateExplicitHierarchyArgs>;
+        predefinedHierarchy?: pulumi.Input<inputs.quicksight.TemplatePredefinedHierarchyArgs>;
+    }
+
+    export interface TemplateColumnIdentifierArgs {
+        columnName: pulumi.Input<string>;
+        dataSetIdentifier: pulumi.Input<string>;
+    }
+
+    export interface TemplateColumnSchemaArgs {
+        dataType?: pulumi.Input<string>;
+        geographicRole?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+    }
+
+    export interface TemplateColumnSortArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
+        direction: pulumi.Input<enums.quicksight.TemplateSortDirection>;
+        sortBy: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+    }
+
+    export interface TemplateColumnTooltipItemArgs {
+        aggregation?: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        label?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateComboChartAggregatedFieldWellsArgs {
+        barValues?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        lineValues?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateComboChartConfigurationArgs {
+        barDataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        barsArrangement?: pulumi.Input<enums.quicksight.TemplateBarsArrangement>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateComboChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        lineDataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateReferenceLineArgs>[]>;
+        secondaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        secondaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateComboChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+    }
+
+    export interface TemplateComboChartFieldWellsArgs {
+        comboChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateComboChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateComboChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+        colorItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        colorSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateComboChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateComboChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateComparisonConfigurationArgs {
+        comparisonFormat?: pulumi.Input<inputs.quicksight.TemplateComparisonFormatConfigurationArgs>;
+        comparisonMethod?: pulumi.Input<enums.quicksight.TemplateComparisonMethod>;
+    }
+
+    export interface TemplateComparisonFormatConfigurationArgs {
+        numberDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumberDisplayFormatConfigurationArgs>;
+        percentageDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplatePercentageDisplayFormatConfigurationArgs>;
+    }
+
+    export interface TemplateComputationArgs {
+        forecast?: pulumi.Input<inputs.quicksight.TemplateForecastComputationArgs>;
+        growthRate?: pulumi.Input<inputs.quicksight.TemplateGrowthRateComputationArgs>;
+        maximumMinimum?: pulumi.Input<inputs.quicksight.TemplateMaximumMinimumComputationArgs>;
+        metricComparison?: pulumi.Input<inputs.quicksight.TemplateMetricComparisonComputationArgs>;
+        periodOverPeriod?: pulumi.Input<inputs.quicksight.TemplatePeriodOverPeriodComputationArgs>;
+        periodToDate?: pulumi.Input<inputs.quicksight.TemplatePeriodToDateComputationArgs>;
+        topBottomMovers?: pulumi.Input<inputs.quicksight.TemplateTopBottomMoversComputationArgs>;
+        topBottomRanked?: pulumi.Input<inputs.quicksight.TemplateTopBottomRankedComputationArgs>;
+        totalAggregation?: pulumi.Input<inputs.quicksight.TemplateTotalAggregationComputationArgs>;
+        uniqueValues?: pulumi.Input<inputs.quicksight.TemplateUniqueValuesComputationArgs>;
+    }
+
+    export interface TemplateConditionalFormattingColorArgs {
+        gradient?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingGradientColorArgs>;
+        solid?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingSolidColorArgs>;
+    }
+
+    export interface TemplateConditionalFormattingCustomIconConditionArgs {
+        color?: pulumi.Input<string>;
+        displayConfiguration?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingIconDisplayConfigurationArgs>;
+        expression: pulumi.Input<string>;
+        iconOptions: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingCustomIconOptionsArgs>;
+    }
+
+    export interface TemplateConditionalFormattingCustomIconOptionsArgs {
+        icon?: pulumi.Input<enums.quicksight.TemplateIcon>;
+        unicodeIcon?: pulumi.Input<string>;
+    }
+
+    export interface TemplateConditionalFormattingGradientColorArgs {
+        color: pulumi.Input<inputs.quicksight.TemplateGradientColorArgs>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface TemplateConditionalFormattingIconArgs {
+        customCondition?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingCustomIconConditionArgs>;
+        iconSet?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingIconSetArgs>;
+    }
+
+    export interface TemplateConditionalFormattingIconDisplayConfigurationArgs {
+        iconDisplayOption?: pulumi.Input<enums.quicksight.TemplateConditionalFormattingIconDisplayOption>;
+    }
+
+    export interface TemplateConditionalFormattingIconSetArgs {
+        expression: pulumi.Input<string>;
+        iconSetType?: pulumi.Input<enums.quicksight.TemplateConditionalFormattingIconSetType>;
+    }
+
+    export interface TemplateConditionalFormattingSolidColorArgs {
+        color?: pulumi.Input<string>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface TemplateContributionAnalysisDefaultArgs {
+        contributorDimensions: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>[]>;
+        measureFieldId: pulumi.Input<string>;
+    }
+
+    export interface TemplateCurrencyDisplayFormatConfigurationArgs {
+        decimalPlacesConfiguration?: pulumi.Input<inputs.quicksight.TemplateDecimalPlacesConfigurationArgs>;
+        negativeValueConfiguration?: pulumi.Input<inputs.quicksight.TemplateNegativeValueConfigurationArgs>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNullValueFormatConfigurationArgs>;
+        numberScale?: pulumi.Input<enums.quicksight.TemplateNumberScale>;
+        prefix?: pulumi.Input<string>;
+        separatorConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumericSeparatorConfigurationArgs>;
+        suffix?: pulumi.Input<string>;
+        symbol?: pulumi.Input<string>;
+    }
+
+    export interface TemplateCustomActionFilterOperationArgs {
+        selectedFieldsConfiguration: pulumi.Input<inputs.quicksight.TemplateFilterOperationSelectedFieldsConfigurationArgs>;
+        targetVisualsConfiguration: pulumi.Input<inputs.quicksight.TemplateFilterOperationTargetVisualsConfigurationArgs>;
+    }
+
+    export interface TemplateCustomActionNavigationOperationArgs {
+        localNavigationConfiguration?: pulumi.Input<inputs.quicksight.TemplateLocalNavigationConfigurationArgs>;
+    }
+
+    export interface TemplateCustomActionSetParametersOperationArgs {
+        parameterValueConfigurations: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSetParameterValueConfigurationArgs>[]>;
+    }
+
+    export interface TemplateCustomActionURLOperationArgs {
+        uRLTarget: pulumi.Input<enums.quicksight.TemplateURLTargetConfiguration>;
+        uRLTemplate: pulumi.Input<string>;
+    }
+
+    export interface TemplateCustomColorArgs {
+        color: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        specialValue?: pulumi.Input<enums.quicksight.TemplateSpecialValue>;
+    }
+
+    export interface TemplateCustomContentConfigurationArgs {
+        contentType?: pulumi.Input<enums.quicksight.TemplateCustomContentType>;
+        contentUrl?: pulumi.Input<string>;
+        imageScaling?: pulumi.Input<enums.quicksight.TemplateCustomContentImageScalingConfiguration>;
+    }
+
+    export interface TemplateCustomContentVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateCustomContentConfigurationArgs>;
+        dataSetIdentifier: pulumi.Input<string>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateCustomFilterConfigurationArgs {
+        categoryValue?: pulumi.Input<string>;
+        matchOperator: pulumi.Input<enums.quicksight.TemplateCategoryFilterMatchOperator>;
+        nullOption: pulumi.Input<enums.quicksight.TemplateFilterNullOption>;
+        parameterName?: pulumi.Input<string>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.TemplateCategoryFilterSelectAllOptions>;
+    }
+
+    export interface TemplateCustomFilterListConfigurationArgs {
+        categoryValues?: pulumi.Input<pulumi.Input<string>[]>;
+        matchOperator: pulumi.Input<enums.quicksight.TemplateCategoryFilterMatchOperator>;
+        nullOption: pulumi.Input<enums.quicksight.TemplateFilterNullOption>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.TemplateCategoryFilterSelectAllOptions>;
+    }
+
+    export interface TemplateCustomNarrativeOptionsArgs {
+        narrative: pulumi.Input<string>;
+    }
+
+    export interface TemplateCustomParameterValuesArgs {
+        dateTimeValues?: pulumi.Input<pulumi.Input<string>[]>;
+        decimalValues?: pulumi.Input<pulumi.Input<number>[]>;
+        integerValues?: pulumi.Input<pulumi.Input<number>[]>;
+        stringValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TemplateCustomValuesConfigurationArgs {
+        customValues: pulumi.Input<inputs.quicksight.TemplateCustomParameterValuesArgs>;
+        includeNullValue?: pulumi.Input<boolean>;
+    }
+
+    export interface TemplateDataBarsOptionsArgs {
+        fieldId: pulumi.Input<string>;
+        negativeColor?: pulumi.Input<string>;
+        positiveColor?: pulumi.Input<string>;
+    }
+
+    export interface TemplateDataColorArgs {
+        color?: pulumi.Input<string>;
+        dataValue?: pulumi.Input<number>;
+    }
+
+    export interface TemplateDataFieldSeriesItemArgs {
+        axisBinding: pulumi.Input<enums.quicksight.TemplateAxisBinding>;
+        fieldId: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        settings?: pulumi.Input<inputs.quicksight.TemplateLineChartSeriesSettingsArgs>;
+    }
+
+    export interface TemplateDataLabelOptionsArgs {
+        categoryLabelVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        dataLabelTypes?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDataLabelTypeArgs>[]>;
+        labelColor?: pulumi.Input<string>;
+        labelContent?: pulumi.Input<enums.quicksight.TemplateDataLabelContent>;
+        labelFontConfiguration?: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+        measureLabelVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        overlap?: pulumi.Input<enums.quicksight.TemplateDataLabelOverlap>;
+        position?: pulumi.Input<enums.quicksight.TemplateDataLabelPosition>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateDataLabelTypeArgs {
+        dataPathLabelType?: pulumi.Input<inputs.quicksight.TemplateDataPathLabelTypeArgs>;
+        fieldLabelType?: pulumi.Input<inputs.quicksight.TemplateFieldLabelTypeArgs>;
+        maximumLabelType?: pulumi.Input<inputs.quicksight.TemplateMaximumLabelTypeArgs>;
+        minimumLabelType?: pulumi.Input<inputs.quicksight.TemplateMinimumLabelTypeArgs>;
+        rangeEndsLabelType?: pulumi.Input<inputs.quicksight.TemplateRangeEndsLabelTypeArgs>;
+    }
+
+    export interface TemplateDataPathColorArgs {
+        color: pulumi.Input<string>;
+        element: pulumi.Input<inputs.quicksight.TemplateDataPathValueArgs>;
+        timeGranularity?: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
+    }
+
+    export interface TemplateDataPathLabelTypeArgs {
+        fieldId?: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateDataPathSortArgs {
+        direction: pulumi.Input<enums.quicksight.TemplateSortDirection>;
+        sortPaths: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDataPathValueArgs>[]>;
+    }
+
+    export interface TemplateDataPathValueArgs {
+        fieldId: pulumi.Input<string>;
+        fieldValue: pulumi.Input<string>;
+    }
+
+    export interface TemplateDataSetConfigurationArgs {
+        columnGroupSchemaList?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnGroupSchemaArgs>[]>;
+        dataSetSchema?: pulumi.Input<inputs.quicksight.TemplateDataSetSchemaArgs>;
+        placeholder?: pulumi.Input<string>;
+    }
+
     export interface TemplateDataSetReferenceArgs {
-        /**
-         * <p>Dataset Amazon Resource Name (ARN).</p>
-         */
         dataSetArn: pulumi.Input<string>;
-        /**
-         * <p>Dataset placeholder.</p>
-         */
         dataSetPlaceholder: pulumi.Input<string>;
     }
 
-    /**
-     * <p>Permission for the resource.</p>
-     */
-    export interface TemplateResourcePermissionArgs {
-        /**
-         * <p>The IAM action to grant or revoke permissions on.</p>
-         */
-        actions: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-         *             following:</p>
-         *         <ul>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
-         *                     (This is less common.) </p>
-         *             </li>
-         *          </ul>
-         */
-        principal: pulumi.Input<string>;
+    export interface TemplateDataSetSchemaArgs {
+        columnSchemaList?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnSchemaArgs>[]>;
     }
 
-    /**
-     * <p>The source analysis of the template.</p>
-     */
+    export interface TemplateDateAxisOptionsArgs {
+        missingDateVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateDateDimensionFieldArgs {
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        dateGranularity?: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateDateTimeFormatConfigurationArgs>;
+        hierarchyId?: pulumi.Input<string>;
+    }
+
+    export interface TemplateDateMeasureFieldArgs {
+        aggregationFunction?: pulumi.Input<enums.quicksight.TemplateDateAggregationFunction>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateDateTimeFormatConfigurationArgs>;
+    }
+
+    export interface TemplateDateTimeDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.TemplateDynamicDefaultValueArgs>;
+        rollingDate?: pulumi.Input<inputs.quicksight.TemplateRollingDateConfigurationArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TemplateDateTimeFormatConfigurationArgs {
+        dateTimeFormat?: pulumi.Input<string>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNullValueFormatConfigurationArgs>;
+        numericFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumericFormatConfigurationArgs>;
+    }
+
+    export interface TemplateDateTimeHierarchyArgs {
+        drillDownFilters?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDrillDownFilterArgs>[]>;
+        hierarchyId: pulumi.Input<string>;
+    }
+
+    export interface TemplateDateTimeParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.TemplateDateTimeDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMappedDataSetParameterArgs>[]>;
+        name: pulumi.Input<string>;
+        timeGranularity?: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.TemplateDateTimeValueWhenUnsetConfigurationArgs>;
+    }
+
+    export interface TemplateDateTimePickerControlDisplayOptionsArgs {
+        dateTimeFormat?: pulumi.Input<string>;
+        titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
+    }
+
+    export interface TemplateDateTimeValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<string>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.TemplateValueWhenUnsetOption>;
+    }
+
+    export interface TemplateDecimalDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.TemplateDynamicDefaultValueArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface TemplateDecimalParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.TemplateDecimalDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMappedDataSetParameterArgs>[]>;
+        name: pulumi.Input<string>;
+        parameterValueType: pulumi.Input<enums.quicksight.TemplateParameterValueType>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.TemplateDecimalValueWhenUnsetConfigurationArgs>;
+    }
+
+    export interface TemplateDecimalPlacesConfigurationArgs {
+        decimalPlaces: pulumi.Input<number>;
+    }
+
+    export interface TemplateDecimalValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<number>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.TemplateValueWhenUnsetOption>;
+    }
+
+    export interface TemplateDefaultFreeFormLayoutConfigurationArgs {
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.TemplateFreeFormLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface TemplateDefaultGridLayoutConfigurationArgs {
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.TemplateGridLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface TemplateDefaultInteractiveLayoutConfigurationArgs {
+        freeForm?: pulumi.Input<inputs.quicksight.TemplateDefaultFreeFormLayoutConfigurationArgs>;
+        grid?: pulumi.Input<inputs.quicksight.TemplateDefaultGridLayoutConfigurationArgs>;
+    }
+
+    export interface TemplateDefaultNewSheetConfigurationArgs {
+        interactiveLayoutConfiguration?: pulumi.Input<inputs.quicksight.TemplateDefaultInteractiveLayoutConfigurationArgs>;
+        paginatedLayoutConfiguration?: pulumi.Input<inputs.quicksight.TemplateDefaultPaginatedLayoutConfigurationArgs>;
+        sheetContentType?: pulumi.Input<enums.quicksight.TemplateSheetContentType>;
+    }
+
+    export interface TemplateDefaultPaginatedLayoutConfigurationArgs {
+        sectionBased?: pulumi.Input<inputs.quicksight.TemplateDefaultSectionBasedLayoutConfigurationArgs>;
+    }
+
+    export interface TemplateDefaultSectionBasedLayoutConfigurationArgs {
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.TemplateSectionBasedLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface TemplateDestinationParameterValueConfigurationArgs {
+        customValuesConfiguration?: pulumi.Input<inputs.quicksight.TemplateCustomValuesConfigurationArgs>;
+        selectAllValueOptions?: pulumi.Input<enums.quicksight.TemplateSelectAllValueOptions>;
+        sourceField?: pulumi.Input<string>;
+        sourceParameterName?: pulumi.Input<string>;
+    }
+
+    export interface TemplateDimensionFieldArgs {
+        categoricalDimensionField?: pulumi.Input<inputs.quicksight.TemplateCategoricalDimensionFieldArgs>;
+        dateDimensionField?: pulumi.Input<inputs.quicksight.TemplateDateDimensionFieldArgs>;
+        numericalDimensionField?: pulumi.Input<inputs.quicksight.TemplateNumericalDimensionFieldArgs>;
+    }
+
+    export interface TemplateDonutCenterOptionsArgs {
+        labelVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateDonutOptionsArgs {
+        arcOptions?: pulumi.Input<inputs.quicksight.TemplateArcOptionsArgs>;
+        donutCenterOptions?: pulumi.Input<inputs.quicksight.TemplateDonutCenterOptionsArgs>;
+    }
+
+    export interface TemplateDrillDownFilterArgs {
+        categoryFilter?: pulumi.Input<inputs.quicksight.TemplateCategoryDrillDownFilterArgs>;
+        numericEqualityFilter?: pulumi.Input<inputs.quicksight.TemplateNumericEqualityDrillDownFilterArgs>;
+        timeRangeFilter?: pulumi.Input<inputs.quicksight.TemplateTimeRangeDrillDownFilterArgs>;
+    }
+
+    export interface TemplateDropDownControlDisplayOptionsArgs {
+        selectAllOptions?: pulumi.Input<inputs.quicksight.TemplateListControlSelectAllOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
+    }
+
+    export interface TemplateDynamicDefaultValueArgs {
+        defaultValueColumn: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        groupNameColumn?: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        userNameColumn?: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+    }
+
+    export interface TemplateEmptyVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        dataSetIdentifier: pulumi.Input<string>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateExcludePeriodConfigurationArgs {
+        amount: pulumi.Input<number>;
+        granularity: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
+        status?: pulumi.Input<enums.quicksight.TemplateWidgetStatus>;
+    }
+
+    export interface TemplateExplicitHierarchyArgs {
+        columns: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>[]>;
+        drillDownFilters?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDrillDownFilterArgs>[]>;
+        hierarchyId: pulumi.Input<string>;
+    }
+
+    export interface TemplateFieldBasedTooltipArgs {
+        aggregationVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        tooltipFields?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateTooltipItemArgs>[]>;
+        tooltipTitleType?: pulumi.Input<enums.quicksight.TemplateTooltipTitleType>;
+    }
+
+    export interface TemplateFieldLabelTypeArgs {
+        fieldId?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateFieldSeriesItemArgs {
+        axisBinding: pulumi.Input<enums.quicksight.TemplateAxisBinding>;
+        fieldId: pulumi.Input<string>;
+        settings?: pulumi.Input<inputs.quicksight.TemplateLineChartSeriesSettingsArgs>;
+    }
+
+    export interface TemplateFieldSortArgs {
+        direction: pulumi.Input<enums.quicksight.TemplateSortDirection>;
+        fieldId: pulumi.Input<string>;
+    }
+
+    export interface TemplateFieldSortOptionsArgs {
+        columnSort?: pulumi.Input<inputs.quicksight.TemplateColumnSortArgs>;
+        fieldSort?: pulumi.Input<inputs.quicksight.TemplateFieldSortArgs>;
+    }
+
+    export interface TemplateFieldTooltipItemArgs {
+        fieldId: pulumi.Input<string>;
+        label?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateFilledMapAggregatedFieldWellsArgs {
+        geospatial?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateFilledMapConditionalFormattingArgs {
+        conditionalFormattingOptions: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFilledMapConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface TemplateFilledMapConditionalFormattingOptionArgs {
+        shape: pulumi.Input<inputs.quicksight.TemplateFilledMapShapeConditionalFormattingArgs>;
+    }
+
+    export interface TemplateFilledMapConfigurationArgs {
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateFilledMapFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        mapStyleOptions?: pulumi.Input<inputs.quicksight.TemplateGeospatialMapStyleOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateFilledMapSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+        windowOptions?: pulumi.Input<inputs.quicksight.TemplateGeospatialWindowOptionsArgs>;
+    }
+
+    export interface TemplateFilledMapFieldWellsArgs {
+        filledMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateFilledMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateFilledMapShapeConditionalFormattingArgs {
+        fieldId: pulumi.Input<string>;
+        format?: pulumi.Input<inputs.quicksight.TemplateShapeConditionalFormatArgs>;
+    }
+
+    export interface TemplateFilledMapSortConfigurationArgs {
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateFilledMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateFilledMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.TemplateFilledMapConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateFilterArgs {
+        categoryFilter?: pulumi.Input<inputs.quicksight.TemplateCategoryFilterArgs>;
+        numericEqualityFilter?: pulumi.Input<inputs.quicksight.TemplateNumericEqualityFilterArgs>;
+        numericRangeFilter?: pulumi.Input<inputs.quicksight.TemplateNumericRangeFilterArgs>;
+        relativeDatesFilter?: pulumi.Input<inputs.quicksight.TemplateRelativeDatesFilterArgs>;
+        timeEqualityFilter?: pulumi.Input<inputs.quicksight.TemplateTimeEqualityFilterArgs>;
+        timeRangeFilter?: pulumi.Input<inputs.quicksight.TemplateTimeRangeFilterArgs>;
+        topBottomFilter?: pulumi.Input<inputs.quicksight.TemplateTopBottomFilterArgs>;
+    }
+
+    export interface TemplateFilterControlArgs {
+        dateTimePicker?: pulumi.Input<inputs.quicksight.TemplateFilterDateTimePickerControlArgs>;
+        dropdown?: pulumi.Input<inputs.quicksight.TemplateFilterDropDownControlArgs>;
+        list?: pulumi.Input<inputs.quicksight.TemplateFilterListControlArgs>;
+        relativeDateTime?: pulumi.Input<inputs.quicksight.TemplateFilterRelativeDateTimeControlArgs>;
+        slider?: pulumi.Input<inputs.quicksight.TemplateFilterSliderControlArgs>;
+        textArea?: pulumi.Input<inputs.quicksight.TemplateFilterTextAreaControlArgs>;
+        textField?: pulumi.Input<inputs.quicksight.TemplateFilterTextFieldControlArgs>;
+    }
+
+    export interface TemplateFilterDateTimePickerControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateDateTimePickerControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.TemplateSheetControlDateTimePickerType>;
+    }
+
+    export interface TemplateFilterDropDownControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateDropDownControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.TemplateFilterSelectableValuesArgs>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.TemplateSheetControlListType>;
+    }
+
+    export interface TemplateFilterGroupArgs {
+        crossDataset: pulumi.Input<enums.quicksight.TemplateCrossDatasetTypes>;
+        filterGroupId: pulumi.Input<string>;
+        filters: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFilterArgs>[]>;
+        scopeConfiguration: pulumi.Input<inputs.quicksight.TemplateFilterScopeConfigurationArgs>;
+        status?: pulumi.Input<enums.quicksight.TemplateWidgetStatus>;
+    }
+
+    export interface TemplateFilterListConfigurationArgs {
+        categoryValues?: pulumi.Input<pulumi.Input<string>[]>;
+        matchOperator: pulumi.Input<enums.quicksight.TemplateCategoryFilterMatchOperator>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.TemplateCategoryFilterSelectAllOptions>;
+    }
+
+    export interface TemplateFilterListControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateListControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.TemplateFilterSelectableValuesArgs>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.TemplateSheetControlListType>;
+    }
+
+    export interface TemplateFilterOperationSelectedFieldsConfigurationArgs {
+        selectedFieldOptions?: pulumi.Input<enums.quicksight.TemplateSelectedFieldOptions>;
+        selectedFields?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TemplateFilterOperationTargetVisualsConfigurationArgs {
+        sameSheetTargetVisualConfiguration?: pulumi.Input<inputs.quicksight.TemplateSameSheetTargetVisualConfigurationArgs>;
+    }
+
+    export interface TemplateFilterRelativeDateTimeControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateRelativeDateTimeControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface TemplateFilterScopeConfigurationArgs {
+        selectedSheets?: pulumi.Input<inputs.quicksight.TemplateSelectedSheetsFilterScopeConfigurationArgs>;
+    }
+
+    export interface TemplateFilterSelectableValuesArgs {
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TemplateFilterSliderControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateSliderControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        maximumValue: pulumi.Input<number>;
+        minimumValue: pulumi.Input<number>;
+        sourceFilterId: pulumi.Input<string>;
+        stepSize: pulumi.Input<number>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.TemplateSheetControlSliderType>;
+    }
+
+    export interface TemplateFilterTextAreaControlArgs {
+        delimiter?: pulumi.Input<string>;
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateTextAreaControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface TemplateFilterTextFieldControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateTextFieldControlDisplayOptionsArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface TemplateFontConfigurationArgs {
+        fontColor?: pulumi.Input<string>;
+        fontDecoration?: pulumi.Input<enums.quicksight.TemplateFontDecoration>;
+        fontSize?: pulumi.Input<inputs.quicksight.TemplateFontSizeArgs>;
+        fontStyle?: pulumi.Input<enums.quicksight.TemplateFontStyle>;
+        fontWeight?: pulumi.Input<inputs.quicksight.TemplateFontWeightArgs>;
+    }
+
+    export interface TemplateFontSizeArgs {
+        relative?: pulumi.Input<enums.quicksight.TemplateRelativeFontSize>;
+    }
+
+    export interface TemplateFontWeightArgs {
+        name?: pulumi.Input<enums.quicksight.TemplateFontWeightName>;
+    }
+
+    export interface TemplateForecastComputationArgs {
+        computationId: pulumi.Input<string>;
+        customSeasonalityValue?: pulumi.Input<number>;
+        lowerBoundary?: pulumi.Input<number>;
+        name?: pulumi.Input<string>;
+        periodsBackward?: pulumi.Input<number>;
+        periodsForward?: pulumi.Input<number>;
+        predictionInterval?: pulumi.Input<number>;
+        seasonality?: pulumi.Input<enums.quicksight.TemplateForecastComputationSeasonality>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        upperBoundary?: pulumi.Input<number>;
+        value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+    }
+
+    export interface TemplateForecastConfigurationArgs {
+        forecastProperties?: pulumi.Input<inputs.quicksight.TemplateTimeBasedForecastPropertiesArgs>;
+        scenario?: pulumi.Input<inputs.quicksight.TemplateForecastScenarioArgs>;
+    }
+
+    export interface TemplateForecastScenarioArgs {
+        whatIfPointScenario?: pulumi.Input<inputs.quicksight.TemplateWhatIfPointScenarioArgs>;
+        whatIfRangeScenario?: pulumi.Input<inputs.quicksight.TemplateWhatIfRangeScenarioArgs>;
+    }
+
+    export interface TemplateFormatConfigurationArgs {
+        dateTimeFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateDateTimeFormatConfigurationArgs>;
+        numberFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumberFormatConfigurationArgs>;
+        stringFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateStringFormatConfigurationArgs>;
+    }
+
+    export interface TemplateFreeFormLayoutCanvasSizeOptionsArgs {
+        screenCanvasSizeOptions?: pulumi.Input<inputs.quicksight.TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs>;
+    }
+
+    export interface TemplateFreeFormLayoutConfigurationArgs {
+        canvasSizeOptions?: pulumi.Input<inputs.quicksight.TemplateFreeFormLayoutCanvasSizeOptionsArgs>;
+        elements: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFreeFormLayoutElementArgs>[]>;
+    }
+
+    export interface TemplateFreeFormLayoutElementArgs {
+        backgroundStyle?: pulumi.Input<inputs.quicksight.TemplateFreeFormLayoutElementBackgroundStyleArgs>;
+        borderStyle?: pulumi.Input<inputs.quicksight.TemplateFreeFormLayoutElementBorderStyleArgs>;
+        elementId: pulumi.Input<string>;
+        elementType: pulumi.Input<enums.quicksight.TemplateLayoutElementType>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height: pulumi.Input<string>;
+        loadingAnimation?: pulumi.Input<inputs.quicksight.TemplateLoadingAnimationArgs>;
+        renderingRules?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSheetElementRenderingRuleArgs>[]>;
+        selectedBorderStyle?: pulumi.Input<inputs.quicksight.TemplateFreeFormLayoutElementBorderStyleArgs>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        xAxisLocation: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit in px with Integer.MAX_VALUE as maximum value
+         */
+        yAxisLocation: pulumi.Input<string>;
+    }
+
+    export interface TemplateFreeFormLayoutElementBackgroundStyleArgs {
+        color?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateFreeFormLayoutElementBorderStyleArgs {
+        color?: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth: pulumi.Input<string>;
+    }
+
+    export interface TemplateFreeFormSectionLayoutConfigurationArgs {
+        elements: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFreeFormLayoutElementArgs>[]>;
+    }
+
+    export interface TemplateFunnelChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateFunnelChartConfigurationArgs {
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        dataLabelOptions?: pulumi.Input<inputs.quicksight.TemplateFunnelChartDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateFunnelChartFieldWellsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateFunnelChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+        valueLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+    }
+
+    export interface TemplateFunnelChartDataLabelOptionsArgs {
+        categoryLabelVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        labelColor?: pulumi.Input<string>;
+        labelFontConfiguration?: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+        measureDataLabelStyle?: pulumi.Input<enums.quicksight.TemplateFunnelChartMeasureDataLabelStyle>;
+        measureLabelVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        position?: pulumi.Input<enums.quicksight.TemplateDataLabelPosition>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateFunnelChartFieldWellsArgs {
+        funnelChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateFunnelChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateFunnelChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateFunnelChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateFunnelChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateGaugeChartArcConditionalFormattingArgs {
+        foregroundColor?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
+    }
+
+    export interface TemplateGaugeChartConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateGaugeChartConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface TemplateGaugeChartConditionalFormattingOptionArgs {
+        arc?: pulumi.Input<inputs.quicksight.TemplateGaugeChartArcConditionalFormattingArgs>;
+        primaryValue?: pulumi.Input<inputs.quicksight.TemplateGaugeChartPrimaryValueConditionalFormattingArgs>;
+    }
+
+    export interface TemplateGaugeChartConfigurationArgs {
+        dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateGaugeChartFieldWellsArgs>;
+        gaugeChartOptions?: pulumi.Input<inputs.quicksight.TemplateGaugeChartOptionsArgs>;
+        tooltipOptions?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+    }
+
+    export interface TemplateGaugeChartFieldWellsArgs {
+        targetValues?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateGaugeChartOptionsArgs {
+        arc?: pulumi.Input<inputs.quicksight.TemplateArcConfigurationArgs>;
+        arcAxis?: pulumi.Input<inputs.quicksight.TemplateArcAxisConfigurationArgs>;
+        comparison?: pulumi.Input<inputs.quicksight.TemplateComparisonConfigurationArgs>;
+        primaryValueDisplayType?: pulumi.Input<enums.quicksight.TemplatePrimaryValueDisplayType>;
+        primaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+    }
+
+    export interface TemplateGaugeChartPrimaryValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
+    }
+
+    export interface TemplateGaugeChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateGaugeChartConfigurationArgs>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.TemplateGaugeChartConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateGeospatialCoordinateBoundsArgs {
+        east: pulumi.Input<number>;
+        north: pulumi.Input<number>;
+        south: pulumi.Input<number>;
+        west: pulumi.Input<number>;
+    }
+
+    export interface TemplateGeospatialMapAggregatedFieldWellsArgs {
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        geospatial?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateGeospatialMapConfigurationArgs {
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateGeospatialMapFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        mapStyleOptions?: pulumi.Input<inputs.quicksight.TemplateGeospatialMapStyleOptionsArgs>;
+        pointStyleOptions?: pulumi.Input<inputs.quicksight.TemplateGeospatialPointStyleOptionsArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+        windowOptions?: pulumi.Input<inputs.quicksight.TemplateGeospatialWindowOptionsArgs>;
+    }
+
+    export interface TemplateGeospatialMapFieldWellsArgs {
+        geospatialMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateGeospatialMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateGeospatialMapStyleOptionsArgs {
+        baseMapStyle?: pulumi.Input<enums.quicksight.TemplateBaseMapStyleType>;
+    }
+
+    export interface TemplateGeospatialMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateGeospatialMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateGeospatialPointStyleOptionsArgs {
+        clusterMarkerConfiguration?: pulumi.Input<inputs.quicksight.TemplateClusterMarkerConfigurationArgs>;
+        selectedPointStyle?: pulumi.Input<enums.quicksight.TemplateGeospatialSelectedPointStyle>;
+    }
+
+    export interface TemplateGeospatialWindowOptionsArgs {
+        bounds?: pulumi.Input<inputs.quicksight.TemplateGeospatialCoordinateBoundsArgs>;
+        mapZoomMode?: pulumi.Input<enums.quicksight.TemplateMapZoomMode>;
+    }
+
+    export interface TemplateGlobalTableBorderOptionsArgs {
+        sideSpecificBorder?: pulumi.Input<inputs.quicksight.TemplateTableSideBorderOptionsArgs>;
+        uniformBorder?: pulumi.Input<inputs.quicksight.TemplateTableBorderOptionsArgs>;
+    }
+
+    export interface TemplateGradientColorArgs {
+        stops?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateGradientStopArgs>[]>;
+    }
+
+    export interface TemplateGradientStopArgs {
+        color?: pulumi.Input<string>;
+        dataValue?: pulumi.Input<number>;
+        gradientOffset: pulumi.Input<number>;
+    }
+
+    export interface TemplateGridLayoutCanvasSizeOptionsArgs {
+        screenCanvasSizeOptions?: pulumi.Input<inputs.quicksight.TemplateGridLayoutScreenCanvasSizeOptionsArgs>;
+    }
+
+    export interface TemplateGridLayoutConfigurationArgs {
+        canvasSizeOptions?: pulumi.Input<inputs.quicksight.TemplateGridLayoutCanvasSizeOptionsArgs>;
+        elements: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateGridLayoutElementArgs>[]>;
+    }
+
+    export interface TemplateGridLayoutElementArgs {
+        columnIndex?: pulumi.Input<number>;
+        columnSpan: pulumi.Input<number>;
+        elementId: pulumi.Input<string>;
+        elementType: pulumi.Input<enums.quicksight.TemplateLayoutElementType>;
+        rowIndex?: pulumi.Input<number>;
+        rowSpan: pulumi.Input<number>;
+    }
+
+    export interface TemplateGridLayoutScreenCanvasSizeOptionsArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth?: pulumi.Input<string>;
+        resizeOption: pulumi.Input<enums.quicksight.TemplateResizeOption>;
+    }
+
+    export interface TemplateGrowthRateComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        periodSize?: pulumi.Input<number>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+    }
+
+    export interface TemplateHeaderFooterSectionConfigurationArgs {
+        layout: pulumi.Input<inputs.quicksight.TemplateSectionLayoutConfigurationArgs>;
+        sectionId: pulumi.Input<string>;
+        style?: pulumi.Input<inputs.quicksight.TemplateSectionStyleArgs>;
+    }
+
+    export interface TemplateHeatMapAggregatedFieldWellsArgs {
+        columns?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        rows?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateHeatMapConfigurationArgs {
+        colorScale?: pulumi.Input<inputs.quicksight.TemplateColorScaleArgs>;
+        columnLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateHeatMapFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        rowLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateHeatMapSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+    }
+
+    export interface TemplateHeatMapFieldWellsArgs {
+        heatMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateHeatMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateHeatMapSortConfigurationArgs {
+        heatMapColumnItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        heatMapColumnSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+        heatMapRowItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        heatMapRowSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateHeatMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateHeatMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateHistogramAggregatedFieldWellsArgs {
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateHistogramBinOptionsArgs {
+        binCount?: pulumi.Input<inputs.quicksight.TemplateBinCountOptionsArgs>;
+        binWidth?: pulumi.Input<inputs.quicksight.TemplateBinWidthOptionsArgs>;
+        selectedBinType?: pulumi.Input<enums.quicksight.TemplateHistogramBinType>;
+        startValue?: pulumi.Input<number>;
+    }
+
+    export interface TemplateHistogramConfigurationArgs {
+        binOptions?: pulumi.Input<inputs.quicksight.TemplateHistogramBinOptionsArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateHistogramFieldWellsArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+        xAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        xAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        yAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+    }
+
+    export interface TemplateHistogramFieldWellsArgs {
+        histogramAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateHistogramAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateHistogramVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateHistogramConfigurationArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateInsightConfigurationArgs {
+        computations?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateComputationArgs>[]>;
+        customNarrative?: pulumi.Input<inputs.quicksight.TemplateCustomNarrativeOptionsArgs>;
+    }
+
+    export interface TemplateInsightVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        dataSetIdentifier: pulumi.Input<string>;
+        insightConfiguration?: pulumi.Input<inputs.quicksight.TemplateInsightConfigurationArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateIntegerDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.TemplateDynamicDefaultValueArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface TemplateIntegerParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.TemplateIntegerDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMappedDataSetParameterArgs>[]>;
+        name: pulumi.Input<string>;
+        parameterValueType: pulumi.Input<enums.quicksight.TemplateParameterValueType>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.TemplateIntegerValueWhenUnsetConfigurationArgs>;
+    }
+
+    export interface TemplateIntegerValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<number>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.TemplateValueWhenUnsetOption>;
+    }
+
+    export interface TemplateItemsLimitConfigurationArgs {
+        itemsLimit?: pulumi.Input<number>;
+        otherCategories?: pulumi.Input<enums.quicksight.TemplateOtherCategories>;
+    }
+
+    export interface TemplateKPIConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateKPIConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface TemplateKPIConditionalFormattingOptionArgs {
+        primaryValue?: pulumi.Input<inputs.quicksight.TemplateKPIPrimaryValueConditionalFormattingArgs>;
+        progressBar?: pulumi.Input<inputs.quicksight.TemplateKPIProgressBarConditionalFormattingArgs>;
+    }
+
+    export interface TemplateKPIConfigurationArgs {
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateKPIFieldWellsArgs>;
+        kPIOptions?: pulumi.Input<inputs.quicksight.TemplateKPIOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateKPISortConfigurationArgs>;
+    }
+
+    export interface TemplateKPIFieldWellsArgs {
+        targetValues?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+        trendGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateKPIOptionsArgs {
+        comparison?: pulumi.Input<inputs.quicksight.TemplateComparisonConfigurationArgs>;
+        primaryValueDisplayType?: pulumi.Input<enums.quicksight.TemplatePrimaryValueDisplayType>;
+        primaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+        progressBar?: pulumi.Input<inputs.quicksight.TemplateProgressBarOptionsArgs>;
+        secondaryValue?: pulumi.Input<inputs.quicksight.TemplateSecondaryValueOptionsArgs>;
+        secondaryValueFontConfiguration?: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+        trendArrows?: pulumi.Input<inputs.quicksight.TemplateTrendArrowOptionsArgs>;
+    }
+
+    export interface TemplateKPIPrimaryValueConditionalFormattingArgs {
+        icon?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
+    }
+
+    export interface TemplateKPIProgressBarConditionalFormattingArgs {
+        foregroundColor?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
+    }
+
+    export interface TemplateKPISortConfigurationArgs {
+        trendGroupSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateKPIVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateKPIConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.TemplateKPIConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateLabelOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateLayoutArgs {
+        configuration: pulumi.Input<inputs.quicksight.TemplateLayoutConfigurationArgs>;
+    }
+
+    export interface TemplateLayoutConfigurationArgs {
+        freeFormLayout?: pulumi.Input<inputs.quicksight.TemplateFreeFormLayoutConfigurationArgs>;
+        gridLayout?: pulumi.Input<inputs.quicksight.TemplateGridLayoutConfigurationArgs>;
+        sectionBasedLayout?: pulumi.Input<inputs.quicksight.TemplateSectionBasedLayoutConfigurationArgs>;
+    }
+
+    export interface TemplateLegendOptionsArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: pulumi.Input<string>;
+        position?: pulumi.Input<enums.quicksight.TemplateLegendPosition>;
+        title?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: pulumi.Input<string>;
+    }
+
+    export interface TemplateLineChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        smallMultiples?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateLineChartConfigurationArgs {
+        contributionAnalysisDefaults?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateContributionAnalysisDefaultArgs>[]>;
+        dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        defaultSeriesSettings?: pulumi.Input<inputs.quicksight.TemplateLineChartDefaultSeriesSettingsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateLineChartFieldWellsArgs>;
+        forecastConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateForecastConfigurationArgs>[]>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateLineSeriesAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateReferenceLineArgs>[]>;
+        secondaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateLineSeriesAxisDisplayOptionsArgs>;
+        secondaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        series?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSeriesItemArgs>[]>;
+        smallMultiplesOptions?: pulumi.Input<inputs.quicksight.TemplateSmallMultiplesOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateLineChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+        type?: pulumi.Input<enums.quicksight.TemplateLineChartType>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+        xAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        xAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+    }
+
+    export interface TemplateLineChartDefaultSeriesSettingsArgs {
+        axisBinding?: pulumi.Input<enums.quicksight.TemplateAxisBinding>;
+        lineStyleSettings?: pulumi.Input<inputs.quicksight.TemplateLineChartLineStyleSettingsArgs>;
+        markerStyleSettings?: pulumi.Input<inputs.quicksight.TemplateLineChartMarkerStyleSettingsArgs>;
+    }
+
+    export interface TemplateLineChartFieldWellsArgs {
+        lineChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateLineChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateLineChartLineStyleSettingsArgs {
+        lineInterpolation?: pulumi.Input<enums.quicksight.TemplateLineInterpolation>;
+        lineStyle?: pulumi.Input<enums.quicksight.TemplateLineChartLineStyle>;
+        lineVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        lineWidth?: pulumi.Input<string>;
+    }
+
+    export interface TemplateLineChartMarkerStyleSettingsArgs {
+        markerColor?: pulumi.Input<string>;
+        markerShape?: pulumi.Input<enums.quicksight.TemplateLineChartMarkerShape>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        markerSize?: pulumi.Input<string>;
+        markerVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateLineChartSeriesSettingsArgs {
+        lineStyleSettings?: pulumi.Input<inputs.quicksight.TemplateLineChartLineStyleSettingsArgs>;
+        markerStyleSettings?: pulumi.Input<inputs.quicksight.TemplateLineChartMarkerStyleSettingsArgs>;
+    }
+
+    export interface TemplateLineChartSortConfigurationArgs {
+        categoryItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+        colorItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        smallMultiplesLimitConfiguration?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        smallMultiplesSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateLineChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateLineChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateLineSeriesAxisDisplayOptionsArgs {
+        axisOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        missingDataConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMissingDataConfigurationArgs>[]>;
+    }
+
+    export interface TemplateListControlDisplayOptionsArgs {
+        searchOptions?: pulumi.Input<inputs.quicksight.TemplateListControlSearchOptionsArgs>;
+        selectAllOptions?: pulumi.Input<inputs.quicksight.TemplateListControlSelectAllOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
+    }
+
+    export interface TemplateListControlSearchOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateListControlSelectAllOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateLoadingAnimationArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateLocalNavigationConfigurationArgs {
+        targetSheetId: pulumi.Input<string>;
+    }
+
+    export interface TemplateLongFormatTextArgs {
+        plainText?: pulumi.Input<string>;
+        richText?: pulumi.Input<string>;
+    }
+
+    export interface TemplateMappedDataSetParameterArgs {
+        dataSetIdentifier: pulumi.Input<string>;
+        dataSetParameterName: pulumi.Input<string>;
+    }
+
+    export interface TemplateMaximumLabelTypeArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateMaximumMinimumComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        type: pulumi.Input<enums.quicksight.TemplateMaximumMinimumComputationType>;
+        value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+    }
+
+    export interface TemplateMeasureFieldArgs {
+        calculatedMeasureField?: pulumi.Input<inputs.quicksight.TemplateCalculatedMeasureFieldArgs>;
+        categoricalMeasureField?: pulumi.Input<inputs.quicksight.TemplateCategoricalMeasureFieldArgs>;
+        dateMeasureField?: pulumi.Input<inputs.quicksight.TemplateDateMeasureFieldArgs>;
+        numericalMeasureField?: pulumi.Input<inputs.quicksight.TemplateNumericalMeasureFieldArgs>;
+    }
+
+    export interface TemplateMetricComparisonComputationArgs {
+        computationId: pulumi.Input<string>;
+        fromValue: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+        name?: pulumi.Input<string>;
+        targetValue: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+    }
+
+    export interface TemplateMinimumLabelTypeArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateMissingDataConfigurationArgs {
+        treatmentOption?: pulumi.Input<enums.quicksight.TemplateMissingDataTreatmentOption>;
+    }
+
+    export interface TemplateNegativeValueConfigurationArgs {
+        displayMode: pulumi.Input<enums.quicksight.TemplateNegativeValueDisplayMode>;
+    }
+
+    export interface TemplateNullValueFormatConfigurationArgs {
+        nullString: pulumi.Input<string>;
+    }
+
+    export interface TemplateNumberDisplayFormatConfigurationArgs {
+        decimalPlacesConfiguration?: pulumi.Input<inputs.quicksight.TemplateDecimalPlacesConfigurationArgs>;
+        negativeValueConfiguration?: pulumi.Input<inputs.quicksight.TemplateNegativeValueConfigurationArgs>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNullValueFormatConfigurationArgs>;
+        numberScale?: pulumi.Input<enums.quicksight.TemplateNumberScale>;
+        prefix?: pulumi.Input<string>;
+        separatorConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumericSeparatorConfigurationArgs>;
+        suffix?: pulumi.Input<string>;
+    }
+
+    export interface TemplateNumberFormatConfigurationArgs {
+        formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumericFormatConfigurationArgs>;
+    }
+
+    export interface TemplateNumericAxisOptionsArgs {
+        range?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayRangeArgs>;
+        scale?: pulumi.Input<inputs.quicksight.TemplateAxisScaleArgs>;
+    }
+
+    export interface TemplateNumericEqualityDrillDownFilterArgs {
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        value: pulumi.Input<number>;
+    }
+
+    export interface TemplateNumericEqualityFilterArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        matchOperator: pulumi.Input<enums.quicksight.TemplateNumericEqualityMatchOperator>;
+        nullOption: pulumi.Input<enums.quicksight.TemplateFilterNullOption>;
+        parameterName?: pulumi.Input<string>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.TemplateNumericFilterSelectAllOptions>;
+        value?: pulumi.Input<number>;
+    }
+
+    export interface TemplateNumericFormatConfigurationArgs {
+        currencyDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateCurrencyDisplayFormatConfigurationArgs>;
+        numberDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumberDisplayFormatConfigurationArgs>;
+        percentageDisplayFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplatePercentageDisplayFormatConfigurationArgs>;
+    }
+
+    export interface TemplateNumericRangeFilterArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        includeMaximum?: pulumi.Input<boolean>;
+        includeMinimum?: pulumi.Input<boolean>;
+        nullOption: pulumi.Input<enums.quicksight.TemplateFilterNullOption>;
+        rangeMaximum?: pulumi.Input<inputs.quicksight.TemplateNumericRangeFilterValueArgs>;
+        rangeMinimum?: pulumi.Input<inputs.quicksight.TemplateNumericRangeFilterValueArgs>;
+        selectAllOptions?: pulumi.Input<enums.quicksight.TemplateNumericFilterSelectAllOptions>;
+    }
+
+    export interface TemplateNumericRangeFilterValueArgs {
+        parameter?: pulumi.Input<string>;
+        staticValue?: pulumi.Input<number>;
+    }
+
+    export interface TemplateNumericSeparatorConfigurationArgs {
+        decimalSeparator?: pulumi.Input<enums.quicksight.TemplateNumericSeparatorSymbol>;
+        thousandsSeparator?: pulumi.Input<inputs.quicksight.TemplateThousandSeparatorOptionsArgs>;
+    }
+
+    export interface TemplateNumericalAggregationFunctionArgs {
+        percentileAggregation?: pulumi.Input<inputs.quicksight.TemplatePercentileAggregationArgs>;
+        simpleNumericalAggregation?: pulumi.Input<enums.quicksight.TemplateSimpleNumericalAggregationFunction>;
+    }
+
+    export interface TemplateNumericalDimensionFieldArgs {
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumberFormatConfigurationArgs>;
+        hierarchyId?: pulumi.Input<string>;
+    }
+
+    export interface TemplateNumericalMeasureFieldArgs {
+        aggregationFunction?: pulumi.Input<inputs.quicksight.TemplateNumericalAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumberFormatConfigurationArgs>;
+    }
+
+    export interface TemplatePaginationConfigurationArgs {
+        pageNumber: pulumi.Input<number>;
+        pageSize: pulumi.Input<number>;
+    }
+
+    export interface TemplatePanelConfigurationArgs {
+        backgroundColor?: pulumi.Input<string>;
+        backgroundVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        borderColor?: pulumi.Input<string>;
+        borderStyle?: pulumi.Input<enums.quicksight.TemplatePanelBorderStyle>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderThickness?: pulumi.Input<string>;
+        borderVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        gutterSpacing?: pulumi.Input<string>;
+        gutterVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        title?: pulumi.Input<inputs.quicksight.TemplatePanelTitleOptionsArgs>;
+    }
+
+    export interface TemplatePanelTitleOptionsArgs {
+        fontConfiguration?: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+        horizontalTextAlignment?: pulumi.Input<enums.quicksight.TemplateHorizontalTextAlignment>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateParameterControlArgs {
+        dateTimePicker?: pulumi.Input<inputs.quicksight.TemplateParameterDateTimePickerControlArgs>;
+        dropdown?: pulumi.Input<inputs.quicksight.TemplateParameterDropDownControlArgs>;
+        list?: pulumi.Input<inputs.quicksight.TemplateParameterListControlArgs>;
+        slider?: pulumi.Input<inputs.quicksight.TemplateParameterSliderControlArgs>;
+        textArea?: pulumi.Input<inputs.quicksight.TemplateParameterTextAreaControlArgs>;
+        textField?: pulumi.Input<inputs.quicksight.TemplateParameterTextFieldControlArgs>;
+    }
+
+    export interface TemplateParameterDateTimePickerControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateDateTimePickerControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface TemplateParameterDeclarationArgs {
+        dateTimeParameterDeclaration?: pulumi.Input<inputs.quicksight.TemplateDateTimeParameterDeclarationArgs>;
+        decimalParameterDeclaration?: pulumi.Input<inputs.quicksight.TemplateDecimalParameterDeclarationArgs>;
+        integerParameterDeclaration?: pulumi.Input<inputs.quicksight.TemplateIntegerParameterDeclarationArgs>;
+        stringParameterDeclaration?: pulumi.Input<inputs.quicksight.TemplateStringParameterDeclarationArgs>;
+    }
+
+    export interface TemplateParameterDropDownControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateDropDownControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.TemplateParameterSelectableValuesArgs>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.TemplateSheetControlListType>;
+    }
+
+    export interface TemplateParameterListControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateCascadingControlConfigurationArgs>;
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateListControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        selectableValues?: pulumi.Input<inputs.quicksight.TemplateParameterSelectableValuesArgs>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.TemplateSheetControlListType>;
+    }
+
+    export interface TemplateParameterSelectableValuesArgs {
+        linkToDataSetColumn?: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TemplateParameterSliderControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateSliderControlDisplayOptionsArgs>;
+        maximumValue: pulumi.Input<number>;
+        minimumValue: pulumi.Input<number>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        stepSize: pulumi.Input<number>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface TemplateParameterTextAreaControlArgs {
+        delimiter?: pulumi.Input<string>;
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateTextAreaControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface TemplateParameterTextFieldControlArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateTextFieldControlDisplayOptionsArgs>;
+        parameterControlId: pulumi.Input<string>;
+        sourceParameterName: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface TemplatePercentVisibleRangeArgs {
+        from?: pulumi.Input<number>;
+        to?: pulumi.Input<number>;
+    }
+
+    export interface TemplatePercentageDisplayFormatConfigurationArgs {
+        decimalPlacesConfiguration?: pulumi.Input<inputs.quicksight.TemplateDecimalPlacesConfigurationArgs>;
+        negativeValueConfiguration?: pulumi.Input<inputs.quicksight.TemplateNegativeValueConfigurationArgs>;
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNullValueFormatConfigurationArgs>;
+        prefix?: pulumi.Input<string>;
+        separatorConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumericSeparatorConfigurationArgs>;
+        suffix?: pulumi.Input<string>;
+    }
+
+    export interface TemplatePercentileAggregationArgs {
+        percentileValue?: pulumi.Input<number>;
+    }
+
+    export interface TemplatePeriodOverPeriodComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+    }
+
+    export interface TemplatePeriodToDateComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        periodTimeGranularity?: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+    }
+
+    export interface TemplatePieChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        smallMultiples?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplatePieChartConfigurationArgs {
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        contributionAnalysisDefaults?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateContributionAnalysisDefaultArgs>[]>;
+        dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        donutOptions?: pulumi.Input<inputs.quicksight.TemplateDonutOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplatePieChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        smallMultiplesOptions?: pulumi.Input<inputs.quicksight.TemplateSmallMultiplesOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplatePieChartSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+        valueLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+    }
+
+    export interface TemplatePieChartFieldWellsArgs {
+        pieChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplatePieChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplatePieChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+        smallMultiplesLimitConfiguration?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        smallMultiplesSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplatePieChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplatePieChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplatePivotFieldSortOptionsArgs {
+        fieldId: pulumi.Input<string>;
+        sortBy: pulumi.Input<inputs.quicksight.TemplatePivotTableSortByArgs>;
+    }
+
+    export interface TemplatePivotTableAggregatedFieldWellsArgs {
+        columns?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        rows?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplatePivotTableCellConditionalFormattingArgs {
+        fieldId: pulumi.Input<string>;
+        scope?: pulumi.Input<inputs.quicksight.TemplatePivotTableConditionalFormattingScopeArgs>;
+        textFormat?: pulumi.Input<inputs.quicksight.TemplateTextConditionalFormatArgs>;
+    }
+
+    export interface TemplatePivotTableConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePivotTableConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface TemplatePivotTableConditionalFormattingOptionArgs {
+        cell?: pulumi.Input<inputs.quicksight.TemplatePivotTableCellConditionalFormattingArgs>;
+    }
+
+    export interface TemplatePivotTableConditionalFormattingScopeArgs {
+        role?: pulumi.Input<enums.quicksight.TemplatePivotTableConditionalFormattingScopeRole>;
+    }
+
+    export interface TemplatePivotTableConfigurationArgs {
+        fieldOptions?: pulumi.Input<inputs.quicksight.TemplatePivotTableFieldOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplatePivotTableFieldWellsArgs>;
+        paginatedReportOptions?: pulumi.Input<inputs.quicksight.TemplatePivotTablePaginatedReportOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplatePivotTableSortConfigurationArgs>;
+        tableOptions?: pulumi.Input<inputs.quicksight.TemplatePivotTableOptionsArgs>;
+        totalOptions?: pulumi.Input<inputs.quicksight.TemplatePivotTableTotalOptionsArgs>;
+    }
+
+    export interface TemplatePivotTableDataPathOptionArgs {
+        dataPathList: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDataPathValueArgs>[]>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: pulumi.Input<string>;
+    }
+
+    export interface TemplatePivotTableFieldOptionArgs {
+        customLabel?: pulumi.Input<string>;
+        fieldId: pulumi.Input<string>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplatePivotTableFieldOptionsArgs {
+        dataPathOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePivotTableDataPathOptionArgs>[]>;
+        selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePivotTableFieldOptionArgs>[]>;
+    }
+
+    export interface TemplatePivotTableFieldSubtotalOptionsArgs {
+        fieldId?: pulumi.Input<string>;
+    }
+
+    export interface TemplatePivotTableFieldWellsArgs {
+        pivotTableAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplatePivotTableAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplatePivotTableOptionsArgs {
+        cellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        columnHeaderStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        columnNamesVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        metricPlacement?: pulumi.Input<enums.quicksight.TemplatePivotTableMetricPlacement>;
+        rowAlternateColorOptions?: pulumi.Input<inputs.quicksight.TemplateRowAlternateColorOptionsArgs>;
+        rowFieldNamesStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        rowHeaderStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        singleMetricVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        toggleButtonsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplatePivotTablePaginatedReportOptionsArgs {
+        overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        verticalOverflowVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplatePivotTableSortByArgs {
+        column?: pulumi.Input<inputs.quicksight.TemplateColumnSortArgs>;
+        dataPath?: pulumi.Input<inputs.quicksight.TemplateDataPathSortArgs>;
+        field?: pulumi.Input<inputs.quicksight.TemplateFieldSortArgs>;
+    }
+
+    export interface TemplatePivotTableSortConfigurationArgs {
+        fieldSortOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePivotFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplatePivotTableTotalOptionsArgs {
+        columnSubtotalOptions?: pulumi.Input<inputs.quicksight.TemplateSubtotalOptionsArgs>;
+        columnTotalOptions?: pulumi.Input<inputs.quicksight.TemplatePivotTotalOptionsArgs>;
+        rowSubtotalOptions?: pulumi.Input<inputs.quicksight.TemplateSubtotalOptionsArgs>;
+        rowTotalOptions?: pulumi.Input<inputs.quicksight.TemplatePivotTotalOptionsArgs>;
+    }
+
+    export interface TemplatePivotTableVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplatePivotTableConfigurationArgs>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.TemplatePivotTableConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplatePivotTotalOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        metricHeaderCellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        placement?: pulumi.Input<enums.quicksight.TemplateTableTotalsPlacement>;
+        scrollStatus?: pulumi.Input<enums.quicksight.TemplateTableTotalsScrollStatus>;
+        totalCellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        valueCellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+    }
+
+    export interface TemplatePredefinedHierarchyArgs {
+        columns: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>[]>;
+        drillDownFilters?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDrillDownFilterArgs>[]>;
+        hierarchyId: pulumi.Input<string>;
+    }
+
+    export interface TemplateProgressBarOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateRadarChartAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        color?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateRadarChartAreaStyleSettingsArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateRadarChartConfigurationArgs {
+        alternateBandColorsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        alternateBandEvenColor?: pulumi.Input<string>;
+        alternateBandOddColor?: pulumi.Input<string>;
+        baseSeriesSettings?: pulumi.Input<inputs.quicksight.TemplateRadarChartSeriesSettingsArgs>;
+        categoryAxis?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        colorAxis?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateRadarChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        shape?: pulumi.Input<enums.quicksight.TemplateRadarChartShape>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateRadarChartSortConfigurationArgs>;
+        startAngle?: pulumi.Input<number>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+    }
+
+    export interface TemplateRadarChartFieldWellsArgs {
+        radarChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateRadarChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateRadarChartSeriesSettingsArgs {
+        areaStyleSettings?: pulumi.Input<inputs.quicksight.TemplateRadarChartAreaStyleSettingsArgs>;
+    }
+
+    export interface TemplateRadarChartSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+        colorItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        colorSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateRadarChartVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateRadarChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateRangeEndsLabelTypeArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateReferenceLineArgs {
+        dataConfiguration: pulumi.Input<inputs.quicksight.TemplateReferenceLineDataConfigurationArgs>;
+        labelConfiguration?: pulumi.Input<inputs.quicksight.TemplateReferenceLineLabelConfigurationArgs>;
+        status?: pulumi.Input<enums.quicksight.TemplateWidgetStatus>;
+        styleConfiguration?: pulumi.Input<inputs.quicksight.TemplateReferenceLineStyleConfigurationArgs>;
+    }
+
+    export interface TemplateReferenceLineCustomLabelConfigurationArgs {
+        customLabel: pulumi.Input<string>;
+    }
+
+    export interface TemplateReferenceLineDataConfigurationArgs {
+        axisBinding?: pulumi.Input<enums.quicksight.TemplateAxisBinding>;
+        dynamicConfiguration?: pulumi.Input<inputs.quicksight.TemplateReferenceLineDynamicDataConfigurationArgs>;
+        staticConfiguration?: pulumi.Input<inputs.quicksight.TemplateReferenceLineStaticDataConfigurationArgs>;
+    }
+
+    export interface TemplateReferenceLineDynamicDataConfigurationArgs {
+        calculation: pulumi.Input<inputs.quicksight.TemplateNumericalAggregationFunctionArgs>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        measureAggregationFunction: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
+    }
+
+    export interface TemplateReferenceLineLabelConfigurationArgs {
+        customLabelConfiguration?: pulumi.Input<inputs.quicksight.TemplateReferenceLineCustomLabelConfigurationArgs>;
+        fontColor?: pulumi.Input<string>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+        horizontalPosition?: pulumi.Input<enums.quicksight.TemplateReferenceLineLabelHorizontalPosition>;
+        valueLabelConfiguration?: pulumi.Input<inputs.quicksight.TemplateReferenceLineValueLabelConfigurationArgs>;
+        verticalPosition?: pulumi.Input<enums.quicksight.TemplateReferenceLineLabelVerticalPosition>;
+    }
+
+    export interface TemplateReferenceLineStaticDataConfigurationArgs {
+        value: pulumi.Input<number>;
+    }
+
+    export interface TemplateReferenceLineStyleConfigurationArgs {
+        color?: pulumi.Input<string>;
+        pattern?: pulumi.Input<enums.quicksight.TemplateReferenceLinePatternType>;
+    }
+
+    export interface TemplateReferenceLineValueLabelConfigurationArgs {
+        formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumericFormatConfigurationArgs>;
+        relativePosition?: pulumi.Input<enums.quicksight.TemplateReferenceLineValueLabelRelativePosition>;
+    }
+
+    export interface TemplateRelativeDateTimeControlDisplayOptionsArgs {
+        dateTimeFormat?: pulumi.Input<string>;
+        titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
+    }
+
+    export interface TemplateRelativeDatesFilterArgs {
+        anchorDateConfiguration: pulumi.Input<inputs.quicksight.TemplateAnchorDateConfigurationArgs>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.TemplateExcludePeriodConfigurationArgs>;
+        filterId: pulumi.Input<string>;
+        minimumGranularity?: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
+        nullOption: pulumi.Input<enums.quicksight.TemplateFilterNullOption>;
+        parameterName?: pulumi.Input<string>;
+        relativeDateType: pulumi.Input<enums.quicksight.TemplateRelativeDateType>;
+        relativeDateValue?: pulumi.Input<number>;
+        timeGranularity: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
+    }
+
+    export interface TemplateResourcePermissionArgs {
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        principal: pulumi.Input<string>;
+        resource?: pulumi.Input<string>;
+    }
+
+    export interface TemplateRollingDateConfigurationArgs {
+        dataSetIdentifier?: pulumi.Input<string>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface TemplateRowAlternateColorOptionsArgs {
+        rowAlternateColors?: pulumi.Input<pulumi.Input<string>[]>;
+        status?: pulumi.Input<enums.quicksight.TemplateWidgetStatus>;
+    }
+
+    export interface TemplateSameSheetTargetVisualConfigurationArgs {
+        targetVisualOptions?: pulumi.Input<enums.quicksight.TemplateTargetVisualOptions>;
+        targetVisuals?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TemplateSankeyDiagramAggregatedFieldWellsArgs {
+        destination?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        source?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        weight?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateSankeyDiagramChartConfigurationArgs {
+        dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateSankeyDiagramFieldWellsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateSankeyDiagramSortConfigurationArgs>;
+    }
+
+    export interface TemplateSankeyDiagramFieldWellsArgs {
+        sankeyDiagramAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateSankeyDiagramAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateSankeyDiagramSortConfigurationArgs {
+        destinationItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        sourceItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        weightSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateSankeyDiagramVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateSankeyDiagramChartConfigurationArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateScatterPlotCategoricallyAggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        size?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+        xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+        yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateScatterPlotConfigurationArgs {
+        dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateScatterPlotFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+        xAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        xAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        yAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        yAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+    }
+
+    export interface TemplateScatterPlotFieldWellsArgs {
+        scatterPlotCategoricallyAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateScatterPlotCategoricallyAggregatedFieldWellsArgs>;
+        scatterPlotUnaggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateScatterPlotUnaggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateScatterPlotUnaggregatedFieldWellsArgs {
+        size?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+        xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+    }
+
+    export interface TemplateScatterPlotVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateScatterPlotConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateScrollBarOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        visibleRange?: pulumi.Input<inputs.quicksight.TemplateVisibleRangeOptionsArgs>;
+    }
+
+    export interface TemplateSecondaryValueOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateSectionAfterPageBreakArgs {
+        status?: pulumi.Input<enums.quicksight.TemplateSectionPageBreakStatus>;
+    }
+
+    export interface TemplateSectionBasedLayoutCanvasSizeOptionsArgs {
+        paperCanvasSizeOptions?: pulumi.Input<inputs.quicksight.TemplateSectionBasedLayoutPaperCanvasSizeOptionsArgs>;
+    }
+
+    export interface TemplateSectionBasedLayoutConfigurationArgs {
+        bodySections: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateBodySectionConfigurationArgs>[]>;
+        canvasSizeOptions: pulumi.Input<inputs.quicksight.TemplateSectionBasedLayoutCanvasSizeOptionsArgs>;
+        footerSections: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateHeaderFooterSectionConfigurationArgs>[]>;
+        headerSections: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateHeaderFooterSectionConfigurationArgs>[]>;
+    }
+
+    export interface TemplateSectionBasedLayoutPaperCanvasSizeOptionsArgs {
+        paperMargin?: pulumi.Input<inputs.quicksight.TemplateSpacingArgs>;
+        paperOrientation?: pulumi.Input<enums.quicksight.TemplatePaperOrientation>;
+        paperSize?: pulumi.Input<enums.quicksight.TemplatePaperSize>;
+    }
+
+    export interface TemplateSectionLayoutConfigurationArgs {
+        freeFormLayout: pulumi.Input<inputs.quicksight.TemplateFreeFormSectionLayoutConfigurationArgs>;
+    }
+
+    export interface TemplateSectionPageBreakConfigurationArgs {
+        after?: pulumi.Input<inputs.quicksight.TemplateSectionAfterPageBreakArgs>;
+    }
+
+    export interface TemplateSectionStyleArgs {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: pulumi.Input<string>;
+        padding?: pulumi.Input<inputs.quicksight.TemplateSpacingArgs>;
+    }
+
+    export interface TemplateSelectedSheetsFilterScopeConfigurationArgs {
+        sheetVisualScopingConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSheetVisualScopingConfigurationArgs>[]>;
+    }
+
+    export interface TemplateSeriesItemArgs {
+        dataFieldSeriesItem?: pulumi.Input<inputs.quicksight.TemplateDataFieldSeriesItemArgs>;
+        fieldSeriesItem?: pulumi.Input<inputs.quicksight.TemplateFieldSeriesItemArgs>;
+    }
+
+    export interface TemplateSetParameterValueConfigurationArgs {
+        destinationParameterName: pulumi.Input<string>;
+        value: pulumi.Input<inputs.quicksight.TemplateDestinationParameterValueConfigurationArgs>;
+    }
+
+    export interface TemplateShapeConditionalFormatArgs {
+        backgroundColor: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
+    }
+
+    export interface TemplateSheetControlLayoutArgs {
+        configuration: pulumi.Input<inputs.quicksight.TemplateSheetControlLayoutConfigurationArgs>;
+    }
+
+    export interface TemplateSheetControlLayoutConfigurationArgs {
+        gridLayout?: pulumi.Input<inputs.quicksight.TemplateGridLayoutConfigurationArgs>;
+    }
+
+    export interface TemplateSheetDefinitionArgs {
+        contentType?: pulumi.Input<enums.quicksight.TemplateSheetContentType>;
+        description?: pulumi.Input<string>;
+        filterControls?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFilterControlArgs>[]>;
+        layouts?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateLayoutArgs>[]>;
+        name?: pulumi.Input<string>;
+        parameterControls?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateParameterControlArgs>[]>;
+        sheetControlLayouts?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSheetControlLayoutArgs>[]>;
+        sheetId: pulumi.Input<string>;
+        textBoxes?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSheetTextBoxArgs>[]>;
+        title?: pulumi.Input<string>;
+        visuals?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualArgs>[]>;
+    }
+
+    export interface TemplateSheetElementConfigurationOverridesArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateSheetElementRenderingRuleArgs {
+        configurationOverrides: pulumi.Input<inputs.quicksight.TemplateSheetElementConfigurationOverridesArgs>;
+        expression: pulumi.Input<string>;
+    }
+
+    export interface TemplateSheetTextBoxArgs {
+        content?: pulumi.Input<string>;
+        sheetTextBoxId: pulumi.Input<string>;
+    }
+
+    export interface TemplateSheetVisualScopingConfigurationArgs {
+        scope: pulumi.Input<enums.quicksight.TemplateFilterVisualScope>;
+        sheetId: pulumi.Input<string>;
+        visualIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TemplateShortFormatTextArgs {
+        plainText?: pulumi.Input<string>;
+        richText?: pulumi.Input<string>;
+    }
+
+    export interface TemplateSimpleClusterMarkerArgs {
+        color?: pulumi.Input<string>;
+    }
+
+    export interface TemplateSliderControlDisplayOptionsArgs {
+        titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
+    }
+
+    export interface TemplateSmallMultiplesOptionsArgs {
+        maxVisibleColumns?: pulumi.Input<number>;
+        maxVisibleRows?: pulumi.Input<number>;
+        panelConfiguration?: pulumi.Input<inputs.quicksight.TemplatePanelConfigurationArgs>;
+    }
+
     export interface TemplateSourceAnalysisArgs {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
         arn: pulumi.Input<string>;
-        /**
-         * <p>A structure containing information about the dataset references used as placeholders
-         *             in the template.</p>
-         */
         dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDataSetReferenceArgs>[]>;
     }
 
-    /**
-     * <p>The source entity of the template.</p>
-     */
     export interface TemplateSourceEntityArgs {
         sourceAnalysis?: pulumi.Input<inputs.quicksight.TemplateSourceAnalysisArgs>;
         sourceTemplate?: pulumi.Input<inputs.quicksight.TemplateSourceTemplateArgs>;
     }
 
-    /**
-     * <p>The source template of the template.</p>
-     */
     export interface TemplateSourceTemplateArgs {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
         arn: pulumi.Input<string>;
     }
 
-    /**
-     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-     *             resource.</p>
-     */
+    export interface TemplateSpacingArgs {
+        /**
+         * String based length that is composed of value and unit
+         */
+        bottom?: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit
+         */
+        left?: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit
+         */
+        right?: pulumi.Input<string>;
+        /**
+         * String based length that is composed of value and unit
+         */
+        top?: pulumi.Input<string>;
+    }
+
+    export interface TemplateStringDefaultValuesArgs {
+        dynamicValue?: pulumi.Input<inputs.quicksight.TemplateDynamicDefaultValueArgs>;
+        staticValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TemplateStringFormatConfigurationArgs {
+        nullValueFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNullValueFormatConfigurationArgs>;
+        numericFormatConfiguration?: pulumi.Input<inputs.quicksight.TemplateNumericFormatConfigurationArgs>;
+    }
+
+    export interface TemplateStringParameterDeclarationArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.TemplateStringDefaultValuesArgs>;
+        mappedDataSetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMappedDataSetParameterArgs>[]>;
+        name: pulumi.Input<string>;
+        parameterValueType: pulumi.Input<enums.quicksight.TemplateParameterValueType>;
+        valueWhenUnset?: pulumi.Input<inputs.quicksight.TemplateStringValueWhenUnsetConfigurationArgs>;
+    }
+
+    export interface TemplateStringValueWhenUnsetConfigurationArgs {
+        customValue?: pulumi.Input<string>;
+        valueWhenUnsetOption?: pulumi.Input<enums.quicksight.TemplateValueWhenUnsetOption>;
+    }
+
+    export interface TemplateSubtotalOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        fieldLevel?: pulumi.Input<enums.quicksight.TemplatePivotTableSubtotalLevel>;
+        fieldLevelOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePivotTableFieldSubtotalOptionsArgs>[]>;
+        metricHeaderCellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        totalCellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        valueCellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+    }
+
+    export interface TemplateTableAggregatedFieldWellsArgs {
+        groupBy?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateTableBorderOptionsArgs {
+        color?: pulumi.Input<string>;
+        style?: pulumi.Input<enums.quicksight.TemplateTableBorderStyle>;
+        thickness?: pulumi.Input<number>;
+    }
+
+    export interface TemplateTableCellConditionalFormattingArgs {
+        fieldId: pulumi.Input<string>;
+        textFormat?: pulumi.Input<inputs.quicksight.TemplateTextConditionalFormatArgs>;
+    }
+
+    export interface TemplateTableCellImageSizingConfigurationArgs {
+        tableCellImageScalingConfiguration?: pulumi.Input<enums.quicksight.TemplateTableCellImageScalingConfiguration>;
+    }
+
+    export interface TemplateTableCellStyleArgs {
+        backgroundColor?: pulumi.Input<string>;
+        border?: pulumi.Input<inputs.quicksight.TemplateGlobalTableBorderOptionsArgs>;
+        fontConfiguration?: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+        height?: pulumi.Input<number>;
+        horizontalTextAlignment?: pulumi.Input<enums.quicksight.TemplateHorizontalTextAlignment>;
+        textWrap?: pulumi.Input<enums.quicksight.TemplateTextWrap>;
+        verticalTextAlignment?: pulumi.Input<enums.quicksight.TemplateVerticalTextAlignment>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateTableConditionalFormattingArgs {
+        conditionalFormattingOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateTableConditionalFormattingOptionArgs>[]>;
+    }
+
+    export interface TemplateTableConditionalFormattingOptionArgs {
+        cell?: pulumi.Input<inputs.quicksight.TemplateTableCellConditionalFormattingArgs>;
+        row?: pulumi.Input<inputs.quicksight.TemplateTableRowConditionalFormattingArgs>;
+    }
+
+    export interface TemplateTableConfigurationArgs {
+        fieldOptions?: pulumi.Input<inputs.quicksight.TemplateTableFieldOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateTableFieldWellsArgs>;
+        paginatedReportOptions?: pulumi.Input<inputs.quicksight.TemplateTablePaginatedReportOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateTableSortConfigurationArgs>;
+        tableInlineVisualizations?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateTableInlineVisualizationArgs>[]>;
+        tableOptions?: pulumi.Input<inputs.quicksight.TemplateTableOptionsArgs>;
+        totalOptions?: pulumi.Input<inputs.quicksight.TemplateTotalOptionsArgs>;
+    }
+
+    export interface TemplateTableFieldCustomIconContentArgs {
+        icon?: pulumi.Input<enums.quicksight.TemplateTableFieldIconSetType>;
+    }
+
+    export interface TemplateTableFieldCustomTextContentArgs {
+        fontConfiguration: pulumi.Input<inputs.quicksight.TemplateFontConfigurationArgs>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface TemplateTableFieldImageConfigurationArgs {
+        sizingOptions?: pulumi.Input<inputs.quicksight.TemplateTableCellImageSizingConfigurationArgs>;
+    }
+
+    export interface TemplateTableFieldLinkConfigurationArgs {
+        content: pulumi.Input<inputs.quicksight.TemplateTableFieldLinkContentConfigurationArgs>;
+        target: pulumi.Input<enums.quicksight.TemplateURLTargetConfiguration>;
+    }
+
+    export interface TemplateTableFieldLinkContentConfigurationArgs {
+        customIconContent?: pulumi.Input<inputs.quicksight.TemplateTableFieldCustomIconContentArgs>;
+        customTextContent?: pulumi.Input<inputs.quicksight.TemplateTableFieldCustomTextContentArgs>;
+    }
+
+    export interface TemplateTableFieldOptionArgs {
+        customLabel?: pulumi.Input<string>;
+        fieldId: pulumi.Input<string>;
+        uRLStyling?: pulumi.Input<inputs.quicksight.TemplateTableFieldURLConfigurationArgs>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: pulumi.Input<string>;
+    }
+
+    export interface TemplateTableFieldOptionsArgs {
+        order?: pulumi.Input<pulumi.Input<string>[]>;
+        selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateTableFieldOptionArgs>[]>;
+    }
+
+    export interface TemplateTableFieldURLConfigurationArgs {
+        imageConfiguration?: pulumi.Input<inputs.quicksight.TemplateTableFieldImageConfigurationArgs>;
+        linkConfiguration?: pulumi.Input<inputs.quicksight.TemplateTableFieldLinkConfigurationArgs>;
+    }
+
+    export interface TemplateTableFieldWellsArgs {
+        tableAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateTableAggregatedFieldWellsArgs>;
+        tableUnaggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateTableUnaggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateTableInlineVisualizationArgs {
+        dataBars?: pulumi.Input<inputs.quicksight.TemplateDataBarsOptionsArgs>;
+    }
+
+    export interface TemplateTableOptionsArgs {
+        cellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        headerStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        orientation?: pulumi.Input<enums.quicksight.TemplateTableOrientation>;
+        rowAlternateColorOptions?: pulumi.Input<inputs.quicksight.TemplateRowAlternateColorOptionsArgs>;
+    }
+
+    export interface TemplateTablePaginatedReportOptionsArgs {
+        overflowColumnHeaderVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+        verticalOverflowVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateTableRowConditionalFormattingArgs {
+        backgroundColor?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
+    }
+
+    export interface TemplateTableSideBorderOptionsArgs {
+        bottom?: pulumi.Input<inputs.quicksight.TemplateTableBorderOptionsArgs>;
+        innerHorizontal?: pulumi.Input<inputs.quicksight.TemplateTableBorderOptionsArgs>;
+        innerVertical?: pulumi.Input<inputs.quicksight.TemplateTableBorderOptionsArgs>;
+        left?: pulumi.Input<inputs.quicksight.TemplateTableBorderOptionsArgs>;
+        right?: pulumi.Input<inputs.quicksight.TemplateTableBorderOptionsArgs>;
+        top?: pulumi.Input<inputs.quicksight.TemplateTableBorderOptionsArgs>;
+    }
+
+    export interface TemplateTableSortConfigurationArgs {
+        paginationConfiguration?: pulumi.Input<inputs.quicksight.TemplatePaginationConfigurationArgs>;
+        rowSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateTableUnaggregatedFieldWellsArgs {
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateUnaggregatedFieldArgs>[]>;
+    }
+
+    export interface TemplateTableVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateTableConfigurationArgs>;
+        conditionalFormatting?: pulumi.Input<inputs.quicksight.TemplateTableConditionalFormattingArgs>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
     export interface TemplateTagArgs {
-        /**
-         * <p>Tag key.</p>
-         */
         key: pulumi.Input<string>;
-        /**
-         * <p>Tag value.</p>
-         */
         value: pulumi.Input<string>;
+    }
+
+    export interface TemplateTextAreaControlDisplayOptionsArgs {
+        placeholderOptions?: pulumi.Input<inputs.quicksight.TemplateTextControlPlaceholderOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
+    }
+
+    export interface TemplateTextConditionalFormatArgs {
+        backgroundColor?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
+        icon?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingIconArgs>;
+        textColor?: pulumi.Input<inputs.quicksight.TemplateConditionalFormattingColorArgs>;
+    }
+
+    export interface TemplateTextControlPlaceholderOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateTextFieldControlDisplayOptionsArgs {
+        placeholderOptions?: pulumi.Input<inputs.quicksight.TemplateTextControlPlaceholderOptionsArgs>;
+        titleOptions?: pulumi.Input<inputs.quicksight.TemplateLabelOptionsArgs>;
+    }
+
+    export interface TemplateThousandSeparatorOptionsArgs {
+        symbol?: pulumi.Input<enums.quicksight.TemplateNumericSeparatorSymbol>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateTimeBasedForecastPropertiesArgs {
+        lowerBoundary?: pulumi.Input<number>;
+        periodsBackward?: pulumi.Input<number>;
+        periodsForward?: pulumi.Input<number>;
+        predictionInterval?: pulumi.Input<number>;
+        seasonality?: pulumi.Input<number>;
+        upperBoundary?: pulumi.Input<number>;
+    }
+
+    export interface TemplateTimeEqualityFilterArgs {
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        parameterName?: pulumi.Input<string>;
+        timeGranularity?: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface TemplateTimeRangeDrillDownFilterArgs {
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        rangeMaximum: pulumi.Input<string>;
+        rangeMinimum: pulumi.Input<string>;
+        timeGranularity: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
+    }
+
+    export interface TemplateTimeRangeFilterArgs {
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.TemplateExcludePeriodConfigurationArgs>;
+        filterId: pulumi.Input<string>;
+        includeMaximum?: pulumi.Input<boolean>;
+        includeMinimum?: pulumi.Input<boolean>;
+        nullOption: pulumi.Input<enums.quicksight.TemplateFilterNullOption>;
+        rangeMaximumValue?: pulumi.Input<inputs.quicksight.TemplateTimeRangeFilterValueArgs>;
+        rangeMinimumValue?: pulumi.Input<inputs.quicksight.TemplateTimeRangeFilterValueArgs>;
+        timeGranularity?: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
+    }
+
+    export interface TemplateTimeRangeFilterValueArgs {
+        parameter?: pulumi.Input<string>;
+        rollingDate?: pulumi.Input<inputs.quicksight.TemplateRollingDateConfigurationArgs>;
+        staticValue?: pulumi.Input<string>;
+    }
+
+    export interface TemplateTooltipItemArgs {
+        columnTooltipItem?: pulumi.Input<inputs.quicksight.TemplateColumnTooltipItemArgs>;
+        fieldTooltipItem?: pulumi.Input<inputs.quicksight.TemplateFieldTooltipItemArgs>;
+    }
+
+    export interface TemplateTooltipOptionsArgs {
+        fieldBasedTooltip?: pulumi.Input<inputs.quicksight.TemplateFieldBasedTooltipArgs>;
+        selectedTooltipType?: pulumi.Input<enums.quicksight.TemplateSelectedTooltipType>;
+        tooltipVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateTopBottomFilterArgs {
+        aggregationSortConfigurations: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateAggregationSortConfigurationArgs>[]>;
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        filterId: pulumi.Input<string>;
+        limit?: pulumi.Input<number>;
+        parameterName?: pulumi.Input<string>;
+        timeGranularity?: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
+    }
+
+    export interface TemplateTopBottomMoversComputationArgs {
+        category: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        computationId: pulumi.Input<string>;
+        moverSize?: pulumi.Input<number>;
+        name?: pulumi.Input<string>;
+        sortOrder?: pulumi.Input<enums.quicksight.TemplateTopBottomSortOrder>;
+        time: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        type: pulumi.Input<enums.quicksight.TemplateTopBottomComputationType>;
+        value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+    }
+
+    export interface TemplateTopBottomRankedComputationArgs {
+        category: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        resultSize?: pulumi.Input<number>;
+        type: pulumi.Input<enums.quicksight.TemplateTopBottomComputationType>;
+        value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+    }
+
+    export interface TemplateTotalAggregationComputationArgs {
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+        value: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>;
+    }
+
+    export interface TemplateTotalOptionsArgs {
+        customLabel?: pulumi.Input<string>;
+        placement?: pulumi.Input<enums.quicksight.TemplateTableTotalsPlacement>;
+        scrollStatus?: pulumi.Input<enums.quicksight.TemplateTableTotalsScrollStatus>;
+        totalCellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateTreeMapAggregatedFieldWellsArgs {
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+        groups?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        sizes?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateTreeMapConfigurationArgs {
+        colorLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        colorScale?: pulumi.Input<inputs.quicksight.TemplateColorScaleArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateTreeMapFieldWellsArgs>;
+        groupLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        sizeLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateTreeMapSortConfigurationArgs>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs>;
+    }
+
+    export interface TemplateTreeMapFieldWellsArgs {
+        treeMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateTreeMapAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateTreeMapSortConfigurationArgs {
+        treeMapGroupItemsLimitConfiguration?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        treeMapSort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateTreeMapVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateTreeMapConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateTrendArrowOptionsArgs {
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateUnaggregatedFieldArgs {
+        column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        fieldId: pulumi.Input<string>;
+        formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateFormatConfigurationArgs>;
+    }
+
+    export interface TemplateUniqueValuesComputationArgs {
+        category: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        computationId: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
+    }
+
+    export interface TemplateVersionDefinitionArgs {
+        analysisDefaults?: pulumi.Input<inputs.quicksight.TemplateAnalysisDefaultsArgs>;
+        calculatedFields?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateCalculatedFieldArgs>[]>;
+        columnConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnConfigurationArgs>[]>;
+        dataSetConfigurations: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDataSetConfigurationArgs>[]>;
+        filterGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFilterGroupArgs>[]>;
+        parameterDeclarations?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateParameterDeclarationArgs>[]>;
+        sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSheetDefinitionArgs>[]>;
+    }
+
+    export interface TemplateVisibleRangeOptionsArgs {
+        percentRange?: pulumi.Input<inputs.quicksight.TemplatePercentVisibleRangeArgs>;
+    }
+
+    export interface TemplateVisualArgs {
+        barChartVisual?: pulumi.Input<inputs.quicksight.TemplateBarChartVisualArgs>;
+        boxPlotVisual?: pulumi.Input<inputs.quicksight.TemplateBoxPlotVisualArgs>;
+        comboChartVisual?: pulumi.Input<inputs.quicksight.TemplateComboChartVisualArgs>;
+        customContentVisual?: pulumi.Input<inputs.quicksight.TemplateCustomContentVisualArgs>;
+        emptyVisual?: pulumi.Input<inputs.quicksight.TemplateEmptyVisualArgs>;
+        filledMapVisual?: pulumi.Input<inputs.quicksight.TemplateFilledMapVisualArgs>;
+        funnelChartVisual?: pulumi.Input<inputs.quicksight.TemplateFunnelChartVisualArgs>;
+        gaugeChartVisual?: pulumi.Input<inputs.quicksight.TemplateGaugeChartVisualArgs>;
+        geospatialMapVisual?: pulumi.Input<inputs.quicksight.TemplateGeospatialMapVisualArgs>;
+        heatMapVisual?: pulumi.Input<inputs.quicksight.TemplateHeatMapVisualArgs>;
+        histogramVisual?: pulumi.Input<inputs.quicksight.TemplateHistogramVisualArgs>;
+        insightVisual?: pulumi.Input<inputs.quicksight.TemplateInsightVisualArgs>;
+        kPIVisual?: pulumi.Input<inputs.quicksight.TemplateKPIVisualArgs>;
+        lineChartVisual?: pulumi.Input<inputs.quicksight.TemplateLineChartVisualArgs>;
+        pieChartVisual?: pulumi.Input<inputs.quicksight.TemplatePieChartVisualArgs>;
+        pivotTableVisual?: pulumi.Input<inputs.quicksight.TemplatePivotTableVisualArgs>;
+        radarChartVisual?: pulumi.Input<inputs.quicksight.TemplateRadarChartVisualArgs>;
+        sankeyDiagramVisual?: pulumi.Input<inputs.quicksight.TemplateSankeyDiagramVisualArgs>;
+        scatterPlotVisual?: pulumi.Input<inputs.quicksight.TemplateScatterPlotVisualArgs>;
+        tableVisual?: pulumi.Input<inputs.quicksight.TemplateTableVisualArgs>;
+        treeMapVisual?: pulumi.Input<inputs.quicksight.TemplateTreeMapVisualArgs>;
+        waterfallVisual?: pulumi.Input<inputs.quicksight.TemplateWaterfallVisualArgs>;
+        wordCloudVisual?: pulumi.Input<inputs.quicksight.TemplateWordCloudVisualArgs>;
+    }
+
+    export interface TemplateVisualCustomActionArgs {
+        actionOperations: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionOperationArgs>[]>;
+        customActionId: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        status?: pulumi.Input<enums.quicksight.TemplateWidgetStatus>;
+        trigger: pulumi.Input<enums.quicksight.TemplateVisualCustomActionTrigger>;
+    }
+
+    export interface TemplateVisualCustomActionOperationArgs {
+        filterOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionFilterOperationArgs>;
+        navigationOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionNavigationOperationArgs>;
+        setParametersOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionSetParametersOperationArgs>;
+        uRLOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionURLOperationArgs>;
+    }
+
+    export interface TemplateVisualPaletteArgs {
+        chartColor?: pulumi.Input<string>;
+        colorMap?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDataPathColorArgs>[]>;
+    }
+
+    export interface TemplateVisualSubtitleLabelOptionsArgs {
+        formatText?: pulumi.Input<inputs.quicksight.TemplateLongFormatTextArgs>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateVisualTitleLabelOptionsArgs {
+        formatText?: pulumi.Input<inputs.quicksight.TemplateShortFormatTextArgs>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
+    }
+
+    export interface TemplateWaterfallChartAggregatedFieldWellsArgs {
+        breakdowns?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        categories?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateWaterfallChartConfigurationArgs {
+        categoryAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        categoryAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateWaterfallChartFieldWellsArgs>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
+        primaryYAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
+        primaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateWaterfallChartSortConfigurationArgs>;
+        visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs>;
+        waterfallChartOptions?: pulumi.Input<inputs.quicksight.TemplateWaterfallChartOptionsArgs>;
+    }
+
+    export interface TemplateWaterfallChartFieldWellsArgs {
+        waterfallChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateWaterfallChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateWaterfallChartOptionsArgs {
+        totalBarLabel?: pulumi.Input<string>;
+    }
+
+    export interface TemplateWaterfallChartSortConfigurationArgs {
+        breakdownItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateWaterfallVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateWaterfallChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateWhatIfPointScenarioArgs {
+        date: pulumi.Input<string>;
+        value: pulumi.Input<number>;
+    }
+
+    export interface TemplateWhatIfRangeScenarioArgs {
+        endDate: pulumi.Input<string>;
+        startDate: pulumi.Input<string>;
+        value: pulumi.Input<number>;
+    }
+
+    export interface TemplateWordCloudAggregatedFieldWellsArgs {
+        groupBy?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        size?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
+    }
+
+    export interface TemplateWordCloudChartConfigurationArgs {
+        categoryLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        fieldWells?: pulumi.Input<inputs.quicksight.TemplateWordCloudFieldWellsArgs>;
+        sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateWordCloudSortConfigurationArgs>;
+        wordCloudOptions?: pulumi.Input<inputs.quicksight.TemplateWordCloudOptionsArgs>;
+    }
+
+    export interface TemplateWordCloudFieldWellsArgs {
+        wordCloudAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateWordCloudAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateWordCloudOptionsArgs {
+        cloudLayout?: pulumi.Input<enums.quicksight.TemplateWordCloudCloudLayout>;
+        maximumStringLength?: pulumi.Input<number>;
+        wordCasing?: pulumi.Input<enums.quicksight.TemplateWordCloudWordCasing>;
+        wordOrientation?: pulumi.Input<enums.quicksight.TemplateWordCloudWordOrientation>;
+        wordPadding?: pulumi.Input<enums.quicksight.TemplateWordCloudWordPadding>;
+        wordScaling?: pulumi.Input<enums.quicksight.TemplateWordCloudWordScaling>;
+    }
+
+    export interface TemplateWordCloudSortConfigurationArgs {
+        categoryItemsLimit?: pulumi.Input<inputs.quicksight.TemplateItemsLimitConfigurationArgs>;
+        categorySort?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFieldSortOptionsArgs>[]>;
+    }
+
+    export interface TemplateWordCloudVisualArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateVisualCustomActionArgs>[]>;
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateWordCloudChartConfigurationArgs>;
+        columnHierarchies?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnHierarchyArgs>[]>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs>;
+        visualId: pulumi.Input<string>;
     }
 
     /**
@@ -33626,6 +41972,131 @@ export namespace sagemaker {
      * A key-value pair to associate with a resource.
      */
     export interface ImageTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+     */
+    export interface InferenceExperimentCaptureContentTypeHeaderArgs {
+        /**
+         * The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
+         */
+        csvContentTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
+         */
+        jsonContentTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The Amazon S3 location and configuration for storing inference request and response data.
+     */
+    export interface InferenceExperimentDataStorageConfigArgs {
+        contentType?: pulumi.Input<inputs.sagemaker.InferenceExperimentCaptureContentTypeHeaderArgs>;
+        /**
+         * The Amazon S3 bucket where the inference request and response data is stored.
+         */
+        destination: pulumi.Input<string>;
+        /**
+         * The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
+         */
+        kmsKey?: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration for the infrastructure that the model will be deployed to.
+     */
+    export interface InferenceExperimentModelInfrastructureConfigArgs {
+        /**
+         * The type of the inference experiment that you want to run.
+         */
+        infrastructureType: pulumi.Input<enums.sagemaker.InferenceExperimentModelInfrastructureConfigInfrastructureType>;
+        realTimeInferenceConfig: pulumi.Input<inputs.sagemaker.InferenceExperimentRealTimeInferenceConfigArgs>;
+    }
+
+    /**
+     * Contains information about the deployment options of a model.
+     */
+    export interface InferenceExperimentModelVariantConfigArgs {
+        infrastructureConfig: pulumi.Input<inputs.sagemaker.InferenceExperimentModelInfrastructureConfigArgs>;
+        /**
+         * The name of the Amazon SageMaker Model entity.
+         */
+        modelName: pulumi.Input<string>;
+        /**
+         * The name of the variant.
+         */
+        variantName: pulumi.Input<string>;
+    }
+
+    /**
+     * The infrastructure configuration for deploying the model to a real-time inference endpoint.
+     */
+    export interface InferenceExperimentRealTimeInferenceConfigArgs {
+        /**
+         * The number of instances of the type specified by InstanceType.
+         */
+        instanceCount: pulumi.Input<number>;
+        /**
+         * The instance type the model is deployed to.
+         */
+        instanceType: pulumi.Input<string>;
+    }
+
+    /**
+     * The duration for which you want the inference experiment to run.
+     */
+    export interface InferenceExperimentScheduleArgs {
+        /**
+         * The timestamp at which the inference experiment ended or will end.
+         */
+        endTime?: pulumi.Input<string>;
+        /**
+         * The timestamp at which the inference experiment started or will start.
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration of ShadowMode inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates.
+     */
+    export interface InferenceExperimentShadowModeConfigArgs {
+        /**
+         * List of shadow variant configurations.
+         */
+        shadowModelVariants: pulumi.Input<pulumi.Input<inputs.sagemaker.InferenceExperimentShadowModelVariantConfigArgs>[]>;
+        /**
+         * The name of the production variant, which takes all the inference requests.
+         */
+        sourceModelVariantName: pulumi.Input<string>;
+    }
+
+    /**
+     * The name and sampling percentage of a shadow variant.
+     */
+    export interface InferenceExperimentShadowModelVariantConfigArgs {
+        /**
+         * The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
+         */
+        samplingPercentage: pulumi.Input<number>;
+        /**
+         * The name of the shadow variant.
+         */
+        shadowModelVariantName: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface InferenceExperimentTagArgs {
         /**
          * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
@@ -39255,7 +47726,7 @@ export namespace wisdom {
 
     export interface KnowledgeBaseAppIntegrationsConfigurationArgs {
         appIntegrationArn: pulumi.Input<string>;
-        objectFields: pulumi.Input<pulumi.Input<string>[]>;
+        objectFields?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface KnowledgeBaseRenderingConfigurationArgs {

@@ -15,18 +15,12 @@ namespace Pulumi.AwsNative.QuickSight
     [AwsNativeResourceType("aws-native:quicksight:Dashboard")]
     public partial class Dashboard : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The time that this dataset was created.&lt;/p&gt;
-        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
@@ -36,62 +30,36 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("dashboardPublishOptions")]
         public Output<Outputs.DashboardPublishOptions?> DashboardPublishOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The last time that this dataset was published.&lt;/p&gt;
-        /// </summary>
+        [Output("definition")]
+        public Output<Outputs.DashboardVersionDefinition?> Definition { get; private set; } = null!;
+
         [Output("lastPublishedTime")]
         public Output<string> LastPublishedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The last time that this dataset was updated.&lt;/p&gt;
-        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The display name of the dashboard.&lt;/p&gt;
-        /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("parameters")]
         public Output<Outputs.DashboardParameters?> Parameters { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A structure that contains the permissions of the dashboard. You can use this structure
-        ///             for granting permissions by providing a list of IAM action information for each
-        ///             principal ARN. &lt;/p&gt;
-        /// 
-        ///         &lt;p&gt;To specify no permissions, omit the permissions list.&lt;/p&gt;
-        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DashboardResourcePermission>> Permissions { get; private set; } = null!;
 
         [Output("sourceEntity")]
-        public Output<Outputs.DashboardSourceEntity> SourceEntity { get; private set; } = null!;
+        public Output<Outputs.DashboardSourceEntity?> SourceEntity { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the
-        ///             dashboard.&lt;/p&gt;
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DashboardTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-        ///             you add a value for this field, it overrides the value that is used in the source
-        ///             entity. The theme ARN must exist in the same AWS account where you create the
-        ///             dashboard.&lt;/p&gt;
-        /// </summary>
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
 
         [Output("version")]
         public Output<Outputs.DashboardVersion> Version { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A description for the first version of the dashboard being created.&lt;/p&gt;
-        /// </summary>
         [Output("versionDescription")]
         public Output<string?> VersionDescription { get; private set; } = null!;
 
@@ -149,9 +117,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("dashboardPublishOptions")]
         public Input<Inputs.DashboardPublishOptionsArgs>? DashboardPublishOptions { get; set; }
 
-        /// <summary>
-        /// &lt;p&gt;The display name of the dashboard.&lt;/p&gt;
-        /// </summary>
+        [Input("definition")]
+        public Input<Inputs.DashboardVersionDefinitionArgs>? Definition { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -160,48 +128,26 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("permissions")]
         private InputList<Inputs.DashboardResourcePermissionArgs>? _permissions;
-
-        /// <summary>
-        /// &lt;p&gt;A structure that contains the permissions of the dashboard. You can use this structure
-        ///             for granting permissions by providing a list of IAM action information for each
-        ///             principal ARN. &lt;/p&gt;
-        /// 
-        ///         &lt;p&gt;To specify no permissions, omit the permissions list.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.DashboardResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.DashboardResourcePermissionArgs>());
             set => _permissions = value;
         }
 
-        [Input("sourceEntity", required: true)]
-        public Input<Inputs.DashboardSourceEntityArgs> SourceEntity { get; set; } = null!;
+        [Input("sourceEntity")]
+        public Input<Inputs.DashboardSourceEntityArgs>? SourceEntity { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DashboardTagArgs>? _tags;
-
-        /// <summary>
-        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the
-        ///             dashboard.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.DashboardTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.DashboardTagArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-        ///             you add a value for this field, it overrides the value that is used in the source
-        ///             entity. The theme ARN must exist in the same AWS account where you create the
-        ///             dashboard.&lt;/p&gt;
-        /// </summary>
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }
 
-        /// <summary>
-        /// &lt;p&gt;A description for the first version of the dashboard being created.&lt;/p&gt;
-        /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }
 

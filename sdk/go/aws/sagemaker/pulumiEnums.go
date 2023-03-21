@@ -2763,6 +2763,694 @@ func (in *featureGroupTableFormatPtr) ToFeatureGroupTableFormatPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(FeatureGroupTableFormatPtrOutput)
 }
 
+// The desired state of the experiment after starting or stopping operation.
+type InferenceExperimentDesiredState string
+
+const (
+	InferenceExperimentDesiredStateRunning   = InferenceExperimentDesiredState("Running")
+	InferenceExperimentDesiredStateCompleted = InferenceExperimentDesiredState("Completed")
+	InferenceExperimentDesiredStateCancelled = InferenceExperimentDesiredState("Cancelled")
+)
+
+func (InferenceExperimentDesiredState) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentDesiredState)(nil)).Elem()
+}
+
+func (e InferenceExperimentDesiredState) ToInferenceExperimentDesiredStateOutput() InferenceExperimentDesiredStateOutput {
+	return pulumi.ToOutput(e).(InferenceExperimentDesiredStateOutput)
+}
+
+func (e InferenceExperimentDesiredState) ToInferenceExperimentDesiredStateOutputWithContext(ctx context.Context) InferenceExperimentDesiredStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InferenceExperimentDesiredStateOutput)
+}
+
+func (e InferenceExperimentDesiredState) ToInferenceExperimentDesiredStatePtrOutput() InferenceExperimentDesiredStatePtrOutput {
+	return e.ToInferenceExperimentDesiredStatePtrOutputWithContext(context.Background())
+}
+
+func (e InferenceExperimentDesiredState) ToInferenceExperimentDesiredStatePtrOutputWithContext(ctx context.Context) InferenceExperimentDesiredStatePtrOutput {
+	return InferenceExperimentDesiredState(e).ToInferenceExperimentDesiredStateOutputWithContext(ctx).ToInferenceExperimentDesiredStatePtrOutputWithContext(ctx)
+}
+
+func (e InferenceExperimentDesiredState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceExperimentDesiredState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceExperimentDesiredState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InferenceExperimentDesiredState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InferenceExperimentDesiredStateOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentDesiredStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentDesiredState)(nil)).Elem()
+}
+
+func (o InferenceExperimentDesiredStateOutput) ToInferenceExperimentDesiredStateOutput() InferenceExperimentDesiredStateOutput {
+	return o
+}
+
+func (o InferenceExperimentDesiredStateOutput) ToInferenceExperimentDesiredStateOutputWithContext(ctx context.Context) InferenceExperimentDesiredStateOutput {
+	return o
+}
+
+func (o InferenceExperimentDesiredStateOutput) ToInferenceExperimentDesiredStatePtrOutput() InferenceExperimentDesiredStatePtrOutput {
+	return o.ToInferenceExperimentDesiredStatePtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentDesiredStateOutput) ToInferenceExperimentDesiredStatePtrOutputWithContext(ctx context.Context) InferenceExperimentDesiredStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceExperimentDesiredState) *InferenceExperimentDesiredState {
+		return &v
+	}).(InferenceExperimentDesiredStatePtrOutput)
+}
+
+func (o InferenceExperimentDesiredStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentDesiredStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceExperimentDesiredState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InferenceExperimentDesiredStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentDesiredStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceExperimentDesiredState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceExperimentDesiredStatePtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentDesiredStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentDesiredState)(nil)).Elem()
+}
+
+func (o InferenceExperimentDesiredStatePtrOutput) ToInferenceExperimentDesiredStatePtrOutput() InferenceExperimentDesiredStatePtrOutput {
+	return o
+}
+
+func (o InferenceExperimentDesiredStatePtrOutput) ToInferenceExperimentDesiredStatePtrOutputWithContext(ctx context.Context) InferenceExperimentDesiredStatePtrOutput {
+	return o
+}
+
+func (o InferenceExperimentDesiredStatePtrOutput) Elem() InferenceExperimentDesiredStateOutput {
+	return o.ApplyT(func(v *InferenceExperimentDesiredState) InferenceExperimentDesiredState {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceExperimentDesiredState
+		return ret
+	}).(InferenceExperimentDesiredStateOutput)
+}
+
+func (o InferenceExperimentDesiredStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentDesiredStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InferenceExperimentDesiredState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InferenceExperimentDesiredStateInput is an input type that accepts InferenceExperimentDesiredStateArgs and InferenceExperimentDesiredStateOutput values.
+// You can construct a concrete instance of `InferenceExperimentDesiredStateInput` via:
+//
+//	InferenceExperimentDesiredStateArgs{...}
+type InferenceExperimentDesiredStateInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentDesiredStateOutput() InferenceExperimentDesiredStateOutput
+	ToInferenceExperimentDesiredStateOutputWithContext(context.Context) InferenceExperimentDesiredStateOutput
+}
+
+var inferenceExperimentDesiredStatePtrType = reflect.TypeOf((**InferenceExperimentDesiredState)(nil)).Elem()
+
+type InferenceExperimentDesiredStatePtrInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentDesiredStatePtrOutput() InferenceExperimentDesiredStatePtrOutput
+	ToInferenceExperimentDesiredStatePtrOutputWithContext(context.Context) InferenceExperimentDesiredStatePtrOutput
+}
+
+type inferenceExperimentDesiredStatePtr string
+
+func InferenceExperimentDesiredStatePtr(v string) InferenceExperimentDesiredStatePtrInput {
+	return (*inferenceExperimentDesiredStatePtr)(&v)
+}
+
+func (*inferenceExperimentDesiredStatePtr) ElementType() reflect.Type {
+	return inferenceExperimentDesiredStatePtrType
+}
+
+func (in *inferenceExperimentDesiredStatePtr) ToInferenceExperimentDesiredStatePtrOutput() InferenceExperimentDesiredStatePtrOutput {
+	return pulumi.ToOutput(in).(InferenceExperimentDesiredStatePtrOutput)
+}
+
+func (in *inferenceExperimentDesiredStatePtr) ToInferenceExperimentDesiredStatePtrOutputWithContext(ctx context.Context) InferenceExperimentDesiredStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InferenceExperimentDesiredStatePtrOutput)
+}
+
+// The status of the endpoint. For possible values of the status of an endpoint.
+type InferenceExperimentEndpointMetadataEndpointStatus string
+
+const (
+	InferenceExperimentEndpointMetadataEndpointStatusCreating       = InferenceExperimentEndpointMetadataEndpointStatus("Creating")
+	InferenceExperimentEndpointMetadataEndpointStatusUpdating       = InferenceExperimentEndpointMetadataEndpointStatus("Updating")
+	InferenceExperimentEndpointMetadataEndpointStatusSystemUpdating = InferenceExperimentEndpointMetadataEndpointStatus("SystemUpdating")
+	InferenceExperimentEndpointMetadataEndpointStatusRollingBack    = InferenceExperimentEndpointMetadataEndpointStatus("RollingBack")
+	InferenceExperimentEndpointMetadataEndpointStatusInService      = InferenceExperimentEndpointMetadataEndpointStatus("InService")
+	InferenceExperimentEndpointMetadataEndpointStatusOutOfService   = InferenceExperimentEndpointMetadataEndpointStatus("OutOfService")
+	InferenceExperimentEndpointMetadataEndpointStatusDeleting       = InferenceExperimentEndpointMetadataEndpointStatus("Deleting")
+	InferenceExperimentEndpointMetadataEndpointStatusFailed         = InferenceExperimentEndpointMetadataEndpointStatus("Failed")
+)
+
+type InferenceExperimentEndpointMetadataEndpointStatusOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentEndpointMetadataEndpointStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentEndpointMetadataEndpointStatus)(nil)).Elem()
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusOutput) ToInferenceExperimentEndpointMetadataEndpointStatusOutput() InferenceExperimentEndpointMetadataEndpointStatusOutput {
+	return o
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusOutput) ToInferenceExperimentEndpointMetadataEndpointStatusOutputWithContext(ctx context.Context) InferenceExperimentEndpointMetadataEndpointStatusOutput {
+	return o
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusOutput) ToInferenceExperimentEndpointMetadataEndpointStatusPtrOutput() InferenceExperimentEndpointMetadataEndpointStatusPtrOutput {
+	return o.ToInferenceExperimentEndpointMetadataEndpointStatusPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusOutput) ToInferenceExperimentEndpointMetadataEndpointStatusPtrOutputWithContext(ctx context.Context) InferenceExperimentEndpointMetadataEndpointStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceExperimentEndpointMetadataEndpointStatus) *InferenceExperimentEndpointMetadataEndpointStatus {
+		return &v
+	}).(InferenceExperimentEndpointMetadataEndpointStatusPtrOutput)
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceExperimentEndpointMetadataEndpointStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceExperimentEndpointMetadataEndpointStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceExperimentEndpointMetadataEndpointStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentEndpointMetadataEndpointStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentEndpointMetadataEndpointStatus)(nil)).Elem()
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusPtrOutput) ToInferenceExperimentEndpointMetadataEndpointStatusPtrOutput() InferenceExperimentEndpointMetadataEndpointStatusPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusPtrOutput) ToInferenceExperimentEndpointMetadataEndpointStatusPtrOutputWithContext(ctx context.Context) InferenceExperimentEndpointMetadataEndpointStatusPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusPtrOutput) Elem() InferenceExperimentEndpointMetadataEndpointStatusOutput {
+	return o.ApplyT(func(v *InferenceExperimentEndpointMetadataEndpointStatus) InferenceExperimentEndpointMetadataEndpointStatus {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceExperimentEndpointMetadataEndpointStatus
+		return ret
+	}).(InferenceExperimentEndpointMetadataEndpointStatusOutput)
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentEndpointMetadataEndpointStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InferenceExperimentEndpointMetadataEndpointStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the inference experiment that you want to run.
+type InferenceExperimentModelInfrastructureConfigInfrastructureType string
+
+const (
+	InferenceExperimentModelInfrastructureConfigInfrastructureTypeRealTimeInference = InferenceExperimentModelInfrastructureConfigInfrastructureType("RealTimeInference")
+)
+
+func (InferenceExperimentModelInfrastructureConfigInfrastructureType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentModelInfrastructureConfigInfrastructureType)(nil)).Elem()
+}
+
+func (e InferenceExperimentModelInfrastructureConfigInfrastructureType) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput() InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput {
+	return pulumi.ToOutput(e).(InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput)
+}
+
+func (e InferenceExperimentModelInfrastructureConfigInfrastructureType) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypeOutputWithContext(ctx context.Context) InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput)
+}
+
+func (e InferenceExperimentModelInfrastructureConfigInfrastructureType) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput() InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput {
+	return e.ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutputWithContext(context.Background())
+}
+
+func (e InferenceExperimentModelInfrastructureConfigInfrastructureType) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutputWithContext(ctx context.Context) InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput {
+	return InferenceExperimentModelInfrastructureConfigInfrastructureType(e).ToInferenceExperimentModelInfrastructureConfigInfrastructureTypeOutputWithContext(ctx).ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutputWithContext(ctx)
+}
+
+func (e InferenceExperimentModelInfrastructureConfigInfrastructureType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceExperimentModelInfrastructureConfigInfrastructureType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceExperimentModelInfrastructureConfigInfrastructureType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InferenceExperimentModelInfrastructureConfigInfrastructureType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentModelInfrastructureConfigInfrastructureType)(nil)).Elem()
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput() InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput {
+	return o
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypeOutputWithContext(ctx context.Context) InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput {
+	return o
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput() InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput {
+	return o.ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutputWithContext(ctx context.Context) InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceExperimentModelInfrastructureConfigInfrastructureType) *InferenceExperimentModelInfrastructureConfigInfrastructureType {
+		return &v
+	}).(InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput)
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceExperimentModelInfrastructureConfigInfrastructureType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceExperimentModelInfrastructureConfigInfrastructureType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentModelInfrastructureConfigInfrastructureType)(nil)).Elem()
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput() InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput {
+	return o
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutputWithContext(ctx context.Context) InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput {
+	return o
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput) Elem() InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput {
+	return o.ApplyT(func(v *InferenceExperimentModelInfrastructureConfigInfrastructureType) InferenceExperimentModelInfrastructureConfigInfrastructureType {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceExperimentModelInfrastructureConfigInfrastructureType
+		return ret
+	}).(InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput)
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InferenceExperimentModelInfrastructureConfigInfrastructureType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InferenceExperimentModelInfrastructureConfigInfrastructureTypeInput is an input type that accepts InferenceExperimentModelInfrastructureConfigInfrastructureTypeArgs and InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput values.
+// You can construct a concrete instance of `InferenceExperimentModelInfrastructureConfigInfrastructureTypeInput` via:
+//
+//	InferenceExperimentModelInfrastructureConfigInfrastructureTypeArgs{...}
+type InferenceExperimentModelInfrastructureConfigInfrastructureTypeInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput() InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput
+	ToInferenceExperimentModelInfrastructureConfigInfrastructureTypeOutputWithContext(context.Context) InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput
+}
+
+var inferenceExperimentModelInfrastructureConfigInfrastructureTypePtrType = reflect.TypeOf((**InferenceExperimentModelInfrastructureConfigInfrastructureType)(nil)).Elem()
+
+type InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput() InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput
+	ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutputWithContext(context.Context) InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput
+}
+
+type inferenceExperimentModelInfrastructureConfigInfrastructureTypePtr string
+
+func InferenceExperimentModelInfrastructureConfigInfrastructureTypePtr(v string) InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrInput {
+	return (*inferenceExperimentModelInfrastructureConfigInfrastructureTypePtr)(&v)
+}
+
+func (*inferenceExperimentModelInfrastructureConfigInfrastructureTypePtr) ElementType() reflect.Type {
+	return inferenceExperimentModelInfrastructureConfigInfrastructureTypePtrType
+}
+
+func (in *inferenceExperimentModelInfrastructureConfigInfrastructureTypePtr) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput() InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput {
+	return pulumi.ToOutput(in).(InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput)
+}
+
+func (in *inferenceExperimentModelInfrastructureConfigInfrastructureTypePtr) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutputWithContext(ctx context.Context) InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput)
+}
+
+// The status of the inference experiment.
+type InferenceExperimentStatus string
+
+const (
+	InferenceExperimentStatusCreating  = InferenceExperimentStatus("Creating")
+	InferenceExperimentStatusCreated   = InferenceExperimentStatus("Created")
+	InferenceExperimentStatusUpdating  = InferenceExperimentStatus("Updating")
+	InferenceExperimentStatusStarting  = InferenceExperimentStatus("Starting")
+	InferenceExperimentStatusStopping  = InferenceExperimentStatus("Stopping")
+	InferenceExperimentStatusRunning   = InferenceExperimentStatus("Running")
+	InferenceExperimentStatusCompleted = InferenceExperimentStatus("Completed")
+	InferenceExperimentStatusCancelled = InferenceExperimentStatus("Cancelled")
+)
+
+type InferenceExperimentStatusOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentStatus)(nil)).Elem()
+}
+
+func (o InferenceExperimentStatusOutput) ToInferenceExperimentStatusOutput() InferenceExperimentStatusOutput {
+	return o
+}
+
+func (o InferenceExperimentStatusOutput) ToInferenceExperimentStatusOutputWithContext(ctx context.Context) InferenceExperimentStatusOutput {
+	return o
+}
+
+func (o InferenceExperimentStatusOutput) ToInferenceExperimentStatusPtrOutput() InferenceExperimentStatusPtrOutput {
+	return o.ToInferenceExperimentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentStatusOutput) ToInferenceExperimentStatusPtrOutputWithContext(ctx context.Context) InferenceExperimentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceExperimentStatus) *InferenceExperimentStatus {
+		return &v
+	}).(InferenceExperimentStatusPtrOutput)
+}
+
+func (o InferenceExperimentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceExperimentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InferenceExperimentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceExperimentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceExperimentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentStatus)(nil)).Elem()
+}
+
+func (o InferenceExperimentStatusPtrOutput) ToInferenceExperimentStatusPtrOutput() InferenceExperimentStatusPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentStatusPtrOutput) ToInferenceExperimentStatusPtrOutputWithContext(ctx context.Context) InferenceExperimentStatusPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentStatusPtrOutput) Elem() InferenceExperimentStatusOutput {
+	return o.ApplyT(func(v *InferenceExperimentStatus) InferenceExperimentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceExperimentStatus
+		return ret
+	}).(InferenceExperimentStatusOutput)
+}
+
+func (o InferenceExperimentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InferenceExperimentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the inference experiment that you want to run.
+type InferenceExperimentType string
+
+const (
+	InferenceExperimentTypeShadowMode = InferenceExperimentType("ShadowMode")
+)
+
+func (InferenceExperimentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentType)(nil)).Elem()
+}
+
+func (e InferenceExperimentType) ToInferenceExperimentTypeOutput() InferenceExperimentTypeOutput {
+	return pulumi.ToOutput(e).(InferenceExperimentTypeOutput)
+}
+
+func (e InferenceExperimentType) ToInferenceExperimentTypeOutputWithContext(ctx context.Context) InferenceExperimentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InferenceExperimentTypeOutput)
+}
+
+func (e InferenceExperimentType) ToInferenceExperimentTypePtrOutput() InferenceExperimentTypePtrOutput {
+	return e.ToInferenceExperimentTypePtrOutputWithContext(context.Background())
+}
+
+func (e InferenceExperimentType) ToInferenceExperimentTypePtrOutputWithContext(ctx context.Context) InferenceExperimentTypePtrOutput {
+	return InferenceExperimentType(e).ToInferenceExperimentTypeOutputWithContext(ctx).ToInferenceExperimentTypePtrOutputWithContext(ctx)
+}
+
+func (e InferenceExperimentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceExperimentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceExperimentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InferenceExperimentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InferenceExperimentTypeOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentType)(nil)).Elem()
+}
+
+func (o InferenceExperimentTypeOutput) ToInferenceExperimentTypeOutput() InferenceExperimentTypeOutput {
+	return o
+}
+
+func (o InferenceExperimentTypeOutput) ToInferenceExperimentTypeOutputWithContext(ctx context.Context) InferenceExperimentTypeOutput {
+	return o
+}
+
+func (o InferenceExperimentTypeOutput) ToInferenceExperimentTypePtrOutput() InferenceExperimentTypePtrOutput {
+	return o.ToInferenceExperimentTypePtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentTypeOutput) ToInferenceExperimentTypePtrOutputWithContext(ctx context.Context) InferenceExperimentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceExperimentType) *InferenceExperimentType {
+		return &v
+	}).(InferenceExperimentTypePtrOutput)
+}
+
+func (o InferenceExperimentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceExperimentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InferenceExperimentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceExperimentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceExperimentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentType)(nil)).Elem()
+}
+
+func (o InferenceExperimentTypePtrOutput) ToInferenceExperimentTypePtrOutput() InferenceExperimentTypePtrOutput {
+	return o
+}
+
+func (o InferenceExperimentTypePtrOutput) ToInferenceExperimentTypePtrOutputWithContext(ctx context.Context) InferenceExperimentTypePtrOutput {
+	return o
+}
+
+func (o InferenceExperimentTypePtrOutput) Elem() InferenceExperimentTypeOutput {
+	return o.ApplyT(func(v *InferenceExperimentType) InferenceExperimentType {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceExperimentType
+		return ret
+	}).(InferenceExperimentTypeOutput)
+}
+
+func (o InferenceExperimentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InferenceExperimentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InferenceExperimentTypeInput is an input type that accepts InferenceExperimentTypeArgs and InferenceExperimentTypeOutput values.
+// You can construct a concrete instance of `InferenceExperimentTypeInput` via:
+//
+//	InferenceExperimentTypeArgs{...}
+type InferenceExperimentTypeInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentTypeOutput() InferenceExperimentTypeOutput
+	ToInferenceExperimentTypeOutputWithContext(context.Context) InferenceExperimentTypeOutput
+}
+
+var inferenceExperimentTypePtrType = reflect.TypeOf((**InferenceExperimentType)(nil)).Elem()
+
+type InferenceExperimentTypePtrInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentTypePtrOutput() InferenceExperimentTypePtrOutput
+	ToInferenceExperimentTypePtrOutputWithContext(context.Context) InferenceExperimentTypePtrOutput
+}
+
+type inferenceExperimentTypePtr string
+
+func InferenceExperimentTypePtr(v string) InferenceExperimentTypePtrInput {
+	return (*inferenceExperimentTypePtr)(&v)
+}
+
+func (*inferenceExperimentTypePtr) ElementType() reflect.Type {
+	return inferenceExperimentTypePtrType
+}
+
+func (in *inferenceExperimentTypePtr) ToInferenceExperimentTypePtrOutput() InferenceExperimentTypePtrOutput {
+	return pulumi.ToOutput(in).(InferenceExperimentTypePtrOutput)
+}
+
+func (in *inferenceExperimentTypePtr) ToInferenceExperimentTypePtrOutputWithContext(ctx context.Context) InferenceExperimentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InferenceExperimentTypePtrOutput)
+}
+
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType string
 
@@ -9767,6 +10455,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypePtrInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTableFormatInput)(nil)).Elem(), FeatureGroupTableFormat("Iceberg"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTableFormatPtrInput)(nil)).Elem(), FeatureGroupTableFormat("Iceberg"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentDesiredStateInput)(nil)).Elem(), InferenceExperimentDesiredState("Running"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentDesiredStatePtrInput)(nil)).Elem(), InferenceExperimentDesiredState("Running"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentModelInfrastructureConfigInfrastructureTypeInput)(nil)).Elem(), InferenceExperimentModelInfrastructureConfigInfrastructureType("RealTimeInference"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrInput)(nil)).Elem(), InferenceExperimentModelInfrastructureConfigInfrastructureType("RealTimeInference"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTypeInput)(nil)).Elem(), InferenceExperimentType("ShadowMode"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTypePtrInput)(nil)).Elem(), InferenceExperimentType("ShadowMode"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3InputMode("Pipe"))
@@ -9877,6 +10571,16 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypePtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTableFormatOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTableFormatPtrOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentDesiredStateOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentDesiredStatePtrOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentEndpointMetadataEndpointStatusOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentEndpointMetadataEndpointStatusPtrOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentStatusOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentStatusPtrOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentTypeOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput{})

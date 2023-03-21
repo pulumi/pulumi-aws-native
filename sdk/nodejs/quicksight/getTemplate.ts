@@ -25,21 +25,9 @@ export interface GetTemplateArgs {
 }
 
 export interface GetTemplateResult {
-    /**
-     * <p>The Amazon Resource Name (ARN) of the template.</p>
-     */
     readonly arn?: string;
-    /**
-     * <p>A display name for the template.</p>
-     */
     readonly name?: string;
-    /**
-     * <p>A list of resource permissions to be set on the template. </p>
-     */
     readonly permissions?: outputs.quicksight.TemplateResourcePermission[];
-    /**
-     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-     */
     readonly tags?: outputs.quicksight.TemplateTag[];
 }
 /**

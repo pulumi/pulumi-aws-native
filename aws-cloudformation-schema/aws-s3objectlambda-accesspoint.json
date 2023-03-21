@@ -113,6 +113,22 @@
       "minLength" : 3,
       "maxLength" : 45
     },
+    "Alias" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Status" : {
+          "type" : "string",
+          "description" : "The status of the Object Lambda alias.",
+          "pattern" : "^[A-Z]*$"
+        },
+        "Value" : {
+          "type" : "string",
+          "description" : "The value of the Object Lambda alias.",
+          "pattern" : "^[a-z0-9\\-]*$"
+        }
+      }
+    },
     "Arn" : {
       "type" : "string",
       "pattern" : "arn:[^:]+:s3-object-lambda:[^:]*:\\d{12}:accesspoint/.*"
@@ -143,7 +159,7 @@
   "required" : [ "ObjectLambdaConfiguration" ],
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/Name" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationDate", "/properties/PolicyStatus", "/properties/PublicAccessBlockConfiguration" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Alias", "/properties/CreationDate", "/properties/PolicyStatus", "/properties/PublicAccessBlockConfiguration" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {

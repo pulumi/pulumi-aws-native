@@ -55,7 +55,6 @@ class ServiceNetworkAuthType(str, Enum):
 class ServiceNetworkServiceAssociationStatus(str, Enum):
     CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
     ACTIVE = "ACTIVE"
-    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
     DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
     CREATE_FAILED = "CREATE_FAILED"
     DELETE_FAILED = "DELETE_FAILED"

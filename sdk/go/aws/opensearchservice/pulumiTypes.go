@@ -1642,6 +1642,287 @@ func (o DomainNodeToNodeEncryptionOptionsPtrOutput) Enabled() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+type DomainOffPeakWindow struct {
+	WindowStartTime *DomainWindowStartTime `pulumi:"windowStartTime"`
+}
+
+// DomainOffPeakWindowInput is an input type that accepts DomainOffPeakWindowArgs and DomainOffPeakWindowOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowInput` via:
+//
+//	DomainOffPeakWindowArgs{...}
+type DomainOffPeakWindowInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOutput() DomainOffPeakWindowOutput
+	ToDomainOffPeakWindowOutputWithContext(context.Context) DomainOffPeakWindowOutput
+}
+
+type DomainOffPeakWindowArgs struct {
+	WindowStartTime DomainWindowStartTimePtrInput `pulumi:"windowStartTime"`
+}
+
+func (DomainOffPeakWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindow)(nil)).Elem()
+}
+
+func (i DomainOffPeakWindowArgs) ToDomainOffPeakWindowOutput() DomainOffPeakWindowOutput {
+	return i.ToDomainOffPeakWindowOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowArgs) ToDomainOffPeakWindowOutputWithContext(ctx context.Context) DomainOffPeakWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOutput)
+}
+
+func (i DomainOffPeakWindowArgs) ToDomainOffPeakWindowPtrOutput() DomainOffPeakWindowPtrOutput {
+	return i.ToDomainOffPeakWindowPtrOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowArgs) ToDomainOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOutput).ToDomainOffPeakWindowPtrOutputWithContext(ctx)
+}
+
+// DomainOffPeakWindowPtrInput is an input type that accepts DomainOffPeakWindowArgs, DomainOffPeakWindowPtr and DomainOffPeakWindowPtrOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowPtrInput` via:
+//
+//	        DomainOffPeakWindowArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainOffPeakWindowPtrInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowPtrOutput() DomainOffPeakWindowPtrOutput
+	ToDomainOffPeakWindowPtrOutputWithContext(context.Context) DomainOffPeakWindowPtrOutput
+}
+
+type domainOffPeakWindowPtrType DomainOffPeakWindowArgs
+
+func DomainOffPeakWindowPtr(v *DomainOffPeakWindowArgs) DomainOffPeakWindowPtrInput {
+	return (*domainOffPeakWindowPtrType)(v)
+}
+
+func (*domainOffPeakWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindow)(nil)).Elem()
+}
+
+func (i *domainOffPeakWindowPtrType) ToDomainOffPeakWindowPtrOutput() DomainOffPeakWindowPtrOutput {
+	return i.ToDomainOffPeakWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *domainOffPeakWindowPtrType) ToDomainOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowPtrOutput)
+}
+
+type DomainOffPeakWindowOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindow)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOutput) ToDomainOffPeakWindowOutput() DomainOffPeakWindowOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOutput) ToDomainOffPeakWindowOutputWithContext(ctx context.Context) DomainOffPeakWindowOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOutput) ToDomainOffPeakWindowPtrOutput() DomainOffPeakWindowPtrOutput {
+	return o.ToDomainOffPeakWindowPtrOutputWithContext(context.Background())
+}
+
+func (o DomainOffPeakWindowOutput) ToDomainOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainOffPeakWindow) *DomainOffPeakWindow {
+		return &v
+	}).(DomainOffPeakWindowPtrOutput)
+}
+
+func (o DomainOffPeakWindowOutput) WindowStartTime() DomainWindowStartTimePtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindow) *DomainWindowStartTime { return v.WindowStartTime }).(DomainWindowStartTimePtrOutput)
+}
+
+type DomainOffPeakWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindow)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowPtrOutput) ToDomainOffPeakWindowPtrOutput() DomainOffPeakWindowPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowPtrOutput) ToDomainOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowPtrOutput) Elem() DomainOffPeakWindowOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindow) DomainOffPeakWindow {
+		if v != nil {
+			return *v
+		}
+		var ret DomainOffPeakWindow
+		return ret
+	}).(DomainOffPeakWindowOutput)
+}
+
+func (o DomainOffPeakWindowPtrOutput) WindowStartTime() DomainWindowStartTimePtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindow) *DomainWindowStartTime {
+		if v == nil {
+			return nil
+		}
+		return v.WindowStartTime
+	}).(DomainWindowStartTimePtrOutput)
+}
+
+type DomainOffPeakWindowOptions struct {
+	Enabled       *bool                `pulumi:"enabled"`
+	OffPeakWindow *DomainOffPeakWindow `pulumi:"offPeakWindow"`
+}
+
+// DomainOffPeakWindowOptionsInput is an input type that accepts DomainOffPeakWindowOptionsArgs and DomainOffPeakWindowOptionsOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsInput` via:
+//
+//	DomainOffPeakWindowOptionsArgs{...}
+type DomainOffPeakWindowOptionsInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsOutput() DomainOffPeakWindowOptionsOutput
+	ToDomainOffPeakWindowOptionsOutputWithContext(context.Context) DomainOffPeakWindowOptionsOutput
+}
+
+type DomainOffPeakWindowOptionsArgs struct {
+	Enabled       pulumi.BoolPtrInput         `pulumi:"enabled"`
+	OffPeakWindow DomainOffPeakWindowPtrInput `pulumi:"offPeakWindow"`
+}
+
+func (DomainOffPeakWindowOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsOutput() DomainOffPeakWindowOptionsOutput {
+	return i.ToDomainOffPeakWindowOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOutput)
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return i.ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOutput).ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainOffPeakWindowOptionsPtrInput is an input type that accepts DomainOffPeakWindowOptionsArgs, DomainOffPeakWindowOptionsPtr and DomainOffPeakWindowOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsPtrInput` via:
+//
+//	        DomainOffPeakWindowOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainOffPeakWindowOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput
+	ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Context) DomainOffPeakWindowOptionsPtrOutput
+}
+
+type domainOffPeakWindowOptionsPtrType DomainOffPeakWindowOptionsArgs
+
+func DomainOffPeakWindowOptionsPtr(v *DomainOffPeakWindowOptionsArgs) DomainOffPeakWindowOptionsPtrInput {
+	return (*domainOffPeakWindowOptionsPtrType)(v)
+}
+
+func (*domainOffPeakWindowOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (i *domainOffPeakWindowOptionsPtrType) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return i.ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainOffPeakWindowOptionsPtrType) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsPtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsOutput() DomainOffPeakWindowOptionsOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return o.ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainOffPeakWindowOptions) *DomainOffPeakWindowOptions {
+		return &v
+	}).(DomainOffPeakWindowOptionsPtrOutput)
+}
+
+func (o DomainOffPeakWindowOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainOffPeakWindowOptionsOutput) OffPeakWindow() DomainOffPeakWindowPtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptions) *DomainOffPeakWindow { return v.OffPeakWindow }).(DomainOffPeakWindowPtrOutput)
+}
+
+type DomainOffPeakWindowOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) Elem() DomainOffPeakWindowOptionsOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptions) DomainOffPeakWindowOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainOffPeakWindowOptions
+		return ret
+	}).(DomainOffPeakWindowOptionsOutput)
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) OffPeakWindow() DomainOffPeakWindowPtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptions) *DomainOffPeakWindow {
+		if v == nil {
+			return nil
+		}
+		return v.OffPeakWindow
+	}).(DomainOffPeakWindowPtrOutput)
+}
+
 type DomainSAMLOptions struct {
 	Enabled               *bool      `pulumi:"enabled"`
 	Idp                   *DomainIdp `pulumi:"idp"`
@@ -2151,6 +2432,139 @@ func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+type DomainSoftwareUpdateOptions struct {
+	AutoSoftwareUpdateEnabled *bool `pulumi:"autoSoftwareUpdateEnabled"`
+}
+
+// DomainSoftwareUpdateOptionsInput is an input type that accepts DomainSoftwareUpdateOptionsArgs and DomainSoftwareUpdateOptionsOutput values.
+// You can construct a concrete instance of `DomainSoftwareUpdateOptionsInput` via:
+//
+//	DomainSoftwareUpdateOptionsArgs{...}
+type DomainSoftwareUpdateOptionsInput interface {
+	pulumi.Input
+
+	ToDomainSoftwareUpdateOptionsOutput() DomainSoftwareUpdateOptionsOutput
+	ToDomainSoftwareUpdateOptionsOutputWithContext(context.Context) DomainSoftwareUpdateOptionsOutput
+}
+
+type DomainSoftwareUpdateOptionsArgs struct {
+	AutoSoftwareUpdateEnabled pulumi.BoolPtrInput `pulumi:"autoSoftwareUpdateEnabled"`
+}
+
+func (DomainSoftwareUpdateOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsOutput() DomainSoftwareUpdateOptionsOutput {
+	return i.ToDomainSoftwareUpdateOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSoftwareUpdateOptionsOutput)
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return i.ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSoftwareUpdateOptionsOutput).ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainSoftwareUpdateOptionsPtrInput is an input type that accepts DomainSoftwareUpdateOptionsArgs, DomainSoftwareUpdateOptionsPtr and DomainSoftwareUpdateOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainSoftwareUpdateOptionsPtrInput` via:
+//
+//	        DomainSoftwareUpdateOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainSoftwareUpdateOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput
+	ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Context) DomainSoftwareUpdateOptionsPtrOutput
+}
+
+type domainSoftwareUpdateOptionsPtrType DomainSoftwareUpdateOptionsArgs
+
+func DomainSoftwareUpdateOptionsPtr(v *DomainSoftwareUpdateOptionsArgs) DomainSoftwareUpdateOptionsPtrInput {
+	return (*domainSoftwareUpdateOptionsPtrType)(v)
+}
+
+func (*domainSoftwareUpdateOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (i *domainSoftwareUpdateOptionsPtrType) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return i.ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainSoftwareUpdateOptionsPtrType) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSoftwareUpdateOptionsPtrOutput)
+}
+
+type DomainSoftwareUpdateOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainSoftwareUpdateOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsOutput() DomainSoftwareUpdateOptionsOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return o.ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSoftwareUpdateOptions) *DomainSoftwareUpdateOptions {
+		return &v
+	}).(DomainSoftwareUpdateOptionsPtrOutput)
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) AutoSoftwareUpdateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainSoftwareUpdateOptions) *bool { return v.AutoSoftwareUpdateEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type DomainSoftwareUpdateOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainSoftwareUpdateOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) Elem() DomainSoftwareUpdateOptionsOutput {
+	return o.ApplyT(func(v *DomainSoftwareUpdateOptions) DomainSoftwareUpdateOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSoftwareUpdateOptions
+		return ret
+	}).(DomainSoftwareUpdateOptionsOutput)
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) AutoSoftwareUpdateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainSoftwareUpdateOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSoftwareUpdateEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type DomainTag struct {
 	// The value of the tag.
 	Key string `pulumi:"key"`
@@ -2405,6 +2819,154 @@ func (o DomainVPCOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type DomainWindowStartTime struct {
+	Hours   int `pulumi:"hours"`
+	Minutes int `pulumi:"minutes"`
+}
+
+// DomainWindowStartTimeInput is an input type that accepts DomainWindowStartTimeArgs and DomainWindowStartTimeOutput values.
+// You can construct a concrete instance of `DomainWindowStartTimeInput` via:
+//
+//	DomainWindowStartTimeArgs{...}
+type DomainWindowStartTimeInput interface {
+	pulumi.Input
+
+	ToDomainWindowStartTimeOutput() DomainWindowStartTimeOutput
+	ToDomainWindowStartTimeOutputWithContext(context.Context) DomainWindowStartTimeOutput
+}
+
+type DomainWindowStartTimeArgs struct {
+	Hours   pulumi.IntInput `pulumi:"hours"`
+	Minutes pulumi.IntInput `pulumi:"minutes"`
+}
+
+func (DomainWindowStartTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainWindowStartTime)(nil)).Elem()
+}
+
+func (i DomainWindowStartTimeArgs) ToDomainWindowStartTimeOutput() DomainWindowStartTimeOutput {
+	return i.ToDomainWindowStartTimeOutputWithContext(context.Background())
+}
+
+func (i DomainWindowStartTimeArgs) ToDomainWindowStartTimeOutputWithContext(ctx context.Context) DomainWindowStartTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainWindowStartTimeOutput)
+}
+
+func (i DomainWindowStartTimeArgs) ToDomainWindowStartTimePtrOutput() DomainWindowStartTimePtrOutput {
+	return i.ToDomainWindowStartTimePtrOutputWithContext(context.Background())
+}
+
+func (i DomainWindowStartTimeArgs) ToDomainWindowStartTimePtrOutputWithContext(ctx context.Context) DomainWindowStartTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainWindowStartTimeOutput).ToDomainWindowStartTimePtrOutputWithContext(ctx)
+}
+
+// DomainWindowStartTimePtrInput is an input type that accepts DomainWindowStartTimeArgs, DomainWindowStartTimePtr and DomainWindowStartTimePtrOutput values.
+// You can construct a concrete instance of `DomainWindowStartTimePtrInput` via:
+//
+//	        DomainWindowStartTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainWindowStartTimePtrInput interface {
+	pulumi.Input
+
+	ToDomainWindowStartTimePtrOutput() DomainWindowStartTimePtrOutput
+	ToDomainWindowStartTimePtrOutputWithContext(context.Context) DomainWindowStartTimePtrOutput
+}
+
+type domainWindowStartTimePtrType DomainWindowStartTimeArgs
+
+func DomainWindowStartTimePtr(v *DomainWindowStartTimeArgs) DomainWindowStartTimePtrInput {
+	return (*domainWindowStartTimePtrType)(v)
+}
+
+func (*domainWindowStartTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainWindowStartTime)(nil)).Elem()
+}
+
+func (i *domainWindowStartTimePtrType) ToDomainWindowStartTimePtrOutput() DomainWindowStartTimePtrOutput {
+	return i.ToDomainWindowStartTimePtrOutputWithContext(context.Background())
+}
+
+func (i *domainWindowStartTimePtrType) ToDomainWindowStartTimePtrOutputWithContext(ctx context.Context) DomainWindowStartTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainWindowStartTimePtrOutput)
+}
+
+type DomainWindowStartTimeOutput struct{ *pulumi.OutputState }
+
+func (DomainWindowStartTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainWindowStartTime)(nil)).Elem()
+}
+
+func (o DomainWindowStartTimeOutput) ToDomainWindowStartTimeOutput() DomainWindowStartTimeOutput {
+	return o
+}
+
+func (o DomainWindowStartTimeOutput) ToDomainWindowStartTimeOutputWithContext(ctx context.Context) DomainWindowStartTimeOutput {
+	return o
+}
+
+func (o DomainWindowStartTimeOutput) ToDomainWindowStartTimePtrOutput() DomainWindowStartTimePtrOutput {
+	return o.ToDomainWindowStartTimePtrOutputWithContext(context.Background())
+}
+
+func (o DomainWindowStartTimeOutput) ToDomainWindowStartTimePtrOutputWithContext(ctx context.Context) DomainWindowStartTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainWindowStartTime) *DomainWindowStartTime {
+		return &v
+	}).(DomainWindowStartTimePtrOutput)
+}
+
+func (o DomainWindowStartTimeOutput) Hours() pulumi.IntOutput {
+	return o.ApplyT(func(v DomainWindowStartTime) int { return v.Hours }).(pulumi.IntOutput)
+}
+
+func (o DomainWindowStartTimeOutput) Minutes() pulumi.IntOutput {
+	return o.ApplyT(func(v DomainWindowStartTime) int { return v.Minutes }).(pulumi.IntOutput)
+}
+
+type DomainWindowStartTimePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainWindowStartTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainWindowStartTime)(nil)).Elem()
+}
+
+func (o DomainWindowStartTimePtrOutput) ToDomainWindowStartTimePtrOutput() DomainWindowStartTimePtrOutput {
+	return o
+}
+
+func (o DomainWindowStartTimePtrOutput) ToDomainWindowStartTimePtrOutputWithContext(ctx context.Context) DomainWindowStartTimePtrOutput {
+	return o
+}
+
+func (o DomainWindowStartTimePtrOutput) Elem() DomainWindowStartTimeOutput {
+	return o.ApplyT(func(v *DomainWindowStartTime) DomainWindowStartTime {
+		if v != nil {
+			return *v
+		}
+		var ret DomainWindowStartTime
+		return ret
+	}).(DomainWindowStartTimeOutput)
+}
+
+func (o DomainWindowStartTimePtrOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainWindowStartTime) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Hours
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DomainWindowStartTimePtrOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainWindowStartTime) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minutes
+	}).(pulumi.IntPtrOutput)
+}
+
 type DomainZoneAwarenessConfig struct {
 	AvailabilityZoneCount *int `pulumi:"availabilityZoneCount"`
 }
@@ -2557,14 +3119,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMasterUserOptionsPtrInput)(nil)).Elem(), DomainMasterUserOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionOptionsInput)(nil)).Elem(), DomainNodeToNodeEncryptionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionOptionsPtrInput)(nil)).Elem(), DomainNodeToNodeEncryptionOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowInput)(nil)).Elem(), DomainOffPeakWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowPtrInput)(nil)).Elem(), DomainOffPeakWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsInput)(nil)).Elem(), DomainOffPeakWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsPtrInput)(nil)).Elem(), DomainOffPeakWindowOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSAMLOptionsInput)(nil)).Elem(), DomainSAMLOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSAMLOptionsPtrInput)(nil)).Elem(), DomainSAMLOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsPtrInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSoftwareUpdateOptionsInput)(nil)).Elem(), DomainSoftwareUpdateOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSoftwareUpdateOptionsPtrInput)(nil)).Elem(), DomainSoftwareUpdateOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagInput)(nil)).Elem(), DomainTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagArrayInput)(nil)).Elem(), DomainTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVPCOptionsInput)(nil)).Elem(), DomainVPCOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVPCOptionsPtrInput)(nil)).Elem(), DomainVPCOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainWindowStartTimeInput)(nil)).Elem(), DomainWindowStartTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainWindowStartTimePtrInput)(nil)).Elem(), DomainWindowStartTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainZoneAwarenessConfigInput)(nil)).Elem(), DomainZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainZoneAwarenessConfigPtrInput)(nil)).Elem(), DomainZoneAwarenessConfigArgs{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsInputOutput{})
@@ -2585,16 +3155,24 @@ func init() {
 	pulumi.RegisterOutputType(DomainMasterUserOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowPtrOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSAMLOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSAMLOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainServiceSoftwareOptionsOutput{})
 	pulumi.RegisterOutputType(DomainServiceSoftwareOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainSoftwareUpdateOptionsOutput{})
+	pulumi.RegisterOutputType(DomainSoftwareUpdateOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainTagOutput{})
 	pulumi.RegisterOutputType(DomainTagArrayOutput{})
 	pulumi.RegisterOutputType(DomainVPCOptionsOutput{})
 	pulumi.RegisterOutputType(DomainVPCOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainWindowStartTimeOutput{})
+	pulumi.RegisterOutputType(DomainWindowStartTimePtrOutput{})
 	pulumi.RegisterOutputType(DomainZoneAwarenessConfigOutput{})
 	pulumi.RegisterOutputType(DomainZoneAwarenessConfigPtrOutput{})
 }

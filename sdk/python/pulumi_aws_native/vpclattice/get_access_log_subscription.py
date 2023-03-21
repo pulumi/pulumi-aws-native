@@ -87,7 +87,7 @@ class AwaitableGetAccessLogSubscriptionResult(GetAccessLogSubscriptionResult):
 def get_access_log_subscription(arn: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessLogSubscriptionResult:
     """
-    Delivers logs from a Mesh or Service to the provided destination
+    Delivers logs from a Service Network or Service to the provided destination
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -107,6 +107,6 @@ def get_access_log_subscription(arn: Optional[str] = None,
 def get_access_log_subscription_output(arn: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessLogSubscriptionResult]:
     """
-    Delivers logs from a Mesh or Service to the provided destination
+    Delivers logs from a Service Network or Service to the provided destination
     """
     ...

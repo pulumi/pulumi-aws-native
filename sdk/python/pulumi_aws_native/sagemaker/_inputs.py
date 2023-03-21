@@ -86,6 +86,15 @@ __all__ = [
     'FeatureGroupS3StorageConfigArgs',
     'FeatureGroupTagArgs',
     'ImageTagArgs',
+    'InferenceExperimentCaptureContentTypeHeaderArgs',
+    'InferenceExperimentDataStorageConfigArgs',
+    'InferenceExperimentModelInfrastructureConfigArgs',
+    'InferenceExperimentModelVariantConfigArgs',
+    'InferenceExperimentRealTimeInferenceConfigArgs',
+    'InferenceExperimentScheduleArgs',
+    'InferenceExperimentShadowModeConfigArgs',
+    'InferenceExperimentShadowModelVariantConfigArgs',
+    'InferenceExperimentTagArgs',
     'ModelBiasJobDefinitionBatchTransformInputArgs',
     'ModelBiasJobDefinitionClusterConfigArgs',
     'ModelBiasJobDefinitionConstraintsResourceArgs',
@@ -3298,6 +3307,372 @@ class FeatureGroupTagArgs:
 
 @pulumi.input_type
 class ImageTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class InferenceExperimentCaptureContentTypeHeaderArgs:
+    def __init__(__self__, *,
+                 csv_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 json_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] csv_content_types: The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] json_content_types: The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
+        """
+        if csv_content_types is not None:
+            pulumi.set(__self__, "csv_content_types", csv_content_types)
+        if json_content_types is not None:
+            pulumi.set(__self__, "json_content_types", json_content_types)
+
+    @property
+    @pulumi.getter(name="csvContentTypes")
+    def csv_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
+        """
+        return pulumi.get(self, "csv_content_types")
+
+    @csv_content_types.setter
+    def csv_content_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "csv_content_types", value)
+
+    @property
+    @pulumi.getter(name="jsonContentTypes")
+    def json_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
+        """
+        return pulumi.get(self, "json_content_types")
+
+    @json_content_types.setter
+    def json_content_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "json_content_types", value)
+
+
+@pulumi.input_type
+class InferenceExperimentDataStorageConfigArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input[str],
+                 content_type: Optional[pulumi.Input['InferenceExperimentCaptureContentTypeHeaderArgs']] = None,
+                 kms_key: Optional[pulumi.Input[str]] = None):
+        """
+        The Amazon S3 location and configuration for storing inference request and response data.
+        :param pulumi.Input[str] destination: The Amazon S3 bucket where the inference request and response data is stored.
+        :param pulumi.Input[str] kms_key: The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
+        """
+        pulumi.set(__self__, "destination", destination)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 bucket where the inference request and response data is stored.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input['InferenceExperimentCaptureContentTypeHeaderArgs']]:
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input['InferenceExperimentCaptureContentTypeHeaderArgs']]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
+        """
+        return pulumi.get(self, "kms_key")
+
+    @kms_key.setter
+    def kms_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key", value)
+
+
+@pulumi.input_type
+class InferenceExperimentModelInfrastructureConfigArgs:
+    def __init__(__self__, *,
+                 infrastructure_type: pulumi.Input['InferenceExperimentModelInfrastructureConfigInfrastructureType'],
+                 real_time_inference_config: pulumi.Input['InferenceExperimentRealTimeInferenceConfigArgs']):
+        """
+        The configuration for the infrastructure that the model will be deployed to.
+        :param pulumi.Input['InferenceExperimentModelInfrastructureConfigInfrastructureType'] infrastructure_type: The type of the inference experiment that you want to run.
+        """
+        pulumi.set(__self__, "infrastructure_type", infrastructure_type)
+        pulumi.set(__self__, "real_time_inference_config", real_time_inference_config)
+
+    @property
+    @pulumi.getter(name="infrastructureType")
+    def infrastructure_type(self) -> pulumi.Input['InferenceExperimentModelInfrastructureConfigInfrastructureType']:
+        """
+        The type of the inference experiment that you want to run.
+        """
+        return pulumi.get(self, "infrastructure_type")
+
+    @infrastructure_type.setter
+    def infrastructure_type(self, value: pulumi.Input['InferenceExperimentModelInfrastructureConfigInfrastructureType']):
+        pulumi.set(self, "infrastructure_type", value)
+
+    @property
+    @pulumi.getter(name="realTimeInferenceConfig")
+    def real_time_inference_config(self) -> pulumi.Input['InferenceExperimentRealTimeInferenceConfigArgs']:
+        return pulumi.get(self, "real_time_inference_config")
+
+    @real_time_inference_config.setter
+    def real_time_inference_config(self, value: pulumi.Input['InferenceExperimentRealTimeInferenceConfigArgs']):
+        pulumi.set(self, "real_time_inference_config", value)
+
+
+@pulumi.input_type
+class InferenceExperimentModelVariantConfigArgs:
+    def __init__(__self__, *,
+                 infrastructure_config: pulumi.Input['InferenceExperimentModelInfrastructureConfigArgs'],
+                 model_name: pulumi.Input[str],
+                 variant_name: pulumi.Input[str]):
+        """
+        Contains information about the deployment options of a model.
+        :param pulumi.Input[str] model_name: The name of the Amazon SageMaker Model entity.
+        :param pulumi.Input[str] variant_name: The name of the variant.
+        """
+        pulumi.set(__self__, "infrastructure_config", infrastructure_config)
+        pulumi.set(__self__, "model_name", model_name)
+        pulumi.set(__self__, "variant_name", variant_name)
+
+    @property
+    @pulumi.getter(name="infrastructureConfig")
+    def infrastructure_config(self) -> pulumi.Input['InferenceExperimentModelInfrastructureConfigArgs']:
+        return pulumi.get(self, "infrastructure_config")
+
+    @infrastructure_config.setter
+    def infrastructure_config(self, value: pulumi.Input['InferenceExperimentModelInfrastructureConfigArgs']):
+        pulumi.set(self, "infrastructure_config", value)
+
+    @property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Amazon SageMaker Model entity.
+        """
+        return pulumi.get(self, "model_name")
+
+    @model_name.setter
+    def model_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_name", value)
+
+    @property
+    @pulumi.getter(name="variantName")
+    def variant_name(self) -> pulumi.Input[str]:
+        """
+        The name of the variant.
+        """
+        return pulumi.get(self, "variant_name")
+
+    @variant_name.setter
+    def variant_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "variant_name", value)
+
+
+@pulumi.input_type
+class InferenceExperimentRealTimeInferenceConfigArgs:
+    def __init__(__self__, *,
+                 instance_count: pulumi.Input[int],
+                 instance_type: pulumi.Input[str]):
+        """
+        The infrastructure configuration for deploying the model to a real-time inference endpoint.
+        :param pulumi.Input[int] instance_count: The number of instances of the type specified by InstanceType.
+        :param pulumi.Input[str] instance_type: The instance type the model is deployed to.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> pulumi.Input[int]:
+        """
+        The number of instances of the type specified by InstanceType.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[str]:
+        """
+        The instance type the model is deployed to.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_type", value)
+
+
+@pulumi.input_type
+class InferenceExperimentScheduleArgs:
+    def __init__(__self__, *,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        The duration for which you want the inference experiment to run.
+        :param pulumi.Input[str] end_time: The timestamp at which the inference experiment ended or will end.
+        :param pulumi.Input[str] start_time: The timestamp at which the inference experiment started or will start.
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp at which the inference experiment ended or will end.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp at which the inference experiment started or will start.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class InferenceExperimentShadowModeConfigArgs:
+    def __init__(__self__, *,
+                 shadow_model_variants: pulumi.Input[Sequence[pulumi.Input['InferenceExperimentShadowModelVariantConfigArgs']]],
+                 source_model_variant_name: pulumi.Input[str]):
+        """
+        The configuration of ShadowMode inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates.
+        :param pulumi.Input[Sequence[pulumi.Input['InferenceExperimentShadowModelVariantConfigArgs']]] shadow_model_variants: List of shadow variant configurations.
+        :param pulumi.Input[str] source_model_variant_name: The name of the production variant, which takes all the inference requests.
+        """
+        pulumi.set(__self__, "shadow_model_variants", shadow_model_variants)
+        pulumi.set(__self__, "source_model_variant_name", source_model_variant_name)
+
+    @property
+    @pulumi.getter(name="shadowModelVariants")
+    def shadow_model_variants(self) -> pulumi.Input[Sequence[pulumi.Input['InferenceExperimentShadowModelVariantConfigArgs']]]:
+        """
+        List of shadow variant configurations.
+        """
+        return pulumi.get(self, "shadow_model_variants")
+
+    @shadow_model_variants.setter
+    def shadow_model_variants(self, value: pulumi.Input[Sequence[pulumi.Input['InferenceExperimentShadowModelVariantConfigArgs']]]):
+        pulumi.set(self, "shadow_model_variants", value)
+
+    @property
+    @pulumi.getter(name="sourceModelVariantName")
+    def source_model_variant_name(self) -> pulumi.Input[str]:
+        """
+        The name of the production variant, which takes all the inference requests.
+        """
+        return pulumi.get(self, "source_model_variant_name")
+
+    @source_model_variant_name.setter
+    def source_model_variant_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_model_variant_name", value)
+
+
+@pulumi.input_type
+class InferenceExperimentShadowModelVariantConfigArgs:
+    def __init__(__self__, *,
+                 sampling_percentage: pulumi.Input[int],
+                 shadow_model_variant_name: pulumi.Input[str]):
+        """
+        The name and sampling percentage of a shadow variant.
+        :param pulumi.Input[int] sampling_percentage: The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
+        :param pulumi.Input[str] shadow_model_variant_name: The name of the shadow variant.
+        """
+        pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+        pulumi.set(__self__, "shadow_model_variant_name", shadow_model_variant_name)
+
+    @property
+    @pulumi.getter(name="samplingPercentage")
+    def sampling_percentage(self) -> pulumi.Input[int]:
+        """
+        The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
+        """
+        return pulumi.get(self, "sampling_percentage")
+
+    @sampling_percentage.setter
+    def sampling_percentage(self, value: pulumi.Input[int]):
+        pulumi.set(self, "sampling_percentage", value)
+
+    @property
+    @pulumi.getter(name="shadowModelVariantName")
+    def shadow_model_variant_name(self) -> pulumi.Input[str]:
+        """
+        The name of the shadow variant.
+        """
+        return pulumi.get(self, "shadow_model_variant_name")
+
+    @shadow_model_variant_name.setter
+    def shadow_model_variant_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "shadow_model_variant_name", value)
+
+
+@pulumi.input_type
+class InferenceExperimentTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

@@ -107,6 +107,7 @@ class AccessPoint(pulumi.CustomResource):
             if object_lambda_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'object_lambda_configuration'")
             __props__.__dict__["object_lambda_configuration"] = object_lambda_configuration
+            __props__.__dict__["alias"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["policy_status"] = None
@@ -133,6 +134,7 @@ class AccessPoint(pulumi.CustomResource):
 
         __props__ = AccessPointArgs.__new__(AccessPointArgs)
 
+        __props__.__dict__["alias"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["name"] = None
@@ -140,6 +142,11 @@ class AccessPoint(pulumi.CustomResource):
         __props__.__dict__["policy_status"] = None
         __props__.__dict__["public_access_block_configuration"] = None
         return AccessPoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> pulumi.Output['outputs.AliasProperties']:
+        return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter

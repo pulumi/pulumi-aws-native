@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;Sheet controls option.&lt;/p&gt;
-    /// </summary>
     public sealed class DashboardSheetControlsOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("visibilityState")]

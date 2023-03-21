@@ -110,13 +110,152 @@ func (o DataCatalogTagArrayOutput) Index(i pulumi.IntInput) DataCatalogTagOutput
 	}).(DataCatalogTagOutput)
 }
 
+// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results
+type WorkGroupAclConfiguration struct {
+	S3AclOption WorkGroupS3AclOption `pulumi:"s3AclOption"`
+}
+
+// WorkGroupAclConfigurationInput is an input type that accepts WorkGroupAclConfigurationArgs and WorkGroupAclConfigurationOutput values.
+// You can construct a concrete instance of `WorkGroupAclConfigurationInput` via:
+//
+//	WorkGroupAclConfigurationArgs{...}
+type WorkGroupAclConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkGroupAclConfigurationOutput() WorkGroupAclConfigurationOutput
+	ToWorkGroupAclConfigurationOutputWithContext(context.Context) WorkGroupAclConfigurationOutput
+}
+
+// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results
+type WorkGroupAclConfigurationArgs struct {
+	S3AclOption WorkGroupS3AclOptionInput `pulumi:"s3AclOption"`
+}
+
+func (WorkGroupAclConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupAclConfiguration)(nil)).Elem()
+}
+
+func (i WorkGroupAclConfigurationArgs) ToWorkGroupAclConfigurationOutput() WorkGroupAclConfigurationOutput {
+	return i.ToWorkGroupAclConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkGroupAclConfigurationArgs) ToWorkGroupAclConfigurationOutputWithContext(ctx context.Context) WorkGroupAclConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupAclConfigurationOutput)
+}
+
+func (i WorkGroupAclConfigurationArgs) ToWorkGroupAclConfigurationPtrOutput() WorkGroupAclConfigurationPtrOutput {
+	return i.ToWorkGroupAclConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupAclConfigurationArgs) ToWorkGroupAclConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupAclConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupAclConfigurationOutput).ToWorkGroupAclConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkGroupAclConfigurationPtrInput is an input type that accepts WorkGroupAclConfigurationArgs, WorkGroupAclConfigurationPtr and WorkGroupAclConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkGroupAclConfigurationPtrInput` via:
+//
+//	        WorkGroupAclConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkGroupAclConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupAclConfigurationPtrOutput() WorkGroupAclConfigurationPtrOutput
+	ToWorkGroupAclConfigurationPtrOutputWithContext(context.Context) WorkGroupAclConfigurationPtrOutput
+}
+
+type workGroupAclConfigurationPtrType WorkGroupAclConfigurationArgs
+
+func WorkGroupAclConfigurationPtr(v *WorkGroupAclConfigurationArgs) WorkGroupAclConfigurationPtrInput {
+	return (*workGroupAclConfigurationPtrType)(v)
+}
+
+func (*workGroupAclConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupAclConfiguration)(nil)).Elem()
+}
+
+func (i *workGroupAclConfigurationPtrType) ToWorkGroupAclConfigurationPtrOutput() WorkGroupAclConfigurationPtrOutput {
+	return i.ToWorkGroupAclConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupAclConfigurationPtrType) ToWorkGroupAclConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupAclConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupAclConfigurationPtrOutput)
+}
+
+// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results
+type WorkGroupAclConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupAclConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupAclConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupAclConfigurationOutput) ToWorkGroupAclConfigurationOutput() WorkGroupAclConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupAclConfigurationOutput) ToWorkGroupAclConfigurationOutputWithContext(ctx context.Context) WorkGroupAclConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupAclConfigurationOutput) ToWorkGroupAclConfigurationPtrOutput() WorkGroupAclConfigurationPtrOutput {
+	return o.ToWorkGroupAclConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupAclConfigurationOutput) ToWorkGroupAclConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupAclConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupAclConfiguration) *WorkGroupAclConfiguration {
+		return &v
+	}).(WorkGroupAclConfigurationPtrOutput)
+}
+
+func (o WorkGroupAclConfigurationOutput) S3AclOption() WorkGroupS3AclOptionOutput {
+	return o.ApplyT(func(v WorkGroupAclConfiguration) WorkGroupS3AclOption { return v.S3AclOption }).(WorkGroupS3AclOptionOutput)
+}
+
+type WorkGroupAclConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupAclConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupAclConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupAclConfigurationPtrOutput) ToWorkGroupAclConfigurationPtrOutput() WorkGroupAclConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupAclConfigurationPtrOutput) ToWorkGroupAclConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupAclConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupAclConfigurationPtrOutput) Elem() WorkGroupAclConfigurationOutput {
+	return o.ApplyT(func(v *WorkGroupAclConfiguration) WorkGroupAclConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupAclConfiguration
+		return ret
+	}).(WorkGroupAclConfigurationOutput)
+}
+
+func (o WorkGroupAclConfigurationPtrOutput) S3AclOption() WorkGroupS3AclOptionPtrOutput {
+	return o.ApplyT(func(v *WorkGroupAclConfiguration) *WorkGroupS3AclOption {
+		if v == nil {
+			return nil
+		}
+		return &v.S3AclOption
+	}).(WorkGroupS3AclOptionPtrOutput)
+}
+
 type WorkGroupConfiguration struct {
-	BytesScannedCutoffPerQuery      *int                          `pulumi:"bytesScannedCutoffPerQuery"`
-	EnforceWorkGroupConfiguration   *bool                         `pulumi:"enforceWorkGroupConfiguration"`
-	EngineVersion                   *WorkGroupEngineVersion       `pulumi:"engineVersion"`
-	PublishCloudWatchMetricsEnabled *bool                         `pulumi:"publishCloudWatchMetricsEnabled"`
-	RequesterPaysEnabled            *bool                         `pulumi:"requesterPaysEnabled"`
-	ResultConfiguration             *WorkGroupResultConfiguration `pulumi:"resultConfiguration"`
+	AdditionalConfiguration                *string                                          `pulumi:"additionalConfiguration"`
+	BytesScannedCutoffPerQuery             *int                                             `pulumi:"bytesScannedCutoffPerQuery"`
+	CustomerContentEncryptionConfiguration *WorkGroupCustomerContentEncryptionConfiguration `pulumi:"customerContentEncryptionConfiguration"`
+	EnforceWorkGroupConfiguration          *bool                                            `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                          *WorkGroupEngineVersion                          `pulumi:"engineVersion"`
+	ExecutionRole                          *string                                          `pulumi:"executionRole"`
+	PublishCloudWatchMetricsEnabled        *bool                                            `pulumi:"publishCloudWatchMetricsEnabled"`
+	RequesterPaysEnabled                   *bool                                            `pulumi:"requesterPaysEnabled"`
+	ResultConfiguration                    *WorkGroupResultConfiguration                    `pulumi:"resultConfiguration"`
 }
 
 // WorkGroupConfigurationInput is an input type that accepts WorkGroupConfigurationArgs and WorkGroupConfigurationOutput values.
@@ -131,12 +270,15 @@ type WorkGroupConfigurationInput interface {
 }
 
 type WorkGroupConfigurationArgs struct {
-	BytesScannedCutoffPerQuery      pulumi.IntPtrInput                   `pulumi:"bytesScannedCutoffPerQuery"`
-	EnforceWorkGroupConfiguration   pulumi.BoolPtrInput                  `pulumi:"enforceWorkGroupConfiguration"`
-	EngineVersion                   WorkGroupEngineVersionPtrInput       `pulumi:"engineVersion"`
-	PublishCloudWatchMetricsEnabled pulumi.BoolPtrInput                  `pulumi:"publishCloudWatchMetricsEnabled"`
-	RequesterPaysEnabled            pulumi.BoolPtrInput                  `pulumi:"requesterPaysEnabled"`
-	ResultConfiguration             WorkGroupResultConfigurationPtrInput `pulumi:"resultConfiguration"`
+	AdditionalConfiguration                pulumi.StringPtrInput                                   `pulumi:"additionalConfiguration"`
+	BytesScannedCutoffPerQuery             pulumi.IntPtrInput                                      `pulumi:"bytesScannedCutoffPerQuery"`
+	CustomerContentEncryptionConfiguration WorkGroupCustomerContentEncryptionConfigurationPtrInput `pulumi:"customerContentEncryptionConfiguration"`
+	EnforceWorkGroupConfiguration          pulumi.BoolPtrInput                                     `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                          WorkGroupEngineVersionPtrInput                          `pulumi:"engineVersion"`
+	ExecutionRole                          pulumi.StringPtrInput                                   `pulumi:"executionRole"`
+	PublishCloudWatchMetricsEnabled        pulumi.BoolPtrInput                                     `pulumi:"publishCloudWatchMetricsEnabled"`
+	RequesterPaysEnabled                   pulumi.BoolPtrInput                                     `pulumi:"requesterPaysEnabled"`
+	ResultConfiguration                    WorkGroupResultConfigurationPtrInput                    `pulumi:"resultConfiguration"`
 }
 
 func (WorkGroupConfigurationArgs) ElementType() reflect.Type {
@@ -216,8 +358,18 @@ func (o WorkGroupConfigurationOutput) ToWorkGroupConfigurationPtrOutputWithConte
 	}).(WorkGroupConfigurationPtrOutput)
 }
 
+func (o WorkGroupConfigurationOutput) AdditionalConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *string { return v.AdditionalConfiguration }).(pulumi.StringPtrOutput)
+}
+
 func (o WorkGroupConfigurationOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfiguration) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkGroupConfigurationOutput) CustomerContentEncryptionConfiguration() WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *WorkGroupCustomerContentEncryptionConfiguration {
+		return v.CustomerContentEncryptionConfiguration
+	}).(WorkGroupCustomerContentEncryptionConfigurationPtrOutput)
 }
 
 func (o WorkGroupConfigurationOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
@@ -226,6 +378,10 @@ func (o WorkGroupConfigurationOutput) EnforceWorkGroupConfiguration() pulumi.Boo
 
 func (o WorkGroupConfigurationOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfiguration) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
+}
+
+func (o WorkGroupConfigurationOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
 }
 
 func (o WorkGroupConfigurationOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
@@ -264,6 +420,15 @@ func (o WorkGroupConfigurationPtrOutput) Elem() WorkGroupConfigurationOutput {
 	}).(WorkGroupConfigurationOutput)
 }
 
+func (o WorkGroupConfigurationPtrOutput) AdditionalConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalConfiguration
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o WorkGroupConfigurationPtrOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkGroupConfiguration) *int {
 		if v == nil {
@@ -271,6 +436,15 @@ func (o WorkGroupConfigurationPtrOutput) BytesScannedCutoffPerQuery() pulumi.Int
 		}
 		return v.BytesScannedCutoffPerQuery
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkGroupConfigurationPtrOutput) CustomerContentEncryptionConfiguration() WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *WorkGroupCustomerContentEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerContentEncryptionConfiguration
+	}).(WorkGroupCustomerContentEncryptionConfigurationPtrOutput)
 }
 
 func (o WorkGroupConfigurationPtrOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
@@ -289,6 +463,15 @@ func (o WorkGroupConfigurationPtrOutput) EngineVersion() WorkGroupEngineVersionP
 		}
 		return v.EngineVersion
 	}).(WorkGroupEngineVersionPtrOutput)
+}
+
+func (o WorkGroupConfigurationPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRole
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o WorkGroupConfigurationPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
@@ -320,13 +503,17 @@ func (o WorkGroupConfigurationPtrOutput) ResultConfiguration() WorkGroupResultCo
 
 // The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
 type WorkGroupConfigurationUpdates struct {
-	BytesScannedCutoffPerQuery       *int                                 `pulumi:"bytesScannedCutoffPerQuery"`
-	EnforceWorkGroupConfiguration    *bool                                `pulumi:"enforceWorkGroupConfiguration"`
-	EngineVersion                    *WorkGroupEngineVersion              `pulumi:"engineVersion"`
-	PublishCloudWatchMetricsEnabled  *bool                                `pulumi:"publishCloudWatchMetricsEnabled"`
-	RemoveBytesScannedCutoffPerQuery *bool                                `pulumi:"removeBytesScannedCutoffPerQuery"`
-	RequesterPaysEnabled             *bool                                `pulumi:"requesterPaysEnabled"`
-	ResultConfigurationUpdates       *WorkGroupResultConfigurationUpdates `pulumi:"resultConfigurationUpdates"`
+	AdditionalConfiguration                      *string                                          `pulumi:"additionalConfiguration"`
+	BytesScannedCutoffPerQuery                   *int                                             `pulumi:"bytesScannedCutoffPerQuery"`
+	CustomerContentEncryptionConfiguration       *WorkGroupCustomerContentEncryptionConfiguration `pulumi:"customerContentEncryptionConfiguration"`
+	EnforceWorkGroupConfiguration                *bool                                            `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                                *WorkGroupEngineVersion                          `pulumi:"engineVersion"`
+	ExecutionRole                                *string                                          `pulumi:"executionRole"`
+	PublishCloudWatchMetricsEnabled              *bool                                            `pulumi:"publishCloudWatchMetricsEnabled"`
+	RemoveBytesScannedCutoffPerQuery             *bool                                            `pulumi:"removeBytesScannedCutoffPerQuery"`
+	RemoveCustomerContentEncryptionConfiguration *bool                                            `pulumi:"removeCustomerContentEncryptionConfiguration"`
+	RequesterPaysEnabled                         *bool                                            `pulumi:"requesterPaysEnabled"`
+	ResultConfigurationUpdates                   *WorkGroupResultConfigurationUpdates             `pulumi:"resultConfigurationUpdates"`
 }
 
 // WorkGroupConfigurationUpdatesInput is an input type that accepts WorkGroupConfigurationUpdatesArgs and WorkGroupConfigurationUpdatesOutput values.
@@ -342,13 +529,17 @@ type WorkGroupConfigurationUpdatesInput interface {
 
 // The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
 type WorkGroupConfigurationUpdatesArgs struct {
-	BytesScannedCutoffPerQuery       pulumi.IntPtrInput                          `pulumi:"bytesScannedCutoffPerQuery"`
-	EnforceWorkGroupConfiguration    pulumi.BoolPtrInput                         `pulumi:"enforceWorkGroupConfiguration"`
-	EngineVersion                    WorkGroupEngineVersionPtrInput              `pulumi:"engineVersion"`
-	PublishCloudWatchMetricsEnabled  pulumi.BoolPtrInput                         `pulumi:"publishCloudWatchMetricsEnabled"`
-	RemoveBytesScannedCutoffPerQuery pulumi.BoolPtrInput                         `pulumi:"removeBytesScannedCutoffPerQuery"`
-	RequesterPaysEnabled             pulumi.BoolPtrInput                         `pulumi:"requesterPaysEnabled"`
-	ResultConfigurationUpdates       WorkGroupResultConfigurationUpdatesPtrInput `pulumi:"resultConfigurationUpdates"`
+	AdditionalConfiguration                      pulumi.StringPtrInput                                   `pulumi:"additionalConfiguration"`
+	BytesScannedCutoffPerQuery                   pulumi.IntPtrInput                                      `pulumi:"bytesScannedCutoffPerQuery"`
+	CustomerContentEncryptionConfiguration       WorkGroupCustomerContentEncryptionConfigurationPtrInput `pulumi:"customerContentEncryptionConfiguration"`
+	EnforceWorkGroupConfiguration                pulumi.BoolPtrInput                                     `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                                WorkGroupEngineVersionPtrInput                          `pulumi:"engineVersion"`
+	ExecutionRole                                pulumi.StringPtrInput                                   `pulumi:"executionRole"`
+	PublishCloudWatchMetricsEnabled              pulumi.BoolPtrInput                                     `pulumi:"publishCloudWatchMetricsEnabled"`
+	RemoveBytesScannedCutoffPerQuery             pulumi.BoolPtrInput                                     `pulumi:"removeBytesScannedCutoffPerQuery"`
+	RemoveCustomerContentEncryptionConfiguration pulumi.BoolPtrInput                                     `pulumi:"removeCustomerContentEncryptionConfiguration"`
+	RequesterPaysEnabled                         pulumi.BoolPtrInput                                     `pulumi:"requesterPaysEnabled"`
+	ResultConfigurationUpdates                   WorkGroupResultConfigurationUpdatesPtrInput             `pulumi:"resultConfigurationUpdates"`
 }
 
 func (WorkGroupConfigurationUpdatesArgs) ElementType() reflect.Type {
@@ -429,8 +620,18 @@ func (o WorkGroupConfigurationUpdatesOutput) ToWorkGroupConfigurationUpdatesPtrO
 	}).(WorkGroupConfigurationUpdatesPtrOutput)
 }
 
+func (o WorkGroupConfigurationUpdatesOutput) AdditionalConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *string { return v.AdditionalConfiguration }).(pulumi.StringPtrOutput)
+}
+
 func (o WorkGroupConfigurationUpdatesOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) CustomerContentEncryptionConfiguration() WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *WorkGroupCustomerContentEncryptionConfiguration {
+		return v.CustomerContentEncryptionConfiguration
+	}).(WorkGroupCustomerContentEncryptionConfigurationPtrOutput)
 }
 
 func (o WorkGroupConfigurationUpdatesOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
@@ -441,12 +642,20 @@ func (o WorkGroupConfigurationUpdatesOutput) EngineVersion() WorkGroupEngineVers
 	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
 }
 
+func (o WorkGroupConfigurationUpdatesOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
+}
+
 func (o WorkGroupConfigurationUpdatesOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *bool { return v.PublishCloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o WorkGroupConfigurationUpdatesOutput) RemoveBytesScannedCutoffPerQuery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *bool { return v.RemoveBytesScannedCutoffPerQuery }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) RemoveCustomerContentEncryptionConfiguration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *bool { return v.RemoveCustomerContentEncryptionConfiguration }).(pulumi.BoolPtrOutput)
 }
 
 func (o WorkGroupConfigurationUpdatesOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
@@ -483,6 +692,15 @@ func (o WorkGroupConfigurationUpdatesPtrOutput) Elem() WorkGroupConfigurationUpd
 	}).(WorkGroupConfigurationUpdatesOutput)
 }
 
+func (o WorkGroupConfigurationUpdatesPtrOutput) AdditionalConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalConfiguration
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o WorkGroupConfigurationUpdatesPtrOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *int {
 		if v == nil {
@@ -490,6 +708,15 @@ func (o WorkGroupConfigurationUpdatesPtrOutput) BytesScannedCutoffPerQuery() pul
 		}
 		return v.BytesScannedCutoffPerQuery
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) CustomerContentEncryptionConfiguration() WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *WorkGroupCustomerContentEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerContentEncryptionConfiguration
+	}).(WorkGroupCustomerContentEncryptionConfigurationPtrOutput)
 }
 
 func (o WorkGroupConfigurationUpdatesPtrOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
@@ -510,6 +737,15 @@ func (o WorkGroupConfigurationUpdatesPtrOutput) EngineVersion() WorkGroupEngineV
 	}).(WorkGroupEngineVersionPtrOutput)
 }
 
+func (o WorkGroupConfigurationUpdatesPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRole
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o WorkGroupConfigurationUpdatesPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *bool {
 		if v == nil {
@@ -525,6 +761,15 @@ func (o WorkGroupConfigurationUpdatesPtrOutput) RemoveBytesScannedCutoffPerQuery
 			return nil
 		}
 		return v.RemoveBytesScannedCutoffPerQuery
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) RemoveCustomerContentEncryptionConfiguration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemoveCustomerContentEncryptionConfiguration
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -544,6 +789,142 @@ func (o WorkGroupConfigurationUpdatesPtrOutput) ResultConfigurationUpdates() Wor
 		}
 		return v.ResultConfigurationUpdates
 	}).(WorkGroupResultConfigurationUpdatesPtrOutput)
+}
+
+// Indicates the KMS key for encrypting notebook content.
+type WorkGroupCustomerContentEncryptionConfiguration struct {
+	KmsKey string `pulumi:"kmsKey"`
+}
+
+// WorkGroupCustomerContentEncryptionConfigurationInput is an input type that accepts WorkGroupCustomerContentEncryptionConfigurationArgs and WorkGroupCustomerContentEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `WorkGroupCustomerContentEncryptionConfigurationInput` via:
+//
+//	WorkGroupCustomerContentEncryptionConfigurationArgs{...}
+type WorkGroupCustomerContentEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkGroupCustomerContentEncryptionConfigurationOutput() WorkGroupCustomerContentEncryptionConfigurationOutput
+	ToWorkGroupCustomerContentEncryptionConfigurationOutputWithContext(context.Context) WorkGroupCustomerContentEncryptionConfigurationOutput
+}
+
+// Indicates the KMS key for encrypting notebook content.
+type WorkGroupCustomerContentEncryptionConfigurationArgs struct {
+	KmsKey pulumi.StringInput `pulumi:"kmsKey"`
+}
+
+func (WorkGroupCustomerContentEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupCustomerContentEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i WorkGroupCustomerContentEncryptionConfigurationArgs) ToWorkGroupCustomerContentEncryptionConfigurationOutput() WorkGroupCustomerContentEncryptionConfigurationOutput {
+	return i.ToWorkGroupCustomerContentEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkGroupCustomerContentEncryptionConfigurationArgs) ToWorkGroupCustomerContentEncryptionConfigurationOutputWithContext(ctx context.Context) WorkGroupCustomerContentEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupCustomerContentEncryptionConfigurationOutput)
+}
+
+func (i WorkGroupCustomerContentEncryptionConfigurationArgs) ToWorkGroupCustomerContentEncryptionConfigurationPtrOutput() WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return i.ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupCustomerContentEncryptionConfigurationArgs) ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupCustomerContentEncryptionConfigurationOutput).ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkGroupCustomerContentEncryptionConfigurationPtrInput is an input type that accepts WorkGroupCustomerContentEncryptionConfigurationArgs, WorkGroupCustomerContentEncryptionConfigurationPtr and WorkGroupCustomerContentEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkGroupCustomerContentEncryptionConfigurationPtrInput` via:
+//
+//	        WorkGroupCustomerContentEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkGroupCustomerContentEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupCustomerContentEncryptionConfigurationPtrOutput() WorkGroupCustomerContentEncryptionConfigurationPtrOutput
+	ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(context.Context) WorkGroupCustomerContentEncryptionConfigurationPtrOutput
+}
+
+type workGroupCustomerContentEncryptionConfigurationPtrType WorkGroupCustomerContentEncryptionConfigurationArgs
+
+func WorkGroupCustomerContentEncryptionConfigurationPtr(v *WorkGroupCustomerContentEncryptionConfigurationArgs) WorkGroupCustomerContentEncryptionConfigurationPtrInput {
+	return (*workGroupCustomerContentEncryptionConfigurationPtrType)(v)
+}
+
+func (*workGroupCustomerContentEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupCustomerContentEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *workGroupCustomerContentEncryptionConfigurationPtrType) ToWorkGroupCustomerContentEncryptionConfigurationPtrOutput() WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return i.ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupCustomerContentEncryptionConfigurationPtrType) ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupCustomerContentEncryptionConfigurationPtrOutput)
+}
+
+// Indicates the KMS key for encrypting notebook content.
+type WorkGroupCustomerContentEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupCustomerContentEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupCustomerContentEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupCustomerContentEncryptionConfigurationOutput) ToWorkGroupCustomerContentEncryptionConfigurationOutput() WorkGroupCustomerContentEncryptionConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupCustomerContentEncryptionConfigurationOutput) ToWorkGroupCustomerContentEncryptionConfigurationOutputWithContext(ctx context.Context) WorkGroupCustomerContentEncryptionConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupCustomerContentEncryptionConfigurationOutput) ToWorkGroupCustomerContentEncryptionConfigurationPtrOutput() WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return o.ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupCustomerContentEncryptionConfigurationOutput) ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupCustomerContentEncryptionConfiguration) *WorkGroupCustomerContentEncryptionConfiguration {
+		return &v
+	}).(WorkGroupCustomerContentEncryptionConfigurationPtrOutput)
+}
+
+func (o WorkGroupCustomerContentEncryptionConfigurationOutput) KmsKey() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkGroupCustomerContentEncryptionConfiguration) string { return v.KmsKey }).(pulumi.StringOutput)
+}
+
+type WorkGroupCustomerContentEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupCustomerContentEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupCustomerContentEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupCustomerContentEncryptionConfigurationPtrOutput) ToWorkGroupCustomerContentEncryptionConfigurationPtrOutput() WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupCustomerContentEncryptionConfigurationPtrOutput) ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupCustomerContentEncryptionConfigurationPtrOutput) Elem() WorkGroupCustomerContentEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *WorkGroupCustomerContentEncryptionConfiguration) WorkGroupCustomerContentEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupCustomerContentEncryptionConfiguration
+		return ret
+	}).(WorkGroupCustomerContentEncryptionConfigurationOutput)
+}
+
+func (o WorkGroupCustomerContentEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupCustomerContentEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
@@ -850,7 +1231,9 @@ func (o WorkGroupEngineVersionPtrOutput) SelectedEngineVersion() pulumi.StringPt
 
 // The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
 type WorkGroupResultConfiguration struct {
+	AclConfiguration        *WorkGroupAclConfiguration        `pulumi:"aclConfiguration"`
 	EncryptionConfiguration *WorkGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	ExpectedBucketOwner     *string                           `pulumi:"expectedBucketOwner"`
 	OutputLocation          *string                           `pulumi:"outputLocation"`
 }
 
@@ -867,7 +1250,9 @@ type WorkGroupResultConfigurationInput interface {
 
 // The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
 type WorkGroupResultConfigurationArgs struct {
+	AclConfiguration        WorkGroupAclConfigurationPtrInput        `pulumi:"aclConfiguration"`
 	EncryptionConfiguration WorkGroupEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
+	ExpectedBucketOwner     pulumi.StringPtrInput                    `pulumi:"expectedBucketOwner"`
 	OutputLocation          pulumi.StringPtrInput                    `pulumi:"outputLocation"`
 }
 
@@ -949,10 +1334,18 @@ func (o WorkGroupResultConfigurationOutput) ToWorkGroupResultConfigurationPtrOut
 	}).(WorkGroupResultConfigurationPtrOutput)
 }
 
+func (o WorkGroupResultConfigurationOutput) AclConfiguration() WorkGroupAclConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupResultConfiguration) *WorkGroupAclConfiguration { return v.AclConfiguration }).(WorkGroupAclConfigurationPtrOutput)
+}
+
 func (o WorkGroupResultConfigurationOutput) EncryptionConfiguration() WorkGroupEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfiguration) *WorkGroupEncryptionConfiguration {
 		return v.EncryptionConfiguration
 	}).(WorkGroupEncryptionConfigurationPtrOutput)
+}
+
+func (o WorkGroupResultConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupResultConfiguration) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
 func (o WorkGroupResultConfigurationOutput) OutputLocation() pulumi.StringPtrOutput {
@@ -983,6 +1376,15 @@ func (o WorkGroupResultConfigurationPtrOutput) Elem() WorkGroupResultConfigurati
 	}).(WorkGroupResultConfigurationOutput)
 }
 
+func (o WorkGroupResultConfigurationPtrOutput) AclConfiguration() WorkGroupAclConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupResultConfiguration) *WorkGroupAclConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AclConfiguration
+	}).(WorkGroupAclConfigurationPtrOutput)
+}
+
 func (o WorkGroupResultConfigurationPtrOutput) EncryptionConfiguration() WorkGroupEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfiguration) *WorkGroupEncryptionConfiguration {
 		if v == nil {
@@ -990,6 +1392,15 @@ func (o WorkGroupResultConfigurationPtrOutput) EncryptionConfiguration() WorkGro
 		}
 		return v.EncryptionConfiguration
 	}).(WorkGroupEncryptionConfigurationPtrOutput)
+}
+
+func (o WorkGroupResultConfigurationPtrOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupResultConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedBucketOwner
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o WorkGroupResultConfigurationPtrOutput) OutputLocation() pulumi.StringPtrOutput {
@@ -1003,9 +1414,13 @@ func (o WorkGroupResultConfigurationPtrOutput) OutputLocation() pulumi.StringPtr
 
 // The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
 type WorkGroupResultConfigurationUpdates struct {
+	AclConfiguration              *WorkGroupAclConfiguration        `pulumi:"aclConfiguration"`
 	EncryptionConfiguration       *WorkGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	ExpectedBucketOwner           *string                           `pulumi:"expectedBucketOwner"`
 	OutputLocation                *string                           `pulumi:"outputLocation"`
+	RemoveAclConfiguration        *bool                             `pulumi:"removeAclConfiguration"`
 	RemoveEncryptionConfiguration *bool                             `pulumi:"removeEncryptionConfiguration"`
+	RemoveExpectedBucketOwner     *bool                             `pulumi:"removeExpectedBucketOwner"`
 	RemoveOutputLocation          *bool                             `pulumi:"removeOutputLocation"`
 }
 
@@ -1022,9 +1437,13 @@ type WorkGroupResultConfigurationUpdatesInput interface {
 
 // The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
 type WorkGroupResultConfigurationUpdatesArgs struct {
+	AclConfiguration              WorkGroupAclConfigurationPtrInput        `pulumi:"aclConfiguration"`
 	EncryptionConfiguration       WorkGroupEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
+	ExpectedBucketOwner           pulumi.StringPtrInput                    `pulumi:"expectedBucketOwner"`
 	OutputLocation                pulumi.StringPtrInput                    `pulumi:"outputLocation"`
+	RemoveAclConfiguration        pulumi.BoolPtrInput                      `pulumi:"removeAclConfiguration"`
 	RemoveEncryptionConfiguration pulumi.BoolPtrInput                      `pulumi:"removeEncryptionConfiguration"`
+	RemoveExpectedBucketOwner     pulumi.BoolPtrInput                      `pulumi:"removeExpectedBucketOwner"`
 	RemoveOutputLocation          pulumi.BoolPtrInput                      `pulumi:"removeOutputLocation"`
 }
 
@@ -1106,18 +1525,34 @@ func (o WorkGroupResultConfigurationUpdatesOutput) ToWorkGroupResultConfiguratio
 	}).(WorkGroupResultConfigurationUpdatesPtrOutput)
 }
 
+func (o WorkGroupResultConfigurationUpdatesOutput) AclConfiguration() WorkGroupAclConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *WorkGroupAclConfiguration { return v.AclConfiguration }).(WorkGroupAclConfigurationPtrOutput)
+}
+
 func (o WorkGroupResultConfigurationUpdatesOutput) EncryptionConfiguration() WorkGroupEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *WorkGroupEncryptionConfiguration {
 		return v.EncryptionConfiguration
 	}).(WorkGroupEncryptionConfigurationPtrOutput)
 }
 
+func (o WorkGroupResultConfigurationUpdatesOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
 func (o WorkGroupResultConfigurationUpdatesOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
 }
 
+func (o WorkGroupResultConfigurationUpdatesOutput) RemoveAclConfiguration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *bool { return v.RemoveAclConfiguration }).(pulumi.BoolPtrOutput)
+}
+
 func (o WorkGroupResultConfigurationUpdatesOutput) RemoveEncryptionConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *bool { return v.RemoveEncryptionConfiguration }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupResultConfigurationUpdatesOutput) RemoveExpectedBucketOwner() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *bool { return v.RemoveExpectedBucketOwner }).(pulumi.BoolPtrOutput)
 }
 
 func (o WorkGroupResultConfigurationUpdatesOutput) RemoveOutputLocation() pulumi.BoolPtrOutput {
@@ -1148,6 +1583,15 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) Elem() WorkGroupResultConf
 	}).(WorkGroupResultConfigurationUpdatesOutput)
 }
 
+func (o WorkGroupResultConfigurationUpdatesPtrOutput) AclConfiguration() WorkGroupAclConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *WorkGroupAclConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AclConfiguration
+	}).(WorkGroupAclConfigurationPtrOutput)
+}
+
 func (o WorkGroupResultConfigurationUpdatesPtrOutput) EncryptionConfiguration() WorkGroupEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *WorkGroupEncryptionConfiguration {
 		if v == nil {
@@ -1155,6 +1599,15 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) EncryptionConfiguration() 
 		}
 		return v.EncryptionConfiguration
 	}).(WorkGroupEncryptionConfigurationPtrOutput)
+}
+
+func (o WorkGroupResultConfigurationUpdatesPtrOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedBucketOwner
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o WorkGroupResultConfigurationUpdatesPtrOutput) OutputLocation() pulumi.StringPtrOutput {
@@ -1166,12 +1619,30 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) OutputLocation() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveAclConfiguration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemoveAclConfiguration
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveEncryptionConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *bool {
 		if v == nil {
 			return nil
 		}
 		return v.RemoveEncryptionConfiguration
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveExpectedBucketOwner() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemoveExpectedBucketOwner
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1287,10 +1758,14 @@ func (o WorkGroupTagArrayOutput) Index(i pulumi.IntInput) WorkGroupTagOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTagInput)(nil)).Elem(), DataCatalogTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTagArrayInput)(nil)).Elem(), DataCatalogTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupAclConfigurationInput)(nil)).Elem(), WorkGroupAclConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupAclConfigurationPtrInput)(nil)).Elem(), WorkGroupAclConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationInput)(nil)).Elem(), WorkGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationPtrInput)(nil)).Elem(), WorkGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationUpdatesInput)(nil)).Elem(), WorkGroupConfigurationUpdatesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationUpdatesPtrInput)(nil)).Elem(), WorkGroupConfigurationUpdatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupCustomerContentEncryptionConfigurationInput)(nil)).Elem(), WorkGroupCustomerContentEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupCustomerContentEncryptionConfigurationPtrInput)(nil)).Elem(), WorkGroupCustomerContentEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionConfigurationInput)(nil)).Elem(), WorkGroupEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionConfigurationPtrInput)(nil)).Elem(), WorkGroupEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEngineVersionInput)(nil)).Elem(), WorkGroupEngineVersionArgs{})
@@ -1303,10 +1778,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupTagArrayInput)(nil)).Elem(), WorkGroupTagArray{})
 	pulumi.RegisterOutputType(DataCatalogTagOutput{})
 	pulumi.RegisterOutputType(DataCatalogTagArrayOutput{})
+	pulumi.RegisterOutputType(WorkGroupAclConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkGroupAclConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupConfigurationUpdatesOutput{})
 	pulumi.RegisterOutputType(WorkGroupConfigurationUpdatesPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupCustomerContentEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkGroupCustomerContentEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEngineVersionOutput{})

@@ -40,9 +40,6 @@ func NewContact(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
-	if args.Plan == nil {
-		return nil, errors.New("invalid value for required argument 'Plan'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}

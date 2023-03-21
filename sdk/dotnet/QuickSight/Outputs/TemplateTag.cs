@@ -10,20 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The key or keys of the key-value pairs for the resource tag or tags assigned to the
-    ///             resource.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class TemplateTag
     {
-        /// <summary>
-        /// &lt;p&gt;Tag key.&lt;/p&gt;
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// &lt;p&gt;Tag value.&lt;/p&gt;
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

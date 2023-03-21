@@ -10445,6 +10445,1218 @@ func (o ImageTagArrayOutput) Index(i pulumi.IntInput) ImageTagOutput {
 	}).(ImageTagOutput)
 }
 
+// Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+type InferenceExperimentCaptureContentTypeHeader struct {
+	// The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
+	CsvContentTypes []string `pulumi:"csvContentTypes"`
+	// The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
+	JsonContentTypes []string `pulumi:"jsonContentTypes"`
+}
+
+// InferenceExperimentCaptureContentTypeHeaderInput is an input type that accepts InferenceExperimentCaptureContentTypeHeaderArgs and InferenceExperimentCaptureContentTypeHeaderOutput values.
+// You can construct a concrete instance of `InferenceExperimentCaptureContentTypeHeaderInput` via:
+//
+//	InferenceExperimentCaptureContentTypeHeaderArgs{...}
+type InferenceExperimentCaptureContentTypeHeaderInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentCaptureContentTypeHeaderOutput() InferenceExperimentCaptureContentTypeHeaderOutput
+	ToInferenceExperimentCaptureContentTypeHeaderOutputWithContext(context.Context) InferenceExperimentCaptureContentTypeHeaderOutput
+}
+
+// Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+type InferenceExperimentCaptureContentTypeHeaderArgs struct {
+	// The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
+	CsvContentTypes pulumi.StringArrayInput `pulumi:"csvContentTypes"`
+	// The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
+	JsonContentTypes pulumi.StringArrayInput `pulumi:"jsonContentTypes"`
+}
+
+func (InferenceExperimentCaptureContentTypeHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (i InferenceExperimentCaptureContentTypeHeaderArgs) ToInferenceExperimentCaptureContentTypeHeaderOutput() InferenceExperimentCaptureContentTypeHeaderOutput {
+	return i.ToInferenceExperimentCaptureContentTypeHeaderOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentCaptureContentTypeHeaderArgs) ToInferenceExperimentCaptureContentTypeHeaderOutputWithContext(ctx context.Context) InferenceExperimentCaptureContentTypeHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentCaptureContentTypeHeaderOutput)
+}
+
+func (i InferenceExperimentCaptureContentTypeHeaderArgs) ToInferenceExperimentCaptureContentTypeHeaderPtrOutput() InferenceExperimentCaptureContentTypeHeaderPtrOutput {
+	return i.ToInferenceExperimentCaptureContentTypeHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentCaptureContentTypeHeaderArgs) ToInferenceExperimentCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) InferenceExperimentCaptureContentTypeHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentCaptureContentTypeHeaderOutput).ToInferenceExperimentCaptureContentTypeHeaderPtrOutputWithContext(ctx)
+}
+
+// InferenceExperimentCaptureContentTypeHeaderPtrInput is an input type that accepts InferenceExperimentCaptureContentTypeHeaderArgs, InferenceExperimentCaptureContentTypeHeaderPtr and InferenceExperimentCaptureContentTypeHeaderPtrOutput values.
+// You can construct a concrete instance of `InferenceExperimentCaptureContentTypeHeaderPtrInput` via:
+//
+//	        InferenceExperimentCaptureContentTypeHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceExperimentCaptureContentTypeHeaderPtrInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentCaptureContentTypeHeaderPtrOutput() InferenceExperimentCaptureContentTypeHeaderPtrOutput
+	ToInferenceExperimentCaptureContentTypeHeaderPtrOutputWithContext(context.Context) InferenceExperimentCaptureContentTypeHeaderPtrOutput
+}
+
+type inferenceExperimentCaptureContentTypeHeaderPtrType InferenceExperimentCaptureContentTypeHeaderArgs
+
+func InferenceExperimentCaptureContentTypeHeaderPtr(v *InferenceExperimentCaptureContentTypeHeaderArgs) InferenceExperimentCaptureContentTypeHeaderPtrInput {
+	return (*inferenceExperimentCaptureContentTypeHeaderPtrType)(v)
+}
+
+func (*inferenceExperimentCaptureContentTypeHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (i *inferenceExperimentCaptureContentTypeHeaderPtrType) ToInferenceExperimentCaptureContentTypeHeaderPtrOutput() InferenceExperimentCaptureContentTypeHeaderPtrOutput {
+	return i.ToInferenceExperimentCaptureContentTypeHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceExperimentCaptureContentTypeHeaderPtrType) ToInferenceExperimentCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) InferenceExperimentCaptureContentTypeHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentCaptureContentTypeHeaderPtrOutput)
+}
+
+// Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+type InferenceExperimentCaptureContentTypeHeaderOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentCaptureContentTypeHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (o InferenceExperimentCaptureContentTypeHeaderOutput) ToInferenceExperimentCaptureContentTypeHeaderOutput() InferenceExperimentCaptureContentTypeHeaderOutput {
+	return o
+}
+
+func (o InferenceExperimentCaptureContentTypeHeaderOutput) ToInferenceExperimentCaptureContentTypeHeaderOutputWithContext(ctx context.Context) InferenceExperimentCaptureContentTypeHeaderOutput {
+	return o
+}
+
+func (o InferenceExperimentCaptureContentTypeHeaderOutput) ToInferenceExperimentCaptureContentTypeHeaderPtrOutput() InferenceExperimentCaptureContentTypeHeaderPtrOutput {
+	return o.ToInferenceExperimentCaptureContentTypeHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentCaptureContentTypeHeaderOutput) ToInferenceExperimentCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) InferenceExperimentCaptureContentTypeHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceExperimentCaptureContentTypeHeader) *InferenceExperimentCaptureContentTypeHeader {
+		return &v
+	}).(InferenceExperimentCaptureContentTypeHeaderPtrOutput)
+}
+
+// The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
+func (o InferenceExperimentCaptureContentTypeHeaderOutput) CsvContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InferenceExperimentCaptureContentTypeHeader) []string { return v.CsvContentTypes }).(pulumi.StringArrayOutput)
+}
+
+// The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
+func (o InferenceExperimentCaptureContentTypeHeaderOutput) JsonContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InferenceExperimentCaptureContentTypeHeader) []string { return v.JsonContentTypes }).(pulumi.StringArrayOutput)
+}
+
+type InferenceExperimentCaptureContentTypeHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentCaptureContentTypeHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (o InferenceExperimentCaptureContentTypeHeaderPtrOutput) ToInferenceExperimentCaptureContentTypeHeaderPtrOutput() InferenceExperimentCaptureContentTypeHeaderPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentCaptureContentTypeHeaderPtrOutput) ToInferenceExperimentCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) InferenceExperimentCaptureContentTypeHeaderPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentCaptureContentTypeHeaderPtrOutput) Elem() InferenceExperimentCaptureContentTypeHeaderOutput {
+	return o.ApplyT(func(v *InferenceExperimentCaptureContentTypeHeader) InferenceExperimentCaptureContentTypeHeader {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceExperimentCaptureContentTypeHeader
+		return ret
+	}).(InferenceExperimentCaptureContentTypeHeaderOutput)
+}
+
+// The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
+func (o InferenceExperimentCaptureContentTypeHeaderPtrOutput) CsvContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InferenceExperimentCaptureContentTypeHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CsvContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
+func (o InferenceExperimentCaptureContentTypeHeaderPtrOutput) JsonContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InferenceExperimentCaptureContentTypeHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.JsonContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Amazon S3 location and configuration for storing inference request and response data.
+type InferenceExperimentDataStorageConfig struct {
+	ContentType *InferenceExperimentCaptureContentTypeHeader `pulumi:"contentType"`
+	// The Amazon S3 bucket where the inference request and response data is stored.
+	Destination string `pulumi:"destination"`
+	// The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
+	KmsKey *string `pulumi:"kmsKey"`
+}
+
+// InferenceExperimentDataStorageConfigInput is an input type that accepts InferenceExperimentDataStorageConfigArgs and InferenceExperimentDataStorageConfigOutput values.
+// You can construct a concrete instance of `InferenceExperimentDataStorageConfigInput` via:
+//
+//	InferenceExperimentDataStorageConfigArgs{...}
+type InferenceExperimentDataStorageConfigInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentDataStorageConfigOutput() InferenceExperimentDataStorageConfigOutput
+	ToInferenceExperimentDataStorageConfigOutputWithContext(context.Context) InferenceExperimentDataStorageConfigOutput
+}
+
+// The Amazon S3 location and configuration for storing inference request and response data.
+type InferenceExperimentDataStorageConfigArgs struct {
+	ContentType InferenceExperimentCaptureContentTypeHeaderPtrInput `pulumi:"contentType"`
+	// The Amazon S3 bucket where the inference request and response data is stored.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+}
+
+func (InferenceExperimentDataStorageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentDataStorageConfig)(nil)).Elem()
+}
+
+func (i InferenceExperimentDataStorageConfigArgs) ToInferenceExperimentDataStorageConfigOutput() InferenceExperimentDataStorageConfigOutput {
+	return i.ToInferenceExperimentDataStorageConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentDataStorageConfigArgs) ToInferenceExperimentDataStorageConfigOutputWithContext(ctx context.Context) InferenceExperimentDataStorageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentDataStorageConfigOutput)
+}
+
+func (i InferenceExperimentDataStorageConfigArgs) ToInferenceExperimentDataStorageConfigPtrOutput() InferenceExperimentDataStorageConfigPtrOutput {
+	return i.ToInferenceExperimentDataStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentDataStorageConfigArgs) ToInferenceExperimentDataStorageConfigPtrOutputWithContext(ctx context.Context) InferenceExperimentDataStorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentDataStorageConfigOutput).ToInferenceExperimentDataStorageConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceExperimentDataStorageConfigPtrInput is an input type that accepts InferenceExperimentDataStorageConfigArgs, InferenceExperimentDataStorageConfigPtr and InferenceExperimentDataStorageConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceExperimentDataStorageConfigPtrInput` via:
+//
+//	        InferenceExperimentDataStorageConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceExperimentDataStorageConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentDataStorageConfigPtrOutput() InferenceExperimentDataStorageConfigPtrOutput
+	ToInferenceExperimentDataStorageConfigPtrOutputWithContext(context.Context) InferenceExperimentDataStorageConfigPtrOutput
+}
+
+type inferenceExperimentDataStorageConfigPtrType InferenceExperimentDataStorageConfigArgs
+
+func InferenceExperimentDataStorageConfigPtr(v *InferenceExperimentDataStorageConfigArgs) InferenceExperimentDataStorageConfigPtrInput {
+	return (*inferenceExperimentDataStorageConfigPtrType)(v)
+}
+
+func (*inferenceExperimentDataStorageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentDataStorageConfig)(nil)).Elem()
+}
+
+func (i *inferenceExperimentDataStorageConfigPtrType) ToInferenceExperimentDataStorageConfigPtrOutput() InferenceExperimentDataStorageConfigPtrOutput {
+	return i.ToInferenceExperimentDataStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceExperimentDataStorageConfigPtrType) ToInferenceExperimentDataStorageConfigPtrOutputWithContext(ctx context.Context) InferenceExperimentDataStorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentDataStorageConfigPtrOutput)
+}
+
+// The Amazon S3 location and configuration for storing inference request and response data.
+type InferenceExperimentDataStorageConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentDataStorageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentDataStorageConfig)(nil)).Elem()
+}
+
+func (o InferenceExperimentDataStorageConfigOutput) ToInferenceExperimentDataStorageConfigOutput() InferenceExperimentDataStorageConfigOutput {
+	return o
+}
+
+func (o InferenceExperimentDataStorageConfigOutput) ToInferenceExperimentDataStorageConfigOutputWithContext(ctx context.Context) InferenceExperimentDataStorageConfigOutput {
+	return o
+}
+
+func (o InferenceExperimentDataStorageConfigOutput) ToInferenceExperimentDataStorageConfigPtrOutput() InferenceExperimentDataStorageConfigPtrOutput {
+	return o.ToInferenceExperimentDataStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentDataStorageConfigOutput) ToInferenceExperimentDataStorageConfigPtrOutputWithContext(ctx context.Context) InferenceExperimentDataStorageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceExperimentDataStorageConfig) *InferenceExperimentDataStorageConfig {
+		return &v
+	}).(InferenceExperimentDataStorageConfigPtrOutput)
+}
+
+func (o InferenceExperimentDataStorageConfigOutput) ContentType() InferenceExperimentCaptureContentTypeHeaderPtrOutput {
+	return o.ApplyT(func(v InferenceExperimentDataStorageConfig) *InferenceExperimentCaptureContentTypeHeader {
+		return v.ContentType
+	}).(InferenceExperimentCaptureContentTypeHeaderPtrOutput)
+}
+
+// The Amazon S3 bucket where the inference request and response data is stored.
+func (o InferenceExperimentDataStorageConfigOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceExperimentDataStorageConfig) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
+func (o InferenceExperimentDataStorageConfigOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceExperimentDataStorageConfig) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+type InferenceExperimentDataStorageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentDataStorageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentDataStorageConfig)(nil)).Elem()
+}
+
+func (o InferenceExperimentDataStorageConfigPtrOutput) ToInferenceExperimentDataStorageConfigPtrOutput() InferenceExperimentDataStorageConfigPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentDataStorageConfigPtrOutput) ToInferenceExperimentDataStorageConfigPtrOutputWithContext(ctx context.Context) InferenceExperimentDataStorageConfigPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentDataStorageConfigPtrOutput) Elem() InferenceExperimentDataStorageConfigOutput {
+	return o.ApplyT(func(v *InferenceExperimentDataStorageConfig) InferenceExperimentDataStorageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceExperimentDataStorageConfig
+		return ret
+	}).(InferenceExperimentDataStorageConfigOutput)
+}
+
+func (o InferenceExperimentDataStorageConfigPtrOutput) ContentType() InferenceExperimentCaptureContentTypeHeaderPtrOutput {
+	return o.ApplyT(func(v *InferenceExperimentDataStorageConfig) *InferenceExperimentCaptureContentTypeHeader {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(InferenceExperimentCaptureContentTypeHeaderPtrOutput)
+}
+
+// The Amazon S3 bucket where the inference request and response data is stored.
+func (o InferenceExperimentDataStorageConfigPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceExperimentDataStorageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
+func (o InferenceExperimentDataStorageConfigPtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceExperimentDataStorageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metadata of the endpoint on which the inference experiment ran.
+type InferenceExperimentEndpointMetadata struct {
+	// The name of the endpoint configuration.
+	EndpointConfigName *string `pulumi:"endpointConfigName"`
+	EndpointName       string  `pulumi:"endpointName"`
+	// The status of the endpoint. For possible values of the status of an endpoint.
+	EndpointStatus *InferenceExperimentEndpointMetadataEndpointStatus `pulumi:"endpointStatus"`
+}
+
+// The metadata of the endpoint on which the inference experiment ran.
+type InferenceExperimentEndpointMetadataOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentEndpointMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentEndpointMetadata)(nil)).Elem()
+}
+
+func (o InferenceExperimentEndpointMetadataOutput) ToInferenceExperimentEndpointMetadataOutput() InferenceExperimentEndpointMetadataOutput {
+	return o
+}
+
+func (o InferenceExperimentEndpointMetadataOutput) ToInferenceExperimentEndpointMetadataOutputWithContext(ctx context.Context) InferenceExperimentEndpointMetadataOutput {
+	return o
+}
+
+// The name of the endpoint configuration.
+func (o InferenceExperimentEndpointMetadataOutput) EndpointConfigName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceExperimentEndpointMetadata) *string { return v.EndpointConfigName }).(pulumi.StringPtrOutput)
+}
+
+func (o InferenceExperimentEndpointMetadataOutput) EndpointName() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceExperimentEndpointMetadata) string { return v.EndpointName }).(pulumi.StringOutput)
+}
+
+// The status of the endpoint. For possible values of the status of an endpoint.
+func (o InferenceExperimentEndpointMetadataOutput) EndpointStatus() InferenceExperimentEndpointMetadataEndpointStatusPtrOutput {
+	return o.ApplyT(func(v InferenceExperimentEndpointMetadata) *InferenceExperimentEndpointMetadataEndpointStatus {
+		return v.EndpointStatus
+	}).(InferenceExperimentEndpointMetadataEndpointStatusPtrOutput)
+}
+
+type InferenceExperimentEndpointMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentEndpointMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentEndpointMetadata)(nil)).Elem()
+}
+
+func (o InferenceExperimentEndpointMetadataPtrOutput) ToInferenceExperimentEndpointMetadataPtrOutput() InferenceExperimentEndpointMetadataPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentEndpointMetadataPtrOutput) ToInferenceExperimentEndpointMetadataPtrOutputWithContext(ctx context.Context) InferenceExperimentEndpointMetadataPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentEndpointMetadataPtrOutput) Elem() InferenceExperimentEndpointMetadataOutput {
+	return o.ApplyT(func(v *InferenceExperimentEndpointMetadata) InferenceExperimentEndpointMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceExperimentEndpointMetadata
+		return ret
+	}).(InferenceExperimentEndpointMetadataOutput)
+}
+
+// The name of the endpoint configuration.
+func (o InferenceExperimentEndpointMetadataPtrOutput) EndpointConfigName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceExperimentEndpointMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointConfigName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InferenceExperimentEndpointMetadataPtrOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceExperimentEndpointMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the endpoint. For possible values of the status of an endpoint.
+func (o InferenceExperimentEndpointMetadataPtrOutput) EndpointStatus() InferenceExperimentEndpointMetadataEndpointStatusPtrOutput {
+	return o.ApplyT(func(v *InferenceExperimentEndpointMetadata) *InferenceExperimentEndpointMetadataEndpointStatus {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointStatus
+	}).(InferenceExperimentEndpointMetadataEndpointStatusPtrOutput)
+}
+
+// The configuration for the infrastructure that the model will be deployed to.
+type InferenceExperimentModelInfrastructureConfig struct {
+	// The type of the inference experiment that you want to run.
+	InfrastructureType      InferenceExperimentModelInfrastructureConfigInfrastructureType `pulumi:"infrastructureType"`
+	RealTimeInferenceConfig InferenceExperimentRealTimeInferenceConfig                     `pulumi:"realTimeInferenceConfig"`
+}
+
+// InferenceExperimentModelInfrastructureConfigInput is an input type that accepts InferenceExperimentModelInfrastructureConfigArgs and InferenceExperimentModelInfrastructureConfigOutput values.
+// You can construct a concrete instance of `InferenceExperimentModelInfrastructureConfigInput` via:
+//
+//	InferenceExperimentModelInfrastructureConfigArgs{...}
+type InferenceExperimentModelInfrastructureConfigInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentModelInfrastructureConfigOutput() InferenceExperimentModelInfrastructureConfigOutput
+	ToInferenceExperimentModelInfrastructureConfigOutputWithContext(context.Context) InferenceExperimentModelInfrastructureConfigOutput
+}
+
+// The configuration for the infrastructure that the model will be deployed to.
+type InferenceExperimentModelInfrastructureConfigArgs struct {
+	// The type of the inference experiment that you want to run.
+	InfrastructureType      InferenceExperimentModelInfrastructureConfigInfrastructureTypeInput `pulumi:"infrastructureType"`
+	RealTimeInferenceConfig InferenceExperimentRealTimeInferenceConfigInput                     `pulumi:"realTimeInferenceConfig"`
+}
+
+func (InferenceExperimentModelInfrastructureConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentModelInfrastructureConfig)(nil)).Elem()
+}
+
+func (i InferenceExperimentModelInfrastructureConfigArgs) ToInferenceExperimentModelInfrastructureConfigOutput() InferenceExperimentModelInfrastructureConfigOutput {
+	return i.ToInferenceExperimentModelInfrastructureConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentModelInfrastructureConfigArgs) ToInferenceExperimentModelInfrastructureConfigOutputWithContext(ctx context.Context) InferenceExperimentModelInfrastructureConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentModelInfrastructureConfigOutput)
+}
+
+// The configuration for the infrastructure that the model will be deployed to.
+type InferenceExperimentModelInfrastructureConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentModelInfrastructureConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentModelInfrastructureConfig)(nil)).Elem()
+}
+
+func (o InferenceExperimentModelInfrastructureConfigOutput) ToInferenceExperimentModelInfrastructureConfigOutput() InferenceExperimentModelInfrastructureConfigOutput {
+	return o
+}
+
+func (o InferenceExperimentModelInfrastructureConfigOutput) ToInferenceExperimentModelInfrastructureConfigOutputWithContext(ctx context.Context) InferenceExperimentModelInfrastructureConfigOutput {
+	return o
+}
+
+// The type of the inference experiment that you want to run.
+func (o InferenceExperimentModelInfrastructureConfigOutput) InfrastructureType() InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput {
+	return o.ApplyT(func(v InferenceExperimentModelInfrastructureConfig) InferenceExperimentModelInfrastructureConfigInfrastructureType {
+		return v.InfrastructureType
+	}).(InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput)
+}
+
+func (o InferenceExperimentModelInfrastructureConfigOutput) RealTimeInferenceConfig() InferenceExperimentRealTimeInferenceConfigOutput {
+	return o.ApplyT(func(v InferenceExperimentModelInfrastructureConfig) InferenceExperimentRealTimeInferenceConfig {
+		return v.RealTimeInferenceConfig
+	}).(InferenceExperimentRealTimeInferenceConfigOutput)
+}
+
+// Contains information about the deployment options of a model.
+type InferenceExperimentModelVariantConfig struct {
+	InfrastructureConfig InferenceExperimentModelInfrastructureConfig `pulumi:"infrastructureConfig"`
+	// The name of the Amazon SageMaker Model entity.
+	ModelName string `pulumi:"modelName"`
+	// The name of the variant.
+	VariantName string `pulumi:"variantName"`
+}
+
+// InferenceExperimentModelVariantConfigInput is an input type that accepts InferenceExperimentModelVariantConfigArgs and InferenceExperimentModelVariantConfigOutput values.
+// You can construct a concrete instance of `InferenceExperimentModelVariantConfigInput` via:
+//
+//	InferenceExperimentModelVariantConfigArgs{...}
+type InferenceExperimentModelVariantConfigInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentModelVariantConfigOutput() InferenceExperimentModelVariantConfigOutput
+	ToInferenceExperimentModelVariantConfigOutputWithContext(context.Context) InferenceExperimentModelVariantConfigOutput
+}
+
+// Contains information about the deployment options of a model.
+type InferenceExperimentModelVariantConfigArgs struct {
+	InfrastructureConfig InferenceExperimentModelInfrastructureConfigInput `pulumi:"infrastructureConfig"`
+	// The name of the Amazon SageMaker Model entity.
+	ModelName pulumi.StringInput `pulumi:"modelName"`
+	// The name of the variant.
+	VariantName pulumi.StringInput `pulumi:"variantName"`
+}
+
+func (InferenceExperimentModelVariantConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentModelVariantConfig)(nil)).Elem()
+}
+
+func (i InferenceExperimentModelVariantConfigArgs) ToInferenceExperimentModelVariantConfigOutput() InferenceExperimentModelVariantConfigOutput {
+	return i.ToInferenceExperimentModelVariantConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentModelVariantConfigArgs) ToInferenceExperimentModelVariantConfigOutputWithContext(ctx context.Context) InferenceExperimentModelVariantConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentModelVariantConfigOutput)
+}
+
+// InferenceExperimentModelVariantConfigArrayInput is an input type that accepts InferenceExperimentModelVariantConfigArray and InferenceExperimentModelVariantConfigArrayOutput values.
+// You can construct a concrete instance of `InferenceExperimentModelVariantConfigArrayInput` via:
+//
+//	InferenceExperimentModelVariantConfigArray{ InferenceExperimentModelVariantConfigArgs{...} }
+type InferenceExperimentModelVariantConfigArrayInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentModelVariantConfigArrayOutput() InferenceExperimentModelVariantConfigArrayOutput
+	ToInferenceExperimentModelVariantConfigArrayOutputWithContext(context.Context) InferenceExperimentModelVariantConfigArrayOutput
+}
+
+type InferenceExperimentModelVariantConfigArray []InferenceExperimentModelVariantConfigInput
+
+func (InferenceExperimentModelVariantConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceExperimentModelVariantConfig)(nil)).Elem()
+}
+
+func (i InferenceExperimentModelVariantConfigArray) ToInferenceExperimentModelVariantConfigArrayOutput() InferenceExperimentModelVariantConfigArrayOutput {
+	return i.ToInferenceExperimentModelVariantConfigArrayOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentModelVariantConfigArray) ToInferenceExperimentModelVariantConfigArrayOutputWithContext(ctx context.Context) InferenceExperimentModelVariantConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentModelVariantConfigArrayOutput)
+}
+
+// Contains information about the deployment options of a model.
+type InferenceExperimentModelVariantConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentModelVariantConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentModelVariantConfig)(nil)).Elem()
+}
+
+func (o InferenceExperimentModelVariantConfigOutput) ToInferenceExperimentModelVariantConfigOutput() InferenceExperimentModelVariantConfigOutput {
+	return o
+}
+
+func (o InferenceExperimentModelVariantConfigOutput) ToInferenceExperimentModelVariantConfigOutputWithContext(ctx context.Context) InferenceExperimentModelVariantConfigOutput {
+	return o
+}
+
+func (o InferenceExperimentModelVariantConfigOutput) InfrastructureConfig() InferenceExperimentModelInfrastructureConfigOutput {
+	return o.ApplyT(func(v InferenceExperimentModelVariantConfig) InferenceExperimentModelInfrastructureConfig {
+		return v.InfrastructureConfig
+	}).(InferenceExperimentModelInfrastructureConfigOutput)
+}
+
+// The name of the Amazon SageMaker Model entity.
+func (o InferenceExperimentModelVariantConfigOutput) ModelName() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceExperimentModelVariantConfig) string { return v.ModelName }).(pulumi.StringOutput)
+}
+
+// The name of the variant.
+func (o InferenceExperimentModelVariantConfigOutput) VariantName() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceExperimentModelVariantConfig) string { return v.VariantName }).(pulumi.StringOutput)
+}
+
+type InferenceExperimentModelVariantConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentModelVariantConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceExperimentModelVariantConfig)(nil)).Elem()
+}
+
+func (o InferenceExperimentModelVariantConfigArrayOutput) ToInferenceExperimentModelVariantConfigArrayOutput() InferenceExperimentModelVariantConfigArrayOutput {
+	return o
+}
+
+func (o InferenceExperimentModelVariantConfigArrayOutput) ToInferenceExperimentModelVariantConfigArrayOutputWithContext(ctx context.Context) InferenceExperimentModelVariantConfigArrayOutput {
+	return o
+}
+
+func (o InferenceExperimentModelVariantConfigArrayOutput) Index(i pulumi.IntInput) InferenceExperimentModelVariantConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InferenceExperimentModelVariantConfig {
+		return vs[0].([]InferenceExperimentModelVariantConfig)[vs[1].(int)]
+	}).(InferenceExperimentModelVariantConfigOutput)
+}
+
+// The infrastructure configuration for deploying the model to a real-time inference endpoint.
+type InferenceExperimentRealTimeInferenceConfig struct {
+	// The number of instances of the type specified by InstanceType.
+	InstanceCount int `pulumi:"instanceCount"`
+	// The instance type the model is deployed to.
+	InstanceType string `pulumi:"instanceType"`
+}
+
+// InferenceExperimentRealTimeInferenceConfigInput is an input type that accepts InferenceExperimentRealTimeInferenceConfigArgs and InferenceExperimentRealTimeInferenceConfigOutput values.
+// You can construct a concrete instance of `InferenceExperimentRealTimeInferenceConfigInput` via:
+//
+//	InferenceExperimentRealTimeInferenceConfigArgs{...}
+type InferenceExperimentRealTimeInferenceConfigInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentRealTimeInferenceConfigOutput() InferenceExperimentRealTimeInferenceConfigOutput
+	ToInferenceExperimentRealTimeInferenceConfigOutputWithContext(context.Context) InferenceExperimentRealTimeInferenceConfigOutput
+}
+
+// The infrastructure configuration for deploying the model to a real-time inference endpoint.
+type InferenceExperimentRealTimeInferenceConfigArgs struct {
+	// The number of instances of the type specified by InstanceType.
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	// The instance type the model is deployed to.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+}
+
+func (InferenceExperimentRealTimeInferenceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentRealTimeInferenceConfig)(nil)).Elem()
+}
+
+func (i InferenceExperimentRealTimeInferenceConfigArgs) ToInferenceExperimentRealTimeInferenceConfigOutput() InferenceExperimentRealTimeInferenceConfigOutput {
+	return i.ToInferenceExperimentRealTimeInferenceConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentRealTimeInferenceConfigArgs) ToInferenceExperimentRealTimeInferenceConfigOutputWithContext(ctx context.Context) InferenceExperimentRealTimeInferenceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentRealTimeInferenceConfigOutput)
+}
+
+// The infrastructure configuration for deploying the model to a real-time inference endpoint.
+type InferenceExperimentRealTimeInferenceConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentRealTimeInferenceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentRealTimeInferenceConfig)(nil)).Elem()
+}
+
+func (o InferenceExperimentRealTimeInferenceConfigOutput) ToInferenceExperimentRealTimeInferenceConfigOutput() InferenceExperimentRealTimeInferenceConfigOutput {
+	return o
+}
+
+func (o InferenceExperimentRealTimeInferenceConfigOutput) ToInferenceExperimentRealTimeInferenceConfigOutputWithContext(ctx context.Context) InferenceExperimentRealTimeInferenceConfigOutput {
+	return o
+}
+
+// The number of instances of the type specified by InstanceType.
+func (o InferenceExperimentRealTimeInferenceConfigOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v InferenceExperimentRealTimeInferenceConfig) int { return v.InstanceCount }).(pulumi.IntOutput)
+}
+
+// The instance type the model is deployed to.
+func (o InferenceExperimentRealTimeInferenceConfigOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceExperimentRealTimeInferenceConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The duration for which you want the inference experiment to run.
+type InferenceExperimentSchedule struct {
+	// The timestamp at which the inference experiment ended or will end.
+	EndTime *string `pulumi:"endTime"`
+	// The timestamp at which the inference experiment started or will start.
+	StartTime *string `pulumi:"startTime"`
+}
+
+// InferenceExperimentScheduleInput is an input type that accepts InferenceExperimentScheduleArgs and InferenceExperimentScheduleOutput values.
+// You can construct a concrete instance of `InferenceExperimentScheduleInput` via:
+//
+//	InferenceExperimentScheduleArgs{...}
+type InferenceExperimentScheduleInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentScheduleOutput() InferenceExperimentScheduleOutput
+	ToInferenceExperimentScheduleOutputWithContext(context.Context) InferenceExperimentScheduleOutput
+}
+
+// The duration for which you want the inference experiment to run.
+type InferenceExperimentScheduleArgs struct {
+	// The timestamp at which the inference experiment ended or will end.
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// The timestamp at which the inference experiment started or will start.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (InferenceExperimentScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentSchedule)(nil)).Elem()
+}
+
+func (i InferenceExperimentScheduleArgs) ToInferenceExperimentScheduleOutput() InferenceExperimentScheduleOutput {
+	return i.ToInferenceExperimentScheduleOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentScheduleArgs) ToInferenceExperimentScheduleOutputWithContext(ctx context.Context) InferenceExperimentScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentScheduleOutput)
+}
+
+func (i InferenceExperimentScheduleArgs) ToInferenceExperimentSchedulePtrOutput() InferenceExperimentSchedulePtrOutput {
+	return i.ToInferenceExperimentSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentScheduleArgs) ToInferenceExperimentSchedulePtrOutputWithContext(ctx context.Context) InferenceExperimentSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentScheduleOutput).ToInferenceExperimentSchedulePtrOutputWithContext(ctx)
+}
+
+// InferenceExperimentSchedulePtrInput is an input type that accepts InferenceExperimentScheduleArgs, InferenceExperimentSchedulePtr and InferenceExperimentSchedulePtrOutput values.
+// You can construct a concrete instance of `InferenceExperimentSchedulePtrInput` via:
+//
+//	        InferenceExperimentScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceExperimentSchedulePtrInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentSchedulePtrOutput() InferenceExperimentSchedulePtrOutput
+	ToInferenceExperimentSchedulePtrOutputWithContext(context.Context) InferenceExperimentSchedulePtrOutput
+}
+
+type inferenceExperimentSchedulePtrType InferenceExperimentScheduleArgs
+
+func InferenceExperimentSchedulePtr(v *InferenceExperimentScheduleArgs) InferenceExperimentSchedulePtrInput {
+	return (*inferenceExperimentSchedulePtrType)(v)
+}
+
+func (*inferenceExperimentSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentSchedule)(nil)).Elem()
+}
+
+func (i *inferenceExperimentSchedulePtrType) ToInferenceExperimentSchedulePtrOutput() InferenceExperimentSchedulePtrOutput {
+	return i.ToInferenceExperimentSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceExperimentSchedulePtrType) ToInferenceExperimentSchedulePtrOutputWithContext(ctx context.Context) InferenceExperimentSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentSchedulePtrOutput)
+}
+
+// The duration for which you want the inference experiment to run.
+type InferenceExperimentScheduleOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentSchedule)(nil)).Elem()
+}
+
+func (o InferenceExperimentScheduleOutput) ToInferenceExperimentScheduleOutput() InferenceExperimentScheduleOutput {
+	return o
+}
+
+func (o InferenceExperimentScheduleOutput) ToInferenceExperimentScheduleOutputWithContext(ctx context.Context) InferenceExperimentScheduleOutput {
+	return o
+}
+
+func (o InferenceExperimentScheduleOutput) ToInferenceExperimentSchedulePtrOutput() InferenceExperimentSchedulePtrOutput {
+	return o.ToInferenceExperimentSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentScheduleOutput) ToInferenceExperimentSchedulePtrOutputWithContext(ctx context.Context) InferenceExperimentSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceExperimentSchedule) *InferenceExperimentSchedule {
+		return &v
+	}).(InferenceExperimentSchedulePtrOutput)
+}
+
+// The timestamp at which the inference experiment ended or will end.
+func (o InferenceExperimentScheduleOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceExperimentSchedule) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp at which the inference experiment started or will start.
+func (o InferenceExperimentScheduleOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceExperimentSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type InferenceExperimentSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentSchedule)(nil)).Elem()
+}
+
+func (o InferenceExperimentSchedulePtrOutput) ToInferenceExperimentSchedulePtrOutput() InferenceExperimentSchedulePtrOutput {
+	return o
+}
+
+func (o InferenceExperimentSchedulePtrOutput) ToInferenceExperimentSchedulePtrOutputWithContext(ctx context.Context) InferenceExperimentSchedulePtrOutput {
+	return o
+}
+
+func (o InferenceExperimentSchedulePtrOutput) Elem() InferenceExperimentScheduleOutput {
+	return o.ApplyT(func(v *InferenceExperimentSchedule) InferenceExperimentSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceExperimentSchedule
+		return ret
+	}).(InferenceExperimentScheduleOutput)
+}
+
+// The timestamp at which the inference experiment ended or will end.
+func (o InferenceExperimentSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceExperimentSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp at which the inference experiment started or will start.
+func (o InferenceExperimentSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceExperimentSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration of ShadowMode inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates.
+type InferenceExperimentShadowModeConfig struct {
+	// List of shadow variant configurations.
+	ShadowModelVariants []InferenceExperimentShadowModelVariantConfig `pulumi:"shadowModelVariants"`
+	// The name of the production variant, which takes all the inference requests.
+	SourceModelVariantName string `pulumi:"sourceModelVariantName"`
+}
+
+// InferenceExperimentShadowModeConfigInput is an input type that accepts InferenceExperimentShadowModeConfigArgs and InferenceExperimentShadowModeConfigOutput values.
+// You can construct a concrete instance of `InferenceExperimentShadowModeConfigInput` via:
+//
+//	InferenceExperimentShadowModeConfigArgs{...}
+type InferenceExperimentShadowModeConfigInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentShadowModeConfigOutput() InferenceExperimentShadowModeConfigOutput
+	ToInferenceExperimentShadowModeConfigOutputWithContext(context.Context) InferenceExperimentShadowModeConfigOutput
+}
+
+// The configuration of ShadowMode inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates.
+type InferenceExperimentShadowModeConfigArgs struct {
+	// List of shadow variant configurations.
+	ShadowModelVariants InferenceExperimentShadowModelVariantConfigArrayInput `pulumi:"shadowModelVariants"`
+	// The name of the production variant, which takes all the inference requests.
+	SourceModelVariantName pulumi.StringInput `pulumi:"sourceModelVariantName"`
+}
+
+func (InferenceExperimentShadowModeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentShadowModeConfig)(nil)).Elem()
+}
+
+func (i InferenceExperimentShadowModeConfigArgs) ToInferenceExperimentShadowModeConfigOutput() InferenceExperimentShadowModeConfigOutput {
+	return i.ToInferenceExperimentShadowModeConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentShadowModeConfigArgs) ToInferenceExperimentShadowModeConfigOutputWithContext(ctx context.Context) InferenceExperimentShadowModeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentShadowModeConfigOutput)
+}
+
+func (i InferenceExperimentShadowModeConfigArgs) ToInferenceExperimentShadowModeConfigPtrOutput() InferenceExperimentShadowModeConfigPtrOutput {
+	return i.ToInferenceExperimentShadowModeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentShadowModeConfigArgs) ToInferenceExperimentShadowModeConfigPtrOutputWithContext(ctx context.Context) InferenceExperimentShadowModeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentShadowModeConfigOutput).ToInferenceExperimentShadowModeConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceExperimentShadowModeConfigPtrInput is an input type that accepts InferenceExperimentShadowModeConfigArgs, InferenceExperimentShadowModeConfigPtr and InferenceExperimentShadowModeConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceExperimentShadowModeConfigPtrInput` via:
+//
+//	        InferenceExperimentShadowModeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceExperimentShadowModeConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentShadowModeConfigPtrOutput() InferenceExperimentShadowModeConfigPtrOutput
+	ToInferenceExperimentShadowModeConfigPtrOutputWithContext(context.Context) InferenceExperimentShadowModeConfigPtrOutput
+}
+
+type inferenceExperimentShadowModeConfigPtrType InferenceExperimentShadowModeConfigArgs
+
+func InferenceExperimentShadowModeConfigPtr(v *InferenceExperimentShadowModeConfigArgs) InferenceExperimentShadowModeConfigPtrInput {
+	return (*inferenceExperimentShadowModeConfigPtrType)(v)
+}
+
+func (*inferenceExperimentShadowModeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentShadowModeConfig)(nil)).Elem()
+}
+
+func (i *inferenceExperimentShadowModeConfigPtrType) ToInferenceExperimentShadowModeConfigPtrOutput() InferenceExperimentShadowModeConfigPtrOutput {
+	return i.ToInferenceExperimentShadowModeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceExperimentShadowModeConfigPtrType) ToInferenceExperimentShadowModeConfigPtrOutputWithContext(ctx context.Context) InferenceExperimentShadowModeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentShadowModeConfigPtrOutput)
+}
+
+// The configuration of ShadowMode inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates.
+type InferenceExperimentShadowModeConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentShadowModeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentShadowModeConfig)(nil)).Elem()
+}
+
+func (o InferenceExperimentShadowModeConfigOutput) ToInferenceExperimentShadowModeConfigOutput() InferenceExperimentShadowModeConfigOutput {
+	return o
+}
+
+func (o InferenceExperimentShadowModeConfigOutput) ToInferenceExperimentShadowModeConfigOutputWithContext(ctx context.Context) InferenceExperimentShadowModeConfigOutput {
+	return o
+}
+
+func (o InferenceExperimentShadowModeConfigOutput) ToInferenceExperimentShadowModeConfigPtrOutput() InferenceExperimentShadowModeConfigPtrOutput {
+	return o.ToInferenceExperimentShadowModeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceExperimentShadowModeConfigOutput) ToInferenceExperimentShadowModeConfigPtrOutputWithContext(ctx context.Context) InferenceExperimentShadowModeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceExperimentShadowModeConfig) *InferenceExperimentShadowModeConfig {
+		return &v
+	}).(InferenceExperimentShadowModeConfigPtrOutput)
+}
+
+// List of shadow variant configurations.
+func (o InferenceExperimentShadowModeConfigOutput) ShadowModelVariants() InferenceExperimentShadowModelVariantConfigArrayOutput {
+	return o.ApplyT(func(v InferenceExperimentShadowModeConfig) []InferenceExperimentShadowModelVariantConfig {
+		return v.ShadowModelVariants
+	}).(InferenceExperimentShadowModelVariantConfigArrayOutput)
+}
+
+// The name of the production variant, which takes all the inference requests.
+func (o InferenceExperimentShadowModeConfigOutput) SourceModelVariantName() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceExperimentShadowModeConfig) string { return v.SourceModelVariantName }).(pulumi.StringOutput)
+}
+
+type InferenceExperimentShadowModeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentShadowModeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceExperimentShadowModeConfig)(nil)).Elem()
+}
+
+func (o InferenceExperimentShadowModeConfigPtrOutput) ToInferenceExperimentShadowModeConfigPtrOutput() InferenceExperimentShadowModeConfigPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentShadowModeConfigPtrOutput) ToInferenceExperimentShadowModeConfigPtrOutputWithContext(ctx context.Context) InferenceExperimentShadowModeConfigPtrOutput {
+	return o
+}
+
+func (o InferenceExperimentShadowModeConfigPtrOutput) Elem() InferenceExperimentShadowModeConfigOutput {
+	return o.ApplyT(func(v *InferenceExperimentShadowModeConfig) InferenceExperimentShadowModeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceExperimentShadowModeConfig
+		return ret
+	}).(InferenceExperimentShadowModeConfigOutput)
+}
+
+// List of shadow variant configurations.
+func (o InferenceExperimentShadowModeConfigPtrOutput) ShadowModelVariants() InferenceExperimentShadowModelVariantConfigArrayOutput {
+	return o.ApplyT(func(v *InferenceExperimentShadowModeConfig) []InferenceExperimentShadowModelVariantConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ShadowModelVariants
+	}).(InferenceExperimentShadowModelVariantConfigArrayOutput)
+}
+
+// The name of the production variant, which takes all the inference requests.
+func (o InferenceExperimentShadowModeConfigPtrOutput) SourceModelVariantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceExperimentShadowModeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceModelVariantName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name and sampling percentage of a shadow variant.
+type InferenceExperimentShadowModelVariantConfig struct {
+	// The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
+	SamplingPercentage int `pulumi:"samplingPercentage"`
+	// The name of the shadow variant.
+	ShadowModelVariantName string `pulumi:"shadowModelVariantName"`
+}
+
+// InferenceExperimentShadowModelVariantConfigInput is an input type that accepts InferenceExperimentShadowModelVariantConfigArgs and InferenceExperimentShadowModelVariantConfigOutput values.
+// You can construct a concrete instance of `InferenceExperimentShadowModelVariantConfigInput` via:
+//
+//	InferenceExperimentShadowModelVariantConfigArgs{...}
+type InferenceExperimentShadowModelVariantConfigInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentShadowModelVariantConfigOutput() InferenceExperimentShadowModelVariantConfigOutput
+	ToInferenceExperimentShadowModelVariantConfigOutputWithContext(context.Context) InferenceExperimentShadowModelVariantConfigOutput
+}
+
+// The name and sampling percentage of a shadow variant.
+type InferenceExperimentShadowModelVariantConfigArgs struct {
+	// The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
+	SamplingPercentage pulumi.IntInput `pulumi:"samplingPercentage"`
+	// The name of the shadow variant.
+	ShadowModelVariantName pulumi.StringInput `pulumi:"shadowModelVariantName"`
+}
+
+func (InferenceExperimentShadowModelVariantConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentShadowModelVariantConfig)(nil)).Elem()
+}
+
+func (i InferenceExperimentShadowModelVariantConfigArgs) ToInferenceExperimentShadowModelVariantConfigOutput() InferenceExperimentShadowModelVariantConfigOutput {
+	return i.ToInferenceExperimentShadowModelVariantConfigOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentShadowModelVariantConfigArgs) ToInferenceExperimentShadowModelVariantConfigOutputWithContext(ctx context.Context) InferenceExperimentShadowModelVariantConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentShadowModelVariantConfigOutput)
+}
+
+// InferenceExperimentShadowModelVariantConfigArrayInput is an input type that accepts InferenceExperimentShadowModelVariantConfigArray and InferenceExperimentShadowModelVariantConfigArrayOutput values.
+// You can construct a concrete instance of `InferenceExperimentShadowModelVariantConfigArrayInput` via:
+//
+//	InferenceExperimentShadowModelVariantConfigArray{ InferenceExperimentShadowModelVariantConfigArgs{...} }
+type InferenceExperimentShadowModelVariantConfigArrayInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentShadowModelVariantConfigArrayOutput() InferenceExperimentShadowModelVariantConfigArrayOutput
+	ToInferenceExperimentShadowModelVariantConfigArrayOutputWithContext(context.Context) InferenceExperimentShadowModelVariantConfigArrayOutput
+}
+
+type InferenceExperimentShadowModelVariantConfigArray []InferenceExperimentShadowModelVariantConfigInput
+
+func (InferenceExperimentShadowModelVariantConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceExperimentShadowModelVariantConfig)(nil)).Elem()
+}
+
+func (i InferenceExperimentShadowModelVariantConfigArray) ToInferenceExperimentShadowModelVariantConfigArrayOutput() InferenceExperimentShadowModelVariantConfigArrayOutput {
+	return i.ToInferenceExperimentShadowModelVariantConfigArrayOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentShadowModelVariantConfigArray) ToInferenceExperimentShadowModelVariantConfigArrayOutputWithContext(ctx context.Context) InferenceExperimentShadowModelVariantConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentShadowModelVariantConfigArrayOutput)
+}
+
+// The name and sampling percentage of a shadow variant.
+type InferenceExperimentShadowModelVariantConfigOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentShadowModelVariantConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentShadowModelVariantConfig)(nil)).Elem()
+}
+
+func (o InferenceExperimentShadowModelVariantConfigOutput) ToInferenceExperimentShadowModelVariantConfigOutput() InferenceExperimentShadowModelVariantConfigOutput {
+	return o
+}
+
+func (o InferenceExperimentShadowModelVariantConfigOutput) ToInferenceExperimentShadowModelVariantConfigOutputWithContext(ctx context.Context) InferenceExperimentShadowModelVariantConfigOutput {
+	return o
+}
+
+// The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
+func (o InferenceExperimentShadowModelVariantConfigOutput) SamplingPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v InferenceExperimentShadowModelVariantConfig) int { return v.SamplingPercentage }).(pulumi.IntOutput)
+}
+
+// The name of the shadow variant.
+func (o InferenceExperimentShadowModelVariantConfigOutput) ShadowModelVariantName() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceExperimentShadowModelVariantConfig) string { return v.ShadowModelVariantName }).(pulumi.StringOutput)
+}
+
+type InferenceExperimentShadowModelVariantConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentShadowModelVariantConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceExperimentShadowModelVariantConfig)(nil)).Elem()
+}
+
+func (o InferenceExperimentShadowModelVariantConfigArrayOutput) ToInferenceExperimentShadowModelVariantConfigArrayOutput() InferenceExperimentShadowModelVariantConfigArrayOutput {
+	return o
+}
+
+func (o InferenceExperimentShadowModelVariantConfigArrayOutput) ToInferenceExperimentShadowModelVariantConfigArrayOutputWithContext(ctx context.Context) InferenceExperimentShadowModelVariantConfigArrayOutput {
+	return o
+}
+
+func (o InferenceExperimentShadowModelVariantConfigArrayOutput) Index(i pulumi.IntInput) InferenceExperimentShadowModelVariantConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InferenceExperimentShadowModelVariantConfig {
+		return vs[0].([]InferenceExperimentShadowModelVariantConfig)[vs[1].(int)]
+	}).(InferenceExperimentShadowModelVariantConfigOutput)
+}
+
+// A key-value pair to associate with a resource.
+type InferenceExperimentTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// InferenceExperimentTagInput is an input type that accepts InferenceExperimentTagArgs and InferenceExperimentTagOutput values.
+// You can construct a concrete instance of `InferenceExperimentTagInput` via:
+//
+//	InferenceExperimentTagArgs{...}
+type InferenceExperimentTagInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentTagOutput() InferenceExperimentTagOutput
+	ToInferenceExperimentTagOutputWithContext(context.Context) InferenceExperimentTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type InferenceExperimentTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (InferenceExperimentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentTag)(nil)).Elem()
+}
+
+func (i InferenceExperimentTagArgs) ToInferenceExperimentTagOutput() InferenceExperimentTagOutput {
+	return i.ToInferenceExperimentTagOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentTagArgs) ToInferenceExperimentTagOutputWithContext(ctx context.Context) InferenceExperimentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentTagOutput)
+}
+
+// InferenceExperimentTagArrayInput is an input type that accepts InferenceExperimentTagArray and InferenceExperimentTagArrayOutput values.
+// You can construct a concrete instance of `InferenceExperimentTagArrayInput` via:
+//
+//	InferenceExperimentTagArray{ InferenceExperimentTagArgs{...} }
+type InferenceExperimentTagArrayInput interface {
+	pulumi.Input
+
+	ToInferenceExperimentTagArrayOutput() InferenceExperimentTagArrayOutput
+	ToInferenceExperimentTagArrayOutputWithContext(context.Context) InferenceExperimentTagArrayOutput
+}
+
+type InferenceExperimentTagArray []InferenceExperimentTagInput
+
+func (InferenceExperimentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceExperimentTag)(nil)).Elem()
+}
+
+func (i InferenceExperimentTagArray) ToInferenceExperimentTagArrayOutput() InferenceExperimentTagArrayOutput {
+	return i.ToInferenceExperimentTagArrayOutputWithContext(context.Background())
+}
+
+func (i InferenceExperimentTagArray) ToInferenceExperimentTagArrayOutputWithContext(ctx context.Context) InferenceExperimentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceExperimentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type InferenceExperimentTagOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceExperimentTag)(nil)).Elem()
+}
+
+func (o InferenceExperimentTagOutput) ToInferenceExperimentTagOutput() InferenceExperimentTagOutput {
+	return o
+}
+
+func (o InferenceExperimentTagOutput) ToInferenceExperimentTagOutputWithContext(ctx context.Context) InferenceExperimentTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o InferenceExperimentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceExperimentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o InferenceExperimentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceExperimentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InferenceExperimentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (InferenceExperimentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceExperimentTag)(nil)).Elem()
+}
+
+func (o InferenceExperimentTagArrayOutput) ToInferenceExperimentTagArrayOutput() InferenceExperimentTagArrayOutput {
+	return o
+}
+
+func (o InferenceExperimentTagArrayOutput) ToInferenceExperimentTagArrayOutputWithContext(ctx context.Context) InferenceExperimentTagArrayOutput {
+	return o
+}
+
+func (o InferenceExperimentTagArrayOutput) Index(i pulumi.IntInput) InferenceExperimentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InferenceExperimentTag {
+		return vs[0].([]InferenceExperimentTag)[vs[1].(int)]
+	}).(InferenceExperimentTagOutput)
+}
+
 // The batch transform input for a monitoring job.
 type ModelBiasJobDefinitionBatchTransformInput struct {
 	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
@@ -34783,6 +35995,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTagArrayInput)(nil)).Elem(), FeatureGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTagInput)(nil)).Elem(), ImageTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTagArrayInput)(nil)).Elem(), ImageTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentCaptureContentTypeHeaderInput)(nil)).Elem(), InferenceExperimentCaptureContentTypeHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentCaptureContentTypeHeaderPtrInput)(nil)).Elem(), InferenceExperimentCaptureContentTypeHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentDataStorageConfigInput)(nil)).Elem(), InferenceExperimentDataStorageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentDataStorageConfigPtrInput)(nil)).Elem(), InferenceExperimentDataStorageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentModelInfrastructureConfigInput)(nil)).Elem(), InferenceExperimentModelInfrastructureConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentModelVariantConfigInput)(nil)).Elem(), InferenceExperimentModelVariantConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentModelVariantConfigArrayInput)(nil)).Elem(), InferenceExperimentModelVariantConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentRealTimeInferenceConfigInput)(nil)).Elem(), InferenceExperimentRealTimeInferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentScheduleInput)(nil)).Elem(), InferenceExperimentScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentSchedulePtrInput)(nil)).Elem(), InferenceExperimentScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentShadowModeConfigInput)(nil)).Elem(), InferenceExperimentShadowModeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentShadowModeConfigPtrInput)(nil)).Elem(), InferenceExperimentShadowModeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentShadowModelVariantConfigInput)(nil)).Elem(), InferenceExperimentShadowModelVariantConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentShadowModelVariantConfigArrayInput)(nil)).Elem(), InferenceExperimentShadowModelVariantConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTagInput)(nil)).Elem(), InferenceExperimentTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTagArrayInput)(nil)).Elem(), InferenceExperimentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionClusterConfigInput)(nil)).Elem(), ModelBiasJobDefinitionClusterConfigArgs{})
@@ -35236,6 +36464,24 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ImageTagOutput{})
 	pulumi.RegisterOutputType(ImageTagArrayOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentCaptureContentTypeHeaderOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentCaptureContentTypeHeaderPtrOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentDataStorageConfigOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentDataStorageConfigPtrOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentEndpointMetadataOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentEndpointMetadataPtrOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentModelInfrastructureConfigOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentModelVariantConfigOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentModelVariantConfigArrayOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentRealTimeInferenceConfigOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentScheduleOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentSchedulePtrOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentShadowModeConfigOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentShadowModeConfigPtrOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentShadowModelVariantConfigOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentShadowModelVariantConfigArrayOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentTagOutput{})
+	pulumi.RegisterOutputType(InferenceExperimentTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionClusterConfigOutput{})

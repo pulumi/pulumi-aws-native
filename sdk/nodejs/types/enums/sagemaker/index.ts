@@ -273,6 +273,67 @@ export const FeatureGroupTableFormat = {
  */
 export type FeatureGroupTableFormat = (typeof FeatureGroupTableFormat)[keyof typeof FeatureGroupTableFormat];
 
+export const InferenceExperimentDesiredState = {
+    Running: "Running",
+    Completed: "Completed",
+    Cancelled: "Cancelled",
+} as const;
+
+/**
+ * The desired state of the experiment after starting or stopping operation.
+ */
+export type InferenceExperimentDesiredState = (typeof InferenceExperimentDesiredState)[keyof typeof InferenceExperimentDesiredState];
+
+export const InferenceExperimentEndpointMetadataEndpointStatus = {
+    Creating: "Creating",
+    Updating: "Updating",
+    SystemUpdating: "SystemUpdating",
+    RollingBack: "RollingBack",
+    InService: "InService",
+    OutOfService: "OutOfService",
+    Deleting: "Deleting",
+    Failed: "Failed",
+} as const;
+
+/**
+ * The status of the endpoint. For possible values of the status of an endpoint.
+ */
+export type InferenceExperimentEndpointMetadataEndpointStatus = (typeof InferenceExperimentEndpointMetadataEndpointStatus)[keyof typeof InferenceExperimentEndpointMetadataEndpointStatus];
+
+export const InferenceExperimentModelInfrastructureConfigInfrastructureType = {
+    RealTimeInference: "RealTimeInference",
+} as const;
+
+/**
+ * The type of the inference experiment that you want to run.
+ */
+export type InferenceExperimentModelInfrastructureConfigInfrastructureType = (typeof InferenceExperimentModelInfrastructureConfigInfrastructureType)[keyof typeof InferenceExperimentModelInfrastructureConfigInfrastructureType];
+
+export const InferenceExperimentStatus = {
+    Creating: "Creating",
+    Created: "Created",
+    Updating: "Updating",
+    Starting: "Starting",
+    Stopping: "Stopping",
+    Running: "Running",
+    Completed: "Completed",
+    Cancelled: "Cancelled",
+} as const;
+
+/**
+ * The status of the inference experiment.
+ */
+export type InferenceExperimentStatus = (typeof InferenceExperimentStatus)[keyof typeof InferenceExperimentStatus];
+
+export const InferenceExperimentType = {
+    ShadowMode: "ShadowMode",
+} as const;
+
+/**
+ * The type of the inference experiment that you want to run.
+ */
+export type InferenceExperimentType = (typeof InferenceExperimentType)[keyof typeof InferenceExperimentType];
+
 export const ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",

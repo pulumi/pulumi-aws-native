@@ -26,28 +26,15 @@ type LookupAnalysisArgs struct {
 }
 
 type LookupAnalysisResult struct {
-	// <p>The Amazon Resource Name (ARN) of the analysis.</p>
-	Arn *string `pulumi:"arn"`
-	// <p>The time that the analysis was created.</p>
-	CreatedTime *string `pulumi:"createdTime"`
-	// <p>The ARNs of the datasets of the analysis.</p>
-	DataSetArns []string `pulumi:"dataSetArns"`
-	// <p>Errors associated with the analysis.</p>
-	Errors []AnalysisError `pulumi:"errors"`
-	// <p>The descriptive name of the analysis.</p>
-	Name *string `pulumi:"name"`
-	// <p>A structure that describes the principals and the resource-level permissions on an
-	//             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-	//             providing a list of AWS Identity and Access Management (IAM) action information for each
-	//             principal listed by Amazon Resource Name (ARN). </p>
-	//
-	//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
+	Arn         *string                      `pulumi:"arn"`
+	CreatedTime *string                      `pulumi:"createdTime"`
+	DataSetArns []string                     `pulumi:"dataSetArns"`
+	Errors      []AnalysisError              `pulumi:"errors"`
+	Name        *string                      `pulumi:"name"`
 	Permissions []AnalysisResourcePermission `pulumi:"permissions"`
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-	//             analysis.</p>
-	Tags []AnalysisTag `pulumi:"tags"`
-	// <p>The ARN of the theme of the analysis.</p>
-	ThemeArn *string `pulumi:"themeArn"`
+	Status      *AnalysisResourceStatus      `pulumi:"status"`
+	Tags        []AnalysisTag                `pulumi:"tags"`
+	ThemeArn    *string                      `pulumi:"themeArn"`
 }
 
 func LookupAnalysisOutput(ctx *pulumi.Context, args LookupAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupAnalysisResultOutput {
@@ -86,50 +73,38 @@ func (o LookupAnalysisResultOutput) ToLookupAnalysisResultOutputWithContext(ctx 
 	return o
 }
 
-// <p>The Amazon Resource Name (ARN) of the analysis.</p>
 func (o LookupAnalysisResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// <p>The time that the analysis was created.</p>
 func (o LookupAnalysisResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// <p>The ARNs of the datasets of the analysis.</p>
 func (o LookupAnalysisResultOutput) DataSetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []string { return v.DataSetArns }).(pulumi.StringArrayOutput)
 }
 
-// <p>Errors associated with the analysis.</p>
 func (o LookupAnalysisResultOutput) Errors() AnalysisErrorArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisError { return v.Errors }).(AnalysisErrorArrayOutput)
 }
 
-// <p>The descriptive name of the analysis.</p>
 func (o LookupAnalysisResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// <p>A structure that describes the principals and the resource-level permissions on an
-//
-//	    analysis. You can use the <code>Permissions</code> structure to grant permissions by
-//	    providing a list of AWS Identity and Access Management (IAM) action information for each
-//	    principal listed by Amazon Resource Name (ARN). </p>
-//
-//	<p>To specify no permissions, omit <code>Permissions</code>.</p>
 func (o LookupAnalysisResultOutput) Permissions() AnalysisResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisResourcePermission { return v.Permissions }).(AnalysisResourcePermissionArrayOutput)
 }
 
-// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-//
-//	analysis.</p>
+func (o LookupAnalysisResultOutput) Status() AnalysisResourceStatusPtrOutput {
+	return o.ApplyT(func(v LookupAnalysisResult) *AnalysisResourceStatus { return v.Status }).(AnalysisResourceStatusPtrOutput)
+}
+
 func (o LookupAnalysisResultOutput) Tags() AnalysisTagArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisTag { return v.Tags }).(AnalysisTagArrayOutput)
 }
 
-// <p>The ARN of the theme of the analysis.</p>
 func (o LookupAnalysisResultOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }

@@ -63,11 +63,17 @@ namespace Pulumi.AwsNative.OpenSearchService
         [Output("nodeToNodeEncryptionOptions")]
         public Output<Outputs.DomainNodeToNodeEncryptionOptions?> NodeToNodeEncryptionOptions { get; private set; } = null!;
 
+        [Output("offPeakWindowOptions")]
+        public Output<Outputs.DomainOffPeakWindowOptions?> OffPeakWindowOptions { get; private set; } = null!;
+
         [Output("serviceSoftwareOptions")]
         public Output<Outputs.DomainServiceSoftwareOptions> ServiceSoftwareOptions { get; private set; } = null!;
 
         [Output("snapshotOptions")]
         public Output<Outputs.DomainSnapshotOptions?> SnapshotOptions { get; private set; } = null!;
+
+        [Output("softwareUpdateOptions")]
+        public Output<Outputs.DomainSoftwareUpdateOptions?> SoftwareUpdateOptions { get; private set; } = null!;
 
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this Domain.
@@ -159,8 +165,14 @@ namespace Pulumi.AwsNative.OpenSearchService
         [Input("nodeToNodeEncryptionOptions")]
         public Input<Inputs.DomainNodeToNodeEncryptionOptionsArgs>? NodeToNodeEncryptionOptions { get; set; }
 
+        [Input("offPeakWindowOptions")]
+        public Input<Inputs.DomainOffPeakWindowOptionsArgs>? OffPeakWindowOptions { get; set; }
+
         [Input("snapshotOptions")]
         public Input<Inputs.DomainSnapshotOptionsArgs>? SnapshotOptions { get; set; }
+
+        [Input("softwareUpdateOptions")]
+        public Input<Inputs.DomainSoftwareUpdateOptionsArgs>? SoftwareUpdateOptions { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DomainTagArgs>? _tags;

@@ -35,10 +35,6 @@ export interface GetWorkGroupResult {
      */
     readonly description?: string;
     /**
-     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
-     */
-    readonly recursiveDeleteOption?: boolean;
-    /**
      * The state of the workgroup: ENABLED or DISABLED.
      */
     readonly state?: enums.athena.WorkGroupState;

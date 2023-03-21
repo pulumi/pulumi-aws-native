@@ -16,35 +16,51 @@ namespace Pulumi.AwsNative.Athena.Outputs
     [OutputType]
     public sealed class WorkGroupConfigurationUpdates
     {
+        public readonly string? AdditionalConfiguration;
         public readonly int? BytesScannedCutoffPerQuery;
+        public readonly Outputs.WorkGroupCustomerContentEncryptionConfiguration? CustomerContentEncryptionConfiguration;
         public readonly bool? EnforceWorkGroupConfiguration;
         public readonly Outputs.WorkGroupEngineVersion? EngineVersion;
+        public readonly string? ExecutionRole;
         public readonly bool? PublishCloudWatchMetricsEnabled;
         public readonly bool? RemoveBytesScannedCutoffPerQuery;
+        public readonly bool? RemoveCustomerContentEncryptionConfiguration;
         public readonly bool? RequesterPaysEnabled;
         public readonly Outputs.WorkGroupResultConfigurationUpdates? ResultConfigurationUpdates;
 
         [OutputConstructor]
         private WorkGroupConfigurationUpdates(
+            string? additionalConfiguration,
+
             int? bytesScannedCutoffPerQuery,
+
+            Outputs.WorkGroupCustomerContentEncryptionConfiguration? customerContentEncryptionConfiguration,
 
             bool? enforceWorkGroupConfiguration,
 
             Outputs.WorkGroupEngineVersion? engineVersion,
 
+            string? executionRole,
+
             bool? publishCloudWatchMetricsEnabled,
 
             bool? removeBytesScannedCutoffPerQuery,
+
+            bool? removeCustomerContentEncryptionConfiguration,
 
             bool? requesterPaysEnabled,
 
             Outputs.WorkGroupResultConfigurationUpdates? resultConfigurationUpdates)
         {
+            AdditionalConfiguration = additionalConfiguration;
             BytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
+            CustomerContentEncryptionConfiguration = customerContentEncryptionConfiguration;
             EnforceWorkGroupConfiguration = enforceWorkGroupConfiguration;
             EngineVersion = engineVersion;
+            ExecutionRole = executionRole;
             PublishCloudWatchMetricsEnabled = publishCloudWatchMetricsEnabled;
             RemoveBytesScannedCutoffPerQuery = removeBytesScannedCutoffPerQuery;
+            RemoveCustomerContentEncryptionConfiguration = removeCustomerContentEncryptionConfiguration;
             RequesterPaysEnabled = requesterPaysEnabled;
             ResultConfigurationUpdates = resultConfigurationUpdates;
         }

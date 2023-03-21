@@ -66,10 +66,6 @@ namespace Pulumi.AwsNative.Athena
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
-        /// </summary>
-        public readonly bool? RecursiveDeleteOption;
-        /// <summary>
         /// The state of the workgroup: ENABLED or DISABLED.
         /// </summary>
         public readonly Pulumi.AwsNative.Athena.WorkGroupState? State;
@@ -88,8 +84,6 @@ namespace Pulumi.AwsNative.Athena
 
             string? description,
 
-            bool? recursiveDeleteOption,
-
             Pulumi.AwsNative.Athena.WorkGroupState? state,
 
             ImmutableArray<Outputs.WorkGroupTag> tags,
@@ -98,7 +92,6 @@ namespace Pulumi.AwsNative.Athena
         {
             CreationTime = creationTime;
             Description = description;
-            RecursiveDeleteOption = recursiveDeleteOption;
             State = state;
             Tags = tags;
             WorkGroupConfiguration = workGroupConfiguration;

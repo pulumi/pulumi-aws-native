@@ -18,29 +18,26 @@ __all__ = ['TemplateArgs', 'Template']
 class TemplateArgs:
     def __init__(__self__, *,
                  aws_account_id: pulumi.Input[str],
-                 source_entity: pulumi.Input['TemplateSourceEntityArgs'],
                  template_id: pulumi.Input[str],
+                 definition: Optional[pulumi.Input['TemplateVersionDefinitionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]] = None,
+                 source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Template resource.
-        :param pulumi.Input[str] name: <p>A display name for the template.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]] permissions: <p>A list of resource permissions to be set on the template. </p>
-        :param pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-        :param pulumi.Input[str] version_description: <p>A description of the current template version being created. This API operation creates the
-               			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
-               			version is created. Each version of the template maintains a description of the version
-               			in the <code>VersionDescription</code> field.</p>
         """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
-        pulumi.set(__self__, "source_entity", source_entity)
         pulumi.set(__self__, "template_id", template_id)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if source_entity is not None:
+            pulumi.set(__self__, "source_entity", source_entity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version_description is not None:
@@ -56,15 +53,6 @@ class TemplateArgs:
         pulumi.set(self, "aws_account_id", value)
 
     @property
-    @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Input['TemplateSourceEntityArgs']:
-        return pulumi.get(self, "source_entity")
-
-    @source_entity.setter
-    def source_entity(self, value: pulumi.Input['TemplateSourceEntityArgs']):
-        pulumi.set(self, "source_entity", value)
-
-    @property
     @pulumi.getter(name="templateId")
     def template_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "template_id")
@@ -75,10 +63,16 @@ class TemplateArgs:
 
     @property
     @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input['TemplateVersionDefinitionArgs']]:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input['TemplateVersionDefinitionArgs']]):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>A display name for the template.</p>
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -88,9 +82,6 @@ class TemplateArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]]:
-        """
-        <p>A list of resource permissions to be set on the template. </p>
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -98,11 +89,17 @@ class TemplateArgs:
         pulumi.set(self, "permissions", value)
 
     @property
+    @pulumi.getter(name="sourceEntity")
+    def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArgs']]:
+        return pulumi.get(self, "source_entity")
+
+    @source_entity.setter
+    def source_entity(self, value: Optional[pulumi.Input['TemplateSourceEntityArgs']]):
+        pulumi.set(self, "source_entity", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]]:
-        """
-        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -112,12 +109,6 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>A description of the current template version being created. This API operation creates the
-        			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
-        			version is created. Each version of the template maintains a description of the version
-        			in the <code>VersionDescription</code> field.</p>
-        """
         return pulumi.get(self, "version_description")
 
     @version_description.setter
@@ -131,6 +122,7 @@ class Template(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['TemplateVersionDefinitionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']]] = None,
@@ -143,13 +135,6 @@ class Template(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: <p>A display name for the template.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]] permissions: <p>A list of resource permissions to be set on the template. </p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-        :param pulumi.Input[str] version_description: <p>A description of the current template version being created. This API operation creates the
-               			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
-               			version is created. Each version of the template maintains a description of the version
-               			in the <code>VersionDescription</code> field.</p>
         """
         ...
     @overload
@@ -176,6 +161,7 @@ class Template(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['TemplateVersionDefinitionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']]] = None,
@@ -194,10 +180,9 @@ class Template(pulumi.CustomResource):
             if aws_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_account_id'")
             __props__.__dict__["aws_account_id"] = aws_account_id
+            __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
-            if source_entity is None and not opts.urn:
-                raise TypeError("Missing required property 'source_entity'")
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             if template_id is None and not opts.urn:
@@ -233,6 +218,7 @@ class Template(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_account_id"] = None
         __props__.__dict__["created_time"] = None
+        __props__.__dict__["definition"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["permissions"] = None
@@ -246,9 +232,6 @@ class Template(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the template.</p>
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -259,46 +242,36 @@ class Template(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
-        """
-        <p>Time when this was created.</p>
-        """
         return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Output[Optional['outputs.TemplateVersionDefinition']]:
+        return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
-        """
-        <p>Time when this was last updated.</p>
-        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
-        """
-        <p>A display name for the template.</p>
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.TemplateResourcePermission']]]:
-        """
-        <p>A list of resource permissions to be set on the template. </p>
-        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Output['outputs.TemplateSourceEntity']:
+    def source_entity(self) -> pulumi.Output[Optional['outputs.TemplateSourceEntity']]:
         return pulumi.get(self, "source_entity")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TemplateTag']]]:
-        """
-        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -314,11 +287,5 @@ class Template(pulumi.CustomResource):
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[Optional[str]]:
-        """
-        <p>A description of the current template version being created. This API operation creates the
-        			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
-        			version is created. Each version of the template maintains a description of the version
-        			in the <code>VersionDescription</code> field.</p>
-        """
         return pulumi.get(self, "version_description")
 

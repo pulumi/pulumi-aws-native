@@ -24,6 +24,15 @@ export const WorkGroupEncryptionOption = {
  */
 export type WorkGroupEncryptionOption = (typeof WorkGroupEncryptionOption)[keyof typeof WorkGroupEncryptionOption];
 
+export const WorkGroupS3AclOption = {
+    BucketOwnerFullControl: "BUCKET_OWNER_FULL_CONTROL",
+} as const;
+
+/**
+ * The Amazon S3 canned ACL that Athena should specify when storing query results. Currently the only supported canned ACL is BUCKET_OWNER_FULL_CONTROL
+ */
+export type WorkGroupS3AclOption = (typeof WorkGroupS3AclOption)[keyof typeof WorkGroupS3AclOption];
+
 export const WorkGroupState = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

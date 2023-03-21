@@ -113,9 +113,10 @@ class AssistantTagArgs:
 class KnowledgeBaseAppIntegrationsConfigurationArgs:
     def __init__(__self__, *,
                  app_integration_arn: pulumi.Input[str],
-                 object_fields: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 object_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "app_integration_arn", app_integration_arn)
-        pulumi.set(__self__, "object_fields", object_fields)
+        if object_fields is not None:
+            pulumi.set(__self__, "object_fields", object_fields)
 
     @property
     @pulumi.getter(name="appIntegrationArn")
@@ -128,11 +129,11 @@ class KnowledgeBaseAppIntegrationsConfigurationArgs:
 
     @property
     @pulumi.getter(name="objectFields")
-    def object_fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def object_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "object_fields")
 
     @object_fields.setter
-    def object_fields(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def object_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "object_fields", value)
 
 

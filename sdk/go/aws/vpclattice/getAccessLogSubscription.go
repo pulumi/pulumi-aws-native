@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Delivers logs from a Mesh or Service to the provided destination
+// Delivers logs from a Service Network or Service to the provided destination
 func LookupAccessLogSubscription(ctx *pulumi.Context, args *LookupAccessLogSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupAccessLogSubscriptionResult, error) {
 	var rv LookupAccessLogSubscriptionResult
 	err := ctx.Invoke("aws-native:vpclattice:getAccessLogSubscription", args, &rv, opts...)

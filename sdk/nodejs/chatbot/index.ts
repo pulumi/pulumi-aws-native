@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetMicrosoftTeamsChannelConfigurationArgs, GetMicrosoftTeamsChannelConfigurationResult, GetMicrosoftTeamsChannelConfigurationOutputArgs } from "./getMicrosoftTeamsChannelConfiguration";
+export const getMicrosoftTeamsChannelConfiguration: typeof import("./getMicrosoftTeamsChannelConfiguration").getMicrosoftTeamsChannelConfiguration = null as any;
+export const getMicrosoftTeamsChannelConfigurationOutput: typeof import("./getMicrosoftTeamsChannelConfiguration").getMicrosoftTeamsChannelConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getMicrosoftTeamsChannelConfiguration","getMicrosoftTeamsChannelConfigurationOutput"], () => require("./getMicrosoftTeamsChannelConfiguration"));
+
 export { GetSlackChannelConfigurationArgs, GetSlackChannelConfigurationResult, GetSlackChannelConfigurationOutputArgs } from "./getSlackChannelConfiguration";
 export const getSlackChannelConfiguration: typeof import("./getSlackChannelConfiguration").getSlackChannelConfiguration = null as any;
 export const getSlackChannelConfigurationOutput: typeof import("./getSlackChannelConfiguration").getSlackChannelConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getSlackChannelConfiguration","getSlackChannelConfigurationOutput"], () => require("./getSlackChannelConfiguration"));
+
+export { MicrosoftTeamsChannelConfigurationArgs } from "./microsoftTeamsChannelConfiguration";
+export type MicrosoftTeamsChannelConfiguration = import("./microsoftTeamsChannelConfiguration").MicrosoftTeamsChannelConfiguration;
+export const MicrosoftTeamsChannelConfiguration: typeof import("./microsoftTeamsChannelConfiguration").MicrosoftTeamsChannelConfiguration = null as any;
+utilities.lazyLoad(exports, ["MicrosoftTeamsChannelConfiguration"], () => require("./microsoftTeamsChannelConfiguration"));
 
 export { SlackChannelConfigurationArgs } from "./slackChannelConfiguration";
 export type SlackChannelConfiguration = import("./slackChannelConfiguration").SlackChannelConfiguration;
@@ -20,6 +30,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:chatbot:MicrosoftTeamsChannelConfiguration":
+                return new MicrosoftTeamsChannelConfiguration(name, <any>undefined, { urn })
             case "aws-native:chatbot:SlackChannelConfiguration":
                 return new SlackChannelConfiguration(name, <any>undefined, { urn })
             default:

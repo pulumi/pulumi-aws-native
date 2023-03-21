@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'DataCatalogType',
     'WorkGroupEncryptionOption',
+    'WorkGroupS3AclOption',
     'WorkGroupState',
 ]
 
@@ -27,6 +28,13 @@ class WorkGroupEncryptionOption(str, Enum):
     SSE_S3 = "SSE_S3"
     SSE_KMS = "SSE_KMS"
     CSE_KMS = "CSE_KMS"
+
+
+class WorkGroupS3AclOption(str, Enum):
+    """
+    The Amazon S3 canned ACL that Athena should specify when storing query results. Currently the only supported canned ACL is BUCKET_OWNER_FULL_CONTROL
+    """
+    BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL"
 
 
 class WorkGroupState(str, Enum):

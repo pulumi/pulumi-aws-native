@@ -31,8 +31,8 @@ class GetVPCEndpointResult:
         if network_interface_ids and not isinstance(network_interface_ids, list):
             raise TypeError("Expected argument 'network_interface_ids' to be a list")
         pulumi.set(__self__, "network_interface_ids", network_interface_ids)
-        if policy_document and not isinstance(policy_document, dict):
-            raise TypeError("Expected argument 'policy_document' to be a dict")
+        if policy_document and not isinstance(policy_document, str):
+            raise TypeError("Expected argument 'policy_document' to be a str")
         pulumi.set(__self__, "policy_document", policy_document)
         if private_dns_enabled and not isinstance(private_dns_enabled, bool):
             raise TypeError("Expected argument 'private_dns_enabled' to be a bool")
@@ -69,27 +69,42 @@ class GetVPCEndpointResult:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Optional[Any]:
+    def policy_document(self) -> Optional[str]:
+        """
+        A policy to attach to the endpoint that controls access to the service.
+        """
         return pulumi.get(self, "policy_document")
 
     @property
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> Optional[bool]:
+        """
+        Indicate whether to associate a private hosted zone with the specified VPC.
+        """
         return pulumi.get(self, "private_dns_enabled")
 
     @property
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> Optional[Sequence[str]]:
+        """
+        One or more route table IDs.
+        """
         return pulumi.get(self, "route_table_ids")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        The ID of one or more security groups to associate with the endpoint network interface.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The ID of one or more subnets in which to create an endpoint network interface.
+        """
         return pulumi.get(self, "subnet_ids")
 
 

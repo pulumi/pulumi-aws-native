@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.Cassandra
         public Output<Outputs.TableBillingMode?> BillingMode { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
+        /// </summary>
+        [Output("clientSideTimestampsEnabled")]
+        public Output<bool?> ClientSideTimestampsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Clustering key columns of the table
         /// </summary>
         [Output("clusteringKeyColumns")]
@@ -116,6 +122,12 @@ namespace Pulumi.AwsNative.Cassandra
     {
         [Input("billingMode")]
         public Input<Inputs.TableBillingModeArgs>? BillingMode { get; set; }
+
+        /// <summary>
+        /// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
+        /// </summary>
+        [Input("clientSideTimestampsEnabled")]
+        public Input<bool>? ClientSideTimestampsEnabled { get; set; }
 
         [Input("clusteringKeyColumns")]
         private InputList<Inputs.TableClusteringKeyColumnArgs>? _clusteringKeyColumns;

@@ -46,7 +46,6 @@ export type ServiceNetworkAuthType = (typeof ServiceNetworkAuthType)[keyof typeo
 export const ServiceNetworkServiceAssociationStatus = {
     CreateInProgress: "CREATE_IN_PROGRESS",
     Active: "ACTIVE",
-    UpdateInProgress: "UPDATE_IN_PROGRESS",
     DeleteInProgress: "DELETE_IN_PROGRESS",
     CreateFailed: "CREATE_FAILED",
     DeleteFailed: "DELETE_FAILED",

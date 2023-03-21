@@ -19,41 +19,32 @@ class DashboardArgs:
     def __init__(__self__, *,
                  aws_account_id: pulumi.Input[str],
                  dashboard_id: pulumi.Input[str],
-                 source_entity: pulumi.Input['DashboardSourceEntityArgs'],
                  dashboard_publish_options: Optional[pulumi.Input['DashboardPublishOptionsArgs']] = None,
+                 definition: Optional[pulumi.Input['DashboardVersionDefinitionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['DashboardParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]] = None,
+                 source_entity: Optional[pulumi.Input['DashboardSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
-        :param pulumi.Input[str] name: <p>The display name of the dashboard.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]] permissions: <p>A structure that contains the permissions of the dashboard. You can use this structure
-                           for granting permissions by providing a list of IAM action information for each
-                           principal ARN. </p>
-               
-                       <p>To specify no permissions, omit the permissions list.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-                           dashboard.</p>
-        :param pulumi.Input[str] theme_arn: <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-                           you add a value for this field, it overrides the value that is used in the source
-                           entity. The theme ARN must exist in the same AWS account where you create the
-                           dashboard.</p>
-        :param pulumi.Input[str] version_description: <p>A description for the first version of the dashboard being created.</p>
         """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
         pulumi.set(__self__, "dashboard_id", dashboard_id)
-        pulumi.set(__self__, "source_entity", source_entity)
         if dashboard_publish_options is not None:
             pulumi.set(__self__, "dashboard_publish_options", dashboard_publish_options)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if source_entity is not None:
+            pulumi.set(__self__, "source_entity", source_entity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if theme_arn is not None:
@@ -80,15 +71,6 @@ class DashboardArgs:
         pulumi.set(self, "dashboard_id", value)
 
     @property
-    @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Input['DashboardSourceEntityArgs']:
-        return pulumi.get(self, "source_entity")
-
-    @source_entity.setter
-    def source_entity(self, value: pulumi.Input['DashboardSourceEntityArgs']):
-        pulumi.set(self, "source_entity", value)
-
-    @property
     @pulumi.getter(name="dashboardPublishOptions")
     def dashboard_publish_options(self) -> Optional[pulumi.Input['DashboardPublishOptionsArgs']]:
         return pulumi.get(self, "dashboard_publish_options")
@@ -99,10 +81,16 @@ class DashboardArgs:
 
     @property
     @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input['DashboardVersionDefinitionArgs']]:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input['DashboardVersionDefinitionArgs']]):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The display name of the dashboard.</p>
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -121,13 +109,6 @@ class DashboardArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]]:
-        """
-        <p>A structure that contains the permissions of the dashboard. You can use this structure
-                    for granting permissions by providing a list of IAM action information for each
-                    principal ARN. </p>
-
-                <p>To specify no permissions, omit the permissions list.</p>
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -135,12 +116,17 @@ class DashboardArgs:
         pulumi.set(self, "permissions", value)
 
     @property
+    @pulumi.getter(name="sourceEntity")
+    def source_entity(self) -> Optional[pulumi.Input['DashboardSourceEntityArgs']]:
+        return pulumi.get(self, "source_entity")
+
+    @source_entity.setter
+    def source_entity(self, value: Optional[pulumi.Input['DashboardSourceEntityArgs']]):
+        pulumi.set(self, "source_entity", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]]:
-        """
-        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-                    dashboard.</p>
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -150,12 +136,6 @@ class DashboardArgs:
     @property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-                    you add a value for this field, it overrides the value that is used in the source
-                    entity. The theme ARN must exist in the same AWS account where you create the
-                    dashboard.</p>
-        """
         return pulumi.get(self, "theme_arn")
 
     @theme_arn.setter
@@ -165,9 +145,6 @@ class DashboardArgs:
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>A description for the first version of the dashboard being created.</p>
-        """
         return pulumi.get(self, "version_description")
 
     @version_description.setter
@@ -183,6 +160,7 @@ class Dashboard(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dashboard_id: Optional[pulumi.Input[str]] = None,
                  dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardPublishOptionsArgs']]] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['DashboardVersionDefinitionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]]] = None,
@@ -196,19 +174,6 @@ class Dashboard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: <p>The display name of the dashboard.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]] permissions: <p>A structure that contains the permissions of the dashboard. You can use this structure
-                           for granting permissions by providing a list of IAM action information for each
-                           principal ARN. </p>
-               
-                       <p>To specify no permissions, omit the permissions list.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-                           dashboard.</p>
-        :param pulumi.Input[str] theme_arn: <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-                           you add a value for this field, it overrides the value that is used in the source
-                           entity. The theme ARN must exist in the same AWS account where you create the
-                           dashboard.</p>
-        :param pulumi.Input[str] version_description: <p>A description for the first version of the dashboard being created.</p>
         """
         ...
     @overload
@@ -237,6 +202,7 @@ class Dashboard(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dashboard_id: Optional[pulumi.Input[str]] = None,
                  dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardPublishOptionsArgs']]] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['DashboardVersionDefinitionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]]] = None,
@@ -260,11 +226,10 @@ class Dashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dashboard_id'")
             __props__.__dict__["dashboard_id"] = dashboard_id
             __props__.__dict__["dashboard_publish_options"] = dashboard_publish_options
+            __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
-            if source_entity is None and not opts.urn:
-                raise TypeError("Missing required property 'source_entity'")
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn
@@ -301,6 +266,7 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["created_time"] = None
         __props__.__dict__["dashboard_id"] = None
         __props__.__dict__["dashboard_publish_options"] = None
+        __props__.__dict__["definition"] = None
         __props__.__dict__["last_published_time"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["name"] = None
@@ -316,9 +282,6 @@ class Dashboard(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the resource.</p>
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -329,9 +292,6 @@ class Dashboard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
-        """
-        <p>The time that this dataset was created.</p>
-        """
         return pulumi.get(self, "created_time")
 
     @property
@@ -345,27 +305,23 @@ class Dashboard(pulumi.CustomResource):
         return pulumi.get(self, "dashboard_publish_options")
 
     @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Output[Optional['outputs.DashboardVersionDefinition']]:
+        return pulumi.get(self, "definition")
+
+    @property
     @pulumi.getter(name="lastPublishedTime")
     def last_published_time(self) -> pulumi.Output[str]:
-        """
-        <p>The last time that this dataset was published.</p>
-        """
         return pulumi.get(self, "last_published_time")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
-        """
-        <p>The last time that this dataset was updated.</p>
-        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
-        """
-        <p>The display name of the dashboard.</p>
-        """
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
@@ -376,38 +332,21 @@ class Dashboard(pulumi.CustomResource):
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardResourcePermission']]]:
-        """
-        <p>A structure that contains the permissions of the dashboard. You can use this structure
-                    for granting permissions by providing a list of IAM action information for each
-                    principal ARN. </p>
-
-                <p>To specify no permissions, omit the permissions list.</p>
-        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Output['outputs.DashboardSourceEntity']:
+    def source_entity(self) -> pulumi.Output[Optional['outputs.DashboardSourceEntity']]:
         return pulumi.get(self, "source_entity")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardTag']]]:
-        """
-        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-                    dashboard.</p>
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-                    you add a value for this field, it overrides the value that is used in the source
-                    entity. The theme ARN must exist in the same AWS account where you create the
-                    dashboard.</p>
-        """
         return pulumi.get(self, "theme_arn")
 
     @property
@@ -418,8 +357,5 @@ class Dashboard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[Optional[str]]:
-        """
-        <p>A description for the first version of the dashboard being created.</p>
-        """
         return pulumi.get(self, "version_description")
 

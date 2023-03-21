@@ -10,21 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The key or keys of the key-value pairs for the resource tag or tags assigned to the
-    ///             resource.&lt;/p&gt;
-    /// </summary>
     public sealed class AnalysisTagArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// &lt;p&gt;Tag key.&lt;/p&gt;
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;Tag value.&lt;/p&gt;
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

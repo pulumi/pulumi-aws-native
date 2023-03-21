@@ -220,6 +220,7 @@ class StateMachine(pulumi.CustomResource):
             __props__.__dict__["tracing_configuration"] = tracing_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["state_machine_revision_id"] = None
         super(StateMachine, __self__).__init__(
             'aws-native:stepfunctions:StateMachine',
             resource_name,
@@ -251,6 +252,7 @@ class StateMachine(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["state_machine_name"] = None
+        __props__.__dict__["state_machine_revision_id"] = None
         __props__.__dict__["state_machine_type"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tracing_configuration"] = None
@@ -300,6 +302,11 @@ class StateMachine(pulumi.CustomResource):
     @pulumi.getter(name="stateMachineName")
     def state_machine_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "state_machine_name")
+
+    @property
+    @pulumi.getter(name="stateMachineRevisionId")
+    def state_machine_revision_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "state_machine_revision_id")
 
     @property
     @pulumi.getter(name="stateMachineType")

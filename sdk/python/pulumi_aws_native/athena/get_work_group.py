@@ -20,16 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkGroupResult:
-    def __init__(__self__, creation_time=None, description=None, recursive_delete_option=None, state=None, tags=None, work_group_configuration=None):
+    def __init__(__self__, creation_time=None, description=None, state=None, tags=None, work_group_configuration=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if recursive_delete_option and not isinstance(recursive_delete_option, bool):
-            raise TypeError("Expected argument 'recursive_delete_option' to be a bool")
-        pulumi.set(__self__, "recursive_delete_option", recursive_delete_option)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -55,14 +52,6 @@ class GetWorkGroupResult:
         The workgroup description.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="recursiveDeleteOption")
-    def recursive_delete_option(self) -> Optional[bool]:
-        """
-        The option to delete the workgroup and its contents even if the workgroup contains any named queries.
-        """
-        return pulumi.get(self, "recursive_delete_option")
 
     @property
     @pulumi.getter
@@ -97,7 +86,6 @@ class AwaitableGetWorkGroupResult(GetWorkGroupResult):
         return GetWorkGroupResult(
             creation_time=self.creation_time,
             description=self.description,
-            recursive_delete_option=self.recursive_delete_option,
             state=self.state,
             tags=self.tags,
             work_group_configuration=self.work_group_configuration)
@@ -119,7 +107,6 @@ def get_work_group(name: Optional[str] = None,
     return AwaitableGetWorkGroupResult(
         creation_time=__ret__.creation_time,
         description=__ret__.description,
-        recursive_delete_option=__ret__.recursive_delete_option,
         state=__ret__.state,
         tags=__ret__.tags,
         work_group_configuration=__ret__.work_group_configuration)

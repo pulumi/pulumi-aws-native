@@ -57,31 +57,12 @@ namespace Pulumi.AwsNative.QuickSight
     [OutputType]
     public sealed class GetDashboardResult
     {
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
-        /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// &lt;p&gt;The last time that this dataset was published.&lt;/p&gt;
-        /// </summary>
         public readonly string? LastPublishedTime;
-        /// <summary>
-        /// &lt;p&gt;The display name of the dashboard.&lt;/p&gt;
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// &lt;p&gt;A structure that contains the permissions of the dashboard. You can use this structure
-        ///             for granting permissions by providing a list of IAM action information for each
-        ///             principal ARN. &lt;/p&gt;
-        /// 
-        ///         &lt;p&gt;To specify no permissions, omit the permissions list.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardResourcePermission> Permissions;
-        /// <summary>
-        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the
-        ///             dashboard.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardTag> Tags;
+        public readonly Outputs.DashboardVersion? Version;
 
         [OutputConstructor]
         private GetDashboardResult(
@@ -93,13 +74,16 @@ namespace Pulumi.AwsNative.QuickSight
 
             ImmutableArray<Outputs.DashboardResourcePermission> permissions,
 
-            ImmutableArray<Outputs.DashboardTag> tags)
+            ImmutableArray<Outputs.DashboardTag> tags,
+
+            Outputs.DashboardVersion? version)
         {
             Arn = arn;
             LastPublishedTime = lastPublishedTime;
             Name = name;
             Permissions = permissions;
             Tags = tags;
+            Version = version;
         }
     }
 }

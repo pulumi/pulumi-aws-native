@@ -24,6 +24,7 @@ type StateMachine struct {
 	Name                    pulumi.StringOutput                          `pulumi:"name"`
 	RoleArn                 pulumi.StringOutput                          `pulumi:"roleArn"`
 	StateMachineName        pulumi.StringPtrOutput                       `pulumi:"stateMachineName"`
+	StateMachineRevisionId  pulumi.StringOutput                          `pulumi:"stateMachineRevisionId"`
 	StateMachineType        StateMachineTypePtrOutput                    `pulumi:"stateMachineType"`
 	Tags                    StateMachineTagsEntryArrayOutput             `pulumi:"tags"`
 	TracingConfiguration    StateMachineTracingConfigurationPtrOutput    `pulumi:"tracingConfiguration"`
@@ -168,6 +169,10 @@ func (o StateMachineOutput) RoleArn() pulumi.StringOutput {
 
 func (o StateMachineOutput) StateMachineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringPtrOutput { return v.StateMachineName }).(pulumi.StringPtrOutput)
+}
+
+func (o StateMachineOutput) StateMachineRevisionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.StateMachineRevisionId }).(pulumi.StringOutput)
 }
 
 func (o StateMachineOutput) StateMachineType() StateMachineTypePtrOutput {

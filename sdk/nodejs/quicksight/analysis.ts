@@ -38,55 +38,20 @@ export class Analysis extends pulumi.CustomResource {
     }
 
     public readonly analysisId!: pulumi.Output<string>;
-    /**
-     * <p>The Amazon Resource Name (ARN) of the analysis.</p>
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly awsAccountId!: pulumi.Output<string>;
-    /**
-     * <p>The time that the analysis was created.</p>
-     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * <p>The ARNs of the datasets of the analysis.</p>
-     */
     public /*out*/ readonly dataSetArns!: pulumi.Output<string[]>;
-    /**
-     * <p>Errors associated with the analysis.</p>
-     */
-    public readonly errors!: pulumi.Output<outputs.quicksight.AnalysisError[] | undefined>;
-    /**
-     * <p>The time that the analysis was last updated.</p>
-     */
+    public readonly definition!: pulumi.Output<outputs.quicksight.AnalysisDefinition | undefined>;
+    public /*out*/ readonly errors!: pulumi.Output<outputs.quicksight.AnalysisError[]>;
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
-    /**
-     * <p>The descriptive name of the analysis.</p>
-     */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters | undefined>;
-    /**
-     * <p>A structure that describes the principals and the resource-level permissions on an
-     *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-     *             providing a list of AWS Identity and Access Management (IAM) action information for each
-     *             principal listed by Amazon Resource Name (ARN). </p>
-     *
-     *         <p>To specify no permissions, omit <code>Permissions</code>.</p>
-     */
     public readonly permissions!: pulumi.Output<outputs.quicksight.AnalysisResourcePermission[] | undefined>;
-    /**
-     * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-     */
     public /*out*/ readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[]>;
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity>;
-    public /*out*/ readonly status!: pulumi.Output<enums.quicksight.AnalysisResourceStatus>;
-    /**
-     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-     *             analysis.</p>
-     */
+    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
+    public readonly status!: pulumi.Output<enums.quicksight.AnalysisResourceStatus | undefined>;
     public readonly tags!: pulumi.Output<outputs.quicksight.AnalysisTag[] | undefined>;
-    /**
-     * <p>The ARN of the theme of the analysis.</p>
-     */
     public readonly themeArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -106,30 +71,29 @@ export class Analysis extends pulumi.CustomResource {
             if ((!args || args.awsAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            if ((!args || args.sourceEntity === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sourceEntity'");
-            }
             resourceInputs["analysisId"] = args ? args.analysisId : undefined;
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["errors"] = args ? args.errors : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["themeArn"] = args ? args.themeArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["dataSetArns"] = undefined /*out*/;
+            resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["sheets"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["analysisId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["dataSetArns"] = undefined /*out*/;
+            resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -152,32 +116,12 @@ export class Analysis extends pulumi.CustomResource {
 export interface AnalysisArgs {
     analysisId: pulumi.Input<string>;
     awsAccountId: pulumi.Input<string>;
-    /**
-     * <p>Errors associated with the analysis.</p>
-     */
-    errors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisErrorArgs>[]>;
-    /**
-     * <p>The descriptive name of the analysis.</p>
-     */
+    definition?: pulumi.Input<inputs.quicksight.AnalysisDefinitionArgs>;
     name?: pulumi.Input<string>;
     parameters?: pulumi.Input<inputs.quicksight.AnalysisParametersArgs>;
-    /**
-     * <p>A structure that describes the principals and the resource-level permissions on an
-     *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-     *             providing a list of AWS Identity and Access Management (IAM) action information for each
-     *             principal listed by Amazon Resource Name (ARN). </p>
-     *
-     *         <p>To specify no permissions, omit <code>Permissions</code>.</p>
-     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisResourcePermissionArgs>[]>;
-    sourceEntity: pulumi.Input<inputs.quicksight.AnalysisSourceEntityArgs>;
-    /**
-     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-     *             analysis.</p>
-     */
+    sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntityArgs>;
+    status?: pulumi.Input<enums.quicksight.AnalysisResourceStatus>;
     tags?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTagArgs>[]>;
-    /**
-     * <p>The ARN of the theme of the analysis.</p>
-     */
     themeArn?: pulumi.Input<string>;
 }

@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetAccessPointResult:
-    def __init__(__self__, arn=None, creation_date=None, object_lambda_configuration=None, policy_status=None, public_access_block_configuration=None):
+    def __init__(__self__, alias=None, arn=None, creation_date=None, object_lambda_configuration=None, policy_status=None, public_access_block_configuration=None):
+        if alias and not isinstance(alias, dict):
+            raise TypeError("Expected argument 'alias' to be a dict")
+        pulumi.set(__self__, "alias", alias)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +38,11 @@ class GetAccessPointResult:
         if public_access_block_configuration and not isinstance(public_access_block_configuration, dict):
             raise TypeError("Expected argument 'public_access_block_configuration' to be a dict")
         pulumi.set(__self__, "public_access_block_configuration", public_access_block_configuration)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional['outputs.AliasProperties']:
+        return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter
@@ -77,6 +85,7 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
         if False:
             yield self
         return GetAccessPointResult(
+            alias=self.alias,
             arn=self.arn,
             creation_date=self.creation_date,
             object_lambda_configuration=self.object_lambda_configuration,
@@ -98,6 +107,7 @@ def get_access_point(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:s3objectlambda:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult).value
 
     return AwaitableGetAccessPointResult(
+        alias=__ret__.alias,
         arn=__ret__.arn,
         creation_date=__ret__.creation_date,
         object_lambda_configuration=__ret__.object_lambda_configuration,

@@ -342,6 +342,170 @@ func (in *workGroupEncryptionOptionPtr) ToWorkGroupEncryptionOptionPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(WorkGroupEncryptionOptionPtrOutput)
 }
 
+// The Amazon S3 canned ACL that Athena should specify when storing query results. Currently the only supported canned ACL is BUCKET_OWNER_FULL_CONTROL
+type WorkGroupS3AclOption string
+
+const (
+	WorkGroupS3AclOptionBucketOwnerFullControl = WorkGroupS3AclOption("BUCKET_OWNER_FULL_CONTROL")
+)
+
+func (WorkGroupS3AclOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupS3AclOption)(nil)).Elem()
+}
+
+func (e WorkGroupS3AclOption) ToWorkGroupS3AclOptionOutput() WorkGroupS3AclOptionOutput {
+	return pulumi.ToOutput(e).(WorkGroupS3AclOptionOutput)
+}
+
+func (e WorkGroupS3AclOption) ToWorkGroupS3AclOptionOutputWithContext(ctx context.Context) WorkGroupS3AclOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkGroupS3AclOptionOutput)
+}
+
+func (e WorkGroupS3AclOption) ToWorkGroupS3AclOptionPtrOutput() WorkGroupS3AclOptionPtrOutput {
+	return e.ToWorkGroupS3AclOptionPtrOutputWithContext(context.Background())
+}
+
+func (e WorkGroupS3AclOption) ToWorkGroupS3AclOptionPtrOutputWithContext(ctx context.Context) WorkGroupS3AclOptionPtrOutput {
+	return WorkGroupS3AclOption(e).ToWorkGroupS3AclOptionOutputWithContext(ctx).ToWorkGroupS3AclOptionPtrOutputWithContext(ctx)
+}
+
+func (e WorkGroupS3AclOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkGroupS3AclOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkGroupS3AclOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkGroupS3AclOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkGroupS3AclOptionOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupS3AclOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupS3AclOption)(nil)).Elem()
+}
+
+func (o WorkGroupS3AclOptionOutput) ToWorkGroupS3AclOptionOutput() WorkGroupS3AclOptionOutput {
+	return o
+}
+
+func (o WorkGroupS3AclOptionOutput) ToWorkGroupS3AclOptionOutputWithContext(ctx context.Context) WorkGroupS3AclOptionOutput {
+	return o
+}
+
+func (o WorkGroupS3AclOptionOutput) ToWorkGroupS3AclOptionPtrOutput() WorkGroupS3AclOptionPtrOutput {
+	return o.ToWorkGroupS3AclOptionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupS3AclOptionOutput) ToWorkGroupS3AclOptionPtrOutputWithContext(ctx context.Context) WorkGroupS3AclOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupS3AclOption) *WorkGroupS3AclOption {
+		return &v
+	}).(WorkGroupS3AclOptionPtrOutput)
+}
+
+func (o WorkGroupS3AclOptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkGroupS3AclOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkGroupS3AclOption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkGroupS3AclOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupS3AclOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkGroupS3AclOption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkGroupS3AclOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupS3AclOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupS3AclOption)(nil)).Elem()
+}
+
+func (o WorkGroupS3AclOptionPtrOutput) ToWorkGroupS3AclOptionPtrOutput() WorkGroupS3AclOptionPtrOutput {
+	return o
+}
+
+func (o WorkGroupS3AclOptionPtrOutput) ToWorkGroupS3AclOptionPtrOutputWithContext(ctx context.Context) WorkGroupS3AclOptionPtrOutput {
+	return o
+}
+
+func (o WorkGroupS3AclOptionPtrOutput) Elem() WorkGroupS3AclOptionOutput {
+	return o.ApplyT(func(v *WorkGroupS3AclOption) WorkGroupS3AclOption {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupS3AclOption
+		return ret
+	}).(WorkGroupS3AclOptionOutput)
+}
+
+func (o WorkGroupS3AclOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupS3AclOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkGroupS3AclOption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkGroupS3AclOptionInput is an input type that accepts WorkGroupS3AclOptionArgs and WorkGroupS3AclOptionOutput values.
+// You can construct a concrete instance of `WorkGroupS3AclOptionInput` via:
+//
+//	WorkGroupS3AclOptionArgs{...}
+type WorkGroupS3AclOptionInput interface {
+	pulumi.Input
+
+	ToWorkGroupS3AclOptionOutput() WorkGroupS3AclOptionOutput
+	ToWorkGroupS3AclOptionOutputWithContext(context.Context) WorkGroupS3AclOptionOutput
+}
+
+var workGroupS3AclOptionPtrType = reflect.TypeOf((**WorkGroupS3AclOption)(nil)).Elem()
+
+type WorkGroupS3AclOptionPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupS3AclOptionPtrOutput() WorkGroupS3AclOptionPtrOutput
+	ToWorkGroupS3AclOptionPtrOutputWithContext(context.Context) WorkGroupS3AclOptionPtrOutput
+}
+
+type workGroupS3AclOptionPtr string
+
+func WorkGroupS3AclOptionPtr(v string) WorkGroupS3AclOptionPtrInput {
+	return (*workGroupS3AclOptionPtr)(&v)
+}
+
+func (*workGroupS3AclOptionPtr) ElementType() reflect.Type {
+	return workGroupS3AclOptionPtrType
+}
+
+func (in *workGroupS3AclOptionPtr) ToWorkGroupS3AclOptionPtrOutput() WorkGroupS3AclOptionPtrOutput {
+	return pulumi.ToOutput(in).(WorkGroupS3AclOptionPtrOutput)
+}
+
+func (in *workGroupS3AclOptionPtr) ToWorkGroupS3AclOptionPtrOutputWithContext(ctx context.Context) WorkGroupS3AclOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkGroupS3AclOptionPtrOutput)
+}
+
 // The state of the workgroup: ENABLED or DISABLED.
 type WorkGroupStateEnum string
 
@@ -512,12 +676,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTypePtrInput)(nil)).Elem(), DataCatalogType("LAMBDA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionOptionInput)(nil)).Elem(), WorkGroupEncryptionOption("SSE_S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionOptionPtrInput)(nil)).Elem(), WorkGroupEncryptionOption("SSE_S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupS3AclOptionInput)(nil)).Elem(), WorkGroupS3AclOption("BUCKET_OWNER_FULL_CONTROL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupS3AclOptionPtrInput)(nil)).Elem(), WorkGroupS3AclOption("BUCKET_OWNER_FULL_CONTROL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupStateEnumInput)(nil)).Elem(), WorkGroupStateEnum("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupStateEnumPtrInput)(nil)).Elem(), WorkGroupStateEnum("ENABLED"))
 	pulumi.RegisterOutputType(DataCatalogTypeOutput{})
 	pulumi.RegisterOutputType(DataCatalogTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionOptionOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionOptionPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupS3AclOptionOutput{})
+	pulumi.RegisterOutputType(WorkGroupS3AclOptionPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupStateEnumOutput{})
 	pulumi.RegisterOutputType(WorkGroupStateEnumPtrOutput{})
 }

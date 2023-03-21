@@ -10,23 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The column schema.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class TemplateColumnSchema
     {
-        /// <summary>
-        /// &lt;p&gt;The data type of the column schema.&lt;/p&gt;
-        /// </summary>
         public readonly string? DataType;
-        /// <summary>
-        /// &lt;p&gt;The geographic role of the column schema.&lt;/p&gt;
-        /// </summary>
         public readonly string? GeographicRole;
-        /// <summary>
-        /// &lt;p&gt;The name of the column schema.&lt;/p&gt;
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

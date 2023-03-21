@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.VpcLattice
     public static class GetAccessLogSubscription
     {
         /// <summary>
-        /// Delivers logs from a Mesh or Service to the provided destination
+        /// Delivers logs from a Service Network or Service to the provided destination
         /// </summary>
         public static Task<GetAccessLogSubscriptionResult> InvokeAsync(GetAccessLogSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessLogSubscriptionResult>("aws-native:vpclattice:getAccessLogSubscription", args ?? new GetAccessLogSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Delivers logs from a Mesh or Service to the provided destination
+        /// Delivers logs from a Service Network or Service to the provided destination
         /// </summary>
         public static Output<GetAccessLogSubscriptionResult> Invoke(GetAccessLogSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessLogSubscriptionResult>("aws-native:vpclattice:getAccessLogSubscription", args ?? new GetAccessLogSubscriptionInvokeArgs(), options.WithDefaults());

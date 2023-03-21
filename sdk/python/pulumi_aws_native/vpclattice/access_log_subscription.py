@@ -66,7 +66,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessLogSubscriptionTagArgs']]]]] = None,
                  __props__=None):
         """
-        Delivers logs from a Mesh or Service to the provided destination
+        Delivers logs from a Service Network or Service to the provided destination
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -78,7 +78,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  args: AccessLogSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Delivers logs from a Mesh or Service to the provided destination
+        Delivers logs from a Service Network or Service to the provided destination
 
         :param str resource_name: The name of the resource.
         :param AccessLogSubscriptionArgs args: The arguments to use to populate this resource's properties.

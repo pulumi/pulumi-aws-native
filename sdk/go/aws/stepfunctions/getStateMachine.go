@@ -25,13 +25,14 @@ type LookupStateMachineArgs struct {
 }
 
 type LookupStateMachineResult struct {
-	Arn                  *string                           `pulumi:"arn"`
-	DefinitionString     *string                           `pulumi:"definitionString"`
-	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
-	Name                 *string                           `pulumi:"name"`
-	RoleArn              *string                           `pulumi:"roleArn"`
-	Tags                 []StateMachineTagsEntry           `pulumi:"tags"`
-	TracingConfiguration *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
+	Arn                    *string                           `pulumi:"arn"`
+	DefinitionString       *string                           `pulumi:"definitionString"`
+	LoggingConfiguration   *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
+	Name                   *string                           `pulumi:"name"`
+	RoleArn                *string                           `pulumi:"roleArn"`
+	StateMachineRevisionId *string                           `pulumi:"stateMachineRevisionId"`
+	Tags                   []StateMachineTagsEntry           `pulumi:"tags"`
+	TracingConfiguration   *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
 }
 
 func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutputArgs, opts ...pulumi.InvokeOption) LookupStateMachineResultOutput {
@@ -87,6 +88,10 @@ func (o LookupStateMachineResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupStateMachineResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupStateMachineResultOutput) StateMachineRevisionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.StateMachineRevisionId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStateMachineResultOutput) Tags() StateMachineTagsEntryArrayOutput {

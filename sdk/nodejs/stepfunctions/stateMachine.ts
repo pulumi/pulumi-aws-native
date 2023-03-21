@@ -46,6 +46,7 @@ export class StateMachine extends pulumi.CustomResource {
     public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string>;
     public readonly stateMachineName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly stateMachineRevisionId!: pulumi.Output<string>;
     public readonly stateMachineType!: pulumi.Output<enums.stepfunctions.StateMachineType | undefined>;
     public readonly tags!: pulumi.Output<outputs.stepfunctions.StateMachineTagsEntry[] | undefined>;
     public readonly tracingConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineTracingConfiguration | undefined>;
@@ -76,6 +77,7 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["tracingConfiguration"] = args ? args.tracingConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["stateMachineRevisionId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;
@@ -86,6 +88,7 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["stateMachineName"] = undefined /*out*/;
+            resourceInputs["stateMachineRevisionId"] = undefined /*out*/;
             resourceInputs["stateMachineType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tracingConfiguration"] = undefined /*out*/;

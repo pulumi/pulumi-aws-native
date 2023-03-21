@@ -21,6 +21,7 @@ import * as cloudtrail from "./cloudtrail";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
 import * as codestarnotifications from "./codestarnotifications";
+import * as comprehend from "./comprehend";
 import * as connect from "./connect";
 import * as cur from "./cur";
 import * as customerprofiles from "./customerprofiles";
@@ -151,6 +152,7 @@ export {
     codeguruprofiler,
     codegurureviewer,
     codestarnotifications,
+    comprehend,
     connect,
     cur,
     customerprofiles,

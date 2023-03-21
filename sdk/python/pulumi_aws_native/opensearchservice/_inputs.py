@@ -19,10 +19,14 @@ __all__ = [
     'DomainIdpArgs',
     'DomainMasterUserOptionsArgs',
     'DomainNodeToNodeEncryptionOptionsArgs',
+    'DomainOffPeakWindowOptionsArgs',
+    'DomainOffPeakWindowArgs',
     'DomainSAMLOptionsArgs',
     'DomainSnapshotOptionsArgs',
+    'DomainSoftwareUpdateOptionsArgs',
     'DomainTagArgs',
     'DomainVPCOptionsArgs',
+    'DomainWindowStartTimeArgs',
     'DomainZoneAwarenessConfigArgs',
 ]
 
@@ -526,6 +530,52 @@ class DomainNodeToNodeEncryptionOptionsArgs:
 
 
 @pulumi.input_type
+class DomainOffPeakWindowOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 off_peak_window: Optional[pulumi.Input['DomainOffPeakWindowArgs']] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if off_peak_window is not None:
+            pulumi.set(__self__, "off_peak_window", off_peak_window)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="offPeakWindow")
+    def off_peak_window(self) -> Optional[pulumi.Input['DomainOffPeakWindowArgs']]:
+        return pulumi.get(self, "off_peak_window")
+
+    @off_peak_window.setter
+    def off_peak_window(self, value: Optional[pulumi.Input['DomainOffPeakWindowArgs']]):
+        pulumi.set(self, "off_peak_window", value)
+
+
+@pulumi.input_type
+class DomainOffPeakWindowArgs:
+    def __init__(__self__, *,
+                 window_start_time: Optional[pulumi.Input['DomainWindowStartTimeArgs']] = None):
+        if window_start_time is not None:
+            pulumi.set(__self__, "window_start_time", window_start_time)
+
+    @property
+    @pulumi.getter(name="windowStartTime")
+    def window_start_time(self) -> Optional[pulumi.Input['DomainWindowStartTimeArgs']]:
+        return pulumi.get(self, "window_start_time")
+
+    @window_start_time.setter
+    def window_start_time(self, value: Optional[pulumi.Input['DomainWindowStartTimeArgs']]):
+        pulumi.set(self, "window_start_time", value)
+
+
+@pulumi.input_type
 class DomainSAMLOptionsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -632,6 +682,23 @@ class DomainSnapshotOptionsArgs:
 
 
 @pulumi.input_type
+class DomainSoftwareUpdateOptionsArgs:
+    def __init__(__self__, *,
+                 auto_software_update_enabled: Optional[pulumi.Input[bool]] = None):
+        if auto_software_update_enabled is not None:
+            pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
+
+    @property
+    @pulumi.getter(name="autoSoftwareUpdateEnabled")
+    def auto_software_update_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "auto_software_update_enabled")
+
+    @auto_software_update_enabled.setter
+    def auto_software_update_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_software_update_enabled", value)
+
+
+@pulumi.input_type
 class DomainTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -695,6 +762,33 @@ class DomainVPCOptionsArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
+
+
+@pulumi.input_type
+class DomainWindowStartTimeArgs:
+    def __init__(__self__, *,
+                 hours: pulumi.Input[int],
+                 minutes: pulumi.Input[int]):
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "hours")
+
+    @hours.setter
+    def hours(self, value: pulumi.Input[int]):
+        pulumi.set(self, "hours", value)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minutes", value)
 
 
 @pulumi.input_type

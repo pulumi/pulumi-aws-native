@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.VpcLattice
 {
     /// <summary>
-    /// Delivers logs from a Mesh or Service to the provided destination
+    /// Delivers logs from a Service Network or Service to the provided destination
     /// </summary>
     [AwsNativeResourceType("aws-native:vpclattice:AccessLogSubscription")]
     public partial class AccessLogSubscription : global::Pulumi.CustomResource

@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
         [Input("appIntegrationArn", required: true)]
         public Input<string> AppIntegrationArn { get; set; } = null!;
 
-        [Input("objectFields", required: true)]
+        [Input("objectFields")]
         private InputList<string>? _objectFields;
         public InputList<string> ObjectFields
         {

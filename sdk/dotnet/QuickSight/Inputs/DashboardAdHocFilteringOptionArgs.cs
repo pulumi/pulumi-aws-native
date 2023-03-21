@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;Ad hoc (one-time) filtering option.&lt;/p&gt;
-    /// </summary>
     public sealed class DashboardAdHocFilteringOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityStatus")]

@@ -15,37 +15,22 @@ import (
 type Analysis struct {
 	pulumi.CustomResourceState
 
-	AnalysisId pulumi.StringOutput `pulumi:"analysisId"`
-	// <p>The Amazon Resource Name (ARN) of the analysis.</p>
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// <p>The time that the analysis was created.</p>
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// <p>The ARNs of the datasets of the analysis.</p>
-	DataSetArns pulumi.StringArrayOutput `pulumi:"dataSetArns"`
-	// <p>Errors associated with the analysis.</p>
-	Errors AnalysisErrorArrayOutput `pulumi:"errors"`
-	// <p>The time that the analysis was last updated.</p>
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// <p>The descriptive name of the analysis.</p>
-	Name       pulumi.StringPtrOutput      `pulumi:"name"`
-	Parameters AnalysisParametersPtrOutput `pulumi:"parameters"`
-	// <p>A structure that describes the principals and the resource-level permissions on an
-	//             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-	//             providing a list of AWS Identity and Access Management (IAM) action information for each
-	//             principal listed by Amazon Resource Name (ARN). </p>
-	//
-	//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
-	Permissions AnalysisResourcePermissionArrayOutput `pulumi:"permissions"`
-	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-	Sheets       AnalysisSheetArrayOutput     `pulumi:"sheets"`
-	SourceEntity AnalysisSourceEntityOutput   `pulumi:"sourceEntity"`
-	Status       AnalysisResourceStatusOutput `pulumi:"status"`
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-	//             analysis.</p>
-	Tags AnalysisTagArrayOutput `pulumi:"tags"`
-	// <p>The ARN of the theme of the analysis.</p>
-	ThemeArn pulumi.StringPtrOutput `pulumi:"themeArn"`
+	AnalysisId      pulumi.StringOutput                   `pulumi:"analysisId"`
+	Arn             pulumi.StringOutput                   `pulumi:"arn"`
+	AwsAccountId    pulumi.StringOutput                   `pulumi:"awsAccountId"`
+	CreatedTime     pulumi.StringOutput                   `pulumi:"createdTime"`
+	DataSetArns     pulumi.StringArrayOutput              `pulumi:"dataSetArns"`
+	Definition      AnalysisDefinitionPtrOutput           `pulumi:"definition"`
+	Errors          AnalysisErrorArrayOutput              `pulumi:"errors"`
+	LastUpdatedTime pulumi.StringOutput                   `pulumi:"lastUpdatedTime"`
+	Name            pulumi.StringOutput                   `pulumi:"name"`
+	Parameters      AnalysisParametersPtrOutput           `pulumi:"parameters"`
+	Permissions     AnalysisResourcePermissionArrayOutput `pulumi:"permissions"`
+	Sheets          AnalysisSheetArrayOutput              `pulumi:"sheets"`
+	SourceEntity    AnalysisSourceEntityPtrOutput         `pulumi:"sourceEntity"`
+	Status          AnalysisResourceStatusPtrOutput       `pulumi:"status"`
+	Tags            AnalysisTagArrayOutput                `pulumi:"tags"`
+	ThemeArn        pulumi.StringPtrOutput                `pulumi:"themeArn"`
 }
 
 // NewAnalysis registers a new resource with the given unique name, arguments, and options.
@@ -60,9 +45,6 @@ func NewAnalysis(ctx *pulumi.Context,
 	}
 	if args.AwsAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AwsAccountId'")
-	}
-	if args.SourceEntity == nil {
-		return nil, errors.New("invalid value for required argument 'SourceEntity'")
 	}
 	var resource Analysis
 	err := ctx.RegisterResource("aws-native:quicksight:Analysis", name, args, &resource, opts...)
@@ -96,50 +78,30 @@ func (AnalysisState) ElementType() reflect.Type {
 }
 
 type analysisArgs struct {
-	AnalysisId   string `pulumi:"analysisId"`
-	AwsAccountId string `pulumi:"awsAccountId"`
-	// <p>Errors associated with the analysis.</p>
-	Errors []AnalysisError `pulumi:"errors"`
-	// <p>The descriptive name of the analysis.</p>
-	Name       *string             `pulumi:"name"`
-	Parameters *AnalysisParameters `pulumi:"parameters"`
-	// <p>A structure that describes the principals and the resource-level permissions on an
-	//             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-	//             providing a list of AWS Identity and Access Management (IAM) action information for each
-	//             principal listed by Amazon Resource Name (ARN). </p>
-	//
-	//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
+	AnalysisId   string                       `pulumi:"analysisId"`
+	AwsAccountId string                       `pulumi:"awsAccountId"`
+	Definition   *AnalysisDefinition          `pulumi:"definition"`
+	Name         *string                      `pulumi:"name"`
+	Parameters   *AnalysisParameters          `pulumi:"parameters"`
 	Permissions  []AnalysisResourcePermission `pulumi:"permissions"`
-	SourceEntity AnalysisSourceEntity         `pulumi:"sourceEntity"`
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-	//             analysis.</p>
-	Tags []AnalysisTag `pulumi:"tags"`
-	// <p>The ARN of the theme of the analysis.</p>
-	ThemeArn *string `pulumi:"themeArn"`
+	SourceEntity *AnalysisSourceEntity        `pulumi:"sourceEntity"`
+	Status       *AnalysisResourceStatus      `pulumi:"status"`
+	Tags         []AnalysisTag                `pulumi:"tags"`
+	ThemeArn     *string                      `pulumi:"themeArn"`
 }
 
 // The set of arguments for constructing a Analysis resource.
 type AnalysisArgs struct {
 	AnalysisId   pulumi.StringInput
 	AwsAccountId pulumi.StringInput
-	// <p>Errors associated with the analysis.</p>
-	Errors AnalysisErrorArrayInput
-	// <p>The descriptive name of the analysis.</p>
-	Name       pulumi.StringPtrInput
-	Parameters AnalysisParametersPtrInput
-	// <p>A structure that describes the principals and the resource-level permissions on an
-	//             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-	//             providing a list of AWS Identity and Access Management (IAM) action information for each
-	//             principal listed by Amazon Resource Name (ARN). </p>
-	//
-	//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
+	Definition   AnalysisDefinitionPtrInput
+	Name         pulumi.StringPtrInput
+	Parameters   AnalysisParametersPtrInput
 	Permissions  AnalysisResourcePermissionArrayInput
-	SourceEntity AnalysisSourceEntityInput
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-	//             analysis.</p>
-	Tags AnalysisTagArrayInput
-	// <p>The ARN of the theme of the analysis.</p>
-	ThemeArn pulumi.StringPtrInput
+	SourceEntity AnalysisSourceEntityPtrInput
+	Status       AnalysisResourceStatusPtrInput
+	Tags         AnalysisTagArrayInput
+	ThemeArn     pulumi.StringPtrInput
 }
 
 func (AnalysisArgs) ElementType() reflect.Type {
@@ -183,7 +145,6 @@ func (o AnalysisOutput) AnalysisId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AnalysisId }).(pulumi.StringOutput)
 }
 
-// <p>The Amazon Resource Name (ARN) of the analysis.</p>
 func (o AnalysisOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -192,67 +153,54 @@ func (o AnalysisOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// <p>The time that the analysis was created.</p>
 func (o AnalysisOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// <p>The ARNs of the datasets of the analysis.</p>
 func (o AnalysisOutput) DataSetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringArrayOutput { return v.DataSetArns }).(pulumi.StringArrayOutput)
 }
 
-// <p>Errors associated with the analysis.</p>
+func (o AnalysisOutput) Definition() AnalysisDefinitionPtrOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisDefinitionPtrOutput { return v.Definition }).(AnalysisDefinitionPtrOutput)
+}
+
 func (o AnalysisOutput) Errors() AnalysisErrorArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisErrorArrayOutput { return v.Errors }).(AnalysisErrorArrayOutput)
 }
 
-// <p>The time that the analysis was last updated.</p>
 func (o AnalysisOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// <p>The descriptive name of the analysis.</p>
-func (o AnalysisOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o AnalysisOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o AnalysisOutput) Parameters() AnalysisParametersPtrOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisParametersPtrOutput { return v.Parameters }).(AnalysisParametersPtrOutput)
 }
 
-// <p>A structure that describes the principals and the resource-level permissions on an
-//
-//	    analysis. You can use the <code>Permissions</code> structure to grant permissions by
-//	    providing a list of AWS Identity and Access Management (IAM) action information for each
-//	    principal listed by Amazon Resource Name (ARN). </p>
-//
-//	<p>To specify no permissions, omit <code>Permissions</code>.</p>
 func (o AnalysisOutput) Permissions() AnalysisResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisResourcePermissionArrayOutput { return v.Permissions }).(AnalysisResourcePermissionArrayOutput)
 }
 
-// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 func (o AnalysisOutput) Sheets() AnalysisSheetArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisSheetArrayOutput { return v.Sheets }).(AnalysisSheetArrayOutput)
 }
 
-func (o AnalysisOutput) SourceEntity() AnalysisSourceEntityOutput {
-	return o.ApplyT(func(v *Analysis) AnalysisSourceEntityOutput { return v.SourceEntity }).(AnalysisSourceEntityOutput)
+func (o AnalysisOutput) SourceEntity() AnalysisSourceEntityPtrOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisSourceEntityPtrOutput { return v.SourceEntity }).(AnalysisSourceEntityPtrOutput)
 }
 
-func (o AnalysisOutput) Status() AnalysisResourceStatusOutput {
-	return o.ApplyT(func(v *Analysis) AnalysisResourceStatusOutput { return v.Status }).(AnalysisResourceStatusOutput)
+func (o AnalysisOutput) Status() AnalysisResourceStatusPtrOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisResourceStatusPtrOutput { return v.Status }).(AnalysisResourceStatusPtrOutput)
 }
 
-// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-//
-//	analysis.</p>
 func (o AnalysisOutput) Tags() AnalysisTagArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisTagArrayOutput { return v.Tags }).(AnalysisTagArrayOutput)
 }
 
-// <p>The ARN of the theme of the analysis.</p>
 func (o AnalysisOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }

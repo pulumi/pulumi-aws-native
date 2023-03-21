@@ -10,17 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;A list of QuickSight parameters and the list's override values.&lt;/p&gt;
-    /// </summary>
     public sealed class AnalysisParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("dateTimeParameters")]
         private InputList<Inputs.AnalysisDateTimeParameterArgs>? _dateTimeParameters;
-
-        /// <summary>
-        /// &lt;p&gt;Date-time parameters.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.AnalysisDateTimeParameterArgs> DateTimeParameters
         {
             get => _dateTimeParameters ?? (_dateTimeParameters = new InputList<Inputs.AnalysisDateTimeParameterArgs>());
@@ -29,10 +22,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("decimalParameters")]
         private InputList<Inputs.AnalysisDecimalParameterArgs>? _decimalParameters;
-
-        /// <summary>
-        /// &lt;p&gt;Decimal parameters.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.AnalysisDecimalParameterArgs> DecimalParameters
         {
             get => _decimalParameters ?? (_decimalParameters = new InputList<Inputs.AnalysisDecimalParameterArgs>());
@@ -41,10 +30,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("integerParameters")]
         private InputList<Inputs.AnalysisIntegerParameterArgs>? _integerParameters;
-
-        /// <summary>
-        /// &lt;p&gt;Integer parameters.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.AnalysisIntegerParameterArgs> IntegerParameters
         {
             get => _integerParameters ?? (_integerParameters = new InputList<Inputs.AnalysisIntegerParameterArgs>());
@@ -53,10 +38,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("stringParameters")]
         private InputList<Inputs.AnalysisStringParameterArgs>? _stringParameters;
-
-        /// <summary>
-        /// &lt;p&gt;String parameters.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.AnalysisStringParameterArgs> StringParameters
         {
             get => _stringParameters ?? (_stringParameters = new InputList<Inputs.AnalysisStringParameterArgs>());

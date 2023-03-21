@@ -37,6 +37,7 @@ export class AccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPoint.__pulumiType;
     }
 
+    public /*out*/ readonly alias!: pulumi.Output<outputs.s3objectlambda.AliasProperties>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date and time when the Object lambda Access Point was created.
@@ -72,11 +73,13 @@ export class AccessPoint extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["objectLambdaConfiguration"] = args ? args.objectLambdaConfiguration : undefined;
+            resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["policyStatus"] = undefined /*out*/;
             resourceInputs["publicAccessBlockConfiguration"] = undefined /*out*/;
         } else {
+            resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

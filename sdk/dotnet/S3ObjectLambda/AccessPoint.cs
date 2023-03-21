@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3ObjectLambda
     [AwsNativeResourceType("aws-native:s3objectlambda:AccessPoint")]
     public partial class AccessPoint : global::Pulumi.CustomResource
     {
+        [Output("alias")]
+        public Output<Outputs.AliasProperties> Alias { get; private set; } = null!;
+
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

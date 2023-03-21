@@ -52,7 +52,7 @@ export class Contact extends pulumi.CustomResource {
     /**
      * The stages that an escalation plan or engagement plan engages contacts and contact methods in.
      */
-    public readonly plan!: pulumi.Output<outputs.ssmcontacts.ContactStage[]>;
+    public readonly plan!: pulumi.Output<outputs.ssmcontacts.ContactStage[] | undefined>;
     /**
      * Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
      */
@@ -74,9 +74,6 @@ export class Contact extends pulumi.CustomResource {
             }
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
-            }
-            if ((!args || args.plan === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'plan'");
             }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
@@ -113,7 +110,7 @@ export interface ContactArgs {
     /**
      * The stages that an escalation plan or engagement plan engages contacts and contact methods in.
      */
-    plan: pulumi.Input<pulumi.Input<inputs.ssmcontacts.ContactStageArgs>[]>;
+    plan?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.ContactStageArgs>[]>;
     /**
      * Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
      */

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Delivers logs from a Mesh or Service to the provided destination
+// Delivers logs from a Service Network or Service to the provided destination
 type AccessLogSubscription struct {
 	pulumi.CustomResourceState
 

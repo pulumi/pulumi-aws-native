@@ -20,11 +20,15 @@ __all__ = [
     'DomainIdp',
     'DomainMasterUserOptions',
     'DomainNodeToNodeEncryptionOptions',
+    'DomainOffPeakWindow',
+    'DomainOffPeakWindowOptions',
     'DomainSAMLOptions',
     'DomainServiceSoftwareOptions',
     'DomainSnapshotOptions',
+    'DomainSoftwareUpdateOptions',
     'DomainTag',
     'DomainVPCOptions',
+    'DomainWindowStartTime',
     'DomainZoneAwarenessConfig',
 ]
 
@@ -560,6 +564,74 @@ class DomainNodeToNodeEncryptionOptions(dict):
 
 
 @pulumi.output_type
+class DomainOffPeakWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "windowStartTime":
+            suggest = "window_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainOffPeakWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainOffPeakWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainOffPeakWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 window_start_time: Optional['outputs.DomainWindowStartTime'] = None):
+        if window_start_time is not None:
+            pulumi.set(__self__, "window_start_time", window_start_time)
+
+    @property
+    @pulumi.getter(name="windowStartTime")
+    def window_start_time(self) -> Optional['outputs.DomainWindowStartTime']:
+        return pulumi.get(self, "window_start_time")
+
+
+@pulumi.output_type
+class DomainOffPeakWindowOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offPeakWindow":
+            suggest = "off_peak_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainOffPeakWindowOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainOffPeakWindowOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainOffPeakWindowOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 off_peak_window: Optional['outputs.DomainOffPeakWindow'] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if off_peak_window is not None:
+            pulumi.set(__self__, "off_peak_window", off_peak_window)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="offPeakWindow")
+    def off_peak_window(self) -> Optional['outputs.DomainOffPeakWindow']:
+        return pulumi.get(self, "off_peak_window")
+
+
+@pulumi.output_type
 class DomainSAMLOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -772,6 +844,36 @@ class DomainSnapshotOptions(dict):
 
 
 @pulumi.output_type
+class DomainSoftwareUpdateOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoSoftwareUpdateEnabled":
+            suggest = "auto_software_update_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainSoftwareUpdateOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainSoftwareUpdateOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainSoftwareUpdateOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_software_update_enabled: Optional[bool] = None):
+        if auto_software_update_enabled is not None:
+            pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
+
+    @property
+    @pulumi.getter(name="autoSoftwareUpdateEnabled")
+    def auto_software_update_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "auto_software_update_enabled")
+
+
+@pulumi.output_type
 class DomainTag(dict):
     def __init__(__self__, *,
                  key: str,
@@ -838,6 +940,25 @@ class DomainVPCOptions(dict):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
+class DomainWindowStartTime(dict):
+    def __init__(__self__, *,
+                 hours: int,
+                 minutes: int):
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> int:
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> int:
+        return pulumi.get(self, "minutes")
 
 
 @pulumi.output_type

@@ -72,6 +72,36 @@ namespace Pulumi.AwsNative.Athena
     }
 
     /// <summary>
+    /// The Amazon S3 canned ACL that Athena should specify when storing query results. Currently the only supported canned ACL is BUCKET_OWNER_FULL_CONTROL
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkGroupS3AclOption : IEquatable<WorkGroupS3AclOption>
+    {
+        private readonly string _value;
+
+        private WorkGroupS3AclOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkGroupS3AclOption BucketOwnerFullControl { get; } = new WorkGroupS3AclOption("BUCKET_OWNER_FULL_CONTROL");
+
+        public static bool operator ==(WorkGroupS3AclOption left, WorkGroupS3AclOption right) => left.Equals(right);
+        public static bool operator !=(WorkGroupS3AclOption left, WorkGroupS3AclOption right) => !left.Equals(right);
+
+        public static explicit operator string(WorkGroupS3AclOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkGroupS3AclOption other && Equals(other);
+        public bool Equals(WorkGroupS3AclOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The state of the workgroup: ENABLED or DISABLED.
     /// </summary>
     [EnumType]

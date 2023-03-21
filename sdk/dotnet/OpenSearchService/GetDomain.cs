@@ -67,8 +67,10 @@ namespace Pulumi.AwsNative.OpenSearchService
         public readonly string? Id;
         public readonly object? LogPublishingOptions;
         public readonly Outputs.DomainNodeToNodeEncryptionOptions? NodeToNodeEncryptionOptions;
+        public readonly Outputs.DomainOffPeakWindowOptions? OffPeakWindowOptions;
         public readonly Outputs.DomainServiceSoftwareOptions? ServiceSoftwareOptions;
         public readonly Outputs.DomainSnapshotOptions? SnapshotOptions;
+        public readonly Outputs.DomainSoftwareUpdateOptions? SoftwareUpdateOptions;
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this Domain.
         /// </summary>
@@ -109,9 +111,13 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             Outputs.DomainNodeToNodeEncryptionOptions? nodeToNodeEncryptionOptions,
 
+            Outputs.DomainOffPeakWindowOptions? offPeakWindowOptions,
+
             Outputs.DomainServiceSoftwareOptions? serviceSoftwareOptions,
 
             Outputs.DomainSnapshotOptions? snapshotOptions,
+
+            Outputs.DomainSoftwareUpdateOptions? softwareUpdateOptions,
 
             ImmutableArray<Outputs.DomainTag> tags,
 
@@ -133,8 +139,10 @@ namespace Pulumi.AwsNative.OpenSearchService
             Id = id;
             LogPublishingOptions = logPublishingOptions;
             NodeToNodeEncryptionOptions = nodeToNodeEncryptionOptions;
+            OffPeakWindowOptions = offPeakWindowOptions;
             ServiceSoftwareOptions = serviceSoftwareOptions;
             SnapshotOptions = snapshotOptions;
+            SoftwareUpdateOptions = softwareUpdateOptions;
             Tags = tags;
             VPCOptions = vPCOptions;
         }

@@ -18,81 +18,48 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("analysisId")]
         public Output<string> AnalysisId { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the analysis.&lt;/p&gt;
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The time that the analysis was created.&lt;/p&gt;
-        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The ARNs of the datasets of the analysis.&lt;/p&gt;
-        /// </summary>
         [Output("dataSetArns")]
         public Output<ImmutableArray<string>> DataSetArns { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;Errors associated with the analysis.&lt;/p&gt;
-        /// </summary>
+        [Output("definition")]
+        public Output<Outputs.AnalysisDefinition?> Definition { get; private set; } = null!;
+
         [Output("errors")]
         public Output<ImmutableArray<Outputs.AnalysisError>> Errors { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The time that the analysis was last updated.&lt;/p&gt;
-        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The descriptive name of the analysis.&lt;/p&gt;
-        /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("parameters")]
         public Output<Outputs.AnalysisParameters?> Parameters { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A structure that describes the principals and the resource-level permissions on an
-        ///             analysis. You can use the &lt;code&gt;Permissions&lt;/code&gt; structure to grant permissions by
-        ///             providing a list of AWS Identity and Access Management (IAM) action information for each
-        ///             principal listed by Amazon Resource Name (ARN). &lt;/p&gt;
-        /// 
-        ///         &lt;p&gt;To specify no permissions, omit &lt;code&gt;Permissions&lt;/code&gt;.&lt;/p&gt;
-        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.AnalysisResourcePermission>> Permissions { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A list of the associated sheets with the unique identifier and name of each sheet.&lt;/p&gt;
-        /// </summary>
         [Output("sheets")]
         public Output<ImmutableArray<Outputs.AnalysisSheet>> Sheets { get; private set; } = null!;
 
         [Output("sourceEntity")]
-        public Output<Outputs.AnalysisSourceEntity> SourceEntity { get; private set; } = null!;
+        public Output<Outputs.AnalysisSourceEntity?> SourceEntity { get; private set; } = null!;
 
         [Output("status")]
-        public Output<Pulumi.AwsNative.QuickSight.AnalysisResourceStatus> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.QuickSight.AnalysisResourceStatus?> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the
-        ///             analysis.&lt;/p&gt;
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.AnalysisTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The ARN of the theme of the analysis.&lt;/p&gt;
-        /// </summary>
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
 
@@ -147,21 +114,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
-        [Input("errors")]
-        private InputList<Inputs.AnalysisErrorArgs>? _errors;
+        [Input("definition")]
+        public Input<Inputs.AnalysisDefinitionArgs>? Definition { get; set; }
 
-        /// <summary>
-        /// &lt;p&gt;Errors associated with the analysis.&lt;/p&gt;
-        /// </summary>
-        public InputList<Inputs.AnalysisErrorArgs> Errors
-        {
-            get => _errors ?? (_errors = new InputList<Inputs.AnalysisErrorArgs>());
-            set => _errors = value;
-        }
-
-        /// <summary>
-        /// &lt;p&gt;The descriptive name of the analysis.&lt;/p&gt;
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -170,40 +125,26 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("permissions")]
         private InputList<Inputs.AnalysisResourcePermissionArgs>? _permissions;
-
-        /// <summary>
-        /// &lt;p&gt;A structure that describes the principals and the resource-level permissions on an
-        ///             analysis. You can use the &lt;code&gt;Permissions&lt;/code&gt; structure to grant permissions by
-        ///             providing a list of AWS Identity and Access Management (IAM) action information for each
-        ///             principal listed by Amazon Resource Name (ARN). &lt;/p&gt;
-        /// 
-        ///         &lt;p&gt;To specify no permissions, omit &lt;code&gt;Permissions&lt;/code&gt;.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.AnalysisResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.AnalysisResourcePermissionArgs>());
             set => _permissions = value;
         }
 
-        [Input("sourceEntity", required: true)]
-        public Input<Inputs.AnalysisSourceEntityArgs> SourceEntity { get; set; } = null!;
+        [Input("sourceEntity")]
+        public Input<Inputs.AnalysisSourceEntityArgs>? SourceEntity { get; set; }
+
+        [Input("status")]
+        public Input<Pulumi.AwsNative.QuickSight.AnalysisResourceStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.AnalysisTagArgs>? _tags;
-
-        /// <summary>
-        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the
-        ///             analysis.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.AnalysisTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.AnalysisTagArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// &lt;p&gt;The ARN of the theme of the analysis.&lt;/p&gt;
-        /// </summary>
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }
 

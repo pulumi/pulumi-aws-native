@@ -15,14 +15,26 @@ namespace Pulumi.AwsNative.Athena.Inputs
     /// </summary>
     public sealed class WorkGroupResultConfigurationUpdatesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("aclConfiguration")]
+        public Input<Inputs.WorkGroupAclConfigurationArgs>? AclConfiguration { get; set; }
+
         [Input("encryptionConfiguration")]
         public Input<Inputs.WorkGroupEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        [Input("expectedBucketOwner")]
+        public Input<string>? ExpectedBucketOwner { get; set; }
 
         [Input("outputLocation")]
         public Input<string>? OutputLocation { get; set; }
 
+        [Input("removeAclConfiguration")]
+        public Input<bool>? RemoveAclConfiguration { get; set; }
+
         [Input("removeEncryptionConfiguration")]
         public Input<bool>? RemoveEncryptionConfiguration { get; set; }
+
+        [Input("removeExpectedBucketOwner")]
+        public Input<bool>? RemoveExpectedBucketOwner { get; set; }
 
         [Input("removeOutputLocation")]
         public Input<bool>? RemoveOutputLocation { get; set; }

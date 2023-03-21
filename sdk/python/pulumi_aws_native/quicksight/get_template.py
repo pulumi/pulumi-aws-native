@@ -36,33 +36,21 @@ class GetTemplateResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the template.</p>
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        <p>A display name for the template.</p>
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.TemplateResourcePermission']]:
-        """
-        <p>A list of resource permissions to be set on the template. </p>
-        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.TemplateTag']]:
-        """
-        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-        """
         return pulumi.get(self, "tags")
 
 

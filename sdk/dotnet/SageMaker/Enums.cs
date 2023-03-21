@@ -615,6 +615,172 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The desired state of the experiment after starting or stopping operation.
+    /// </summary>
+    [EnumType]
+    public readonly struct InferenceExperimentDesiredState : IEquatable<InferenceExperimentDesiredState>
+    {
+        private readonly string _value;
+
+        private InferenceExperimentDesiredState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InferenceExperimentDesiredState Running { get; } = new InferenceExperimentDesiredState("Running");
+        public static InferenceExperimentDesiredState Completed { get; } = new InferenceExperimentDesiredState("Completed");
+        public static InferenceExperimentDesiredState Cancelled { get; } = new InferenceExperimentDesiredState("Cancelled");
+
+        public static bool operator ==(InferenceExperimentDesiredState left, InferenceExperimentDesiredState right) => left.Equals(right);
+        public static bool operator !=(InferenceExperimentDesiredState left, InferenceExperimentDesiredState right) => !left.Equals(right);
+
+        public static explicit operator string(InferenceExperimentDesiredState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InferenceExperimentDesiredState other && Equals(other);
+        public bool Equals(InferenceExperimentDesiredState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the endpoint. For possible values of the status of an endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct InferenceExperimentEndpointMetadataEndpointStatus : IEquatable<InferenceExperimentEndpointMetadataEndpointStatus>
+    {
+        private readonly string _value;
+
+        private InferenceExperimentEndpointMetadataEndpointStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InferenceExperimentEndpointMetadataEndpointStatus Creating { get; } = new InferenceExperimentEndpointMetadataEndpointStatus("Creating");
+        public static InferenceExperimentEndpointMetadataEndpointStatus Updating { get; } = new InferenceExperimentEndpointMetadataEndpointStatus("Updating");
+        public static InferenceExperimentEndpointMetadataEndpointStatus SystemUpdating { get; } = new InferenceExperimentEndpointMetadataEndpointStatus("SystemUpdating");
+        public static InferenceExperimentEndpointMetadataEndpointStatus RollingBack { get; } = new InferenceExperimentEndpointMetadataEndpointStatus("RollingBack");
+        public static InferenceExperimentEndpointMetadataEndpointStatus InService { get; } = new InferenceExperimentEndpointMetadataEndpointStatus("InService");
+        public static InferenceExperimentEndpointMetadataEndpointStatus OutOfService { get; } = new InferenceExperimentEndpointMetadataEndpointStatus("OutOfService");
+        public static InferenceExperimentEndpointMetadataEndpointStatus Deleting { get; } = new InferenceExperimentEndpointMetadataEndpointStatus("Deleting");
+        public static InferenceExperimentEndpointMetadataEndpointStatus Failed { get; } = new InferenceExperimentEndpointMetadataEndpointStatus("Failed");
+
+        public static bool operator ==(InferenceExperimentEndpointMetadataEndpointStatus left, InferenceExperimentEndpointMetadataEndpointStatus right) => left.Equals(right);
+        public static bool operator !=(InferenceExperimentEndpointMetadataEndpointStatus left, InferenceExperimentEndpointMetadataEndpointStatus right) => !left.Equals(right);
+
+        public static explicit operator string(InferenceExperimentEndpointMetadataEndpointStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InferenceExperimentEndpointMetadataEndpointStatus other && Equals(other);
+        public bool Equals(InferenceExperimentEndpointMetadataEndpointStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the inference experiment that you want to run.
+    /// </summary>
+    [EnumType]
+    public readonly struct InferenceExperimentModelInfrastructureConfigInfrastructureType : IEquatable<InferenceExperimentModelInfrastructureConfigInfrastructureType>
+    {
+        private readonly string _value;
+
+        private InferenceExperimentModelInfrastructureConfigInfrastructureType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InferenceExperimentModelInfrastructureConfigInfrastructureType RealTimeInference { get; } = new InferenceExperimentModelInfrastructureConfigInfrastructureType("RealTimeInference");
+
+        public static bool operator ==(InferenceExperimentModelInfrastructureConfigInfrastructureType left, InferenceExperimentModelInfrastructureConfigInfrastructureType right) => left.Equals(right);
+        public static bool operator !=(InferenceExperimentModelInfrastructureConfigInfrastructureType left, InferenceExperimentModelInfrastructureConfigInfrastructureType right) => !left.Equals(right);
+
+        public static explicit operator string(InferenceExperimentModelInfrastructureConfigInfrastructureType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InferenceExperimentModelInfrastructureConfigInfrastructureType other && Equals(other);
+        public bool Equals(InferenceExperimentModelInfrastructureConfigInfrastructureType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the inference experiment.
+    /// </summary>
+    [EnumType]
+    public readonly struct InferenceExperimentStatus : IEquatable<InferenceExperimentStatus>
+    {
+        private readonly string _value;
+
+        private InferenceExperimentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InferenceExperimentStatus Creating { get; } = new InferenceExperimentStatus("Creating");
+        public static InferenceExperimentStatus Created { get; } = new InferenceExperimentStatus("Created");
+        public static InferenceExperimentStatus Updating { get; } = new InferenceExperimentStatus("Updating");
+        public static InferenceExperimentStatus Starting { get; } = new InferenceExperimentStatus("Starting");
+        public static InferenceExperimentStatus Stopping { get; } = new InferenceExperimentStatus("Stopping");
+        public static InferenceExperimentStatus Running { get; } = new InferenceExperimentStatus("Running");
+        public static InferenceExperimentStatus Completed { get; } = new InferenceExperimentStatus("Completed");
+        public static InferenceExperimentStatus Cancelled { get; } = new InferenceExperimentStatus("Cancelled");
+
+        public static bool operator ==(InferenceExperimentStatus left, InferenceExperimentStatus right) => left.Equals(right);
+        public static bool operator !=(InferenceExperimentStatus left, InferenceExperimentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(InferenceExperimentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InferenceExperimentStatus other && Equals(other);
+        public bool Equals(InferenceExperimentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the inference experiment that you want to run.
+    /// </summary>
+    [EnumType]
+    public readonly struct InferenceExperimentType : IEquatable<InferenceExperimentType>
+    {
+        private readonly string _value;
+
+        private InferenceExperimentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InferenceExperimentType ShadowMode { get; } = new InferenceExperimentType("ShadowMode");
+
+        public static bool operator ==(InferenceExperimentType left, InferenceExperimentType right) => left.Equals(right);
+        public static bool operator !=(InferenceExperimentType left, InferenceExperimentType right) => !left.Equals(right);
+
+        public static explicit operator string(InferenceExperimentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InferenceExperimentType other && Equals(other);
+        public bool Equals(InferenceExperimentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
     [EnumType]

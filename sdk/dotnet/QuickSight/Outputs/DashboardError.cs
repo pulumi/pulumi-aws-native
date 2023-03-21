@@ -10,26 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;Dashboard error.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class DashboardError
     {
-        /// <summary>
-        /// &lt;p&gt;Message.&lt;/p&gt;
-        /// </summary>
         public readonly string? Message;
         public readonly Pulumi.AwsNative.QuickSight.DashboardErrorType? Type;
+        public readonly ImmutableArray<Outputs.DashboardEntity> ViolatedEntities;
 
         [OutputConstructor]
         private DashboardError(
             string? message,
 
-            Pulumi.AwsNative.QuickSight.DashboardErrorType? type)
+            Pulumi.AwsNative.QuickSight.DashboardErrorType? type,
+
+            ImmutableArray<Outputs.DashboardEntity> violatedEntities)
         {
             Message = message;
             Type = type;
+            ViolatedEntities = violatedEntities;
         }
     }
 }

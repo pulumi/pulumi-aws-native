@@ -87,6 +87,16 @@ __all__ = [
     'FeatureGroupS3StorageConfig',
     'FeatureGroupTag',
     'ImageTag',
+    'InferenceExperimentCaptureContentTypeHeader',
+    'InferenceExperimentDataStorageConfig',
+    'InferenceExperimentEndpointMetadata',
+    'InferenceExperimentModelInfrastructureConfig',
+    'InferenceExperimentModelVariantConfig',
+    'InferenceExperimentRealTimeInferenceConfig',
+    'InferenceExperimentSchedule',
+    'InferenceExperimentShadowModeConfig',
+    'InferenceExperimentShadowModelVariantConfig',
+    'InferenceExperimentTag',
     'ModelBiasJobDefinitionBatchTransformInput',
     'ModelBiasJobDefinitionClusterConfig',
     'ModelBiasJobDefinitionConstraintsResource',
@@ -3780,6 +3790,536 @@ class FeatureGroupTag(dict):
 
 @pulumi.output_type
 class ImageTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class InferenceExperimentCaptureContentTypeHeader(dict):
+    """
+    Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "csvContentTypes":
+            suggest = "csv_content_types"
+        elif key == "jsonContentTypes":
+            suggest = "json_content_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceExperimentCaptureContentTypeHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceExperimentCaptureContentTypeHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceExperimentCaptureContentTypeHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 csv_content_types: Optional[Sequence[str]] = None,
+                 json_content_types: Optional[Sequence[str]] = None):
+        """
+        Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+        :param Sequence[str] csv_content_types: The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
+        :param Sequence[str] json_content_types: The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
+        """
+        if csv_content_types is not None:
+            pulumi.set(__self__, "csv_content_types", csv_content_types)
+        if json_content_types is not None:
+            pulumi.set(__self__, "json_content_types", json_content_types)
+
+    @property
+    @pulumi.getter(name="csvContentTypes")
+    def csv_content_types(self) -> Optional[Sequence[str]]:
+        """
+        The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
+        """
+        return pulumi.get(self, "csv_content_types")
+
+    @property
+    @pulumi.getter(name="jsonContentTypes")
+    def json_content_types(self) -> Optional[Sequence[str]]:
+        """
+        The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
+        """
+        return pulumi.get(self, "json_content_types")
+
+
+@pulumi.output_type
+class InferenceExperimentDataStorageConfig(dict):
+    """
+    The Amazon S3 location and configuration for storing inference request and response data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "kmsKey":
+            suggest = "kms_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceExperimentDataStorageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceExperimentDataStorageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceExperimentDataStorageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: str,
+                 content_type: Optional['outputs.InferenceExperimentCaptureContentTypeHeader'] = None,
+                 kms_key: Optional[str] = None):
+        """
+        The Amazon S3 location and configuration for storing inference request and response data.
+        :param str destination: The Amazon S3 bucket where the inference request and response data is stored.
+        :param str kms_key: The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
+        """
+        pulumi.set(__self__, "destination", destination)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        """
+        The Amazon S3 bucket where the inference request and response data is stored.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional['outputs.InferenceExperimentCaptureContentTypeHeader']:
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[str]:
+        """
+        The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
+        """
+        return pulumi.get(self, "kms_key")
+
+
+@pulumi.output_type
+class InferenceExperimentEndpointMetadata(dict):
+    """
+    The metadata of the endpoint on which the inference experiment ran.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointName":
+            suggest = "endpoint_name"
+        elif key == "endpointConfigName":
+            suggest = "endpoint_config_name"
+        elif key == "endpointStatus":
+            suggest = "endpoint_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceExperimentEndpointMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceExperimentEndpointMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceExperimentEndpointMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_name: str,
+                 endpoint_config_name: Optional[str] = None,
+                 endpoint_status: Optional['InferenceExperimentEndpointMetadataEndpointStatus'] = None):
+        """
+        The metadata of the endpoint on which the inference experiment ran.
+        :param str endpoint_config_name: The name of the endpoint configuration.
+        :param 'InferenceExperimentEndpointMetadataEndpointStatus' endpoint_status: The status of the endpoint. For possible values of the status of an endpoint.
+        """
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        if endpoint_config_name is not None:
+            pulumi.set(__self__, "endpoint_config_name", endpoint_config_name)
+        if endpoint_status is not None:
+            pulumi.set(__self__, "endpoint_status", endpoint_status)
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> str:
+        return pulumi.get(self, "endpoint_name")
+
+    @property
+    @pulumi.getter(name="endpointConfigName")
+    def endpoint_config_name(self) -> Optional[str]:
+        """
+        The name of the endpoint configuration.
+        """
+        return pulumi.get(self, "endpoint_config_name")
+
+    @property
+    @pulumi.getter(name="endpointStatus")
+    def endpoint_status(self) -> Optional['InferenceExperimentEndpointMetadataEndpointStatus']:
+        """
+        The status of the endpoint. For possible values of the status of an endpoint.
+        """
+        return pulumi.get(self, "endpoint_status")
+
+
+@pulumi.output_type
+class InferenceExperimentModelInfrastructureConfig(dict):
+    """
+    The configuration for the infrastructure that the model will be deployed to.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "infrastructureType":
+            suggest = "infrastructure_type"
+        elif key == "realTimeInferenceConfig":
+            suggest = "real_time_inference_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceExperimentModelInfrastructureConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceExperimentModelInfrastructureConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceExperimentModelInfrastructureConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 infrastructure_type: 'InferenceExperimentModelInfrastructureConfigInfrastructureType',
+                 real_time_inference_config: 'outputs.InferenceExperimentRealTimeInferenceConfig'):
+        """
+        The configuration for the infrastructure that the model will be deployed to.
+        :param 'InferenceExperimentModelInfrastructureConfigInfrastructureType' infrastructure_type: The type of the inference experiment that you want to run.
+        """
+        pulumi.set(__self__, "infrastructure_type", infrastructure_type)
+        pulumi.set(__self__, "real_time_inference_config", real_time_inference_config)
+
+    @property
+    @pulumi.getter(name="infrastructureType")
+    def infrastructure_type(self) -> 'InferenceExperimentModelInfrastructureConfigInfrastructureType':
+        """
+        The type of the inference experiment that you want to run.
+        """
+        return pulumi.get(self, "infrastructure_type")
+
+    @property
+    @pulumi.getter(name="realTimeInferenceConfig")
+    def real_time_inference_config(self) -> 'outputs.InferenceExperimentRealTimeInferenceConfig':
+        return pulumi.get(self, "real_time_inference_config")
+
+
+@pulumi.output_type
+class InferenceExperimentModelVariantConfig(dict):
+    """
+    Contains information about the deployment options of a model.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "infrastructureConfig":
+            suggest = "infrastructure_config"
+        elif key == "modelName":
+            suggest = "model_name"
+        elif key == "variantName":
+            suggest = "variant_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceExperimentModelVariantConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceExperimentModelVariantConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceExperimentModelVariantConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 infrastructure_config: 'outputs.InferenceExperimentModelInfrastructureConfig',
+                 model_name: str,
+                 variant_name: str):
+        """
+        Contains information about the deployment options of a model.
+        :param str model_name: The name of the Amazon SageMaker Model entity.
+        :param str variant_name: The name of the variant.
+        """
+        pulumi.set(__self__, "infrastructure_config", infrastructure_config)
+        pulumi.set(__self__, "model_name", model_name)
+        pulumi.set(__self__, "variant_name", variant_name)
+
+    @property
+    @pulumi.getter(name="infrastructureConfig")
+    def infrastructure_config(self) -> 'outputs.InferenceExperimentModelInfrastructureConfig':
+        return pulumi.get(self, "infrastructure_config")
+
+    @property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> str:
+        """
+        The name of the Amazon SageMaker Model entity.
+        """
+        return pulumi.get(self, "model_name")
+
+    @property
+    @pulumi.getter(name="variantName")
+    def variant_name(self) -> str:
+        """
+        The name of the variant.
+        """
+        return pulumi.get(self, "variant_name")
+
+
+@pulumi.output_type
+class InferenceExperimentRealTimeInferenceConfig(dict):
+    """
+    The infrastructure configuration for deploying the model to a real-time inference endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceExperimentRealTimeInferenceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceExperimentRealTimeInferenceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceExperimentRealTimeInferenceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: int,
+                 instance_type: str):
+        """
+        The infrastructure configuration for deploying the model to a real-time inference endpoint.
+        :param int instance_count: The number of instances of the type specified by InstanceType.
+        :param str instance_type: The instance type the model is deployed to.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> int:
+        """
+        The number of instances of the type specified by InstanceType.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        The instance type the model is deployed to.
+        """
+        return pulumi.get(self, "instance_type")
+
+
+@pulumi.output_type
+class InferenceExperimentSchedule(dict):
+    """
+    The duration for which you want the inference experiment to run.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceExperimentSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceExperimentSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceExperimentSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_time: Optional[str] = None,
+                 start_time: Optional[str] = None):
+        """
+        The duration for which you want the inference experiment to run.
+        :param str end_time: The timestamp at which the inference experiment ended or will end.
+        :param str start_time: The timestamp at which the inference experiment started or will start.
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        The timestamp at which the inference experiment ended or will end.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The timestamp at which the inference experiment started or will start.
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class InferenceExperimentShadowModeConfig(dict):
+    """
+    The configuration of ShadowMode inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shadowModelVariants":
+            suggest = "shadow_model_variants"
+        elif key == "sourceModelVariantName":
+            suggest = "source_model_variant_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceExperimentShadowModeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceExperimentShadowModeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceExperimentShadowModeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 shadow_model_variants: Sequence['outputs.InferenceExperimentShadowModelVariantConfig'],
+                 source_model_variant_name: str):
+        """
+        The configuration of ShadowMode inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates.
+        :param Sequence['InferenceExperimentShadowModelVariantConfig'] shadow_model_variants: List of shadow variant configurations.
+        :param str source_model_variant_name: The name of the production variant, which takes all the inference requests.
+        """
+        pulumi.set(__self__, "shadow_model_variants", shadow_model_variants)
+        pulumi.set(__self__, "source_model_variant_name", source_model_variant_name)
+
+    @property
+    @pulumi.getter(name="shadowModelVariants")
+    def shadow_model_variants(self) -> Sequence['outputs.InferenceExperimentShadowModelVariantConfig']:
+        """
+        List of shadow variant configurations.
+        """
+        return pulumi.get(self, "shadow_model_variants")
+
+    @property
+    @pulumi.getter(name="sourceModelVariantName")
+    def source_model_variant_name(self) -> str:
+        """
+        The name of the production variant, which takes all the inference requests.
+        """
+        return pulumi.get(self, "source_model_variant_name")
+
+
+@pulumi.output_type
+class InferenceExperimentShadowModelVariantConfig(dict):
+    """
+    The name and sampling percentage of a shadow variant.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samplingPercentage":
+            suggest = "sampling_percentage"
+        elif key == "shadowModelVariantName":
+            suggest = "shadow_model_variant_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceExperimentShadowModelVariantConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceExperimentShadowModelVariantConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceExperimentShadowModelVariantConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sampling_percentage: int,
+                 shadow_model_variant_name: str):
+        """
+        The name and sampling percentage of a shadow variant.
+        :param int sampling_percentage: The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
+        :param str shadow_model_variant_name: The name of the shadow variant.
+        """
+        pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+        pulumi.set(__self__, "shadow_model_variant_name", shadow_model_variant_name)
+
+    @property
+    @pulumi.getter(name="samplingPercentage")
+    def sampling_percentage(self) -> int:
+        """
+        The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
+        """
+        return pulumi.get(self, "sampling_percentage")
+
+    @property
+    @pulumi.getter(name="shadowModelVariantName")
+    def shadow_model_variant_name(self) -> str:
+        """
+        The name of the shadow variant.
+        """
+        return pulumi.get(self, "shadow_model_variant_name")
+
+
+@pulumi.output_type
+class InferenceExperimentTag(dict):
     """
     A key-value pair to associate with a resource.
     """

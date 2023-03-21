@@ -25,43 +25,14 @@ export interface GetAnalysisArgs {
 }
 
 export interface GetAnalysisResult {
-    /**
-     * <p>The Amazon Resource Name (ARN) of the analysis.</p>
-     */
     readonly arn?: string;
-    /**
-     * <p>The time that the analysis was created.</p>
-     */
     readonly createdTime?: string;
-    /**
-     * <p>The ARNs of the datasets of the analysis.</p>
-     */
     readonly dataSetArns?: string[];
-    /**
-     * <p>Errors associated with the analysis.</p>
-     */
     readonly errors?: outputs.quicksight.AnalysisError[];
-    /**
-     * <p>The descriptive name of the analysis.</p>
-     */
     readonly name?: string;
-    /**
-     * <p>A structure that describes the principals and the resource-level permissions on an
-     *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-     *             providing a list of AWS Identity and Access Management (IAM) action information for each
-     *             principal listed by Amazon Resource Name (ARN). </p>
-     *
-     *         <p>To specify no permissions, omit <code>Permissions</code>.</p>
-     */
     readonly permissions?: outputs.quicksight.AnalysisResourcePermission[];
-    /**
-     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-     *             analysis.</p>
-     */
+    readonly status?: enums.quicksight.AnalysisResourceStatus;
     readonly tags?: outputs.quicksight.AnalysisTag[];
-    /**
-     * <p>The ARN of the theme of the analysis.</p>
-     */
     readonly themeArn?: string;
 }
 /**

@@ -110,6 +110,11 @@ export const getImageVersion: typeof import("./getImageVersion").getImageVersion
 export const getImageVersionOutput: typeof import("./getImageVersion").getImageVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getImageVersion","getImageVersionOutput"], () => require("./getImageVersion"));
 
+export { GetInferenceExperimentArgs, GetInferenceExperimentResult, GetInferenceExperimentOutputArgs } from "./getInferenceExperiment";
+export const getInferenceExperiment: typeof import("./getInferenceExperiment").getInferenceExperiment = null as any;
+export const getInferenceExperimentOutput: typeof import("./getInferenceExperiment").getInferenceExperimentOutput = null as any;
+utilities.lazyLoad(exports, ["getInferenceExperiment","getInferenceExperimentOutput"], () => require("./getInferenceExperiment"));
+
 export { GetModelArgs, GetModelResult, GetModelOutputArgs } from "./getModel";
 export const getModel: typeof import("./getModel").getModel = null as any;
 export const getModelOutput: typeof import("./getModel").getModelOutput = null as any;
@@ -194,6 +199,11 @@ export { ImageVersionArgs } from "./imageVersion";
 export type ImageVersion = import("./imageVersion").ImageVersion;
 export const ImageVersion: typeof import("./imageVersion").ImageVersion = null as any;
 utilities.lazyLoad(exports, ["ImageVersion"], () => require("./imageVersion"));
+
+export { InferenceExperimentArgs } from "./inferenceExperiment";
+export type InferenceExperiment = import("./inferenceExperiment").InferenceExperiment;
+export const InferenceExperiment: typeof import("./inferenceExperiment").InferenceExperiment = null as any;
+utilities.lazyLoad(exports, ["InferenceExperiment"], () => require("./inferenceExperiment"));
 
 export { ModelArgs } from "./model";
 export type Model = import("./model").Model;
@@ -302,6 +312,8 @@ const _module = {
                 return new Image(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ImageVersion":
                 return new ImageVersion(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:InferenceExperiment":
+                return new InferenceExperiment(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Model":
                 return new Model(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ModelBiasJobDefinition":

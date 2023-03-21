@@ -39,8 +39,10 @@ export interface GetDomainResult {
     readonly id?: string;
     readonly logPublishingOptions?: any;
     readonly nodeToNodeEncryptionOptions?: outputs.opensearchservice.DomainNodeToNodeEncryptionOptions;
+    readonly offPeakWindowOptions?: outputs.opensearchservice.DomainOffPeakWindowOptions;
     readonly serviceSoftwareOptions?: outputs.opensearchservice.DomainServiceSoftwareOptions;
     readonly snapshotOptions?: outputs.opensearchservice.DomainSnapshotOptions;
+    readonly softwareUpdateOptions?: outputs.opensearchservice.DomainSoftwareUpdateOptions;
     /**
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */

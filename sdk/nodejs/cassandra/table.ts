@@ -39,6 +39,10 @@ export class Table extends pulumi.CustomResource {
 
     public readonly billingMode!: pulumi.Output<outputs.cassandra.TableBillingMode | undefined>;
     /**
+     * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
+     */
+    public readonly clientSideTimestampsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Clustering key columns of the table
      */
     public readonly clusteringKeyColumns!: pulumi.Output<outputs.cassandra.TableClusteringKeyColumn[] | undefined>;
@@ -90,6 +94,7 @@ export class Table extends pulumi.CustomResource {
                 throw new Error("Missing required property 'partitionKeyColumns'");
             }
             resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["clientSideTimestampsEnabled"] = args ? args.clientSideTimestampsEnabled : undefined;
             resourceInputs["clusteringKeyColumns"] = args ? args.clusteringKeyColumns : undefined;
             resourceInputs["defaultTimeToLive"] = args ? args.defaultTimeToLive : undefined;
             resourceInputs["encryptionSpecification"] = args ? args.encryptionSpecification : undefined;
@@ -101,6 +106,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["billingMode"] = undefined /*out*/;
+            resourceInputs["clientSideTimestampsEnabled"] = undefined /*out*/;
             resourceInputs["clusteringKeyColumns"] = undefined /*out*/;
             resourceInputs["defaultTimeToLive"] = undefined /*out*/;
             resourceInputs["encryptionSpecification"] = undefined /*out*/;
@@ -121,6 +127,10 @@ export class Table extends pulumi.CustomResource {
  */
 export interface TableArgs {
     billingMode?: pulumi.Input<inputs.cassandra.TableBillingModeArgs>;
+    /**
+     * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
+     */
+    clientSideTimestampsEnabled?: pulumi.Input<boolean>;
     /**
      * Clustering key columns of the table
      */

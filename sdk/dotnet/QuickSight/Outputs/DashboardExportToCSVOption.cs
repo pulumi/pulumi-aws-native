@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;Export to .csv option.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class DashboardExportToCSVOption
     {

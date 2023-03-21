@@ -16,16 +16,24 @@ namespace Pulumi.AwsNative.Athena.Outputs
     [OutputType]
     public sealed class WorkGroupResultConfiguration
     {
+        public readonly Outputs.WorkGroupAclConfiguration? AclConfiguration;
         public readonly Outputs.WorkGroupEncryptionConfiguration? EncryptionConfiguration;
+        public readonly string? ExpectedBucketOwner;
         public readonly string? OutputLocation;
 
         [OutputConstructor]
         private WorkGroupResultConfiguration(
+            Outputs.WorkGroupAclConfiguration? aclConfiguration,
+
             Outputs.WorkGroupEncryptionConfiguration? encryptionConfiguration,
+
+            string? expectedBucketOwner,
 
             string? outputLocation)
         {
+            AclConfiguration = aclConfiguration;
             EncryptionConfiguration = encryptionConfiguration;
+            ExpectedBucketOwner = expectedBucketOwner;
             OutputLocation = outputLocation;
         }
     }

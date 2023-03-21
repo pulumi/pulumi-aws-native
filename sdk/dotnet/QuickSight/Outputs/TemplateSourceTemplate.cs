@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The source template of the template.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class TemplateSourceTemplate
     {
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
-        /// </summary>
         public readonly string Arn;
 
         [OutputConstructor]

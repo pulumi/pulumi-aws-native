@@ -26,21 +26,12 @@ type LookupDashboardArgs struct {
 }
 
 type LookupDashboardResult struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn *string `pulumi:"arn"`
-	// <p>The last time that this dataset was published.</p>
-	LastPublishedTime *string `pulumi:"lastPublishedTime"`
-	// <p>The display name of the dashboard.</p>
-	Name *string `pulumi:"name"`
-	// <p>A structure that contains the permissions of the dashboard. You can use this structure
-	//             for granting permissions by providing a list of IAM action information for each
-	//             principal ARN. </p>
-	//
-	//         <p>To specify no permissions, omit the permissions list.</p>
-	Permissions []DashboardResourcePermission `pulumi:"permissions"`
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-	//             dashboard.</p>
-	Tags []DashboardTag `pulumi:"tags"`
+	Arn               *string                       `pulumi:"arn"`
+	LastPublishedTime *string                       `pulumi:"lastPublishedTime"`
+	Name              *string                       `pulumi:"name"`
+	Permissions       []DashboardResourcePermission `pulumi:"permissions"`
+	Tags              []DashboardTag                `pulumi:"tags"`
+	Version           *DashboardVersion             `pulumi:"version"`
 }
 
 func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardResultOutput {
@@ -79,36 +70,28 @@ func (o LookupDashboardResultOutput) ToLookupDashboardResultOutputWithContext(ct
 	return o
 }
 
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o LookupDashboardResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// <p>The last time that this dataset was published.</p>
 func (o LookupDashboardResultOutput) LastPublishedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.LastPublishedTime }).(pulumi.StringPtrOutput)
 }
 
-// <p>The display name of the dashboard.</p>
 func (o LookupDashboardResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// <p>A structure that contains the permissions of the dashboard. You can use this structure
-//
-//	    for granting permissions by providing a list of IAM action information for each
-//	    principal ARN. </p>
-//
-//	<p>To specify no permissions, omit the permissions list.</p>
 func (o LookupDashboardResultOutput) Permissions() DashboardResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupDashboardResult) []DashboardResourcePermission { return v.Permissions }).(DashboardResourcePermissionArrayOutput)
 }
 
-// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-//
-//	dashboard.</p>
 func (o LookupDashboardResultOutput) Tags() DashboardTagArrayOutput {
 	return o.ApplyT(func(v LookupDashboardResult) []DashboardTag { return v.Tags }).(DashboardTagArrayOutput)
+}
+
+func (o LookupDashboardResultOutput) Version() DashboardVersionPtrOutput {
+	return o.ApplyT(func(v LookupDashboardResult) *DashboardVersion { return v.Version }).(DashboardVersionPtrOutput)
 }
 
 func init() {

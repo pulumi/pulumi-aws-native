@@ -10,19 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;Dashboard publish options.&lt;/p&gt;
-    /// </summary>
     public sealed class DashboardPublishOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("adHocFilteringOption")]
         public Input<Inputs.DashboardAdHocFilteringOptionArgs>? AdHocFilteringOption { get; set; }
 
+        [Input("dataPointDrillUpDownOption")]
+        public Input<Inputs.DashboardDataPointDrillUpDownOptionArgs>? DataPointDrillUpDownOption { get; set; }
+
+        [Input("dataPointMenuLabelOption")]
+        public Input<Inputs.DashboardDataPointMenuLabelOptionArgs>? DataPointMenuLabelOption { get; set; }
+
+        [Input("dataPointTooltipOption")]
+        public Input<Inputs.DashboardDataPointTooltipOptionArgs>? DataPointTooltipOption { get; set; }
+
         [Input("exportToCSVOption")]
         public Input<Inputs.DashboardExportToCSVOptionArgs>? ExportToCSVOption { get; set; }
 
+        [Input("exportWithHiddenFieldsOption")]
+        public Input<Inputs.DashboardExportWithHiddenFieldsOptionArgs>? ExportWithHiddenFieldsOption { get; set; }
+
         [Input("sheetControlsOption")]
         public Input<Inputs.DashboardSheetControlsOptionArgs>? SheetControlsOption { get; set; }
+
+        [Input("sheetLayoutElementMaximizationOption")]
+        public Input<Inputs.DashboardSheetLayoutElementMaximizationOptionArgs>? SheetLayoutElementMaximizationOption { get; set; }
+
+        [Input("visualAxisSortOption")]
+        public Input<Inputs.DashboardVisualAxisSortOptionArgs>? VisualAxisSortOption { get; set; }
+
+        [Input("visualMenuOption")]
+        public Input<Inputs.DashboardVisualMenuOptionArgs>? VisualMenuOption { get; set; }
+
+        [Input("visualPublishOptions")]
+        public Input<Inputs.DashboardVisualPublishOptionsArgs>? VisualPublishOptions { get; set; }
 
         public DashboardPublishOptionsArgs()
         {

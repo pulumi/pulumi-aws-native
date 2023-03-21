@@ -10,19 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;An integer parameter.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class DashboardIntegerParameter
     {
-        /// <summary>
-        /// &lt;p&gt;The name of the integer parameter.&lt;/p&gt;
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// &lt;p&gt;The values for the integer parameter.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<double> Values;
 
         [OutputConstructor]

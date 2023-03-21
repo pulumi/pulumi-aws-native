@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;Dashboard source entity.&lt;/p&gt;
-    /// </summary>
     public sealed class DashboardSourceEntityArgs : global::Pulumi.ResourceArgs
     {
         [Input("sourceTemplate")]

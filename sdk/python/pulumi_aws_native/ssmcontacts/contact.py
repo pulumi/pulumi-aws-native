@@ -19,19 +19,20 @@ class ContactArgs:
     def __init__(__self__, *,
                  alias: pulumi.Input[str],
                  display_name: pulumi.Input[str],
-                 plan: pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]],
-                 type: pulumi.Input['ContactType']):
+                 type: pulumi.Input['ContactType'],
+                 plan: Optional[pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]] = None):
         """
         The set of arguments for constructing a Contact resource.
         :param pulumi.Input[str] alias: Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
         :param pulumi.Input[str] display_name: Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
-        :param pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]] plan: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         :param pulumi.Input['ContactType'] type: Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]] plan: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "plan", plan)
         pulumi.set(__self__, "type", type)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
 
     @property
     @pulumi.getter
@@ -59,18 +60,6 @@ class ContactArgs:
 
     @property
     @pulumi.getter
-    def plan(self) -> pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]:
-        """
-        The stages that an escalation plan or engagement plan engages contacts and contact methods in.
-        """
-        return pulumi.get(self, "plan")
-
-    @plan.setter
-    def plan(self, value: pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]):
-        pulumi.set(self, "plan", value)
-
-    @property
-    @pulumi.getter
     def type(self) -> pulumi.Input['ContactType']:
         """
         Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
@@ -80,6 +69,18 @@ class ContactArgs:
     @type.setter
     def type(self, value: pulumi.Input['ContactType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]]:
+        """
+        The stages that an escalation plan or engagement plan engages contacts and contact methods in.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]]):
+        pulumi.set(self, "plan", value)
 
 
 class Contact(pulumi.CustomResource):
@@ -145,8 +146,6 @@ class Contact(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            if plan is None and not opts.urn:
-                raise TypeError("Missing required property 'plan'")
             __props__.__dict__["plan"] = plan
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -207,7 +206,7 @@ class Contact(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> pulumi.Output[Sequence['outputs.ContactStage']]:
+    def plan(self) -> pulumi.Output[Optional[Sequence['outputs.ContactStage']]]:
         """
         The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         """

@@ -767,7 +767,6 @@ type ServiceNetworkServiceAssociationStatus string
 const (
 	ServiceNetworkServiceAssociationStatusCreateInProgress = ServiceNetworkServiceAssociationStatus("CREATE_IN_PROGRESS")
 	ServiceNetworkServiceAssociationStatusActive           = ServiceNetworkServiceAssociationStatus("ACTIVE")
-	ServiceNetworkServiceAssociationStatusUpdateInProgress = ServiceNetworkServiceAssociationStatus("UPDATE_IN_PROGRESS")
 	ServiceNetworkServiceAssociationStatusDeleteInProgress = ServiceNetworkServiceAssociationStatus("DELETE_IN_PROGRESS")
 	ServiceNetworkServiceAssociationStatusCreateFailed     = ServiceNetworkServiceAssociationStatus("CREATE_FAILED")
 	ServiceNetworkServiceAssociationStatusDeleteFailed     = ServiceNetworkServiceAssociationStatus("DELETE_FAILED")

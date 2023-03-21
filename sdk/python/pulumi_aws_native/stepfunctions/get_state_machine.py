@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetStateMachineResult:
-    def __init__(__self__, arn=None, definition_string=None, logging_configuration=None, name=None, role_arn=None, tags=None, tracing_configuration=None):
+    def __init__(__self__, arn=None, definition_string=None, logging_configuration=None, name=None, role_arn=None, state_machine_revision_id=None, tags=None, tracing_configuration=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetStateMachineResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if state_machine_revision_id and not isinstance(state_machine_revision_id, str):
+            raise TypeError("Expected argument 'state_machine_revision_id' to be a str")
+        pulumi.set(__self__, "state_machine_revision_id", state_machine_revision_id)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -69,6 +72,11 @@ class GetStateMachineResult:
         return pulumi.get(self, "role_arn")
 
     @property
+    @pulumi.getter(name="stateMachineRevisionId")
+    def state_machine_revision_id(self) -> Optional[str]:
+        return pulumi.get(self, "state_machine_revision_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.StateMachineTagsEntry']]:
         return pulumi.get(self, "tags")
@@ -90,6 +98,7 @@ class AwaitableGetStateMachineResult(GetStateMachineResult):
             logging_configuration=self.logging_configuration,
             name=self.name,
             role_arn=self.role_arn,
+            state_machine_revision_id=self.state_machine_revision_id,
             tags=self.tags,
             tracing_configuration=self.tracing_configuration)
 
@@ -110,6 +119,7 @@ def get_state_machine(arn: Optional[str] = None,
         logging_configuration=__ret__.logging_configuration,
         name=__ret__.name,
         role_arn=__ret__.role_arn,
+        state_machine_revision_id=__ret__.state_machine_revision_id,
         tags=__ret__.tags,
         tracing_configuration=__ret__.tracing_configuration)
 

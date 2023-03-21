@@ -10,19 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;A string parameter.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class AnalysisStringParameter
     {
-        /// <summary>
-        /// &lt;p&gt;A display name for a string parameter.&lt;/p&gt;
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// &lt;p&gt;The values of a string parameter.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

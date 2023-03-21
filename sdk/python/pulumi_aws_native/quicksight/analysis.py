@@ -19,38 +19,31 @@ class AnalysisArgs:
     def __init__(__self__, *,
                  analysis_id: pulumi.Input[str],
                  aws_account_id: pulumi.Input[str],
-                 source_entity: pulumi.Input['AnalysisSourceEntityArgs'],
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]] = None,
+                 definition: Optional[pulumi.Input['AnalysisDefinitionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]] = None,
+                 source_entity: Optional[pulumi.Input['AnalysisSourceEntityArgs']] = None,
+                 status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Analysis resource.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]] errors: <p>Errors associated with the analysis.</p>
-        :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]] permissions: <p>A structure that describes the principals and the resource-level permissions on an
-                           analysis. You can use the <code>Permissions</code> structure to grant permissions by
-                           providing a list of AWS Identity and Access Management (IAM) action information for each
-                           principal listed by Amazon Resource Name (ARN). </p>
-               
-                       <p>To specify no permissions, omit <code>Permissions</code>.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-                           analysis.</p>
-        :param pulumi.Input[str] theme_arn: <p>The ARN of the theme of the analysis.</p>
         """
         pulumi.set(__self__, "analysis_id", analysis_id)
         pulumi.set(__self__, "aws_account_id", aws_account_id)
-        pulumi.set(__self__, "source_entity", source_entity)
-        if errors is not None:
-            pulumi.set(__self__, "errors", errors)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if source_entity is not None:
+            pulumi.set(__self__, "source_entity", source_entity)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if theme_arn is not None:
@@ -75,32 +68,17 @@ class AnalysisArgs:
         pulumi.set(self, "aws_account_id", value)
 
     @property
-    @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Input['AnalysisSourceEntityArgs']:
-        return pulumi.get(self, "source_entity")
-
-    @source_entity.setter
-    def source_entity(self, value: pulumi.Input['AnalysisSourceEntityArgs']):
-        pulumi.set(self, "source_entity", value)
-
-    @property
     @pulumi.getter
-    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]]:
-        """
-        <p>Errors associated with the analysis.</p>
-        """
-        return pulumi.get(self, "errors")
+    def definition(self) -> Optional[pulumi.Input['AnalysisDefinitionArgs']]:
+        return pulumi.get(self, "definition")
 
-    @errors.setter
-    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]]):
-        pulumi.set(self, "errors", value)
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input['AnalysisDefinitionArgs']]):
+        pulumi.set(self, "definition", value)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The descriptive name of the analysis.</p>
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -119,14 +97,6 @@ class AnalysisArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]]:
-        """
-        <p>A structure that describes the principals and the resource-level permissions on an
-                    analysis. You can use the <code>Permissions</code> structure to grant permissions by
-                    providing a list of AWS Identity and Access Management (IAM) action information for each
-                    principal listed by Amazon Resource Name (ARN). </p>
-
-                <p>To specify no permissions, omit <code>Permissions</code>.</p>
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -134,12 +104,26 @@ class AnalysisArgs:
         pulumi.set(self, "permissions", value)
 
     @property
+    @pulumi.getter(name="sourceEntity")
+    def source_entity(self) -> Optional[pulumi.Input['AnalysisSourceEntityArgs']]:
+        return pulumi.get(self, "source_entity")
+
+    @source_entity.setter
+    def source_entity(self, value: Optional[pulumi.Input['AnalysisSourceEntityArgs']]):
+        pulumi.set(self, "source_entity", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['AnalysisResourceStatus']]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['AnalysisResourceStatus']]):
+        pulumi.set(self, "status", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]]:
-        """
-        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-                    analysis.</p>
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -149,9 +133,6 @@ class AnalysisArgs:
     @property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The ARN of the theme of the analysis.</p>
-        """
         return pulumi.get(self, "theme_arn")
 
     @theme_arn.setter
@@ -166,11 +147,12 @@ class Analysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analysis_id: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisErrorArgs']]]]] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['AnalysisDefinitionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['AnalysisParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']]] = None,
+                 status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -179,17 +161,6 @@ class Analysis(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisErrorArgs']]]] errors: <p>Errors associated with the analysis.</p>
-        :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]] permissions: <p>A structure that describes the principals and the resource-level permissions on an
-                           analysis. You can use the <code>Permissions</code> structure to grant permissions by
-                           providing a list of AWS Identity and Access Management (IAM) action information for each
-                           principal listed by Amazon Resource Name (ARN). </p>
-               
-                       <p>To specify no permissions, omit <code>Permissions</code>.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-                           analysis.</p>
-        :param pulumi.Input[str] theme_arn: <p>The ARN of the theme of the analysis.</p>
         """
         ...
     @overload
@@ -217,11 +188,12 @@ class Analysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analysis_id: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisErrorArgs']]]]] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['AnalysisDefinitionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['AnalysisParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']]] = None,
+                 status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -239,21 +211,20 @@ class Analysis(pulumi.CustomResource):
             if aws_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_account_id'")
             __props__.__dict__["aws_account_id"] = aws_account_id
-            __props__.__dict__["errors"] = errors
+            __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
-            if source_entity is None and not opts.urn:
-                raise TypeError("Missing required property 'source_entity'")
             __props__.__dict__["source_entity"] = source_entity
+            __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["data_set_arns"] = None
+            __props__.__dict__["errors"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["sheets"] = None
-            __props__.__dict__["status"] = None
         super(Analysis, __self__).__init__(
             'aws-native:quicksight:Analysis',
             resource_name,
@@ -281,6 +252,7 @@ class Analysis(pulumi.CustomResource):
         __props__.__dict__["aws_account_id"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["data_set_arns"] = None
+        __props__.__dict__["definition"] = None
         __props__.__dict__["errors"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["name"] = None
@@ -301,9 +273,6 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the analysis.</p>
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -314,41 +283,31 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
-        """
-        <p>The time that the analysis was created.</p>
-        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="dataSetArns")
     def data_set_arns(self) -> pulumi.Output[Sequence[str]]:
-        """
-        <p>The ARNs of the datasets of the analysis.</p>
-        """
         return pulumi.get(self, "data_set_arns")
 
     @property
     @pulumi.getter
-    def errors(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisError']]]:
-        """
-        <p>Errors associated with the analysis.</p>
-        """
+    def definition(self) -> pulumi.Output[Optional['outputs.AnalysisDefinition']]:
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> pulumi.Output[Sequence['outputs.AnalysisError']]:
         return pulumi.get(self, "errors")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
-        """
-        <p>The time that the analysis was last updated.</p>
-        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
-        """
-        <p>The descriptive name of the analysis.</p>
-        """
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
@@ -359,48 +318,30 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisResourcePermission']]]:
-        """
-        <p>A structure that describes the principals and the resource-level permissions on an
-                    analysis. You can use the <code>Permissions</code> structure to grant permissions by
-                    providing a list of AWS Identity and Access Management (IAM) action information for each
-                    principal listed by Amazon Resource Name (ARN). </p>
-
-                <p>To specify no permissions, omit <code>Permissions</code>.</p>
-        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter
     def sheets(self) -> pulumi.Output[Sequence['outputs.AnalysisSheet']]:
-        """
-        <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-        """
         return pulumi.get(self, "sheets")
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Output['outputs.AnalysisSourceEntity']:
+    def source_entity(self) -> pulumi.Output[Optional['outputs.AnalysisSourceEntity']]:
         return pulumi.get(self, "source_entity")
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output['AnalysisResourceStatus']:
+    def status(self) -> pulumi.Output[Optional['AnalysisResourceStatus']]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisTag']]]:
-        """
-        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-                    analysis.</p>
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        <p>The ARN of the theme of the analysis.</p>
-        """
         return pulumi.get(self, "theme_arn")
 

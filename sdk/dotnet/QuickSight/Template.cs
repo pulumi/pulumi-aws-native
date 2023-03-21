@@ -15,45 +15,30 @@ namespace Pulumi.AwsNative.QuickSight
     [AwsNativeResourceType("aws-native:quicksight:Template")]
     public partial class Template : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the template.&lt;/p&gt;
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;Time when this was created.&lt;/p&gt;
-        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;Time when this was last updated.&lt;/p&gt;
-        /// </summary>
+        [Output("definition")]
+        public Output<Outputs.TemplateVersionDefinition?> Definition { get; private set; } = null!;
+
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A display name for the template.&lt;/p&gt;
-        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A list of resource permissions to be set on the template. &lt;/p&gt;
-        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.TemplateResourcePermission>> Permissions { get; private set; } = null!;
 
         [Output("sourceEntity")]
-        public Output<Outputs.TemplateSourceEntity> SourceEntity { get; private set; } = null!;
+        public Output<Outputs.TemplateSourceEntity?> SourceEntity { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.&lt;/p&gt;
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.TemplateTag>> Tags { get; private set; } = null!;
 
@@ -63,12 +48,6 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("version")]
         public Output<Outputs.TemplateVersion> Version { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A description of the current template version being created. This API operation creates the
-        /// 			first version of the template. Every time &lt;code&gt;UpdateTemplate&lt;/code&gt; is called, a new
-        /// 			version is created. Each version of the template maintains a description of the version
-        /// 			in the &lt;code&gt;VersionDescription&lt;/code&gt; field.&lt;/p&gt;
-        /// </summary>
         [Output("versionDescription")]
         public Output<string?> VersionDescription { get; private set; } = null!;
 
@@ -120,33 +99,25 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A display name for the template.&lt;/p&gt;
-        /// </summary>
+        [Input("definition")]
+        public Input<Inputs.TemplateVersionDefinitionArgs>? Definition { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.TemplateResourcePermissionArgs>? _permissions;
-
-        /// <summary>
-        /// &lt;p&gt;A list of resource permissions to be set on the template. &lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.TemplateResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.TemplateResourcePermissionArgs>());
             set => _permissions = value;
         }
 
-        [Input("sourceEntity", required: true)]
-        public Input<Inputs.TemplateSourceEntityArgs> SourceEntity { get; set; } = null!;
+        [Input("sourceEntity")]
+        public Input<Inputs.TemplateSourceEntityArgs>? SourceEntity { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.TemplateTagArgs>? _tags;
-
-        /// <summary>
-        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.TemplateTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.TemplateTagArgs>());
@@ -156,12 +127,6 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("templateId", required: true)]
         public Input<string> TemplateId { get; set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A description of the current template version being created. This API operation creates the
-        /// 			first version of the template. Every time &lt;code&gt;UpdateTemplate&lt;/code&gt; is called, a new
-        /// 			version is created. Each version of the template maintains a description of the version
-        /// 			in the &lt;code&gt;VersionDescription&lt;/code&gt; field.&lt;/p&gt;
-        /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }
 

@@ -12,14 +12,23 @@ namespace Pulumi.AwsNative.Athena.Inputs
 
     public sealed class WorkGroupConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalConfiguration")]
+        public Input<string>? AdditionalConfiguration { get; set; }
+
         [Input("bytesScannedCutoffPerQuery")]
         public Input<int>? BytesScannedCutoffPerQuery { get; set; }
+
+        [Input("customerContentEncryptionConfiguration")]
+        public Input<Inputs.WorkGroupCustomerContentEncryptionConfigurationArgs>? CustomerContentEncryptionConfiguration { get; set; }
 
         [Input("enforceWorkGroupConfiguration")]
         public Input<bool>? EnforceWorkGroupConfiguration { get; set; }
 
         [Input("engineVersion")]
         public Input<Inputs.WorkGroupEngineVersionArgs>? EngineVersion { get; set; }
+
+        [Input("executionRole")]
+        public Input<string>? ExecutionRole { get; set; }
 
         [Input("publishCloudWatchMetricsEnabled")]
         public Input<bool>? PublishCloudWatchMetricsEnabled { get; set; }

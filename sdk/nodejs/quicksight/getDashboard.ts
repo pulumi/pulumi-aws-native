@@ -25,31 +25,12 @@ export interface GetDashboardArgs {
 }
 
 export interface GetDashboardResult {
-    /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
-     */
     readonly arn?: string;
-    /**
-     * <p>The last time that this dataset was published.</p>
-     */
     readonly lastPublishedTime?: string;
-    /**
-     * <p>The display name of the dashboard.</p>
-     */
     readonly name?: string;
-    /**
-     * <p>A structure that contains the permissions of the dashboard. You can use this structure
-     *             for granting permissions by providing a list of IAM action information for each
-     *             principal ARN. </p>
-     *
-     *         <p>To specify no permissions, omit the permissions list.</p>
-     */
     readonly permissions?: outputs.quicksight.DashboardResourcePermission[];
-    /**
-     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-     *             dashboard.</p>
-     */
     readonly tags?: outputs.quicksight.DashboardTag[];
+    readonly version?: outputs.quicksight.DashboardVersion;
 }
 /**
  * Definition of the AWS::QuickSight::Dashboard Resource Type.

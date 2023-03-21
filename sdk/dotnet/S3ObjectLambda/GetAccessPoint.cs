@@ -57,6 +57,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
     [OutputType]
     public sealed class GetAccessPointResult
     {
+        public readonly Outputs.AliasProperties? Alias;
         public readonly string? Arn;
         /// <summary>
         /// The date and time when the Object lambda Access Point was created.
@@ -74,6 +75,8 @@ namespace Pulumi.AwsNative.S3ObjectLambda
 
         [OutputConstructor]
         private GetAccessPointResult(
+            Outputs.AliasProperties? alias,
+
             string? arn,
 
             string? creationDate,
@@ -84,6 +87,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
 
             Outputs.AccessPointPublicAccessBlockConfiguration? publicAccessBlockConfiguration)
         {
+            Alias = alias;
             Arn = arn;
             CreationDate = creationDate;
             ObjectLambdaConfiguration = objectLambdaConfiguration;

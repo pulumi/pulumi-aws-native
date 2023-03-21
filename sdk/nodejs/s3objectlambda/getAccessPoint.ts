@@ -26,6 +26,7 @@ export interface GetAccessPointArgs {
 }
 
 export interface GetAccessPointResult {
+    readonly alias?: outputs.s3objectlambda.AliasProperties;
     readonly arn?: string;
     /**
      * The date and time when the Object lambda Access Point was created.

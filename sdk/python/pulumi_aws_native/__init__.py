@@ -113,6 +113,8 @@ if typing.TYPE_CHECKING:
     codestarnotifications = __codestarnotifications
     import pulumi_aws_native.cognito as __cognito
     cognito = __cognito
+    import pulumi_aws_native.comprehend as __comprehend
+    comprehend = __comprehend
     import pulumi_aws_native.config as __config
     config = __config
     import pulumi_aws_native.configuration as __configuration
@@ -500,6 +502,7 @@ else:
     codestarconnections = _utilities.lazy_import('pulumi_aws_native.codestarconnections')
     codestarnotifications = _utilities.lazy_import('pulumi_aws_native.codestarnotifications')
     cognito = _utilities.lazy_import('pulumi_aws_native.cognito')
+    comprehend = _utilities.lazy_import('pulumi_aws_native.comprehend')
     config = _utilities.lazy_import('pulumi_aws_native.config')
     configuration = _utilities.lazy_import('pulumi_aws_native.configuration')
     connect = _utilities.lazy_import('pulumi_aws_native.connect')
@@ -1011,6 +1014,7 @@ _utilities.register(
   "mod": "chatbot",
   "fqn": "pulumi_aws_native.chatbot",
   "classes": {
+   "aws-native:chatbot:MicrosoftTeamsChannelConfiguration": "MicrosoftTeamsChannelConfiguration",
    "aws-native:chatbot:SlackChannelConfiguration": "SlackChannelConfiguration"
   }
  },
@@ -1193,6 +1197,14 @@ _utilities.register(
    "aws-native:cognito:UserPoolUICustomizationAttachment": "UserPoolUICustomizationAttachment",
    "aws-native:cognito:UserPoolUser": "UserPoolUser",
    "aws-native:cognito:UserPoolUserToGroupAttachment": "UserPoolUserToGroupAttachment"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "comprehend",
+  "fqn": "pulumi_aws_native.comprehend",
+  "classes": {
+   "aws-native:comprehend:Flywheel": "Flywheel"
   }
  },
  {
@@ -2875,6 +2887,7 @@ _utilities.register(
    "aws-native:sagemaker:FeatureGroup": "FeatureGroup",
    "aws-native:sagemaker:Image": "Image",
    "aws-native:sagemaker:ImageVersion": "ImageVersion",
+   "aws-native:sagemaker:InferenceExperiment": "InferenceExperiment",
    "aws-native:sagemaker:Model": "Model",
    "aws-native:sagemaker:ModelBiasJobDefinition": "ModelBiasJobDefinition",
    "aws-native:sagemaker:ModelCard": "ModelCard",

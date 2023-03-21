@@ -16,6 +16,7 @@ __all__ = [
     'AccessPointPublicAccessBlockConfiguration',
     'AccessPointTransformationConfiguration',
     'AccessPointTransformationConfigurationContentTransformationProperties',
+    'AliasProperties',
     'PolicyStatusProperties',
 ]
 
@@ -283,6 +284,37 @@ class AccessPointTransformationConfigurationContentTransformationProperties(dict
     @pulumi.getter(name="awsLambda")
     def aws_lambda(self) -> 'outputs.AccessPointAwsLambda':
         return pulumi.get(self, "aws_lambda")
+
+
+@pulumi.output_type
+class AliasProperties(dict):
+    def __init__(__self__, *,
+                 status: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str status: The status of the Object Lambda alias.
+        :param str value: The value of the Object Lambda alias.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the Object Lambda alias.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the Object Lambda alias.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

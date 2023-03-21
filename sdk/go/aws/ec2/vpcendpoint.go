@@ -12,22 +12,27 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::VPCEndpoint
-//
-// Deprecated: VPCEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type VPCEndpoint struct {
 	pulumi.CustomResourceState
 
 	CreationTimestamp   pulumi.StringOutput      `pulumi:"creationTimestamp"`
 	DnsEntries          pulumi.StringArrayOutput `pulumi:"dnsEntries"`
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
-	PolicyDocument      pulumi.AnyOutput         `pulumi:"policyDocument"`
-	PrivateDnsEnabled   pulumi.BoolPtrOutput     `pulumi:"privateDnsEnabled"`
-	RouteTableIds       pulumi.StringArrayOutput `pulumi:"routeTableIds"`
-	SecurityGroupIds    pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	ServiceName         pulumi.StringOutput      `pulumi:"serviceName"`
-	SubnetIds           pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	VpcEndpointType     pulumi.StringPtrOutput   `pulumi:"vpcEndpointType"`
-	VpcId               pulumi.StringOutput      `pulumi:"vpcId"`
+	// A policy to attach to the endpoint that controls access to the service.
+	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
+	// Indicate whether to associate a private hosted zone with the specified VPC.
+	PrivateDnsEnabled pulumi.BoolPtrOutput `pulumi:"privateDnsEnabled"`
+	// One or more route table IDs.
+	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
+	// The ID of one or more security groups to associate with the endpoint network interface.
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// The service name.
+	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
+	// The ID of one or more subnets in which to create an endpoint network interface.
+	SubnetIds       pulumi.StringArrayOutput            `pulumi:"subnetIds"`
+	VpcEndpointType VPCEndpointVpcEndpointTypePtrOutput `pulumi:"vpcEndpointType"`
+	// The ID of the VPC in which the endpoint will be used.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewVPCEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -75,26 +80,40 @@ func (VPCEndpointState) ElementType() reflect.Type {
 }
 
 type vpcendpointArgs struct {
-	PolicyDocument    interface{} `pulumi:"policyDocument"`
-	PrivateDnsEnabled *bool       `pulumi:"privateDnsEnabled"`
-	RouteTableIds     []string    `pulumi:"routeTableIds"`
-	SecurityGroupIds  []string    `pulumi:"securityGroupIds"`
-	ServiceName       string      `pulumi:"serviceName"`
-	SubnetIds         []string    `pulumi:"subnetIds"`
-	VpcEndpointType   *string     `pulumi:"vpcEndpointType"`
-	VpcId             string      `pulumi:"vpcId"`
+	// A policy to attach to the endpoint that controls access to the service.
+	PolicyDocument *string `pulumi:"policyDocument"`
+	// Indicate whether to associate a private hosted zone with the specified VPC.
+	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
+	// One or more route table IDs.
+	RouteTableIds []string `pulumi:"routeTableIds"`
+	// The ID of one or more security groups to associate with the endpoint network interface.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The service name.
+	ServiceName string `pulumi:"serviceName"`
+	// The ID of one or more subnets in which to create an endpoint network interface.
+	SubnetIds       []string                    `pulumi:"subnetIds"`
+	VpcEndpointType *VPCEndpointVpcEndpointType `pulumi:"vpcEndpointType"`
+	// The ID of the VPC in which the endpoint will be used.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VPCEndpoint resource.
 type VPCEndpointArgs struct {
-	PolicyDocument    pulumi.Input
+	// A policy to attach to the endpoint that controls access to the service.
+	PolicyDocument pulumi.StringPtrInput
+	// Indicate whether to associate a private hosted zone with the specified VPC.
 	PrivateDnsEnabled pulumi.BoolPtrInput
-	RouteTableIds     pulumi.StringArrayInput
-	SecurityGroupIds  pulumi.StringArrayInput
-	ServiceName       pulumi.StringInput
-	SubnetIds         pulumi.StringArrayInput
-	VpcEndpointType   pulumi.StringPtrInput
-	VpcId             pulumi.StringInput
+	// One or more route table IDs.
+	RouteTableIds pulumi.StringArrayInput
+	// The ID of one or more security groups to associate with the endpoint network interface.
+	SecurityGroupIds pulumi.StringArrayInput
+	// The service name.
+	ServiceName pulumi.StringInput
+	// The ID of one or more subnets in which to create an endpoint network interface.
+	SubnetIds       pulumi.StringArrayInput
+	VpcEndpointType VPCEndpointVpcEndpointTypePtrInput
+	// The ID of the VPC in which the endpoint will be used.
+	VpcId pulumi.StringInput
 }
 
 func (VPCEndpointArgs) ElementType() reflect.Type {
@@ -146,34 +165,41 @@ func (o VPCEndpointOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
 }
 
-func (o VPCEndpointOutput) PolicyDocument() pulumi.AnyOutput {
-	return o.ApplyT(func(v *VPCEndpoint) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
+// A policy to attach to the endpoint that controls access to the service.
+func (o VPCEndpointOutput) PolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringPtrOutput { return v.PolicyDocument }).(pulumi.StringPtrOutput)
 }
 
+// Indicate whether to associate a private hosted zone with the specified VPC.
 func (o VPCEndpointOutput) PrivateDnsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VPCEndpoint) pulumi.BoolPtrOutput { return v.PrivateDnsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// One or more route table IDs.
 func (o VPCEndpointOutput) RouteTableIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringArrayOutput { return v.RouteTableIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of one or more security groups to associate with the endpoint network interface.
 func (o VPCEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The service name.
 func (o VPCEndpointOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
 }
 
+// The ID of one or more subnets in which to create an endpoint network interface.
 func (o VPCEndpointOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o VPCEndpointOutput) VpcEndpointType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringPtrOutput { return v.VpcEndpointType }).(pulumi.StringPtrOutput)
+func (o VPCEndpointOutput) VpcEndpointType() VPCEndpointVpcEndpointTypePtrOutput {
+	return o.ApplyT(func(v *VPCEndpoint) VPCEndpointVpcEndpointTypePtrOutput { return v.VpcEndpointType }).(VPCEndpointVpcEndpointTypePtrOutput)
 }
 
+// The ID of the VPC in which the endpoint will be used.
 func (o VPCEndpointOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VPCEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

@@ -16,6 +16,8 @@ type Table struct {
 	pulumi.CustomResourceState
 
 	BillingMode TableBillingModePtrOutput `pulumi:"billingMode"`
+	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
+	ClientSideTimestampsEnabled pulumi.BoolPtrOutput `pulumi:"clientSideTimestampsEnabled"`
 	// Clustering key columns of the table
 	ClusteringKeyColumns TableClusteringKeyColumnArrayOutput `pulumi:"clusteringKeyColumns"`
 	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
@@ -81,6 +83,8 @@ func (TableState) ElementType() reflect.Type {
 
 type tableArgs struct {
 	BillingMode *TableBillingMode `pulumi:"billingMode"`
+	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
+	ClientSideTimestampsEnabled *bool `pulumi:"clientSideTimestampsEnabled"`
 	// Clustering key columns of the table
 	ClusteringKeyColumns []TableClusteringKeyColumn `pulumi:"clusteringKeyColumns"`
 	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
@@ -103,6 +107,8 @@ type tableArgs struct {
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
 	BillingMode TableBillingModePtrInput
+	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
+	ClientSideTimestampsEnabled pulumi.BoolPtrInput
 	// Clustering key columns of the table
 	ClusteringKeyColumns TableClusteringKeyColumnArrayInput
 	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
@@ -161,6 +167,11 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 
 func (o TableOutput) BillingMode() TableBillingModePtrOutput {
 	return o.ApplyT(func(v *Table) TableBillingModePtrOutput { return v.BillingMode }).(TableBillingModePtrOutput)
+}
+
+// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
+func (o TableOutput) ClientSideTimestampsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.BoolPtrOutput { return v.ClientSideTimestampsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Clustering key columns of the table

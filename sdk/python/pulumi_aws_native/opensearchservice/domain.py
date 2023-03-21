@@ -28,7 +28,9 @@ class DomainArgs:
                  engine_version: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[Any] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs']] = None,
+                 off_peak_window_options: Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']] = None,
                  snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
+                 software_update_options: Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
                  v_pc_options: Optional[pulumi.Input['DomainVPCOptionsArgs']] = None):
         """
@@ -59,8 +61,12 @@ class DomainArgs:
             pulumi.set(__self__, "log_publishing_options", log_publishing_options)
         if node_to_node_encryption_options is not None:
             pulumi.set(__self__, "node_to_node_encryption_options", node_to_node_encryption_options)
+        if off_peak_window_options is not None:
+            pulumi.set(__self__, "off_peak_window_options", off_peak_window_options)
         if snapshot_options is not None:
             pulumi.set(__self__, "snapshot_options", snapshot_options)
+        if software_update_options is not None:
+            pulumi.set(__self__, "software_update_options", software_update_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if v_pc_options is not None:
@@ -175,6 +181,15 @@ class DomainArgs:
         pulumi.set(self, "node_to_node_encryption_options", value)
 
     @property
+    @pulumi.getter(name="offPeakWindowOptions")
+    def off_peak_window_options(self) -> Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']]:
+        return pulumi.get(self, "off_peak_window_options")
+
+    @off_peak_window_options.setter
+    def off_peak_window_options(self, value: Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']]):
+        pulumi.set(self, "off_peak_window_options", value)
+
+    @property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Optional[pulumi.Input['DomainSnapshotOptionsArgs']]:
         return pulumi.get(self, "snapshot_options")
@@ -182,6 +197,15 @@ class DomainArgs:
     @snapshot_options.setter
     def snapshot_options(self, value: Optional[pulumi.Input['DomainSnapshotOptionsArgs']]):
         pulumi.set(self, "snapshot_options", value)
+
+    @property
+    @pulumi.getter(name="softwareUpdateOptions")
+    def software_update_options(self) -> Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']]:
+        return pulumi.get(self, "software_update_options")
+
+    @software_update_options.setter
+    def software_update_options(self, value: Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']]):
+        pulumi.set(self, "software_update_options", value)
 
     @property
     @pulumi.getter
@@ -222,7 +246,9 @@ class Domain(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[Any] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']]] = None,
+                 off_peak_window_options: Optional[pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']]] = None,
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
+                 software_update_options: Optional[pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
                  v_pc_options: Optional[pulumi.Input[pulumi.InputType['DomainVPCOptionsArgs']]] = None,
                  __props__=None):
@@ -269,7 +295,9 @@ class Domain(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[Any] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']]] = None,
+                 off_peak_window_options: Optional[pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']]] = None,
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
+                 software_update_options: Optional[pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
                  v_pc_options: Optional[pulumi.Input[pulumi.InputType['DomainVPCOptionsArgs']]] = None,
                  __props__=None):
@@ -293,7 +321,9 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["log_publishing_options"] = log_publishing_options
             __props__.__dict__["node_to_node_encryption_options"] = node_to_node_encryption_options
+            __props__.__dict__["off_peak_window_options"] = off_peak_window_options
             __props__.__dict__["snapshot_options"] = snapshot_options
+            __props__.__dict__["software_update_options"] = software_update_options
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_pc_options"] = v_pc_options
             __props__.__dict__["arn"] = None
@@ -339,8 +369,10 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["log_publishing_options"] = None
         __props__.__dict__["node_to_node_encryption_options"] = None
+        __props__.__dict__["off_peak_window_options"] = None
         __props__.__dict__["service_software_options"] = None
         __props__.__dict__["snapshot_options"] = None
+        __props__.__dict__["software_update_options"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["v_pc_options"] = None
         return Domain(resource_name, opts=opts, __props__=__props__)
@@ -426,6 +458,11 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "node_to_node_encryption_options")
 
     @property
+    @pulumi.getter(name="offPeakWindowOptions")
+    def off_peak_window_options(self) -> pulumi.Output[Optional['outputs.DomainOffPeakWindowOptions']]:
+        return pulumi.get(self, "off_peak_window_options")
+
+    @property
     @pulumi.getter(name="serviceSoftwareOptions")
     def service_software_options(self) -> pulumi.Output['outputs.DomainServiceSoftwareOptions']:
         return pulumi.get(self, "service_software_options")
@@ -434,6 +471,11 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> pulumi.Output[Optional['outputs.DomainSnapshotOptions']]:
         return pulumi.get(self, "snapshot_options")
+
+    @property
+    @pulumi.getter(name="softwareUpdateOptions")
+    def software_update_options(self) -> pulumi.Output[Optional['outputs.DomainSoftwareUpdateOptions']]:
+        return pulumi.get(self, "software_update_options")
 
     @property
     @pulumi.getter

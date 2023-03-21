@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.StepFunctions
         [Output("stateMachineName")]
         public Output<string?> StateMachineName { get; private set; } = null!;
 
+        [Output("stateMachineRevisionId")]
+        public Output<string> StateMachineRevisionId { get; private set; } = null!;
+
         [Output("stateMachineType")]
         public Output<Pulumi.AwsNative.StepFunctions.StateMachineType?> StateMachineType { get; private set; } = null!;
 

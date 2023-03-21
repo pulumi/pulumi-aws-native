@@ -20,6 +20,7 @@ class TableArgs:
                  keyspace_name: pulumi.Input[str],
                  partition_key_columns: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]],
                  billing_mode: Optional[pulumi.Input['TableBillingModeArgs']] = None,
+                 client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
                  clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]] = None,
                  default_time_to_live: Optional[pulumi.Input[int]] = None,
                  encryption_specification: Optional[pulumi.Input['TableEncryptionSpecificationArgs']] = None,
@@ -31,6 +32,7 @@ class TableArgs:
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] partition_key_columns: Partition key columns of the table
+        :param pulumi.Input[bool] client_side_timestamps_enabled: Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
         :param pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]] clustering_key_columns: Clustering key columns of the table
         :param pulumi.Input[int] default_time_to_live: Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
         :param pulumi.Input[bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
@@ -42,6 +44,8 @@ class TableArgs:
         pulumi.set(__self__, "partition_key_columns", partition_key_columns)
         if billing_mode is not None:
             pulumi.set(__self__, "billing_mode", billing_mode)
+        if client_side_timestamps_enabled is not None:
+            pulumi.set(__self__, "client_side_timestamps_enabled", client_side_timestamps_enabled)
         if clustering_key_columns is not None:
             pulumi.set(__self__, "clustering_key_columns", clustering_key_columns)
         if default_time_to_live is not None:
@@ -89,6 +93,18 @@ class TableArgs:
     @billing_mode.setter
     def billing_mode(self, value: Optional[pulumi.Input['TableBillingModeArgs']]):
         pulumi.set(self, "billing_mode", value)
+
+    @property
+    @pulumi.getter(name="clientSideTimestampsEnabled")
+    def client_side_timestamps_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
+        """
+        return pulumi.get(self, "client_side_timestamps_enabled")
+
+    @client_side_timestamps_enabled.setter
+    def client_side_timestamps_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_side_timestamps_enabled", value)
 
     @property
     @pulumi.getter(name="clusteringKeyColumns")
@@ -178,6 +194,7 @@ class Table(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_mode: Optional[pulumi.Input[pulumi.InputType['TableBillingModeArgs']]] = None,
+                 client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
                  clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]]] = None,
                  default_time_to_live: Optional[pulumi.Input[int]] = None,
                  encryption_specification: Optional[pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']]] = None,
@@ -193,6 +210,7 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] client_side_timestamps_enabled: Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]] clustering_key_columns: Clustering key columns of the table
         :param pulumi.Input[int] default_time_to_live: Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
         :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
@@ -227,6 +245,7 @@ class Table(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_mode: Optional[pulumi.Input[pulumi.InputType['TableBillingModeArgs']]] = None,
+                 client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
                  clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]]] = None,
                  default_time_to_live: Optional[pulumi.Input[int]] = None,
                  encryption_specification: Optional[pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']]] = None,
@@ -246,6 +265,7 @@ class Table(pulumi.CustomResource):
             __props__ = TableArgs.__new__(TableArgs)
 
             __props__.__dict__["billing_mode"] = billing_mode
+            __props__.__dict__["client_side_timestamps_enabled"] = client_side_timestamps_enabled
             __props__.__dict__["clustering_key_columns"] = clustering_key_columns
             __props__.__dict__["default_time_to_live"] = default_time_to_live
             __props__.__dict__["encryption_specification"] = encryption_specification
@@ -282,6 +302,7 @@ class Table(pulumi.CustomResource):
         __props__ = TableArgs.__new__(TableArgs)
 
         __props__.__dict__["billing_mode"] = None
+        __props__.__dict__["client_side_timestamps_enabled"] = None
         __props__.__dict__["clustering_key_columns"] = None
         __props__.__dict__["default_time_to_live"] = None
         __props__.__dict__["encryption_specification"] = None
@@ -297,6 +318,14 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> pulumi.Output[Optional['outputs.TableBillingMode']]:
         return pulumi.get(self, "billing_mode")
+
+    @property
+    @pulumi.getter(name="clientSideTimestampsEnabled")
+    def client_side_timestamps_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
+        """
+        return pulumi.get(self, "client_side_timestamps_enabled")
 
     @property
     @pulumi.getter(name="clusteringKeyColumns")

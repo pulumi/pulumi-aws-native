@@ -41,8 +41,10 @@ type LookupDomainResult struct {
 	Id                          *string                             `pulumi:"id"`
 	LogPublishingOptions        interface{}                         `pulumi:"logPublishingOptions"`
 	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions  `pulumi:"nodeToNodeEncryptionOptions"`
+	OffPeakWindowOptions        *DomainOffPeakWindowOptions         `pulumi:"offPeakWindowOptions"`
 	ServiceSoftwareOptions      *DomainServiceSoftwareOptions       `pulumi:"serviceSoftwareOptions"`
 	SnapshotOptions             *DomainSnapshotOptions              `pulumi:"snapshotOptions"`
+	SoftwareUpdateOptions       *DomainSoftwareUpdateOptions        `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags       []DomainTag       `pulumi:"tags"`
 	VPCOptions *DomainVPCOptions `pulumi:"vPCOptions"`
@@ -147,12 +149,20 @@ func (o LookupDomainResultOutput) NodeToNodeEncryptionOptions() DomainNodeToNode
 	return o.ApplyT(func(v LookupDomainResult) *DomainNodeToNodeEncryptionOptions { return v.NodeToNodeEncryptionOptions }).(DomainNodeToNodeEncryptionOptionsPtrOutput)
 }
 
+func (o LookupDomainResultOutput) OffPeakWindowOptions() DomainOffPeakWindowOptionsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainOffPeakWindowOptions { return v.OffPeakWindowOptions }).(DomainOffPeakWindowOptionsPtrOutput)
+}
+
 func (o LookupDomainResultOutput) ServiceSoftwareOptions() DomainServiceSoftwareOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainServiceSoftwareOptions { return v.ServiceSoftwareOptions }).(DomainServiceSoftwareOptionsPtrOutput)
 }
 
 func (o LookupDomainResultOutput) SnapshotOptions() DomainSnapshotOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainSnapshotOptions { return v.SnapshotOptions }).(DomainSnapshotOptionsPtrOutput)
+}
+
+func (o LookupDomainResultOutput) SoftwareUpdateOptions() DomainSoftwareUpdateOptionsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainSoftwareUpdateOptions { return v.SoftwareUpdateOptions }).(DomainSoftwareUpdateOptionsPtrOutput)
 }
 
 // An arbitrary set of tags (key-value pairs) for this Domain.

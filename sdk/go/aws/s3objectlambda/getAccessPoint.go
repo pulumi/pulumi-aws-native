@@ -26,7 +26,8 @@ type LookupAccessPointArgs struct {
 }
 
 type LookupAccessPointResult struct {
-	Arn *string `pulumi:"arn"`
+	Alias *AliasProperties `pulumi:"alias"`
+	Arn   *string          `pulumi:"arn"`
 	// The date and time when the Object lambda Access Point was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
@@ -70,6 +71,10 @@ func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutput() LookupA
 
 func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutputWithContext(ctx context.Context) LookupAccessPointResultOutput {
 	return o
+}
+
+func (o LookupAccessPointResultOutput) Alias() AliasPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) *AliasProperties { return v.Alias }).(AliasPropertiesPtrOutput)
 }
 
 func (o LookupAccessPointResultOutput) Arn() pulumi.StringPtrOutput {

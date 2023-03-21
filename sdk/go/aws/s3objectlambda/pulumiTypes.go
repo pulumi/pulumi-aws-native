@@ -479,6 +479,81 @@ func (o AccessPointTransformationConfigurationContentTransformationPropertiesOut
 	}).(AccessPointAwsLambdaOutput)
 }
 
+type AliasProperties struct {
+	// The status of the Object Lambda alias.
+	Status *string `pulumi:"status"`
+	// The value of the Object Lambda alias.
+	Value *string `pulumi:"value"`
+}
+
+type AliasPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AliasPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasProperties)(nil)).Elem()
+}
+
+func (o AliasPropertiesOutput) ToAliasPropertiesOutput() AliasPropertiesOutput {
+	return o
+}
+
+func (o AliasPropertiesOutput) ToAliasPropertiesOutputWithContext(ctx context.Context) AliasPropertiesOutput {
+	return o
+}
+
+// The status of the Object Lambda alias.
+func (o AliasPropertiesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AliasProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The value of the Object Lambda alias.
+func (o AliasPropertiesOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AliasProperties) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type AliasPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AliasPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasProperties)(nil)).Elem()
+}
+
+func (o AliasPropertiesPtrOutput) ToAliasPropertiesPtrOutput() AliasPropertiesPtrOutput {
+	return o
+}
+
+func (o AliasPropertiesPtrOutput) ToAliasPropertiesPtrOutputWithContext(ctx context.Context) AliasPropertiesPtrOutput {
+	return o
+}
+
+func (o AliasPropertiesPtrOutput) Elem() AliasPropertiesOutput {
+	return o.ApplyT(func(v *AliasProperties) AliasProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AliasProperties
+		return ret
+	}).(AliasPropertiesOutput)
+}
+
+// The status of the Object Lambda alias.
+func (o AliasPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AliasProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the Object Lambda alias.
+func (o AliasPropertiesPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AliasProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type PolicyStatusProperties struct {
 	// Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
 	IsPublic *bool `pulumi:"isPublic"`
@@ -551,6 +626,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessPointTransformationConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointTransformationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AccessPointTransformationConfigurationContentTransformationPropertiesOutput{})
+	pulumi.RegisterOutputType(AliasPropertiesOutput{})
+	pulumi.RegisterOutputType(AliasPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStatusPropertiesOutput{})
 	pulumi.RegisterOutputType(PolicyStatusPropertiesPtrOutput{})
 }

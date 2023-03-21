@@ -3919,10 +3919,20 @@ export namespace athena {
         value: string;
     }
 
+    /**
+     * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results
+     */
+    export interface WorkGroupAclConfiguration {
+        s3AclOption: enums.athena.WorkGroupS3AclOption;
+    }
+
     export interface WorkGroupConfiguration {
+        additionalConfiguration?: string;
         bytesScannedCutoffPerQuery?: number;
+        customerContentEncryptionConfiguration?: outputs.athena.WorkGroupCustomerContentEncryptionConfiguration;
         enforceWorkGroupConfiguration?: boolean;
         engineVersion?: outputs.athena.WorkGroupEngineVersion;
+        executionRole?: string;
         publishCloudWatchMetricsEnabled?: boolean;
         requesterPaysEnabled?: boolean;
         resultConfiguration?: outputs.athena.WorkGroupResultConfiguration;
@@ -3932,13 +3942,24 @@ export namespace athena {
      * The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
      */
     export interface WorkGroupConfigurationUpdates {
+        additionalConfiguration?: string;
         bytesScannedCutoffPerQuery?: number;
+        customerContentEncryptionConfiguration?: outputs.athena.WorkGroupCustomerContentEncryptionConfiguration;
         enforceWorkGroupConfiguration?: boolean;
         engineVersion?: outputs.athena.WorkGroupEngineVersion;
+        executionRole?: string;
         publishCloudWatchMetricsEnabled?: boolean;
         removeBytesScannedCutoffPerQuery?: boolean;
+        removeCustomerContentEncryptionConfiguration?: boolean;
         requesterPaysEnabled?: boolean;
         resultConfigurationUpdates?: outputs.athena.WorkGroupResultConfigurationUpdates;
+    }
+
+    /**
+     * Indicates the KMS key for encrypting notebook content.
+     */
+    export interface WorkGroupCustomerContentEncryptionConfiguration {
+        kmsKey: string;
     }
 
     /**
@@ -3961,7 +3982,9 @@ export namespace athena {
      * The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
      */
     export interface WorkGroupResultConfiguration {
+        aclConfiguration?: outputs.athena.WorkGroupAclConfiguration;
         encryptionConfiguration?: outputs.athena.WorkGroupEncryptionConfiguration;
+        expectedBucketOwner?: string;
         outputLocation?: string;
     }
 
@@ -3969,9 +3992,13 @@ export namespace athena {
      * The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results. 
      */
     export interface WorkGroupResultConfigurationUpdates {
+        aclConfiguration?: outputs.athena.WorkGroupAclConfiguration;
         encryptionConfiguration?: outputs.athena.WorkGroupEncryptionConfiguration;
+        expectedBucketOwner?: string;
         outputLocation?: string;
+        removeAclConfiguration?: boolean;
         removeEncryptionConfiguration?: boolean;
+        removeExpectedBucketOwner?: boolean;
         removeOutputLocation?: boolean;
     }
 
@@ -6886,6 +6913,45 @@ export namespace cognito {
         emailSubject?: string;
         emailSubjectByLink?: string;
         smsMessage?: string;
+    }
+
+}
+
+export namespace comprehend {
+    export interface FlywheelDataSecurityConfig {
+        dataLakeKmsKeyId?: string;
+        modelKmsKeyId?: string;
+        volumeKmsKeyId?: string;
+        vpcConfig?: outputs.comprehend.FlywheelVpcConfig;
+    }
+
+    export interface FlywheelDocumentClassificationConfig {
+        labels?: string[];
+        mode: enums.comprehend.FlywheelDocumentClassificationConfigMode;
+    }
+
+    export interface FlywheelEntityRecognitionConfig {
+        entityTypes?: outputs.comprehend.FlywheelEntityTypesListItem[];
+    }
+
+    export interface FlywheelEntityTypesListItem {
+        type: string;
+    }
+
+    export interface FlywheelTag {
+        key: string;
+        value: string;
+    }
+
+    export interface FlywheelTaskConfig {
+        documentClassificationConfig?: outputs.comprehend.FlywheelDocumentClassificationConfig;
+        entityRecognitionConfig?: outputs.comprehend.FlywheelEntityRecognitionConfig;
+        languageCode: enums.comprehend.FlywheelTaskConfigLanguageCode;
+    }
+
+    export interface FlywheelVpcConfig {
+        securityGroupIds: string[];
+        subnets: string[];
     }
 
 }
@@ -28330,6 +28396,15 @@ export namespace opensearchservice {
         enabled?: boolean;
     }
 
+    export interface DomainOffPeakWindow {
+        windowStartTime?: outputs.opensearchservice.DomainWindowStartTime;
+    }
+
+    export interface DomainOffPeakWindowOptions {
+        enabled?: boolean;
+        offPeakWindow?: outputs.opensearchservice.DomainOffPeakWindow;
+    }
+
     export interface DomainSAMLOptions {
         enabled?: boolean;
         idp?: outputs.opensearchservice.DomainIdp;
@@ -28355,6 +28430,10 @@ export namespace opensearchservice {
         automatedSnapshotStartHour?: number;
     }
 
+    export interface DomainSoftwareUpdateOptions {
+        autoSoftwareUpdateEnabled?: boolean;
+    }
+
     export interface DomainTag {
         /**
          * The value of the tag.
@@ -28369,6 +28448,11 @@ export namespace opensearchservice {
     export interface DomainVPCOptions {
         securityGroupIds?: string[];
         subnetIds?: string[];
+    }
+
+    export interface DomainWindowStartTime {
+        hours: number;
+        minutes: number;
     }
 
     export interface DomainZoneAwarenessConfig {
@@ -29581,450 +29665,5873 @@ export namespace qldb {
 }
 
 export namespace quicksight {
-    /**
-     * <p>Dataset reference.</p>
-     */
-    export interface AnalysisDataSetReference {
+    export interface AnalysisAggregationFunction {
+        categoricalAggregationFunction?: enums.quicksight.AnalysisCategoricalAggregationFunction;
+        dateAggregationFunction?: enums.quicksight.AnalysisDateAggregationFunction;
+        numericalAggregationFunction?: outputs.quicksight.AnalysisNumericalAggregationFunction;
+    }
+
+    export interface AnalysisAggregationSortConfiguration {
+        aggregationFunction: outputs.quicksight.AnalysisAggregationFunction;
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        sortDirection: enums.quicksight.AnalysisSortDirection;
+    }
+
+    export interface AnalysisAnchorDateConfiguration {
+        anchorOption?: enums.quicksight.AnalysisAnchorOption;
+        parameterName?: string;
+    }
+
+    export interface AnalysisArcAxisConfiguration {
+        range?: outputs.quicksight.AnalysisArcAxisDisplayRange;
+        reserveRange?: number;
+    }
+
+    export interface AnalysisArcAxisDisplayRange {
+        max?: number;
+        min?: number;
+    }
+
+    export interface AnalysisArcConfiguration {
+        arcAngle?: number;
+        arcThickness?: enums.quicksight.AnalysisArcThicknessOptions;
+    }
+
+    export interface AnalysisArcOptions {
+        arcThickness?: enums.quicksight.AnalysisArcThickness;
+    }
+
+    export interface AnalysisAxisDataOptions {
+        dateAxisOptions?: outputs.quicksight.AnalysisDateAxisOptions;
+        numericAxisOptions?: outputs.quicksight.AnalysisNumericAxisOptions;
+    }
+
+    export interface AnalysisAxisDisplayDataDrivenRange {
+    }
+
+    export interface AnalysisAxisDisplayMinMaxRange {
+        maximum?: number;
+        minimum?: number;
+    }
+
+    export interface AnalysisAxisDisplayOptions {
+        axisLineVisibility?: enums.quicksight.AnalysisVisibility;
         /**
-         * <p>Dataset Amazon Resource Name (ARN).</p>
+         * String based length that is composed of value and unit in px
          */
+        axisOffset?: string;
+        dataOptions?: outputs.quicksight.AnalysisAxisDataOptions;
+        gridLineVisibility?: enums.quicksight.AnalysisVisibility;
+        scrollbarOptions?: outputs.quicksight.AnalysisScrollBarOptions;
+        tickLabelOptions?: outputs.quicksight.AnalysisAxisTickLabelOptions;
+    }
+
+    export interface AnalysisAxisDisplayRange {
+        dataDriven?: outputs.quicksight.AnalysisAxisDisplayDataDrivenRange;
+        minMax?: outputs.quicksight.AnalysisAxisDisplayMinMaxRange;
+    }
+
+    export interface AnalysisAxisLabelOptions {
+        applyTo?: outputs.quicksight.AnalysisAxisLabelReferenceOptions;
+        customLabel?: string;
+        fontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
+    }
+
+    export interface AnalysisAxisLabelReferenceOptions {
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        fieldId: string;
+    }
+
+    export interface AnalysisAxisLinearScale {
+        stepCount?: number;
+        stepSize?: number;
+    }
+
+    export interface AnalysisAxisLogarithmicScale {
+        base?: number;
+    }
+
+    export interface AnalysisAxisScale {
+        linear?: outputs.quicksight.AnalysisAxisLinearScale;
+        logarithmic?: outputs.quicksight.AnalysisAxisLogarithmicScale;
+    }
+
+    export interface AnalysisAxisTickLabelOptions {
+        labelOptions?: outputs.quicksight.AnalysisLabelOptions;
+        rotationAngle?: number;
+    }
+
+    export interface AnalysisBarChartAggregatedFieldWells {
+        category?: outputs.quicksight.AnalysisDimensionField[];
+        colors?: outputs.quicksight.AnalysisDimensionField[];
+        smallMultiples?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisBarChartConfiguration {
+        barsArrangement?: enums.quicksight.AnalysisBarsArrangement;
+        categoryAxis?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        colorLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        contributionAnalysisDefaults?: outputs.quicksight.AnalysisContributionAnalysisDefault[];
+        dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisBarChartFieldWells;
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        orientation?: enums.quicksight.AnalysisBarChartOrientation;
+        referenceLines?: outputs.quicksight.AnalysisReferenceLine[];
+        smallMultiplesOptions?: outputs.quicksight.AnalysisSmallMultiplesOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisBarChartSortConfiguration;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+        valueAxis?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        valueLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+    }
+
+    export interface AnalysisBarChartFieldWells {
+        barChartAggregatedFieldWells?: outputs.quicksight.AnalysisBarChartAggregatedFieldWells;
+    }
+
+    export interface AnalysisBarChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.AnalysisFieldSortOptions[];
+        colorItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        colorSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+        smallMultiplesLimitConfiguration?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        smallMultiplesSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisBarChartVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisBarChartConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisBinCountOptions {
+        value?: number;
+    }
+
+    export interface AnalysisBinWidthOptions {
+        binCountLimit?: number;
+        value?: number;
+    }
+
+    export interface AnalysisBodySectionConfiguration {
+        content: outputs.quicksight.AnalysisBodySectionContent;
+        pageBreakConfiguration?: outputs.quicksight.AnalysisSectionPageBreakConfiguration;
+        sectionId: string;
+        style?: outputs.quicksight.AnalysisSectionStyle;
+    }
+
+    export interface AnalysisBodySectionContent {
+        layout?: outputs.quicksight.AnalysisSectionLayoutConfiguration;
+    }
+
+    export interface AnalysisBoxPlotAggregatedFieldWells {
+        groupBy?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisBoxPlotChartConfiguration {
+        boxPlotOptions?: outputs.quicksight.AnalysisBoxPlotOptions;
+        categoryAxis?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisBoxPlotFieldWells;
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        referenceLines?: outputs.quicksight.AnalysisReferenceLine[];
+        sortConfiguration?: outputs.quicksight.AnalysisBoxPlotSortConfiguration;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+    }
+
+    export interface AnalysisBoxPlotFieldWells {
+        boxPlotAggregatedFieldWells?: outputs.quicksight.AnalysisBoxPlotAggregatedFieldWells;
+    }
+
+    export interface AnalysisBoxPlotOptions {
+        allDataPointsVisibility?: enums.quicksight.AnalysisVisibility;
+        outlierVisibility?: enums.quicksight.AnalysisVisibility;
+        styleOptions?: outputs.quicksight.AnalysisBoxPlotStyleOptions;
+    }
+
+    export interface AnalysisBoxPlotSortConfiguration {
+        categorySort?: outputs.quicksight.AnalysisFieldSortOptions[];
+        paginationConfiguration?: outputs.quicksight.AnalysisPaginationConfiguration;
+    }
+
+    export interface AnalysisBoxPlotStyleOptions {
+        fillStyle?: enums.quicksight.AnalysisBoxPlotFillStyle;
+    }
+
+    export interface AnalysisBoxPlotVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisBoxPlotChartConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisCalculatedField {
+        dataSetIdentifier: string;
+        expression: string;
+        name: string;
+    }
+
+    export interface AnalysisCalculatedMeasureField {
+        expression: string;
+        fieldId: string;
+    }
+
+    export interface AnalysisCascadingControlConfiguration {
+        sourceControls?: outputs.quicksight.AnalysisCascadingControlSource[];
+    }
+
+    export interface AnalysisCascadingControlSource {
+        columnToMatch?: outputs.quicksight.AnalysisColumnIdentifier;
+        sourceSheetControlId?: string;
+    }
+
+    export interface AnalysisCategoricalDimensionField {
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.AnalysisStringFormatConfiguration;
+        hierarchyId?: string;
+    }
+
+    export interface AnalysisCategoricalMeasureField {
+        aggregationFunction?: enums.quicksight.AnalysisCategoricalAggregationFunction;
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.AnalysisStringFormatConfiguration;
+    }
+
+    export interface AnalysisCategoryDrillDownFilter {
+        categoryValues: string[];
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+    }
+
+    export interface AnalysisCategoryFilter {
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        configuration: outputs.quicksight.AnalysisCategoryFilterConfiguration;
+        filterId: string;
+    }
+
+    export interface AnalysisCategoryFilterConfiguration {
+        customFilterConfiguration?: outputs.quicksight.AnalysisCustomFilterConfiguration;
+        customFilterListConfiguration?: outputs.quicksight.AnalysisCustomFilterListConfiguration;
+        filterListConfiguration?: outputs.quicksight.AnalysisFilterListConfiguration;
+    }
+
+    export interface AnalysisChartAxisLabelOptions {
+        axisLabelOptions?: outputs.quicksight.AnalysisAxisLabelOptions[];
+        sortIconVisibility?: enums.quicksight.AnalysisVisibility;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisClusterMarker {
+        simpleClusterMarker?: outputs.quicksight.AnalysisSimpleClusterMarker;
+    }
+
+    export interface AnalysisClusterMarkerConfiguration {
+        clusterMarker?: outputs.quicksight.AnalysisClusterMarker;
+    }
+
+    export interface AnalysisColorScale {
+        colorFillType: enums.quicksight.AnalysisColorFillType;
+        colors: outputs.quicksight.AnalysisDataColor[];
+        nullValueColor?: outputs.quicksight.AnalysisDataColor;
+    }
+
+    export interface AnalysisColorsConfiguration {
+        customColors?: outputs.quicksight.AnalysisCustomColor[];
+    }
+
+    export interface AnalysisColumnConfiguration {
+        colorsConfiguration?: outputs.quicksight.AnalysisColorsConfiguration;
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        formatConfiguration?: outputs.quicksight.AnalysisFormatConfiguration;
+        role?: enums.quicksight.AnalysisColumnRole;
+    }
+
+    export interface AnalysisColumnHierarchy {
+        dateTimeHierarchy?: outputs.quicksight.AnalysisDateTimeHierarchy;
+        explicitHierarchy?: outputs.quicksight.AnalysisExplicitHierarchy;
+        predefinedHierarchy?: outputs.quicksight.AnalysisPredefinedHierarchy;
+    }
+
+    export interface AnalysisColumnIdentifier {
+        columnName: string;
+        dataSetIdentifier: string;
+    }
+
+    export interface AnalysisColumnSort {
+        aggregationFunction?: outputs.quicksight.AnalysisAggregationFunction;
+        direction: enums.quicksight.AnalysisSortDirection;
+        sortBy: outputs.quicksight.AnalysisColumnIdentifier;
+    }
+
+    export interface AnalysisColumnTooltipItem {
+        aggregation?: outputs.quicksight.AnalysisAggregationFunction;
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        label?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisComboChartAggregatedFieldWells {
+        barValues?: outputs.quicksight.AnalysisMeasureField[];
+        category?: outputs.quicksight.AnalysisDimensionField[];
+        colors?: outputs.quicksight.AnalysisDimensionField[];
+        lineValues?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisComboChartConfiguration {
+        barDataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        barsArrangement?: enums.quicksight.AnalysisBarsArrangement;
+        categoryAxis?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        colorLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisComboChartFieldWells;
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        lineDataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        referenceLines?: outputs.quicksight.AnalysisReferenceLine[];
+        secondaryYAxisDisplayOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        secondaryYAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisComboChartSortConfiguration;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+    }
+
+    export interface AnalysisComboChartFieldWells {
+        comboChartAggregatedFieldWells?: outputs.quicksight.AnalysisComboChartAggregatedFieldWells;
+    }
+
+    export interface AnalysisComboChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.AnalysisFieldSortOptions[];
+        colorItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        colorSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisComboChartVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisComboChartConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisComparisonConfiguration {
+        comparisonFormat?: outputs.quicksight.AnalysisComparisonFormatConfiguration;
+        comparisonMethod?: enums.quicksight.AnalysisComparisonMethod;
+    }
+
+    export interface AnalysisComparisonFormatConfiguration {
+        numberDisplayFormatConfiguration?: outputs.quicksight.AnalysisNumberDisplayFormatConfiguration;
+        percentageDisplayFormatConfiguration?: outputs.quicksight.AnalysisPercentageDisplayFormatConfiguration;
+    }
+
+    export interface AnalysisComputation {
+        forecast?: outputs.quicksight.AnalysisForecastComputation;
+        growthRate?: outputs.quicksight.AnalysisGrowthRateComputation;
+        maximumMinimum?: outputs.quicksight.AnalysisMaximumMinimumComputation;
+        metricComparison?: outputs.quicksight.AnalysisMetricComparisonComputation;
+        periodOverPeriod?: outputs.quicksight.AnalysisPeriodOverPeriodComputation;
+        periodToDate?: outputs.quicksight.AnalysisPeriodToDateComputation;
+        topBottomMovers?: outputs.quicksight.AnalysisTopBottomMoversComputation;
+        topBottomRanked?: outputs.quicksight.AnalysisTopBottomRankedComputation;
+        totalAggregation?: outputs.quicksight.AnalysisTotalAggregationComputation;
+        uniqueValues?: outputs.quicksight.AnalysisUniqueValuesComputation;
+    }
+
+    export interface AnalysisConditionalFormattingColor {
+        gradient?: outputs.quicksight.AnalysisConditionalFormattingGradientColor;
+        solid?: outputs.quicksight.AnalysisConditionalFormattingSolidColor;
+    }
+
+    export interface AnalysisConditionalFormattingCustomIconCondition {
+        color?: string;
+        displayConfiguration?: outputs.quicksight.AnalysisConditionalFormattingIconDisplayConfiguration;
+        expression: string;
+        iconOptions: outputs.quicksight.AnalysisConditionalFormattingCustomIconOptions;
+    }
+
+    export interface AnalysisConditionalFormattingCustomIconOptions {
+        icon?: enums.quicksight.AnalysisIcon;
+        unicodeIcon?: string;
+    }
+
+    export interface AnalysisConditionalFormattingGradientColor {
+        color: outputs.quicksight.AnalysisGradientColor;
+        expression: string;
+    }
+
+    export interface AnalysisConditionalFormattingIcon {
+        customCondition?: outputs.quicksight.AnalysisConditionalFormattingCustomIconCondition;
+        iconSet?: outputs.quicksight.AnalysisConditionalFormattingIconSet;
+    }
+
+    export interface AnalysisConditionalFormattingIconDisplayConfiguration {
+        iconDisplayOption?: enums.quicksight.AnalysisConditionalFormattingIconDisplayOption;
+    }
+
+    export interface AnalysisConditionalFormattingIconSet {
+        expression: string;
+        iconSetType?: enums.quicksight.AnalysisConditionalFormattingIconSetType;
+    }
+
+    export interface AnalysisConditionalFormattingSolidColor {
+        color?: string;
+        expression: string;
+    }
+
+    export interface AnalysisContributionAnalysisDefault {
+        contributorDimensions: outputs.quicksight.AnalysisColumnIdentifier[];
+        measureFieldId: string;
+    }
+
+    export interface AnalysisCurrencyDisplayFormatConfiguration {
+        decimalPlacesConfiguration?: outputs.quicksight.AnalysisDecimalPlacesConfiguration;
+        negativeValueConfiguration?: outputs.quicksight.AnalysisNegativeValueConfiguration;
+        nullValueFormatConfiguration?: outputs.quicksight.AnalysisNullValueFormatConfiguration;
+        numberScale?: enums.quicksight.AnalysisNumberScale;
+        prefix?: string;
+        separatorConfiguration?: outputs.quicksight.AnalysisNumericSeparatorConfiguration;
+        suffix?: string;
+        symbol?: string;
+    }
+
+    export interface AnalysisCustomActionFilterOperation {
+        selectedFieldsConfiguration: outputs.quicksight.AnalysisFilterOperationSelectedFieldsConfiguration;
+        targetVisualsConfiguration: outputs.quicksight.AnalysisFilterOperationTargetVisualsConfiguration;
+    }
+
+    export interface AnalysisCustomActionNavigationOperation {
+        localNavigationConfiguration?: outputs.quicksight.AnalysisLocalNavigationConfiguration;
+    }
+
+    export interface AnalysisCustomActionSetParametersOperation {
+        parameterValueConfigurations: outputs.quicksight.AnalysisSetParameterValueConfiguration[];
+    }
+
+    export interface AnalysisCustomActionURLOperation {
+        uRLTarget: enums.quicksight.AnalysisURLTargetConfiguration;
+        uRLTemplate: string;
+    }
+
+    export interface AnalysisCustomColor {
+        color: string;
+        fieldValue?: string;
+        specialValue?: enums.quicksight.AnalysisSpecialValue;
+    }
+
+    export interface AnalysisCustomContentConfiguration {
+        contentType?: enums.quicksight.AnalysisCustomContentType;
+        contentUrl?: string;
+        imageScaling?: enums.quicksight.AnalysisCustomContentImageScalingConfiguration;
+    }
+
+    export interface AnalysisCustomContentVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisCustomContentConfiguration;
+        dataSetIdentifier: string;
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisCustomFilterConfiguration {
+        categoryValue?: string;
+        matchOperator: enums.quicksight.AnalysisCategoryFilterMatchOperator;
+        nullOption: enums.quicksight.AnalysisFilterNullOption;
+        parameterName?: string;
+        selectAllOptions?: enums.quicksight.AnalysisCategoryFilterSelectAllOptions;
+    }
+
+    export interface AnalysisCustomFilterListConfiguration {
+        categoryValues?: string[];
+        matchOperator: enums.quicksight.AnalysisCategoryFilterMatchOperator;
+        nullOption: enums.quicksight.AnalysisFilterNullOption;
+        selectAllOptions?: enums.quicksight.AnalysisCategoryFilterSelectAllOptions;
+    }
+
+    export interface AnalysisCustomNarrativeOptions {
+        narrative: string;
+    }
+
+    export interface AnalysisCustomParameterValues {
+        dateTimeValues?: string[];
+        decimalValues?: number[];
+        integerValues?: number[];
+        stringValues?: string[];
+    }
+
+    export interface AnalysisCustomValuesConfiguration {
+        customValues: outputs.quicksight.AnalysisCustomParameterValues;
+        includeNullValue?: boolean;
+    }
+
+    export interface AnalysisDataBarsOptions {
+        fieldId: string;
+        negativeColor?: string;
+        positiveColor?: string;
+    }
+
+    export interface AnalysisDataColor {
+        color?: string;
+        dataValue?: number;
+    }
+
+    export interface AnalysisDataFieldSeriesItem {
+        axisBinding: enums.quicksight.AnalysisAxisBinding;
+        fieldId: string;
+        fieldValue?: string;
+        settings?: outputs.quicksight.AnalysisLineChartSeriesSettings;
+    }
+
+    export interface AnalysisDataLabelOptions {
+        categoryLabelVisibility?: enums.quicksight.AnalysisVisibility;
+        dataLabelTypes?: outputs.quicksight.AnalysisDataLabelType[];
+        labelColor?: string;
+        labelContent?: enums.quicksight.AnalysisDataLabelContent;
+        labelFontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
+        measureLabelVisibility?: enums.quicksight.AnalysisVisibility;
+        overlap?: enums.quicksight.AnalysisDataLabelOverlap;
+        position?: enums.quicksight.AnalysisDataLabelPosition;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisDataLabelType {
+        dataPathLabelType?: outputs.quicksight.AnalysisDataPathLabelType;
+        fieldLabelType?: outputs.quicksight.AnalysisFieldLabelType;
+        maximumLabelType?: outputs.quicksight.AnalysisMaximumLabelType;
+        minimumLabelType?: outputs.quicksight.AnalysisMinimumLabelType;
+        rangeEndsLabelType?: outputs.quicksight.AnalysisRangeEndsLabelType;
+    }
+
+    export interface AnalysisDataPathColor {
+        color: string;
+        element: outputs.quicksight.AnalysisDataPathValue;
+        timeGranularity?: enums.quicksight.AnalysisTimeGranularity;
+    }
+
+    export interface AnalysisDataPathLabelType {
+        fieldId?: string;
+        fieldValue?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisDataPathSort {
+        direction: enums.quicksight.AnalysisSortDirection;
+        sortPaths: outputs.quicksight.AnalysisDataPathValue[];
+    }
+
+    export interface AnalysisDataPathValue {
+        fieldId: string;
+        fieldValue: string;
+    }
+
+    export interface AnalysisDataSetIdentifierDeclaration {
         dataSetArn: string;
-        /**
-         * <p>Dataset placeholder.</p>
-         */
+        identifier: string;
+    }
+
+    export interface AnalysisDataSetReference {
+        dataSetArn: string;
         dataSetPlaceholder: string;
     }
 
-    /**
-     * <p>A date-time parameter.</p>
-     */
+    export interface AnalysisDateAxisOptions {
+        missingDateVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisDateDimensionField {
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        dateGranularity?: enums.quicksight.AnalysisTimeGranularity;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.AnalysisDateTimeFormatConfiguration;
+        hierarchyId?: string;
+    }
+
+    export interface AnalysisDateMeasureField {
+        aggregationFunction?: enums.quicksight.AnalysisDateAggregationFunction;
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.AnalysisDateTimeFormatConfiguration;
+    }
+
+    export interface AnalysisDateTimeDefaultValues {
+        dynamicValue?: outputs.quicksight.AnalysisDynamicDefaultValue;
+        rollingDate?: outputs.quicksight.AnalysisRollingDateConfiguration;
+        staticValues?: string[];
+    }
+
+    export interface AnalysisDateTimeFormatConfiguration {
+        dateTimeFormat?: string;
+        nullValueFormatConfiguration?: outputs.quicksight.AnalysisNullValueFormatConfiguration;
+        numericFormatConfiguration?: outputs.quicksight.AnalysisNumericFormatConfiguration;
+    }
+
+    export interface AnalysisDateTimeHierarchy {
+        drillDownFilters?: outputs.quicksight.AnalysisDrillDownFilter[];
+        hierarchyId: string;
+    }
+
     export interface AnalysisDateTimeParameter {
-        /**
-         * <p>A display name for the date-time parameter.</p>
-         */
         name: string;
-        /**
-         * <p>The values for the date-time parameter.</p>
-         */
         values: string[];
     }
 
-    /**
-     * <p>A decimal parameter.</p>
-     */
-    export interface AnalysisDecimalParameter {
-        /**
-         * <p>A display name for the decimal parameter.</p>
-         */
+    export interface AnalysisDateTimeParameterDeclaration {
+        defaultValues?: outputs.quicksight.AnalysisDateTimeDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.AnalysisMappedDataSetParameter[];
         name: string;
-        /**
-         * <p>The values for the decimal parameter.</p>
-         */
+        timeGranularity?: enums.quicksight.AnalysisTimeGranularity;
+        valueWhenUnset?: outputs.quicksight.AnalysisDateTimeValueWhenUnsetConfiguration;
+    }
+
+    export interface AnalysisDateTimePickerControlDisplayOptions {
+        dateTimeFormat?: string;
+        titleOptions?: outputs.quicksight.AnalysisLabelOptions;
+    }
+
+    export interface AnalysisDateTimeValueWhenUnsetConfiguration {
+        customValue?: string;
+        valueWhenUnsetOption?: enums.quicksight.AnalysisValueWhenUnsetOption;
+    }
+
+    export interface AnalysisDecimalDefaultValues {
+        dynamicValue?: outputs.quicksight.AnalysisDynamicDefaultValue;
+        staticValues?: number[];
+    }
+
+    export interface AnalysisDecimalParameter {
+        name: string;
         values: number[];
     }
 
-    /**
-     * <p>A metadata error structure for an analysis.</p>
-     */
+    export interface AnalysisDecimalParameterDeclaration {
+        defaultValues?: outputs.quicksight.AnalysisDecimalDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.AnalysisMappedDataSetParameter[];
+        name: string;
+        parameterValueType: enums.quicksight.AnalysisParameterValueType;
+        valueWhenUnset?: outputs.quicksight.AnalysisDecimalValueWhenUnsetConfiguration;
+    }
+
+    export interface AnalysisDecimalPlacesConfiguration {
+        decimalPlaces: number;
+    }
+
+    export interface AnalysisDecimalValueWhenUnsetConfiguration {
+        customValue?: number;
+        valueWhenUnsetOption?: enums.quicksight.AnalysisValueWhenUnsetOption;
+    }
+
+    export interface AnalysisDefaultFreeFormLayoutConfiguration {
+        canvasSizeOptions: outputs.quicksight.AnalysisFreeFormLayoutCanvasSizeOptions;
+    }
+
+    export interface AnalysisDefaultGridLayoutConfiguration {
+        canvasSizeOptions: outputs.quicksight.AnalysisGridLayoutCanvasSizeOptions;
+    }
+
+    export interface AnalysisDefaultInteractiveLayoutConfiguration {
+        freeForm?: outputs.quicksight.AnalysisDefaultFreeFormLayoutConfiguration;
+        grid?: outputs.quicksight.AnalysisDefaultGridLayoutConfiguration;
+    }
+
+    export interface AnalysisDefaultNewSheetConfiguration {
+        interactiveLayoutConfiguration?: outputs.quicksight.AnalysisDefaultInteractiveLayoutConfiguration;
+        paginatedLayoutConfiguration?: outputs.quicksight.AnalysisDefaultPaginatedLayoutConfiguration;
+        sheetContentType?: enums.quicksight.AnalysisSheetContentType;
+    }
+
+    export interface AnalysisDefaultPaginatedLayoutConfiguration {
+        sectionBased?: outputs.quicksight.AnalysisDefaultSectionBasedLayoutConfiguration;
+    }
+
+    export interface AnalysisDefaultSectionBasedLayoutConfiguration {
+        canvasSizeOptions: outputs.quicksight.AnalysisSectionBasedLayoutCanvasSizeOptions;
+    }
+
+    export interface AnalysisDefaults {
+        defaultNewSheetConfiguration: outputs.quicksight.AnalysisDefaultNewSheetConfiguration;
+    }
+
+    export interface AnalysisDefinition {
+        analysisDefaults?: outputs.quicksight.AnalysisDefaults;
+        calculatedFields?: outputs.quicksight.AnalysisCalculatedField[];
+        columnConfigurations?: outputs.quicksight.AnalysisColumnConfiguration[];
+        dataSetIdentifierDeclarations: outputs.quicksight.AnalysisDataSetIdentifierDeclaration[];
+        filterGroups?: outputs.quicksight.AnalysisFilterGroup[];
+        parameterDeclarations?: outputs.quicksight.AnalysisParameterDeclaration[];
+        sheets?: outputs.quicksight.AnalysisSheetDefinition[];
+    }
+
+    export interface AnalysisDestinationParameterValueConfiguration {
+        customValuesConfiguration?: outputs.quicksight.AnalysisCustomValuesConfiguration;
+        selectAllValueOptions?: enums.quicksight.AnalysisSelectAllValueOptions;
+        sourceField?: string;
+        sourceParameterName?: string;
+    }
+
+    export interface AnalysisDimensionField {
+        categoricalDimensionField?: outputs.quicksight.AnalysisCategoricalDimensionField;
+        dateDimensionField?: outputs.quicksight.AnalysisDateDimensionField;
+        numericalDimensionField?: outputs.quicksight.AnalysisNumericalDimensionField;
+    }
+
+    export interface AnalysisDonutCenterOptions {
+        labelVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisDonutOptions {
+        arcOptions?: outputs.quicksight.AnalysisArcOptions;
+        donutCenterOptions?: outputs.quicksight.AnalysisDonutCenterOptions;
+    }
+
+    export interface AnalysisDrillDownFilter {
+        categoryFilter?: outputs.quicksight.AnalysisCategoryDrillDownFilter;
+        numericEqualityFilter?: outputs.quicksight.AnalysisNumericEqualityDrillDownFilter;
+        timeRangeFilter?: outputs.quicksight.AnalysisTimeRangeDrillDownFilter;
+    }
+
+    export interface AnalysisDropDownControlDisplayOptions {
+        selectAllOptions?: outputs.quicksight.AnalysisListControlSelectAllOptions;
+        titleOptions?: outputs.quicksight.AnalysisLabelOptions;
+    }
+
+    export interface AnalysisDynamicDefaultValue {
+        defaultValueColumn: outputs.quicksight.AnalysisColumnIdentifier;
+        groupNameColumn?: outputs.quicksight.AnalysisColumnIdentifier;
+        userNameColumn?: outputs.quicksight.AnalysisColumnIdentifier;
+    }
+
+    export interface AnalysisEmptyVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        dataSetIdentifier: string;
+        visualId: string;
+    }
+
+    export interface AnalysisEntity {
+        path?: string;
+    }
+
     export interface AnalysisError {
-        /**
-         * <p>The message associated with the analysis error.</p>
-         */
         message?: string;
         type?: enums.quicksight.AnalysisErrorType;
+        violatedEntities?: outputs.quicksight.AnalysisEntity[];
     }
 
-    /**
-     * <p>An integer parameter.</p>
-     */
+    export interface AnalysisExcludePeriodConfiguration {
+        amount: number;
+        granularity: enums.quicksight.AnalysisTimeGranularity;
+        status?: enums.quicksight.AnalysisWidgetStatus;
+    }
+
+    export interface AnalysisExplicitHierarchy {
+        columns: outputs.quicksight.AnalysisColumnIdentifier[];
+        drillDownFilters?: outputs.quicksight.AnalysisDrillDownFilter[];
+        hierarchyId: string;
+    }
+
+    export interface AnalysisFieldBasedTooltip {
+        aggregationVisibility?: enums.quicksight.AnalysisVisibility;
+        tooltipFields?: outputs.quicksight.AnalysisTooltipItem[];
+        tooltipTitleType?: enums.quicksight.AnalysisTooltipTitleType;
+    }
+
+    export interface AnalysisFieldLabelType {
+        fieldId?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisFieldSeriesItem {
+        axisBinding: enums.quicksight.AnalysisAxisBinding;
+        fieldId: string;
+        settings?: outputs.quicksight.AnalysisLineChartSeriesSettings;
+    }
+
+    export interface AnalysisFieldSort {
+        direction: enums.quicksight.AnalysisSortDirection;
+        fieldId: string;
+    }
+
+    export interface AnalysisFieldSortOptions {
+        columnSort?: outputs.quicksight.AnalysisColumnSort;
+        fieldSort?: outputs.quicksight.AnalysisFieldSort;
+    }
+
+    export interface AnalysisFieldTooltipItem {
+        fieldId: string;
+        label?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisFilledMapAggregatedFieldWells {
+        geospatial?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisFilledMapConditionalFormatting {
+        conditionalFormattingOptions: outputs.quicksight.AnalysisFilledMapConditionalFormattingOption[];
+    }
+
+    export interface AnalysisFilledMapConditionalFormattingOption {
+        shape: outputs.quicksight.AnalysisFilledMapShapeConditionalFormatting;
+    }
+
+    export interface AnalysisFilledMapConfiguration {
+        fieldWells?: outputs.quicksight.AnalysisFilledMapFieldWells;
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        mapStyleOptions?: outputs.quicksight.AnalysisGeospatialMapStyleOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisFilledMapSortConfiguration;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+        windowOptions?: outputs.quicksight.AnalysisGeospatialWindowOptions;
+    }
+
+    export interface AnalysisFilledMapFieldWells {
+        filledMapAggregatedFieldWells?: outputs.quicksight.AnalysisFilledMapAggregatedFieldWells;
+    }
+
+    export interface AnalysisFilledMapShapeConditionalFormatting {
+        fieldId: string;
+        format?: outputs.quicksight.AnalysisShapeConditionalFormat;
+    }
+
+    export interface AnalysisFilledMapSortConfiguration {
+        categorySort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisFilledMapVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisFilledMapConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        conditionalFormatting?: outputs.quicksight.AnalysisFilledMapConditionalFormatting;
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisFilter {
+        categoryFilter?: outputs.quicksight.AnalysisCategoryFilter;
+        numericEqualityFilter?: outputs.quicksight.AnalysisNumericEqualityFilter;
+        numericRangeFilter?: outputs.quicksight.AnalysisNumericRangeFilter;
+        relativeDatesFilter?: outputs.quicksight.AnalysisRelativeDatesFilter;
+        timeEqualityFilter?: outputs.quicksight.AnalysisTimeEqualityFilter;
+        timeRangeFilter?: outputs.quicksight.AnalysisTimeRangeFilter;
+        topBottomFilter?: outputs.quicksight.AnalysisTopBottomFilter;
+    }
+
+    export interface AnalysisFilterControl {
+        dateTimePicker?: outputs.quicksight.AnalysisFilterDateTimePickerControl;
+        dropdown?: outputs.quicksight.AnalysisFilterDropDownControl;
+        list?: outputs.quicksight.AnalysisFilterListControl;
+        relativeDateTime?: outputs.quicksight.AnalysisFilterRelativeDateTimeControl;
+        slider?: outputs.quicksight.AnalysisFilterSliderControl;
+        textArea?: outputs.quicksight.AnalysisFilterTextAreaControl;
+        textField?: outputs.quicksight.AnalysisFilterTextFieldControl;
+    }
+
+    export interface AnalysisFilterDateTimePickerControl {
+        displayOptions?: outputs.quicksight.AnalysisDateTimePickerControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+        type?: enums.quicksight.AnalysisSheetControlDateTimePickerType;
+    }
+
+    export interface AnalysisFilterDropDownControl {
+        cascadingControlConfiguration?: outputs.quicksight.AnalysisCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.AnalysisDropDownControlDisplayOptions;
+        filterControlId: string;
+        selectableValues?: outputs.quicksight.AnalysisFilterSelectableValues;
+        sourceFilterId: string;
+        title: string;
+        type?: enums.quicksight.AnalysisSheetControlListType;
+    }
+
+    export interface AnalysisFilterGroup {
+        crossDataset: enums.quicksight.AnalysisCrossDatasetTypes;
+        filterGroupId: string;
+        filters: outputs.quicksight.AnalysisFilter[];
+        scopeConfiguration: outputs.quicksight.AnalysisFilterScopeConfiguration;
+        status?: enums.quicksight.AnalysisWidgetStatus;
+    }
+
+    export interface AnalysisFilterListConfiguration {
+        categoryValues?: string[];
+        matchOperator: enums.quicksight.AnalysisCategoryFilterMatchOperator;
+        selectAllOptions?: enums.quicksight.AnalysisCategoryFilterSelectAllOptions;
+    }
+
+    export interface AnalysisFilterListControl {
+        cascadingControlConfiguration?: outputs.quicksight.AnalysisCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.AnalysisListControlDisplayOptions;
+        filterControlId: string;
+        selectableValues?: outputs.quicksight.AnalysisFilterSelectableValues;
+        sourceFilterId: string;
+        title: string;
+        type?: enums.quicksight.AnalysisSheetControlListType;
+    }
+
+    export interface AnalysisFilterOperationSelectedFieldsConfiguration {
+        selectedFieldOptions?: enums.quicksight.AnalysisSelectedFieldOptions;
+        selectedFields?: string[];
+    }
+
+    export interface AnalysisFilterOperationTargetVisualsConfiguration {
+        sameSheetTargetVisualConfiguration?: outputs.quicksight.AnalysisSameSheetTargetVisualConfiguration;
+    }
+
+    export interface AnalysisFilterRelativeDateTimeControl {
+        displayOptions?: outputs.quicksight.AnalysisRelativeDateTimeControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+    }
+
+    export interface AnalysisFilterScopeConfiguration {
+        selectedSheets?: outputs.quicksight.AnalysisSelectedSheetsFilterScopeConfiguration;
+    }
+
+    export interface AnalysisFilterSelectableValues {
+        values?: string[];
+    }
+
+    export interface AnalysisFilterSliderControl {
+        displayOptions?: outputs.quicksight.AnalysisSliderControlDisplayOptions;
+        filterControlId: string;
+        maximumValue: number;
+        minimumValue: number;
+        sourceFilterId: string;
+        stepSize: number;
+        title: string;
+        type?: enums.quicksight.AnalysisSheetControlSliderType;
+    }
+
+    export interface AnalysisFilterTextAreaControl {
+        delimiter?: string;
+        displayOptions?: outputs.quicksight.AnalysisTextAreaControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+    }
+
+    export interface AnalysisFilterTextFieldControl {
+        displayOptions?: outputs.quicksight.AnalysisTextFieldControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+    }
+
+    export interface AnalysisFontConfiguration {
+        fontColor?: string;
+        fontDecoration?: enums.quicksight.AnalysisFontDecoration;
+        fontSize?: outputs.quicksight.AnalysisFontSize;
+        fontStyle?: enums.quicksight.AnalysisFontStyle;
+        fontWeight?: outputs.quicksight.AnalysisFontWeight;
+    }
+
+    export interface AnalysisFontSize {
+        relative?: enums.quicksight.AnalysisRelativeFontSize;
+    }
+
+    export interface AnalysisFontWeight {
+        name?: enums.quicksight.AnalysisFontWeightName;
+    }
+
+    export interface AnalysisForecastComputation {
+        computationId: string;
+        customSeasonalityValue?: number;
+        lowerBoundary?: number;
+        name?: string;
+        periodsBackward?: number;
+        periodsForward?: number;
+        predictionInterval?: number;
+        seasonality?: enums.quicksight.AnalysisForecastComputationSeasonality;
+        time: outputs.quicksight.AnalysisDimensionField;
+        upperBoundary?: number;
+        value?: outputs.quicksight.AnalysisMeasureField;
+    }
+
+    export interface AnalysisForecastConfiguration {
+        forecastProperties?: outputs.quicksight.AnalysisTimeBasedForecastProperties;
+        scenario?: outputs.quicksight.AnalysisForecastScenario;
+    }
+
+    export interface AnalysisForecastScenario {
+        whatIfPointScenario?: outputs.quicksight.AnalysisWhatIfPointScenario;
+        whatIfRangeScenario?: outputs.quicksight.AnalysisWhatIfRangeScenario;
+    }
+
+    export interface AnalysisFormatConfiguration {
+        dateTimeFormatConfiguration?: outputs.quicksight.AnalysisDateTimeFormatConfiguration;
+        numberFormatConfiguration?: outputs.quicksight.AnalysisNumberFormatConfiguration;
+        stringFormatConfiguration?: outputs.quicksight.AnalysisStringFormatConfiguration;
+    }
+
+    export interface AnalysisFreeFormLayoutCanvasSizeOptions {
+        screenCanvasSizeOptions?: outputs.quicksight.AnalysisFreeFormLayoutScreenCanvasSizeOptions;
+    }
+
+    export interface AnalysisFreeFormLayoutConfiguration {
+        canvasSizeOptions?: outputs.quicksight.AnalysisFreeFormLayoutCanvasSizeOptions;
+        elements: outputs.quicksight.AnalysisFreeFormLayoutElement[];
+    }
+
+    export interface AnalysisFreeFormLayoutElement {
+        backgroundStyle?: outputs.quicksight.AnalysisFreeFormLayoutElementBackgroundStyle;
+        borderStyle?: outputs.quicksight.AnalysisFreeFormLayoutElementBorderStyle;
+        elementId: string;
+        elementType: enums.quicksight.AnalysisLayoutElementType;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height: string;
+        loadingAnimation?: outputs.quicksight.AnalysisLoadingAnimation;
+        renderingRules?: outputs.quicksight.AnalysisSheetElementRenderingRule[];
+        selectedBorderStyle?: outputs.quicksight.AnalysisFreeFormLayoutElementBorderStyle;
+        visibility?: enums.quicksight.AnalysisVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width: string;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        xAxisLocation: string;
+        /**
+         * String based length that is composed of value and unit in px with Integer.MAX_VALUE as maximum value
+         */
+        yAxisLocation: string;
+    }
+
+    export interface AnalysisFreeFormLayoutElementBackgroundStyle {
+        color?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisFreeFormLayoutElementBorderStyle {
+        color?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisFreeFormLayoutScreenCanvasSizeOptions {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth: string;
+    }
+
+    export interface AnalysisFreeFormSectionLayoutConfiguration {
+        elements: outputs.quicksight.AnalysisFreeFormLayoutElement[];
+    }
+
+    export interface AnalysisFunnelChartAggregatedFieldWells {
+        category?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisFunnelChartConfiguration {
+        categoryLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        dataLabelOptions?: outputs.quicksight.AnalysisFunnelChartDataLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisFunnelChartFieldWells;
+        sortConfiguration?: outputs.quicksight.AnalysisFunnelChartSortConfiguration;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+        valueLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+    }
+
+    export interface AnalysisFunnelChartDataLabelOptions {
+        categoryLabelVisibility?: enums.quicksight.AnalysisVisibility;
+        labelColor?: string;
+        labelFontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
+        measureDataLabelStyle?: enums.quicksight.AnalysisFunnelChartMeasureDataLabelStyle;
+        measureLabelVisibility?: enums.quicksight.AnalysisVisibility;
+        position?: enums.quicksight.AnalysisDataLabelPosition;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisFunnelChartFieldWells {
+        funnelChartAggregatedFieldWells?: outputs.quicksight.AnalysisFunnelChartAggregatedFieldWells;
+    }
+
+    export interface AnalysisFunnelChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisFunnelChartVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisFunnelChartConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisGaugeChartArcConditionalFormatting {
+        foregroundColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
+    }
+
+    export interface AnalysisGaugeChartConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.AnalysisGaugeChartConditionalFormattingOption[];
+    }
+
+    export interface AnalysisGaugeChartConditionalFormattingOption {
+        arc?: outputs.quicksight.AnalysisGaugeChartArcConditionalFormatting;
+        primaryValue?: outputs.quicksight.AnalysisGaugeChartPrimaryValueConditionalFormatting;
+    }
+
+    export interface AnalysisGaugeChartConfiguration {
+        dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisGaugeChartFieldWells;
+        gaugeChartOptions?: outputs.quicksight.AnalysisGaugeChartOptions;
+        tooltipOptions?: outputs.quicksight.AnalysisTooltipOptions;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+    }
+
+    export interface AnalysisGaugeChartFieldWells {
+        targetValues?: outputs.quicksight.AnalysisMeasureField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisGaugeChartOptions {
+        arc?: outputs.quicksight.AnalysisArcConfiguration;
+        arcAxis?: outputs.quicksight.AnalysisArcAxisConfiguration;
+        comparison?: outputs.quicksight.AnalysisComparisonConfiguration;
+        primaryValueDisplayType?: enums.quicksight.AnalysisPrimaryValueDisplayType;
+        primaryValueFontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
+    }
+
+    export interface AnalysisGaugeChartPrimaryValueConditionalFormatting {
+        icon?: outputs.quicksight.AnalysisConditionalFormattingIcon;
+        textColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
+    }
+
+    export interface AnalysisGaugeChartVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisGaugeChartConfiguration;
+        conditionalFormatting?: outputs.quicksight.AnalysisGaugeChartConditionalFormatting;
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisGeospatialCoordinateBounds {
+        east: number;
+        north: number;
+        south: number;
+        west: number;
+    }
+
+    export interface AnalysisGeospatialMapAggregatedFieldWells {
+        colors?: outputs.quicksight.AnalysisDimensionField[];
+        geospatial?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisGeospatialMapConfiguration {
+        fieldWells?: outputs.quicksight.AnalysisGeospatialMapFieldWells;
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        mapStyleOptions?: outputs.quicksight.AnalysisGeospatialMapStyleOptions;
+        pointStyleOptions?: outputs.quicksight.AnalysisGeospatialPointStyleOptions;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+        windowOptions?: outputs.quicksight.AnalysisGeospatialWindowOptions;
+    }
+
+    export interface AnalysisGeospatialMapFieldWells {
+        geospatialMapAggregatedFieldWells?: outputs.quicksight.AnalysisGeospatialMapAggregatedFieldWells;
+    }
+
+    export interface AnalysisGeospatialMapStyleOptions {
+        baseMapStyle?: enums.quicksight.AnalysisBaseMapStyleType;
+    }
+
+    export interface AnalysisGeospatialMapVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisGeospatialMapConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisGeospatialPointStyleOptions {
+        clusterMarkerConfiguration?: outputs.quicksight.AnalysisClusterMarkerConfiguration;
+        selectedPointStyle?: enums.quicksight.AnalysisGeospatialSelectedPointStyle;
+    }
+
+    export interface AnalysisGeospatialWindowOptions {
+        bounds?: outputs.quicksight.AnalysisGeospatialCoordinateBounds;
+        mapZoomMode?: enums.quicksight.AnalysisMapZoomMode;
+    }
+
+    export interface AnalysisGlobalTableBorderOptions {
+        sideSpecificBorder?: outputs.quicksight.AnalysisTableSideBorderOptions;
+        uniformBorder?: outputs.quicksight.AnalysisTableBorderOptions;
+    }
+
+    export interface AnalysisGradientColor {
+        stops?: outputs.quicksight.AnalysisGradientStop[];
+    }
+
+    export interface AnalysisGradientStop {
+        color?: string;
+        dataValue?: number;
+        gradientOffset: number;
+    }
+
+    export interface AnalysisGridLayoutCanvasSizeOptions {
+        screenCanvasSizeOptions?: outputs.quicksight.AnalysisGridLayoutScreenCanvasSizeOptions;
+    }
+
+    export interface AnalysisGridLayoutConfiguration {
+        canvasSizeOptions?: outputs.quicksight.AnalysisGridLayoutCanvasSizeOptions;
+        elements: outputs.quicksight.AnalysisGridLayoutElement[];
+    }
+
+    export interface AnalysisGridLayoutElement {
+        columnIndex?: number;
+        columnSpan: number;
+        elementId: string;
+        elementType: enums.quicksight.AnalysisLayoutElementType;
+        rowIndex?: number;
+        rowSpan: number;
+    }
+
+    export interface AnalysisGridLayoutScreenCanvasSizeOptions {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth?: string;
+        resizeOption: enums.quicksight.AnalysisResizeOption;
+    }
+
+    export interface AnalysisGrowthRateComputation {
+        computationId: string;
+        name?: string;
+        periodSize?: number;
+        time: outputs.quicksight.AnalysisDimensionField;
+        value?: outputs.quicksight.AnalysisMeasureField;
+    }
+
+    export interface AnalysisHeaderFooterSectionConfiguration {
+        layout: outputs.quicksight.AnalysisSectionLayoutConfiguration;
+        sectionId: string;
+        style?: outputs.quicksight.AnalysisSectionStyle;
+    }
+
+    export interface AnalysisHeatMapAggregatedFieldWells {
+        columns?: outputs.quicksight.AnalysisDimensionField[];
+        rows?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisHeatMapConfiguration {
+        colorScale?: outputs.quicksight.AnalysisColorScale;
+        columnLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisHeatMapFieldWells;
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        rowLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisHeatMapSortConfiguration;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+    }
+
+    export interface AnalysisHeatMapFieldWells {
+        heatMapAggregatedFieldWells?: outputs.quicksight.AnalysisHeatMapAggregatedFieldWells;
+    }
+
+    export interface AnalysisHeatMapSortConfiguration {
+        heatMapColumnItemsLimitConfiguration?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        heatMapColumnSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+        heatMapRowItemsLimitConfiguration?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        heatMapRowSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisHeatMapVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisHeatMapConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisHistogramAggregatedFieldWells {
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisHistogramBinOptions {
+        binCount?: outputs.quicksight.AnalysisBinCountOptions;
+        binWidth?: outputs.quicksight.AnalysisBinWidthOptions;
+        selectedBinType?: enums.quicksight.AnalysisHistogramBinType;
+        startValue?: number;
+    }
+
+    export interface AnalysisHistogramConfiguration {
+        binOptions?: outputs.quicksight.AnalysisHistogramBinOptions;
+        dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisHistogramFieldWells;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+        xAxisDisplayOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        xAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        yAxisDisplayOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
+    }
+
+    export interface AnalysisHistogramFieldWells {
+        histogramAggregatedFieldWells?: outputs.quicksight.AnalysisHistogramAggregatedFieldWells;
+    }
+
+    export interface AnalysisHistogramVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisHistogramConfiguration;
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisInsightConfiguration {
+        computations?: outputs.quicksight.AnalysisComputation[];
+        customNarrative?: outputs.quicksight.AnalysisCustomNarrativeOptions;
+    }
+
+    export interface AnalysisInsightVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        dataSetIdentifier: string;
+        insightConfiguration?: outputs.quicksight.AnalysisInsightConfiguration;
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisIntegerDefaultValues {
+        dynamicValue?: outputs.quicksight.AnalysisDynamicDefaultValue;
+        staticValues?: number[];
+    }
+
     export interface AnalysisIntegerParameter {
-        /**
-         * <p>The name of the integer parameter.</p>
-         */
         name: string;
-        /**
-         * <p>The values for the integer parameter.</p>
-         */
         values: number[];
     }
 
-    /**
-     * <p>A list of QuickSight parameters and the list's override values.</p>
-     */
+    export interface AnalysisIntegerParameterDeclaration {
+        defaultValues?: outputs.quicksight.AnalysisIntegerDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.AnalysisMappedDataSetParameter[];
+        name: string;
+        parameterValueType: enums.quicksight.AnalysisParameterValueType;
+        valueWhenUnset?: outputs.quicksight.AnalysisIntegerValueWhenUnsetConfiguration;
+    }
+
+    export interface AnalysisIntegerValueWhenUnsetConfiguration {
+        customValue?: number;
+        valueWhenUnsetOption?: enums.quicksight.AnalysisValueWhenUnsetOption;
+    }
+
+    export interface AnalysisItemsLimitConfiguration {
+        itemsLimit?: number;
+        otherCategories?: enums.quicksight.AnalysisOtherCategories;
+    }
+
+    export interface AnalysisKPIConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.AnalysisKPIConditionalFormattingOption[];
+    }
+
+    export interface AnalysisKPIConditionalFormattingOption {
+        primaryValue?: outputs.quicksight.AnalysisKPIPrimaryValueConditionalFormatting;
+        progressBar?: outputs.quicksight.AnalysisKPIProgressBarConditionalFormatting;
+    }
+
+    export interface AnalysisKPIConfiguration {
+        fieldWells?: outputs.quicksight.AnalysisKPIFieldWells;
+        kPIOptions?: outputs.quicksight.AnalysisKPIOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisKPISortConfiguration;
+    }
+
+    export interface AnalysisKPIFieldWells {
+        targetValues?: outputs.quicksight.AnalysisMeasureField[];
+        trendGroups?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisKPIOptions {
+        comparison?: outputs.quicksight.AnalysisComparisonConfiguration;
+        primaryValueDisplayType?: enums.quicksight.AnalysisPrimaryValueDisplayType;
+        primaryValueFontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
+        progressBar?: outputs.quicksight.AnalysisProgressBarOptions;
+        secondaryValue?: outputs.quicksight.AnalysisSecondaryValueOptions;
+        secondaryValueFontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
+        trendArrows?: outputs.quicksight.AnalysisTrendArrowOptions;
+    }
+
+    export interface AnalysisKPIPrimaryValueConditionalFormatting {
+        icon?: outputs.quicksight.AnalysisConditionalFormattingIcon;
+        textColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
+    }
+
+    export interface AnalysisKPIProgressBarConditionalFormatting {
+        foregroundColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
+    }
+
+    export interface AnalysisKPISortConfiguration {
+        trendGroupSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisKPIVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisKPIConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        conditionalFormatting?: outputs.quicksight.AnalysisKPIConditionalFormatting;
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisLabelOptions {
+        customLabel?: string;
+        fontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisLayout {
+        configuration: outputs.quicksight.AnalysisLayoutConfiguration;
+    }
+
+    export interface AnalysisLayoutConfiguration {
+        freeFormLayout?: outputs.quicksight.AnalysisFreeFormLayoutConfiguration;
+        gridLayout?: outputs.quicksight.AnalysisGridLayoutConfiguration;
+        sectionBasedLayout?: outputs.quicksight.AnalysisSectionBasedLayoutConfiguration;
+    }
+
+    export interface AnalysisLegendOptions {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: string;
+        position?: enums.quicksight.AnalysisLegendPosition;
+        title?: outputs.quicksight.AnalysisLabelOptions;
+        visibility?: enums.quicksight.AnalysisVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: string;
+    }
+
+    export interface AnalysisLineChartAggregatedFieldWells {
+        category?: outputs.quicksight.AnalysisDimensionField[];
+        colors?: outputs.quicksight.AnalysisDimensionField[];
+        smallMultiples?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisLineChartConfiguration {
+        contributionAnalysisDefaults?: outputs.quicksight.AnalysisContributionAnalysisDefault[];
+        dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        defaultSeriesSettings?: outputs.quicksight.AnalysisLineChartDefaultSeriesSettings;
+        fieldWells?: outputs.quicksight.AnalysisLineChartFieldWells;
+        forecastConfigurations?: outputs.quicksight.AnalysisForecastConfiguration[];
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.AnalysisLineSeriesAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        referenceLines?: outputs.quicksight.AnalysisReferenceLine[];
+        secondaryYAxisDisplayOptions?: outputs.quicksight.AnalysisLineSeriesAxisDisplayOptions;
+        secondaryYAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        series?: outputs.quicksight.AnalysisSeriesItem[];
+        smallMultiplesOptions?: outputs.quicksight.AnalysisSmallMultiplesOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisLineChartSortConfiguration;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+        type?: enums.quicksight.AnalysisLineChartType;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+        xAxisDisplayOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        xAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+    }
+
+    export interface AnalysisLineChartDefaultSeriesSettings {
+        axisBinding?: enums.quicksight.AnalysisAxisBinding;
+        lineStyleSettings?: outputs.quicksight.AnalysisLineChartLineStyleSettings;
+        markerStyleSettings?: outputs.quicksight.AnalysisLineChartMarkerStyleSettings;
+    }
+
+    export interface AnalysisLineChartFieldWells {
+        lineChartAggregatedFieldWells?: outputs.quicksight.AnalysisLineChartAggregatedFieldWells;
+    }
+
+    export interface AnalysisLineChartLineStyleSettings {
+        lineInterpolation?: enums.quicksight.AnalysisLineInterpolation;
+        lineStyle?: enums.quicksight.AnalysisLineChartLineStyle;
+        lineVisibility?: enums.quicksight.AnalysisVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        lineWidth?: string;
+    }
+
+    export interface AnalysisLineChartMarkerStyleSettings {
+        markerColor?: string;
+        markerShape?: enums.quicksight.AnalysisLineChartMarkerShape;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        markerSize?: string;
+        markerVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisLineChartSeriesSettings {
+        lineStyleSettings?: outputs.quicksight.AnalysisLineChartLineStyleSettings;
+        markerStyleSettings?: outputs.quicksight.AnalysisLineChartMarkerStyleSettings;
+    }
+
+    export interface AnalysisLineChartSortConfiguration {
+        categoryItemsLimitConfiguration?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.AnalysisFieldSortOptions[];
+        colorItemsLimitConfiguration?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        smallMultiplesLimitConfiguration?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        smallMultiplesSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisLineChartVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisLineChartConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisLineSeriesAxisDisplayOptions {
+        axisOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        missingDataConfigurations?: outputs.quicksight.AnalysisMissingDataConfiguration[];
+    }
+
+    export interface AnalysisListControlDisplayOptions {
+        searchOptions?: outputs.quicksight.AnalysisListControlSearchOptions;
+        selectAllOptions?: outputs.quicksight.AnalysisListControlSelectAllOptions;
+        titleOptions?: outputs.quicksight.AnalysisLabelOptions;
+    }
+
+    export interface AnalysisListControlSearchOptions {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisListControlSelectAllOptions {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisLoadingAnimation {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisLocalNavigationConfiguration {
+        targetSheetId: string;
+    }
+
+    export interface AnalysisLongFormatText {
+        plainText?: string;
+        richText?: string;
+    }
+
+    export interface AnalysisMappedDataSetParameter {
+        dataSetIdentifier: string;
+        dataSetParameterName: string;
+    }
+
+    export interface AnalysisMaximumLabelType {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisMaximumMinimumComputation {
+        computationId: string;
+        name?: string;
+        time: outputs.quicksight.AnalysisDimensionField;
+        type: enums.quicksight.AnalysisMaximumMinimumComputationType;
+        value?: outputs.quicksight.AnalysisMeasureField;
+    }
+
+    export interface AnalysisMeasureField {
+        calculatedMeasureField?: outputs.quicksight.AnalysisCalculatedMeasureField;
+        categoricalMeasureField?: outputs.quicksight.AnalysisCategoricalMeasureField;
+        dateMeasureField?: outputs.quicksight.AnalysisDateMeasureField;
+        numericalMeasureField?: outputs.quicksight.AnalysisNumericalMeasureField;
+    }
+
+    export interface AnalysisMetricComparisonComputation {
+        computationId: string;
+        fromValue: outputs.quicksight.AnalysisMeasureField;
+        name?: string;
+        targetValue: outputs.quicksight.AnalysisMeasureField;
+        time: outputs.quicksight.AnalysisDimensionField;
+    }
+
+    export interface AnalysisMinimumLabelType {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisMissingDataConfiguration {
+        treatmentOption?: enums.quicksight.AnalysisMissingDataTreatmentOption;
+    }
+
+    export interface AnalysisNegativeValueConfiguration {
+        displayMode: enums.quicksight.AnalysisNegativeValueDisplayMode;
+    }
+
+    export interface AnalysisNullValueFormatConfiguration {
+        nullString: string;
+    }
+
+    export interface AnalysisNumberDisplayFormatConfiguration {
+        decimalPlacesConfiguration?: outputs.quicksight.AnalysisDecimalPlacesConfiguration;
+        negativeValueConfiguration?: outputs.quicksight.AnalysisNegativeValueConfiguration;
+        nullValueFormatConfiguration?: outputs.quicksight.AnalysisNullValueFormatConfiguration;
+        numberScale?: enums.quicksight.AnalysisNumberScale;
+        prefix?: string;
+        separatorConfiguration?: outputs.quicksight.AnalysisNumericSeparatorConfiguration;
+        suffix?: string;
+    }
+
+    export interface AnalysisNumberFormatConfiguration {
+        formatConfiguration?: outputs.quicksight.AnalysisNumericFormatConfiguration;
+    }
+
+    export interface AnalysisNumericAxisOptions {
+        range?: outputs.quicksight.AnalysisAxisDisplayRange;
+        scale?: outputs.quicksight.AnalysisAxisScale;
+    }
+
+    export interface AnalysisNumericEqualityDrillDownFilter {
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        value: number;
+    }
+
+    export interface AnalysisNumericEqualityFilter {
+        aggregationFunction?: outputs.quicksight.AnalysisAggregationFunction;
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        filterId: string;
+        matchOperator: enums.quicksight.AnalysisNumericEqualityMatchOperator;
+        nullOption: enums.quicksight.AnalysisFilterNullOption;
+        parameterName?: string;
+        selectAllOptions?: enums.quicksight.AnalysisNumericFilterSelectAllOptions;
+        value?: number;
+    }
+
+    export interface AnalysisNumericFormatConfiguration {
+        currencyDisplayFormatConfiguration?: outputs.quicksight.AnalysisCurrencyDisplayFormatConfiguration;
+        numberDisplayFormatConfiguration?: outputs.quicksight.AnalysisNumberDisplayFormatConfiguration;
+        percentageDisplayFormatConfiguration?: outputs.quicksight.AnalysisPercentageDisplayFormatConfiguration;
+    }
+
+    export interface AnalysisNumericRangeFilter {
+        aggregationFunction?: outputs.quicksight.AnalysisAggregationFunction;
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        filterId: string;
+        includeMaximum?: boolean;
+        includeMinimum?: boolean;
+        nullOption: enums.quicksight.AnalysisFilterNullOption;
+        rangeMaximum?: outputs.quicksight.AnalysisNumericRangeFilterValue;
+        rangeMinimum?: outputs.quicksight.AnalysisNumericRangeFilterValue;
+        selectAllOptions?: enums.quicksight.AnalysisNumericFilterSelectAllOptions;
+    }
+
+    export interface AnalysisNumericRangeFilterValue {
+        parameter?: string;
+        staticValue?: number;
+    }
+
+    export interface AnalysisNumericSeparatorConfiguration {
+        decimalSeparator?: enums.quicksight.AnalysisNumericSeparatorSymbol;
+        thousandsSeparator?: outputs.quicksight.AnalysisThousandSeparatorOptions;
+    }
+
+    export interface AnalysisNumericalAggregationFunction {
+        percentileAggregation?: outputs.quicksight.AnalysisPercentileAggregation;
+        simpleNumericalAggregation?: enums.quicksight.AnalysisSimpleNumericalAggregationFunction;
+    }
+
+    export interface AnalysisNumericalDimensionField {
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.AnalysisNumberFormatConfiguration;
+        hierarchyId?: string;
+    }
+
+    export interface AnalysisNumericalMeasureField {
+        aggregationFunction?: outputs.quicksight.AnalysisNumericalAggregationFunction;
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.AnalysisNumberFormatConfiguration;
+    }
+
+    export interface AnalysisPaginationConfiguration {
+        pageNumber: number;
+        pageSize: number;
+    }
+
+    export interface AnalysisPanelConfiguration {
+        backgroundColor?: string;
+        backgroundVisibility?: enums.quicksight.AnalysisVisibility;
+        borderColor?: string;
+        borderStyle?: enums.quicksight.AnalysisPanelBorderStyle;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderThickness?: string;
+        borderVisibility?: enums.quicksight.AnalysisVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        gutterSpacing?: string;
+        gutterVisibility?: enums.quicksight.AnalysisVisibility;
+        title?: outputs.quicksight.AnalysisPanelTitleOptions;
+    }
+
+    export interface AnalysisPanelTitleOptions {
+        fontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
+        horizontalTextAlignment?: enums.quicksight.AnalysisHorizontalTextAlignment;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisParameterControl {
+        dateTimePicker?: outputs.quicksight.AnalysisParameterDateTimePickerControl;
+        dropdown?: outputs.quicksight.AnalysisParameterDropDownControl;
+        list?: outputs.quicksight.AnalysisParameterListControl;
+        slider?: outputs.quicksight.AnalysisParameterSliderControl;
+        textArea?: outputs.quicksight.AnalysisParameterTextAreaControl;
+        textField?: outputs.quicksight.AnalysisParameterTextFieldControl;
+    }
+
+    export interface AnalysisParameterDateTimePickerControl {
+        displayOptions?: outputs.quicksight.AnalysisDateTimePickerControlDisplayOptions;
+        parameterControlId: string;
+        sourceParameterName: string;
+        title: string;
+    }
+
+    export interface AnalysisParameterDeclaration {
+        dateTimeParameterDeclaration?: outputs.quicksight.AnalysisDateTimeParameterDeclaration;
+        decimalParameterDeclaration?: outputs.quicksight.AnalysisDecimalParameterDeclaration;
+        integerParameterDeclaration?: outputs.quicksight.AnalysisIntegerParameterDeclaration;
+        stringParameterDeclaration?: outputs.quicksight.AnalysisStringParameterDeclaration;
+    }
+
+    export interface AnalysisParameterDropDownControl {
+        cascadingControlConfiguration?: outputs.quicksight.AnalysisCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.AnalysisDropDownControlDisplayOptions;
+        parameterControlId: string;
+        selectableValues?: outputs.quicksight.AnalysisParameterSelectableValues;
+        sourceParameterName: string;
+        title: string;
+        type?: enums.quicksight.AnalysisSheetControlListType;
+    }
+
+    export interface AnalysisParameterListControl {
+        cascadingControlConfiguration?: outputs.quicksight.AnalysisCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.AnalysisListControlDisplayOptions;
+        parameterControlId: string;
+        selectableValues?: outputs.quicksight.AnalysisParameterSelectableValues;
+        sourceParameterName: string;
+        title: string;
+        type?: enums.quicksight.AnalysisSheetControlListType;
+    }
+
+    export interface AnalysisParameterSelectableValues {
+        linkToDataSetColumn?: outputs.quicksight.AnalysisColumnIdentifier;
+        values?: string[];
+    }
+
+    export interface AnalysisParameterSliderControl {
+        displayOptions?: outputs.quicksight.AnalysisSliderControlDisplayOptions;
+        maximumValue: number;
+        minimumValue: number;
+        parameterControlId: string;
+        sourceParameterName: string;
+        stepSize: number;
+        title: string;
+    }
+
+    export interface AnalysisParameterTextAreaControl {
+        delimiter?: string;
+        displayOptions?: outputs.quicksight.AnalysisTextAreaControlDisplayOptions;
+        parameterControlId: string;
+        sourceParameterName: string;
+        title: string;
+    }
+
+    export interface AnalysisParameterTextFieldControl {
+        displayOptions?: outputs.quicksight.AnalysisTextFieldControlDisplayOptions;
+        parameterControlId: string;
+        sourceParameterName: string;
+        title: string;
+    }
+
     export interface AnalysisParameters {
-        /**
-         * <p>Date-time parameters.</p>
-         */
         dateTimeParameters?: outputs.quicksight.AnalysisDateTimeParameter[];
-        /**
-         * <p>Decimal parameters.</p>
-         */
         decimalParameters?: outputs.quicksight.AnalysisDecimalParameter[];
-        /**
-         * <p>Integer parameters.</p>
-         */
         integerParameters?: outputs.quicksight.AnalysisIntegerParameter[];
-        /**
-         * <p>String parameters.</p>
-         */
         stringParameters?: outputs.quicksight.AnalysisStringParameter[];
     }
 
-    /**
-     * <p>Permission for the resource.</p>
-     */
-    export interface AnalysisResourcePermission {
-        /**
-         * <p>The IAM action to grant or revoke permissions on.</p>
-         */
-        actions: string[];
-        /**
-         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-         *             following:</p>
-         *         <ul>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
-         *                     (This is less common.) </p>
-         *             </li>
-         *          </ul>
-         */
-        principal: string;
+    export interface AnalysisPercentVisibleRange {
+        from?: number;
+        to?: number;
     }
 
-    /**
-     * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-     *             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-     *             contains at least one sheet. Each sheet contains at least one visualization widget, for
-     *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-     *             components, such as controls, filters, and so on.</p>
-     */
-    export interface AnalysisSheet {
-        /**
-         * <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
-         *             console.</p>
-         */
+    export interface AnalysisPercentageDisplayFormatConfiguration {
+        decimalPlacesConfiguration?: outputs.quicksight.AnalysisDecimalPlacesConfiguration;
+        negativeValueConfiguration?: outputs.quicksight.AnalysisNegativeValueConfiguration;
+        nullValueFormatConfiguration?: outputs.quicksight.AnalysisNullValueFormatConfiguration;
+        prefix?: string;
+        separatorConfiguration?: outputs.quicksight.AnalysisNumericSeparatorConfiguration;
+        suffix?: string;
+    }
+
+    export interface AnalysisPercentileAggregation {
+        percentileValue?: number;
+    }
+
+    export interface AnalysisPeriodOverPeriodComputation {
+        computationId: string;
         name?: string;
+        time: outputs.quicksight.AnalysisDimensionField;
+        value?: outputs.quicksight.AnalysisMeasureField;
+    }
+
+    export interface AnalysisPeriodToDateComputation {
+        computationId: string;
+        name?: string;
+        periodTimeGranularity?: enums.quicksight.AnalysisTimeGranularity;
+        time: outputs.quicksight.AnalysisDimensionField;
+        value?: outputs.quicksight.AnalysisMeasureField;
+    }
+
+    export interface AnalysisPieChartAggregatedFieldWells {
+        category?: outputs.quicksight.AnalysisDimensionField[];
+        smallMultiples?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisPieChartConfiguration {
+        categoryLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        contributionAnalysisDefaults?: outputs.quicksight.AnalysisContributionAnalysisDefault[];
+        dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        donutOptions?: outputs.quicksight.AnalysisDonutOptions;
+        fieldWells?: outputs.quicksight.AnalysisPieChartFieldWells;
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        smallMultiplesOptions?: outputs.quicksight.AnalysisSmallMultiplesOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisPieChartSortConfiguration;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+        valueLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+    }
+
+    export interface AnalysisPieChartFieldWells {
+        pieChartAggregatedFieldWells?: outputs.quicksight.AnalysisPieChartAggregatedFieldWells;
+    }
+
+    export interface AnalysisPieChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.AnalysisFieldSortOptions[];
+        smallMultiplesLimitConfiguration?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        smallMultiplesSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisPieChartVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisPieChartConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisPivotFieldSortOptions {
+        fieldId: string;
+        sortBy: outputs.quicksight.AnalysisPivotTableSortBy;
+    }
+
+    export interface AnalysisPivotTableAggregatedFieldWells {
+        columns?: outputs.quicksight.AnalysisDimensionField[];
+        rows?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisPivotTableCellConditionalFormatting {
+        fieldId: string;
+        scope?: outputs.quicksight.AnalysisPivotTableConditionalFormattingScope;
+        textFormat?: outputs.quicksight.AnalysisTextConditionalFormat;
+    }
+
+    export interface AnalysisPivotTableConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.AnalysisPivotTableConditionalFormattingOption[];
+    }
+
+    export interface AnalysisPivotTableConditionalFormattingOption {
+        cell?: outputs.quicksight.AnalysisPivotTableCellConditionalFormatting;
+    }
+
+    export interface AnalysisPivotTableConditionalFormattingScope {
+        role?: enums.quicksight.AnalysisPivotTableConditionalFormattingScopeRole;
+    }
+
+    export interface AnalysisPivotTableConfiguration {
+        fieldOptions?: outputs.quicksight.AnalysisPivotTableFieldOptions;
+        fieldWells?: outputs.quicksight.AnalysisPivotTableFieldWells;
+        paginatedReportOptions?: outputs.quicksight.AnalysisPivotTablePaginatedReportOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisPivotTableSortConfiguration;
+        tableOptions?: outputs.quicksight.AnalysisPivotTableOptions;
+        totalOptions?: outputs.quicksight.AnalysisPivotTableTotalOptions;
+    }
+
+    export interface AnalysisPivotTableDataPathOption {
+        dataPathList: outputs.quicksight.AnalysisDataPathValue[];
         /**
-         * <p>The unique identifier associated with a sheet.</p>
+         * String based length that is composed of value and unit in px
          */
+        width?: string;
+    }
+
+    export interface AnalysisPivotTableFieldOption {
+        customLabel?: string;
+        fieldId: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisPivotTableFieldOptions {
+        dataPathOptions?: outputs.quicksight.AnalysisPivotTableDataPathOption[];
+        selectedFieldOptions?: outputs.quicksight.AnalysisPivotTableFieldOption[];
+    }
+
+    export interface AnalysisPivotTableFieldSubtotalOptions {
+        fieldId?: string;
+    }
+
+    export interface AnalysisPivotTableFieldWells {
+        pivotTableAggregatedFieldWells?: outputs.quicksight.AnalysisPivotTableAggregatedFieldWells;
+    }
+
+    export interface AnalysisPivotTableOptions {
+        cellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        columnHeaderStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        columnNamesVisibility?: enums.quicksight.AnalysisVisibility;
+        metricPlacement?: enums.quicksight.AnalysisPivotTableMetricPlacement;
+        rowAlternateColorOptions?: outputs.quicksight.AnalysisRowAlternateColorOptions;
+        rowFieldNamesStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        rowHeaderStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        singleMetricVisibility?: enums.quicksight.AnalysisVisibility;
+        toggleButtonsVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisPivotTablePaginatedReportOptions {
+        overflowColumnHeaderVisibility?: enums.quicksight.AnalysisVisibility;
+        verticalOverflowVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisPivotTableSortBy {
+        column?: outputs.quicksight.AnalysisColumnSort;
+        dataPath?: outputs.quicksight.AnalysisDataPathSort;
+        field?: outputs.quicksight.AnalysisFieldSort;
+    }
+
+    export interface AnalysisPivotTableSortConfiguration {
+        fieldSortOptions?: outputs.quicksight.AnalysisPivotFieldSortOptions[];
+    }
+
+    export interface AnalysisPivotTableTotalOptions {
+        columnSubtotalOptions?: outputs.quicksight.AnalysisSubtotalOptions;
+        columnTotalOptions?: outputs.quicksight.AnalysisPivotTotalOptions;
+        rowSubtotalOptions?: outputs.quicksight.AnalysisSubtotalOptions;
+        rowTotalOptions?: outputs.quicksight.AnalysisPivotTotalOptions;
+    }
+
+    export interface AnalysisPivotTableVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisPivotTableConfiguration;
+        conditionalFormatting?: outputs.quicksight.AnalysisPivotTableConditionalFormatting;
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisPivotTotalOptions {
+        customLabel?: string;
+        metricHeaderCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        placement?: enums.quicksight.AnalysisTableTotalsPlacement;
+        scrollStatus?: enums.quicksight.AnalysisTableTotalsScrollStatus;
+        totalCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        totalsVisibility?: enums.quicksight.AnalysisVisibility;
+        valueCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+    }
+
+    export interface AnalysisPredefinedHierarchy {
+        columns: outputs.quicksight.AnalysisColumnIdentifier[];
+        drillDownFilters?: outputs.quicksight.AnalysisDrillDownFilter[];
+        hierarchyId: string;
+    }
+
+    export interface AnalysisProgressBarOptions {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisRadarChartAggregatedFieldWells {
+        category?: outputs.quicksight.AnalysisDimensionField[];
+        color?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisRadarChartAreaStyleSettings {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisRadarChartConfiguration {
+        alternateBandColorsVisibility?: enums.quicksight.AnalysisVisibility;
+        alternateBandEvenColor?: string;
+        alternateBandOddColor?: string;
+        baseSeriesSettings?: outputs.quicksight.AnalysisRadarChartSeriesSettings;
+        categoryAxis?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        colorAxis?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        colorLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisRadarChartFieldWells;
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        shape?: enums.quicksight.AnalysisRadarChartShape;
+        sortConfiguration?: outputs.quicksight.AnalysisRadarChartSortConfiguration;
+        startAngle?: number;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+    }
+
+    export interface AnalysisRadarChartFieldWells {
+        radarChartAggregatedFieldWells?: outputs.quicksight.AnalysisRadarChartAggregatedFieldWells;
+    }
+
+    export interface AnalysisRadarChartSeriesSettings {
+        areaStyleSettings?: outputs.quicksight.AnalysisRadarChartAreaStyleSettings;
+    }
+
+    export interface AnalysisRadarChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.AnalysisFieldSortOptions[];
+        colorItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        colorSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisRadarChartVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisRadarChartConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisRangeEndsLabelType {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisReferenceLine {
+        dataConfiguration: outputs.quicksight.AnalysisReferenceLineDataConfiguration;
+        labelConfiguration?: outputs.quicksight.AnalysisReferenceLineLabelConfiguration;
+        status?: enums.quicksight.AnalysisWidgetStatus;
+        styleConfiguration?: outputs.quicksight.AnalysisReferenceLineStyleConfiguration;
+    }
+
+    export interface AnalysisReferenceLineCustomLabelConfiguration {
+        customLabel: string;
+    }
+
+    export interface AnalysisReferenceLineDataConfiguration {
+        axisBinding?: enums.quicksight.AnalysisAxisBinding;
+        dynamicConfiguration?: outputs.quicksight.AnalysisReferenceLineDynamicDataConfiguration;
+        staticConfiguration?: outputs.quicksight.AnalysisReferenceLineStaticDataConfiguration;
+    }
+
+    export interface AnalysisReferenceLineDynamicDataConfiguration {
+        calculation: outputs.quicksight.AnalysisNumericalAggregationFunction;
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        measureAggregationFunction: outputs.quicksight.AnalysisAggregationFunction;
+    }
+
+    export interface AnalysisReferenceLineLabelConfiguration {
+        customLabelConfiguration?: outputs.quicksight.AnalysisReferenceLineCustomLabelConfiguration;
+        fontColor?: string;
+        fontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
+        horizontalPosition?: enums.quicksight.AnalysisReferenceLineLabelHorizontalPosition;
+        valueLabelConfiguration?: outputs.quicksight.AnalysisReferenceLineValueLabelConfiguration;
+        verticalPosition?: enums.quicksight.AnalysisReferenceLineLabelVerticalPosition;
+    }
+
+    export interface AnalysisReferenceLineStaticDataConfiguration {
+        value: number;
+    }
+
+    export interface AnalysisReferenceLineStyleConfiguration {
+        color?: string;
+        pattern?: enums.quicksight.AnalysisReferenceLinePatternType;
+    }
+
+    export interface AnalysisReferenceLineValueLabelConfiguration {
+        formatConfiguration?: outputs.quicksight.AnalysisNumericFormatConfiguration;
+        relativePosition?: enums.quicksight.AnalysisReferenceLineValueLabelRelativePosition;
+    }
+
+    export interface AnalysisRelativeDateTimeControlDisplayOptions {
+        dateTimeFormat?: string;
+        titleOptions?: outputs.quicksight.AnalysisLabelOptions;
+    }
+
+    export interface AnalysisRelativeDatesFilter {
+        anchorDateConfiguration: outputs.quicksight.AnalysisAnchorDateConfiguration;
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        excludePeriodConfiguration?: outputs.quicksight.AnalysisExcludePeriodConfiguration;
+        filterId: string;
+        minimumGranularity?: enums.quicksight.AnalysisTimeGranularity;
+        nullOption: enums.quicksight.AnalysisFilterNullOption;
+        parameterName?: string;
+        relativeDateType: enums.quicksight.AnalysisRelativeDateType;
+        relativeDateValue?: number;
+        timeGranularity: enums.quicksight.AnalysisTimeGranularity;
+    }
+
+    export interface AnalysisResourcePermission {
+        actions: string[];
+        principal: string;
+        resource?: string;
+    }
+
+    export interface AnalysisRollingDateConfiguration {
+        dataSetIdentifier?: string;
+        expression: string;
+    }
+
+    export interface AnalysisRowAlternateColorOptions {
+        rowAlternateColors?: string[];
+        status?: enums.quicksight.AnalysisWidgetStatus;
+    }
+
+    export interface AnalysisSameSheetTargetVisualConfiguration {
+        targetVisualOptions?: enums.quicksight.AnalysisTargetVisualOptions;
+        targetVisuals?: string[];
+    }
+
+    export interface AnalysisSankeyDiagramAggregatedFieldWells {
+        destination?: outputs.quicksight.AnalysisDimensionField[];
+        source?: outputs.quicksight.AnalysisDimensionField[];
+        weight?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisSankeyDiagramChartConfiguration {
+        dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisSankeyDiagramFieldWells;
+        sortConfiguration?: outputs.quicksight.AnalysisSankeyDiagramSortConfiguration;
+    }
+
+    export interface AnalysisSankeyDiagramFieldWells {
+        sankeyDiagramAggregatedFieldWells?: outputs.quicksight.AnalysisSankeyDiagramAggregatedFieldWells;
+    }
+
+    export interface AnalysisSankeyDiagramSortConfiguration {
+        destinationItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        sourceItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        weightSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisSankeyDiagramVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisSankeyDiagramChartConfiguration;
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisScatterPlotCategoricallyAggregatedFieldWells {
+        category?: outputs.quicksight.AnalysisDimensionField[];
+        size?: outputs.quicksight.AnalysisMeasureField[];
+        xAxis?: outputs.quicksight.AnalysisMeasureField[];
+        yAxis?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisScatterPlotConfiguration {
+        dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisScatterPlotFieldWells;
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+        xAxisDisplayOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        xAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        yAxisDisplayOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        yAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+    }
+
+    export interface AnalysisScatterPlotFieldWells {
+        scatterPlotCategoricallyAggregatedFieldWells?: outputs.quicksight.AnalysisScatterPlotCategoricallyAggregatedFieldWells;
+        scatterPlotUnaggregatedFieldWells?: outputs.quicksight.AnalysisScatterPlotUnaggregatedFieldWells;
+    }
+
+    export interface AnalysisScatterPlotUnaggregatedFieldWells {
+        size?: outputs.quicksight.AnalysisMeasureField[];
+        xAxis?: outputs.quicksight.AnalysisDimensionField[];
+        yAxis?: outputs.quicksight.AnalysisDimensionField[];
+    }
+
+    export interface AnalysisScatterPlotVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisScatterPlotConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisScrollBarOptions {
+        visibility?: enums.quicksight.AnalysisVisibility;
+        visibleRange?: outputs.quicksight.AnalysisVisibleRangeOptions;
+    }
+
+    export interface AnalysisSecondaryValueOptions {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisSectionAfterPageBreak {
+        status?: enums.quicksight.AnalysisSectionPageBreakStatus;
+    }
+
+    export interface AnalysisSectionBasedLayoutCanvasSizeOptions {
+        paperCanvasSizeOptions?: outputs.quicksight.AnalysisSectionBasedLayoutPaperCanvasSizeOptions;
+    }
+
+    export interface AnalysisSectionBasedLayoutConfiguration {
+        bodySections: outputs.quicksight.AnalysisBodySectionConfiguration[];
+        canvasSizeOptions: outputs.quicksight.AnalysisSectionBasedLayoutCanvasSizeOptions;
+        footerSections: outputs.quicksight.AnalysisHeaderFooterSectionConfiguration[];
+        headerSections: outputs.quicksight.AnalysisHeaderFooterSectionConfiguration[];
+    }
+
+    export interface AnalysisSectionBasedLayoutPaperCanvasSizeOptions {
+        paperMargin?: outputs.quicksight.AnalysisSpacing;
+        paperOrientation?: enums.quicksight.AnalysisPaperOrientation;
+        paperSize?: enums.quicksight.AnalysisPaperSize;
+    }
+
+    export interface AnalysisSectionLayoutConfiguration {
+        freeFormLayout: outputs.quicksight.AnalysisFreeFormSectionLayoutConfiguration;
+    }
+
+    export interface AnalysisSectionPageBreakConfiguration {
+        after?: outputs.quicksight.AnalysisSectionAfterPageBreak;
+    }
+
+    export interface AnalysisSectionStyle {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: string;
+        padding?: outputs.quicksight.AnalysisSpacing;
+    }
+
+    export interface AnalysisSelectedSheetsFilterScopeConfiguration {
+        sheetVisualScopingConfigurations?: outputs.quicksight.AnalysisSheetVisualScopingConfiguration[];
+    }
+
+    export interface AnalysisSeriesItem {
+        dataFieldSeriesItem?: outputs.quicksight.AnalysisDataFieldSeriesItem;
+        fieldSeriesItem?: outputs.quicksight.AnalysisFieldSeriesItem;
+    }
+
+    export interface AnalysisSetParameterValueConfiguration {
+        destinationParameterName: string;
+        value: outputs.quicksight.AnalysisDestinationParameterValueConfiguration;
+    }
+
+    export interface AnalysisShapeConditionalFormat {
+        backgroundColor: outputs.quicksight.AnalysisConditionalFormattingColor;
+    }
+
+    export interface AnalysisSheet {
+        name?: string;
         sheetId?: string;
     }
 
-    /**
-     * <p>The source entity of an analysis.</p>
-     */
+    export interface AnalysisSheetControlLayout {
+        configuration: outputs.quicksight.AnalysisSheetControlLayoutConfiguration;
+    }
+
+    export interface AnalysisSheetControlLayoutConfiguration {
+        gridLayout?: outputs.quicksight.AnalysisGridLayoutConfiguration;
+    }
+
+    export interface AnalysisSheetDefinition {
+        contentType?: enums.quicksight.AnalysisSheetContentType;
+        description?: string;
+        filterControls?: outputs.quicksight.AnalysisFilterControl[];
+        layouts?: outputs.quicksight.AnalysisLayout[];
+        name?: string;
+        parameterControls?: outputs.quicksight.AnalysisParameterControl[];
+        sheetControlLayouts?: outputs.quicksight.AnalysisSheetControlLayout[];
+        sheetId: string;
+        textBoxes?: outputs.quicksight.AnalysisSheetTextBox[];
+        title?: string;
+        visuals?: outputs.quicksight.AnalysisVisual[];
+    }
+
+    export interface AnalysisSheetElementConfigurationOverrides {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisSheetElementRenderingRule {
+        configurationOverrides: outputs.quicksight.AnalysisSheetElementConfigurationOverrides;
+        expression: string;
+    }
+
+    export interface AnalysisSheetTextBox {
+        content?: string;
+        sheetTextBoxId: string;
+    }
+
+    export interface AnalysisSheetVisualScopingConfiguration {
+        scope: enums.quicksight.AnalysisFilterVisualScope;
+        sheetId: string;
+        visualIds?: string[];
+    }
+
+    export interface AnalysisShortFormatText {
+        plainText?: string;
+        richText?: string;
+    }
+
+    export interface AnalysisSimpleClusterMarker {
+        color?: string;
+    }
+
+    export interface AnalysisSliderControlDisplayOptions {
+        titleOptions?: outputs.quicksight.AnalysisLabelOptions;
+    }
+
+    export interface AnalysisSmallMultiplesOptions {
+        maxVisibleColumns?: number;
+        maxVisibleRows?: number;
+        panelConfiguration?: outputs.quicksight.AnalysisPanelConfiguration;
+    }
+
     export interface AnalysisSourceEntity {
         sourceTemplate?: outputs.quicksight.AnalysisSourceTemplate;
     }
 
-    /**
-     * <p>The source template of an analysis.</p>
-     */
     export interface AnalysisSourceTemplate {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-         */
         arn: string;
-        /**
-         * <p>The dataset references of the source template of an analysis.</p>
-         */
         dataSetReferences: outputs.quicksight.AnalysisDataSetReference[];
     }
 
-    /**
-     * <p>A string parameter.</p>
-     */
+    export interface AnalysisSpacing {
+        /**
+         * String based length that is composed of value and unit
+         */
+        bottom?: string;
+        /**
+         * String based length that is composed of value and unit
+         */
+        left?: string;
+        /**
+         * String based length that is composed of value and unit
+         */
+        right?: string;
+        /**
+         * String based length that is composed of value and unit
+         */
+        top?: string;
+    }
+
+    export interface AnalysisStringDefaultValues {
+        dynamicValue?: outputs.quicksight.AnalysisDynamicDefaultValue;
+        staticValues?: string[];
+    }
+
+    export interface AnalysisStringFormatConfiguration {
+        nullValueFormatConfiguration?: outputs.quicksight.AnalysisNullValueFormatConfiguration;
+        numericFormatConfiguration?: outputs.quicksight.AnalysisNumericFormatConfiguration;
+    }
+
     export interface AnalysisStringParameter {
-        /**
-         * <p>A display name for a string parameter.</p>
-         */
         name: string;
-        /**
-         * <p>The values of a string parameter.</p>
-         */
         values: string[];
     }
 
-    /**
-     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-     *             resource.</p>
-     */
+    export interface AnalysisStringParameterDeclaration {
+        defaultValues?: outputs.quicksight.AnalysisStringDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.AnalysisMappedDataSetParameter[];
+        name: string;
+        parameterValueType: enums.quicksight.AnalysisParameterValueType;
+        valueWhenUnset?: outputs.quicksight.AnalysisStringValueWhenUnsetConfiguration;
+    }
+
+    export interface AnalysisStringValueWhenUnsetConfiguration {
+        customValue?: string;
+        valueWhenUnsetOption?: enums.quicksight.AnalysisValueWhenUnsetOption;
+    }
+
+    export interface AnalysisSubtotalOptions {
+        customLabel?: string;
+        fieldLevel?: enums.quicksight.AnalysisPivotTableSubtotalLevel;
+        fieldLevelOptions?: outputs.quicksight.AnalysisPivotTableFieldSubtotalOptions[];
+        metricHeaderCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        totalCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        totalsVisibility?: enums.quicksight.AnalysisVisibility;
+        valueCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+    }
+
+    export interface AnalysisTableAggregatedFieldWells {
+        groupBy?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisTableBorderOptions {
+        color?: string;
+        style?: enums.quicksight.AnalysisTableBorderStyle;
+        thickness?: number;
+    }
+
+    export interface AnalysisTableCellConditionalFormatting {
+        fieldId: string;
+        textFormat?: outputs.quicksight.AnalysisTextConditionalFormat;
+    }
+
+    export interface AnalysisTableCellImageSizingConfiguration {
+        tableCellImageScalingConfiguration?: enums.quicksight.AnalysisTableCellImageScalingConfiguration;
+    }
+
+    export interface AnalysisTableCellStyle {
+        backgroundColor?: string;
+        border?: outputs.quicksight.AnalysisGlobalTableBorderOptions;
+        fontConfiguration?: outputs.quicksight.AnalysisFontConfiguration;
+        height?: number;
+        horizontalTextAlignment?: enums.quicksight.AnalysisHorizontalTextAlignment;
+        textWrap?: enums.quicksight.AnalysisTextWrap;
+        verticalTextAlignment?: enums.quicksight.AnalysisVerticalTextAlignment;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisTableConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.AnalysisTableConditionalFormattingOption[];
+    }
+
+    export interface AnalysisTableConditionalFormattingOption {
+        cell?: outputs.quicksight.AnalysisTableCellConditionalFormatting;
+        row?: outputs.quicksight.AnalysisTableRowConditionalFormatting;
+    }
+
+    export interface AnalysisTableConfiguration {
+        fieldOptions?: outputs.quicksight.AnalysisTableFieldOptions;
+        fieldWells?: outputs.quicksight.AnalysisTableFieldWells;
+        paginatedReportOptions?: outputs.quicksight.AnalysisTablePaginatedReportOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisTableSortConfiguration;
+        tableInlineVisualizations?: outputs.quicksight.AnalysisTableInlineVisualization[];
+        tableOptions?: outputs.quicksight.AnalysisTableOptions;
+        totalOptions?: outputs.quicksight.AnalysisTotalOptions;
+    }
+
+    export interface AnalysisTableFieldCustomIconContent {
+        icon?: enums.quicksight.AnalysisTableFieldIconSetType;
+    }
+
+    export interface AnalysisTableFieldCustomTextContent {
+        fontConfiguration: outputs.quicksight.AnalysisFontConfiguration;
+        value?: string;
+    }
+
+    export interface AnalysisTableFieldImageConfiguration {
+        sizingOptions?: outputs.quicksight.AnalysisTableCellImageSizingConfiguration;
+    }
+
+    export interface AnalysisTableFieldLinkConfiguration {
+        content: outputs.quicksight.AnalysisTableFieldLinkContentConfiguration;
+        target: enums.quicksight.AnalysisURLTargetConfiguration;
+    }
+
+    export interface AnalysisTableFieldLinkContentConfiguration {
+        customIconContent?: outputs.quicksight.AnalysisTableFieldCustomIconContent;
+        customTextContent?: outputs.quicksight.AnalysisTableFieldCustomTextContent;
+    }
+
+    export interface AnalysisTableFieldOption {
+        customLabel?: string;
+        fieldId: string;
+        uRLStyling?: outputs.quicksight.AnalysisTableFieldURLConfiguration;
+        visibility?: enums.quicksight.AnalysisVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: string;
+    }
+
+    export interface AnalysisTableFieldOptions {
+        order?: string[];
+        selectedFieldOptions?: outputs.quicksight.AnalysisTableFieldOption[];
+    }
+
+    export interface AnalysisTableFieldURLConfiguration {
+        imageConfiguration?: outputs.quicksight.AnalysisTableFieldImageConfiguration;
+        linkConfiguration?: outputs.quicksight.AnalysisTableFieldLinkConfiguration;
+    }
+
+    export interface AnalysisTableFieldWells {
+        tableAggregatedFieldWells?: outputs.quicksight.AnalysisTableAggregatedFieldWells;
+        tableUnaggregatedFieldWells?: outputs.quicksight.AnalysisTableUnaggregatedFieldWells;
+    }
+
+    export interface AnalysisTableInlineVisualization {
+        dataBars?: outputs.quicksight.AnalysisDataBarsOptions;
+    }
+
+    export interface AnalysisTableOptions {
+        cellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        headerStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        orientation?: enums.quicksight.AnalysisTableOrientation;
+        rowAlternateColorOptions?: outputs.quicksight.AnalysisRowAlternateColorOptions;
+    }
+
+    export interface AnalysisTablePaginatedReportOptions {
+        overflowColumnHeaderVisibility?: enums.quicksight.AnalysisVisibility;
+        verticalOverflowVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisTableRowConditionalFormatting {
+        backgroundColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
+        textColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
+    }
+
+    export interface AnalysisTableSideBorderOptions {
+        bottom?: outputs.quicksight.AnalysisTableBorderOptions;
+        innerHorizontal?: outputs.quicksight.AnalysisTableBorderOptions;
+        innerVertical?: outputs.quicksight.AnalysisTableBorderOptions;
+        left?: outputs.quicksight.AnalysisTableBorderOptions;
+        right?: outputs.quicksight.AnalysisTableBorderOptions;
+        top?: outputs.quicksight.AnalysisTableBorderOptions;
+    }
+
+    export interface AnalysisTableSortConfiguration {
+        paginationConfiguration?: outputs.quicksight.AnalysisPaginationConfiguration;
+        rowSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisTableUnaggregatedFieldWells {
+        values?: outputs.quicksight.AnalysisUnaggregatedField[];
+    }
+
+    export interface AnalysisTableVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisTableConfiguration;
+        conditionalFormatting?: outputs.quicksight.AnalysisTableConditionalFormatting;
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
     export interface AnalysisTag {
-        /**
-         * <p>Tag key.</p>
-         */
         key: string;
-        /**
-         * <p>Tag value.</p>
-         */
         value: string;
     }
 
-    /**
-     * <p>Ad hoc (one-time) filtering option.</p>
-     */
+    export interface AnalysisTextAreaControlDisplayOptions {
+        placeholderOptions?: outputs.quicksight.AnalysisTextControlPlaceholderOptions;
+        titleOptions?: outputs.quicksight.AnalysisLabelOptions;
+    }
+
+    export interface AnalysisTextConditionalFormat {
+        backgroundColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
+        icon?: outputs.quicksight.AnalysisConditionalFormattingIcon;
+        textColor?: outputs.quicksight.AnalysisConditionalFormattingColor;
+    }
+
+    export interface AnalysisTextControlPlaceholderOptions {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisTextFieldControlDisplayOptions {
+        placeholderOptions?: outputs.quicksight.AnalysisTextControlPlaceholderOptions;
+        titleOptions?: outputs.quicksight.AnalysisLabelOptions;
+    }
+
+    export interface AnalysisThousandSeparatorOptions {
+        symbol?: enums.quicksight.AnalysisNumericSeparatorSymbol;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisTimeBasedForecastProperties {
+        lowerBoundary?: number;
+        periodsBackward?: number;
+        periodsForward?: number;
+        predictionInterval?: number;
+        seasonality?: number;
+        upperBoundary?: number;
+    }
+
+    export interface AnalysisTimeEqualityFilter {
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        filterId: string;
+        parameterName?: string;
+        timeGranularity?: enums.quicksight.AnalysisTimeGranularity;
+        value?: string;
+    }
+
+    export interface AnalysisTimeRangeDrillDownFilter {
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        rangeMaximum: string;
+        rangeMinimum: string;
+        timeGranularity: enums.quicksight.AnalysisTimeGranularity;
+    }
+
+    export interface AnalysisTimeRangeFilter {
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        excludePeriodConfiguration?: outputs.quicksight.AnalysisExcludePeriodConfiguration;
+        filterId: string;
+        includeMaximum?: boolean;
+        includeMinimum?: boolean;
+        nullOption: enums.quicksight.AnalysisFilterNullOption;
+        rangeMaximumValue?: outputs.quicksight.AnalysisTimeRangeFilterValue;
+        rangeMinimumValue?: outputs.quicksight.AnalysisTimeRangeFilterValue;
+        timeGranularity?: enums.quicksight.AnalysisTimeGranularity;
+    }
+
+    export interface AnalysisTimeRangeFilterValue {
+        parameter?: string;
+        rollingDate?: outputs.quicksight.AnalysisRollingDateConfiguration;
+        staticValue?: string;
+    }
+
+    export interface AnalysisTooltipItem {
+        columnTooltipItem?: outputs.quicksight.AnalysisColumnTooltipItem;
+        fieldTooltipItem?: outputs.quicksight.AnalysisFieldTooltipItem;
+    }
+
+    export interface AnalysisTooltipOptions {
+        fieldBasedTooltip?: outputs.quicksight.AnalysisFieldBasedTooltip;
+        selectedTooltipType?: enums.quicksight.AnalysisSelectedTooltipType;
+        tooltipVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisTopBottomFilter {
+        aggregationSortConfigurations: outputs.quicksight.AnalysisAggregationSortConfiguration[];
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        filterId: string;
+        limit?: number;
+        parameterName?: string;
+        timeGranularity?: enums.quicksight.AnalysisTimeGranularity;
+    }
+
+    export interface AnalysisTopBottomMoversComputation {
+        category: outputs.quicksight.AnalysisDimensionField;
+        computationId: string;
+        moverSize?: number;
+        name?: string;
+        sortOrder?: enums.quicksight.AnalysisTopBottomSortOrder;
+        time: outputs.quicksight.AnalysisDimensionField;
+        type: enums.quicksight.AnalysisTopBottomComputationType;
+        value?: outputs.quicksight.AnalysisMeasureField;
+    }
+
+    export interface AnalysisTopBottomRankedComputation {
+        category: outputs.quicksight.AnalysisDimensionField;
+        computationId: string;
+        name?: string;
+        resultSize?: number;
+        type: enums.quicksight.AnalysisTopBottomComputationType;
+        value?: outputs.quicksight.AnalysisMeasureField;
+    }
+
+    export interface AnalysisTotalAggregationComputation {
+        computationId: string;
+        name?: string;
+        value: outputs.quicksight.AnalysisMeasureField;
+    }
+
+    export interface AnalysisTotalOptions {
+        customLabel?: string;
+        placement?: enums.quicksight.AnalysisTableTotalsPlacement;
+        scrollStatus?: enums.quicksight.AnalysisTableTotalsScrollStatus;
+        totalCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        totalsVisibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisTreeMapAggregatedFieldWells {
+        colors?: outputs.quicksight.AnalysisMeasureField[];
+        groups?: outputs.quicksight.AnalysisDimensionField[];
+        sizes?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisTreeMapConfiguration {
+        colorLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        colorScale?: outputs.quicksight.AnalysisColorScale;
+        dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisTreeMapFieldWells;
+        groupLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        sizeLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisTreeMapSortConfiguration;
+        tooltip?: outputs.quicksight.AnalysisTooltipOptions;
+    }
+
+    export interface AnalysisTreeMapFieldWells {
+        treeMapAggregatedFieldWells?: outputs.quicksight.AnalysisTreeMapAggregatedFieldWells;
+    }
+
+    export interface AnalysisTreeMapSortConfiguration {
+        treeMapGroupItemsLimitConfiguration?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        treeMapSort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisTreeMapVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisTreeMapConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisTrendArrowOptions {
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisUnaggregatedField {
+        column: outputs.quicksight.AnalysisColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.AnalysisFormatConfiguration;
+    }
+
+    export interface AnalysisUniqueValuesComputation {
+        category: outputs.quicksight.AnalysisDimensionField;
+        computationId: string;
+        name?: string;
+    }
+
+    export interface AnalysisVisibleRangeOptions {
+        percentRange?: outputs.quicksight.AnalysisPercentVisibleRange;
+    }
+
+    export interface AnalysisVisual {
+        barChartVisual?: outputs.quicksight.AnalysisBarChartVisual;
+        boxPlotVisual?: outputs.quicksight.AnalysisBoxPlotVisual;
+        comboChartVisual?: outputs.quicksight.AnalysisComboChartVisual;
+        customContentVisual?: outputs.quicksight.AnalysisCustomContentVisual;
+        emptyVisual?: outputs.quicksight.AnalysisEmptyVisual;
+        filledMapVisual?: outputs.quicksight.AnalysisFilledMapVisual;
+        funnelChartVisual?: outputs.quicksight.AnalysisFunnelChartVisual;
+        gaugeChartVisual?: outputs.quicksight.AnalysisGaugeChartVisual;
+        geospatialMapVisual?: outputs.quicksight.AnalysisGeospatialMapVisual;
+        heatMapVisual?: outputs.quicksight.AnalysisHeatMapVisual;
+        histogramVisual?: outputs.quicksight.AnalysisHistogramVisual;
+        insightVisual?: outputs.quicksight.AnalysisInsightVisual;
+        kPIVisual?: outputs.quicksight.AnalysisKPIVisual;
+        lineChartVisual?: outputs.quicksight.AnalysisLineChartVisual;
+        pieChartVisual?: outputs.quicksight.AnalysisPieChartVisual;
+        pivotTableVisual?: outputs.quicksight.AnalysisPivotTableVisual;
+        radarChartVisual?: outputs.quicksight.AnalysisRadarChartVisual;
+        sankeyDiagramVisual?: outputs.quicksight.AnalysisSankeyDiagramVisual;
+        scatterPlotVisual?: outputs.quicksight.AnalysisScatterPlotVisual;
+        tableVisual?: outputs.quicksight.AnalysisTableVisual;
+        treeMapVisual?: outputs.quicksight.AnalysisTreeMapVisual;
+        waterfallVisual?: outputs.quicksight.AnalysisWaterfallVisual;
+        wordCloudVisual?: outputs.quicksight.AnalysisWordCloudVisual;
+    }
+
+    export interface AnalysisVisualCustomAction {
+        actionOperations: outputs.quicksight.AnalysisVisualCustomActionOperation[];
+        customActionId: string;
+        name: string;
+        status?: enums.quicksight.AnalysisWidgetStatus;
+        trigger: enums.quicksight.AnalysisVisualCustomActionTrigger;
+    }
+
+    export interface AnalysisVisualCustomActionOperation {
+        filterOperation?: outputs.quicksight.AnalysisCustomActionFilterOperation;
+        navigationOperation?: outputs.quicksight.AnalysisCustomActionNavigationOperation;
+        setParametersOperation?: outputs.quicksight.AnalysisCustomActionSetParametersOperation;
+        uRLOperation?: outputs.quicksight.AnalysisCustomActionURLOperation;
+    }
+
+    export interface AnalysisVisualPalette {
+        chartColor?: string;
+        colorMap?: outputs.quicksight.AnalysisDataPathColor[];
+    }
+
+    export interface AnalysisVisualSubtitleLabelOptions {
+        formatText?: outputs.quicksight.AnalysisLongFormatText;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisVisualTitleLabelOptions {
+        formatText?: outputs.quicksight.AnalysisShortFormatText;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisWaterfallChartAggregatedFieldWells {
+        breakdowns?: outputs.quicksight.AnalysisDimensionField[];
+        categories?: outputs.quicksight.AnalysisDimensionField[];
+        values?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisWaterfallChartConfiguration {
+        categoryAxisDisplayOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        categoryAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisWaterfallChartFieldWells;
+        legend?: outputs.quicksight.AnalysisLegendOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.AnalysisWaterfallChartSortConfiguration;
+        visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+        waterfallChartOptions?: outputs.quicksight.AnalysisWaterfallChartOptions;
+    }
+
+    export interface AnalysisWaterfallChartFieldWells {
+        waterfallChartAggregatedFieldWells?: outputs.quicksight.AnalysisWaterfallChartAggregatedFieldWells;
+    }
+
+    export interface AnalysisWaterfallChartOptions {
+        totalBarLabel?: string;
+    }
+
+    export interface AnalysisWaterfallChartSortConfiguration {
+        breakdownItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisWaterfallVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisWaterfallChartConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface AnalysisWhatIfPointScenario {
+        date: string;
+        value: number;
+    }
+
+    export interface AnalysisWhatIfRangeScenario {
+        endDate: string;
+        startDate: string;
+        value: number;
+    }
+
+    export interface AnalysisWordCloudAggregatedFieldWells {
+        groupBy?: outputs.quicksight.AnalysisDimensionField[];
+        size?: outputs.quicksight.AnalysisMeasureField[];
+    }
+
+    export interface AnalysisWordCloudChartConfiguration {
+        categoryLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.AnalysisWordCloudFieldWells;
+        sortConfiguration?: outputs.quicksight.AnalysisWordCloudSortConfiguration;
+        wordCloudOptions?: outputs.quicksight.AnalysisWordCloudOptions;
+    }
+
+    export interface AnalysisWordCloudFieldWells {
+        wordCloudAggregatedFieldWells?: outputs.quicksight.AnalysisWordCloudAggregatedFieldWells;
+    }
+
+    export interface AnalysisWordCloudOptions {
+        cloudLayout?: enums.quicksight.AnalysisWordCloudCloudLayout;
+        maximumStringLength?: number;
+        wordCasing?: enums.quicksight.AnalysisWordCloudWordCasing;
+        wordOrientation?: enums.quicksight.AnalysisWordCloudWordOrientation;
+        wordPadding?: enums.quicksight.AnalysisWordCloudWordPadding;
+        wordScaling?: enums.quicksight.AnalysisWordCloudWordScaling;
+    }
+
+    export interface AnalysisWordCloudSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.AnalysisItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.AnalysisFieldSortOptions[];
+    }
+
+    export interface AnalysisWordCloudVisual {
+        actions?: outputs.quicksight.AnalysisVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.AnalysisWordCloudChartConfiguration;
+        columnHierarchies?: outputs.quicksight.AnalysisColumnHierarchy[];
+        subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        visualId: string;
+    }
+
     export interface DashboardAdHocFilteringOption {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
-    /**
-     * <p>Dataset reference.</p>
-     */
-    export interface DashboardDataSetReference {
+    export interface DashboardAggregationFunction {
+        categoricalAggregationFunction?: enums.quicksight.DashboardCategoricalAggregationFunction;
+        dateAggregationFunction?: enums.quicksight.DashboardDateAggregationFunction;
+        numericalAggregationFunction?: outputs.quicksight.DashboardNumericalAggregationFunction;
+    }
+
+    export interface DashboardAggregationSortConfiguration {
+        aggregationFunction: outputs.quicksight.DashboardAggregationFunction;
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        sortDirection: enums.quicksight.DashboardSortDirection;
+    }
+
+    export interface DashboardAnalysisDefaults {
+        defaultNewSheetConfiguration: outputs.quicksight.DashboardDefaultNewSheetConfiguration;
+    }
+
+    export interface DashboardAnchorDateConfiguration {
+        anchorOption?: enums.quicksight.DashboardAnchorOption;
+        parameterName?: string;
+    }
+
+    export interface DashboardArcAxisConfiguration {
+        range?: outputs.quicksight.DashboardArcAxisDisplayRange;
+        reserveRange?: number;
+    }
+
+    export interface DashboardArcAxisDisplayRange {
+        max?: number;
+        min?: number;
+    }
+
+    export interface DashboardArcConfiguration {
+        arcAngle?: number;
+        arcThickness?: enums.quicksight.DashboardArcThicknessOptions;
+    }
+
+    export interface DashboardArcOptions {
+        arcThickness?: enums.quicksight.DashboardArcThickness;
+    }
+
+    export interface DashboardAxisDataOptions {
+        dateAxisOptions?: outputs.quicksight.DashboardDateAxisOptions;
+        numericAxisOptions?: outputs.quicksight.DashboardNumericAxisOptions;
+    }
+
+    export interface DashboardAxisDisplayDataDrivenRange {
+    }
+
+    export interface DashboardAxisDisplayMinMaxRange {
+        maximum?: number;
+        minimum?: number;
+    }
+
+    export interface DashboardAxisDisplayOptions {
+        axisLineVisibility?: enums.quicksight.DashboardVisibility;
         /**
-         * <p>Dataset Amazon Resource Name (ARN).</p>
+         * String based length that is composed of value and unit in px
          */
+        axisOffset?: string;
+        dataOptions?: outputs.quicksight.DashboardAxisDataOptions;
+        gridLineVisibility?: enums.quicksight.DashboardVisibility;
+        scrollbarOptions?: outputs.quicksight.DashboardScrollBarOptions;
+        tickLabelOptions?: outputs.quicksight.DashboardAxisTickLabelOptions;
+    }
+
+    export interface DashboardAxisDisplayRange {
+        dataDriven?: outputs.quicksight.DashboardAxisDisplayDataDrivenRange;
+        minMax?: outputs.quicksight.DashboardAxisDisplayMinMaxRange;
+    }
+
+    export interface DashboardAxisLabelOptions {
+        applyTo?: outputs.quicksight.DashboardAxisLabelReferenceOptions;
+        customLabel?: string;
+        fontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
+    }
+
+    export interface DashboardAxisLabelReferenceOptions {
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        fieldId: string;
+    }
+
+    export interface DashboardAxisLinearScale {
+        stepCount?: number;
+        stepSize?: number;
+    }
+
+    export interface DashboardAxisLogarithmicScale {
+        base?: number;
+    }
+
+    export interface DashboardAxisScale {
+        linear?: outputs.quicksight.DashboardAxisLinearScale;
+        logarithmic?: outputs.quicksight.DashboardAxisLogarithmicScale;
+    }
+
+    export interface DashboardAxisTickLabelOptions {
+        labelOptions?: outputs.quicksight.DashboardLabelOptions;
+        rotationAngle?: number;
+    }
+
+    export interface DashboardBarChartAggregatedFieldWells {
+        category?: outputs.quicksight.DashboardDimensionField[];
+        colors?: outputs.quicksight.DashboardDimensionField[];
+        smallMultiples?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardBarChartConfiguration {
+        barsArrangement?: enums.quicksight.DashboardBarsArrangement;
+        categoryAxis?: outputs.quicksight.DashboardAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        colorLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        contributionAnalysisDefaults?: outputs.quicksight.DashboardContributionAnalysisDefault[];
+        dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardBarChartFieldWells;
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        orientation?: enums.quicksight.DashboardBarChartOrientation;
+        referenceLines?: outputs.quicksight.DashboardReferenceLine[];
+        smallMultiplesOptions?: outputs.quicksight.DashboardSmallMultiplesOptions;
+        sortConfiguration?: outputs.quicksight.DashboardBarChartSortConfiguration;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+        valueAxis?: outputs.quicksight.DashboardAxisDisplayOptions;
+        valueLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+    }
+
+    export interface DashboardBarChartFieldWells {
+        barChartAggregatedFieldWells?: outputs.quicksight.DashboardBarChartAggregatedFieldWells;
+    }
+
+    export interface DashboardBarChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.DashboardFieldSortOptions[];
+        colorItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        colorSort?: outputs.quicksight.DashboardFieldSortOptions[];
+        smallMultiplesLimitConfiguration?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        smallMultiplesSort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardBarChartVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardBarChartConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardBinCountOptions {
+        value?: number;
+    }
+
+    export interface DashboardBinWidthOptions {
+        binCountLimit?: number;
+        value?: number;
+    }
+
+    export interface DashboardBodySectionConfiguration {
+        content: outputs.quicksight.DashboardBodySectionContent;
+        pageBreakConfiguration?: outputs.quicksight.DashboardSectionPageBreakConfiguration;
+        sectionId: string;
+        style?: outputs.quicksight.DashboardSectionStyle;
+    }
+
+    export interface DashboardBodySectionContent {
+        layout?: outputs.quicksight.DashboardSectionLayoutConfiguration;
+    }
+
+    export interface DashboardBoxPlotAggregatedFieldWells {
+        groupBy?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardBoxPlotChartConfiguration {
+        boxPlotOptions?: outputs.quicksight.DashboardBoxPlotOptions;
+        categoryAxis?: outputs.quicksight.DashboardAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardBoxPlotFieldWells;
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        referenceLines?: outputs.quicksight.DashboardReferenceLine[];
+        sortConfiguration?: outputs.quicksight.DashboardBoxPlotSortConfiguration;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+    }
+
+    export interface DashboardBoxPlotFieldWells {
+        boxPlotAggregatedFieldWells?: outputs.quicksight.DashboardBoxPlotAggregatedFieldWells;
+    }
+
+    export interface DashboardBoxPlotOptions {
+        allDataPointsVisibility?: enums.quicksight.DashboardVisibility;
+        outlierVisibility?: enums.quicksight.DashboardVisibility;
+        styleOptions?: outputs.quicksight.DashboardBoxPlotStyleOptions;
+    }
+
+    export interface DashboardBoxPlotSortConfiguration {
+        categorySort?: outputs.quicksight.DashboardFieldSortOptions[];
+        paginationConfiguration?: outputs.quicksight.DashboardPaginationConfiguration;
+    }
+
+    export interface DashboardBoxPlotStyleOptions {
+        fillStyle?: enums.quicksight.DashboardBoxPlotFillStyle;
+    }
+
+    export interface DashboardBoxPlotVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardBoxPlotChartConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardCalculatedField {
+        dataSetIdentifier: string;
+        expression: string;
+        name: string;
+    }
+
+    export interface DashboardCalculatedMeasureField {
+        expression: string;
+        fieldId: string;
+    }
+
+    export interface DashboardCascadingControlConfiguration {
+        sourceControls?: outputs.quicksight.DashboardCascadingControlSource[];
+    }
+
+    export interface DashboardCascadingControlSource {
+        columnToMatch?: outputs.quicksight.DashboardColumnIdentifier;
+        sourceSheetControlId?: string;
+    }
+
+    export interface DashboardCategoricalDimensionField {
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.DashboardStringFormatConfiguration;
+        hierarchyId?: string;
+    }
+
+    export interface DashboardCategoricalMeasureField {
+        aggregationFunction?: enums.quicksight.DashboardCategoricalAggregationFunction;
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.DashboardStringFormatConfiguration;
+    }
+
+    export interface DashboardCategoryDrillDownFilter {
+        categoryValues: string[];
+        column: outputs.quicksight.DashboardColumnIdentifier;
+    }
+
+    export interface DashboardCategoryFilter {
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        configuration: outputs.quicksight.DashboardCategoryFilterConfiguration;
+        filterId: string;
+    }
+
+    export interface DashboardCategoryFilterConfiguration {
+        customFilterConfiguration?: outputs.quicksight.DashboardCustomFilterConfiguration;
+        customFilterListConfiguration?: outputs.quicksight.DashboardCustomFilterListConfiguration;
+        filterListConfiguration?: outputs.quicksight.DashboardFilterListConfiguration;
+    }
+
+    export interface DashboardChartAxisLabelOptions {
+        axisLabelOptions?: outputs.quicksight.DashboardAxisLabelOptions[];
+        sortIconVisibility?: enums.quicksight.DashboardVisibility;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardClusterMarker {
+        simpleClusterMarker?: outputs.quicksight.DashboardSimpleClusterMarker;
+    }
+
+    export interface DashboardClusterMarkerConfiguration {
+        clusterMarker?: outputs.quicksight.DashboardClusterMarker;
+    }
+
+    export interface DashboardColorScale {
+        colorFillType: enums.quicksight.DashboardColorFillType;
+        colors: outputs.quicksight.DashboardDataColor[];
+        nullValueColor?: outputs.quicksight.DashboardDataColor;
+    }
+
+    export interface DashboardColorsConfiguration {
+        customColors?: outputs.quicksight.DashboardCustomColor[];
+    }
+
+    export interface DashboardColumnConfiguration {
+        colorsConfiguration?: outputs.quicksight.DashboardColorsConfiguration;
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        formatConfiguration?: outputs.quicksight.DashboardFormatConfiguration;
+        role?: enums.quicksight.DashboardColumnRole;
+    }
+
+    export interface DashboardColumnHierarchy {
+        dateTimeHierarchy?: outputs.quicksight.DashboardDateTimeHierarchy;
+        explicitHierarchy?: outputs.quicksight.DashboardExplicitHierarchy;
+        predefinedHierarchy?: outputs.quicksight.DashboardPredefinedHierarchy;
+    }
+
+    export interface DashboardColumnIdentifier {
+        columnName: string;
+        dataSetIdentifier: string;
+    }
+
+    export interface DashboardColumnSort {
+        aggregationFunction?: outputs.quicksight.DashboardAggregationFunction;
+        direction: enums.quicksight.DashboardSortDirection;
+        sortBy: outputs.quicksight.DashboardColumnIdentifier;
+    }
+
+    export interface DashboardColumnTooltipItem {
+        aggregation?: outputs.quicksight.DashboardAggregationFunction;
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        label?: string;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardComboChartAggregatedFieldWells {
+        barValues?: outputs.quicksight.DashboardMeasureField[];
+        category?: outputs.quicksight.DashboardDimensionField[];
+        colors?: outputs.quicksight.DashboardDimensionField[];
+        lineValues?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardComboChartConfiguration {
+        barDataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        barsArrangement?: enums.quicksight.DashboardBarsArrangement;
+        categoryAxis?: outputs.quicksight.DashboardAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        colorLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardComboChartFieldWells;
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        lineDataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        referenceLines?: outputs.quicksight.DashboardReferenceLine[];
+        secondaryYAxisDisplayOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
+        secondaryYAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.DashboardComboChartSortConfiguration;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+    }
+
+    export interface DashboardComboChartFieldWells {
+        comboChartAggregatedFieldWells?: outputs.quicksight.DashboardComboChartAggregatedFieldWells;
+    }
+
+    export interface DashboardComboChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.DashboardFieldSortOptions[];
+        colorItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        colorSort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardComboChartVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardComboChartConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardComparisonConfiguration {
+        comparisonFormat?: outputs.quicksight.DashboardComparisonFormatConfiguration;
+        comparisonMethod?: enums.quicksight.DashboardComparisonMethod;
+    }
+
+    export interface DashboardComparisonFormatConfiguration {
+        numberDisplayFormatConfiguration?: outputs.quicksight.DashboardNumberDisplayFormatConfiguration;
+        percentageDisplayFormatConfiguration?: outputs.quicksight.DashboardPercentageDisplayFormatConfiguration;
+    }
+
+    export interface DashboardComputation {
+        forecast?: outputs.quicksight.DashboardForecastComputation;
+        growthRate?: outputs.quicksight.DashboardGrowthRateComputation;
+        maximumMinimum?: outputs.quicksight.DashboardMaximumMinimumComputation;
+        metricComparison?: outputs.quicksight.DashboardMetricComparisonComputation;
+        periodOverPeriod?: outputs.quicksight.DashboardPeriodOverPeriodComputation;
+        periodToDate?: outputs.quicksight.DashboardPeriodToDateComputation;
+        topBottomMovers?: outputs.quicksight.DashboardTopBottomMoversComputation;
+        topBottomRanked?: outputs.quicksight.DashboardTopBottomRankedComputation;
+        totalAggregation?: outputs.quicksight.DashboardTotalAggregationComputation;
+        uniqueValues?: outputs.quicksight.DashboardUniqueValuesComputation;
+    }
+
+    export interface DashboardConditionalFormattingColor {
+        gradient?: outputs.quicksight.DashboardConditionalFormattingGradientColor;
+        solid?: outputs.quicksight.DashboardConditionalFormattingSolidColor;
+    }
+
+    export interface DashboardConditionalFormattingCustomIconCondition {
+        color?: string;
+        displayConfiguration?: outputs.quicksight.DashboardConditionalFormattingIconDisplayConfiguration;
+        expression: string;
+        iconOptions: outputs.quicksight.DashboardConditionalFormattingCustomIconOptions;
+    }
+
+    export interface DashboardConditionalFormattingCustomIconOptions {
+        icon?: enums.quicksight.DashboardIcon;
+        unicodeIcon?: string;
+    }
+
+    export interface DashboardConditionalFormattingGradientColor {
+        color: outputs.quicksight.DashboardGradientColor;
+        expression: string;
+    }
+
+    export interface DashboardConditionalFormattingIcon {
+        customCondition?: outputs.quicksight.DashboardConditionalFormattingCustomIconCondition;
+        iconSet?: outputs.quicksight.DashboardConditionalFormattingIconSet;
+    }
+
+    export interface DashboardConditionalFormattingIconDisplayConfiguration {
+        iconDisplayOption?: enums.quicksight.DashboardConditionalFormattingIconDisplayOption;
+    }
+
+    export interface DashboardConditionalFormattingIconSet {
+        expression: string;
+        iconSetType?: enums.quicksight.DashboardConditionalFormattingIconSetType;
+    }
+
+    export interface DashboardConditionalFormattingSolidColor {
+        color?: string;
+        expression: string;
+    }
+
+    export interface DashboardContributionAnalysisDefault {
+        contributorDimensions: outputs.quicksight.DashboardColumnIdentifier[];
+        measureFieldId: string;
+    }
+
+    export interface DashboardCurrencyDisplayFormatConfiguration {
+        decimalPlacesConfiguration?: outputs.quicksight.DashboardDecimalPlacesConfiguration;
+        negativeValueConfiguration?: outputs.quicksight.DashboardNegativeValueConfiguration;
+        nullValueFormatConfiguration?: outputs.quicksight.DashboardNullValueFormatConfiguration;
+        numberScale?: enums.quicksight.DashboardNumberScale;
+        prefix?: string;
+        separatorConfiguration?: outputs.quicksight.DashboardNumericSeparatorConfiguration;
+        suffix?: string;
+        symbol?: string;
+    }
+
+    export interface DashboardCustomActionFilterOperation {
+        selectedFieldsConfiguration: outputs.quicksight.DashboardFilterOperationSelectedFieldsConfiguration;
+        targetVisualsConfiguration: outputs.quicksight.DashboardFilterOperationTargetVisualsConfiguration;
+    }
+
+    export interface DashboardCustomActionNavigationOperation {
+        localNavigationConfiguration?: outputs.quicksight.DashboardLocalNavigationConfiguration;
+    }
+
+    export interface DashboardCustomActionSetParametersOperation {
+        parameterValueConfigurations: outputs.quicksight.DashboardSetParameterValueConfiguration[];
+    }
+
+    export interface DashboardCustomActionURLOperation {
+        uRLTarget: enums.quicksight.DashboardURLTargetConfiguration;
+        uRLTemplate: string;
+    }
+
+    export interface DashboardCustomColor {
+        color: string;
+        fieldValue?: string;
+        specialValue?: enums.quicksight.DashboardSpecialValue;
+    }
+
+    export interface DashboardCustomContentConfiguration {
+        contentType?: enums.quicksight.DashboardCustomContentType;
+        contentUrl?: string;
+        imageScaling?: enums.quicksight.DashboardCustomContentImageScalingConfiguration;
+    }
+
+    export interface DashboardCustomContentVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardCustomContentConfiguration;
+        dataSetIdentifier: string;
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardCustomFilterConfiguration {
+        categoryValue?: string;
+        matchOperator: enums.quicksight.DashboardCategoryFilterMatchOperator;
+        nullOption: enums.quicksight.DashboardFilterNullOption;
+        parameterName?: string;
+        selectAllOptions?: enums.quicksight.DashboardCategoryFilterSelectAllOptions;
+    }
+
+    export interface DashboardCustomFilterListConfiguration {
+        categoryValues?: string[];
+        matchOperator: enums.quicksight.DashboardCategoryFilterMatchOperator;
+        nullOption: enums.quicksight.DashboardFilterNullOption;
+        selectAllOptions?: enums.quicksight.DashboardCategoryFilterSelectAllOptions;
+    }
+
+    export interface DashboardCustomNarrativeOptions {
+        narrative: string;
+    }
+
+    export interface DashboardCustomParameterValues {
+        dateTimeValues?: string[];
+        decimalValues?: number[];
+        integerValues?: number[];
+        stringValues?: string[];
+    }
+
+    export interface DashboardCustomValuesConfiguration {
+        customValues: outputs.quicksight.DashboardCustomParameterValues;
+        includeNullValue?: boolean;
+    }
+
+    export interface DashboardDataBarsOptions {
+        fieldId: string;
+        negativeColor?: string;
+        positiveColor?: string;
+    }
+
+    export interface DashboardDataColor {
+        color?: string;
+        dataValue?: number;
+    }
+
+    export interface DashboardDataFieldSeriesItem {
+        axisBinding: enums.quicksight.DashboardAxisBinding;
+        fieldId: string;
+        fieldValue?: string;
+        settings?: outputs.quicksight.DashboardLineChartSeriesSettings;
+    }
+
+    export interface DashboardDataLabelOptions {
+        categoryLabelVisibility?: enums.quicksight.DashboardVisibility;
+        dataLabelTypes?: outputs.quicksight.DashboardDataLabelType[];
+        labelColor?: string;
+        labelContent?: enums.quicksight.DashboardDataLabelContent;
+        labelFontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
+        measureLabelVisibility?: enums.quicksight.DashboardVisibility;
+        overlap?: enums.quicksight.DashboardDataLabelOverlap;
+        position?: enums.quicksight.DashboardDataLabelPosition;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardDataLabelType {
+        dataPathLabelType?: outputs.quicksight.DashboardDataPathLabelType;
+        fieldLabelType?: outputs.quicksight.DashboardFieldLabelType;
+        maximumLabelType?: outputs.quicksight.DashboardMaximumLabelType;
+        minimumLabelType?: outputs.quicksight.DashboardMinimumLabelType;
+        rangeEndsLabelType?: outputs.quicksight.DashboardRangeEndsLabelType;
+    }
+
+    export interface DashboardDataPathColor {
+        color: string;
+        element: outputs.quicksight.DashboardDataPathValue;
+        timeGranularity?: enums.quicksight.DashboardTimeGranularity;
+    }
+
+    export interface DashboardDataPathLabelType {
+        fieldId?: string;
+        fieldValue?: string;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardDataPathSort {
+        direction: enums.quicksight.DashboardSortDirection;
+        sortPaths: outputs.quicksight.DashboardDataPathValue[];
+    }
+
+    export interface DashboardDataPathValue {
+        fieldId: string;
+        fieldValue: string;
+    }
+
+    export interface DashboardDataPointDrillUpDownOption {
+        availabilityStatus?: enums.quicksight.DashboardBehavior;
+    }
+
+    export interface DashboardDataPointMenuLabelOption {
+        availabilityStatus?: enums.quicksight.DashboardBehavior;
+    }
+
+    export interface DashboardDataPointTooltipOption {
+        availabilityStatus?: enums.quicksight.DashboardBehavior;
+    }
+
+    export interface DashboardDataSetIdentifierDeclaration {
         dataSetArn: string;
-        /**
-         * <p>Dataset placeholder.</p>
-         */
+        identifier: string;
+    }
+
+    export interface DashboardDataSetReference {
+        dataSetArn: string;
         dataSetPlaceholder: string;
     }
 
-    /**
-     * <p>A date-time parameter.</p>
-     */
+    export interface DashboardDateAxisOptions {
+        missingDateVisibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardDateDimensionField {
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        dateGranularity?: enums.quicksight.DashboardTimeGranularity;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.DashboardDateTimeFormatConfiguration;
+        hierarchyId?: string;
+    }
+
+    export interface DashboardDateMeasureField {
+        aggregationFunction?: enums.quicksight.DashboardDateAggregationFunction;
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.DashboardDateTimeFormatConfiguration;
+    }
+
+    export interface DashboardDateTimeDefaultValues {
+        dynamicValue?: outputs.quicksight.DashboardDynamicDefaultValue;
+        rollingDate?: outputs.quicksight.DashboardRollingDateConfiguration;
+        staticValues?: string[];
+    }
+
+    export interface DashboardDateTimeFormatConfiguration {
+        dateTimeFormat?: string;
+        nullValueFormatConfiguration?: outputs.quicksight.DashboardNullValueFormatConfiguration;
+        numericFormatConfiguration?: outputs.quicksight.DashboardNumericFormatConfiguration;
+    }
+
+    export interface DashboardDateTimeHierarchy {
+        drillDownFilters?: outputs.quicksight.DashboardDrillDownFilter[];
+        hierarchyId: string;
+    }
+
     export interface DashboardDateTimeParameter {
-        /**
-         * <p>A display name for the date-time parameter.</p>
-         */
         name: string;
-        /**
-         * <p>The values for the date-time parameter.</p>
-         */
         values: string[];
     }
 
-    /**
-     * <p>A decimal parameter.</p>
-     */
-    export interface DashboardDecimalParameter {
-        /**
-         * <p>A display name for the decimal parameter.</p>
-         */
+    export interface DashboardDateTimeParameterDeclaration {
+        defaultValues?: outputs.quicksight.DashboardDateTimeDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.DashboardMappedDataSetParameter[];
         name: string;
-        /**
-         * <p>The values for the decimal parameter.</p>
-         */
+        timeGranularity?: enums.quicksight.DashboardTimeGranularity;
+        valueWhenUnset?: outputs.quicksight.DashboardDateTimeValueWhenUnsetConfiguration;
+    }
+
+    export interface DashboardDateTimePickerControlDisplayOptions {
+        dateTimeFormat?: string;
+        titleOptions?: outputs.quicksight.DashboardLabelOptions;
+    }
+
+    export interface DashboardDateTimeValueWhenUnsetConfiguration {
+        customValue?: string;
+        valueWhenUnsetOption?: enums.quicksight.DashboardValueWhenUnsetOption;
+    }
+
+    export interface DashboardDecimalDefaultValues {
+        dynamicValue?: outputs.quicksight.DashboardDynamicDefaultValue;
+        staticValues?: number[];
+    }
+
+    export interface DashboardDecimalParameter {
+        name: string;
         values: number[];
     }
 
-    /**
-     * <p>Dashboard error.</p>
-     */
-    export interface DashboardError {
-        /**
-         * <p>Message.</p>
-         */
-        message?: string;
-        type?: enums.quicksight.DashboardErrorType;
+    export interface DashboardDecimalParameterDeclaration {
+        defaultValues?: outputs.quicksight.DashboardDecimalDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.DashboardMappedDataSetParameter[];
+        name: string;
+        parameterValueType: enums.quicksight.DashboardParameterValueType;
+        valueWhenUnset?: outputs.quicksight.DashboardDecimalValueWhenUnsetConfiguration;
     }
 
-    /**
-     * <p>Export to .csv option.</p>
-     */
+    export interface DashboardDecimalPlacesConfiguration {
+        decimalPlaces: number;
+    }
+
+    export interface DashboardDecimalValueWhenUnsetConfiguration {
+        customValue?: number;
+        valueWhenUnsetOption?: enums.quicksight.DashboardValueWhenUnsetOption;
+    }
+
+    export interface DashboardDefaultFreeFormLayoutConfiguration {
+        canvasSizeOptions: outputs.quicksight.DashboardFreeFormLayoutCanvasSizeOptions;
+    }
+
+    export interface DashboardDefaultGridLayoutConfiguration {
+        canvasSizeOptions: outputs.quicksight.DashboardGridLayoutCanvasSizeOptions;
+    }
+
+    export interface DashboardDefaultInteractiveLayoutConfiguration {
+        freeForm?: outputs.quicksight.DashboardDefaultFreeFormLayoutConfiguration;
+        grid?: outputs.quicksight.DashboardDefaultGridLayoutConfiguration;
+    }
+
+    export interface DashboardDefaultNewSheetConfiguration {
+        interactiveLayoutConfiguration?: outputs.quicksight.DashboardDefaultInteractiveLayoutConfiguration;
+        paginatedLayoutConfiguration?: outputs.quicksight.DashboardDefaultPaginatedLayoutConfiguration;
+        sheetContentType?: enums.quicksight.DashboardSheetContentType;
+    }
+
+    export interface DashboardDefaultPaginatedLayoutConfiguration {
+        sectionBased?: outputs.quicksight.DashboardDefaultSectionBasedLayoutConfiguration;
+    }
+
+    export interface DashboardDefaultSectionBasedLayoutConfiguration {
+        canvasSizeOptions: outputs.quicksight.DashboardSectionBasedLayoutCanvasSizeOptions;
+    }
+
+    export interface DashboardDestinationParameterValueConfiguration {
+        customValuesConfiguration?: outputs.quicksight.DashboardCustomValuesConfiguration;
+        selectAllValueOptions?: enums.quicksight.DashboardSelectAllValueOptions;
+        sourceField?: string;
+        sourceParameterName?: string;
+    }
+
+    export interface DashboardDimensionField {
+        categoricalDimensionField?: outputs.quicksight.DashboardCategoricalDimensionField;
+        dateDimensionField?: outputs.quicksight.DashboardDateDimensionField;
+        numericalDimensionField?: outputs.quicksight.DashboardNumericalDimensionField;
+    }
+
+    export interface DashboardDonutCenterOptions {
+        labelVisibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardDonutOptions {
+        arcOptions?: outputs.quicksight.DashboardArcOptions;
+        donutCenterOptions?: outputs.quicksight.DashboardDonutCenterOptions;
+    }
+
+    export interface DashboardDrillDownFilter {
+        categoryFilter?: outputs.quicksight.DashboardCategoryDrillDownFilter;
+        numericEqualityFilter?: outputs.quicksight.DashboardNumericEqualityDrillDownFilter;
+        timeRangeFilter?: outputs.quicksight.DashboardTimeRangeDrillDownFilter;
+    }
+
+    export interface DashboardDropDownControlDisplayOptions {
+        selectAllOptions?: outputs.quicksight.DashboardListControlSelectAllOptions;
+        titleOptions?: outputs.quicksight.DashboardLabelOptions;
+    }
+
+    export interface DashboardDynamicDefaultValue {
+        defaultValueColumn: outputs.quicksight.DashboardColumnIdentifier;
+        groupNameColumn?: outputs.quicksight.DashboardColumnIdentifier;
+        userNameColumn?: outputs.quicksight.DashboardColumnIdentifier;
+    }
+
+    export interface DashboardEmptyVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        dataSetIdentifier: string;
+        visualId: string;
+    }
+
+    export interface DashboardEntity {
+        path?: string;
+    }
+
+    export interface DashboardError {
+        message?: string;
+        type?: enums.quicksight.DashboardErrorType;
+        violatedEntities?: outputs.quicksight.DashboardEntity[];
+    }
+
+    export interface DashboardExcludePeriodConfiguration {
+        amount: number;
+        granularity: enums.quicksight.DashboardTimeGranularity;
+        status?: enums.quicksight.DashboardWidgetStatus;
+    }
+
+    export interface DashboardExplicitHierarchy {
+        columns: outputs.quicksight.DashboardColumnIdentifier[];
+        drillDownFilters?: outputs.quicksight.DashboardDrillDownFilter[];
+        hierarchyId: string;
+    }
+
+    export interface DashboardExportHiddenFieldsOption {
+        availabilityStatus?: enums.quicksight.DashboardBehavior;
+    }
+
     export interface DashboardExportToCSVOption {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
-    /**
-     * <p>An integer parameter.</p>
-     */
+    export interface DashboardExportWithHiddenFieldsOption {
+        availabilityStatus?: enums.quicksight.DashboardBehavior;
+    }
+
+    export interface DashboardFieldBasedTooltip {
+        aggregationVisibility?: enums.quicksight.DashboardVisibility;
+        tooltipFields?: outputs.quicksight.DashboardTooltipItem[];
+        tooltipTitleType?: enums.quicksight.DashboardTooltipTitleType;
+    }
+
+    export interface DashboardFieldLabelType {
+        fieldId?: string;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardFieldSeriesItem {
+        axisBinding: enums.quicksight.DashboardAxisBinding;
+        fieldId: string;
+        settings?: outputs.quicksight.DashboardLineChartSeriesSettings;
+    }
+
+    export interface DashboardFieldSort {
+        direction: enums.quicksight.DashboardSortDirection;
+        fieldId: string;
+    }
+
+    export interface DashboardFieldSortOptions {
+        columnSort?: outputs.quicksight.DashboardColumnSort;
+        fieldSort?: outputs.quicksight.DashboardFieldSort;
+    }
+
+    export interface DashboardFieldTooltipItem {
+        fieldId: string;
+        label?: string;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardFilledMapAggregatedFieldWells {
+        geospatial?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardFilledMapConditionalFormatting {
+        conditionalFormattingOptions: outputs.quicksight.DashboardFilledMapConditionalFormattingOption[];
+    }
+
+    export interface DashboardFilledMapConditionalFormattingOption {
+        shape: outputs.quicksight.DashboardFilledMapShapeConditionalFormatting;
+    }
+
+    export interface DashboardFilledMapConfiguration {
+        fieldWells?: outputs.quicksight.DashboardFilledMapFieldWells;
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        mapStyleOptions?: outputs.quicksight.DashboardGeospatialMapStyleOptions;
+        sortConfiguration?: outputs.quicksight.DashboardFilledMapSortConfiguration;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+        windowOptions?: outputs.quicksight.DashboardGeospatialWindowOptions;
+    }
+
+    export interface DashboardFilledMapFieldWells {
+        filledMapAggregatedFieldWells?: outputs.quicksight.DashboardFilledMapAggregatedFieldWells;
+    }
+
+    export interface DashboardFilledMapShapeConditionalFormatting {
+        fieldId: string;
+        format?: outputs.quicksight.DashboardShapeConditionalFormat;
+    }
+
+    export interface DashboardFilledMapSortConfiguration {
+        categorySort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardFilledMapVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardFilledMapConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        conditionalFormatting?: outputs.quicksight.DashboardFilledMapConditionalFormatting;
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardFilter {
+        categoryFilter?: outputs.quicksight.DashboardCategoryFilter;
+        numericEqualityFilter?: outputs.quicksight.DashboardNumericEqualityFilter;
+        numericRangeFilter?: outputs.quicksight.DashboardNumericRangeFilter;
+        relativeDatesFilter?: outputs.quicksight.DashboardRelativeDatesFilter;
+        timeEqualityFilter?: outputs.quicksight.DashboardTimeEqualityFilter;
+        timeRangeFilter?: outputs.quicksight.DashboardTimeRangeFilter;
+        topBottomFilter?: outputs.quicksight.DashboardTopBottomFilter;
+    }
+
+    export interface DashboardFilterControl {
+        dateTimePicker?: outputs.quicksight.DashboardFilterDateTimePickerControl;
+        dropdown?: outputs.quicksight.DashboardFilterDropDownControl;
+        list?: outputs.quicksight.DashboardFilterListControl;
+        relativeDateTime?: outputs.quicksight.DashboardFilterRelativeDateTimeControl;
+        slider?: outputs.quicksight.DashboardFilterSliderControl;
+        textArea?: outputs.quicksight.DashboardFilterTextAreaControl;
+        textField?: outputs.quicksight.DashboardFilterTextFieldControl;
+    }
+
+    export interface DashboardFilterDateTimePickerControl {
+        displayOptions?: outputs.quicksight.DashboardDateTimePickerControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+        type?: enums.quicksight.DashboardSheetControlDateTimePickerType;
+    }
+
+    export interface DashboardFilterDropDownControl {
+        cascadingControlConfiguration?: outputs.quicksight.DashboardCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.DashboardDropDownControlDisplayOptions;
+        filterControlId: string;
+        selectableValues?: outputs.quicksight.DashboardFilterSelectableValues;
+        sourceFilterId: string;
+        title: string;
+        type?: enums.quicksight.DashboardSheetControlListType;
+    }
+
+    export interface DashboardFilterGroup {
+        crossDataset: enums.quicksight.DashboardCrossDatasetTypes;
+        filterGroupId: string;
+        filters: outputs.quicksight.DashboardFilter[];
+        scopeConfiguration: outputs.quicksight.DashboardFilterScopeConfiguration;
+        status?: enums.quicksight.DashboardWidgetStatus;
+    }
+
+    export interface DashboardFilterListConfiguration {
+        categoryValues?: string[];
+        matchOperator: enums.quicksight.DashboardCategoryFilterMatchOperator;
+        selectAllOptions?: enums.quicksight.DashboardCategoryFilterSelectAllOptions;
+    }
+
+    export interface DashboardFilterListControl {
+        cascadingControlConfiguration?: outputs.quicksight.DashboardCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.DashboardListControlDisplayOptions;
+        filterControlId: string;
+        selectableValues?: outputs.quicksight.DashboardFilterSelectableValues;
+        sourceFilterId: string;
+        title: string;
+        type?: enums.quicksight.DashboardSheetControlListType;
+    }
+
+    export interface DashboardFilterOperationSelectedFieldsConfiguration {
+        selectedFieldOptions?: enums.quicksight.DashboardSelectedFieldOptions;
+        selectedFields?: string[];
+    }
+
+    export interface DashboardFilterOperationTargetVisualsConfiguration {
+        sameSheetTargetVisualConfiguration?: outputs.quicksight.DashboardSameSheetTargetVisualConfiguration;
+    }
+
+    export interface DashboardFilterRelativeDateTimeControl {
+        displayOptions?: outputs.quicksight.DashboardRelativeDateTimeControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+    }
+
+    export interface DashboardFilterScopeConfiguration {
+        selectedSheets?: outputs.quicksight.DashboardSelectedSheetsFilterScopeConfiguration;
+    }
+
+    export interface DashboardFilterSelectableValues {
+        values?: string[];
+    }
+
+    export interface DashboardFilterSliderControl {
+        displayOptions?: outputs.quicksight.DashboardSliderControlDisplayOptions;
+        filterControlId: string;
+        maximumValue: number;
+        minimumValue: number;
+        sourceFilterId: string;
+        stepSize: number;
+        title: string;
+        type?: enums.quicksight.DashboardSheetControlSliderType;
+    }
+
+    export interface DashboardFilterTextAreaControl {
+        delimiter?: string;
+        displayOptions?: outputs.quicksight.DashboardTextAreaControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+    }
+
+    export interface DashboardFilterTextFieldControl {
+        displayOptions?: outputs.quicksight.DashboardTextFieldControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+    }
+
+    export interface DashboardFontConfiguration {
+        fontColor?: string;
+        fontDecoration?: enums.quicksight.DashboardFontDecoration;
+        fontSize?: outputs.quicksight.DashboardFontSize;
+        fontStyle?: enums.quicksight.DashboardFontStyle;
+        fontWeight?: outputs.quicksight.DashboardFontWeight;
+    }
+
+    export interface DashboardFontSize {
+        relative?: enums.quicksight.DashboardRelativeFontSize;
+    }
+
+    export interface DashboardFontWeight {
+        name?: enums.quicksight.DashboardFontWeightName;
+    }
+
+    export interface DashboardForecastComputation {
+        computationId: string;
+        customSeasonalityValue?: number;
+        lowerBoundary?: number;
+        name?: string;
+        periodsBackward?: number;
+        periodsForward?: number;
+        predictionInterval?: number;
+        seasonality?: enums.quicksight.DashboardForecastComputationSeasonality;
+        time: outputs.quicksight.DashboardDimensionField;
+        upperBoundary?: number;
+        value?: outputs.quicksight.DashboardMeasureField;
+    }
+
+    export interface DashboardForecastConfiguration {
+        forecastProperties?: outputs.quicksight.DashboardTimeBasedForecastProperties;
+        scenario?: outputs.quicksight.DashboardForecastScenario;
+    }
+
+    export interface DashboardForecastScenario {
+        whatIfPointScenario?: outputs.quicksight.DashboardWhatIfPointScenario;
+        whatIfRangeScenario?: outputs.quicksight.DashboardWhatIfRangeScenario;
+    }
+
+    export interface DashboardFormatConfiguration {
+        dateTimeFormatConfiguration?: outputs.quicksight.DashboardDateTimeFormatConfiguration;
+        numberFormatConfiguration?: outputs.quicksight.DashboardNumberFormatConfiguration;
+        stringFormatConfiguration?: outputs.quicksight.DashboardStringFormatConfiguration;
+    }
+
+    export interface DashboardFreeFormLayoutCanvasSizeOptions {
+        screenCanvasSizeOptions?: outputs.quicksight.DashboardFreeFormLayoutScreenCanvasSizeOptions;
+    }
+
+    export interface DashboardFreeFormLayoutConfiguration {
+        canvasSizeOptions?: outputs.quicksight.DashboardFreeFormLayoutCanvasSizeOptions;
+        elements: outputs.quicksight.DashboardFreeFormLayoutElement[];
+    }
+
+    export interface DashboardFreeFormLayoutElement {
+        backgroundStyle?: outputs.quicksight.DashboardFreeFormLayoutElementBackgroundStyle;
+        borderStyle?: outputs.quicksight.DashboardFreeFormLayoutElementBorderStyle;
+        elementId: string;
+        elementType: enums.quicksight.DashboardLayoutElementType;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height: string;
+        loadingAnimation?: outputs.quicksight.DashboardLoadingAnimation;
+        renderingRules?: outputs.quicksight.DashboardSheetElementRenderingRule[];
+        selectedBorderStyle?: outputs.quicksight.DashboardFreeFormLayoutElementBorderStyle;
+        visibility?: enums.quicksight.DashboardVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width: string;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        xAxisLocation: string;
+        /**
+         * String based length that is composed of value and unit in px with Integer.MAX_VALUE as maximum value
+         */
+        yAxisLocation: string;
+    }
+
+    export interface DashboardFreeFormLayoutElementBackgroundStyle {
+        color?: string;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardFreeFormLayoutElementBorderStyle {
+        color?: string;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardFreeFormLayoutScreenCanvasSizeOptions {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth: string;
+    }
+
+    export interface DashboardFreeFormSectionLayoutConfiguration {
+        elements: outputs.quicksight.DashboardFreeFormLayoutElement[];
+    }
+
+    export interface DashboardFunnelChartAggregatedFieldWells {
+        category?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardFunnelChartConfiguration {
+        categoryLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        dataLabelOptions?: outputs.quicksight.DashboardFunnelChartDataLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardFunnelChartFieldWells;
+        sortConfiguration?: outputs.quicksight.DashboardFunnelChartSortConfiguration;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+        valueLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+    }
+
+    export interface DashboardFunnelChartDataLabelOptions {
+        categoryLabelVisibility?: enums.quicksight.DashboardVisibility;
+        labelColor?: string;
+        labelFontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
+        measureDataLabelStyle?: enums.quicksight.DashboardFunnelChartMeasureDataLabelStyle;
+        measureLabelVisibility?: enums.quicksight.DashboardVisibility;
+        position?: enums.quicksight.DashboardDataLabelPosition;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardFunnelChartFieldWells {
+        funnelChartAggregatedFieldWells?: outputs.quicksight.DashboardFunnelChartAggregatedFieldWells;
+    }
+
+    export interface DashboardFunnelChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardFunnelChartVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardFunnelChartConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardGaugeChartArcConditionalFormatting {
+        foregroundColor?: outputs.quicksight.DashboardConditionalFormattingColor;
+    }
+
+    export interface DashboardGaugeChartConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.DashboardGaugeChartConditionalFormattingOption[];
+    }
+
+    export interface DashboardGaugeChartConditionalFormattingOption {
+        arc?: outputs.quicksight.DashboardGaugeChartArcConditionalFormatting;
+        primaryValue?: outputs.quicksight.DashboardGaugeChartPrimaryValueConditionalFormatting;
+    }
+
+    export interface DashboardGaugeChartConfiguration {
+        dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardGaugeChartFieldWells;
+        gaugeChartOptions?: outputs.quicksight.DashboardGaugeChartOptions;
+        tooltipOptions?: outputs.quicksight.DashboardTooltipOptions;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+    }
+
+    export interface DashboardGaugeChartFieldWells {
+        targetValues?: outputs.quicksight.DashboardMeasureField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardGaugeChartOptions {
+        arc?: outputs.quicksight.DashboardArcConfiguration;
+        arcAxis?: outputs.quicksight.DashboardArcAxisConfiguration;
+        comparison?: outputs.quicksight.DashboardComparisonConfiguration;
+        primaryValueDisplayType?: enums.quicksight.DashboardPrimaryValueDisplayType;
+        primaryValueFontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
+    }
+
+    export interface DashboardGaugeChartPrimaryValueConditionalFormatting {
+        icon?: outputs.quicksight.DashboardConditionalFormattingIcon;
+        textColor?: outputs.quicksight.DashboardConditionalFormattingColor;
+    }
+
+    export interface DashboardGaugeChartVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardGaugeChartConfiguration;
+        conditionalFormatting?: outputs.quicksight.DashboardGaugeChartConditionalFormatting;
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardGeospatialCoordinateBounds {
+        east: number;
+        north: number;
+        south: number;
+        west: number;
+    }
+
+    export interface DashboardGeospatialMapAggregatedFieldWells {
+        colors?: outputs.quicksight.DashboardDimensionField[];
+        geospatial?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardGeospatialMapConfiguration {
+        fieldWells?: outputs.quicksight.DashboardGeospatialMapFieldWells;
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        mapStyleOptions?: outputs.quicksight.DashboardGeospatialMapStyleOptions;
+        pointStyleOptions?: outputs.quicksight.DashboardGeospatialPointStyleOptions;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+        windowOptions?: outputs.quicksight.DashboardGeospatialWindowOptions;
+    }
+
+    export interface DashboardGeospatialMapFieldWells {
+        geospatialMapAggregatedFieldWells?: outputs.quicksight.DashboardGeospatialMapAggregatedFieldWells;
+    }
+
+    export interface DashboardGeospatialMapStyleOptions {
+        baseMapStyle?: enums.quicksight.DashboardBaseMapStyleType;
+    }
+
+    export interface DashboardGeospatialMapVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardGeospatialMapConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardGeospatialPointStyleOptions {
+        clusterMarkerConfiguration?: outputs.quicksight.DashboardClusterMarkerConfiguration;
+        selectedPointStyle?: enums.quicksight.DashboardGeospatialSelectedPointStyle;
+    }
+
+    export interface DashboardGeospatialWindowOptions {
+        bounds?: outputs.quicksight.DashboardGeospatialCoordinateBounds;
+        mapZoomMode?: enums.quicksight.DashboardMapZoomMode;
+    }
+
+    export interface DashboardGlobalTableBorderOptions {
+        sideSpecificBorder?: outputs.quicksight.DashboardTableSideBorderOptions;
+        uniformBorder?: outputs.quicksight.DashboardTableBorderOptions;
+    }
+
+    export interface DashboardGradientColor {
+        stops?: outputs.quicksight.DashboardGradientStop[];
+    }
+
+    export interface DashboardGradientStop {
+        color?: string;
+        dataValue?: number;
+        gradientOffset: number;
+    }
+
+    export interface DashboardGridLayoutCanvasSizeOptions {
+        screenCanvasSizeOptions?: outputs.quicksight.DashboardGridLayoutScreenCanvasSizeOptions;
+    }
+
+    export interface DashboardGridLayoutConfiguration {
+        canvasSizeOptions?: outputs.quicksight.DashboardGridLayoutCanvasSizeOptions;
+        elements: outputs.quicksight.DashboardGridLayoutElement[];
+    }
+
+    export interface DashboardGridLayoutElement {
+        columnIndex?: number;
+        columnSpan: number;
+        elementId: string;
+        elementType: enums.quicksight.DashboardLayoutElementType;
+        rowIndex?: number;
+        rowSpan: number;
+    }
+
+    export interface DashboardGridLayoutScreenCanvasSizeOptions {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth?: string;
+        resizeOption: enums.quicksight.DashboardResizeOption;
+    }
+
+    export interface DashboardGrowthRateComputation {
+        computationId: string;
+        name?: string;
+        periodSize?: number;
+        time: outputs.quicksight.DashboardDimensionField;
+        value?: outputs.quicksight.DashboardMeasureField;
+    }
+
+    export interface DashboardHeaderFooterSectionConfiguration {
+        layout: outputs.quicksight.DashboardSectionLayoutConfiguration;
+        sectionId: string;
+        style?: outputs.quicksight.DashboardSectionStyle;
+    }
+
+    export interface DashboardHeatMapAggregatedFieldWells {
+        columns?: outputs.quicksight.DashboardDimensionField[];
+        rows?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardHeatMapConfiguration {
+        colorScale?: outputs.quicksight.DashboardColorScale;
+        columnLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardHeatMapFieldWells;
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        rowLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.DashboardHeatMapSortConfiguration;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+    }
+
+    export interface DashboardHeatMapFieldWells {
+        heatMapAggregatedFieldWells?: outputs.quicksight.DashboardHeatMapAggregatedFieldWells;
+    }
+
+    export interface DashboardHeatMapSortConfiguration {
+        heatMapColumnItemsLimitConfiguration?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        heatMapColumnSort?: outputs.quicksight.DashboardFieldSortOptions[];
+        heatMapRowItemsLimitConfiguration?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        heatMapRowSort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardHeatMapVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardHeatMapConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardHistogramAggregatedFieldWells {
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardHistogramBinOptions {
+        binCount?: outputs.quicksight.DashboardBinCountOptions;
+        binWidth?: outputs.quicksight.DashboardBinWidthOptions;
+        selectedBinType?: enums.quicksight.DashboardHistogramBinType;
+        startValue?: number;
+    }
+
+    export interface DashboardHistogramConfiguration {
+        binOptions?: outputs.quicksight.DashboardHistogramBinOptions;
+        dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardHistogramFieldWells;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+        xAxisDisplayOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
+        xAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        yAxisDisplayOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
+    }
+
+    export interface DashboardHistogramFieldWells {
+        histogramAggregatedFieldWells?: outputs.quicksight.DashboardHistogramAggregatedFieldWells;
+    }
+
+    export interface DashboardHistogramVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardHistogramConfiguration;
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardInsightConfiguration {
+        computations?: outputs.quicksight.DashboardComputation[];
+        customNarrative?: outputs.quicksight.DashboardCustomNarrativeOptions;
+    }
+
+    export interface DashboardInsightVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        dataSetIdentifier: string;
+        insightConfiguration?: outputs.quicksight.DashboardInsightConfiguration;
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardIntegerDefaultValues {
+        dynamicValue?: outputs.quicksight.DashboardDynamicDefaultValue;
+        staticValues?: number[];
+    }
+
     export interface DashboardIntegerParameter {
-        /**
-         * <p>The name of the integer parameter.</p>
-         */
         name: string;
-        /**
-         * <p>The values for the integer parameter.</p>
-         */
         values: number[];
     }
 
-    /**
-     * <p>A list of QuickSight parameters and the list's override values.</p>
-     */
+    export interface DashboardIntegerParameterDeclaration {
+        defaultValues?: outputs.quicksight.DashboardIntegerDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.DashboardMappedDataSetParameter[];
+        name: string;
+        parameterValueType: enums.quicksight.DashboardParameterValueType;
+        valueWhenUnset?: outputs.quicksight.DashboardIntegerValueWhenUnsetConfiguration;
+    }
+
+    export interface DashboardIntegerValueWhenUnsetConfiguration {
+        customValue?: number;
+        valueWhenUnsetOption?: enums.quicksight.DashboardValueWhenUnsetOption;
+    }
+
+    export interface DashboardItemsLimitConfiguration {
+        itemsLimit?: number;
+        otherCategories?: enums.quicksight.DashboardOtherCategories;
+    }
+
+    export interface DashboardKPIConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.DashboardKPIConditionalFormattingOption[];
+    }
+
+    export interface DashboardKPIConditionalFormattingOption {
+        primaryValue?: outputs.quicksight.DashboardKPIPrimaryValueConditionalFormatting;
+        progressBar?: outputs.quicksight.DashboardKPIProgressBarConditionalFormatting;
+    }
+
+    export interface DashboardKPIConfiguration {
+        fieldWells?: outputs.quicksight.DashboardKPIFieldWells;
+        kPIOptions?: outputs.quicksight.DashboardKPIOptions;
+        sortConfiguration?: outputs.quicksight.DashboardKPISortConfiguration;
+    }
+
+    export interface DashboardKPIFieldWells {
+        targetValues?: outputs.quicksight.DashboardMeasureField[];
+        trendGroups?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardKPIOptions {
+        comparison?: outputs.quicksight.DashboardComparisonConfiguration;
+        primaryValueDisplayType?: enums.quicksight.DashboardPrimaryValueDisplayType;
+        primaryValueFontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
+        progressBar?: outputs.quicksight.DashboardProgressBarOptions;
+        secondaryValue?: outputs.quicksight.DashboardSecondaryValueOptions;
+        secondaryValueFontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
+        trendArrows?: outputs.quicksight.DashboardTrendArrowOptions;
+    }
+
+    export interface DashboardKPIPrimaryValueConditionalFormatting {
+        icon?: outputs.quicksight.DashboardConditionalFormattingIcon;
+        textColor?: outputs.quicksight.DashboardConditionalFormattingColor;
+    }
+
+    export interface DashboardKPIProgressBarConditionalFormatting {
+        foregroundColor?: outputs.quicksight.DashboardConditionalFormattingColor;
+    }
+
+    export interface DashboardKPISortConfiguration {
+        trendGroupSort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardKPIVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardKPIConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        conditionalFormatting?: outputs.quicksight.DashboardKPIConditionalFormatting;
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardLabelOptions {
+        customLabel?: string;
+        fontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardLayout {
+        configuration: outputs.quicksight.DashboardLayoutConfiguration;
+    }
+
+    export interface DashboardLayoutConfiguration {
+        freeFormLayout?: outputs.quicksight.DashboardFreeFormLayoutConfiguration;
+        gridLayout?: outputs.quicksight.DashboardGridLayoutConfiguration;
+        sectionBasedLayout?: outputs.quicksight.DashboardSectionBasedLayoutConfiguration;
+    }
+
+    export interface DashboardLegendOptions {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: string;
+        position?: enums.quicksight.DashboardLegendPosition;
+        title?: outputs.quicksight.DashboardLabelOptions;
+        visibility?: enums.quicksight.DashboardVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: string;
+    }
+
+    export interface DashboardLineChartAggregatedFieldWells {
+        category?: outputs.quicksight.DashboardDimensionField[];
+        colors?: outputs.quicksight.DashboardDimensionField[];
+        smallMultiples?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardLineChartConfiguration {
+        contributionAnalysisDefaults?: outputs.quicksight.DashboardContributionAnalysisDefault[];
+        dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        defaultSeriesSettings?: outputs.quicksight.DashboardLineChartDefaultSeriesSettings;
+        fieldWells?: outputs.quicksight.DashboardLineChartFieldWells;
+        forecastConfigurations?: outputs.quicksight.DashboardForecastConfiguration[];
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.DashboardLineSeriesAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        referenceLines?: outputs.quicksight.DashboardReferenceLine[];
+        secondaryYAxisDisplayOptions?: outputs.quicksight.DashboardLineSeriesAxisDisplayOptions;
+        secondaryYAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        series?: outputs.quicksight.DashboardSeriesItem[];
+        smallMultiplesOptions?: outputs.quicksight.DashboardSmallMultiplesOptions;
+        sortConfiguration?: outputs.quicksight.DashboardLineChartSortConfiguration;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+        type?: enums.quicksight.DashboardLineChartType;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+        xAxisDisplayOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
+        xAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+    }
+
+    export interface DashboardLineChartDefaultSeriesSettings {
+        axisBinding?: enums.quicksight.DashboardAxisBinding;
+        lineStyleSettings?: outputs.quicksight.DashboardLineChartLineStyleSettings;
+        markerStyleSettings?: outputs.quicksight.DashboardLineChartMarkerStyleSettings;
+    }
+
+    export interface DashboardLineChartFieldWells {
+        lineChartAggregatedFieldWells?: outputs.quicksight.DashboardLineChartAggregatedFieldWells;
+    }
+
+    export interface DashboardLineChartLineStyleSettings {
+        lineInterpolation?: enums.quicksight.DashboardLineInterpolation;
+        lineStyle?: enums.quicksight.DashboardLineChartLineStyle;
+        lineVisibility?: enums.quicksight.DashboardVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        lineWidth?: string;
+    }
+
+    export interface DashboardLineChartMarkerStyleSettings {
+        markerColor?: string;
+        markerShape?: enums.quicksight.DashboardLineChartMarkerShape;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        markerSize?: string;
+        markerVisibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardLineChartSeriesSettings {
+        lineStyleSettings?: outputs.quicksight.DashboardLineChartLineStyleSettings;
+        markerStyleSettings?: outputs.quicksight.DashboardLineChartMarkerStyleSettings;
+    }
+
+    export interface DashboardLineChartSortConfiguration {
+        categoryItemsLimitConfiguration?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.DashboardFieldSortOptions[];
+        colorItemsLimitConfiguration?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        smallMultiplesLimitConfiguration?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        smallMultiplesSort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardLineChartVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardLineChartConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardLineSeriesAxisDisplayOptions {
+        axisOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
+        missingDataConfigurations?: outputs.quicksight.DashboardMissingDataConfiguration[];
+    }
+
+    export interface DashboardListControlDisplayOptions {
+        searchOptions?: outputs.quicksight.DashboardListControlSearchOptions;
+        selectAllOptions?: outputs.quicksight.DashboardListControlSelectAllOptions;
+        titleOptions?: outputs.quicksight.DashboardLabelOptions;
+    }
+
+    export interface DashboardListControlSearchOptions {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardListControlSelectAllOptions {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardLoadingAnimation {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardLocalNavigationConfiguration {
+        targetSheetId: string;
+    }
+
+    export interface DashboardLongFormatText {
+        plainText?: string;
+        richText?: string;
+    }
+
+    export interface DashboardMappedDataSetParameter {
+        dataSetIdentifier: string;
+        dataSetParameterName: string;
+    }
+
+    export interface DashboardMaximumLabelType {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardMaximumMinimumComputation {
+        computationId: string;
+        name?: string;
+        time: outputs.quicksight.DashboardDimensionField;
+        type: enums.quicksight.DashboardMaximumMinimumComputationType;
+        value?: outputs.quicksight.DashboardMeasureField;
+    }
+
+    export interface DashboardMeasureField {
+        calculatedMeasureField?: outputs.quicksight.DashboardCalculatedMeasureField;
+        categoricalMeasureField?: outputs.quicksight.DashboardCategoricalMeasureField;
+        dateMeasureField?: outputs.quicksight.DashboardDateMeasureField;
+        numericalMeasureField?: outputs.quicksight.DashboardNumericalMeasureField;
+    }
+
+    export interface DashboardMetricComparisonComputation {
+        computationId: string;
+        fromValue: outputs.quicksight.DashboardMeasureField;
+        name?: string;
+        targetValue: outputs.quicksight.DashboardMeasureField;
+        time: outputs.quicksight.DashboardDimensionField;
+    }
+
+    export interface DashboardMinimumLabelType {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardMissingDataConfiguration {
+        treatmentOption?: enums.quicksight.DashboardMissingDataTreatmentOption;
+    }
+
+    export interface DashboardNegativeValueConfiguration {
+        displayMode: enums.quicksight.DashboardNegativeValueDisplayMode;
+    }
+
+    export interface DashboardNullValueFormatConfiguration {
+        nullString: string;
+    }
+
+    export interface DashboardNumberDisplayFormatConfiguration {
+        decimalPlacesConfiguration?: outputs.quicksight.DashboardDecimalPlacesConfiguration;
+        negativeValueConfiguration?: outputs.quicksight.DashboardNegativeValueConfiguration;
+        nullValueFormatConfiguration?: outputs.quicksight.DashboardNullValueFormatConfiguration;
+        numberScale?: enums.quicksight.DashboardNumberScale;
+        prefix?: string;
+        separatorConfiguration?: outputs.quicksight.DashboardNumericSeparatorConfiguration;
+        suffix?: string;
+    }
+
+    export interface DashboardNumberFormatConfiguration {
+        formatConfiguration?: outputs.quicksight.DashboardNumericFormatConfiguration;
+    }
+
+    export interface DashboardNumericAxisOptions {
+        range?: outputs.quicksight.DashboardAxisDisplayRange;
+        scale?: outputs.quicksight.DashboardAxisScale;
+    }
+
+    export interface DashboardNumericEqualityDrillDownFilter {
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        value: number;
+    }
+
+    export interface DashboardNumericEqualityFilter {
+        aggregationFunction?: outputs.quicksight.DashboardAggregationFunction;
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        filterId: string;
+        matchOperator: enums.quicksight.DashboardNumericEqualityMatchOperator;
+        nullOption: enums.quicksight.DashboardFilterNullOption;
+        parameterName?: string;
+        selectAllOptions?: enums.quicksight.DashboardNumericFilterSelectAllOptions;
+        value?: number;
+    }
+
+    export interface DashboardNumericFormatConfiguration {
+        currencyDisplayFormatConfiguration?: outputs.quicksight.DashboardCurrencyDisplayFormatConfiguration;
+        numberDisplayFormatConfiguration?: outputs.quicksight.DashboardNumberDisplayFormatConfiguration;
+        percentageDisplayFormatConfiguration?: outputs.quicksight.DashboardPercentageDisplayFormatConfiguration;
+    }
+
+    export interface DashboardNumericRangeFilter {
+        aggregationFunction?: outputs.quicksight.DashboardAggregationFunction;
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        filterId: string;
+        includeMaximum?: boolean;
+        includeMinimum?: boolean;
+        nullOption: enums.quicksight.DashboardFilterNullOption;
+        rangeMaximum?: outputs.quicksight.DashboardNumericRangeFilterValue;
+        rangeMinimum?: outputs.quicksight.DashboardNumericRangeFilterValue;
+        selectAllOptions?: enums.quicksight.DashboardNumericFilterSelectAllOptions;
+    }
+
+    export interface DashboardNumericRangeFilterValue {
+        parameter?: string;
+        staticValue?: number;
+    }
+
+    export interface DashboardNumericSeparatorConfiguration {
+        decimalSeparator?: enums.quicksight.DashboardNumericSeparatorSymbol;
+        thousandsSeparator?: outputs.quicksight.DashboardThousandSeparatorOptions;
+    }
+
+    export interface DashboardNumericalAggregationFunction {
+        percentileAggregation?: outputs.quicksight.DashboardPercentileAggregation;
+        simpleNumericalAggregation?: enums.quicksight.DashboardSimpleNumericalAggregationFunction;
+    }
+
+    export interface DashboardNumericalDimensionField {
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.DashboardNumberFormatConfiguration;
+        hierarchyId?: string;
+    }
+
+    export interface DashboardNumericalMeasureField {
+        aggregationFunction?: outputs.quicksight.DashboardNumericalAggregationFunction;
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.DashboardNumberFormatConfiguration;
+    }
+
+    export interface DashboardPaginationConfiguration {
+        pageNumber: number;
+        pageSize: number;
+    }
+
+    export interface DashboardPanelConfiguration {
+        backgroundColor?: string;
+        backgroundVisibility?: enums.quicksight.DashboardVisibility;
+        borderColor?: string;
+        borderStyle?: enums.quicksight.DashboardPanelBorderStyle;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderThickness?: string;
+        borderVisibility?: enums.quicksight.DashboardVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        gutterSpacing?: string;
+        gutterVisibility?: enums.quicksight.DashboardVisibility;
+        title?: outputs.quicksight.DashboardPanelTitleOptions;
+    }
+
+    export interface DashboardPanelTitleOptions {
+        fontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
+        horizontalTextAlignment?: enums.quicksight.DashboardHorizontalTextAlignment;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardParameterControl {
+        dateTimePicker?: outputs.quicksight.DashboardParameterDateTimePickerControl;
+        dropdown?: outputs.quicksight.DashboardParameterDropDownControl;
+        list?: outputs.quicksight.DashboardParameterListControl;
+        slider?: outputs.quicksight.DashboardParameterSliderControl;
+        textArea?: outputs.quicksight.DashboardParameterTextAreaControl;
+        textField?: outputs.quicksight.DashboardParameterTextFieldControl;
+    }
+
+    export interface DashboardParameterDateTimePickerControl {
+        displayOptions?: outputs.quicksight.DashboardDateTimePickerControlDisplayOptions;
+        parameterControlId: string;
+        sourceParameterName: string;
+        title: string;
+    }
+
+    export interface DashboardParameterDeclaration {
+        dateTimeParameterDeclaration?: outputs.quicksight.DashboardDateTimeParameterDeclaration;
+        decimalParameterDeclaration?: outputs.quicksight.DashboardDecimalParameterDeclaration;
+        integerParameterDeclaration?: outputs.quicksight.DashboardIntegerParameterDeclaration;
+        stringParameterDeclaration?: outputs.quicksight.DashboardStringParameterDeclaration;
+    }
+
+    export interface DashboardParameterDropDownControl {
+        cascadingControlConfiguration?: outputs.quicksight.DashboardCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.DashboardDropDownControlDisplayOptions;
+        parameterControlId: string;
+        selectableValues?: outputs.quicksight.DashboardParameterSelectableValues;
+        sourceParameterName: string;
+        title: string;
+        type?: enums.quicksight.DashboardSheetControlListType;
+    }
+
+    export interface DashboardParameterListControl {
+        cascadingControlConfiguration?: outputs.quicksight.DashboardCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.DashboardListControlDisplayOptions;
+        parameterControlId: string;
+        selectableValues?: outputs.quicksight.DashboardParameterSelectableValues;
+        sourceParameterName: string;
+        title: string;
+        type?: enums.quicksight.DashboardSheetControlListType;
+    }
+
+    export interface DashboardParameterSelectableValues {
+        linkToDataSetColumn?: outputs.quicksight.DashboardColumnIdentifier;
+        values?: string[];
+    }
+
+    export interface DashboardParameterSliderControl {
+        displayOptions?: outputs.quicksight.DashboardSliderControlDisplayOptions;
+        maximumValue: number;
+        minimumValue: number;
+        parameterControlId: string;
+        sourceParameterName: string;
+        stepSize: number;
+        title: string;
+    }
+
+    export interface DashboardParameterTextAreaControl {
+        delimiter?: string;
+        displayOptions?: outputs.quicksight.DashboardTextAreaControlDisplayOptions;
+        parameterControlId: string;
+        sourceParameterName: string;
+        title: string;
+    }
+
+    export interface DashboardParameterTextFieldControl {
+        displayOptions?: outputs.quicksight.DashboardTextFieldControlDisplayOptions;
+        parameterControlId: string;
+        sourceParameterName: string;
+        title: string;
+    }
+
     export interface DashboardParameters {
-        /**
-         * <p>Date-time parameters.</p>
-         */
         dateTimeParameters?: outputs.quicksight.DashboardDateTimeParameter[];
-        /**
-         * <p>Decimal parameters.</p>
-         */
         decimalParameters?: outputs.quicksight.DashboardDecimalParameter[];
-        /**
-         * <p>Integer parameters.</p>
-         */
         integerParameters?: outputs.quicksight.DashboardIntegerParameter[];
-        /**
-         * <p>String parameters.</p>
-         */
         stringParameters?: outputs.quicksight.DashboardStringParameter[];
     }
 
-    /**
-     * <p>Dashboard publish options.</p>
-     */
+    export interface DashboardPercentVisibleRange {
+        from?: number;
+        to?: number;
+    }
+
+    export interface DashboardPercentageDisplayFormatConfiguration {
+        decimalPlacesConfiguration?: outputs.quicksight.DashboardDecimalPlacesConfiguration;
+        negativeValueConfiguration?: outputs.quicksight.DashboardNegativeValueConfiguration;
+        nullValueFormatConfiguration?: outputs.quicksight.DashboardNullValueFormatConfiguration;
+        prefix?: string;
+        separatorConfiguration?: outputs.quicksight.DashboardNumericSeparatorConfiguration;
+        suffix?: string;
+    }
+
+    export interface DashboardPercentileAggregation {
+        percentileValue?: number;
+    }
+
+    export interface DashboardPeriodOverPeriodComputation {
+        computationId: string;
+        name?: string;
+        time: outputs.quicksight.DashboardDimensionField;
+        value?: outputs.quicksight.DashboardMeasureField;
+    }
+
+    export interface DashboardPeriodToDateComputation {
+        computationId: string;
+        name?: string;
+        periodTimeGranularity?: enums.quicksight.DashboardTimeGranularity;
+        time: outputs.quicksight.DashboardDimensionField;
+        value?: outputs.quicksight.DashboardMeasureField;
+    }
+
+    export interface DashboardPieChartAggregatedFieldWells {
+        category?: outputs.quicksight.DashboardDimensionField[];
+        smallMultiples?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardPieChartConfiguration {
+        categoryLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        contributionAnalysisDefaults?: outputs.quicksight.DashboardContributionAnalysisDefault[];
+        dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        donutOptions?: outputs.quicksight.DashboardDonutOptions;
+        fieldWells?: outputs.quicksight.DashboardPieChartFieldWells;
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        smallMultiplesOptions?: outputs.quicksight.DashboardSmallMultiplesOptions;
+        sortConfiguration?: outputs.quicksight.DashboardPieChartSortConfiguration;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+        valueLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+    }
+
+    export interface DashboardPieChartFieldWells {
+        pieChartAggregatedFieldWells?: outputs.quicksight.DashboardPieChartAggregatedFieldWells;
+    }
+
+    export interface DashboardPieChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.DashboardFieldSortOptions[];
+        smallMultiplesLimitConfiguration?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        smallMultiplesSort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardPieChartVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardPieChartConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardPivotFieldSortOptions {
+        fieldId: string;
+        sortBy: outputs.quicksight.DashboardPivotTableSortBy;
+    }
+
+    export interface DashboardPivotTableAggregatedFieldWells {
+        columns?: outputs.quicksight.DashboardDimensionField[];
+        rows?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardPivotTableCellConditionalFormatting {
+        fieldId: string;
+        scope?: outputs.quicksight.DashboardPivotTableConditionalFormattingScope;
+        textFormat?: outputs.quicksight.DashboardTextConditionalFormat;
+    }
+
+    export interface DashboardPivotTableConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.DashboardPivotTableConditionalFormattingOption[];
+    }
+
+    export interface DashboardPivotTableConditionalFormattingOption {
+        cell?: outputs.quicksight.DashboardPivotTableCellConditionalFormatting;
+    }
+
+    export interface DashboardPivotTableConditionalFormattingScope {
+        role?: enums.quicksight.DashboardPivotTableConditionalFormattingScopeRole;
+    }
+
+    export interface DashboardPivotTableConfiguration {
+        fieldOptions?: outputs.quicksight.DashboardPivotTableFieldOptions;
+        fieldWells?: outputs.quicksight.DashboardPivotTableFieldWells;
+        paginatedReportOptions?: outputs.quicksight.DashboardPivotTablePaginatedReportOptions;
+        sortConfiguration?: outputs.quicksight.DashboardPivotTableSortConfiguration;
+        tableOptions?: outputs.quicksight.DashboardPivotTableOptions;
+        totalOptions?: outputs.quicksight.DashboardPivotTableTotalOptions;
+    }
+
+    export interface DashboardPivotTableDataPathOption {
+        dataPathList: outputs.quicksight.DashboardDataPathValue[];
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: string;
+    }
+
+    export interface DashboardPivotTableFieldOption {
+        customLabel?: string;
+        fieldId: string;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardPivotTableFieldOptions {
+        dataPathOptions?: outputs.quicksight.DashboardPivotTableDataPathOption[];
+        selectedFieldOptions?: outputs.quicksight.DashboardPivotTableFieldOption[];
+    }
+
+    export interface DashboardPivotTableFieldSubtotalOptions {
+        fieldId?: string;
+    }
+
+    export interface DashboardPivotTableFieldWells {
+        pivotTableAggregatedFieldWells?: outputs.quicksight.DashboardPivotTableAggregatedFieldWells;
+    }
+
+    export interface DashboardPivotTableOptions {
+        cellStyle?: outputs.quicksight.DashboardTableCellStyle;
+        columnHeaderStyle?: outputs.quicksight.DashboardTableCellStyle;
+        columnNamesVisibility?: enums.quicksight.DashboardVisibility;
+        metricPlacement?: enums.quicksight.DashboardPivotTableMetricPlacement;
+        rowAlternateColorOptions?: outputs.quicksight.DashboardRowAlternateColorOptions;
+        rowFieldNamesStyle?: outputs.quicksight.DashboardTableCellStyle;
+        rowHeaderStyle?: outputs.quicksight.DashboardTableCellStyle;
+        singleMetricVisibility?: enums.quicksight.DashboardVisibility;
+        toggleButtonsVisibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardPivotTablePaginatedReportOptions {
+        overflowColumnHeaderVisibility?: enums.quicksight.DashboardVisibility;
+        verticalOverflowVisibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardPivotTableSortBy {
+        column?: outputs.quicksight.DashboardColumnSort;
+        dataPath?: outputs.quicksight.DashboardDataPathSort;
+        field?: outputs.quicksight.DashboardFieldSort;
+    }
+
+    export interface DashboardPivotTableSortConfiguration {
+        fieldSortOptions?: outputs.quicksight.DashboardPivotFieldSortOptions[];
+    }
+
+    export interface DashboardPivotTableTotalOptions {
+        columnSubtotalOptions?: outputs.quicksight.DashboardSubtotalOptions;
+        columnTotalOptions?: outputs.quicksight.DashboardPivotTotalOptions;
+        rowSubtotalOptions?: outputs.quicksight.DashboardSubtotalOptions;
+        rowTotalOptions?: outputs.quicksight.DashboardPivotTotalOptions;
+    }
+
+    export interface DashboardPivotTableVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardPivotTableConfiguration;
+        conditionalFormatting?: outputs.quicksight.DashboardPivotTableConditionalFormatting;
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardPivotTotalOptions {
+        customLabel?: string;
+        metricHeaderCellStyle?: outputs.quicksight.DashboardTableCellStyle;
+        placement?: enums.quicksight.DashboardTableTotalsPlacement;
+        scrollStatus?: enums.quicksight.DashboardTableTotalsScrollStatus;
+        totalCellStyle?: outputs.quicksight.DashboardTableCellStyle;
+        totalsVisibility?: enums.quicksight.DashboardVisibility;
+        valueCellStyle?: outputs.quicksight.DashboardTableCellStyle;
+    }
+
+    export interface DashboardPredefinedHierarchy {
+        columns: outputs.quicksight.DashboardColumnIdentifier[];
+        drillDownFilters?: outputs.quicksight.DashboardDrillDownFilter[];
+        hierarchyId: string;
+    }
+
+    export interface DashboardProgressBarOptions {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
     export interface DashboardPublishOptions {
         adHocFilteringOption?: outputs.quicksight.DashboardAdHocFilteringOption;
+        dataPointDrillUpDownOption?: outputs.quicksight.DashboardDataPointDrillUpDownOption;
+        dataPointMenuLabelOption?: outputs.quicksight.DashboardDataPointMenuLabelOption;
+        dataPointTooltipOption?: outputs.quicksight.DashboardDataPointTooltipOption;
         exportToCSVOption?: outputs.quicksight.DashboardExportToCSVOption;
+        exportWithHiddenFieldsOption?: outputs.quicksight.DashboardExportWithHiddenFieldsOption;
         sheetControlsOption?: outputs.quicksight.DashboardSheetControlsOption;
+        sheetLayoutElementMaximizationOption?: outputs.quicksight.DashboardSheetLayoutElementMaximizationOption;
+        visualAxisSortOption?: outputs.quicksight.DashboardVisualAxisSortOption;
+        visualMenuOption?: outputs.quicksight.DashboardVisualMenuOption;
+        visualPublishOptions?: outputs.quicksight.DashboardVisualPublishOptions;
     }
 
-    /**
-     * <p>Permission for the resource.</p>
-     */
+    export interface DashboardRadarChartAggregatedFieldWells {
+        category?: outputs.quicksight.DashboardDimensionField[];
+        color?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardRadarChartAreaStyleSettings {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardRadarChartConfiguration {
+        alternateBandColorsVisibility?: enums.quicksight.DashboardVisibility;
+        alternateBandEvenColor?: string;
+        alternateBandOddColor?: string;
+        baseSeriesSettings?: outputs.quicksight.DashboardRadarChartSeriesSettings;
+        categoryAxis?: outputs.quicksight.DashboardAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        colorAxis?: outputs.quicksight.DashboardAxisDisplayOptions;
+        colorLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardRadarChartFieldWells;
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        shape?: enums.quicksight.DashboardRadarChartShape;
+        sortConfiguration?: outputs.quicksight.DashboardRadarChartSortConfiguration;
+        startAngle?: number;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+    }
+
+    export interface DashboardRadarChartFieldWells {
+        radarChartAggregatedFieldWells?: outputs.quicksight.DashboardRadarChartAggregatedFieldWells;
+    }
+
+    export interface DashboardRadarChartSeriesSettings {
+        areaStyleSettings?: outputs.quicksight.DashboardRadarChartAreaStyleSettings;
+    }
+
+    export interface DashboardRadarChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.DashboardFieldSortOptions[];
+        colorItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        colorSort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardRadarChartVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardRadarChartConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardRangeEndsLabelType {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardReferenceLine {
+        dataConfiguration: outputs.quicksight.DashboardReferenceLineDataConfiguration;
+        labelConfiguration?: outputs.quicksight.DashboardReferenceLineLabelConfiguration;
+        status?: enums.quicksight.DashboardWidgetStatus;
+        styleConfiguration?: outputs.quicksight.DashboardReferenceLineStyleConfiguration;
+    }
+
+    export interface DashboardReferenceLineCustomLabelConfiguration {
+        customLabel: string;
+    }
+
+    export interface DashboardReferenceLineDataConfiguration {
+        axisBinding?: enums.quicksight.DashboardAxisBinding;
+        dynamicConfiguration?: outputs.quicksight.DashboardReferenceLineDynamicDataConfiguration;
+        staticConfiguration?: outputs.quicksight.DashboardReferenceLineStaticDataConfiguration;
+    }
+
+    export interface DashboardReferenceLineDynamicDataConfiguration {
+        calculation: outputs.quicksight.DashboardNumericalAggregationFunction;
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        measureAggregationFunction: outputs.quicksight.DashboardAggregationFunction;
+    }
+
+    export interface DashboardReferenceLineLabelConfiguration {
+        customLabelConfiguration?: outputs.quicksight.DashboardReferenceLineCustomLabelConfiguration;
+        fontColor?: string;
+        fontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
+        horizontalPosition?: enums.quicksight.DashboardReferenceLineLabelHorizontalPosition;
+        valueLabelConfiguration?: outputs.quicksight.DashboardReferenceLineValueLabelConfiguration;
+        verticalPosition?: enums.quicksight.DashboardReferenceLineLabelVerticalPosition;
+    }
+
+    export interface DashboardReferenceLineStaticDataConfiguration {
+        value: number;
+    }
+
+    export interface DashboardReferenceLineStyleConfiguration {
+        color?: string;
+        pattern?: enums.quicksight.DashboardReferenceLinePatternType;
+    }
+
+    export interface DashboardReferenceLineValueLabelConfiguration {
+        formatConfiguration?: outputs.quicksight.DashboardNumericFormatConfiguration;
+        relativePosition?: enums.quicksight.DashboardReferenceLineValueLabelRelativePosition;
+    }
+
+    export interface DashboardRelativeDateTimeControlDisplayOptions {
+        dateTimeFormat?: string;
+        titleOptions?: outputs.quicksight.DashboardLabelOptions;
+    }
+
+    export interface DashboardRelativeDatesFilter {
+        anchorDateConfiguration: outputs.quicksight.DashboardAnchorDateConfiguration;
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        excludePeriodConfiguration?: outputs.quicksight.DashboardExcludePeriodConfiguration;
+        filterId: string;
+        minimumGranularity?: enums.quicksight.DashboardTimeGranularity;
+        nullOption: enums.quicksight.DashboardFilterNullOption;
+        parameterName?: string;
+        relativeDateType: enums.quicksight.DashboardRelativeDateType;
+        relativeDateValue?: number;
+        timeGranularity: enums.quicksight.DashboardTimeGranularity;
+    }
+
     export interface DashboardResourcePermission {
-        /**
-         * <p>The IAM action to grant or revoke permissions on.</p>
-         */
         actions: string[];
-        /**
-         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-         *             following:</p>
-         *         <ul>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
-         *                     (This is less common.) </p>
-         *             </li>
-         *          </ul>
-         */
         principal: string;
+        resource?: string;
     }
 
-    /**
-     * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-     *             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-     *             contains at least one sheet. Each sheet contains at least one visualization widget, for
-     *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-     *             components, such as controls, filters, and so on.</p>
-     */
+    export interface DashboardRollingDateConfiguration {
+        dataSetIdentifier?: string;
+        expression: string;
+    }
+
+    export interface DashboardRowAlternateColorOptions {
+        rowAlternateColors?: string[];
+        status?: enums.quicksight.DashboardWidgetStatus;
+    }
+
+    export interface DashboardSameSheetTargetVisualConfiguration {
+        targetVisualOptions?: enums.quicksight.DashboardTargetVisualOptions;
+        targetVisuals?: string[];
+    }
+
+    export interface DashboardSankeyDiagramAggregatedFieldWells {
+        destination?: outputs.quicksight.DashboardDimensionField[];
+        source?: outputs.quicksight.DashboardDimensionField[];
+        weight?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardSankeyDiagramChartConfiguration {
+        dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardSankeyDiagramFieldWells;
+        sortConfiguration?: outputs.quicksight.DashboardSankeyDiagramSortConfiguration;
+    }
+
+    export interface DashboardSankeyDiagramFieldWells {
+        sankeyDiagramAggregatedFieldWells?: outputs.quicksight.DashboardSankeyDiagramAggregatedFieldWells;
+    }
+
+    export interface DashboardSankeyDiagramSortConfiguration {
+        destinationItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        sourceItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        weightSort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardSankeyDiagramVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardSankeyDiagramChartConfiguration;
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardScatterPlotCategoricallyAggregatedFieldWells {
+        category?: outputs.quicksight.DashboardDimensionField[];
+        size?: outputs.quicksight.DashboardMeasureField[];
+        xAxis?: outputs.quicksight.DashboardMeasureField[];
+        yAxis?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardScatterPlotConfiguration {
+        dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardScatterPlotFieldWells;
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+        xAxisDisplayOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
+        xAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        yAxisDisplayOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
+        yAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+    }
+
+    export interface DashboardScatterPlotFieldWells {
+        scatterPlotCategoricallyAggregatedFieldWells?: outputs.quicksight.DashboardScatterPlotCategoricallyAggregatedFieldWells;
+        scatterPlotUnaggregatedFieldWells?: outputs.quicksight.DashboardScatterPlotUnaggregatedFieldWells;
+    }
+
+    export interface DashboardScatterPlotUnaggregatedFieldWells {
+        size?: outputs.quicksight.DashboardMeasureField[];
+        xAxis?: outputs.quicksight.DashboardDimensionField[];
+        yAxis?: outputs.quicksight.DashboardDimensionField[];
+    }
+
+    export interface DashboardScatterPlotVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardScatterPlotConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardScrollBarOptions {
+        visibility?: enums.quicksight.DashboardVisibility;
+        visibleRange?: outputs.quicksight.DashboardVisibleRangeOptions;
+    }
+
+    export interface DashboardSecondaryValueOptions {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardSectionAfterPageBreak {
+        status?: enums.quicksight.DashboardSectionPageBreakStatus;
+    }
+
+    export interface DashboardSectionBasedLayoutCanvasSizeOptions {
+        paperCanvasSizeOptions?: outputs.quicksight.DashboardSectionBasedLayoutPaperCanvasSizeOptions;
+    }
+
+    export interface DashboardSectionBasedLayoutConfiguration {
+        bodySections: outputs.quicksight.DashboardBodySectionConfiguration[];
+        canvasSizeOptions: outputs.quicksight.DashboardSectionBasedLayoutCanvasSizeOptions;
+        footerSections: outputs.quicksight.DashboardHeaderFooterSectionConfiguration[];
+        headerSections: outputs.quicksight.DashboardHeaderFooterSectionConfiguration[];
+    }
+
+    export interface DashboardSectionBasedLayoutPaperCanvasSizeOptions {
+        paperMargin?: outputs.quicksight.DashboardSpacing;
+        paperOrientation?: enums.quicksight.DashboardPaperOrientation;
+        paperSize?: enums.quicksight.DashboardPaperSize;
+    }
+
+    export interface DashboardSectionLayoutConfiguration {
+        freeFormLayout: outputs.quicksight.DashboardFreeFormSectionLayoutConfiguration;
+    }
+
+    export interface DashboardSectionPageBreakConfiguration {
+        after?: outputs.quicksight.DashboardSectionAfterPageBreak;
+    }
+
+    export interface DashboardSectionStyle {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: string;
+        padding?: outputs.quicksight.DashboardSpacing;
+    }
+
+    export interface DashboardSelectedSheetsFilterScopeConfiguration {
+        sheetVisualScopingConfigurations?: outputs.quicksight.DashboardSheetVisualScopingConfiguration[];
+    }
+
+    export interface DashboardSeriesItem {
+        dataFieldSeriesItem?: outputs.quicksight.DashboardDataFieldSeriesItem;
+        fieldSeriesItem?: outputs.quicksight.DashboardFieldSeriesItem;
+    }
+
+    export interface DashboardSetParameterValueConfiguration {
+        destinationParameterName: string;
+        value: outputs.quicksight.DashboardDestinationParameterValueConfiguration;
+    }
+
+    export interface DashboardShapeConditionalFormat {
+        backgroundColor: outputs.quicksight.DashboardConditionalFormattingColor;
+    }
+
     export interface DashboardSheet {
-        /**
-         * <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
-         *             console.</p>
-         */
         name?: string;
-        /**
-         * <p>The unique identifier associated with a sheet.</p>
-         */
         sheetId?: string;
     }
 
-    /**
-     * <p>Sheet controls option.</p>
-     */
+    export interface DashboardSheetControlLayout {
+        configuration: outputs.quicksight.DashboardSheetControlLayoutConfiguration;
+    }
+
+    export interface DashboardSheetControlLayoutConfiguration {
+        gridLayout?: outputs.quicksight.DashboardGridLayoutConfiguration;
+    }
+
     export interface DashboardSheetControlsOption {
         visibilityState?: enums.quicksight.DashboardUIState;
     }
 
-    /**
-     * <p>Dashboard source entity.</p>
-     */
+    export interface DashboardSheetDefinition {
+        contentType?: enums.quicksight.DashboardSheetContentType;
+        description?: string;
+        filterControls?: outputs.quicksight.DashboardFilterControl[];
+        layouts?: outputs.quicksight.DashboardLayout[];
+        name?: string;
+        parameterControls?: outputs.quicksight.DashboardParameterControl[];
+        sheetControlLayouts?: outputs.quicksight.DashboardSheetControlLayout[];
+        sheetId: string;
+        textBoxes?: outputs.quicksight.DashboardSheetTextBox[];
+        title?: string;
+        visuals?: outputs.quicksight.DashboardVisual[];
+    }
+
+    export interface DashboardSheetElementConfigurationOverrides {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardSheetElementRenderingRule {
+        configurationOverrides: outputs.quicksight.DashboardSheetElementConfigurationOverrides;
+        expression: string;
+    }
+
+    export interface DashboardSheetLayoutElementMaximizationOption {
+        availabilityStatus?: enums.quicksight.DashboardBehavior;
+    }
+
+    export interface DashboardSheetTextBox {
+        content?: string;
+        sheetTextBoxId: string;
+    }
+
+    export interface DashboardSheetVisualScopingConfiguration {
+        scope: enums.quicksight.DashboardFilterVisualScope;
+        sheetId: string;
+        visualIds?: string[];
+    }
+
+    export interface DashboardShortFormatText {
+        plainText?: string;
+        richText?: string;
+    }
+
+    export interface DashboardSimpleClusterMarker {
+        color?: string;
+    }
+
+    export interface DashboardSliderControlDisplayOptions {
+        titleOptions?: outputs.quicksight.DashboardLabelOptions;
+    }
+
+    export interface DashboardSmallMultiplesOptions {
+        maxVisibleColumns?: number;
+        maxVisibleRows?: number;
+        panelConfiguration?: outputs.quicksight.DashboardPanelConfiguration;
+    }
+
     export interface DashboardSourceEntity {
         sourceTemplate?: outputs.quicksight.DashboardSourceTemplate;
     }
 
-    /**
-     * <p>Dashboard source template.</p>
-     */
     export interface DashboardSourceTemplate {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
         arn: string;
-        /**
-         * <p>Dataset references.</p>
-         */
         dataSetReferences: outputs.quicksight.DashboardDataSetReference[];
     }
 
-    /**
-     * <p>A string parameter.</p>
-     */
+    export interface DashboardSpacing {
+        /**
+         * String based length that is composed of value and unit
+         */
+        bottom?: string;
+        /**
+         * String based length that is composed of value and unit
+         */
+        left?: string;
+        /**
+         * String based length that is composed of value and unit
+         */
+        right?: string;
+        /**
+         * String based length that is composed of value and unit
+         */
+        top?: string;
+    }
+
+    export interface DashboardStringDefaultValues {
+        dynamicValue?: outputs.quicksight.DashboardDynamicDefaultValue;
+        staticValues?: string[];
+    }
+
+    export interface DashboardStringFormatConfiguration {
+        nullValueFormatConfiguration?: outputs.quicksight.DashboardNullValueFormatConfiguration;
+        numericFormatConfiguration?: outputs.quicksight.DashboardNumericFormatConfiguration;
+    }
+
     export interface DashboardStringParameter {
-        /**
-         * <p>A display name for a string parameter.</p>
-         */
         name: string;
-        /**
-         * <p>The values of a string parameter.</p>
-         */
         values: string[];
     }
 
-    /**
-     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-     *             resource.</p>
-     */
+    export interface DashboardStringParameterDeclaration {
+        defaultValues?: outputs.quicksight.DashboardStringDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.DashboardMappedDataSetParameter[];
+        name: string;
+        parameterValueType: enums.quicksight.DashboardParameterValueType;
+        valueWhenUnset?: outputs.quicksight.DashboardStringValueWhenUnsetConfiguration;
+    }
+
+    export interface DashboardStringValueWhenUnsetConfiguration {
+        customValue?: string;
+        valueWhenUnsetOption?: enums.quicksight.DashboardValueWhenUnsetOption;
+    }
+
+    export interface DashboardSubtotalOptions {
+        customLabel?: string;
+        fieldLevel?: enums.quicksight.DashboardPivotTableSubtotalLevel;
+        fieldLevelOptions?: outputs.quicksight.DashboardPivotTableFieldSubtotalOptions[];
+        metricHeaderCellStyle?: outputs.quicksight.DashboardTableCellStyle;
+        totalCellStyle?: outputs.quicksight.DashboardTableCellStyle;
+        totalsVisibility?: enums.quicksight.DashboardVisibility;
+        valueCellStyle?: outputs.quicksight.DashboardTableCellStyle;
+    }
+
+    export interface DashboardTableAggregatedFieldWells {
+        groupBy?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardTableBorderOptions {
+        color?: string;
+        style?: enums.quicksight.DashboardTableBorderStyle;
+        thickness?: number;
+    }
+
+    export interface DashboardTableCellConditionalFormatting {
+        fieldId: string;
+        textFormat?: outputs.quicksight.DashboardTextConditionalFormat;
+    }
+
+    export interface DashboardTableCellImageSizingConfiguration {
+        tableCellImageScalingConfiguration?: enums.quicksight.DashboardTableCellImageScalingConfiguration;
+    }
+
+    export interface DashboardTableCellStyle {
+        backgroundColor?: string;
+        border?: outputs.quicksight.DashboardGlobalTableBorderOptions;
+        fontConfiguration?: outputs.quicksight.DashboardFontConfiguration;
+        height?: number;
+        horizontalTextAlignment?: enums.quicksight.DashboardHorizontalTextAlignment;
+        textWrap?: enums.quicksight.DashboardTextWrap;
+        verticalTextAlignment?: enums.quicksight.DashboardVerticalTextAlignment;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardTableConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.DashboardTableConditionalFormattingOption[];
+    }
+
+    export interface DashboardTableConditionalFormattingOption {
+        cell?: outputs.quicksight.DashboardTableCellConditionalFormatting;
+        row?: outputs.quicksight.DashboardTableRowConditionalFormatting;
+    }
+
+    export interface DashboardTableConfiguration {
+        fieldOptions?: outputs.quicksight.DashboardTableFieldOptions;
+        fieldWells?: outputs.quicksight.DashboardTableFieldWells;
+        paginatedReportOptions?: outputs.quicksight.DashboardTablePaginatedReportOptions;
+        sortConfiguration?: outputs.quicksight.DashboardTableSortConfiguration;
+        tableInlineVisualizations?: outputs.quicksight.DashboardTableInlineVisualization[];
+        tableOptions?: outputs.quicksight.DashboardTableOptions;
+        totalOptions?: outputs.quicksight.DashboardTotalOptions;
+    }
+
+    export interface DashboardTableFieldCustomIconContent {
+        icon?: enums.quicksight.DashboardTableFieldIconSetType;
+    }
+
+    export interface DashboardTableFieldCustomTextContent {
+        fontConfiguration: outputs.quicksight.DashboardFontConfiguration;
+        value?: string;
+    }
+
+    export interface DashboardTableFieldImageConfiguration {
+        sizingOptions?: outputs.quicksight.DashboardTableCellImageSizingConfiguration;
+    }
+
+    export interface DashboardTableFieldLinkConfiguration {
+        content: outputs.quicksight.DashboardTableFieldLinkContentConfiguration;
+        target: enums.quicksight.DashboardURLTargetConfiguration;
+    }
+
+    export interface DashboardTableFieldLinkContentConfiguration {
+        customIconContent?: outputs.quicksight.DashboardTableFieldCustomIconContent;
+        customTextContent?: outputs.quicksight.DashboardTableFieldCustomTextContent;
+    }
+
+    export interface DashboardTableFieldOption {
+        customLabel?: string;
+        fieldId: string;
+        uRLStyling?: outputs.quicksight.DashboardTableFieldURLConfiguration;
+        visibility?: enums.quicksight.DashboardVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: string;
+    }
+
+    export interface DashboardTableFieldOptions {
+        order?: string[];
+        selectedFieldOptions?: outputs.quicksight.DashboardTableFieldOption[];
+    }
+
+    export interface DashboardTableFieldURLConfiguration {
+        imageConfiguration?: outputs.quicksight.DashboardTableFieldImageConfiguration;
+        linkConfiguration?: outputs.quicksight.DashboardTableFieldLinkConfiguration;
+    }
+
+    export interface DashboardTableFieldWells {
+        tableAggregatedFieldWells?: outputs.quicksight.DashboardTableAggregatedFieldWells;
+        tableUnaggregatedFieldWells?: outputs.quicksight.DashboardTableUnaggregatedFieldWells;
+    }
+
+    export interface DashboardTableInlineVisualization {
+        dataBars?: outputs.quicksight.DashboardDataBarsOptions;
+    }
+
+    export interface DashboardTableOptions {
+        cellStyle?: outputs.quicksight.DashboardTableCellStyle;
+        headerStyle?: outputs.quicksight.DashboardTableCellStyle;
+        orientation?: enums.quicksight.DashboardTableOrientation;
+        rowAlternateColorOptions?: outputs.quicksight.DashboardRowAlternateColorOptions;
+    }
+
+    export interface DashboardTablePaginatedReportOptions {
+        overflowColumnHeaderVisibility?: enums.quicksight.DashboardVisibility;
+        verticalOverflowVisibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardTableRowConditionalFormatting {
+        backgroundColor?: outputs.quicksight.DashboardConditionalFormattingColor;
+        textColor?: outputs.quicksight.DashboardConditionalFormattingColor;
+    }
+
+    export interface DashboardTableSideBorderOptions {
+        bottom?: outputs.quicksight.DashboardTableBorderOptions;
+        innerHorizontal?: outputs.quicksight.DashboardTableBorderOptions;
+        innerVertical?: outputs.quicksight.DashboardTableBorderOptions;
+        left?: outputs.quicksight.DashboardTableBorderOptions;
+        right?: outputs.quicksight.DashboardTableBorderOptions;
+        top?: outputs.quicksight.DashboardTableBorderOptions;
+    }
+
+    export interface DashboardTableSortConfiguration {
+        paginationConfiguration?: outputs.quicksight.DashboardPaginationConfiguration;
+        rowSort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardTableUnaggregatedFieldWells {
+        values?: outputs.quicksight.DashboardUnaggregatedField[];
+    }
+
+    export interface DashboardTableVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardTableConfiguration;
+        conditionalFormatting?: outputs.quicksight.DashboardTableConditionalFormatting;
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
     export interface DashboardTag {
-        /**
-         * <p>Tag key.</p>
-         */
         key: string;
-        /**
-         * <p>Tag value.</p>
-         */
         value: string;
     }
 
-    /**
-     * <p>Dashboard version.</p>
-     */
+    export interface DashboardTextAreaControlDisplayOptions {
+        placeholderOptions?: outputs.quicksight.DashboardTextControlPlaceholderOptions;
+        titleOptions?: outputs.quicksight.DashboardLabelOptions;
+    }
+
+    export interface DashboardTextConditionalFormat {
+        backgroundColor?: outputs.quicksight.DashboardConditionalFormattingColor;
+        icon?: outputs.quicksight.DashboardConditionalFormattingIcon;
+        textColor?: outputs.quicksight.DashboardConditionalFormattingColor;
+    }
+
+    export interface DashboardTextControlPlaceholderOptions {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardTextFieldControlDisplayOptions {
+        placeholderOptions?: outputs.quicksight.DashboardTextControlPlaceholderOptions;
+        titleOptions?: outputs.quicksight.DashboardLabelOptions;
+    }
+
+    export interface DashboardThousandSeparatorOptions {
+        symbol?: enums.quicksight.DashboardNumericSeparatorSymbol;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardTimeBasedForecastProperties {
+        lowerBoundary?: number;
+        periodsBackward?: number;
+        periodsForward?: number;
+        predictionInterval?: number;
+        seasonality?: number;
+        upperBoundary?: number;
+    }
+
+    export interface DashboardTimeEqualityFilter {
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        filterId: string;
+        parameterName?: string;
+        timeGranularity?: enums.quicksight.DashboardTimeGranularity;
+        value?: string;
+    }
+
+    export interface DashboardTimeRangeDrillDownFilter {
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        rangeMaximum: string;
+        rangeMinimum: string;
+        timeGranularity: enums.quicksight.DashboardTimeGranularity;
+    }
+
+    export interface DashboardTimeRangeFilter {
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        excludePeriodConfiguration?: outputs.quicksight.DashboardExcludePeriodConfiguration;
+        filterId: string;
+        includeMaximum?: boolean;
+        includeMinimum?: boolean;
+        nullOption: enums.quicksight.DashboardFilterNullOption;
+        rangeMaximumValue?: outputs.quicksight.DashboardTimeRangeFilterValue;
+        rangeMinimumValue?: outputs.quicksight.DashboardTimeRangeFilterValue;
+        timeGranularity?: enums.quicksight.DashboardTimeGranularity;
+    }
+
+    export interface DashboardTimeRangeFilterValue {
+        parameter?: string;
+        rollingDate?: outputs.quicksight.DashboardRollingDateConfiguration;
+        staticValue?: string;
+    }
+
+    export interface DashboardTooltipItem {
+        columnTooltipItem?: outputs.quicksight.DashboardColumnTooltipItem;
+        fieldTooltipItem?: outputs.quicksight.DashboardFieldTooltipItem;
+    }
+
+    export interface DashboardTooltipOptions {
+        fieldBasedTooltip?: outputs.quicksight.DashboardFieldBasedTooltip;
+        selectedTooltipType?: enums.quicksight.DashboardSelectedTooltipType;
+        tooltipVisibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardTopBottomFilter {
+        aggregationSortConfigurations: outputs.quicksight.DashboardAggregationSortConfiguration[];
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        filterId: string;
+        limit?: number;
+        parameterName?: string;
+        timeGranularity?: enums.quicksight.DashboardTimeGranularity;
+    }
+
+    export interface DashboardTopBottomMoversComputation {
+        category: outputs.quicksight.DashboardDimensionField;
+        computationId: string;
+        moverSize?: number;
+        name?: string;
+        sortOrder?: enums.quicksight.DashboardTopBottomSortOrder;
+        time: outputs.quicksight.DashboardDimensionField;
+        type: enums.quicksight.DashboardTopBottomComputationType;
+        value?: outputs.quicksight.DashboardMeasureField;
+    }
+
+    export interface DashboardTopBottomRankedComputation {
+        category: outputs.quicksight.DashboardDimensionField;
+        computationId: string;
+        name?: string;
+        resultSize?: number;
+        type: enums.quicksight.DashboardTopBottomComputationType;
+        value?: outputs.quicksight.DashboardMeasureField;
+    }
+
+    export interface DashboardTotalAggregationComputation {
+        computationId: string;
+        name?: string;
+        value: outputs.quicksight.DashboardMeasureField;
+    }
+
+    export interface DashboardTotalOptions {
+        customLabel?: string;
+        placement?: enums.quicksight.DashboardTableTotalsPlacement;
+        scrollStatus?: enums.quicksight.DashboardTableTotalsScrollStatus;
+        totalCellStyle?: outputs.quicksight.DashboardTableCellStyle;
+        totalsVisibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardTreeMapAggregatedFieldWells {
+        colors?: outputs.quicksight.DashboardMeasureField[];
+        groups?: outputs.quicksight.DashboardDimensionField[];
+        sizes?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardTreeMapConfiguration {
+        colorLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        colorScale?: outputs.quicksight.DashboardColorScale;
+        dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardTreeMapFieldWells;
+        groupLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        sizeLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.DashboardTreeMapSortConfiguration;
+        tooltip?: outputs.quicksight.DashboardTooltipOptions;
+    }
+
+    export interface DashboardTreeMapFieldWells {
+        treeMapAggregatedFieldWells?: outputs.quicksight.DashboardTreeMapAggregatedFieldWells;
+    }
+
+    export interface DashboardTreeMapSortConfiguration {
+        treeMapGroupItemsLimitConfiguration?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        treeMapSort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardTreeMapVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardTreeMapConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardTrendArrowOptions {
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardUnaggregatedField {
+        column: outputs.quicksight.DashboardColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.DashboardFormatConfiguration;
+    }
+
+    export interface DashboardUniqueValuesComputation {
+        category: outputs.quicksight.DashboardDimensionField;
+        computationId: string;
+        name?: string;
+    }
+
     export interface DashboardVersion {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
         arn?: string;
-        /**
-         * <p>The time that this dashboard version was created.</p>
-         */
         createdTime?: string;
-        /**
-         * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-         *             version of the dashboard.</p>
-         */
         dataSetArns?: string[];
-        /**
-         * <p>Description.</p>
-         */
         description?: string;
-        /**
-         * <p>Errors associated with this dashboard version.</p>
-         */
         errors?: outputs.quicksight.DashboardError[];
-        /**
-         * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-         */
         sheets?: outputs.quicksight.DashboardSheet[];
-        /**
-         * <p>Source entity ARN.</p>
-         */
         sourceEntityArn?: string;
         status?: enums.quicksight.DashboardResourceStatus;
-        /**
-         * <p>The ARN of the theme associated with a version of the dashboard.</p>
-         */
         themeArn?: string;
-        /**
-         * <p>Version number for this version of the dashboard.</p>
-         */
         versionNumber?: number;
+    }
+
+    export interface DashboardVersionDefinition {
+        analysisDefaults?: outputs.quicksight.DashboardAnalysisDefaults;
+        calculatedFields?: outputs.quicksight.DashboardCalculatedField[];
+        columnConfigurations?: outputs.quicksight.DashboardColumnConfiguration[];
+        dataSetIdentifierDeclarations: outputs.quicksight.DashboardDataSetIdentifierDeclaration[];
+        filterGroups?: outputs.quicksight.DashboardFilterGroup[];
+        parameterDeclarations?: outputs.quicksight.DashboardParameterDeclaration[];
+        sheets?: outputs.quicksight.DashboardSheetDefinition[];
+    }
+
+    export interface DashboardVisibleRangeOptions {
+        percentRange?: outputs.quicksight.DashboardPercentVisibleRange;
+    }
+
+    export interface DashboardVisual {
+        barChartVisual?: outputs.quicksight.DashboardBarChartVisual;
+        boxPlotVisual?: outputs.quicksight.DashboardBoxPlotVisual;
+        comboChartVisual?: outputs.quicksight.DashboardComboChartVisual;
+        customContentVisual?: outputs.quicksight.DashboardCustomContentVisual;
+        emptyVisual?: outputs.quicksight.DashboardEmptyVisual;
+        filledMapVisual?: outputs.quicksight.DashboardFilledMapVisual;
+        funnelChartVisual?: outputs.quicksight.DashboardFunnelChartVisual;
+        gaugeChartVisual?: outputs.quicksight.DashboardGaugeChartVisual;
+        geospatialMapVisual?: outputs.quicksight.DashboardGeospatialMapVisual;
+        heatMapVisual?: outputs.quicksight.DashboardHeatMapVisual;
+        histogramVisual?: outputs.quicksight.DashboardHistogramVisual;
+        insightVisual?: outputs.quicksight.DashboardInsightVisual;
+        kPIVisual?: outputs.quicksight.DashboardKPIVisual;
+        lineChartVisual?: outputs.quicksight.DashboardLineChartVisual;
+        pieChartVisual?: outputs.quicksight.DashboardPieChartVisual;
+        pivotTableVisual?: outputs.quicksight.DashboardPivotTableVisual;
+        radarChartVisual?: outputs.quicksight.DashboardRadarChartVisual;
+        sankeyDiagramVisual?: outputs.quicksight.DashboardSankeyDiagramVisual;
+        scatterPlotVisual?: outputs.quicksight.DashboardScatterPlotVisual;
+        tableVisual?: outputs.quicksight.DashboardTableVisual;
+        treeMapVisual?: outputs.quicksight.DashboardTreeMapVisual;
+        waterfallVisual?: outputs.quicksight.DashboardWaterfallVisual;
+        wordCloudVisual?: outputs.quicksight.DashboardWordCloudVisual;
+    }
+
+    export interface DashboardVisualAxisSortOption {
+        availabilityStatus?: enums.quicksight.DashboardBehavior;
+    }
+
+    export interface DashboardVisualCustomAction {
+        actionOperations: outputs.quicksight.DashboardVisualCustomActionOperation[];
+        customActionId: string;
+        name: string;
+        status?: enums.quicksight.DashboardWidgetStatus;
+        trigger: enums.quicksight.DashboardVisualCustomActionTrigger;
+    }
+
+    export interface DashboardVisualCustomActionOperation {
+        filterOperation?: outputs.quicksight.DashboardCustomActionFilterOperation;
+        navigationOperation?: outputs.quicksight.DashboardCustomActionNavigationOperation;
+        setParametersOperation?: outputs.quicksight.DashboardCustomActionSetParametersOperation;
+        uRLOperation?: outputs.quicksight.DashboardCustomActionURLOperation;
+    }
+
+    export interface DashboardVisualMenuOption {
+        availabilityStatus?: enums.quicksight.DashboardBehavior;
+    }
+
+    export interface DashboardVisualPalette {
+        chartColor?: string;
+        colorMap?: outputs.quicksight.DashboardDataPathColor[];
+    }
+
+    export interface DashboardVisualPublishOptions {
+        exportHiddenFieldsOption?: outputs.quicksight.DashboardExportHiddenFieldsOption;
+    }
+
+    export interface DashboardVisualSubtitleLabelOptions {
+        formatText?: outputs.quicksight.DashboardLongFormatText;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardVisualTitleLabelOptions {
+        formatText?: outputs.quicksight.DashboardShortFormatText;
+        visibility?: enums.quicksight.DashboardVisibility;
+    }
+
+    export interface DashboardWaterfallChartAggregatedFieldWells {
+        breakdowns?: outputs.quicksight.DashboardDimensionField[];
+        categories?: outputs.quicksight.DashboardDimensionField[];
+        values?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardWaterfallChartConfiguration {
+        categoryAxisDisplayOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
+        categoryAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardWaterfallChartFieldWells;
+        legend?: outputs.quicksight.DashboardLegendOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.DashboardWaterfallChartSortConfiguration;
+        visualPalette?: outputs.quicksight.DashboardVisualPalette;
+        waterfallChartOptions?: outputs.quicksight.DashboardWaterfallChartOptions;
+    }
+
+    export interface DashboardWaterfallChartFieldWells {
+        waterfallChartAggregatedFieldWells?: outputs.quicksight.DashboardWaterfallChartAggregatedFieldWells;
+    }
+
+    export interface DashboardWaterfallChartOptions {
+        totalBarLabel?: string;
+    }
+
+    export interface DashboardWaterfallChartSortConfiguration {
+        breakdownItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardWaterfallVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardWaterfallChartConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface DashboardWhatIfPointScenario {
+        date: string;
+        value: number;
+    }
+
+    export interface DashboardWhatIfRangeScenario {
+        endDate: string;
+        startDate: string;
+        value: number;
+    }
+
+    export interface DashboardWordCloudAggregatedFieldWells {
+        groupBy?: outputs.quicksight.DashboardDimensionField[];
+        size?: outputs.quicksight.DashboardMeasureField[];
+    }
+
+    export interface DashboardWordCloudChartConfiguration {
+        categoryLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.DashboardWordCloudFieldWells;
+        sortConfiguration?: outputs.quicksight.DashboardWordCloudSortConfiguration;
+        wordCloudOptions?: outputs.quicksight.DashboardWordCloudOptions;
+    }
+
+    export interface DashboardWordCloudFieldWells {
+        wordCloudAggregatedFieldWells?: outputs.quicksight.DashboardWordCloudAggregatedFieldWells;
+    }
+
+    export interface DashboardWordCloudOptions {
+        cloudLayout?: enums.quicksight.DashboardWordCloudCloudLayout;
+        maximumStringLength?: number;
+        wordCasing?: enums.quicksight.DashboardWordCloudWordCasing;
+        wordOrientation?: enums.quicksight.DashboardWordCloudWordOrientation;
+        wordPadding?: enums.quicksight.DashboardWordCloudWordPadding;
+        wordScaling?: enums.quicksight.DashboardWordCloudWordScaling;
+    }
+
+    export interface DashboardWordCloudSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.DashboardItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.DashboardFieldSortOptions[];
+    }
+
+    export interface DashboardWordCloudVisual {
+        actions?: outputs.quicksight.DashboardVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.DashboardWordCloudChartConfiguration;
+        columnHierarchies?: outputs.quicksight.DashboardColumnHierarchy[];
+        subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        visualId: string;
     }
 
     /**
@@ -30599,233 +36106,2911 @@ export namespace quicksight {
         vpcConnectionArn: string;
     }
 
-    /**
-     * <p>A structure describing the name, data type, and geographic role of the columns.</p>
-     */
+    export interface TemplateAggregationFunction {
+        categoricalAggregationFunction?: enums.quicksight.TemplateCategoricalAggregationFunction;
+        dateAggregationFunction?: enums.quicksight.TemplateDateAggregationFunction;
+        numericalAggregationFunction?: outputs.quicksight.TemplateNumericalAggregationFunction;
+    }
+
+    export interface TemplateAggregationSortConfiguration {
+        aggregationFunction: outputs.quicksight.TemplateAggregationFunction;
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        sortDirection: enums.quicksight.TemplateSortDirection;
+    }
+
+    export interface TemplateAnalysisDefaults {
+        defaultNewSheetConfiguration: outputs.quicksight.TemplateDefaultNewSheetConfiguration;
+    }
+
+    export interface TemplateAnchorDateConfiguration {
+        anchorOption?: enums.quicksight.TemplateAnchorOption;
+        parameterName?: string;
+    }
+
+    export interface TemplateArcAxisConfiguration {
+        range?: outputs.quicksight.TemplateArcAxisDisplayRange;
+        reserveRange?: number;
+    }
+
+    export interface TemplateArcAxisDisplayRange {
+        max?: number;
+        min?: number;
+    }
+
+    export interface TemplateArcConfiguration {
+        arcAngle?: number;
+        arcThickness?: enums.quicksight.TemplateArcThicknessOptions;
+    }
+
+    export interface TemplateArcOptions {
+        arcThickness?: enums.quicksight.TemplateArcThickness;
+    }
+
+    export interface TemplateAxisDataOptions {
+        dateAxisOptions?: outputs.quicksight.TemplateDateAxisOptions;
+        numericAxisOptions?: outputs.quicksight.TemplateNumericAxisOptions;
+    }
+
+    export interface TemplateAxisDisplayDataDrivenRange {
+    }
+
+    export interface TemplateAxisDisplayMinMaxRange {
+        maximum?: number;
+        minimum?: number;
+    }
+
+    export interface TemplateAxisDisplayOptions {
+        axisLineVisibility?: enums.quicksight.TemplateVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        axisOffset?: string;
+        dataOptions?: outputs.quicksight.TemplateAxisDataOptions;
+        gridLineVisibility?: enums.quicksight.TemplateVisibility;
+        scrollbarOptions?: outputs.quicksight.TemplateScrollBarOptions;
+        tickLabelOptions?: outputs.quicksight.TemplateAxisTickLabelOptions;
+    }
+
+    export interface TemplateAxisDisplayRange {
+        dataDriven?: outputs.quicksight.TemplateAxisDisplayDataDrivenRange;
+        minMax?: outputs.quicksight.TemplateAxisDisplayMinMaxRange;
+    }
+
+    export interface TemplateAxisLabelOptions {
+        applyTo?: outputs.quicksight.TemplateAxisLabelReferenceOptions;
+        customLabel?: string;
+        fontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
+    }
+
+    export interface TemplateAxisLabelReferenceOptions {
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        fieldId: string;
+    }
+
+    export interface TemplateAxisLinearScale {
+        stepCount?: number;
+        stepSize?: number;
+    }
+
+    export interface TemplateAxisLogarithmicScale {
+        base?: number;
+    }
+
+    export interface TemplateAxisScale {
+        linear?: outputs.quicksight.TemplateAxisLinearScale;
+        logarithmic?: outputs.quicksight.TemplateAxisLogarithmicScale;
+    }
+
+    export interface TemplateAxisTickLabelOptions {
+        labelOptions?: outputs.quicksight.TemplateLabelOptions;
+        rotationAngle?: number;
+    }
+
+    export interface TemplateBarChartAggregatedFieldWells {
+        category?: outputs.quicksight.TemplateDimensionField[];
+        colors?: outputs.quicksight.TemplateDimensionField[];
+        smallMultiples?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateBarChartConfiguration {
+        barsArrangement?: enums.quicksight.TemplateBarsArrangement;
+        categoryAxis?: outputs.quicksight.TemplateAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        colorLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        contributionAnalysisDefaults?: outputs.quicksight.TemplateContributionAnalysisDefault[];
+        dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateBarChartFieldWells;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        orientation?: enums.quicksight.TemplateBarChartOrientation;
+        referenceLines?: outputs.quicksight.TemplateReferenceLine[];
+        smallMultiplesOptions?: outputs.quicksight.TemplateSmallMultiplesOptions;
+        sortConfiguration?: outputs.quicksight.TemplateBarChartSortConfiguration;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+        valueAxis?: outputs.quicksight.TemplateAxisDisplayOptions;
+        valueLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+    }
+
+    export interface TemplateBarChartFieldWells {
+        barChartAggregatedFieldWells?: outputs.quicksight.TemplateBarChartAggregatedFieldWells;
+    }
+
+    export interface TemplateBarChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.TemplateFieldSortOptions[];
+        colorItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        colorSort?: outputs.quicksight.TemplateFieldSortOptions[];
+        smallMultiplesLimitConfiguration?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        smallMultiplesSort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateBarChartVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateBarChartConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateBinCountOptions {
+        value?: number;
+    }
+
+    export interface TemplateBinWidthOptions {
+        binCountLimit?: number;
+        value?: number;
+    }
+
+    export interface TemplateBodySectionConfiguration {
+        content: outputs.quicksight.TemplateBodySectionContent;
+        pageBreakConfiguration?: outputs.quicksight.TemplateSectionPageBreakConfiguration;
+        sectionId: string;
+        style?: outputs.quicksight.TemplateSectionStyle;
+    }
+
+    export interface TemplateBodySectionContent {
+        layout?: outputs.quicksight.TemplateSectionLayoutConfiguration;
+    }
+
+    export interface TemplateBoxPlotAggregatedFieldWells {
+        groupBy?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateBoxPlotChartConfiguration {
+        boxPlotOptions?: outputs.quicksight.TemplateBoxPlotOptions;
+        categoryAxis?: outputs.quicksight.TemplateAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateBoxPlotFieldWells;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        referenceLines?: outputs.quicksight.TemplateReferenceLine[];
+        sortConfiguration?: outputs.quicksight.TemplateBoxPlotSortConfiguration;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+    }
+
+    export interface TemplateBoxPlotFieldWells {
+        boxPlotAggregatedFieldWells?: outputs.quicksight.TemplateBoxPlotAggregatedFieldWells;
+    }
+
+    export interface TemplateBoxPlotOptions {
+        allDataPointsVisibility?: enums.quicksight.TemplateVisibility;
+        outlierVisibility?: enums.quicksight.TemplateVisibility;
+        styleOptions?: outputs.quicksight.TemplateBoxPlotStyleOptions;
+    }
+
+    export interface TemplateBoxPlotSortConfiguration {
+        categorySort?: outputs.quicksight.TemplateFieldSortOptions[];
+        paginationConfiguration?: outputs.quicksight.TemplatePaginationConfiguration;
+    }
+
+    export interface TemplateBoxPlotStyleOptions {
+        fillStyle?: enums.quicksight.TemplateBoxPlotFillStyle;
+    }
+
+    export interface TemplateBoxPlotVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateBoxPlotChartConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateCalculatedField {
+        dataSetIdentifier: string;
+        expression: string;
+        name: string;
+    }
+
+    export interface TemplateCalculatedMeasureField {
+        expression: string;
+        fieldId: string;
+    }
+
+    export interface TemplateCascadingControlConfiguration {
+        sourceControls?: outputs.quicksight.TemplateCascadingControlSource[];
+    }
+
+    export interface TemplateCascadingControlSource {
+        columnToMatch?: outputs.quicksight.TemplateColumnIdentifier;
+        sourceSheetControlId?: string;
+    }
+
+    export interface TemplateCategoricalDimensionField {
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.TemplateStringFormatConfiguration;
+        hierarchyId?: string;
+    }
+
+    export interface TemplateCategoricalMeasureField {
+        aggregationFunction?: enums.quicksight.TemplateCategoricalAggregationFunction;
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.TemplateStringFormatConfiguration;
+    }
+
+    export interface TemplateCategoryDrillDownFilter {
+        categoryValues: string[];
+        column: outputs.quicksight.TemplateColumnIdentifier;
+    }
+
+    export interface TemplateCategoryFilter {
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        configuration: outputs.quicksight.TemplateCategoryFilterConfiguration;
+        filterId: string;
+    }
+
+    export interface TemplateCategoryFilterConfiguration {
+        customFilterConfiguration?: outputs.quicksight.TemplateCustomFilterConfiguration;
+        customFilterListConfiguration?: outputs.quicksight.TemplateCustomFilterListConfiguration;
+        filterListConfiguration?: outputs.quicksight.TemplateFilterListConfiguration;
+    }
+
+    export interface TemplateChartAxisLabelOptions {
+        axisLabelOptions?: outputs.quicksight.TemplateAxisLabelOptions[];
+        sortIconVisibility?: enums.quicksight.TemplateVisibility;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateClusterMarker {
+        simpleClusterMarker?: outputs.quicksight.TemplateSimpleClusterMarker;
+    }
+
+    export interface TemplateClusterMarkerConfiguration {
+        clusterMarker?: outputs.quicksight.TemplateClusterMarker;
+    }
+
+    export interface TemplateColorScale {
+        colorFillType: enums.quicksight.TemplateColorFillType;
+        colors: outputs.quicksight.TemplateDataColor[];
+        nullValueColor?: outputs.quicksight.TemplateDataColor;
+    }
+
+    export interface TemplateColorsConfiguration {
+        customColors?: outputs.quicksight.TemplateCustomColor[];
+    }
+
+    export interface TemplateColumnConfiguration {
+        colorsConfiguration?: outputs.quicksight.TemplateColorsConfiguration;
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        formatConfiguration?: outputs.quicksight.TemplateFormatConfiguration;
+        role?: enums.quicksight.TemplateColumnRole;
+    }
+
     export interface TemplateColumnGroupColumnSchema {
-        /**
-         * <p>The name of the column group's column schema.</p>
-         */
         name?: string;
     }
 
-    /**
-     * <p>The column group schema.</p>
-     */
     export interface TemplateColumnGroupSchema {
-        /**
-         * <p>A structure containing the list of schemas for column group columns.</p>
-         */
         columnGroupColumnSchemaList?: outputs.quicksight.TemplateColumnGroupColumnSchema[];
-        /**
-         * <p>The name of the column group schema.</p>
-         */
         name?: string;
     }
 
-    /**
-     * <p>The column schema.</p>
-     */
+    export interface TemplateColumnHierarchy {
+        dateTimeHierarchy?: outputs.quicksight.TemplateDateTimeHierarchy;
+        explicitHierarchy?: outputs.quicksight.TemplateExplicitHierarchy;
+        predefinedHierarchy?: outputs.quicksight.TemplatePredefinedHierarchy;
+    }
+
+    export interface TemplateColumnIdentifier {
+        columnName: string;
+        dataSetIdentifier: string;
+    }
+
     export interface TemplateColumnSchema {
-        /**
-         * <p>The data type of the column schema.</p>
-         */
         dataType?: string;
-        /**
-         * <p>The geographic role of the column schema.</p>
-         */
         geographicRole?: string;
-        /**
-         * <p>The name of the column schema.</p>
-         */
         name?: string;
     }
 
-    /**
-     * <p>Dataset configuration.</p>
-     */
+    export interface TemplateColumnSort {
+        aggregationFunction?: outputs.quicksight.TemplateAggregationFunction;
+        direction: enums.quicksight.TemplateSortDirection;
+        sortBy: outputs.quicksight.TemplateColumnIdentifier;
+    }
+
+    export interface TemplateColumnTooltipItem {
+        aggregation?: outputs.quicksight.TemplateAggregationFunction;
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        label?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateComboChartAggregatedFieldWells {
+        barValues?: outputs.quicksight.TemplateMeasureField[];
+        category?: outputs.quicksight.TemplateDimensionField[];
+        colors?: outputs.quicksight.TemplateDimensionField[];
+        lineValues?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateComboChartConfiguration {
+        barDataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        barsArrangement?: enums.quicksight.TemplateBarsArrangement;
+        categoryAxis?: outputs.quicksight.TemplateAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        colorLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateComboChartFieldWells;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        lineDataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        referenceLines?: outputs.quicksight.TemplateReferenceLine[];
+        secondaryYAxisDisplayOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
+        secondaryYAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.TemplateComboChartSortConfiguration;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+    }
+
+    export interface TemplateComboChartFieldWells {
+        comboChartAggregatedFieldWells?: outputs.quicksight.TemplateComboChartAggregatedFieldWells;
+    }
+
+    export interface TemplateComboChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.TemplateFieldSortOptions[];
+        colorItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        colorSort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateComboChartVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateComboChartConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateComparisonConfiguration {
+        comparisonFormat?: outputs.quicksight.TemplateComparisonFormatConfiguration;
+        comparisonMethod?: enums.quicksight.TemplateComparisonMethod;
+    }
+
+    export interface TemplateComparisonFormatConfiguration {
+        numberDisplayFormatConfiguration?: outputs.quicksight.TemplateNumberDisplayFormatConfiguration;
+        percentageDisplayFormatConfiguration?: outputs.quicksight.TemplatePercentageDisplayFormatConfiguration;
+    }
+
+    export interface TemplateComputation {
+        forecast?: outputs.quicksight.TemplateForecastComputation;
+        growthRate?: outputs.quicksight.TemplateGrowthRateComputation;
+        maximumMinimum?: outputs.quicksight.TemplateMaximumMinimumComputation;
+        metricComparison?: outputs.quicksight.TemplateMetricComparisonComputation;
+        periodOverPeriod?: outputs.quicksight.TemplatePeriodOverPeriodComputation;
+        periodToDate?: outputs.quicksight.TemplatePeriodToDateComputation;
+        topBottomMovers?: outputs.quicksight.TemplateTopBottomMoversComputation;
+        topBottomRanked?: outputs.quicksight.TemplateTopBottomRankedComputation;
+        totalAggregation?: outputs.quicksight.TemplateTotalAggregationComputation;
+        uniqueValues?: outputs.quicksight.TemplateUniqueValuesComputation;
+    }
+
+    export interface TemplateConditionalFormattingColor {
+        gradient?: outputs.quicksight.TemplateConditionalFormattingGradientColor;
+        solid?: outputs.quicksight.TemplateConditionalFormattingSolidColor;
+    }
+
+    export interface TemplateConditionalFormattingCustomIconCondition {
+        color?: string;
+        displayConfiguration?: outputs.quicksight.TemplateConditionalFormattingIconDisplayConfiguration;
+        expression: string;
+        iconOptions: outputs.quicksight.TemplateConditionalFormattingCustomIconOptions;
+    }
+
+    export interface TemplateConditionalFormattingCustomIconOptions {
+        icon?: enums.quicksight.TemplateIcon;
+        unicodeIcon?: string;
+    }
+
+    export interface TemplateConditionalFormattingGradientColor {
+        color: outputs.quicksight.TemplateGradientColor;
+        expression: string;
+    }
+
+    export interface TemplateConditionalFormattingIcon {
+        customCondition?: outputs.quicksight.TemplateConditionalFormattingCustomIconCondition;
+        iconSet?: outputs.quicksight.TemplateConditionalFormattingIconSet;
+    }
+
+    export interface TemplateConditionalFormattingIconDisplayConfiguration {
+        iconDisplayOption?: enums.quicksight.TemplateConditionalFormattingIconDisplayOption;
+    }
+
+    export interface TemplateConditionalFormattingIconSet {
+        expression: string;
+        iconSetType?: enums.quicksight.TemplateConditionalFormattingIconSetType;
+    }
+
+    export interface TemplateConditionalFormattingSolidColor {
+        color?: string;
+        expression: string;
+    }
+
+    export interface TemplateContributionAnalysisDefault {
+        contributorDimensions: outputs.quicksight.TemplateColumnIdentifier[];
+        measureFieldId: string;
+    }
+
+    export interface TemplateCurrencyDisplayFormatConfiguration {
+        decimalPlacesConfiguration?: outputs.quicksight.TemplateDecimalPlacesConfiguration;
+        negativeValueConfiguration?: outputs.quicksight.TemplateNegativeValueConfiguration;
+        nullValueFormatConfiguration?: outputs.quicksight.TemplateNullValueFormatConfiguration;
+        numberScale?: enums.quicksight.TemplateNumberScale;
+        prefix?: string;
+        separatorConfiguration?: outputs.quicksight.TemplateNumericSeparatorConfiguration;
+        suffix?: string;
+        symbol?: string;
+    }
+
+    export interface TemplateCustomActionFilterOperation {
+        selectedFieldsConfiguration: outputs.quicksight.TemplateFilterOperationSelectedFieldsConfiguration;
+        targetVisualsConfiguration: outputs.quicksight.TemplateFilterOperationTargetVisualsConfiguration;
+    }
+
+    export interface TemplateCustomActionNavigationOperation {
+        localNavigationConfiguration?: outputs.quicksight.TemplateLocalNavigationConfiguration;
+    }
+
+    export interface TemplateCustomActionSetParametersOperation {
+        parameterValueConfigurations: outputs.quicksight.TemplateSetParameterValueConfiguration[];
+    }
+
+    export interface TemplateCustomActionURLOperation {
+        uRLTarget: enums.quicksight.TemplateURLTargetConfiguration;
+        uRLTemplate: string;
+    }
+
+    export interface TemplateCustomColor {
+        color: string;
+        fieldValue?: string;
+        specialValue?: enums.quicksight.TemplateSpecialValue;
+    }
+
+    export interface TemplateCustomContentConfiguration {
+        contentType?: enums.quicksight.TemplateCustomContentType;
+        contentUrl?: string;
+        imageScaling?: enums.quicksight.TemplateCustomContentImageScalingConfiguration;
+    }
+
+    export interface TemplateCustomContentVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateCustomContentConfiguration;
+        dataSetIdentifier: string;
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateCustomFilterConfiguration {
+        categoryValue?: string;
+        matchOperator: enums.quicksight.TemplateCategoryFilterMatchOperator;
+        nullOption: enums.quicksight.TemplateFilterNullOption;
+        parameterName?: string;
+        selectAllOptions?: enums.quicksight.TemplateCategoryFilterSelectAllOptions;
+    }
+
+    export interface TemplateCustomFilterListConfiguration {
+        categoryValues?: string[];
+        matchOperator: enums.quicksight.TemplateCategoryFilterMatchOperator;
+        nullOption: enums.quicksight.TemplateFilterNullOption;
+        selectAllOptions?: enums.quicksight.TemplateCategoryFilterSelectAllOptions;
+    }
+
+    export interface TemplateCustomNarrativeOptions {
+        narrative: string;
+    }
+
+    export interface TemplateCustomParameterValues {
+        dateTimeValues?: string[];
+        decimalValues?: number[];
+        integerValues?: number[];
+        stringValues?: string[];
+    }
+
+    export interface TemplateCustomValuesConfiguration {
+        customValues: outputs.quicksight.TemplateCustomParameterValues;
+        includeNullValue?: boolean;
+    }
+
+    export interface TemplateDataBarsOptions {
+        fieldId: string;
+        negativeColor?: string;
+        positiveColor?: string;
+    }
+
+    export interface TemplateDataColor {
+        color?: string;
+        dataValue?: number;
+    }
+
+    export interface TemplateDataFieldSeriesItem {
+        axisBinding: enums.quicksight.TemplateAxisBinding;
+        fieldId: string;
+        fieldValue?: string;
+        settings?: outputs.quicksight.TemplateLineChartSeriesSettings;
+    }
+
+    export interface TemplateDataLabelOptions {
+        categoryLabelVisibility?: enums.quicksight.TemplateVisibility;
+        dataLabelTypes?: outputs.quicksight.TemplateDataLabelType[];
+        labelColor?: string;
+        labelContent?: enums.quicksight.TemplateDataLabelContent;
+        labelFontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
+        measureLabelVisibility?: enums.quicksight.TemplateVisibility;
+        overlap?: enums.quicksight.TemplateDataLabelOverlap;
+        position?: enums.quicksight.TemplateDataLabelPosition;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateDataLabelType {
+        dataPathLabelType?: outputs.quicksight.TemplateDataPathLabelType;
+        fieldLabelType?: outputs.quicksight.TemplateFieldLabelType;
+        maximumLabelType?: outputs.quicksight.TemplateMaximumLabelType;
+        minimumLabelType?: outputs.quicksight.TemplateMinimumLabelType;
+        rangeEndsLabelType?: outputs.quicksight.TemplateRangeEndsLabelType;
+    }
+
+    export interface TemplateDataPathColor {
+        color: string;
+        element: outputs.quicksight.TemplateDataPathValue;
+        timeGranularity?: enums.quicksight.TemplateTimeGranularity;
+    }
+
+    export interface TemplateDataPathLabelType {
+        fieldId?: string;
+        fieldValue?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateDataPathSort {
+        direction: enums.quicksight.TemplateSortDirection;
+        sortPaths: outputs.quicksight.TemplateDataPathValue[];
+    }
+
+    export interface TemplateDataPathValue {
+        fieldId: string;
+        fieldValue: string;
+    }
+
     export interface TemplateDataSetConfiguration {
-        /**
-         * <p>A structure containing the list of column group schemas.</p>
-         */
         columnGroupSchemaList?: outputs.quicksight.TemplateColumnGroupSchema[];
         dataSetSchema?: outputs.quicksight.TemplateDataSetSchema;
-        /**
-         * <p>Placeholder.</p>
-         */
         placeholder?: string;
     }
 
-    /**
-     * <p>Dataset reference.</p>
-     */
     export interface TemplateDataSetReference {
-        /**
-         * <p>Dataset Amazon Resource Name (ARN).</p>
-         */
         dataSetArn: string;
-        /**
-         * <p>Dataset placeholder.</p>
-         */
         dataSetPlaceholder: string;
     }
 
-    /**
-     * <p>Dataset schema.</p>
-     */
     export interface TemplateDataSetSchema {
-        /**
-         * <p>A structure containing the list of column schemas.</p>
-         */
         columnSchemaList?: outputs.quicksight.TemplateColumnSchema[];
     }
 
-    /**
-     * <p>List of errors that occurred when the template version creation failed.</p>
-     */
+    export interface TemplateDateAxisOptions {
+        missingDateVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateDateDimensionField {
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        dateGranularity?: enums.quicksight.TemplateTimeGranularity;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.TemplateDateTimeFormatConfiguration;
+        hierarchyId?: string;
+    }
+
+    export interface TemplateDateMeasureField {
+        aggregationFunction?: enums.quicksight.TemplateDateAggregationFunction;
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.TemplateDateTimeFormatConfiguration;
+    }
+
+    export interface TemplateDateTimeDefaultValues {
+        dynamicValue?: outputs.quicksight.TemplateDynamicDefaultValue;
+        rollingDate?: outputs.quicksight.TemplateRollingDateConfiguration;
+        staticValues?: string[];
+    }
+
+    export interface TemplateDateTimeFormatConfiguration {
+        dateTimeFormat?: string;
+        nullValueFormatConfiguration?: outputs.quicksight.TemplateNullValueFormatConfiguration;
+        numericFormatConfiguration?: outputs.quicksight.TemplateNumericFormatConfiguration;
+    }
+
+    export interface TemplateDateTimeHierarchy {
+        drillDownFilters?: outputs.quicksight.TemplateDrillDownFilter[];
+        hierarchyId: string;
+    }
+
+    export interface TemplateDateTimeParameterDeclaration {
+        defaultValues?: outputs.quicksight.TemplateDateTimeDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.TemplateMappedDataSetParameter[];
+        name: string;
+        timeGranularity?: enums.quicksight.TemplateTimeGranularity;
+        valueWhenUnset?: outputs.quicksight.TemplateDateTimeValueWhenUnsetConfiguration;
+    }
+
+    export interface TemplateDateTimePickerControlDisplayOptions {
+        dateTimeFormat?: string;
+        titleOptions?: outputs.quicksight.TemplateLabelOptions;
+    }
+
+    export interface TemplateDateTimeValueWhenUnsetConfiguration {
+        customValue?: string;
+        valueWhenUnsetOption?: enums.quicksight.TemplateValueWhenUnsetOption;
+    }
+
+    export interface TemplateDecimalDefaultValues {
+        dynamicValue?: outputs.quicksight.TemplateDynamicDefaultValue;
+        staticValues?: number[];
+    }
+
+    export interface TemplateDecimalParameterDeclaration {
+        defaultValues?: outputs.quicksight.TemplateDecimalDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.TemplateMappedDataSetParameter[];
+        name: string;
+        parameterValueType: enums.quicksight.TemplateParameterValueType;
+        valueWhenUnset?: outputs.quicksight.TemplateDecimalValueWhenUnsetConfiguration;
+    }
+
+    export interface TemplateDecimalPlacesConfiguration {
+        decimalPlaces: number;
+    }
+
+    export interface TemplateDecimalValueWhenUnsetConfiguration {
+        customValue?: number;
+        valueWhenUnsetOption?: enums.quicksight.TemplateValueWhenUnsetOption;
+    }
+
+    export interface TemplateDefaultFreeFormLayoutConfiguration {
+        canvasSizeOptions: outputs.quicksight.TemplateFreeFormLayoutCanvasSizeOptions;
+    }
+
+    export interface TemplateDefaultGridLayoutConfiguration {
+        canvasSizeOptions: outputs.quicksight.TemplateGridLayoutCanvasSizeOptions;
+    }
+
+    export interface TemplateDefaultInteractiveLayoutConfiguration {
+        freeForm?: outputs.quicksight.TemplateDefaultFreeFormLayoutConfiguration;
+        grid?: outputs.quicksight.TemplateDefaultGridLayoutConfiguration;
+    }
+
+    export interface TemplateDefaultNewSheetConfiguration {
+        interactiveLayoutConfiguration?: outputs.quicksight.TemplateDefaultInteractiveLayoutConfiguration;
+        paginatedLayoutConfiguration?: outputs.quicksight.TemplateDefaultPaginatedLayoutConfiguration;
+        sheetContentType?: enums.quicksight.TemplateSheetContentType;
+    }
+
+    export interface TemplateDefaultPaginatedLayoutConfiguration {
+        sectionBased?: outputs.quicksight.TemplateDefaultSectionBasedLayoutConfiguration;
+    }
+
+    export interface TemplateDefaultSectionBasedLayoutConfiguration {
+        canvasSizeOptions: outputs.quicksight.TemplateSectionBasedLayoutCanvasSizeOptions;
+    }
+
+    export interface TemplateDestinationParameterValueConfiguration {
+        customValuesConfiguration?: outputs.quicksight.TemplateCustomValuesConfiguration;
+        selectAllValueOptions?: enums.quicksight.TemplateSelectAllValueOptions;
+        sourceField?: string;
+        sourceParameterName?: string;
+    }
+
+    export interface TemplateDimensionField {
+        categoricalDimensionField?: outputs.quicksight.TemplateCategoricalDimensionField;
+        dateDimensionField?: outputs.quicksight.TemplateDateDimensionField;
+        numericalDimensionField?: outputs.quicksight.TemplateNumericalDimensionField;
+    }
+
+    export interface TemplateDonutCenterOptions {
+        labelVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateDonutOptions {
+        arcOptions?: outputs.quicksight.TemplateArcOptions;
+        donutCenterOptions?: outputs.quicksight.TemplateDonutCenterOptions;
+    }
+
+    export interface TemplateDrillDownFilter {
+        categoryFilter?: outputs.quicksight.TemplateCategoryDrillDownFilter;
+        numericEqualityFilter?: outputs.quicksight.TemplateNumericEqualityDrillDownFilter;
+        timeRangeFilter?: outputs.quicksight.TemplateTimeRangeDrillDownFilter;
+    }
+
+    export interface TemplateDropDownControlDisplayOptions {
+        selectAllOptions?: outputs.quicksight.TemplateListControlSelectAllOptions;
+        titleOptions?: outputs.quicksight.TemplateLabelOptions;
+    }
+
+    export interface TemplateDynamicDefaultValue {
+        defaultValueColumn: outputs.quicksight.TemplateColumnIdentifier;
+        groupNameColumn?: outputs.quicksight.TemplateColumnIdentifier;
+        userNameColumn?: outputs.quicksight.TemplateColumnIdentifier;
+    }
+
+    export interface TemplateEmptyVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        dataSetIdentifier: string;
+        visualId: string;
+    }
+
+    export interface TemplateEntity {
+        path?: string;
+    }
+
     export interface TemplateError {
-        /**
-         * <p>Description of the error type.</p>
-         */
         message?: string;
         type?: enums.quicksight.TemplateErrorType;
+        violatedEntities?: outputs.quicksight.TemplateEntity[];
     }
 
-    /**
-     * <p>Permission for the resource.</p>
-     */
-    export interface TemplateResourcePermission {
-        /**
-         * <p>The IAM action to grant or revoke permissions on.</p>
-         */
-        actions: string[];
-        /**
-         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-         *             following:</p>
-         *         <ul>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
-         *                     (This is less common.) </p>
-         *             </li>
-         *          </ul>
-         */
-        principal: string;
+    export interface TemplateExcludePeriodConfiguration {
+        amount: number;
+        granularity: enums.quicksight.TemplateTimeGranularity;
+        status?: enums.quicksight.TemplateWidgetStatus;
     }
 
-    /**
-     * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-     *             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
-     *             contains at least one sheet. Each sheet contains at least one visualization widget, for
-     *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
-     *             components, such as controls, filters, and so on.</p>
-     */
-    export interface TemplateSheet {
-        /**
-         * <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
-         *             console.</p>
-         */
+    export interface TemplateExplicitHierarchy {
+        columns: outputs.quicksight.TemplateColumnIdentifier[];
+        drillDownFilters?: outputs.quicksight.TemplateDrillDownFilter[];
+        hierarchyId: string;
+    }
+
+    export interface TemplateFieldBasedTooltip {
+        aggregationVisibility?: enums.quicksight.TemplateVisibility;
+        tooltipFields?: outputs.quicksight.TemplateTooltipItem[];
+        tooltipTitleType?: enums.quicksight.TemplateTooltipTitleType;
+    }
+
+    export interface TemplateFieldLabelType {
+        fieldId?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateFieldSeriesItem {
+        axisBinding: enums.quicksight.TemplateAxisBinding;
+        fieldId: string;
+        settings?: outputs.quicksight.TemplateLineChartSeriesSettings;
+    }
+
+    export interface TemplateFieldSort {
+        direction: enums.quicksight.TemplateSortDirection;
+        fieldId: string;
+    }
+
+    export interface TemplateFieldSortOptions {
+        columnSort?: outputs.quicksight.TemplateColumnSort;
+        fieldSort?: outputs.quicksight.TemplateFieldSort;
+    }
+
+    export interface TemplateFieldTooltipItem {
+        fieldId: string;
+        label?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateFilledMapAggregatedFieldWells {
+        geospatial?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateFilledMapConditionalFormatting {
+        conditionalFormattingOptions: outputs.quicksight.TemplateFilledMapConditionalFormattingOption[];
+    }
+
+    export interface TemplateFilledMapConditionalFormattingOption {
+        shape: outputs.quicksight.TemplateFilledMapShapeConditionalFormatting;
+    }
+
+    export interface TemplateFilledMapConfiguration {
+        fieldWells?: outputs.quicksight.TemplateFilledMapFieldWells;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        mapStyleOptions?: outputs.quicksight.TemplateGeospatialMapStyleOptions;
+        sortConfiguration?: outputs.quicksight.TemplateFilledMapSortConfiguration;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+        windowOptions?: outputs.quicksight.TemplateGeospatialWindowOptions;
+    }
+
+    export interface TemplateFilledMapFieldWells {
+        filledMapAggregatedFieldWells?: outputs.quicksight.TemplateFilledMapAggregatedFieldWells;
+    }
+
+    export interface TemplateFilledMapShapeConditionalFormatting {
+        fieldId: string;
+        format?: outputs.quicksight.TemplateShapeConditionalFormat;
+    }
+
+    export interface TemplateFilledMapSortConfiguration {
+        categorySort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateFilledMapVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateFilledMapConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        conditionalFormatting?: outputs.quicksight.TemplateFilledMapConditionalFormatting;
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateFilter {
+        categoryFilter?: outputs.quicksight.TemplateCategoryFilter;
+        numericEqualityFilter?: outputs.quicksight.TemplateNumericEqualityFilter;
+        numericRangeFilter?: outputs.quicksight.TemplateNumericRangeFilter;
+        relativeDatesFilter?: outputs.quicksight.TemplateRelativeDatesFilter;
+        timeEqualityFilter?: outputs.quicksight.TemplateTimeEqualityFilter;
+        timeRangeFilter?: outputs.quicksight.TemplateTimeRangeFilter;
+        topBottomFilter?: outputs.quicksight.TemplateTopBottomFilter;
+    }
+
+    export interface TemplateFilterControl {
+        dateTimePicker?: outputs.quicksight.TemplateFilterDateTimePickerControl;
+        dropdown?: outputs.quicksight.TemplateFilterDropDownControl;
+        list?: outputs.quicksight.TemplateFilterListControl;
+        relativeDateTime?: outputs.quicksight.TemplateFilterRelativeDateTimeControl;
+        slider?: outputs.quicksight.TemplateFilterSliderControl;
+        textArea?: outputs.quicksight.TemplateFilterTextAreaControl;
+        textField?: outputs.quicksight.TemplateFilterTextFieldControl;
+    }
+
+    export interface TemplateFilterDateTimePickerControl {
+        displayOptions?: outputs.quicksight.TemplateDateTimePickerControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+        type?: enums.quicksight.TemplateSheetControlDateTimePickerType;
+    }
+
+    export interface TemplateFilterDropDownControl {
+        cascadingControlConfiguration?: outputs.quicksight.TemplateCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.TemplateDropDownControlDisplayOptions;
+        filterControlId: string;
+        selectableValues?: outputs.quicksight.TemplateFilterSelectableValues;
+        sourceFilterId: string;
+        title: string;
+        type?: enums.quicksight.TemplateSheetControlListType;
+    }
+
+    export interface TemplateFilterGroup {
+        crossDataset: enums.quicksight.TemplateCrossDatasetTypes;
+        filterGroupId: string;
+        filters: outputs.quicksight.TemplateFilter[];
+        scopeConfiguration: outputs.quicksight.TemplateFilterScopeConfiguration;
+        status?: enums.quicksight.TemplateWidgetStatus;
+    }
+
+    export interface TemplateFilterListConfiguration {
+        categoryValues?: string[];
+        matchOperator: enums.quicksight.TemplateCategoryFilterMatchOperator;
+        selectAllOptions?: enums.quicksight.TemplateCategoryFilterSelectAllOptions;
+    }
+
+    export interface TemplateFilterListControl {
+        cascadingControlConfiguration?: outputs.quicksight.TemplateCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.TemplateListControlDisplayOptions;
+        filterControlId: string;
+        selectableValues?: outputs.quicksight.TemplateFilterSelectableValues;
+        sourceFilterId: string;
+        title: string;
+        type?: enums.quicksight.TemplateSheetControlListType;
+    }
+
+    export interface TemplateFilterOperationSelectedFieldsConfiguration {
+        selectedFieldOptions?: enums.quicksight.TemplateSelectedFieldOptions;
+        selectedFields?: string[];
+    }
+
+    export interface TemplateFilterOperationTargetVisualsConfiguration {
+        sameSheetTargetVisualConfiguration?: outputs.quicksight.TemplateSameSheetTargetVisualConfiguration;
+    }
+
+    export interface TemplateFilterRelativeDateTimeControl {
+        displayOptions?: outputs.quicksight.TemplateRelativeDateTimeControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+    }
+
+    export interface TemplateFilterScopeConfiguration {
+        selectedSheets?: outputs.quicksight.TemplateSelectedSheetsFilterScopeConfiguration;
+    }
+
+    export interface TemplateFilterSelectableValues {
+        values?: string[];
+    }
+
+    export interface TemplateFilterSliderControl {
+        displayOptions?: outputs.quicksight.TemplateSliderControlDisplayOptions;
+        filterControlId: string;
+        maximumValue: number;
+        minimumValue: number;
+        sourceFilterId: string;
+        stepSize: number;
+        title: string;
+        type?: enums.quicksight.TemplateSheetControlSliderType;
+    }
+
+    export interface TemplateFilterTextAreaControl {
+        delimiter?: string;
+        displayOptions?: outputs.quicksight.TemplateTextAreaControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+    }
+
+    export interface TemplateFilterTextFieldControl {
+        displayOptions?: outputs.quicksight.TemplateTextFieldControlDisplayOptions;
+        filterControlId: string;
+        sourceFilterId: string;
+        title: string;
+    }
+
+    export interface TemplateFontConfiguration {
+        fontColor?: string;
+        fontDecoration?: enums.quicksight.TemplateFontDecoration;
+        fontSize?: outputs.quicksight.TemplateFontSize;
+        fontStyle?: enums.quicksight.TemplateFontStyle;
+        fontWeight?: outputs.quicksight.TemplateFontWeight;
+    }
+
+    export interface TemplateFontSize {
+        relative?: enums.quicksight.TemplateRelativeFontSize;
+    }
+
+    export interface TemplateFontWeight {
+        name?: enums.quicksight.TemplateFontWeightName;
+    }
+
+    export interface TemplateForecastComputation {
+        computationId: string;
+        customSeasonalityValue?: number;
+        lowerBoundary?: number;
         name?: string;
+        periodsBackward?: number;
+        periodsForward?: number;
+        predictionInterval?: number;
+        seasonality?: enums.quicksight.TemplateForecastComputationSeasonality;
+        time: outputs.quicksight.TemplateDimensionField;
+        upperBoundary?: number;
+        value?: outputs.quicksight.TemplateMeasureField;
+    }
+
+    export interface TemplateForecastConfiguration {
+        forecastProperties?: outputs.quicksight.TemplateTimeBasedForecastProperties;
+        scenario?: outputs.quicksight.TemplateForecastScenario;
+    }
+
+    export interface TemplateForecastScenario {
+        whatIfPointScenario?: outputs.quicksight.TemplateWhatIfPointScenario;
+        whatIfRangeScenario?: outputs.quicksight.TemplateWhatIfRangeScenario;
+    }
+
+    export interface TemplateFormatConfiguration {
+        dateTimeFormatConfiguration?: outputs.quicksight.TemplateDateTimeFormatConfiguration;
+        numberFormatConfiguration?: outputs.quicksight.TemplateNumberFormatConfiguration;
+        stringFormatConfiguration?: outputs.quicksight.TemplateStringFormatConfiguration;
+    }
+
+    export interface TemplateFreeFormLayoutCanvasSizeOptions {
+        screenCanvasSizeOptions?: outputs.quicksight.TemplateFreeFormLayoutScreenCanvasSizeOptions;
+    }
+
+    export interface TemplateFreeFormLayoutConfiguration {
+        canvasSizeOptions?: outputs.quicksight.TemplateFreeFormLayoutCanvasSizeOptions;
+        elements: outputs.quicksight.TemplateFreeFormLayoutElement[];
+    }
+
+    export interface TemplateFreeFormLayoutElement {
+        backgroundStyle?: outputs.quicksight.TemplateFreeFormLayoutElementBackgroundStyle;
+        borderStyle?: outputs.quicksight.TemplateFreeFormLayoutElementBorderStyle;
+        elementId: string;
+        elementType: enums.quicksight.TemplateLayoutElementType;
         /**
-         * <p>The unique identifier associated with a sheet.</p>
+         * String based length that is composed of value and unit in px
          */
+        height: string;
+        loadingAnimation?: outputs.quicksight.TemplateLoadingAnimation;
+        renderingRules?: outputs.quicksight.TemplateSheetElementRenderingRule[];
+        selectedBorderStyle?: outputs.quicksight.TemplateFreeFormLayoutElementBorderStyle;
+        visibility?: enums.quicksight.TemplateVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width: string;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        xAxisLocation: string;
+        /**
+         * String based length that is composed of value and unit in px with Integer.MAX_VALUE as maximum value
+         */
+        yAxisLocation: string;
+    }
+
+    export interface TemplateFreeFormLayoutElementBackgroundStyle {
+        color?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateFreeFormLayoutElementBorderStyle {
+        color?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateFreeFormLayoutScreenCanvasSizeOptions {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth: string;
+    }
+
+    export interface TemplateFreeFormSectionLayoutConfiguration {
+        elements: outputs.quicksight.TemplateFreeFormLayoutElement[];
+    }
+
+    export interface TemplateFunnelChartAggregatedFieldWells {
+        category?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateFunnelChartConfiguration {
+        categoryLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        dataLabelOptions?: outputs.quicksight.TemplateFunnelChartDataLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateFunnelChartFieldWells;
+        sortConfiguration?: outputs.quicksight.TemplateFunnelChartSortConfiguration;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+        valueLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+    }
+
+    export interface TemplateFunnelChartDataLabelOptions {
+        categoryLabelVisibility?: enums.quicksight.TemplateVisibility;
+        labelColor?: string;
+        labelFontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
+        measureDataLabelStyle?: enums.quicksight.TemplateFunnelChartMeasureDataLabelStyle;
+        measureLabelVisibility?: enums.quicksight.TemplateVisibility;
+        position?: enums.quicksight.TemplateDataLabelPosition;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateFunnelChartFieldWells {
+        funnelChartAggregatedFieldWells?: outputs.quicksight.TemplateFunnelChartAggregatedFieldWells;
+    }
+
+    export interface TemplateFunnelChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateFunnelChartVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateFunnelChartConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateGaugeChartArcConditionalFormatting {
+        foregroundColor?: outputs.quicksight.TemplateConditionalFormattingColor;
+    }
+
+    export interface TemplateGaugeChartConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.TemplateGaugeChartConditionalFormattingOption[];
+    }
+
+    export interface TemplateGaugeChartConditionalFormattingOption {
+        arc?: outputs.quicksight.TemplateGaugeChartArcConditionalFormatting;
+        primaryValue?: outputs.quicksight.TemplateGaugeChartPrimaryValueConditionalFormatting;
+    }
+
+    export interface TemplateGaugeChartConfiguration {
+        dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateGaugeChartFieldWells;
+        gaugeChartOptions?: outputs.quicksight.TemplateGaugeChartOptions;
+        tooltipOptions?: outputs.quicksight.TemplateTooltipOptions;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+    }
+
+    export interface TemplateGaugeChartFieldWells {
+        targetValues?: outputs.quicksight.TemplateMeasureField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateGaugeChartOptions {
+        arc?: outputs.quicksight.TemplateArcConfiguration;
+        arcAxis?: outputs.quicksight.TemplateArcAxisConfiguration;
+        comparison?: outputs.quicksight.TemplateComparisonConfiguration;
+        primaryValueDisplayType?: enums.quicksight.TemplatePrimaryValueDisplayType;
+        primaryValueFontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
+    }
+
+    export interface TemplateGaugeChartPrimaryValueConditionalFormatting {
+        icon?: outputs.quicksight.TemplateConditionalFormattingIcon;
+        textColor?: outputs.quicksight.TemplateConditionalFormattingColor;
+    }
+
+    export interface TemplateGaugeChartVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateGaugeChartConfiguration;
+        conditionalFormatting?: outputs.quicksight.TemplateGaugeChartConditionalFormatting;
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateGeospatialCoordinateBounds {
+        east: number;
+        north: number;
+        south: number;
+        west: number;
+    }
+
+    export interface TemplateGeospatialMapAggregatedFieldWells {
+        colors?: outputs.quicksight.TemplateDimensionField[];
+        geospatial?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateGeospatialMapConfiguration {
+        fieldWells?: outputs.quicksight.TemplateGeospatialMapFieldWells;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        mapStyleOptions?: outputs.quicksight.TemplateGeospatialMapStyleOptions;
+        pointStyleOptions?: outputs.quicksight.TemplateGeospatialPointStyleOptions;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+        windowOptions?: outputs.quicksight.TemplateGeospatialWindowOptions;
+    }
+
+    export interface TemplateGeospatialMapFieldWells {
+        geospatialMapAggregatedFieldWells?: outputs.quicksight.TemplateGeospatialMapAggregatedFieldWells;
+    }
+
+    export interface TemplateGeospatialMapStyleOptions {
+        baseMapStyle?: enums.quicksight.TemplateBaseMapStyleType;
+    }
+
+    export interface TemplateGeospatialMapVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateGeospatialMapConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateGeospatialPointStyleOptions {
+        clusterMarkerConfiguration?: outputs.quicksight.TemplateClusterMarkerConfiguration;
+        selectedPointStyle?: enums.quicksight.TemplateGeospatialSelectedPointStyle;
+    }
+
+    export interface TemplateGeospatialWindowOptions {
+        bounds?: outputs.quicksight.TemplateGeospatialCoordinateBounds;
+        mapZoomMode?: enums.quicksight.TemplateMapZoomMode;
+    }
+
+    export interface TemplateGlobalTableBorderOptions {
+        sideSpecificBorder?: outputs.quicksight.TemplateTableSideBorderOptions;
+        uniformBorder?: outputs.quicksight.TemplateTableBorderOptions;
+    }
+
+    export interface TemplateGradientColor {
+        stops?: outputs.quicksight.TemplateGradientStop[];
+    }
+
+    export interface TemplateGradientStop {
+        color?: string;
+        dataValue?: number;
+        gradientOffset: number;
+    }
+
+    export interface TemplateGridLayoutCanvasSizeOptions {
+        screenCanvasSizeOptions?: outputs.quicksight.TemplateGridLayoutScreenCanvasSizeOptions;
+    }
+
+    export interface TemplateGridLayoutConfiguration {
+        canvasSizeOptions?: outputs.quicksight.TemplateGridLayoutCanvasSizeOptions;
+        elements: outputs.quicksight.TemplateGridLayoutElement[];
+    }
+
+    export interface TemplateGridLayoutElement {
+        columnIndex?: number;
+        columnSpan: number;
+        elementId: string;
+        elementType: enums.quicksight.TemplateLayoutElementType;
+        rowIndex?: number;
+        rowSpan: number;
+    }
+
+    export interface TemplateGridLayoutScreenCanvasSizeOptions {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        optimizedViewPortWidth?: string;
+        resizeOption: enums.quicksight.TemplateResizeOption;
+    }
+
+    export interface TemplateGrowthRateComputation {
+        computationId: string;
+        name?: string;
+        periodSize?: number;
+        time: outputs.quicksight.TemplateDimensionField;
+        value?: outputs.quicksight.TemplateMeasureField;
+    }
+
+    export interface TemplateHeaderFooterSectionConfiguration {
+        layout: outputs.quicksight.TemplateSectionLayoutConfiguration;
+        sectionId: string;
+        style?: outputs.quicksight.TemplateSectionStyle;
+    }
+
+    export interface TemplateHeatMapAggregatedFieldWells {
+        columns?: outputs.quicksight.TemplateDimensionField[];
+        rows?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateHeatMapConfiguration {
+        colorScale?: outputs.quicksight.TemplateColorScale;
+        columnLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateHeatMapFieldWells;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        rowLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.TemplateHeatMapSortConfiguration;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+    }
+
+    export interface TemplateHeatMapFieldWells {
+        heatMapAggregatedFieldWells?: outputs.quicksight.TemplateHeatMapAggregatedFieldWells;
+    }
+
+    export interface TemplateHeatMapSortConfiguration {
+        heatMapColumnItemsLimitConfiguration?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        heatMapColumnSort?: outputs.quicksight.TemplateFieldSortOptions[];
+        heatMapRowItemsLimitConfiguration?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        heatMapRowSort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateHeatMapVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateHeatMapConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateHistogramAggregatedFieldWells {
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateHistogramBinOptions {
+        binCount?: outputs.quicksight.TemplateBinCountOptions;
+        binWidth?: outputs.quicksight.TemplateBinWidthOptions;
+        selectedBinType?: enums.quicksight.TemplateHistogramBinType;
+        startValue?: number;
+    }
+
+    export interface TemplateHistogramConfiguration {
+        binOptions?: outputs.quicksight.TemplateHistogramBinOptions;
+        dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateHistogramFieldWells;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+        xAxisDisplayOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
+        xAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        yAxisDisplayOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
+    }
+
+    export interface TemplateHistogramFieldWells {
+        histogramAggregatedFieldWells?: outputs.quicksight.TemplateHistogramAggregatedFieldWells;
+    }
+
+    export interface TemplateHistogramVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateHistogramConfiguration;
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateInsightConfiguration {
+        computations?: outputs.quicksight.TemplateComputation[];
+        customNarrative?: outputs.quicksight.TemplateCustomNarrativeOptions;
+    }
+
+    export interface TemplateInsightVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        dataSetIdentifier: string;
+        insightConfiguration?: outputs.quicksight.TemplateInsightConfiguration;
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateIntegerDefaultValues {
+        dynamicValue?: outputs.quicksight.TemplateDynamicDefaultValue;
+        staticValues?: number[];
+    }
+
+    export interface TemplateIntegerParameterDeclaration {
+        defaultValues?: outputs.quicksight.TemplateIntegerDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.TemplateMappedDataSetParameter[];
+        name: string;
+        parameterValueType: enums.quicksight.TemplateParameterValueType;
+        valueWhenUnset?: outputs.quicksight.TemplateIntegerValueWhenUnsetConfiguration;
+    }
+
+    export interface TemplateIntegerValueWhenUnsetConfiguration {
+        customValue?: number;
+        valueWhenUnsetOption?: enums.quicksight.TemplateValueWhenUnsetOption;
+    }
+
+    export interface TemplateItemsLimitConfiguration {
+        itemsLimit?: number;
+        otherCategories?: enums.quicksight.TemplateOtherCategories;
+    }
+
+    export interface TemplateKPIConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.TemplateKPIConditionalFormattingOption[];
+    }
+
+    export interface TemplateKPIConditionalFormattingOption {
+        primaryValue?: outputs.quicksight.TemplateKPIPrimaryValueConditionalFormatting;
+        progressBar?: outputs.quicksight.TemplateKPIProgressBarConditionalFormatting;
+    }
+
+    export interface TemplateKPIConfiguration {
+        fieldWells?: outputs.quicksight.TemplateKPIFieldWells;
+        kPIOptions?: outputs.quicksight.TemplateKPIOptions;
+        sortConfiguration?: outputs.quicksight.TemplateKPISortConfiguration;
+    }
+
+    export interface TemplateKPIFieldWells {
+        targetValues?: outputs.quicksight.TemplateMeasureField[];
+        trendGroups?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateKPIOptions {
+        comparison?: outputs.quicksight.TemplateComparisonConfiguration;
+        primaryValueDisplayType?: enums.quicksight.TemplatePrimaryValueDisplayType;
+        primaryValueFontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
+        progressBar?: outputs.quicksight.TemplateProgressBarOptions;
+        secondaryValue?: outputs.quicksight.TemplateSecondaryValueOptions;
+        secondaryValueFontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
+        trendArrows?: outputs.quicksight.TemplateTrendArrowOptions;
+    }
+
+    export interface TemplateKPIPrimaryValueConditionalFormatting {
+        icon?: outputs.quicksight.TemplateConditionalFormattingIcon;
+        textColor?: outputs.quicksight.TemplateConditionalFormattingColor;
+    }
+
+    export interface TemplateKPIProgressBarConditionalFormatting {
+        foregroundColor?: outputs.quicksight.TemplateConditionalFormattingColor;
+    }
+
+    export interface TemplateKPISortConfiguration {
+        trendGroupSort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateKPIVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateKPIConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        conditionalFormatting?: outputs.quicksight.TemplateKPIConditionalFormatting;
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateLabelOptions {
+        customLabel?: string;
+        fontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateLayout {
+        configuration: outputs.quicksight.TemplateLayoutConfiguration;
+    }
+
+    export interface TemplateLayoutConfiguration {
+        freeFormLayout?: outputs.quicksight.TemplateFreeFormLayoutConfiguration;
+        gridLayout?: outputs.quicksight.TemplateGridLayoutConfiguration;
+        sectionBasedLayout?: outputs.quicksight.TemplateSectionBasedLayoutConfiguration;
+    }
+
+    export interface TemplateLegendOptions {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: string;
+        position?: enums.quicksight.TemplateLegendPosition;
+        title?: outputs.quicksight.TemplateLabelOptions;
+        visibility?: enums.quicksight.TemplateVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: string;
+    }
+
+    export interface TemplateLineChartAggregatedFieldWells {
+        category?: outputs.quicksight.TemplateDimensionField[];
+        colors?: outputs.quicksight.TemplateDimensionField[];
+        smallMultiples?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateLineChartConfiguration {
+        contributionAnalysisDefaults?: outputs.quicksight.TemplateContributionAnalysisDefault[];
+        dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        defaultSeriesSettings?: outputs.quicksight.TemplateLineChartDefaultSeriesSettings;
+        fieldWells?: outputs.quicksight.TemplateLineChartFieldWells;
+        forecastConfigurations?: outputs.quicksight.TemplateForecastConfiguration[];
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.TemplateLineSeriesAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        referenceLines?: outputs.quicksight.TemplateReferenceLine[];
+        secondaryYAxisDisplayOptions?: outputs.quicksight.TemplateLineSeriesAxisDisplayOptions;
+        secondaryYAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        series?: outputs.quicksight.TemplateSeriesItem[];
+        smallMultiplesOptions?: outputs.quicksight.TemplateSmallMultiplesOptions;
+        sortConfiguration?: outputs.quicksight.TemplateLineChartSortConfiguration;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+        type?: enums.quicksight.TemplateLineChartType;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+        xAxisDisplayOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
+        xAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+    }
+
+    export interface TemplateLineChartDefaultSeriesSettings {
+        axisBinding?: enums.quicksight.TemplateAxisBinding;
+        lineStyleSettings?: outputs.quicksight.TemplateLineChartLineStyleSettings;
+        markerStyleSettings?: outputs.quicksight.TemplateLineChartMarkerStyleSettings;
+    }
+
+    export interface TemplateLineChartFieldWells {
+        lineChartAggregatedFieldWells?: outputs.quicksight.TemplateLineChartAggregatedFieldWells;
+    }
+
+    export interface TemplateLineChartLineStyleSettings {
+        lineInterpolation?: enums.quicksight.TemplateLineInterpolation;
+        lineStyle?: enums.quicksight.TemplateLineChartLineStyle;
+        lineVisibility?: enums.quicksight.TemplateVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        lineWidth?: string;
+    }
+
+    export interface TemplateLineChartMarkerStyleSettings {
+        markerColor?: string;
+        markerShape?: enums.quicksight.TemplateLineChartMarkerShape;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        markerSize?: string;
+        markerVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateLineChartSeriesSettings {
+        lineStyleSettings?: outputs.quicksight.TemplateLineChartLineStyleSettings;
+        markerStyleSettings?: outputs.quicksight.TemplateLineChartMarkerStyleSettings;
+    }
+
+    export interface TemplateLineChartSortConfiguration {
+        categoryItemsLimitConfiguration?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.TemplateFieldSortOptions[];
+        colorItemsLimitConfiguration?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        smallMultiplesLimitConfiguration?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        smallMultiplesSort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateLineChartVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateLineChartConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateLineSeriesAxisDisplayOptions {
+        axisOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
+        missingDataConfigurations?: outputs.quicksight.TemplateMissingDataConfiguration[];
+    }
+
+    export interface TemplateListControlDisplayOptions {
+        searchOptions?: outputs.quicksight.TemplateListControlSearchOptions;
+        selectAllOptions?: outputs.quicksight.TemplateListControlSelectAllOptions;
+        titleOptions?: outputs.quicksight.TemplateLabelOptions;
+    }
+
+    export interface TemplateListControlSearchOptions {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateListControlSelectAllOptions {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateLoadingAnimation {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateLocalNavigationConfiguration {
+        targetSheetId: string;
+    }
+
+    export interface TemplateLongFormatText {
+        plainText?: string;
+        richText?: string;
+    }
+
+    export interface TemplateMappedDataSetParameter {
+        dataSetIdentifier: string;
+        dataSetParameterName: string;
+    }
+
+    export interface TemplateMaximumLabelType {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateMaximumMinimumComputation {
+        computationId: string;
+        name?: string;
+        time: outputs.quicksight.TemplateDimensionField;
+        type: enums.quicksight.TemplateMaximumMinimumComputationType;
+        value?: outputs.quicksight.TemplateMeasureField;
+    }
+
+    export interface TemplateMeasureField {
+        calculatedMeasureField?: outputs.quicksight.TemplateCalculatedMeasureField;
+        categoricalMeasureField?: outputs.quicksight.TemplateCategoricalMeasureField;
+        dateMeasureField?: outputs.quicksight.TemplateDateMeasureField;
+        numericalMeasureField?: outputs.quicksight.TemplateNumericalMeasureField;
+    }
+
+    export interface TemplateMetricComparisonComputation {
+        computationId: string;
+        fromValue: outputs.quicksight.TemplateMeasureField;
+        name?: string;
+        targetValue: outputs.quicksight.TemplateMeasureField;
+        time: outputs.quicksight.TemplateDimensionField;
+    }
+
+    export interface TemplateMinimumLabelType {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateMissingDataConfiguration {
+        treatmentOption?: enums.quicksight.TemplateMissingDataTreatmentOption;
+    }
+
+    export interface TemplateNegativeValueConfiguration {
+        displayMode: enums.quicksight.TemplateNegativeValueDisplayMode;
+    }
+
+    export interface TemplateNullValueFormatConfiguration {
+        nullString: string;
+    }
+
+    export interface TemplateNumberDisplayFormatConfiguration {
+        decimalPlacesConfiguration?: outputs.quicksight.TemplateDecimalPlacesConfiguration;
+        negativeValueConfiguration?: outputs.quicksight.TemplateNegativeValueConfiguration;
+        nullValueFormatConfiguration?: outputs.quicksight.TemplateNullValueFormatConfiguration;
+        numberScale?: enums.quicksight.TemplateNumberScale;
+        prefix?: string;
+        separatorConfiguration?: outputs.quicksight.TemplateNumericSeparatorConfiguration;
+        suffix?: string;
+    }
+
+    export interface TemplateNumberFormatConfiguration {
+        formatConfiguration?: outputs.quicksight.TemplateNumericFormatConfiguration;
+    }
+
+    export interface TemplateNumericAxisOptions {
+        range?: outputs.quicksight.TemplateAxisDisplayRange;
+        scale?: outputs.quicksight.TemplateAxisScale;
+    }
+
+    export interface TemplateNumericEqualityDrillDownFilter {
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        value: number;
+    }
+
+    export interface TemplateNumericEqualityFilter {
+        aggregationFunction?: outputs.quicksight.TemplateAggregationFunction;
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        filterId: string;
+        matchOperator: enums.quicksight.TemplateNumericEqualityMatchOperator;
+        nullOption: enums.quicksight.TemplateFilterNullOption;
+        parameterName?: string;
+        selectAllOptions?: enums.quicksight.TemplateNumericFilterSelectAllOptions;
+        value?: number;
+    }
+
+    export interface TemplateNumericFormatConfiguration {
+        currencyDisplayFormatConfiguration?: outputs.quicksight.TemplateCurrencyDisplayFormatConfiguration;
+        numberDisplayFormatConfiguration?: outputs.quicksight.TemplateNumberDisplayFormatConfiguration;
+        percentageDisplayFormatConfiguration?: outputs.quicksight.TemplatePercentageDisplayFormatConfiguration;
+    }
+
+    export interface TemplateNumericRangeFilter {
+        aggregationFunction?: outputs.quicksight.TemplateAggregationFunction;
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        filterId: string;
+        includeMaximum?: boolean;
+        includeMinimum?: boolean;
+        nullOption: enums.quicksight.TemplateFilterNullOption;
+        rangeMaximum?: outputs.quicksight.TemplateNumericRangeFilterValue;
+        rangeMinimum?: outputs.quicksight.TemplateNumericRangeFilterValue;
+        selectAllOptions?: enums.quicksight.TemplateNumericFilterSelectAllOptions;
+    }
+
+    export interface TemplateNumericRangeFilterValue {
+        parameter?: string;
+        staticValue?: number;
+    }
+
+    export interface TemplateNumericSeparatorConfiguration {
+        decimalSeparator?: enums.quicksight.TemplateNumericSeparatorSymbol;
+        thousandsSeparator?: outputs.quicksight.TemplateThousandSeparatorOptions;
+    }
+
+    export interface TemplateNumericalAggregationFunction {
+        percentileAggregation?: outputs.quicksight.TemplatePercentileAggregation;
+        simpleNumericalAggregation?: enums.quicksight.TemplateSimpleNumericalAggregationFunction;
+    }
+
+    export interface TemplateNumericalDimensionField {
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.TemplateNumberFormatConfiguration;
+        hierarchyId?: string;
+    }
+
+    export interface TemplateNumericalMeasureField {
+        aggregationFunction?: outputs.quicksight.TemplateNumericalAggregationFunction;
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.TemplateNumberFormatConfiguration;
+    }
+
+    export interface TemplatePaginationConfiguration {
+        pageNumber: number;
+        pageSize: number;
+    }
+
+    export interface TemplatePanelConfiguration {
+        backgroundColor?: string;
+        backgroundVisibility?: enums.quicksight.TemplateVisibility;
+        borderColor?: string;
+        borderStyle?: enums.quicksight.TemplatePanelBorderStyle;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderThickness?: string;
+        borderVisibility?: enums.quicksight.TemplateVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        gutterSpacing?: string;
+        gutterVisibility?: enums.quicksight.TemplateVisibility;
+        title?: outputs.quicksight.TemplatePanelTitleOptions;
+    }
+
+    export interface TemplatePanelTitleOptions {
+        fontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
+        horizontalTextAlignment?: enums.quicksight.TemplateHorizontalTextAlignment;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateParameterControl {
+        dateTimePicker?: outputs.quicksight.TemplateParameterDateTimePickerControl;
+        dropdown?: outputs.quicksight.TemplateParameterDropDownControl;
+        list?: outputs.quicksight.TemplateParameterListControl;
+        slider?: outputs.quicksight.TemplateParameterSliderControl;
+        textArea?: outputs.quicksight.TemplateParameterTextAreaControl;
+        textField?: outputs.quicksight.TemplateParameterTextFieldControl;
+    }
+
+    export interface TemplateParameterDateTimePickerControl {
+        displayOptions?: outputs.quicksight.TemplateDateTimePickerControlDisplayOptions;
+        parameterControlId: string;
+        sourceParameterName: string;
+        title: string;
+    }
+
+    export interface TemplateParameterDeclaration {
+        dateTimeParameterDeclaration?: outputs.quicksight.TemplateDateTimeParameterDeclaration;
+        decimalParameterDeclaration?: outputs.quicksight.TemplateDecimalParameterDeclaration;
+        integerParameterDeclaration?: outputs.quicksight.TemplateIntegerParameterDeclaration;
+        stringParameterDeclaration?: outputs.quicksight.TemplateStringParameterDeclaration;
+    }
+
+    export interface TemplateParameterDropDownControl {
+        cascadingControlConfiguration?: outputs.quicksight.TemplateCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.TemplateDropDownControlDisplayOptions;
+        parameterControlId: string;
+        selectableValues?: outputs.quicksight.TemplateParameterSelectableValues;
+        sourceParameterName: string;
+        title: string;
+        type?: enums.quicksight.TemplateSheetControlListType;
+    }
+
+    export interface TemplateParameterListControl {
+        cascadingControlConfiguration?: outputs.quicksight.TemplateCascadingControlConfiguration;
+        displayOptions?: outputs.quicksight.TemplateListControlDisplayOptions;
+        parameterControlId: string;
+        selectableValues?: outputs.quicksight.TemplateParameterSelectableValues;
+        sourceParameterName: string;
+        title: string;
+        type?: enums.quicksight.TemplateSheetControlListType;
+    }
+
+    export interface TemplateParameterSelectableValues {
+        linkToDataSetColumn?: outputs.quicksight.TemplateColumnIdentifier;
+        values?: string[];
+    }
+
+    export interface TemplateParameterSliderControl {
+        displayOptions?: outputs.quicksight.TemplateSliderControlDisplayOptions;
+        maximumValue: number;
+        minimumValue: number;
+        parameterControlId: string;
+        sourceParameterName: string;
+        stepSize: number;
+        title: string;
+    }
+
+    export interface TemplateParameterTextAreaControl {
+        delimiter?: string;
+        displayOptions?: outputs.quicksight.TemplateTextAreaControlDisplayOptions;
+        parameterControlId: string;
+        sourceParameterName: string;
+        title: string;
+    }
+
+    export interface TemplateParameterTextFieldControl {
+        displayOptions?: outputs.quicksight.TemplateTextFieldControlDisplayOptions;
+        parameterControlId: string;
+        sourceParameterName: string;
+        title: string;
+    }
+
+    export interface TemplatePercentVisibleRange {
+        from?: number;
+        to?: number;
+    }
+
+    export interface TemplatePercentageDisplayFormatConfiguration {
+        decimalPlacesConfiguration?: outputs.quicksight.TemplateDecimalPlacesConfiguration;
+        negativeValueConfiguration?: outputs.quicksight.TemplateNegativeValueConfiguration;
+        nullValueFormatConfiguration?: outputs.quicksight.TemplateNullValueFormatConfiguration;
+        prefix?: string;
+        separatorConfiguration?: outputs.quicksight.TemplateNumericSeparatorConfiguration;
+        suffix?: string;
+    }
+
+    export interface TemplatePercentileAggregation {
+        percentileValue?: number;
+    }
+
+    export interface TemplatePeriodOverPeriodComputation {
+        computationId: string;
+        name?: string;
+        time: outputs.quicksight.TemplateDimensionField;
+        value?: outputs.quicksight.TemplateMeasureField;
+    }
+
+    export interface TemplatePeriodToDateComputation {
+        computationId: string;
+        name?: string;
+        periodTimeGranularity?: enums.quicksight.TemplateTimeGranularity;
+        time: outputs.quicksight.TemplateDimensionField;
+        value?: outputs.quicksight.TemplateMeasureField;
+    }
+
+    export interface TemplatePieChartAggregatedFieldWells {
+        category?: outputs.quicksight.TemplateDimensionField[];
+        smallMultiples?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplatePieChartConfiguration {
+        categoryLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        contributionAnalysisDefaults?: outputs.quicksight.TemplateContributionAnalysisDefault[];
+        dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        donutOptions?: outputs.quicksight.TemplateDonutOptions;
+        fieldWells?: outputs.quicksight.TemplatePieChartFieldWells;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        smallMultiplesOptions?: outputs.quicksight.TemplateSmallMultiplesOptions;
+        sortConfiguration?: outputs.quicksight.TemplatePieChartSortConfiguration;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+        valueLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+    }
+
+    export interface TemplatePieChartFieldWells {
+        pieChartAggregatedFieldWells?: outputs.quicksight.TemplatePieChartAggregatedFieldWells;
+    }
+
+    export interface TemplatePieChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.TemplateFieldSortOptions[];
+        smallMultiplesLimitConfiguration?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        smallMultiplesSort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplatePieChartVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplatePieChartConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplatePivotFieldSortOptions {
+        fieldId: string;
+        sortBy: outputs.quicksight.TemplatePivotTableSortBy;
+    }
+
+    export interface TemplatePivotTableAggregatedFieldWells {
+        columns?: outputs.quicksight.TemplateDimensionField[];
+        rows?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplatePivotTableCellConditionalFormatting {
+        fieldId: string;
+        scope?: outputs.quicksight.TemplatePivotTableConditionalFormattingScope;
+        textFormat?: outputs.quicksight.TemplateTextConditionalFormat;
+    }
+
+    export interface TemplatePivotTableConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.TemplatePivotTableConditionalFormattingOption[];
+    }
+
+    export interface TemplatePivotTableConditionalFormattingOption {
+        cell?: outputs.quicksight.TemplatePivotTableCellConditionalFormatting;
+    }
+
+    export interface TemplatePivotTableConditionalFormattingScope {
+        role?: enums.quicksight.TemplatePivotTableConditionalFormattingScopeRole;
+    }
+
+    export interface TemplatePivotTableConfiguration {
+        fieldOptions?: outputs.quicksight.TemplatePivotTableFieldOptions;
+        fieldWells?: outputs.quicksight.TemplatePivotTableFieldWells;
+        paginatedReportOptions?: outputs.quicksight.TemplatePivotTablePaginatedReportOptions;
+        sortConfiguration?: outputs.quicksight.TemplatePivotTableSortConfiguration;
+        tableOptions?: outputs.quicksight.TemplatePivotTableOptions;
+        totalOptions?: outputs.quicksight.TemplatePivotTableTotalOptions;
+    }
+
+    export interface TemplatePivotTableDataPathOption {
+        dataPathList: outputs.quicksight.TemplateDataPathValue[];
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: string;
+    }
+
+    export interface TemplatePivotTableFieldOption {
+        customLabel?: string;
+        fieldId: string;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplatePivotTableFieldOptions {
+        dataPathOptions?: outputs.quicksight.TemplatePivotTableDataPathOption[];
+        selectedFieldOptions?: outputs.quicksight.TemplatePivotTableFieldOption[];
+    }
+
+    export interface TemplatePivotTableFieldSubtotalOptions {
+        fieldId?: string;
+    }
+
+    export interface TemplatePivotTableFieldWells {
+        pivotTableAggregatedFieldWells?: outputs.quicksight.TemplatePivotTableAggregatedFieldWells;
+    }
+
+    export interface TemplatePivotTableOptions {
+        cellStyle?: outputs.quicksight.TemplateTableCellStyle;
+        columnHeaderStyle?: outputs.quicksight.TemplateTableCellStyle;
+        columnNamesVisibility?: enums.quicksight.TemplateVisibility;
+        metricPlacement?: enums.quicksight.TemplatePivotTableMetricPlacement;
+        rowAlternateColorOptions?: outputs.quicksight.TemplateRowAlternateColorOptions;
+        rowFieldNamesStyle?: outputs.quicksight.TemplateTableCellStyle;
+        rowHeaderStyle?: outputs.quicksight.TemplateTableCellStyle;
+        singleMetricVisibility?: enums.quicksight.TemplateVisibility;
+        toggleButtonsVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplatePivotTablePaginatedReportOptions {
+        overflowColumnHeaderVisibility?: enums.quicksight.TemplateVisibility;
+        verticalOverflowVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplatePivotTableSortBy {
+        column?: outputs.quicksight.TemplateColumnSort;
+        dataPath?: outputs.quicksight.TemplateDataPathSort;
+        field?: outputs.quicksight.TemplateFieldSort;
+    }
+
+    export interface TemplatePivotTableSortConfiguration {
+        fieldSortOptions?: outputs.quicksight.TemplatePivotFieldSortOptions[];
+    }
+
+    export interface TemplatePivotTableTotalOptions {
+        columnSubtotalOptions?: outputs.quicksight.TemplateSubtotalOptions;
+        columnTotalOptions?: outputs.quicksight.TemplatePivotTotalOptions;
+        rowSubtotalOptions?: outputs.quicksight.TemplateSubtotalOptions;
+        rowTotalOptions?: outputs.quicksight.TemplatePivotTotalOptions;
+    }
+
+    export interface TemplatePivotTableVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplatePivotTableConfiguration;
+        conditionalFormatting?: outputs.quicksight.TemplatePivotTableConditionalFormatting;
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplatePivotTotalOptions {
+        customLabel?: string;
+        metricHeaderCellStyle?: outputs.quicksight.TemplateTableCellStyle;
+        placement?: enums.quicksight.TemplateTableTotalsPlacement;
+        scrollStatus?: enums.quicksight.TemplateTableTotalsScrollStatus;
+        totalCellStyle?: outputs.quicksight.TemplateTableCellStyle;
+        totalsVisibility?: enums.quicksight.TemplateVisibility;
+        valueCellStyle?: outputs.quicksight.TemplateTableCellStyle;
+    }
+
+    export interface TemplatePredefinedHierarchy {
+        columns: outputs.quicksight.TemplateColumnIdentifier[];
+        drillDownFilters?: outputs.quicksight.TemplateDrillDownFilter[];
+        hierarchyId: string;
+    }
+
+    export interface TemplateProgressBarOptions {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateRadarChartAggregatedFieldWells {
+        category?: outputs.quicksight.TemplateDimensionField[];
+        color?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateRadarChartAreaStyleSettings {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateRadarChartConfiguration {
+        alternateBandColorsVisibility?: enums.quicksight.TemplateVisibility;
+        alternateBandEvenColor?: string;
+        alternateBandOddColor?: string;
+        baseSeriesSettings?: outputs.quicksight.TemplateRadarChartSeriesSettings;
+        categoryAxis?: outputs.quicksight.TemplateAxisDisplayOptions;
+        categoryLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        colorAxis?: outputs.quicksight.TemplateAxisDisplayOptions;
+        colorLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateRadarChartFieldWells;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        shape?: enums.quicksight.TemplateRadarChartShape;
+        sortConfiguration?: outputs.quicksight.TemplateRadarChartSortConfiguration;
+        startAngle?: number;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+    }
+
+    export interface TemplateRadarChartFieldWells {
+        radarChartAggregatedFieldWells?: outputs.quicksight.TemplateRadarChartAggregatedFieldWells;
+    }
+
+    export interface TemplateRadarChartSeriesSettings {
+        areaStyleSettings?: outputs.quicksight.TemplateRadarChartAreaStyleSettings;
+    }
+
+    export interface TemplateRadarChartSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.TemplateFieldSortOptions[];
+        colorItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        colorSort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateRadarChartVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateRadarChartConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateRangeEndsLabelType {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateReferenceLine {
+        dataConfiguration: outputs.quicksight.TemplateReferenceLineDataConfiguration;
+        labelConfiguration?: outputs.quicksight.TemplateReferenceLineLabelConfiguration;
+        status?: enums.quicksight.TemplateWidgetStatus;
+        styleConfiguration?: outputs.quicksight.TemplateReferenceLineStyleConfiguration;
+    }
+
+    export interface TemplateReferenceLineCustomLabelConfiguration {
+        customLabel: string;
+    }
+
+    export interface TemplateReferenceLineDataConfiguration {
+        axisBinding?: enums.quicksight.TemplateAxisBinding;
+        dynamicConfiguration?: outputs.quicksight.TemplateReferenceLineDynamicDataConfiguration;
+        staticConfiguration?: outputs.quicksight.TemplateReferenceLineStaticDataConfiguration;
+    }
+
+    export interface TemplateReferenceLineDynamicDataConfiguration {
+        calculation: outputs.quicksight.TemplateNumericalAggregationFunction;
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        measureAggregationFunction: outputs.quicksight.TemplateAggregationFunction;
+    }
+
+    export interface TemplateReferenceLineLabelConfiguration {
+        customLabelConfiguration?: outputs.quicksight.TemplateReferenceLineCustomLabelConfiguration;
+        fontColor?: string;
+        fontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
+        horizontalPosition?: enums.quicksight.TemplateReferenceLineLabelHorizontalPosition;
+        valueLabelConfiguration?: outputs.quicksight.TemplateReferenceLineValueLabelConfiguration;
+        verticalPosition?: enums.quicksight.TemplateReferenceLineLabelVerticalPosition;
+    }
+
+    export interface TemplateReferenceLineStaticDataConfiguration {
+        value: number;
+    }
+
+    export interface TemplateReferenceLineStyleConfiguration {
+        color?: string;
+        pattern?: enums.quicksight.TemplateReferenceLinePatternType;
+    }
+
+    export interface TemplateReferenceLineValueLabelConfiguration {
+        formatConfiguration?: outputs.quicksight.TemplateNumericFormatConfiguration;
+        relativePosition?: enums.quicksight.TemplateReferenceLineValueLabelRelativePosition;
+    }
+
+    export interface TemplateRelativeDateTimeControlDisplayOptions {
+        dateTimeFormat?: string;
+        titleOptions?: outputs.quicksight.TemplateLabelOptions;
+    }
+
+    export interface TemplateRelativeDatesFilter {
+        anchorDateConfiguration: outputs.quicksight.TemplateAnchorDateConfiguration;
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        excludePeriodConfiguration?: outputs.quicksight.TemplateExcludePeriodConfiguration;
+        filterId: string;
+        minimumGranularity?: enums.quicksight.TemplateTimeGranularity;
+        nullOption: enums.quicksight.TemplateFilterNullOption;
+        parameterName?: string;
+        relativeDateType: enums.quicksight.TemplateRelativeDateType;
+        relativeDateValue?: number;
+        timeGranularity: enums.quicksight.TemplateTimeGranularity;
+    }
+
+    export interface TemplateResourcePermission {
+        actions: string[];
+        principal: string;
+        resource?: string;
+    }
+
+    export interface TemplateRollingDateConfiguration {
+        dataSetIdentifier?: string;
+        expression: string;
+    }
+
+    export interface TemplateRowAlternateColorOptions {
+        rowAlternateColors?: string[];
+        status?: enums.quicksight.TemplateWidgetStatus;
+    }
+
+    export interface TemplateSameSheetTargetVisualConfiguration {
+        targetVisualOptions?: enums.quicksight.TemplateTargetVisualOptions;
+        targetVisuals?: string[];
+    }
+
+    export interface TemplateSankeyDiagramAggregatedFieldWells {
+        destination?: outputs.quicksight.TemplateDimensionField[];
+        source?: outputs.quicksight.TemplateDimensionField[];
+        weight?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateSankeyDiagramChartConfiguration {
+        dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateSankeyDiagramFieldWells;
+        sortConfiguration?: outputs.quicksight.TemplateSankeyDiagramSortConfiguration;
+    }
+
+    export interface TemplateSankeyDiagramFieldWells {
+        sankeyDiagramAggregatedFieldWells?: outputs.quicksight.TemplateSankeyDiagramAggregatedFieldWells;
+    }
+
+    export interface TemplateSankeyDiagramSortConfiguration {
+        destinationItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        sourceItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        weightSort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateSankeyDiagramVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateSankeyDiagramChartConfiguration;
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateScatterPlotCategoricallyAggregatedFieldWells {
+        category?: outputs.quicksight.TemplateDimensionField[];
+        size?: outputs.quicksight.TemplateMeasureField[];
+        xAxis?: outputs.quicksight.TemplateMeasureField[];
+        yAxis?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateScatterPlotConfiguration {
+        dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateScatterPlotFieldWells;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+        xAxisDisplayOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
+        xAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        yAxisDisplayOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
+        yAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+    }
+
+    export interface TemplateScatterPlotFieldWells {
+        scatterPlotCategoricallyAggregatedFieldWells?: outputs.quicksight.TemplateScatterPlotCategoricallyAggregatedFieldWells;
+        scatterPlotUnaggregatedFieldWells?: outputs.quicksight.TemplateScatterPlotUnaggregatedFieldWells;
+    }
+
+    export interface TemplateScatterPlotUnaggregatedFieldWells {
+        size?: outputs.quicksight.TemplateMeasureField[];
+        xAxis?: outputs.quicksight.TemplateDimensionField[];
+        yAxis?: outputs.quicksight.TemplateDimensionField[];
+    }
+
+    export interface TemplateScatterPlotVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateScatterPlotConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateScrollBarOptions {
+        visibility?: enums.quicksight.TemplateVisibility;
+        visibleRange?: outputs.quicksight.TemplateVisibleRangeOptions;
+    }
+
+    export interface TemplateSecondaryValueOptions {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateSectionAfterPageBreak {
+        status?: enums.quicksight.TemplateSectionPageBreakStatus;
+    }
+
+    export interface TemplateSectionBasedLayoutCanvasSizeOptions {
+        paperCanvasSizeOptions?: outputs.quicksight.TemplateSectionBasedLayoutPaperCanvasSizeOptions;
+    }
+
+    export interface TemplateSectionBasedLayoutConfiguration {
+        bodySections: outputs.quicksight.TemplateBodySectionConfiguration[];
+        canvasSizeOptions: outputs.quicksight.TemplateSectionBasedLayoutCanvasSizeOptions;
+        footerSections: outputs.quicksight.TemplateHeaderFooterSectionConfiguration[];
+        headerSections: outputs.quicksight.TemplateHeaderFooterSectionConfiguration[];
+    }
+
+    export interface TemplateSectionBasedLayoutPaperCanvasSizeOptions {
+        paperMargin?: outputs.quicksight.TemplateSpacing;
+        paperOrientation?: enums.quicksight.TemplatePaperOrientation;
+        paperSize?: enums.quicksight.TemplatePaperSize;
+    }
+
+    export interface TemplateSectionLayoutConfiguration {
+        freeFormLayout: outputs.quicksight.TemplateFreeFormSectionLayoutConfiguration;
+    }
+
+    export interface TemplateSectionPageBreakConfiguration {
+        after?: outputs.quicksight.TemplateSectionAfterPageBreak;
+    }
+
+    export interface TemplateSectionStyle {
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        height?: string;
+        padding?: outputs.quicksight.TemplateSpacing;
+    }
+
+    export interface TemplateSelectedSheetsFilterScopeConfiguration {
+        sheetVisualScopingConfigurations?: outputs.quicksight.TemplateSheetVisualScopingConfiguration[];
+    }
+
+    export interface TemplateSeriesItem {
+        dataFieldSeriesItem?: outputs.quicksight.TemplateDataFieldSeriesItem;
+        fieldSeriesItem?: outputs.quicksight.TemplateFieldSeriesItem;
+    }
+
+    export interface TemplateSetParameterValueConfiguration {
+        destinationParameterName: string;
+        value: outputs.quicksight.TemplateDestinationParameterValueConfiguration;
+    }
+
+    export interface TemplateShapeConditionalFormat {
+        backgroundColor: outputs.quicksight.TemplateConditionalFormattingColor;
+    }
+
+    export interface TemplateSheet {
+        name?: string;
         sheetId?: string;
     }
 
-    /**
-     * <p>The source analysis of the template.</p>
-     */
+    export interface TemplateSheetControlLayout {
+        configuration: outputs.quicksight.TemplateSheetControlLayoutConfiguration;
+    }
+
+    export interface TemplateSheetControlLayoutConfiguration {
+        gridLayout?: outputs.quicksight.TemplateGridLayoutConfiguration;
+    }
+
+    export interface TemplateSheetDefinition {
+        contentType?: enums.quicksight.TemplateSheetContentType;
+        description?: string;
+        filterControls?: outputs.quicksight.TemplateFilterControl[];
+        layouts?: outputs.quicksight.TemplateLayout[];
+        name?: string;
+        parameterControls?: outputs.quicksight.TemplateParameterControl[];
+        sheetControlLayouts?: outputs.quicksight.TemplateSheetControlLayout[];
+        sheetId: string;
+        textBoxes?: outputs.quicksight.TemplateSheetTextBox[];
+        title?: string;
+        visuals?: outputs.quicksight.TemplateVisual[];
+    }
+
+    export interface TemplateSheetElementConfigurationOverrides {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateSheetElementRenderingRule {
+        configurationOverrides: outputs.quicksight.TemplateSheetElementConfigurationOverrides;
+        expression: string;
+    }
+
+    export interface TemplateSheetTextBox {
+        content?: string;
+        sheetTextBoxId: string;
+    }
+
+    export interface TemplateSheetVisualScopingConfiguration {
+        scope: enums.quicksight.TemplateFilterVisualScope;
+        sheetId: string;
+        visualIds?: string[];
+    }
+
+    export interface TemplateShortFormatText {
+        plainText?: string;
+        richText?: string;
+    }
+
+    export interface TemplateSimpleClusterMarker {
+        color?: string;
+    }
+
+    export interface TemplateSliderControlDisplayOptions {
+        titleOptions?: outputs.quicksight.TemplateLabelOptions;
+    }
+
+    export interface TemplateSmallMultiplesOptions {
+        maxVisibleColumns?: number;
+        maxVisibleRows?: number;
+        panelConfiguration?: outputs.quicksight.TemplatePanelConfiguration;
+    }
+
     export interface TemplateSourceAnalysis {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
         arn: string;
-        /**
-         * <p>A structure containing information about the dataset references used as placeholders
-         *             in the template.</p>
-         */
         dataSetReferences: outputs.quicksight.TemplateDataSetReference[];
     }
 
-    /**
-     * <p>The source entity of the template.</p>
-     */
     export interface TemplateSourceEntity {
         sourceAnalysis?: outputs.quicksight.TemplateSourceAnalysis;
         sourceTemplate?: outputs.quicksight.TemplateSourceTemplate;
     }
 
-    /**
-     * <p>The source template of the template.</p>
-     */
     export interface TemplateSourceTemplate {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
         arn: string;
     }
 
-    /**
-     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-     *             resource.</p>
-     */
+    export interface TemplateSpacing {
+        /**
+         * String based length that is composed of value and unit
+         */
+        bottom?: string;
+        /**
+         * String based length that is composed of value and unit
+         */
+        left?: string;
+        /**
+         * String based length that is composed of value and unit
+         */
+        right?: string;
+        /**
+         * String based length that is composed of value and unit
+         */
+        top?: string;
+    }
+
+    export interface TemplateStringDefaultValues {
+        dynamicValue?: outputs.quicksight.TemplateDynamicDefaultValue;
+        staticValues?: string[];
+    }
+
+    export interface TemplateStringFormatConfiguration {
+        nullValueFormatConfiguration?: outputs.quicksight.TemplateNullValueFormatConfiguration;
+        numericFormatConfiguration?: outputs.quicksight.TemplateNumericFormatConfiguration;
+    }
+
+    export interface TemplateStringParameterDeclaration {
+        defaultValues?: outputs.quicksight.TemplateStringDefaultValues;
+        mappedDataSetParameters?: outputs.quicksight.TemplateMappedDataSetParameter[];
+        name: string;
+        parameterValueType: enums.quicksight.TemplateParameterValueType;
+        valueWhenUnset?: outputs.quicksight.TemplateStringValueWhenUnsetConfiguration;
+    }
+
+    export interface TemplateStringValueWhenUnsetConfiguration {
+        customValue?: string;
+        valueWhenUnsetOption?: enums.quicksight.TemplateValueWhenUnsetOption;
+    }
+
+    export interface TemplateSubtotalOptions {
+        customLabel?: string;
+        fieldLevel?: enums.quicksight.TemplatePivotTableSubtotalLevel;
+        fieldLevelOptions?: outputs.quicksight.TemplatePivotTableFieldSubtotalOptions[];
+        metricHeaderCellStyle?: outputs.quicksight.TemplateTableCellStyle;
+        totalCellStyle?: outputs.quicksight.TemplateTableCellStyle;
+        totalsVisibility?: enums.quicksight.TemplateVisibility;
+        valueCellStyle?: outputs.quicksight.TemplateTableCellStyle;
+    }
+
+    export interface TemplateTableAggregatedFieldWells {
+        groupBy?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateTableBorderOptions {
+        color?: string;
+        style?: enums.quicksight.TemplateTableBorderStyle;
+        thickness?: number;
+    }
+
+    export interface TemplateTableCellConditionalFormatting {
+        fieldId: string;
+        textFormat?: outputs.quicksight.TemplateTextConditionalFormat;
+    }
+
+    export interface TemplateTableCellImageSizingConfiguration {
+        tableCellImageScalingConfiguration?: enums.quicksight.TemplateTableCellImageScalingConfiguration;
+    }
+
+    export interface TemplateTableCellStyle {
+        backgroundColor?: string;
+        border?: outputs.quicksight.TemplateGlobalTableBorderOptions;
+        fontConfiguration?: outputs.quicksight.TemplateFontConfiguration;
+        height?: number;
+        horizontalTextAlignment?: enums.quicksight.TemplateHorizontalTextAlignment;
+        textWrap?: enums.quicksight.TemplateTextWrap;
+        verticalTextAlignment?: enums.quicksight.TemplateVerticalTextAlignment;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateTableConditionalFormatting {
+        conditionalFormattingOptions?: outputs.quicksight.TemplateTableConditionalFormattingOption[];
+    }
+
+    export interface TemplateTableConditionalFormattingOption {
+        cell?: outputs.quicksight.TemplateTableCellConditionalFormatting;
+        row?: outputs.quicksight.TemplateTableRowConditionalFormatting;
+    }
+
+    export interface TemplateTableConfiguration {
+        fieldOptions?: outputs.quicksight.TemplateTableFieldOptions;
+        fieldWells?: outputs.quicksight.TemplateTableFieldWells;
+        paginatedReportOptions?: outputs.quicksight.TemplateTablePaginatedReportOptions;
+        sortConfiguration?: outputs.quicksight.TemplateTableSortConfiguration;
+        tableInlineVisualizations?: outputs.quicksight.TemplateTableInlineVisualization[];
+        tableOptions?: outputs.quicksight.TemplateTableOptions;
+        totalOptions?: outputs.quicksight.TemplateTotalOptions;
+    }
+
+    export interface TemplateTableFieldCustomIconContent {
+        icon?: enums.quicksight.TemplateTableFieldIconSetType;
+    }
+
+    export interface TemplateTableFieldCustomTextContent {
+        fontConfiguration: outputs.quicksight.TemplateFontConfiguration;
+        value?: string;
+    }
+
+    export interface TemplateTableFieldImageConfiguration {
+        sizingOptions?: outputs.quicksight.TemplateTableCellImageSizingConfiguration;
+    }
+
+    export interface TemplateTableFieldLinkConfiguration {
+        content: outputs.quicksight.TemplateTableFieldLinkContentConfiguration;
+        target: enums.quicksight.TemplateURLTargetConfiguration;
+    }
+
+    export interface TemplateTableFieldLinkContentConfiguration {
+        customIconContent?: outputs.quicksight.TemplateTableFieldCustomIconContent;
+        customTextContent?: outputs.quicksight.TemplateTableFieldCustomTextContent;
+    }
+
+    export interface TemplateTableFieldOption {
+        customLabel?: string;
+        fieldId: string;
+        uRLStyling?: outputs.quicksight.TemplateTableFieldURLConfiguration;
+        visibility?: enums.quicksight.TemplateVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        width?: string;
+    }
+
+    export interface TemplateTableFieldOptions {
+        order?: string[];
+        selectedFieldOptions?: outputs.quicksight.TemplateTableFieldOption[];
+    }
+
+    export interface TemplateTableFieldURLConfiguration {
+        imageConfiguration?: outputs.quicksight.TemplateTableFieldImageConfiguration;
+        linkConfiguration?: outputs.quicksight.TemplateTableFieldLinkConfiguration;
+    }
+
+    export interface TemplateTableFieldWells {
+        tableAggregatedFieldWells?: outputs.quicksight.TemplateTableAggregatedFieldWells;
+        tableUnaggregatedFieldWells?: outputs.quicksight.TemplateTableUnaggregatedFieldWells;
+    }
+
+    export interface TemplateTableInlineVisualization {
+        dataBars?: outputs.quicksight.TemplateDataBarsOptions;
+    }
+
+    export interface TemplateTableOptions {
+        cellStyle?: outputs.quicksight.TemplateTableCellStyle;
+        headerStyle?: outputs.quicksight.TemplateTableCellStyle;
+        orientation?: enums.quicksight.TemplateTableOrientation;
+        rowAlternateColorOptions?: outputs.quicksight.TemplateRowAlternateColorOptions;
+    }
+
+    export interface TemplateTablePaginatedReportOptions {
+        overflowColumnHeaderVisibility?: enums.quicksight.TemplateVisibility;
+        verticalOverflowVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateTableRowConditionalFormatting {
+        backgroundColor?: outputs.quicksight.TemplateConditionalFormattingColor;
+        textColor?: outputs.quicksight.TemplateConditionalFormattingColor;
+    }
+
+    export interface TemplateTableSideBorderOptions {
+        bottom?: outputs.quicksight.TemplateTableBorderOptions;
+        innerHorizontal?: outputs.quicksight.TemplateTableBorderOptions;
+        innerVertical?: outputs.quicksight.TemplateTableBorderOptions;
+        left?: outputs.quicksight.TemplateTableBorderOptions;
+        right?: outputs.quicksight.TemplateTableBorderOptions;
+        top?: outputs.quicksight.TemplateTableBorderOptions;
+    }
+
+    export interface TemplateTableSortConfiguration {
+        paginationConfiguration?: outputs.quicksight.TemplatePaginationConfiguration;
+        rowSort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateTableUnaggregatedFieldWells {
+        values?: outputs.quicksight.TemplateUnaggregatedField[];
+    }
+
+    export interface TemplateTableVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateTableConfiguration;
+        conditionalFormatting?: outputs.quicksight.TemplateTableConditionalFormatting;
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
     export interface TemplateTag {
-        /**
-         * <p>Tag key.</p>
-         */
         key: string;
-        /**
-         * <p>Tag value.</p>
-         */
         value: string;
     }
 
-    /**
-     * <p>A version of a template.</p>
-     */
+    export interface TemplateTextAreaControlDisplayOptions {
+        placeholderOptions?: outputs.quicksight.TemplateTextControlPlaceholderOptions;
+        titleOptions?: outputs.quicksight.TemplateLabelOptions;
+    }
+
+    export interface TemplateTextConditionalFormat {
+        backgroundColor?: outputs.quicksight.TemplateConditionalFormattingColor;
+        icon?: outputs.quicksight.TemplateConditionalFormattingIcon;
+        textColor?: outputs.quicksight.TemplateConditionalFormattingColor;
+    }
+
+    export interface TemplateTextControlPlaceholderOptions {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateTextFieldControlDisplayOptions {
+        placeholderOptions?: outputs.quicksight.TemplateTextControlPlaceholderOptions;
+        titleOptions?: outputs.quicksight.TemplateLabelOptions;
+    }
+
+    export interface TemplateThousandSeparatorOptions {
+        symbol?: enums.quicksight.TemplateNumericSeparatorSymbol;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateTimeBasedForecastProperties {
+        lowerBoundary?: number;
+        periodsBackward?: number;
+        periodsForward?: number;
+        predictionInterval?: number;
+        seasonality?: number;
+        upperBoundary?: number;
+    }
+
+    export interface TemplateTimeEqualityFilter {
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        filterId: string;
+        parameterName?: string;
+        timeGranularity?: enums.quicksight.TemplateTimeGranularity;
+        value?: string;
+    }
+
+    export interface TemplateTimeRangeDrillDownFilter {
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        rangeMaximum: string;
+        rangeMinimum: string;
+        timeGranularity: enums.quicksight.TemplateTimeGranularity;
+    }
+
+    export interface TemplateTimeRangeFilter {
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        excludePeriodConfiguration?: outputs.quicksight.TemplateExcludePeriodConfiguration;
+        filterId: string;
+        includeMaximum?: boolean;
+        includeMinimum?: boolean;
+        nullOption: enums.quicksight.TemplateFilterNullOption;
+        rangeMaximumValue?: outputs.quicksight.TemplateTimeRangeFilterValue;
+        rangeMinimumValue?: outputs.quicksight.TemplateTimeRangeFilterValue;
+        timeGranularity?: enums.quicksight.TemplateTimeGranularity;
+    }
+
+    export interface TemplateTimeRangeFilterValue {
+        parameter?: string;
+        rollingDate?: outputs.quicksight.TemplateRollingDateConfiguration;
+        staticValue?: string;
+    }
+
+    export interface TemplateTooltipItem {
+        columnTooltipItem?: outputs.quicksight.TemplateColumnTooltipItem;
+        fieldTooltipItem?: outputs.quicksight.TemplateFieldTooltipItem;
+    }
+
+    export interface TemplateTooltipOptions {
+        fieldBasedTooltip?: outputs.quicksight.TemplateFieldBasedTooltip;
+        selectedTooltipType?: enums.quicksight.TemplateSelectedTooltipType;
+        tooltipVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateTopBottomFilter {
+        aggregationSortConfigurations: outputs.quicksight.TemplateAggregationSortConfiguration[];
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        filterId: string;
+        limit?: number;
+        parameterName?: string;
+        timeGranularity?: enums.quicksight.TemplateTimeGranularity;
+    }
+
+    export interface TemplateTopBottomMoversComputation {
+        category: outputs.quicksight.TemplateDimensionField;
+        computationId: string;
+        moverSize?: number;
+        name?: string;
+        sortOrder?: enums.quicksight.TemplateTopBottomSortOrder;
+        time: outputs.quicksight.TemplateDimensionField;
+        type: enums.quicksight.TemplateTopBottomComputationType;
+        value?: outputs.quicksight.TemplateMeasureField;
+    }
+
+    export interface TemplateTopBottomRankedComputation {
+        category: outputs.quicksight.TemplateDimensionField;
+        computationId: string;
+        name?: string;
+        resultSize?: number;
+        type: enums.quicksight.TemplateTopBottomComputationType;
+        value?: outputs.quicksight.TemplateMeasureField;
+    }
+
+    export interface TemplateTotalAggregationComputation {
+        computationId: string;
+        name?: string;
+        value: outputs.quicksight.TemplateMeasureField;
+    }
+
+    export interface TemplateTotalOptions {
+        customLabel?: string;
+        placement?: enums.quicksight.TemplateTableTotalsPlacement;
+        scrollStatus?: enums.quicksight.TemplateTableTotalsScrollStatus;
+        totalCellStyle?: outputs.quicksight.TemplateTableCellStyle;
+        totalsVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateTreeMapAggregatedFieldWells {
+        colors?: outputs.quicksight.TemplateMeasureField[];
+        groups?: outputs.quicksight.TemplateDimensionField[];
+        sizes?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateTreeMapConfiguration {
+        colorLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        colorScale?: outputs.quicksight.TemplateColorScale;
+        dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateTreeMapFieldWells;
+        groupLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        sizeLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.TemplateTreeMapSortConfiguration;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+    }
+
+    export interface TemplateTreeMapFieldWells {
+        treeMapAggregatedFieldWells?: outputs.quicksight.TemplateTreeMapAggregatedFieldWells;
+    }
+
+    export interface TemplateTreeMapSortConfiguration {
+        treeMapGroupItemsLimitConfiguration?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        treeMapSort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateTreeMapVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateTreeMapConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateTrendArrowOptions {
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateUnaggregatedField {
+        column: outputs.quicksight.TemplateColumnIdentifier;
+        fieldId: string;
+        formatConfiguration?: outputs.quicksight.TemplateFormatConfiguration;
+    }
+
+    export interface TemplateUniqueValuesComputation {
+        category: outputs.quicksight.TemplateDimensionField;
+        computationId: string;
+        name?: string;
+    }
+
     export interface TemplateVersion {
-        /**
-         * <p>The time that this template version was created.</p>
-         */
         createdTime?: string;
-        /**
-         * <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
-         *             template should be bound to new datasets matching the same schema described through this
-         *             API operation.</p>
-         */
         dataSetConfigurations?: outputs.quicksight.TemplateDataSetConfiguration[];
-        /**
-         * <p>The description of the template.</p>
-         */
         description?: string;
-        /**
-         * <p>Errors associated with this template version.</p>
-         */
         errors?: outputs.quicksight.TemplateError[];
-        /**
-         * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-         */
         sheets?: outputs.quicksight.TemplateSheet[];
-        /**
-         * <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
-         *             template.</p>
-         */
         sourceEntityArn?: string;
         status?: enums.quicksight.TemplateResourceStatus;
-        /**
-         * <p>The ARN of the theme associated with this version of the template.</p>
-         */
         themeArn?: string;
-        /**
-         * <p>The version number of the template version.</p>
-         */
         versionNumber?: number;
+    }
+
+    export interface TemplateVersionDefinition {
+        analysisDefaults?: outputs.quicksight.TemplateAnalysisDefaults;
+        calculatedFields?: outputs.quicksight.TemplateCalculatedField[];
+        columnConfigurations?: outputs.quicksight.TemplateColumnConfiguration[];
+        dataSetConfigurations: outputs.quicksight.TemplateDataSetConfiguration[];
+        filterGroups?: outputs.quicksight.TemplateFilterGroup[];
+        parameterDeclarations?: outputs.quicksight.TemplateParameterDeclaration[];
+        sheets?: outputs.quicksight.TemplateSheetDefinition[];
+    }
+
+    export interface TemplateVisibleRangeOptions {
+        percentRange?: outputs.quicksight.TemplatePercentVisibleRange;
+    }
+
+    export interface TemplateVisual {
+        barChartVisual?: outputs.quicksight.TemplateBarChartVisual;
+        boxPlotVisual?: outputs.quicksight.TemplateBoxPlotVisual;
+        comboChartVisual?: outputs.quicksight.TemplateComboChartVisual;
+        customContentVisual?: outputs.quicksight.TemplateCustomContentVisual;
+        emptyVisual?: outputs.quicksight.TemplateEmptyVisual;
+        filledMapVisual?: outputs.quicksight.TemplateFilledMapVisual;
+        funnelChartVisual?: outputs.quicksight.TemplateFunnelChartVisual;
+        gaugeChartVisual?: outputs.quicksight.TemplateGaugeChartVisual;
+        geospatialMapVisual?: outputs.quicksight.TemplateGeospatialMapVisual;
+        heatMapVisual?: outputs.quicksight.TemplateHeatMapVisual;
+        histogramVisual?: outputs.quicksight.TemplateHistogramVisual;
+        insightVisual?: outputs.quicksight.TemplateInsightVisual;
+        kPIVisual?: outputs.quicksight.TemplateKPIVisual;
+        lineChartVisual?: outputs.quicksight.TemplateLineChartVisual;
+        pieChartVisual?: outputs.quicksight.TemplatePieChartVisual;
+        pivotTableVisual?: outputs.quicksight.TemplatePivotTableVisual;
+        radarChartVisual?: outputs.quicksight.TemplateRadarChartVisual;
+        sankeyDiagramVisual?: outputs.quicksight.TemplateSankeyDiagramVisual;
+        scatterPlotVisual?: outputs.quicksight.TemplateScatterPlotVisual;
+        tableVisual?: outputs.quicksight.TemplateTableVisual;
+        treeMapVisual?: outputs.quicksight.TemplateTreeMapVisual;
+        waterfallVisual?: outputs.quicksight.TemplateWaterfallVisual;
+        wordCloudVisual?: outputs.quicksight.TemplateWordCloudVisual;
+    }
+
+    export interface TemplateVisualCustomAction {
+        actionOperations: outputs.quicksight.TemplateVisualCustomActionOperation[];
+        customActionId: string;
+        name: string;
+        status?: enums.quicksight.TemplateWidgetStatus;
+        trigger: enums.quicksight.TemplateVisualCustomActionTrigger;
+    }
+
+    export interface TemplateVisualCustomActionOperation {
+        filterOperation?: outputs.quicksight.TemplateCustomActionFilterOperation;
+        navigationOperation?: outputs.quicksight.TemplateCustomActionNavigationOperation;
+        setParametersOperation?: outputs.quicksight.TemplateCustomActionSetParametersOperation;
+        uRLOperation?: outputs.quicksight.TemplateCustomActionURLOperation;
+    }
+
+    export interface TemplateVisualPalette {
+        chartColor?: string;
+        colorMap?: outputs.quicksight.TemplateDataPathColor[];
+    }
+
+    export interface TemplateVisualSubtitleLabelOptions {
+        formatText?: outputs.quicksight.TemplateLongFormatText;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateVisualTitleLabelOptions {
+        formatText?: outputs.quicksight.TemplateShortFormatText;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateWaterfallChartAggregatedFieldWells {
+        breakdowns?: outputs.quicksight.TemplateDimensionField[];
+        categories?: outputs.quicksight.TemplateDimensionField[];
+        values?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateWaterfallChartConfiguration {
+        categoryAxisDisplayOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
+        categoryAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateWaterfallChartFieldWells;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        primaryYAxisDisplayOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
+        primaryYAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        sortConfiguration?: outputs.quicksight.TemplateWaterfallChartSortConfiguration;
+        visualPalette?: outputs.quicksight.TemplateVisualPalette;
+        waterfallChartOptions?: outputs.quicksight.TemplateWaterfallChartOptions;
+    }
+
+    export interface TemplateWaterfallChartFieldWells {
+        waterfallChartAggregatedFieldWells?: outputs.quicksight.TemplateWaterfallChartAggregatedFieldWells;
+    }
+
+    export interface TemplateWaterfallChartOptions {
+        totalBarLabel?: string;
+    }
+
+    export interface TemplateWaterfallChartSortConfiguration {
+        breakdownItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateWaterfallVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateWaterfallChartConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
+    }
+
+    export interface TemplateWhatIfPointScenario {
+        date: string;
+        value: number;
+    }
+
+    export interface TemplateWhatIfRangeScenario {
+        endDate: string;
+        startDate: string;
+        value: number;
+    }
+
+    export interface TemplateWordCloudAggregatedFieldWells {
+        groupBy?: outputs.quicksight.TemplateDimensionField[];
+        size?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateWordCloudChartConfiguration {
+        categoryLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        fieldWells?: outputs.quicksight.TemplateWordCloudFieldWells;
+        sortConfiguration?: outputs.quicksight.TemplateWordCloudSortConfiguration;
+        wordCloudOptions?: outputs.quicksight.TemplateWordCloudOptions;
+    }
+
+    export interface TemplateWordCloudFieldWells {
+        wordCloudAggregatedFieldWells?: outputs.quicksight.TemplateWordCloudAggregatedFieldWells;
+    }
+
+    export interface TemplateWordCloudOptions {
+        cloudLayout?: enums.quicksight.TemplateWordCloudCloudLayout;
+        maximumStringLength?: number;
+        wordCasing?: enums.quicksight.TemplateWordCloudWordCasing;
+        wordOrientation?: enums.quicksight.TemplateWordCloudWordOrientation;
+        wordPadding?: enums.quicksight.TemplateWordCloudWordPadding;
+        wordScaling?: enums.quicksight.TemplateWordCloudWordScaling;
+    }
+
+    export interface TemplateWordCloudSortConfiguration {
+        categoryItemsLimit?: outputs.quicksight.TemplateItemsLimitConfiguration;
+        categorySort?: outputs.quicksight.TemplateFieldSortOptions[];
+    }
+
+    export interface TemplateWordCloudVisual {
+        actions?: outputs.quicksight.TemplateVisualCustomAction[];
+        chartConfiguration?: outputs.quicksight.TemplateWordCloudChartConfiguration;
+        columnHierarchies?: outputs.quicksight.TemplateColumnHierarchy[];
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        visualId: string;
     }
 
     /**
@@ -33751,6 +41936,17 @@ export namespace s3objectlambda {
         awsLambda: outputs.s3objectlambda.AccessPointAwsLambda;
     }
 
+    export interface AliasProperties {
+        /**
+         * The status of the Object Lambda alias.
+         */
+        status?: string;
+        /**
+         * The value of the Object Lambda alias.
+         */
+        value?: string;
+    }
+
     export interface PolicyStatusProperties {
         /**
          * Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
@@ -34616,6 +42812,146 @@ export namespace sagemaker {
      * A key-value pair to associate with a resource.
      */
     export interface ImageTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+    /**
+     * Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+     */
+    export interface InferenceExperimentCaptureContentTypeHeader {
+        /**
+         * The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
+         */
+        csvContentTypes?: string[];
+        /**
+         * The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
+         */
+        jsonContentTypes?: string[];
+    }
+
+    /**
+     * The Amazon S3 location and configuration for storing inference request and response data.
+     */
+    export interface InferenceExperimentDataStorageConfig {
+        contentType?: outputs.sagemaker.InferenceExperimentCaptureContentTypeHeader;
+        /**
+         * The Amazon S3 bucket where the inference request and response data is stored.
+         */
+        destination: string;
+        /**
+         * The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
+         */
+        kmsKey?: string;
+    }
+
+    /**
+     * The metadata of the endpoint on which the inference experiment ran.
+     */
+    export interface InferenceExperimentEndpointMetadata {
+        /**
+         * The name of the endpoint configuration.
+         */
+        endpointConfigName?: string;
+        endpointName: string;
+        /**
+         * The status of the endpoint. For possible values of the status of an endpoint.
+         */
+        endpointStatus?: enums.sagemaker.InferenceExperimentEndpointMetadataEndpointStatus;
+    }
+
+    /**
+     * The configuration for the infrastructure that the model will be deployed to.
+     */
+    export interface InferenceExperimentModelInfrastructureConfig {
+        /**
+         * The type of the inference experiment that you want to run.
+         */
+        infrastructureType: enums.sagemaker.InferenceExperimentModelInfrastructureConfigInfrastructureType;
+        realTimeInferenceConfig: outputs.sagemaker.InferenceExperimentRealTimeInferenceConfig;
+    }
+
+    /**
+     * Contains information about the deployment options of a model.
+     */
+    export interface InferenceExperimentModelVariantConfig {
+        infrastructureConfig: outputs.sagemaker.InferenceExperimentModelInfrastructureConfig;
+        /**
+         * The name of the Amazon SageMaker Model entity.
+         */
+        modelName: string;
+        /**
+         * The name of the variant.
+         */
+        variantName: string;
+    }
+
+    /**
+     * The infrastructure configuration for deploying the model to a real-time inference endpoint.
+     */
+    export interface InferenceExperimentRealTimeInferenceConfig {
+        /**
+         * The number of instances of the type specified by InstanceType.
+         */
+        instanceCount: number;
+        /**
+         * The instance type the model is deployed to.
+         */
+        instanceType: string;
+    }
+
+    /**
+     * The duration for which you want the inference experiment to run.
+     */
+    export interface InferenceExperimentSchedule {
+        /**
+         * The timestamp at which the inference experiment ended or will end.
+         */
+        endTime?: string;
+        /**
+         * The timestamp at which the inference experiment started or will start.
+         */
+        startTime?: string;
+    }
+
+    /**
+     * The configuration of ShadowMode inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates.
+     */
+    export interface InferenceExperimentShadowModeConfig {
+        /**
+         * List of shadow variant configurations.
+         */
+        shadowModelVariants: outputs.sagemaker.InferenceExperimentShadowModelVariantConfig[];
+        /**
+         * The name of the production variant, which takes all the inference requests.
+         */
+        sourceModelVariantName: string;
+    }
+
+    /**
+     * The name and sampling percentage of a shadow variant.
+     */
+    export interface InferenceExperimentShadowModelVariantConfig {
+        /**
+         * The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
+         */
+        samplingPercentage: number;
+        /**
+         * The name of the shadow variant.
+         */
+        shadowModelVariantName: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface InferenceExperimentTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
@@ -40278,7 +48614,7 @@ export namespace wisdom {
 
     export interface KnowledgeBaseAppIntegrationsConfiguration {
         appIntegrationArn: string;
-        objectFields: string[];
+        objectFields?: string[];
     }
 
     export interface KnowledgeBaseRenderingConfiguration {

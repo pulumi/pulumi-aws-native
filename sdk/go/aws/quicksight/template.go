@@ -15,27 +15,18 @@ import (
 type Template struct {
 	pulumi.CustomResourceState
 
-	// <p>The Amazon Resource Name (ARN) of the template.</p>
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// <p>Time when this was created.</p>
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// <p>Time when this was last updated.</p>
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// <p>A display name for the template.</p>
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// <p>A list of resource permissions to be set on the template. </p>
-	Permissions  TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
-	SourceEntity TemplateSourceEntityOutput            `pulumi:"sourceEntity"`
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-	Tags       TemplateTagArrayOutput `pulumi:"tags"`
-	TemplateId pulumi.StringOutput    `pulumi:"templateId"`
-	Version    TemplateVersionOutput  `pulumi:"version"`
-	// <p>A description of the current template version being created. This API operation creates the
-	// 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
-	// 			version is created. Each version of the template maintains a description of the version
-	// 			in the <code>VersionDescription</code> field.</p>
-	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
+	Arn                pulumi.StringOutput                   `pulumi:"arn"`
+	AwsAccountId       pulumi.StringOutput                   `pulumi:"awsAccountId"`
+	CreatedTime        pulumi.StringOutput                   `pulumi:"createdTime"`
+	Definition         TemplateVersionDefinitionPtrOutput    `pulumi:"definition"`
+	LastUpdatedTime    pulumi.StringOutput                   `pulumi:"lastUpdatedTime"`
+	Name               pulumi.StringPtrOutput                `pulumi:"name"`
+	Permissions        TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
+	SourceEntity       TemplateSourceEntityPtrOutput         `pulumi:"sourceEntity"`
+	Tags               TemplateTagArrayOutput                `pulumi:"tags"`
+	TemplateId         pulumi.StringOutput                   `pulumi:"templateId"`
+	Version            TemplateVersionOutput                 `pulumi:"version"`
+	VersionDescription pulumi.StringPtrOutput                `pulumi:"versionDescription"`
 }
 
 // NewTemplate registers a new resource with the given unique name, arguments, and options.
@@ -47,9 +38,6 @@ func NewTemplate(ctx *pulumi.Context,
 
 	if args.AwsAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AwsAccountId'")
-	}
-	if args.SourceEntity == nil {
-		return nil, errors.New("invalid value for required argument 'SourceEntity'")
 	}
 	if args.TemplateId == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateId'")
@@ -86,37 +74,25 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
-	AwsAccountId string `pulumi:"awsAccountId"`
-	// <p>A display name for the template.</p>
-	Name *string `pulumi:"name"`
-	// <p>A list of resource permissions to be set on the template. </p>
-	Permissions  []TemplateResourcePermission `pulumi:"permissions"`
-	SourceEntity TemplateSourceEntity         `pulumi:"sourceEntity"`
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-	Tags       []TemplateTag `pulumi:"tags"`
-	TemplateId string        `pulumi:"templateId"`
-	// <p>A description of the current template version being created. This API operation creates the
-	// 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
-	// 			version is created. Each version of the template maintains a description of the version
-	// 			in the <code>VersionDescription</code> field.</p>
-	VersionDescription *string `pulumi:"versionDescription"`
+	AwsAccountId       string                       `pulumi:"awsAccountId"`
+	Definition         *TemplateVersionDefinition   `pulumi:"definition"`
+	Name               *string                      `pulumi:"name"`
+	Permissions        []TemplateResourcePermission `pulumi:"permissions"`
+	SourceEntity       *TemplateSourceEntity        `pulumi:"sourceEntity"`
+	Tags               []TemplateTag                `pulumi:"tags"`
+	TemplateId         string                       `pulumi:"templateId"`
+	VersionDescription *string                      `pulumi:"versionDescription"`
 }
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
-	AwsAccountId pulumi.StringInput
-	// <p>A display name for the template.</p>
-	Name pulumi.StringPtrInput
-	// <p>A list of resource permissions to be set on the template. </p>
-	Permissions  TemplateResourcePermissionArrayInput
-	SourceEntity TemplateSourceEntityInput
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-	Tags       TemplateTagArrayInput
-	TemplateId pulumi.StringInput
-	// <p>A description of the current template version being created. This API operation creates the
-	// 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
-	// 			version is created. Each version of the template maintains a description of the version
-	// 			in the <code>VersionDescription</code> field.</p>
+	AwsAccountId       pulumi.StringInput
+	Definition         TemplateVersionDefinitionPtrInput
+	Name               pulumi.StringPtrInput
+	Permissions        TemplateResourcePermissionArrayInput
+	SourceEntity       TemplateSourceEntityPtrInput
+	Tags               TemplateTagArrayInput
+	TemplateId         pulumi.StringInput
 	VersionDescription pulumi.StringPtrInput
 }
 
@@ -157,7 +133,6 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 	return o
 }
 
-// <p>The Amazon Resource Name (ARN) of the template.</p>
 func (o TemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -166,31 +141,30 @@ func (o TemplateOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// <p>Time when this was created.</p>
 func (o TemplateOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// <p>Time when this was last updated.</p>
+func (o TemplateOutput) Definition() TemplateVersionDefinitionPtrOutput {
+	return o.ApplyT(func(v *Template) TemplateVersionDefinitionPtrOutput { return v.Definition }).(TemplateVersionDefinitionPtrOutput)
+}
+
 func (o TemplateOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// <p>A display name for the template.</p>
 func (o TemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// <p>A list of resource permissions to be set on the template. </p>
 func (o TemplateOutput) Permissions() TemplateResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Template) TemplateResourcePermissionArrayOutput { return v.Permissions }).(TemplateResourcePermissionArrayOutput)
 }
 
-func (o TemplateOutput) SourceEntity() TemplateSourceEntityOutput {
-	return o.ApplyT(func(v *Template) TemplateSourceEntityOutput { return v.SourceEntity }).(TemplateSourceEntityOutput)
+func (o TemplateOutput) SourceEntity() TemplateSourceEntityPtrOutput {
+	return o.ApplyT(func(v *Template) TemplateSourceEntityPtrOutput { return v.SourceEntity }).(TemplateSourceEntityPtrOutput)
 }
 
-// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
 func (o TemplateOutput) Tags() TemplateTagArrayOutput {
 	return o.ApplyT(func(v *Template) TemplateTagArrayOutput { return v.Tags }).(TemplateTagArrayOutput)
 }
@@ -203,11 +177,6 @@ func (o TemplateOutput) Version() TemplateVersionOutput {
 	return o.ApplyT(func(v *Template) TemplateVersionOutput { return v.Version }).(TemplateVersionOutput)
 }
 
-// <p>A description of the current template version being created. This API operation creates the
-//
-//	first version of the template. Every time <code>UpdateTemplate</code> is called, a new
-//	version is created. Each version of the template maintains a description of the version
-//	in the <code>VersionDescription</code> field.</p>
 func (o TemplateOutput) VersionDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }

@@ -53,8 +53,10 @@ export class Domain extends pulumi.CustomResource {
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     public readonly logPublishingOptions!: pulumi.Output<any | undefined>;
     public readonly nodeToNodeEncryptionOptions!: pulumi.Output<outputs.opensearchservice.DomainNodeToNodeEncryptionOptions | undefined>;
+    public readonly offPeakWindowOptions!: pulumi.Output<outputs.opensearchservice.DomainOffPeakWindowOptions | undefined>;
     public /*out*/ readonly serviceSoftwareOptions!: pulumi.Output<outputs.opensearchservice.DomainServiceSoftwareOptions>;
     public readonly snapshotOptions!: pulumi.Output<outputs.opensearchservice.DomainSnapshotOptions | undefined>;
+    public readonly softwareUpdateOptions!: pulumi.Output<outputs.opensearchservice.DomainSoftwareUpdateOptions | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
@@ -84,7 +86,9 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryptionOptions"] = args ? args.nodeToNodeEncryptionOptions : undefined;
+            resourceInputs["offPeakWindowOptions"] = args ? args.offPeakWindowOptions : undefined;
             resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
+            resourceInputs["softwareUpdateOptions"] = args ? args.softwareUpdateOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vPCOptions"] = args ? args.vPCOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -109,8 +113,10 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["logPublishingOptions"] = undefined /*out*/;
             resourceInputs["nodeToNodeEncryptionOptions"] = undefined /*out*/;
+            resourceInputs["offPeakWindowOptions"] = undefined /*out*/;
             resourceInputs["serviceSoftwareOptions"] = undefined /*out*/;
             resourceInputs["snapshotOptions"] = undefined /*out*/;
+            resourceInputs["softwareUpdateOptions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vPCOptions"] = undefined /*out*/;
         }
@@ -135,7 +141,9 @@ export interface DomainArgs {
     engineVersion?: pulumi.Input<string>;
     logPublishingOptions?: any;
     nodeToNodeEncryptionOptions?: pulumi.Input<inputs.opensearchservice.DomainNodeToNodeEncryptionOptionsArgs>;
+    offPeakWindowOptions?: pulumi.Input<inputs.opensearchservice.DomainOffPeakWindowOptionsArgs>;
     snapshotOptions?: pulumi.Input<inputs.opensearchservice.DomainSnapshotOptionsArgs>;
+    softwareUpdateOptions?: pulumi.Input<inputs.opensearchservice.DomainSoftwareUpdateOptionsArgs>;
     /**
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */

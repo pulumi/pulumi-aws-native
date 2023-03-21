@@ -16,24 +16,40 @@ namespace Pulumi.AwsNative.Athena.Outputs
     [OutputType]
     public sealed class WorkGroupResultConfigurationUpdates
     {
+        public readonly Outputs.WorkGroupAclConfiguration? AclConfiguration;
         public readonly Outputs.WorkGroupEncryptionConfiguration? EncryptionConfiguration;
+        public readonly string? ExpectedBucketOwner;
         public readonly string? OutputLocation;
+        public readonly bool? RemoveAclConfiguration;
         public readonly bool? RemoveEncryptionConfiguration;
+        public readonly bool? RemoveExpectedBucketOwner;
         public readonly bool? RemoveOutputLocation;
 
         [OutputConstructor]
         private WorkGroupResultConfigurationUpdates(
+            Outputs.WorkGroupAclConfiguration? aclConfiguration,
+
             Outputs.WorkGroupEncryptionConfiguration? encryptionConfiguration,
+
+            string? expectedBucketOwner,
 
             string? outputLocation,
 
+            bool? removeAclConfiguration,
+
             bool? removeEncryptionConfiguration,
+
+            bool? removeExpectedBucketOwner,
 
             bool? removeOutputLocation)
         {
+            AclConfiguration = aclConfiguration;
             EncryptionConfiguration = encryptionConfiguration;
+            ExpectedBucketOwner = expectedBucketOwner;
             OutputLocation = outputLocation;
+            RemoveAclConfiguration = removeAclConfiguration;
             RemoveEncryptionConfiguration = removeEncryptionConfiguration;
+            RemoveExpectedBucketOwner = removeExpectedBucketOwner;
             RemoveOutputLocation = removeOutputLocation;
         }
     }

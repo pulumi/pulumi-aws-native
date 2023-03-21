@@ -107,6 +107,7 @@ import * as codestar from "./codestar";
 import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
+import * as comprehend from "./comprehend";
 import * as config from "./config";
 import * as configuration from "./configuration";
 import * as connect from "./connect";
@@ -326,6 +327,7 @@ export {
     codestarconnections,
     codestarnotifications,
     cognito,
+    comprehend,
     config,
     configuration,
     connect,

@@ -30,8 +30,10 @@ type Domain struct {
 	EngineVersion               pulumi.StringPtrOutput                      `pulumi:"engineVersion"`
 	LogPublishingOptions        pulumi.AnyOutput                            `pulumi:"logPublishingOptions"`
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrOutput  `pulumi:"nodeToNodeEncryptionOptions"`
+	OffPeakWindowOptions        DomainOffPeakWindowOptionsPtrOutput         `pulumi:"offPeakWindowOptions"`
 	ServiceSoftwareOptions      DomainServiceSoftwareOptionsOutput          `pulumi:"serviceSoftwareOptions"`
 	SnapshotOptions             DomainSnapshotOptionsPtrOutput              `pulumi:"snapshotOptions"`
+	SoftwareUpdateOptions       DomainSoftwareUpdateOptionsPtrOutput        `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags       DomainTagArrayOutput      `pulumi:"tags"`
 	VPCOptions DomainVPCOptionsPtrOutput `pulumi:"vPCOptions"`
@@ -88,7 +90,9 @@ type domainArgs struct {
 	EngineVersion               *string                             `pulumi:"engineVersion"`
 	LogPublishingOptions        interface{}                         `pulumi:"logPublishingOptions"`
 	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions  `pulumi:"nodeToNodeEncryptionOptions"`
+	OffPeakWindowOptions        *DomainOffPeakWindowOptions         `pulumi:"offPeakWindowOptions"`
 	SnapshotOptions             *DomainSnapshotOptions              `pulumi:"snapshotOptions"`
+	SoftwareUpdateOptions       *DomainSoftwareUpdateOptions        `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags       []DomainTag       `pulumi:"tags"`
 	VPCOptions *DomainVPCOptions `pulumi:"vPCOptions"`
@@ -108,7 +112,9 @@ type DomainArgs struct {
 	EngineVersion               pulumi.StringPtrInput
 	LogPublishingOptions        pulumi.Input
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrInput
+	OffPeakWindowOptions        DomainOffPeakWindowOptionsPtrInput
 	SnapshotOptions             DomainSnapshotOptionsPtrInput
+	SoftwareUpdateOptions       DomainSoftwareUpdateOptionsPtrInput
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags       DomainTagArrayInput
 	VPCOptions DomainVPCOptionsPtrInput
@@ -215,12 +221,20 @@ func (o DomainOutput) NodeToNodeEncryptionOptions() DomainNodeToNodeEncryptionOp
 	return o.ApplyT(func(v *Domain) DomainNodeToNodeEncryptionOptionsPtrOutput { return v.NodeToNodeEncryptionOptions }).(DomainNodeToNodeEncryptionOptionsPtrOutput)
 }
 
+func (o DomainOutput) OffPeakWindowOptions() DomainOffPeakWindowOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainOffPeakWindowOptionsPtrOutput { return v.OffPeakWindowOptions }).(DomainOffPeakWindowOptionsPtrOutput)
+}
+
 func (o DomainOutput) ServiceSoftwareOptions() DomainServiceSoftwareOptionsOutput {
 	return o.ApplyT(func(v *Domain) DomainServiceSoftwareOptionsOutput { return v.ServiceSoftwareOptions }).(DomainServiceSoftwareOptionsOutput)
 }
 
 func (o DomainOutput) SnapshotOptions() DomainSnapshotOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSnapshotOptionsPtrOutput { return v.SnapshotOptions }).(DomainSnapshotOptionsPtrOutput)
+}
+
+func (o DomainOutput) SoftwareUpdateOptions() DomainSoftwareUpdateOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainSoftwareUpdateOptionsPtrOutput { return v.SoftwareUpdateOptions }).(DomainSoftwareUpdateOptionsPtrOutput)
 }
 
 // An arbitrary set of tags (key-value pairs) for this Domain.

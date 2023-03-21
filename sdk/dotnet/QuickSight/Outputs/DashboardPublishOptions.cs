@@ -10,27 +10,56 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;Dashboard publish options.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class DashboardPublishOptions
     {
         public readonly Outputs.DashboardAdHocFilteringOption? AdHocFilteringOption;
+        public readonly Outputs.DashboardDataPointDrillUpDownOption? DataPointDrillUpDownOption;
+        public readonly Outputs.DashboardDataPointMenuLabelOption? DataPointMenuLabelOption;
+        public readonly Outputs.DashboardDataPointTooltipOption? DataPointTooltipOption;
         public readonly Outputs.DashboardExportToCSVOption? ExportToCSVOption;
+        public readonly Outputs.DashboardExportWithHiddenFieldsOption? ExportWithHiddenFieldsOption;
         public readonly Outputs.DashboardSheetControlsOption? SheetControlsOption;
+        public readonly Outputs.DashboardSheetLayoutElementMaximizationOption? SheetLayoutElementMaximizationOption;
+        public readonly Outputs.DashboardVisualAxisSortOption? VisualAxisSortOption;
+        public readonly Outputs.DashboardVisualMenuOption? VisualMenuOption;
+        public readonly Outputs.DashboardVisualPublishOptions? VisualPublishOptions;
 
         [OutputConstructor]
         private DashboardPublishOptions(
             Outputs.DashboardAdHocFilteringOption? adHocFilteringOption,
 
+            Outputs.DashboardDataPointDrillUpDownOption? dataPointDrillUpDownOption,
+
+            Outputs.DashboardDataPointMenuLabelOption? dataPointMenuLabelOption,
+
+            Outputs.DashboardDataPointTooltipOption? dataPointTooltipOption,
+
             Outputs.DashboardExportToCSVOption? exportToCSVOption,
 
-            Outputs.DashboardSheetControlsOption? sheetControlsOption)
+            Outputs.DashboardExportWithHiddenFieldsOption? exportWithHiddenFieldsOption,
+
+            Outputs.DashboardSheetControlsOption? sheetControlsOption,
+
+            Outputs.DashboardSheetLayoutElementMaximizationOption? sheetLayoutElementMaximizationOption,
+
+            Outputs.DashboardVisualAxisSortOption? visualAxisSortOption,
+
+            Outputs.DashboardVisualMenuOption? visualMenuOption,
+
+            Outputs.DashboardVisualPublishOptions? visualPublishOptions)
         {
             AdHocFilteringOption = adHocFilteringOption;
+            DataPointDrillUpDownOption = dataPointDrillUpDownOption;
+            DataPointMenuLabelOption = dataPointMenuLabelOption;
+            DataPointTooltipOption = dataPointTooltipOption;
             ExportToCSVOption = exportToCSVOption;
+            ExportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
             SheetControlsOption = sheetControlsOption;
+            SheetLayoutElementMaximizationOption = sheetLayoutElementMaximizationOption;
+            VisualAxisSortOption = visualAxisSortOption;
+            VisualMenuOption = visualMenuOption;
+            VisualPublishOptions = visualPublishOptions;
         }
     }
 }

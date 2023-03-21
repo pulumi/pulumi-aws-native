@@ -143,9 +143,10 @@ class KnowledgeBaseAppIntegrationsConfiguration(dict):
 
     def __init__(__self__, *,
                  app_integration_arn: str,
-                 object_fields: Sequence[str]):
+                 object_fields: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "app_integration_arn", app_integration_arn)
-        pulumi.set(__self__, "object_fields", object_fields)
+        if object_fields is not None:
+            pulumi.set(__self__, "object_fields", object_fields)
 
     @property
     @pulumi.getter(name="appIntegrationArn")
@@ -154,7 +155,7 @@ class KnowledgeBaseAppIntegrationsConfiguration(dict):
 
     @property
     @pulumi.getter(name="objectFields")
-    def object_fields(self) -> Sequence[str]:
+    def object_fields(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "object_fields")
 
 

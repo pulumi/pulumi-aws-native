@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Delivers logs from a Mesh or Service to the provided destination
+ * Delivers logs from a Service Network or Service to the provided destination
  */
 export function getAccessLogSubscription(args: GetAccessLogSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessLogSubscriptionResult> {
 
@@ -31,7 +31,7 @@ export interface GetAccessLogSubscriptionResult {
     readonly tags?: outputs.vpclattice.AccessLogSubscriptionTag[];
 }
 /**
- * Delivers logs from a Mesh or Service to the provided destination
+ * Delivers logs from a Service Network or Service to the provided destination
  */
 export function getAccessLogSubscriptionOutput(args: GetAccessLogSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessLogSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getAccessLogSubscription(a, opts))
