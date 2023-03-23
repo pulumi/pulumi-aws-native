@@ -91,7 +91,7 @@
       "additionalProperties" : false,
       "patternProperties" : {
         ".*" : {
-          "oneOf" : [ {
+          "anyOf" : [ {
             "type" : "string"
           }, {
             "type" : "integer"

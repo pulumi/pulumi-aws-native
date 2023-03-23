@@ -124,7 +124,7 @@
       "description" : "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
     }
   },
-  "required" : [ "EnvironmentIdentifier", "ApplicationIdentifier", "ServiceIdentifier" ],
+  "required" : [ "EnvironmentIdentifier", "ApplicationIdentifier", "ServiceIdentifier", "RouteType" ],
   "readOnlyProperties" : [ "/properties/RouteIdentifier", "/properties/PathResourceToId", "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/RouteType", "/properties/ServiceIdentifier", "/properties/DefaultRoute", "/properties/UriPathRoute" ],
   "createOnlyProperties" : [ "/properties/ApplicationIdentifier", "/properties/EnvironmentIdentifier", "/properties/RouteType", "/properties/ServiceIdentifier", "/properties/UriPathRoute/SourcePath", "/properties/UriPathRoute/Methods", "/properties/UriPathRoute/IncludeChildPaths" ],
