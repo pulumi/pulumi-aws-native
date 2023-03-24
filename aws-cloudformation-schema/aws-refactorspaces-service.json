@@ -121,7 +121,7 @@
       "description" : "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
     }
   },
-  "required" : [ "EnvironmentIdentifier", "ApplicationIdentifier" ],
+  "required" : [ "EnvironmentIdentifier", "ApplicationIdentifier", "EndpointType", "Name" ],
   "readOnlyProperties" : [ "/properties/ServiceIdentifier", "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/Description", "/properties/EndpointType", "/properties/LambdaEndpoint", "/properties/Name", "/properties/UrlEndpoint", "/properties/VpcId" ],
   "createOnlyProperties" : [ "/properties/Description", "/properties/EndpointType", "/properties/EnvironmentIdentifier", "/properties/ApplicationIdentifier", "/properties/LambdaEndpoint", "/properties/Name", "/properties/UrlEndpoint", "/properties/VpcId" ],

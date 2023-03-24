@@ -15,6 +15,9 @@
     "SupportEmail" : {
       "type" : "string"
     },
+    "ProductType" : {
+      "type" : "string"
+    },
     "ProvisioningArtifactNames" : {
       "type" : "string"
     },
@@ -93,6 +96,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "Type" : {
+          "type" : "string"
+        },
         "Description" : {
           "type" : "string"
         },

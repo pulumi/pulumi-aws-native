@@ -126,5 +126,6 @@
       "permissions" : [ "internetmonitor:ListMonitors" ]
     }
   },
-  "additionalProperties" : false
+  "additionalProperties" : false,
+  "required" : [ "MonitorName" ]
 }

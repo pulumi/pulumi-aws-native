@@ -118,7 +118,7 @@
   "createOnlyProperties" : [ "/properties/VpcId", "/properties/FirewallName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateVpcEndpoint", "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "network-firewall:CreateFirewall", "network-firewall:DescribeFirewallPolicy", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource" ]
+      "permissions" : [ "ec2:CreateVpcEndpoint", "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "network-firewall:CreateFirewall", "network-firewall:DescribeFirewallPolicy", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource" ]
     },
     "read" : {
       "permissions" : [ "network-firewall:DescribeFirewall", "network-firewall:ListTagsForResources" ]
@@ -127,7 +127,7 @@
       "permissions" : [ "network-firewall:AssociateSubnets", "network-firewall:DisassociateSubnets", "network-firewall:UpdateFirewallDescription", "network-firewall:UpdateFirewallDeleteProtection", "network-firewall:UpdateSubnetChangeProtection", "network-firewall:UpdateFirewallPolicyChangeProtection", "network-firewall:AssociateFirewallPolicy", "network-firewall:TagResource", "network-firewall:UntagResource", "network-firewall:DescribeFirewall" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DeleteVpcEndpoints", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:GetLogDelivery", "logs:ListLogDeliveries", "network-firewall:DeleteFirewall", "network-firewall:UntagResource" ]
+      "permissions" : [ "ec2:DeleteVpcEndpoints", "ec2:DescribeRouteTables", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:GetLogDelivery", "logs:ListLogDeliveries", "network-firewall:DeleteFirewall", "network-firewall:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "network-firewall:ListFirewalls" ]

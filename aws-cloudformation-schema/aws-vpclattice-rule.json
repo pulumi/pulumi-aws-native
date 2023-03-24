@@ -19,6 +19,18 @@
       "required" : [ "TargetGroups" ],
       "additionalProperties" : false
     },
+    "FixedResponse" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "StatusCode" : {
+          "type" : "integer",
+          "maximum" : 599,
+          "minimum" : 100
+        }
+      },
+      "required" : [ "StatusCode" ]
+    },
     "HeaderMatch" : {
       "type" : "object",
       "properties" : {
@@ -118,9 +130,12 @@
       "properties" : {
         "Forward" : {
           "$ref" : "#/definitions/Forward"
+        },
+        "FixedResponse" : {
+          "$ref" : "#/definitions/FixedResponse"
         }
       },
-      "required" : [ "Forward" ],
+      "required" : [ ],
       "additionalProperties" : false
     },
     "Match" : {

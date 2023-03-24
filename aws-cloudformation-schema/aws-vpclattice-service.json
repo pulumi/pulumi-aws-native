@@ -97,7 +97,7 @@
   "additionalIdentifiers" : [ [ "/properties/Id" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "vpc-lattice:CreateService", "vpc-lattice:GetService", "vpc-lattice:ListTagsForResource", "vpc-lattice:TagResource" ]
+      "permissions" : [ "vpc-lattice:CreateService", "vpc-lattice:GetService", "vpc-lattice:ListTagsForResource", "vpc-lattice:TagResource", "acm:DescribeCertificate", "acm:ListCertificates" ]
     },
     "read" : {
       "permissions" : [ "vpc-lattice:GetService", "vpc-lattice:ListTagsForResource" ]
