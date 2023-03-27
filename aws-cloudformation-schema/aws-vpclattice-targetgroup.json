@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::VpcLattice::TargetGroup",
-  "description" : "A group of related Targets that a Service may serve a request to",
+  "description" : "A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.",
   "additionalProperties" : false,
   "definitions" : {
     "HealthCheckConfig" : {
@@ -14,13 +14,20 @@
           "type" : "string",
           "enum" : [ "HTTP", "HTTPS" ]
         },
+        "ProtocolVersion" : {
+          "type" : "string",
+          "enum" : [ "HTTP1", "HTTP2" ]
+        },
         "Port" : {
           "type" : "integer",
           "maximum" : 65535,
           "minimum" : 1
         },
         "Path" : {
-          "type" : "string"
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 0,
+          "pattern" : "(^/[a-zA-Z0-9@:%_+.~#?&/=-]*$|(^$))"
         },
         "HealthCheckIntervalSeconds" : {
           "type" : "integer",
@@ -75,7 +82,13 @@
         },
         "ProtocolVersion" : {
           "type" : "string",
+          "default" : "HTTP1",
           "enum" : [ "HTTP1", "HTTP2", "GRPC" ]
+        },
+        "IpAddressType" : {
+          "type" : "string",
+          "default" : "IPV4",
+          "enum" : [ "IPV4", "IPV6" ]
         },
         "VpcIdentifier" : {
           "type" : "string",
@@ -146,7 +159,7 @@
     },
     "Name" : {
       "type" : "string",
-      "maxLength" : 63,
+      "maxLength" : 128,
       "minLength" : 3,
       "pattern" : "^(?!tg-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$"
     },
@@ -156,7 +169,7 @@
     },
     "Type" : {
       "type" : "string",
-      "enum" : [ "IP", "LAMBDA", "INSTANCE" ]
+      "enum" : [ "IP", "LAMBDA", "INSTANCE", "ALB" ]
     },
     "Targets" : {
       "type" : "array",
@@ -181,18 +194,18 @@
   },
   "required" : [ "Type" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/LastUpdatedAt", "/properties/Status" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Type", "/properties/Config/Port", "/properties/Config/Protocol", "/properties/Config/ProtocolVersion", "/properties/Config/VpcIdentifier" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Type", "/properties/Config/Port", "/properties/Config/IpAddressType", "/properties/Config/Protocol", "/properties/Config/ProtocolVersion", "/properties/Config/VpcIdentifier" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/Id" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "vpc-lattice:CreateTargetGroup", "vpc-lattice:GetTargetGroup", "vpc-lattice:RegisterTargets", "vpc-lattice:ListTargets", "vpc-lattice:ListTagsForResource", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "ec2:DescribeVpcs", "ec2:DescribeInstances", "ec2:DescribeSubnets", "ec2:DescribeAvailabilityZoneMappings", "lambda:Invoke", "lambda:AddPermission" ]
+      "permissions" : [ "vpc-lattice:CreateTargetGroup", "vpc-lattice:GetTargetGroup", "vpc-lattice:RegisterTargets", "vpc-lattice:ListTargets", "vpc-lattice:ListTagsForResource", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "ec2:DescribeVpcs", "ec2:DescribeInstances", "ec2:DescribeSubnets", "ec2:DescribeAvailabilityZoneMappings", "lambda:Invoke", "lambda:AddPermission", "elasticloadbalancing:DescribeLoadBalancers" ]
     },
     "read" : {
       "permissions" : [ "vpc-lattice:GetTargetGroup", "vpc-lattice:ListTargets", "vpc-lattice:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "vpc-lattice:UpdateTargetGroup", "vpc-lattice:GetTargetGroup", "vpc-lattice:ListTargets", "vpc-lattice:RegisterTargets", "vpc-lattice:DeregisterTargets", "ec2:DescribeInstances", "ec2:DescribeSubnets", "ec2:DescribeAvailabilityZoneMappings", "lambda:Invoke", "lambda:RemovePermission", "lambda:AddPermission", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "vpc-lattice:ListTagsForResource" ]
+      "permissions" : [ "vpc-lattice:UpdateTargetGroup", "vpc-lattice:GetTargetGroup", "vpc-lattice:ListTargets", "vpc-lattice:RegisterTargets", "vpc-lattice:DeregisterTargets", "ec2:DescribeInstances", "ec2:DescribeSubnets", "ec2:DescribeAvailabilityZoneMappings", "elasticloadbalancing:DescribeLoadBalancers", "lambda:Invoke", "lambda:RemovePermission", "lambda:AddPermission", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "vpc-lattice:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "vpc-lattice:DeleteTargetGroup", "vpc-lattice:GetTargetGroup", "vpc-lattice:DeregisterTargets", "lambda:RemovePermission" ]

@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::VpcLattice::ServiceNetworkServiceAssociation",
-  "description" : "Association between a Service Network and Service to allow the Service to be exposed within the ServiceNetwork",
+  "description" : "Associates a service with a service network.",
   "additionalProperties" : false,
   "definitions" : {
     "DnsEntry" : {

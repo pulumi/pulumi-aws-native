@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::VpcLattice::AuthPolicy",
-  "description" : "Description",
+  "description" : "Creates or updates the auth policy.",
   "additionalProperties" : false,
   "properties" : {
     "ResourceIdentifier" : {

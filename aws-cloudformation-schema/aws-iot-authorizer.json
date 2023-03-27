@@ -55,12 +55,19 @@
     },
     "Tags" : {
       "type" : "array",
+      "insertionOrder" : true,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
     }
   },
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "additionalProperties" : false,
   "required" : [ "AuthorizerFunctionArn" ],
   "createOnlyProperties" : [ "/properties/SigningDisabled", "/properties/AuthorizerName" ],
@@ -68,16 +75,16 @@
   "primaryIdentifier" : [ "/properties/AuthorizerName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iot:CreateAuthorizer" ]
+      "permissions" : [ "iot:CreateAuthorizer", "iot:DescribeAuthorizer", "iot:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "iot:DescribeAuthorizer" ]
+      "permissions" : [ "iot:DescribeAuthorizer", "iot:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iot:UpdateAuthorizer" ]
+      "permissions" : [ "iot:UpdateAuthorizer", "iot:DescribeAuthorizer", "iot:TagResource", "iot:UntagResource", "iot:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "iot:DeleteAuthorizer" ]
+      "permissions" : [ "iot:UpdateAuthorizer", "iot:DeleteAuthorizer", "iot:DescribeAuthorizer" ]
     },
     "list" : {
       "permissions" : [ "iot:ListAuthorizers" ]

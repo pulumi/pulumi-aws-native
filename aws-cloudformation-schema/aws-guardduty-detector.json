@@ -12,6 +12,13 @@
     "DataSources" : {
       "$ref" : "#/definitions/CFNDataSourceConfigurations"
     },
+    "Features" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/FeatureConfigurations"
+      }
+    },
     "Id" : {
       "type" : "string"
     },
@@ -24,6 +31,37 @@
     }
   },
   "definitions" : {
+    "FeatureAdditionalConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Status" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "FeatureConfigurations" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Status" : {
+          "type" : "string"
+        },
+        "AdditionalConfiguration" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/FeatureAdditionalConfiguration"
+          }
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      }
+    },
     "CFNMalwareProtectionConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
