@@ -1,5 +1,13 @@
 ## HEAD (Unreleased)
 
+## 0.55.0 (March 28, 2023)
+
+Upstream breaking changes
+  - Function `aws-native:iot:getCACertificate` missing output `removeAutoRegistration`
+
+New resources:
+  - `apigatewayv2.Route`
+
 
 ## 0.54.0 (March 21, 2023)
 
