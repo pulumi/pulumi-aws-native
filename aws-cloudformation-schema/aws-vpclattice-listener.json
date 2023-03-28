@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::VpcLattice::Listener",
-  "description" : "A logical unit that contains Rules for how a Service routes incoming requests based on their port, protocol, and path",
+  "description" : "Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.",
   "additionalProperties" : false,
   "definitions" : {
     "Forward" : {
@@ -19,15 +19,30 @@
       "required" : [ "TargetGroups" ],
       "additionalProperties" : false
     },
+    "FixedResponse" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "StatusCode" : {
+          "type" : "integer",
+          "maximum" : 599,
+          "minimum" : 100
+        }
+      },
+      "required" : [ "StatusCode" ]
+    },
     "DefaultAction" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "Forward" : {
           "$ref" : "#/definitions/Forward"
+        },
+        "FixedResponse" : {
+          "$ref" : "#/definitions/FixedResponse"
         }
       },
-      "required" : [ "Forward" ]
+      "required" : [ ]
     },
     "WeightedTargetGroup" : {
       "type" : "object",

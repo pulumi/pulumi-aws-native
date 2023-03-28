@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::VpcLattice::ServiceNetworkVpcAssociation",
-  "description" : "Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network",
+  "description" : "Associates a VPC with a service network.",
   "additionalProperties" : false,
   "definitions" : {
     "Tag" : {

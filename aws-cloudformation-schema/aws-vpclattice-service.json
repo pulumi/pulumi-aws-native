@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::VpcLattice::Service",
-  "description" : " A logical unit that is exposed to one or more Mercury networks containing a unique FQDN, a set of routing names, TLS certificates, and routing policies",
+  "description" : "A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).",
   "additionalProperties" : false,
   "definitions" : {
     "DnsEntry" : {
@@ -97,7 +97,7 @@
   "additionalIdentifiers" : [ [ "/properties/Id" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "vpc-lattice:CreateService", "vpc-lattice:GetService", "vpc-lattice:ListTagsForResource", "vpc-lattice:TagResource" ]
+      "permissions" : [ "vpc-lattice:CreateService", "vpc-lattice:GetService", "vpc-lattice:ListTagsForResource", "vpc-lattice:TagResource", "acm:DescribeCertificate", "acm:ListCertificates" ]
     },
     "read" : {
       "permissions" : [ "vpc-lattice:GetService", "vpc-lattice:ListTagsForResource" ]

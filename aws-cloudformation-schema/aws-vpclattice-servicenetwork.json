@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::VpcLattice::ServiceNetwork",
-  "description" : "A logical container containing Services that clients can request access to.",
+  "description" : "A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.",
   "additionalProperties" : false,
   "definitions" : {
     "Tag" : {
