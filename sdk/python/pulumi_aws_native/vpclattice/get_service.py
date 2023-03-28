@@ -115,7 +115,7 @@ class AwaitableGetServiceResult(GetServiceResult):
 def get_service(arn: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-     A logical unit that is exposed to one or more Mercury networks containing a unique FQDN, a set of routing names, TLS certificates, and routing policies
+    A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -138,6 +138,6 @@ def get_service(arn: Optional[str] = None,
 def get_service_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-     A logical unit that is exposed to one or more Mercury networks containing a unique FQDN, a set of routing names, TLS certificates, and routing policies
+    A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
     """
     ...

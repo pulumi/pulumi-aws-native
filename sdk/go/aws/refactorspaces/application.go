@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,16 +19,16 @@ type Application struct {
 	ApiGatewayProxy       ApplicationApiGatewayProxyInputPtrOutput `pulumi:"apiGatewayProxy"`
 	ApplicationIdentifier pulumi.StringOutput                      `pulumi:"applicationIdentifier"`
 	Arn                   pulumi.StringOutput                      `pulumi:"arn"`
-	EnvironmentIdentifier pulumi.StringPtrOutput                   `pulumi:"environmentIdentifier"`
-	Name                  pulumi.StringPtrOutput                   `pulumi:"name"`
+	EnvironmentIdentifier pulumi.StringOutput                      `pulumi:"environmentIdentifier"`
+	Name                  pulumi.StringOutput                      `pulumi:"name"`
 	NlbArn                pulumi.StringOutput                      `pulumi:"nlbArn"`
 	NlbName               pulumi.StringOutput                      `pulumi:"nlbName"`
-	ProxyType             ApplicationProxyTypePtrOutput            `pulumi:"proxyType"`
+	ProxyType             ApplicationProxyTypeOutput               `pulumi:"proxyType"`
 	ProxyUrl              pulumi.StringOutput                      `pulumi:"proxyUrl"`
 	StageName             pulumi.StringOutput                      `pulumi:"stageName"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags      ApplicationTagArrayOutput `pulumi:"tags"`
-	VpcId     pulumi.StringPtrOutput    `pulumi:"vpcId"`
+	VpcId     pulumi.StringOutput       `pulumi:"vpcId"`
 	VpcLinkId pulumi.StringOutput       `pulumi:"vpcLinkId"`
 }
 
@@ -35,9 +36,18 @@ type Application struct {
 func NewApplication(ctx *pulumi.Context,
 	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
 	if args == nil {
-		args = &ApplicationArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.EnvironmentIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'EnvironmentIdentifier'")
+	}
+	if args.ProxyType == nil {
+		return nil, errors.New("invalid value for required argument 'ProxyType'")
+	}
+	if args.VpcId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcId'")
+	}
 	var resource Application
 	err := ctx.RegisterResource("aws-native:refactorspaces:Application", name, args, &resource, opts...)
 	if err != nil {
@@ -71,23 +81,23 @@ func (ApplicationState) ElementType() reflect.Type {
 
 type applicationArgs struct {
 	ApiGatewayProxy       *ApplicationApiGatewayProxyInput `pulumi:"apiGatewayProxy"`
-	EnvironmentIdentifier *string                          `pulumi:"environmentIdentifier"`
+	EnvironmentIdentifier string                           `pulumi:"environmentIdentifier"`
 	Name                  *string                          `pulumi:"name"`
-	ProxyType             *ApplicationProxyType            `pulumi:"proxyType"`
+	ProxyType             ApplicationProxyType             `pulumi:"proxyType"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags  []ApplicationTag `pulumi:"tags"`
-	VpcId *string          `pulumi:"vpcId"`
+	VpcId string           `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	ApiGatewayProxy       ApplicationApiGatewayProxyInputPtrInput
-	EnvironmentIdentifier pulumi.StringPtrInput
+	EnvironmentIdentifier pulumi.StringInput
 	Name                  pulumi.StringPtrInput
-	ProxyType             ApplicationProxyTypePtrInput
+	ProxyType             ApplicationProxyTypeInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags  ApplicationTagArrayInput
-	VpcId pulumi.StringPtrInput
+	VpcId pulumi.StringInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -143,12 +153,12 @@ func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o ApplicationOutput) EnvironmentIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.EnvironmentIdentifier }).(pulumi.StringPtrOutput)
+func (o ApplicationOutput) EnvironmentIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
 }
 
-func (o ApplicationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o ApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o ApplicationOutput) NlbArn() pulumi.StringOutput {
@@ -159,8 +169,8 @@ func (o ApplicationOutput) NlbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.NlbName }).(pulumi.StringOutput)
 }
 
-func (o ApplicationOutput) ProxyType() ApplicationProxyTypePtrOutput {
-	return o.ApplyT(func(v *Application) ApplicationProxyTypePtrOutput { return v.ProxyType }).(ApplicationProxyTypePtrOutput)
+func (o ApplicationOutput) ProxyType() ApplicationProxyTypeOutput {
+	return o.ApplyT(func(v *Application) ApplicationProxyTypeOutput { return v.ProxyType }).(ApplicationProxyTypeOutput)
 }
 
 func (o ApplicationOutput) ProxyUrl() pulumi.StringOutput {
@@ -176,8 +186,8 @@ func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
 }
 
-func (o ApplicationOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
+func (o ApplicationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
 func (o ApplicationOutput) VpcLinkId() pulumi.StringOutput {

@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetRouteArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public string ApiId { get; set; } = null!;
+
+        [Input("routeId", required: true)]
+        public string RouteId { get; set; } = null!;
 
         public GetRouteArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        [Input("routeId", required: true)]
+        public Input<string> RouteId { get; set; } = null!;
 
         public GetRouteInvokeArgs()
         {
@@ -54,12 +60,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public readonly bool? ApiKeyRequired;
         public readonly ImmutableArray<string> AuthorizationScopes;
         public readonly string? AuthorizationType;
-        public readonly string? AuthorizerId;
-        public readonly string? Id;
         public readonly string? ModelSelectionExpression;
         public readonly string? OperationName;
         public readonly object? RequestModels;
-        public readonly object? RequestParameters;
+        public readonly string? RouteId;
         public readonly string? RouteKey;
         public readonly string? RouteResponseSelectionExpression;
         public readonly string? Target;
@@ -72,17 +76,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             string? authorizationType,
 
-            string? authorizerId,
-
-            string? id,
-
             string? modelSelectionExpression,
 
             string? operationName,
 
             object? requestModels,
 
-            object? requestParameters,
+            string? routeId,
 
             string? routeKey,
 
@@ -93,12 +93,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
             ApiKeyRequired = apiKeyRequired;
             AuthorizationScopes = authorizationScopes;
             AuthorizationType = authorizationType;
-            AuthorizerId = authorizerId;
-            Id = id;
             ModelSelectionExpression = modelSelectionExpression;
             OperationName = operationName;
             RequestModels = requestModels;
-            RequestParameters = requestParameters;
+            RouteId = routeId;
             RouteKey = routeKey;
             RouteResponseSelectionExpression = routeResponseSelectionExpression;
             Target = target;

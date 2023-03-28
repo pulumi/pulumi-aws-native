@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.VpcLattice
     public static class GetServiceNetworkVpcAssociation
     {
         /// <summary>
-        /// Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network
+        /// Associates a VPC with a service network.
         /// </summary>
         public static Task<GetServiceNetworkVpcAssociationResult> InvokeAsync(GetServiceNetworkVpcAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceNetworkVpcAssociationResult>("aws-native:vpclattice:getServiceNetworkVpcAssociation", args ?? new GetServiceNetworkVpcAssociationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network
+        /// Associates a VPC with a service network.
         /// </summary>
         public static Output<GetServiceNetworkVpcAssociationResult> Invoke(GetServiceNetworkVpcAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceNetworkVpcAssociationResult>("aws-native:vpclattice:getServiceNetworkVpcAssociation", args ?? new GetServiceNetworkVpcAssociationInvokeArgs(), options.WithDefaults());

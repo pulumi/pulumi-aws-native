@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class RuleAction
     {
-        public readonly Outputs.RuleForward Forward;
+        public readonly Outputs.RuleFixedResponse? FixedResponse;
+        public readonly Outputs.RuleForward? Forward;
 
         [OutputConstructor]
-        private RuleAction(Outputs.RuleForward forward)
+        private RuleAction(
+            Outputs.RuleFixedResponse? fixedResponse,
+
+            Outputs.RuleForward? forward)
         {
+            FixedResponse = fixedResponse;
             Forward = forward;
         }
     }

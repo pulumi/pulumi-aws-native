@@ -41,18 +41,18 @@ export class Application extends pulumi.CustomResource {
     public readonly apiGatewayProxy!: pulumi.Output<outputs.refactorspaces.ApplicationApiGatewayProxyInput | undefined>;
     public /*out*/ readonly applicationIdentifier!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly environmentIdentifier!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly environmentIdentifier!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly nlbArn!: pulumi.Output<string>;
     public /*out*/ readonly nlbName!: pulumi.Output<string>;
-    public readonly proxyType!: pulumi.Output<enums.refactorspaces.ApplicationProxyType | undefined>;
+    public readonly proxyType!: pulumi.Output<enums.refactorspaces.ApplicationProxyType>;
     public /*out*/ readonly proxyUrl!: pulumi.Output<string>;
     public /*out*/ readonly stageName!: pulumi.Output<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.refactorspaces.ApplicationTag[] | undefined>;
-    public readonly vpcId!: pulumi.Output<string | undefined>;
+    public readonly vpcId!: pulumi.Output<string>;
     public /*out*/ readonly vpcLinkId!: pulumi.Output<string>;
 
     /**
@@ -62,10 +62,19 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'environmentIdentifier'");
+            }
+            if ((!args || args.proxyType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'proxyType'");
+            }
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'vpcId'");
+            }
             resourceInputs["apiGatewayProxy"] = args ? args.apiGatewayProxy : undefined;
             resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -106,12 +115,12 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationArgs {
     apiGatewayProxy?: pulumi.Input<inputs.refactorspaces.ApplicationApiGatewayProxyInputArgs>;
-    environmentIdentifier?: pulumi.Input<string>;
+    environmentIdentifier: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    proxyType?: pulumi.Input<enums.refactorspaces.ApplicationProxyType>;
+    proxyType: pulumi.Input<enums.refactorspaces.ApplicationProxyType>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.refactorspaces.ApplicationTagArgs>[]>;
-    vpcId?: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

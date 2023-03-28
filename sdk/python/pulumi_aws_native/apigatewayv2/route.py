@@ -161,12 +161,7 @@ class RouteArgs:
         pulumi.set(self, "target", value)
 
 
-warnings.warn("""Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Route(pulumi.CustomResource):
-    warnings.warn("""Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,7 +222,6 @@ class Route(pulumi.CustomResource):
                  route_response_selection_expression: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Route is deprecated: Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -252,6 +246,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["route_key"] = route_key
             __props__.__dict__["route_response_selection_expression"] = route_response_selection_expression
             __props__.__dict__["target"] = target
+            __props__.__dict__["route_id"] = None
         super(Route, __self__).__init__(
             'aws-native:apigatewayv2:Route',
             resource_name,
@@ -283,6 +278,7 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["operation_name"] = None
         __props__.__dict__["request_models"] = None
         __props__.__dict__["request_parameters"] = None
+        __props__.__dict__["route_id"] = None
         __props__.__dict__["route_key"] = None
         __props__.__dict__["route_response_selection_expression"] = None
         __props__.__dict__["target"] = None
@@ -332,6 +328,11 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "request_parameters")
+
+    @property
+    @pulumi.getter(name="routeId")
+    def route_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "route_id")
 
     @property
     @pulumi.getter(name="routeKey")

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
         [Input("healthCheck")]
         public Input<Inputs.TargetGroupHealthCheckConfigArgs>? HealthCheck { get; set; }
 
+        [Input("ipAddressType")]
+        public Input<Pulumi.AwsNative.VpcLattice.TargetGroupConfigIpAddressType>? IpAddressType { get; set; }
+
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 

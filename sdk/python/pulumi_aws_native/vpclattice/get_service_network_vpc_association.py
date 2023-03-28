@@ -124,7 +124,7 @@ class AwaitableGetServiceNetworkVpcAssociationResult(GetServiceNetworkVpcAssocia
 def get_service_network_vpc_association(arn: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceNetworkVpcAssociationResult:
     """
-    Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network
+    Associates a VPC with a service network.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -148,6 +148,6 @@ def get_service_network_vpc_association(arn: Optional[str] = None,
 def get_service_network_vpc_association_output(arn: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceNetworkVpcAssociationResult]:
     """
-    Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network
+    Associates a VPC with a service network.
     """
     ...

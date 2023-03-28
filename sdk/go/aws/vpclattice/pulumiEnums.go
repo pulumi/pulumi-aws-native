@@ -1042,6 +1042,170 @@ func (o ServiceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+type TargetGroupConfigIpAddressType string
+
+const (
+	TargetGroupConfigIpAddressTypeIpv4 = TargetGroupConfigIpAddressType("IPV4")
+	TargetGroupConfigIpAddressTypeIpv6 = TargetGroupConfigIpAddressType("IPV6")
+)
+
+func (TargetGroupConfigIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupConfigIpAddressType)(nil)).Elem()
+}
+
+func (e TargetGroupConfigIpAddressType) ToTargetGroupConfigIpAddressTypeOutput() TargetGroupConfigIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(TargetGroupConfigIpAddressTypeOutput)
+}
+
+func (e TargetGroupConfigIpAddressType) ToTargetGroupConfigIpAddressTypeOutputWithContext(ctx context.Context) TargetGroupConfigIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TargetGroupConfigIpAddressTypeOutput)
+}
+
+func (e TargetGroupConfigIpAddressType) ToTargetGroupConfigIpAddressTypePtrOutput() TargetGroupConfigIpAddressTypePtrOutput {
+	return e.ToTargetGroupConfigIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e TargetGroupConfigIpAddressType) ToTargetGroupConfigIpAddressTypePtrOutputWithContext(ctx context.Context) TargetGroupConfigIpAddressTypePtrOutput {
+	return TargetGroupConfigIpAddressType(e).ToTargetGroupConfigIpAddressTypeOutputWithContext(ctx).ToTargetGroupConfigIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e TargetGroupConfigIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TargetGroupConfigIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TargetGroupConfigIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TargetGroupConfigIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TargetGroupConfigIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupConfigIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupConfigIpAddressType)(nil)).Elem()
+}
+
+func (o TargetGroupConfigIpAddressTypeOutput) ToTargetGroupConfigIpAddressTypeOutput() TargetGroupConfigIpAddressTypeOutput {
+	return o
+}
+
+func (o TargetGroupConfigIpAddressTypeOutput) ToTargetGroupConfigIpAddressTypeOutputWithContext(ctx context.Context) TargetGroupConfigIpAddressTypeOutput {
+	return o
+}
+
+func (o TargetGroupConfigIpAddressTypeOutput) ToTargetGroupConfigIpAddressTypePtrOutput() TargetGroupConfigIpAddressTypePtrOutput {
+	return o.ToTargetGroupConfigIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupConfigIpAddressTypeOutput) ToTargetGroupConfigIpAddressTypePtrOutputWithContext(ctx context.Context) TargetGroupConfigIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupConfigIpAddressType) *TargetGroupConfigIpAddressType {
+		return &v
+	}).(TargetGroupConfigIpAddressTypePtrOutput)
+}
+
+func (o TargetGroupConfigIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TargetGroupConfigIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TargetGroupConfigIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TargetGroupConfigIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupConfigIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TargetGroupConfigIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupConfigIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupConfigIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupConfigIpAddressType)(nil)).Elem()
+}
+
+func (o TargetGroupConfigIpAddressTypePtrOutput) ToTargetGroupConfigIpAddressTypePtrOutput() TargetGroupConfigIpAddressTypePtrOutput {
+	return o
+}
+
+func (o TargetGroupConfigIpAddressTypePtrOutput) ToTargetGroupConfigIpAddressTypePtrOutputWithContext(ctx context.Context) TargetGroupConfigIpAddressTypePtrOutput {
+	return o
+}
+
+func (o TargetGroupConfigIpAddressTypePtrOutput) Elem() TargetGroupConfigIpAddressTypeOutput {
+	return o.ApplyT(func(v *TargetGroupConfigIpAddressType) TargetGroupConfigIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupConfigIpAddressType
+		return ret
+	}).(TargetGroupConfigIpAddressTypeOutput)
+}
+
+func (o TargetGroupConfigIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupConfigIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TargetGroupConfigIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TargetGroupConfigIpAddressTypeInput is an input type that accepts TargetGroupConfigIpAddressTypeArgs and TargetGroupConfigIpAddressTypeOutput values.
+// You can construct a concrete instance of `TargetGroupConfigIpAddressTypeInput` via:
+//
+//	TargetGroupConfigIpAddressTypeArgs{...}
+type TargetGroupConfigIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToTargetGroupConfigIpAddressTypeOutput() TargetGroupConfigIpAddressTypeOutput
+	ToTargetGroupConfigIpAddressTypeOutputWithContext(context.Context) TargetGroupConfigIpAddressTypeOutput
+}
+
+var targetGroupConfigIpAddressTypePtrType = reflect.TypeOf((**TargetGroupConfigIpAddressType)(nil)).Elem()
+
+type TargetGroupConfigIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupConfigIpAddressTypePtrOutput() TargetGroupConfigIpAddressTypePtrOutput
+	ToTargetGroupConfigIpAddressTypePtrOutputWithContext(context.Context) TargetGroupConfigIpAddressTypePtrOutput
+}
+
+type targetGroupConfigIpAddressTypePtr string
+
+func TargetGroupConfigIpAddressTypePtr(v string) TargetGroupConfigIpAddressTypePtrInput {
+	return (*targetGroupConfigIpAddressTypePtr)(&v)
+}
+
+func (*targetGroupConfigIpAddressTypePtr) ElementType() reflect.Type {
+	return targetGroupConfigIpAddressTypePtrType
+}
+
+func (in *targetGroupConfigIpAddressTypePtr) ToTargetGroupConfigIpAddressTypePtrOutput() TargetGroupConfigIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(TargetGroupConfigIpAddressTypePtrOutput)
+}
+
+func (in *targetGroupConfigIpAddressTypePtr) ToTargetGroupConfigIpAddressTypePtrOutputWithContext(ctx context.Context) TargetGroupConfigIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigIpAddressTypePtrOutput)
+}
+
 type TargetGroupConfigProtocol string
 
 const (
@@ -1535,6 +1699,170 @@ func (in *targetGroupHealthCheckConfigProtocolPtr) ToTargetGroupHealthCheckConfi
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupHealthCheckConfigProtocolPtrOutput)
 }
 
+type TargetGroupHealthCheckConfigProtocolVersion string
+
+const (
+	TargetGroupHealthCheckConfigProtocolVersionHttp1 = TargetGroupHealthCheckConfigProtocolVersion("HTTP1")
+	TargetGroupHealthCheckConfigProtocolVersionHttp2 = TargetGroupHealthCheckConfigProtocolVersion("HTTP2")
+)
+
+func (TargetGroupHealthCheckConfigProtocolVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupHealthCheckConfigProtocolVersion)(nil)).Elem()
+}
+
+func (e TargetGroupHealthCheckConfigProtocolVersion) ToTargetGroupHealthCheckConfigProtocolVersionOutput() TargetGroupHealthCheckConfigProtocolVersionOutput {
+	return pulumi.ToOutput(e).(TargetGroupHealthCheckConfigProtocolVersionOutput)
+}
+
+func (e TargetGroupHealthCheckConfigProtocolVersion) ToTargetGroupHealthCheckConfigProtocolVersionOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigProtocolVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TargetGroupHealthCheckConfigProtocolVersionOutput)
+}
+
+func (e TargetGroupHealthCheckConfigProtocolVersion) ToTargetGroupHealthCheckConfigProtocolVersionPtrOutput() TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
+	return e.ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(context.Background())
+}
+
+func (e TargetGroupHealthCheckConfigProtocolVersion) ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
+	return TargetGroupHealthCheckConfigProtocolVersion(e).ToTargetGroupHealthCheckConfigProtocolVersionOutputWithContext(ctx).ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(ctx)
+}
+
+func (e TargetGroupHealthCheckConfigProtocolVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TargetGroupHealthCheckConfigProtocolVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TargetGroupHealthCheckConfigProtocolVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TargetGroupHealthCheckConfigProtocolVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TargetGroupHealthCheckConfigProtocolVersionOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupHealthCheckConfigProtocolVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupHealthCheckConfigProtocolVersion)(nil)).Elem()
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToTargetGroupHealthCheckConfigProtocolVersionOutput() TargetGroupHealthCheckConfigProtocolVersionOutput {
+	return o
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToTargetGroupHealthCheckConfigProtocolVersionOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigProtocolVersionOutput {
+	return o
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToTargetGroupHealthCheckConfigProtocolVersionPtrOutput() TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
+	return o.ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupHealthCheckConfigProtocolVersion) *TargetGroupHealthCheckConfigProtocolVersion {
+		return &v
+	}).(TargetGroupHealthCheckConfigProtocolVersionPtrOutput)
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TargetGroupHealthCheckConfigProtocolVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TargetGroupHealthCheckConfigProtocolVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupHealthCheckConfigProtocolVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupHealthCheckConfigProtocolVersion)(nil)).Elem()
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ToTargetGroupHealthCheckConfigProtocolVersionPtrOutput() TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
+	return o
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
+	return o
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) Elem() TargetGroupHealthCheckConfigProtocolVersionOutput {
+	return o.ApplyT(func(v *TargetGroupHealthCheckConfigProtocolVersion) TargetGroupHealthCheckConfigProtocolVersion {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupHealthCheckConfigProtocolVersion
+		return ret
+	}).(TargetGroupHealthCheckConfigProtocolVersionOutput)
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TargetGroupHealthCheckConfigProtocolVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TargetGroupHealthCheckConfigProtocolVersionInput is an input type that accepts TargetGroupHealthCheckConfigProtocolVersionArgs and TargetGroupHealthCheckConfigProtocolVersionOutput values.
+// You can construct a concrete instance of `TargetGroupHealthCheckConfigProtocolVersionInput` via:
+//
+//	TargetGroupHealthCheckConfigProtocolVersionArgs{...}
+type TargetGroupHealthCheckConfigProtocolVersionInput interface {
+	pulumi.Input
+
+	ToTargetGroupHealthCheckConfigProtocolVersionOutput() TargetGroupHealthCheckConfigProtocolVersionOutput
+	ToTargetGroupHealthCheckConfigProtocolVersionOutputWithContext(context.Context) TargetGroupHealthCheckConfigProtocolVersionOutput
+}
+
+var targetGroupHealthCheckConfigProtocolVersionPtrType = reflect.TypeOf((**TargetGroupHealthCheckConfigProtocolVersion)(nil)).Elem()
+
+type TargetGroupHealthCheckConfigProtocolVersionPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupHealthCheckConfigProtocolVersionPtrOutput() TargetGroupHealthCheckConfigProtocolVersionPtrOutput
+	ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(context.Context) TargetGroupHealthCheckConfigProtocolVersionPtrOutput
+}
+
+type targetGroupHealthCheckConfigProtocolVersionPtr string
+
+func TargetGroupHealthCheckConfigProtocolVersionPtr(v string) TargetGroupHealthCheckConfigProtocolVersionPtrInput {
+	return (*targetGroupHealthCheckConfigProtocolVersionPtr)(&v)
+}
+
+func (*targetGroupHealthCheckConfigProtocolVersionPtr) ElementType() reflect.Type {
+	return targetGroupHealthCheckConfigProtocolVersionPtrType
+}
+
+func (in *targetGroupHealthCheckConfigProtocolVersionPtr) ToTargetGroupHealthCheckConfigProtocolVersionPtrOutput() TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
+	return pulumi.ToOutput(in).(TargetGroupHealthCheckConfigProtocolVersionPtrOutput)
+}
+
+func (in *targetGroupHealthCheckConfigProtocolVersionPtr) ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupHealthCheckConfigProtocolVersionPtrOutput)
+}
+
 type TargetGroupStatus string
 
 const (
@@ -1634,6 +1962,7 @@ const (
 	TargetGroupTypeIp       = TargetGroupType("IP")
 	TargetGroupTypeLambda   = TargetGroupType("LAMBDA")
 	TargetGroupTypeInstance = TargetGroupType("INSTANCE")
+	TargetGroupTypeAlb      = TargetGroupType("ALB")
 )
 
 func (TargetGroupType) ElementType() reflect.Type {
@@ -1802,12 +2131,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthTypePtrInput)(nil)).Elem(), ServiceAuthType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAuthTypeInput)(nil)).Elem(), ServiceNetworkAuthType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAuthTypePtrInput)(nil)).Elem(), ServiceNetworkAuthType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigIpAddressTypeInput)(nil)).Elem(), TargetGroupConfigIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigIpAddressTypePtrInput)(nil)).Elem(), TargetGroupConfigIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigProtocolInput)(nil)).Elem(), TargetGroupConfigProtocol("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigProtocolPtrInput)(nil)).Elem(), TargetGroupConfigProtocol("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigProtocolVersionInput)(nil)).Elem(), TargetGroupConfigProtocolVersion("HTTP1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigProtocolVersionPtrInput)(nil)).Elem(), TargetGroupConfigProtocolVersion("HTTP1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckConfigProtocolInput)(nil)).Elem(), TargetGroupHealthCheckConfigProtocol("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckConfigProtocolPtrInput)(nil)).Elem(), TargetGroupHealthCheckConfigProtocol("HTTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckConfigProtocolVersionInput)(nil)).Elem(), TargetGroupHealthCheckConfigProtocolVersion("HTTP1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckConfigProtocolVersionPtrInput)(nil)).Elem(), TargetGroupHealthCheckConfigProtocolVersion("HTTP1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTypeInput)(nil)).Elem(), TargetGroupType("IP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTypePtrInput)(nil)).Elem(), TargetGroupType("IP"))
 	pulumi.RegisterOutputType(AuthPolicyStateEnumOutput{})
@@ -1826,12 +2159,16 @@ func init() {
 	pulumi.RegisterOutputType(ServiceNetworkVpcAssociationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ServiceStatusOutput{})
 	pulumi.RegisterOutputType(ServiceStatusPtrOutput{})
+	pulumi.RegisterOutputType(TargetGroupConfigIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(TargetGroupConfigIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigProtocolOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigProtocolPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigProtocolVersionOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigProtocolVersionPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupHealthCheckConfigProtocolOutput{})
 	pulumi.RegisterOutputType(TargetGroupHealthCheckConfigProtocolPtrOutput{})
+	pulumi.RegisterOutputType(TargetGroupHealthCheckConfigProtocolVersionOutput{})
+	pulumi.RegisterOutputType(TargetGroupHealthCheckConfigProtocolVersionPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupStatusOutput{})
 	pulumi.RegisterOutputType(TargetGroupStatusPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupTypeOutput{})

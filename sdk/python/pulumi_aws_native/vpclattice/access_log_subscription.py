@@ -66,7 +66,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessLogSubscriptionTagArgs']]]]] = None,
                  __props__=None):
         """
-        Delivers logs from a Service Network or Service to the provided destination
+        Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -78,7 +78,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  args: AccessLogSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Delivers logs from a Service Network or Service to the provided destination
+        Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
 
         :param str resource_name: The name of the resource.
         :param AccessLogSubscriptionArgs args: The arguments to use to populate this resource's properties.

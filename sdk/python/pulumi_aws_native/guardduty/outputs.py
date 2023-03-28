@@ -17,6 +17,8 @@ __all__ = [
     'DetectorCFNMalwareProtectionConfiguration',
     'DetectorCFNS3LogsConfiguration',
     'DetectorCFNScanEc2InstanceWithFindingsConfiguration',
+    'DetectorFeatureAdditionalConfiguration',
+    'DetectorFeatureConfigurations',
     'DetectorTag',
     'FilterCondition',
     'FilterFindingCriteria',
@@ -187,6 +189,73 @@ class DetectorCFNScanEc2InstanceWithFindingsConfiguration(dict):
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[bool]:
         return pulumi.get(self, "ebs_volumes")
+
+
+@pulumi.output_type
+class DetectorFeatureAdditionalConfiguration(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 status: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DetectorFeatureConfigurations(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalConfiguration":
+            suggest = "additional_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DetectorFeatureConfigurations. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DetectorFeatureConfigurations.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DetectorFeatureConfigurations.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_configuration: Optional[Sequence['outputs.DetectorFeatureAdditionalConfiguration']] = None,
+                 name: Optional[str] = None,
+                 status: Optional[str] = None):
+        if additional_configuration is not None:
+            pulumi.set(__self__, "additional_configuration", additional_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="additionalConfiguration")
+    def additional_configuration(self) -> Optional[Sequence['outputs.DetectorFeatureAdditionalConfiguration']]:
+        return pulumi.get(self, "additional_configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

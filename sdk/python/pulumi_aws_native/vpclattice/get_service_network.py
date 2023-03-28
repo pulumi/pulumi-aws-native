@@ -88,7 +88,7 @@ class AwaitableGetServiceNetworkResult(GetServiceNetworkResult):
 def get_service_network(arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceNetworkResult:
     """
-    A logical container containing Services that clients can request access to.
+    A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -108,6 +108,6 @@ def get_service_network(arn: Optional[str] = None,
 def get_service_network_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceNetworkResult]:
     """
-    A logical container containing Services that clients can request access to.
+    A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
     """
     ...

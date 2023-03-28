@@ -18,6 +18,7 @@ class DetectorArgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool],
                  data_sources: Optional[pulumi.Input['DetectorCFNDataSourceConfigurationsArgs']] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureConfigurationsArgs']]]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
         """
@@ -26,6 +27,8 @@ class DetectorArgs:
         pulumi.set(__self__, "enable", enable)
         if data_sources is not None:
             pulumi.set(__self__, "data_sources", data_sources)
+        if features is not None:
+            pulumi.set(__self__, "features", features)
         if finding_publishing_frequency is not None:
             pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
         if tags is not None:
@@ -48,6 +51,15 @@ class DetectorArgs:
     @data_sources.setter
     def data_sources(self, value: Optional[pulumi.Input['DetectorCFNDataSourceConfigurationsArgs']]):
         pulumi.set(self, "data_sources", value)
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureConfigurationsArgs']]]]:
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureConfigurationsArgs']]]]):
+        pulumi.set(self, "features", value)
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
@@ -80,6 +92,7 @@ class Detector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_sources: Optional[pulumi.Input[pulumi.InputType['DetectorCFNDataSourceConfigurationsArgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureConfigurationsArgs']]]]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
                  __props__=None):
@@ -115,6 +128,7 @@ class Detector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_sources: Optional[pulumi.Input[pulumi.InputType['DetectorCFNDataSourceConfigurationsArgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureConfigurationsArgs']]]]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
                  __props__=None):
@@ -131,6 +145,7 @@ class Detector(pulumi.CustomResource):
             if enable is None and not opts.urn:
                 raise TypeError("Missing required property 'enable'")
             __props__.__dict__["enable"] = enable
+            __props__.__dict__["features"] = features
             __props__.__dict__["finding_publishing_frequency"] = finding_publishing_frequency
             __props__.__dict__["tags"] = tags
         super(Detector, __self__).__init__(
@@ -157,6 +172,7 @@ class Detector(pulumi.CustomResource):
 
         __props__.__dict__["data_sources"] = None
         __props__.__dict__["enable"] = None
+        __props__.__dict__["features"] = None
         __props__.__dict__["finding_publishing_frequency"] = None
         __props__.__dict__["tags"] = None
         return Detector(resource_name, opts=opts, __props__=__props__)
@@ -170,6 +186,11 @@ class Detector(pulumi.CustomResource):
     @pulumi.getter
     def enable(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def features(self) -> pulumi.Output[Optional[Sequence['outputs.DetectorFeatureConfigurations']]]:
+        return pulumi.get(self, "features")
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")

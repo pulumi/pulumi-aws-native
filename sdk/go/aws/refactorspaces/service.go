@@ -18,10 +18,10 @@ type Service struct {
 	ApplicationIdentifier pulumi.StringOutput                 `pulumi:"applicationIdentifier"`
 	Arn                   pulumi.StringOutput                 `pulumi:"arn"`
 	Description           pulumi.StringPtrOutput              `pulumi:"description"`
-	EndpointType          ServiceEndpointTypePtrOutput        `pulumi:"endpointType"`
+	EndpointType          ServiceEndpointTypeOutput           `pulumi:"endpointType"`
 	EnvironmentIdentifier pulumi.StringOutput                 `pulumi:"environmentIdentifier"`
 	LambdaEndpoint        ServiceLambdaEndpointInputPtrOutput `pulumi:"lambdaEndpoint"`
-	Name                  pulumi.StringPtrOutput              `pulumi:"name"`
+	Name                  pulumi.StringOutput                 `pulumi:"name"`
 	ServiceIdentifier     pulumi.StringOutput                 `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags        ServiceTagArrayOutput            `pulumi:"tags"`
@@ -38,6 +38,9 @@ func NewService(ctx *pulumi.Context,
 
 	if args.ApplicationIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationIdentifier'")
+	}
+	if args.EndpointType == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointType'")
 	}
 	if args.EnvironmentIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentIdentifier'")
@@ -76,7 +79,7 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	ApplicationIdentifier string                      `pulumi:"applicationIdentifier"`
 	Description           *string                     `pulumi:"description"`
-	EndpointType          *ServiceEndpointType        `pulumi:"endpointType"`
+	EndpointType          ServiceEndpointType         `pulumi:"endpointType"`
 	EnvironmentIdentifier string                      `pulumi:"environmentIdentifier"`
 	LambdaEndpoint        *ServiceLambdaEndpointInput `pulumi:"lambdaEndpoint"`
 	Name                  *string                     `pulumi:"name"`
@@ -90,7 +93,7 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	ApplicationIdentifier pulumi.StringInput
 	Description           pulumi.StringPtrInput
-	EndpointType          ServiceEndpointTypePtrInput
+	EndpointType          ServiceEndpointTypeInput
 	EnvironmentIdentifier pulumi.StringInput
 	LambdaEndpoint        ServiceLambdaEndpointInputPtrInput
 	Name                  pulumi.StringPtrInput
@@ -149,8 +152,8 @@ func (o ServiceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceOutput) EndpointType() ServiceEndpointTypePtrOutput {
-	return o.ApplyT(func(v *Service) ServiceEndpointTypePtrOutput { return v.EndpointType }).(ServiceEndpointTypePtrOutput)
+func (o ServiceOutput) EndpointType() ServiceEndpointTypeOutput {
+	return o.ApplyT(func(v *Service) ServiceEndpointTypeOutput { return v.EndpointType }).(ServiceEndpointTypeOutput)
 }
 
 func (o ServiceOutput) EnvironmentIdentifier() pulumi.StringOutput {
@@ -161,8 +164,8 @@ func (o ServiceOutput) LambdaEndpoint() ServiceLambdaEndpointInputPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceLambdaEndpointInputPtrOutput { return v.LambdaEndpoint }).(ServiceLambdaEndpointInputPtrOutput)
 }
 
-func (o ServiceOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o ServiceOutput) ServiceIdentifier() pulumi.StringOutput {

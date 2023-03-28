@@ -87,7 +87,7 @@ class AwaitableGetListenerResult(GetListenerResult):
 def get_listener(arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerResult:
     """
-    A logical unit that contains Rules for how a Service routes incoming requests based on their port, protocol, and path
+    Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -107,6 +107,6 @@ def get_listener(arn: Optional[str] = None,
 def get_listener_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
     """
-    A logical unit that contains Rules for how a Service routes incoming requests based on their port, protocol, and path
+    Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
     """
     ...

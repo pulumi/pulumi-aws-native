@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     public sealed class TargetGroupConfig
     {
         public readonly Outputs.TargetGroupHealthCheckConfig? HealthCheck;
+        public readonly Pulumi.AwsNative.VpcLattice.TargetGroupConfigIpAddressType? IpAddressType;
         public readonly int Port;
         public readonly Pulumi.AwsNative.VpcLattice.TargetGroupConfigProtocol Protocol;
         public readonly Pulumi.AwsNative.VpcLattice.TargetGroupConfigProtocolVersion? ProtocolVersion;
@@ -22,6 +23,8 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
         [OutputConstructor]
         private TargetGroupConfig(
             Outputs.TargetGroupHealthCheckConfig? healthCheck,
+
+            Pulumi.AwsNative.VpcLattice.TargetGroupConfigIpAddressType? ipAddressType,
 
             int port,
 
@@ -32,6 +35,7 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
             string vpcIdentifier)
         {
             HealthCheck = healthCheck;
+            IpAddressType = ipAddressType;
             Port = port;
             Protocol = protocol;
             ProtocolVersion = protocolVersion;

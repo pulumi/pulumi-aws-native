@@ -32,6 +32,7 @@ type LookupCloudFormationProductResult struct {
 	Name                           *string                                               `pulumi:"name"`
 	Owner                          *string                                               `pulumi:"owner"`
 	ProductName                    *string                                               `pulumi:"productName"`
+	ProductType                    *string                                               `pulumi:"productType"`
 	ProvisioningArtifactIds        *string                                               `pulumi:"provisioningArtifactIds"`
 	ProvisioningArtifactNames      *string                                               `pulumi:"provisioningArtifactNames"`
 	ProvisioningArtifactParameters []CloudFormationProductProvisioningArtifactProperties `pulumi:"provisioningArtifactParameters"`
@@ -104,6 +105,10 @@ func (o LookupCloudFormationProductResultOutput) Owner() pulumi.StringPtrOutput 
 
 func (o LookupCloudFormationProductResultOutput) ProductName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudFormationProductResult) *string { return v.ProductName }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCloudFormationProductResultOutput) ProductType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationProductResult) *string { return v.ProductType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCloudFormationProductResultOutput) ProvisioningArtifactIds() pulumi.StringPtrOutput {

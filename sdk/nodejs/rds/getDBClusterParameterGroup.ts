@@ -24,6 +24,10 @@ export interface GetDBClusterParameterGroupArgs {
 
 export interface GetDBClusterParameterGroupResult {
     /**
+     * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+     */
+    readonly parameters?: any;
+    /**
      * The list of tags for the cluster parameter group.
      */
     readonly tags?: outputs.rds.DBClusterParameterGroupTag[];

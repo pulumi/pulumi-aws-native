@@ -95,7 +95,8 @@ class CloudFormationProductProvisioningArtifactPropertiesArgs:
                  info: Any,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_template_validation: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "info", info)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -103,6 +104,8 @@ class CloudFormationProductProvisioningArtifactPropertiesArgs:
             pulumi.set(__self__, "disable_template_validation", disable_template_validation)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -139,6 +142,15 @@ class CloudFormationProductProvisioningArtifactPropertiesArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

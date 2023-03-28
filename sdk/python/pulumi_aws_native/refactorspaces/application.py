@@ -17,28 +17,52 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
+                 environment_identifier: pulumi.Input[str],
+                 proxy_type: pulumi.Input['ApplicationProxyType'],
+                 vpc_id: pulumi.Input[str],
                  api_gateway_proxy: Optional[pulumi.Input['ApplicationApiGatewayProxyInputArgs']] = None,
-                 environment_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 proxy_type: Optional[pulumi.Input['ApplicationProxyType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-                 vpc_id: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
+        pulumi.set(__self__, "environment_identifier", environment_identifier)
+        pulumi.set(__self__, "proxy_type", proxy_type)
+        pulumi.set(__self__, "vpc_id", vpc_id)
         if api_gateway_proxy is not None:
             pulumi.set(__self__, "api_gateway_proxy", api_gateway_proxy)
-        if environment_identifier is not None:
-            pulumi.set(__self__, "environment_identifier", environment_identifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if proxy_type is not None:
-            pulumi.set(__self__, "proxy_type", proxy_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="environmentIdentifier")
+    def environment_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "environment_identifier")
+
+    @environment_identifier.setter
+    def environment_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "environment_identifier", value)
+
+    @property
+    @pulumi.getter(name="proxyType")
+    def proxy_type(self) -> pulumi.Input['ApplicationProxyType']:
+        return pulumi.get(self, "proxy_type")
+
+    @proxy_type.setter
+    def proxy_type(self, value: pulumi.Input['ApplicationProxyType']):
+        pulumi.set(self, "proxy_type", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
 
     @property
     @pulumi.getter(name="apiGatewayProxy")
@@ -50,15 +74,6 @@ class ApplicationArgs:
         pulumi.set(self, "api_gateway_proxy", value)
 
     @property
-    @pulumi.getter(name="environmentIdentifier")
-    def environment_identifier(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "environment_identifier")
-
-    @environment_identifier.setter
-    def environment_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "environment_identifier", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
@@ -66,15 +81,6 @@ class ApplicationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="proxyType")
-    def proxy_type(self) -> Optional[pulumi.Input['ApplicationProxyType']]:
-        return pulumi.get(self, "proxy_type")
-
-    @proxy_type.setter
-    def proxy_type(self, value: Optional[pulumi.Input['ApplicationProxyType']]):
-        pulumi.set(self, "proxy_type", value)
 
     @property
     @pulumi.getter
@@ -87,15 +93,6 @@ class ApplicationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "vpc_id")
-
-    @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vpc_id", value)
 
 
 class Application(pulumi.CustomResource):
@@ -121,7 +118,7 @@ class Application(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ApplicationArgs] = None,
+                 args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RefactorSpaces::Application Resource Type
@@ -157,10 +154,16 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["api_gateway_proxy"] = api_gateway_proxy
+            if environment_identifier is None and not opts.urn:
+                raise TypeError("Missing required property 'environment_identifier'")
             __props__.__dict__["environment_identifier"] = environment_identifier
             __props__.__dict__["name"] = name
+            if proxy_type is None and not opts.urn:
+                raise TypeError("Missing required property 'proxy_type'")
             __props__.__dict__["proxy_type"] = proxy_type
             __props__.__dict__["tags"] = tags
+            if vpc_id is None and not opts.urn:
+                raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["api_gateway_id"] = None
             __props__.__dict__["application_identifier"] = None
@@ -230,12 +233,12 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentIdentifier")
-    def environment_identifier(self) -> pulumi.Output[Optional[str]]:
+    def environment_identifier(self) -> pulumi.Output[str]:
         return pulumi.get(self, "environment_identifier")
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
@@ -250,7 +253,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proxyType")
-    def proxy_type(self) -> pulumi.Output[Optional['ApplicationProxyType']]:
+    def proxy_type(self) -> pulumi.Output['ApplicationProxyType']:
         return pulumi.get(self, "proxy_type")
 
     @property
@@ -273,7 +276,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[Optional[str]]:
+    def vpc_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "vpc_id")
 
     @property

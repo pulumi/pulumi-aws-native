@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network
+// Associates a VPC with a service network.
 type ServiceNetworkVpcAssociation struct {
 	pulumi.CustomResourceState
 

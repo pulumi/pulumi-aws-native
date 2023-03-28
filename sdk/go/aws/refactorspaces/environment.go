@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,11 +15,11 @@ import (
 type Environment struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput                   `pulumi:"arn"`
-	Description           pulumi.StringPtrOutput                `pulumi:"description"`
-	EnvironmentIdentifier pulumi.StringOutput                   `pulumi:"environmentIdentifier"`
-	Name                  pulumi.StringPtrOutput                `pulumi:"name"`
-	NetworkFabricType     EnvironmentNetworkFabricTypePtrOutput `pulumi:"networkFabricType"`
+	Arn                   pulumi.StringOutput                `pulumi:"arn"`
+	Description           pulumi.StringPtrOutput             `pulumi:"description"`
+	EnvironmentIdentifier pulumi.StringOutput                `pulumi:"environmentIdentifier"`
+	Name                  pulumi.StringOutput                `pulumi:"name"`
+	NetworkFabricType     EnvironmentNetworkFabricTypeOutput `pulumi:"networkFabricType"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags             EnvironmentTagArrayOutput `pulumi:"tags"`
 	TransitGatewayId pulumi.StringOutput       `pulumi:"transitGatewayId"`
@@ -28,9 +29,12 @@ type Environment struct {
 func NewEnvironment(ctx *pulumi.Context,
 	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOption) (*Environment, error) {
 	if args == nil {
-		args = &EnvironmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.NetworkFabricType == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkFabricType'")
+	}
 	var resource Environment
 	err := ctx.RegisterResource("aws-native:refactorspaces:Environment", name, args, &resource, opts...)
 	if err != nil {
@@ -63,9 +67,9 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	Description       *string                       `pulumi:"description"`
-	Name              *string                       `pulumi:"name"`
-	NetworkFabricType *EnvironmentNetworkFabricType `pulumi:"networkFabricType"`
+	Description       *string                      `pulumi:"description"`
+	Name              *string                      `pulumi:"name"`
+	NetworkFabricType EnvironmentNetworkFabricType `pulumi:"networkFabricType"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags []EnvironmentTag `pulumi:"tags"`
 }
@@ -74,7 +78,7 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	Description       pulumi.StringPtrInput
 	Name              pulumi.StringPtrInput
-	NetworkFabricType EnvironmentNetworkFabricTypePtrInput
+	NetworkFabricType EnvironmentNetworkFabricTypeInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags EnvironmentTagArrayInput
 }
@@ -128,12 +132,12 @@ func (o EnvironmentOutput) EnvironmentIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
 }
 
-func (o EnvironmentOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o EnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o EnvironmentOutput) NetworkFabricType() EnvironmentNetworkFabricTypePtrOutput {
-	return o.ApplyT(func(v *Environment) EnvironmentNetworkFabricTypePtrOutput { return v.NetworkFabricType }).(EnvironmentNetworkFabricTypePtrOutput)
+func (o EnvironmentOutput) NetworkFabricType() EnvironmentNetworkFabricTypeOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentNetworkFabricTypeOutput { return v.NetworkFabricType }).(EnvironmentNetworkFabricTypeOutput)
 }
 
 // Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.

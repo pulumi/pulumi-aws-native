@@ -23,6 +23,7 @@ type CloudFormationProduct struct {
 	Name                           pulumi.StringOutput                                            `pulumi:"name"`
 	Owner                          pulumi.StringOutput                                            `pulumi:"owner"`
 	ProductName                    pulumi.StringOutput                                            `pulumi:"productName"`
+	ProductType                    pulumi.StringPtrOutput                                         `pulumi:"productType"`
 	ProvisioningArtifactIds        pulumi.StringOutput                                            `pulumi:"provisioningArtifactIds"`
 	ProvisioningArtifactNames      pulumi.StringOutput                                            `pulumi:"provisioningArtifactNames"`
 	ProvisioningArtifactParameters CloudFormationProductProvisioningArtifactPropertiesArrayOutput `pulumi:"provisioningArtifactParameters"`
@@ -81,6 +82,7 @@ type cloudFormationProductArgs struct {
 	Distributor                    *string                                               `pulumi:"distributor"`
 	Name                           *string                                               `pulumi:"name"`
 	Owner                          string                                                `pulumi:"owner"`
+	ProductType                    *string                                               `pulumi:"productType"`
 	ProvisioningArtifactParameters []CloudFormationProductProvisioningArtifactProperties `pulumi:"provisioningArtifactParameters"`
 	ReplaceProvisioningArtifacts   *bool                                                 `pulumi:"replaceProvisioningArtifacts"`
 	SourceConnection               *CloudFormationProductSourceConnection                `pulumi:"sourceConnection"`
@@ -97,6 +99,7 @@ type CloudFormationProductArgs struct {
 	Distributor                    pulumi.StringPtrInput
 	Name                           pulumi.StringPtrInput
 	Owner                          pulumi.StringInput
+	ProductType                    pulumi.StringPtrInput
 	ProvisioningArtifactParameters CloudFormationProductProvisioningArtifactPropertiesArrayInput
 	ReplaceProvisioningArtifacts   pulumi.BoolPtrInput
 	SourceConnection               CloudFormationProductSourceConnectionPtrInput
@@ -165,6 +168,10 @@ func (o CloudFormationProductOutput) Owner() pulumi.StringOutput {
 
 func (o CloudFormationProductOutput) ProductName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringOutput { return v.ProductName }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProductOutput) ProductType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringPtrOutput { return v.ProductType }).(pulumi.StringPtrOutput)
 }
 
 func (o CloudFormationProductOutput) ProvisioningArtifactIds() pulumi.StringOutput {

@@ -11,24 +11,24 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getRoute", {
-        "id": args.id,
+        "apiId": args.apiId,
+        "routeId": args.routeId,
     }, opts);
 }
 
 export interface GetRouteArgs {
-    id: string;
+    apiId: string;
+    routeId: string;
 }
 
 export interface GetRouteResult {
     readonly apiKeyRequired?: boolean;
     readonly authorizationScopes?: string[];
     readonly authorizationType?: string;
-    readonly authorizerId?: string;
-    readonly id?: string;
     readonly modelSelectionExpression?: string;
     readonly operationName?: string;
     readonly requestModels?: any;
-    readonly requestParameters?: any;
+    readonly routeId?: string;
     readonly routeKey?: string;
     readonly routeResponseSelectionExpression?: string;
     readonly target?: string;
@@ -41,5 +41,6 @@ export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetRouteOutputArgs {
-    id: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
+    routeId: pulumi.Input<string>;
 }

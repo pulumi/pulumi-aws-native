@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Description
+ * Creates or updates the auth policy.
  */
 export class AuthPolicy extends pulumi.CustomResource {
     /**

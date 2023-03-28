@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.VpcLattice
 {
     /// <summary>
-    /// Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network
+    /// Associates a VPC with a service network.
     /// </summary>
     [AwsNativeResourceType("aws-native:vpclattice:ServiceNetworkVpcAssociation")]
     public partial class ServiceNetworkVpcAssociation : global::Pulumi.CustomResource

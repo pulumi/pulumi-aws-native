@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
         public readonly bool? DisableTemplateValidation;
         public readonly object Info;
         public readonly string? Name;
+        public readonly string? Type;
 
         [OutputConstructor]
         private CloudFormationProductProvisioningArtifactProperties(
@@ -26,12 +27,15 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
 
             object info,
 
-            string? name)
+            string? name,
+
+            string? type)
         {
             Description = description;
             DisableTemplateValidation = disableTemplateValidation;
             Info = info;
             Name = name;
+            Type = type;
         }
     }
 }

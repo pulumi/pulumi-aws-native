@@ -93,7 +93,7 @@ class TargetGroup(pulumi.CustomResource):
                  type: Optional[pulumi.Input['TargetGroupType']] = None,
                  __props__=None):
         """
-        A group of related Targets that a Service may serve a request to
+        A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,7 +105,7 @@ class TargetGroup(pulumi.CustomResource):
                  args: TargetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A group of related Targets that a Service may serve a request to
+        A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
 
         :param str resource_name: The name of the resource.
         :param TargetGroupArgs args: The arguments to use to populate this resource's properties.

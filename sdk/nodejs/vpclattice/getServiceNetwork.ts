@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A logical container containing Services that clients can request access to.
+ * A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
  */
 export function getServiceNetwork(args: GetServiceNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceNetworkResult> {
 
@@ -31,7 +31,7 @@ export interface GetServiceNetworkResult {
     readonly tags?: outputs.vpclattice.ServiceNetworkTag[];
 }
 /**
- * A logical container containing Services that clients can request access to.
+ * A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
  */
 export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceNetworkResult> {
     return pulumi.output(args).apply((a: any) => getServiceNetwork(a, opts))

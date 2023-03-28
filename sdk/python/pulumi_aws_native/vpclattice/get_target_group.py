@@ -106,7 +106,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
 def get_target_group(arn: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetGroupResult:
     """
-    A group of related Targets that a Service may serve a request to
+    A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -128,6 +128,6 @@ def get_target_group(arn: Optional[str] = None,
 def get_target_group_output(arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
-    A group of related Targets that a Service may serve a request to
+    A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
     """
     ...

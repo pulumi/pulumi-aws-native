@@ -107,7 +107,7 @@ class Service(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
                  __props__=None):
         """
-         A logical unit that is exposed to one or more Mercury networks containing a unique FQDN, a set of routing names, TLS certificates, and routing policies
+        A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,7 +119,7 @@ class Service(pulumi.CustomResource):
                  args: Optional[ServiceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-         A logical unit that is exposed to one or more Mercury networks containing a unique FQDN, a set of routing names, TLS certificates, and routing policies
+        A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

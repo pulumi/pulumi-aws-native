@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A unit of configuration defining how Mercury routes incoming requests for a Service to its Target Groups
+// Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.
 type Rule struct {
 	pulumi.CustomResourceState
 

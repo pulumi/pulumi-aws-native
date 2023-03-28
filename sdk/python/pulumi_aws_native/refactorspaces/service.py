@@ -18,9 +18,9 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  application_identifier: pulumi.Input[str],
+                 endpoint_type: pulumi.Input['ServiceEndpointType'],
                  environment_identifier: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 endpoint_type: Optional[pulumi.Input['ServiceEndpointType']] = None,
                  lambda_endpoint: Optional[pulumi.Input['ServiceLambdaEndpointInputArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
@@ -31,11 +31,10 @@ class ServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         pulumi.set(__self__, "application_identifier", application_identifier)
+        pulumi.set(__self__, "endpoint_type", endpoint_type)
         pulumi.set(__self__, "environment_identifier", environment_identifier)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if endpoint_type is not None:
-            pulumi.set(__self__, "endpoint_type", endpoint_type)
         if lambda_endpoint is not None:
             pulumi.set(__self__, "lambda_endpoint", lambda_endpoint)
         if name is not None:
@@ -57,6 +56,15 @@ class ServiceArgs:
         pulumi.set(self, "application_identifier", value)
 
     @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input['ServiceEndpointType']:
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input['ServiceEndpointType']):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
     @pulumi.getter(name="environmentIdentifier")
     def environment_identifier(self) -> pulumi.Input[str]:
         return pulumi.get(self, "environment_identifier")
@@ -73,15 +81,6 @@ class ServiceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input['ServiceEndpointType']]:
-        return pulumi.get(self, "endpoint_type")
-
-    @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input['ServiceEndpointType']]):
-        pulumi.set(self, "endpoint_type", value)
 
     @property
     @pulumi.getter(name="lambdaEndpoint")
@@ -200,6 +199,8 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_identifier'")
             __props__.__dict__["application_identifier"] = application_identifier
             __props__.__dict__["description"] = description
+            if endpoint_type is None and not opts.urn:
+                raise TypeError("Missing required property 'endpoint_type'")
             __props__.__dict__["endpoint_type"] = endpoint_type
             if environment_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_identifier'")
@@ -263,7 +264,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> pulumi.Output[Optional['ServiceEndpointType']]:
+    def endpoint_type(self) -> pulumi.Output['ServiceEndpointType']:
         return pulumi.get(self, "endpoint_type")
 
     @property
@@ -278,7 +279,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property

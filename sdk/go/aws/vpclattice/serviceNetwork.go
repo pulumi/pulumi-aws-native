@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A logical container containing Services that clients can request access to.
+// A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
 type ServiceNetwork struct {
 	pulumi.CustomResourceState
 

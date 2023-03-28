@@ -16349,6 +16349,17 @@ export namespace guardduty {
         ebsVolumes?: pulumi.Input<boolean>;
     }
 
+    export interface DetectorFeatureAdditionalConfigurationArgs {
+        name?: pulumi.Input<string>;
+        status?: pulumi.Input<string>;
+    }
+
+    export interface DetectorFeatureConfigurationsArgs {
+        additionalConfiguration?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorFeatureAdditionalConfigurationArgs>[]>;
+        name?: pulumi.Input<string>;
+        status?: pulumi.Input<string>;
+    }
+
     export interface DetectorTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -44721,6 +44732,7 @@ export namespace servicecatalog {
         disableTemplateValidation?: pulumi.Input<boolean>;
         info: any;
         name?: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 
     export interface CloudFormationProductSourceConnectionArgs {
@@ -46400,7 +46412,12 @@ export namespace vpclattice {
     }
 
     export interface ListenerDefaultActionArgs {
-        forward: pulumi.Input<inputs.vpclattice.ListenerForwardArgs>;
+        fixedResponse?: pulumi.Input<inputs.vpclattice.ListenerFixedResponseArgs>;
+        forward?: pulumi.Input<inputs.vpclattice.ListenerForwardArgs>;
+    }
+
+    export interface ListenerFixedResponseArgs {
+        statusCode: pulumi.Input<number>;
     }
 
     export interface ListenerForwardArgs {
@@ -46418,7 +46435,12 @@ export namespace vpclattice {
     }
 
     export interface RuleActionArgs {
-        forward: pulumi.Input<inputs.vpclattice.RuleForwardArgs>;
+        fixedResponse?: pulumi.Input<inputs.vpclattice.RuleFixedResponseArgs>;
+        forward?: pulumi.Input<inputs.vpclattice.RuleForwardArgs>;
+    }
+
+    export interface RuleFixedResponseArgs {
+        statusCode: pulumi.Input<number>;
     }
 
     export interface RuleForwardArgs {
@@ -46499,6 +46521,7 @@ export namespace vpclattice {
 
     export interface TargetGroupConfigArgs {
         healthCheck?: pulumi.Input<inputs.vpclattice.TargetGroupHealthCheckConfigArgs>;
+        ipAddressType?: pulumi.Input<enums.vpclattice.TargetGroupConfigIpAddressType>;
         port: pulumi.Input<number>;
         protocol: pulumi.Input<enums.vpclattice.TargetGroupConfigProtocol>;
         protocolVersion?: pulumi.Input<enums.vpclattice.TargetGroupConfigProtocolVersion>;
@@ -46514,6 +46537,7 @@ export namespace vpclattice {
         path?: pulumi.Input<string>;
         port?: pulumi.Input<number>;
         protocol?: pulumi.Input<enums.vpclattice.TargetGroupHealthCheckConfigProtocol>;
+        protocolVersion?: pulumi.Input<enums.vpclattice.TargetGroupHealthCheckConfigProtocolVersion>;
         unhealthyThresholdCount?: pulumi.Input<number>;
     }
 

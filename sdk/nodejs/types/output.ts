@@ -16612,6 +16612,17 @@ export namespace guardduty {
         ebsVolumes?: boolean;
     }
 
+    export interface DetectorFeatureAdditionalConfiguration {
+        name?: string;
+        status?: string;
+    }
+
+    export interface DetectorFeatureConfigurations {
+        additionalConfiguration?: outputs.guardduty.DetectorFeatureAdditionalConfiguration[];
+        name?: string;
+        status?: string;
+    }
+
     export interface DetectorTag {
         key: string;
         value: string;
@@ -45587,6 +45598,7 @@ export namespace servicecatalog {
         disableTemplateValidation?: boolean;
         info: any;
         name?: string;
+        type?: string;
     }
 
     export interface CloudFormationProductSourceConnection {
@@ -47284,7 +47296,12 @@ export namespace vpclattice {
     }
 
     export interface ListenerDefaultAction {
-        forward: outputs.vpclattice.ListenerForward;
+        fixedResponse?: outputs.vpclattice.ListenerFixedResponse;
+        forward?: outputs.vpclattice.ListenerForward;
+    }
+
+    export interface ListenerFixedResponse {
+        statusCode: number;
     }
 
     export interface ListenerForward {
@@ -47302,7 +47319,12 @@ export namespace vpclattice {
     }
 
     export interface RuleAction {
-        forward: outputs.vpclattice.RuleForward;
+        fixedResponse?: outputs.vpclattice.RuleFixedResponse;
+        forward?: outputs.vpclattice.RuleForward;
+    }
+
+    export interface RuleFixedResponse {
+        statusCode: number;
     }
 
     export interface RuleForward {
@@ -47383,6 +47405,7 @@ export namespace vpclattice {
 
     export interface TargetGroupConfig {
         healthCheck?: outputs.vpclattice.TargetGroupHealthCheckConfig;
+        ipAddressType?: enums.vpclattice.TargetGroupConfigIpAddressType;
         port: number;
         protocol: enums.vpclattice.TargetGroupConfigProtocol;
         protocolVersion?: enums.vpclattice.TargetGroupConfigProtocolVersion;
@@ -47398,6 +47421,7 @@ export namespace vpclattice {
         path?: string;
         port?: number;
         protocol?: enums.vpclattice.TargetGroupHealthCheckConfigProtocol;
+        protocolVersion?: enums.vpclattice.TargetGroupHealthCheckConfigProtocolVersion;
         unhealthyThresholdCount?: number;
     }
 

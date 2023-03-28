@@ -40,8 +40,8 @@ export class Environment extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly environmentIdentifier!: pulumi.Output<string>;
-    public readonly name!: pulumi.Output<string | undefined>;
-    public readonly networkFabricType!: pulumi.Output<enums.refactorspaces.EnvironmentNetworkFabricType | undefined>;
+    public readonly name!: pulumi.Output<string>;
+    public readonly networkFabricType!: pulumi.Output<enums.refactorspaces.EnvironmentNetworkFabricType>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
@@ -55,10 +55,13 @@ export class Environment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.networkFabricType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'networkFabricType'");
+            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkFabricType"] = args ? args.networkFabricType : undefined;
@@ -86,7 +89,7 @@ export class Environment extends pulumi.CustomResource {
 export interface EnvironmentArgs {
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    networkFabricType?: pulumi.Input<enums.refactorspaces.EnvironmentNetworkFabricType>;
+    networkFabricType: pulumi.Input<enums.refactorspaces.EnvironmentNetworkFabricType>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */

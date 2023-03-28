@@ -18,7 +18,7 @@ type Monitor struct {
 	MaxCityNetworksToMonitor pulumi.IntPtrOutput               `pulumi:"maxCityNetworksToMonitor"`
 	ModifiedAt               pulumi.StringOutput               `pulumi:"modifiedAt"`
 	MonitorArn               pulumi.StringOutput               `pulumi:"monitorArn"`
-	MonitorName              pulumi.StringPtrOutput            `pulumi:"monitorName"`
+	MonitorName              pulumi.StringOutput               `pulumi:"monitorName"`
 	ProcessingStatus         MonitorProcessingStatusCodeOutput `pulumi:"processingStatus"`
 	ProcessingStatusInfo     pulumi.StringOutput               `pulumi:"processingStatusInfo"`
 	Resources                pulumi.StringArrayOutput          `pulumi:"resources"`
@@ -140,8 +140,8 @@ func (o MonitorOutput) MonitorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.MonitorArn }).(pulumi.StringOutput)
 }
 
-func (o MonitorOutput) MonitorName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.MonitorName }).(pulumi.StringPtrOutput)
+func (o MonitorOutput) MonitorName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.MonitorName }).(pulumi.StringOutput)
 }
 
 func (o MonitorOutput) ProcessingStatus() MonitorProcessingStatusCodeOutput {

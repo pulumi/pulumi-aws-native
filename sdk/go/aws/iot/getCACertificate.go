@@ -29,7 +29,6 @@ type LookupCACertificateResult struct {
 	AutoRegistrationStatus *CACertificateAutoRegistrationStatus `pulumi:"autoRegistrationStatus"`
 	Id                     *string                              `pulumi:"id"`
 	RegistrationConfig     *CACertificateRegistrationConfig     `pulumi:"registrationConfig"`
-	RemoveAutoRegistration *bool                                `pulumi:"removeAutoRegistration"`
 	Status                 *CACertificateStatus                 `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []CACertificateTag `pulumi:"tags"`
@@ -86,10 +85,6 @@ func (o LookupCACertificateResultOutput) Id() pulumi.StringPtrOutput {
 
 func (o LookupCACertificateResultOutput) RegistrationConfig() CACertificateRegistrationConfigPtrOutput {
 	return o.ApplyT(func(v LookupCACertificateResult) *CACertificateRegistrationConfig { return v.RegistrationConfig }).(CACertificateRegistrationConfigPtrOutput)
-}
-
-func (o LookupCACertificateResultOutput) RemoveAutoRegistration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupCACertificateResult) *bool { return v.RemoveAutoRegistration }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupCACertificateResultOutput) Status() CACertificateStatusPtrOutput {

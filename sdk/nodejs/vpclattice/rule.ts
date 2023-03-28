@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A unit of configuration defining how Mercury routes incoming requests for a Service to its Target Groups
+ * Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.
  */
 export class Rule extends pulumi.CustomResource {
     /**

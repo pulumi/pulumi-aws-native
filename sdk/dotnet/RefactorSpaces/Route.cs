@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<string> RouteIdentifier { get; private set; } = null!;
 
         [Output("routeType")]
-        public Output<Pulumi.AwsNative.RefactorSpaces.RouteType?> RouteType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.RefactorSpaces.RouteType> RouteType { get; private set; } = null!;
 
         [Output("serviceIdentifier")]
         public Output<string> ServiceIdentifier { get; private set; } = null!;
@@ -102,8 +102,8 @@ namespace Pulumi.AwsNative.RefactorSpaces
         [Input("environmentIdentifier", required: true)]
         public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
-        [Input("routeType")]
-        public Input<Pulumi.AwsNative.RefactorSpaces.RouteType>? RouteType { get; set; }
+        [Input("routeType", required: true)]
+        public Input<Pulumi.AwsNative.RefactorSpaces.RouteType> RouteType { get; set; } = null!;
 
         [Input("serviceIdentifier", required: true)]
         public Input<string> ServiceIdentifier { get; set; } = null!;

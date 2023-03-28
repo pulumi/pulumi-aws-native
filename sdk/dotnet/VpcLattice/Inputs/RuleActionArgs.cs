@@ -12,8 +12,11 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
 
     public sealed class RuleActionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("forward", required: true)]
-        public Input<Inputs.RuleForwardArgs> Forward { get; set; } = null!;
+        [Input("fixedResponse")]
+        public Input<Inputs.RuleFixedResponseArgs>? FixedResponse { get; set; }
+
+        [Input("forward")]
+        public Input<Inputs.RuleForwardArgs>? Forward { get; set; }
 
         public RuleActionArgs()
         {

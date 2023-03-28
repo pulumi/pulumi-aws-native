@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Description
+ * Creates or updates the auth policy.
  */
 export function getAuthPolicy(args: GetAuthPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthPolicyResult> {
 
@@ -27,7 +27,7 @@ export interface GetAuthPolicyResult {
     readonly state?: enums.vpclattice.AuthPolicyState;
 }
 /**
- * Description
+ * Creates or updates the auth policy.
  */
 export function getAuthPolicyOutput(args: GetAuthPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAuthPolicy(a, opts))

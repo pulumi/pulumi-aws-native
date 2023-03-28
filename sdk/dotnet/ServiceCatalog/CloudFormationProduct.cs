@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
         [Output("productName")]
         public Output<string> ProductName { get; private set; } = null!;
 
+        [Output("productType")]
+        public Output<string?> ProductType { get; private set; } = null!;
+
         [Output("provisioningArtifactIds")]
         public Output<string> ProvisioningArtifactIds { get; private set; } = null!;
 
@@ -120,6 +123,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
+
+        [Input("productType")]
+        public Input<string>? ProductType { get; set; }
 
         [Input("provisioningArtifactParameters")]
         private InputList<Inputs.CloudFormationProductProvisioningArtifactPropertiesArgs>? _provisioningArtifactParameters;

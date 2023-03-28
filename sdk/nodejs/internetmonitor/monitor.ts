@@ -41,7 +41,7 @@ export class Monitor extends pulumi.CustomResource {
     public readonly maxCityNetworksToMonitor!: pulumi.Output<number | undefined>;
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     public /*out*/ readonly monitorArn!: pulumi.Output<string>;
-    public readonly monitorName!: pulumi.Output<string | undefined>;
+    public readonly monitorName!: pulumi.Output<string>;
     public /*out*/ readonly processingStatus!: pulumi.Output<enums.internetmonitor.MonitorProcessingStatusCode>;
     public /*out*/ readonly processingStatusInfo!: pulumi.Output<string>;
     public readonly resources!: pulumi.Output<string[] | undefined>;

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.ServiceCatalog.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         public CloudFormationProductProvisioningArtifactPropertiesArgs()
         {
         }

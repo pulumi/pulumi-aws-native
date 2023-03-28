@@ -19,6 +19,7 @@ type Detector struct {
 
 	DataSources                DetectorCFNDataSourceConfigurationsPtrOutput `pulumi:"dataSources"`
 	Enable                     pulumi.BoolOutput                            `pulumi:"enable"`
+	Features                   DetectorFeatureConfigurationsArrayOutput     `pulumi:"features"`
 	FindingPublishingFrequency pulumi.StringPtrOutput                       `pulumi:"findingPublishingFrequency"`
 	Tags                       DetectorTagArrayOutput                       `pulumi:"tags"`
 }
@@ -67,6 +68,7 @@ func (DetectorState) ElementType() reflect.Type {
 type detectorArgs struct {
 	DataSources                *DetectorCFNDataSourceConfigurations `pulumi:"dataSources"`
 	Enable                     bool                                 `pulumi:"enable"`
+	Features                   []DetectorFeatureConfigurations      `pulumi:"features"`
 	FindingPublishingFrequency *string                              `pulumi:"findingPublishingFrequency"`
 	Tags                       []DetectorTag                        `pulumi:"tags"`
 }
@@ -75,6 +77,7 @@ type detectorArgs struct {
 type DetectorArgs struct {
 	DataSources                DetectorCFNDataSourceConfigurationsPtrInput
 	Enable                     pulumi.BoolInput
+	Features                   DetectorFeatureConfigurationsArrayInput
 	FindingPublishingFrequency pulumi.StringPtrInput
 	Tags                       DetectorTagArrayInput
 }
@@ -122,6 +125,10 @@ func (o DetectorOutput) DataSources() DetectorCFNDataSourceConfigurationsPtrOutp
 
 func (o DetectorOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Detector) pulumi.BoolOutput { return v.Enable }).(pulumi.BoolOutput)
+}
+
+func (o DetectorOutput) Features() DetectorFeatureConfigurationsArrayOutput {
+	return o.ApplyT(func(v *Detector) DetectorFeatureConfigurationsArrayOutput { return v.Features }).(DetectorFeatureConfigurationsArrayOutput)
 }
 
 func (o DetectorOutput) FindingPublishingFrequency() pulumi.StringPtrOutput {

@@ -51,7 +51,7 @@ class AuthPolicy(pulumi.CustomResource):
                  resource_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Description
+        Creates or updates the auth policy.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -63,7 +63,7 @@ class AuthPolicy(pulumi.CustomResource):
                  args: AuthPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Description
+        Creates or updates the auth policy.
 
         :param str resource_name: The name of the resource.
         :param AuthPolicyArgs args: The arguments to use to populate this resource's properties.

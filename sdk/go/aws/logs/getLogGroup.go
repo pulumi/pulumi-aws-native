@@ -38,7 +38,7 @@ type LookupLogGroupResult struct {
 	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
+	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []LogGroupTag `pulumi:"tags"`
@@ -101,7 +101,7 @@ func (o LookupLogGroupResultOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
+// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
 func (o LookupLogGroupResultOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }

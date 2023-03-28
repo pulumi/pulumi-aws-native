@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Association between a Service Network and Service to allow the Service to be exposed within the ServiceNetwork
+// Associates a service with a service network.
 func LookupServiceNetworkServiceAssociation(ctx *pulumi.Context, args *LookupServiceNetworkServiceAssociationArgs, opts ...pulumi.InvokeOption) (*LookupServiceNetworkServiceAssociationResult, error) {
 	var rv LookupServiceNetworkServiceAssociationResult
 	err := ctx.Invoke("aws-native:vpclattice:getServiceNetworkServiceAssociation", args, &rv, opts...)

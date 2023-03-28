@@ -19,9 +19,9 @@ class RouteArgs:
     def __init__(__self__, *,
                  application_identifier: pulumi.Input[str],
                  environment_identifier: pulumi.Input[str],
+                 route_type: pulumi.Input['RouteType'],
                  service_identifier: pulumi.Input[str],
                  default_route: Optional[pulumi.Input['RouteDefaultRouteInputArgs']] = None,
-                 route_type: Optional[pulumi.Input['RouteType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]]] = None,
                  uri_path_route: Optional[pulumi.Input['RouteUriPathRouteInputArgs']] = None):
         """
@@ -30,11 +30,10 @@ class RouteArgs:
         """
         pulumi.set(__self__, "application_identifier", application_identifier)
         pulumi.set(__self__, "environment_identifier", environment_identifier)
+        pulumi.set(__self__, "route_type", route_type)
         pulumi.set(__self__, "service_identifier", service_identifier)
         if default_route is not None:
             pulumi.set(__self__, "default_route", default_route)
-        if route_type is not None:
-            pulumi.set(__self__, "route_type", route_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if uri_path_route is not None:
@@ -59,6 +58,15 @@ class RouteArgs:
         pulumi.set(self, "environment_identifier", value)
 
     @property
+    @pulumi.getter(name="routeType")
+    def route_type(self) -> pulumi.Input['RouteType']:
+        return pulumi.get(self, "route_type")
+
+    @route_type.setter
+    def route_type(self, value: pulumi.Input['RouteType']):
+        pulumi.set(self, "route_type", value)
+
+    @property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Input[str]:
         return pulumi.get(self, "service_identifier")
@@ -75,15 +83,6 @@ class RouteArgs:
     @default_route.setter
     def default_route(self, value: Optional[pulumi.Input['RouteDefaultRouteInputArgs']]):
         pulumi.set(self, "default_route", value)
-
-    @property
-    @pulumi.getter(name="routeType")
-    def route_type(self) -> Optional[pulumi.Input['RouteType']]:
-        return pulumi.get(self, "route_type")
-
-    @route_type.setter
-    def route_type(self, value: Optional[pulumi.Input['RouteType']]):
-        pulumi.set(self, "route_type", value)
 
     @property
     @pulumi.getter
@@ -174,6 +173,8 @@ class Route(pulumi.CustomResource):
             if environment_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_identifier'")
             __props__.__dict__["environment_identifier"] = environment_identifier
+            if route_type is None and not opts.urn:
+                raise TypeError("Missing required property 'route_type'")
             __props__.__dict__["route_type"] = route_type
             if service_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'service_identifier'")
@@ -249,7 +250,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeType")
-    def route_type(self) -> pulumi.Output[Optional['RouteType']]:
+    def route_type(self) -> pulumi.Output['RouteType']:
         return pulumi.get(self, "route_type")
 
     @property

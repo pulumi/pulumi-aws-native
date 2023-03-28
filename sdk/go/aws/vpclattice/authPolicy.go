@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description
+// Creates or updates the auth policy.
 type AuthPolicy struct {
 	pulumi.CustomResourceState
 

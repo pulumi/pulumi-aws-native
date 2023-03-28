@@ -12,8 +12,11 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
 
     public sealed class ListenerDefaultActionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("forward", required: true)]
-        public Input<Inputs.ListenerForwardArgs> Forward { get; set; } = null!;
+        [Input("fixedResponse")]
+        public Input<Inputs.ListenerFixedResponseArgs>? FixedResponse { get; set; }
+
+        [Input("forward")]
+        public Input<Inputs.ListenerForwardArgs>? Forward { get; set; }
 
         public ListenerDefaultActionArgs()
         {

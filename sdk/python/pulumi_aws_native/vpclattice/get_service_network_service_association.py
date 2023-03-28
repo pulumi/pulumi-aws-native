@@ -142,7 +142,7 @@ class AwaitableGetServiceNetworkServiceAssociationResult(GetServiceNetworkServic
 def get_service_network_service_association(arn: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceNetworkServiceAssociationResult:
     """
-    Association between a Service Network and Service to allow the Service to be exposed within the ServiceNetwork
+    Associates a service with a service network.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -168,6 +168,6 @@ def get_service_network_service_association(arn: Optional[str] = None,
 def get_service_network_service_association_output(arn: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceNetworkServiceAssociationResult]:
     """
-    Association between a Service Network and Service to allow the Service to be exposed within the ServiceNetwork
+    Associates a service with a service network.
     """
     ...

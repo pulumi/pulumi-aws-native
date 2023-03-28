@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
         [Input("protocol")]
         public Input<Pulumi.AwsNative.VpcLattice.TargetGroupHealthCheckConfigProtocol>? Protocol { get; set; }
 
+        [Input("protocolVersion")]
+        public Input<Pulumi.AwsNative.VpcLattice.TargetGroupHealthCheckConfigProtocolVersion>? ProtocolVersion { get; set; }
+
         [Input("unhealthyThresholdCount")]
         public Input<int>? UnhealthyThresholdCount { get; set; }
 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Association between a Service Network and Service to allow the Service to be exposed within the ServiceNetwork
+ * Associates a service with a service network.
  */
 export function getServiceNetworkServiceAssociation(args: GetServiceNetworkServiceAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceNetworkServiceAssociationResult> {
 
@@ -37,7 +37,7 @@ export interface GetServiceNetworkServiceAssociationResult {
     readonly tags?: outputs.vpclattice.ServiceNetworkServiceAssociationTag[];
 }
 /**
- * Association between a Service Network and Service to allow the Service to be exposed within the ServiceNetwork
+ * Associates a service with a service network.
  */
 export function getServiceNetworkServiceAssociationOutput(args: GetServiceNetworkServiceAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceNetworkServiceAssociationResult> {
     return pulumi.output(args).apply((a: any) => getServiceNetworkServiceAssociation(a, opts))

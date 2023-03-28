@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
         public readonly string? Path;
         public readonly int? Port;
         public readonly Pulumi.AwsNative.VpcLattice.TargetGroupHealthCheckConfigProtocol? Protocol;
+        public readonly Pulumi.AwsNative.VpcLattice.TargetGroupHealthCheckConfigProtocolVersion? ProtocolVersion;
         public readonly int? UnhealthyThresholdCount;
 
         [OutputConstructor]
@@ -41,6 +42,8 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
 
             Pulumi.AwsNative.VpcLattice.TargetGroupHealthCheckConfigProtocol? protocol,
 
+            Pulumi.AwsNative.VpcLattice.TargetGroupHealthCheckConfigProtocolVersion? protocolVersion,
+
             int? unhealthyThresholdCount)
         {
             Enabled = enabled;
@@ -51,6 +54,7 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
             Path = path;
             Port = port;
             Protocol = protocol;
+            ProtocolVersion = protocolVersion;
             UnhealthyThresholdCount = unhealthyThresholdCount;
         }
     }

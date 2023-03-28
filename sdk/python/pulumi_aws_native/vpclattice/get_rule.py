@@ -88,7 +88,7 @@ class AwaitableGetRuleResult(GetRuleResult):
 def get_rule(arn: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
-    A unit of configuration defining how Mercury routes incoming requests for a Service to its Target Groups
+    Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -108,6 +108,6 @@ def get_rule(arn: Optional[str] = None,
 def get_rule_output(arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
-    A unit of configuration defining how Mercury routes incoming requests for a Service to its Target Groups
+    Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.
     """
     ...

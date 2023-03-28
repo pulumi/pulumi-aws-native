@@ -43,7 +43,7 @@ export class Route extends pulumi.CustomResource {
     public readonly environmentIdentifier!: pulumi.Output<string>;
     public /*out*/ readonly pathResourceToId!: pulumi.Output<string>;
     public /*out*/ readonly routeIdentifier!: pulumi.Output<string>;
-    public readonly routeType!: pulumi.Output<enums.refactorspaces.RouteType | undefined>;
+    public readonly routeType!: pulumi.Output<enums.refactorspaces.RouteType>;
     public readonly serviceIdentifier!: pulumi.Output<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
@@ -67,6 +67,9 @@ export class Route extends pulumi.CustomResource {
             }
             if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
+            }
+            if ((!args || args.routeType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'routeType'");
             }
             if ((!args || args.serviceIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceIdentifier'");
@@ -105,7 +108,7 @@ export interface RouteArgs {
     applicationIdentifier: pulumi.Input<string>;
     defaultRoute?: pulumi.Input<inputs.refactorspaces.RouteDefaultRouteInputArgs>;
     environmentIdentifier: pulumi.Input<string>;
-    routeType?: pulumi.Input<enums.refactorspaces.RouteType>;
+    routeType: pulumi.Input<enums.refactorspaces.RouteType>;
     serviceIdentifier: pulumi.Input<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.

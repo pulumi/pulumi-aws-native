@@ -81,7 +81,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
                  vpc_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network
+        Associates a VPC with a service network.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -93,7 +93,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
                  args: Optional[ServiceNetworkVpcAssociationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network
+        Associates a VPC with a service network.
 
         :param str resource_name: The name of the resource.
         :param ServiceNetworkVpcAssociationArgs args: The arguments to use to populate this resource's properties.

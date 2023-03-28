@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("endpointType")]
-        public Output<Pulumi.AwsNative.RefactorSpaces.ServiceEndpointType?> EndpointType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.RefactorSpaces.ServiceEndpointType> EndpointType { get; private set; } = null!;
 
         [Output("environmentIdentifier")]
         public Output<string> EnvironmentIdentifier { get; private set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<Outputs.ServiceLambdaEndpointInput?> LambdaEndpoint { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("serviceIdentifier")]
         public Output<string> ServiceIdentifier { get; private set; } = null!;
@@ -102,8 +102,8 @@ namespace Pulumi.AwsNative.RefactorSpaces
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("endpointType")]
-        public Input<Pulumi.AwsNative.RefactorSpaces.ServiceEndpointType>? EndpointType { get; set; }
+        [Input("endpointType", required: true)]
+        public Input<Pulumi.AwsNative.RefactorSpaces.ServiceEndpointType> EndpointType { get; set; } = null!;
 
         [Input("environmentIdentifier", required: true)]
         public Input<string> EnvironmentIdentifier { get; set; } = null!;

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.VpcLattice
 {
     /// <summary>
-    /// Description
+    /// Creates or updates the auth policy.
     /// </summary>
     [AwsNativeResourceType("aws-native:vpclattice:AuthPolicy")]
     public partial class AuthPolicy : global::Pulumi.CustomResource

@@ -42,6 +42,7 @@ export class Detector extends pulumi.CustomResource {
 
     public readonly dataSources!: pulumi.Output<outputs.guardduty.DetectorCFNDataSourceConfigurations | undefined>;
     public readonly enable!: pulumi.Output<boolean>;
+    public readonly features!: pulumi.Output<outputs.guardduty.DetectorFeatureConfigurations[] | undefined>;
     public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.guardduty.DetectorTag[] | undefined>;
 
@@ -63,11 +64,13 @@ export class Detector extends pulumi.CustomResource {
             }
             resourceInputs["dataSources"] = args ? args.dataSources : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["dataSources"] = undefined /*out*/;
             resourceInputs["enable"] = undefined /*out*/;
+            resourceInputs["features"] = undefined /*out*/;
             resourceInputs["findingPublishingFrequency"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -82,6 +85,7 @@ export class Detector extends pulumi.CustomResource {
 export interface DetectorArgs {
     dataSources?: pulumi.Input<inputs.guardduty.DetectorCFNDataSourceConfigurationsArgs>;
     enable: pulumi.Input<boolean>;
+    features?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorFeatureConfigurationsArgs>[]>;
     findingPublishingFrequency?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorTagArgs>[]>;
 }

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.InternetMonitor
         public Output<string> MonitorArn { get; private set; } = null!;
 
         [Output("monitorName")]
-        public Output<string?> MonitorName { get; private set; } = null!;
+        public Output<string> MonitorName { get; private set; } = null!;
 
         [Output("processingStatus")]
         public Output<Pulumi.AwsNative.InternetMonitor.MonitorProcessingStatusCode> ProcessingStatus { get; private set; } = null!;

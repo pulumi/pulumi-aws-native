@@ -46,6 +46,7 @@ export class CloudFormationProduct extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly owner!: pulumi.Output<string>;
     public /*out*/ readonly productName!: pulumi.Output<string>;
+    public readonly productType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly provisioningArtifactIds!: pulumi.Output<string>;
     public /*out*/ readonly provisioningArtifactNames!: pulumi.Output<string>;
     public readonly provisioningArtifactParameters!: pulumi.Output<outputs.servicecatalog.CloudFormationProductProvisioningArtifactProperties[] | undefined>;
@@ -77,6 +78,7 @@ export class CloudFormationProduct extends pulumi.CustomResource {
             resourceInputs["distributor"] = args ? args.distributor : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["productType"] = args ? args.productType : undefined;
             resourceInputs["provisioningArtifactParameters"] = args ? args.provisioningArtifactParameters : undefined;
             resourceInputs["replaceProvisioningArtifacts"] = args ? args.replaceProvisioningArtifacts : undefined;
             resourceInputs["sourceConnection"] = args ? args.sourceConnection : undefined;
@@ -94,6 +96,7 @@ export class CloudFormationProduct extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["productName"] = undefined /*out*/;
+            resourceInputs["productType"] = undefined /*out*/;
             resourceInputs["provisioningArtifactIds"] = undefined /*out*/;
             resourceInputs["provisioningArtifactNames"] = undefined /*out*/;
             resourceInputs["provisioningArtifactParameters"] = undefined /*out*/;
@@ -118,6 +121,7 @@ export interface CloudFormationProductArgs {
     distributor?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     owner: pulumi.Input<string>;
+    productType?: pulumi.Input<string>;
     provisioningArtifactParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProductProvisioningArtifactPropertiesArgs>[]>;
     replaceProvisioningArtifacts?: pulumi.Input<boolean>;
     sourceConnection?: pulumi.Input<inputs.servicecatalog.CloudFormationProductSourceConnectionArgs>;

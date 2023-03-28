@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.GuardDuty
     {
         public readonly Outputs.DetectorCFNDataSourceConfigurations? DataSources;
         public readonly bool? Enable;
+        public readonly ImmutableArray<Outputs.DetectorFeatureConfigurations> Features;
         public readonly string? FindingPublishingFrequency;
         public readonly string? Id;
         public readonly ImmutableArray<Outputs.DetectorTag> Tags;
@@ -63,6 +64,8 @@ namespace Pulumi.AwsNative.GuardDuty
 
             bool? enable,
 
+            ImmutableArray<Outputs.DetectorFeatureConfigurations> features,
+
             string? findingPublishingFrequency,
 
             string? id,
@@ -71,6 +74,7 @@ namespace Pulumi.AwsNative.GuardDuty
         {
             DataSources = dataSources;
             Enable = enable;
+            Features = features;
             FindingPublishingFrequency = findingPublishingFrequency;
             Id = id;
             Tags = tags;

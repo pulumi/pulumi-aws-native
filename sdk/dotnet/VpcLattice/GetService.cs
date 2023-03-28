@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.VpcLattice
     public static class GetService
     {
         /// <summary>
-        ///  A logical unit that is exposed to one or more Mercury networks containing a unique FQDN, a set of routing names, TLS certificates, and routing policies
+        /// A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws-native:vpclattice:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        ///  A logical unit that is exposed to one or more Mercury networks containing a unique FQDN, a set of routing names, TLS certificates, and routing policies
+        /// A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws-native:vpclattice:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

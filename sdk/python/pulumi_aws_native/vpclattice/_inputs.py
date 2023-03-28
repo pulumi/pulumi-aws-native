@@ -13,10 +13,12 @@ from ._enums import *
 __all__ = [
     'AccessLogSubscriptionTagArgs',
     'ListenerDefaultActionArgs',
+    'ListenerFixedResponseArgs',
     'ListenerForwardArgs',
     'ListenerTagArgs',
     'ListenerWeightedTargetGroupArgs',
     'RuleActionArgs',
+    'RuleFixedResponseArgs',
     'RuleForwardArgs',
     'RuleHeaderMatchTypeArgs',
     'RuleHeaderMatchArgs',
@@ -69,17 +71,46 @@ class AccessLogSubscriptionTagArgs:
 @pulumi.input_type
 class ListenerDefaultActionArgs:
     def __init__(__self__, *,
-                 forward: pulumi.Input['ListenerForwardArgs']):
-        pulumi.set(__self__, "forward", forward)
+                 fixed_response: Optional[pulumi.Input['ListenerFixedResponseArgs']] = None,
+                 forward: Optional[pulumi.Input['ListenerForwardArgs']] = None):
+        if fixed_response is not None:
+            pulumi.set(__self__, "fixed_response", fixed_response)
+        if forward is not None:
+            pulumi.set(__self__, "forward", forward)
+
+    @property
+    @pulumi.getter(name="fixedResponse")
+    def fixed_response(self) -> Optional[pulumi.Input['ListenerFixedResponseArgs']]:
+        return pulumi.get(self, "fixed_response")
+
+    @fixed_response.setter
+    def fixed_response(self, value: Optional[pulumi.Input['ListenerFixedResponseArgs']]):
+        pulumi.set(self, "fixed_response", value)
 
     @property
     @pulumi.getter
-    def forward(self) -> pulumi.Input['ListenerForwardArgs']:
+    def forward(self) -> Optional[pulumi.Input['ListenerForwardArgs']]:
         return pulumi.get(self, "forward")
 
     @forward.setter
-    def forward(self, value: pulumi.Input['ListenerForwardArgs']):
+    def forward(self, value: Optional[pulumi.Input['ListenerForwardArgs']]):
         pulumi.set(self, "forward", value)
+
+
+@pulumi.input_type
+class ListenerFixedResponseArgs:
+    def __init__(__self__, *,
+                 status_code: pulumi.Input[int]):
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: pulumi.Input[int]):
+        pulumi.set(self, "status_code", value)
 
 
 @pulumi.input_type
@@ -156,17 +187,46 @@ class ListenerWeightedTargetGroupArgs:
 @pulumi.input_type
 class RuleActionArgs:
     def __init__(__self__, *,
-                 forward: pulumi.Input['RuleForwardArgs']):
-        pulumi.set(__self__, "forward", forward)
+                 fixed_response: Optional[pulumi.Input['RuleFixedResponseArgs']] = None,
+                 forward: Optional[pulumi.Input['RuleForwardArgs']] = None):
+        if fixed_response is not None:
+            pulumi.set(__self__, "fixed_response", fixed_response)
+        if forward is not None:
+            pulumi.set(__self__, "forward", forward)
+
+    @property
+    @pulumi.getter(name="fixedResponse")
+    def fixed_response(self) -> Optional[pulumi.Input['RuleFixedResponseArgs']]:
+        return pulumi.get(self, "fixed_response")
+
+    @fixed_response.setter
+    def fixed_response(self, value: Optional[pulumi.Input['RuleFixedResponseArgs']]):
+        pulumi.set(self, "fixed_response", value)
 
     @property
     @pulumi.getter
-    def forward(self) -> pulumi.Input['RuleForwardArgs']:
+    def forward(self) -> Optional[pulumi.Input['RuleForwardArgs']]:
         return pulumi.get(self, "forward")
 
     @forward.setter
-    def forward(self, value: pulumi.Input['RuleForwardArgs']):
+    def forward(self, value: Optional[pulumi.Input['RuleForwardArgs']]):
         pulumi.set(self, "forward", value)
+
+
+@pulumi.input_type
+class RuleFixedResponseArgs:
+    def __init__(__self__, *,
+                 status_code: pulumi.Input[int]):
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: pulumi.Input[int]):
+        pulumi.set(self, "status_code", value)
 
 
 @pulumi.input_type
@@ -607,12 +667,15 @@ class TargetGroupConfigArgs:
                  protocol: pulumi.Input['TargetGroupConfigProtocol'],
                  vpc_identifier: pulumi.Input[str],
                  health_check: Optional[pulumi.Input['TargetGroupHealthCheckConfigArgs']] = None,
+                 ip_address_type: Optional[pulumi.Input['TargetGroupConfigIpAddressType']] = None,
                  protocol_version: Optional[pulumi.Input['TargetGroupConfigProtocolVersion']] = None):
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "vpc_identifier", vpc_identifier)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if protocol_version is not None:
             pulumi.set(__self__, "protocol_version", protocol_version)
 
@@ -653,6 +716,15 @@ class TargetGroupConfigArgs:
         pulumi.set(self, "health_check", value)
 
     @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input['TargetGroupConfigIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input['TargetGroupConfigIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @property
     @pulumi.getter(name="protocolVersion")
     def protocol_version(self) -> Optional[pulumi.Input['TargetGroupConfigProtocolVersion']]:
         return pulumi.get(self, "protocol_version")
@@ -673,6 +745,7 @@ class TargetGroupHealthCheckConfigArgs:
                  path: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input['TargetGroupHealthCheckConfigProtocol']] = None,
+                 protocol_version: Optional[pulumi.Input['TargetGroupHealthCheckConfigProtocolVersion']] = None,
                  unhealthy_threshold_count: Optional[pulumi.Input[int]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -690,6 +763,8 @@ class TargetGroupHealthCheckConfigArgs:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if protocol_version is not None:
+            pulumi.set(__self__, "protocol_version", protocol_version)
         if unhealthy_threshold_count is not None:
             pulumi.set(__self__, "unhealthy_threshold_count", unhealthy_threshold_count)
 
@@ -764,6 +839,15 @@ class TargetGroupHealthCheckConfigArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input['TargetGroupHealthCheckConfigProtocol']]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="protocolVersion")
+    def protocol_version(self) -> Optional[pulumi.Input['TargetGroupHealthCheckConfigProtocolVersion']]:
+        return pulumi.get(self, "protocol_version")
+
+    @protocol_version.setter
+    def protocol_version(self, value: Optional[pulumi.Input['TargetGroupHealthCheckConfigProtocolVersion']]):
+        pulumi.set(self, "protocol_version", value)
 
     @property
     @pulumi.getter(name="unhealthyThresholdCount")

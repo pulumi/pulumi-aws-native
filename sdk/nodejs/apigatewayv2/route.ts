@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::ApiGatewayV2::Route
- *
- * @deprecated Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Route extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class Route extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Route {
-        pulumi.log.warn("Route is deprecated: Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Route(name, undefined as any, { ...opts, id: id });
     }
 
@@ -46,6 +43,7 @@ export class Route extends pulumi.CustomResource {
     public readonly operationName!: pulumi.Output<string | undefined>;
     public readonly requestModels!: pulumi.Output<any | undefined>;
     public readonly requestParameters!: pulumi.Output<any | undefined>;
+    public /*out*/ readonly routeId!: pulumi.Output<string>;
     public readonly routeKey!: pulumi.Output<string>;
     public readonly routeResponseSelectionExpression!: pulumi.Output<string | undefined>;
     public readonly target!: pulumi.Output<string | undefined>;
@@ -57,9 +55,7 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Route is deprecated: Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -81,6 +77,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["routeKey"] = args ? args.routeKey : undefined;
             resourceInputs["routeResponseSelectionExpression"] = args ? args.routeResponseSelectionExpression : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["routeId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["apiKeyRequired"] = undefined /*out*/;
@@ -91,6 +88,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["operationName"] = undefined /*out*/;
             resourceInputs["requestModels"] = undefined /*out*/;
             resourceInputs["requestParameters"] = undefined /*out*/;
+            resourceInputs["routeId"] = undefined /*out*/;
             resourceInputs["routeKey"] = undefined /*out*/;
             resourceInputs["routeResponseSelectionExpression"] = undefined /*out*/;
             resourceInputs["target"] = undefined /*out*/;

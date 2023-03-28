@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.VpcLattice
 {
     /// <summary>
-    /// A group of related Targets that a Service may serve a request to
+    /// A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
     /// </summary>
     [AwsNativeResourceType("aws-native:vpclattice:TargetGroup")]
     public partial class TargetGroup : global::Pulumi.CustomResource

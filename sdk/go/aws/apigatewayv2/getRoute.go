@@ -21,19 +21,18 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 }
 
 type LookupRouteArgs struct {
-	Id string `pulumi:"id"`
+	ApiId   string `pulumi:"apiId"`
+	RouteId string `pulumi:"routeId"`
 }
 
 type LookupRouteResult struct {
 	ApiKeyRequired                   *bool       `pulumi:"apiKeyRequired"`
 	AuthorizationScopes              []string    `pulumi:"authorizationScopes"`
 	AuthorizationType                *string     `pulumi:"authorizationType"`
-	AuthorizerId                     *string     `pulumi:"authorizerId"`
-	Id                               *string     `pulumi:"id"`
 	ModelSelectionExpression         *string     `pulumi:"modelSelectionExpression"`
 	OperationName                    *string     `pulumi:"operationName"`
 	RequestModels                    interface{} `pulumi:"requestModels"`
-	RequestParameters                interface{} `pulumi:"requestParameters"`
+	RouteId                          *string     `pulumi:"routeId"`
 	RouteKey                         *string     `pulumi:"routeKey"`
 	RouteResponseSelectionExpression *string     `pulumi:"routeResponseSelectionExpression"`
 	Target                           *string     `pulumi:"target"`
@@ -53,7 +52,8 @@ func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...
 }
 
 type LookupRouteOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ApiId   pulumi.StringInput `pulumi:"apiId"`
+	RouteId pulumi.StringInput `pulumi:"routeId"`
 }
 
 func (LookupRouteOutputArgs) ElementType() reflect.Type {
@@ -86,14 +86,6 @@ func (o LookupRouteResultOutput) AuthorizationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.AuthorizationType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRouteResultOutput) AuthorizerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRouteResult) *string { return v.AuthorizerId }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupRouteResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRouteResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupRouteResultOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.ModelSelectionExpression }).(pulumi.StringPtrOutput)
 }
@@ -106,8 +98,8 @@ func (o LookupRouteResultOutput) RequestModels() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRouteResult) interface{} { return v.RequestModels }).(pulumi.AnyOutput)
 }
 
-func (o LookupRouteResultOutput) RequestParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupRouteResult) interface{} { return v.RequestParameters }).(pulumi.AnyOutput)
+func (o LookupRouteResultOutput) RouteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.RouteId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRouteResultOutput) RouteKey() pulumi.StringPtrOutput {

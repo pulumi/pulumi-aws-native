@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A logical unit that contains Rules for how a Service routes incoming requests based on their port, protocol, and path
+ * Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
  */
 export function getListener(args: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
 
@@ -31,7 +31,7 @@ export interface GetListenerResult {
     readonly tags?: outputs.vpclattice.ListenerTag[];
 }
 /**
- * A logical unit that contains Rules for how a Service routes incoming requests based on their port, protocol, and path
+ * Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
  */
 export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerResult> {
     return pulumi.output(args).apply((a: any) => getListener(a, opts))

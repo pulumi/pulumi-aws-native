@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.VpcLattice
 {
     /// <summary>
-    /// A logical container containing Services that clients can request access to.
+    /// A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
     /// </summary>
     [AwsNativeResourceType("aws-native:vpclattice:ServiceNetwork")]
     public partial class ServiceNetwork : global::Pulumi.CustomResource

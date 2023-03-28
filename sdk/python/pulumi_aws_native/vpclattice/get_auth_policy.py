@@ -51,7 +51,7 @@ class AwaitableGetAuthPolicyResult(GetAuthPolicyResult):
 def get_auth_policy(resource_identifier: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthPolicyResult:
     """
-    Description
+    Creates or updates the auth policy.
     """
     __args__ = dict()
     __args__['resourceIdentifier'] = resource_identifier
@@ -67,6 +67,6 @@ def get_auth_policy(resource_identifier: Optional[str] = None,
 def get_auth_policy_output(resource_identifier: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthPolicyResult]:
     """
-    Description
+    Creates or updates the auth policy.
     """
     ...

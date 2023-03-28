@@ -248,6 +248,34 @@ namespace Pulumi.AwsNative.VpcLattice
     }
 
     [EnumType]
+    public readonly struct TargetGroupConfigIpAddressType : IEquatable<TargetGroupConfigIpAddressType>
+    {
+        private readonly string _value;
+
+        private TargetGroupConfigIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TargetGroupConfigIpAddressType Ipv4 { get; } = new TargetGroupConfigIpAddressType("IPV4");
+        public static TargetGroupConfigIpAddressType Ipv6 { get; } = new TargetGroupConfigIpAddressType("IPV6");
+
+        public static bool operator ==(TargetGroupConfigIpAddressType left, TargetGroupConfigIpAddressType right) => left.Equals(right);
+        public static bool operator !=(TargetGroupConfigIpAddressType left, TargetGroupConfigIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(TargetGroupConfigIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TargetGroupConfigIpAddressType other && Equals(other);
+        public bool Equals(TargetGroupConfigIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TargetGroupConfigProtocol : IEquatable<TargetGroupConfigProtocol>
     {
         private readonly string _value;
@@ -333,6 +361,34 @@ namespace Pulumi.AwsNative.VpcLattice
     }
 
     [EnumType]
+    public readonly struct TargetGroupHealthCheckConfigProtocolVersion : IEquatable<TargetGroupHealthCheckConfigProtocolVersion>
+    {
+        private readonly string _value;
+
+        private TargetGroupHealthCheckConfigProtocolVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TargetGroupHealthCheckConfigProtocolVersion Http1 { get; } = new TargetGroupHealthCheckConfigProtocolVersion("HTTP1");
+        public static TargetGroupHealthCheckConfigProtocolVersion Http2 { get; } = new TargetGroupHealthCheckConfigProtocolVersion("HTTP2");
+
+        public static bool operator ==(TargetGroupHealthCheckConfigProtocolVersion left, TargetGroupHealthCheckConfigProtocolVersion right) => left.Equals(right);
+        public static bool operator !=(TargetGroupHealthCheckConfigProtocolVersion left, TargetGroupHealthCheckConfigProtocolVersion right) => !left.Equals(right);
+
+        public static explicit operator string(TargetGroupHealthCheckConfigProtocolVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TargetGroupHealthCheckConfigProtocolVersion other && Equals(other);
+        public bool Equals(TargetGroupHealthCheckConfigProtocolVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TargetGroupStatus : IEquatable<TargetGroupStatus>
     {
         private readonly string _value;
@@ -376,6 +432,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public static TargetGroupType Ip { get; } = new TargetGroupType("IP");
         public static TargetGroupType Lambda { get; } = new TargetGroupType("LAMBDA");
         public static TargetGroupType Instance { get; } = new TargetGroupType("INSTANCE");
+        public static TargetGroupType Alb { get; } = new TargetGroupType("ALB");
 
         public static bool operator ==(TargetGroupType left, TargetGroupType right) => left.Equals(right);
         public static bool operator !=(TargetGroupType left, TargetGroupType right) => !left.Equals(right);

@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class ListenerDefaultAction
     {
-        public readonly Outputs.ListenerForward Forward;
+        public readonly Outputs.ListenerFixedResponse? FixedResponse;
+        public readonly Outputs.ListenerForward? Forward;
 
         [OutputConstructor]
-        private ListenerDefaultAction(Outputs.ListenerForward forward)
+        private ListenerDefaultAction(
+            Outputs.ListenerFixedResponse? fixedResponse,
+
+            Outputs.ListenerForward? forward)
         {
+            FixedResponse = fixedResponse;
             Forward = forward;
         }
     }

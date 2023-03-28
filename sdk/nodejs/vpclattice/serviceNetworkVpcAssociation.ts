@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network
+ * Associates a VPC with a service network.
  */
 export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
     /**

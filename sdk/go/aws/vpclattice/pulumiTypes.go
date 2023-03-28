@@ -111,7 +111,8 @@ func (o AccessLogSubscriptionTagArrayOutput) Index(i pulumi.IntInput) AccessLogS
 }
 
 type ListenerDefaultAction struct {
-	Forward ListenerForward `pulumi:"forward"`
+	FixedResponse *ListenerFixedResponse `pulumi:"fixedResponse"`
+	Forward       *ListenerForward       `pulumi:"forward"`
 }
 
 // ListenerDefaultActionInput is an input type that accepts ListenerDefaultActionArgs and ListenerDefaultActionOutput values.
@@ -126,7 +127,8 @@ type ListenerDefaultActionInput interface {
 }
 
 type ListenerDefaultActionArgs struct {
-	Forward ListenerForwardInput `pulumi:"forward"`
+	FixedResponse ListenerFixedResponsePtrInput `pulumi:"fixedResponse"`
+	Forward       ListenerForwardPtrInput       `pulumi:"forward"`
 }
 
 func (ListenerDefaultActionArgs) ElementType() reflect.Type {
@@ -155,8 +157,12 @@ func (o ListenerDefaultActionOutput) ToListenerDefaultActionOutputWithContext(ct
 	return o
 }
 
-func (o ListenerDefaultActionOutput) Forward() ListenerForwardOutput {
-	return o.ApplyT(func(v ListenerDefaultAction) ListenerForward { return v.Forward }).(ListenerForwardOutput)
+func (o ListenerDefaultActionOutput) FixedResponse() ListenerFixedResponsePtrOutput {
+	return o.ApplyT(func(v ListenerDefaultAction) *ListenerFixedResponse { return v.FixedResponse }).(ListenerFixedResponsePtrOutput)
+}
+
+func (o ListenerDefaultActionOutput) Forward() ListenerForwardPtrOutput {
+	return o.ApplyT(func(v ListenerDefaultAction) *ListenerForward { return v.Forward }).(ListenerForwardPtrOutput)
 }
 
 type ListenerDefaultActionPtrOutput struct{ *pulumi.OutputState }
@@ -183,13 +189,155 @@ func (o ListenerDefaultActionPtrOutput) Elem() ListenerDefaultActionOutput {
 	}).(ListenerDefaultActionOutput)
 }
 
+func (o ListenerDefaultActionPtrOutput) FixedResponse() ListenerFixedResponsePtrOutput {
+	return o.ApplyT(func(v *ListenerDefaultAction) *ListenerFixedResponse {
+		if v == nil {
+			return nil
+		}
+		return v.FixedResponse
+	}).(ListenerFixedResponsePtrOutput)
+}
+
 func (o ListenerDefaultActionPtrOutput) Forward() ListenerForwardPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultAction) *ListenerForward {
 		if v == nil {
 			return nil
 		}
-		return &v.Forward
+		return v.Forward
 	}).(ListenerForwardPtrOutput)
+}
+
+type ListenerFixedResponse struct {
+	StatusCode int `pulumi:"statusCode"`
+}
+
+// ListenerFixedResponseInput is an input type that accepts ListenerFixedResponseArgs and ListenerFixedResponseOutput values.
+// You can construct a concrete instance of `ListenerFixedResponseInput` via:
+//
+//	ListenerFixedResponseArgs{...}
+type ListenerFixedResponseInput interface {
+	pulumi.Input
+
+	ToListenerFixedResponseOutput() ListenerFixedResponseOutput
+	ToListenerFixedResponseOutputWithContext(context.Context) ListenerFixedResponseOutput
+}
+
+type ListenerFixedResponseArgs struct {
+	StatusCode pulumi.IntInput `pulumi:"statusCode"`
+}
+
+func (ListenerFixedResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerFixedResponse)(nil)).Elem()
+}
+
+func (i ListenerFixedResponseArgs) ToListenerFixedResponseOutput() ListenerFixedResponseOutput {
+	return i.ToListenerFixedResponseOutputWithContext(context.Background())
+}
+
+func (i ListenerFixedResponseArgs) ToListenerFixedResponseOutputWithContext(ctx context.Context) ListenerFixedResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerFixedResponseOutput)
+}
+
+func (i ListenerFixedResponseArgs) ToListenerFixedResponsePtrOutput() ListenerFixedResponsePtrOutput {
+	return i.ToListenerFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ListenerFixedResponseArgs) ToListenerFixedResponsePtrOutputWithContext(ctx context.Context) ListenerFixedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerFixedResponseOutput).ToListenerFixedResponsePtrOutputWithContext(ctx)
+}
+
+// ListenerFixedResponsePtrInput is an input type that accepts ListenerFixedResponseArgs, ListenerFixedResponsePtr and ListenerFixedResponsePtrOutput values.
+// You can construct a concrete instance of `ListenerFixedResponsePtrInput` via:
+//
+//	        ListenerFixedResponseArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerFixedResponsePtrInput interface {
+	pulumi.Input
+
+	ToListenerFixedResponsePtrOutput() ListenerFixedResponsePtrOutput
+	ToListenerFixedResponsePtrOutputWithContext(context.Context) ListenerFixedResponsePtrOutput
+}
+
+type listenerFixedResponsePtrType ListenerFixedResponseArgs
+
+func ListenerFixedResponsePtr(v *ListenerFixedResponseArgs) ListenerFixedResponsePtrInput {
+	return (*listenerFixedResponsePtrType)(v)
+}
+
+func (*listenerFixedResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerFixedResponse)(nil)).Elem()
+}
+
+func (i *listenerFixedResponsePtrType) ToListenerFixedResponsePtrOutput() ListenerFixedResponsePtrOutput {
+	return i.ToListenerFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *listenerFixedResponsePtrType) ToListenerFixedResponsePtrOutputWithContext(ctx context.Context) ListenerFixedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerFixedResponsePtrOutput)
+}
+
+type ListenerFixedResponseOutput struct{ *pulumi.OutputState }
+
+func (ListenerFixedResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerFixedResponse)(nil)).Elem()
+}
+
+func (o ListenerFixedResponseOutput) ToListenerFixedResponseOutput() ListenerFixedResponseOutput {
+	return o
+}
+
+func (o ListenerFixedResponseOutput) ToListenerFixedResponseOutputWithContext(ctx context.Context) ListenerFixedResponseOutput {
+	return o
+}
+
+func (o ListenerFixedResponseOutput) ToListenerFixedResponsePtrOutput() ListenerFixedResponsePtrOutput {
+	return o.ToListenerFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ListenerFixedResponseOutput) ToListenerFixedResponsePtrOutputWithContext(ctx context.Context) ListenerFixedResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerFixedResponse) *ListenerFixedResponse {
+		return &v
+	}).(ListenerFixedResponsePtrOutput)
+}
+
+func (o ListenerFixedResponseOutput) StatusCode() pulumi.IntOutput {
+	return o.ApplyT(func(v ListenerFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
+}
+
+type ListenerFixedResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerFixedResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerFixedResponse)(nil)).Elem()
+}
+
+func (o ListenerFixedResponsePtrOutput) ToListenerFixedResponsePtrOutput() ListenerFixedResponsePtrOutput {
+	return o
+}
+
+func (o ListenerFixedResponsePtrOutput) ToListenerFixedResponsePtrOutputWithContext(ctx context.Context) ListenerFixedResponsePtrOutput {
+	return o
+}
+
+func (o ListenerFixedResponsePtrOutput) Elem() ListenerFixedResponseOutput {
+	return o.ApplyT(func(v *ListenerFixedResponse) ListenerFixedResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerFixedResponse
+		return ret
+	}).(ListenerFixedResponseOutput)
+}
+
+func (o ListenerFixedResponsePtrOutput) StatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ListenerFixedResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusCode
+	}).(pulumi.IntPtrOutput)
 }
 
 type ListenerForward struct {
@@ -223,6 +371,47 @@ func (i ListenerForwardArgs) ToListenerForwardOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerForwardOutput)
 }
 
+func (i ListenerForwardArgs) ToListenerForwardPtrOutput() ListenerForwardPtrOutput {
+	return i.ToListenerForwardPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerForwardArgs) ToListenerForwardPtrOutputWithContext(ctx context.Context) ListenerForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerForwardOutput).ToListenerForwardPtrOutputWithContext(ctx)
+}
+
+// ListenerForwardPtrInput is an input type that accepts ListenerForwardArgs, ListenerForwardPtr and ListenerForwardPtrOutput values.
+// You can construct a concrete instance of `ListenerForwardPtrInput` via:
+//
+//	        ListenerForwardArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerForwardPtrInput interface {
+	pulumi.Input
+
+	ToListenerForwardPtrOutput() ListenerForwardPtrOutput
+	ToListenerForwardPtrOutputWithContext(context.Context) ListenerForwardPtrOutput
+}
+
+type listenerForwardPtrType ListenerForwardArgs
+
+func ListenerForwardPtr(v *ListenerForwardArgs) ListenerForwardPtrInput {
+	return (*listenerForwardPtrType)(v)
+}
+
+func (*listenerForwardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerForward)(nil)).Elem()
+}
+
+func (i *listenerForwardPtrType) ToListenerForwardPtrOutput() ListenerForwardPtrOutput {
+	return i.ToListenerForwardPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerForwardPtrType) ToListenerForwardPtrOutputWithContext(ctx context.Context) ListenerForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerForwardPtrOutput)
+}
+
 type ListenerForwardOutput struct{ *pulumi.OutputState }
 
 func (ListenerForwardOutput) ElementType() reflect.Type {
@@ -235,6 +424,16 @@ func (o ListenerForwardOutput) ToListenerForwardOutput() ListenerForwardOutput {
 
 func (o ListenerForwardOutput) ToListenerForwardOutputWithContext(ctx context.Context) ListenerForwardOutput {
 	return o
+}
+
+func (o ListenerForwardOutput) ToListenerForwardPtrOutput() ListenerForwardPtrOutput {
+	return o.ToListenerForwardPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerForwardOutput) ToListenerForwardPtrOutputWithContext(ctx context.Context) ListenerForwardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerForward) *ListenerForward {
+		return &v
+	}).(ListenerForwardPtrOutput)
 }
 
 func (o ListenerForwardOutput) TargetGroups() ListenerWeightedTargetGroupArrayOutput {
@@ -475,7 +674,8 @@ func (o ListenerWeightedTargetGroupArrayOutput) Index(i pulumi.IntInput) Listene
 }
 
 type RuleAction struct {
-	Forward RuleForward `pulumi:"forward"`
+	FixedResponse *RuleFixedResponse `pulumi:"fixedResponse"`
+	Forward       *RuleForward       `pulumi:"forward"`
 }
 
 // RuleActionInput is an input type that accepts RuleActionArgs and RuleActionOutput values.
@@ -490,7 +690,8 @@ type RuleActionInput interface {
 }
 
 type RuleActionArgs struct {
-	Forward RuleForwardInput `pulumi:"forward"`
+	FixedResponse RuleFixedResponsePtrInput `pulumi:"fixedResponse"`
+	Forward       RuleForwardPtrInput       `pulumi:"forward"`
 }
 
 func (RuleActionArgs) ElementType() reflect.Type {
@@ -519,8 +720,12 @@ func (o RuleActionOutput) ToRuleActionOutputWithContext(ctx context.Context) Rul
 	return o
 }
 
-func (o RuleActionOutput) Forward() RuleForwardOutput {
-	return o.ApplyT(func(v RuleAction) RuleForward { return v.Forward }).(RuleForwardOutput)
+func (o RuleActionOutput) FixedResponse() RuleFixedResponsePtrOutput {
+	return o.ApplyT(func(v RuleAction) *RuleFixedResponse { return v.FixedResponse }).(RuleFixedResponsePtrOutput)
+}
+
+func (o RuleActionOutput) Forward() RuleForwardPtrOutput {
+	return o.ApplyT(func(v RuleAction) *RuleForward { return v.Forward }).(RuleForwardPtrOutput)
 }
 
 type RuleActionPtrOutput struct{ *pulumi.OutputState }
@@ -547,13 +752,155 @@ func (o RuleActionPtrOutput) Elem() RuleActionOutput {
 	}).(RuleActionOutput)
 }
 
+func (o RuleActionPtrOutput) FixedResponse() RuleFixedResponsePtrOutput {
+	return o.ApplyT(func(v *RuleAction) *RuleFixedResponse {
+		if v == nil {
+			return nil
+		}
+		return v.FixedResponse
+	}).(RuleFixedResponsePtrOutput)
+}
+
 func (o RuleActionPtrOutput) Forward() RuleForwardPtrOutput {
 	return o.ApplyT(func(v *RuleAction) *RuleForward {
 		if v == nil {
 			return nil
 		}
-		return &v.Forward
+		return v.Forward
 	}).(RuleForwardPtrOutput)
+}
+
+type RuleFixedResponse struct {
+	StatusCode int `pulumi:"statusCode"`
+}
+
+// RuleFixedResponseInput is an input type that accepts RuleFixedResponseArgs and RuleFixedResponseOutput values.
+// You can construct a concrete instance of `RuleFixedResponseInput` via:
+//
+//	RuleFixedResponseArgs{...}
+type RuleFixedResponseInput interface {
+	pulumi.Input
+
+	ToRuleFixedResponseOutput() RuleFixedResponseOutput
+	ToRuleFixedResponseOutputWithContext(context.Context) RuleFixedResponseOutput
+}
+
+type RuleFixedResponseArgs struct {
+	StatusCode pulumi.IntInput `pulumi:"statusCode"`
+}
+
+func (RuleFixedResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleFixedResponse)(nil)).Elem()
+}
+
+func (i RuleFixedResponseArgs) ToRuleFixedResponseOutput() RuleFixedResponseOutput {
+	return i.ToRuleFixedResponseOutputWithContext(context.Background())
+}
+
+func (i RuleFixedResponseArgs) ToRuleFixedResponseOutputWithContext(ctx context.Context) RuleFixedResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleFixedResponseOutput)
+}
+
+func (i RuleFixedResponseArgs) ToRuleFixedResponsePtrOutput() RuleFixedResponsePtrOutput {
+	return i.ToRuleFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RuleFixedResponseArgs) ToRuleFixedResponsePtrOutputWithContext(ctx context.Context) RuleFixedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleFixedResponseOutput).ToRuleFixedResponsePtrOutputWithContext(ctx)
+}
+
+// RuleFixedResponsePtrInput is an input type that accepts RuleFixedResponseArgs, RuleFixedResponsePtr and RuleFixedResponsePtrOutput values.
+// You can construct a concrete instance of `RuleFixedResponsePtrInput` via:
+//
+//	        RuleFixedResponseArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleFixedResponsePtrInput interface {
+	pulumi.Input
+
+	ToRuleFixedResponsePtrOutput() RuleFixedResponsePtrOutput
+	ToRuleFixedResponsePtrOutputWithContext(context.Context) RuleFixedResponsePtrOutput
+}
+
+type ruleFixedResponsePtrType RuleFixedResponseArgs
+
+func RuleFixedResponsePtr(v *RuleFixedResponseArgs) RuleFixedResponsePtrInput {
+	return (*ruleFixedResponsePtrType)(v)
+}
+
+func (*ruleFixedResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleFixedResponse)(nil)).Elem()
+}
+
+func (i *ruleFixedResponsePtrType) ToRuleFixedResponsePtrOutput() RuleFixedResponsePtrOutput {
+	return i.ToRuleFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleFixedResponsePtrType) ToRuleFixedResponsePtrOutputWithContext(ctx context.Context) RuleFixedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleFixedResponsePtrOutput)
+}
+
+type RuleFixedResponseOutput struct{ *pulumi.OutputState }
+
+func (RuleFixedResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleFixedResponse)(nil)).Elem()
+}
+
+func (o RuleFixedResponseOutput) ToRuleFixedResponseOutput() RuleFixedResponseOutput {
+	return o
+}
+
+func (o RuleFixedResponseOutput) ToRuleFixedResponseOutputWithContext(ctx context.Context) RuleFixedResponseOutput {
+	return o
+}
+
+func (o RuleFixedResponseOutput) ToRuleFixedResponsePtrOutput() RuleFixedResponsePtrOutput {
+	return o.ToRuleFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RuleFixedResponseOutput) ToRuleFixedResponsePtrOutputWithContext(ctx context.Context) RuleFixedResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleFixedResponse) *RuleFixedResponse {
+		return &v
+	}).(RuleFixedResponsePtrOutput)
+}
+
+func (o RuleFixedResponseOutput) StatusCode() pulumi.IntOutput {
+	return o.ApplyT(func(v RuleFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
+}
+
+type RuleFixedResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleFixedResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleFixedResponse)(nil)).Elem()
+}
+
+func (o RuleFixedResponsePtrOutput) ToRuleFixedResponsePtrOutput() RuleFixedResponsePtrOutput {
+	return o
+}
+
+func (o RuleFixedResponsePtrOutput) ToRuleFixedResponsePtrOutputWithContext(ctx context.Context) RuleFixedResponsePtrOutput {
+	return o
+}
+
+func (o RuleFixedResponsePtrOutput) Elem() RuleFixedResponseOutput {
+	return o.ApplyT(func(v *RuleFixedResponse) RuleFixedResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RuleFixedResponse
+		return ret
+	}).(RuleFixedResponseOutput)
+}
+
+func (o RuleFixedResponsePtrOutput) StatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleFixedResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusCode
+	}).(pulumi.IntPtrOutput)
 }
 
 type RuleForward struct {
@@ -587,6 +934,47 @@ func (i RuleForwardArgs) ToRuleForwardOutputWithContext(ctx context.Context) Rul
 	return pulumi.ToOutputWithContext(ctx, i).(RuleForwardOutput)
 }
 
+func (i RuleForwardArgs) ToRuleForwardPtrOutput() RuleForwardPtrOutput {
+	return i.ToRuleForwardPtrOutputWithContext(context.Background())
+}
+
+func (i RuleForwardArgs) ToRuleForwardPtrOutputWithContext(ctx context.Context) RuleForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleForwardOutput).ToRuleForwardPtrOutputWithContext(ctx)
+}
+
+// RuleForwardPtrInput is an input type that accepts RuleForwardArgs, RuleForwardPtr and RuleForwardPtrOutput values.
+// You can construct a concrete instance of `RuleForwardPtrInput` via:
+//
+//	        RuleForwardArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleForwardPtrInput interface {
+	pulumi.Input
+
+	ToRuleForwardPtrOutput() RuleForwardPtrOutput
+	ToRuleForwardPtrOutputWithContext(context.Context) RuleForwardPtrOutput
+}
+
+type ruleForwardPtrType RuleForwardArgs
+
+func RuleForwardPtr(v *RuleForwardArgs) RuleForwardPtrInput {
+	return (*ruleForwardPtrType)(v)
+}
+
+func (*ruleForwardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleForward)(nil)).Elem()
+}
+
+func (i *ruleForwardPtrType) ToRuleForwardPtrOutput() RuleForwardPtrOutput {
+	return i.ToRuleForwardPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleForwardPtrType) ToRuleForwardPtrOutputWithContext(ctx context.Context) RuleForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleForwardPtrOutput)
+}
+
 type RuleForwardOutput struct{ *pulumi.OutputState }
 
 func (RuleForwardOutput) ElementType() reflect.Type {
@@ -599,6 +987,16 @@ func (o RuleForwardOutput) ToRuleForwardOutput() RuleForwardOutput {
 
 func (o RuleForwardOutput) ToRuleForwardOutputWithContext(ctx context.Context) RuleForwardOutput {
 	return o
+}
+
+func (o RuleForwardOutput) ToRuleForwardPtrOutput() RuleForwardPtrOutput {
+	return o.ToRuleForwardPtrOutputWithContext(context.Background())
+}
+
+func (o RuleForwardOutput) ToRuleForwardPtrOutputWithContext(ctx context.Context) RuleForwardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleForward) *RuleForward {
+		return &v
+	}).(RuleForwardPtrOutput)
 }
 
 func (o RuleForwardOutput) TargetGroups() RuleWeightedTargetGroupArrayOutput {
@@ -2193,6 +2591,7 @@ func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
 
 type TargetGroupConfig struct {
 	HealthCheck     *TargetGroupHealthCheckConfig     `pulumi:"healthCheck"`
+	IpAddressType   *TargetGroupConfigIpAddressType   `pulumi:"ipAddressType"`
 	Port            int                               `pulumi:"port"`
 	Protocol        TargetGroupConfigProtocol         `pulumi:"protocol"`
 	ProtocolVersion *TargetGroupConfigProtocolVersion `pulumi:"protocolVersion"`
@@ -2212,6 +2611,7 @@ type TargetGroupConfigInput interface {
 
 type TargetGroupConfigArgs struct {
 	HealthCheck     TargetGroupHealthCheckConfigPtrInput     `pulumi:"healthCheck"`
+	IpAddressType   TargetGroupConfigIpAddressTypePtrInput   `pulumi:"ipAddressType"`
 	Port            pulumi.IntInput                          `pulumi:"port"`
 	Protocol        TargetGroupConfigProtocolInput           `pulumi:"protocol"`
 	ProtocolVersion TargetGroupConfigProtocolVersionPtrInput `pulumi:"protocolVersion"`
@@ -2299,6 +2699,10 @@ func (o TargetGroupConfigOutput) HealthCheck() TargetGroupHealthCheckConfigPtrOu
 	return o.ApplyT(func(v TargetGroupConfig) *TargetGroupHealthCheckConfig { return v.HealthCheck }).(TargetGroupHealthCheckConfigPtrOutput)
 }
 
+func (o TargetGroupConfigOutput) IpAddressType() TargetGroupConfigIpAddressTypePtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *TargetGroupConfigIpAddressType { return v.IpAddressType }).(TargetGroupConfigIpAddressTypePtrOutput)
+}
+
 func (o TargetGroupConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v TargetGroupConfig) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -2348,6 +2752,15 @@ func (o TargetGroupConfigPtrOutput) HealthCheck() TargetGroupHealthCheckConfigPt
 	}).(TargetGroupHealthCheckConfigPtrOutput)
 }
 
+func (o TargetGroupConfigPtrOutput) IpAddressType() TargetGroupConfigIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfig) *TargetGroupConfigIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(TargetGroupConfigIpAddressTypePtrOutput)
+}
+
 func (o TargetGroupConfigPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *int {
 		if v == nil {
@@ -2385,15 +2798,16 @@ func (o TargetGroupConfigPtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
 }
 
 type TargetGroupHealthCheckConfig struct {
-	Enabled                    *bool                                 `pulumi:"enabled"`
-	HealthCheckIntervalSeconds *int                                  `pulumi:"healthCheckIntervalSeconds"`
-	HealthCheckTimeoutSeconds  *int                                  `pulumi:"healthCheckTimeoutSeconds"`
-	HealthyThresholdCount      *int                                  `pulumi:"healthyThresholdCount"`
-	Matcher                    *TargetGroupMatcher                   `pulumi:"matcher"`
-	Path                       *string                               `pulumi:"path"`
-	Port                       *int                                  `pulumi:"port"`
-	Protocol                   *TargetGroupHealthCheckConfigProtocol `pulumi:"protocol"`
-	UnhealthyThresholdCount    *int                                  `pulumi:"unhealthyThresholdCount"`
+	Enabled                    *bool                                        `pulumi:"enabled"`
+	HealthCheckIntervalSeconds *int                                         `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckTimeoutSeconds  *int                                         `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount      *int                                         `pulumi:"healthyThresholdCount"`
+	Matcher                    *TargetGroupMatcher                          `pulumi:"matcher"`
+	Path                       *string                                      `pulumi:"path"`
+	Port                       *int                                         `pulumi:"port"`
+	Protocol                   *TargetGroupHealthCheckConfigProtocol        `pulumi:"protocol"`
+	ProtocolVersion            *TargetGroupHealthCheckConfigProtocolVersion `pulumi:"protocolVersion"`
+	UnhealthyThresholdCount    *int                                         `pulumi:"unhealthyThresholdCount"`
 }
 
 // TargetGroupHealthCheckConfigInput is an input type that accepts TargetGroupHealthCheckConfigArgs and TargetGroupHealthCheckConfigOutput values.
@@ -2408,15 +2822,16 @@ type TargetGroupHealthCheckConfigInput interface {
 }
 
 type TargetGroupHealthCheckConfigArgs struct {
-	Enabled                    pulumi.BoolPtrInput                          `pulumi:"enabled"`
-	HealthCheckIntervalSeconds pulumi.IntPtrInput                           `pulumi:"healthCheckIntervalSeconds"`
-	HealthCheckTimeoutSeconds  pulumi.IntPtrInput                           `pulumi:"healthCheckTimeoutSeconds"`
-	HealthyThresholdCount      pulumi.IntPtrInput                           `pulumi:"healthyThresholdCount"`
-	Matcher                    TargetGroupMatcherPtrInput                   `pulumi:"matcher"`
-	Path                       pulumi.StringPtrInput                        `pulumi:"path"`
-	Port                       pulumi.IntPtrInput                           `pulumi:"port"`
-	Protocol                   TargetGroupHealthCheckConfigProtocolPtrInput `pulumi:"protocol"`
-	UnhealthyThresholdCount    pulumi.IntPtrInput                           `pulumi:"unhealthyThresholdCount"`
+	Enabled                    pulumi.BoolPtrInput                                 `pulumi:"enabled"`
+	HealthCheckIntervalSeconds pulumi.IntPtrInput                                  `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckTimeoutSeconds  pulumi.IntPtrInput                                  `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount      pulumi.IntPtrInput                                  `pulumi:"healthyThresholdCount"`
+	Matcher                    TargetGroupMatcherPtrInput                          `pulumi:"matcher"`
+	Path                       pulumi.StringPtrInput                               `pulumi:"path"`
+	Port                       pulumi.IntPtrInput                                  `pulumi:"port"`
+	Protocol                   TargetGroupHealthCheckConfigProtocolPtrInput        `pulumi:"protocol"`
+	ProtocolVersion            TargetGroupHealthCheckConfigProtocolVersionPtrInput `pulumi:"protocolVersion"`
+	UnhealthyThresholdCount    pulumi.IntPtrInput                                  `pulumi:"unhealthyThresholdCount"`
 }
 
 func (TargetGroupHealthCheckConfigArgs) ElementType() reflect.Type {
@@ -2528,6 +2943,12 @@ func (o TargetGroupHealthCheckConfigOutput) Protocol() TargetGroupHealthCheckCon
 	return o.ApplyT(func(v TargetGroupHealthCheckConfig) *TargetGroupHealthCheckConfigProtocol { return v.Protocol }).(TargetGroupHealthCheckConfigProtocolPtrOutput)
 }
 
+func (o TargetGroupHealthCheckConfigOutput) ProtocolVersion() TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
+	return o.ApplyT(func(v TargetGroupHealthCheckConfig) *TargetGroupHealthCheckConfigProtocolVersion {
+		return v.ProtocolVersion
+	}).(TargetGroupHealthCheckConfigProtocolVersionPtrOutput)
+}
+
 func (o TargetGroupHealthCheckConfigOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheckConfig) *int { return v.UnhealthyThresholdCount }).(pulumi.IntPtrOutput)
 }
@@ -2626,6 +3047,15 @@ func (o TargetGroupHealthCheckConfigPtrOutput) Protocol() TargetGroupHealthCheck
 		}
 		return v.Protocol
 	}).(TargetGroupHealthCheckConfigProtocolPtrOutput)
+}
+
+func (o TargetGroupHealthCheckConfigPtrOutput) ProtocolVersion() TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
+	return o.ApplyT(func(v *TargetGroupHealthCheckConfig) *TargetGroupHealthCheckConfigProtocolVersion {
+		if v == nil {
+			return nil
+		}
+		return v.ProtocolVersion
+	}).(TargetGroupHealthCheckConfigProtocolVersionPtrOutput)
 }
 
 func (o TargetGroupHealthCheckConfigPtrOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
@@ -2974,13 +3404,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessLogSubscriptionTagInput)(nil)).Elem(), AccessLogSubscriptionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessLogSubscriptionTagArrayInput)(nil)).Elem(), AccessLogSubscriptionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionInput)(nil)).Elem(), ListenerDefaultActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerFixedResponseInput)(nil)).Elem(), ListenerFixedResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerFixedResponsePtrInput)(nil)).Elem(), ListenerFixedResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerForwardInput)(nil)).Elem(), ListenerForwardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerForwardPtrInput)(nil)).Elem(), ListenerForwardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerTagInput)(nil)).Elem(), ListenerTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerTagArrayInput)(nil)).Elem(), ListenerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerWeightedTargetGroupInput)(nil)).Elem(), ListenerWeightedTargetGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerWeightedTargetGroupArrayInput)(nil)).Elem(), ListenerWeightedTargetGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleActionInput)(nil)).Elem(), RuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleFixedResponseInput)(nil)).Elem(), RuleFixedResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleFixedResponsePtrInput)(nil)).Elem(), RuleFixedResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleForwardInput)(nil)).Elem(), RuleForwardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleForwardPtrInput)(nil)).Elem(), RuleForwardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleHeaderMatchInput)(nil)).Elem(), RuleHeaderMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleHeaderMatchArrayInput)(nil)).Elem(), RuleHeaderMatchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleHeaderMatchTypeInput)(nil)).Elem(), RuleHeaderMatchTypeArgs{})
@@ -3020,6 +3456,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessLogSubscriptionTagArrayOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionPtrOutput{})
+	pulumi.RegisterOutputType(ListenerFixedResponseOutput{})
+	pulumi.RegisterOutputType(ListenerFixedResponsePtrOutput{})
 	pulumi.RegisterOutputType(ListenerForwardOutput{})
 	pulumi.RegisterOutputType(ListenerForwardPtrOutput{})
 	pulumi.RegisterOutputType(ListenerTagOutput{})
@@ -3028,6 +3466,8 @@ func init() {
 	pulumi.RegisterOutputType(ListenerWeightedTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(RuleActionOutput{})
 	pulumi.RegisterOutputType(RuleActionPtrOutput{})
+	pulumi.RegisterOutputType(RuleFixedResponseOutput{})
+	pulumi.RegisterOutputType(RuleFixedResponsePtrOutput{})
 	pulumi.RegisterOutputType(RuleForwardOutput{})
 	pulumi.RegisterOutputType(RuleForwardPtrOutput{})
 	pulumi.RegisterOutputType(RuleHeaderMatchOutput{})

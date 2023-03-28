@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCloudFormationProductResult:
-    def __init__(__self__, accept_language=None, description=None, distributor=None, id=None, name=None, owner=None, product_name=None, provisioning_artifact_ids=None, provisioning_artifact_names=None, provisioning_artifact_parameters=None, replace_provisioning_artifacts=None, source_connection=None, support_description=None, support_email=None, support_url=None, tags=None):
+    def __init__(__self__, accept_language=None, description=None, distributor=None, id=None, name=None, owner=None, product_name=None, product_type=None, provisioning_artifact_ids=None, provisioning_artifact_names=None, provisioning_artifact_parameters=None, replace_provisioning_artifacts=None, source_connection=None, support_description=None, support_email=None, support_url=None, tags=None):
         if accept_language and not isinstance(accept_language, str):
             raise TypeError("Expected argument 'accept_language' to be a str")
         pulumi.set(__self__, "accept_language", accept_language)
@@ -41,6 +41,9 @@ class GetCloudFormationProductResult:
         if product_name and not isinstance(product_name, str):
             raise TypeError("Expected argument 'product_name' to be a str")
         pulumi.set(__self__, "product_name", product_name)
+        if product_type and not isinstance(product_type, str):
+            raise TypeError("Expected argument 'product_type' to be a str")
+        pulumi.set(__self__, "product_type", product_type)
         if provisioning_artifact_ids and not isinstance(provisioning_artifact_ids, str):
             raise TypeError("Expected argument 'provisioning_artifact_ids' to be a str")
         pulumi.set(__self__, "provisioning_artifact_ids", provisioning_artifact_ids)
@@ -105,6 +108,11 @@ class GetCloudFormationProductResult:
         return pulumi.get(self, "product_name")
 
     @property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> Optional[str]:
+        return pulumi.get(self, "product_type")
+
+    @property
     @pulumi.getter(name="provisioningArtifactIds")
     def provisioning_artifact_ids(self) -> Optional[str]:
         return pulumi.get(self, "provisioning_artifact_ids")
@@ -163,6 +171,7 @@ class AwaitableGetCloudFormationProductResult(GetCloudFormationProductResult):
             name=self.name,
             owner=self.owner,
             product_name=self.product_name,
+            product_type=self.product_type,
             provisioning_artifact_ids=self.provisioning_artifact_ids,
             provisioning_artifact_names=self.provisioning_artifact_names,
             provisioning_artifact_parameters=self.provisioning_artifact_parameters,
@@ -192,6 +201,7 @@ def get_cloud_formation_product(id: Optional[str] = None,
         name=__ret__.name,
         owner=__ret__.owner,
         product_name=__ret__.product_name,
+        product_type=__ret__.product_type,
         provisioning_artifact_ids=__ret__.provisioning_artifact_ids,
         provisioning_artifact_names=__ret__.provisioning_artifact_names,
         provisioning_artifact_parameters=__ret__.provisioning_artifact_parameters,

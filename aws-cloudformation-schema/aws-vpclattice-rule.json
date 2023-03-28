@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::VpcLattice::Rule",
-  "description" : "A unit of configuration defining how Mercury routes incoming requests for a Service to its Target Groups",
+  "description" : "Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.",
   "additionalProperties" : false,
   "definitions" : {
     "Forward" : {
@@ -18,6 +18,18 @@
       },
       "required" : [ "TargetGroups" ],
       "additionalProperties" : false
+    },
+    "FixedResponse" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "StatusCode" : {
+          "type" : "integer",
+          "maximum" : 599,
+          "minimum" : 100
+        }
+      },
+      "required" : [ "StatusCode" ]
     },
     "HeaderMatch" : {
       "type" : "object",
@@ -118,9 +130,12 @@
       "properties" : {
         "Forward" : {
           "$ref" : "#/definitions/Forward"
+        },
+        "FixedResponse" : {
+          "$ref" : "#/definitions/FixedResponse"
         }
       },
-      "required" : [ "Forward" ],
+      "required" : [ ],
       "additionalProperties" : false
     },
     "Match" : {

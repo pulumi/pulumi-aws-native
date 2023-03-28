@@ -12,8 +12,6 @@ import (
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::Route
-//
-// Deprecated: Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Route struct {
 	pulumi.CustomResourceState
 
@@ -26,6 +24,7 @@ type Route struct {
 	OperationName                    pulumi.StringPtrOutput   `pulumi:"operationName"`
 	RequestModels                    pulumi.AnyOutput         `pulumi:"requestModels"`
 	RequestParameters                pulumi.AnyOutput         `pulumi:"requestParameters"`
+	RouteId                          pulumi.StringOutput      `pulumi:"routeId"`
 	RouteKey                         pulumi.StringOutput      `pulumi:"routeKey"`
 	RouteResponseSelectionExpression pulumi.StringPtrOutput   `pulumi:"routeResponseSelectionExpression"`
 	Target                           pulumi.StringPtrOutput   `pulumi:"target"`
@@ -177,6 +176,10 @@ func (o RouteOutput) RequestModels() pulumi.AnyOutput {
 
 func (o RouteOutput) RequestParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Route) pulumi.AnyOutput { return v.RequestParameters }).(pulumi.AnyOutput)
+}
+
+func (o RouteOutput) RouteId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.RouteId }).(pulumi.StringOutput)
 }
 
 func (o RouteOutput) RouteKey() pulumi.StringOutput {

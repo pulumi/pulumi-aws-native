@@ -41,7 +41,7 @@ class AwaitableGetResourcePolicyResult(GetResourcePolicyResult):
 def get_resource_policy(resource_arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourcePolicyResult:
     """
-    Description
+    Retrieves information about the resource policy. The resource policy is an IAM policy created by AWS RAM on behalf of the resource owner when they share a resource.
     """
     __args__ = dict()
     __args__['resourceArn'] = resource_arn
@@ -56,6 +56,6 @@ def get_resource_policy(resource_arn: Optional[str] = None,
 def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
-    Description
+    Retrieves information about the resource policy. The resource policy is an IAM policy created by AWS RAM on behalf of the resource owner when they share a resource.
     """
     ...

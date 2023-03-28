@@ -25,6 +25,8 @@ type LookupDBClusterParameterGroupArgs struct {
 }
 
 type LookupDBClusterParameterGroupResult struct {
+	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+	Parameters interface{} `pulumi:"parameters"`
 	// The list of tags for the cluster parameter group.
 	Tags []DBClusterParameterGroupTag `pulumi:"tags"`
 }
@@ -62,6 +64,11 @@ func (o LookupDBClusterParameterGroupResultOutput) ToLookupDBClusterParameterGro
 
 func (o LookupDBClusterParameterGroupResultOutput) ToLookupDBClusterParameterGroupResultOutputWithContext(ctx context.Context) LookupDBClusterParameterGroupResultOutput {
 	return o
+}
+
+// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+func (o LookupDBClusterParameterGroupResultOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupDBClusterParameterGroupResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
 // The list of tags for the cluster parameter group.

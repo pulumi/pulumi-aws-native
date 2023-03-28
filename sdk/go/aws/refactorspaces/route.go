@@ -21,7 +21,7 @@ type Route struct {
 	EnvironmentIdentifier pulumi.StringOutput             `pulumi:"environmentIdentifier"`
 	PathResourceToId      pulumi.StringOutput             `pulumi:"pathResourceToId"`
 	RouteIdentifier       pulumi.StringOutput             `pulumi:"routeIdentifier"`
-	RouteType             RouteTypePtrOutput              `pulumi:"routeType"`
+	RouteType             RouteTypeOutput                 `pulumi:"routeType"`
 	ServiceIdentifier     pulumi.StringOutput             `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags         RouteTagArrayOutput             `pulumi:"tags"`
@@ -40,6 +40,9 @@ func NewRoute(ctx *pulumi.Context,
 	}
 	if args.EnvironmentIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentIdentifier'")
+	}
+	if args.RouteType == nil {
+		return nil, errors.New("invalid value for required argument 'RouteType'")
 	}
 	if args.ServiceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceIdentifier'")
@@ -79,7 +82,7 @@ type routeArgs struct {
 	ApplicationIdentifier string                  `pulumi:"applicationIdentifier"`
 	DefaultRoute          *RouteDefaultRouteInput `pulumi:"defaultRoute"`
 	EnvironmentIdentifier string                  `pulumi:"environmentIdentifier"`
-	RouteType             *RouteType              `pulumi:"routeType"`
+	RouteType             RouteType               `pulumi:"routeType"`
 	ServiceIdentifier     string                  `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags         []RouteTag              `pulumi:"tags"`
@@ -91,7 +94,7 @@ type RouteArgs struct {
 	ApplicationIdentifier pulumi.StringInput
 	DefaultRoute          RouteDefaultRouteInputPtrInput
 	EnvironmentIdentifier pulumi.StringInput
-	RouteType             RouteTypePtrInput
+	RouteType             RouteTypeInput
 	ServiceIdentifier     pulumi.StringInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags         RouteTagArrayInput
@@ -159,8 +162,8 @@ func (o RouteOutput) RouteIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.RouteIdentifier }).(pulumi.StringOutput)
 }
 
-func (o RouteOutput) RouteType() RouteTypePtrOutput {
-	return o.ApplyT(func(v *Route) RouteTypePtrOutput { return v.RouteType }).(RouteTypePtrOutput)
+func (o RouteOutput) RouteType() RouteTypeOutput {
+	return o.ApplyT(func(v *Route) RouteTypeOutput { return v.RouteType }).(RouteTypeOutput)
 }
 
 func (o RouteOutput) ServiceIdentifier() pulumi.StringOutput {

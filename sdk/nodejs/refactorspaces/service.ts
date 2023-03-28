@@ -40,10 +40,10 @@ export class Service extends pulumi.CustomResource {
     public readonly applicationIdentifier!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly endpointType!: pulumi.Output<enums.refactorspaces.ServiceEndpointType | undefined>;
+    public readonly endpointType!: pulumi.Output<enums.refactorspaces.ServiceEndpointType>;
     public readonly environmentIdentifier!: pulumi.Output<string>;
     public readonly lambdaEndpoint!: pulumi.Output<outputs.refactorspaces.ServiceLambdaEndpointInput | undefined>;
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly serviceIdentifier!: pulumi.Output<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
@@ -65,6 +65,9 @@ export class Service extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.applicationIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationIdentifier'");
+            }
+            if ((!args || args.endpointType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'endpointType'");
             }
             if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
@@ -104,7 +107,7 @@ export class Service extends pulumi.CustomResource {
 export interface ServiceArgs {
     applicationIdentifier: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    endpointType?: pulumi.Input<enums.refactorspaces.ServiceEndpointType>;
+    endpointType: pulumi.Input<enums.refactorspaces.ServiceEndpointType>;
     environmentIdentifier: pulumi.Input<string>;
     lambdaEndpoint?: pulumi.Input<inputs.refactorspaces.ServiceLambdaEndpointInputArgs>;
     name?: pulumi.Input<string>;

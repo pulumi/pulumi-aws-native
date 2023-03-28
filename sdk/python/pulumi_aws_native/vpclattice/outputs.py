@@ -14,10 +14,12 @@ from ._enums import *
 __all__ = [
     'AccessLogSubscriptionTag',
     'ListenerDefaultAction',
+    'ListenerFixedResponse',
     'ListenerForward',
     'ListenerTag',
     'ListenerWeightedTargetGroup',
     'RuleAction',
+    'RuleFixedResponse',
     'RuleForward',
     'RuleHeaderMatch',
     'RuleHeaderMatchType',
@@ -61,14 +63,69 @@ class AccessLogSubscriptionTag(dict):
 
 @pulumi.output_type
 class ListenerDefaultAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedResponse":
+            suggest = "fixed_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 forward: 'outputs.ListenerForward'):
-        pulumi.set(__self__, "forward", forward)
+                 fixed_response: Optional['outputs.ListenerFixedResponse'] = None,
+                 forward: Optional['outputs.ListenerForward'] = None):
+        if fixed_response is not None:
+            pulumi.set(__self__, "fixed_response", fixed_response)
+        if forward is not None:
+            pulumi.set(__self__, "forward", forward)
+
+    @property
+    @pulumi.getter(name="fixedResponse")
+    def fixed_response(self) -> Optional['outputs.ListenerFixedResponse']:
+        return pulumi.get(self, "fixed_response")
 
     @property
     @pulumi.getter
-    def forward(self) -> 'outputs.ListenerForward':
+    def forward(self) -> Optional['outputs.ListenerForward']:
         return pulumi.get(self, "forward")
+
+
+@pulumi.output_type
+class ListenerFixedResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerFixedResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerFixedResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerFixedResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status_code: int):
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> int:
+        return pulumi.get(self, "status_code")
 
 
 @pulumi.output_type
@@ -158,14 +215,69 @@ class ListenerWeightedTargetGroup(dict):
 
 @pulumi.output_type
 class RuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedResponse":
+            suggest = "fixed_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 forward: 'outputs.RuleForward'):
-        pulumi.set(__self__, "forward", forward)
+                 fixed_response: Optional['outputs.RuleFixedResponse'] = None,
+                 forward: Optional['outputs.RuleForward'] = None):
+        if fixed_response is not None:
+            pulumi.set(__self__, "fixed_response", fixed_response)
+        if forward is not None:
+            pulumi.set(__self__, "forward", forward)
+
+    @property
+    @pulumi.getter(name="fixedResponse")
+    def fixed_response(self) -> Optional['outputs.RuleFixedResponse']:
+        return pulumi.get(self, "fixed_response")
 
     @property
     @pulumi.getter
-    def forward(self) -> 'outputs.RuleForward':
+    def forward(self) -> Optional['outputs.RuleForward']:
         return pulumi.get(self, "forward")
+
+
+@pulumi.output_type
+class RuleFixedResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleFixedResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleFixedResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleFixedResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status_code: int):
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> int:
+        return pulumi.get(self, "status_code")
 
 
 @pulumi.output_type
@@ -626,6 +738,8 @@ class TargetGroupConfig(dict):
             suggest = "vpc_identifier"
         elif key == "healthCheck":
             suggest = "health_check"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
         elif key == "protocolVersion":
             suggest = "protocol_version"
 
@@ -645,12 +759,15 @@ class TargetGroupConfig(dict):
                  protocol: 'TargetGroupConfigProtocol',
                  vpc_identifier: str,
                  health_check: Optional['outputs.TargetGroupHealthCheckConfig'] = None,
+                 ip_address_type: Optional['TargetGroupConfigIpAddressType'] = None,
                  protocol_version: Optional['TargetGroupConfigProtocolVersion'] = None):
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "vpc_identifier", vpc_identifier)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if protocol_version is not None:
             pulumi.set(__self__, "protocol_version", protocol_version)
 
@@ -675,6 +792,11 @@ class TargetGroupConfig(dict):
         return pulumi.get(self, "health_check")
 
     @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional['TargetGroupConfigIpAddressType']:
+        return pulumi.get(self, "ip_address_type")
+
+    @property
     @pulumi.getter(name="protocolVersion")
     def protocol_version(self) -> Optional['TargetGroupConfigProtocolVersion']:
         return pulumi.get(self, "protocol_version")
@@ -691,6 +813,8 @@ class TargetGroupHealthCheckConfig(dict):
             suggest = "health_check_timeout_seconds"
         elif key == "healthyThresholdCount":
             suggest = "healthy_threshold_count"
+        elif key == "protocolVersion":
+            suggest = "protocol_version"
         elif key == "unhealthyThresholdCount":
             suggest = "unhealthy_threshold_count"
 
@@ -714,6 +838,7 @@ class TargetGroupHealthCheckConfig(dict):
                  path: Optional[str] = None,
                  port: Optional[int] = None,
                  protocol: Optional['TargetGroupHealthCheckConfigProtocol'] = None,
+                 protocol_version: Optional['TargetGroupHealthCheckConfigProtocolVersion'] = None,
                  unhealthy_threshold_count: Optional[int] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -731,6 +856,8 @@ class TargetGroupHealthCheckConfig(dict):
             pulumi.set(__self__, "port", port)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if protocol_version is not None:
+            pulumi.set(__self__, "protocol_version", protocol_version)
         if unhealthy_threshold_count is not None:
             pulumi.set(__self__, "unhealthy_threshold_count", unhealthy_threshold_count)
 
@@ -773,6 +900,11 @@ class TargetGroupHealthCheckConfig(dict):
     @pulumi.getter
     def protocol(self) -> Optional['TargetGroupHealthCheckConfigProtocol']:
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="protocolVersion")
+    def protocol_version(self) -> Optional['TargetGroupHealthCheckConfigProtocolVersion']:
+        return pulumi.get(self, "protocol_version")
 
     @property
     @pulumi.getter(name="unhealthyThresholdCount")

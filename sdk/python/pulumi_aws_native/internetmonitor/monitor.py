@@ -235,7 +235,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorName")
-    def monitor_name(self) -> pulumi.Output[Optional[str]]:
+    def monitor_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "monitor_name")
 
     @property

@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
-        /// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
+        /// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
         /// </summary>
         public readonly int? RetentionInDays;
         /// <summary>

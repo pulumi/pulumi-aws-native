@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Association between a Service Network and Service to allow the Service to be exposed within the ServiceNetwork
+ * Associates a service with a service network.
  */
 export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
     /**

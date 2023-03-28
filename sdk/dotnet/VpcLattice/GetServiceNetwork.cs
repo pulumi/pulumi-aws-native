@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.VpcLattice
     public static class GetServiceNetwork
     {
         /// <summary>
-        /// A logical container containing Services that clients can request access to.
+        /// A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
         /// </summary>
         public static Task<GetServiceNetworkResult> InvokeAsync(GetServiceNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceNetworkResult>("aws-native:vpclattice:getServiceNetwork", args ?? new GetServiceNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A logical container containing Services that clients can request access to.
+        /// A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
         /// </summary>
         public static Output<GetServiceNetworkResult> Invoke(GetServiceNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceNetworkResult>("aws-native:vpclattice:getServiceNetwork", args ?? new GetServiceNetworkInvokeArgs(), options.WithDefaults());

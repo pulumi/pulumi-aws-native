@@ -58,6 +58,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public readonly string? Name;
         public readonly string? Owner;
         public readonly string? ProductName;
+        public readonly string? ProductType;
         public readonly string? ProvisioningArtifactIds;
         public readonly string? ProvisioningArtifactNames;
         public readonly ImmutableArray<Outputs.CloudFormationProductProvisioningArtifactProperties> ProvisioningArtifactParameters;
@@ -84,6 +85,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
             string? productName,
 
+            string? productType,
+
             string? provisioningArtifactIds,
 
             string? provisioningArtifactNames,
@@ -109,6 +112,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
             Name = name;
             Owner = owner;
             ProductName = productName;
+            ProductType = productType;
             ProvisioningArtifactIds = provisioningArtifactIds;
             ProvisioningArtifactNames = provisioningArtifactNames;
             ProvisioningArtifactParameters = provisioningArtifactParameters;

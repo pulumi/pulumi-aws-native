@@ -28,7 +28,7 @@ type LogGroup struct {
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
 	LogGroupName pulumi.StringPtrOutput `pulumi:"logGroupName"`
-	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
+	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// An array of key-value pairs to apply to this resource.
 	Tags LogGroupTagArrayOutput `pulumi:"tags"`
@@ -85,7 +85,7 @@ type logGroupArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
+	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []LogGroupTag `pulumi:"tags"`
@@ -105,7 +105,7 @@ type LogGroupArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
 	LogGroupName pulumi.StringPtrInput
-	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
+	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
 	RetentionInDays pulumi.IntPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags LogGroupTagArrayInput
@@ -174,7 +174,7 @@ func (o LogGroupOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
-// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
+// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
 func (o LogGroupOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }

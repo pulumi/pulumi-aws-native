@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A group of related Targets that a Service may serve a request to
+ * A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
  */
 export function getTargetGroup(args: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
 
@@ -33,7 +33,7 @@ export interface GetTargetGroupResult {
     readonly targets?: outputs.vpclattice.TargetGroupTarget[];
 }
 /**
- * A group of related Targets that a Service may serve a request to
+ * A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
  */
 export function getTargetGroupOutput(args: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetGroupResult> {
     return pulumi.output(args).apply((a: any) => getTargetGroup(a, opts))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network
+ * Associates a VPC with a service network.
  */
 export function getServiceNetworkVpcAssociation(args: GetServiceNetworkVpcAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceNetworkVpcAssociationResult> {
 
@@ -35,7 +35,7 @@ export interface GetServiceNetworkVpcAssociationResult {
     readonly vpcId?: string;
 }
 /**
- * Association between a Service Network and VPC to allow the VPC to access Services being exposed within the Service Network
+ * Associates a VPC with a service network.
  */
 export function getServiceNetworkVpcAssociationOutput(args: GetServiceNetworkVpcAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceNetworkVpcAssociationResult> {
     return pulumi.output(args).apply((a: any) => getServiceNetworkVpcAssociation(a, opts))

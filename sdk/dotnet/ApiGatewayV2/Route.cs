@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// <summary>
     /// Resource Type definition for AWS::ApiGatewayV2::Route
     /// </summary>
-    [Obsolete(@"Route is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:Route")]
     public partial class Route : global::Pulumi.CustomResource
     {
@@ -42,6 +41,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         [Output("requestParameters")]
         public Output<object?> RequestParameters { get; private set; } = null!;
+
+        [Output("routeId")]
+        public Output<string> RouteId { get; private set; } = null!;
 
         [Output("routeKey")]
         public Output<string> RouteKey { get; private set; } = null!;

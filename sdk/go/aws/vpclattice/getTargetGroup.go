@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A group of related Targets that a Service may serve a request to
+// A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {
 	var rv LookupTargetGroupResult
 	err := ctx.Invoke("aws-native:vpclattice:getTargetGroup", args, &rv, opts...)

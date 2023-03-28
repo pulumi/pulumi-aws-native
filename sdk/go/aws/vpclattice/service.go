@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A logical unit that is exposed to one or more Mercury networks containing a unique FQDN, a set of routing names, TLS certificates, and routing policies
+// A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
 type Service struct {
 	pulumi.CustomResourceState
 

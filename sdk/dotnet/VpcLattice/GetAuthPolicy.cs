@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.VpcLattice
     public static class GetAuthPolicy
     {
         /// <summary>
-        /// Description
+        /// Creates or updates the auth policy.
         /// </summary>
         public static Task<GetAuthPolicyResult> InvokeAsync(GetAuthPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthPolicyResult>("aws-native:vpclattice:getAuthPolicy", args ?? new GetAuthPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description
+        /// Creates or updates the auth policy.
         /// </summary>
         public static Output<GetAuthPolicyResult> Invoke(GetAuthPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthPolicyResult>("aws-native:vpclattice:getAuthPolicy", args ?? new GetAuthPolicyInvokeArgs(), options.WithDefaults());

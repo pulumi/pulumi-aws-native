@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRouteResult:
-    def __init__(__self__, api_key_required=None, authorization_scopes=None, authorization_type=None, authorizer_id=None, id=None, model_selection_expression=None, operation_name=None, request_models=None, request_parameters=None, route_key=None, route_response_selection_expression=None, target=None):
+    def __init__(__self__, api_key_required=None, authorization_scopes=None, authorization_type=None, model_selection_expression=None, operation_name=None, request_models=None, route_id=None, route_key=None, route_response_selection_expression=None, target=None):
         if api_key_required and not isinstance(api_key_required, bool):
             raise TypeError("Expected argument 'api_key_required' to be a bool")
         pulumi.set(__self__, "api_key_required", api_key_required)
@@ -28,12 +28,6 @@ class GetRouteResult:
         if authorization_type and not isinstance(authorization_type, str):
             raise TypeError("Expected argument 'authorization_type' to be a str")
         pulumi.set(__self__, "authorization_type", authorization_type)
-        if authorizer_id and not isinstance(authorizer_id, str):
-            raise TypeError("Expected argument 'authorizer_id' to be a str")
-        pulumi.set(__self__, "authorizer_id", authorizer_id)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if model_selection_expression and not isinstance(model_selection_expression, str):
             raise TypeError("Expected argument 'model_selection_expression' to be a str")
         pulumi.set(__self__, "model_selection_expression", model_selection_expression)
@@ -43,9 +37,9 @@ class GetRouteResult:
         if request_models and not isinstance(request_models, dict):
             raise TypeError("Expected argument 'request_models' to be a dict")
         pulumi.set(__self__, "request_models", request_models)
-        if request_parameters and not isinstance(request_parameters, dict):
-            raise TypeError("Expected argument 'request_parameters' to be a dict")
-        pulumi.set(__self__, "request_parameters", request_parameters)
+        if route_id and not isinstance(route_id, str):
+            raise TypeError("Expected argument 'route_id' to be a str")
+        pulumi.set(__self__, "route_id", route_id)
         if route_key and not isinstance(route_key, str):
             raise TypeError("Expected argument 'route_key' to be a str")
         pulumi.set(__self__, "route_key", route_key)
@@ -72,16 +66,6 @@ class GetRouteResult:
         return pulumi.get(self, "authorization_type")
 
     @property
-    @pulumi.getter(name="authorizerId")
-    def authorizer_id(self) -> Optional[str]:
-        return pulumi.get(self, "authorizer_id")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="modelSelectionExpression")
     def model_selection_expression(self) -> Optional[str]:
         return pulumi.get(self, "model_selection_expression")
@@ -97,9 +81,9 @@ class GetRouteResult:
         return pulumi.get(self, "request_models")
 
     @property
-    @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> Optional[Any]:
-        return pulumi.get(self, "request_parameters")
+    @pulumi.getter(name="routeId")
+    def route_id(self) -> Optional[str]:
+        return pulumi.get(self, "route_id")
 
     @property
     @pulumi.getter(name="routeKey")
@@ -126,24 +110,24 @@ class AwaitableGetRouteResult(GetRouteResult):
             api_key_required=self.api_key_required,
             authorization_scopes=self.authorization_scopes,
             authorization_type=self.authorization_type,
-            authorizer_id=self.authorizer_id,
-            id=self.id,
             model_selection_expression=self.model_selection_expression,
             operation_name=self.operation_name,
             request_models=self.request_models,
-            request_parameters=self.request_parameters,
+            route_id=self.route_id,
             route_key=self.route_key,
             route_response_selection_expression=self.route_response_selection_expression,
             target=self.target)
 
 
-def get_route(id: Optional[str] = None,
+def get_route(api_id: Optional[str] = None,
+              route_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
     Resource Type definition for AWS::ApiGatewayV2::Route
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['apiId'] = api_id
+    __args__['routeId'] = route_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getRoute', __args__, opts=opts, typ=GetRouteResult).value
 
@@ -151,19 +135,18 @@ def get_route(id: Optional[str] = None,
         api_key_required=__ret__.api_key_required,
         authorization_scopes=__ret__.authorization_scopes,
         authorization_type=__ret__.authorization_type,
-        authorizer_id=__ret__.authorizer_id,
-        id=__ret__.id,
         model_selection_expression=__ret__.model_selection_expression,
         operation_name=__ret__.operation_name,
         request_models=__ret__.request_models,
-        request_parameters=__ret__.request_parameters,
+        route_id=__ret__.route_id,
         route_key=__ret__.route_key,
         route_response_selection_expression=__ret__.route_response_selection_expression,
         target=__ret__.target)
 
 
 @_utilities.lift_output_func(get_route)
-def get_route_output(id: Optional[pulumi.Input[str]] = None,
+def get_route_output(api_id: Optional[pulumi.Input[str]] = None,
+                     route_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::Route

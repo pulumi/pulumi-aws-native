@@ -21,6 +21,7 @@ class CloudFormationProductArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  distributor: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 product_type: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]] = None,
                  replace_provisioning_artifacts: Optional[pulumi.Input[bool]] = None,
                  source_connection: Optional[pulumi.Input['CloudFormationProductSourceConnectionArgs']] = None,
@@ -40,6 +41,8 @@ class CloudFormationProductArgs:
             pulumi.set(__self__, "distributor", distributor)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if product_type is not None:
+            pulumi.set(__self__, "product_type", product_type)
         if provisioning_artifact_parameters is not None:
             pulumi.set(__self__, "provisioning_artifact_parameters", provisioning_artifact_parameters)
         if replace_provisioning_artifacts is not None:
@@ -99,6 +102,15 @@ class CloudFormationProductArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "product_type")
+
+    @product_type.setter
+    def product_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product_type", value)
 
     @property
     @pulumi.getter(name="provisioningArtifactParameters")
@@ -179,6 +191,7 @@ class CloudFormationProduct(pulumi.CustomResource):
                  distributor: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
+                 product_type: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProductProvisioningArtifactPropertiesArgs']]]]] = None,
                  replace_provisioning_artifacts: Optional[pulumi.Input[bool]] = None,
                  source_connection: Optional[pulumi.Input[pulumi.InputType['CloudFormationProductSourceConnectionArgs']]] = None,
@@ -222,6 +235,7 @@ class CloudFormationProduct(pulumi.CustomResource):
                  distributor: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
+                 product_type: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProductProvisioningArtifactPropertiesArgs']]]]] = None,
                  replace_provisioning_artifacts: Optional[pulumi.Input[bool]] = None,
                  source_connection: Optional[pulumi.Input[pulumi.InputType['CloudFormationProductSourceConnectionArgs']]] = None,
@@ -246,6 +260,7 @@ class CloudFormationProduct(pulumi.CustomResource):
             if owner is None and not opts.urn:
                 raise TypeError("Missing required property 'owner'")
             __props__.__dict__["owner"] = owner
+            __props__.__dict__["product_type"] = product_type
             __props__.__dict__["provisioning_artifact_parameters"] = provisioning_artifact_parameters
             __props__.__dict__["replace_provisioning_artifacts"] = replace_provisioning_artifacts
             __props__.__dict__["source_connection"] = source_connection
@@ -284,6 +299,7 @@ class CloudFormationProduct(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["owner"] = None
         __props__.__dict__["product_name"] = None
+        __props__.__dict__["product_type"] = None
         __props__.__dict__["provisioning_artifact_ids"] = None
         __props__.__dict__["provisioning_artifact_names"] = None
         __props__.__dict__["provisioning_artifact_parameters"] = None
@@ -324,6 +340,11 @@ class CloudFormationProduct(pulumi.CustomResource):
     @pulumi.getter(name="productName")
     def product_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "product_name")
+
+    @property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "product_type")
 
     @property
     @pulumi.getter(name="provisioningArtifactIds")

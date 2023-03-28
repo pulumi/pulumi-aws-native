@@ -13,9 +13,11 @@ __all__ = [
     'ServiceNetworkServiceAssociationStatus',
     'ServiceNetworkVpcAssociationStatus',
     'ServiceStatus',
+    'TargetGroupConfigIpAddressType',
     'TargetGroupConfigProtocol',
     'TargetGroupConfigProtocolVersion',
     'TargetGroupHealthCheckConfigProtocol',
+    'TargetGroupHealthCheckConfigProtocolVersion',
     'TargetGroupStatus',
     'TargetGroupType',
 ]
@@ -77,6 +79,11 @@ class ServiceStatus(str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
 
 
+class TargetGroupConfigIpAddressType(str, Enum):
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+
+
 class TargetGroupConfigProtocol(str, Enum):
     HTTP = "HTTP"
     HTTPS = "HTTPS"
@@ -93,6 +100,11 @@ class TargetGroupHealthCheckConfigProtocol(str, Enum):
     HTTPS = "HTTPS"
 
 
+class TargetGroupHealthCheckConfigProtocolVersion(str, Enum):
+    HTTP1 = "HTTP1"
+    HTTP2 = "HTTP2"
+
+
 class TargetGroupStatus(str, Enum):
     CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
     ACTIVE = "ACTIVE"
@@ -105,3 +117,4 @@ class TargetGroupType(str, Enum):
     IP = "IP"
     LAMBDA_ = "LAMBDA"
     INSTANCE = "INSTANCE"
+    ALB = "ALB"

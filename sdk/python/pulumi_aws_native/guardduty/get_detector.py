@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetDetectorResult:
-    def __init__(__self__, data_sources=None, enable=None, finding_publishing_frequency=None, id=None, tags=None):
+    def __init__(__self__, data_sources=None, enable=None, features=None, finding_publishing_frequency=None, id=None, tags=None):
         if data_sources and not isinstance(data_sources, dict):
             raise TypeError("Expected argument 'data_sources' to be a dict")
         pulumi.set(__self__, "data_sources", data_sources)
         if enable and not isinstance(enable, bool):
             raise TypeError("Expected argument 'enable' to be a bool")
         pulumi.set(__self__, "enable", enable)
+        if features and not isinstance(features, list):
+            raise TypeError("Expected argument 'features' to be a list")
+        pulumi.set(__self__, "features", features)
         if finding_publishing_frequency and not isinstance(finding_publishing_frequency, str):
             raise TypeError("Expected argument 'finding_publishing_frequency' to be a str")
         pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
@@ -45,6 +48,11 @@ class GetDetectorResult:
     @pulumi.getter
     def enable(self) -> Optional[bool]:
         return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[Sequence['outputs.DetectorFeatureConfigurations']]:
+        return pulumi.get(self, "features")
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
@@ -70,6 +78,7 @@ class AwaitableGetDetectorResult(GetDetectorResult):
         return GetDetectorResult(
             data_sources=self.data_sources,
             enable=self.enable,
+            features=self.features,
             finding_publishing_frequency=self.finding_publishing_frequency,
             id=self.id,
             tags=self.tags)
@@ -88,6 +97,7 @@ def get_detector(id: Optional[str] = None,
     return AwaitableGetDetectorResult(
         data_sources=__ret__.data_sources,
         enable=__ret__.enable,
+        features=__ret__.features,
         finding_publishing_frequency=__ret__.finding_publishing_frequency,
         id=__ret__.id,
         tags=__ret__.tags)

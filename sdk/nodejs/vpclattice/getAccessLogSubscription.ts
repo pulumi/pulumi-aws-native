@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Delivers logs from a Service Network or Service to the provided destination
+ * Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
  */
 export function getAccessLogSubscription(args: GetAccessLogSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessLogSubscriptionResult> {
 
@@ -31,7 +31,7 @@ export interface GetAccessLogSubscriptionResult {
     readonly tags?: outputs.vpclattice.AccessLogSubscriptionTag[];
 }
 /**
- * Delivers logs from a Service Network or Service to the provided destination
+ * Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
  */
 export function getAccessLogSubscriptionOutput(args: GetAccessLogSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessLogSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getAccessLogSubscription(a, opts))

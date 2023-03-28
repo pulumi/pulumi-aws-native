@@ -328,6 +328,7 @@ type CloudFormationProductProvisioningArtifactProperties struct {
 	DisableTemplateValidation *bool       `pulumi:"disableTemplateValidation"`
 	Info                      interface{} `pulumi:"info"`
 	Name                      *string     `pulumi:"name"`
+	Type                      *string     `pulumi:"type"`
 }
 
 // CloudFormationProductProvisioningArtifactPropertiesInput is an input type that accepts CloudFormationProductProvisioningArtifactPropertiesArgs and CloudFormationProductProvisioningArtifactPropertiesOutput values.
@@ -346,6 +347,7 @@ type CloudFormationProductProvisioningArtifactPropertiesArgs struct {
 	DisableTemplateValidation pulumi.BoolPtrInput   `pulumi:"disableTemplateValidation"`
 	Info                      pulumi.Input          `pulumi:"info"`
 	Name                      pulumi.StringPtrInput `pulumi:"name"`
+	Type                      pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (CloudFormationProductProvisioningArtifactPropertiesArgs) ElementType() reflect.Type {
@@ -413,6 +415,10 @@ func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Info() pulumi
 
 func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type CloudFormationProductProvisioningArtifactPropertiesArrayOutput struct{ *pulumi.OutputState }

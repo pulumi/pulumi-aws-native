@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Output("enable")]
         public Output<bool> Enable { get; private set; } = null!;
 
+        [Output("features")]
+        public Output<ImmutableArray<Outputs.DetectorFeatureConfigurations>> Features { get; private set; } = null!;
+
         [Output("findingPublishingFrequency")]
         public Output<string?> FindingPublishingFrequency { get; private set; } = null!;
 
@@ -78,6 +81,14 @@ namespace Pulumi.AwsNative.GuardDuty
 
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
+
+        [Input("features")]
+        private InputList<Inputs.DetectorFeatureConfigurationsArgs>? _features;
+        public InputList<Inputs.DetectorFeatureConfigurationsArgs> Features
+        {
+            get => _features ?? (_features = new InputList<Inputs.DetectorFeatureConfigurationsArgs>());
+            set => _features = value;
+        }
 
         [Input("findingPublishingFrequency")]
         public Input<string>? FindingPublishingFrequency { get; set; }

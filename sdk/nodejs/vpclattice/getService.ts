@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- *  A logical unit that is exposed to one or more Mercury networks containing a unique FQDN, a set of routing names, TLS certificates, and routing policies
+ * A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -34,7 +34,7 @@ export interface GetServiceResult {
     readonly tags?: outputs.vpclattice.ServiceTag[];
 }
 /**
- *  A logical unit that is exposed to one or more Mercury networks containing a unique FQDN, a set of routing names, TLS certificates, and routing policies
+ * A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

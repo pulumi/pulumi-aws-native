@@ -28,10 +28,10 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("environmentIdentifier")]
-        public Output<string?> EnvironmentIdentifier { get; private set; } = null!;
+        public Output<string> EnvironmentIdentifier { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("nlbArn")]
         public Output<string> NlbArn { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<string> NlbName { get; private set; } = null!;
 
         [Output("proxyType")]
-        public Output<Pulumi.AwsNative.RefactorSpaces.ApplicationProxyType?> ProxyType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.RefactorSpaces.ApplicationProxyType> ProxyType { get; private set; } = null!;
 
         [Output("proxyUrl")]
         public Output<string> ProxyUrl { get; private set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<ImmutableArray<Outputs.ApplicationTag>> Tags { get; private set; } = null!;
 
         [Output("vpcId")]
-        public Output<string?> VpcId { get; private set; } = null!;
+        public Output<string> VpcId { get; private set; } = null!;
 
         [Output("vpcLinkId")]
         public Output<string> VpcLinkId { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Application(string name, ApplicationArgs? args = null, CustomResourceOptions? options = null)
+        public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
             : base("aws-native:refactorspaces:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -108,14 +108,14 @@ namespace Pulumi.AwsNative.RefactorSpaces
         [Input("apiGatewayProxy")]
         public Input<Inputs.ApplicationApiGatewayProxyInputArgs>? ApiGatewayProxy { get; set; }
 
-        [Input("environmentIdentifier")]
-        public Input<string>? EnvironmentIdentifier { get; set; }
+        [Input("environmentIdentifier", required: true)]
+        public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("proxyType")]
-        public Input<Pulumi.AwsNative.RefactorSpaces.ApplicationProxyType>? ProxyType { get; set; }
+        [Input("proxyType", required: true)]
+        public Input<Pulumi.AwsNative.RefactorSpaces.ApplicationProxyType> ProxyType { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.ApplicationTagArgs>? _tags;
@@ -129,8 +129,8 @@ namespace Pulumi.AwsNative.RefactorSpaces
             set => _tags = value;
         }
 
-        [Input("vpcId")]
-        public Input<string>? VpcId { get; set; }
+        [Input("vpcId", required: true)]
+        public Input<string> VpcId { get; set; } = null!;
 
         public ApplicationArgs()
         {

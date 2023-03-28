@@ -74,6 +74,13 @@ export const ServiceStatus = {
 
 export type ServiceStatus = (typeof ServiceStatus)[keyof typeof ServiceStatus];
 
+export const TargetGroupConfigIpAddressType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+} as const;
+
+export type TargetGroupConfigIpAddressType = (typeof TargetGroupConfigIpAddressType)[keyof typeof TargetGroupConfigIpAddressType];
+
 export const TargetGroupConfigProtocol = {
     Http: "HTTP",
     Https: "HTTPS",
@@ -96,6 +103,13 @@ export const TargetGroupHealthCheckConfigProtocol = {
 
 export type TargetGroupHealthCheckConfigProtocol = (typeof TargetGroupHealthCheckConfigProtocol)[keyof typeof TargetGroupHealthCheckConfigProtocol];
 
+export const TargetGroupHealthCheckConfigProtocolVersion = {
+    Http1: "HTTP1",
+    Http2: "HTTP2",
+} as const;
+
+export type TargetGroupHealthCheckConfigProtocolVersion = (typeof TargetGroupHealthCheckConfigProtocolVersion)[keyof typeof TargetGroupHealthCheckConfigProtocolVersion];
+
 export const TargetGroupStatus = {
     CreateInProgress: "CREATE_IN_PROGRESS",
     Active: "ACTIVE",
@@ -110,6 +124,7 @@ export const TargetGroupType = {
     Ip: "IP",
     Lambda: "LAMBDA",
     Instance: "INSTANCE",
+    Alb: "ALB",
 } as const;
 
 export type TargetGroupType = (typeof TargetGroupType)[keyof typeof TargetGroupType];

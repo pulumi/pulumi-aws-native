@@ -19,10 +19,21 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBClusterParameterGroupResult:
-    def __init__(__self__, tags=None):
+    def __init__(__self__, parameters=None, tags=None):
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        pulumi.set(__self__, "parameters", parameters)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        """
+        return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
@@ -39,6 +50,7 @@ class AwaitableGetDBClusterParameterGroupResult(GetDBClusterParameterGroupResult
         if False:
             yield self
         return GetDBClusterParameterGroupResult(
+            parameters=self.parameters,
             tags=self.tags)
 
 
@@ -53,6 +65,7 @@ def get_db_cluster_parameter_group(d_b_cluster_parameter_group_name: Optional[st
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBClusterParameterGroup', __args__, opts=opts, typ=GetDBClusterParameterGroupResult).value
 
     return AwaitableGetDBClusterParameterGroupResult(
+        parameters=__ret__.parameters,
         tags=__ret__.tags)
 
 

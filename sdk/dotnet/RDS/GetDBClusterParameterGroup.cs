@@ -52,13 +52,21 @@ namespace Pulumi.AwsNative.RDS
     public sealed class GetDBClusterParameterGroupResult
     {
         /// <summary>
+        /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        /// </summary>
+        public readonly object? Parameters;
+        /// <summary>
         /// The list of tags for the cluster parameter group.
         /// </summary>
         public readonly ImmutableArray<Outputs.DBClusterParameterGroupTag> Tags;
 
         [OutputConstructor]
-        private GetDBClusterParameterGroupResult(ImmutableArray<Outputs.DBClusterParameterGroupTag> tags)
+        private GetDBClusterParameterGroupResult(
+            object? parameters,
+
+            ImmutableArray<Outputs.DBClusterParameterGroupTag> tags)
         {
+            Parameters = parameters;
             Tags = tags;
         }
     }

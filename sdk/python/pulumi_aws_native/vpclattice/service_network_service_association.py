@@ -81,7 +81,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationTagArgs']]]]] = None,
                  __props__=None):
         """
-        Association between a Service Network and Service to allow the Service to be exposed within the ServiceNetwork
+        Associates a service with a service network.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -93,7 +93,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
                  args: Optional[ServiceNetworkServiceAssociationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Association between a Service Network and Service to allow the Service to be exposed within the ServiceNetwork
+        Associates a service with a service network.
 
         :param str resource_name: The name of the resource.
         :param ServiceNetworkServiceAssociationArgs args: The arguments to use to populate this resource's properties.

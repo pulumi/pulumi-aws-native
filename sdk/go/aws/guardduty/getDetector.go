@@ -27,6 +27,7 @@ type LookupDetectorArgs struct {
 type LookupDetectorResult struct {
 	DataSources                *DetectorCFNDataSourceConfigurations `pulumi:"dataSources"`
 	Enable                     *bool                                `pulumi:"enable"`
+	Features                   []DetectorFeatureConfigurations      `pulumi:"features"`
 	FindingPublishingFrequency *string                              `pulumi:"findingPublishingFrequency"`
 	Id                         *string                              `pulumi:"id"`
 	Tags                       []DetectorTag                        `pulumi:"tags"`
@@ -73,6 +74,10 @@ func (o LookupDetectorResultOutput) DataSources() DetectorCFNDataSourceConfigura
 
 func (o LookupDetectorResultOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDetectorResult) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupDetectorResultOutput) Features() DetectorFeatureConfigurationsArrayOutput {
+	return o.ApplyT(func(v LookupDetectorResult) []DetectorFeatureConfigurations { return v.Features }).(DetectorFeatureConfigurationsArrayOutput)
 }
 
 func (o LookupDetectorResultOutput) FindingPublishingFrequency() pulumi.StringPtrOutput {

@@ -57,15 +57,14 @@
   },
   "required" : [ "Description", "Family", "Parameters" ],
   "createOnlyProperties" : [ "/properties/DBClusterParameterGroupName", "/properties/Description", "/properties/Family" ],
-  "writeOnlyProperties" : [ "/properties/Parameters" ],
   "primaryIdentifier" : [ "/properties/DBClusterParameterGroupName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:AddTagsToResource", "rds:CreateDBClusterParameterGroup", "rds:DescribeDBClusterParameterGroups", "rds:DescribeDBClusterParameters", "rds:DescribeEngineDefaultClusterParameters", "rds:ListTagsForResource", "rds:ModifyDBClusterParameterGroup" ],
+      "permissions" : [ "rds:AddTagsToResource", "rds:CreateDBClusterParameterGroup", "rds:DescribeDBClusterParameterGroups", "rds:DescribeDBClusterParameters", "rds:DescribeDBClusters", "rds:DescribeEngineDefaultClusterParameters", "rds:ListTagsForResource", "rds:ModifyDBClusterParameterGroup" ],
       "timeoutInMinutes" : 180
     },
     "read" : {
-      "permissions" : [ "rds:DescribeDBClusterParameterGroups", "rds:ListTagsForResource" ]
+      "permissions" : [ "rds:DescribeDBClusterParameterGroups", "rds:DescribeDBClusterParameters", "rds:DescribeEngineDefaultClusterParameters", "rds:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "rds:AddTagsToResource", "rds:DescribeDBClusterParameterGroups", "rds:DescribeDBClusterParameters", "rds:DescribeDBClusters", "rds:DescribeEngineDefaultClusterParameters", "rds:ListTagsForResource", "rds:ModifyDBClusterParameterGroup", "rds:RemoveTagsFromResource", "rds:ResetDBClusterParameterGroup" ],

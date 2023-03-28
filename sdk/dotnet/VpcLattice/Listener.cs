@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.VpcLattice
 {
     /// <summary>
-    /// A logical unit that contains Rules for how a Service routes incoming requests based on their port, protocol, and path
+    /// Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
     /// </summary>
     [AwsNativeResourceType("aws-native:vpclattice:Listener")]
     public partial class Listener : global::Pulumi.CustomResource

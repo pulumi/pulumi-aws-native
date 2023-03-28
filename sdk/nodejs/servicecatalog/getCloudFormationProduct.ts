@@ -30,6 +30,7 @@ export interface GetCloudFormationProductResult {
     readonly name?: string;
     readonly owner?: string;
     readonly productName?: string;
+    readonly productType?: string;
     readonly provisioningArtifactIds?: string;
     readonly provisioningArtifactNames?: string;
     readonly provisioningArtifactParameters?: outputs.servicecatalog.CloudFormationProductProvisioningArtifactProperties[];
