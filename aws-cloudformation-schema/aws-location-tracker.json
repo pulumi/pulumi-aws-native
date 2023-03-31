@@ -60,7 +60,8 @@
     }
   },
   "readOnlyProperties" : [ "/properties/CreateTime", "/properties/TrackerArn", "/properties/Arn", "/properties/UpdateTime" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/TrackerName", "/properties/PricingPlan", "/properties/Description", "/properties/PositionFiltering" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/TrackerName", "/properties/Description", "/properties/PositionFiltering" ],
+  "deprecatedProperties" : [ "/properties/PricingPlan", "/properties/PricingPlanDataSource" ],
   "required" : [ "TrackerName" ],
   "primaryIdentifier" : [ "/properties/TrackerName" ],
   "additionalProperties" : false,

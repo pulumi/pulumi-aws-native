@@ -41,7 +41,7 @@
     "required" : [ "Engine" ]
   } ],
   "additionalProperties" : false,
-  "createOnlyProperties" : [ "/properties/GlobalClusterIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/StorageEncrypted", "/properties/Engine", "/properties/EngineVersion" ],
+  "createOnlyProperties" : [ "/properties/GlobalClusterIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/StorageEncrypted", "/properties/Engine" ],
   "primaryIdentifier" : [ "/properties/GlobalClusterIdentifier" ],
   "handlers" : {
     "create" : {

@@ -9,7 +9,7 @@
     "TargetFunctionArn" : {
       "description" : "The Amazon Resource Name (ARN) of the function associated with the Function URL.",
       "type" : "string",
-      "pattern" : "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:((?!\\d+)[0-9a-zA-Z_]+))?$"
+      "pattern" : "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:((?!\\d+)[0-9a-zA-Z-_]+))?$"
     },
     "Qualifier" : {
       "description" : "The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.",
@@ -31,7 +31,7 @@
     "FunctionArn" : {
       "description" : "The full Amazon Resource Name (ARN) of the function associated with the Function URL.",
       "type" : "string",
-      "pattern" : "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:((?!\\d+)[0-9a-zA-Z_]+))?$"
+      "pattern" : "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:((?!\\d+)[0-9a-zA-Z-_]+))?$"
     },
     "FunctionUrl" : {
       "description" : "The generated url for this resource.",
