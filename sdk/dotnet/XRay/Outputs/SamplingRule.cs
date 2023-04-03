@@ -20,41 +20,41 @@ namespace Pulumi.AwsNative.XRay.Outputs
         /// <summary>
         /// The percentage of matching requests to instrument, after the reservoir is exhausted.
         /// </summary>
-        public readonly double? FixedRate;
+        public readonly double FixedRate;
         /// <summary>
         /// Matches the HTTP method from a request URL.
         /// </summary>
-        public readonly string? HTTPMethod;
+        public readonly string HTTPMethod;
         /// <summary>
         /// Matches the hostname from a request URL.
         /// </summary>
-        public readonly string? Host;
+        public readonly string Host;
         /// <summary>
         /// The priority of the sampling rule.
         /// </summary>
-        public readonly int? Priority;
+        public readonly int Priority;
         /// <summary>
         /// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         /// </summary>
-        public readonly int? ReservoirSize;
+        public readonly int ReservoirSize;
         /// <summary>
         /// Matches the ARN of the AWS resource on which the service runs.
         /// </summary>
-        public readonly string? ResourceARN;
+        public readonly string ResourceARN;
         public readonly string? RuleARN;
         public readonly string? RuleName;
         /// <summary>
         /// Matches the name that the service uses to identify itself in segments.
         /// </summary>
-        public readonly string? ServiceName;
+        public readonly string ServiceName;
         /// <summary>
         /// Matches the origin that the service uses to identify its type in segments.
         /// </summary>
-        public readonly string? ServiceType;
+        public readonly string ServiceType;
         /// <summary>
         /// Matches the path from a request URL.
         /// </summary>
-        public readonly string? URLPath;
+        public readonly string URLPath;
         /// <summary>
         /// The version of the sampling rule format (1)
         /// </summary>
@@ -64,27 +64,27 @@ namespace Pulumi.AwsNative.XRay.Outputs
         private SamplingRule(
             object? attributes,
 
-            double? fixedRate,
+            double fixedRate,
 
-            string? hTTPMethod,
+            string hTTPMethod,
 
-            string? host,
+            string host,
 
-            int? priority,
+            int priority,
 
-            int? reservoirSize,
+            int reservoirSize,
 
-            string? resourceARN,
+            string resourceARN,
 
             string? ruleARN,
 
             string? ruleName,
 
-            string? serviceName,
+            string serviceName,
 
-            string? serviceType,
+            string serviceType,
 
-            string? uRLPath,
+            string uRLPath,
 
             int? version)
         {

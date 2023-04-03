@@ -126,7 +126,7 @@ class SubscriptionFilter(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +144,7 @@ class SubscriptionFilter(pulumi.CustomResource):
                  args: SubscriptionFilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionFilterArgs args: The arguments to use to populate this resource's properties.

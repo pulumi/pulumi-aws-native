@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.Location
     {
         public readonly string? Arn;
         public readonly string? CreateTime;
+        public readonly Pulumi.AwsNative.Location.TrackerPricingPlan? PricingPlan;
         public readonly string? PricingPlanDataSource;
         public readonly string? TrackerArn;
         public readonly string? UpdateTime;
@@ -63,6 +64,8 @@ namespace Pulumi.AwsNative.Location
 
             string? createTime,
 
+            Pulumi.AwsNative.Location.TrackerPricingPlan? pricingPlan,
+
             string? pricingPlanDataSource,
 
             string? trackerArn,
@@ -71,6 +74,7 @@ namespace Pulumi.AwsNative.Location
         {
             Arn = arn;
             CreateTime = createTime;
+            PricingPlan = pricingPlan;
             PricingPlanDataSource = pricingPlanDataSource;
             TrackerArn = trackerArn;
             UpdateTime = updateTime;

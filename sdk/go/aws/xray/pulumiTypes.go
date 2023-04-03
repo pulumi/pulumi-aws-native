@@ -170,25 +170,25 @@ type SamplingRuleType struct {
 	// Matches attributes derived from the request.
 	Attributes interface{} `pulumi:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
-	FixedRate *float64 `pulumi:"fixedRate"`
+	FixedRate float64 `pulumi:"fixedRate"`
 	// Matches the HTTP method from a request URL.
-	HTTPMethod *string `pulumi:"hTTPMethod"`
+	HTTPMethod string `pulumi:"hTTPMethod"`
 	// Matches the hostname from a request URL.
-	Host *string `pulumi:"host"`
+	Host string `pulumi:"host"`
 	// The priority of the sampling rule.
-	Priority *int `pulumi:"priority"`
+	Priority int `pulumi:"priority"`
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-	ReservoirSize *int `pulumi:"reservoirSize"`
+	ReservoirSize int `pulumi:"reservoirSize"`
 	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceARN *string `pulumi:"resourceARN"`
+	ResourceARN string  `pulumi:"resourceARN"`
 	RuleARN     *string `pulumi:"ruleARN"`
 	RuleName    *string `pulumi:"ruleName"`
 	// Matches the name that the service uses to identify itself in segments.
-	ServiceName *string `pulumi:"serviceName"`
+	ServiceName string `pulumi:"serviceName"`
 	// Matches the origin that the service uses to identify its type in segments.
-	ServiceType *string `pulumi:"serviceType"`
+	ServiceType string `pulumi:"serviceType"`
 	// Matches the path from a request URL.
-	URLPath *string `pulumi:"uRLPath"`
+	URLPath string `pulumi:"uRLPath"`
 	// The version of the sampling rule format (1)
 	Version *int `pulumi:"version"`
 }
@@ -208,25 +208,25 @@ type SamplingRuleTypeArgs struct {
 	// Matches attributes derived from the request.
 	Attributes pulumi.Input `pulumi:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
-	FixedRate pulumi.Float64PtrInput `pulumi:"fixedRate"`
+	FixedRate pulumi.Float64Input `pulumi:"fixedRate"`
 	// Matches the HTTP method from a request URL.
-	HTTPMethod pulumi.StringPtrInput `pulumi:"hTTPMethod"`
+	HTTPMethod pulumi.StringInput `pulumi:"hTTPMethod"`
 	// Matches the hostname from a request URL.
-	Host pulumi.StringPtrInput `pulumi:"host"`
+	Host pulumi.StringInput `pulumi:"host"`
 	// The priority of the sampling rule.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	Priority pulumi.IntInput `pulumi:"priority"`
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-	ReservoirSize pulumi.IntPtrInput `pulumi:"reservoirSize"`
+	ReservoirSize pulumi.IntInput `pulumi:"reservoirSize"`
 	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceARN pulumi.StringPtrInput `pulumi:"resourceARN"`
+	ResourceARN pulumi.StringInput    `pulumi:"resourceARN"`
 	RuleARN     pulumi.StringPtrInput `pulumi:"ruleARN"`
 	RuleName    pulumi.StringPtrInput `pulumi:"ruleName"`
 	// Matches the name that the service uses to identify itself in segments.
-	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 	// Matches the origin that the service uses to identify its type in segments.
-	ServiceType pulumi.StringPtrInput `pulumi:"serviceType"`
+	ServiceType pulumi.StringInput `pulumi:"serviceType"`
 	// Matches the path from a request URL.
-	URLPath pulumi.StringPtrInput `pulumi:"uRLPath"`
+	URLPath pulumi.StringInput `pulumi:"uRLPath"`
 	// The version of the sampling rule format (1)
 	Version pulumi.IntPtrInput `pulumi:"version"`
 }
@@ -314,33 +314,33 @@ func (o SamplingRuleTypeOutput) Attributes() pulumi.AnyOutput {
 }
 
 // The percentage of matching requests to instrument, after the reservoir is exhausted.
-func (o SamplingRuleTypeOutput) FixedRate() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v SamplingRuleType) *float64 { return v.FixedRate }).(pulumi.Float64PtrOutput)
+func (o SamplingRuleTypeOutput) FixedRate() pulumi.Float64Output {
+	return o.ApplyT(func(v SamplingRuleType) float64 { return v.FixedRate }).(pulumi.Float64Output)
 }
 
 // Matches the HTTP method from a request URL.
-func (o SamplingRuleTypeOutput) HTTPMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleType) *string { return v.HTTPMethod }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) HTTPMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v SamplingRuleType) string { return v.HTTPMethod }).(pulumi.StringOutput)
 }
 
 // Matches the hostname from a request URL.
-func (o SamplingRuleTypeOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleType) *string { return v.Host }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v SamplingRuleType) string { return v.Host }).(pulumi.StringOutput)
 }
 
 // The priority of the sampling rule.
-func (o SamplingRuleTypeOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SamplingRuleType) *int { return v.Priority }).(pulumi.IntPtrOutput)
+func (o SamplingRuleTypeOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v SamplingRuleType) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 // A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-func (o SamplingRuleTypeOutput) ReservoirSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SamplingRuleType) *int { return v.ReservoirSize }).(pulumi.IntPtrOutput)
+func (o SamplingRuleTypeOutput) ReservoirSize() pulumi.IntOutput {
+	return o.ApplyT(func(v SamplingRuleType) int { return v.ReservoirSize }).(pulumi.IntOutput)
 }
 
 // Matches the ARN of the AWS resource on which the service runs.
-func (o SamplingRuleTypeOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleType) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) ResourceARN() pulumi.StringOutput {
+	return o.ApplyT(func(v SamplingRuleType) string { return v.ResourceARN }).(pulumi.StringOutput)
 }
 
 func (o SamplingRuleTypeOutput) RuleARN() pulumi.StringPtrOutput {
@@ -352,18 +352,18 @@ func (o SamplingRuleTypeOutput) RuleName() pulumi.StringPtrOutput {
 }
 
 // Matches the name that the service uses to identify itself in segments.
-func (o SamplingRuleTypeOutput) ServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleType) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v SamplingRuleType) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
 // Matches the origin that the service uses to identify its type in segments.
-func (o SamplingRuleTypeOutput) ServiceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleType) *string { return v.ServiceType }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) ServiceType() pulumi.StringOutput {
+	return o.ApplyT(func(v SamplingRuleType) string { return v.ServiceType }).(pulumi.StringOutput)
 }
 
 // Matches the path from a request URL.
-func (o SamplingRuleTypeOutput) URLPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleType) *string { return v.URLPath }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) URLPath() pulumi.StringOutput {
+	return o.ApplyT(func(v SamplingRuleType) string { return v.URLPath }).(pulumi.StringOutput)
 }
 
 // The version of the sampling rule format (1)
@@ -411,7 +411,7 @@ func (o SamplingRuleTypePtrOutput) FixedRate() pulumi.Float64PtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.FixedRate
+		return &v.FixedRate
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -421,7 +421,7 @@ func (o SamplingRuleTypePtrOutput) HTTPMethod() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.HTTPMethod
+		return &v.HTTPMethod
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -431,7 +431,7 @@ func (o SamplingRuleTypePtrOutput) Host() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Host
+		return &v.Host
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -441,7 +441,7 @@ func (o SamplingRuleTypePtrOutput) Priority() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Priority
+		return &v.Priority
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -451,7 +451,7 @@ func (o SamplingRuleTypePtrOutput) ReservoirSize() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.ReservoirSize
+		return &v.ReservoirSize
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -461,7 +461,7 @@ func (o SamplingRuleTypePtrOutput) ResourceARN() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.ResourceARN
+		return &v.ResourceARN
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -489,7 +489,7 @@ func (o SamplingRuleTypePtrOutput) ServiceName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.ServiceName
+		return &v.ServiceName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -499,7 +499,7 @@ func (o SamplingRuleTypePtrOutput) ServiceType() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.ServiceType
+		return &v.ServiceType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -509,7 +509,7 @@ func (o SamplingRuleTypePtrOutput) URLPath() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.URLPath
+		return &v.URLPath
 	}).(pulumi.StringPtrOutput)
 }
 

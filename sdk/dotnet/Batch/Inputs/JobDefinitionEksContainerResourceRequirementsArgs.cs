@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionResourcesArgs : global::Pulumi.ResourceArgs
+    public sealed class JobDefinitionEksContainerResourceRequirementsArgs : global::Pulumi.ResourceArgs
     {
         [Input("limits")]
         public Input<object>? Limits { get; set; }
@@ -18,9 +18,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("requests")]
         public Input<object>? Requests { get; set; }
 
-        public JobDefinitionResourcesArgs()
+        public JobDefinitionEksContainerResourceRequirementsArgs()
         {
         }
-        public static new JobDefinitionResourcesArgs Empty => new JobDefinitionResourcesArgs();
+        public static new JobDefinitionEksContainerResourceRequirementsArgs Empty => new JobDefinitionEksContainerResourceRequirementsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionSecurityContextArgs : global::Pulumi.ResourceArgs
+    public sealed class JobDefinitionEksContainerSecurityContextArgs : global::Pulumi.ResourceArgs
     {
         [Input("privileged")]
         public Input<bool>? Privileged { get; set; }
@@ -27,9 +27,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("runAsUser")]
         public Input<int>? RunAsUser { get; set; }
 
-        public JobDefinitionSecurityContextArgs()
+        public JobDefinitionEksContainerSecurityContextArgs()
         {
         }
-        public static new JobDefinitionSecurityContextArgs Empty => new JobDefinitionSecurityContextArgs();
+        public static new JobDefinitionEksContainerSecurityContextArgs Empty => new JobDefinitionEksContainerSecurityContextArgs();
     }
 }

@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
             set => _environment = value;
         }
 
+        [Input("ephemeralStorage")]
+        public Input<Inputs.JobDefinitionEphemeralStorageArgs>? EphemeralStorage { get; set; }
+
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 

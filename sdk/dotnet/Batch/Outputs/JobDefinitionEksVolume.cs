@@ -13,20 +13,20 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEksVolume
     {
-        public readonly Outputs.JobDefinitionEmptyDir? EmptyDir;
-        public readonly Outputs.JobDefinitionHostPath? HostPath;
+        public readonly Outputs.JobDefinitionEksEmptyDir? EmptyDir;
+        public readonly Outputs.JobDefinitionEksHostPath? HostPath;
         public readonly string Name;
-        public readonly Outputs.JobDefinitionSecret? Secret;
+        public readonly Outputs.JobDefinitionEksSecret? Secret;
 
         [OutputConstructor]
         private JobDefinitionEksVolume(
-            Outputs.JobDefinitionEmptyDir? emptyDir,
+            Outputs.JobDefinitionEksEmptyDir? emptyDir,
 
-            Outputs.JobDefinitionHostPath? hostPath,
+            Outputs.JobDefinitionEksHostPath? hostPath,
 
             string name,
 
-            Outputs.JobDefinitionSecret? secret)
+            Outputs.JobDefinitionEksSecret? secret)
         {
             EmptyDir = emptyDir;
             HostPath = hostPath;

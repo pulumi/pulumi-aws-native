@@ -61,11 +61,19 @@ namespace Pulumi.AwsNative.RDS
         /// The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
         /// </summary>
         public readonly bool? DeletionProtection;
+        /// <summary>
+        /// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+        /// </summary>
+        public readonly string? EngineVersion;
 
         [OutputConstructor]
-        private GetGlobalClusterResult(bool? deletionProtection)
+        private GetGlobalClusterResult(
+            bool? deletionProtection,
+
+            string? engineVersion)
         {
             DeletionProtection = deletionProtection;
+            EngineVersion = engineVersion;
         }
     }
 }

@@ -10,14 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionHostPathArgs : global::Pulumi.ResourceArgs
+    public sealed class JobDefinitionEksHostPathArgs : global::Pulumi.ResourceArgs
     {
         [Input("path")]
         public Input<string>? Path { get; set; }
 
-        public JobDefinitionHostPathArgs()
+        public JobDefinitionEksHostPathArgs()
         {
         }
-        public static new JobDefinitionHostPathArgs Empty => new JobDefinitionHostPathArgs();
+        public static new JobDefinitionEksHostPathArgs Empty => new JobDefinitionEksHostPathArgs();
     }
 }

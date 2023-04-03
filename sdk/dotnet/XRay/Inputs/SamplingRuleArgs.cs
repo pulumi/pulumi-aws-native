@@ -21,38 +21,38 @@ namespace Pulumi.AwsNative.XRay.Inputs
         /// <summary>
         /// The percentage of matching requests to instrument, after the reservoir is exhausted.
         /// </summary>
-        [Input("fixedRate")]
-        public Input<double>? FixedRate { get; set; }
+        [Input("fixedRate", required: true)]
+        public Input<double> FixedRate { get; set; } = null!;
 
         /// <summary>
         /// Matches the HTTP method from a request URL.
         /// </summary>
-        [Input("hTTPMethod")]
-        public Input<string>? HTTPMethod { get; set; }
+        [Input("hTTPMethod", required: true)]
+        public Input<string> HTTPMethod { get; set; } = null!;
 
         /// <summary>
         /// Matches the hostname from a request URL.
         /// </summary>
-        [Input("host")]
-        public Input<string>? Host { get; set; }
+        [Input("host", required: true)]
+        public Input<string> Host { get; set; } = null!;
 
         /// <summary>
         /// The priority of the sampling rule.
         /// </summary>
-        [Input("priority")]
-        public Input<int>? Priority { get; set; }
+        [Input("priority", required: true)]
+        public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
         /// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         /// </summary>
-        [Input("reservoirSize")]
-        public Input<int>? ReservoirSize { get; set; }
+        [Input("reservoirSize", required: true)]
+        public Input<int> ReservoirSize { get; set; } = null!;
 
         /// <summary>
         /// Matches the ARN of the AWS resource on which the service runs.
         /// </summary>
-        [Input("resourceARN")]
-        public Input<string>? ResourceARN { get; set; }
+        [Input("resourceARN", required: true)]
+        public Input<string> ResourceARN { get; set; } = null!;
 
         [Input("ruleARN")]
         public Input<string>? RuleARN { get; set; }
@@ -63,20 +63,20 @@ namespace Pulumi.AwsNative.XRay.Inputs
         /// <summary>
         /// Matches the name that the service uses to identify itself in segments.
         /// </summary>
-        [Input("serviceName")]
-        public Input<string>? ServiceName { get; set; }
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
 
         /// <summary>
         /// Matches the origin that the service uses to identify its type in segments.
         /// </summary>
-        [Input("serviceType")]
-        public Input<string>? ServiceType { get; set; }
+        [Input("serviceType", required: true)]
+        public Input<string> ServiceType { get; set; } = null!;
 
         /// <summary>
         /// Matches the path from a request URL.
         /// </summary>
-        [Input("uRLPath")]
-        public Input<string>? URLPath { get; set; }
+        [Input("uRLPath", required: true)]
+        public Input<string> URLPath { get; set; } = null!;
 
         /// <summary>
         /// The version of the sampling rule format (1)

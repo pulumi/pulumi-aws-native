@@ -156,6 +156,41 @@ namespace Pulumi.AwsNative.IoTWireless
     }
 
     /// <summary>
+    /// Status for import task
+    /// </summary>
+    [EnumType]
+    public readonly struct WirelessDeviceImportTaskStatus : IEquatable<WirelessDeviceImportTaskStatus>
+    {
+        private readonly string _value;
+
+        private WirelessDeviceImportTaskStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WirelessDeviceImportTaskStatus Initializing { get; } = new WirelessDeviceImportTaskStatus("INITIALIZING");
+        public static WirelessDeviceImportTaskStatus Initialized { get; } = new WirelessDeviceImportTaskStatus("INITIALIZED");
+        public static WirelessDeviceImportTaskStatus Pending { get; } = new WirelessDeviceImportTaskStatus("PENDING");
+        public static WirelessDeviceImportTaskStatus Complete { get; } = new WirelessDeviceImportTaskStatus("COMPLETE");
+        public static WirelessDeviceImportTaskStatus Failed { get; } = new WirelessDeviceImportTaskStatus("FAILED");
+        public static WirelessDeviceImportTaskStatus Deleting { get; } = new WirelessDeviceImportTaskStatus("DELETING");
+
+        public static bool operator ==(WirelessDeviceImportTaskStatus left, WirelessDeviceImportTaskStatus right) => left.Equals(right);
+        public static bool operator !=(WirelessDeviceImportTaskStatus left, WirelessDeviceImportTaskStatus right) => !left.Equals(right);
+
+        public static explicit operator string(WirelessDeviceImportTaskStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WirelessDeviceImportTaskStatus other && Equals(other);
+        public bool Equals(WirelessDeviceImportTaskStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Wireless device type, currently only Sidewalk and LoRa
     /// </summary>
     [EnumType]

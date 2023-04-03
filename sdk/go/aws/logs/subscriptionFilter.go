@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An example resource schema demonstrating some basic constructs and validation rules.
+// Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination.
 type SubscriptionFilter struct {
 	pulumi.CustomResourceState
 

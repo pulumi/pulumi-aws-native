@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
     {
         public readonly ImmutableArray<string> Command;
         public readonly ImmutableArray<Outputs.JobDefinitionEnvironment> Environment;
+        public readonly Outputs.JobDefinitionEphemeralStorage? EphemeralStorage;
         public readonly string? ExecutionRoleArn;
         public readonly Outputs.JobDefinitionFargatePlatformConfiguration? FargatePlatformConfiguration;
         public readonly string Image;
@@ -39,6 +40,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
             ImmutableArray<string> command,
 
             ImmutableArray<Outputs.JobDefinitionEnvironment> environment,
+
+            Outputs.JobDefinitionEphemeralStorage? ephemeralStorage,
 
             string? executionRoleArn,
 
@@ -78,6 +81,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         {
             Command = command;
             Environment = environment;
+            EphemeralStorage = ephemeralStorage;
             ExecutionRoleArn = executionRoleArn;
             FargatePlatformConfiguration = fargatePlatformConfiguration;
             Image = image;

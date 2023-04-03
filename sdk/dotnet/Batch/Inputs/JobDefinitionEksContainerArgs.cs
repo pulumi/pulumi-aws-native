@@ -46,10 +46,10 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public Input<string>? Name { get; set; }
 
         [Input("resources")]
-        public Input<Inputs.JobDefinitionResourcesArgs>? Resources { get; set; }
+        public Input<Inputs.JobDefinitionEksContainerResourceRequirementsArgs>? Resources { get; set; }
 
         [Input("securityContext")]
-        public Input<Inputs.JobDefinitionSecurityContextArgs>? SecurityContext { get; set; }
+        public Input<Inputs.JobDefinitionEksContainerSecurityContextArgs>? SecurityContext { get; set; }
 
         [Input("volumeMounts")]
         private InputList<Inputs.JobDefinitionEksContainerVolumeMountArgs>? _volumeMounts;

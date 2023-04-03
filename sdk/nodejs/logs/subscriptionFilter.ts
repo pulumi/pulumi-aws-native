@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination.
  */
 export class SubscriptionFilter extends pulumi.CustomResource {
     /**

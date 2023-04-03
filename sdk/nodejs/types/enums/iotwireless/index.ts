@@ -45,6 +45,20 @@ export const TaskDefinitionType = {
  */
 export type TaskDefinitionType = (typeof TaskDefinitionType)[keyof typeof TaskDefinitionType];
 
+export const WirelessDeviceImportTaskStatus = {
+    Initializing: "INITIALIZING",
+    Initialized: "INITIALIZED",
+    Pending: "PENDING",
+    Complete: "COMPLETE",
+    Failed: "FAILED",
+    Deleting: "DELETING",
+} as const;
+
+/**
+ * Status for import task
+ */
+export type WirelessDeviceImportTaskStatus = (typeof WirelessDeviceImportTaskStatus)[keyof typeof WirelessDeviceImportTaskStatus];
+
 export const WirelessDeviceType = {
     Sidewalk: "Sidewalk",
     LoRaWAN: "LoRaWAN",

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 {
 
     [OutputType]
-    public sealed class JobDefinitionSecurityContext
+    public sealed class JobDefinitionEksContainerSecurityContext
     {
         public readonly bool? Privileged;
         public readonly bool? ReadOnlyRootFilesystem;
@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         public readonly int? RunAsUser;
 
         [OutputConstructor]
-        private JobDefinitionSecurityContext(
+        private JobDefinitionEksContainerSecurityContext(
             bool? privileged,
 
             bool? readOnlyRootFilesystem,

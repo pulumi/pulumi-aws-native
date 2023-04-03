@@ -11,19 +11,19 @@ namespace Pulumi.AwsNative.Batch.Outputs
 {
 
     [OutputType]
-    public sealed class JobDefinitionResources
+    public sealed class JobDefinitionEksEmptyDir
     {
-        public readonly object? Limits;
-        public readonly object? Requests;
+        public readonly string? Medium;
+        public readonly string? SizeLimit;
 
         [OutputConstructor]
-        private JobDefinitionResources(
-            object? limits,
+        private JobDefinitionEksEmptyDir(
+            string? medium,
 
-            object? requests)
+            string? sizeLimit)
         {
-            Limits = limits;
-            Requests = requests;
+            Medium = medium;
+            SizeLimit = sizeLimit;
         }
     }
 }

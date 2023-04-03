@@ -1356,6 +1356,7 @@ _utilities.register(
   "mod": "devopsguru",
   "fqn": "pulumi_aws_native.devopsguru",
   "classes": {
+   "aws-native:devopsguru:LogAnomalyDetectionIntegration": "LogAnomalyDetectionIntegration",
    "aws-native:devopsguru:NotificationChannel": "NotificationChannel",
    "aws-native:devopsguru:ResourceCollection": "ResourceCollection"
   }
@@ -2086,6 +2087,7 @@ _utilities.register(
    "aws-native:iotwireless:ServiceProfile": "ServiceProfile",
    "aws-native:iotwireless:TaskDefinition": "TaskDefinition",
    "aws-native:iotwireless:WirelessDevice": "WirelessDevice",
+   "aws-native:iotwireless:WirelessDeviceImportTask": "WirelessDeviceImportTask",
    "aws-native:iotwireless:WirelessGateway": "WirelessGateway"
   }
  },

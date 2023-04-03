@@ -282,6 +282,12 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> ReplicationSourceIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
+        /// </summary>
+        [Output("restoreToTime")]
+        public Output<string?> RestoreToTime { get; private set; } = null!;
+
+        /// <summary>
         /// The type of restore to be performed. You can specify one of the following values:
         /// full-copy - The new DB cluster is restored as a full copy of the source DB cluster.
         /// copy-on-write - The new DB cluster is restored as a clone of the source DB cluster.
@@ -665,6 +671,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
+
+        /// <summary>
+        /// The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
+        /// </summary>
+        [Input("restoreToTime")]
+        public Input<string>? RestoreToTime { get; set; }
 
         /// <summary>
         /// The type of restore to be performed. You can specify one of the following values:

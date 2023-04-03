@@ -58,6 +58,7 @@ class DBClusterArgs:
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  read_endpoint: Optional[pulumi.Input['DBClusterReadEndpointArgs']] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
+                 restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
                  scaling_configuration: Optional[pulumi.Input['DBClusterScalingConfigurationArgs']] = None,
                  serverless_v2_scaling_configuration: Optional[pulumi.Input['DBClusterServerlessV2ScalingConfigurationArgs']] = None,
@@ -114,6 +115,7 @@ class DBClusterArgs:
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
         :param pulumi.Input[bool] publicly_accessible: A value that indicates whether the DB cluster is publicly accessible.
         :param pulumi.Input[str] replication_source_identifier: The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
+        :param pulumi.Input[str] restore_to_time: The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
         :param pulumi.Input[str] restore_type: The type of restore to be performed. You can specify one of the following values:
                full-copy - The new DB cluster is restored as a full copy of the source DB cluster.
                copy-on-write - The new DB cluster is restored as a clone of the source DB cluster.
@@ -215,6 +217,8 @@ class DBClusterArgs:
             pulumi.set(__self__, "read_endpoint", read_endpoint)
         if replication_source_identifier is not None:
             pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
+        if restore_to_time is not None:
+            pulumi.set(__self__, "restore_to_time", restore_to_time)
         if restore_type is not None:
             pulumi.set(__self__, "restore_type", restore_type)
         if scaling_configuration is not None:
@@ -742,6 +746,18 @@ class DBClusterArgs:
         pulumi.set(self, "replication_source_identifier", value)
 
     @property
+    @pulumi.getter(name="restoreToTime")
+    def restore_to_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
+        """
+        return pulumi.get(self, "restore_to_time")
+
+    @restore_to_time.setter
+    def restore_to_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_to_time", value)
+
+    @property
     @pulumi.getter(name="restoreType")
     def restore_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -926,6 +942,7 @@ class DBCluster(pulumi.CustomResource):
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  read_endpoint: Optional[pulumi.Input[pulumi.InputType['DBClusterReadEndpointArgs']]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
+                 restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
                  scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterScalingConfigurationArgs']]] = None,
                  serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterServerlessV2ScalingConfigurationArgs']]] = None,
@@ -986,6 +1003,7 @@ class DBCluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
         :param pulumi.Input[bool] publicly_accessible: A value that indicates whether the DB cluster is publicly accessible.
         :param pulumi.Input[str] replication_source_identifier: The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
+        :param pulumi.Input[str] restore_to_time: The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
         :param pulumi.Input[str] restore_type: The type of restore to be performed. You can specify one of the following values:
                full-copy - The new DB cluster is restored as a full copy of the source DB cluster.
                copy-on-write - The new DB cluster is restored as a clone of the source DB cluster.
@@ -1069,6 +1087,7 @@ class DBCluster(pulumi.CustomResource):
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  read_endpoint: Optional[pulumi.Input[pulumi.InputType['DBClusterReadEndpointArgs']]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
+                 restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
                  scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterScalingConfigurationArgs']]] = None,
                  serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterServerlessV2ScalingConfigurationArgs']]] = None,
@@ -1131,6 +1150,7 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["read_endpoint"] = read_endpoint
             __props__.__dict__["replication_source_identifier"] = replication_source_identifier
+            __props__.__dict__["restore_to_time"] = restore_to_time
             __props__.__dict__["restore_type"] = restore_type
             __props__.__dict__["scaling_configuration"] = scaling_configuration
             __props__.__dict__["serverless_v2_scaling_configuration"] = serverless_v2_scaling_configuration
@@ -1212,6 +1232,7 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["publicly_accessible"] = None
         __props__.__dict__["read_endpoint"] = None
         __props__.__dict__["replication_source_identifier"] = None
+        __props__.__dict__["restore_to_time"] = None
         __props__.__dict__["restore_type"] = None
         __props__.__dict__["scaling_configuration"] = None
         __props__.__dict__["serverless_v2_scaling_configuration"] = None
@@ -1580,6 +1601,14 @@ class DBCluster(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
         """
         return pulumi.get(self, "replication_source_identifier")
+
+    @property
+    @pulumi.getter(name="restoreToTime")
+    def restore_to_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
+        """
+        return pulumi.get(self, "restore_to_time")
 
     @property
     @pulumi.getter(name="restoreType")

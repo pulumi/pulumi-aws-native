@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:devopsguru:LogAnomalyDetectionIntegration":
+		r = &LogAnomalyDetectionIntegration{}
 	case "aws-native:devopsguru:NotificationChannel":
 		r = &NotificationChannel{}
 	case "aws-native:devopsguru:ResourceCollection":

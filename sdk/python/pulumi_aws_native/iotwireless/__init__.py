@@ -18,6 +18,7 @@ from .get_partner_account import *
 from .get_service_profile import *
 from .get_task_definition import *
 from .get_wireless_device import *
+from .get_wireless_device_import_task import *
 from .get_wireless_gateway import *
 from .multicast_group import *
 from .network_analyzer_configuration import *
@@ -25,6 +26,7 @@ from .partner_account import *
 from .service_profile import *
 from .task_definition import *
 from .wireless_device import *
+from .wireless_device_import_task import *
 from .wireless_gateway import *
 from ._inputs import *
 from . import outputs

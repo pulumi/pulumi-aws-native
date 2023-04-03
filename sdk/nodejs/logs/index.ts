@@ -35,6 +35,11 @@ export const getResourcePolicy: typeof import("./getResourcePolicy").getResource
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
 
+export { GetSubscriptionFilterArgs, GetSubscriptionFilterResult, GetSubscriptionFilterOutputArgs } from "./getSubscriptionFilter";
+export const getSubscriptionFilter: typeof import("./getSubscriptionFilter").getSubscriptionFilter = null as any;
+export const getSubscriptionFilterOutput: typeof import("./getSubscriptionFilter").getSubscriptionFilterOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscriptionFilter","getSubscriptionFilterOutput"], () => require("./getSubscriptionFilter"));
+
 export { LogGroupArgs } from "./logGroup";
 export type LogGroup = import("./logGroup").LogGroup;
 export const LogGroup: typeof import("./logGroup").LogGroup = null as any;

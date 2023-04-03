@@ -2202,6 +2202,136 @@ func (o ServiceProfileTagArrayOutput) Index(i pulumi.IntInput) ServiceProfileTag
 	}).(ServiceProfileTagOutput)
 }
 
+// sidewalk contain file for created device and role
+type SidewalkProperties struct {
+	DeviceCreationFile      *string  `pulumi:"deviceCreationFile"`
+	DeviceCreationFileList  []string `pulumi:"deviceCreationFileList"`
+	Role                    *string  `pulumi:"role"`
+	SidewalkManufacturingSn *string  `pulumi:"sidewalkManufacturingSn"`
+}
+
+// SidewalkPropertiesInput is an input type that accepts SidewalkPropertiesArgs and SidewalkPropertiesOutput values.
+// You can construct a concrete instance of `SidewalkPropertiesInput` via:
+//
+//	SidewalkPropertiesArgs{...}
+type SidewalkPropertiesInput interface {
+	pulumi.Input
+
+	ToSidewalkPropertiesOutput() SidewalkPropertiesOutput
+	ToSidewalkPropertiesOutputWithContext(context.Context) SidewalkPropertiesOutput
+}
+
+// sidewalk contain file for created device and role
+type SidewalkPropertiesArgs struct {
+	DeviceCreationFile      pulumi.StringPtrInput   `pulumi:"deviceCreationFile"`
+	DeviceCreationFileList  pulumi.StringArrayInput `pulumi:"deviceCreationFileList"`
+	Role                    pulumi.StringPtrInput   `pulumi:"role"`
+	SidewalkManufacturingSn pulumi.StringPtrInput   `pulumi:"sidewalkManufacturingSn"`
+}
+
+func (SidewalkPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SidewalkProperties)(nil)).Elem()
+}
+
+func (i SidewalkPropertiesArgs) ToSidewalkPropertiesOutput() SidewalkPropertiesOutput {
+	return i.ToSidewalkPropertiesOutputWithContext(context.Background())
+}
+
+func (i SidewalkPropertiesArgs) ToSidewalkPropertiesOutputWithContext(ctx context.Context) SidewalkPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SidewalkPropertiesOutput)
+}
+
+// sidewalk contain file for created device and role
+type SidewalkPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SidewalkPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SidewalkProperties)(nil)).Elem()
+}
+
+func (o SidewalkPropertiesOutput) ToSidewalkPropertiesOutput() SidewalkPropertiesOutput {
+	return o
+}
+
+func (o SidewalkPropertiesOutput) ToSidewalkPropertiesOutputWithContext(ctx context.Context) SidewalkPropertiesOutput {
+	return o
+}
+
+func (o SidewalkPropertiesOutput) DeviceCreationFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SidewalkProperties) *string { return v.DeviceCreationFile }).(pulumi.StringPtrOutput)
+}
+
+func (o SidewalkPropertiesOutput) DeviceCreationFileList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SidewalkProperties) []string { return v.DeviceCreationFileList }).(pulumi.StringArrayOutput)
+}
+
+func (o SidewalkPropertiesOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SidewalkProperties) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+func (o SidewalkPropertiesOutput) SidewalkManufacturingSn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SidewalkProperties) *string { return v.SidewalkManufacturingSn }).(pulumi.StringPtrOutput)
+}
+
+type SidewalkPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SidewalkPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SidewalkProperties)(nil)).Elem()
+}
+
+func (o SidewalkPropertiesPtrOutput) ToSidewalkPropertiesPtrOutput() SidewalkPropertiesPtrOutput {
+	return o
+}
+
+func (o SidewalkPropertiesPtrOutput) ToSidewalkPropertiesPtrOutputWithContext(ctx context.Context) SidewalkPropertiesPtrOutput {
+	return o
+}
+
+func (o SidewalkPropertiesPtrOutput) Elem() SidewalkPropertiesOutput {
+	return o.ApplyT(func(v *SidewalkProperties) SidewalkProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SidewalkProperties
+		return ret
+	}).(SidewalkPropertiesOutput)
+}
+
+func (o SidewalkPropertiesPtrOutput) DeviceCreationFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SidewalkProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceCreationFile
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SidewalkPropertiesPtrOutput) DeviceCreationFileList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SidewalkProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceCreationFileList
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SidewalkPropertiesPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SidewalkProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SidewalkPropertiesPtrOutput) SidewalkManufacturingSn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SidewalkProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SidewalkManufacturingSn
+	}).(pulumi.StringPtrOutput)
+}
+
 type TaskDefinitionLoRaWANGatewayVersion struct {
 	Model          *string `pulumi:"model"`
 	PackageVersion *string `pulumi:"packageVersion"`
@@ -3413,6 +3543,115 @@ func (o WirelessDeviceAbpV11PtrOutput) SessionKeys() WirelessDeviceSessionKeysAb
 	}).(WirelessDeviceSessionKeysAbpV11PtrOutput)
 }
 
+// A key-value pair to associate with a resource.
+type WirelessDeviceImportTaskTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// WirelessDeviceImportTaskTagInput is an input type that accepts WirelessDeviceImportTaskTagArgs and WirelessDeviceImportTaskTagOutput values.
+// You can construct a concrete instance of `WirelessDeviceImportTaskTagInput` via:
+//
+//	WirelessDeviceImportTaskTagArgs{...}
+type WirelessDeviceImportTaskTagInput interface {
+	pulumi.Input
+
+	ToWirelessDeviceImportTaskTagOutput() WirelessDeviceImportTaskTagOutput
+	ToWirelessDeviceImportTaskTagOutputWithContext(context.Context) WirelessDeviceImportTaskTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type WirelessDeviceImportTaskTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WirelessDeviceImportTaskTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceImportTaskTag)(nil)).Elem()
+}
+
+func (i WirelessDeviceImportTaskTagArgs) ToWirelessDeviceImportTaskTagOutput() WirelessDeviceImportTaskTagOutput {
+	return i.ToWirelessDeviceImportTaskTagOutputWithContext(context.Background())
+}
+
+func (i WirelessDeviceImportTaskTagArgs) ToWirelessDeviceImportTaskTagOutputWithContext(ctx context.Context) WirelessDeviceImportTaskTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceImportTaskTagOutput)
+}
+
+// WirelessDeviceImportTaskTagArrayInput is an input type that accepts WirelessDeviceImportTaskTagArray and WirelessDeviceImportTaskTagArrayOutput values.
+// You can construct a concrete instance of `WirelessDeviceImportTaskTagArrayInput` via:
+//
+//	WirelessDeviceImportTaskTagArray{ WirelessDeviceImportTaskTagArgs{...} }
+type WirelessDeviceImportTaskTagArrayInput interface {
+	pulumi.Input
+
+	ToWirelessDeviceImportTaskTagArrayOutput() WirelessDeviceImportTaskTagArrayOutput
+	ToWirelessDeviceImportTaskTagArrayOutputWithContext(context.Context) WirelessDeviceImportTaskTagArrayOutput
+}
+
+type WirelessDeviceImportTaskTagArray []WirelessDeviceImportTaskTagInput
+
+func (WirelessDeviceImportTaskTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WirelessDeviceImportTaskTag)(nil)).Elem()
+}
+
+func (i WirelessDeviceImportTaskTagArray) ToWirelessDeviceImportTaskTagArrayOutput() WirelessDeviceImportTaskTagArrayOutput {
+	return i.ToWirelessDeviceImportTaskTagArrayOutputWithContext(context.Background())
+}
+
+func (i WirelessDeviceImportTaskTagArray) ToWirelessDeviceImportTaskTagArrayOutputWithContext(ctx context.Context) WirelessDeviceImportTaskTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceImportTaskTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type WirelessDeviceImportTaskTagOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceImportTaskTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceImportTaskTag)(nil)).Elem()
+}
+
+func (o WirelessDeviceImportTaskTagOutput) ToWirelessDeviceImportTaskTagOutput() WirelessDeviceImportTaskTagOutput {
+	return o
+}
+
+func (o WirelessDeviceImportTaskTagOutput) ToWirelessDeviceImportTaskTagOutputWithContext(ctx context.Context) WirelessDeviceImportTaskTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o WirelessDeviceImportTaskTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WirelessDeviceImportTaskTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o WirelessDeviceImportTaskTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WirelessDeviceImportTaskTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WirelessDeviceImportTaskTagArrayOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceImportTaskTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WirelessDeviceImportTaskTag)(nil)).Elem()
+}
+
+func (o WirelessDeviceImportTaskTagArrayOutput) ToWirelessDeviceImportTaskTagArrayOutput() WirelessDeviceImportTaskTagArrayOutput {
+	return o
+}
+
+func (o WirelessDeviceImportTaskTagArrayOutput) ToWirelessDeviceImportTaskTagArrayOutputWithContext(ctx context.Context) WirelessDeviceImportTaskTagArrayOutput {
+	return o
+}
+
+func (o WirelessDeviceImportTaskTagArrayOutput) Index(i pulumi.IntInput) WirelessDeviceImportTaskTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WirelessDeviceImportTaskTag {
+		return vs[0].([]WirelessDeviceImportTaskTag)[vs[1].(int)]
+	}).(WirelessDeviceImportTaskTagOutput)
+}
+
 type WirelessDeviceLoRaWANDevice struct {
 	AbpV10x          *WirelessDeviceAbpV10x  `pulumi:"abpV10x"`
 	AbpV11           *WirelessDeviceAbpV11   `pulumi:"abpV11"`
@@ -4597,6 +4836,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileLoRaWANServiceProfilePtrInput)(nil)).Elem(), ServiceProfileLoRaWANServiceProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileTagInput)(nil)).Elem(), ServiceProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileTagArrayInput)(nil)).Elem(), ServiceProfileTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SidewalkPropertiesInput)(nil)).Elem(), SidewalkPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWANGatewayVersionInput)(nil)).Elem(), TaskDefinitionLoRaWANGatewayVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWANGatewayVersionPtrInput)(nil)).Elem(), TaskDefinitionLoRaWANGatewayVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionLoRaWANUpdateGatewayTaskCreateInput)(nil)).Elem(), TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs{})
@@ -4613,6 +4853,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV10xPtrInput)(nil)).Elem(), WirelessDeviceAbpV10xArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV11Input)(nil)).Elem(), WirelessDeviceAbpV11Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV11PtrInput)(nil)).Elem(), WirelessDeviceAbpV11Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceImportTaskTagInput)(nil)).Elem(), WirelessDeviceImportTaskTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceImportTaskTagArrayInput)(nil)).Elem(), WirelessDeviceImportTaskTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceLoRaWANDeviceInput)(nil)).Elem(), WirelessDeviceLoRaWANDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceLoRaWANDevicePtrInput)(nil)).Elem(), WirelessDeviceLoRaWANDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceOtaaV10xInput)(nil)).Elem(), WirelessDeviceOtaaV10xArgs{})
@@ -4656,6 +4898,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceProfileLoRaWANServiceProfilePtrOutput{})
 	pulumi.RegisterOutputType(ServiceProfileTagOutput{})
 	pulumi.RegisterOutputType(ServiceProfileTagArrayOutput{})
+	pulumi.RegisterOutputType(SidewalkPropertiesOutput{})
+	pulumi.RegisterOutputType(SidewalkPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWANGatewayVersionOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWANGatewayVersionPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput{})
@@ -4672,6 +4916,8 @@ func init() {
 	pulumi.RegisterOutputType(WirelessDeviceAbpV10xPtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceAbpV11Output{})
 	pulumi.RegisterOutputType(WirelessDeviceAbpV11PtrOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceImportTaskTagOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceImportTaskTagArrayOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceLoRaWANDeviceOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceLoRaWANDevicePtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceOtaaV10xOutput{})

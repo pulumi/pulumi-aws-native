@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetLogAnomalyDetectionIntegrationArgs, GetLogAnomalyDetectionIntegrationResult, GetLogAnomalyDetectionIntegrationOutputArgs } from "./getLogAnomalyDetectionIntegration";
+export const getLogAnomalyDetectionIntegration: typeof import("./getLogAnomalyDetectionIntegration").getLogAnomalyDetectionIntegration = null as any;
+export const getLogAnomalyDetectionIntegrationOutput: typeof import("./getLogAnomalyDetectionIntegration").getLogAnomalyDetectionIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getLogAnomalyDetectionIntegration","getLogAnomalyDetectionIntegrationOutput"], () => require("./getLogAnomalyDetectionIntegration"));
+
 export { GetNotificationChannelArgs, GetNotificationChannelResult, GetNotificationChannelOutputArgs } from "./getNotificationChannel";
 export const getNotificationChannel: typeof import("./getNotificationChannel").getNotificationChannel = null as any;
 export const getNotificationChannelOutput: typeof import("./getNotificationChannel").getNotificationChannelOutput = null as any;
@@ -14,6 +19,11 @@ export { GetResourceCollectionArgs, GetResourceCollectionResult, GetResourceColl
 export const getResourceCollection: typeof import("./getResourceCollection").getResourceCollection = null as any;
 export const getResourceCollectionOutput: typeof import("./getResourceCollection").getResourceCollectionOutput = null as any;
 utilities.lazyLoad(exports, ["getResourceCollection","getResourceCollectionOutput"], () => require("./getResourceCollection"));
+
+export { LogAnomalyDetectionIntegrationArgs } from "./logAnomalyDetectionIntegration";
+export type LogAnomalyDetectionIntegration = import("./logAnomalyDetectionIntegration").LogAnomalyDetectionIntegration;
+export const LogAnomalyDetectionIntegration: typeof import("./logAnomalyDetectionIntegration").LogAnomalyDetectionIntegration = null as any;
+utilities.lazyLoad(exports, ["LogAnomalyDetectionIntegration"], () => require("./logAnomalyDetectionIntegration"));
 
 export { NotificationChannelArgs } from "./notificationChannel";
 export type NotificationChannel = import("./notificationChannel").NotificationChannel;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:devopsguru:LogAnomalyDetectionIntegration":
+                return new LogAnomalyDetectionIntegration(name, <any>undefined, { urn })
             case "aws-native:devopsguru:NotificationChannel":
                 return new NotificationChannel(name, <any>undefined, { urn })
             case "aws-native:devopsguru:ResourceCollection":

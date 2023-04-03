@@ -10,6 +10,7 @@ __all__ = [
     'NetworkAnalyzerConfigurationWirelessDeviceFrameInfo',
     'PartnerAccountPartnerType',
     'TaskDefinitionType',
+    'WirelessDeviceImportTaskStatus',
     'WirelessDeviceType',
 ]
 
@@ -45,6 +46,18 @@ class TaskDefinitionType(str, Enum):
     A filter to list only the wireless gateway task definitions that use this task definition type
     """
     UPDATE = "UPDATE"
+
+
+class WirelessDeviceImportTaskStatus(str, Enum):
+    """
+    Status for import task
+    """
+    INITIALIZING = "INITIALIZING"
+    INITIALIZED = "INITIALIZED"
+    PENDING = "PENDING"
+    COMPLETE = "COMPLETE"
+    FAILED = "FAILED"
+    DELETING = "DELETING"
 
 
 class WirelessDeviceType(str, Enum):

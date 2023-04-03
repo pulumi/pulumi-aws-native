@@ -28,6 +28,8 @@ type LookupGlobalClusterArgs struct {
 type LookupGlobalClusterResult struct {
 	// The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+	EngineVersion *string `pulumi:"engineVersion"`
 }
 
 func LookupGlobalClusterOutput(ctx *pulumi.Context, args LookupGlobalClusterOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalClusterResultOutput {
@@ -69,6 +71,11 @@ func (o LookupGlobalClusterResultOutput) ToLookupGlobalClusterResultOutputWithCo
 // The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
 func (o LookupGlobalClusterResultOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) *bool { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
+}
+
+// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+func (o LookupGlobalClusterResultOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalClusterResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 func init() {

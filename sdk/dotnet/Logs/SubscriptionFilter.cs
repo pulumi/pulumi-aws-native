@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
-    /// An example resource schema demonstrating some basic constructs and validation rules.
+    /// Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination.
     /// </summary>
     [AwsNativeResourceType("aws-native:logs:SubscriptionFilter")]
     public partial class SubscriptionFilter : global::Pulumi.CustomResource

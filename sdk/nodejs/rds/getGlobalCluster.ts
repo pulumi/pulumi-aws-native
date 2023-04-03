@@ -27,6 +27,10 @@ export interface GetGlobalClusterResult {
      * The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
      */
     readonly deletionProtection?: boolean;
+    /**
+     * The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+     */
+    readonly engineVersion?: string;
 }
 /**
  * Resource Type definition for AWS::RDS::GlobalCluster

@@ -37,11 +37,11 @@ export class Workspace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workspace.__pulumiType;
     }
 
-    public readonly accountAccessType!: pulumi.Output<enums.grafana.WorkspaceAccountAccessType | undefined>;
+    public readonly accountAccessType!: pulumi.Output<enums.grafana.WorkspaceAccountAccessType>;
     /**
      * List of authentication providers to enable.
      */
-    public readonly authenticationProviders!: pulumi.Output<enums.grafana.WorkspaceAuthenticationProviderTypes[] | undefined>;
+    public readonly authenticationProviders!: pulumi.Output<enums.grafana.WorkspaceAuthenticationProviderTypes[]>;
     /**
      * A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
      */
@@ -86,7 +86,7 @@ export class Workspace extends pulumi.CustomResource {
      * List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
      */
     public readonly organizationalUnits!: pulumi.Output<string[] | undefined>;
-    public readonly permissionType!: pulumi.Output<enums.grafana.WorkspacePermissionType | undefined>;
+    public readonly permissionType!: pulumi.Output<enums.grafana.WorkspacePermissionType>;
     /**
      * IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
      */
@@ -111,10 +111,19 @@ export class Workspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.accountAccessType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'accountAccessType'");
+            }
+            if ((!args || args.authenticationProviders === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'authenticationProviders'");
+            }
+            if ((!args || args.permissionType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'permissionType'");
+            }
             resourceInputs["accountAccessType"] = args ? args.accountAccessType : undefined;
             resourceInputs["authenticationProviders"] = args ? args.authenticationProviders : undefined;
             resourceInputs["clientToken"] = args ? args.clientToken : undefined;
@@ -168,11 +177,11 @@ export class Workspace extends pulumi.CustomResource {
  * The set of arguments for constructing a Workspace resource.
  */
 export interface WorkspaceArgs {
-    accountAccessType?: pulumi.Input<enums.grafana.WorkspaceAccountAccessType>;
+    accountAccessType: pulumi.Input<enums.grafana.WorkspaceAccountAccessType>;
     /**
      * List of authentication providers to enable.
      */
-    authenticationProviders?: pulumi.Input<pulumi.Input<enums.grafana.WorkspaceAuthenticationProviderTypes>[]>;
+    authenticationProviders: pulumi.Input<pulumi.Input<enums.grafana.WorkspaceAuthenticationProviderTypes>[]>;
     /**
      * A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
      */
@@ -201,7 +210,7 @@ export interface WorkspaceArgs {
      * List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
      */
     organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
-    permissionType?: pulumi.Input<enums.grafana.WorkspacePermissionType>;
+    permissionType: pulumi.Input<enums.grafana.WorkspacePermissionType>;
     /**
      * IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
      */

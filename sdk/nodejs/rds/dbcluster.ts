@@ -214,6 +214,10 @@ export class DBCluster extends pulumi.CustomResource {
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
+     */
+    public readonly restoreToTime!: pulumi.Output<string | undefined>;
+    /**
      * The type of restore to be performed. You can specify one of the following values:
      * full-copy - The new DB cluster is restored as a full copy of the source DB cluster.
      * copy-on-write - The new DB cluster is restored as a clone of the source DB cluster.
@@ -316,6 +320,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["readEndpoint"] = args ? args.readEndpoint : undefined;
             resourceInputs["replicationSourceIdentifier"] = args ? args.replicationSourceIdentifier : undefined;
+            resourceInputs["restoreToTime"] = args ? args.restoreToTime : undefined;
             resourceInputs["restoreType"] = args ? args.restoreType : undefined;
             resourceInputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
             resourceInputs["serverlessV2ScalingConfiguration"] = args ? args.serverlessV2ScalingConfiguration : undefined;
@@ -376,6 +381,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
             resourceInputs["readEndpoint"] = undefined /*out*/;
             resourceInputs["replicationSourceIdentifier"] = undefined /*out*/;
+            resourceInputs["restoreToTime"] = undefined /*out*/;
             resourceInputs["restoreType"] = undefined /*out*/;
             resourceInputs["scalingConfiguration"] = undefined /*out*/;
             resourceInputs["serverlessV2ScalingConfiguration"] = undefined /*out*/;
@@ -564,6 +570,10 @@ export interface DBClusterArgs {
      * The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
      */
     replicationSourceIdentifier?: pulumi.Input<string>;
+    /**
+     * The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
+     */
+    restoreToTime?: pulumi.Input<string>;
     /**
      * The type of restore to be performed. You can specify one of the following values:
      * full-copy - The new DB cluster is restored as a full copy of the source DB cluster.

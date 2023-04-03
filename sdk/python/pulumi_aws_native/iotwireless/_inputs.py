@@ -25,6 +25,7 @@ __all__ = [
     'PartnerAccountTagArgs',
     'ServiceProfileLoRaWANServiceProfileArgs',
     'ServiceProfileTagArgs',
+    'SidewalkPropertiesArgs',
     'TaskDefinitionLoRaWANGatewayVersionArgs',
     'TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs',
     'TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs',
@@ -33,6 +34,7 @@ __all__ = [
     'TraceContentPropertiesArgs',
     'WirelessDeviceAbpV10xArgs',
     'WirelessDeviceAbpV11Args',
+    'WirelessDeviceImportTaskTagArgs',
     'WirelessDeviceLoRaWANDeviceArgs',
     'WirelessDeviceOtaaV10xArgs',
     'WirelessDeviceOtaaV11Args',
@@ -903,6 +905,62 @@ class ServiceProfileTagArgs:
 
 
 @pulumi.input_type
+class SidewalkPropertiesArgs:
+    def __init__(__self__, *,
+                 device_creation_file: Optional[pulumi.Input[str]] = None,
+                 device_creation_file_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 sidewalk_manufacturing_sn: Optional[pulumi.Input[str]] = None):
+        """
+        sidewalk contain file for created device and role
+        """
+        if device_creation_file is not None:
+            pulumi.set(__self__, "device_creation_file", device_creation_file)
+        if device_creation_file_list is not None:
+            pulumi.set(__self__, "device_creation_file_list", device_creation_file_list)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if sidewalk_manufacturing_sn is not None:
+            pulumi.set(__self__, "sidewalk_manufacturing_sn", sidewalk_manufacturing_sn)
+
+    @property
+    @pulumi.getter(name="deviceCreationFile")
+    def device_creation_file(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "device_creation_file")
+
+    @device_creation_file.setter
+    def device_creation_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_creation_file", value)
+
+    @property
+    @pulumi.getter(name="deviceCreationFileList")
+    def device_creation_file_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "device_creation_file_list")
+
+    @device_creation_file_list.setter
+    def device_creation_file_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "device_creation_file_list", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter(name="sidewalkManufacturingSn")
+    def sidewalk_manufacturing_sn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sidewalk_manufacturing_sn")
+
+    @sidewalk_manufacturing_sn.setter
+    def sidewalk_manufacturing_sn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sidewalk_manufacturing_sn", value)
+
+
+@pulumi.input_type
 class TaskDefinitionLoRaWANGatewayVersionArgs:
     def __init__(__self__, *,
                  model: Optional[pulumi.Input[str]] = None,
@@ -1179,6 +1237,44 @@ class WirelessDeviceAbpV11Args:
     @session_keys.setter
     def session_keys(self, value: pulumi.Input['WirelessDeviceSessionKeysAbpV11Args']):
         pulumi.set(self, "session_keys", value)
+
+
+@pulumi.input_type
+class WirelessDeviceImportTaskTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

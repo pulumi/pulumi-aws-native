@@ -4705,6 +4705,7 @@ export namespace batch {
     export interface JobDefinitionContainerProperties {
         command?: string[];
         environment?: outputs.batch.JobDefinitionEnvironment[];
+        ephemeralStorage?: outputs.batch.JobDefinitionEphemeralStorage;
         executionRoleArn?: string;
         fargatePlatformConfiguration?: outputs.batch.JobDefinitionFargatePlatformConfiguration;
         image: string;
@@ -4746,8 +4747,8 @@ export namespace batch {
         image: string;
         imagePullPolicy?: string;
         name?: string;
-        resources?: outputs.batch.JobDefinitionResources;
-        securityContext?: outputs.batch.JobDefinitionSecurityContext;
+        resources?: outputs.batch.JobDefinitionEksContainerResourceRequirements;
+        securityContext?: outputs.batch.JobDefinitionEksContainerSecurityContext;
         volumeMounts?: outputs.batch.JobDefinitionEksContainerVolumeMount[];
     }
 
@@ -4756,31 +4757,57 @@ export namespace batch {
         value?: string;
     }
 
+    export interface JobDefinitionEksContainerResourceRequirements {
+        limits?: any;
+        requests?: any;
+    }
+
+    export interface JobDefinitionEksContainerSecurityContext {
+        privileged?: boolean;
+        readOnlyRootFilesystem?: boolean;
+        runAsGroup?: number;
+        runAsNonRoot?: boolean;
+        runAsUser?: number;
+    }
+
     export interface JobDefinitionEksContainerVolumeMount {
         mountPath?: string;
         name?: string;
         readOnly?: boolean;
     }
 
+    export interface JobDefinitionEksEmptyDir {
+        medium?: string;
+        sizeLimit?: string;
+    }
+
+    export interface JobDefinitionEksHostPath {
+        path?: string;
+    }
+
     export interface JobDefinitionEksProperties {
         podProperties?: outputs.batch.JobDefinitionPodProperties;
     }
 
-    export interface JobDefinitionEksVolume {
-        emptyDir?: outputs.batch.JobDefinitionEmptyDir;
-        hostPath?: outputs.batch.JobDefinitionHostPath;
-        name: string;
-        secret?: outputs.batch.JobDefinitionSecret;
+    export interface JobDefinitionEksSecret {
+        optional?: boolean;
+        secretName: string;
     }
 
-    export interface JobDefinitionEmptyDir {
-        medium?: string;
-        sizeLimit?: string;
+    export interface JobDefinitionEksVolume {
+        emptyDir?: outputs.batch.JobDefinitionEksEmptyDir;
+        hostPath?: outputs.batch.JobDefinitionEksHostPath;
+        name: string;
+        secret?: outputs.batch.JobDefinitionEksSecret;
     }
 
     export interface JobDefinitionEnvironment {
         name?: string;
         value?: string;
+    }
+
+    export interface JobDefinitionEphemeralStorage {
+        sizeInGiB: number;
     }
 
     export interface JobDefinitionEvaluateOnExit {
@@ -4792,10 +4819,6 @@ export namespace batch {
 
     export interface JobDefinitionFargatePlatformConfiguration {
         platformVersion?: string;
-    }
-
-    export interface JobDefinitionHostPath {
-        path?: string;
     }
 
     export interface JobDefinitionLinuxParameters {
@@ -4811,6 +4834,10 @@ export namespace batch {
         logDriver: string;
         options?: any;
         secretOptions?: outputs.batch.JobDefinitionSecret[];
+    }
+
+    export interface JobDefinitionMetadata {
+        labels?: any;
     }
 
     export interface JobDefinitionMountPoints {
@@ -4838,6 +4865,7 @@ export namespace batch {
         containers?: outputs.batch.JobDefinitionEksContainer[];
         dnsPolicy?: string;
         hostNetwork?: boolean;
+        metadata?: outputs.batch.JobDefinitionMetadata;
         serviceAccountName?: string;
         volumes?: outputs.batch.JobDefinitionEksVolume[];
     }
@@ -4845,11 +4873,6 @@ export namespace batch {
     export interface JobDefinitionResourceRequirement {
         type?: string;
         value?: string;
-    }
-
-    export interface JobDefinitionResources {
-        limits?: any;
-        requests?: any;
     }
 
     export interface JobDefinitionRetryStrategy {
@@ -4860,14 +4883,6 @@ export namespace batch {
     export interface JobDefinitionSecret {
         name: string;
         valueFrom: string;
-    }
-
-    export interface JobDefinitionSecurityContext {
-        privileged?: boolean;
-        readOnlyRootFilesystem?: boolean;
-        runAsGroup?: number;
-        runAsNonRoot?: boolean;
-        runAsUser?: number;
     }
 
     export interface JobDefinitionTimeout {
@@ -20055,6 +20070,16 @@ export namespace iotwireless {
         value?: string;
     }
 
+    /**
+     * sidewalk contain file for created device and role
+     */
+    export interface SidewalkProperties {
+        deviceCreationFile?: string;
+        deviceCreationFileList?: string[];
+        role?: string;
+        sidewalkManufacturingSn?: string;
+    }
+
     export interface TaskDefinitionLoRaWANGatewayVersion {
         model?: string;
         packageVersion?: string;
@@ -20100,6 +20125,20 @@ export namespace iotwireless {
     export interface WirelessDeviceAbpV11 {
         devAddr: string;
         sessionKeys: outputs.iotwireless.WirelessDeviceSessionKeysAbpV11;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface WirelessDeviceImportTaskTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
     export interface WirelessDeviceLoRaWANDevice {
@@ -48708,41 +48747,41 @@ export namespace xray {
         /**
          * The percentage of matching requests to instrument, after the reservoir is exhausted.
          */
-        fixedRate?: number;
+        fixedRate: number;
         /**
          * Matches the HTTP method from a request URL.
          */
-        hTTPMethod?: string;
+        hTTPMethod: string;
         /**
          * Matches the hostname from a request URL.
          */
-        host?: string;
+        host: string;
         /**
          * The priority of the sampling rule.
          */
-        priority?: number;
+        priority: number;
         /**
          * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
          */
-        reservoirSize?: number;
+        reservoirSize: number;
         /**
          * Matches the ARN of the AWS resource on which the service runs.
          */
-        resourceARN?: string;
+        resourceARN: string;
         ruleARN?: string;
         ruleName?: string;
         /**
          * Matches the name that the service uses to identify itself in segments.
          */
-        serviceName?: string;
+        serviceName: string;
         /**
          * Matches the origin that the service uses to identify its type in segments.
          */
-        serviceType?: string;
+        serviceType: string;
         /**
          * Matches the path from a request URL.
          */
-        uRLPath?: string;
+        uRLPath: string;
         /**
          * The version of the sampling rule format (1)
          */

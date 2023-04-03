@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TaskDefinition{}
 	case "aws-native:iotwireless:WirelessDevice":
 		r = &WirelessDevice{}
+	case "aws-native:iotwireless:WirelessDeviceImportTask":
+		r = &WirelessDeviceImportTask{}
 	case "aws-native:iotwireless:WirelessGateway":
 		r = &WirelessGateway{}
 	default:

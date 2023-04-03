@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Inputs
 {
 
-    public sealed class JobDefinitionEmptyDirArgs : global::Pulumi.ResourceArgs
+    public sealed class JobDefinitionEksEmptyDirArgs : global::Pulumi.ResourceArgs
     {
         [Input("medium")]
         public Input<string>? Medium { get; set; }
@@ -18,9 +18,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("sizeLimit")]
         public Input<string>? SizeLimit { get; set; }
 
-        public JobDefinitionEmptyDirArgs()
+        public JobDefinitionEksEmptyDirArgs()
         {
         }
-        public static new JobDefinitionEmptyDirArgs Empty => new JobDefinitionEmptyDirArgs();
+        public static new JobDefinitionEksEmptyDirArgs Empty => new JobDefinitionEksEmptyDirArgs();
     }
 }

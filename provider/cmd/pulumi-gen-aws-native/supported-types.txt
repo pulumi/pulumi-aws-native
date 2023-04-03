@@ -165,6 +165,7 @@ AWS::DataSync::LocationSMB
 AWS::DataSync::Task
 AWS::Detective::Graph
 AWS::Detective::MemberInvitation
+AWS::DevOpsGuru::LogAnomalyDetectionIntegration
 AWS::DevOpsGuru::NotificationChannel
 AWS::DevOpsGuru::ResourceCollection
 AWS::DeviceFarm::DevicePool

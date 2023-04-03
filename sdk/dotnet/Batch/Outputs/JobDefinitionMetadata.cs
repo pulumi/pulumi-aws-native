@@ -11,14 +11,14 @@ namespace Pulumi.AwsNative.Batch.Outputs
 {
 
     [OutputType]
-    public sealed class JobDefinitionHostPath
+    public sealed class JobDefinitionMetadata
     {
-        public readonly string? Path;
+        public readonly object? Labels;
 
         [OutputConstructor]
-        private JobDefinitionHostPath(string? path)
+        private JobDefinitionMetadata(object? labels)
         {
-            Path = path;
+            Labels = labels;
         }
     }
 }

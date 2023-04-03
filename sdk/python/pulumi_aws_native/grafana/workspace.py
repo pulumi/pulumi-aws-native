@@ -17,8 +17,9 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 @pulumi.input_type
 class WorkspaceArgs:
     def __init__(__self__, *,
-                 account_access_type: Optional[pulumi.Input['WorkspaceAccountAccessType']] = None,
-                 authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]]] = None,
+                 account_access_type: pulumi.Input['WorkspaceAccountAccessType'],
+                 authentication_providers: pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]],
+                 permission_type: pulumi.Input['WorkspacePermissionType'],
                  client_token: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -26,7 +27,6 @@ class WorkspaceArgs:
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 permission_type: Optional[pulumi.Input['WorkspacePermissionType']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  saml_configuration: Optional[pulumi.Input['WorkspaceSamlConfigurationArgs']] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
@@ -44,10 +44,9 @@ class WorkspaceArgs:
         :param pulumi.Input[str] role_arn: IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
         :param pulumi.Input[str] stack_set_name: The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
         """
-        if account_access_type is not None:
-            pulumi.set(__self__, "account_access_type", account_access_type)
-        if authentication_providers is not None:
-            pulumi.set(__self__, "authentication_providers", authentication_providers)
+        pulumi.set(__self__, "account_access_type", account_access_type)
+        pulumi.set(__self__, "authentication_providers", authentication_providers)
+        pulumi.set(__self__, "permission_type", permission_type)
         if client_token is not None:
             pulumi.set(__self__, "client_token", client_token)
         if data_sources is not None:
@@ -62,8 +61,6 @@ class WorkspaceArgs:
             pulumi.set(__self__, "organization_role_name", organization_role_name)
         if organizational_units is not None:
             pulumi.set(__self__, "organizational_units", organizational_units)
-        if permission_type is not None:
-            pulumi.set(__self__, "permission_type", permission_type)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if saml_configuration is not None:
@@ -75,24 +72,33 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter(name="accountAccessType")
-    def account_access_type(self) -> Optional[pulumi.Input['WorkspaceAccountAccessType']]:
+    def account_access_type(self) -> pulumi.Input['WorkspaceAccountAccessType']:
         return pulumi.get(self, "account_access_type")
 
     @account_access_type.setter
-    def account_access_type(self, value: Optional[pulumi.Input['WorkspaceAccountAccessType']]):
+    def account_access_type(self, value: pulumi.Input['WorkspaceAccountAccessType']):
         pulumi.set(self, "account_access_type", value)
 
     @property
     @pulumi.getter(name="authenticationProviders")
-    def authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]]]:
+    def authentication_providers(self) -> pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]]:
         """
         List of authentication providers to enable.
         """
         return pulumi.get(self, "authentication_providers")
 
     @authentication_providers.setter
-    def authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]]]):
+    def authentication_providers(self, value: pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]]):
         pulumi.set(self, "authentication_providers", value)
+
+    @property
+    @pulumi.getter(name="permissionType")
+    def permission_type(self) -> pulumi.Input['WorkspacePermissionType']:
+        return pulumi.get(self, "permission_type")
+
+    @permission_type.setter
+    def permission_type(self, value: pulumi.Input['WorkspacePermissionType']):
+        pulumi.set(self, "permission_type", value)
 
     @property
     @pulumi.getter(name="clientToken")
@@ -179,15 +185,6 @@ class WorkspaceArgs:
         pulumi.set(self, "organizational_units", value)
 
     @property
-    @pulumi.getter(name="permissionType")
-    def permission_type(self) -> Optional[pulumi.Input['WorkspacePermissionType']]:
-        return pulumi.get(self, "permission_type")
-
-    @permission_type.setter
-    def permission_type(self, value: Optional[pulumi.Input['WorkspacePermissionType']]):
-        pulumi.set(self, "permission_type", value)
-
-    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -270,7 +267,7 @@ class Workspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[WorkspaceArgs] = None,
+                 args: WorkspaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Grafana::Workspace Resource Type
@@ -313,7 +310,11 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+            if account_access_type is None and not opts.urn:
+                raise TypeError("Missing required property 'account_access_type'")
             __props__.__dict__["account_access_type"] = account_access_type
+            if authentication_providers is None and not opts.urn:
+                raise TypeError("Missing required property 'authentication_providers'")
             __props__.__dict__["authentication_providers"] = authentication_providers
             __props__.__dict__["client_token"] = client_token
             __props__.__dict__["data_sources"] = data_sources
@@ -322,6 +323,8 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["notification_destinations"] = notification_destinations
             __props__.__dict__["organization_role_name"] = organization_role_name
             __props__.__dict__["organizational_units"] = organizational_units
+            if permission_type is None and not opts.urn:
+                raise TypeError("Missing required property 'permission_type'")
             __props__.__dict__["permission_type"] = permission_type
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["saml_configuration"] = saml_configuration
@@ -381,12 +384,12 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountAccessType")
-    def account_access_type(self) -> pulumi.Output[Optional['WorkspaceAccountAccessType']]:
+    def account_access_type(self) -> pulumi.Output['WorkspaceAccountAccessType']:
         return pulumi.get(self, "account_access_type")
 
     @property
     @pulumi.getter(name="authenticationProviders")
-    def authentication_providers(self) -> pulumi.Output[Optional[Sequence['WorkspaceAuthenticationProviderTypes']]]:
+    def authentication_providers(self) -> pulumi.Output[Sequence['WorkspaceAuthenticationProviderTypes']]:
         """
         List of authentication providers to enable.
         """
@@ -482,7 +485,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="permissionType")
-    def permission_type(self) -> pulumi.Output[Optional['WorkspacePermissionType']]:
+    def permission_type(self) -> pulumi.Output['WorkspacePermissionType']:
         return pulumi.get(self, "permission_type")
 
     @property

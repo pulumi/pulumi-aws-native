@@ -207,6 +207,10 @@
       "description" : "The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.",
       "type" : "string"
     },
+    "RestoreToTime" : {
+      "description" : "The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z",
+      "type" : "string"
+    },
     "RestoreType" : {
       "description" : "The type of restore to be performed. You can specify one of the following values:\nfull-copy - The new DB cluster is restored as a full copy of the source DB cluster.\ncopy-on-write - The new DB cluster is restored as a clone of the source DB cluster.",
       "type" : "string",
@@ -405,10 +409,10 @@
     "/properties/SourceDBClusterIdentifier" : "$lowercase(SourceDBClusterIdentifier)"
   },
   "readOnlyProperties" : [ "/properties/DBClusterArn", "/properties/DBClusterResourceId", "/properties/Endpoint", "/properties/Endpoint/Address", "/properties/Endpoint/Port", "/properties/ReadEndpoint/Port", "/properties/ReadEndpoint/Address", "/properties/MasterUserSecret/SecretArn" ],
-  "createOnlyProperties" : [ "/properties/AvailabilityZones", "/properties/DBClusterIdentifier", "/properties/DBSubnetGroupName", "/properties/DatabaseName", "/properties/DBSystemId", "/properties/EngineMode", "/properties/KmsKeyId", "/properties/PubliclyAccessible", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/StorageEncrypted", "/properties/UseLatestRestorableTime" ],
+  "createOnlyProperties" : [ "/properties/AvailabilityZones", "/properties/DBClusterIdentifier", "/properties/DBSubnetGroupName", "/properties/DBSystemId", "/properties/DatabaseName", "/properties/EngineMode", "/properties/KmsKeyId", "/properties/PubliclyAccessible", "/properties/RestoreToTime", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/StorageEncrypted", "/properties/UseLatestRestorableTime" ],
   "conditionalCreateOnlyProperties" : [ "/properties/Engine", "/properties/GlobalClusterIdentifier", "/properties/MasterUsername" ],
   "primaryIdentifier" : [ "/properties/DBClusterIdentifier" ],
-  "writeOnlyProperties" : [ "/properties/DBInstanceParameterGroupName", "/properties/MasterUserPassword", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/UseLatestRestorableTime" ],
+  "writeOnlyProperties" : [ "/properties/DBInstanceParameterGroupName", "/properties/MasterUserPassword", "/properties/RestoreToTime", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/UseLatestRestorableTime" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:DescribeEvents", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],

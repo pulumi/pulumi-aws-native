@@ -11,19 +11,14 @@ namespace Pulumi.AwsNative.Batch.Outputs
 {
 
     [OutputType]
-    public sealed class JobDefinitionEmptyDir
+    public sealed class JobDefinitionEphemeralStorage
     {
-        public readonly string? Medium;
-        public readonly string? SizeLimit;
+        public readonly int SizeInGiB;
 
         [OutputConstructor]
-        private JobDefinitionEmptyDir(
-            string? medium,
-
-            string? sizeLimit)
+        private JobDefinitionEphemeralStorage(int sizeInGiB)
         {
-            Medium = medium;
-            SizeLimit = sizeLimit;
+            SizeInGiB = sizeInGiB;
         }
     }
 }

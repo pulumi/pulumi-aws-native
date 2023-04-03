@@ -1122,6 +1122,7 @@ func (o JobDefinitionAuthorizationConfigPtrOutput) Iam() pulumi.StringPtrOutput 
 type JobDefinitionContainerProperties struct {
 	Command                      []string                                   `pulumi:"command"`
 	Environment                  []JobDefinitionEnvironment                 `pulumi:"environment"`
+	EphemeralStorage             *JobDefinitionEphemeralStorage             `pulumi:"ephemeralStorage"`
 	ExecutionRoleArn             *string                                    `pulumi:"executionRoleArn"`
 	FargatePlatformConfiguration *JobDefinitionFargatePlatformConfiguration `pulumi:"fargatePlatformConfiguration"`
 	Image                        string                                     `pulumi:"image"`
@@ -1156,6 +1157,7 @@ type JobDefinitionContainerPropertiesInput interface {
 type JobDefinitionContainerPropertiesArgs struct {
 	Command                      pulumi.StringArrayInput                           `pulumi:"command"`
 	Environment                  JobDefinitionEnvironmentArrayInput                `pulumi:"environment"`
+	EphemeralStorage             JobDefinitionEphemeralStoragePtrInput             `pulumi:"ephemeralStorage"`
 	ExecutionRoleArn             pulumi.StringPtrInput                             `pulumi:"executionRoleArn"`
 	FargatePlatformConfiguration JobDefinitionFargatePlatformConfigurationPtrInput `pulumi:"fargatePlatformConfiguration"`
 	Image                        pulumi.StringInput                                `pulumi:"image"`
@@ -1259,6 +1261,10 @@ func (o JobDefinitionContainerPropertiesOutput) Command() pulumi.StringArrayOutp
 
 func (o JobDefinitionContainerPropertiesOutput) Environment() JobDefinitionEnvironmentArrayOutput {
 	return o.ApplyT(func(v JobDefinitionContainerProperties) []JobDefinitionEnvironment { return v.Environment }).(JobDefinitionEnvironmentArrayOutput)
+}
+
+func (o JobDefinitionContainerPropertiesOutput) EphemeralStorage() JobDefinitionEphemeralStoragePtrOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) *JobDefinitionEphemeralStorage { return v.EphemeralStorage }).(JobDefinitionEphemeralStoragePtrOutput)
 }
 
 func (o JobDefinitionContainerPropertiesOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
@@ -1379,6 +1385,15 @@ func (o JobDefinitionContainerPropertiesPtrOutput) Environment() JobDefinitionEn
 		}
 		return v.Environment
 	}).(JobDefinitionEnvironmentArrayOutput)
+}
+
+func (o JobDefinitionContainerPropertiesPtrOutput) EphemeralStorage() JobDefinitionEphemeralStoragePtrOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) *JobDefinitionEphemeralStorage {
+		if v == nil {
+			return nil
+		}
+		return v.EphemeralStorage
+	}).(JobDefinitionEphemeralStoragePtrOutput)
 }
 
 func (o JobDefinitionContainerPropertiesPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
@@ -1851,8 +1866,8 @@ type JobDefinitionEksContainer struct {
 	Image           string                                         `pulumi:"image"`
 	ImagePullPolicy *string                                        `pulumi:"imagePullPolicy"`
 	Name            *string                                        `pulumi:"name"`
-	Resources       *JobDefinitionResources                        `pulumi:"resources"`
-	SecurityContext *JobDefinitionSecurityContext                  `pulumi:"securityContext"`
+	Resources       *JobDefinitionEksContainerResourceRequirements `pulumi:"resources"`
+	SecurityContext *JobDefinitionEksContainerSecurityContext      `pulumi:"securityContext"`
 	VolumeMounts    []JobDefinitionEksContainerVolumeMount         `pulumi:"volumeMounts"`
 }
 
@@ -1874,8 +1889,8 @@ type JobDefinitionEksContainerArgs struct {
 	Image           pulumi.StringInput                                     `pulumi:"image"`
 	ImagePullPolicy pulumi.StringPtrInput                                  `pulumi:"imagePullPolicy"`
 	Name            pulumi.StringPtrInput                                  `pulumi:"name"`
-	Resources       JobDefinitionResourcesPtrInput                         `pulumi:"resources"`
-	SecurityContext JobDefinitionSecurityContextPtrInput                   `pulumi:"securityContext"`
+	Resources       JobDefinitionEksContainerResourceRequirementsPtrInput  `pulumi:"resources"`
+	SecurityContext JobDefinitionEksContainerSecurityContextPtrInput       `pulumi:"securityContext"`
 	VolumeMounts    JobDefinitionEksContainerVolumeMountArrayInput         `pulumi:"volumeMounts"`
 }
 
@@ -1954,12 +1969,12 @@ func (o JobDefinitionEksContainerOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksContainer) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o JobDefinitionEksContainerOutput) Resources() JobDefinitionResourcesPtrOutput {
-	return o.ApplyT(func(v JobDefinitionEksContainer) *JobDefinitionResources { return v.Resources }).(JobDefinitionResourcesPtrOutput)
+func (o JobDefinitionEksContainerOutput) Resources() JobDefinitionEksContainerResourceRequirementsPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainer) *JobDefinitionEksContainerResourceRequirements { return v.Resources }).(JobDefinitionEksContainerResourceRequirementsPtrOutput)
 }
 
-func (o JobDefinitionEksContainerOutput) SecurityContext() JobDefinitionSecurityContextPtrOutput {
-	return o.ApplyT(func(v JobDefinitionEksContainer) *JobDefinitionSecurityContext { return v.SecurityContext }).(JobDefinitionSecurityContextPtrOutput)
+func (o JobDefinitionEksContainerOutput) SecurityContext() JobDefinitionEksContainerSecurityContextPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainer) *JobDefinitionEksContainerSecurityContext { return v.SecurityContext }).(JobDefinitionEksContainerSecurityContextPtrOutput)
 }
 
 func (o JobDefinitionEksContainerOutput) VolumeMounts() JobDefinitionEksContainerVolumeMountArrayOutput {
@@ -2086,6 +2101,347 @@ func (o JobDefinitionEksContainerEnvironmentVariableArrayOutput) Index(i pulumi.
 	}).(JobDefinitionEksContainerEnvironmentVariableOutput)
 }
 
+type JobDefinitionEksContainerResourceRequirements struct {
+	Limits   interface{} `pulumi:"limits"`
+	Requests interface{} `pulumi:"requests"`
+}
+
+// JobDefinitionEksContainerResourceRequirementsInput is an input type that accepts JobDefinitionEksContainerResourceRequirementsArgs and JobDefinitionEksContainerResourceRequirementsOutput values.
+// You can construct a concrete instance of `JobDefinitionEksContainerResourceRequirementsInput` via:
+//
+//	JobDefinitionEksContainerResourceRequirementsArgs{...}
+type JobDefinitionEksContainerResourceRequirementsInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksContainerResourceRequirementsOutput() JobDefinitionEksContainerResourceRequirementsOutput
+	ToJobDefinitionEksContainerResourceRequirementsOutputWithContext(context.Context) JobDefinitionEksContainerResourceRequirementsOutput
+}
+
+type JobDefinitionEksContainerResourceRequirementsArgs struct {
+	Limits   pulumi.Input `pulumi:"limits"`
+	Requests pulumi.Input `pulumi:"requests"`
+}
+
+func (JobDefinitionEksContainerResourceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksContainerResourceRequirements)(nil)).Elem()
+}
+
+func (i JobDefinitionEksContainerResourceRequirementsArgs) ToJobDefinitionEksContainerResourceRequirementsOutput() JobDefinitionEksContainerResourceRequirementsOutput {
+	return i.ToJobDefinitionEksContainerResourceRequirementsOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksContainerResourceRequirementsArgs) ToJobDefinitionEksContainerResourceRequirementsOutputWithContext(ctx context.Context) JobDefinitionEksContainerResourceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerResourceRequirementsOutput)
+}
+
+func (i JobDefinitionEksContainerResourceRequirementsArgs) ToJobDefinitionEksContainerResourceRequirementsPtrOutput() JobDefinitionEksContainerResourceRequirementsPtrOutput {
+	return i.ToJobDefinitionEksContainerResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksContainerResourceRequirementsArgs) ToJobDefinitionEksContainerResourceRequirementsPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerResourceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerResourceRequirementsOutput).ToJobDefinitionEksContainerResourceRequirementsPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksContainerResourceRequirementsPtrInput is an input type that accepts JobDefinitionEksContainerResourceRequirementsArgs, JobDefinitionEksContainerResourceRequirementsPtr and JobDefinitionEksContainerResourceRequirementsPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksContainerResourceRequirementsPtrInput` via:
+//
+//	        JobDefinitionEksContainerResourceRequirementsArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksContainerResourceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksContainerResourceRequirementsPtrOutput() JobDefinitionEksContainerResourceRequirementsPtrOutput
+	ToJobDefinitionEksContainerResourceRequirementsPtrOutputWithContext(context.Context) JobDefinitionEksContainerResourceRequirementsPtrOutput
+}
+
+type jobDefinitionEksContainerResourceRequirementsPtrType JobDefinitionEksContainerResourceRequirementsArgs
+
+func JobDefinitionEksContainerResourceRequirementsPtr(v *JobDefinitionEksContainerResourceRequirementsArgs) JobDefinitionEksContainerResourceRequirementsPtrInput {
+	return (*jobDefinitionEksContainerResourceRequirementsPtrType)(v)
+}
+
+func (*jobDefinitionEksContainerResourceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksContainerResourceRequirements)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksContainerResourceRequirementsPtrType) ToJobDefinitionEksContainerResourceRequirementsPtrOutput() JobDefinitionEksContainerResourceRequirementsPtrOutput {
+	return i.ToJobDefinitionEksContainerResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksContainerResourceRequirementsPtrType) ToJobDefinitionEksContainerResourceRequirementsPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerResourceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerResourceRequirementsPtrOutput)
+}
+
+type JobDefinitionEksContainerResourceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksContainerResourceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksContainerResourceRequirements)(nil)).Elem()
+}
+
+func (o JobDefinitionEksContainerResourceRequirementsOutput) ToJobDefinitionEksContainerResourceRequirementsOutput() JobDefinitionEksContainerResourceRequirementsOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerResourceRequirementsOutput) ToJobDefinitionEksContainerResourceRequirementsOutputWithContext(ctx context.Context) JobDefinitionEksContainerResourceRequirementsOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerResourceRequirementsOutput) ToJobDefinitionEksContainerResourceRequirementsPtrOutput() JobDefinitionEksContainerResourceRequirementsPtrOutput {
+	return o.ToJobDefinitionEksContainerResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksContainerResourceRequirementsOutput) ToJobDefinitionEksContainerResourceRequirementsPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerResourceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksContainerResourceRequirements) *JobDefinitionEksContainerResourceRequirements {
+		return &v
+	}).(JobDefinitionEksContainerResourceRequirementsPtrOutput)
+}
+
+func (o JobDefinitionEksContainerResourceRequirementsOutput) Limits() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerResourceRequirements) interface{} { return v.Limits }).(pulumi.AnyOutput)
+}
+
+func (o JobDefinitionEksContainerResourceRequirementsOutput) Requests() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerResourceRequirements) interface{} { return v.Requests }).(pulumi.AnyOutput)
+}
+
+type JobDefinitionEksContainerResourceRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksContainerResourceRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksContainerResourceRequirements)(nil)).Elem()
+}
+
+func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) ToJobDefinitionEksContainerResourceRequirementsPtrOutput() JobDefinitionEksContainerResourceRequirementsPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) ToJobDefinitionEksContainerResourceRequirementsPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerResourceRequirementsPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Elem() JobDefinitionEksContainerResourceRequirementsOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerResourceRequirements) JobDefinitionEksContainerResourceRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksContainerResourceRequirements
+		return ret
+	}).(JobDefinitionEksContainerResourceRequirementsOutput)
+}
+
+func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Limits() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerResourceRequirements) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Limits
+	}).(pulumi.AnyOutput)
+}
+
+func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Requests() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerResourceRequirements) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Requests
+	}).(pulumi.AnyOutput)
+}
+
+type JobDefinitionEksContainerSecurityContext struct {
+	Privileged             *bool `pulumi:"privileged"`
+	ReadOnlyRootFilesystem *bool `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup             *int  `pulumi:"runAsGroup"`
+	RunAsNonRoot           *bool `pulumi:"runAsNonRoot"`
+	RunAsUser              *int  `pulumi:"runAsUser"`
+}
+
+// JobDefinitionEksContainerSecurityContextInput is an input type that accepts JobDefinitionEksContainerSecurityContextArgs and JobDefinitionEksContainerSecurityContextOutput values.
+// You can construct a concrete instance of `JobDefinitionEksContainerSecurityContextInput` via:
+//
+//	JobDefinitionEksContainerSecurityContextArgs{...}
+type JobDefinitionEksContainerSecurityContextInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksContainerSecurityContextOutput() JobDefinitionEksContainerSecurityContextOutput
+	ToJobDefinitionEksContainerSecurityContextOutputWithContext(context.Context) JobDefinitionEksContainerSecurityContextOutput
+}
+
+type JobDefinitionEksContainerSecurityContextArgs struct {
+	Privileged             pulumi.BoolPtrInput `pulumi:"privileged"`
+	ReadOnlyRootFilesystem pulumi.BoolPtrInput `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup             pulumi.IntPtrInput  `pulumi:"runAsGroup"`
+	RunAsNonRoot           pulumi.BoolPtrInput `pulumi:"runAsNonRoot"`
+	RunAsUser              pulumi.IntPtrInput  `pulumi:"runAsUser"`
+}
+
+func (JobDefinitionEksContainerSecurityContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksContainerSecurityContext)(nil)).Elem()
+}
+
+func (i JobDefinitionEksContainerSecurityContextArgs) ToJobDefinitionEksContainerSecurityContextOutput() JobDefinitionEksContainerSecurityContextOutput {
+	return i.ToJobDefinitionEksContainerSecurityContextOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksContainerSecurityContextArgs) ToJobDefinitionEksContainerSecurityContextOutputWithContext(ctx context.Context) JobDefinitionEksContainerSecurityContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerSecurityContextOutput)
+}
+
+func (i JobDefinitionEksContainerSecurityContextArgs) ToJobDefinitionEksContainerSecurityContextPtrOutput() JobDefinitionEksContainerSecurityContextPtrOutput {
+	return i.ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksContainerSecurityContextArgs) ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerSecurityContextOutput).ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksContainerSecurityContextPtrInput is an input type that accepts JobDefinitionEksContainerSecurityContextArgs, JobDefinitionEksContainerSecurityContextPtr and JobDefinitionEksContainerSecurityContextPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksContainerSecurityContextPtrInput` via:
+//
+//	        JobDefinitionEksContainerSecurityContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksContainerSecurityContextPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksContainerSecurityContextPtrOutput() JobDefinitionEksContainerSecurityContextPtrOutput
+	ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(context.Context) JobDefinitionEksContainerSecurityContextPtrOutput
+}
+
+type jobDefinitionEksContainerSecurityContextPtrType JobDefinitionEksContainerSecurityContextArgs
+
+func JobDefinitionEksContainerSecurityContextPtr(v *JobDefinitionEksContainerSecurityContextArgs) JobDefinitionEksContainerSecurityContextPtrInput {
+	return (*jobDefinitionEksContainerSecurityContextPtrType)(v)
+}
+
+func (*jobDefinitionEksContainerSecurityContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksContainerSecurityContext)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksContainerSecurityContextPtrType) ToJobDefinitionEksContainerSecurityContextPtrOutput() JobDefinitionEksContainerSecurityContextPtrOutput {
+	return i.ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksContainerSecurityContextPtrType) ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksContainerSecurityContextPtrOutput)
+}
+
+type JobDefinitionEksContainerSecurityContextOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksContainerSecurityContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksContainerSecurityContext)(nil)).Elem()
+}
+
+func (o JobDefinitionEksContainerSecurityContextOutput) ToJobDefinitionEksContainerSecurityContextOutput() JobDefinitionEksContainerSecurityContextOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerSecurityContextOutput) ToJobDefinitionEksContainerSecurityContextOutputWithContext(ctx context.Context) JobDefinitionEksContainerSecurityContextOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerSecurityContextOutput) ToJobDefinitionEksContainerSecurityContextPtrOutput() JobDefinitionEksContainerSecurityContextPtrOutput {
+	return o.ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksContainerSecurityContextOutput) ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerSecurityContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksContainerSecurityContext) *JobDefinitionEksContainerSecurityContext {
+		return &v
+	}).(JobDefinitionEksContainerSecurityContextPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *bool { return v.ReadOnlyRootFilesystem }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextOutput) RunAsGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *int { return v.RunAsGroup }).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *bool { return v.RunAsNonRoot }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextOutput) RunAsUser() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *int { return v.RunAsUser }).(pulumi.IntPtrOutput)
+}
+
+type JobDefinitionEksContainerSecurityContextPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksContainerSecurityContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksContainerSecurityContext)(nil)).Elem()
+}
+
+func (o JobDefinitionEksContainerSecurityContextPtrOutput) ToJobDefinitionEksContainerSecurityContextPtrOutput() JobDefinitionEksContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerSecurityContextPtrOutput) ToJobDefinitionEksContainerSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksContainerSecurityContextPtrOutput) Elem() JobDefinitionEksContainerSecurityContextOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerSecurityContext) JobDefinitionEksContainerSecurityContext {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksContainerSecurityContext
+		return ret
+	}).(JobDefinitionEksContainerSecurityContextOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextPtrOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Privileged
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextPtrOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnlyRootFilesystem
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextPtrOutput) RunAsGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerSecurityContext) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsGroup
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextPtrOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsNonRoot
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextPtrOutput) RunAsUser() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerSecurityContext) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsUser
+	}).(pulumi.IntPtrOutput)
+}
+
 type JobDefinitionEksContainerVolumeMount struct {
 	MountPath *string `pulumi:"mountPath"`
 	Name      *string `pulumi:"name"`
@@ -2190,6 +2546,287 @@ func (o JobDefinitionEksContainerVolumeMountArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionEksContainerVolumeMount {
 		return vs[0].([]JobDefinitionEksContainerVolumeMount)[vs[1].(int)]
 	}).(JobDefinitionEksContainerVolumeMountOutput)
+}
+
+type JobDefinitionEksEmptyDir struct {
+	Medium    *string `pulumi:"medium"`
+	SizeLimit *string `pulumi:"sizeLimit"`
+}
+
+// JobDefinitionEksEmptyDirInput is an input type that accepts JobDefinitionEksEmptyDirArgs and JobDefinitionEksEmptyDirOutput values.
+// You can construct a concrete instance of `JobDefinitionEksEmptyDirInput` via:
+//
+//	JobDefinitionEksEmptyDirArgs{...}
+type JobDefinitionEksEmptyDirInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksEmptyDirOutput() JobDefinitionEksEmptyDirOutput
+	ToJobDefinitionEksEmptyDirOutputWithContext(context.Context) JobDefinitionEksEmptyDirOutput
+}
+
+type JobDefinitionEksEmptyDirArgs struct {
+	Medium    pulumi.StringPtrInput `pulumi:"medium"`
+	SizeLimit pulumi.StringPtrInput `pulumi:"sizeLimit"`
+}
+
+func (JobDefinitionEksEmptyDirArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksEmptyDir)(nil)).Elem()
+}
+
+func (i JobDefinitionEksEmptyDirArgs) ToJobDefinitionEksEmptyDirOutput() JobDefinitionEksEmptyDirOutput {
+	return i.ToJobDefinitionEksEmptyDirOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksEmptyDirArgs) ToJobDefinitionEksEmptyDirOutputWithContext(ctx context.Context) JobDefinitionEksEmptyDirOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksEmptyDirOutput)
+}
+
+func (i JobDefinitionEksEmptyDirArgs) ToJobDefinitionEksEmptyDirPtrOutput() JobDefinitionEksEmptyDirPtrOutput {
+	return i.ToJobDefinitionEksEmptyDirPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksEmptyDirArgs) ToJobDefinitionEksEmptyDirPtrOutputWithContext(ctx context.Context) JobDefinitionEksEmptyDirPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksEmptyDirOutput).ToJobDefinitionEksEmptyDirPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksEmptyDirPtrInput is an input type that accepts JobDefinitionEksEmptyDirArgs, JobDefinitionEksEmptyDirPtr and JobDefinitionEksEmptyDirPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksEmptyDirPtrInput` via:
+//
+//	        JobDefinitionEksEmptyDirArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksEmptyDirPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksEmptyDirPtrOutput() JobDefinitionEksEmptyDirPtrOutput
+	ToJobDefinitionEksEmptyDirPtrOutputWithContext(context.Context) JobDefinitionEksEmptyDirPtrOutput
+}
+
+type jobDefinitionEksEmptyDirPtrType JobDefinitionEksEmptyDirArgs
+
+func JobDefinitionEksEmptyDirPtr(v *JobDefinitionEksEmptyDirArgs) JobDefinitionEksEmptyDirPtrInput {
+	return (*jobDefinitionEksEmptyDirPtrType)(v)
+}
+
+func (*jobDefinitionEksEmptyDirPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksEmptyDir)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksEmptyDirPtrType) ToJobDefinitionEksEmptyDirPtrOutput() JobDefinitionEksEmptyDirPtrOutput {
+	return i.ToJobDefinitionEksEmptyDirPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksEmptyDirPtrType) ToJobDefinitionEksEmptyDirPtrOutputWithContext(ctx context.Context) JobDefinitionEksEmptyDirPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksEmptyDirPtrOutput)
+}
+
+type JobDefinitionEksEmptyDirOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksEmptyDirOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksEmptyDir)(nil)).Elem()
+}
+
+func (o JobDefinitionEksEmptyDirOutput) ToJobDefinitionEksEmptyDirOutput() JobDefinitionEksEmptyDirOutput {
+	return o
+}
+
+func (o JobDefinitionEksEmptyDirOutput) ToJobDefinitionEksEmptyDirOutputWithContext(ctx context.Context) JobDefinitionEksEmptyDirOutput {
+	return o
+}
+
+func (o JobDefinitionEksEmptyDirOutput) ToJobDefinitionEksEmptyDirPtrOutput() JobDefinitionEksEmptyDirPtrOutput {
+	return o.ToJobDefinitionEksEmptyDirPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksEmptyDirOutput) ToJobDefinitionEksEmptyDirPtrOutputWithContext(ctx context.Context) JobDefinitionEksEmptyDirPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksEmptyDir) *JobDefinitionEksEmptyDir {
+		return &v
+	}).(JobDefinitionEksEmptyDirPtrOutput)
+}
+
+func (o JobDefinitionEksEmptyDirOutput) Medium() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksEmptyDir) *string { return v.Medium }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionEksEmptyDirOutput) SizeLimit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksEmptyDir) *string { return v.SizeLimit }).(pulumi.StringPtrOutput)
+}
+
+type JobDefinitionEksEmptyDirPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksEmptyDirPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksEmptyDir)(nil)).Elem()
+}
+
+func (o JobDefinitionEksEmptyDirPtrOutput) ToJobDefinitionEksEmptyDirPtrOutput() JobDefinitionEksEmptyDirPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksEmptyDirPtrOutput) ToJobDefinitionEksEmptyDirPtrOutputWithContext(ctx context.Context) JobDefinitionEksEmptyDirPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksEmptyDirPtrOutput) Elem() JobDefinitionEksEmptyDirOutput {
+	return o.ApplyT(func(v *JobDefinitionEksEmptyDir) JobDefinitionEksEmptyDir {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksEmptyDir
+		return ret
+	}).(JobDefinitionEksEmptyDirOutput)
+}
+
+func (o JobDefinitionEksEmptyDirPtrOutput) Medium() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksEmptyDir) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Medium
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionEksEmptyDirPtrOutput) SizeLimit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksEmptyDir) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SizeLimit
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobDefinitionEksHostPath struct {
+	Path *string `pulumi:"path"`
+}
+
+// JobDefinitionEksHostPathInput is an input type that accepts JobDefinitionEksHostPathArgs and JobDefinitionEksHostPathOutput values.
+// You can construct a concrete instance of `JobDefinitionEksHostPathInput` via:
+//
+//	JobDefinitionEksHostPathArgs{...}
+type JobDefinitionEksHostPathInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksHostPathOutput() JobDefinitionEksHostPathOutput
+	ToJobDefinitionEksHostPathOutputWithContext(context.Context) JobDefinitionEksHostPathOutput
+}
+
+type JobDefinitionEksHostPathArgs struct {
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (JobDefinitionEksHostPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksHostPath)(nil)).Elem()
+}
+
+func (i JobDefinitionEksHostPathArgs) ToJobDefinitionEksHostPathOutput() JobDefinitionEksHostPathOutput {
+	return i.ToJobDefinitionEksHostPathOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksHostPathArgs) ToJobDefinitionEksHostPathOutputWithContext(ctx context.Context) JobDefinitionEksHostPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksHostPathOutput)
+}
+
+func (i JobDefinitionEksHostPathArgs) ToJobDefinitionEksHostPathPtrOutput() JobDefinitionEksHostPathPtrOutput {
+	return i.ToJobDefinitionEksHostPathPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksHostPathArgs) ToJobDefinitionEksHostPathPtrOutputWithContext(ctx context.Context) JobDefinitionEksHostPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksHostPathOutput).ToJobDefinitionEksHostPathPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksHostPathPtrInput is an input type that accepts JobDefinitionEksHostPathArgs, JobDefinitionEksHostPathPtr and JobDefinitionEksHostPathPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksHostPathPtrInput` via:
+//
+//	        JobDefinitionEksHostPathArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksHostPathPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksHostPathPtrOutput() JobDefinitionEksHostPathPtrOutput
+	ToJobDefinitionEksHostPathPtrOutputWithContext(context.Context) JobDefinitionEksHostPathPtrOutput
+}
+
+type jobDefinitionEksHostPathPtrType JobDefinitionEksHostPathArgs
+
+func JobDefinitionEksHostPathPtr(v *JobDefinitionEksHostPathArgs) JobDefinitionEksHostPathPtrInput {
+	return (*jobDefinitionEksHostPathPtrType)(v)
+}
+
+func (*jobDefinitionEksHostPathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksHostPath)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksHostPathPtrType) ToJobDefinitionEksHostPathPtrOutput() JobDefinitionEksHostPathPtrOutput {
+	return i.ToJobDefinitionEksHostPathPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksHostPathPtrType) ToJobDefinitionEksHostPathPtrOutputWithContext(ctx context.Context) JobDefinitionEksHostPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksHostPathPtrOutput)
+}
+
+type JobDefinitionEksHostPathOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksHostPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksHostPath)(nil)).Elem()
+}
+
+func (o JobDefinitionEksHostPathOutput) ToJobDefinitionEksHostPathOutput() JobDefinitionEksHostPathOutput {
+	return o
+}
+
+func (o JobDefinitionEksHostPathOutput) ToJobDefinitionEksHostPathOutputWithContext(ctx context.Context) JobDefinitionEksHostPathOutput {
+	return o
+}
+
+func (o JobDefinitionEksHostPathOutput) ToJobDefinitionEksHostPathPtrOutput() JobDefinitionEksHostPathPtrOutput {
+	return o.ToJobDefinitionEksHostPathPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksHostPathOutput) ToJobDefinitionEksHostPathPtrOutputWithContext(ctx context.Context) JobDefinitionEksHostPathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksHostPath) *JobDefinitionEksHostPath {
+		return &v
+	}).(JobDefinitionEksHostPathPtrOutput)
+}
+
+func (o JobDefinitionEksHostPathOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksHostPath) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type JobDefinitionEksHostPathPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksHostPathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksHostPath)(nil)).Elem()
+}
+
+func (o JobDefinitionEksHostPathPtrOutput) ToJobDefinitionEksHostPathPtrOutput() JobDefinitionEksHostPathPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksHostPathPtrOutput) ToJobDefinitionEksHostPathPtrOutputWithContext(ctx context.Context) JobDefinitionEksHostPathPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksHostPathPtrOutput) Elem() JobDefinitionEksHostPathOutput {
+	return o.ApplyT(func(v *JobDefinitionEksHostPath) JobDefinitionEksHostPath {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksHostPath
+		return ret
+	}).(JobDefinitionEksHostPathOutput)
+}
+
+func (o JobDefinitionEksHostPathPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksHostPath) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
 }
 
 type JobDefinitionEksProperties struct {
@@ -2325,11 +2962,159 @@ func (o JobDefinitionEksPropertiesPtrOutput) PodProperties() JobDefinitionPodPro
 	}).(JobDefinitionPodPropertiesPtrOutput)
 }
 
+type JobDefinitionEksSecret struct {
+	Optional   *bool  `pulumi:"optional"`
+	SecretName string `pulumi:"secretName"`
+}
+
+// JobDefinitionEksSecretInput is an input type that accepts JobDefinitionEksSecretArgs and JobDefinitionEksSecretOutput values.
+// You can construct a concrete instance of `JobDefinitionEksSecretInput` via:
+//
+//	JobDefinitionEksSecretArgs{...}
+type JobDefinitionEksSecretInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksSecretOutput() JobDefinitionEksSecretOutput
+	ToJobDefinitionEksSecretOutputWithContext(context.Context) JobDefinitionEksSecretOutput
+}
+
+type JobDefinitionEksSecretArgs struct {
+	Optional   pulumi.BoolPtrInput `pulumi:"optional"`
+	SecretName pulumi.StringInput  `pulumi:"secretName"`
+}
+
+func (JobDefinitionEksSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksSecret)(nil)).Elem()
+}
+
+func (i JobDefinitionEksSecretArgs) ToJobDefinitionEksSecretOutput() JobDefinitionEksSecretOutput {
+	return i.ToJobDefinitionEksSecretOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksSecretArgs) ToJobDefinitionEksSecretOutputWithContext(ctx context.Context) JobDefinitionEksSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksSecretOutput)
+}
+
+func (i JobDefinitionEksSecretArgs) ToJobDefinitionEksSecretPtrOutput() JobDefinitionEksSecretPtrOutput {
+	return i.ToJobDefinitionEksSecretPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksSecretArgs) ToJobDefinitionEksSecretPtrOutputWithContext(ctx context.Context) JobDefinitionEksSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksSecretOutput).ToJobDefinitionEksSecretPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksSecretPtrInput is an input type that accepts JobDefinitionEksSecretArgs, JobDefinitionEksSecretPtr and JobDefinitionEksSecretPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksSecretPtrInput` via:
+//
+//	        JobDefinitionEksSecretArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksSecretPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksSecretPtrOutput() JobDefinitionEksSecretPtrOutput
+	ToJobDefinitionEksSecretPtrOutputWithContext(context.Context) JobDefinitionEksSecretPtrOutput
+}
+
+type jobDefinitionEksSecretPtrType JobDefinitionEksSecretArgs
+
+func JobDefinitionEksSecretPtr(v *JobDefinitionEksSecretArgs) JobDefinitionEksSecretPtrInput {
+	return (*jobDefinitionEksSecretPtrType)(v)
+}
+
+func (*jobDefinitionEksSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksSecret)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksSecretPtrType) ToJobDefinitionEksSecretPtrOutput() JobDefinitionEksSecretPtrOutput {
+	return i.ToJobDefinitionEksSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksSecretPtrType) ToJobDefinitionEksSecretPtrOutputWithContext(ctx context.Context) JobDefinitionEksSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksSecretPtrOutput)
+}
+
+type JobDefinitionEksSecretOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksSecret)(nil)).Elem()
+}
+
+func (o JobDefinitionEksSecretOutput) ToJobDefinitionEksSecretOutput() JobDefinitionEksSecretOutput {
+	return o
+}
+
+func (o JobDefinitionEksSecretOutput) ToJobDefinitionEksSecretOutputWithContext(ctx context.Context) JobDefinitionEksSecretOutput {
+	return o
+}
+
+func (o JobDefinitionEksSecretOutput) ToJobDefinitionEksSecretPtrOutput() JobDefinitionEksSecretPtrOutput {
+	return o.ToJobDefinitionEksSecretPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksSecretOutput) ToJobDefinitionEksSecretPtrOutputWithContext(ctx context.Context) JobDefinitionEksSecretPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksSecret) *JobDefinitionEksSecret {
+		return &v
+	}).(JobDefinitionEksSecretPtrOutput)
+}
+
+func (o JobDefinitionEksSecretOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksSecret) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksSecretOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionEksSecret) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type JobDefinitionEksSecretPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksSecret)(nil)).Elem()
+}
+
+func (o JobDefinitionEksSecretPtrOutput) ToJobDefinitionEksSecretPtrOutput() JobDefinitionEksSecretPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksSecretPtrOutput) ToJobDefinitionEksSecretPtrOutputWithContext(ctx context.Context) JobDefinitionEksSecretPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksSecretPtrOutput) Elem() JobDefinitionEksSecretOutput {
+	return o.ApplyT(func(v *JobDefinitionEksSecret) JobDefinitionEksSecret {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksSecret
+		return ret
+	}).(JobDefinitionEksSecretOutput)
+}
+
+func (o JobDefinitionEksSecretPtrOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksSecret) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Optional
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksSecretPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 type JobDefinitionEksVolume struct {
-	EmptyDir *JobDefinitionEmptyDir `pulumi:"emptyDir"`
-	HostPath *JobDefinitionHostPath `pulumi:"hostPath"`
-	Name     string                 `pulumi:"name"`
-	Secret   *JobDefinitionSecret   `pulumi:"secret"`
+	EmptyDir *JobDefinitionEksEmptyDir `pulumi:"emptyDir"`
+	HostPath *JobDefinitionEksHostPath `pulumi:"hostPath"`
+	Name     string                    `pulumi:"name"`
+	Secret   *JobDefinitionEksSecret   `pulumi:"secret"`
 }
 
 // JobDefinitionEksVolumeInput is an input type that accepts JobDefinitionEksVolumeArgs and JobDefinitionEksVolumeOutput values.
@@ -2344,10 +3129,10 @@ type JobDefinitionEksVolumeInput interface {
 }
 
 type JobDefinitionEksVolumeArgs struct {
-	EmptyDir JobDefinitionEmptyDirPtrInput `pulumi:"emptyDir"`
-	HostPath JobDefinitionHostPathPtrInput `pulumi:"hostPath"`
-	Name     pulumi.StringInput            `pulumi:"name"`
-	Secret   JobDefinitionSecretPtrInput   `pulumi:"secret"`
+	EmptyDir JobDefinitionEksEmptyDirPtrInput `pulumi:"emptyDir"`
+	HostPath JobDefinitionEksHostPathPtrInput `pulumi:"hostPath"`
+	Name     pulumi.StringInput               `pulumi:"name"`
+	Secret   JobDefinitionEksSecretPtrInput   `pulumi:"secret"`
 }
 
 func (JobDefinitionEksVolumeArgs) ElementType() reflect.Type {
@@ -2401,20 +3186,20 @@ func (o JobDefinitionEksVolumeOutput) ToJobDefinitionEksVolumeOutputWithContext(
 	return o
 }
 
-func (o JobDefinitionEksVolumeOutput) EmptyDir() JobDefinitionEmptyDirPtrOutput {
-	return o.ApplyT(func(v JobDefinitionEksVolume) *JobDefinitionEmptyDir { return v.EmptyDir }).(JobDefinitionEmptyDirPtrOutput)
+func (o JobDefinitionEksVolumeOutput) EmptyDir() JobDefinitionEksEmptyDirPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksVolume) *JobDefinitionEksEmptyDir { return v.EmptyDir }).(JobDefinitionEksEmptyDirPtrOutput)
 }
 
-func (o JobDefinitionEksVolumeOutput) HostPath() JobDefinitionHostPathPtrOutput {
-	return o.ApplyT(func(v JobDefinitionEksVolume) *JobDefinitionHostPath { return v.HostPath }).(JobDefinitionHostPathPtrOutput)
+func (o JobDefinitionEksVolumeOutput) HostPath() JobDefinitionEksHostPathPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksVolume) *JobDefinitionEksHostPath { return v.HostPath }).(JobDefinitionEksHostPathPtrOutput)
 }
 
 func (o JobDefinitionEksVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksVolume) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o JobDefinitionEksVolumeOutput) Secret() JobDefinitionSecretPtrOutput {
-	return o.ApplyT(func(v JobDefinitionEksVolume) *JobDefinitionSecret { return v.Secret }).(JobDefinitionSecretPtrOutput)
+func (o JobDefinitionEksVolumeOutput) Secret() JobDefinitionEksSecretPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksVolume) *JobDefinitionEksSecret { return v.Secret }).(JobDefinitionEksSecretPtrOutput)
 }
 
 type JobDefinitionEksVolumeArrayOutput struct{ *pulumi.OutputState }
@@ -2435,154 +3220,6 @@ func (o JobDefinitionEksVolumeArrayOutput) Index(i pulumi.IntInput) JobDefinitio
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionEksVolume {
 		return vs[0].([]JobDefinitionEksVolume)[vs[1].(int)]
 	}).(JobDefinitionEksVolumeOutput)
-}
-
-type JobDefinitionEmptyDir struct {
-	Medium    *string `pulumi:"medium"`
-	SizeLimit *string `pulumi:"sizeLimit"`
-}
-
-// JobDefinitionEmptyDirInput is an input type that accepts JobDefinitionEmptyDirArgs and JobDefinitionEmptyDirOutput values.
-// You can construct a concrete instance of `JobDefinitionEmptyDirInput` via:
-//
-//	JobDefinitionEmptyDirArgs{...}
-type JobDefinitionEmptyDirInput interface {
-	pulumi.Input
-
-	ToJobDefinitionEmptyDirOutput() JobDefinitionEmptyDirOutput
-	ToJobDefinitionEmptyDirOutputWithContext(context.Context) JobDefinitionEmptyDirOutput
-}
-
-type JobDefinitionEmptyDirArgs struct {
-	Medium    pulumi.StringPtrInput `pulumi:"medium"`
-	SizeLimit pulumi.StringPtrInput `pulumi:"sizeLimit"`
-}
-
-func (JobDefinitionEmptyDirArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionEmptyDir)(nil)).Elem()
-}
-
-func (i JobDefinitionEmptyDirArgs) ToJobDefinitionEmptyDirOutput() JobDefinitionEmptyDirOutput {
-	return i.ToJobDefinitionEmptyDirOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionEmptyDirArgs) ToJobDefinitionEmptyDirOutputWithContext(ctx context.Context) JobDefinitionEmptyDirOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEmptyDirOutput)
-}
-
-func (i JobDefinitionEmptyDirArgs) ToJobDefinitionEmptyDirPtrOutput() JobDefinitionEmptyDirPtrOutput {
-	return i.ToJobDefinitionEmptyDirPtrOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionEmptyDirArgs) ToJobDefinitionEmptyDirPtrOutputWithContext(ctx context.Context) JobDefinitionEmptyDirPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEmptyDirOutput).ToJobDefinitionEmptyDirPtrOutputWithContext(ctx)
-}
-
-// JobDefinitionEmptyDirPtrInput is an input type that accepts JobDefinitionEmptyDirArgs, JobDefinitionEmptyDirPtr and JobDefinitionEmptyDirPtrOutput values.
-// You can construct a concrete instance of `JobDefinitionEmptyDirPtrInput` via:
-//
-//	        JobDefinitionEmptyDirArgs{...}
-//
-//	or:
-//
-//	        nil
-type JobDefinitionEmptyDirPtrInput interface {
-	pulumi.Input
-
-	ToJobDefinitionEmptyDirPtrOutput() JobDefinitionEmptyDirPtrOutput
-	ToJobDefinitionEmptyDirPtrOutputWithContext(context.Context) JobDefinitionEmptyDirPtrOutput
-}
-
-type jobDefinitionEmptyDirPtrType JobDefinitionEmptyDirArgs
-
-func JobDefinitionEmptyDirPtr(v *JobDefinitionEmptyDirArgs) JobDefinitionEmptyDirPtrInput {
-	return (*jobDefinitionEmptyDirPtrType)(v)
-}
-
-func (*jobDefinitionEmptyDirPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionEmptyDir)(nil)).Elem()
-}
-
-func (i *jobDefinitionEmptyDirPtrType) ToJobDefinitionEmptyDirPtrOutput() JobDefinitionEmptyDirPtrOutput {
-	return i.ToJobDefinitionEmptyDirPtrOutputWithContext(context.Background())
-}
-
-func (i *jobDefinitionEmptyDirPtrType) ToJobDefinitionEmptyDirPtrOutputWithContext(ctx context.Context) JobDefinitionEmptyDirPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEmptyDirPtrOutput)
-}
-
-type JobDefinitionEmptyDirOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionEmptyDirOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionEmptyDir)(nil)).Elem()
-}
-
-func (o JobDefinitionEmptyDirOutput) ToJobDefinitionEmptyDirOutput() JobDefinitionEmptyDirOutput {
-	return o
-}
-
-func (o JobDefinitionEmptyDirOutput) ToJobDefinitionEmptyDirOutputWithContext(ctx context.Context) JobDefinitionEmptyDirOutput {
-	return o
-}
-
-func (o JobDefinitionEmptyDirOutput) ToJobDefinitionEmptyDirPtrOutput() JobDefinitionEmptyDirPtrOutput {
-	return o.ToJobDefinitionEmptyDirPtrOutputWithContext(context.Background())
-}
-
-func (o JobDefinitionEmptyDirOutput) ToJobDefinitionEmptyDirPtrOutputWithContext(ctx context.Context) JobDefinitionEmptyDirPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEmptyDir) *JobDefinitionEmptyDir {
-		return &v
-	}).(JobDefinitionEmptyDirPtrOutput)
-}
-
-func (o JobDefinitionEmptyDirOutput) Medium() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionEmptyDir) *string { return v.Medium }).(pulumi.StringPtrOutput)
-}
-
-func (o JobDefinitionEmptyDirOutput) SizeLimit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionEmptyDir) *string { return v.SizeLimit }).(pulumi.StringPtrOutput)
-}
-
-type JobDefinitionEmptyDirPtrOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionEmptyDirPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionEmptyDir)(nil)).Elem()
-}
-
-func (o JobDefinitionEmptyDirPtrOutput) ToJobDefinitionEmptyDirPtrOutput() JobDefinitionEmptyDirPtrOutput {
-	return o
-}
-
-func (o JobDefinitionEmptyDirPtrOutput) ToJobDefinitionEmptyDirPtrOutputWithContext(ctx context.Context) JobDefinitionEmptyDirPtrOutput {
-	return o
-}
-
-func (o JobDefinitionEmptyDirPtrOutput) Elem() JobDefinitionEmptyDirOutput {
-	return o.ApplyT(func(v *JobDefinitionEmptyDir) JobDefinitionEmptyDir {
-		if v != nil {
-			return *v
-		}
-		var ret JobDefinitionEmptyDir
-		return ret
-	}).(JobDefinitionEmptyDirOutput)
-}
-
-func (o JobDefinitionEmptyDirPtrOutput) Medium() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionEmptyDir) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Medium
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JobDefinitionEmptyDirPtrOutput) SizeLimit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionEmptyDir) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SizeLimit
-	}).(pulumi.StringPtrOutput)
 }
 
 type JobDefinitionEnvironment struct {
@@ -2683,6 +3320,139 @@ func (o JobDefinitionEnvironmentArrayOutput) Index(i pulumi.IntInput) JobDefinit
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionEnvironment {
 		return vs[0].([]JobDefinitionEnvironment)[vs[1].(int)]
 	}).(JobDefinitionEnvironmentOutput)
+}
+
+type JobDefinitionEphemeralStorage struct {
+	SizeInGiB int `pulumi:"sizeInGiB"`
+}
+
+// JobDefinitionEphemeralStorageInput is an input type that accepts JobDefinitionEphemeralStorageArgs and JobDefinitionEphemeralStorageOutput values.
+// You can construct a concrete instance of `JobDefinitionEphemeralStorageInput` via:
+//
+//	JobDefinitionEphemeralStorageArgs{...}
+type JobDefinitionEphemeralStorageInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEphemeralStorageOutput() JobDefinitionEphemeralStorageOutput
+	ToJobDefinitionEphemeralStorageOutputWithContext(context.Context) JobDefinitionEphemeralStorageOutput
+}
+
+type JobDefinitionEphemeralStorageArgs struct {
+	SizeInGiB pulumi.IntInput `pulumi:"sizeInGiB"`
+}
+
+func (JobDefinitionEphemeralStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (i JobDefinitionEphemeralStorageArgs) ToJobDefinitionEphemeralStorageOutput() JobDefinitionEphemeralStorageOutput {
+	return i.ToJobDefinitionEphemeralStorageOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEphemeralStorageArgs) ToJobDefinitionEphemeralStorageOutputWithContext(ctx context.Context) JobDefinitionEphemeralStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEphemeralStorageOutput)
+}
+
+func (i JobDefinitionEphemeralStorageArgs) ToJobDefinitionEphemeralStoragePtrOutput() JobDefinitionEphemeralStoragePtrOutput {
+	return i.ToJobDefinitionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEphemeralStorageArgs) ToJobDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) JobDefinitionEphemeralStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEphemeralStorageOutput).ToJobDefinitionEphemeralStoragePtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEphemeralStoragePtrInput is an input type that accepts JobDefinitionEphemeralStorageArgs, JobDefinitionEphemeralStoragePtr and JobDefinitionEphemeralStoragePtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEphemeralStoragePtrInput` via:
+//
+//	        JobDefinitionEphemeralStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEphemeralStoragePtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEphemeralStoragePtrOutput() JobDefinitionEphemeralStoragePtrOutput
+	ToJobDefinitionEphemeralStoragePtrOutputWithContext(context.Context) JobDefinitionEphemeralStoragePtrOutput
+}
+
+type jobDefinitionEphemeralStoragePtrType JobDefinitionEphemeralStorageArgs
+
+func JobDefinitionEphemeralStoragePtr(v *JobDefinitionEphemeralStorageArgs) JobDefinitionEphemeralStoragePtrInput {
+	return (*jobDefinitionEphemeralStoragePtrType)(v)
+}
+
+func (*jobDefinitionEphemeralStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (i *jobDefinitionEphemeralStoragePtrType) ToJobDefinitionEphemeralStoragePtrOutput() JobDefinitionEphemeralStoragePtrOutput {
+	return i.ToJobDefinitionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEphemeralStoragePtrType) ToJobDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) JobDefinitionEphemeralStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEphemeralStoragePtrOutput)
+}
+
+type JobDefinitionEphemeralStorageOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEphemeralStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (o JobDefinitionEphemeralStorageOutput) ToJobDefinitionEphemeralStorageOutput() JobDefinitionEphemeralStorageOutput {
+	return o
+}
+
+func (o JobDefinitionEphemeralStorageOutput) ToJobDefinitionEphemeralStorageOutputWithContext(ctx context.Context) JobDefinitionEphemeralStorageOutput {
+	return o
+}
+
+func (o JobDefinitionEphemeralStorageOutput) ToJobDefinitionEphemeralStoragePtrOutput() JobDefinitionEphemeralStoragePtrOutput {
+	return o.ToJobDefinitionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEphemeralStorageOutput) ToJobDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) JobDefinitionEphemeralStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEphemeralStorage) *JobDefinitionEphemeralStorage {
+		return &v
+	}).(JobDefinitionEphemeralStoragePtrOutput)
+}
+
+func (o JobDefinitionEphemeralStorageOutput) SizeInGiB() pulumi.IntOutput {
+	return o.ApplyT(func(v JobDefinitionEphemeralStorage) int { return v.SizeInGiB }).(pulumi.IntOutput)
+}
+
+type JobDefinitionEphemeralStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEphemeralStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (o JobDefinitionEphemeralStoragePtrOutput) ToJobDefinitionEphemeralStoragePtrOutput() JobDefinitionEphemeralStoragePtrOutput {
+	return o
+}
+
+func (o JobDefinitionEphemeralStoragePtrOutput) ToJobDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) JobDefinitionEphemeralStoragePtrOutput {
+	return o
+}
+
+func (o JobDefinitionEphemeralStoragePtrOutput) Elem() JobDefinitionEphemeralStorageOutput {
+	return o.ApplyT(func(v *JobDefinitionEphemeralStorage) JobDefinitionEphemeralStorage {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEphemeralStorage
+		return ret
+	}).(JobDefinitionEphemeralStorageOutput)
+}
+
+func (o JobDefinitionEphemeralStoragePtrOutput) SizeInGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEphemeralStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SizeInGiB
+	}).(pulumi.IntPtrOutput)
 }
 
 type JobDefinitionEvaluateOnExit struct {
@@ -2927,139 +3697,6 @@ func (o JobDefinitionFargatePlatformConfigurationPtrOutput) PlatformVersion() pu
 			return nil
 		}
 		return v.PlatformVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-type JobDefinitionHostPath struct {
-	Path *string `pulumi:"path"`
-}
-
-// JobDefinitionHostPathInput is an input type that accepts JobDefinitionHostPathArgs and JobDefinitionHostPathOutput values.
-// You can construct a concrete instance of `JobDefinitionHostPathInput` via:
-//
-//	JobDefinitionHostPathArgs{...}
-type JobDefinitionHostPathInput interface {
-	pulumi.Input
-
-	ToJobDefinitionHostPathOutput() JobDefinitionHostPathOutput
-	ToJobDefinitionHostPathOutputWithContext(context.Context) JobDefinitionHostPathOutput
-}
-
-type JobDefinitionHostPathArgs struct {
-	Path pulumi.StringPtrInput `pulumi:"path"`
-}
-
-func (JobDefinitionHostPathArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionHostPath)(nil)).Elem()
-}
-
-func (i JobDefinitionHostPathArgs) ToJobDefinitionHostPathOutput() JobDefinitionHostPathOutput {
-	return i.ToJobDefinitionHostPathOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionHostPathArgs) ToJobDefinitionHostPathOutputWithContext(ctx context.Context) JobDefinitionHostPathOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionHostPathOutput)
-}
-
-func (i JobDefinitionHostPathArgs) ToJobDefinitionHostPathPtrOutput() JobDefinitionHostPathPtrOutput {
-	return i.ToJobDefinitionHostPathPtrOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionHostPathArgs) ToJobDefinitionHostPathPtrOutputWithContext(ctx context.Context) JobDefinitionHostPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionHostPathOutput).ToJobDefinitionHostPathPtrOutputWithContext(ctx)
-}
-
-// JobDefinitionHostPathPtrInput is an input type that accepts JobDefinitionHostPathArgs, JobDefinitionHostPathPtr and JobDefinitionHostPathPtrOutput values.
-// You can construct a concrete instance of `JobDefinitionHostPathPtrInput` via:
-//
-//	        JobDefinitionHostPathArgs{...}
-//
-//	or:
-//
-//	        nil
-type JobDefinitionHostPathPtrInput interface {
-	pulumi.Input
-
-	ToJobDefinitionHostPathPtrOutput() JobDefinitionHostPathPtrOutput
-	ToJobDefinitionHostPathPtrOutputWithContext(context.Context) JobDefinitionHostPathPtrOutput
-}
-
-type jobDefinitionHostPathPtrType JobDefinitionHostPathArgs
-
-func JobDefinitionHostPathPtr(v *JobDefinitionHostPathArgs) JobDefinitionHostPathPtrInput {
-	return (*jobDefinitionHostPathPtrType)(v)
-}
-
-func (*jobDefinitionHostPathPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionHostPath)(nil)).Elem()
-}
-
-func (i *jobDefinitionHostPathPtrType) ToJobDefinitionHostPathPtrOutput() JobDefinitionHostPathPtrOutput {
-	return i.ToJobDefinitionHostPathPtrOutputWithContext(context.Background())
-}
-
-func (i *jobDefinitionHostPathPtrType) ToJobDefinitionHostPathPtrOutputWithContext(ctx context.Context) JobDefinitionHostPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionHostPathPtrOutput)
-}
-
-type JobDefinitionHostPathOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionHostPathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionHostPath)(nil)).Elem()
-}
-
-func (o JobDefinitionHostPathOutput) ToJobDefinitionHostPathOutput() JobDefinitionHostPathOutput {
-	return o
-}
-
-func (o JobDefinitionHostPathOutput) ToJobDefinitionHostPathOutputWithContext(ctx context.Context) JobDefinitionHostPathOutput {
-	return o
-}
-
-func (o JobDefinitionHostPathOutput) ToJobDefinitionHostPathPtrOutput() JobDefinitionHostPathPtrOutput {
-	return o.ToJobDefinitionHostPathPtrOutputWithContext(context.Background())
-}
-
-func (o JobDefinitionHostPathOutput) ToJobDefinitionHostPathPtrOutputWithContext(ctx context.Context) JobDefinitionHostPathPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionHostPath) *JobDefinitionHostPath {
-		return &v
-	}).(JobDefinitionHostPathPtrOutput)
-}
-
-func (o JobDefinitionHostPathOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionHostPath) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-type JobDefinitionHostPathPtrOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionHostPathPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionHostPath)(nil)).Elem()
-}
-
-func (o JobDefinitionHostPathPtrOutput) ToJobDefinitionHostPathPtrOutput() JobDefinitionHostPathPtrOutput {
-	return o
-}
-
-func (o JobDefinitionHostPathPtrOutput) ToJobDefinitionHostPathPtrOutputWithContext(ctx context.Context) JobDefinitionHostPathPtrOutput {
-	return o
-}
-
-func (o JobDefinitionHostPathPtrOutput) Elem() JobDefinitionHostPathOutput {
-	return o.ApplyT(func(v *JobDefinitionHostPath) JobDefinitionHostPath {
-		if v != nil {
-			return *v
-		}
-		var ret JobDefinitionHostPath
-		return ret
-	}).(JobDefinitionHostPathOutput)
-}
-
-func (o JobDefinitionHostPathPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionHostPath) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Path
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3432,6 +4069,139 @@ func (o JobDefinitionLogConfigurationPtrOutput) SecretOptions() JobDefinitionSec
 		}
 		return v.SecretOptions
 	}).(JobDefinitionSecretArrayOutput)
+}
+
+type JobDefinitionMetadata struct {
+	Labels interface{} `pulumi:"labels"`
+}
+
+// JobDefinitionMetadataInput is an input type that accepts JobDefinitionMetadataArgs and JobDefinitionMetadataOutput values.
+// You can construct a concrete instance of `JobDefinitionMetadataInput` via:
+//
+//	JobDefinitionMetadataArgs{...}
+type JobDefinitionMetadataInput interface {
+	pulumi.Input
+
+	ToJobDefinitionMetadataOutput() JobDefinitionMetadataOutput
+	ToJobDefinitionMetadataOutputWithContext(context.Context) JobDefinitionMetadataOutput
+}
+
+type JobDefinitionMetadataArgs struct {
+	Labels pulumi.Input `pulumi:"labels"`
+}
+
+func (JobDefinitionMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionMetadata)(nil)).Elem()
+}
+
+func (i JobDefinitionMetadataArgs) ToJobDefinitionMetadataOutput() JobDefinitionMetadataOutput {
+	return i.ToJobDefinitionMetadataOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionMetadataArgs) ToJobDefinitionMetadataOutputWithContext(ctx context.Context) JobDefinitionMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMetadataOutput)
+}
+
+func (i JobDefinitionMetadataArgs) ToJobDefinitionMetadataPtrOutput() JobDefinitionMetadataPtrOutput {
+	return i.ToJobDefinitionMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionMetadataArgs) ToJobDefinitionMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMetadataOutput).ToJobDefinitionMetadataPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionMetadataPtrInput is an input type that accepts JobDefinitionMetadataArgs, JobDefinitionMetadataPtr and JobDefinitionMetadataPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionMetadataPtrInput` via:
+//
+//	        JobDefinitionMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionMetadataPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionMetadataPtrOutput() JobDefinitionMetadataPtrOutput
+	ToJobDefinitionMetadataPtrOutputWithContext(context.Context) JobDefinitionMetadataPtrOutput
+}
+
+type jobDefinitionMetadataPtrType JobDefinitionMetadataArgs
+
+func JobDefinitionMetadataPtr(v *JobDefinitionMetadataArgs) JobDefinitionMetadataPtrInput {
+	return (*jobDefinitionMetadataPtrType)(v)
+}
+
+func (*jobDefinitionMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionMetadata)(nil)).Elem()
+}
+
+func (i *jobDefinitionMetadataPtrType) ToJobDefinitionMetadataPtrOutput() JobDefinitionMetadataPtrOutput {
+	return i.ToJobDefinitionMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionMetadataPtrType) ToJobDefinitionMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMetadataPtrOutput)
+}
+
+type JobDefinitionMetadataOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionMetadata)(nil)).Elem()
+}
+
+func (o JobDefinitionMetadataOutput) ToJobDefinitionMetadataOutput() JobDefinitionMetadataOutput {
+	return o
+}
+
+func (o JobDefinitionMetadataOutput) ToJobDefinitionMetadataOutputWithContext(ctx context.Context) JobDefinitionMetadataOutput {
+	return o
+}
+
+func (o JobDefinitionMetadataOutput) ToJobDefinitionMetadataPtrOutput() JobDefinitionMetadataPtrOutput {
+	return o.ToJobDefinitionMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionMetadataOutput) ToJobDefinitionMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionMetadata) *JobDefinitionMetadata {
+		return &v
+	}).(JobDefinitionMetadataPtrOutput)
+}
+
+func (o JobDefinitionMetadataOutput) Labels() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobDefinitionMetadata) interface{} { return v.Labels }).(pulumi.AnyOutput)
+}
+
+type JobDefinitionMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionMetadata)(nil)).Elem()
+}
+
+func (o JobDefinitionMetadataPtrOutput) ToJobDefinitionMetadataPtrOutput() JobDefinitionMetadataPtrOutput {
+	return o
+}
+
+func (o JobDefinitionMetadataPtrOutput) ToJobDefinitionMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionMetadataPtrOutput {
+	return o
+}
+
+func (o JobDefinitionMetadataPtrOutput) Elem() JobDefinitionMetadataOutput {
+	return o.ApplyT(func(v *JobDefinitionMetadata) JobDefinitionMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionMetadata
+		return ret
+	}).(JobDefinitionMetadataOutput)
+}
+
+func (o JobDefinitionMetadataPtrOutput) Labels() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobDefinitionMetadata) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.AnyOutput)
 }
 
 type JobDefinitionMountPoints struct {
@@ -3940,6 +4710,7 @@ type JobDefinitionPodProperties struct {
 	Containers         []JobDefinitionEksContainer `pulumi:"containers"`
 	DnsPolicy          *string                     `pulumi:"dnsPolicy"`
 	HostNetwork        *bool                       `pulumi:"hostNetwork"`
+	Metadata           *JobDefinitionMetadata      `pulumi:"metadata"`
 	ServiceAccountName *string                     `pulumi:"serviceAccountName"`
 	Volumes            []JobDefinitionEksVolume    `pulumi:"volumes"`
 }
@@ -3959,6 +4730,7 @@ type JobDefinitionPodPropertiesArgs struct {
 	Containers         JobDefinitionEksContainerArrayInput `pulumi:"containers"`
 	DnsPolicy          pulumi.StringPtrInput               `pulumi:"dnsPolicy"`
 	HostNetwork        pulumi.BoolPtrInput                 `pulumi:"hostNetwork"`
+	Metadata           JobDefinitionMetadataPtrInput       `pulumi:"metadata"`
 	ServiceAccountName pulumi.StringPtrInput               `pulumi:"serviceAccountName"`
 	Volumes            JobDefinitionEksVolumeArrayInput    `pulumi:"volumes"`
 }
@@ -4052,6 +4824,10 @@ func (o JobDefinitionPodPropertiesOutput) HostNetwork() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionPodProperties) *bool { return v.HostNetwork }).(pulumi.BoolPtrOutput)
 }
 
+func (o JobDefinitionPodPropertiesOutput) Metadata() JobDefinitionMetadataPtrOutput {
+	return o.ApplyT(func(v JobDefinitionPodProperties) *JobDefinitionMetadata { return v.Metadata }).(JobDefinitionMetadataPtrOutput)
+}
+
 func (o JobDefinitionPodPropertiesOutput) ServiceAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionPodProperties) *string { return v.ServiceAccountName }).(pulumi.StringPtrOutput)
 }
@@ -4109,6 +4885,15 @@ func (o JobDefinitionPodPropertiesPtrOutput) HostNetwork() pulumi.BoolPtrOutput 
 		}
 		return v.HostNetwork
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionPodPropertiesPtrOutput) Metadata() JobDefinitionMetadataPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionPodProperties) *JobDefinitionMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(JobDefinitionMetadataPtrOutput)
 }
 
 func (o JobDefinitionPodPropertiesPtrOutput) ServiceAccountName() pulumi.StringPtrOutput {
@@ -4227,154 +5012,6 @@ func (o JobDefinitionResourceRequirementArrayOutput) Index(i pulumi.IntInput) Jo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionResourceRequirement {
 		return vs[0].([]JobDefinitionResourceRequirement)[vs[1].(int)]
 	}).(JobDefinitionResourceRequirementOutput)
-}
-
-type JobDefinitionResources struct {
-	Limits   interface{} `pulumi:"limits"`
-	Requests interface{} `pulumi:"requests"`
-}
-
-// JobDefinitionResourcesInput is an input type that accepts JobDefinitionResourcesArgs and JobDefinitionResourcesOutput values.
-// You can construct a concrete instance of `JobDefinitionResourcesInput` via:
-//
-//	JobDefinitionResourcesArgs{...}
-type JobDefinitionResourcesInput interface {
-	pulumi.Input
-
-	ToJobDefinitionResourcesOutput() JobDefinitionResourcesOutput
-	ToJobDefinitionResourcesOutputWithContext(context.Context) JobDefinitionResourcesOutput
-}
-
-type JobDefinitionResourcesArgs struct {
-	Limits   pulumi.Input `pulumi:"limits"`
-	Requests pulumi.Input `pulumi:"requests"`
-}
-
-func (JobDefinitionResourcesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionResources)(nil)).Elem()
-}
-
-func (i JobDefinitionResourcesArgs) ToJobDefinitionResourcesOutput() JobDefinitionResourcesOutput {
-	return i.ToJobDefinitionResourcesOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionResourcesArgs) ToJobDefinitionResourcesOutputWithContext(ctx context.Context) JobDefinitionResourcesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionResourcesOutput)
-}
-
-func (i JobDefinitionResourcesArgs) ToJobDefinitionResourcesPtrOutput() JobDefinitionResourcesPtrOutput {
-	return i.ToJobDefinitionResourcesPtrOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionResourcesArgs) ToJobDefinitionResourcesPtrOutputWithContext(ctx context.Context) JobDefinitionResourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionResourcesOutput).ToJobDefinitionResourcesPtrOutputWithContext(ctx)
-}
-
-// JobDefinitionResourcesPtrInput is an input type that accepts JobDefinitionResourcesArgs, JobDefinitionResourcesPtr and JobDefinitionResourcesPtrOutput values.
-// You can construct a concrete instance of `JobDefinitionResourcesPtrInput` via:
-//
-//	        JobDefinitionResourcesArgs{...}
-//
-//	or:
-//
-//	        nil
-type JobDefinitionResourcesPtrInput interface {
-	pulumi.Input
-
-	ToJobDefinitionResourcesPtrOutput() JobDefinitionResourcesPtrOutput
-	ToJobDefinitionResourcesPtrOutputWithContext(context.Context) JobDefinitionResourcesPtrOutput
-}
-
-type jobDefinitionResourcesPtrType JobDefinitionResourcesArgs
-
-func JobDefinitionResourcesPtr(v *JobDefinitionResourcesArgs) JobDefinitionResourcesPtrInput {
-	return (*jobDefinitionResourcesPtrType)(v)
-}
-
-func (*jobDefinitionResourcesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionResources)(nil)).Elem()
-}
-
-func (i *jobDefinitionResourcesPtrType) ToJobDefinitionResourcesPtrOutput() JobDefinitionResourcesPtrOutput {
-	return i.ToJobDefinitionResourcesPtrOutputWithContext(context.Background())
-}
-
-func (i *jobDefinitionResourcesPtrType) ToJobDefinitionResourcesPtrOutputWithContext(ctx context.Context) JobDefinitionResourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionResourcesPtrOutput)
-}
-
-type JobDefinitionResourcesOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionResourcesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionResources)(nil)).Elem()
-}
-
-func (o JobDefinitionResourcesOutput) ToJobDefinitionResourcesOutput() JobDefinitionResourcesOutput {
-	return o
-}
-
-func (o JobDefinitionResourcesOutput) ToJobDefinitionResourcesOutputWithContext(ctx context.Context) JobDefinitionResourcesOutput {
-	return o
-}
-
-func (o JobDefinitionResourcesOutput) ToJobDefinitionResourcesPtrOutput() JobDefinitionResourcesPtrOutput {
-	return o.ToJobDefinitionResourcesPtrOutputWithContext(context.Background())
-}
-
-func (o JobDefinitionResourcesOutput) ToJobDefinitionResourcesPtrOutputWithContext(ctx context.Context) JobDefinitionResourcesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionResources) *JobDefinitionResources {
-		return &v
-	}).(JobDefinitionResourcesPtrOutput)
-}
-
-func (o JobDefinitionResourcesOutput) Limits() pulumi.AnyOutput {
-	return o.ApplyT(func(v JobDefinitionResources) interface{} { return v.Limits }).(pulumi.AnyOutput)
-}
-
-func (o JobDefinitionResourcesOutput) Requests() pulumi.AnyOutput {
-	return o.ApplyT(func(v JobDefinitionResources) interface{} { return v.Requests }).(pulumi.AnyOutput)
-}
-
-type JobDefinitionResourcesPtrOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionResourcesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionResources)(nil)).Elem()
-}
-
-func (o JobDefinitionResourcesPtrOutput) ToJobDefinitionResourcesPtrOutput() JobDefinitionResourcesPtrOutput {
-	return o
-}
-
-func (o JobDefinitionResourcesPtrOutput) ToJobDefinitionResourcesPtrOutputWithContext(ctx context.Context) JobDefinitionResourcesPtrOutput {
-	return o
-}
-
-func (o JobDefinitionResourcesPtrOutput) Elem() JobDefinitionResourcesOutput {
-	return o.ApplyT(func(v *JobDefinitionResources) JobDefinitionResources {
-		if v != nil {
-			return *v
-		}
-		var ret JobDefinitionResources
-		return ret
-	}).(JobDefinitionResourcesOutput)
-}
-
-func (o JobDefinitionResourcesPtrOutput) Limits() pulumi.AnyOutput {
-	return o.ApplyT(func(v *JobDefinitionResources) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Limits
-	}).(pulumi.AnyOutput)
-}
-
-func (o JobDefinitionResourcesPtrOutput) Requests() pulumi.AnyOutput {
-	return o.ApplyT(func(v *JobDefinitionResources) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Requests
-	}).(pulumi.AnyOutput)
 }
 
 type JobDefinitionRetryStrategy struct {
@@ -4558,47 +5195,6 @@ func (i JobDefinitionSecretArgs) ToJobDefinitionSecretOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionSecretOutput)
 }
 
-func (i JobDefinitionSecretArgs) ToJobDefinitionSecretPtrOutput() JobDefinitionSecretPtrOutput {
-	return i.ToJobDefinitionSecretPtrOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionSecretArgs) ToJobDefinitionSecretPtrOutputWithContext(ctx context.Context) JobDefinitionSecretPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionSecretOutput).ToJobDefinitionSecretPtrOutputWithContext(ctx)
-}
-
-// JobDefinitionSecretPtrInput is an input type that accepts JobDefinitionSecretArgs, JobDefinitionSecretPtr and JobDefinitionSecretPtrOutput values.
-// You can construct a concrete instance of `JobDefinitionSecretPtrInput` via:
-//
-//	        JobDefinitionSecretArgs{...}
-//
-//	or:
-//
-//	        nil
-type JobDefinitionSecretPtrInput interface {
-	pulumi.Input
-
-	ToJobDefinitionSecretPtrOutput() JobDefinitionSecretPtrOutput
-	ToJobDefinitionSecretPtrOutputWithContext(context.Context) JobDefinitionSecretPtrOutput
-}
-
-type jobDefinitionSecretPtrType JobDefinitionSecretArgs
-
-func JobDefinitionSecretPtr(v *JobDefinitionSecretArgs) JobDefinitionSecretPtrInput {
-	return (*jobDefinitionSecretPtrType)(v)
-}
-
-func (*jobDefinitionSecretPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionSecret)(nil)).Elem()
-}
-
-func (i *jobDefinitionSecretPtrType) ToJobDefinitionSecretPtrOutput() JobDefinitionSecretPtrOutput {
-	return i.ToJobDefinitionSecretPtrOutputWithContext(context.Background())
-}
-
-func (i *jobDefinitionSecretPtrType) ToJobDefinitionSecretPtrOutputWithContext(ctx context.Context) JobDefinitionSecretPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionSecretPtrOutput)
-}
-
 // JobDefinitionSecretArrayInput is an input type that accepts JobDefinitionSecretArray and JobDefinitionSecretArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionSecretArrayInput` via:
 //
@@ -4638,64 +5234,12 @@ func (o JobDefinitionSecretOutput) ToJobDefinitionSecretOutputWithContext(ctx co
 	return o
 }
 
-func (o JobDefinitionSecretOutput) ToJobDefinitionSecretPtrOutput() JobDefinitionSecretPtrOutput {
-	return o.ToJobDefinitionSecretPtrOutputWithContext(context.Background())
-}
-
-func (o JobDefinitionSecretOutput) ToJobDefinitionSecretPtrOutputWithContext(ctx context.Context) JobDefinitionSecretPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionSecret) *JobDefinitionSecret {
-		return &v
-	}).(JobDefinitionSecretPtrOutput)
-}
-
 func (o JobDefinitionSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o JobDefinitionSecretOutput) ValueFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionSecret) string { return v.ValueFrom }).(pulumi.StringOutput)
-}
-
-type JobDefinitionSecretPtrOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionSecretPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionSecret)(nil)).Elem()
-}
-
-func (o JobDefinitionSecretPtrOutput) ToJobDefinitionSecretPtrOutput() JobDefinitionSecretPtrOutput {
-	return o
-}
-
-func (o JobDefinitionSecretPtrOutput) ToJobDefinitionSecretPtrOutputWithContext(ctx context.Context) JobDefinitionSecretPtrOutput {
-	return o
-}
-
-func (o JobDefinitionSecretPtrOutput) Elem() JobDefinitionSecretOutput {
-	return o.ApplyT(func(v *JobDefinitionSecret) JobDefinitionSecret {
-		if v != nil {
-			return *v
-		}
-		var ret JobDefinitionSecret
-		return ret
-	}).(JobDefinitionSecretOutput)
-}
-
-func (o JobDefinitionSecretPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionSecret) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JobDefinitionSecretPtrOutput) ValueFrom() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionSecret) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ValueFrom
-	}).(pulumi.StringPtrOutput)
 }
 
 type JobDefinitionSecretArrayOutput struct{ *pulumi.OutputState }
@@ -4716,199 +5260,6 @@ func (o JobDefinitionSecretArrayOutput) Index(i pulumi.IntInput) JobDefinitionSe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionSecret {
 		return vs[0].([]JobDefinitionSecret)[vs[1].(int)]
 	}).(JobDefinitionSecretOutput)
-}
-
-type JobDefinitionSecurityContext struct {
-	Privileged             *bool `pulumi:"privileged"`
-	ReadOnlyRootFilesystem *bool `pulumi:"readOnlyRootFilesystem"`
-	RunAsGroup             *int  `pulumi:"runAsGroup"`
-	RunAsNonRoot           *bool `pulumi:"runAsNonRoot"`
-	RunAsUser              *int  `pulumi:"runAsUser"`
-}
-
-// JobDefinitionSecurityContextInput is an input type that accepts JobDefinitionSecurityContextArgs and JobDefinitionSecurityContextOutput values.
-// You can construct a concrete instance of `JobDefinitionSecurityContextInput` via:
-//
-//	JobDefinitionSecurityContextArgs{...}
-type JobDefinitionSecurityContextInput interface {
-	pulumi.Input
-
-	ToJobDefinitionSecurityContextOutput() JobDefinitionSecurityContextOutput
-	ToJobDefinitionSecurityContextOutputWithContext(context.Context) JobDefinitionSecurityContextOutput
-}
-
-type JobDefinitionSecurityContextArgs struct {
-	Privileged             pulumi.BoolPtrInput `pulumi:"privileged"`
-	ReadOnlyRootFilesystem pulumi.BoolPtrInput `pulumi:"readOnlyRootFilesystem"`
-	RunAsGroup             pulumi.IntPtrInput  `pulumi:"runAsGroup"`
-	RunAsNonRoot           pulumi.BoolPtrInput `pulumi:"runAsNonRoot"`
-	RunAsUser              pulumi.IntPtrInput  `pulumi:"runAsUser"`
-}
-
-func (JobDefinitionSecurityContextArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionSecurityContext)(nil)).Elem()
-}
-
-func (i JobDefinitionSecurityContextArgs) ToJobDefinitionSecurityContextOutput() JobDefinitionSecurityContextOutput {
-	return i.ToJobDefinitionSecurityContextOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionSecurityContextArgs) ToJobDefinitionSecurityContextOutputWithContext(ctx context.Context) JobDefinitionSecurityContextOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionSecurityContextOutput)
-}
-
-func (i JobDefinitionSecurityContextArgs) ToJobDefinitionSecurityContextPtrOutput() JobDefinitionSecurityContextPtrOutput {
-	return i.ToJobDefinitionSecurityContextPtrOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionSecurityContextArgs) ToJobDefinitionSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionSecurityContextPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionSecurityContextOutput).ToJobDefinitionSecurityContextPtrOutputWithContext(ctx)
-}
-
-// JobDefinitionSecurityContextPtrInput is an input type that accepts JobDefinitionSecurityContextArgs, JobDefinitionSecurityContextPtr and JobDefinitionSecurityContextPtrOutput values.
-// You can construct a concrete instance of `JobDefinitionSecurityContextPtrInput` via:
-//
-//	        JobDefinitionSecurityContextArgs{...}
-//
-//	or:
-//
-//	        nil
-type JobDefinitionSecurityContextPtrInput interface {
-	pulumi.Input
-
-	ToJobDefinitionSecurityContextPtrOutput() JobDefinitionSecurityContextPtrOutput
-	ToJobDefinitionSecurityContextPtrOutputWithContext(context.Context) JobDefinitionSecurityContextPtrOutput
-}
-
-type jobDefinitionSecurityContextPtrType JobDefinitionSecurityContextArgs
-
-func JobDefinitionSecurityContextPtr(v *JobDefinitionSecurityContextArgs) JobDefinitionSecurityContextPtrInput {
-	return (*jobDefinitionSecurityContextPtrType)(v)
-}
-
-func (*jobDefinitionSecurityContextPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionSecurityContext)(nil)).Elem()
-}
-
-func (i *jobDefinitionSecurityContextPtrType) ToJobDefinitionSecurityContextPtrOutput() JobDefinitionSecurityContextPtrOutput {
-	return i.ToJobDefinitionSecurityContextPtrOutputWithContext(context.Background())
-}
-
-func (i *jobDefinitionSecurityContextPtrType) ToJobDefinitionSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionSecurityContextPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionSecurityContextPtrOutput)
-}
-
-type JobDefinitionSecurityContextOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionSecurityContextOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionSecurityContext)(nil)).Elem()
-}
-
-func (o JobDefinitionSecurityContextOutput) ToJobDefinitionSecurityContextOutput() JobDefinitionSecurityContextOutput {
-	return o
-}
-
-func (o JobDefinitionSecurityContextOutput) ToJobDefinitionSecurityContextOutputWithContext(ctx context.Context) JobDefinitionSecurityContextOutput {
-	return o
-}
-
-func (o JobDefinitionSecurityContextOutput) ToJobDefinitionSecurityContextPtrOutput() JobDefinitionSecurityContextPtrOutput {
-	return o.ToJobDefinitionSecurityContextPtrOutputWithContext(context.Background())
-}
-
-func (o JobDefinitionSecurityContextOutput) ToJobDefinitionSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionSecurityContextPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionSecurityContext) *JobDefinitionSecurityContext {
-		return &v
-	}).(JobDefinitionSecurityContextPtrOutput)
-}
-
-func (o JobDefinitionSecurityContextOutput) Privileged() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v JobDefinitionSecurityContext) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
-}
-
-func (o JobDefinitionSecurityContextOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v JobDefinitionSecurityContext) *bool { return v.ReadOnlyRootFilesystem }).(pulumi.BoolPtrOutput)
-}
-
-func (o JobDefinitionSecurityContextOutput) RunAsGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobDefinitionSecurityContext) *int { return v.RunAsGroup }).(pulumi.IntPtrOutput)
-}
-
-func (o JobDefinitionSecurityContextOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v JobDefinitionSecurityContext) *bool { return v.RunAsNonRoot }).(pulumi.BoolPtrOutput)
-}
-
-func (o JobDefinitionSecurityContextOutput) RunAsUser() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobDefinitionSecurityContext) *int { return v.RunAsUser }).(pulumi.IntPtrOutput)
-}
-
-type JobDefinitionSecurityContextPtrOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionSecurityContextPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionSecurityContext)(nil)).Elem()
-}
-
-func (o JobDefinitionSecurityContextPtrOutput) ToJobDefinitionSecurityContextPtrOutput() JobDefinitionSecurityContextPtrOutput {
-	return o
-}
-
-func (o JobDefinitionSecurityContextPtrOutput) ToJobDefinitionSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionSecurityContextPtrOutput {
-	return o
-}
-
-func (o JobDefinitionSecurityContextPtrOutput) Elem() JobDefinitionSecurityContextOutput {
-	return o.ApplyT(func(v *JobDefinitionSecurityContext) JobDefinitionSecurityContext {
-		if v != nil {
-			return *v
-		}
-		var ret JobDefinitionSecurityContext
-		return ret
-	}).(JobDefinitionSecurityContextOutput)
-}
-
-func (o JobDefinitionSecurityContextPtrOutput) Privileged() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionSecurityContext) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Privileged
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o JobDefinitionSecurityContextPtrOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionSecurityContext) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ReadOnlyRootFilesystem
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o JobDefinitionSecurityContextPtrOutput) RunAsGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionSecurityContext) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RunAsGroup
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o JobDefinitionSecurityContextPtrOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionSecurityContext) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RunAsNonRoot
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o JobDefinitionSecurityContextPtrOutput) RunAsUser() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionSecurityContext) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RunAsUser
-	}).(pulumi.IntPtrOutput)
 }
 
 type JobDefinitionTimeout struct {
@@ -5888,26 +6239,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerArrayInput)(nil)).Elem(), JobDefinitionEksContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerEnvironmentVariableInput)(nil)).Elem(), JobDefinitionEksContainerEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerEnvironmentVariableArrayInput)(nil)).Elem(), JobDefinitionEksContainerEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerResourceRequirementsInput)(nil)).Elem(), JobDefinitionEksContainerResourceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerResourceRequirementsPtrInput)(nil)).Elem(), JobDefinitionEksContainerResourceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerSecurityContextInput)(nil)).Elem(), JobDefinitionEksContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerSecurityContextPtrInput)(nil)).Elem(), JobDefinitionEksContainerSecurityContextArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerVolumeMountInput)(nil)).Elem(), JobDefinitionEksContainerVolumeMountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerVolumeMountArrayInput)(nil)).Elem(), JobDefinitionEksContainerVolumeMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksEmptyDirInput)(nil)).Elem(), JobDefinitionEksEmptyDirArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksEmptyDirPtrInput)(nil)).Elem(), JobDefinitionEksEmptyDirArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksHostPathInput)(nil)).Elem(), JobDefinitionEksHostPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksHostPathPtrInput)(nil)).Elem(), JobDefinitionEksHostPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesInput)(nil)).Elem(), JobDefinitionEksPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPtrInput)(nil)).Elem(), JobDefinitionEksPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksSecretInput)(nil)).Elem(), JobDefinitionEksSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksSecretPtrInput)(nil)).Elem(), JobDefinitionEksSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksVolumeInput)(nil)).Elem(), JobDefinitionEksVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksVolumeArrayInput)(nil)).Elem(), JobDefinitionEksVolumeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEmptyDirInput)(nil)).Elem(), JobDefinitionEmptyDirArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEmptyDirPtrInput)(nil)).Elem(), JobDefinitionEmptyDirArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEnvironmentInput)(nil)).Elem(), JobDefinitionEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEnvironmentArrayInput)(nil)).Elem(), JobDefinitionEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEphemeralStorageInput)(nil)).Elem(), JobDefinitionEphemeralStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEphemeralStoragePtrInput)(nil)).Elem(), JobDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEvaluateOnExitInput)(nil)).Elem(), JobDefinitionEvaluateOnExitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEvaluateOnExitArrayInput)(nil)).Elem(), JobDefinitionEvaluateOnExitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionFargatePlatformConfigurationInput)(nil)).Elem(), JobDefinitionFargatePlatformConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionFargatePlatformConfigurationPtrInput)(nil)).Elem(), JobDefinitionFargatePlatformConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionHostPathInput)(nil)).Elem(), JobDefinitionHostPathArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionHostPathPtrInput)(nil)).Elem(), JobDefinitionHostPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionLinuxParametersInput)(nil)).Elem(), JobDefinitionLinuxParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionLinuxParametersPtrInput)(nil)).Elem(), JobDefinitionLinuxParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionLogConfigurationInput)(nil)).Elem(), JobDefinitionLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionLogConfigurationPtrInput)(nil)).Elem(), JobDefinitionLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMetadataInput)(nil)).Elem(), JobDefinitionMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMetadataPtrInput)(nil)).Elem(), JobDefinitionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMountPointsInput)(nil)).Elem(), JobDefinitionMountPointsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMountPointsArrayInput)(nil)).Elem(), JobDefinitionMountPointsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionNetworkConfigurationInput)(nil)).Elem(), JobDefinitionNetworkConfigurationArgs{})
@@ -5920,15 +6281,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionPodPropertiesPtrInput)(nil)).Elem(), JobDefinitionPodPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourceRequirementInput)(nil)).Elem(), JobDefinitionResourceRequirementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourceRequirementArrayInput)(nil)).Elem(), JobDefinitionResourceRequirementArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourcesInput)(nil)).Elem(), JobDefinitionResourcesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourcesPtrInput)(nil)).Elem(), JobDefinitionResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyInput)(nil)).Elem(), JobDefinitionRetryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyPtrInput)(nil)).Elem(), JobDefinitionRetryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionSecretInput)(nil)).Elem(), JobDefinitionSecretArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionSecretPtrInput)(nil)).Elem(), JobDefinitionSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionSecretArrayInput)(nil)).Elem(), JobDefinitionSecretArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionSecurityContextInput)(nil)).Elem(), JobDefinitionSecurityContextArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionSecurityContextPtrInput)(nil)).Elem(), JobDefinitionSecurityContextArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTimeoutInput)(nil)).Elem(), JobDefinitionTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTimeoutPtrInput)(nil)).Elem(), JobDefinitionTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTmpfsInput)(nil)).Elem(), JobDefinitionTmpfsArgs{})
@@ -5967,26 +6323,36 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionEksContainerArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksContainerEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksContainerEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksContainerResourceRequirementsOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksContainerResourceRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksContainerSecurityContextOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksContainerSecurityContextPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksContainerVolumeMountOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksContainerVolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksEmptyDirOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksEmptyDirPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksHostPathOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksHostPathPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksSecretOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksSecretPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksVolumeOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksVolumeArrayOutput{})
-	pulumi.RegisterOutputType(JobDefinitionEmptyDirOutput{})
-	pulumi.RegisterOutputType(JobDefinitionEmptyDirPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEnvironmentOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEphemeralStorageOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEphemeralStoragePtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEvaluateOnExitOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEvaluateOnExitArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionFargatePlatformConfigurationOutput{})
 	pulumi.RegisterOutputType(JobDefinitionFargatePlatformConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(JobDefinitionHostPathOutput{})
-	pulumi.RegisterOutputType(JobDefinitionHostPathPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLinuxParametersOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLinuxParametersPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLogConfigurationOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionMetadataOutput{})
+	pulumi.RegisterOutputType(JobDefinitionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionMountPointsOutput{})
 	pulumi.RegisterOutputType(JobDefinitionMountPointsArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionNetworkConfigurationOutput{})
@@ -5999,15 +6365,10 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionPodPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionResourceRequirementOutput{})
 	pulumi.RegisterOutputType(JobDefinitionResourceRequirementArrayOutput{})
-	pulumi.RegisterOutputType(JobDefinitionResourcesOutput{})
-	pulumi.RegisterOutputType(JobDefinitionResourcesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionSecretOutput{})
-	pulumi.RegisterOutputType(JobDefinitionSecretPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionSecretArrayOutput{})
-	pulumi.RegisterOutputType(JobDefinitionSecurityContextOutput{})
-	pulumi.RegisterOutputType(JobDefinitionSecurityContextPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTimeoutOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTmpfsOutput{})

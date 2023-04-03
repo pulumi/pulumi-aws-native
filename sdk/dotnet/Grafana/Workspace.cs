@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Grafana
     public partial class Workspace : global::Pulumi.CustomResource
     {
         [Output("accountAccessType")]
-        public Output<Pulumi.AwsNative.Grafana.WorkspaceAccountAccessType?> AccountAccessType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Grafana.WorkspaceAccountAccessType> AccountAccessType { get; private set; } = null!;
 
         /// <summary>
         /// List of authentication providers to enable.
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Grafana
         public Output<ImmutableArray<string>> OrganizationalUnits { get; private set; } = null!;
 
         [Output("permissionType")]
-        public Output<Pulumi.AwsNative.Grafana.WorkspacePermissionType?> PermissionType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Grafana.WorkspacePermissionType> PermissionType { get; private set; } = null!;
 
         /// <summary>
         /// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
@@ -131,7 +131,7 @@ namespace Pulumi.AwsNative.Grafana
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Workspace(string name, WorkspaceArgs? args = null, CustomResourceOptions? options = null)
+        public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
             : base("aws-native:grafana:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -168,10 +168,10 @@ namespace Pulumi.AwsNative.Grafana
 
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("accountAccessType")]
-        public Input<Pulumi.AwsNative.Grafana.WorkspaceAccountAccessType>? AccountAccessType { get; set; }
+        [Input("accountAccessType", required: true)]
+        public Input<Pulumi.AwsNative.Grafana.WorkspaceAccountAccessType> AccountAccessType { get; set; } = null!;
 
-        [Input("authenticationProviders")]
+        [Input("authenticationProviders", required: true)]
         private InputList<Pulumi.AwsNative.Grafana.WorkspaceAuthenticationProviderTypes>? _authenticationProviders;
 
         /// <summary>
@@ -243,8 +243,8 @@ namespace Pulumi.AwsNative.Grafana
             set => _organizationalUnits = value;
         }
 
-        [Input("permissionType")]
-        public Input<Pulumi.AwsNative.Grafana.WorkspacePermissionType>? PermissionType { get; set; }
+        [Input("permissionType", required: true)]
+        public Input<Pulumi.AwsNative.Grafana.WorkspacePermissionType> PermissionType { get; set; } = null!;
 
         /// <summary>
         /// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.

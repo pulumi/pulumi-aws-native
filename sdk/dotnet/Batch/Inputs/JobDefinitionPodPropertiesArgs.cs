@@ -26,6 +26,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("hostNetwork")]
         public Input<bool>? HostNetwork { get; set; }
 
+        [Input("metadata")]
+        public Input<Inputs.JobDefinitionMetadataArgs>? Metadata { get; set; }
+
         [Input("serviceAccountName")]
         public Input<string>? ServiceAccountName { get; set; }
 

@@ -5385,6 +5385,7 @@ export namespace batch {
     export interface JobDefinitionContainerPropertiesArgs {
         command?: pulumi.Input<pulumi.Input<string>[]>;
         environment?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEnvironmentArgs>[]>;
+        ephemeralStorage?: pulumi.Input<inputs.batch.JobDefinitionEphemeralStorageArgs>;
         executionRoleArn?: pulumi.Input<string>;
         fargatePlatformConfiguration?: pulumi.Input<inputs.batch.JobDefinitionFargatePlatformConfigurationArgs>;
         image: pulumi.Input<string>;
@@ -5426,8 +5427,8 @@ export namespace batch {
         image: pulumi.Input<string>;
         imagePullPolicy?: pulumi.Input<string>;
         name?: pulumi.Input<string>;
-        resources?: pulumi.Input<inputs.batch.JobDefinitionResourcesArgs>;
-        securityContext?: pulumi.Input<inputs.batch.JobDefinitionSecurityContextArgs>;
+        resources?: pulumi.Input<inputs.batch.JobDefinitionEksContainerResourceRequirementsArgs>;
+        securityContext?: pulumi.Input<inputs.batch.JobDefinitionEksContainerSecurityContextArgs>;
         volumeMounts?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksContainerVolumeMountArgs>[]>;
     }
 
@@ -5436,31 +5437,57 @@ export namespace batch {
         value?: pulumi.Input<string>;
     }
 
+    export interface JobDefinitionEksContainerResourceRequirementsArgs {
+        limits?: any;
+        requests?: any;
+    }
+
+    export interface JobDefinitionEksContainerSecurityContextArgs {
+        privileged?: pulumi.Input<boolean>;
+        readOnlyRootFilesystem?: pulumi.Input<boolean>;
+        runAsGroup?: pulumi.Input<number>;
+        runAsNonRoot?: pulumi.Input<boolean>;
+        runAsUser?: pulumi.Input<number>;
+    }
+
     export interface JobDefinitionEksContainerVolumeMountArgs {
         mountPath?: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         readOnly?: pulumi.Input<boolean>;
     }
 
+    export interface JobDefinitionEksEmptyDirArgs {
+        medium?: pulumi.Input<string>;
+        sizeLimit?: pulumi.Input<string>;
+    }
+
+    export interface JobDefinitionEksHostPathArgs {
+        path?: pulumi.Input<string>;
+    }
+
     export interface JobDefinitionEksPropertiesArgs {
         podProperties?: pulumi.Input<inputs.batch.JobDefinitionPodPropertiesArgs>;
     }
 
-    export interface JobDefinitionEksVolumeArgs {
-        emptyDir?: pulumi.Input<inputs.batch.JobDefinitionEmptyDirArgs>;
-        hostPath?: pulumi.Input<inputs.batch.JobDefinitionHostPathArgs>;
-        name: pulumi.Input<string>;
-        secret?: pulumi.Input<inputs.batch.JobDefinitionSecretArgs>;
+    export interface JobDefinitionEksSecretArgs {
+        optional?: pulumi.Input<boolean>;
+        secretName: pulumi.Input<string>;
     }
 
-    export interface JobDefinitionEmptyDirArgs {
-        medium?: pulumi.Input<string>;
-        sizeLimit?: pulumi.Input<string>;
+    export interface JobDefinitionEksVolumeArgs {
+        emptyDir?: pulumi.Input<inputs.batch.JobDefinitionEksEmptyDirArgs>;
+        hostPath?: pulumi.Input<inputs.batch.JobDefinitionEksHostPathArgs>;
+        name: pulumi.Input<string>;
+        secret?: pulumi.Input<inputs.batch.JobDefinitionEksSecretArgs>;
     }
 
     export interface JobDefinitionEnvironmentArgs {
         name?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+
+    export interface JobDefinitionEphemeralStorageArgs {
+        sizeInGiB: pulumi.Input<number>;
     }
 
     export interface JobDefinitionEvaluateOnExitArgs {
@@ -5472,10 +5499,6 @@ export namespace batch {
 
     export interface JobDefinitionFargatePlatformConfigurationArgs {
         platformVersion?: pulumi.Input<string>;
-    }
-
-    export interface JobDefinitionHostPathArgs {
-        path?: pulumi.Input<string>;
     }
 
     export interface JobDefinitionLinuxParametersArgs {
@@ -5491,6 +5514,10 @@ export namespace batch {
         logDriver: pulumi.Input<string>;
         options?: any;
         secretOptions?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionSecretArgs>[]>;
+    }
+
+    export interface JobDefinitionMetadataArgs {
+        labels?: any;
     }
 
     export interface JobDefinitionMountPointsArgs {
@@ -5518,6 +5545,7 @@ export namespace batch {
         containers?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksContainerArgs>[]>;
         dnsPolicy?: pulumi.Input<string>;
         hostNetwork?: pulumi.Input<boolean>;
+        metadata?: pulumi.Input<inputs.batch.JobDefinitionMetadataArgs>;
         serviceAccountName?: pulumi.Input<string>;
         volumes?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksVolumeArgs>[]>;
     }
@@ -5525,11 +5553,6 @@ export namespace batch {
     export interface JobDefinitionResourceRequirementArgs {
         type?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
-    }
-
-    export interface JobDefinitionResourcesArgs {
-        limits?: any;
-        requests?: any;
     }
 
     export interface JobDefinitionRetryStrategyArgs {
@@ -5540,14 +5563,6 @@ export namespace batch {
     export interface JobDefinitionSecretArgs {
         name: pulumi.Input<string>;
         valueFrom: pulumi.Input<string>;
-    }
-
-    export interface JobDefinitionSecurityContextArgs {
-        privileged?: pulumi.Input<boolean>;
-        readOnlyRootFilesystem?: pulumi.Input<boolean>;
-        runAsGroup?: pulumi.Input<number>;
-        runAsNonRoot?: pulumi.Input<boolean>;
-        runAsUser?: pulumi.Input<number>;
     }
 
     export interface JobDefinitionTimeoutArgs {
@@ -19729,6 +19744,16 @@ export namespace iotwireless {
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * sidewalk contain file for created device and role
+     */
+    export interface SidewalkPropertiesArgs {
+        deviceCreationFile?: pulumi.Input<string>;
+        deviceCreationFileList?: pulumi.Input<pulumi.Input<string>[]>;
+        role?: pulumi.Input<string>;
+        sidewalkManufacturingSn?: pulumi.Input<string>;
+    }
+
     export interface TaskDefinitionLoRaWANGatewayVersionArgs {
         model?: pulumi.Input<string>;
         packageVersion?: pulumi.Input<string>;
@@ -19774,6 +19799,20 @@ export namespace iotwireless {
     export interface WirelessDeviceAbpV11Args {
         devAddr: pulumi.Input<string>;
         sessionKeys: pulumi.Input<inputs.iotwireless.WirelessDeviceSessionKeysAbpV11Args>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface WirelessDeviceImportTaskTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface WirelessDeviceLoRaWANDeviceArgs {
@@ -47811,41 +47850,41 @@ export namespace xray {
         /**
          * The percentage of matching requests to instrument, after the reservoir is exhausted.
          */
-        fixedRate?: pulumi.Input<number>;
+        fixedRate: pulumi.Input<number>;
         /**
          * Matches the HTTP method from a request URL.
          */
-        hTTPMethod?: pulumi.Input<string>;
+        hTTPMethod: pulumi.Input<string>;
         /**
          * Matches the hostname from a request URL.
          */
-        host?: pulumi.Input<string>;
+        host: pulumi.Input<string>;
         /**
          * The priority of the sampling rule.
          */
-        priority?: pulumi.Input<number>;
+        priority: pulumi.Input<number>;
         /**
          * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
          */
-        reservoirSize?: pulumi.Input<number>;
+        reservoirSize: pulumi.Input<number>;
         /**
          * Matches the ARN of the AWS resource on which the service runs.
          */
-        resourceARN?: pulumi.Input<string>;
+        resourceARN: pulumi.Input<string>;
         ruleARN?: pulumi.Input<string>;
         ruleName?: pulumi.Input<string>;
         /**
          * Matches the name that the service uses to identify itself in segments.
          */
-        serviceName?: pulumi.Input<string>;
+        serviceName: pulumi.Input<string>;
         /**
          * Matches the origin that the service uses to identify its type in segments.
          */
-        serviceType?: pulumi.Input<string>;
+        serviceType: pulumi.Input<string>;
         /**
          * Matches the path from a request URL.
          */
-        uRLPath?: pulumi.Input<string>;
+        uRLPath: pulumi.Input<string>;
         /**
          * The version of the sampling rule format (1)
          */

@@ -65,6 +65,11 @@ export const getWirelessDevice: typeof import("./getWirelessDevice").getWireless
 export const getWirelessDeviceOutput: typeof import("./getWirelessDevice").getWirelessDeviceOutput = null as any;
 utilities.lazyLoad(exports, ["getWirelessDevice","getWirelessDeviceOutput"], () => require("./getWirelessDevice"));
 
+export { GetWirelessDeviceImportTaskArgs, GetWirelessDeviceImportTaskResult, GetWirelessDeviceImportTaskOutputArgs } from "./getWirelessDeviceImportTask";
+export const getWirelessDeviceImportTask: typeof import("./getWirelessDeviceImportTask").getWirelessDeviceImportTask = null as any;
+export const getWirelessDeviceImportTaskOutput: typeof import("./getWirelessDeviceImportTask").getWirelessDeviceImportTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getWirelessDeviceImportTask","getWirelessDeviceImportTaskOutput"], () => require("./getWirelessDeviceImportTask"));
+
 export { GetWirelessGatewayArgs, GetWirelessGatewayResult, GetWirelessGatewayOutputArgs } from "./getWirelessGateway";
 export const getWirelessGateway: typeof import("./getWirelessGateway").getWirelessGateway = null as any;
 export const getWirelessGatewayOutput: typeof import("./getWirelessGateway").getWirelessGatewayOutput = null as any;
@@ -100,6 +105,11 @@ export type WirelessDevice = import("./wirelessDevice").WirelessDevice;
 export const WirelessDevice: typeof import("./wirelessDevice").WirelessDevice = null as any;
 utilities.lazyLoad(exports, ["WirelessDevice"], () => require("./wirelessDevice"));
 
+export { WirelessDeviceImportTaskArgs } from "./wirelessDeviceImportTask";
+export type WirelessDeviceImportTask = import("./wirelessDeviceImportTask").WirelessDeviceImportTask;
+export const WirelessDeviceImportTask: typeof import("./wirelessDeviceImportTask").WirelessDeviceImportTask = null as any;
+utilities.lazyLoad(exports, ["WirelessDeviceImportTask"], () => require("./wirelessDeviceImportTask"));
+
 export { WirelessGatewayArgs } from "./wirelessGateway";
 export type WirelessGateway = import("./wirelessGateway").WirelessGateway;
 export const WirelessGateway: typeof import("./wirelessGateway").WirelessGateway = null as any;
@@ -131,6 +141,8 @@ const _module = {
                 return new TaskDefinition(name, <any>undefined, { urn })
             case "aws-native:iotwireless:WirelessDevice":
                 return new WirelessDevice(name, <any>undefined, { urn })
+            case "aws-native:iotwireless:WirelessDeviceImportTask":
+                return new WirelessDeviceImportTask(name, <any>undefined, { urn })
             case "aws-native:iotwireless:WirelessGateway":
                 return new WirelessGateway(name, <any>undefined, { urn })
             default:

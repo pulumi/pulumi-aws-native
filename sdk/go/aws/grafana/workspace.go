@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,7 +15,7 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	AccountAccessType WorkspaceAccountAccessTypePtrOutput `pulumi:"accountAccessType"`
+	AccountAccessType WorkspaceAccountAccessTypeOutput `pulumi:"accountAccessType"`
 	// List of authentication providers to enable.
 	AuthenticationProviders WorkspaceAuthenticationProviderTypesArrayOutput `pulumi:"authenticationProviders"`
 	// A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
@@ -38,8 +39,8 @@ type Workspace struct {
 	// The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
 	OrganizationRoleName pulumi.StringPtrOutput `pulumi:"organizationRoleName"`
 	// List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
-	OrganizationalUnits pulumi.StringArrayOutput         `pulumi:"organizationalUnits"`
-	PermissionType      WorkspacePermissionTypePtrOutput `pulumi:"permissionType"`
+	OrganizationalUnits pulumi.StringArrayOutput      `pulumi:"organizationalUnits"`
+	PermissionType      WorkspacePermissionTypeOutput `pulumi:"permissionType"`
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
 	RoleArn                 pulumi.StringPtrOutput                 `pulumi:"roleArn"`
 	SamlConfiguration       WorkspaceSamlConfigurationPtrOutput    `pulumi:"samlConfiguration"`
@@ -56,9 +57,18 @@ type Workspace struct {
 func NewWorkspace(ctx *pulumi.Context,
 	name string, args *WorkspaceArgs, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	if args == nil {
-		args = &WorkspaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AccountAccessType == nil {
+		return nil, errors.New("invalid value for required argument 'AccountAccessType'")
+	}
+	if args.AuthenticationProviders == nil {
+		return nil, errors.New("invalid value for required argument 'AuthenticationProviders'")
+	}
+	if args.PermissionType == nil {
+		return nil, errors.New("invalid value for required argument 'PermissionType'")
+	}
 	var resource Workspace
 	err := ctx.RegisterResource("aws-native:grafana:Workspace", name, args, &resource, opts...)
 	if err != nil {
@@ -91,7 +101,7 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	AccountAccessType *WorkspaceAccountAccessType `pulumi:"accountAccessType"`
+	AccountAccessType WorkspaceAccountAccessType `pulumi:"accountAccessType"`
 	// List of authentication providers to enable.
 	AuthenticationProviders []WorkspaceAuthenticationProviderTypes `pulumi:"authenticationProviders"`
 	// A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
@@ -107,8 +117,8 @@ type workspaceArgs struct {
 	// The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
 	OrganizationRoleName *string `pulumi:"organizationRoleName"`
 	// List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
-	OrganizationalUnits []string                 `pulumi:"organizationalUnits"`
-	PermissionType      *WorkspacePermissionType `pulumi:"permissionType"`
+	OrganizationalUnits []string                `pulumi:"organizationalUnits"`
+	PermissionType      WorkspacePermissionType `pulumi:"permissionType"`
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
 	RoleArn           *string                     `pulumi:"roleArn"`
 	SamlConfiguration *WorkspaceSamlConfiguration `pulumi:"samlConfiguration"`
@@ -119,7 +129,7 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	AccountAccessType WorkspaceAccountAccessTypePtrInput
+	AccountAccessType WorkspaceAccountAccessTypeInput
 	// List of authentication providers to enable.
 	AuthenticationProviders WorkspaceAuthenticationProviderTypesArrayInput
 	// A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
@@ -136,7 +146,7 @@ type WorkspaceArgs struct {
 	OrganizationRoleName pulumi.StringPtrInput
 	// List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
 	OrganizationalUnits pulumi.StringArrayInput
-	PermissionType      WorkspacePermissionTypePtrInput
+	PermissionType      WorkspacePermissionTypeInput
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
 	RoleArn           pulumi.StringPtrInput
 	SamlConfiguration WorkspaceSamlConfigurationPtrInput
@@ -182,8 +192,8 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
-func (o WorkspaceOutput) AccountAccessType() WorkspaceAccountAccessTypePtrOutput {
-	return o.ApplyT(func(v *Workspace) WorkspaceAccountAccessTypePtrOutput { return v.AccountAccessType }).(WorkspaceAccountAccessTypePtrOutput)
+func (o WorkspaceOutput) AccountAccessType() WorkspaceAccountAccessTypeOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceAccountAccessTypeOutput { return v.AccountAccessType }).(WorkspaceAccountAccessTypeOutput)
 }
 
 // List of authentication providers to enable.
@@ -246,8 +256,8 @@ func (o WorkspaceOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringArrayOutput { return v.OrganizationalUnits }).(pulumi.StringArrayOutput)
 }
 
-func (o WorkspaceOutput) PermissionType() WorkspacePermissionTypePtrOutput {
-	return o.ApplyT(func(v *Workspace) WorkspacePermissionTypePtrOutput { return v.PermissionType }).(WorkspacePermissionTypePtrOutput)
+func (o WorkspaceOutput) PermissionType() WorkspacePermissionTypeOutput {
+	return o.ApplyT(func(v *Workspace) WorkspacePermissionTypeOutput { return v.PermissionType }).(WorkspacePermissionTypeOutput)
 }
 
 // IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.

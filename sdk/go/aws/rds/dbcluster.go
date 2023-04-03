@@ -104,6 +104,8 @@ type DBCluster struct {
 	ReadEndpoint       DBClusterReadEndpointPtrOutput `pulumi:"readEndpoint"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrOutput `pulumi:"replicationSourceIdentifier"`
+	// The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
+	RestoreToTime pulumi.StringPtrOutput `pulumi:"restoreToTime"`
 	// The type of restore to be performed. You can specify one of the following values:
 	// full-copy - The new DB cluster is restored as a full copy of the source DB cluster.
 	// copy-on-write - The new DB cluster is restored as a clone of the source DB cluster.
@@ -257,6 +259,8 @@ type dbclusterArgs struct {
 	ReadEndpoint       *DBClusterReadEndpoint `pulumi:"readEndpoint"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
+	// The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
+	RestoreToTime *string `pulumi:"restoreToTime"`
 	// The type of restore to be performed. You can specify one of the following values:
 	// full-copy - The new DB cluster is restored as a full copy of the source DB cluster.
 	// copy-on-write - The new DB cluster is restored as a clone of the source DB cluster.
@@ -373,6 +377,8 @@ type DBClusterArgs struct {
 	ReadEndpoint       DBClusterReadEndpointPtrInput
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
+	// The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
+	RestoreToTime pulumi.StringPtrInput
 	// The type of restore to be performed. You can specify one of the following values:
 	// full-copy - The new DB cluster is restored as a full copy of the source DB cluster.
 	// copy-on-write - The new DB cluster is restored as a clone of the source DB cluster.
@@ -662,6 +668,11 @@ func (o DBClusterOutput) ReadEndpoint() DBClusterReadEndpointPtrOutput {
 // The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
 func (o DBClusterOutput) ReplicationSourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.ReplicationSourceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
+func (o DBClusterOutput) RestoreToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.RestoreToTime }).(pulumi.StringPtrOutput)
 }
 
 // The type of restore to be performed. You can specify one of the following values:

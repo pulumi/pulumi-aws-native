@@ -13,16 +13,16 @@ namespace Pulumi.AwsNative.Batch.Inputs
     public sealed class JobDefinitionEksVolumeArgs : global::Pulumi.ResourceArgs
     {
         [Input("emptyDir")]
-        public Input<Inputs.JobDefinitionEmptyDirArgs>? EmptyDir { get; set; }
+        public Input<Inputs.JobDefinitionEksEmptyDirArgs>? EmptyDir { get; set; }
 
         [Input("hostPath")]
-        public Input<Inputs.JobDefinitionHostPathArgs>? HostPath { get; set; }
+        public Input<Inputs.JobDefinitionEksHostPathArgs>? HostPath { get; set; }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("secret")]
-        public Input<Inputs.JobDefinitionSecretArgs>? Secret { get; set; }
+        public Input<Inputs.JobDefinitionEksSecretArgs>? Secret { get; set; }
 
         public JobDefinitionEksVolumeArgs()
         {

@@ -19,8 +19,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
         public readonly string Image;
         public readonly string? ImagePullPolicy;
         public readonly string? Name;
-        public readonly Outputs.JobDefinitionResources? Resources;
-        public readonly Outputs.JobDefinitionSecurityContext? SecurityContext;
+        public readonly Outputs.JobDefinitionEksContainerResourceRequirements? Resources;
+        public readonly Outputs.JobDefinitionEksContainerSecurityContext? SecurityContext;
         public readonly ImmutableArray<Outputs.JobDefinitionEksContainerVolumeMount> VolumeMounts;
 
         [OutputConstructor]
@@ -37,9 +37,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             string? name,
 
-            Outputs.JobDefinitionResources? resources,
+            Outputs.JobDefinitionEksContainerResourceRequirements? resources,
 
-            Outputs.JobDefinitionSecurityContext? securityContext,
+            Outputs.JobDefinitionEksContainerSecurityContext? securityContext,
 
             ImmutableArray<Outputs.JobDefinitionEksContainerVolumeMount> volumeMounts)
         {

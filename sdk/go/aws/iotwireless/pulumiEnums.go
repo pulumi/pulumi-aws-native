@@ -832,6 +832,101 @@ func (in *taskDefinitionTypePtr) ToTaskDefinitionTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionTypePtrOutput)
 }
 
+// Status for import task
+type WirelessDeviceImportTaskStatus string
+
+const (
+	WirelessDeviceImportTaskStatusInitializing = WirelessDeviceImportTaskStatus("INITIALIZING")
+	WirelessDeviceImportTaskStatusInitialized  = WirelessDeviceImportTaskStatus("INITIALIZED")
+	WirelessDeviceImportTaskStatusPending      = WirelessDeviceImportTaskStatus("PENDING")
+	WirelessDeviceImportTaskStatusComplete     = WirelessDeviceImportTaskStatus("COMPLETE")
+	WirelessDeviceImportTaskStatusFailed       = WirelessDeviceImportTaskStatus("FAILED")
+	WirelessDeviceImportTaskStatusDeleting     = WirelessDeviceImportTaskStatus("DELETING")
+)
+
+type WirelessDeviceImportTaskStatusOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceImportTaskStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceImportTaskStatus)(nil)).Elem()
+}
+
+func (o WirelessDeviceImportTaskStatusOutput) ToWirelessDeviceImportTaskStatusOutput() WirelessDeviceImportTaskStatusOutput {
+	return o
+}
+
+func (o WirelessDeviceImportTaskStatusOutput) ToWirelessDeviceImportTaskStatusOutputWithContext(ctx context.Context) WirelessDeviceImportTaskStatusOutput {
+	return o
+}
+
+func (o WirelessDeviceImportTaskStatusOutput) ToWirelessDeviceImportTaskStatusPtrOutput() WirelessDeviceImportTaskStatusPtrOutput {
+	return o.ToWirelessDeviceImportTaskStatusPtrOutputWithContext(context.Background())
+}
+
+func (o WirelessDeviceImportTaskStatusOutput) ToWirelessDeviceImportTaskStatusPtrOutputWithContext(ctx context.Context) WirelessDeviceImportTaskStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WirelessDeviceImportTaskStatus) *WirelessDeviceImportTaskStatus {
+		return &v
+	}).(WirelessDeviceImportTaskStatusPtrOutput)
+}
+
+func (o WirelessDeviceImportTaskStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WirelessDeviceImportTaskStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WirelessDeviceImportTaskStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WirelessDeviceImportTaskStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WirelessDeviceImportTaskStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WirelessDeviceImportTaskStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WirelessDeviceImportTaskStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceImportTaskStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WirelessDeviceImportTaskStatus)(nil)).Elem()
+}
+
+func (o WirelessDeviceImportTaskStatusPtrOutput) ToWirelessDeviceImportTaskStatusPtrOutput() WirelessDeviceImportTaskStatusPtrOutput {
+	return o
+}
+
+func (o WirelessDeviceImportTaskStatusPtrOutput) ToWirelessDeviceImportTaskStatusPtrOutputWithContext(ctx context.Context) WirelessDeviceImportTaskStatusPtrOutput {
+	return o
+}
+
+func (o WirelessDeviceImportTaskStatusPtrOutput) Elem() WirelessDeviceImportTaskStatusOutput {
+	return o.ApplyT(func(v *WirelessDeviceImportTaskStatus) WirelessDeviceImportTaskStatus {
+		if v != nil {
+			return *v
+		}
+		var ret WirelessDeviceImportTaskStatus
+		return ret
+	}).(WirelessDeviceImportTaskStatusOutput)
+}
+
+func (o WirelessDeviceImportTaskStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WirelessDeviceImportTaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WirelessDeviceImportTaskStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Wireless device type, currently only Sidewalk and LoRa
 type WirelessDeviceType string
 
@@ -1020,6 +1115,8 @@ func init() {
 	pulumi.RegisterOutputType(PartnerAccountPartnerTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTypeOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTypePtrOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceImportTaskStatusOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceImportTaskStatusPtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceTypeOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceTypePtrOutput{})
 }
