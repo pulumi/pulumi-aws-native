@@ -102,6 +102,14 @@
       "permissions" : [ "nimble:DeleteStreamingImage", "nimble:UntagResource", "ec2:ModifyInstanceAttribute", "ec2:ModifySnapshotAttribute", "ec2:DeregisterImage", "ec2:DeleteSnapshot", "kms:ListGrants", "kms:RetireGrant" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "StudioId" : {
+            "$ref" : "resource-schema.json#/properties/StudioId"
+          }
+        },
+        "required" : [ "StudioId" ]
+      },
       "permissions" : [ "nimble:ListStreamingImages" ]
     }
   },

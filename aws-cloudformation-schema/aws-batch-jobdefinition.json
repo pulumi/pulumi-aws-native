@@ -61,6 +61,15 @@
       },
       "required" : [ "TargetNodes" ]
     },
+    "Metadata" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Labels" : {
+          "type" : "object"
+        }
+      }
+    },
     "EksContainerEnvironmentVariable" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -96,6 +105,18 @@
       },
       "required" : [ "FileSystemId" ]
     },
+    "EksEmptyDir" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Medium" : {
+          "type" : "string"
+        },
+        "SizeLimit" : {
+          "type" : "string"
+        }
+      }
+    },
     "LogConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -121,18 +142,6 @@
       "additionalProperties" : false,
       "properties" : {
         "SourcePath" : {
-          "type" : "string"
-        }
-      }
-    },
-    "EmptyDir" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Medium" : {
-          "type" : "string"
-        },
-        "SizeLimit" : {
           "type" : "string"
         }
       }
@@ -176,16 +185,6 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Containers" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "$ref" : "#/definitions/EksContainer"
-          }
-        },
-        "ServiceAccountName" : {
-          "type" : "string"
-        },
         "Volumes" : {
           "type" : "array",
           "uniqueItems" : false,
@@ -193,11 +192,24 @@
             "$ref" : "#/definitions/EksVolume"
           }
         },
-        "HostNetwork" : {
-          "type" : "boolean"
-        },
         "DnsPolicy" : {
           "type" : "string"
+        },
+        "Containers" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/EksContainer"
+          }
+        },
+        "Metadata" : {
+          "$ref" : "#/definitions/Metadata"
+        },
+        "ServiceAccountName" : {
+          "type" : "string"
+        },
+        "HostNetwork" : {
+          "type" : "boolean"
         }
       }
     },
@@ -312,6 +324,9 @@
         },
         "InstanceType" : {
           "type" : "string"
+        },
+        "EphemeralStorage" : {
+          "$ref" : "#/definitions/EphemeralStorage"
         }
       },
       "required" : [ "Image" ]
@@ -328,6 +343,18 @@
         }
       }
     },
+    "EksContainerResourceRequirements" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Requests" : {
+          "type" : "object"
+        },
+        "Limits" : {
+          "type" : "object"
+        }
+      }
+    },
     "NetworkConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -337,14 +364,39 @@
         }
       }
     },
-    "HostPath" : {
+    "EksContainerSecurityContext" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Path" : {
-          "type" : "string"
+        "RunAsUser" : {
+          "type" : "integer"
+        },
+        "RunAsGroup" : {
+          "type" : "integer"
+        },
+        "RunAsNonRoot" : {
+          "type" : "boolean"
+        },
+        "Privileged" : {
+          "type" : "boolean"
+        },
+        "ReadOnlyRootFilesystem" : {
+          "type" : "boolean"
         }
       }
+    },
+    "EksSecret" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SecretName" : {
+          "type" : "string"
+        },
+        "Optional" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "SecretName" ]
     },
     "EvaluateOnExit" : {
       "type" : "object",
@@ -455,13 +507,13 @@
       "additionalProperties" : false,
       "properties" : {
         "Secret" : {
-          "$ref" : "#/definitions/Secret"
+          "$ref" : "#/definitions/EksSecret"
         },
         "EmptyDir" : {
-          "$ref" : "#/definitions/EmptyDir"
+          "$ref" : "#/definitions/EksEmptyDir"
         },
         "HostPath" : {
-          "$ref" : "#/definitions/HostPath"
+          "$ref" : "#/definitions/EksHostPath"
         },
         "Name" : {
           "type" : "string"
@@ -521,24 +573,12 @@
         }
       }
     },
-    "SecurityContext" : {
+    "EksHostPath" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "RunAsUser" : {
-          "type" : "integer"
-        },
-        "RunAsGroup" : {
-          "type" : "integer"
-        },
-        "RunAsNonRoot" : {
-          "type" : "boolean"
-        },
-        "Privileged" : {
-          "type" : "boolean"
-        },
-        "ReadOnlyRootFilesystem" : {
-          "type" : "boolean"
+        "Path" : {
+          "type" : "string"
         }
       }
     },
@@ -566,17 +606,15 @@
         }
       }
     },
-    "Resources" : {
+    "EphemeralStorage" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Requests" : {
-          "type" : "object"
-        },
-        "Limits" : {
-          "type" : "object"
+        "SizeInGiB" : {
+          "type" : "integer"
         }
-      }
+      },
+      "required" : [ "SizeInGiB" ]
     },
     "RetryStrategy" : {
       "type" : "object",
@@ -623,10 +661,10 @@
           }
         },
         "SecurityContext" : {
-          "$ref" : "#/definitions/SecurityContext"
+          "$ref" : "#/definitions/EksContainerSecurityContext"
         },
         "Resources" : {
-          "$ref" : "#/definitions/Resources"
+          "$ref" : "#/definitions/EksContainerResourceRequirements"
         },
         "Image" : {
           "type" : "string"
