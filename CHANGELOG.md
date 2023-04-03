@@ -1,5 +1,14 @@
 ## HEAD (Unreleased)
 
+## 0.56.0 (April 3, 2023)
+
+New resources:
+- `devopsguru.LogAnomalyDetectionIntegration`
+
+New functions:
+- `devopsguru.getLogAnomalyDetectionIntegration`
+- `logs.getSubscriptionFilter`
+
 ## 0.55.0 (March 28, 2023)
 
 Upstream breaking changes
