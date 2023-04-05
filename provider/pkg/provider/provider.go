@@ -46,6 +46,7 @@ import (
 	"github.com/aws/smithy-go"
 	"github.com/aws/smithy-go/middleware"
 	smithyhttp "github.com/aws/smithy-go/transport/http"
+	backoff "github.com/cenkalti/backoff/v4"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	pbstruct "github.com/golang/protobuf/ptypes/struct"
@@ -1073,12 +1074,26 @@ func (p *cfnProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, e
 	return &pbempty.Empty{}, nil
 }
 
+func (p *cfnProvider) GetResource(ctx context.Context, typeName, identifier string, resource *cloudcontrol.GetResourceOutput) func() error {
+	return func() error {
+
+		getRes, err := p.cctl.GetResource(ctx, &cloudcontrol.GetResourceInput{
+			TypeName:   aws.String(typeName),
+			Identifier: aws.String(identifier),
+			RoleArn:    p.roleArn,
+		})
+		resource = getRes
+		if err != nil {
+			return err
+		}
+		return nil
+	}
+}
+
 func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
-	getRes, err := p.cctl.GetResource(ctx, &cloudcontrol.GetResourceInput{
-		TypeName:   aws.String(typeName),
-		Identifier: aws.String(identifier),
-		RoleArn:    p.roleArn,
-	})
+	getRes := &cloudcontrol.GetResourceOutput{}
+	exponentialBackoff := backoff.NewExponentialBackOff()
+	err := backoff.Retry(p.GetResource(ctx, typeName, identifier, getRes), exponentialBackoff)
 	if err != nil {
 		return nil, err
 	}

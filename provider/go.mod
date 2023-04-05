@@ -14,6 +14,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sts v1.16.10
 	github.com/aws/smithy-go v1.13.5
 	github.com/blang/semver v3.5.1+incompatible
+	github.com/cenkalti/backoff/v4 v4.1.3
 	github.com/goccy/go-yaml v1.9.5
 	github.com/golang/glog v1.0.0
 	github.com/golang/protobuf v1.5.2
