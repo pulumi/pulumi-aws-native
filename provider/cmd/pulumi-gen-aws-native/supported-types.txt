@@ -472,6 +472,7 @@ AWS::MemoryDB::Cluster
 AWS::MemoryDB::ParameterGroup
 AWS::MemoryDB::SubnetGroup
 AWS::MemoryDB::User
+AWS::Neptune::DBCluster
 AWS::NetworkFirewall::Firewall
 AWS::NetworkFirewall::FirewallPolicy
 AWS::NetworkFirewall::LoggingConfiguration
