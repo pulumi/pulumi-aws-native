@@ -3,3 +3,4 @@ AWS::ApplicationAutoScaling::ScalableTarget
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::SecretsManager::Secret
+AWSQS::Kubernetes::Helm
