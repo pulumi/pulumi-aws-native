@@ -400,9 +400,6 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		if err != nil {
 			return nil, fmt.Errorf("invalid config value for 'maxRetries': %q: %w", maxRetriesConf, err)
 		}
-		if maxRetries < 0 {
-			return nil, fmt.Errorf("invalid config value for 'maxRetries': %d", maxRetries)
-		}
 	}
 	glog.V(4).Infof("using Max Retry Attempts: %d", maxRetries)
 
