@@ -31,6 +31,7 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/aws/ratelimit"
 	"github.com/aws/aws-sdk-go-v2/aws/retry"
 	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/config"
@@ -75,6 +76,16 @@ func makeCancellationContext() *cancellationContext {
 		context: ctx,
 		cancel:  cancel,
 	}
+}
+
+// Disabled rate limiter to avoid rate limiting attempt retries
+// across all attempts the retryer is being used with.
+// https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/aws/retry#StandardOptions.RateLimiter
+type noOpRateLimiter struct{}
+
+func (noOpRateLimiter) AddTokens(uint) error { return nil }
+func (noOpRateLimiter) GetToken(context.Context, uint) (func() error, error) {
+	return func() error { return nil }, nil
 }
 
 type cfnProvider struct {
@@ -383,12 +394,38 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		p.roleArn = &roleArn
 	}
 
-	if maxRetries, ok := vars["aws-native:config:maxRetries"]; ok && cfg.Retryer == nil {
-		num, err := strconv.Atoi(maxRetries)
+	maxRetries := 25
+	if maxRetriesConf, ok := vars["aws-native:config:maxRetries"]; ok {
+		maxRetries, err = strconv.Atoi(maxRetriesConf)
 		if err != nil {
-			return nil, fmt.Errorf("invalid value for 'maxRetries': %q: %w", maxRetries, err)
+			return nil, fmt.Errorf("invalid config value for 'maxRetries': %q: %w", maxRetriesConf, err)
 		}
-		cfg.Retryer = func() aws.Retryer { return retry.AddWithMaxAttempts(retry.NewStandard(), num) }
+		if maxRetries < 0 {
+			return nil, fmt.Errorf("invalid config value for 'maxRetries': %d", maxRetries)
+		}
+	}
+	glog.V(4).Infof("using Max Retry Attempts: %d", maxRetries)
+
+	maxRetryRateTokens := -1
+	if maxRetryRateTokensConf, ok := vars["aws-native:config:maxRetryRateTokens"]; ok {
+		maxRetryRateTokens, err = strconv.Atoi(maxRetryRateTokensConf)
+		if err != nil {
+			return nil, fmt.Errorf("invalid config value for 'maxRetryRateTokens': %q: %w", maxRetryRateTokensConf, err)
+		}
+		glog.V(4).Infof("using Retry Token Rate Limit: %d", maxRetryRateTokens)
+	} else {
+		glog.V(4).Infof("using Retry Token Rate Limit: unlimited")
+	}
+
+	cfg.Retryer = func() aws.Retryer {
+		return retry.NewStandard(func(o *retry.StandardOptions) {
+			o.MaxAttempts = maxRetries
+			if maxRetryRateTokens > 0 {
+				o.RateLimiter = ratelimit.NewTokenRateLimit(uint(maxRetryRateTokens))
+			} else {
+				o.RateLimiter = noOpRateLimiter{}
+			}
+		})
 	}
 
 	if allowedAccountIdsJson, ok := vars["aws-native:config:allowedAccountIds"]; ok {
