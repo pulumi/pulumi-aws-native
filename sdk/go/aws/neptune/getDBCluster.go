@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Neptune::DBCluster
+// The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 func LookupDBCluster(ctx *pulumi.Context, args *LookupDBClusterArgs, opts ...pulumi.InvokeOption) (*LookupDBClusterResult, error) {
 	var rv LookupDBClusterResult
 	err := ctx.Invoke("aws-native:neptune:getDBCluster", args, &rv, opts...)
@@ -21,25 +21,39 @@ func LookupDBCluster(ctx *pulumi.Context, args *LookupDBClusterArgs, opts ...pul
 }
 
 type LookupDBClusterArgs struct {
-	Id string `pulumi:"id"`
+	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+	DBClusterIdentifier string `pulumi:"dBClusterIdentifier"`
 }
 
 type LookupDBClusterResult struct {
-	AssociatedRoles             []DBClusterRole `pulumi:"associatedRoles"`
-	BackupRetentionPeriod       *int            `pulumi:"backupRetentionPeriod"`
-	ClusterResourceId           *string         `pulumi:"clusterResourceId"`
-	DBClusterParameterGroupName *string         `pulumi:"dBClusterParameterGroupName"`
-	DeletionProtection          *bool           `pulumi:"deletionProtection"`
-	EnableCloudwatchLogsExports []string        `pulumi:"enableCloudwatchLogsExports"`
-	Endpoint                    *string         `pulumi:"endpoint"`
-	IamAuthEnabled              *bool           `pulumi:"iamAuthEnabled"`
-	Id                          *string         `pulumi:"id"`
-	Port                        *int            `pulumi:"port"`
-	PreferredBackupWindow       *string         `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow  *string         `pulumi:"preferredMaintenanceWindow"`
-	ReadEndpoint                *string         `pulumi:"readEndpoint"`
-	Tags                        []DBClusterTag  `pulumi:"tags"`
-	VpcSecurityGroupIds         []string        `pulumi:"vpcSecurityGroupIds"`
+	// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+	AssociatedRoles []DBClusterRole `pulumi:"associatedRoles"`
+	// Specifies the number of days for which automatic DB snapshots are retained.
+	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
+	// The resource id for the DB cluster. For example: `cluster-ABCD1234EFGH5678IJKL90MNOP`. The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
+	ClusterResourceId *string `pulumi:"clusterResourceId"`
+	// Provides the name of the DB cluster parameter group.
+	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
+	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
+	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
+	// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+	Endpoint *string `pulumi:"endpoint"`
+	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+	IamAuthEnabled *bool `pulumi:"iamAuthEnabled"`
+	// Specifies the port that the database engine is listening on.
+	Port *string `pulumi:"port"`
+	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
+	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
+	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+	ReadEndpoint *string `pulumi:"readEndpoint"`
+	// The tags assigned to this cluster.
+	Tags []DBClusterTag `pulumi:"tags"`
+	// Provides a list of VPC security groups that the DB cluster belongs to.
+	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupDBClusterOutput(ctx *pulumi.Context, args LookupDBClusterOutputArgs, opts ...pulumi.InvokeOption) LookupDBClusterResultOutput {
@@ -56,7 +70,8 @@ func LookupDBClusterOutput(ctx *pulumi.Context, args LookupDBClusterOutputArgs, 
 }
 
 type LookupDBClusterOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+	DBClusterIdentifier pulumi.StringInput `pulumi:"dBClusterIdentifier"`
 }
 
 func (LookupDBClusterOutputArgs) ElementType() reflect.Type {
@@ -77,62 +92,72 @@ func (o LookupDBClusterResultOutput) ToLookupDBClusterResultOutputWithContext(ct
 	return o
 }
 
+// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
 func (o LookupDBClusterResultOutput) AssociatedRoles() DBClusterRoleArrayOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) []DBClusterRole { return v.AssociatedRoles }).(DBClusterRoleArrayOutput)
 }
 
+// Specifies the number of days for which automatic DB snapshots are retained.
 func (o LookupDBClusterResultOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *int { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
+// The resource id for the DB cluster. For example: `cluster-ABCD1234EFGH5678IJKL90MNOP`. The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
 func (o LookupDBClusterResultOutput) ClusterResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
+// Provides the name of the DB cluster parameter group.
 func (o LookupDBClusterResultOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
 func (o LookupDBClusterResultOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *bool { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies a list of log types that are enabled for export to CloudWatch Logs.
 func (o LookupDBClusterResultOutput) EnableCloudwatchLogsExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) []string { return v.EnableCloudwatchLogsExports }).(pulumi.StringArrayOutput)
 }
 
+// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
 func (o LookupDBClusterResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
+// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 func (o LookupDBClusterResultOutput) IamAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *bool { return v.IamAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupDBClusterResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// Specifies the port that the database engine is listening on.
+func (o LookupDBClusterResultOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDBClusterResultOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupDBClusterResult) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
+// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
 func (o LookupDBClusterResultOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 func (o LookupDBClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
+// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
 func (o LookupDBClusterResultOutput) ReadEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.ReadEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The tags assigned to this cluster.
 func (o LookupDBClusterResultOutput) Tags() DBClusterTagArrayOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) []DBClusterTag { return v.Tags }).(DBClusterTagArrayOutput)
 }
 
+// Provides a list of VPC security groups that the DB cluster belongs to.
 func (o LookupDBClusterResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

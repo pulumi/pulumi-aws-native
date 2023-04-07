@@ -23,8 +23,6 @@ type FindingsFilter struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Findings filter criteria.
 	FindingCriteria FindingsFilterFindingCriteriaOutput `pulumi:"findingCriteria"`
-	// Findings filters list.
-	FindingsFilterListItems FindingsFilterListItemArrayOutput `pulumi:"findingsFilterListItems"`
 	// Findings filter name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Findings filter position.
@@ -154,11 +152,6 @@ func (o FindingsFilterOutput) Description() pulumi.StringPtrOutput {
 // Findings filter criteria.
 func (o FindingsFilterOutput) FindingCriteria() FindingsFilterFindingCriteriaOutput {
 	return o.ApplyT(func(v *FindingsFilter) FindingsFilterFindingCriteriaOutput { return v.FindingCriteria }).(FindingsFilterFindingCriteriaOutput)
-}
-
-// Findings filters list.
-func (o FindingsFilterOutput) FindingsFilterListItems() FindingsFilterListItemArrayOutput {
-	return o.ApplyT(func(v *FindingsFilter) FindingsFilterListItemArrayOutput { return v.FindingsFilterListItems }).(FindingsFilterListItemArrayOutput)
 }
 
 // Findings filter name

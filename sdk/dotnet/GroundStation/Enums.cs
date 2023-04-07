@@ -149,4 +149,68 @@ namespace Pulumi.AwsNative.GroundStation
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The status of AgentEndpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataflowEndpointGroupAgentStatus : IEquatable<DataflowEndpointGroupAgentStatus>
+    {
+        private readonly string _value;
+
+        private DataflowEndpointGroupAgentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataflowEndpointGroupAgentStatus Success { get; } = new DataflowEndpointGroupAgentStatus("SUCCESS");
+        public static DataflowEndpointGroupAgentStatus Failed { get; } = new DataflowEndpointGroupAgentStatus("FAILED");
+        public static DataflowEndpointGroupAgentStatus Active { get; } = new DataflowEndpointGroupAgentStatus("ACTIVE");
+        public static DataflowEndpointGroupAgentStatus Inactive { get; } = new DataflowEndpointGroupAgentStatus("INACTIVE");
+
+        public static bool operator ==(DataflowEndpointGroupAgentStatus left, DataflowEndpointGroupAgentStatus right) => left.Equals(right);
+        public static bool operator !=(DataflowEndpointGroupAgentStatus left, DataflowEndpointGroupAgentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DataflowEndpointGroupAgentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataflowEndpointGroupAgentStatus other && Equals(other);
+        public bool Equals(DataflowEndpointGroupAgentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The results of the audit.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataflowEndpointGroupAuditResults : IEquatable<DataflowEndpointGroupAuditResults>
+    {
+        private readonly string _value;
+
+        private DataflowEndpointGroupAuditResults(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataflowEndpointGroupAuditResults Healthy { get; } = new DataflowEndpointGroupAuditResults("HEALTHY");
+        public static DataflowEndpointGroupAuditResults Unhealthy { get; } = new DataflowEndpointGroupAuditResults("UNHEALTHY");
+
+        public static bool operator ==(DataflowEndpointGroupAuditResults left, DataflowEndpointGroupAuditResults right) => left.Equals(right);
+        public static bool operator !=(DataflowEndpointGroupAuditResults left, DataflowEndpointGroupAuditResults right) => !left.Equals(right);
+
+        public static explicit operator string(DataflowEndpointGroupAuditResults value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataflowEndpointGroupAuditResults other && Equals(other);
+        public bool Equals(DataflowEndpointGroupAuditResults other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetDataflowEndpointGroupResult',
@@ -47,11 +48,17 @@ class GetDataflowEndpointGroupResult:
     @property
     @pulumi.getter(name="contactPostPassDurationSeconds")
     def contact_post_pass_duration_seconds(self) -> Optional[int]:
+        """
+        Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
+        """
         return pulumi.get(self, "contact_post_pass_duration_seconds")
 
     @property
     @pulumi.getter(name="contactPrePassDurationSeconds")
     def contact_pre_pass_duration_seconds(self) -> Optional[int]:
+        """
+        Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
+        """
         return pulumi.get(self, "contact_pre_pass_duration_seconds")
 
     @property

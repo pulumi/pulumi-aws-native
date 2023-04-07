@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Contact{}
 	case "aws-native:ssmcontacts:ContactChannel":
 		r = &ContactChannel{}
+	case "aws-native:ssmcontacts:Plan":
+		r = &Plan{}
+	case "aws-native:ssmcontacts:Rotation":
+		r = &Rotation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

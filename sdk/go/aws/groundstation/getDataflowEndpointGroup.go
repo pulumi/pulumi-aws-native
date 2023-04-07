@@ -25,12 +25,14 @@ type LookupDataflowEndpointGroupArgs struct {
 }
 
 type LookupDataflowEndpointGroupResult struct {
-	Arn                            *string                                `pulumi:"arn"`
-	ContactPostPassDurationSeconds *int                                   `pulumi:"contactPostPassDurationSeconds"`
-	ContactPrePassDurationSeconds  *int                                   `pulumi:"contactPrePassDurationSeconds"`
-	EndpointDetails                []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
-	Id                             *string                                `pulumi:"id"`
-	Tags                           []DataflowEndpointGroupTag             `pulumi:"tags"`
+	Arn *string `pulumi:"arn"`
+	// Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
+	ContactPostPassDurationSeconds *int `pulumi:"contactPostPassDurationSeconds"`
+	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
+	ContactPrePassDurationSeconds *int                                   `pulumi:"contactPrePassDurationSeconds"`
+	EndpointDetails               []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
+	Id                            *string                                `pulumi:"id"`
+	Tags                          []DataflowEndpointGroupTag             `pulumi:"tags"`
 }
 
 func LookupDataflowEndpointGroupOutput(ctx *pulumi.Context, args LookupDataflowEndpointGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDataflowEndpointGroupResultOutput {
@@ -72,10 +74,12 @@ func (o LookupDataflowEndpointGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
 func (o LookupDataflowEndpointGroupResultOutput) ContactPostPassDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) *int { return v.ContactPostPassDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
 func (o LookupDataflowEndpointGroupResultOutput) ContactPrePassDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) *int { return v.ContactPrePassDurationSeconds }).(pulumi.IntPtrOutput)
 }

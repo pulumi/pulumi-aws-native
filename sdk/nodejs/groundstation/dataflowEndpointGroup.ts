@@ -38,7 +38,13 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
+     */
     public readonly contactPostPassDurationSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
+     */
     public readonly contactPrePassDurationSeconds!: pulumi.Output<number | undefined>;
     public readonly endpointDetails!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupEndpointDetails[]>;
     public readonly tags!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupTag[] | undefined>;
@@ -78,7 +84,13 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DataflowEndpointGroup resource.
  */
 export interface DataflowEndpointGroupArgs {
+    /**
+     * Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
+     */
     contactPostPassDurationSeconds?: pulumi.Input<number>;
+    /**
+     * Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
+     */
     contactPrePassDurationSeconds?: pulumi.Input<number>;
     endpointDetails: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupTagArgs>[]>;

@@ -43,10 +43,6 @@ export interface GetFindingsFilterResult {
      */
     readonly findingCriteria?: outputs.macie.FindingsFilterFindingCriteria;
     /**
-     * Findings filters list.
-     */
-    readonly findingsFilterListItems?: outputs.macie.FindingsFilterListItem[];
-    /**
      * Findings filter ID.
      */
     readonly id?: string;

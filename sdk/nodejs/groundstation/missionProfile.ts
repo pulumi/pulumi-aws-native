@@ -56,6 +56,14 @@ export class MissionProfile extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly region!: pulumi.Output<string>;
+    /**
+     * The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+     */
+    public readonly streamsKmsKey!: pulumi.Output<outputs.groundstation.MissionProfileStreamsKmsKey | undefined>;
+    /**
+     * The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+     */
+    public readonly streamsKmsRole!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.groundstation.MissionProfileTag[] | undefined>;
     public readonly trackingConfigArn!: pulumi.Output<string>;
 
@@ -84,6 +92,8 @@ export class MissionProfile extends pulumi.CustomResource {
             resourceInputs["dataflowEdges"] = args ? args.dataflowEdges : undefined;
             resourceInputs["minimumViableContactDurationSeconds"] = args ? args.minimumViableContactDurationSeconds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["streamsKmsKey"] = args ? args.streamsKmsKey : undefined;
+            resourceInputs["streamsKmsRole"] = args ? args.streamsKmsRole : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trackingConfigArn"] = args ? args.trackingConfigArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -96,6 +106,8 @@ export class MissionProfile extends pulumi.CustomResource {
             resourceInputs["minimumViableContactDurationSeconds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["streamsKmsKey"] = undefined /*out*/;
+            resourceInputs["streamsKmsRole"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["trackingConfigArn"] = undefined /*out*/;
         }
@@ -125,6 +137,14 @@ export interface MissionProfileArgs {
      * A name used to identify a mission profile.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+     */
+    streamsKmsKey?: pulumi.Input<inputs.groundstation.MissionProfileStreamsKmsKeyArgs>;
+    /**
+     * The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+     */
+    streamsKmsRole?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.groundstation.MissionProfileTagArgs>[]>;
     trackingConfigArn: pulumi.Input<string>;
 }

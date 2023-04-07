@@ -7,26 +7,26 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Macie.Outputs
+namespace Pulumi.AwsNative.SSMContacts.Outputs
 {
 
     /// <summary>
-    /// Returned by ListHandler representing filter name and ID.
+    /// StartTime and EndTime for the Shift
     /// </summary>
     [OutputType]
-    public sealed class FindingsFilterListItem
+    public sealed class RotationCoverageTime
     {
-        public readonly string? Id;
-        public readonly string? Name;
+        public readonly string EndTime;
+        public readonly string StartTime;
 
         [OutputConstructor]
-        private FindingsFilterListItem(
-            string? id,
+        private RotationCoverageTime(
+            string endTime,
 
-            string? name)
+            string startTime)
         {
-            Id = id;
-            Name = name;
+            EndTime = endTime;
+            StartTime = startTime;
         }
     }
 }

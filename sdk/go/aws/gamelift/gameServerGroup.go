@@ -32,7 +32,7 @@ type GameServerGroup struct {
 	// A set of EC2 instance types to use when creating instances in the group.
 	InstanceDefinitions GameServerGroupInstanceDefinitionArrayOutput `pulumi:"instanceDefinitions"`
 	// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
-	LaunchTemplate GameServerGroupLaunchTemplateOutput `pulumi:"launchTemplate"`
+	LaunchTemplate GameServerGroupLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
 	// The maximum number of instances allowed in the EC2 Auto Scaling group.
 	MaxSize pulumi.Float64PtrOutput `pulumi:"maxSize"`
 	// The minimum number of instances allowed in the EC2 Auto Scaling group.
@@ -54,9 +54,6 @@ func NewGameServerGroup(ctx *pulumi.Context,
 
 	if args.InstanceDefinitions == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceDefinitions'")
-	}
-	if args.LaunchTemplate == nil {
-		return nil, errors.New("invalid value for required argument 'LaunchTemplate'")
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
@@ -106,7 +103,7 @@ type gameServerGroupArgs struct {
 	// A set of EC2 instance types to use when creating instances in the group.
 	InstanceDefinitions []GameServerGroupInstanceDefinition `pulumi:"instanceDefinitions"`
 	// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
-	LaunchTemplate GameServerGroupLaunchTemplate `pulumi:"launchTemplate"`
+	LaunchTemplate *GameServerGroupLaunchTemplate `pulumi:"launchTemplate"`
 	// The maximum number of instances allowed in the EC2 Auto Scaling group.
 	MaxSize *float64 `pulumi:"maxSize"`
 	// The minimum number of instances allowed in the EC2 Auto Scaling group.
@@ -134,7 +131,7 @@ type GameServerGroupArgs struct {
 	// A set of EC2 instance types to use when creating instances in the group.
 	InstanceDefinitions GameServerGroupInstanceDefinitionArrayInput
 	// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
-	LaunchTemplate GameServerGroupLaunchTemplateInput
+	LaunchTemplate GameServerGroupLaunchTemplatePtrInput
 	// The maximum number of instances allowed in the EC2 Auto Scaling group.
 	MaxSize pulumi.Float64PtrInput
 	// The minimum number of instances allowed in the EC2 Auto Scaling group.
@@ -227,8 +224,8 @@ func (o GameServerGroupOutput) InstanceDefinitions() GameServerGroupInstanceDefi
 }
 
 // The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
-func (o GameServerGroupOutput) LaunchTemplate() GameServerGroupLaunchTemplateOutput {
-	return o.ApplyT(func(v *GameServerGroup) GameServerGroupLaunchTemplateOutput { return v.LaunchTemplate }).(GameServerGroupLaunchTemplateOutput)
+func (o GameServerGroupOutput) LaunchTemplate() GameServerGroupLaunchTemplatePtrOutput {
+	return o.ApplyT(func(v *GameServerGroup) GameServerGroupLaunchTemplatePtrOutput { return v.LaunchTemplate }).(GameServerGroupLaunchTemplatePtrOutput)
 }
 
 // The maximum number of instances allowed in the EC2 Auto Scaling group.

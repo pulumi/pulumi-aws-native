@@ -25,6 +25,26 @@ export const getContactChannel: typeof import("./getContactChannel").getContactC
 export const getContactChannelOutput: typeof import("./getContactChannel").getContactChannelOutput = null as any;
 utilities.lazyLoad(exports, ["getContactChannel","getContactChannelOutput"], () => require("./getContactChannel"));
 
+export { GetPlanArgs, GetPlanResult, GetPlanOutputArgs } from "./getPlan";
+export const getPlan: typeof import("./getPlan").getPlan = null as any;
+export const getPlanOutput: typeof import("./getPlan").getPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getPlan","getPlanOutput"], () => require("./getPlan"));
+
+export { GetRotationArgs, GetRotationResult, GetRotationOutputArgs } from "./getRotation";
+export const getRotation: typeof import("./getRotation").getRotation = null as any;
+export const getRotationOutput: typeof import("./getRotation").getRotationOutput = null as any;
+utilities.lazyLoad(exports, ["getRotation","getRotationOutput"], () => require("./getRotation"));
+
+export { PlanArgs } from "./plan";
+export type Plan = import("./plan").Plan;
+export const Plan: typeof import("./plan").Plan = null as any;
+utilities.lazyLoad(exports, ["Plan"], () => require("./plan"));
+
+export { RotationArgs } from "./rotation";
+export type Rotation = import("./rotation").Rotation;
+export const Rotation: typeof import("./rotation").Rotation = null as any;
+utilities.lazyLoad(exports, ["Rotation"], () => require("./rotation"));
+
 
 // Export enums:
 export * from "../types/enums/ssmcontacts";
@@ -37,6 +57,10 @@ const _module = {
                 return new Contact(name, <any>undefined, { urn })
             case "aws-native:ssmcontacts:ContactChannel":
                 return new ContactChannel(name, <any>undefined, { urn })
+            case "aws-native:ssmcontacts:Plan":
+                return new Plan(name, <any>undefined, { urn })
+            case "aws-native:ssmcontacts:Rotation":
+                return new Rotation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

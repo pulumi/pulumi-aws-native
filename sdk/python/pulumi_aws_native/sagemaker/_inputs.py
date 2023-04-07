@@ -2873,6 +2873,7 @@ class EndpointConfigProductionVariantArgs:
                  variant_name: pulumi.Input[str],
                  accelerator_type: Optional[pulumi.Input[str]] = None,
                  container_startup_health_check_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 enable_ssm_access: Optional[pulumi.Input[bool]] = None,
                  initial_instance_count: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  model_data_download_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -2885,6 +2886,8 @@ class EndpointConfigProductionVariantArgs:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
         if container_startup_health_check_timeout_in_seconds is not None:
             pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
+        if enable_ssm_access is not None:
+            pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if instance_type is not None:
@@ -2940,6 +2943,15 @@ class EndpointConfigProductionVariantArgs:
     @container_startup_health_check_timeout_in_seconds.setter
     def container_startup_health_check_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "container_startup_health_check_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="enableSSMAccess")
+    def enable_ssm_access(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_ssm_access")
+
+    @enable_ssm_access.setter
+    def enable_ssm_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_ssm_access", value)
 
     @property
     @pulumi.getter(name="initialInstanceCount")

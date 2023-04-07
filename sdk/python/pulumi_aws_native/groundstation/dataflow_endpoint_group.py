@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DataflowEndpointGroupArgs', 'DataflowEndpointGroup']
@@ -22,6 +23,8 @@ class DataflowEndpointGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a DataflowEndpointGroup resource.
+        :param pulumi.Input[int] contact_post_pass_duration_seconds: Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
+        :param pulumi.Input[int] contact_pre_pass_duration_seconds: Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
         """
         pulumi.set(__self__, "endpoint_details", endpoint_details)
         if contact_post_pass_duration_seconds is not None:
@@ -43,6 +46,9 @@ class DataflowEndpointGroupArgs:
     @property
     @pulumi.getter(name="contactPostPassDurationSeconds")
     def contact_post_pass_duration_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
+        """
         return pulumi.get(self, "contact_post_pass_duration_seconds")
 
     @contact_post_pass_duration_seconds.setter
@@ -52,6 +58,9 @@ class DataflowEndpointGroupArgs:
     @property
     @pulumi.getter(name="contactPrePassDurationSeconds")
     def contact_pre_pass_duration_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
+        """
         return pulumi.get(self, "contact_pre_pass_duration_seconds")
 
     @contact_pre_pass_duration_seconds.setter
@@ -83,6 +92,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] contact_post_pass_duration_seconds: Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
+        :param pulumi.Input[int] contact_pre_pass_duration_seconds: Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
         """
         ...
     @overload
@@ -165,11 +176,17 @@ class DataflowEndpointGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contactPostPassDurationSeconds")
     def contact_post_pass_duration_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
+        """
         return pulumi.get(self, "contact_post_pass_duration_seconds")
 
     @property
     @pulumi.getter(name="contactPrePassDurationSeconds")
     def contact_pre_pass_duration_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
+        """
         return pulumi.get(self, "contact_pre_pass_duration_seconds")
 
     @property

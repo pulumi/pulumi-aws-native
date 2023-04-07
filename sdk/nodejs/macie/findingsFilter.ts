@@ -54,10 +54,6 @@ export class FindingsFilter extends pulumi.CustomResource {
      */
     public readonly findingCriteria!: pulumi.Output<outputs.macie.FindingsFilterFindingCriteria>;
     /**
-     * Findings filters list.
-     */
-    public /*out*/ readonly findingsFilterListItems!: pulumi.Output<outputs.macie.FindingsFilterListItem[]>;
-    /**
      * Findings filter name
      */
     public readonly name!: pulumi.Output<string>;
@@ -86,13 +82,11 @@ export class FindingsFilter extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["position"] = args ? args.position : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["findingsFilterListItems"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["findingCriteria"] = undefined /*out*/;
-            resourceInputs["findingsFilterListItems"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["position"] = undefined /*out*/;
         }

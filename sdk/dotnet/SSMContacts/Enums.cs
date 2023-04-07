@@ -71,4 +71,40 @@ namespace Pulumi.AwsNative.SSMContacts
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The day of the week when weekly recurring on-call shift rotations begin. 
+    /// </summary>
+    [EnumType]
+    public readonly struct RotationDayOfWeek : IEquatable<RotationDayOfWeek>
+    {
+        private readonly string _value;
+
+        private RotationDayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RotationDayOfWeek Mon { get; } = new RotationDayOfWeek("MON");
+        public static RotationDayOfWeek Tue { get; } = new RotationDayOfWeek("TUE");
+        public static RotationDayOfWeek Wed { get; } = new RotationDayOfWeek("WED");
+        public static RotationDayOfWeek Thu { get; } = new RotationDayOfWeek("THU");
+        public static RotationDayOfWeek Fri { get; } = new RotationDayOfWeek("FRI");
+        public static RotationDayOfWeek Sat { get; } = new RotationDayOfWeek("SAT");
+        public static RotationDayOfWeek Sun { get; } = new RotationDayOfWeek("SUN");
+
+        public static bool operator ==(RotationDayOfWeek left, RotationDayOfWeek right) => left.Equals(right);
+        public static bool operator !=(RotationDayOfWeek left, RotationDayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(RotationDayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RotationDayOfWeek other && Equals(other);
+        public bool Equals(RotationDayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

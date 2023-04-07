@@ -2354,6 +2354,367 @@ func (o ConfigUplinkSpectrumConfigPtrOutput) Polarization() ConfigPolarizationPt
 	}).(ConfigPolarizationPtrOutput)
 }
 
+// Information about AwsGroundStationAgentEndpoint.
+type DataflowEndpointGroupAwsGroundStationAgentEndpoint struct {
+	AgentStatus    *DataflowEndpointGroupAgentStatus             `pulumi:"agentStatus"`
+	AuditResults   *DataflowEndpointGroupAuditResults            `pulumi:"auditResults"`
+	EgressAddress  *DataflowEndpointGroupConnectionDetails       `pulumi:"egressAddress"`
+	IngressAddress *DataflowEndpointGroupRangedConnectionDetails `pulumi:"ingressAddress"`
+	Name           *string                                       `pulumi:"name"`
+}
+
+// DataflowEndpointGroupAwsGroundStationAgentEndpointInput is an input type that accepts DataflowEndpointGroupAwsGroundStationAgentEndpointArgs and DataflowEndpointGroupAwsGroundStationAgentEndpointOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupAwsGroundStationAgentEndpointInput` via:
+//
+//	DataflowEndpointGroupAwsGroundStationAgentEndpointArgs{...}
+type DataflowEndpointGroupAwsGroundStationAgentEndpointInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupAwsGroundStationAgentEndpointOutput() DataflowEndpointGroupAwsGroundStationAgentEndpointOutput
+	ToDataflowEndpointGroupAwsGroundStationAgentEndpointOutputWithContext(context.Context) DataflowEndpointGroupAwsGroundStationAgentEndpointOutput
+}
+
+// Information about AwsGroundStationAgentEndpoint.
+type DataflowEndpointGroupAwsGroundStationAgentEndpointArgs struct {
+	AgentStatus    DataflowEndpointGroupAgentStatusPtrInput             `pulumi:"agentStatus"`
+	AuditResults   DataflowEndpointGroupAuditResultsPtrInput            `pulumi:"auditResults"`
+	EgressAddress  DataflowEndpointGroupConnectionDetailsPtrInput       `pulumi:"egressAddress"`
+	IngressAddress DataflowEndpointGroupRangedConnectionDetailsPtrInput `pulumi:"ingressAddress"`
+	Name           pulumi.StringPtrInput                                `pulumi:"name"`
+}
+
+func (DataflowEndpointGroupAwsGroundStationAgentEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupAwsGroundStationAgentEndpointOutput() DataflowEndpointGroupAwsGroundStationAgentEndpointOutput {
+	return i.ToDataflowEndpointGroupAwsGroundStationAgentEndpointOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupAwsGroundStationAgentEndpointOutputWithContext(ctx context.Context) DataflowEndpointGroupAwsGroundStationAgentEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupAwsGroundStationAgentEndpointOutput)
+}
+
+func (i DataflowEndpointGroupAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
+	return i.ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupAwsGroundStationAgentEndpointOutput).ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupAwsGroundStationAgentEndpointPtrInput is an input type that accepts DataflowEndpointGroupAwsGroundStationAgentEndpointArgs, DataflowEndpointGroupAwsGroundStationAgentEndpointPtr and DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupAwsGroundStationAgentEndpointPtrInput` via:
+//
+//	        DataflowEndpointGroupAwsGroundStationAgentEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupAwsGroundStationAgentEndpointPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput
+	ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(context.Context) DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput
+}
+
+type dataflowEndpointGroupAwsGroundStationAgentEndpointPtrType DataflowEndpointGroupAwsGroundStationAgentEndpointArgs
+
+func DataflowEndpointGroupAwsGroundStationAgentEndpointPtr(v *DataflowEndpointGroupAwsGroundStationAgentEndpointArgs) DataflowEndpointGroupAwsGroundStationAgentEndpointPtrInput {
+	return (*dataflowEndpointGroupAwsGroundStationAgentEndpointPtrType)(v)
+}
+
+func (*dataflowEndpointGroupAwsGroundStationAgentEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupAwsGroundStationAgentEndpointPtrType) ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
+	return i.ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupAwsGroundStationAgentEndpointPtrType) ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput)
+}
+
+// Information about AwsGroundStationAgentEndpoint.
+type DataflowEndpointGroupAwsGroundStationAgentEndpointOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupAwsGroundStationAgentEndpointOutput() DataflowEndpointGroupAwsGroundStationAgentEndpointOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupAwsGroundStationAgentEndpointOutputWithContext(ctx context.Context) DataflowEndpointGroupAwsGroundStationAgentEndpointOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
+	return o.ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupAwsGroundStationAgentEndpoint {
+		return &v
+	}).(DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput)
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) AgentStatus() DataflowEndpointGroupAgentStatusPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupAgentStatus {
+		return v.AgentStatus
+	}).(DataflowEndpointGroupAgentStatusPtrOutput)
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) AuditResults() DataflowEndpointGroupAuditResultsPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupAuditResults {
+		return v.AuditResults
+	}).(DataflowEndpointGroupAuditResultsPtrOutput)
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) EgressAddress() DataflowEndpointGroupConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupConnectionDetails {
+		return v.EgressAddress
+	}).(DataflowEndpointGroupConnectionDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) IngressAddress() DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupRangedConnectionDetails {
+		return v.IngressAddress
+	}).(DataflowEndpointGroupRangedConnectionDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) Elem() DataflowEndpointGroupAwsGroundStationAgentEndpointOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupAwsGroundStationAgentEndpoint) DataflowEndpointGroupAwsGroundStationAgentEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupAwsGroundStationAgentEndpoint
+		return ret
+	}).(DataflowEndpointGroupAwsGroundStationAgentEndpointOutput)
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) AgentStatus() DataflowEndpointGroupAgentStatusPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupAgentStatus {
+		if v == nil {
+			return nil
+		}
+		return v.AgentStatus
+	}).(DataflowEndpointGroupAgentStatusPtrOutput)
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) AuditResults() DataflowEndpointGroupAuditResultsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupAuditResults {
+		if v == nil {
+			return nil
+		}
+		return v.AuditResults
+	}).(DataflowEndpointGroupAuditResultsPtrOutput)
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) EgressAddress() DataflowEndpointGroupConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupConnectionDetails {
+		if v == nil {
+			return nil
+		}
+		return v.EgressAddress
+	}).(DataflowEndpointGroupConnectionDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) IngressAddress() DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupRangedConnectionDetails {
+		if v == nil {
+			return nil
+		}
+		return v.IngressAddress
+	}).(DataflowEndpointGroupRangedConnectionDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupAwsGroundStationAgentEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Egress address of AgentEndpoint with an optional mtu.
+type DataflowEndpointGroupConnectionDetails struct {
+	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+	Mtu           *int                                `pulumi:"mtu"`
+	SocketAddress *DataflowEndpointGroupSocketAddress `pulumi:"socketAddress"`
+}
+
+// DataflowEndpointGroupConnectionDetailsInput is an input type that accepts DataflowEndpointGroupConnectionDetailsArgs and DataflowEndpointGroupConnectionDetailsOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupConnectionDetailsInput` via:
+//
+//	DataflowEndpointGroupConnectionDetailsArgs{...}
+type DataflowEndpointGroupConnectionDetailsInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupConnectionDetailsOutput() DataflowEndpointGroupConnectionDetailsOutput
+	ToDataflowEndpointGroupConnectionDetailsOutputWithContext(context.Context) DataflowEndpointGroupConnectionDetailsOutput
+}
+
+// Egress address of AgentEndpoint with an optional mtu.
+type DataflowEndpointGroupConnectionDetailsArgs struct {
+	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+	Mtu           pulumi.IntPtrInput                         `pulumi:"mtu"`
+	SocketAddress DataflowEndpointGroupSocketAddressPtrInput `pulumi:"socketAddress"`
+}
+
+func (DataflowEndpointGroupConnectionDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupConnectionDetails)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupConnectionDetailsArgs) ToDataflowEndpointGroupConnectionDetailsOutput() DataflowEndpointGroupConnectionDetailsOutput {
+	return i.ToDataflowEndpointGroupConnectionDetailsOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupConnectionDetailsArgs) ToDataflowEndpointGroupConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupConnectionDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupConnectionDetailsOutput)
+}
+
+func (i DataflowEndpointGroupConnectionDetailsArgs) ToDataflowEndpointGroupConnectionDetailsPtrOutput() DataflowEndpointGroupConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupConnectionDetailsArgs) ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupConnectionDetailsOutput).ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupConnectionDetailsPtrInput is an input type that accepts DataflowEndpointGroupConnectionDetailsArgs, DataflowEndpointGroupConnectionDetailsPtr and DataflowEndpointGroupConnectionDetailsPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupConnectionDetailsPtrInput` via:
+//
+//	        DataflowEndpointGroupConnectionDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupConnectionDetailsPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupConnectionDetailsPtrOutput() DataflowEndpointGroupConnectionDetailsPtrOutput
+	ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(context.Context) DataflowEndpointGroupConnectionDetailsPtrOutput
+}
+
+type dataflowEndpointGroupConnectionDetailsPtrType DataflowEndpointGroupConnectionDetailsArgs
+
+func DataflowEndpointGroupConnectionDetailsPtr(v *DataflowEndpointGroupConnectionDetailsArgs) DataflowEndpointGroupConnectionDetailsPtrInput {
+	return (*dataflowEndpointGroupConnectionDetailsPtrType)(v)
+}
+
+func (*dataflowEndpointGroupConnectionDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupConnectionDetails)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupConnectionDetailsPtrType) ToDataflowEndpointGroupConnectionDetailsPtrOutput() DataflowEndpointGroupConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupConnectionDetailsPtrType) ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupConnectionDetailsPtrOutput)
+}
+
+// Egress address of AgentEndpoint with an optional mtu.
+type DataflowEndpointGroupConnectionDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupConnectionDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupConnectionDetailsOutput) ToDataflowEndpointGroupConnectionDetailsOutput() DataflowEndpointGroupConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupConnectionDetailsOutput) ToDataflowEndpointGroupConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupConnectionDetailsOutput) ToDataflowEndpointGroupConnectionDetailsPtrOutput() DataflowEndpointGroupConnectionDetailsPtrOutput {
+	return o.ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupConnectionDetailsOutput) ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupConnectionDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupConnectionDetails) *DataflowEndpointGroupConnectionDetails {
+		return &v
+	}).(DataflowEndpointGroupConnectionDetailsPtrOutput)
+}
+
+// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+func (o DataflowEndpointGroupConnectionDetailsOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+func (o DataflowEndpointGroupConnectionDetailsOutput) SocketAddress() DataflowEndpointGroupSocketAddressPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupConnectionDetails) *DataflowEndpointGroupSocketAddress {
+		return v.SocketAddress
+	}).(DataflowEndpointGroupSocketAddressPtrOutput)
+}
+
+type DataflowEndpointGroupConnectionDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupConnectionDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupConnectionDetailsPtrOutput) ToDataflowEndpointGroupConnectionDetailsPtrOutput() DataflowEndpointGroupConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupConnectionDetailsPtrOutput) ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupConnectionDetailsPtrOutput) Elem() DataflowEndpointGroupConnectionDetailsOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupConnectionDetails) DataflowEndpointGroupConnectionDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupConnectionDetails
+		return ret
+	}).(DataflowEndpointGroupConnectionDetailsOutput)
+}
+
+// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+func (o DataflowEndpointGroupConnectionDetailsPtrOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupConnectionDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Mtu
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DataflowEndpointGroupConnectionDetailsPtrOutput) SocketAddress() DataflowEndpointGroupSocketAddressPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupConnectionDetails) *DataflowEndpointGroupSocketAddress {
+		if v == nil {
+			return nil
+		}
+		return v.SocketAddress
+	}).(DataflowEndpointGroupSocketAddressPtrOutput)
+}
+
 type DataflowEndpointGroupDataflowEndpoint struct {
 	Address *DataflowEndpointGroupSocketAddress `pulumi:"address"`
 	Mtu     *int                                `pulumi:"mtu"`
@@ -2518,8 +2879,9 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Name() pulumi.StringPtrO
 }
 
 type DataflowEndpointGroupEndpointDetails struct {
-	Endpoint        *DataflowEndpointGroupDataflowEndpoint `pulumi:"endpoint"`
-	SecurityDetails *DataflowEndpointGroupSecurityDetails  `pulumi:"securityDetails"`
+	AwsGroundStationAgentEndpoint *DataflowEndpointGroupAwsGroundStationAgentEndpoint `pulumi:"awsGroundStationAgentEndpoint"`
+	Endpoint                      *DataflowEndpointGroupDataflowEndpoint              `pulumi:"endpoint"`
+	SecurityDetails               *DataflowEndpointGroupSecurityDetails               `pulumi:"securityDetails"`
 }
 
 // DataflowEndpointGroupEndpointDetailsInput is an input type that accepts DataflowEndpointGroupEndpointDetailsArgs and DataflowEndpointGroupEndpointDetailsOutput values.
@@ -2534,8 +2896,9 @@ type DataflowEndpointGroupEndpointDetailsInput interface {
 }
 
 type DataflowEndpointGroupEndpointDetailsArgs struct {
-	Endpoint        DataflowEndpointGroupDataflowEndpointPtrInput `pulumi:"endpoint"`
-	SecurityDetails DataflowEndpointGroupSecurityDetailsPtrInput  `pulumi:"securityDetails"`
+	AwsGroundStationAgentEndpoint DataflowEndpointGroupAwsGroundStationAgentEndpointPtrInput `pulumi:"awsGroundStationAgentEndpoint"`
+	Endpoint                      DataflowEndpointGroupDataflowEndpointPtrInput              `pulumi:"endpoint"`
+	SecurityDetails               DataflowEndpointGroupSecurityDetailsPtrInput               `pulumi:"securityDetails"`
 }
 
 func (DataflowEndpointGroupEndpointDetailsArgs) ElementType() reflect.Type {
@@ -2589,6 +2952,12 @@ func (o DataflowEndpointGroupEndpointDetailsOutput) ToDataflowEndpointGroupEndpo
 	return o
 }
 
+func (o DataflowEndpointGroupEndpointDetailsOutput) AwsGroundStationAgentEndpoint() DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupEndpointDetails) *DataflowEndpointGroupAwsGroundStationAgentEndpoint {
+		return v.AwsGroundStationAgentEndpoint
+	}).(DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput)
+}
+
 func (o DataflowEndpointGroupEndpointDetailsOutput) Endpoint() DataflowEndpointGroupDataflowEndpointPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupEndpointDetails) *DataflowEndpointGroupDataflowEndpoint { return v.Endpoint }).(DataflowEndpointGroupDataflowEndpointPtrOutput)
 }
@@ -2617,6 +2986,483 @@ func (o DataflowEndpointGroupEndpointDetailsArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataflowEndpointGroupEndpointDetails {
 		return vs[0].([]DataflowEndpointGroupEndpointDetails)[vs[1].(int)]
 	}).(DataflowEndpointGroupEndpointDetailsOutput)
+}
+
+// An integer range that has a minimum and maximum value.
+type DataflowEndpointGroupIntegerRange struct {
+	// A maximum value.
+	Maximum *int `pulumi:"maximum"`
+	// A minimum value.
+	Minimum *int `pulumi:"minimum"`
+}
+
+// DataflowEndpointGroupIntegerRangeInput is an input type that accepts DataflowEndpointGroupIntegerRangeArgs and DataflowEndpointGroupIntegerRangeOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupIntegerRangeInput` via:
+//
+//	DataflowEndpointGroupIntegerRangeArgs{...}
+type DataflowEndpointGroupIntegerRangeInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupIntegerRangeOutput() DataflowEndpointGroupIntegerRangeOutput
+	ToDataflowEndpointGroupIntegerRangeOutputWithContext(context.Context) DataflowEndpointGroupIntegerRangeOutput
+}
+
+// An integer range that has a minimum and maximum value.
+type DataflowEndpointGroupIntegerRangeArgs struct {
+	// A maximum value.
+	Maximum pulumi.IntPtrInput `pulumi:"maximum"`
+	// A minimum value.
+	Minimum pulumi.IntPtrInput `pulumi:"minimum"`
+}
+
+func (DataflowEndpointGroupIntegerRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupIntegerRange)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupIntegerRangeArgs) ToDataflowEndpointGroupIntegerRangeOutput() DataflowEndpointGroupIntegerRangeOutput {
+	return i.ToDataflowEndpointGroupIntegerRangeOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupIntegerRangeArgs) ToDataflowEndpointGroupIntegerRangeOutputWithContext(ctx context.Context) DataflowEndpointGroupIntegerRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupIntegerRangeOutput)
+}
+
+func (i DataflowEndpointGroupIntegerRangeArgs) ToDataflowEndpointGroupIntegerRangePtrOutput() DataflowEndpointGroupIntegerRangePtrOutput {
+	return i.ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupIntegerRangeArgs) ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(ctx context.Context) DataflowEndpointGroupIntegerRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupIntegerRangeOutput).ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupIntegerRangePtrInput is an input type that accepts DataflowEndpointGroupIntegerRangeArgs, DataflowEndpointGroupIntegerRangePtr and DataflowEndpointGroupIntegerRangePtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupIntegerRangePtrInput` via:
+//
+//	        DataflowEndpointGroupIntegerRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupIntegerRangePtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupIntegerRangePtrOutput() DataflowEndpointGroupIntegerRangePtrOutput
+	ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(context.Context) DataflowEndpointGroupIntegerRangePtrOutput
+}
+
+type dataflowEndpointGroupIntegerRangePtrType DataflowEndpointGroupIntegerRangeArgs
+
+func DataflowEndpointGroupIntegerRangePtr(v *DataflowEndpointGroupIntegerRangeArgs) DataflowEndpointGroupIntegerRangePtrInput {
+	return (*dataflowEndpointGroupIntegerRangePtrType)(v)
+}
+
+func (*dataflowEndpointGroupIntegerRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupIntegerRange)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupIntegerRangePtrType) ToDataflowEndpointGroupIntegerRangePtrOutput() DataflowEndpointGroupIntegerRangePtrOutput {
+	return i.ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupIntegerRangePtrType) ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(ctx context.Context) DataflowEndpointGroupIntegerRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupIntegerRangePtrOutput)
+}
+
+// An integer range that has a minimum and maximum value.
+type DataflowEndpointGroupIntegerRangeOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupIntegerRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupIntegerRange)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupIntegerRangeOutput) ToDataflowEndpointGroupIntegerRangeOutput() DataflowEndpointGroupIntegerRangeOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupIntegerRangeOutput) ToDataflowEndpointGroupIntegerRangeOutputWithContext(ctx context.Context) DataflowEndpointGroupIntegerRangeOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupIntegerRangeOutput) ToDataflowEndpointGroupIntegerRangePtrOutput() DataflowEndpointGroupIntegerRangePtrOutput {
+	return o.ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupIntegerRangeOutput) ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(ctx context.Context) DataflowEndpointGroupIntegerRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupIntegerRange) *DataflowEndpointGroupIntegerRange {
+		return &v
+	}).(DataflowEndpointGroupIntegerRangePtrOutput)
+}
+
+// A maximum value.
+func (o DataflowEndpointGroupIntegerRangeOutput) Maximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupIntegerRange) *int { return v.Maximum }).(pulumi.IntPtrOutput)
+}
+
+// A minimum value.
+func (o DataflowEndpointGroupIntegerRangeOutput) Minimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupIntegerRange) *int { return v.Minimum }).(pulumi.IntPtrOutput)
+}
+
+type DataflowEndpointGroupIntegerRangePtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupIntegerRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupIntegerRange)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupIntegerRangePtrOutput) ToDataflowEndpointGroupIntegerRangePtrOutput() DataflowEndpointGroupIntegerRangePtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupIntegerRangePtrOutput) ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(ctx context.Context) DataflowEndpointGroupIntegerRangePtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupIntegerRangePtrOutput) Elem() DataflowEndpointGroupIntegerRangeOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupIntegerRange) DataflowEndpointGroupIntegerRange {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupIntegerRange
+		return ret
+	}).(DataflowEndpointGroupIntegerRangeOutput)
+}
+
+// A maximum value.
+func (o DataflowEndpointGroupIntegerRangePtrOutput) Maximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupIntegerRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Maximum
+	}).(pulumi.IntPtrOutput)
+}
+
+// A minimum value.
+func (o DataflowEndpointGroupIntegerRangePtrOutput) Minimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupIntegerRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minimum
+	}).(pulumi.IntPtrOutput)
+}
+
+// Ingress address of AgentEndpoint with a port range and an optional mtu.
+type DataflowEndpointGroupRangedConnectionDetails struct {
+	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+	Mtu           *int                                      `pulumi:"mtu"`
+	SocketAddress *DataflowEndpointGroupRangedSocketAddress `pulumi:"socketAddress"`
+}
+
+// DataflowEndpointGroupRangedConnectionDetailsInput is an input type that accepts DataflowEndpointGroupRangedConnectionDetailsArgs and DataflowEndpointGroupRangedConnectionDetailsOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupRangedConnectionDetailsInput` via:
+//
+//	DataflowEndpointGroupRangedConnectionDetailsArgs{...}
+type DataflowEndpointGroupRangedConnectionDetailsInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupRangedConnectionDetailsOutput() DataflowEndpointGroupRangedConnectionDetailsOutput
+	ToDataflowEndpointGroupRangedConnectionDetailsOutputWithContext(context.Context) DataflowEndpointGroupRangedConnectionDetailsOutput
+}
+
+// Ingress address of AgentEndpoint with a port range and an optional mtu.
+type DataflowEndpointGroupRangedConnectionDetailsArgs struct {
+	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+	Mtu           pulumi.IntPtrInput                               `pulumi:"mtu"`
+	SocketAddress DataflowEndpointGroupRangedSocketAddressPtrInput `pulumi:"socketAddress"`
+}
+
+func (DataflowEndpointGroupRangedConnectionDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupRangedConnectionDetails)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupRangedConnectionDetailsArgs) ToDataflowEndpointGroupRangedConnectionDetailsOutput() DataflowEndpointGroupRangedConnectionDetailsOutput {
+	return i.ToDataflowEndpointGroupRangedConnectionDetailsOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupRangedConnectionDetailsArgs) ToDataflowEndpointGroupRangedConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedConnectionDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupRangedConnectionDetailsOutput)
+}
+
+func (i DataflowEndpointGroupRangedConnectionDetailsArgs) ToDataflowEndpointGroupRangedConnectionDetailsPtrOutput() DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupRangedConnectionDetailsArgs) ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupRangedConnectionDetailsOutput).ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupRangedConnectionDetailsPtrInput is an input type that accepts DataflowEndpointGroupRangedConnectionDetailsArgs, DataflowEndpointGroupRangedConnectionDetailsPtr and DataflowEndpointGroupRangedConnectionDetailsPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupRangedConnectionDetailsPtrInput` via:
+//
+//	        DataflowEndpointGroupRangedConnectionDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupRangedConnectionDetailsPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupRangedConnectionDetailsPtrOutput() DataflowEndpointGroupRangedConnectionDetailsPtrOutput
+	ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(context.Context) DataflowEndpointGroupRangedConnectionDetailsPtrOutput
+}
+
+type dataflowEndpointGroupRangedConnectionDetailsPtrType DataflowEndpointGroupRangedConnectionDetailsArgs
+
+func DataflowEndpointGroupRangedConnectionDetailsPtr(v *DataflowEndpointGroupRangedConnectionDetailsArgs) DataflowEndpointGroupRangedConnectionDetailsPtrInput {
+	return (*dataflowEndpointGroupRangedConnectionDetailsPtrType)(v)
+}
+
+func (*dataflowEndpointGroupRangedConnectionDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupRangedConnectionDetails)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupRangedConnectionDetailsPtrType) ToDataflowEndpointGroupRangedConnectionDetailsPtrOutput() DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupRangedConnectionDetailsPtrType) ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupRangedConnectionDetailsPtrOutput)
+}
+
+// Ingress address of AgentEndpoint with a port range and an optional mtu.
+type DataflowEndpointGroupRangedConnectionDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupRangedConnectionDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupRangedConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupRangedConnectionDetailsOutput) ToDataflowEndpointGroupRangedConnectionDetailsOutput() DataflowEndpointGroupRangedConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupRangedConnectionDetailsOutput) ToDataflowEndpointGroupRangedConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupRangedConnectionDetailsOutput) ToDataflowEndpointGroupRangedConnectionDetailsPtrOutput() DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
+	return o.ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupRangedConnectionDetailsOutput) ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupRangedConnectionDetails) *DataflowEndpointGroupRangedConnectionDetails {
+		return &v
+	}).(DataflowEndpointGroupRangedConnectionDetailsPtrOutput)
+}
+
+// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+func (o DataflowEndpointGroupRangedConnectionDetailsOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupRangedConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+func (o DataflowEndpointGroupRangedConnectionDetailsOutput) SocketAddress() DataflowEndpointGroupRangedSocketAddressPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupRangedConnectionDetails) *DataflowEndpointGroupRangedSocketAddress {
+		return v.SocketAddress
+	}).(DataflowEndpointGroupRangedSocketAddressPtrOutput)
+}
+
+type DataflowEndpointGroupRangedConnectionDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupRangedConnectionDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupRangedConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupRangedConnectionDetailsPtrOutput) ToDataflowEndpointGroupRangedConnectionDetailsPtrOutput() DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupRangedConnectionDetailsPtrOutput) ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupRangedConnectionDetailsPtrOutput) Elem() DataflowEndpointGroupRangedConnectionDetailsOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupRangedConnectionDetails) DataflowEndpointGroupRangedConnectionDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupRangedConnectionDetails
+		return ret
+	}).(DataflowEndpointGroupRangedConnectionDetailsOutput)
+}
+
+// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+func (o DataflowEndpointGroupRangedConnectionDetailsPtrOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupRangedConnectionDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Mtu
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DataflowEndpointGroupRangedConnectionDetailsPtrOutput) SocketAddress() DataflowEndpointGroupRangedSocketAddressPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupRangedConnectionDetails) *DataflowEndpointGroupRangedSocketAddress {
+		if v == nil {
+			return nil
+		}
+		return v.SocketAddress
+	}).(DataflowEndpointGroupRangedSocketAddressPtrOutput)
+}
+
+// A socket address with a port range.
+type DataflowEndpointGroupRangedSocketAddress struct {
+	// IPv4 socket address.
+	Name *string `pulumi:"name"`
+	// Port range of a socket address.
+	PortRange *DataflowEndpointGroupIntegerRange `pulumi:"portRange"`
+}
+
+// DataflowEndpointGroupRangedSocketAddressInput is an input type that accepts DataflowEndpointGroupRangedSocketAddressArgs and DataflowEndpointGroupRangedSocketAddressOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupRangedSocketAddressInput` via:
+//
+//	DataflowEndpointGroupRangedSocketAddressArgs{...}
+type DataflowEndpointGroupRangedSocketAddressInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupRangedSocketAddressOutput() DataflowEndpointGroupRangedSocketAddressOutput
+	ToDataflowEndpointGroupRangedSocketAddressOutputWithContext(context.Context) DataflowEndpointGroupRangedSocketAddressOutput
+}
+
+// A socket address with a port range.
+type DataflowEndpointGroupRangedSocketAddressArgs struct {
+	// IPv4 socket address.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Port range of a socket address.
+	PortRange DataflowEndpointGroupIntegerRangePtrInput `pulumi:"portRange"`
+}
+
+func (DataflowEndpointGroupRangedSocketAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupRangedSocketAddress)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupRangedSocketAddressArgs) ToDataflowEndpointGroupRangedSocketAddressOutput() DataflowEndpointGroupRangedSocketAddressOutput {
+	return i.ToDataflowEndpointGroupRangedSocketAddressOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupRangedSocketAddressArgs) ToDataflowEndpointGroupRangedSocketAddressOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedSocketAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupRangedSocketAddressOutput)
+}
+
+func (i DataflowEndpointGroupRangedSocketAddressArgs) ToDataflowEndpointGroupRangedSocketAddressPtrOutput() DataflowEndpointGroupRangedSocketAddressPtrOutput {
+	return i.ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupRangedSocketAddressArgs) ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedSocketAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupRangedSocketAddressOutput).ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupRangedSocketAddressPtrInput is an input type that accepts DataflowEndpointGroupRangedSocketAddressArgs, DataflowEndpointGroupRangedSocketAddressPtr and DataflowEndpointGroupRangedSocketAddressPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupRangedSocketAddressPtrInput` via:
+//
+//	        DataflowEndpointGroupRangedSocketAddressArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupRangedSocketAddressPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupRangedSocketAddressPtrOutput() DataflowEndpointGroupRangedSocketAddressPtrOutput
+	ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(context.Context) DataflowEndpointGroupRangedSocketAddressPtrOutput
+}
+
+type dataflowEndpointGroupRangedSocketAddressPtrType DataflowEndpointGroupRangedSocketAddressArgs
+
+func DataflowEndpointGroupRangedSocketAddressPtr(v *DataflowEndpointGroupRangedSocketAddressArgs) DataflowEndpointGroupRangedSocketAddressPtrInput {
+	return (*dataflowEndpointGroupRangedSocketAddressPtrType)(v)
+}
+
+func (*dataflowEndpointGroupRangedSocketAddressPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupRangedSocketAddress)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupRangedSocketAddressPtrType) ToDataflowEndpointGroupRangedSocketAddressPtrOutput() DataflowEndpointGroupRangedSocketAddressPtrOutput {
+	return i.ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupRangedSocketAddressPtrType) ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedSocketAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupRangedSocketAddressPtrOutput)
+}
+
+// A socket address with a port range.
+type DataflowEndpointGroupRangedSocketAddressOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupRangedSocketAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupRangedSocketAddress)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupRangedSocketAddressOutput) ToDataflowEndpointGroupRangedSocketAddressOutput() DataflowEndpointGroupRangedSocketAddressOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupRangedSocketAddressOutput) ToDataflowEndpointGroupRangedSocketAddressOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedSocketAddressOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupRangedSocketAddressOutput) ToDataflowEndpointGroupRangedSocketAddressPtrOutput() DataflowEndpointGroupRangedSocketAddressPtrOutput {
+	return o.ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupRangedSocketAddressOutput) ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedSocketAddressPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupRangedSocketAddress) *DataflowEndpointGroupRangedSocketAddress {
+		return &v
+	}).(DataflowEndpointGroupRangedSocketAddressPtrOutput)
+}
+
+// IPv4 socket address.
+func (o DataflowEndpointGroupRangedSocketAddressOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupRangedSocketAddress) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Port range of a socket address.
+func (o DataflowEndpointGroupRangedSocketAddressOutput) PortRange() DataflowEndpointGroupIntegerRangePtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupRangedSocketAddress) *DataflowEndpointGroupIntegerRange {
+		return v.PortRange
+	}).(DataflowEndpointGroupIntegerRangePtrOutput)
+}
+
+type DataflowEndpointGroupRangedSocketAddressPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupRangedSocketAddressPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupRangedSocketAddress)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupRangedSocketAddressPtrOutput) ToDataflowEndpointGroupRangedSocketAddressPtrOutput() DataflowEndpointGroupRangedSocketAddressPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupRangedSocketAddressPtrOutput) ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedSocketAddressPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupRangedSocketAddressPtrOutput) Elem() DataflowEndpointGroupRangedSocketAddressOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupRangedSocketAddress) DataflowEndpointGroupRangedSocketAddress {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupRangedSocketAddress
+		return ret
+	}).(DataflowEndpointGroupRangedSocketAddressOutput)
+}
+
+// IPv4 socket address.
+func (o DataflowEndpointGroupRangedSocketAddressPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupRangedSocketAddress) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port range of a socket address.
+func (o DataflowEndpointGroupRangedSocketAddressPtrOutput) PortRange() DataflowEndpointGroupIntegerRangePtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupRangedSocketAddress) *DataflowEndpointGroupIntegerRange {
+		if v == nil {
+			return nil
+		}
+		return v.PortRange
+	}).(DataflowEndpointGroupIntegerRangePtrOutput)
 }
 
 type DataflowEndpointGroupSecurityDetails struct {
@@ -3130,6 +3976,154 @@ func (o MissionProfileDataflowEdgeArrayOutput) Index(i pulumi.IntInput) MissionP
 	}).(MissionProfileDataflowEdgeOutput)
 }
 
+type MissionProfileStreamsKmsKey struct {
+	KmsAliasArn *string `pulumi:"kmsAliasArn"`
+	KmsKeyArn   *string `pulumi:"kmsKeyArn"`
+}
+
+// MissionProfileStreamsKmsKeyInput is an input type that accepts MissionProfileStreamsKmsKeyArgs and MissionProfileStreamsKmsKeyOutput values.
+// You can construct a concrete instance of `MissionProfileStreamsKmsKeyInput` via:
+//
+//	MissionProfileStreamsKmsKeyArgs{...}
+type MissionProfileStreamsKmsKeyInput interface {
+	pulumi.Input
+
+	ToMissionProfileStreamsKmsKeyOutput() MissionProfileStreamsKmsKeyOutput
+	ToMissionProfileStreamsKmsKeyOutputWithContext(context.Context) MissionProfileStreamsKmsKeyOutput
+}
+
+type MissionProfileStreamsKmsKeyArgs struct {
+	KmsAliasArn pulumi.StringPtrInput `pulumi:"kmsAliasArn"`
+	KmsKeyArn   pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (MissionProfileStreamsKmsKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MissionProfileStreamsKmsKey)(nil)).Elem()
+}
+
+func (i MissionProfileStreamsKmsKeyArgs) ToMissionProfileStreamsKmsKeyOutput() MissionProfileStreamsKmsKeyOutput {
+	return i.ToMissionProfileStreamsKmsKeyOutputWithContext(context.Background())
+}
+
+func (i MissionProfileStreamsKmsKeyArgs) ToMissionProfileStreamsKmsKeyOutputWithContext(ctx context.Context) MissionProfileStreamsKmsKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileStreamsKmsKeyOutput)
+}
+
+func (i MissionProfileStreamsKmsKeyArgs) ToMissionProfileStreamsKmsKeyPtrOutput() MissionProfileStreamsKmsKeyPtrOutput {
+	return i.ToMissionProfileStreamsKmsKeyPtrOutputWithContext(context.Background())
+}
+
+func (i MissionProfileStreamsKmsKeyArgs) ToMissionProfileStreamsKmsKeyPtrOutputWithContext(ctx context.Context) MissionProfileStreamsKmsKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileStreamsKmsKeyOutput).ToMissionProfileStreamsKmsKeyPtrOutputWithContext(ctx)
+}
+
+// MissionProfileStreamsKmsKeyPtrInput is an input type that accepts MissionProfileStreamsKmsKeyArgs, MissionProfileStreamsKmsKeyPtr and MissionProfileStreamsKmsKeyPtrOutput values.
+// You can construct a concrete instance of `MissionProfileStreamsKmsKeyPtrInput` via:
+//
+//	        MissionProfileStreamsKmsKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type MissionProfileStreamsKmsKeyPtrInput interface {
+	pulumi.Input
+
+	ToMissionProfileStreamsKmsKeyPtrOutput() MissionProfileStreamsKmsKeyPtrOutput
+	ToMissionProfileStreamsKmsKeyPtrOutputWithContext(context.Context) MissionProfileStreamsKmsKeyPtrOutput
+}
+
+type missionProfileStreamsKmsKeyPtrType MissionProfileStreamsKmsKeyArgs
+
+func MissionProfileStreamsKmsKeyPtr(v *MissionProfileStreamsKmsKeyArgs) MissionProfileStreamsKmsKeyPtrInput {
+	return (*missionProfileStreamsKmsKeyPtrType)(v)
+}
+
+func (*missionProfileStreamsKmsKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MissionProfileStreamsKmsKey)(nil)).Elem()
+}
+
+func (i *missionProfileStreamsKmsKeyPtrType) ToMissionProfileStreamsKmsKeyPtrOutput() MissionProfileStreamsKmsKeyPtrOutput {
+	return i.ToMissionProfileStreamsKmsKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *missionProfileStreamsKmsKeyPtrType) ToMissionProfileStreamsKmsKeyPtrOutputWithContext(ctx context.Context) MissionProfileStreamsKmsKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileStreamsKmsKeyPtrOutput)
+}
+
+type MissionProfileStreamsKmsKeyOutput struct{ *pulumi.OutputState }
+
+func (MissionProfileStreamsKmsKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MissionProfileStreamsKmsKey)(nil)).Elem()
+}
+
+func (o MissionProfileStreamsKmsKeyOutput) ToMissionProfileStreamsKmsKeyOutput() MissionProfileStreamsKmsKeyOutput {
+	return o
+}
+
+func (o MissionProfileStreamsKmsKeyOutput) ToMissionProfileStreamsKmsKeyOutputWithContext(ctx context.Context) MissionProfileStreamsKmsKeyOutput {
+	return o
+}
+
+func (o MissionProfileStreamsKmsKeyOutput) ToMissionProfileStreamsKmsKeyPtrOutput() MissionProfileStreamsKmsKeyPtrOutput {
+	return o.ToMissionProfileStreamsKmsKeyPtrOutputWithContext(context.Background())
+}
+
+func (o MissionProfileStreamsKmsKeyOutput) ToMissionProfileStreamsKmsKeyPtrOutputWithContext(ctx context.Context) MissionProfileStreamsKmsKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MissionProfileStreamsKmsKey) *MissionProfileStreamsKmsKey {
+		return &v
+	}).(MissionProfileStreamsKmsKeyPtrOutput)
+}
+
+func (o MissionProfileStreamsKmsKeyOutput) KmsAliasArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MissionProfileStreamsKmsKey) *string { return v.KmsAliasArn }).(pulumi.StringPtrOutput)
+}
+
+func (o MissionProfileStreamsKmsKeyOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MissionProfileStreamsKmsKey) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type MissionProfileStreamsKmsKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (MissionProfileStreamsKmsKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MissionProfileStreamsKmsKey)(nil)).Elem()
+}
+
+func (o MissionProfileStreamsKmsKeyPtrOutput) ToMissionProfileStreamsKmsKeyPtrOutput() MissionProfileStreamsKmsKeyPtrOutput {
+	return o
+}
+
+func (o MissionProfileStreamsKmsKeyPtrOutput) ToMissionProfileStreamsKmsKeyPtrOutputWithContext(ctx context.Context) MissionProfileStreamsKmsKeyPtrOutput {
+	return o
+}
+
+func (o MissionProfileStreamsKmsKeyPtrOutput) Elem() MissionProfileStreamsKmsKeyOutput {
+	return o.ApplyT(func(v *MissionProfileStreamsKmsKey) MissionProfileStreamsKmsKey {
+		if v != nil {
+			return *v
+		}
+		var ret MissionProfileStreamsKmsKey
+		return ret
+	}).(MissionProfileStreamsKmsKeyOutput)
+}
+
+func (o MissionProfileStreamsKmsKeyPtrOutput) KmsAliasArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MissionProfileStreamsKmsKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsAliasArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MissionProfileStreamsKmsKeyPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MissionProfileStreamsKmsKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type MissionProfileTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -3262,10 +4256,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigUplinkEchoConfigPtrInput)(nil)).Elem(), ConfigUplinkEchoConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigUplinkSpectrumConfigInput)(nil)).Elem(), ConfigUplinkSpectrumConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigUplinkSpectrumConfigPtrInput)(nil)).Elem(), ConfigUplinkSpectrumConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupAwsGroundStationAgentEndpointInput)(nil)).Elem(), DataflowEndpointGroupAwsGroundStationAgentEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupAwsGroundStationAgentEndpointPtrInput)(nil)).Elem(), DataflowEndpointGroupAwsGroundStationAgentEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupConnectionDetailsInput)(nil)).Elem(), DataflowEndpointGroupConnectionDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupConnectionDetailsPtrInput)(nil)).Elem(), DataflowEndpointGroupConnectionDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupDataflowEndpointInput)(nil)).Elem(), DataflowEndpointGroupDataflowEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupDataflowEndpointPtrInput)(nil)).Elem(), DataflowEndpointGroupDataflowEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupEndpointDetailsInput)(nil)).Elem(), DataflowEndpointGroupEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupEndpointDetailsArrayInput)(nil)).Elem(), DataflowEndpointGroupEndpointDetailsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupIntegerRangeInput)(nil)).Elem(), DataflowEndpointGroupIntegerRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupIntegerRangePtrInput)(nil)).Elem(), DataflowEndpointGroupIntegerRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupRangedConnectionDetailsInput)(nil)).Elem(), DataflowEndpointGroupRangedConnectionDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupRangedConnectionDetailsPtrInput)(nil)).Elem(), DataflowEndpointGroupRangedConnectionDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupRangedSocketAddressInput)(nil)).Elem(), DataflowEndpointGroupRangedSocketAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupRangedSocketAddressPtrInput)(nil)).Elem(), DataflowEndpointGroupRangedSocketAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupSecurityDetailsInput)(nil)).Elem(), DataflowEndpointGroupSecurityDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupSecurityDetailsPtrInput)(nil)).Elem(), DataflowEndpointGroupSecurityDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupSocketAddressInput)(nil)).Elem(), DataflowEndpointGroupSocketAddressArgs{})
@@ -3274,6 +4278,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupTagArrayInput)(nil)).Elem(), DataflowEndpointGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileDataflowEdgeInput)(nil)).Elem(), MissionProfileDataflowEdgeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileDataflowEdgeArrayInput)(nil)).Elem(), MissionProfileDataflowEdgeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileStreamsKmsKeyInput)(nil)).Elem(), MissionProfileStreamsKmsKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileStreamsKmsKeyPtrInput)(nil)).Elem(), MissionProfileStreamsKmsKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileTagInput)(nil)).Elem(), MissionProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileTagArrayInput)(nil)).Elem(), MissionProfileTagArray{})
 	pulumi.RegisterOutputType(ConfigAntennaDownlinkConfigOutput{})
@@ -3308,10 +4314,20 @@ func init() {
 	pulumi.RegisterOutputType(ConfigUplinkEchoConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConfigUplinkSpectrumConfigOutput{})
 	pulumi.RegisterOutputType(ConfigUplinkSpectrumConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupAwsGroundStationAgentEndpointOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupConnectionDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupConnectionDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupDataflowEndpointOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupDataflowEndpointPtrOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupEndpointDetailsArrayOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupIntegerRangeOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupIntegerRangePtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupRangedConnectionDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupRangedConnectionDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupRangedSocketAddressOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupRangedSocketAddressPtrOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupSecurityDetailsOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupSecurityDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupSocketAddressOutput{})
@@ -3320,6 +4336,8 @@ func init() {
 	pulumi.RegisterOutputType(DataflowEndpointGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(MissionProfileDataflowEdgeOutput{})
 	pulumi.RegisterOutputType(MissionProfileDataflowEdgeArrayOutput{})
+	pulumi.RegisterOutputType(MissionProfileStreamsKmsKeyOutput{})
+	pulumi.RegisterOutputType(MissionProfileStreamsKmsKeyPtrOutput{})
 	pulumi.RegisterOutputType(MissionProfileTagOutput{})
 	pulumi.RegisterOutputType(MissionProfileTagArrayOutput{})
 }

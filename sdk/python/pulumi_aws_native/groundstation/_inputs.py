@@ -27,12 +27,18 @@ __all__ = [
     'ConfigTrackingConfigArgs',
     'ConfigUplinkEchoConfigArgs',
     'ConfigUplinkSpectrumConfigArgs',
+    'DataflowEndpointGroupAwsGroundStationAgentEndpointArgs',
+    'DataflowEndpointGroupConnectionDetailsArgs',
     'DataflowEndpointGroupDataflowEndpointArgs',
     'DataflowEndpointGroupEndpointDetailsArgs',
+    'DataflowEndpointGroupIntegerRangeArgs',
+    'DataflowEndpointGroupRangedConnectionDetailsArgs',
+    'DataflowEndpointGroupRangedSocketAddressArgs',
     'DataflowEndpointGroupSecurityDetailsArgs',
     'DataflowEndpointGroupSocketAddressArgs',
     'DataflowEndpointGroupTagArgs',
     'MissionProfileDataflowEdgeArgs',
+    'MissionProfileStreamsKmsKeyArgs',
     'MissionProfileTagArgs',
 ]
 
@@ -561,6 +567,110 @@ class ConfigUplinkSpectrumConfigArgs:
 
 
 @pulumi.input_type
+class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs:
+    def __init__(__self__, *,
+                 agent_status: Optional[pulumi.Input['DataflowEndpointGroupAgentStatus']] = None,
+                 audit_results: Optional[pulumi.Input['DataflowEndpointGroupAuditResults']] = None,
+                 egress_address: Optional[pulumi.Input['DataflowEndpointGroupConnectionDetailsArgs']] = None,
+                 ingress_address: Optional[pulumi.Input['DataflowEndpointGroupRangedConnectionDetailsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Information about AwsGroundStationAgentEndpoint.
+        """
+        if agent_status is not None:
+            pulumi.set(__self__, "agent_status", agent_status)
+        if audit_results is not None:
+            pulumi.set(__self__, "audit_results", audit_results)
+        if egress_address is not None:
+            pulumi.set(__self__, "egress_address", egress_address)
+        if ingress_address is not None:
+            pulumi.set(__self__, "ingress_address", ingress_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="agentStatus")
+    def agent_status(self) -> Optional[pulumi.Input['DataflowEndpointGroupAgentStatus']]:
+        return pulumi.get(self, "agent_status")
+
+    @agent_status.setter
+    def agent_status(self, value: Optional[pulumi.Input['DataflowEndpointGroupAgentStatus']]):
+        pulumi.set(self, "agent_status", value)
+
+    @property
+    @pulumi.getter(name="auditResults")
+    def audit_results(self) -> Optional[pulumi.Input['DataflowEndpointGroupAuditResults']]:
+        return pulumi.get(self, "audit_results")
+
+    @audit_results.setter
+    def audit_results(self, value: Optional[pulumi.Input['DataflowEndpointGroupAuditResults']]):
+        pulumi.set(self, "audit_results", value)
+
+    @property
+    @pulumi.getter(name="egressAddress")
+    def egress_address(self) -> Optional[pulumi.Input['DataflowEndpointGroupConnectionDetailsArgs']]:
+        return pulumi.get(self, "egress_address")
+
+    @egress_address.setter
+    def egress_address(self, value: Optional[pulumi.Input['DataflowEndpointGroupConnectionDetailsArgs']]):
+        pulumi.set(self, "egress_address", value)
+
+    @property
+    @pulumi.getter(name="ingressAddress")
+    def ingress_address(self) -> Optional[pulumi.Input['DataflowEndpointGroupRangedConnectionDetailsArgs']]:
+        return pulumi.get(self, "ingress_address")
+
+    @ingress_address.setter
+    def ingress_address(self, value: Optional[pulumi.Input['DataflowEndpointGroupRangedConnectionDetailsArgs']]):
+        pulumi.set(self, "ingress_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DataflowEndpointGroupConnectionDetailsArgs:
+    def __init__(__self__, *,
+                 mtu: Optional[pulumi.Input[int]] = None,
+                 socket_address: Optional[pulumi.Input['DataflowEndpointGroupSocketAddressArgs']] = None):
+        """
+        Egress address of AgentEndpoint with an optional mtu.
+        :param pulumi.Input[int] mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        if mtu is not None:
+            pulumi.set(__self__, "mtu", mtu)
+        if socket_address is not None:
+            pulumi.set(__self__, "socket_address", socket_address)
+
+    @property
+    @pulumi.getter
+    def mtu(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        return pulumi.get(self, "mtu")
+
+    @mtu.setter
+    def mtu(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "mtu", value)
+
+    @property
+    @pulumi.getter(name="socketAddress")
+    def socket_address(self) -> Optional[pulumi.Input['DataflowEndpointGroupSocketAddressArgs']]:
+        return pulumi.get(self, "socket_address")
+
+    @socket_address.setter
+    def socket_address(self, value: Optional[pulumi.Input['DataflowEndpointGroupSocketAddressArgs']]):
+        pulumi.set(self, "socket_address", value)
+
+
+@pulumi.input_type
 class DataflowEndpointGroupDataflowEndpointArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input['DataflowEndpointGroupSocketAddressArgs']] = None,
@@ -604,12 +714,24 @@ class DataflowEndpointGroupDataflowEndpointArgs:
 @pulumi.input_type
 class DataflowEndpointGroupEndpointDetailsArgs:
     def __init__(__self__, *,
+                 aws_ground_station_agent_endpoint: Optional[pulumi.Input['DataflowEndpointGroupAwsGroundStationAgentEndpointArgs']] = None,
                  endpoint: Optional[pulumi.Input['DataflowEndpointGroupDataflowEndpointArgs']] = None,
                  security_details: Optional[pulumi.Input['DataflowEndpointGroupSecurityDetailsArgs']] = None):
+        if aws_ground_station_agent_endpoint is not None:
+            pulumi.set(__self__, "aws_ground_station_agent_endpoint", aws_ground_station_agent_endpoint)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if security_details is not None:
             pulumi.set(__self__, "security_details", security_details)
+
+    @property
+    @pulumi.getter(name="awsGroundStationAgentEndpoint")
+    def aws_ground_station_agent_endpoint(self) -> Optional[pulumi.Input['DataflowEndpointGroupAwsGroundStationAgentEndpointArgs']]:
+        return pulumi.get(self, "aws_ground_station_agent_endpoint")
+
+    @aws_ground_station_agent_endpoint.setter
+    def aws_ground_station_agent_endpoint(self, value: Optional[pulumi.Input['DataflowEndpointGroupAwsGroundStationAgentEndpointArgs']]):
+        pulumi.set(self, "aws_ground_station_agent_endpoint", value)
 
     @property
     @pulumi.getter
@@ -628,6 +750,122 @@ class DataflowEndpointGroupEndpointDetailsArgs:
     @security_details.setter
     def security_details(self, value: Optional[pulumi.Input['DataflowEndpointGroupSecurityDetailsArgs']]):
         pulumi.set(self, "security_details", value)
+
+
+@pulumi.input_type
+class DataflowEndpointGroupIntegerRangeArgs:
+    def __init__(__self__, *,
+                 maximum: Optional[pulumi.Input[int]] = None,
+                 minimum: Optional[pulumi.Input[int]] = None):
+        """
+        An integer range that has a minimum and maximum value.
+        :param pulumi.Input[int] maximum: A maximum value.
+        :param pulumi.Input[int] minimum: A minimum value.
+        """
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[pulumi.Input[int]]:
+        """
+        A maximum value.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        A minimum value.
+        """
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum", value)
+
+
+@pulumi.input_type
+class DataflowEndpointGroupRangedConnectionDetailsArgs:
+    def __init__(__self__, *,
+                 mtu: Optional[pulumi.Input[int]] = None,
+                 socket_address: Optional[pulumi.Input['DataflowEndpointGroupRangedSocketAddressArgs']] = None):
+        """
+        Ingress address of AgentEndpoint with a port range and an optional mtu.
+        :param pulumi.Input[int] mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        if mtu is not None:
+            pulumi.set(__self__, "mtu", mtu)
+        if socket_address is not None:
+            pulumi.set(__self__, "socket_address", socket_address)
+
+    @property
+    @pulumi.getter
+    def mtu(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        return pulumi.get(self, "mtu")
+
+    @mtu.setter
+    def mtu(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "mtu", value)
+
+    @property
+    @pulumi.getter(name="socketAddress")
+    def socket_address(self) -> Optional[pulumi.Input['DataflowEndpointGroupRangedSocketAddressArgs']]:
+        return pulumi.get(self, "socket_address")
+
+    @socket_address.setter
+    def socket_address(self, value: Optional[pulumi.Input['DataflowEndpointGroupRangedSocketAddressArgs']]):
+        pulumi.set(self, "socket_address", value)
+
+
+@pulumi.input_type
+class DataflowEndpointGroupRangedSocketAddressArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 port_range: Optional[pulumi.Input['DataflowEndpointGroupIntegerRangeArgs']] = None):
+        """
+        A socket address with a port range.
+        :param pulumi.Input[str] name: IPv4 socket address.
+        :param pulumi.Input['DataflowEndpointGroupIntegerRangeArgs'] port_range: Port range of a socket address.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if port_range is not None:
+            pulumi.set(__self__, "port_range", port_range)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        IPv4 socket address.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="portRange")
+    def port_range(self) -> Optional[pulumi.Input['DataflowEndpointGroupIntegerRangeArgs']]:
+        """
+        Port range of a socket address.
+        """
+        return pulumi.get(self, "port_range")
+
+    @port_range.setter
+    def port_range(self, value: Optional[pulumi.Input['DataflowEndpointGroupIntegerRangeArgs']]):
+        pulumi.set(self, "port_range", value)
 
 
 @pulumi.input_type
@@ -754,6 +992,35 @@ class MissionProfileDataflowEdgeArgs:
     @source.setter
     def source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source", value)
+
+
+@pulumi.input_type
+class MissionProfileStreamsKmsKeyArgs:
+    def __init__(__self__, *,
+                 kms_alias_arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        if kms_alias_arn is not None:
+            pulumi.set(__self__, "kms_alias_arn", kms_alias_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="kmsAliasArn")
+    def kms_alias_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_alias_arn")
+
+    @kms_alias_arn.setter
+    def kms_alias_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_alias_arn", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 
 @pulumi.input_type

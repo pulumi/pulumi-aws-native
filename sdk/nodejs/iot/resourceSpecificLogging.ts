@@ -50,7 +50,7 @@ export class ResourceSpecificLogging extends pulumi.CustomResource {
      */
     public readonly targetName!: pulumi.Output<string>;
     /**
-     * The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
+     * The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.
      */
     public readonly targetType!: pulumi.Output<enums.iot.ResourceSpecificLoggingTargetType>;
 
@@ -102,7 +102,7 @@ export interface ResourceSpecificLoggingArgs {
      */
     targetName: pulumi.Input<string>;
     /**
-     * The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
+     * The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.
      */
     targetType: pulumi.Input<enums.iot.ResourceSpecificLoggingTargetType>;
 }

@@ -3309,6 +3309,8 @@ class EndpointConfigProductionVariant(dict):
             suggest = "accelerator_type"
         elif key == "containerStartupHealthCheckTimeoutInSeconds":
             suggest = "container_startup_health_check_timeout_in_seconds"
+        elif key == "enableSSMAccess":
+            suggest = "enable_ssm_access"
         elif key == "initialInstanceCount":
             suggest = "initial_instance_count"
         elif key == "instanceType":
@@ -3337,6 +3339,7 @@ class EndpointConfigProductionVariant(dict):
                  variant_name: str,
                  accelerator_type: Optional[str] = None,
                  container_startup_health_check_timeout_in_seconds: Optional[int] = None,
+                 enable_ssm_access: Optional[bool] = None,
                  initial_instance_count: Optional[int] = None,
                  instance_type: Optional[str] = None,
                  model_data_download_timeout_in_seconds: Optional[int] = None,
@@ -3349,6 +3352,8 @@ class EndpointConfigProductionVariant(dict):
             pulumi.set(__self__, "accelerator_type", accelerator_type)
         if container_startup_health_check_timeout_in_seconds is not None:
             pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
+        if enable_ssm_access is not None:
+            pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if instance_type is not None:
@@ -3384,6 +3389,11 @@ class EndpointConfigProductionVariant(dict):
     @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
     def container_startup_health_check_timeout_in_seconds(self) -> Optional[int]:
         return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="enableSSMAccess")
+    def enable_ssm_access(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_ssm_access")
 
     @property
     @pulumi.getter(name="initialInstanceCount")

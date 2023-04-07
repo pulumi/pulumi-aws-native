@@ -39,6 +39,9 @@ class DBClusterParameterGroupTag(dict):
 
 @pulumi.output_type
 class DBClusterRole(dict):
+    """
+    Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -61,6 +64,11 @@ class DBClusterRole(dict):
     def __init__(__self__, *,
                  role_arn: str,
                  feature_name: Optional[str] = None):
+        """
+        Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+        :param str role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+        :param str feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
+        """
         pulumi.set(__self__, "role_arn", role_arn)
         if feature_name is not None:
             pulumi.set(__self__, "feature_name", feature_name)
@@ -68,30 +76,51 @@ class DBClusterRole(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="featureName")
     def feature_name(self) -> Optional[str]:
+        """
+        The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
+        """
         return pulumi.get(self, "feature_name")
 
 
 @pulumi.output_type
 class DBClusterTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
     def __init__(__self__, *,
                  key: str,
-                 value: str):
+                 value: Optional[str] = None):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         return pulumi.get(self, "value")
 
 

@@ -74,10 +74,6 @@ namespace Pulumi.AwsNative.Macie
         /// </summary>
         public readonly Outputs.FindingsFilterFindingCriteria? FindingCriteria;
         /// <summary>
-        /// Findings filters list.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.FindingsFilterListItem> FindingsFilterListItems;
-        /// <summary>
         /// Findings filter ID.
         /// </summary>
         public readonly string? Id;
@@ -100,8 +96,6 @@ namespace Pulumi.AwsNative.Macie
 
             Outputs.FindingsFilterFindingCriteria? findingCriteria,
 
-            ImmutableArray<Outputs.FindingsFilterListItem> findingsFilterListItems,
-
             string? id,
 
             string? name,
@@ -112,7 +106,6 @@ namespace Pulumi.AwsNative.Macie
             Arn = arn;
             Description = description;
             FindingCriteria = findingCriteria;
-            FindingsFilterListItems = findingsFilterListItems;
             Id = id;
             Name = name;
             Position = position;

@@ -36,8 +36,12 @@ type LookupMissionProfileResult struct {
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds *int `pulumi:"minimumViableContactDurationSeconds"`
 	// A name used to identify a mission profile.
-	Name              *string             `pulumi:"name"`
-	Region            *string             `pulumi:"region"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
+	// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+	StreamsKmsKey *MissionProfileStreamsKmsKey `pulumi:"streamsKmsKey"`
+	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+	StreamsKmsRole    *string             `pulumi:"streamsKmsRole"`
 	Tags              []MissionProfileTag `pulumi:"tags"`
 	TrackingConfigArn *string             `pulumi:"trackingConfigArn"`
 }
@@ -112,6 +116,16 @@ func (o LookupMissionProfileResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupMissionProfileResultOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMissionProfileResult) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+func (o LookupMissionProfileResultOutput) StreamsKmsKey() MissionProfileStreamsKmsKeyPtrOutput {
+	return o.ApplyT(func(v LookupMissionProfileResult) *MissionProfileStreamsKmsKey { return v.StreamsKmsKey }).(MissionProfileStreamsKmsKeyPtrOutput)
+}
+
+// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+func (o LookupMissionProfileResultOutput) StreamsKmsRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMissionProfileResult) *string { return v.StreamsKmsRole }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupMissionProfileResultOutput) Tags() MissionProfileTagArrayOutput {

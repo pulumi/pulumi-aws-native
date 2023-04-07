@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     {
         public readonly string? AcceleratorType;
         public readonly int? ContainerStartupHealthCheckTimeoutInSeconds;
+        public readonly bool? EnableSSMAccess;
         public readonly int? InitialInstanceCount;
         public readonly double InitialVariantWeight;
         public readonly string? InstanceType;
@@ -29,6 +30,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             string? acceleratorType,
 
             int? containerStartupHealthCheckTimeoutInSeconds,
+
+            bool? enableSSMAccess,
 
             int? initialInstanceCount,
 
@@ -48,6 +51,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         {
             AcceleratorType = acceleratorType;
             ContainerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
+            EnableSSMAccess = enableSSMAccess;
             InitialInstanceCount = initialInstanceCount;
             InitialVariantWeight = initialVariantWeight;
             InstanceType = instanceType;

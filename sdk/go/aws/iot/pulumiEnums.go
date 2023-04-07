@@ -3488,7 +3488,7 @@ func (in *resourceSpecificLoggingLogLevelPtr) ToResourceSpecificLoggingLogLevelP
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceSpecificLoggingLogLevelPtrOutput)
 }
 
-// The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
+// The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.
 type ResourceSpecificLoggingTargetType string
 
 const (
@@ -3496,6 +3496,7 @@ const (
 	ResourceSpecificLoggingTargetTypeClientId    = ResourceSpecificLoggingTargetType("CLIENT_ID")
 	ResourceSpecificLoggingTargetTypeSourceIp    = ResourceSpecificLoggingTargetType("SOURCE_IP")
 	ResourceSpecificLoggingTargetTypePrincipalId = ResourceSpecificLoggingTargetType("PRINCIPAL_ID")
+	ResourceSpecificLoggingTargetTypeEventType   = ResourceSpecificLoggingTargetType("EVENT_TYPE")
 )
 
 func (ResourceSpecificLoggingTargetType) ElementType() reflect.Type {

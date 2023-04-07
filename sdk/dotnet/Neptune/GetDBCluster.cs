@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Neptune
     public static class GetDBCluster
     {
         /// <summary>
-        /// Resource Type definition for AWS::Neptune::DBCluster
+        /// The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
         /// </summary>
         public static Task<GetDBClusterResult> InvokeAsync(GetDBClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBClusterResult>("aws-native:neptune:getDBCluster", args ?? new GetDBClusterArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Neptune::DBCluster
+        /// The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
         /// </summary>
         public static Output<GetDBClusterResult> Invoke(GetDBClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDBClusterResult>("aws-native:neptune:getDBCluster", args ?? new GetDBClusterInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Neptune
 
     public sealed class GetDBClusterArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+        /// </summary>
+        [Input("dBClusterIdentifier", required: true)]
+        public string DBClusterIdentifier { get; set; } = null!;
 
         public GetDBClusterArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Neptune
 
     public sealed class GetDBClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+        /// </summary>
+        [Input("dBClusterIdentifier", required: true)]
+        public Input<string> DBClusterIdentifier { get; set; } = null!;
 
         public GetDBClusterInvokeArgs()
         {
@@ -51,20 +57,61 @@ namespace Pulumi.AwsNative.Neptune
     [OutputType]
     public sealed class GetDBClusterResult
     {
+        /// <summary>
+        /// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DBClusterRole> AssociatedRoles;
+        /// <summary>
+        /// Specifies the number of days for which automatic DB snapshots are retained.
+        /// </summary>
         public readonly int? BackupRetentionPeriod;
+        /// <summary>
+        /// The resource id for the DB cluster. For example: `cluster-ABCD1234EFGH5678IJKL90MNOP`. The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
+        /// </summary>
         public readonly string? ClusterResourceId;
+        /// <summary>
+        /// Provides the name of the DB cluster parameter group.
+        /// </summary>
         public readonly string? DBClusterParameterGroupName;
+        /// <summary>
+        /// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+        /// </summary>
         public readonly bool? DeletionProtection;
+        /// <summary>
+        /// Specifies a list of log types that are enabled for export to CloudWatch Logs.
+        /// </summary>
         public readonly ImmutableArray<string> EnableCloudwatchLogsExports;
+        /// <summary>
+        /// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        /// </summary>
         public readonly string? Endpoint;
+        /// <summary>
+        /// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+        /// </summary>
         public readonly bool? IamAuthEnabled;
-        public readonly string? Id;
-        public readonly int? Port;
+        /// <summary>
+        /// Specifies the port that the database engine is listening on.
+        /// </summary>
+        public readonly string? Port;
+        /// <summary>
+        /// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
+        /// </summary>
         public readonly string? PreferredBackupWindow;
+        /// <summary>
+        /// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        /// </summary>
         public readonly string? PreferredMaintenanceWindow;
+        /// <summary>
+        /// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        /// </summary>
         public readonly string? ReadEndpoint;
+        /// <summary>
+        /// The tags assigned to this cluster.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DBClusterTag> Tags;
+        /// <summary>
+        /// Provides a list of VPC security groups that the DB cluster belongs to.
+        /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
@@ -85,9 +132,7 @@ namespace Pulumi.AwsNative.Neptune
 
             bool? iamAuthEnabled,
 
-            string? id,
-
-            int? port,
+            string? port,
 
             string? preferredBackupWindow,
 
@@ -107,7 +152,6 @@ namespace Pulumi.AwsNative.Neptune
             EnableCloudwatchLogsExports = enableCloudwatchLogsExports;
             Endpoint = endpoint;
             IamAuthEnabled = iamAuthEnabled;
-            Id = id;
             Port = port;
             PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;

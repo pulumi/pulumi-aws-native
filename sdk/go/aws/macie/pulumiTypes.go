@@ -392,55 +392,6 @@ func (o FindingsFilterFindingCriteriaPtrOutput) Criterion() FindingsFilterCriter
 	}).(FindingsFilterCriterionPtrOutput)
 }
 
-// Returned by ListHandler representing filter name and ID.
-type FindingsFilterListItem struct {
-	Id   *string `pulumi:"id"`
-	Name *string `pulumi:"name"`
-}
-
-// Returned by ListHandler representing filter name and ID.
-type FindingsFilterListItemOutput struct{ *pulumi.OutputState }
-
-func (FindingsFilterListItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FindingsFilterListItem)(nil)).Elem()
-}
-
-func (o FindingsFilterListItemOutput) ToFindingsFilterListItemOutput() FindingsFilterListItemOutput {
-	return o
-}
-
-func (o FindingsFilterListItemOutput) ToFindingsFilterListItemOutputWithContext(ctx context.Context) FindingsFilterListItemOutput {
-	return o
-}
-
-func (o FindingsFilterListItemOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FindingsFilterListItem) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o FindingsFilterListItemOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FindingsFilterListItem) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type FindingsFilterListItemArrayOutput struct{ *pulumi.OutputState }
-
-func (FindingsFilterListItemArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FindingsFilterListItem)(nil)).Elem()
-}
-
-func (o FindingsFilterListItemArrayOutput) ToFindingsFilterListItemArrayOutput() FindingsFilterListItemArrayOutput {
-	return o
-}
-
-func (o FindingsFilterListItemArrayOutput) ToFindingsFilterListItemArrayOutputWithContext(ctx context.Context) FindingsFilterListItemArrayOutput {
-	return o
-}
-
-func (o FindingsFilterListItemArrayOutput) Index(i pulumi.IntInput) FindingsFilterListItemOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FindingsFilterListItem {
-		return vs[0].([]FindingsFilterListItem)[vs[1].(int)]
-	}).(FindingsFilterListItemOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListCriteriaInput)(nil)).Elem(), AllowListCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListTagInput)(nil)).Elem(), AllowListTagArgs{})
@@ -456,6 +407,4 @@ func init() {
 	pulumi.RegisterOutputType(FindingsFilterCriterionPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaPtrOutput{})
-	pulumi.RegisterOutputType(FindingsFilterListItemOutput{})
-	pulumi.RegisterOutputType(FindingsFilterListItemArrayOutput{})
 }

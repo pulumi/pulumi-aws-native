@@ -10,6 +10,8 @@ __all__ = [
     'ConfigFrequencyUnits',
     'ConfigPolarization',
     'ConfigTrackingConfigAutotrack',
+    'DataflowEndpointGroupAgentStatus',
+    'DataflowEndpointGroupAuditResults',
 ]
 
 
@@ -39,3 +41,21 @@ class ConfigTrackingConfigAutotrack(str, Enum):
     REQUIRED = "REQUIRED"
     PREFERRED = "PREFERRED"
     REMOVED = "REMOVED"
+
+
+class DataflowEndpointGroupAgentStatus(str, Enum):
+    """
+    The status of AgentEndpoint.
+    """
+    SUCCESS = "SUCCESS"
+    FAILED = "FAILED"
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+
+
+class DataflowEndpointGroupAuditResults(str, Enum):
+    """
+    The results of the audit.
+    """
+    HEALTHY = "HEALTHY"
+    UNHEALTHY = "UNHEALTHY"

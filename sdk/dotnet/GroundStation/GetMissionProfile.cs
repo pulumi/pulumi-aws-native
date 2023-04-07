@@ -77,6 +77,14 @@ namespace Pulumi.AwsNative.GroundStation
         /// </summary>
         public readonly string? Name;
         public readonly string? Region;
+        /// <summary>
+        /// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+        /// </summary>
+        public readonly Outputs.MissionProfileStreamsKmsKey? StreamsKmsKey;
+        /// <summary>
+        /// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+        /// </summary>
+        public readonly string? StreamsKmsRole;
         public readonly ImmutableArray<Outputs.MissionProfileTag> Tags;
         public readonly string? TrackingConfigArn;
 
@@ -98,6 +106,10 @@ namespace Pulumi.AwsNative.GroundStation
 
             string? region,
 
+            Outputs.MissionProfileStreamsKmsKey? streamsKmsKey,
+
+            string? streamsKmsRole,
+
             ImmutableArray<Outputs.MissionProfileTag> tags,
 
             string? trackingConfigArn)
@@ -110,6 +122,8 @@ namespace Pulumi.AwsNative.GroundStation
             MinimumViableContactDurationSeconds = minimumViableContactDurationSeconds;
             Name = name;
             Region = region;
+            StreamsKmsKey = streamsKmsKey;
+            StreamsKmsRole = streamsKmsRole;
             Tags = tags;
             TrackingConfigArn = trackingConfigArn;
         }

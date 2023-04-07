@@ -24,3 +24,18 @@ export const ContactType = {
  * Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
  */
 export type ContactType = (typeof ContactType)[keyof typeof ContactType];
+
+export const RotationDayOfWeek = {
+    Mon: "MON",
+    Tue: "TUE",
+    Wed: "WED",
+    Thu: "THU",
+    Fri: "FRI",
+    Sat: "SAT",
+    Sun: "SUN",
+} as const;
+
+/**
+ * The day of the week when weekly recurring on-call shift rotations begin. 
+ */
+export type RotationDayOfWeek = (typeof RotationDayOfWeek)[keyof typeof RotationDayOfWeek];

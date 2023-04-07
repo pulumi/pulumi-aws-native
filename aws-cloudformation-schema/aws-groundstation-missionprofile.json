@@ -29,6 +29,23 @@
       },
       "additionalProperties" : false,
       "required" : [ "Key", "Value" ]
+    },
+    "StreamsKmsKey" : {
+      "type" : "object",
+      "properties" : {
+        "KmsKeyArn" : {
+          "type" : "string"
+        },
+        "KmsAliasArn" : {
+          "type" : "string"
+        }
+      },
+      "oneOf" : [ {
+        "required" : [ "KmsKeyArn" ]
+      }, {
+        "required" : [ "KmsAliasArn" ]
+      } ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -48,6 +65,14 @@
     "MinimumViableContactDurationSeconds" : {
       "description" : "Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.",
       "type" : "integer"
+    },
+    "StreamsKmsKey" : {
+      "description" : "The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.",
+      "$ref" : "#/definitions/StreamsKmsKey"
+    },
+    "StreamsKmsRole" : {
+      "description" : "The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.",
+      "type" : "string"
     },
     "DataflowEdges" : {
       "description" : "",
@@ -81,13 +106,13 @@
   "primaryIdentifier" : [ "/properties/Id", "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "groundstation:CreateMissionProfile", "groundstation:GetMissionProfile", "groundstation:TagResource" ]
+      "permissions" : [ "groundstation:CreateMissionProfile", "groundstation:GetMissionProfile", "groundstation:TagResource", "kms:DescribeKey", "kms:CreateGrant" ]
     },
     "read" : {
-      "permissions" : [ "groundstation:GetMissionProfile", "groundstation:ListTagsForResource" ]
+      "permissions" : [ "groundstation:GetMissionProfile", "groundstation:ListTagsForResource", "kms:DescribeKey", "kms:CreateGrant" ]
     },
     "update" : {
-      "permissions" : [ "groundstation:UpdateMissionProfile", "groundstation:GetMissionProfile", "groundstation:ListTagsForResource", "groundstation:TagResource", "groundstation:UntagResource" ]
+      "permissions" : [ "groundstation:UpdateMissionProfile", "groundstation:GetMissionProfile", "groundstation:ListTagsForResource", "groundstation:TagResource", "groundstation:UntagResource", "kms:DescribeKey", "kms:CreateGrant" ]
     },
     "delete" : {
       "permissions" : [ "groundstation:DeleteMissionProfile", "groundstation:GetMissionProfile" ]

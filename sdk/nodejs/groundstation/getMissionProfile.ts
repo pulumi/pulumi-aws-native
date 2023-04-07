@@ -45,6 +45,14 @@ export interface GetMissionProfileResult {
      */
     readonly name?: string;
     readonly region?: string;
+    /**
+     * The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+     */
+    readonly streamsKmsKey?: outputs.groundstation.MissionProfileStreamsKmsKey;
+    /**
+     * The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+     */
+    readonly streamsKmsRole?: string;
     readonly tags?: outputs.groundstation.MissionProfileTag[];
     readonly trackingConfigArn?: string;
 }

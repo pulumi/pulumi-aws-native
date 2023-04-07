@@ -27,7 +27,6 @@ class DBClusterArgs:
                  engine_version: Optional[pulumi.Input[str]] = None,
                  iam_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
@@ -40,6 +39,51 @@ class DBClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DBCluster resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DBClusterRoleArgs']]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
+        :param pulumi.Input[int] backup_retention_period: Specifies the number of days for which automatic DB snapshots are retained.
+        :param pulumi.Input[str] d_b_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+        :param pulumi.Input[str] d_b_cluster_parameter_group_name: Provides the name of the DB cluster parameter group.
+        :param pulumi.Input[str] d_b_subnet_group_name: Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
+        :param pulumi.Input[bool] deletion_protection: Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: Specifies a list of log types that are enabled for export to CloudWatch Logs.
+        :param pulumi.Input[str] engine_version: Indicates the database engine version.
+        :param pulumi.Input[bool] iam_auth_enabled: True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+        :param pulumi.Input[str] kms_key_id: If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+        :param pulumi.Input[str] preferred_backup_window: Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
+        :param pulumi.Input[str] preferred_maintenance_window: Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        :param pulumi.Input[str] restore_to_time: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+               
+               If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+               
+               If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        :param pulumi.Input[str] restore_type: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+               
+               If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+               
+               If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        :param pulumi.Input[str] snapshot_identifier: Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
+               
+               After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
+               
+               However, if you don't specify the SnapshotIdentifier, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the SnapshotIdentifier, and the original DB cluster is deleted.
+        :param pulumi.Input[str] source_db_cluster_identifier: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+               
+               If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+               
+               If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        :param pulumi.Input[bool] storage_encrypted: Indicates whether the DB cluster is encrypted.
+               
+               If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+               
+               If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+        :param pulumi.Input[Sequence[pulumi.Input['DBClusterTagArgs']]] tags: The tags assigned to this cluster.
+        :param pulumi.Input[bool] use_latest_restorable_time: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+               
+               If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+               
+               If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: Provides a list of VPC security groups that the DB cluster belongs to.
         """
         if associated_roles is not None:
             pulumi.set(__self__, "associated_roles", associated_roles)
@@ -63,8 +107,6 @@ class DBClusterArgs:
             pulumi.set(__self__, "iam_auth_enabled", iam_auth_enabled)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
             pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
@@ -89,6 +131,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="associatedRoles")
     def associated_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterRoleArgs']]]]:
+        """
+        Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+        """
         return pulumi.get(self, "associated_roles")
 
     @associated_roles.setter
@@ -98,6 +143,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
+        """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
@@ -107,6 +155,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days for which automatic DB snapshots are retained.
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
@@ -116,6 +167,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="dBClusterIdentifier")
     def d_b_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+        """
         return pulumi.get(self, "d_b_cluster_identifier")
 
     @d_b_cluster_identifier.setter
@@ -125,6 +179,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="dBClusterParameterGroupName")
     def d_b_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provides the name of the DB cluster parameter group.
+        """
         return pulumi.get(self, "d_b_cluster_parameter_group_name")
 
     @d_b_cluster_parameter_group_name.setter
@@ -134,6 +191,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="dBSubnetGroupName")
     def d_b_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
+        """
         return pulumi.get(self, "d_b_subnet_group_name")
 
     @d_b_subnet_group_name.setter
@@ -143,6 +203,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -152,6 +215,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="enableCloudwatchLogsExports")
     def enable_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of log types that are enabled for export to CloudWatch Logs.
+        """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
     @enable_cloudwatch_logs_exports.setter
@@ -161,6 +227,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the database engine version.
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -170,6 +239,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="iamAuthEnabled")
     def iam_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+        """
         return pulumi.get(self, "iam_auth_enabled")
 
     @iam_auth_enabled.setter
@@ -179,6 +251,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -186,17 +261,11 @@ class DBClusterArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
-    @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "port", value)
-
-    @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -206,6 +275,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -215,6 +287,13 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="restoreToTime")
     def restore_to_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+
+        If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+
+        If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        """
         return pulumi.get(self, "restore_to_time")
 
     @restore_to_time.setter
@@ -224,6 +303,13 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="restoreType")
     def restore_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+
+        If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+
+        If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        """
         return pulumi.get(self, "restore_type")
 
     @restore_type.setter
@@ -233,6 +319,13 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
+
+        After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
+
+        However, if you don't specify the SnapshotIdentifier, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the SnapshotIdentifier, and the original DB cluster is deleted.
+        """
         return pulumi.get(self, "snapshot_identifier")
 
     @snapshot_identifier.setter
@@ -242,6 +335,13 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="sourceDBClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+
+        If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+
+        If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @source_db_cluster_identifier.setter
@@ -251,6 +351,13 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the DB cluster is encrypted.
+
+        If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+
+        If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -260,6 +367,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterTagArgs']]]]:
+        """
+        The tags assigned to this cluster.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -269,6 +379,13 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="useLatestRestorableTime")
     def use_latest_restorable_time(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+
+        If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+
+        If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        """
         return pulumi.get(self, "use_latest_restorable_time")
 
     @use_latest_restorable_time.setter
@@ -278,6 +395,9 @@ class DBClusterArgs:
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Provides a list of VPC security groups that the DB cluster belongs to.
+        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -285,12 +405,7 @@ class DBClusterArgs:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
-warnings.warn("""DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class DBCluster(pulumi.CustomResource):
-    warnings.warn("""DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -306,7 +421,6 @@ class DBCluster(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  iam_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
@@ -319,10 +433,55 @@ class DBCluster(pulumi.CustomResource):
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Neptune::DBCluster
+        The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterRoleArgs']]]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
+        :param pulumi.Input[int] backup_retention_period: Specifies the number of days for which automatic DB snapshots are retained.
+        :param pulumi.Input[str] d_b_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+        :param pulumi.Input[str] d_b_cluster_parameter_group_name: Provides the name of the DB cluster parameter group.
+        :param pulumi.Input[str] d_b_subnet_group_name: Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
+        :param pulumi.Input[bool] deletion_protection: Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: Specifies a list of log types that are enabled for export to CloudWatch Logs.
+        :param pulumi.Input[str] engine_version: Indicates the database engine version.
+        :param pulumi.Input[bool] iam_auth_enabled: True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+        :param pulumi.Input[str] kms_key_id: If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+        :param pulumi.Input[str] preferred_backup_window: Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
+        :param pulumi.Input[str] preferred_maintenance_window: Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        :param pulumi.Input[str] restore_to_time: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+               
+               If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+               
+               If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        :param pulumi.Input[str] restore_type: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+               
+               If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+               
+               If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        :param pulumi.Input[str] snapshot_identifier: Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
+               
+               After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
+               
+               However, if you don't specify the SnapshotIdentifier, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the SnapshotIdentifier, and the original DB cluster is deleted.
+        :param pulumi.Input[str] source_db_cluster_identifier: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+               
+               If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+               
+               If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        :param pulumi.Input[bool] storage_encrypted: Indicates whether the DB cluster is encrypted.
+               
+               If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+               
+               If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterTagArgs']]]] tags: The tags assigned to this cluster.
+        :param pulumi.Input[bool] use_latest_restorable_time: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+               
+               If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+               
+               If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: Provides a list of VPC security groups that the DB cluster belongs to.
         """
         ...
     @overload
@@ -331,7 +490,7 @@ class DBCluster(pulumi.CustomResource):
                  args: Optional[DBClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Neptune::DBCluster
+        The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 
         :param str resource_name: The name of the resource.
         :param DBClusterArgs args: The arguments to use to populate this resource's properties.
@@ -359,7 +518,6 @@ class DBCluster(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  iam_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
@@ -371,7 +529,6 @@ class DBCluster(pulumi.CustomResource):
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DBCluster is deprecated: DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -391,7 +548,6 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["iam_auth_enabled"] = iam_auth_enabled
             __props__.__dict__["kms_key_id"] = kms_key_id
-            __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["restore_to_time"] = restore_to_time
@@ -404,6 +560,7 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
+            __props__.__dict__["port"] = None
             __props__.__dict__["read_endpoint"] = None
         super(DBCluster, __self__).__init__(
             'aws-native:neptune:DBCluster',
@@ -457,125 +614,224 @@ class DBCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="associatedRoles")
     def associated_roles(self) -> pulumi.Output[Optional[Sequence['outputs.DBClusterRole']]]:
+        """
+        Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+        """
         return pulumi.get(self, "associated_roles")
 
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
+        """
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the number of days for which automatic DB snapshots are retained.
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @property
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> pulumi.Output[str]:
+        """
+        The resource id for the DB cluster. For example: `cluster-ABCD1234EFGH5678IJKL90MNOP`. The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
+        """
         return pulumi.get(self, "cluster_resource_id")
 
     @property
     @pulumi.getter(name="dBClusterIdentifier")
     def d_b_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+        """
         return pulumi.get(self, "d_b_cluster_identifier")
 
     @property
     @pulumi.getter(name="dBClusterParameterGroupName")
     def d_b_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Provides the name of the DB cluster parameter group.
+        """
         return pulumi.get(self, "d_b_cluster_parameter_group_name")
 
     @property
     @pulumi.getter(name="dBSubnetGroupName")
     def d_b_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
+        """
         return pulumi.get(self, "d_b_subnet_group_name")
 
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter(name="enableCloudwatchLogsExports")
     def enable_cloudwatch_logs_exports(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a list of log types that are enabled for export to CloudWatch Logs.
+        """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
+        """
+        The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates the database engine version.
+        """
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="iamAuthEnabled")
     def iam_auth_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+        """
         return pulumi.get(self, "iam_auth_enabled")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[Optional[int]]:
+    def port(self) -> pulumi.Output[str]:
+        """
+        Specifies the port that the database engine is listening on.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
     @pulumi.getter(name="readEndpoint")
     def read_endpoint(self) -> pulumi.Output[str]:
+        """
+        The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        """
         return pulumi.get(self, "read_endpoint")
 
     @property
     @pulumi.getter(name="restoreToTime")
     def restore_to_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+
+        If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+
+        If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        """
         return pulumi.get(self, "restore_to_time")
 
     @property
     @pulumi.getter(name="restoreType")
     def restore_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+
+        If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+
+        If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        """
         return pulumi.get(self, "restore_type")
 
     @property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
+
+        After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
+
+        However, if you don't specify the SnapshotIdentifier, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the SnapshotIdentifier, and the original DB cluster is deleted.
+        """
         return pulumi.get(self, "snapshot_identifier")
 
     @property
     @pulumi.getter(name="sourceDBClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+
+        If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+
+        If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the DB cluster is encrypted.
+
+        If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+
+        If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+        """
         return pulumi.get(self, "storage_encrypted")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBClusterTag']]]:
+        """
+        The tags assigned to this cluster.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="useLatestRestorableTime")
     def use_latest_restorable_time(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+
+        If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+
+        If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        """
         return pulumi.get(self, "use_latest_restorable_time")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Provides a list of VPC security groups that the DB cluster belongs to.
+        """
         return pulumi.get(self, "vpc_security_group_ids")
 

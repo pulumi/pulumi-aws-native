@@ -34,8 +34,6 @@ type LookupFindingsFilterResult struct {
 	Description *string `pulumi:"description"`
 	// Findings filter criteria.
 	FindingCriteria *FindingsFilterFindingCriteria `pulumi:"findingCriteria"`
-	// Findings filters list.
-	FindingsFilterListItems []FindingsFilterListItem `pulumi:"findingsFilterListItems"`
 	// Findings filter ID.
 	Id *string `pulumi:"id"`
 	// Findings filter name
@@ -98,11 +96,6 @@ func (o LookupFindingsFilterResultOutput) Description() pulumi.StringPtrOutput {
 // Findings filter criteria.
 func (o LookupFindingsFilterResultOutput) FindingCriteria() FindingsFilterFindingCriteriaPtrOutput {
 	return o.ApplyT(func(v LookupFindingsFilterResult) *FindingsFilterFindingCriteria { return v.FindingCriteria }).(FindingsFilterFindingCriteriaPtrOutput)
-}
-
-// Findings filters list.
-func (o LookupFindingsFilterResultOutput) FindingsFilterListItems() FindingsFilterListItemArrayOutput {
-	return o.ApplyT(func(v LookupFindingsFilterResult) []FindingsFilterListItem { return v.FindingsFilterListItems }).(FindingsFilterListItemArrayOutput)
 }
 
 // Findings filter ID.

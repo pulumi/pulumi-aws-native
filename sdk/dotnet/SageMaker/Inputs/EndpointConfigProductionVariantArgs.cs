@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("containerStartupHealthCheckTimeoutInSeconds")]
         public Input<int>? ContainerStartupHealthCheckTimeoutInSeconds { get; set; }
 
+        [Input("enableSSMAccess")]
+        public Input<bool>? EnableSSMAccess { get; set; }
+
         [Input("initialInstanceCount")]
         public Input<int>? InitialInstanceCount { get; set; }
 

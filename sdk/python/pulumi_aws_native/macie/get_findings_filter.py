@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFindingsFilterResult:
-    def __init__(__self__, action=None, arn=None, description=None, finding_criteria=None, findings_filter_list_items=None, id=None, name=None, position=None):
+    def __init__(__self__, action=None, arn=None, description=None, finding_criteria=None, id=None, name=None, position=None):
         if action and not isinstance(action, str):
             raise TypeError("Expected argument 'action' to be a str")
         pulumi.set(__self__, "action", action)
@@ -33,9 +33,6 @@ class GetFindingsFilterResult:
         if finding_criteria and not isinstance(finding_criteria, dict):
             raise TypeError("Expected argument 'finding_criteria' to be a dict")
         pulumi.set(__self__, "finding_criteria", finding_criteria)
-        if findings_filter_list_items and not isinstance(findings_filter_list_items, list):
-            raise TypeError("Expected argument 'findings_filter_list_items' to be a list")
-        pulumi.set(__self__, "findings_filter_list_items", findings_filter_list_items)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -79,14 +76,6 @@ class GetFindingsFilterResult:
         return pulumi.get(self, "finding_criteria")
 
     @property
-    @pulumi.getter(name="findingsFilterListItems")
-    def findings_filter_list_items(self) -> Optional[Sequence['outputs.FindingsFilterListItem']]:
-        """
-        Findings filters list.
-        """
-        return pulumi.get(self, "findings_filter_list_items")
-
-    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
@@ -121,7 +110,6 @@ class AwaitableGetFindingsFilterResult(GetFindingsFilterResult):
             arn=self.arn,
             description=self.description,
             finding_criteria=self.finding_criteria,
-            findings_filter_list_items=self.findings_filter_list_items,
             id=self.id,
             name=self.name,
             position=self.position)
@@ -145,7 +133,6 @@ def get_findings_filter(id: Optional[str] = None,
         arn=__ret__.arn,
         description=__ret__.description,
         finding_criteria=__ret__.finding_criteria,
-        findings_filter_list_items=__ret__.findings_filter_list_items,
         id=__ret__.id,
         name=__ret__.name,
         position=__ret__.position)

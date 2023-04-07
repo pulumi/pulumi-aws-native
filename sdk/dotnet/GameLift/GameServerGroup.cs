@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.GameLift
         /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
         /// </summary>
         [Output("launchTemplate")]
-        public Output<Outputs.GameServerGroupLaunchTemplate> LaunchTemplate { get; private set; } = null!;
+        public Output<Outputs.GameServerGroupLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of instances allowed in the EC2 Auto Scaling group.
@@ -189,8 +189,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
         /// </summary>
-        [Input("launchTemplate", required: true)]
-        public Input<Inputs.GameServerGroupLaunchTemplateArgs> LaunchTemplate { get; set; } = null!;
+        [Input("launchTemplate")]
+        public Input<Inputs.GameServerGroupLaunchTemplateArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
         /// The maximum number of instances allowed in the EC2 Auto Scaling group.

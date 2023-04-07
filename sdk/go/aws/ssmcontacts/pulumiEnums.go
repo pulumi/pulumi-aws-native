@@ -343,13 +343,187 @@ func (in *contactTypePtr) ToContactTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ContactTypePtrOutput)
 }
 
+// The day of the week when weekly recurring on-call shift rotations begin.
+type RotationDayOfWeek string
+
+const (
+	RotationDayOfWeekMon = RotationDayOfWeek("MON")
+	RotationDayOfWeekTue = RotationDayOfWeek("TUE")
+	RotationDayOfWeekWed = RotationDayOfWeek("WED")
+	RotationDayOfWeekThu = RotationDayOfWeek("THU")
+	RotationDayOfWeekFri = RotationDayOfWeek("FRI")
+	RotationDayOfWeekSat = RotationDayOfWeek("SAT")
+	RotationDayOfWeekSun = RotationDayOfWeek("SUN")
+)
+
+func (RotationDayOfWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationDayOfWeek)(nil)).Elem()
+}
+
+func (e RotationDayOfWeek) ToRotationDayOfWeekOutput() RotationDayOfWeekOutput {
+	return pulumi.ToOutput(e).(RotationDayOfWeekOutput)
+}
+
+func (e RotationDayOfWeek) ToRotationDayOfWeekOutputWithContext(ctx context.Context) RotationDayOfWeekOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RotationDayOfWeekOutput)
+}
+
+func (e RotationDayOfWeek) ToRotationDayOfWeekPtrOutput() RotationDayOfWeekPtrOutput {
+	return e.ToRotationDayOfWeekPtrOutputWithContext(context.Background())
+}
+
+func (e RotationDayOfWeek) ToRotationDayOfWeekPtrOutputWithContext(ctx context.Context) RotationDayOfWeekPtrOutput {
+	return RotationDayOfWeek(e).ToRotationDayOfWeekOutputWithContext(ctx).ToRotationDayOfWeekPtrOutputWithContext(ctx)
+}
+
+func (e RotationDayOfWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RotationDayOfWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RotationDayOfWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RotationDayOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RotationDayOfWeekOutput struct{ *pulumi.OutputState }
+
+func (RotationDayOfWeekOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationDayOfWeek)(nil)).Elem()
+}
+
+func (o RotationDayOfWeekOutput) ToRotationDayOfWeekOutput() RotationDayOfWeekOutput {
+	return o
+}
+
+func (o RotationDayOfWeekOutput) ToRotationDayOfWeekOutputWithContext(ctx context.Context) RotationDayOfWeekOutput {
+	return o
+}
+
+func (o RotationDayOfWeekOutput) ToRotationDayOfWeekPtrOutput() RotationDayOfWeekPtrOutput {
+	return o.ToRotationDayOfWeekPtrOutputWithContext(context.Background())
+}
+
+func (o RotationDayOfWeekOutput) ToRotationDayOfWeekPtrOutputWithContext(ctx context.Context) RotationDayOfWeekPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RotationDayOfWeek) *RotationDayOfWeek {
+		return &v
+	}).(RotationDayOfWeekPtrOutput)
+}
+
+func (o RotationDayOfWeekOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RotationDayOfWeekOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RotationDayOfWeek) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RotationDayOfWeekOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RotationDayOfWeekOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RotationDayOfWeek) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RotationDayOfWeekPtrOutput struct{ *pulumi.OutputState }
+
+func (RotationDayOfWeekPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RotationDayOfWeek)(nil)).Elem()
+}
+
+func (o RotationDayOfWeekPtrOutput) ToRotationDayOfWeekPtrOutput() RotationDayOfWeekPtrOutput {
+	return o
+}
+
+func (o RotationDayOfWeekPtrOutput) ToRotationDayOfWeekPtrOutputWithContext(ctx context.Context) RotationDayOfWeekPtrOutput {
+	return o
+}
+
+func (o RotationDayOfWeekPtrOutput) Elem() RotationDayOfWeekOutput {
+	return o.ApplyT(func(v *RotationDayOfWeek) RotationDayOfWeek {
+		if v != nil {
+			return *v
+		}
+		var ret RotationDayOfWeek
+		return ret
+	}).(RotationDayOfWeekOutput)
+}
+
+func (o RotationDayOfWeekPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RotationDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RotationDayOfWeek) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RotationDayOfWeekInput is an input type that accepts RotationDayOfWeekArgs and RotationDayOfWeekOutput values.
+// You can construct a concrete instance of `RotationDayOfWeekInput` via:
+//
+//	RotationDayOfWeekArgs{...}
+type RotationDayOfWeekInput interface {
+	pulumi.Input
+
+	ToRotationDayOfWeekOutput() RotationDayOfWeekOutput
+	ToRotationDayOfWeekOutputWithContext(context.Context) RotationDayOfWeekOutput
+}
+
+var rotationDayOfWeekPtrType = reflect.TypeOf((**RotationDayOfWeek)(nil)).Elem()
+
+type RotationDayOfWeekPtrInput interface {
+	pulumi.Input
+
+	ToRotationDayOfWeekPtrOutput() RotationDayOfWeekPtrOutput
+	ToRotationDayOfWeekPtrOutputWithContext(context.Context) RotationDayOfWeekPtrOutput
+}
+
+type rotationDayOfWeekPtr string
+
+func RotationDayOfWeekPtr(v string) RotationDayOfWeekPtrInput {
+	return (*rotationDayOfWeekPtr)(&v)
+}
+
+func (*rotationDayOfWeekPtr) ElementType() reflect.Type {
+	return rotationDayOfWeekPtrType
+}
+
+func (in *rotationDayOfWeekPtr) ToRotationDayOfWeekPtrOutput() RotationDayOfWeekPtrOutput {
+	return pulumi.ToOutput(in).(RotationDayOfWeekPtrOutput)
+}
+
+func (in *rotationDayOfWeekPtr) ToRotationDayOfWeekPtrOutputWithContext(ctx context.Context) RotationDayOfWeekPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RotationDayOfWeekPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactChannelChannelTypeInput)(nil)).Elem(), ContactChannelChannelType("SMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactChannelChannelTypePtrInput)(nil)).Elem(), ContactChannelChannelType("SMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactTypeInput)(nil)).Elem(), ContactType("PERSONAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactTypePtrInput)(nil)).Elem(), ContactType("PERSONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationDayOfWeekInput)(nil)).Elem(), RotationDayOfWeek("MON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationDayOfWeekPtrInput)(nil)).Elem(), RotationDayOfWeek("MON"))
 	pulumi.RegisterOutputType(ContactChannelChannelTypeOutput{})
 	pulumi.RegisterOutputType(ContactChannelChannelTypePtrOutput{})
 	pulumi.RegisterOutputType(ContactTypeOutput{})
 	pulumi.RegisterOutputType(ContactTypePtrOutput{})
+	pulumi.RegisterOutputType(RotationDayOfWeekOutput{})
+	pulumi.RegisterOutputType(RotationDayOfWeekPtrOutput{})
 }

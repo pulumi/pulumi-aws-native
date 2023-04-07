@@ -24,8 +24,12 @@ type MissionProfile struct {
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds pulumi.IntOutput `pulumi:"minimumViableContactDurationSeconds"`
 	// A name used to identify a mission profile.
-	Name              pulumi.StringOutput          `pulumi:"name"`
-	Region            pulumi.StringOutput          `pulumi:"region"`
+	Name   pulumi.StringOutput `pulumi:"name"`
+	Region pulumi.StringOutput `pulumi:"region"`
+	// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+	StreamsKmsKey MissionProfileStreamsKmsKeyPtrOutput `pulumi:"streamsKmsKey"`
+	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+	StreamsKmsRole    pulumi.StringPtrOutput       `pulumi:"streamsKmsRole"`
 	Tags              MissionProfileTagArrayOutput `pulumi:"tags"`
 	TrackingConfigArn pulumi.StringOutput          `pulumi:"trackingConfigArn"`
 }
@@ -86,7 +90,11 @@ type missionProfileArgs struct {
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds int `pulumi:"minimumViableContactDurationSeconds"`
 	// A name used to identify a mission profile.
-	Name              *string             `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+	StreamsKmsKey *MissionProfileStreamsKmsKey `pulumi:"streamsKmsKey"`
+	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+	StreamsKmsRole    *string             `pulumi:"streamsKmsRole"`
 	Tags              []MissionProfileTag `pulumi:"tags"`
 	TrackingConfigArn string              `pulumi:"trackingConfigArn"`
 }
@@ -101,7 +109,11 @@ type MissionProfileArgs struct {
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds pulumi.IntInput
 	// A name used to identify a mission profile.
-	Name              pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+	StreamsKmsKey MissionProfileStreamsKmsKeyPtrInput
+	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+	StreamsKmsRole    pulumi.StringPtrInput
 	Tags              MissionProfileTagArrayInput
 	TrackingConfigArn pulumi.StringInput
 }
@@ -173,6 +185,16 @@ func (o MissionProfileOutput) Name() pulumi.StringOutput {
 
 func (o MissionProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+func (o MissionProfileOutput) StreamsKmsKey() MissionProfileStreamsKmsKeyPtrOutput {
+	return o.ApplyT(func(v *MissionProfile) MissionProfileStreamsKmsKeyPtrOutput { return v.StreamsKmsKey }).(MissionProfileStreamsKmsKeyPtrOutput)
+}
+
+// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+func (o MissionProfileOutput) StreamsKmsRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MissionProfile) pulumi.StringPtrOutput { return v.StreamsKmsRole }).(pulumi.StringPtrOutput)
 }
 
 func (o MissionProfileOutput) Tags() MissionProfileTagArrayOutput {

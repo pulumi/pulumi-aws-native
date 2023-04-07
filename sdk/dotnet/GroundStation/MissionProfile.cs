@@ -48,6 +48,18 @@ namespace Pulumi.AwsNative.GroundStation
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+        /// </summary>
+        [Output("streamsKmsKey")]
+        public Output<Outputs.MissionProfileStreamsKmsKey?> StreamsKmsKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+        /// </summary>
+        [Output("streamsKmsRole")]
+        public Output<string?> StreamsKmsRole { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.MissionProfileTag>> Tags { get; private set; } = null!;
 
@@ -130,6 +142,18 @@ namespace Pulumi.AwsNative.GroundStation
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+        /// </summary>
+        [Input("streamsKmsKey")]
+        public Input<Inputs.MissionProfileStreamsKmsKeyArgs>? StreamsKmsKey { get; set; }
+
+        /// <summary>
+        /// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+        /// </summary>
+        [Input("streamsKmsRole")]
+        public Input<string>? StreamsKmsRole { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.MissionProfileTagArgs>? _tags;

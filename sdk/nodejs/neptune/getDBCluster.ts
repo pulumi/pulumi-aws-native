@@ -8,44 +8,91 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Neptune::DBCluster
+ * The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
  */
 export function getDBCluster(args: GetDBClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDBClusterResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:neptune:getDBCluster", {
-        "id": args.id,
+        "dBClusterIdentifier": args.dBClusterIdentifier,
     }, opts);
 }
 
 export interface GetDBClusterArgs {
-    id: string;
+    /**
+     * The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+     */
+    dBClusterIdentifier: string;
 }
 
 export interface GetDBClusterResult {
+    /**
+     * Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+     */
     readonly associatedRoles?: outputs.neptune.DBClusterRole[];
+    /**
+     * Specifies the number of days for which automatic DB snapshots are retained.
+     */
     readonly backupRetentionPeriod?: number;
+    /**
+     * The resource id for the DB cluster. For example: `cluster-ABCD1234EFGH5678IJKL90MNOP`. The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
+     */
     readonly clusterResourceId?: string;
+    /**
+     * Provides the name of the DB cluster parameter group.
+     */
     readonly dBClusterParameterGroupName?: string;
+    /**
+     * Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+     */
     readonly deletionProtection?: boolean;
+    /**
+     * Specifies a list of log types that are enabled for export to CloudWatch Logs.
+     */
     readonly enableCloudwatchLogsExports?: string[];
+    /**
+     * The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+     */
     readonly endpoint?: string;
+    /**
+     * True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+     */
     readonly iamAuthEnabled?: boolean;
-    readonly id?: string;
-    readonly port?: number;
+    /**
+     * Specifies the port that the database engine is listening on.
+     */
+    readonly port?: string;
+    /**
+     * Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
+     */
     readonly preferredBackupWindow?: string;
+    /**
+     * Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     */
     readonly preferredMaintenanceWindow?: string;
+    /**
+     * The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+     */
     readonly readEndpoint?: string;
+    /**
+     * The tags assigned to this cluster.
+     */
     readonly tags?: outputs.neptune.DBClusterTag[];
+    /**
+     * Provides a list of VPC security groups that the DB cluster belongs to.
+     */
     readonly vpcSecurityGroupIds?: string[];
 }
 /**
- * Resource Type definition for AWS::Neptune::DBCluster
+ * The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
  */
 export function getDBClusterOutput(args: GetDBClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBClusterResult> {
     return pulumi.output(args).apply((a: any) => getDBCluster(a, opts))
 }
 
 export interface GetDBClusterOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+     */
+    dBClusterIdentifier: pulumi.Input<string>;
 }

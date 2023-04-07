@@ -28,8 +28,6 @@ type LookupGameServerGroupArgs struct {
 type LookupGameServerGroupResult struct {
 	// A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
 	AutoScalingGroupArn *string `pulumi:"autoScalingGroupArn"`
-	// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
-	AutoScalingPolicy *GameServerGroupAutoScalingPolicy `pulumi:"autoScalingPolicy"`
 	// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
 	BalancingStrategy *GameServerGroupBalancingStrategy `pulumi:"balancingStrategy"`
 	// A generated unique ID for the game server group.
@@ -40,18 +38,8 @@ type LookupGameServerGroupResult struct {
 	GameServerProtectionPolicy *GameServerGroupGameServerProtectionPolicy `pulumi:"gameServerProtectionPolicy"`
 	// A set of EC2 instance types to use when creating instances in the group.
 	InstanceDefinitions []GameServerGroupInstanceDefinition `pulumi:"instanceDefinitions"`
-	// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
-	LaunchTemplate *GameServerGroupLaunchTemplate `pulumi:"launchTemplate"`
-	// The maximum number of instances allowed in the EC2 Auto Scaling group.
-	MaxSize *float64 `pulumi:"maxSize"`
-	// The minimum number of instances allowed in the EC2 Auto Scaling group.
-	MinSize *float64 `pulumi:"minSize"`
 	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn *string `pulumi:"roleArn"`
-	// A list of labels to assign to the new game server group resource.
-	Tags []GameServerGroupTag `pulumi:"tags"`
-	// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
-	VpcSubnets []string `pulumi:"vpcSubnets"`
 }
 
 func LookupGameServerGroupOutput(ctx *pulumi.Context, args LookupGameServerGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGameServerGroupResultOutput {
@@ -95,11 +83,6 @@ func (o LookupGameServerGroupResultOutput) AutoScalingGroupArn() pulumi.StringPt
 	return o.ApplyT(func(v LookupGameServerGroupResult) *string { return v.AutoScalingGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
-func (o LookupGameServerGroupResultOutput) AutoScalingPolicy() GameServerGroupAutoScalingPolicyPtrOutput {
-	return o.ApplyT(func(v LookupGameServerGroupResult) *GameServerGroupAutoScalingPolicy { return v.AutoScalingPolicy }).(GameServerGroupAutoScalingPolicyPtrOutput)
-}
-
 // The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
 func (o LookupGameServerGroupResultOutput) BalancingStrategy() GameServerGroupBalancingStrategyPtrOutput {
 	return o.ApplyT(func(v LookupGameServerGroupResult) *GameServerGroupBalancingStrategy { return v.BalancingStrategy }).(GameServerGroupBalancingStrategyPtrOutput)
@@ -127,34 +110,9 @@ func (o LookupGameServerGroupResultOutput) InstanceDefinitions() GameServerGroup
 	return o.ApplyT(func(v LookupGameServerGroupResult) []GameServerGroupInstanceDefinition { return v.InstanceDefinitions }).(GameServerGroupInstanceDefinitionArrayOutput)
 }
 
-// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
-func (o LookupGameServerGroupResultOutput) LaunchTemplate() GameServerGroupLaunchTemplatePtrOutput {
-	return o.ApplyT(func(v LookupGameServerGroupResult) *GameServerGroupLaunchTemplate { return v.LaunchTemplate }).(GameServerGroupLaunchTemplatePtrOutput)
-}
-
-// The maximum number of instances allowed in the EC2 Auto Scaling group.
-func (o LookupGameServerGroupResultOutput) MaxSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LookupGameServerGroupResult) *float64 { return v.MaxSize }).(pulumi.Float64PtrOutput)
-}
-
-// The minimum number of instances allowed in the EC2 Auto Scaling group.
-func (o LookupGameServerGroupResultOutput) MinSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LookupGameServerGroupResult) *float64 { return v.MinSize }).(pulumi.Float64PtrOutput)
-}
-
 // The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 func (o LookupGameServerGroupResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGameServerGroupResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
-}
-
-// A list of labels to assign to the new game server group resource.
-func (o LookupGameServerGroupResultOutput) Tags() GameServerGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupGameServerGroupResult) []GameServerGroupTag { return v.Tags }).(GameServerGroupTagArrayOutput)
-}
-
-// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
-func (o LookupGameServerGroupResultOutput) VpcSubnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupGameServerGroupResult) []string { return v.VpcSubnets }).(pulumi.StringArrayOutput)
 }
 
 func init() {

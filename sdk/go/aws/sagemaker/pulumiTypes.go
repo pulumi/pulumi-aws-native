@@ -8776,6 +8776,7 @@ func (o EndpointConfigExplainerConfigPtrOutput) ClarifyExplainerConfig() Endpoin
 type EndpointConfigProductionVariant struct {
 	AcceleratorType                             *string                         `pulumi:"acceleratorType"`
 	ContainerStartupHealthCheckTimeoutInSeconds *int                            `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	EnableSSMAccess                             *bool                           `pulumi:"enableSSMAccess"`
 	InitialInstanceCount                        *int                            `pulumi:"initialInstanceCount"`
 	InitialVariantWeight                        float64                         `pulumi:"initialVariantWeight"`
 	InstanceType                                *string                         `pulumi:"instanceType"`
@@ -8800,6 +8801,7 @@ type EndpointConfigProductionVariantInput interface {
 type EndpointConfigProductionVariantArgs struct {
 	AcceleratorType                             pulumi.StringPtrInput                  `pulumi:"acceleratorType"`
 	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput                     `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	EnableSSMAccess                             pulumi.BoolPtrInput                    `pulumi:"enableSSMAccess"`
 	InitialInstanceCount                        pulumi.IntPtrInput                     `pulumi:"initialInstanceCount"`
 	InitialVariantWeight                        pulumi.Float64Input                    `pulumi:"initialVariantWeight"`
 	InstanceType                                pulumi.StringPtrInput                  `pulumi:"instanceType"`
@@ -8867,6 +8869,10 @@ func (o EndpointConfigProductionVariantOutput) AcceleratorType() pulumi.StringPt
 
 func (o EndpointConfigProductionVariantOutput) ContainerStartupHealthCheckTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.ContainerStartupHealthCheckTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigProductionVariantOutput) EnableSSMAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *bool { return v.EnableSSMAccess }).(pulumi.BoolPtrOutput)
 }
 
 func (o EndpointConfigProductionVariantOutput) InitialInstanceCount() pulumi.IntPtrOutput {

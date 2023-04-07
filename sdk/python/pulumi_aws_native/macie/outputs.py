@@ -16,7 +16,6 @@ __all__ = [
     'AllowListTag',
     'FindingsFilterCriterion',
     'FindingsFilterFindingCriteria',
-    'FindingsFilterListItem',
 ]
 
 @pulumi.output_type
@@ -87,32 +86,5 @@ class FindingsFilterFindingCriteria(dict):
     @pulumi.getter
     def criterion(self) -> Optional['outputs.FindingsFilterCriterion']:
         return pulumi.get(self, "criterion")
-
-
-@pulumi.output_type
-class FindingsFilterListItem(dict):
-    """
-    Returned by ListHandler representing filter name and ID.
-    """
-    def __init__(__self__, *,
-                 id: Optional[str] = None,
-                 name: Optional[str] = None):
-        """
-        Returned by ListHandler representing filter name and ID.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
 
 

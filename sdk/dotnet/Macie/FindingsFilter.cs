@@ -40,12 +40,6 @@ namespace Pulumi.AwsNative.Macie
         public Output<Outputs.FindingsFilterFindingCriteria> FindingCriteria { get; private set; } = null!;
 
         /// <summary>
-        /// Findings filters list.
-        /// </summary>
-        [Output("findingsFilterListItems")]
-        public Output<ImmutableArray<Outputs.FindingsFilterListItem>> FindingsFilterListItems { get; private set; } = null!;
-
-        /// <summary>
         /// Findings filter name
         /// </summary>
         [Output("name")]

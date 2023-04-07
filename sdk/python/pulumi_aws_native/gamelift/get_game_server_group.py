@@ -20,13 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetGameServerGroupResult:
-    def __init__(__self__, auto_scaling_group_arn=None, auto_scaling_policy=None, balancing_strategy=None, game_server_group_arn=None, game_server_group_name=None, game_server_protection_policy=None, instance_definitions=None, launch_template=None, max_size=None, min_size=None, role_arn=None, tags=None, vpc_subnets=None):
+    def __init__(__self__, auto_scaling_group_arn=None, balancing_strategy=None, game_server_group_arn=None, game_server_group_name=None, game_server_protection_policy=None, instance_definitions=None, role_arn=None):
         if auto_scaling_group_arn and not isinstance(auto_scaling_group_arn, str):
             raise TypeError("Expected argument 'auto_scaling_group_arn' to be a str")
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
-        if auto_scaling_policy and not isinstance(auto_scaling_policy, dict):
-            raise TypeError("Expected argument 'auto_scaling_policy' to be a dict")
-        pulumi.set(__self__, "auto_scaling_policy", auto_scaling_policy)
         if balancing_strategy and not isinstance(balancing_strategy, str):
             raise TypeError("Expected argument 'balancing_strategy' to be a str")
         pulumi.set(__self__, "balancing_strategy", balancing_strategy)
@@ -42,24 +39,9 @@ class GetGameServerGroupResult:
         if instance_definitions and not isinstance(instance_definitions, list):
             raise TypeError("Expected argument 'instance_definitions' to be a list")
         pulumi.set(__self__, "instance_definitions", instance_definitions)
-        if launch_template and not isinstance(launch_template, dict):
-            raise TypeError("Expected argument 'launch_template' to be a dict")
-        pulumi.set(__self__, "launch_template", launch_template)
-        if max_size and not isinstance(max_size, float):
-            raise TypeError("Expected argument 'max_size' to be a float")
-        pulumi.set(__self__, "max_size", max_size)
-        if min_size and not isinstance(min_size, float):
-            raise TypeError("Expected argument 'min_size' to be a float")
-        pulumi.set(__self__, "min_size", min_size)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        pulumi.set(__self__, "tags", tags)
-        if vpc_subnets and not isinstance(vpc_subnets, list):
-            raise TypeError("Expected argument 'vpc_subnets' to be a list")
-        pulumi.set(__self__, "vpc_subnets", vpc_subnets)
 
     @property
     @pulumi.getter(name="autoScalingGroupArn")
@@ -68,14 +50,6 @@ class GetGameServerGroupResult:
         A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
         """
         return pulumi.get(self, "auto_scaling_group_arn")
-
-    @property
-    @pulumi.getter(name="autoScalingPolicy")
-    def auto_scaling_policy(self) -> Optional['outputs.GameServerGroupAutoScalingPolicy']:
-        """
-        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
-        """
-        return pulumi.get(self, "auto_scaling_policy")
 
     @property
     @pulumi.getter(name="balancingStrategy")
@@ -118,52 +92,12 @@ class GetGameServerGroupResult:
         return pulumi.get(self, "instance_definitions")
 
     @property
-    @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional['outputs.GameServerGroupLaunchTemplate']:
-        """
-        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
-        """
-        return pulumi.get(self, "launch_template")
-
-    @property
-    @pulumi.getter(name="maxSize")
-    def max_size(self) -> Optional[float]:
-        """
-        The maximum number of instances allowed in the EC2 Auto Scaling group.
-        """
-        return pulumi.get(self, "max_size")
-
-    @property
-    @pulumi.getter(name="minSize")
-    def min_size(self) -> Optional[float]:
-        """
-        The minimum number of instances allowed in the EC2 Auto Scaling group.
-        """
-        return pulumi.get(self, "min_size")
-
-    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         """
         return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.GameServerGroupTag']]:
-        """
-        A list of labels to assign to the new game server group resource.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="vpcSubnets")
-    def vpc_subnets(self) -> Optional[Sequence[str]]:
-        """
-        A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
-        """
-        return pulumi.get(self, "vpc_subnets")
 
 
 class AwaitableGetGameServerGroupResult(GetGameServerGroupResult):
@@ -173,18 +107,12 @@ class AwaitableGetGameServerGroupResult(GetGameServerGroupResult):
             yield self
         return GetGameServerGroupResult(
             auto_scaling_group_arn=self.auto_scaling_group_arn,
-            auto_scaling_policy=self.auto_scaling_policy,
             balancing_strategy=self.balancing_strategy,
             game_server_group_arn=self.game_server_group_arn,
             game_server_group_name=self.game_server_group_name,
             game_server_protection_policy=self.game_server_protection_policy,
             instance_definitions=self.instance_definitions,
-            launch_template=self.launch_template,
-            max_size=self.max_size,
-            min_size=self.min_size,
-            role_arn=self.role_arn,
-            tags=self.tags,
-            vpc_subnets=self.vpc_subnets)
+            role_arn=self.role_arn)
 
 
 def get_game_server_group(game_server_group_arn: Optional[str] = None,
@@ -202,18 +130,12 @@ def get_game_server_group(game_server_group_arn: Optional[str] = None,
 
     return AwaitableGetGameServerGroupResult(
         auto_scaling_group_arn=__ret__.auto_scaling_group_arn,
-        auto_scaling_policy=__ret__.auto_scaling_policy,
         balancing_strategy=__ret__.balancing_strategy,
         game_server_group_arn=__ret__.game_server_group_arn,
         game_server_group_name=__ret__.game_server_group_name,
         game_server_protection_policy=__ret__.game_server_protection_policy,
         instance_definitions=__ret__.instance_definitions,
-        launch_template=__ret__.launch_template,
-        max_size=__ret__.max_size,
-        min_size=__ret__.min_size,
-        role_arn=__ret__.role_arn,
-        tags=__ret__.tags,
-        vpc_subnets=__ret__.vpc_subnets)
+        role_arn=__ret__.role_arn)
 
 
 @_utilities.lift_output_func(get_game_server_group)

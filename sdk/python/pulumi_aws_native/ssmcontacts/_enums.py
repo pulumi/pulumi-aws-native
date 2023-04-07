@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ContactChannelChannelType',
     'ContactType',
+    'RotationDayOfWeek',
 ]
 
 
@@ -27,3 +28,16 @@ class ContactType(str, Enum):
     CUSTOM = "CUSTOM"
     SERVICE = "SERVICE"
     ESCALATION = "ESCALATION"
+
+
+class RotationDayOfWeek(str, Enum):
+    """
+    The day of the week when weekly recurring on-call shift rotations begin. 
+    """
+    MON = "MON"
+    TUE = "TUE"
+    WED = "WED"
+    THU = "THU"
+    FRI = "FRI"
+    SAT = "SAT"
+    SUN = "SUN"

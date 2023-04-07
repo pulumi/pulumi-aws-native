@@ -10,37 +10,84 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Neptune::DBCluster
-//
-// Deprecated: DBCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 type DBCluster struct {
 	pulumi.CustomResourceState
 
-	AssociatedRoles             DBClusterRoleArrayOutput `pulumi:"associatedRoles"`
-	AvailabilityZones           pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	BackupRetentionPeriod       pulumi.IntPtrOutput      `pulumi:"backupRetentionPeriod"`
-	ClusterResourceId           pulumi.StringOutput      `pulumi:"clusterResourceId"`
-	DBClusterIdentifier         pulumi.StringPtrOutput   `pulumi:"dBClusterIdentifier"`
-	DBClusterParameterGroupName pulumi.StringPtrOutput   `pulumi:"dBClusterParameterGroupName"`
-	DBSubnetGroupName           pulumi.StringPtrOutput   `pulumi:"dBSubnetGroupName"`
-	DeletionProtection          pulumi.BoolPtrOutput     `pulumi:"deletionProtection"`
+	// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+	AssociatedRoles DBClusterRoleArrayOutput `pulumi:"associatedRoles"`
+	// Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
+	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+	// Specifies the number of days for which automatic DB snapshots are retained.
+	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
+	// The resource id for the DB cluster. For example: `cluster-ABCD1234EFGH5678IJKL90MNOP`. The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
+	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
+	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+	DBClusterIdentifier pulumi.StringPtrOutput `pulumi:"dBClusterIdentifier"`
+	// Provides the name of the DB cluster parameter group.
+	DBClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"dBClusterParameterGroupName"`
+	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
+	DBSubnetGroupName pulumi.StringPtrOutput `pulumi:"dBSubnetGroupName"`
+	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
+	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
 	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
-	Endpoint                    pulumi.StringOutput      `pulumi:"endpoint"`
-	EngineVersion               pulumi.StringPtrOutput   `pulumi:"engineVersion"`
-	IamAuthEnabled              pulumi.BoolPtrOutput     `pulumi:"iamAuthEnabled"`
-	KmsKeyId                    pulumi.StringPtrOutput   `pulumi:"kmsKeyId"`
-	Port                        pulumi.IntPtrOutput      `pulumi:"port"`
-	PreferredBackupWindow       pulumi.StringPtrOutput   `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow  pulumi.StringPtrOutput   `pulumi:"preferredMaintenanceWindow"`
-	ReadEndpoint                pulumi.StringOutput      `pulumi:"readEndpoint"`
-	RestoreToTime               pulumi.StringPtrOutput   `pulumi:"restoreToTime"`
-	RestoreType                 pulumi.StringPtrOutput   `pulumi:"restoreType"`
-	SnapshotIdentifier          pulumi.StringPtrOutput   `pulumi:"snapshotIdentifier"`
-	SourceDBClusterIdentifier   pulumi.StringPtrOutput   `pulumi:"sourceDBClusterIdentifier"`
-	StorageEncrypted            pulumi.BoolPtrOutput     `pulumi:"storageEncrypted"`
-	Tags                        DBClusterTagArrayOutput  `pulumi:"tags"`
-	UseLatestRestorableTime     pulumi.BoolPtrOutput     `pulumi:"useLatestRestorableTime"`
-	VpcSecurityGroupIds         pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
+	// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// Indicates the database engine version.
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
+	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+	IamAuthEnabled pulumi.BoolPtrOutput `pulumi:"iamAuthEnabled"`
+	// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// Specifies the port that the database engine is listening on.
+	Port pulumi.StringOutput `pulumi:"port"`
+	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
+	PreferredBackupWindow pulumi.StringPtrOutput `pulumi:"preferredBackupWindow"`
+	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
+	// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+	ReadEndpoint pulumi.StringOutput `pulumi:"readEndpoint"`
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	RestoreToTime pulumi.StringPtrOutput `pulumi:"restoreToTime"`
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	RestoreType pulumi.StringPtrOutput `pulumi:"restoreType"`
+	// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
+	//
+	// After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
+	//
+	// However, if you don't specify the SnapshotIdentifier, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the SnapshotIdentifier, and the original DB cluster is deleted.
+	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	SourceDBClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDBClusterIdentifier"`
+	// Indicates whether the DB cluster is encrypted.
+	//
+	// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+	//
+	// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	// The tags assigned to this cluster.
+	Tags DBClusterTagArrayOutput `pulumi:"tags"`
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	UseLatestRestorableTime pulumi.BoolPtrOutput `pulumi:"useLatestRestorableTime"`
+	// Provides a list of VPC security groups that the DB cluster belongs to.
+	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
 // NewDBCluster registers a new resource with the given unique name, arguments, and options.
@@ -82,54 +129,142 @@ func (DBClusterState) ElementType() reflect.Type {
 }
 
 type dbclusterArgs struct {
-	AssociatedRoles             []DBClusterRole `pulumi:"associatedRoles"`
-	AvailabilityZones           []string        `pulumi:"availabilityZones"`
-	BackupRetentionPeriod       *int            `pulumi:"backupRetentionPeriod"`
-	DBClusterIdentifier         *string         `pulumi:"dBClusterIdentifier"`
-	DBClusterParameterGroupName *string         `pulumi:"dBClusterParameterGroupName"`
-	DBSubnetGroupName           *string         `pulumi:"dBSubnetGroupName"`
-	DeletionProtection          *bool           `pulumi:"deletionProtection"`
-	EnableCloudwatchLogsExports []string        `pulumi:"enableCloudwatchLogsExports"`
-	EngineVersion               *string         `pulumi:"engineVersion"`
-	IamAuthEnabled              *bool           `pulumi:"iamAuthEnabled"`
-	KmsKeyId                    *string         `pulumi:"kmsKeyId"`
-	Port                        *int            `pulumi:"port"`
-	PreferredBackupWindow       *string         `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow  *string         `pulumi:"preferredMaintenanceWindow"`
-	RestoreToTime               *string         `pulumi:"restoreToTime"`
-	RestoreType                 *string         `pulumi:"restoreType"`
-	SnapshotIdentifier          *string         `pulumi:"snapshotIdentifier"`
-	SourceDBClusterIdentifier   *string         `pulumi:"sourceDBClusterIdentifier"`
-	StorageEncrypted            *bool           `pulumi:"storageEncrypted"`
-	Tags                        []DBClusterTag  `pulumi:"tags"`
-	UseLatestRestorableTime     *bool           `pulumi:"useLatestRestorableTime"`
-	VpcSecurityGroupIds         []string        `pulumi:"vpcSecurityGroupIds"`
+	// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+	AssociatedRoles []DBClusterRole `pulumi:"associatedRoles"`
+	// Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// Specifies the number of days for which automatic DB snapshots are retained.
+	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
+	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+	DBClusterIdentifier *string `pulumi:"dBClusterIdentifier"`
+	// Provides the name of the DB cluster parameter group.
+	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
+	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
+	DBSubnetGroupName *string `pulumi:"dBSubnetGroupName"`
+	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
+	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
+	// Indicates the database engine version.
+	EngineVersion *string `pulumi:"engineVersion"`
+	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+	IamAuthEnabled *bool `pulumi:"iamAuthEnabled"`
+	// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
+	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
+	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	RestoreToTime *string `pulumi:"restoreToTime"`
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	RestoreType *string `pulumi:"restoreType"`
+	// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
+	//
+	// After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
+	//
+	// However, if you don't specify the SnapshotIdentifier, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the SnapshotIdentifier, and the original DB cluster is deleted.
+	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	SourceDBClusterIdentifier *string `pulumi:"sourceDBClusterIdentifier"`
+	// Indicates whether the DB cluster is encrypted.
+	//
+	// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+	//
+	// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	// The tags assigned to this cluster.
+	Tags []DBClusterTag `pulumi:"tags"`
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
+	// Provides a list of VPC security groups that the DB cluster belongs to.
+	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
 // The set of arguments for constructing a DBCluster resource.
 type DBClusterArgs struct {
-	AssociatedRoles             DBClusterRoleArrayInput
-	AvailabilityZones           pulumi.StringArrayInput
-	BackupRetentionPeriod       pulumi.IntPtrInput
-	DBClusterIdentifier         pulumi.StringPtrInput
+	// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+	AssociatedRoles DBClusterRoleArrayInput
+	// Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
+	AvailabilityZones pulumi.StringArrayInput
+	// Specifies the number of days for which automatic DB snapshots are retained.
+	BackupRetentionPeriod pulumi.IntPtrInput
+	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+	DBClusterIdentifier pulumi.StringPtrInput
+	// Provides the name of the DB cluster parameter group.
 	DBClusterParameterGroupName pulumi.StringPtrInput
-	DBSubnetGroupName           pulumi.StringPtrInput
-	DeletionProtection          pulumi.BoolPtrInput
+	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
+	DBSubnetGroupName pulumi.StringPtrInput
+	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+	DeletionProtection pulumi.BoolPtrInput
+	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
-	EngineVersion               pulumi.StringPtrInput
-	IamAuthEnabled              pulumi.BoolPtrInput
-	KmsKeyId                    pulumi.StringPtrInput
-	Port                        pulumi.IntPtrInput
-	PreferredBackupWindow       pulumi.StringPtrInput
-	PreferredMaintenanceWindow  pulumi.StringPtrInput
-	RestoreToTime               pulumi.StringPtrInput
-	RestoreType                 pulumi.StringPtrInput
-	SnapshotIdentifier          pulumi.StringPtrInput
-	SourceDBClusterIdentifier   pulumi.StringPtrInput
-	StorageEncrypted            pulumi.BoolPtrInput
-	Tags                        DBClusterTagArrayInput
-	UseLatestRestorableTime     pulumi.BoolPtrInput
-	VpcSecurityGroupIds         pulumi.StringArrayInput
+	// Indicates the database engine version.
+	EngineVersion pulumi.StringPtrInput
+	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+	IamAuthEnabled pulumi.BoolPtrInput
+	// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+	KmsKeyId pulumi.StringPtrInput
+	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
+	PreferredBackupWindow pulumi.StringPtrInput
+	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	PreferredMaintenanceWindow pulumi.StringPtrInput
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	RestoreToTime pulumi.StringPtrInput
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	RestoreType pulumi.StringPtrInput
+	// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
+	//
+	// After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
+	//
+	// However, if you don't specify the SnapshotIdentifier, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the SnapshotIdentifier, and the original DB cluster is deleted.
+	SnapshotIdentifier pulumi.StringPtrInput
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	SourceDBClusterIdentifier pulumi.StringPtrInput
+	// Indicates whether the DB cluster is encrypted.
+	//
+	// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+	//
+	// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
+	StorageEncrypted pulumi.BoolPtrInput
+	// The tags assigned to this cluster.
+	Tags DBClusterTagArrayInput
+	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+	//
+	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+	//
+	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+	UseLatestRestorableTime pulumi.BoolPtrInput
+	// Provides a list of VPC security groups that the DB cluster belongs to.
+	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
 func (DBClusterArgs) ElementType() reflect.Type {
@@ -169,102 +304,151 @@ func (o DBClusterOutput) ToDBClusterOutputWithContext(ctx context.Context) DBClu
 	return o
 }
 
+// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
 func (o DBClusterOutput) AssociatedRoles() DBClusterRoleArrayOutput {
 	return o.ApplyT(func(v *DBCluster) DBClusterRoleArrayOutput { return v.AssociatedRoles }).(DBClusterRoleArrayOutput)
 }
 
+// Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
 func (o DBClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the number of days for which automatic DB snapshots are retained.
 func (o DBClusterOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.IntPtrOutput { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
+// The resource id for the DB cluster. For example: `cluster-ABCD1234EFGH5678IJKL90MNOP`. The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
 func (o DBClusterOutput) ClusterResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.ClusterResourceId }).(pulumi.StringOutput)
 }
 
+// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
 func (o DBClusterOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// Provides the name of the DB cluster parameter group.
 func (o DBClusterOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
+// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 func (o DBClusterOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
 func (o DBClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies a list of log types that are enabled for export to CloudWatch Logs.
 func (o DBClusterOutput) EnableCloudwatchLogsExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringArrayOutput { return v.EnableCloudwatchLogsExports }).(pulumi.StringArrayOutput)
 }
 
+// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
 func (o DBClusterOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// Indicates the database engine version.
 func (o DBClusterOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
+// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 func (o DBClusterOutput) IamAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.IamAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
 func (o DBClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o DBClusterOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+// Specifies the port that the database engine is listening on.
+func (o DBClusterOutput) Port() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.Port }).(pulumi.StringOutput)
 }
 
+// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
 func (o DBClusterOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 func (o DBClusterOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
+// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
 func (o DBClusterOutput) ReadEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.ReadEndpoint }).(pulumi.StringOutput)
 }
 
+// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+//
+// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+//
+// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 func (o DBClusterOutput) RestoreToTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.RestoreToTime }).(pulumi.StringPtrOutput)
 }
 
+// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+//
+// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+//
+// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 func (o DBClusterOutput) RestoreType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.RestoreType }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
+//
+// After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
+//
+// However, if you don't specify the SnapshotIdentifier, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the SnapshotIdentifier, and the original DB cluster is deleted.
 func (o DBClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+//
+// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+//
+// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 func (o DBClusterOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the DB cluster is encrypted.
+//
+// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
+//
+// If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.
 func (o DBClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The tags assigned to this cluster.
 func (o DBClusterOutput) Tags() DBClusterTagArrayOutput {
 	return o.ApplyT(func(v *DBCluster) DBClusterTagArrayOutput { return v.Tags }).(DBClusterTagArrayOutput)
 }
 
+// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+//
+// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+//
+// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 func (o DBClusterOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
 }
 
+// Provides a list of VPC security groups that the DB cluster belongs to.
 func (o DBClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

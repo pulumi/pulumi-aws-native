@@ -1792,6 +1792,47 @@ func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplateOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplateOutput)
 }
 
+func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return i.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplateOutput).ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx)
+}
+
+// GameServerGroupLaunchTemplatePtrInput is an input type that accepts GameServerGroupLaunchTemplateArgs, GameServerGroupLaunchTemplatePtr and GameServerGroupLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `GameServerGroupLaunchTemplatePtrInput` via:
+//
+//	        GameServerGroupLaunchTemplateArgs{...}
+//
+//	or:
+//
+//	        nil
+type GameServerGroupLaunchTemplatePtrInput interface {
+	pulumi.Input
+
+	ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput
+	ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Context) GameServerGroupLaunchTemplatePtrOutput
+}
+
+type gameServerGroupLaunchTemplatePtrType GameServerGroupLaunchTemplateArgs
+
+func GameServerGroupLaunchTemplatePtr(v *GameServerGroupLaunchTemplateArgs) GameServerGroupLaunchTemplatePtrInput {
+	return (*gameServerGroupLaunchTemplatePtrType)(v)
+}
+
+func (*gameServerGroupLaunchTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameServerGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (i *gameServerGroupLaunchTemplatePtrType) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return i.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *gameServerGroupLaunchTemplatePtrType) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplatePtrOutput)
+}
+
 // The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
 type GameServerGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
 
@@ -1805,6 +1846,16 @@ func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplateOutp
 
 func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplateOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplateOutput {
 	return o
+}
+
+func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
+	return o.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameServerGroupLaunchTemplate) *GameServerGroupLaunchTemplate {
+		return &v
+	}).(GameServerGroupLaunchTemplatePtrOutput)
 }
 
 func (o GameServerGroupLaunchTemplateOutput) LaunchTemplateId() pulumi.StringPtrOutput {
@@ -3348,6 +3399,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupInstanceDefinitionInput)(nil)).Elem(), GameServerGroupInstanceDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupInstanceDefinitionArrayInput)(nil)).Elem(), GameServerGroupInstanceDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupLaunchTemplateInput)(nil)).Elem(), GameServerGroupLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupLaunchTemplatePtrInput)(nil)).Elem(), GameServerGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTagInput)(nil)).Elem(), GameServerGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTagArrayInput)(nil)).Elem(), GameServerGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupTargetTrackingConfigurationInput)(nil)).Elem(), GameServerGroupTargetTrackingConfigurationArgs{})

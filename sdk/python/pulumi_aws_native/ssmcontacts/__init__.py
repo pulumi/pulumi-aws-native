@@ -10,5 +10,9 @@ from .contact import *
 from .contact_channel import *
 from .get_contact import *
 from .get_contact_channel import *
+from .get_plan import *
+from .get_rotation import *
+from .plan import *
+from .rotation import *
 from ._inputs import *
 from . import outputs

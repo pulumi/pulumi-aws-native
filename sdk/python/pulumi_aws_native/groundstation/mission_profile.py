@@ -22,6 +22,8 @@ class MissionProfileArgs:
                  contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
                  contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 streams_kms_key: Optional[pulumi.Input['MissionProfileStreamsKmsKeyArgs']] = None,
+                 streams_kms_role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileTagArgs']]]] = None):
         """
         The set of arguments for constructing a MissionProfile resource.
@@ -29,6 +31,8 @@ class MissionProfileArgs:
         :param pulumi.Input[int] contact_post_pass_duration_seconds: Post-pass time needed after the contact.
         :param pulumi.Input[int] contact_pre_pass_duration_seconds: Pre-pass time needed before the contact.
         :param pulumi.Input[str] name: A name used to identify a mission profile.
+        :param pulumi.Input['MissionProfileStreamsKmsKeyArgs'] streams_kms_key: The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+        :param pulumi.Input[str] streams_kms_role: The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
         """
         pulumi.set(__self__, "dataflow_edges", dataflow_edges)
         pulumi.set(__self__, "minimum_viable_contact_duration_seconds", minimum_viable_contact_duration_seconds)
@@ -39,6 +43,10 @@ class MissionProfileArgs:
             pulumi.set(__self__, "contact_pre_pass_duration_seconds", contact_pre_pass_duration_seconds)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if streams_kms_key is not None:
+            pulumi.set(__self__, "streams_kms_key", streams_kms_key)
+        if streams_kms_role is not None:
+            pulumi.set(__self__, "streams_kms_role", streams_kms_role)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -109,6 +117,30 @@ class MissionProfileArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="streamsKmsKey")
+    def streams_kms_key(self) -> Optional[pulumi.Input['MissionProfileStreamsKmsKeyArgs']]:
+        """
+        The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+        """
+        return pulumi.get(self, "streams_kms_key")
+
+    @streams_kms_key.setter
+    def streams_kms_key(self, value: Optional[pulumi.Input['MissionProfileStreamsKmsKeyArgs']]):
+        pulumi.set(self, "streams_kms_key", value)
+
+    @property
+    @pulumi.getter(name="streamsKmsRole")
+    def streams_kms_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+        """
+        return pulumi.get(self, "streams_kms_role")
+
+    @streams_kms_role.setter
+    def streams_kms_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "streams_kms_role", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -128,6 +160,8 @@ class MissionProfile(pulumi.CustomResource):
                  dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]]] = None,
                  minimum_viable_contact_duration_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 streams_kms_key: Optional[pulumi.Input[pulumi.InputType['MissionProfileStreamsKmsKeyArgs']]] = None,
+                 streams_kms_role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileTagArgs']]]]] = None,
                  tracking_config_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -140,6 +174,8 @@ class MissionProfile(pulumi.CustomResource):
         :param pulumi.Input[int] contact_pre_pass_duration_seconds: Pre-pass time needed before the contact.
         :param pulumi.Input[int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
         :param pulumi.Input[str] name: A name used to identify a mission profile.
+        :param pulumi.Input[pulumi.InputType['MissionProfileStreamsKmsKeyArgs']] streams_kms_key: The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+        :param pulumi.Input[str] streams_kms_role: The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
         """
         ...
     @overload
@@ -170,6 +206,8 @@ class MissionProfile(pulumi.CustomResource):
                  dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]]] = None,
                  minimum_viable_contact_duration_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 streams_kms_key: Optional[pulumi.Input[pulumi.InputType['MissionProfileStreamsKmsKeyArgs']]] = None,
+                 streams_kms_role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileTagArgs']]]]] = None,
                  tracking_config_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -190,6 +228,8 @@ class MissionProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'minimum_viable_contact_duration_seconds'")
             __props__.__dict__["minimum_viable_contact_duration_seconds"] = minimum_viable_contact_duration_seconds
             __props__.__dict__["name"] = name
+            __props__.__dict__["streams_kms_key"] = streams_kms_key
+            __props__.__dict__["streams_kms_role"] = streams_kms_role
             __props__.__dict__["tags"] = tags
             if tracking_config_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'tracking_config_arn'")
@@ -225,6 +265,8 @@ class MissionProfile(pulumi.CustomResource):
         __props__.__dict__["minimum_viable_contact_duration_seconds"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["region"] = None
+        __props__.__dict__["streams_kms_key"] = None
+        __props__.__dict__["streams_kms_role"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tracking_config_arn"] = None
         return MissionProfile(resource_name, opts=opts, __props__=__props__)
@@ -275,6 +317,22 @@ class MissionProfile(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[str]:
         return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="streamsKmsKey")
+    def streams_kms_key(self) -> pulumi.Output[Optional['outputs.MissionProfileStreamsKmsKey']]:
+        """
+        The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+        """
+        return pulumi.get(self, "streams_kms_key")
+
+    @property
+    @pulumi.getter(name="streamsKmsRole")
+    def streams_kms_role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+        """
+        return pulumi.get(self, "streams_kms_role")
 
     @property
     @pulumi.getter

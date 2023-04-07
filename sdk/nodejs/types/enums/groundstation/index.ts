@@ -39,3 +39,25 @@ export const ConfigTrackingConfigAutotrack = {
 } as const;
 
 export type ConfigTrackingConfigAutotrack = (typeof ConfigTrackingConfigAutotrack)[keyof typeof ConfigTrackingConfigAutotrack];
+
+export const DataflowEndpointGroupAgentStatus = {
+    Success: "SUCCESS",
+    Failed: "FAILED",
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+/**
+ * The status of AgentEndpoint.
+ */
+export type DataflowEndpointGroupAgentStatus = (typeof DataflowEndpointGroupAgentStatus)[keyof typeof DataflowEndpointGroupAgentStatus];
+
+export const DataflowEndpointGroupAuditResults = {
+    Healthy: "HEALTHY",
+    Unhealthy: "UNHEALTHY",
+} as const;
+
+/**
+ * The results of the audit.
+ */
+export type DataflowEndpointGroupAuditResults = (typeof DataflowEndpointGroupAuditResults)[keyof typeof DataflowEndpointGroupAuditResults];

@@ -3064,7 +3064,9 @@ _utilities.register(
   "fqn": "pulumi_aws_native.ssmcontacts",
   "classes": {
    "aws-native:ssmcontacts:Contact": "Contact",
-   "aws-native:ssmcontacts:ContactChannel": "ContactChannel"
+   "aws-native:ssmcontacts:ContactChannel": "ContactChannel",
+   "aws-native:ssmcontacts:Plan": "Plan",
+   "aws-native:ssmcontacts:Rotation": "Rotation"
   }
  },
  {

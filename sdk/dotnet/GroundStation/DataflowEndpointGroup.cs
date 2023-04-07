@@ -18,9 +18,15 @@ namespace Pulumi.AwsNative.GroundStation
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
+        /// </summary>
         [Output("contactPostPassDurationSeconds")]
         public Output<int?> ContactPostPassDurationSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
+        /// </summary>
         [Output("contactPrePassDurationSeconds")]
         public Output<int?> ContactPrePassDurationSeconds { get; private set; } = null!;
 
@@ -75,9 +81,15 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class DataflowEndpointGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
+        /// </summary>
         [Input("contactPostPassDurationSeconds")]
         public Input<int>? ContactPostPassDurationSeconds { get; set; }
 
+        /// <summary>
+        /// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
+        /// </summary>
         [Input("contactPrePassDurationSeconds")]
         public Input<int>? ContactPrePassDurationSeconds { get; set; }
 

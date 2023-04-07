@@ -52,7 +52,13 @@ namespace Pulumi.AwsNative.GroundStation
     public sealed class GetDataflowEndpointGroupResult
     {
         public readonly string? Arn;
+        /// <summary>
+        /// Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
+        /// </summary>
         public readonly int? ContactPostPassDurationSeconds;
+        /// <summary>
+        /// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
+        /// </summary>
         public readonly int? ContactPrePassDurationSeconds;
         public readonly ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails> EndpointDetails;
         public readonly string? Id;

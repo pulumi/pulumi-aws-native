@@ -27,6 +27,7 @@
   "createOnlyProperties" : [ "/properties/Arn", "/properties/ModuleName", "/properties/VersionId" ],
   "writeOnlyProperties" : [ "/properties/ModuleName", "/properties/VersionId" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/ModuleName" ] ],
   "handlers" : {
     "create" : {
       "permissions" : [ "cloudformation:DescribeType", "cloudformation:SetTypeDefaultVersion" ]

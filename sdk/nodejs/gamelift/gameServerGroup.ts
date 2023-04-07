@@ -72,7 +72,7 @@ export class GameServerGroup extends pulumi.CustomResource {
     /**
      * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
      */
-    public readonly launchTemplate!: pulumi.Output<outputs.gamelift.GameServerGroupLaunchTemplate>;
+    public readonly launchTemplate!: pulumi.Output<outputs.gamelift.GameServerGroupLaunchTemplate | undefined>;
     /**
      * The maximum number of instances allowed in the EC2 Auto Scaling group.
      */
@@ -107,9 +107,6 @@ export class GameServerGroup extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.instanceDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceDefinitions'");
-            }
-            if ((!args || args.launchTemplate === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'launchTemplate'");
             }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
@@ -180,7 +177,7 @@ export interface GameServerGroupArgs {
     /**
      * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
      */
-    launchTemplate: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplateArgs>;
+    launchTemplate?: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplateArgs>;
     /**
      * The maximum number of instances allowed in the EC2 Auto Scaling group.
      */

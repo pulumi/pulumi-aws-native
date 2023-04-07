@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBClusterResult:
-    def __init__(__self__, associated_roles=None, backup_retention_period=None, cluster_resource_id=None, d_b_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, iam_auth_enabled=None, id=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, associated_roles=None, backup_retention_period=None, cluster_resource_id=None, d_b_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, iam_auth_enabled=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, tags=None, vpc_security_group_ids=None):
         if associated_roles and not isinstance(associated_roles, list):
             raise TypeError("Expected argument 'associated_roles' to be a list")
         pulumi.set(__self__, "associated_roles", associated_roles)
@@ -44,11 +44,8 @@ class GetDBClusterResult:
         if iam_auth_enabled and not isinstance(iam_auth_enabled, bool):
             raise TypeError("Expected argument 'iam_auth_enabled' to be a bool")
         pulumi.set(__self__, "iam_auth_enabled", iam_auth_enabled)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
-        if port and not isinstance(port, int):
-            raise TypeError("Expected argument 'port' to be a int")
+        if port and not isinstance(port, str):
+            raise TypeError("Expected argument 'port' to be a str")
         pulumi.set(__self__, "port", port)
         if preferred_backup_window and not isinstance(preferred_backup_window, str):
             raise TypeError("Expected argument 'preferred_backup_window' to be a str")
@@ -69,76 +66,113 @@ class GetDBClusterResult:
     @property
     @pulumi.getter(name="associatedRoles")
     def associated_roles(self) -> Optional[Sequence['outputs.DBClusterRole']]:
+        """
+        Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+        """
         return pulumi.get(self, "associated_roles")
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[int]:
+        """
+        Specifies the number of days for which automatic DB snapshots are retained.
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @property
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> Optional[str]:
+        """
+        The resource id for the DB cluster. For example: `cluster-ABCD1234EFGH5678IJKL90MNOP`. The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
+        """
         return pulumi.get(self, "cluster_resource_id")
 
     @property
     @pulumi.getter(name="dBClusterParameterGroupName")
     def d_b_cluster_parameter_group_name(self) -> Optional[str]:
+        """
+        Provides the name of the DB cluster parameter group.
+        """
         return pulumi.get(self, "d_b_cluster_parameter_group_name")
 
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[bool]:
+        """
+        Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter(name="enableCloudwatchLogsExports")
     def enable_cloudwatch_logs_exports(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of log types that are enabled for export to CloudWatch Logs.
+        """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[str]:
+        """
+        The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="iamAuthEnabled")
     def iam_auth_enabled(self) -> Optional[bool]:
+        """
+        True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+        """
         return pulumi.get(self, "iam_auth_enabled")
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[int]:
+    def port(self) -> Optional[str]:
+        """
+        Specifies the port that the database engine is listening on.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[str]:
+        """
+        Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[str]:
+        """
+        Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
     @pulumi.getter(name="readEndpoint")
     def read_endpoint(self) -> Optional[str]:
+        """
+        The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
+        """
         return pulumi.get(self, "read_endpoint")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DBClusterTag']]:
+        """
+        The tags assigned to this cluster.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Provides a list of VPC security groups that the DB cluster belongs to.
+        """
         return pulumi.get(self, "vpc_security_group_ids")
 
 
@@ -156,7 +190,6 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             enable_cloudwatch_logs_exports=self.enable_cloudwatch_logs_exports,
             endpoint=self.endpoint,
             iam_auth_enabled=self.iam_auth_enabled,
-            id=self.id,
             port=self.port,
             preferred_backup_window=self.preferred_backup_window,
             preferred_maintenance_window=self.preferred_maintenance_window,
@@ -165,13 +198,16 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_db_cluster(id: Optional[str] = None,
+def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBClusterResult:
     """
-    Resource Type definition for AWS::Neptune::DBCluster
+    The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
+
+
+    :param str d_b_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['dBClusterIdentifier'] = d_b_cluster_identifier
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDBCluster', __args__, opts=opts, typ=GetDBClusterResult).value
 
@@ -184,7 +220,6 @@ def get_db_cluster(id: Optional[str] = None,
         enable_cloudwatch_logs_exports=__ret__.enable_cloudwatch_logs_exports,
         endpoint=__ret__.endpoint,
         iam_auth_enabled=__ret__.iam_auth_enabled,
-        id=__ret__.id,
         port=__ret__.port,
         preferred_backup_window=__ret__.preferred_backup_window,
         preferred_maintenance_window=__ret__.preferred_maintenance_window,
@@ -194,9 +229,12 @@ def get_db_cluster(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_db_cluster)
-def get_db_cluster_output(id: Optional[pulumi.Input[str]] = None,
+def get_db_cluster_output(d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBClusterResult]:
     """
-    Resource Type definition for AWS::Neptune::DBCluster
+    The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
+
+
+    :param str d_b_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
     """
     ...

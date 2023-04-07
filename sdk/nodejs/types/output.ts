@@ -16561,6 +16561,28 @@ export namespace groundstation {
         polarization?: enums.groundstation.ConfigPolarization;
     }
 
+    /**
+     * Information about AwsGroundStationAgentEndpoint.
+     */
+    export interface DataflowEndpointGroupAwsGroundStationAgentEndpoint {
+        agentStatus?: enums.groundstation.DataflowEndpointGroupAgentStatus;
+        auditResults?: enums.groundstation.DataflowEndpointGroupAuditResults;
+        egressAddress?: outputs.groundstation.DataflowEndpointGroupConnectionDetails;
+        ingressAddress?: outputs.groundstation.DataflowEndpointGroupRangedConnectionDetails;
+        name?: string;
+    }
+
+    /**
+     * Egress address of AgentEndpoint with an optional mtu.
+     */
+    export interface DataflowEndpointGroupConnectionDetails {
+        /**
+         * Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+         */
+        mtu?: number;
+        socketAddress?: outputs.groundstation.DataflowEndpointGroupSocketAddress;
+    }
+
     export interface DataflowEndpointGroupDataflowEndpoint {
         address?: outputs.groundstation.DataflowEndpointGroupSocketAddress;
         mtu?: number;
@@ -16568,8 +16590,48 @@ export namespace groundstation {
     }
 
     export interface DataflowEndpointGroupEndpointDetails {
+        awsGroundStationAgentEndpoint?: outputs.groundstation.DataflowEndpointGroupAwsGroundStationAgentEndpoint;
         endpoint?: outputs.groundstation.DataflowEndpointGroupDataflowEndpoint;
         securityDetails?: outputs.groundstation.DataflowEndpointGroupSecurityDetails;
+    }
+
+    /**
+     * An integer range that has a minimum and maximum value.
+     */
+    export interface DataflowEndpointGroupIntegerRange {
+        /**
+         * A maximum value.
+         */
+        maximum?: number;
+        /**
+         * A minimum value.
+         */
+        minimum?: number;
+    }
+
+    /**
+     * Ingress address of AgentEndpoint with a port range and an optional mtu.
+     */
+    export interface DataflowEndpointGroupRangedConnectionDetails {
+        /**
+         * Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+         */
+        mtu?: number;
+        socketAddress?: outputs.groundstation.DataflowEndpointGroupRangedSocketAddress;
+    }
+
+    /**
+     * A socket address with a port range.
+     */
+    export interface DataflowEndpointGroupRangedSocketAddress {
+        /**
+         * IPv4 socket address.
+         */
+        name?: string;
+        /**
+         * Port range of a socket address.
+         */
+        portRange?: outputs.groundstation.DataflowEndpointGroupIntegerRange;
     }
 
     export interface DataflowEndpointGroupSecurityDetails {
@@ -16591,6 +16653,11 @@ export namespace groundstation {
     export interface MissionProfileDataflowEdge {
         destination?: string;
         source?: string;
+    }
+
+    export interface MissionProfileStreamsKmsKey {
+        kmsAliasArn?: string;
+        kmsKeyArn?: string;
     }
 
     export interface MissionProfileTag {
@@ -24963,14 +25030,6 @@ export namespace macie {
         criterion?: outputs.macie.FindingsFilterCriterion;
     }
 
-    /**
-     * Returned by ListHandler representing filter name and ID.
-     */
-    export interface FindingsFilterListItem {
-        id?: string;
-        name?: string;
-    }
-
 }
 
 export namespace managedblockchain {
@@ -27533,14 +27592,32 @@ export namespace neptune {
         value: string;
     }
 
+    /**
+     * Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+     */
     export interface DBClusterRole {
+        /**
+         * The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
+         */
         featureName?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+         */
         roleArn: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface DBClusterTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         key: string;
-        value: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value?: string;
     }
 
     export interface DBInstanceTag {
@@ -42789,6 +42866,7 @@ export namespace sagemaker {
     export interface EndpointConfigProductionVariant {
         acceleratorType?: string;
         containerStartupHealthCheckTimeoutInSeconds?: number;
+        enableSSMAccess?: boolean;
         initialInstanceCount?: number;
         initialVariantWeight: number;
         instanceType?: string;
@@ -46400,6 +46478,138 @@ export namespace ssmcontacts {
     export interface ContactTargets {
         channelTargetInfo?: outputs.ssmcontacts.ContactChannelTargetInfo;
         contactTargetInfo?: outputs.ssmcontacts.ContactTargetInfo;
+    }
+
+    /**
+     * Information about the contact channel that SSM Incident Manager uses to engage the contact.
+     */
+    export interface PlanChannelTargetInfo {
+        /**
+         * The Amazon Resource Name (ARN) of the contact channel.
+         */
+        channelId: string;
+        /**
+         * The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
+         */
+        retryIntervalInMinutes: number;
+    }
+
+    /**
+     * The contact that SSM Incident Manager is engaging during an incident.
+     */
+    export interface PlanContactTargetInfo {
+        /**
+         * The Amazon Resource Name (ARN) of the contact.
+         */
+        contactId: string;
+        /**
+         * A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+         */
+        isEssential: boolean;
+    }
+
+    /**
+     * A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
+     */
+    export interface PlanStage {
+        /**
+         * The time to wait until beginning the next stage.
+         */
+        durationInMinutes: number;
+        /**
+         * The contacts or contact methods that the escalation plan or engagement plan is engaging.
+         */
+        targets?: outputs.ssmcontacts.PlanTargets[];
+    }
+
+    /**
+     * The contacts or contact methods that the escalation plan or engagement plan is engaging.
+     */
+    export interface PlanTargets {
+        channelTargetInfo?: outputs.ssmcontacts.PlanChannelTargetInfo;
+        contactTargetInfo?: outputs.ssmcontacts.PlanContactTargetInfo;
+    }
+
+    /**
+     * StartTime and EndTime for the Shift
+     */
+    export interface RotationCoverageTime {
+        endTime: string;
+        startTime: string;
+    }
+
+    /**
+     * DayOfWeek for Month and HandOff Time for Monthly Recurring Rotation.
+     */
+    export interface RotationMonthlySetting {
+        /**
+         * The day of the month when monthly recurring on-call rotations begin.
+         */
+        dayOfMonth: number;
+        handOffTime: string;
+    }
+
+    /**
+     * Information about when an on-call rotation is in effect and how long the rotation period lasts.
+     */
+    export interface RotationRecurrenceSettings {
+        /**
+         * Information about on-call rotations that recur daily.
+         */
+        dailySettings?: string[];
+        /**
+         * Information about on-call rotations that recur monthly.
+         */
+        monthlySettings?: outputs.ssmcontacts.RotationMonthlySetting[];
+        /**
+         * Number of Oncalls per shift.
+         */
+        numberOfOnCalls?: number;
+        /**
+         * The number of days, weeks, or months a single rotation lasts.
+         */
+        recurrenceMultiplier?: number;
+        /**
+         * Information about the days of the week included in on-call rotation coverage.
+         */
+        shiftCoverages?: outputs.ssmcontacts.RotationShiftCoverage[];
+        /**
+         * Information about on-call rotations that recur weekly.
+         */
+        weeklySettings?: outputs.ssmcontacts.RotationWeeklySetting[];
+    }
+
+    /**
+     * Information about the days of the week included in on-call rotation coverage.
+     */
+    export interface RotationShiftCoverage {
+        /**
+         * Information about when an on-call shift begins and ends.
+         */
+        coverageTimes: outputs.ssmcontacts.RotationCoverageTime[];
+        dayOfWeek: enums.ssmcontacts.RotationDayOfWeek;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RotationTag {
+        /**
+         * The key name of the tag
+         */
+        key: string;
+        /**
+         * The value for the tag.
+         */
+        value: string;
+    }
+
+    /**
+     * DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
+     */
+    export interface RotationWeeklySetting {
+        dayOfWeek: enums.ssmcontacts.RotationDayOfWeek;
+        handOffTime: string;
     }
 
 }

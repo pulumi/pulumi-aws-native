@@ -189,10 +189,11 @@ export const ResourceSpecificLoggingTargetType = {
     ClientId: "CLIENT_ID",
     SourceIp: "SOURCE_IP",
     PrincipalId: "PRINCIPAL_ID",
+    EventType: "EVENT_TYPE",
 } as const;
 
 /**
- * The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
+ * The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.
  */
 export type ResourceSpecificLoggingTargetType = (typeof ResourceSpecificLoggingTargetType)[keyof typeof ResourceSpecificLoggingTargetType];
 

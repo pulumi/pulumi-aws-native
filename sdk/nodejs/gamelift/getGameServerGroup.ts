@@ -31,10 +31,6 @@ export interface GetGameServerGroupResult {
      */
     readonly autoScalingGroupArn?: string;
     /**
-     * Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
-     */
-    readonly autoScalingPolicy?: outputs.gamelift.GameServerGroupAutoScalingPolicy;
-    /**
      * The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
      */
     readonly balancingStrategy?: enums.gamelift.GameServerGroupBalancingStrategy;
@@ -55,29 +51,9 @@ export interface GetGameServerGroupResult {
      */
     readonly instanceDefinitions?: outputs.gamelift.GameServerGroupInstanceDefinition[];
     /**
-     * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
-     */
-    readonly launchTemplate?: outputs.gamelift.GameServerGroupLaunchTemplate;
-    /**
-     * The maximum number of instances allowed in the EC2 Auto Scaling group.
-     */
-    readonly maxSize?: number;
-    /**
-     * The minimum number of instances allowed in the EC2 Auto Scaling group.
-     */
-    readonly minSize?: number;
-    /**
      * The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      */
     readonly roleArn?: string;
-    /**
-     * A list of labels to assign to the new game server group resource.
-     */
-    readonly tags?: outputs.gamelift.GameServerGroupTag[];
-    /**
-     * A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
-     */
-    readonly vpcSubnets?: string[];
 }
 /**
  * The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.

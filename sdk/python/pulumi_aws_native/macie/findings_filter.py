@@ -169,7 +169,6 @@ class FindingsFilter(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["position"] = position
             __props__.__dict__["arn"] = None
-            __props__.__dict__["findings_filter_list_items"] = None
         super(FindingsFilter, __self__).__init__(
             'aws-native:macie:FindingsFilter',
             resource_name,
@@ -196,7 +195,6 @@ class FindingsFilter(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["finding_criteria"] = None
-        __props__.__dict__["findings_filter_list_items"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["position"] = None
         return FindingsFilter(resource_name, opts=opts, __props__=__props__)
@@ -232,14 +230,6 @@ class FindingsFilter(pulumi.CustomResource):
         Findings filter criteria.
         """
         return pulumi.get(self, "finding_criteria")
-
-    @property
-    @pulumi.getter(name="findingsFilterListItems")
-    def findings_filter_list_items(self) -> pulumi.Output[Sequence['outputs.FindingsFilterListItem']]:
-        """
-        Findings filters list.
-        """
-        return pulumi.get(self, "findings_filter_list_items")
 
     @property
     @pulumi.getter

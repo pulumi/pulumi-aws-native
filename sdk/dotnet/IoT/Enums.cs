@@ -652,7 +652,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
     /// <summary>
-    /// The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID.
+    /// The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.
     /// </summary>
     [EnumType]
     public readonly struct ResourceSpecificLoggingTargetType : IEquatable<ResourceSpecificLoggingTargetType>
@@ -668,6 +668,7 @@ namespace Pulumi.AwsNative.IoT
         public static ResourceSpecificLoggingTargetType ClientId { get; } = new ResourceSpecificLoggingTargetType("CLIENT_ID");
         public static ResourceSpecificLoggingTargetType SourceIp { get; } = new ResourceSpecificLoggingTargetType("SOURCE_IP");
         public static ResourceSpecificLoggingTargetType PrincipalId { get; } = new ResourceSpecificLoggingTargetType("PRINCIPAL_ID");
+        public static ResourceSpecificLoggingTargetType EventType { get; } = new ResourceSpecificLoggingTargetType("EVENT_TYPE");
 
         public static bool operator ==(ResourceSpecificLoggingTargetType left, ResourceSpecificLoggingTargetType right) => left.Equals(right);
         public static bool operator !=(ResourceSpecificLoggingTargetType left, ResourceSpecificLoggingTargetType right) => !left.Equals(right);

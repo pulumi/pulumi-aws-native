@@ -110,9 +110,12 @@ func (o DBClusterParameterGroupTagArrayOutput) Index(i pulumi.IntInput) DBCluste
 	}).(DBClusterParameterGroupTagOutput)
 }
 
+// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 type DBClusterRole struct {
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
 	FeatureName *string `pulumi:"featureName"`
-	RoleArn     string  `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // DBClusterRoleInput is an input type that accepts DBClusterRoleArgs and DBClusterRoleOutput values.
@@ -126,9 +129,12 @@ type DBClusterRoleInput interface {
 	ToDBClusterRoleOutputWithContext(context.Context) DBClusterRoleOutput
 }
 
+// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 type DBClusterRoleArgs struct {
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
 	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
-	RoleArn     pulumi.StringInput    `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (DBClusterRoleArgs) ElementType() reflect.Type {
@@ -168,6 +174,7 @@ func (i DBClusterRoleArray) ToDBClusterRoleArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterRoleArrayOutput)
 }
 
+// Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 type DBClusterRoleOutput struct{ *pulumi.OutputState }
 
 func (DBClusterRoleOutput) ElementType() reflect.Type {
@@ -182,10 +189,12 @@ func (o DBClusterRoleOutput) ToDBClusterRoleOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
 func (o DBClusterRoleOutput) FeatureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBClusterRole) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
 func (o DBClusterRoleOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DBClusterRole) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -210,9 +219,12 @@ func (o DBClusterRoleArrayOutput) Index(i pulumi.IntInput) DBClusterRoleOutput {
 	}).(DBClusterRoleOutput)
 }
 
+// A key-value pair to associate with a resource.
 type DBClusterTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
 }
 
 // DBClusterTagInput is an input type that accepts DBClusterTagArgs and DBClusterTagOutput values.
@@ -226,9 +238,12 @@ type DBClusterTagInput interface {
 	ToDBClusterTagOutputWithContext(context.Context) DBClusterTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type DBClusterTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (DBClusterTagArgs) ElementType() reflect.Type {
@@ -268,6 +283,7 @@ func (i DBClusterTagArray) ToDBClusterTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterTagArrayOutput)
 }
 
+// A key-value pair to associate with a resource.
 type DBClusterTagOutput struct{ *pulumi.OutputState }
 
 func (DBClusterTagOutput) ElementType() reflect.Type {
@@ -282,12 +298,14 @@ func (o DBClusterTagOutput) ToDBClusterTagOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o DBClusterTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DBClusterTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o DBClusterTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DBClusterTag) string { return v.Value }).(pulumi.StringOutput)
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DBClusterTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type DBClusterTagArrayOutput struct{ *pulumi.OutputState }

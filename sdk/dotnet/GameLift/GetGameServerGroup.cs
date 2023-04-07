@@ -62,10 +62,6 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public readonly string? AutoScalingGroupArn;
         /// <summary>
-        /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
-        /// </summary>
-        public readonly Outputs.GameServerGroupAutoScalingPolicy? AutoScalingPolicy;
-        /// <summary>
         /// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         /// </summary>
         public readonly Pulumi.AwsNative.GameLift.GameServerGroupBalancingStrategy? BalancingStrategy;
@@ -86,35 +82,13 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public readonly ImmutableArray<Outputs.GameServerGroupInstanceDefinition> InstanceDefinitions;
         /// <summary>
-        /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
-        /// </summary>
-        public readonly Outputs.GameServerGroupLaunchTemplate? LaunchTemplate;
-        /// <summary>
-        /// The maximum number of instances allowed in the EC2 Auto Scaling group.
-        /// </summary>
-        public readonly double? MaxSize;
-        /// <summary>
-        /// The minimum number of instances allowed in the EC2 Auto Scaling group.
-        /// </summary>
-        public readonly double? MinSize;
-        /// <summary>
         /// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         /// </summary>
         public readonly string? RoleArn;
-        /// <summary>
-        /// A list of labels to assign to the new game server group resource.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.GameServerGroupTag> Tags;
-        /// <summary>
-        /// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
-        /// </summary>
-        public readonly ImmutableArray<string> VpcSubnets;
 
         [OutputConstructor]
         private GetGameServerGroupResult(
             string? autoScalingGroupArn,
-
-            Outputs.GameServerGroupAutoScalingPolicy? autoScalingPolicy,
 
             Pulumi.AwsNative.GameLift.GameServerGroupBalancingStrategy? balancingStrategy,
 
@@ -126,31 +100,15 @@ namespace Pulumi.AwsNative.GameLift
 
             ImmutableArray<Outputs.GameServerGroupInstanceDefinition> instanceDefinitions,
 
-            Outputs.GameServerGroupLaunchTemplate? launchTemplate,
-
-            double? maxSize,
-
-            double? minSize,
-
-            string? roleArn,
-
-            ImmutableArray<Outputs.GameServerGroupTag> tags,
-
-            ImmutableArray<string> vpcSubnets)
+            string? roleArn)
         {
             AutoScalingGroupArn = autoScalingGroupArn;
-            AutoScalingPolicy = autoScalingPolicy;
             BalancingStrategy = balancingStrategy;
             GameServerGroupArn = gameServerGroupArn;
             GameServerGroupName = gameServerGroupName;
             GameServerProtectionPolicy = gameServerProtectionPolicy;
             InstanceDefinitions = instanceDefinitions;
-            LaunchTemplate = launchTemplate;
-            MaxSize = maxSize;
-            MinSize = minSize;
             RoleArn = roleArn;
-            Tags = tags;
-            VpcSubnets = vpcSubnets;
         }
     }
 }

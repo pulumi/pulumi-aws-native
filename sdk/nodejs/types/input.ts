@@ -16299,6 +16299,28 @@ export namespace groundstation {
         polarization?: pulumi.Input<enums.groundstation.ConfigPolarization>;
     }
 
+    /**
+     * Information about AwsGroundStationAgentEndpoint.
+     */
+    export interface DataflowEndpointGroupAwsGroundStationAgentEndpointArgs {
+        agentStatus?: pulumi.Input<enums.groundstation.DataflowEndpointGroupAgentStatus>;
+        auditResults?: pulumi.Input<enums.groundstation.DataflowEndpointGroupAuditResults>;
+        egressAddress?: pulumi.Input<inputs.groundstation.DataflowEndpointGroupConnectionDetailsArgs>;
+        ingressAddress?: pulumi.Input<inputs.groundstation.DataflowEndpointGroupRangedConnectionDetailsArgs>;
+        name?: pulumi.Input<string>;
+    }
+
+    /**
+     * Egress address of AgentEndpoint with an optional mtu.
+     */
+    export interface DataflowEndpointGroupConnectionDetailsArgs {
+        /**
+         * Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+         */
+        mtu?: pulumi.Input<number>;
+        socketAddress?: pulumi.Input<inputs.groundstation.DataflowEndpointGroupSocketAddressArgs>;
+    }
+
     export interface DataflowEndpointGroupDataflowEndpointArgs {
         address?: pulumi.Input<inputs.groundstation.DataflowEndpointGroupSocketAddressArgs>;
         mtu?: pulumi.Input<number>;
@@ -16306,8 +16328,48 @@ export namespace groundstation {
     }
 
     export interface DataflowEndpointGroupEndpointDetailsArgs {
+        awsGroundStationAgentEndpoint?: pulumi.Input<inputs.groundstation.DataflowEndpointGroupAwsGroundStationAgentEndpointArgs>;
         endpoint?: pulumi.Input<inputs.groundstation.DataflowEndpointGroupDataflowEndpointArgs>;
         securityDetails?: pulumi.Input<inputs.groundstation.DataflowEndpointGroupSecurityDetailsArgs>;
+    }
+
+    /**
+     * An integer range that has a minimum and maximum value.
+     */
+    export interface DataflowEndpointGroupIntegerRangeArgs {
+        /**
+         * A maximum value.
+         */
+        maximum?: pulumi.Input<number>;
+        /**
+         * A minimum value.
+         */
+        minimum?: pulumi.Input<number>;
+    }
+
+    /**
+     * Ingress address of AgentEndpoint with a port range and an optional mtu.
+     */
+    export interface DataflowEndpointGroupRangedConnectionDetailsArgs {
+        /**
+         * Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+         */
+        mtu?: pulumi.Input<number>;
+        socketAddress?: pulumi.Input<inputs.groundstation.DataflowEndpointGroupRangedSocketAddressArgs>;
+    }
+
+    /**
+     * A socket address with a port range.
+     */
+    export interface DataflowEndpointGroupRangedSocketAddressArgs {
+        /**
+         * IPv4 socket address.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Port range of a socket address.
+         */
+        portRange?: pulumi.Input<inputs.groundstation.DataflowEndpointGroupIntegerRangeArgs>;
     }
 
     export interface DataflowEndpointGroupSecurityDetailsArgs {
@@ -16329,6 +16391,11 @@ export namespace groundstation {
     export interface MissionProfileDataflowEdgeArgs {
         destination?: pulumi.Input<string>;
         source?: pulumi.Input<string>;
+    }
+
+    export interface MissionProfileStreamsKmsKeyArgs {
+        kmsAliasArn?: pulumi.Input<string>;
+        kmsKeyArn?: pulumi.Input<string>;
     }
 
     export interface MissionProfileTagArgs {
@@ -24586,7 +24653,6 @@ export namespace macie {
     export interface FindingsFilterFindingCriteriaArgs {
         criterion?: pulumi.Input<inputs.macie.FindingsFilterCriterionArgs>;
     }
-
 }
 
 export namespace managedblockchain {
@@ -27139,14 +27205,32 @@ export namespace neptune {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+     */
     export interface DBClusterRoleArgs {
+        /**
+         * The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
+         */
         featureName?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+         */
         roleArn: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface DBClusterTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface DBInstanceTagArgs {
@@ -41949,6 +42033,7 @@ export namespace sagemaker {
     export interface EndpointConfigProductionVariantArgs {
         acceleratorType?: pulumi.Input<string>;
         containerStartupHealthCheckTimeoutInSeconds?: pulumi.Input<number>;
+        enableSSMAccess?: pulumi.Input<boolean>;
         initialInstanceCount?: pulumi.Input<number>;
         initialVariantWeight: pulumi.Input<number>;
         instanceType?: pulumi.Input<string>;
@@ -45525,6 +45610,138 @@ export namespace ssmcontacts {
     export interface ContactTargetsArgs {
         channelTargetInfo?: pulumi.Input<inputs.ssmcontacts.ContactChannelTargetInfoArgs>;
         contactTargetInfo?: pulumi.Input<inputs.ssmcontacts.ContactTargetInfoArgs>;
+    }
+
+    /**
+     * Information about the contact channel that SSM Incident Manager uses to engage the contact.
+     */
+    export interface PlanChannelTargetInfoArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the contact channel.
+         */
+        channelId: pulumi.Input<string>;
+        /**
+         * The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
+         */
+        retryIntervalInMinutes: pulumi.Input<number>;
+    }
+
+    /**
+     * The contact that SSM Incident Manager is engaging during an incident.
+     */
+    export interface PlanContactTargetInfoArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the contact.
+         */
+        contactId: pulumi.Input<string>;
+        /**
+         * A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+         */
+        isEssential: pulumi.Input<boolean>;
+    }
+
+    /**
+     * A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
+     */
+    export interface PlanStageArgs {
+        /**
+         * The time to wait until beginning the next stage.
+         */
+        durationInMinutes: pulumi.Input<number>;
+        /**
+         * The contacts or contact methods that the escalation plan or engagement plan is engaging.
+         */
+        targets?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.PlanTargetsArgs>[]>;
+    }
+
+    /**
+     * The contacts or contact methods that the escalation plan or engagement plan is engaging.
+     */
+    export interface PlanTargetsArgs {
+        channelTargetInfo?: pulumi.Input<inputs.ssmcontacts.PlanChannelTargetInfoArgs>;
+        contactTargetInfo?: pulumi.Input<inputs.ssmcontacts.PlanContactTargetInfoArgs>;
+    }
+
+    /**
+     * StartTime and EndTime for the Shift
+     */
+    export interface RotationCoverageTimeArgs {
+        endTime: pulumi.Input<string>;
+        startTime: pulumi.Input<string>;
+    }
+
+    /**
+     * DayOfWeek for Month and HandOff Time for Monthly Recurring Rotation.
+     */
+    export interface RotationMonthlySettingArgs {
+        /**
+         * The day of the month when monthly recurring on-call rotations begin.
+         */
+        dayOfMonth: pulumi.Input<number>;
+        handOffTime: pulumi.Input<string>;
+    }
+
+    /**
+     * Information about when an on-call rotation is in effect and how long the rotation period lasts.
+     */
+    export interface RotationRecurrenceSettingsArgs {
+        /**
+         * Information about on-call rotations that recur daily.
+         */
+        dailySettings?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Information about on-call rotations that recur monthly.
+         */
+        monthlySettings?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.RotationMonthlySettingArgs>[]>;
+        /**
+         * Number of Oncalls per shift.
+         */
+        numberOfOnCalls?: pulumi.Input<number>;
+        /**
+         * The number of days, weeks, or months a single rotation lasts.
+         */
+        recurrenceMultiplier?: pulumi.Input<number>;
+        /**
+         * Information about the days of the week included in on-call rotation coverage.
+         */
+        shiftCoverages?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.RotationShiftCoverageArgs>[]>;
+        /**
+         * Information about on-call rotations that recur weekly.
+         */
+        weeklySettings?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.RotationWeeklySettingArgs>[]>;
+    }
+
+    /**
+     * Information about the days of the week included in on-call rotation coverage.
+     */
+    export interface RotationShiftCoverageArgs {
+        /**
+         * Information about when an on-call shift begins and ends.
+         */
+        coverageTimes: pulumi.Input<pulumi.Input<inputs.ssmcontacts.RotationCoverageTimeArgs>[]>;
+        dayOfWeek: pulumi.Input<enums.ssmcontacts.RotationDayOfWeek>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RotationTagArgs {
+        /**
+         * The key name of the tag
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
+     */
+    export interface RotationWeeklySettingArgs {
+        dayOfWeek: pulumi.Input<enums.ssmcontacts.RotationDayOfWeek>;
+        handOffTime: pulumi.Input<string>;
     }
 }
 

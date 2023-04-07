@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMissionProfileResult:
-    def __init__(__self__, arn=None, contact_post_pass_duration_seconds=None, contact_pre_pass_duration_seconds=None, dataflow_edges=None, id=None, minimum_viable_contact_duration_seconds=None, name=None, region=None, tags=None, tracking_config_arn=None):
+    def __init__(__self__, arn=None, contact_post_pass_duration_seconds=None, contact_pre_pass_duration_seconds=None, dataflow_edges=None, id=None, minimum_viable_contact_duration_seconds=None, name=None, region=None, streams_kms_key=None, streams_kms_role=None, tags=None, tracking_config_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,12 @@ class GetMissionProfileResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if streams_kms_key and not isinstance(streams_kms_key, dict):
+            raise TypeError("Expected argument 'streams_kms_key' to be a dict")
+        pulumi.set(__self__, "streams_kms_key", streams_kms_key)
+        if streams_kms_role and not isinstance(streams_kms_role, str):
+            raise TypeError("Expected argument 'streams_kms_role' to be a str")
+        pulumi.set(__self__, "streams_kms_role", streams_kms_role)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -104,6 +110,22 @@ class GetMissionProfileResult:
         return pulumi.get(self, "region")
 
     @property
+    @pulumi.getter(name="streamsKmsKey")
+    def streams_kms_key(self) -> Optional['outputs.MissionProfileStreamsKmsKey']:
+        """
+        The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
+        """
+        return pulumi.get(self, "streams_kms_key")
+
+    @property
+    @pulumi.getter(name="streamsKmsRole")
+    def streams_kms_role(self) -> Optional[str]:
+        """
+        The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+        """
+        return pulumi.get(self, "streams_kms_role")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.MissionProfileTag']]:
         return pulumi.get(self, "tags")
@@ -128,6 +150,8 @@ class AwaitableGetMissionProfileResult(GetMissionProfileResult):
             minimum_viable_contact_duration_seconds=self.minimum_viable_contact_duration_seconds,
             name=self.name,
             region=self.region,
+            streams_kms_key=self.streams_kms_key,
+            streams_kms_role=self.streams_kms_role,
             tags=self.tags,
             tracking_config_arn=self.tracking_config_arn)
 
@@ -153,6 +177,8 @@ def get_mission_profile(arn: Optional[str] = None,
         minimum_viable_contact_duration_seconds=__ret__.minimum_viable_contact_duration_seconds,
         name=__ret__.name,
         region=__ret__.region,
+        streams_kms_key=__ret__.streams_kms_key,
+        streams_kms_role=__ret__.streams_kms_role,
         tags=__ret__.tags,
         tracking_config_arn=__ret__.tracking_config_arn)
 
