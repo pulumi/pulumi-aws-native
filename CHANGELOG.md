@@ -1,5 +1,31 @@
 ## HEAD (Unreleased)
 
+## 0.57.0 (April 7, 2023)
+### Does the PR have any schema changes?
+
+Upstream breaking changes:
+- Resource "aws-native:macie:FindingsFilter" missing output "findingsFilterListItems"
+- Function "aws-native:macie:getFindingsFilter" missing output "findingsFilterListItems"
+- Function "aws-native:gamelift:getGameServerGroup" missing output "maxSize"
+- Function "aws-native:gamelift:getGameServerGroup" missing output "tags"
+- Function "aws-native:gamelift:getGameServerGroup" missing output "autoScalingPolicy"
+- Function "aws-native:gamelift:getGameServerGroup" missing output "launchTemplate"
+- Function "aws-native:gamelift:getGameServerGroup" missing output "minSize"
+- Function "aws-native:gamelift:getGameServerGroup" missing output "vpcSubnets"
+- Type "aws-native:macie:FindingsFilterListItem" missing
+
+#### New resources:
+
+- `neptune.DBCluster`
+- `ssmcontacts.Plan`
+- `ssmcontacts.Rotation`
+
+#### New functions:
+
+- `neptune.getDBCluster`
+- `ssmcontacts.getPlan`
+- `ssmcontacts.getRotation`
+
 ## 0.56.0 (April 3, 2023)
 
 New resources:
