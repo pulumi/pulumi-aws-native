@@ -34,7 +34,8 @@
             "type" : "string"
           }
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "Criterion" : {
       "description" : "Map of filter criteria.",
@@ -43,7 +44,8 @@
         "\\w" : {
           "$ref" : "#/definitions/CriterionAdditionalProperties"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "FindingCriteria" : {
       "type" : "object",
@@ -51,7 +53,8 @@
         "Criterion" : {
           "$ref" : "#/definitions/Criterion"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "FindingFilterAction" : {
       "type" : "string",
@@ -98,18 +101,11 @@
     "Arn" : {
       "description" : "Findings filter ARN.",
       "type" : "string"
-    },
-    "FindingsFilterListItems" : {
-      "description" : "Findings filters list.",
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/FindingsFilterListItem"
-      }
     }
   },
   "required" : [ "Name", "FindingCriteria" ],
   "additionalProperties" : false,
-  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/FindingsFilterListItems" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "additionalIdentifiers" : [ [ "/properties/Arn" ], [ "/properties/Name" ] ],
   "handlers" : {

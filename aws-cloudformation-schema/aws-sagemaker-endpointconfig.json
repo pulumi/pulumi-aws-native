@@ -73,6 +73,9 @@
         "VolumeSizeInGB" : {
           "type" : "integer"
         },
+        "EnableSSMAccess" : {
+          "type" : "boolean"
+        },
         "VariantName" : {
           "type" : "string"
         },

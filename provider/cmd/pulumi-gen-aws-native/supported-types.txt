@@ -472,6 +472,7 @@ AWS::MemoryDB::Cluster
 AWS::MemoryDB::ParameterGroup
 AWS::MemoryDB::SubnetGroup
 AWS::MemoryDB::User
+AWS::Neptune::DBCluster
 AWS::NetworkFirewall::Firewall
 AWS::NetworkFirewall::FirewallPolicy
 AWS::NetworkFirewall::LoggingConfiguration
@@ -620,6 +621,8 @@ AWS::SSM::ResourceDataSync
 AWS::SSM::ResourcePolicy
 AWS::SSMContacts::Contact
 AWS::SSMContacts::ContactChannel
+AWS::SSMContacts::Plan
+AWS::SSMContacts::Rotation
 AWS::SSMIncidents::ReplicationSet
 AWS::SSMIncidents::ResponsePlan
 AWS::SSO::Assignment
@@ -707,7 +710,11 @@ Atlassian::Opsgenie::Integration
 Atlassian::Opsgenie::Team
 Atlassian::Opsgenie::User
 AwsCommunity::Account::AlternateContact
+AwsCommunity::DynamoDB::Item
 AwsCommunity::S3::DeleteBucketContents
+AwsCommunity::Time::Offset
+AwsCommunity::Time::Sleep
+AwsCommunity::Time::Static
 BigID::DataSource::DynamoDB
 BigID::DataSource::S3
 Cloudflare::Dns::Record
