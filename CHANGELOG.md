@@ -9,6 +9,12 @@ New functions:
 - `devopsguru.getLogAnomalyDetectionIntegration`
 - `logs.getSubscriptionFilter`
 
+Enhancements:
+
+- Max retries are set to 25 by default, max rate limit disabled by default
+  [#862](https://github.com/pulumi/pulumi-aws-native/pull/862)
+
+
 ## 0.55.0 (March 28, 2023)
 
 Upstream breaking changes
