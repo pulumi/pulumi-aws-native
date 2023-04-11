@@ -528,6 +528,7 @@ AWS::QuickSight::Analysis
 AWS::QuickSight::Dashboard
 AWS::QuickSight::DataSet
 AWS::QuickSight::DataSource
+AWS::QuickSight::RefreshSchedule
 AWS::QuickSight::Template
 AWS::QuickSight::Theme
 AWS::RDS::DBCluster

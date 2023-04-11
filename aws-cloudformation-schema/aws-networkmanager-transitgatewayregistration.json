@@ -19,16 +19,26 @@
   "primaryIdentifier" : [ "/properties/GlobalNetworkId", "/properties/TransitGatewayArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "networkmanager:RegisterTransitGateway" ]
+      "permissions" : [ "networkmanager:RegisterTransitGateway" ],
+      "timeoutInMinutes" : 30
     },
     "read" : {
       "permissions" : [ "networkmanager:GetTransitGatewayRegistrations" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "GlobalNetworkId" : {
+            "$ref" : "resource-schema.json#/properties/GlobalNetworkId"
+          }
+        },
+        "required" : [ "GlobalNetworkId" ]
+      },
       "permissions" : [ "networkmanager:GetTransitGatewayRegistrations" ]
     },
     "delete" : {
-      "permissions" : [ "networkmanager:DeregisterTransitGateway" ]
+      "permissions" : [ "networkmanager:DeregisterTransitGateway" ],
+      "timeoutInMinutes" : 30
     }
   }
 }
