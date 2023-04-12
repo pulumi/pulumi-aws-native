@@ -21,7 +21,9 @@
   "required" : [ "AliasName", "TargetKeyId" ],
   "createOnlyProperties" : [ "/properties/AliasName" ],
   "primaryIdentifier" : [ "/properties/AliasName" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "kms:CreateAlias" ]
