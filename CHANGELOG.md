@@ -1,5 +1,22 @@
 ## HEAD (Unreleased)
 
+## 0.58.0 (April 14, 2023)
+
+Upstream breaking changes:
+- Function "aws-native:licensemanager:getGrant" missing output "status"
+  - This is due to upstream CCAPI specifications now marking `status` for `licencemanager` as `WriteOnly`
+
+#### New resources:
+
+- `appconfig.Extension`
+- `appconfig.ExtensionAssociation`
+- `quicksight.RefreshSchedule`
+
+#### New functions:
+
+- `appconfig.getExtension`
+- `appconfig.getExtensionAssociation`
+
 ## 0.57.0 (April 7, 2023)
 ### Does the PR have any schema changes?
 
