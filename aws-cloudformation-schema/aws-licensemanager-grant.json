@@ -50,7 +50,7 @@
   "additionalProperties" : false,
   "required" : [ ],
   "readOnlyProperties" : [ "/properties/GrantArn", "/properties/Version" ],
-  "writeOnlyProperties" : [ "/properties/Principals", "/properties/AllowedOperations" ],
+  "writeOnlyProperties" : [ "/properties/Principals", "/properties/AllowedOperations", "/properties/Status" ],
   "primaryIdentifier" : [ "/properties/GrantArn" ],
   "handlers" : {
     "create" : {

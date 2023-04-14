@@ -51,6 +51,18 @@
         }
       }
     },
+    "FederatedDatabase" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ConnectionName" : {
+          "type" : "string"
+        },
+        "Identifier" : {
+          "type" : "string"
+        }
+      }
+    },
     "DatabaseInput" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -73,6 +85,9 @@
         },
         "TargetDatabase" : {
           "$ref" : "#/definitions/DatabaseIdentifier"
+        },
+        "FederatedDatabase" : {
+          "$ref" : "#/definitions/FederatedDatabase"
         },
         "Name" : {
           "type" : "string"

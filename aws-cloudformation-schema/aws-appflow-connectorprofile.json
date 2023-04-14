@@ -874,7 +874,7 @@
     "AccessToken" : {
       "type" : "string",
       "pattern" : "\\S+",
-      "maxLength" : 512
+      "maxLength" : 4096
     },
     "ApiKey" : {
       "type" : "string",
@@ -969,7 +969,7 @@
     "RefreshToken" : {
       "type" : "string",
       "pattern" : "\\S+",
-      "maxLength" : 512
+      "maxLength" : 2048
     },
     "Region" : {
       "type" : "string",
