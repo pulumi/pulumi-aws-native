@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEnvironmentResult:
-    def __init__(__self__, airflow_configuration_options=None, airflow_version=None, arn=None, dag_s3_path=None, environment_class=None, execution_role_arn=None, logging_configuration=None, max_workers=None, min_workers=None, network_configuration=None, plugins_s3_object_version=None, plugins_s3_path=None, requirements_s3_object_version=None, requirements_s3_path=None, schedulers=None, source_bucket_arn=None, tags=None, webserver_access_mode=None, webserver_url=None, weekly_maintenance_window_start=None):
+    def __init__(__self__, airflow_configuration_options=None, airflow_version=None, arn=None, dag_s3_path=None, environment_class=None, execution_role_arn=None, logging_configuration=None, max_workers=None, min_workers=None, network_configuration=None, plugins_s3_object_version=None, plugins_s3_path=None, requirements_s3_object_version=None, requirements_s3_path=None, schedulers=None, source_bucket_arn=None, startup_script_s3_object_version=None, startup_script_s3_path=None, tags=None, webserver_access_mode=None, webserver_url=None, weekly_maintenance_window_start=None):
         if airflow_configuration_options and not isinstance(airflow_configuration_options, dict):
             raise TypeError("Expected argument 'airflow_configuration_options' to be a dict")
         pulumi.set(__self__, "airflow_configuration_options", airflow_configuration_options)
@@ -69,6 +69,12 @@ class GetEnvironmentResult:
         if source_bucket_arn and not isinstance(source_bucket_arn, str):
             raise TypeError("Expected argument 'source_bucket_arn' to be a str")
         pulumi.set(__self__, "source_bucket_arn", source_bucket_arn)
+        if startup_script_s3_object_version and not isinstance(startup_script_s3_object_version, str):
+            raise TypeError("Expected argument 'startup_script_s3_object_version' to be a str")
+        pulumi.set(__self__, "startup_script_s3_object_version", startup_script_s3_object_version)
+        if startup_script_s3_path and not isinstance(startup_script_s3_path, str):
+            raise TypeError("Expected argument 'startup_script_s3_path' to be a str")
+        pulumi.set(__self__, "startup_script_s3_path", startup_script_s3_path)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -174,6 +180,16 @@ class GetEnvironmentResult:
         return pulumi.get(self, "source_bucket_arn")
 
     @property
+    @pulumi.getter(name="startupScriptS3ObjectVersion")
+    def startup_script_s3_object_version(self) -> Optional[str]:
+        return pulumi.get(self, "startup_script_s3_object_version")
+
+    @property
+    @pulumi.getter(name="startupScriptS3Path")
+    def startup_script_s3_path(self) -> Optional[str]:
+        return pulumi.get(self, "startup_script_s3_path")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         """
@@ -219,6 +235,8 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             requirements_s3_path=self.requirements_s3_path,
             schedulers=self.schedulers,
             source_bucket_arn=self.source_bucket_arn,
+            startup_script_s3_object_version=self.startup_script_s3_object_version,
+            startup_script_s3_path=self.startup_script_s3_path,
             tags=self.tags,
             webserver_access_mode=self.webserver_access_mode,
             webserver_url=self.webserver_url,
@@ -252,6 +270,8 @@ def get_environment(name: Optional[str] = None,
         requirements_s3_path=__ret__.requirements_s3_path,
         schedulers=__ret__.schedulers,
         source_bucket_arn=__ret__.source_bucket_arn,
+        startup_script_s3_object_version=__ret__.startup_script_s3_object_version,
+        startup_script_s3_path=__ret__.startup_script_s3_path,
         tags=__ret__.tags,
         webserver_access_mode=__ret__.webserver_access_mode,
         webserver_url=__ret__.webserver_url,

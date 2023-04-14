@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, d_b_system_id=None, dbi_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, d_b_system_id=None, dbi_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -147,6 +147,9 @@ class GetDBInstanceResult:
         if replica_mode and not isinstance(replica_mode, str):
             raise TypeError("Expected argument 'replica_mode' to be a str")
         pulumi.set(__self__, "replica_mode", replica_mode)
+        if source_db_cluster_identifier and not isinstance(source_db_cluster_identifier, str):
+            raise TypeError("Expected argument 'source_db_cluster_identifier' to be a str")
+        pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
         if storage_throughput and not isinstance(storage_throughput, int):
             raise TypeError("Expected argument 'storage_throughput' to be a int")
         pulumi.set(__self__, "storage_throughput", storage_throughput)
@@ -511,6 +514,14 @@ class GetDBInstanceResult:
         return pulumi.get(self, "replica_mode")
 
     @property
+    @pulumi.getter(name="sourceDBClusterIdentifier")
+    def source_db_cluster_identifier(self) -> Optional[str]:
+        """
+        The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+        """
+        return pulumi.get(self, "source_db_cluster_identifier")
+
+    @property
     @pulumi.getter(name="storageThroughput")
     def storage_throughput(self) -> Optional[int]:
         """
@@ -607,6 +618,7 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             promotion_tier=self.promotion_tier,
             publicly_accessible=self.publicly_accessible,
             replica_mode=self.replica_mode,
+            source_db_cluster_identifier=self.source_db_cluster_identifier,
             storage_throughput=self.storage_throughput,
             storage_type=self.storage_type,
             tags=self.tags,
@@ -671,6 +683,7 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         promotion_tier=__ret__.promotion_tier,
         publicly_accessible=__ret__.publicly_accessible,
         replica_mode=__ret__.replica_mode,
+        source_db_cluster_identifier=__ret__.source_db_cluster_identifier,
         storage_throughput=__ret__.storage_throughput,
         storage_type=__ret__.storage_type,
         tags=__ret__.tags,

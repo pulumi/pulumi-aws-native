@@ -3,8 +3,33 @@
   "description" : "Resource Type definition for AWS::LakeFormation::DataLakeSettings",
   "additionalProperties" : false,
   "properties" : {
+    "AllowExternalDataFiltering" : {
+      "type" : "boolean"
+    },
+    "ExternalDataFilteringAllowList" : {
+      "$ref" : "#/definitions/ExternalDataFilteringAllowList"
+    },
+    "CreateTableDefaultPermissions" : {
+      "$ref" : "#/definitions/CreateTableDefaultPermissions"
+    },
+    "Parameters" : {
+      "type" : "object"
+    },
     "Admins" : {
       "$ref" : "#/definitions/Admins"
+    },
+    "CreateDatabaseDefaultPermissions" : {
+      "$ref" : "#/definitions/CreateDatabaseDefaultPermissions"
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "AuthorizedSessionTagValueList" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
     },
     "TrustedResourceOwners" : {
       "type" : "array",
@@ -12,13 +37,22 @@
       "items" : {
         "type" : "string"
       }
-    },
-    "Id" : {
-      "type" : "string"
     }
   },
   "definitions" : {
+    "ExternalDataFilteringAllowList" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
+    "CreateTableDefaultPermissions" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
     "Admins" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
+    "CreateDatabaseDefaultPermissions" : {
       "type" : "object",
       "additionalProperties" : false
     }

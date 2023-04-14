@@ -21,3 +21,10 @@ export const MonitorProcessingStatusCode = {
 } as const;
 
 export type MonitorProcessingStatusCode = (typeof MonitorProcessingStatusCode)[keyof typeof MonitorProcessingStatusCode];
+
+export const MonitorS3ConfigLogDeliveryStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type MonitorS3ConfigLogDeliveryStatus = (typeof MonitorS3ConfigLogDeliveryStatus)[keyof typeof MonitorS3ConfigLogDeliveryStatus];

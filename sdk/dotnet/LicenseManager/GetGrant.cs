@@ -73,7 +73,6 @@ namespace Pulumi.AwsNative.LicenseManager
         /// License Arn for the grant.
         /// </summary>
         public readonly string? LicenseArn;
-        public readonly string? Status;
         /// <summary>
         /// The version of the grant.
         /// </summary>
@@ -89,15 +88,12 @@ namespace Pulumi.AwsNative.LicenseManager
 
             string? licenseArn,
 
-            string? status,
-
             string? version)
         {
             GrantArn = grantArn;
             GrantName = grantName;
             HomeRegion = homeRegion;
             LicenseArn = licenseArn;
-            Status = status;
             Version = version;
         }
     }

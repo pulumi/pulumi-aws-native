@@ -137,6 +137,7 @@ class AppResourceSpecInstanceType(str, Enum):
     ML_G516XLARGE = "ml.g5.16xlarge"
     ML_G524XLARGE = "ml.g5.24xlarge"
     ML_G548XLARGE = "ml.g5.48xlarge"
+    ML_GEOSPATIAL_INTERACTIVE = "ml.geospatial.interactive"
 
 
 class AppType(str, Enum):
@@ -291,6 +292,7 @@ class DomainResourceSpecInstanceType(str, Enum):
     ML_G516XLARGE = "ml.g5.16xlarge"
     ML_G524XLARGE = "ml.g5.24xlarge"
     ML_G548XLARGE = "ml.g5.48xlarge"
+    ML_GEOSPATIAL_INTERACTIVE = "ml.geospatial.interactive"
 
 
 class DomainSharingSettingsNotebookOutputOption(str, Enum):
@@ -783,6 +785,7 @@ class SpaceResourceSpecInstanceType(str, Enum):
     ML_G516XLARGE = "ml.g5.16xlarge"
     ML_G524XLARGE = "ml.g5.24xlarge"
     ML_G548XLARGE = "ml.g5.48xlarge"
+    ML_GEOSPATIAL_INTERACTIVE = "ml.geospatial.interactive"
 
 
 class UserProfileRStudioServerProAppSettingsAccessStatus(str, Enum):
@@ -862,6 +865,7 @@ class UserProfileResourceSpecInstanceType(str, Enum):
     ML_G516XLARGE = "ml.g5.16xlarge"
     ML_G524XLARGE = "ml.g5.24xlarge"
     ML_G548XLARGE = "ml.g5.48xlarge"
+    ML_GEOSPATIAL_INTERACTIVE = "ml.geospatial.interactive"
 
 
 class UserProfileSharingSettingsNotebookOutputOption(str, Enum):

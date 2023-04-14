@@ -427,6 +427,360 @@ func (o DataLakeSettingsAdminsPtrOutput) Elem() DataLakeSettingsAdminsOutput {
 	}).(DataLakeSettingsAdminsOutput)
 }
 
+type DataLakeSettingsCreateDatabaseDefaultPermissions struct {
+}
+
+// DataLakeSettingsCreateDatabaseDefaultPermissionsInput is an input type that accepts DataLakeSettingsCreateDatabaseDefaultPermissionsArgs and DataLakeSettingsCreateDatabaseDefaultPermissionsOutput values.
+// You can construct a concrete instance of `DataLakeSettingsCreateDatabaseDefaultPermissionsInput` via:
+//
+//	DataLakeSettingsCreateDatabaseDefaultPermissionsArgs{...}
+type DataLakeSettingsCreateDatabaseDefaultPermissionsInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsCreateDatabaseDefaultPermissionsOutput() DataLakeSettingsCreateDatabaseDefaultPermissionsOutput
+	ToDataLakeSettingsCreateDatabaseDefaultPermissionsOutputWithContext(context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionsOutput
+}
+
+type DataLakeSettingsCreateDatabaseDefaultPermissionsArgs struct {
+}
+
+func (DataLakeSettingsCreateDatabaseDefaultPermissionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettingsCreateDatabaseDefaultPermissions)(nil)).Elem()
+}
+
+func (i DataLakeSettingsCreateDatabaseDefaultPermissionsArgs) ToDataLakeSettingsCreateDatabaseDefaultPermissionsOutput() DataLakeSettingsCreateDatabaseDefaultPermissionsOutput {
+	return i.ToDataLakeSettingsCreateDatabaseDefaultPermissionsOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsCreateDatabaseDefaultPermissionsArgs) ToDataLakeSettingsCreateDatabaseDefaultPermissionsOutputWithContext(ctx context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateDatabaseDefaultPermissionsOutput)
+}
+
+func (i DataLakeSettingsCreateDatabaseDefaultPermissionsArgs) ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput() DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
+	return i.ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsCreateDatabaseDefaultPermissionsArgs) ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutputWithContext(ctx context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateDatabaseDefaultPermissionsOutput).ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutputWithContext(ctx)
+}
+
+// DataLakeSettingsCreateDatabaseDefaultPermissionsPtrInput is an input type that accepts DataLakeSettingsCreateDatabaseDefaultPermissionsArgs, DataLakeSettingsCreateDatabaseDefaultPermissionsPtr and DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput values.
+// You can construct a concrete instance of `DataLakeSettingsCreateDatabaseDefaultPermissionsPtrInput` via:
+//
+//	        DataLakeSettingsCreateDatabaseDefaultPermissionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataLakeSettingsCreateDatabaseDefaultPermissionsPtrInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput() DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput
+	ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutputWithContext(context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput
+}
+
+type dataLakeSettingsCreateDatabaseDefaultPermissionsPtrType DataLakeSettingsCreateDatabaseDefaultPermissionsArgs
+
+func DataLakeSettingsCreateDatabaseDefaultPermissionsPtr(v *DataLakeSettingsCreateDatabaseDefaultPermissionsArgs) DataLakeSettingsCreateDatabaseDefaultPermissionsPtrInput {
+	return (*dataLakeSettingsCreateDatabaseDefaultPermissionsPtrType)(v)
+}
+
+func (*dataLakeSettingsCreateDatabaseDefaultPermissionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataLakeSettingsCreateDatabaseDefaultPermissions)(nil)).Elem()
+}
+
+func (i *dataLakeSettingsCreateDatabaseDefaultPermissionsPtrType) ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput() DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
+	return i.ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataLakeSettingsCreateDatabaseDefaultPermissionsPtrType) ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutputWithContext(ctx context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput)
+}
+
+type DataLakeSettingsCreateDatabaseDefaultPermissionsOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsCreateDatabaseDefaultPermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettingsCreateDatabaseDefaultPermissions)(nil)).Elem()
+}
+
+func (o DataLakeSettingsCreateDatabaseDefaultPermissionsOutput) ToDataLakeSettingsCreateDatabaseDefaultPermissionsOutput() DataLakeSettingsCreateDatabaseDefaultPermissionsOutput {
+	return o
+}
+
+func (o DataLakeSettingsCreateDatabaseDefaultPermissionsOutput) ToDataLakeSettingsCreateDatabaseDefaultPermissionsOutputWithContext(ctx context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionsOutput {
+	return o
+}
+
+func (o DataLakeSettingsCreateDatabaseDefaultPermissionsOutput) ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput() DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
+	return o.ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (o DataLakeSettingsCreateDatabaseDefaultPermissionsOutput) ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutputWithContext(ctx context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataLakeSettingsCreateDatabaseDefaultPermissions) *DataLakeSettingsCreateDatabaseDefaultPermissions {
+		return &v
+	}).(DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput)
+}
+
+type DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataLakeSettingsCreateDatabaseDefaultPermissions)(nil)).Elem()
+}
+
+func (o DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput) ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput() DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
+	return o
+}
+
+func (o DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput) ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutputWithContext(ctx context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
+	return o
+}
+
+func (o DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput) Elem() DataLakeSettingsCreateDatabaseDefaultPermissionsOutput {
+	return o.ApplyT(func(v *DataLakeSettingsCreateDatabaseDefaultPermissions) DataLakeSettingsCreateDatabaseDefaultPermissions {
+		if v != nil {
+			return *v
+		}
+		var ret DataLakeSettingsCreateDatabaseDefaultPermissions
+		return ret
+	}).(DataLakeSettingsCreateDatabaseDefaultPermissionsOutput)
+}
+
+type DataLakeSettingsCreateTableDefaultPermissions struct {
+}
+
+// DataLakeSettingsCreateTableDefaultPermissionsInput is an input type that accepts DataLakeSettingsCreateTableDefaultPermissionsArgs and DataLakeSettingsCreateTableDefaultPermissionsOutput values.
+// You can construct a concrete instance of `DataLakeSettingsCreateTableDefaultPermissionsInput` via:
+//
+//	DataLakeSettingsCreateTableDefaultPermissionsArgs{...}
+type DataLakeSettingsCreateTableDefaultPermissionsInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsCreateTableDefaultPermissionsOutput() DataLakeSettingsCreateTableDefaultPermissionsOutput
+	ToDataLakeSettingsCreateTableDefaultPermissionsOutputWithContext(context.Context) DataLakeSettingsCreateTableDefaultPermissionsOutput
+}
+
+type DataLakeSettingsCreateTableDefaultPermissionsArgs struct {
+}
+
+func (DataLakeSettingsCreateTableDefaultPermissionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettingsCreateTableDefaultPermissions)(nil)).Elem()
+}
+
+func (i DataLakeSettingsCreateTableDefaultPermissionsArgs) ToDataLakeSettingsCreateTableDefaultPermissionsOutput() DataLakeSettingsCreateTableDefaultPermissionsOutput {
+	return i.ToDataLakeSettingsCreateTableDefaultPermissionsOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsCreateTableDefaultPermissionsArgs) ToDataLakeSettingsCreateTableDefaultPermissionsOutputWithContext(ctx context.Context) DataLakeSettingsCreateTableDefaultPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateTableDefaultPermissionsOutput)
+}
+
+func (i DataLakeSettingsCreateTableDefaultPermissionsArgs) ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutput() DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
+	return i.ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsCreateTableDefaultPermissionsArgs) ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutputWithContext(ctx context.Context) DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateTableDefaultPermissionsOutput).ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutputWithContext(ctx)
+}
+
+// DataLakeSettingsCreateTableDefaultPermissionsPtrInput is an input type that accepts DataLakeSettingsCreateTableDefaultPermissionsArgs, DataLakeSettingsCreateTableDefaultPermissionsPtr and DataLakeSettingsCreateTableDefaultPermissionsPtrOutput values.
+// You can construct a concrete instance of `DataLakeSettingsCreateTableDefaultPermissionsPtrInput` via:
+//
+//	        DataLakeSettingsCreateTableDefaultPermissionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataLakeSettingsCreateTableDefaultPermissionsPtrInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutput() DataLakeSettingsCreateTableDefaultPermissionsPtrOutput
+	ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutputWithContext(context.Context) DataLakeSettingsCreateTableDefaultPermissionsPtrOutput
+}
+
+type dataLakeSettingsCreateTableDefaultPermissionsPtrType DataLakeSettingsCreateTableDefaultPermissionsArgs
+
+func DataLakeSettingsCreateTableDefaultPermissionsPtr(v *DataLakeSettingsCreateTableDefaultPermissionsArgs) DataLakeSettingsCreateTableDefaultPermissionsPtrInput {
+	return (*dataLakeSettingsCreateTableDefaultPermissionsPtrType)(v)
+}
+
+func (*dataLakeSettingsCreateTableDefaultPermissionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataLakeSettingsCreateTableDefaultPermissions)(nil)).Elem()
+}
+
+func (i *dataLakeSettingsCreateTableDefaultPermissionsPtrType) ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutput() DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
+	return i.ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataLakeSettingsCreateTableDefaultPermissionsPtrType) ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutputWithContext(ctx context.Context) DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateTableDefaultPermissionsPtrOutput)
+}
+
+type DataLakeSettingsCreateTableDefaultPermissionsOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsCreateTableDefaultPermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettingsCreateTableDefaultPermissions)(nil)).Elem()
+}
+
+func (o DataLakeSettingsCreateTableDefaultPermissionsOutput) ToDataLakeSettingsCreateTableDefaultPermissionsOutput() DataLakeSettingsCreateTableDefaultPermissionsOutput {
+	return o
+}
+
+func (o DataLakeSettingsCreateTableDefaultPermissionsOutput) ToDataLakeSettingsCreateTableDefaultPermissionsOutputWithContext(ctx context.Context) DataLakeSettingsCreateTableDefaultPermissionsOutput {
+	return o
+}
+
+func (o DataLakeSettingsCreateTableDefaultPermissionsOutput) ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutput() DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
+	return o.ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (o DataLakeSettingsCreateTableDefaultPermissionsOutput) ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutputWithContext(ctx context.Context) DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataLakeSettingsCreateTableDefaultPermissions) *DataLakeSettingsCreateTableDefaultPermissions {
+		return &v
+	}).(DataLakeSettingsCreateTableDefaultPermissionsPtrOutput)
+}
+
+type DataLakeSettingsCreateTableDefaultPermissionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsCreateTableDefaultPermissionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataLakeSettingsCreateTableDefaultPermissions)(nil)).Elem()
+}
+
+func (o DataLakeSettingsCreateTableDefaultPermissionsPtrOutput) ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutput() DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
+	return o
+}
+
+func (o DataLakeSettingsCreateTableDefaultPermissionsPtrOutput) ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutputWithContext(ctx context.Context) DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
+	return o
+}
+
+func (o DataLakeSettingsCreateTableDefaultPermissionsPtrOutput) Elem() DataLakeSettingsCreateTableDefaultPermissionsOutput {
+	return o.ApplyT(func(v *DataLakeSettingsCreateTableDefaultPermissions) DataLakeSettingsCreateTableDefaultPermissions {
+		if v != nil {
+			return *v
+		}
+		var ret DataLakeSettingsCreateTableDefaultPermissions
+		return ret
+	}).(DataLakeSettingsCreateTableDefaultPermissionsOutput)
+}
+
+type DataLakeSettingsExternalDataFilteringAllowList struct {
+}
+
+// DataLakeSettingsExternalDataFilteringAllowListInput is an input type that accepts DataLakeSettingsExternalDataFilteringAllowListArgs and DataLakeSettingsExternalDataFilteringAllowListOutput values.
+// You can construct a concrete instance of `DataLakeSettingsExternalDataFilteringAllowListInput` via:
+//
+//	DataLakeSettingsExternalDataFilteringAllowListArgs{...}
+type DataLakeSettingsExternalDataFilteringAllowListInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsExternalDataFilteringAllowListOutput() DataLakeSettingsExternalDataFilteringAllowListOutput
+	ToDataLakeSettingsExternalDataFilteringAllowListOutputWithContext(context.Context) DataLakeSettingsExternalDataFilteringAllowListOutput
+}
+
+type DataLakeSettingsExternalDataFilteringAllowListArgs struct {
+}
+
+func (DataLakeSettingsExternalDataFilteringAllowListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettingsExternalDataFilteringAllowList)(nil)).Elem()
+}
+
+func (i DataLakeSettingsExternalDataFilteringAllowListArgs) ToDataLakeSettingsExternalDataFilteringAllowListOutput() DataLakeSettingsExternalDataFilteringAllowListOutput {
+	return i.ToDataLakeSettingsExternalDataFilteringAllowListOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsExternalDataFilteringAllowListArgs) ToDataLakeSettingsExternalDataFilteringAllowListOutputWithContext(ctx context.Context) DataLakeSettingsExternalDataFilteringAllowListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsExternalDataFilteringAllowListOutput)
+}
+
+func (i DataLakeSettingsExternalDataFilteringAllowListArgs) ToDataLakeSettingsExternalDataFilteringAllowListPtrOutput() DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
+	return i.ToDataLakeSettingsExternalDataFilteringAllowListPtrOutputWithContext(context.Background())
+}
+
+func (i DataLakeSettingsExternalDataFilteringAllowListArgs) ToDataLakeSettingsExternalDataFilteringAllowListPtrOutputWithContext(ctx context.Context) DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsExternalDataFilteringAllowListOutput).ToDataLakeSettingsExternalDataFilteringAllowListPtrOutputWithContext(ctx)
+}
+
+// DataLakeSettingsExternalDataFilteringAllowListPtrInput is an input type that accepts DataLakeSettingsExternalDataFilteringAllowListArgs, DataLakeSettingsExternalDataFilteringAllowListPtr and DataLakeSettingsExternalDataFilteringAllowListPtrOutput values.
+// You can construct a concrete instance of `DataLakeSettingsExternalDataFilteringAllowListPtrInput` via:
+//
+//	        DataLakeSettingsExternalDataFilteringAllowListArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataLakeSettingsExternalDataFilteringAllowListPtrInput interface {
+	pulumi.Input
+
+	ToDataLakeSettingsExternalDataFilteringAllowListPtrOutput() DataLakeSettingsExternalDataFilteringAllowListPtrOutput
+	ToDataLakeSettingsExternalDataFilteringAllowListPtrOutputWithContext(context.Context) DataLakeSettingsExternalDataFilteringAllowListPtrOutput
+}
+
+type dataLakeSettingsExternalDataFilteringAllowListPtrType DataLakeSettingsExternalDataFilteringAllowListArgs
+
+func DataLakeSettingsExternalDataFilteringAllowListPtr(v *DataLakeSettingsExternalDataFilteringAllowListArgs) DataLakeSettingsExternalDataFilteringAllowListPtrInput {
+	return (*dataLakeSettingsExternalDataFilteringAllowListPtrType)(v)
+}
+
+func (*dataLakeSettingsExternalDataFilteringAllowListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataLakeSettingsExternalDataFilteringAllowList)(nil)).Elem()
+}
+
+func (i *dataLakeSettingsExternalDataFilteringAllowListPtrType) ToDataLakeSettingsExternalDataFilteringAllowListPtrOutput() DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
+	return i.ToDataLakeSettingsExternalDataFilteringAllowListPtrOutputWithContext(context.Background())
+}
+
+func (i *dataLakeSettingsExternalDataFilteringAllowListPtrType) ToDataLakeSettingsExternalDataFilteringAllowListPtrOutputWithContext(ctx context.Context) DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsExternalDataFilteringAllowListPtrOutput)
+}
+
+type DataLakeSettingsExternalDataFilteringAllowListOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsExternalDataFilteringAllowListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeSettingsExternalDataFilteringAllowList)(nil)).Elem()
+}
+
+func (o DataLakeSettingsExternalDataFilteringAllowListOutput) ToDataLakeSettingsExternalDataFilteringAllowListOutput() DataLakeSettingsExternalDataFilteringAllowListOutput {
+	return o
+}
+
+func (o DataLakeSettingsExternalDataFilteringAllowListOutput) ToDataLakeSettingsExternalDataFilteringAllowListOutputWithContext(ctx context.Context) DataLakeSettingsExternalDataFilteringAllowListOutput {
+	return o
+}
+
+func (o DataLakeSettingsExternalDataFilteringAllowListOutput) ToDataLakeSettingsExternalDataFilteringAllowListPtrOutput() DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
+	return o.ToDataLakeSettingsExternalDataFilteringAllowListPtrOutputWithContext(context.Background())
+}
+
+func (o DataLakeSettingsExternalDataFilteringAllowListOutput) ToDataLakeSettingsExternalDataFilteringAllowListPtrOutputWithContext(ctx context.Context) DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataLakeSettingsExternalDataFilteringAllowList) *DataLakeSettingsExternalDataFilteringAllowList {
+		return &v
+	}).(DataLakeSettingsExternalDataFilteringAllowListPtrOutput)
+}
+
+type DataLakeSettingsExternalDataFilteringAllowListPtrOutput struct{ *pulumi.OutputState }
+
+func (DataLakeSettingsExternalDataFilteringAllowListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataLakeSettingsExternalDataFilteringAllowList)(nil)).Elem()
+}
+
+func (o DataLakeSettingsExternalDataFilteringAllowListPtrOutput) ToDataLakeSettingsExternalDataFilteringAllowListPtrOutput() DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
+	return o
+}
+
+func (o DataLakeSettingsExternalDataFilteringAllowListPtrOutput) ToDataLakeSettingsExternalDataFilteringAllowListPtrOutputWithContext(ctx context.Context) DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
+	return o
+}
+
+func (o DataLakeSettingsExternalDataFilteringAllowListPtrOutput) Elem() DataLakeSettingsExternalDataFilteringAllowListOutput {
+	return o.ApplyT(func(v *DataLakeSettingsExternalDataFilteringAllowList) DataLakeSettingsExternalDataFilteringAllowList {
+		if v != nil {
+			return *v
+		}
+		var ret DataLakeSettingsExternalDataFilteringAllowList
+		return ret
+	}).(DataLakeSettingsExternalDataFilteringAllowListOutput)
+}
+
 type PermissionsColumnWildcard struct {
 	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
 }
@@ -4262,6 +4616,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCellsFilterRowFilterPtrInput)(nil)).Elem(), DataCellsFilterRowFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsAdminsInput)(nil)).Elem(), DataLakeSettingsAdminsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsAdminsPtrInput)(nil)).Elem(), DataLakeSettingsAdminsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateDatabaseDefaultPermissionsInput)(nil)).Elem(), DataLakeSettingsCreateDatabaseDefaultPermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateDatabaseDefaultPermissionsPtrInput)(nil)).Elem(), DataLakeSettingsCreateDatabaseDefaultPermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateTableDefaultPermissionsInput)(nil)).Elem(), DataLakeSettingsCreateTableDefaultPermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateTableDefaultPermissionsPtrInput)(nil)).Elem(), DataLakeSettingsCreateTableDefaultPermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsExternalDataFilteringAllowListInput)(nil)).Elem(), DataLakeSettingsExternalDataFilteringAllowListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsExternalDataFilteringAllowListPtrInput)(nil)).Elem(), DataLakeSettingsExternalDataFilteringAllowListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsColumnWildcardInput)(nil)).Elem(), PermissionsColumnWildcardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsColumnWildcardPtrInput)(nil)).Elem(), PermissionsColumnWildcardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDataLakePrincipalInput)(nil)).Elem(), PermissionsDataLakePrincipalArgs{})
@@ -4319,6 +4679,12 @@ func init() {
 	pulumi.RegisterOutputType(DataCellsFilterRowFilterPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsAdminsOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsAdminsPtrOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsCreateDatabaseDefaultPermissionsOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsCreateTableDefaultPermissionsOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsCreateTableDefaultPermissionsPtrOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsExternalDataFilteringAllowListOutput{})
+	pulumi.RegisterOutputType(DataLakeSettingsExternalDataFilteringAllowListPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsColumnWildcardOutput{})
 	pulumi.RegisterOutputType(PermissionsColumnWildcardPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsDataLakePrincipalOutput{})

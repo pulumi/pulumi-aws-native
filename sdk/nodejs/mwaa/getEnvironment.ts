@@ -50,6 +50,8 @@ export interface GetEnvironmentResult {
     readonly requirementsS3Path?: string;
     readonly schedulers?: number;
     readonly sourceBucketArn?: string;
+    readonly startupScriptS3ObjectVersion?: string;
+    readonly startupScriptS3Path?: string;
     /**
      * A map of tags for the environment.
      */

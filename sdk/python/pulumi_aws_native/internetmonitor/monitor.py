@@ -17,6 +17,7 @@ __all__ = ['MonitorArgs', 'Monitor']
 @pulumi.input_type
 class MonitorArgs:
     def __init__(__self__, *,
+                 internet_measurements_log_delivery: Optional[pulumi.Input['MonitorInternetMeasurementsLogDeliveryArgs']] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -27,6 +28,8 @@ class MonitorArgs:
         """
         The set of arguments for constructing a Monitor resource.
         """
+        if internet_measurements_log_delivery is not None:
+            pulumi.set(__self__, "internet_measurements_log_delivery", internet_measurements_log_delivery)
         if max_city_networks_to_monitor is not None:
             pulumi.set(__self__, "max_city_networks_to_monitor", max_city_networks_to_monitor)
         if monitor_name is not None:
@@ -41,6 +44,15 @@ class MonitorArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="internetMeasurementsLogDelivery")
+    def internet_measurements_log_delivery(self) -> Optional[pulumi.Input['MonitorInternetMeasurementsLogDeliveryArgs']]:
+        return pulumi.get(self, "internet_measurements_log_delivery")
+
+    @internet_measurements_log_delivery.setter
+    def internet_measurements_log_delivery(self, value: Optional[pulumi.Input['MonitorInternetMeasurementsLogDeliveryArgs']]):
+        pulumi.set(self, "internet_measurements_log_delivery", value)
 
     @property
     @pulumi.getter(name="maxCityNetworksToMonitor")
@@ -111,6 +123,7 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['MonitorInternetMeasurementsLogDeliveryArgs']]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -149,6 +162,7 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['MonitorInternetMeasurementsLogDeliveryArgs']]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -165,6 +179,7 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
+            __props__.__dict__["internet_measurements_log_delivery"] = internet_measurements_log_delivery
             __props__.__dict__["max_city_networks_to_monitor"] = max_city_networks_to_monitor
             __props__.__dict__["monitor_name"] = monitor_name
             __props__.__dict__["resources"] = resources
@@ -200,6 +215,7 @@ class Monitor(pulumi.CustomResource):
         __props__ = MonitorArgs.__new__(MonitorArgs)
 
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["internet_measurements_log_delivery"] = None
         __props__.__dict__["max_city_networks_to_monitor"] = None
         __props__.__dict__["modified_at"] = None
         __props__.__dict__["monitor_arn"] = None
@@ -217,6 +233,11 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="internetMeasurementsLogDelivery")
+    def internet_measurements_log_delivery(self) -> pulumi.Output[Optional['outputs.MonitorInternetMeasurementsLogDelivery']]:
+        return pulumi.get(self, "internet_measurements_log_delivery")
 
     @property
     @pulumi.getter(name="maxCityNetworksToMonitor")

@@ -44,7 +44,8 @@ type LookupWorkspaceResult struct {
 	// Timestamp when the workspace was last modified
 	ModificationTimestamp *string `pulumi:"modificationTimestamp"`
 	// The user friendly name of a workspace.
-	Name *string `pulumi:"name"`
+	Name                 *string                        `pulumi:"name"`
+	NetworkAccessControl *WorkspaceNetworkAccessControl `pulumi:"networkAccessControl"`
 	// List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
 	NotificationDestinations []WorkspaceNotificationDestinationType `pulumi:"notificationDestinations"`
 	// The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
@@ -147,6 +148,10 @@ func (o LookupWorkspaceResultOutput) ModificationTimestamp() pulumi.StringPtrOut
 // The user friendly name of a workspace.
 func (o LookupWorkspaceResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupWorkspaceResultOutput) NetworkAccessControl() WorkspaceNetworkAccessControlPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceNetworkAccessControl { return v.NetworkAccessControl }).(WorkspaceNetworkAccessControlPtrOutput)
 }
 
 // List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.

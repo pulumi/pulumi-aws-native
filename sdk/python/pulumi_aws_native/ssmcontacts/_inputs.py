@@ -68,28 +68,45 @@ class ContactChannelTargetInfoArgs:
 @pulumi.input_type
 class ContactStageArgs:
     def __init__(__self__, *,
-                 duration_in_minutes: pulumi.Input[int],
+                 duration_in_minutes: Optional[pulumi.Input[int]] = None,
+                 rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgs']]]] = None):
         """
         A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
         :param pulumi.Input[int] duration_in_minutes: The time to wait until beginning the next stage.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rotation_ids: List of Rotation Ids to associate with Contact
         :param pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgs']]] targets: The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
-        pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
+        if duration_in_minutes is not None:
+            pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
+        if rotation_ids is not None:
+            pulumi.set(__self__, "rotation_ids", rotation_ids)
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> pulumi.Input[int]:
+    def duration_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The time to wait until beginning the next stage.
         """
         return pulumi.get(self, "duration_in_minutes")
 
     @duration_in_minutes.setter
-    def duration_in_minutes(self, value: pulumi.Input[int]):
+    def duration_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="rotationIds")
+    def rotation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Rotation Ids to associate with Contact
+        """
+        return pulumi.get(self, "rotation_ids")
+
+    @rotation_ids.setter
+    def rotation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "rotation_ids", value)
 
     @property
     @pulumi.getter

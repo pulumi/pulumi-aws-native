@@ -36,6 +36,8 @@ AWS::ApiGatewayV2::Model
 AWS::ApiGatewayV2::Route
 AWS::ApiGatewayV2::RouteResponse
 AWS::ApiGatewayV2::VpcLink
+AWS::AppConfig::Extension
+AWS::AppConfig::ExtensionAssociation
 AWS::AppFlow::Connector
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
@@ -528,6 +530,7 @@ AWS::QuickSight::Analysis
 AWS::QuickSight::Dashboard
 AWS::QuickSight::DataSet
 AWS::QuickSight::DataSource
+AWS::QuickSight::RefreshSchedule
 AWS::QuickSight::Template
 AWS::QuickSight::Theme
 AWS::RDS::DBCluster

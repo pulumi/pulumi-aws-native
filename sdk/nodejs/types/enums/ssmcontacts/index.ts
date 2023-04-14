@@ -18,6 +18,7 @@ export const ContactType = {
     Custom: "CUSTOM",
     Service: "SERVICE",
     Escalation: "ESCALATION",
+    OncallSchedule: "ONCALL_SCHEDULE",
 } as const;
 
 /**

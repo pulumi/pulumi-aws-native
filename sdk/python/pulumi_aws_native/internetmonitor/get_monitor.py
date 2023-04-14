@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetMonitorResult:
-    def __init__(__self__, created_at=None, max_city_networks_to_monitor=None, modified_at=None, monitor_arn=None, processing_status=None, processing_status_info=None, resources=None, status=None, tags=None):
+    def __init__(__self__, created_at=None, internet_measurements_log_delivery=None, max_city_networks_to_monitor=None, modified_at=None, monitor_arn=None, processing_status=None, processing_status_info=None, resources=None, status=None, tags=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if internet_measurements_log_delivery and not isinstance(internet_measurements_log_delivery, dict):
+            raise TypeError("Expected argument 'internet_measurements_log_delivery' to be a dict")
+        pulumi.set(__self__, "internet_measurements_log_delivery", internet_measurements_log_delivery)
         if max_city_networks_to_monitor and not isinstance(max_city_networks_to_monitor, int):
             raise TypeError("Expected argument 'max_city_networks_to_monitor' to be a int")
         pulumi.set(__self__, "max_city_networks_to_monitor", max_city_networks_to_monitor)
@@ -53,6 +56,11 @@ class GetMonitorResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="internetMeasurementsLogDelivery")
+    def internet_measurements_log_delivery(self) -> Optional['outputs.MonitorInternetMeasurementsLogDelivery']:
+        return pulumi.get(self, "internet_measurements_log_delivery")
 
     @property
     @pulumi.getter(name="maxCityNetworksToMonitor")
@@ -102,6 +110,7 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             yield self
         return GetMonitorResult(
             created_at=self.created_at,
+            internet_measurements_log_delivery=self.internet_measurements_log_delivery,
             max_city_networks_to_monitor=self.max_city_networks_to_monitor,
             modified_at=self.modified_at,
             monitor_arn=self.monitor_arn,
@@ -124,6 +133,7 @@ def get_monitor(monitor_name: Optional[str] = None,
 
     return AwaitableGetMonitorResult(
         created_at=__ret__.created_at,
+        internet_measurements_log_delivery=__ret__.internet_measurements_log_delivery,
         max_city_networks_to_monitor=__ret__.max_city_networks_to_monitor,
         modified_at=__ret__.modified_at,
         monitor_arn=__ret__.monitor_arn,

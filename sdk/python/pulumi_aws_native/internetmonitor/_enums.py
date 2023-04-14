@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'MonitorConfigState',
     'MonitorProcessingStatusCode',
+    'MonitorS3ConfigLogDeliveryStatus',
 ]
 
 
@@ -24,3 +25,8 @@ class MonitorProcessingStatusCode(str, Enum):
     INSUFFICIENT_DATA = "INSUFFICIENT_DATA"
     FAULT_SERVICE = "FAULT_SERVICE"
     FAULT_ACCESS_CLOUDWATCH = "FAULT_ACCESS_CLOUDWATCH"
+
+
+class MonitorS3ConfigLogDeliveryStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"

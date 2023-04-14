@@ -217,6 +217,9 @@ __all__ = [
     'DataSourceErrorInfoType',
     'DataSourceResourceStatus',
     'DataSourceType',
+    'RefreshScheduleMapRefreshType',
+    'RefreshScheduleMapScheduleFrequencyPropertiesInterval',
+    'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek',
     'TemplateAnchorOption',
     'TemplateArcThickness',
     'TemplateArcThicknessOptions',
@@ -1663,6 +1666,30 @@ class DataSourceType(str, Enum):
     TERADATA = "TERADATA"
     TWITTER = "TWITTER"
     TIMESTREAM = "TIMESTREAM"
+
+
+class RefreshScheduleMapRefreshType(str, Enum):
+    FULL_REFRESH = "FULL_REFRESH"
+    INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH"
+
+
+class RefreshScheduleMapScheduleFrequencyPropertiesInterval(str, Enum):
+    MINUTE15 = "MINUTE15"
+    MINUTE30 = "MINUTE30"
+    HOURLY = "HOURLY"
+    DAILY = "DAILY"
+    WEEKLY = "WEEKLY"
+    MONTHLY = "MONTHLY"
+
+
+class RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek(str, Enum):
+    SUNDAY = "SUNDAY"
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
 
 
 class TemplateAnchorOption(str, Enum):

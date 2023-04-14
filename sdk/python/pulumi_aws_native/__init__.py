@@ -782,6 +782,8 @@ _utilities.register(
    "aws-native:appconfig:Deployment": "Deployment",
    "aws-native:appconfig:DeploymentStrategy": "DeploymentStrategy",
    "aws-native:appconfig:Environment": "Environment",
+   "aws-native:appconfig:Extension": "Extension",
+   "aws-native:appconfig:ExtensionAssociation": "ExtensionAssociation",
    "aws-native:appconfig:HostedConfigurationVersion": "HostedConfigurationVersion"
   }
  },
@@ -2650,6 +2652,7 @@ _utilities.register(
    "aws-native:quicksight:Dashboard": "Dashboard",
    "aws-native:quicksight:DataSet": "DataSet",
    "aws-native:quicksight:DataSource": "DataSource",
+   "aws-native:quicksight:RefreshSchedule": "RefreshSchedule",
    "aws-native:quicksight:Template": "Template",
    "aws-native:quicksight:Theme": "Theme"
   }

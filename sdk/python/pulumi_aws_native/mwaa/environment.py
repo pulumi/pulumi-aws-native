@@ -34,6 +34,8 @@ class EnvironmentArgs:
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_object_version: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None):
@@ -84,6 +86,10 @@ class EnvironmentArgs:
             pulumi.set(__self__, "schedulers", schedulers)
         if source_bucket_arn is not None:
             pulumi.set(__self__, "source_bucket_arn", source_bucket_arn)
+        if startup_script_s3_object_version is not None:
+            pulumi.set(__self__, "startup_script_s3_object_version", startup_script_s3_object_version)
+        if startup_script_s3_path is not None:
+            pulumi.set(__self__, "startup_script_s3_path", startup_script_s3_path)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if webserver_access_mode is not None:
@@ -256,6 +262,24 @@ class EnvironmentArgs:
         pulumi.set(self, "source_bucket_arn", value)
 
     @property
+    @pulumi.getter(name="startupScriptS3ObjectVersion")
+    def startup_script_s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "startup_script_s3_object_version")
+
+    @startup_script_s3_object_version.setter
+    def startup_script_s3_object_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "startup_script_s3_object_version", value)
+
+    @property
+    @pulumi.getter(name="startupScriptS3Path")
+    def startup_script_s3_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "startup_script_s3_path")
+
+    @startup_script_s3_path.setter
+    def startup_script_s3_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "startup_script_s3_path", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         """
@@ -308,6 +332,8 @@ class Environment(pulumi.CustomResource):
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_object_version: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
@@ -369,6 +395,8 @@ class Environment(pulumi.CustomResource):
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_object_version: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
@@ -398,6 +426,8 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["requirements_s3_path"] = requirements_s3_path
             __props__.__dict__["schedulers"] = schedulers
             __props__.__dict__["source_bucket_arn"] = source_bucket_arn
+            __props__.__dict__["startup_script_s3_object_version"] = startup_script_s3_object_version
+            __props__.__dict__["startup_script_s3_path"] = startup_script_s3_path
             __props__.__dict__["tags"] = tags
             __props__.__dict__["webserver_access_mode"] = webserver_access_mode
             __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
@@ -443,6 +473,8 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["requirements_s3_path"] = None
         __props__.__dict__["schedulers"] = None
         __props__.__dict__["source_bucket_arn"] = None
+        __props__.__dict__["startup_script_s3_object_version"] = None
+        __props__.__dict__["startup_script_s3_path"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["webserver_access_mode"] = None
         __props__.__dict__["webserver_url"] = None
@@ -549,6 +581,16 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="sourceBucketArn")
     def source_bucket_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "source_bucket_arn")
+
+    @property
+    @pulumi.getter(name="startupScriptS3ObjectVersion")
+    def startup_script_s3_object_version(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "startup_script_s3_object_version")
+
+    @property
+    @pulumi.getter(name="startupScriptS3Path")
+    def startup_script_s3_path(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "startup_script_s3_path")
 
     @property
     @pulumi.getter

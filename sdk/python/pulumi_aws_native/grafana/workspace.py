@@ -24,6 +24,7 @@ class WorkspaceArgs:
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -55,6 +56,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_access_control is not None:
+            pulumi.set(__self__, "network_access_control", network_access_control)
         if notification_destinations is not None:
             pulumi.set(__self__, "notification_destinations", notification_destinations)
         if organization_role_name is not None:
@@ -149,6 +152,15 @@ class WorkspaceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkAccessControl")
+    def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]:
+        return pulumi.get(self, "network_access_control")
+
+    @network_access_control.setter
+    def network_access_control(self, value: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]):
+        pulumi.set(self, "network_access_control", value)
+
+    @property
     @pulumi.getter(name="notificationDestinations")
     def notification_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]]:
         """
@@ -238,6 +250,7 @@ class Workspace(pulumi.CustomResource):
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -293,6 +306,7 @@ class Workspace(pulumi.CustomResource):
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -320,6 +334,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["data_sources"] = data_sources
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_access_control"] = network_access_control
             __props__.__dict__["notification_destinations"] = notification_destinations
             __props__.__dict__["organization_role_name"] = organization_role_name
             __props__.__dict__["organizational_units"] = organizational_units
@@ -369,6 +384,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["grafana_version"] = None
         __props__.__dict__["modification_timestamp"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_access_control"] = None
         __props__.__dict__["notification_destinations"] = None
         __props__.__dict__["organization_role_name"] = None
         __props__.__dict__["organizational_units"] = None
@@ -458,6 +474,11 @@ class Workspace(pulumi.CustomResource):
         The user friendly name of a workspace.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAccessControl")
+    def network_access_control(self) -> pulumi.Output[Optional['outputs.WorkspaceNetworkAccessControl']]:
+        return pulumi.get(self, "network_access_control")
 
     @property
     @pulumi.getter(name="notificationDestinations")

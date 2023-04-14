@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkspaceResult:
-    def __init__(__self__, account_access_type=None, authentication_providers=None, creation_timestamp=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, modification_timestamp=None, name=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, role_arn=None, saml_configuration=None, saml_configuration_status=None, sso_client_id=None, stack_set_name=None, status=None, vpc_configuration=None):
+    def __init__(__self__, account_access_type=None, authentication_providers=None, creation_timestamp=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, modification_timestamp=None, name=None, network_access_control=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, role_arn=None, saml_configuration=None, saml_configuration_status=None, sso_client_id=None, stack_set_name=None, status=None, vpc_configuration=None):
         if account_access_type and not isinstance(account_access_type, str):
             raise TypeError("Expected argument 'account_access_type' to be a str")
         pulumi.set(__self__, "account_access_type", account_access_type)
@@ -51,6 +51,9 @@ class GetWorkspaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_access_control and not isinstance(network_access_control, dict):
+            raise TypeError("Expected argument 'network_access_control' to be a dict")
+        pulumi.set(__self__, "network_access_control", network_access_control)
         if notification_destinations and not isinstance(notification_destinations, list):
             raise TypeError("Expected argument 'notification_destinations' to be a list")
         pulumi.set(__self__, "notification_destinations", notification_destinations)
@@ -163,6 +166,11 @@ class GetWorkspaceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkAccessControl")
+    def network_access_control(self) -> Optional['outputs.WorkspaceNetworkAccessControl']:
+        return pulumi.get(self, "network_access_control")
+
+    @property
     @pulumi.getter(name="notificationDestinations")
     def notification_destinations(self) -> Optional[Sequence['WorkspaceNotificationDestinationType']]:
         """
@@ -252,6 +260,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             id=self.id,
             modification_timestamp=self.modification_timestamp,
             name=self.name,
+            network_access_control=self.network_access_control,
             notification_destinations=self.notification_destinations,
             organization_role_name=self.organization_role_name,
             organizational_units=self.organizational_units,
@@ -289,6 +298,7 @@ def get_workspace(id: Optional[str] = None,
         id=__ret__.id,
         modification_timestamp=__ret__.modification_timestamp,
         name=__ret__.name,
+        network_access_control=__ret__.network_access_control,
         notification_destinations=__ret__.notification_destinations,
         organization_role_name=__ret__.organization_role_name,
         organizational_units=__ret__.organizational_units,

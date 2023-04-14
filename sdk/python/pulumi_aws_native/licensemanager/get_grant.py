@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGrantResult:
-    def __init__(__self__, grant_arn=None, grant_name=None, home_region=None, license_arn=None, status=None, version=None):
+    def __init__(__self__, grant_arn=None, grant_name=None, home_region=None, license_arn=None, version=None):
         if grant_arn and not isinstance(grant_arn, str):
             raise TypeError("Expected argument 'grant_arn' to be a str")
         pulumi.set(__self__, "grant_arn", grant_arn)
@@ -31,9 +31,6 @@ class GetGrantResult:
         if license_arn and not isinstance(license_arn, str):
             raise TypeError("Expected argument 'license_arn' to be a str")
         pulumi.set(__self__, "license_arn", license_arn)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -72,11 +69,6 @@ class GetGrantResult:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
     def version(self) -> Optional[str]:
         """
         The version of the grant.
@@ -94,7 +86,6 @@ class AwaitableGetGrantResult(GetGrantResult):
             grant_name=self.grant_name,
             home_region=self.home_region,
             license_arn=self.license_arn,
-            status=self.status,
             version=self.version)
 
 
@@ -116,7 +107,6 @@ def get_grant(grant_arn: Optional[str] = None,
         grant_name=__ret__.grant_name,
         home_region=__ret__.home_region,
         license_arn=__ret__.license_arn,
-        status=__ret__.status,
         version=__ret__.version)
 
 

@@ -180,10 +180,11 @@ func (in *contactChannelChannelTypePtr) ToContactChannelChannelTypePtrOutputWith
 type ContactType string
 
 const (
-	ContactTypePersonal   = ContactType("PERSONAL")
-	ContactTypeCustom     = ContactType("CUSTOM")
-	ContactTypeService    = ContactType("SERVICE")
-	ContactTypeEscalation = ContactType("ESCALATION")
+	ContactTypePersonal       = ContactType("PERSONAL")
+	ContactTypeCustom         = ContactType("CUSTOM")
+	ContactTypeService        = ContactType("SERVICE")
+	ContactTypeEscalation     = ContactType("ESCALATION")
+	ContactTypeOncallSchedule = ContactType("ONCALL_SCHEDULE")
 )
 
 func (ContactType) ElementType() reflect.Type {

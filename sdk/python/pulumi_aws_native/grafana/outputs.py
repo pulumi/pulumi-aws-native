@@ -14,6 +14,7 @@ from ._enums import *
 __all__ = [
     'WorkspaceAssertionAttributes',
     'WorkspaceIdpMetadata',
+    'WorkspaceNetworkAccessControl',
     'WorkspaceRoleValues',
     'WorkspaceSamlConfiguration',
     'WorkspaceVpcConfiguration',
@@ -135,6 +136,60 @@ class WorkspaceIdpMetadata(dict):
         XML blob of the IdPs metadata.
         """
         return pulumi.get(self, "xml")
+
+
+@pulumi.output_type
+class WorkspaceNetworkAccessControl(dict):
+    """
+    The configuration settings for Network Access Control.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "prefixListIds":
+            suggest = "prefix_list_ids"
+        elif key == "vpceIds":
+            suggest = "vpce_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceNetworkAccessControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceNetworkAccessControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceNetworkAccessControl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix_list_ids: Optional[Sequence[str]] = None,
+                 vpce_ids: Optional[Sequence[str]] = None):
+        """
+        The configuration settings for Network Access Control.
+        :param Sequence[str] prefix_list_ids: The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
+        :param Sequence[str] vpce_ids: The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
+        """
+        if prefix_list_ids is not None:
+            pulumi.set(__self__, "prefix_list_ids", prefix_list_ids)
+        if vpce_ids is not None:
+            pulumi.set(__self__, "vpce_ids", vpce_ids)
+
+    @property
+    @pulumi.getter(name="prefixListIds")
+    def prefix_list_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
+        """
+        return pulumi.get(self, "prefix_list_ids")
+
+    @property
+    @pulumi.getter(name="vpceIds")
+    def vpce_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
+        """
+        return pulumi.get(self, "vpce_ids")
 
 
 @pulumi.output_type

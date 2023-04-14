@@ -19,6 +19,24 @@ namespace Pulumi.AwsNative.LakeFormation
         [Output("admins")]
         public Output<Outputs.DataLakeSettingsAdmins?> Admins { get; private set; } = null!;
 
+        [Output("allowExternalDataFiltering")]
+        public Output<bool?> AllowExternalDataFiltering { get; private set; } = null!;
+
+        [Output("authorizedSessionTagValueList")]
+        public Output<ImmutableArray<string>> AuthorizedSessionTagValueList { get; private set; } = null!;
+
+        [Output("createDatabaseDefaultPermissions")]
+        public Output<Outputs.DataLakeSettingsCreateDatabaseDefaultPermissions?> CreateDatabaseDefaultPermissions { get; private set; } = null!;
+
+        [Output("createTableDefaultPermissions")]
+        public Output<Outputs.DataLakeSettingsCreateTableDefaultPermissions?> CreateTableDefaultPermissions { get; private set; } = null!;
+
+        [Output("externalDataFilteringAllowList")]
+        public Output<Outputs.DataLakeSettingsExternalDataFilteringAllowList?> ExternalDataFilteringAllowList { get; private set; } = null!;
+
+        [Output("parameters")]
+        public Output<object?> Parameters { get; private set; } = null!;
+
         [Output("trustedResourceOwners")]
         public Output<ImmutableArray<string>> TrustedResourceOwners { get; private set; } = null!;
 
@@ -69,6 +87,29 @@ namespace Pulumi.AwsNative.LakeFormation
     {
         [Input("admins")]
         public Input<Inputs.DataLakeSettingsAdminsArgs>? Admins { get; set; }
+
+        [Input("allowExternalDataFiltering")]
+        public Input<bool>? AllowExternalDataFiltering { get; set; }
+
+        [Input("authorizedSessionTagValueList")]
+        private InputList<string>? _authorizedSessionTagValueList;
+        public InputList<string> AuthorizedSessionTagValueList
+        {
+            get => _authorizedSessionTagValueList ?? (_authorizedSessionTagValueList = new InputList<string>());
+            set => _authorizedSessionTagValueList = value;
+        }
+
+        [Input("createDatabaseDefaultPermissions")]
+        public Input<Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionsArgs>? CreateDatabaseDefaultPermissions { get; set; }
+
+        [Input("createTableDefaultPermissions")]
+        public Input<Inputs.DataLakeSettingsCreateTableDefaultPermissionsArgs>? CreateTableDefaultPermissions { get; set; }
+
+        [Input("externalDataFilteringAllowList")]
+        public Input<Inputs.DataLakeSettingsExternalDataFilteringAllowListArgs>? ExternalDataFilteringAllowList { get; set; }
+
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         [Input("trustedResourceOwners")]
         private InputList<string>? _trustedResourceOwners;

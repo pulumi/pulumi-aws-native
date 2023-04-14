@@ -80,6 +80,12 @@ namespace Pulumi.AwsNative.MWAA
         [Output("sourceBucketArn")]
         public Output<string?> SourceBucketArn { get; private set; } = null!;
 
+        [Output("startupScriptS3ObjectVersion")]
+        public Output<string?> StartupScriptS3ObjectVersion { get; private set; } = null!;
+
+        [Output("startupScriptS3Path")]
+        public Output<string?> StartupScriptS3Path { get; private set; } = null!;
+
         /// <summary>
         /// A map of tags for the environment.
         /// </summary>
@@ -201,6 +207,12 @@ namespace Pulumi.AwsNative.MWAA
 
         [Input("sourceBucketArn")]
         public Input<string>? SourceBucketArn { get; set; }
+
+        [Input("startupScriptS3ObjectVersion")]
+        public Input<string>? StartupScriptS3ObjectVersion { get; set; }
+
+        [Input("startupScriptS3Path")]
+        public Input<string>? StartupScriptS3Path { get; set; }
 
         /// <summary>
         /// A map of tags for the environment.

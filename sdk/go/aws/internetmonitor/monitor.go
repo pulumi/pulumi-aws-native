@@ -14,18 +14,19 @@ import (
 type Monitor struct {
 	pulumi.CustomResourceState
 
-	CreatedAt                pulumi.StringOutput               `pulumi:"createdAt"`
-	MaxCityNetworksToMonitor pulumi.IntPtrOutput               `pulumi:"maxCityNetworksToMonitor"`
-	ModifiedAt               pulumi.StringOutput               `pulumi:"modifiedAt"`
-	MonitorArn               pulumi.StringOutput               `pulumi:"monitorArn"`
-	MonitorName              pulumi.StringOutput               `pulumi:"monitorName"`
-	ProcessingStatus         MonitorProcessingStatusCodeOutput `pulumi:"processingStatus"`
-	ProcessingStatusInfo     pulumi.StringOutput               `pulumi:"processingStatusInfo"`
-	Resources                pulumi.StringArrayOutput          `pulumi:"resources"`
-	ResourcesToAdd           pulumi.StringArrayOutput          `pulumi:"resourcesToAdd"`
-	ResourcesToRemove        pulumi.StringArrayOutput          `pulumi:"resourcesToRemove"`
-	Status                   MonitorConfigStatePtrOutput       `pulumi:"status"`
-	Tags                     MonitorTagArrayOutput             `pulumi:"tags"`
+	CreatedAt                       pulumi.StringOutput                             `pulumi:"createdAt"`
+	InternetMeasurementsLogDelivery MonitorInternetMeasurementsLogDeliveryPtrOutput `pulumi:"internetMeasurementsLogDelivery"`
+	MaxCityNetworksToMonitor        pulumi.IntPtrOutput                             `pulumi:"maxCityNetworksToMonitor"`
+	ModifiedAt                      pulumi.StringOutput                             `pulumi:"modifiedAt"`
+	MonitorArn                      pulumi.StringOutput                             `pulumi:"monitorArn"`
+	MonitorName                     pulumi.StringOutput                             `pulumi:"monitorName"`
+	ProcessingStatus                MonitorProcessingStatusCodeOutput               `pulumi:"processingStatus"`
+	ProcessingStatusInfo            pulumi.StringOutput                             `pulumi:"processingStatusInfo"`
+	Resources                       pulumi.StringArrayOutput                        `pulumi:"resources"`
+	ResourcesToAdd                  pulumi.StringArrayOutput                        `pulumi:"resourcesToAdd"`
+	ResourcesToRemove               pulumi.StringArrayOutput                        `pulumi:"resourcesToRemove"`
+	Status                          MonitorConfigStatePtrOutput                     `pulumi:"status"`
+	Tags                            MonitorTagArrayOutput                           `pulumi:"tags"`
 }
 
 // NewMonitor registers a new resource with the given unique name, arguments, and options.
@@ -67,24 +68,26 @@ func (MonitorState) ElementType() reflect.Type {
 }
 
 type monitorArgs struct {
-	MaxCityNetworksToMonitor *int                `pulumi:"maxCityNetworksToMonitor"`
-	MonitorName              *string             `pulumi:"monitorName"`
-	Resources                []string            `pulumi:"resources"`
-	ResourcesToAdd           []string            `pulumi:"resourcesToAdd"`
-	ResourcesToRemove        []string            `pulumi:"resourcesToRemove"`
-	Status                   *MonitorConfigState `pulumi:"status"`
-	Tags                     []MonitorTag        `pulumi:"tags"`
+	InternetMeasurementsLogDelivery *MonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
+	MaxCityNetworksToMonitor        *int                                    `pulumi:"maxCityNetworksToMonitor"`
+	MonitorName                     *string                                 `pulumi:"monitorName"`
+	Resources                       []string                                `pulumi:"resources"`
+	ResourcesToAdd                  []string                                `pulumi:"resourcesToAdd"`
+	ResourcesToRemove               []string                                `pulumi:"resourcesToRemove"`
+	Status                          *MonitorConfigState                     `pulumi:"status"`
+	Tags                            []MonitorTag                            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
-	MaxCityNetworksToMonitor pulumi.IntPtrInput
-	MonitorName              pulumi.StringPtrInput
-	Resources                pulumi.StringArrayInput
-	ResourcesToAdd           pulumi.StringArrayInput
-	ResourcesToRemove        pulumi.StringArrayInput
-	Status                   MonitorConfigStatePtrInput
-	Tags                     MonitorTagArrayInput
+	InternetMeasurementsLogDelivery MonitorInternetMeasurementsLogDeliveryPtrInput
+	MaxCityNetworksToMonitor        pulumi.IntPtrInput
+	MonitorName                     pulumi.StringPtrInput
+	Resources                       pulumi.StringArrayInput
+	ResourcesToAdd                  pulumi.StringArrayInput
+	ResourcesToRemove               pulumi.StringArrayInput
+	Status                          MonitorConfigStatePtrInput
+	Tags                            MonitorTagArrayInput
 }
 
 func (MonitorArgs) ElementType() reflect.Type {
@@ -126,6 +129,12 @@ func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOu
 
 func (o MonitorOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o MonitorOutput) InternetMeasurementsLogDelivery() MonitorInternetMeasurementsLogDeliveryPtrOutput {
+	return o.ApplyT(func(v *Monitor) MonitorInternetMeasurementsLogDeliveryPtrOutput {
+		return v.InternetMeasurementsLogDelivery
+	}).(MonitorInternetMeasurementsLogDeliveryPtrOutput)
 }
 
 func (o MonitorOutput) MaxCityNetworksToMonitor() pulumi.IntPtrOutput {

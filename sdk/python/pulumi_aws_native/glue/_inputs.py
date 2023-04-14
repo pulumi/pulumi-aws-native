@@ -18,6 +18,7 @@ __all__ = [
     'ConnectionInputArgs',
     'ConnectionPhysicalConnectionRequirementsArgs',
     'CrawlerCatalogTargetArgs',
+    'CrawlerDeltaTargetArgs',
     'CrawlerDynamoDBTargetArgs',
     'CrawlerJdbcTargetArgs',
     'CrawlerMongoDBTargetArgs',
@@ -30,6 +31,7 @@ __all__ = [
     'DataCatalogEncryptionSettingsEncryptionAtRestArgs',
     'DataCatalogEncryptionSettingsArgs',
     'DatabaseDataLakePrincipalArgs',
+    'DatabaseFederatedDatabaseArgs',
     'DatabaseIdentifierArgs',
     'DatabaseInputArgs',
     'DatabasePrincipalPrivilegesArgs',
@@ -430,6 +432,59 @@ class CrawlerCatalogTargetArgs:
 
 
 @pulumi.input_type
+class CrawlerDeltaTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 create_native_delta_table: Optional[pulumi.Input[bool]] = None,
+                 delta_tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 write_manifest: Optional[pulumi.Input[bool]] = None):
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if create_native_delta_table is not None:
+            pulumi.set(__self__, "create_native_delta_table", create_native_delta_table)
+        if delta_tables is not None:
+            pulumi.set(__self__, "delta_tables", delta_tables)
+        if write_manifest is not None:
+            pulumi.set(__self__, "write_manifest", write_manifest)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="createNativeDeltaTable")
+    def create_native_delta_table(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "create_native_delta_table")
+
+    @create_native_delta_table.setter
+    def create_native_delta_table(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_native_delta_table", value)
+
+    @property
+    @pulumi.getter(name="deltaTables")
+    def delta_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "delta_tables")
+
+    @delta_tables.setter
+    def delta_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "delta_tables", value)
+
+    @property
+    @pulumi.getter(name="writeManifest")
+    def write_manifest(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "write_manifest")
+
+    @write_manifest.setter
+    def write_manifest(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "write_manifest", value)
+
+
+@pulumi.input_type
 class CrawlerDynamoDBTargetArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None):
@@ -660,12 +715,15 @@ class CrawlerSchemaChangePolicyArgs:
 class CrawlerTargetsArgs:
     def __init__(__self__, *,
                  catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]] = None,
+                 delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]] = None,
                  dynamo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDBTargetArgs']]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
                  mongo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDBTargetArgs']]]] = None,
                  s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None):
         if catalog_targets is not None:
             pulumi.set(__self__, "catalog_targets", catalog_targets)
+        if delta_targets is not None:
+            pulumi.set(__self__, "delta_targets", delta_targets)
         if dynamo_db_targets is not None:
             pulumi.set(__self__, "dynamo_db_targets", dynamo_db_targets)
         if jdbc_targets is not None:
@@ -683,6 +741,15 @@ class CrawlerTargetsArgs:
     @catalog_targets.setter
     def catalog_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]]):
         pulumi.set(self, "catalog_targets", value)
+
+    @property
+    @pulumi.getter(name="deltaTargets")
+    def delta_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]]:
+        return pulumi.get(self, "delta_targets")
+
+    @delta_targets.setter
+    def delta_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]]):
+        pulumi.set(self, "delta_targets", value)
 
     @property
     @pulumi.getter(name="dynamoDBTargets")
@@ -826,6 +893,35 @@ class DatabaseDataLakePrincipalArgs:
 
 
 @pulumi.input_type
+class DatabaseFederatedDatabaseArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[str]] = None):
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier", value)
+
+
+@pulumi.input_type
 class DatabaseIdentifierArgs:
     def __init__(__self__, *,
                  catalog_id: Optional[pulumi.Input[str]] = None,
@@ -859,6 +955,7 @@ class DatabaseInputArgs:
     def __init__(__self__, *,
                  create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DatabasePrincipalPrivilegesArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 federated_database: Optional[pulumi.Input['DatabaseFederatedDatabaseArgs']] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
@@ -867,6 +964,8 @@ class DatabaseInputArgs:
             pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if federated_database is not None:
+            pulumi.set(__self__, "federated_database", federated_database)
         if location_uri is not None:
             pulumi.set(__self__, "location_uri", location_uri)
         if name is not None:
@@ -893,6 +992,15 @@ class DatabaseInputArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="federatedDatabase")
+    def federated_database(self) -> Optional[pulumi.Input['DatabaseFederatedDatabaseArgs']]:
+        return pulumi.get(self, "federated_database")
+
+    @federated_database.setter
+    def federated_database(self, value: Optional[pulumi.Input['DatabaseFederatedDatabaseArgs']]):
+        pulumi.set(self, "federated_database", value)
 
     @property
     @pulumi.getter(name="locationUri")

@@ -15,6 +15,9 @@ __all__ = [
     'DataCellsFilterColumnWildcard',
     'DataCellsFilterRowFilter',
     'DataLakeSettingsAdmins',
+    'DataLakeSettingsCreateDatabaseDefaultPermissions',
+    'DataLakeSettingsCreateTableDefaultPermissions',
+    'DataLakeSettingsExternalDataFilteringAllowList',
     'PermissionsColumnWildcard',
     'PermissionsDataLakePrincipal',
     'PermissionsDataLocationResource',
@@ -141,6 +144,24 @@ class DataCellsFilterRowFilter(dict):
 
 @pulumi.output_type
 class DataLakeSettingsAdmins(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class DataLakeSettingsCreateDatabaseDefaultPermissions(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class DataLakeSettingsCreateTableDefaultPermissions(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class DataLakeSettingsExternalDataFilteringAllowList(dict):
     def __init__(__self__):
         pass
 

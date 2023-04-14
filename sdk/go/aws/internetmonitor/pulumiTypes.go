@@ -10,6 +10,302 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type MonitorInternetMeasurementsLogDelivery struct {
+	S3Config *MonitorS3Config `pulumi:"s3Config"`
+}
+
+// MonitorInternetMeasurementsLogDeliveryInput is an input type that accepts MonitorInternetMeasurementsLogDeliveryArgs and MonitorInternetMeasurementsLogDeliveryOutput values.
+// You can construct a concrete instance of `MonitorInternetMeasurementsLogDeliveryInput` via:
+//
+//	MonitorInternetMeasurementsLogDeliveryArgs{...}
+type MonitorInternetMeasurementsLogDeliveryInput interface {
+	pulumi.Input
+
+	ToMonitorInternetMeasurementsLogDeliveryOutput() MonitorInternetMeasurementsLogDeliveryOutput
+	ToMonitorInternetMeasurementsLogDeliveryOutputWithContext(context.Context) MonitorInternetMeasurementsLogDeliveryOutput
+}
+
+type MonitorInternetMeasurementsLogDeliveryArgs struct {
+	S3Config MonitorS3ConfigPtrInput `pulumi:"s3Config"`
+}
+
+func (MonitorInternetMeasurementsLogDeliveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorInternetMeasurementsLogDelivery)(nil)).Elem()
+}
+
+func (i MonitorInternetMeasurementsLogDeliveryArgs) ToMonitorInternetMeasurementsLogDeliveryOutput() MonitorInternetMeasurementsLogDeliveryOutput {
+	return i.ToMonitorInternetMeasurementsLogDeliveryOutputWithContext(context.Background())
+}
+
+func (i MonitorInternetMeasurementsLogDeliveryArgs) ToMonitorInternetMeasurementsLogDeliveryOutputWithContext(ctx context.Context) MonitorInternetMeasurementsLogDeliveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorInternetMeasurementsLogDeliveryOutput)
+}
+
+func (i MonitorInternetMeasurementsLogDeliveryArgs) ToMonitorInternetMeasurementsLogDeliveryPtrOutput() MonitorInternetMeasurementsLogDeliveryPtrOutput {
+	return i.ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i MonitorInternetMeasurementsLogDeliveryArgs) ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(ctx context.Context) MonitorInternetMeasurementsLogDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorInternetMeasurementsLogDeliveryOutput).ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(ctx)
+}
+
+// MonitorInternetMeasurementsLogDeliveryPtrInput is an input type that accepts MonitorInternetMeasurementsLogDeliveryArgs, MonitorInternetMeasurementsLogDeliveryPtr and MonitorInternetMeasurementsLogDeliveryPtrOutput values.
+// You can construct a concrete instance of `MonitorInternetMeasurementsLogDeliveryPtrInput` via:
+//
+//	        MonitorInternetMeasurementsLogDeliveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitorInternetMeasurementsLogDeliveryPtrInput interface {
+	pulumi.Input
+
+	ToMonitorInternetMeasurementsLogDeliveryPtrOutput() MonitorInternetMeasurementsLogDeliveryPtrOutput
+	ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(context.Context) MonitorInternetMeasurementsLogDeliveryPtrOutput
+}
+
+type monitorInternetMeasurementsLogDeliveryPtrType MonitorInternetMeasurementsLogDeliveryArgs
+
+func MonitorInternetMeasurementsLogDeliveryPtr(v *MonitorInternetMeasurementsLogDeliveryArgs) MonitorInternetMeasurementsLogDeliveryPtrInput {
+	return (*monitorInternetMeasurementsLogDeliveryPtrType)(v)
+}
+
+func (*monitorInternetMeasurementsLogDeliveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorInternetMeasurementsLogDelivery)(nil)).Elem()
+}
+
+func (i *monitorInternetMeasurementsLogDeliveryPtrType) ToMonitorInternetMeasurementsLogDeliveryPtrOutput() MonitorInternetMeasurementsLogDeliveryPtrOutput {
+	return i.ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i *monitorInternetMeasurementsLogDeliveryPtrType) ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(ctx context.Context) MonitorInternetMeasurementsLogDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorInternetMeasurementsLogDeliveryPtrOutput)
+}
+
+type MonitorInternetMeasurementsLogDeliveryOutput struct{ *pulumi.OutputState }
+
+func (MonitorInternetMeasurementsLogDeliveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorInternetMeasurementsLogDelivery)(nil)).Elem()
+}
+
+func (o MonitorInternetMeasurementsLogDeliveryOutput) ToMonitorInternetMeasurementsLogDeliveryOutput() MonitorInternetMeasurementsLogDeliveryOutput {
+	return o
+}
+
+func (o MonitorInternetMeasurementsLogDeliveryOutput) ToMonitorInternetMeasurementsLogDeliveryOutputWithContext(ctx context.Context) MonitorInternetMeasurementsLogDeliveryOutput {
+	return o
+}
+
+func (o MonitorInternetMeasurementsLogDeliveryOutput) ToMonitorInternetMeasurementsLogDeliveryPtrOutput() MonitorInternetMeasurementsLogDeliveryPtrOutput {
+	return o.ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorInternetMeasurementsLogDeliveryOutput) ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(ctx context.Context) MonitorInternetMeasurementsLogDeliveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorInternetMeasurementsLogDelivery) *MonitorInternetMeasurementsLogDelivery {
+		return &v
+	}).(MonitorInternetMeasurementsLogDeliveryPtrOutput)
+}
+
+func (o MonitorInternetMeasurementsLogDeliveryOutput) S3Config() MonitorS3ConfigPtrOutput {
+	return o.ApplyT(func(v MonitorInternetMeasurementsLogDelivery) *MonitorS3Config { return v.S3Config }).(MonitorS3ConfigPtrOutput)
+}
+
+type MonitorInternetMeasurementsLogDeliveryPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitorInternetMeasurementsLogDeliveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorInternetMeasurementsLogDelivery)(nil)).Elem()
+}
+
+func (o MonitorInternetMeasurementsLogDeliveryPtrOutput) ToMonitorInternetMeasurementsLogDeliveryPtrOutput() MonitorInternetMeasurementsLogDeliveryPtrOutput {
+	return o
+}
+
+func (o MonitorInternetMeasurementsLogDeliveryPtrOutput) ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(ctx context.Context) MonitorInternetMeasurementsLogDeliveryPtrOutput {
+	return o
+}
+
+func (o MonitorInternetMeasurementsLogDeliveryPtrOutput) Elem() MonitorInternetMeasurementsLogDeliveryOutput {
+	return o.ApplyT(func(v *MonitorInternetMeasurementsLogDelivery) MonitorInternetMeasurementsLogDelivery {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorInternetMeasurementsLogDelivery
+		return ret
+	}).(MonitorInternetMeasurementsLogDeliveryOutput)
+}
+
+func (o MonitorInternetMeasurementsLogDeliveryPtrOutput) S3Config() MonitorS3ConfigPtrOutput {
+	return o.ApplyT(func(v *MonitorInternetMeasurementsLogDelivery) *MonitorS3Config {
+		if v == nil {
+			return nil
+		}
+		return v.S3Config
+	}).(MonitorS3ConfigPtrOutput)
+}
+
+type MonitorS3Config struct {
+	BucketName        *string                           `pulumi:"bucketName"`
+	BucketPrefix      *string                           `pulumi:"bucketPrefix"`
+	LogDeliveryStatus *MonitorS3ConfigLogDeliveryStatus `pulumi:"logDeliveryStatus"`
+}
+
+// MonitorS3ConfigInput is an input type that accepts MonitorS3ConfigArgs and MonitorS3ConfigOutput values.
+// You can construct a concrete instance of `MonitorS3ConfigInput` via:
+//
+//	MonitorS3ConfigArgs{...}
+type MonitorS3ConfigInput interface {
+	pulumi.Input
+
+	ToMonitorS3ConfigOutput() MonitorS3ConfigOutput
+	ToMonitorS3ConfigOutputWithContext(context.Context) MonitorS3ConfigOutput
+}
+
+type MonitorS3ConfigArgs struct {
+	BucketName        pulumi.StringPtrInput                    `pulumi:"bucketName"`
+	BucketPrefix      pulumi.StringPtrInput                    `pulumi:"bucketPrefix"`
+	LogDeliveryStatus MonitorS3ConfigLogDeliveryStatusPtrInput `pulumi:"logDeliveryStatus"`
+}
+
+func (MonitorS3ConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorS3Config)(nil)).Elem()
+}
+
+func (i MonitorS3ConfigArgs) ToMonitorS3ConfigOutput() MonitorS3ConfigOutput {
+	return i.ToMonitorS3ConfigOutputWithContext(context.Background())
+}
+
+func (i MonitorS3ConfigArgs) ToMonitorS3ConfigOutputWithContext(ctx context.Context) MonitorS3ConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorS3ConfigOutput)
+}
+
+func (i MonitorS3ConfigArgs) ToMonitorS3ConfigPtrOutput() MonitorS3ConfigPtrOutput {
+	return i.ToMonitorS3ConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MonitorS3ConfigArgs) ToMonitorS3ConfigPtrOutputWithContext(ctx context.Context) MonitorS3ConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorS3ConfigOutput).ToMonitorS3ConfigPtrOutputWithContext(ctx)
+}
+
+// MonitorS3ConfigPtrInput is an input type that accepts MonitorS3ConfigArgs, MonitorS3ConfigPtr and MonitorS3ConfigPtrOutput values.
+// You can construct a concrete instance of `MonitorS3ConfigPtrInput` via:
+//
+//	        MonitorS3ConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitorS3ConfigPtrInput interface {
+	pulumi.Input
+
+	ToMonitorS3ConfigPtrOutput() MonitorS3ConfigPtrOutput
+	ToMonitorS3ConfigPtrOutputWithContext(context.Context) MonitorS3ConfigPtrOutput
+}
+
+type monitorS3ConfigPtrType MonitorS3ConfigArgs
+
+func MonitorS3ConfigPtr(v *MonitorS3ConfigArgs) MonitorS3ConfigPtrInput {
+	return (*monitorS3ConfigPtrType)(v)
+}
+
+func (*monitorS3ConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorS3Config)(nil)).Elem()
+}
+
+func (i *monitorS3ConfigPtrType) ToMonitorS3ConfigPtrOutput() MonitorS3ConfigPtrOutput {
+	return i.ToMonitorS3ConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *monitorS3ConfigPtrType) ToMonitorS3ConfigPtrOutputWithContext(ctx context.Context) MonitorS3ConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorS3ConfigPtrOutput)
+}
+
+type MonitorS3ConfigOutput struct{ *pulumi.OutputState }
+
+func (MonitorS3ConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorS3Config)(nil)).Elem()
+}
+
+func (o MonitorS3ConfigOutput) ToMonitorS3ConfigOutput() MonitorS3ConfigOutput {
+	return o
+}
+
+func (o MonitorS3ConfigOutput) ToMonitorS3ConfigOutputWithContext(ctx context.Context) MonitorS3ConfigOutput {
+	return o
+}
+
+func (o MonitorS3ConfigOutput) ToMonitorS3ConfigPtrOutput() MonitorS3ConfigPtrOutput {
+	return o.ToMonitorS3ConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorS3ConfigOutput) ToMonitorS3ConfigPtrOutputWithContext(ctx context.Context) MonitorS3ConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorS3Config) *MonitorS3Config {
+		return &v
+	}).(MonitorS3ConfigPtrOutput)
+}
+
+func (o MonitorS3ConfigOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorS3Config) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+func (o MonitorS3ConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorS3Config) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o MonitorS3ConfigOutput) LogDeliveryStatus() MonitorS3ConfigLogDeliveryStatusPtrOutput {
+	return o.ApplyT(func(v MonitorS3Config) *MonitorS3ConfigLogDeliveryStatus { return v.LogDeliveryStatus }).(MonitorS3ConfigLogDeliveryStatusPtrOutput)
+}
+
+type MonitorS3ConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitorS3ConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorS3Config)(nil)).Elem()
+}
+
+func (o MonitorS3ConfigPtrOutput) ToMonitorS3ConfigPtrOutput() MonitorS3ConfigPtrOutput {
+	return o
+}
+
+func (o MonitorS3ConfigPtrOutput) ToMonitorS3ConfigPtrOutputWithContext(ctx context.Context) MonitorS3ConfigPtrOutput {
+	return o
+}
+
+func (o MonitorS3ConfigPtrOutput) Elem() MonitorS3ConfigOutput {
+	return o.ApplyT(func(v *MonitorS3Config) MonitorS3Config {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorS3Config
+		return ret
+	}).(MonitorS3ConfigOutput)
+}
+
+func (o MonitorS3ConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorS3Config) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MonitorS3ConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorS3Config) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MonitorS3ConfigPtrOutput) LogDeliveryStatus() MonitorS3ConfigLogDeliveryStatusPtrOutput {
+	return o.ApplyT(func(v *MonitorS3Config) *MonitorS3ConfigLogDeliveryStatus {
+		if v == nil {
+			return nil
+		}
+		return v.LogDeliveryStatus
+	}).(MonitorS3ConfigLogDeliveryStatusPtrOutput)
+}
+
 // The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 type MonitorTag struct {
 	Key   *string `pulumi:"key"`
@@ -114,8 +410,16 @@ func (o MonitorTagArrayOutput) Index(i pulumi.IntInput) MonitorTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorInternetMeasurementsLogDeliveryInput)(nil)).Elem(), MonitorInternetMeasurementsLogDeliveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorInternetMeasurementsLogDeliveryPtrInput)(nil)).Elem(), MonitorInternetMeasurementsLogDeliveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorS3ConfigInput)(nil)).Elem(), MonitorS3ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorS3ConfigPtrInput)(nil)).Elem(), MonitorS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagInput)(nil)).Elem(), MonitorTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagArrayInput)(nil)).Elem(), MonitorTagArray{})
+	pulumi.RegisterOutputType(MonitorInternetMeasurementsLogDeliveryOutput{})
+	pulumi.RegisterOutputType(MonitorInternetMeasurementsLogDeliveryPtrOutput{})
+	pulumi.RegisterOutputType(MonitorS3ConfigOutput{})
+	pulumi.RegisterOutputType(MonitorS3ConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitorTagOutput{})
 	pulumi.RegisterOutputType(MonitorTagArrayOutput{})
 }

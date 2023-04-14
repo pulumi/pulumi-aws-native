@@ -203,6 +203,10 @@ export interface GetDBInstanceResult {
      */
     readonly replicaMode?: string;
     /**
+     * The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+     */
+    readonly sourceDBClusterIdentifier?: string;
+    /**
      * Specifies the storage throughput for the DB instance.
      */
     readonly storageThroughput?: number;

@@ -118,6 +118,8 @@ type LookupDBInstanceResult struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// The open mode of an Oracle read replica. The default is open-read-only.
 	ReplicaMode *string `pulumi:"replicaMode"`
+	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+	SourceDBClusterIdentifier *string `pulumi:"sourceDBClusterIdentifier"`
 	// Specifies the storage throughput for the DB instance.
 	StorageThroughput *int `pulumi:"storageThroughput"`
 	// Specifies the storage type to be associated with the DB instance.
@@ -384,6 +386,11 @@ func (o LookupDBInstanceResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput 
 // The open mode of an Oracle read replica. The default is open-read-only.
 func (o LookupDBInstanceResultOutput) ReplicaMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.ReplicaMode }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+func (o LookupDBInstanceResultOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the storage throughput for the DB instance.

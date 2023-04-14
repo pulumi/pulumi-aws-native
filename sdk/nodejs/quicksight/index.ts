@@ -55,6 +55,11 @@ export const getTheme: typeof import("./getTheme").getTheme = null as any;
 export const getThemeOutput: typeof import("./getTheme").getThemeOutput = null as any;
 utilities.lazyLoad(exports, ["getTheme","getThemeOutput"], () => require("./getTheme"));
 
+export { RefreshScheduleArgs } from "./refreshSchedule";
+export type RefreshSchedule = import("./refreshSchedule").RefreshSchedule;
+export const RefreshSchedule: typeof import("./refreshSchedule").RefreshSchedule = null as any;
+utilities.lazyLoad(exports, ["RefreshSchedule"], () => require("./refreshSchedule"));
+
 export { TemplateArgs } from "./template";
 export type Template = import("./template").Template;
 export const Template: typeof import("./template").Template = null as any;
@@ -81,6 +86,8 @@ const _module = {
                 return new DataSet(name, <any>undefined, { urn })
             case "aws-native:quicksight:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
+            case "aws-native:quicksight:RefreshSchedule":
+                return new RefreshSchedule(name, <any>undefined, { urn })
             case "aws-native:quicksight:Template":
                 return new Template(name, <any>undefined, { urn })
             case "aws-native:quicksight:Theme":

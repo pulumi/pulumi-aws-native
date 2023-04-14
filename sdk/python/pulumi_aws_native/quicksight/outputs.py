@@ -969,6 +969,9 @@ __all__ = [
     'DataSourceTag',
     'DataSourceTeradataParameters',
     'DataSourceVpcConnectionProperties',
+    'RefreshScheduleMap',
+    'RefreshScheduleMapScheduleFrequencyProperties',
+    'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties',
     'TemplateAggregationFunction',
     'TemplateAggregationSortConfiguration',
     'TemplateAnalysisDefaults',
@@ -47213,6 +47216,206 @@ class DataSourceVpcConnectionProperties(dict):
         <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
         """
         return pulumi.get(self, "vpc_connection_arn")
+
+
+@pulumi.output_type
+class RefreshScheduleMap(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refreshType":
+            suggest = "refresh_type"
+        elif key == "scheduleFrequency":
+            suggest = "schedule_frequency"
+        elif key == "scheduleId":
+            suggest = "schedule_id"
+        elif key == "startAfterDateTime":
+            suggest = "start_after_date_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RefreshScheduleMap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RefreshScheduleMap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RefreshScheduleMap.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 refresh_type: Optional['RefreshScheduleMapRefreshType'] = None,
+                 schedule_frequency: Optional['outputs.RefreshScheduleMapScheduleFrequencyProperties'] = None,
+                 schedule_id: Optional[str] = None,
+                 start_after_date_time: Optional[str] = None):
+        """
+        :param 'RefreshScheduleMapScheduleFrequencyProperties' schedule_frequency: <p>Information about the schedule frequency.</p>
+        :param str schedule_id: <p>An unique identifier for the refresh schedule.</p>
+        :param str start_after_date_time: <p>The date time after which refresh is to be scheduled</p>
+        """
+        if refresh_type is not None:
+            pulumi.set(__self__, "refresh_type", refresh_type)
+        if schedule_frequency is not None:
+            pulumi.set(__self__, "schedule_frequency", schedule_frequency)
+        if schedule_id is not None:
+            pulumi.set(__self__, "schedule_id", schedule_id)
+        if start_after_date_time is not None:
+            pulumi.set(__self__, "start_after_date_time", start_after_date_time)
+
+    @property
+    @pulumi.getter(name="refreshType")
+    def refresh_type(self) -> Optional['RefreshScheduleMapRefreshType']:
+        return pulumi.get(self, "refresh_type")
+
+    @property
+    @pulumi.getter(name="scheduleFrequency")
+    def schedule_frequency(self) -> Optional['outputs.RefreshScheduleMapScheduleFrequencyProperties']:
+        """
+        <p>Information about the schedule frequency.</p>
+        """
+        return pulumi.get(self, "schedule_frequency")
+
+    @property
+    @pulumi.getter(name="scheduleId")
+    def schedule_id(self) -> Optional[str]:
+        """
+        <p>An unique identifier for the refresh schedule.</p>
+        """
+        return pulumi.get(self, "schedule_id")
+
+    @property
+    @pulumi.getter(name="startAfterDateTime")
+    def start_after_date_time(self) -> Optional[str]:
+        """
+        <p>The date time after which refresh is to be scheduled</p>
+        """
+        return pulumi.get(self, "start_after_date_time")
+
+
+@pulumi.output_type
+class RefreshScheduleMapScheduleFrequencyProperties(dict):
+    """
+    <p>Information about the schedule frequency.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refreshOnDay":
+            suggest = "refresh_on_day"
+        elif key == "timeOfTheDay":
+            suggest = "time_of_the_day"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RefreshScheduleMapScheduleFrequencyProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RefreshScheduleMapScheduleFrequencyProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RefreshScheduleMapScheduleFrequencyProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval: Optional['RefreshScheduleMapScheduleFrequencyPropertiesInterval'] = None,
+                 refresh_on_day: Optional['outputs.RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties'] = None,
+                 time_of_the_day: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        """
+        <p>Information about the schedule frequency.</p>
+        :param 'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties' refresh_on_day: <p>The day scheduled for refresh.</p>
+        :param str time_of_the_day: <p>The time of the day for scheduled refresh.</p>
+        :param str time_zone: <p>The timezone for scheduled refresh.</p>
+        """
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if refresh_on_day is not None:
+            pulumi.set(__self__, "refresh_on_day", refresh_on_day)
+        if time_of_the_day is not None:
+            pulumi.set(__self__, "time_of_the_day", time_of_the_day)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional['RefreshScheduleMapScheduleFrequencyPropertiesInterval']:
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="refreshOnDay")
+    def refresh_on_day(self) -> Optional['outputs.RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties']:
+        """
+        <p>The day scheduled for refresh.</p>
+        """
+        return pulumi.get(self, "refresh_on_day")
+
+    @property
+    @pulumi.getter(name="timeOfTheDay")
+    def time_of_the_day(self) -> Optional[str]:
+        """
+        <p>The time of the day for scheduled refresh.</p>
+        """
+        return pulumi.get(self, "time_of_the_day")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        <p>The timezone for scheduled refresh.</p>
+        """
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
+class RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties(dict):
+    """
+    <p>The day scheduled for refresh.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfMonth":
+            suggest = "day_of_month"
+        elif key == "dayOfWeek":
+            suggest = "day_of_week"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_month: Optional[str] = None,
+                 day_of_week: Optional['RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek'] = None):
+        """
+        <p>The day scheduled for refresh.</p>
+        :param str day_of_month: <p>The Day Of Month for scheduled refresh.</p>
+        """
+        if day_of_month is not None:
+            pulumi.set(__self__, "day_of_month", day_of_month)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> Optional[str]:
+        """
+        <p>The Day Of Month for scheduled refresh.</p>
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional['RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek']:
+        return pulumi.get(self, "day_of_week")
 
 
 @pulumi.output_type

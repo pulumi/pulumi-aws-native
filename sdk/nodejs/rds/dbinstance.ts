@@ -287,6 +287,10 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly restoreTime!: pulumi.Output<string | undefined>;
     /**
+     * The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+     */
+    public readonly sourceDBClusterIdentifier!: pulumi.Output<string | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
      */
     public readonly sourceDBInstanceAutomatedBackupsArn!: pulumi.Output<string | undefined>;
@@ -409,6 +413,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["replicaMode"] = args ? args.replicaMode : undefined;
             resourceInputs["restoreTime"] = args ? args.restoreTime : undefined;
+            resourceInputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
             resourceInputs["sourceDBInstanceAutomatedBackupsArn"] = args ? args.sourceDBInstanceAutomatedBackupsArn : undefined;
             resourceInputs["sourceDBInstanceIdentifier"] = args ? args.sourceDBInstanceIdentifier : undefined;
             resourceInputs["sourceDbiResourceId"] = args ? args.sourceDbiResourceId : undefined;
@@ -485,6 +490,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
             resourceInputs["replicaMode"] = undefined /*out*/;
             resourceInputs["restoreTime"] = undefined /*out*/;
+            resourceInputs["sourceDBClusterIdentifier"] = undefined /*out*/;
             resourceInputs["sourceDBInstanceAutomatedBackupsArn"] = undefined /*out*/;
             resourceInputs["sourceDBInstanceIdentifier"] = undefined /*out*/;
             resourceInputs["sourceDbiResourceId"] = undefined /*out*/;
@@ -746,6 +752,10 @@ export interface DBInstanceArgs {
      * The date and time to restore from.
      */
     restoreTime?: pulumi.Input<string>;
+    /**
+     * The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+     */
+    sourceDBClusterIdentifier?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
      */

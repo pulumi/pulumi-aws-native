@@ -66,6 +66,8 @@ export class Environment extends pulumi.CustomResource {
     public readonly requirementsS3Path!: pulumi.Output<string | undefined>;
     public readonly schedulers!: pulumi.Output<number | undefined>;
     public readonly sourceBucketArn!: pulumi.Output<string | undefined>;
+    public readonly startupScriptS3ObjectVersion!: pulumi.Output<string | undefined>;
+    public readonly startupScriptS3Path!: pulumi.Output<string | undefined>;
     /**
      * A map of tags for the environment.
      */
@@ -102,6 +104,8 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["requirementsS3Path"] = args ? args.requirementsS3Path : undefined;
             resourceInputs["schedulers"] = args ? args.schedulers : undefined;
             resourceInputs["sourceBucketArn"] = args ? args.sourceBucketArn : undefined;
+            resourceInputs["startupScriptS3ObjectVersion"] = args ? args.startupScriptS3ObjectVersion : undefined;
+            resourceInputs["startupScriptS3Path"] = args ? args.startupScriptS3Path : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
             resourceInputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
@@ -126,6 +130,8 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["requirementsS3Path"] = undefined /*out*/;
             resourceInputs["schedulers"] = undefined /*out*/;
             resourceInputs["sourceBucketArn"] = undefined /*out*/;
+            resourceInputs["startupScriptS3ObjectVersion"] = undefined /*out*/;
+            resourceInputs["startupScriptS3Path"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["webserverAccessMode"] = undefined /*out*/;
             resourceInputs["webserverUrl"] = undefined /*out*/;
@@ -168,6 +174,8 @@ export interface EnvironmentArgs {
     requirementsS3Path?: pulumi.Input<string>;
     schedulers?: pulumi.Input<number>;
     sourceBucketArn?: pulumi.Input<string>;
+    startupScriptS3ObjectVersion?: pulumi.Input<string>;
+    startupScriptS3Path?: pulumi.Input<string>;
     /**
      * A map of tags for the environment.
      */

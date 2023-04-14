@@ -31,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DeploymentStrategy{}
 	case "aws-native:appconfig:Environment":
 		r = &Environment{}
+	case "aws-native:appconfig:Extension":
+		r = &Extension{}
+	case "aws-native:appconfig:ExtensionAssociation":
+		r = &ExtensionAssociation{}
 	case "aws-native:appconfig:HostedConfigurationVersion":
 		r = &HostedConfigurationVersion{}
 	default:

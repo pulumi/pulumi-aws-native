@@ -63,6 +63,7 @@ export interface GetWorkspaceResult {
      * The user friendly name of a workspace.
      */
     readonly name?: string;
+    readonly networkAccessControl?: outputs.grafana.WorkspaceNetworkAccessControl;
     /**
      * List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
      */

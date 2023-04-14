@@ -1767,6 +1767,36 @@ export const DataSourceType = {
 
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
+export const RefreshScheduleMapRefreshType = {
+    FullRefresh: "FULL_REFRESH",
+    IncrementalRefresh: "INCREMENTAL_REFRESH",
+} as const;
+
+export type RefreshScheduleMapRefreshType = (typeof RefreshScheduleMapRefreshType)[keyof typeof RefreshScheduleMapRefreshType];
+
+export const RefreshScheduleMapScheduleFrequencyPropertiesInterval = {
+    Minute15: "MINUTE15",
+    Minute30: "MINUTE30",
+    Hourly: "HOURLY",
+    Daily: "DAILY",
+    Weekly: "WEEKLY",
+    Monthly: "MONTHLY",
+} as const;
+
+export type RefreshScheduleMapScheduleFrequencyPropertiesInterval = (typeof RefreshScheduleMapScheduleFrequencyPropertiesInterval)[keyof typeof RefreshScheduleMapScheduleFrequencyPropertiesInterval];
+
+export const RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek = {
+    Sunday: "SUNDAY",
+    Monday: "MONDAY",
+    Tuesday: "TUESDAY",
+    Wednesday: "WEDNESDAY",
+    Thursday: "THURSDAY",
+    Friday: "FRIDAY",
+    Saturday: "SATURDAY",
+} as const;
+
+export type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek = (typeof RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek)[keyof typeof RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek];
+
 export const TemplateAnchorOption = {
     Now: "NOW",
 } as const;

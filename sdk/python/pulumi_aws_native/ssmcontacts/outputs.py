@@ -90,6 +90,8 @@ class ContactStage(dict):
         suggest = None
         if key == "durationInMinutes":
             suggest = "duration_in_minutes"
+        elif key == "rotationIds":
+            suggest = "rotation_ids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ContactStage. Access the value via the '{suggest}' property getter instead.")
@@ -103,24 +105,37 @@ class ContactStage(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 duration_in_minutes: int,
+                 duration_in_minutes: Optional[int] = None,
+                 rotation_ids: Optional[Sequence[str]] = None,
                  targets: Optional[Sequence['outputs.ContactTargets']] = None):
         """
         A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
         :param int duration_in_minutes: The time to wait until beginning the next stage.
+        :param Sequence[str] rotation_ids: List of Rotation Ids to associate with Contact
         :param Sequence['ContactTargets'] targets: The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
-        pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
+        if duration_in_minutes is not None:
+            pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
+        if rotation_ids is not None:
+            pulumi.set(__self__, "rotation_ids", rotation_ids)
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> int:
+    def duration_in_minutes(self) -> Optional[int]:
         """
         The time to wait until beginning the next stage.
         """
         return pulumi.get(self, "duration_in_minutes")
+
+    @property
+    @pulumi.getter(name="rotationIds")
+    def rotation_ids(self) -> Optional[Sequence[str]]:
+        """
+        List of Rotation Ids to associate with Contact
+        """
+        return pulumi.get(self, "rotation_ids")
 
     @property
     @pulumi.getter

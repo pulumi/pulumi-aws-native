@@ -960,6 +960,9 @@ __all__ = [
     'DataSourceTagArgs',
     'DataSourceTeradataParametersArgs',
     'DataSourceVpcConnectionPropertiesArgs',
+    'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs',
+    'RefreshScheduleMapScheduleFrequencyPropertiesArgs',
+    'RefreshScheduleMapArgs',
     'TemplateAggregationFunctionArgs',
     'TemplateAggregationSortConfigurationArgs',
     'TemplateAnalysisDefaultsArgs',
@@ -42985,6 +42988,177 @@ class DataSourceVpcConnectionPropertiesArgs:
     @vpc_connection_arn.setter
     def vpc_connection_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpc_connection_arn", value)
+
+
+@pulumi.input_type
+class RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs:
+    def __init__(__self__, *,
+                 day_of_month: Optional[pulumi.Input[str]] = None,
+                 day_of_week: Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek']] = None):
+        """
+        <p>The day scheduled for refresh.</p>
+        :param pulumi.Input[str] day_of_month: <p>The Day Of Month for scheduled refresh.</p>
+        """
+        if day_of_month is not None:
+            pulumi.set(__self__, "day_of_month", day_of_month)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The Day Of Month for scheduled refresh.</p>
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @day_of_month.setter
+    def day_of_month(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "day_of_month", value)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek']]:
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek']]):
+        pulumi.set(self, "day_of_week", value)
+
+
+@pulumi.input_type
+class RefreshScheduleMapScheduleFrequencyPropertiesArgs:
+    def __init__(__self__, *,
+                 interval: Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesInterval']] = None,
+                 refresh_on_day: Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs']] = None,
+                 time_of_the_day: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        <p>Information about the schedule frequency.</p>
+        :param pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs'] refresh_on_day: <p>The day scheduled for refresh.</p>
+        :param pulumi.Input[str] time_of_the_day: <p>The time of the day for scheduled refresh.</p>
+        :param pulumi.Input[str] time_zone: <p>The timezone for scheduled refresh.</p>
+        """
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if refresh_on_day is not None:
+            pulumi.set(__self__, "refresh_on_day", refresh_on_day)
+        if time_of_the_day is not None:
+            pulumi.set(__self__, "time_of_the_day", time_of_the_day)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesInterval']]:
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesInterval']]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="refreshOnDay")
+    def refresh_on_day(self) -> Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs']]:
+        """
+        <p>The day scheduled for refresh.</p>
+        """
+        return pulumi.get(self, "refresh_on_day")
+
+    @refresh_on_day.setter
+    def refresh_on_day(self, value: Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs']]):
+        pulumi.set(self, "refresh_on_day", value)
+
+    @property
+    @pulumi.getter(name="timeOfTheDay")
+    def time_of_the_day(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The time of the day for scheduled refresh.</p>
+        """
+        return pulumi.get(self, "time_of_the_day")
+
+    @time_of_the_day.setter
+    def time_of_the_day(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_of_the_day", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The timezone for scheduled refresh.</p>
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class RefreshScheduleMapArgs:
+    def __init__(__self__, *,
+                 refresh_type: Optional[pulumi.Input['RefreshScheduleMapRefreshType']] = None,
+                 schedule_frequency: Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesArgs']] = None,
+                 schedule_id: Optional[pulumi.Input[str]] = None,
+                 start_after_date_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesArgs'] schedule_frequency: <p>Information about the schedule frequency.</p>
+        :param pulumi.Input[str] schedule_id: <p>An unique identifier for the refresh schedule.</p>
+        :param pulumi.Input[str] start_after_date_time: <p>The date time after which refresh is to be scheduled</p>
+        """
+        if refresh_type is not None:
+            pulumi.set(__self__, "refresh_type", refresh_type)
+        if schedule_frequency is not None:
+            pulumi.set(__self__, "schedule_frequency", schedule_frequency)
+        if schedule_id is not None:
+            pulumi.set(__self__, "schedule_id", schedule_id)
+        if start_after_date_time is not None:
+            pulumi.set(__self__, "start_after_date_time", start_after_date_time)
+
+    @property
+    @pulumi.getter(name="refreshType")
+    def refresh_type(self) -> Optional[pulumi.Input['RefreshScheduleMapRefreshType']]:
+        return pulumi.get(self, "refresh_type")
+
+    @refresh_type.setter
+    def refresh_type(self, value: Optional[pulumi.Input['RefreshScheduleMapRefreshType']]):
+        pulumi.set(self, "refresh_type", value)
+
+    @property
+    @pulumi.getter(name="scheduleFrequency")
+    def schedule_frequency(self) -> Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesArgs']]:
+        """
+        <p>Information about the schedule frequency.</p>
+        """
+        return pulumi.get(self, "schedule_frequency")
+
+    @schedule_frequency.setter
+    def schedule_frequency(self, value: Optional[pulumi.Input['RefreshScheduleMapScheduleFrequencyPropertiesArgs']]):
+        pulumi.set(self, "schedule_frequency", value)
+
+    @property
+    @pulumi.getter(name="scheduleId")
+    def schedule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>An unique identifier for the refresh schedule.</p>
+        """
+        return pulumi.get(self, "schedule_id")
+
+    @schedule_id.setter
+    def schedule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_id", value)
+
+    @property
+    @pulumi.getter(name="startAfterDateTime")
+    def start_after_date_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The date time after which refresh is to be scheduled</p>
+        """
+        return pulumi.get(self, "start_after_date_time")
+
+    @start_after_date_time.setter
+    def start_after_date_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_after_date_time", value)
 
 
 @pulumi.input_type

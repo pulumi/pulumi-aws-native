@@ -18,8 +18,20 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
         /// <summary>
         /// The time to wait until beginning the next stage.
         /// </summary>
-        [Input("durationInMinutes", required: true)]
-        public Input<int> DurationInMinutes { get; set; } = null!;
+        [Input("durationInMinutes")]
+        public Input<int>? DurationInMinutes { get; set; }
+
+        [Input("rotationIds")]
+        private InputList<string>? _rotationIds;
+
+        /// <summary>
+        /// List of Rotation Ids to associate with Contact
+        /// </summary>
+        public InputList<string> RotationIds
+        {
+            get => _rotationIds ?? (_rotationIds = new InputList<string>());
+            set => _rotationIds = value;
+        }
 
         [Input("targets")]
         private InputList<Inputs.ContactTargetsArgs>? _targets;

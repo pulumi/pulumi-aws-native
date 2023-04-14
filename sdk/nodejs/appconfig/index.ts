@@ -30,6 +30,16 @@ export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
 
+export { ExtensionArgs } from "./extension";
+export type Extension = import("./extension").Extension;
+export const Extension: typeof import("./extension").Extension = null as any;
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
+
+export { ExtensionAssociationArgs } from "./extensionAssociation";
+export type ExtensionAssociation = import("./extensionAssociation").ExtensionAssociation;
+export const ExtensionAssociation: typeof import("./extensionAssociation").ExtensionAssociation = null as any;
+utilities.lazyLoad(exports, ["ExtensionAssociation"], () => require("./extensionAssociation"));
+
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
@@ -54,6 +64,16 @@ export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } fr
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
 export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
+
+export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
+export const getExtension: typeof import("./getExtension").getExtension = null as any;
+export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
+
+export { GetExtensionAssociationArgs, GetExtensionAssociationResult, GetExtensionAssociationOutputArgs } from "./getExtensionAssociation";
+export const getExtensionAssociation: typeof import("./getExtensionAssociation").getExtensionAssociation = null as any;
+export const getExtensionAssociationOutput: typeof import("./getExtensionAssociation").getExtensionAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getExtensionAssociation","getExtensionAssociationOutput"], () => require("./getExtensionAssociation"));
 
 export { GetHostedConfigurationVersionArgs, GetHostedConfigurationVersionResult, GetHostedConfigurationVersionOutputArgs } from "./getHostedConfigurationVersion";
 export const getHostedConfigurationVersion: typeof import("./getHostedConfigurationVersion").getHostedConfigurationVersion = null as any;
@@ -80,6 +100,10 @@ const _module = {
                 return new DeploymentStrategy(name, <any>undefined, { urn })
             case "aws-native:appconfig:Environment":
                 return new Environment(name, <any>undefined, { urn })
+            case "aws-native:appconfig:Extension":
+                return new Extension(name, <any>undefined, { urn })
+            case "aws-native:appconfig:ExtensionAssociation":
+                return new ExtensionAssociation(name, <any>undefined, { urn })
             case "aws-native:appconfig:HostedConfigurationVersion":
                 return new HostedConfigurationVersion(name, <any>undefined, { urn })
             default:

@@ -94,6 +94,7 @@ namespace Pulumi.AwsNative.Grafana
         /// The user friendly name of a workspace.
         /// </summary>
         public readonly string? Name;
+        public readonly Outputs.WorkspaceNetworkAccessControl? NetworkAccessControl;
         /// <summary>
         /// List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
         /// </summary>
@@ -146,6 +147,8 @@ namespace Pulumi.AwsNative.Grafana
 
             string? name,
 
+            Outputs.WorkspaceNetworkAccessControl? networkAccessControl,
+
             ImmutableArray<Pulumi.AwsNative.Grafana.WorkspaceNotificationDestinationType> notificationDestinations,
 
             string? organizationRoleName,
@@ -178,6 +181,7 @@ namespace Pulumi.AwsNative.Grafana
             Id = id;
             ModificationTimestamp = modificationTimestamp;
             Name = name;
+            NetworkAccessControl = networkAccessControl;
             NotificationDestinations = notificationDestinations;
             OrganizationRoleName = organizationRoleName;
             OrganizationalUnits = organizationalUnits;

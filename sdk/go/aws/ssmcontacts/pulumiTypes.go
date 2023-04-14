@@ -172,7 +172,9 @@ func (o ContactChannelTargetInfoPtrOutput) RetryIntervalInMinutes() pulumi.IntPt
 // A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 type ContactStage struct {
 	// The time to wait until beginning the next stage.
-	DurationInMinutes int `pulumi:"durationInMinutes"`
+	DurationInMinutes *int `pulumi:"durationInMinutes"`
+	// List of Rotation Ids to associate with Contact
+	RotationIds []string `pulumi:"rotationIds"`
 	// The contacts or contact methods that the escalation plan or engagement plan is engaging.
 	Targets []ContactTargets `pulumi:"targets"`
 }
@@ -191,7 +193,9 @@ type ContactStageInput interface {
 // A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 type ContactStageArgs struct {
 	// The time to wait until beginning the next stage.
-	DurationInMinutes pulumi.IntInput `pulumi:"durationInMinutes"`
+	DurationInMinutes pulumi.IntPtrInput `pulumi:"durationInMinutes"`
+	// List of Rotation Ids to associate with Contact
+	RotationIds pulumi.StringArrayInput `pulumi:"rotationIds"`
 	// The contacts or contact methods that the escalation plan or engagement plan is engaging.
 	Targets ContactTargetsArrayInput `pulumi:"targets"`
 }
@@ -249,8 +253,13 @@ func (o ContactStageOutput) ToContactStageOutputWithContext(ctx context.Context)
 }
 
 // The time to wait until beginning the next stage.
-func (o ContactStageOutput) DurationInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v ContactStage) int { return v.DurationInMinutes }).(pulumi.IntOutput)
+func (o ContactStageOutput) DurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContactStage) *int { return v.DurationInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// List of Rotation Ids to associate with Contact
+func (o ContactStageOutput) RotationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContactStage) []string { return v.RotationIds }).(pulumi.StringArrayOutput)
 }
 
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.

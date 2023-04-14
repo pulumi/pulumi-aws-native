@@ -74,6 +74,7 @@ export class Workspace extends pulumi.CustomResource {
      * The user friendly name of a workspace.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    public readonly networkAccessControl!: pulumi.Output<outputs.grafana.WorkspaceNetworkAccessControl | undefined>;
     /**
      * List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
      */
@@ -130,6 +131,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["dataSources"] = args ? args.dataSources : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkAccessControl"] = args ? args.networkAccessControl : undefined;
             resourceInputs["notificationDestinations"] = args ? args.notificationDestinations : undefined;
             resourceInputs["organizationRoleName"] = args ? args.organizationRoleName : undefined;
             resourceInputs["organizationalUnits"] = args ? args.organizationalUnits : undefined;
@@ -156,6 +158,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["grafanaVersion"] = undefined /*out*/;
             resourceInputs["modificationTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkAccessControl"] = undefined /*out*/;
             resourceInputs["notificationDestinations"] = undefined /*out*/;
             resourceInputs["organizationRoleName"] = undefined /*out*/;
             resourceInputs["organizationalUnits"] = undefined /*out*/;
@@ -198,6 +201,7 @@ export interface WorkspaceArgs {
      * The user friendly name of a workspace.
      */
     name?: pulumi.Input<string>;
+    networkAccessControl?: pulumi.Input<inputs.grafana.WorkspaceNetworkAccessControlArgs>;
     /**
      * List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
      */

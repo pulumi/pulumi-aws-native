@@ -39,7 +39,6 @@ export interface GetGrantResult {
      * License Arn for the grant.
      */
     readonly licenseArn?: string;
-    readonly status?: string;
     /**
      * The version of the grant.
      */

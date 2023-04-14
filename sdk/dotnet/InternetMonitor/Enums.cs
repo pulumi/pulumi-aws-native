@@ -68,4 +68,32 @@ namespace Pulumi.AwsNative.InternetMonitor
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct MonitorS3ConfigLogDeliveryStatus : IEquatable<MonitorS3ConfigLogDeliveryStatus>
+    {
+        private readonly string _value;
+
+        private MonitorS3ConfigLogDeliveryStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MonitorS3ConfigLogDeliveryStatus Enabled { get; } = new MonitorS3ConfigLogDeliveryStatus("ENABLED");
+        public static MonitorS3ConfigLogDeliveryStatus Disabled { get; } = new MonitorS3ConfigLogDeliveryStatus("DISABLED");
+
+        public static bool operator ==(MonitorS3ConfigLogDeliveryStatus left, MonitorS3ConfigLogDeliveryStatus right) => left.Equals(right);
+        public static bool operator !=(MonitorS3ConfigLogDeliveryStatus left, MonitorS3ConfigLogDeliveryStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MonitorS3ConfigLogDeliveryStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitorS3ConfigLogDeliveryStatus other && Equals(other);
+        public bool Equals(MonitorS3ConfigLogDeliveryStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

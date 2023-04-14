@@ -23,24 +23,26 @@ type Environment struct {
 	//     Would be represented as
 	//
 	//     "core.dags_folder": "{AIRFLOW_HOME}/dags"
-	AirflowConfigurationOptions pulumi.AnyOutput                         `pulumi:"airflowConfigurationOptions"`
-	AirflowVersion              pulumi.StringPtrOutput                   `pulumi:"airflowVersion"`
-	Arn                         pulumi.StringOutput                      `pulumi:"arn"`
-	DagS3Path                   pulumi.StringPtrOutput                   `pulumi:"dagS3Path"`
-	EnvironmentClass            pulumi.StringPtrOutput                   `pulumi:"environmentClass"`
-	ExecutionRoleArn            pulumi.StringPtrOutput                   `pulumi:"executionRoleArn"`
-	KmsKey                      pulumi.StringPtrOutput                   `pulumi:"kmsKey"`
-	LoggingConfiguration        EnvironmentLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
-	MaxWorkers                  pulumi.IntPtrOutput                      `pulumi:"maxWorkers"`
-	MinWorkers                  pulumi.IntPtrOutput                      `pulumi:"minWorkers"`
-	Name                        pulumi.StringOutput                      `pulumi:"name"`
-	NetworkConfiguration        EnvironmentNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
-	PluginsS3ObjectVersion      pulumi.StringPtrOutput                   `pulumi:"pluginsS3ObjectVersion"`
-	PluginsS3Path               pulumi.StringPtrOutput                   `pulumi:"pluginsS3Path"`
-	RequirementsS3ObjectVersion pulumi.StringPtrOutput                   `pulumi:"requirementsS3ObjectVersion"`
-	RequirementsS3Path          pulumi.StringPtrOutput                   `pulumi:"requirementsS3Path"`
-	Schedulers                  pulumi.IntPtrOutput                      `pulumi:"schedulers"`
-	SourceBucketArn             pulumi.StringPtrOutput                   `pulumi:"sourceBucketArn"`
+	AirflowConfigurationOptions  pulumi.AnyOutput                         `pulumi:"airflowConfigurationOptions"`
+	AirflowVersion               pulumi.StringPtrOutput                   `pulumi:"airflowVersion"`
+	Arn                          pulumi.StringOutput                      `pulumi:"arn"`
+	DagS3Path                    pulumi.StringPtrOutput                   `pulumi:"dagS3Path"`
+	EnvironmentClass             pulumi.StringPtrOutput                   `pulumi:"environmentClass"`
+	ExecutionRoleArn             pulumi.StringPtrOutput                   `pulumi:"executionRoleArn"`
+	KmsKey                       pulumi.StringPtrOutput                   `pulumi:"kmsKey"`
+	LoggingConfiguration         EnvironmentLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
+	MaxWorkers                   pulumi.IntPtrOutput                      `pulumi:"maxWorkers"`
+	MinWorkers                   pulumi.IntPtrOutput                      `pulumi:"minWorkers"`
+	Name                         pulumi.StringOutput                      `pulumi:"name"`
+	NetworkConfiguration         EnvironmentNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
+	PluginsS3ObjectVersion       pulumi.StringPtrOutput                   `pulumi:"pluginsS3ObjectVersion"`
+	PluginsS3Path                pulumi.StringPtrOutput                   `pulumi:"pluginsS3Path"`
+	RequirementsS3ObjectVersion  pulumi.StringPtrOutput                   `pulumi:"requirementsS3ObjectVersion"`
+	RequirementsS3Path           pulumi.StringPtrOutput                   `pulumi:"requirementsS3Path"`
+	Schedulers                   pulumi.IntPtrOutput                      `pulumi:"schedulers"`
+	SourceBucketArn              pulumi.StringPtrOutput                   `pulumi:"sourceBucketArn"`
+	StartupScriptS3ObjectVersion pulumi.StringPtrOutput                   `pulumi:"startupScriptS3ObjectVersion"`
+	StartupScriptS3Path          pulumi.StringPtrOutput                   `pulumi:"startupScriptS3Path"`
 	// A map of tags for the environment.
 	Tags                         pulumi.AnyOutput                        `pulumi:"tags"`
 	WebserverAccessMode          EnvironmentWebserverAccessModePtrOutput `pulumi:"webserverAccessMode"`
@@ -96,23 +98,25 @@ type environmentArgs struct {
 	//     Would be represented as
 	//
 	//     "core.dags_folder": "{AIRFLOW_HOME}/dags"
-	AirflowConfigurationOptions interface{}                      `pulumi:"airflowConfigurationOptions"`
-	AirflowVersion              *string                          `pulumi:"airflowVersion"`
-	DagS3Path                   *string                          `pulumi:"dagS3Path"`
-	EnvironmentClass            *string                          `pulumi:"environmentClass"`
-	ExecutionRoleArn            *string                          `pulumi:"executionRoleArn"`
-	KmsKey                      *string                          `pulumi:"kmsKey"`
-	LoggingConfiguration        *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
-	MaxWorkers                  *int                             `pulumi:"maxWorkers"`
-	MinWorkers                  *int                             `pulumi:"minWorkers"`
-	Name                        *string                          `pulumi:"name"`
-	NetworkConfiguration        *EnvironmentNetworkConfiguration `pulumi:"networkConfiguration"`
-	PluginsS3ObjectVersion      *string                          `pulumi:"pluginsS3ObjectVersion"`
-	PluginsS3Path               *string                          `pulumi:"pluginsS3Path"`
-	RequirementsS3ObjectVersion *string                          `pulumi:"requirementsS3ObjectVersion"`
-	RequirementsS3Path          *string                          `pulumi:"requirementsS3Path"`
-	Schedulers                  *int                             `pulumi:"schedulers"`
-	SourceBucketArn             *string                          `pulumi:"sourceBucketArn"`
+	AirflowConfigurationOptions  interface{}                      `pulumi:"airflowConfigurationOptions"`
+	AirflowVersion               *string                          `pulumi:"airflowVersion"`
+	DagS3Path                    *string                          `pulumi:"dagS3Path"`
+	EnvironmentClass             *string                          `pulumi:"environmentClass"`
+	ExecutionRoleArn             *string                          `pulumi:"executionRoleArn"`
+	KmsKey                       *string                          `pulumi:"kmsKey"`
+	LoggingConfiguration         *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
+	MaxWorkers                   *int                             `pulumi:"maxWorkers"`
+	MinWorkers                   *int                             `pulumi:"minWorkers"`
+	Name                         *string                          `pulumi:"name"`
+	NetworkConfiguration         *EnvironmentNetworkConfiguration `pulumi:"networkConfiguration"`
+	PluginsS3ObjectVersion       *string                          `pulumi:"pluginsS3ObjectVersion"`
+	PluginsS3Path                *string                          `pulumi:"pluginsS3Path"`
+	RequirementsS3ObjectVersion  *string                          `pulumi:"requirementsS3ObjectVersion"`
+	RequirementsS3Path           *string                          `pulumi:"requirementsS3Path"`
+	Schedulers                   *int                             `pulumi:"schedulers"`
+	SourceBucketArn              *string                          `pulumi:"sourceBucketArn"`
+	StartupScriptS3ObjectVersion *string                          `pulumi:"startupScriptS3ObjectVersion"`
+	StartupScriptS3Path          *string                          `pulumi:"startupScriptS3Path"`
 	// A map of tags for the environment.
 	Tags                         interface{}                     `pulumi:"tags"`
 	WebserverAccessMode          *EnvironmentWebserverAccessMode `pulumi:"webserverAccessMode"`
@@ -130,23 +134,25 @@ type EnvironmentArgs struct {
 	//     Would be represented as
 	//
 	//     "core.dags_folder": "{AIRFLOW_HOME}/dags"
-	AirflowConfigurationOptions pulumi.Input
-	AirflowVersion              pulumi.StringPtrInput
-	DagS3Path                   pulumi.StringPtrInput
-	EnvironmentClass            pulumi.StringPtrInput
-	ExecutionRoleArn            pulumi.StringPtrInput
-	KmsKey                      pulumi.StringPtrInput
-	LoggingConfiguration        EnvironmentLoggingConfigurationPtrInput
-	MaxWorkers                  pulumi.IntPtrInput
-	MinWorkers                  pulumi.IntPtrInput
-	Name                        pulumi.StringPtrInput
-	NetworkConfiguration        EnvironmentNetworkConfigurationPtrInput
-	PluginsS3ObjectVersion      pulumi.StringPtrInput
-	PluginsS3Path               pulumi.StringPtrInput
-	RequirementsS3ObjectVersion pulumi.StringPtrInput
-	RequirementsS3Path          pulumi.StringPtrInput
-	Schedulers                  pulumi.IntPtrInput
-	SourceBucketArn             pulumi.StringPtrInput
+	AirflowConfigurationOptions  pulumi.Input
+	AirflowVersion               pulumi.StringPtrInput
+	DagS3Path                    pulumi.StringPtrInput
+	EnvironmentClass             pulumi.StringPtrInput
+	ExecutionRoleArn             pulumi.StringPtrInput
+	KmsKey                       pulumi.StringPtrInput
+	LoggingConfiguration         EnvironmentLoggingConfigurationPtrInput
+	MaxWorkers                   pulumi.IntPtrInput
+	MinWorkers                   pulumi.IntPtrInput
+	Name                         pulumi.StringPtrInput
+	NetworkConfiguration         EnvironmentNetworkConfigurationPtrInput
+	PluginsS3ObjectVersion       pulumi.StringPtrInput
+	PluginsS3Path                pulumi.StringPtrInput
+	RequirementsS3ObjectVersion  pulumi.StringPtrInput
+	RequirementsS3Path           pulumi.StringPtrInput
+	Schedulers                   pulumi.IntPtrInput
+	SourceBucketArn              pulumi.StringPtrInput
+	StartupScriptS3ObjectVersion pulumi.StringPtrInput
+	StartupScriptS3Path          pulumi.StringPtrInput
 	// A map of tags for the environment.
 	Tags                         pulumi.Input
 	WebserverAccessMode          EnvironmentWebserverAccessModePtrInput
@@ -270,6 +276,14 @@ func (o EnvironmentOutput) Schedulers() pulumi.IntPtrOutput {
 
 func (o EnvironmentOutput) SourceBucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.SourceBucketArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) StartupScriptS3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.StartupScriptS3ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) StartupScriptS3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.StartupScriptS3Path }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags for the environment.

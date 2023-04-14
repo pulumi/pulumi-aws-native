@@ -25,9 +25,15 @@ type LookupDataLakeSettingsArgs struct {
 }
 
 type LookupDataLakeSettingsResult struct {
-	Admins                *DataLakeSettingsAdmins `pulumi:"admins"`
-	Id                    *string                 `pulumi:"id"`
-	TrustedResourceOwners []string                `pulumi:"trustedResourceOwners"`
+	Admins                           *DataLakeSettingsAdmins                           `pulumi:"admins"`
+	AllowExternalDataFiltering       *bool                                             `pulumi:"allowExternalDataFiltering"`
+	AuthorizedSessionTagValueList    []string                                          `pulumi:"authorizedSessionTagValueList"`
+	CreateDatabaseDefaultPermissions *DataLakeSettingsCreateDatabaseDefaultPermissions `pulumi:"createDatabaseDefaultPermissions"`
+	CreateTableDefaultPermissions    *DataLakeSettingsCreateTableDefaultPermissions    `pulumi:"createTableDefaultPermissions"`
+	ExternalDataFilteringAllowList   *DataLakeSettingsExternalDataFilteringAllowList   `pulumi:"externalDataFilteringAllowList"`
+	Id                               *string                                           `pulumi:"id"`
+	Parameters                       interface{}                                       `pulumi:"parameters"`
+	TrustedResourceOwners            []string                                          `pulumi:"trustedResourceOwners"`
 }
 
 func LookupDataLakeSettingsOutput(ctx *pulumi.Context, args LookupDataLakeSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupDataLakeSettingsResultOutput {
@@ -69,8 +75,38 @@ func (o LookupDataLakeSettingsResultOutput) Admins() DataLakeSettingsAdminsPtrOu
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) *DataLakeSettingsAdmins { return v.Admins }).(DataLakeSettingsAdminsPtrOutput)
 }
 
+func (o LookupDataLakeSettingsResultOutput) AllowExternalDataFiltering() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) *bool { return v.AllowExternalDataFiltering }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupDataLakeSettingsResultOutput) AuthorizedSessionTagValueList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) []string { return v.AuthorizedSessionTagValueList }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupDataLakeSettingsResultOutput) CreateDatabaseDefaultPermissions() DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) *DataLakeSettingsCreateDatabaseDefaultPermissions {
+		return v.CreateDatabaseDefaultPermissions
+	}).(DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput)
+}
+
+func (o LookupDataLakeSettingsResultOutput) CreateTableDefaultPermissions() DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) *DataLakeSettingsCreateTableDefaultPermissions {
+		return v.CreateTableDefaultPermissions
+	}).(DataLakeSettingsCreateTableDefaultPermissionsPtrOutput)
+}
+
+func (o LookupDataLakeSettingsResultOutput) ExternalDataFilteringAllowList() DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) *DataLakeSettingsExternalDataFilteringAllowList {
+		return v.ExternalDataFilteringAllowList
+	}).(DataLakeSettingsExternalDataFilteringAllowListPtrOutput)
+}
+
 func (o LookupDataLakeSettingsResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDataLakeSettingsResultOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
 func (o LookupDataLakeSettingsResultOutput) TrustedResourceOwners() pulumi.StringArrayOutput {

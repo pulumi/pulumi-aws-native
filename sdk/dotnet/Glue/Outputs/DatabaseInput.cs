@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.Glue.Outputs
     {
         public readonly ImmutableArray<Outputs.DatabasePrincipalPrivileges> CreateTableDefaultPermissions;
         public readonly string? Description;
+        public readonly Outputs.DatabaseFederatedDatabase? FederatedDatabase;
         public readonly string? LocationUri;
         public readonly string? Name;
         public readonly object? Parameters;
@@ -26,6 +27,8 @@ namespace Pulumi.AwsNative.Glue.Outputs
 
             string? description,
 
+            Outputs.DatabaseFederatedDatabase? federatedDatabase,
+
             string? locationUri,
 
             string? name,
@@ -36,6 +39,7 @@ namespace Pulumi.AwsNative.Glue.Outputs
         {
             CreateTableDefaultPermissions = createTableDefaultPermissions;
             Description = description;
+            FederatedDatabase = federatedDatabase;
             LocationUri = locationUri;
             Name = name;
             Parameters = parameters;

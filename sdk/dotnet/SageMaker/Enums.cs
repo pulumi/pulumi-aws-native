@@ -77,6 +77,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static AppResourceSpecInstanceType MlG516xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.16xlarge");
         public static AppResourceSpecInstanceType MlG524xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.24xlarge");
         public static AppResourceSpecInstanceType MlG548xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.48xlarge");
+        public static AppResourceSpecInstanceType MlGeospatialInteractive { get; } = new AppResourceSpecInstanceType("ml.geospatial.interactive");
 
         public static bool operator ==(AppResourceSpecInstanceType left, AppResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(AppResourceSpecInstanceType left, AppResourceSpecInstanceType right) => !left.Equals(right);
@@ -507,6 +508,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static DomainResourceSpecInstanceType MlG516xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.16xlarge");
         public static DomainResourceSpecInstanceType MlG524xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.24xlarge");
         public static DomainResourceSpecInstanceType MlG548xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.48xlarge");
+        public static DomainResourceSpecInstanceType MlGeospatialInteractive { get; } = new DomainResourceSpecInstanceType("ml.geospatial.interactive");
 
         public static bool operator ==(DomainResourceSpecInstanceType left, DomainResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(DomainResourceSpecInstanceType left, DomainResourceSpecInstanceType right) => !left.Equals(right);
@@ -2172,6 +2174,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static SpaceResourceSpecInstanceType MlG516xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.16xlarge");
         public static SpaceResourceSpecInstanceType MlG524xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.24xlarge");
         public static SpaceResourceSpecInstanceType MlG548xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.48xlarge");
+        public static SpaceResourceSpecInstanceType MlGeospatialInteractive { get; } = new SpaceResourceSpecInstanceType("ml.geospatial.interactive");
 
         public static bool operator ==(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => !left.Equals(right);
@@ -2320,6 +2323,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileResourceSpecInstanceType MlG516xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.16xlarge");
         public static UserProfileResourceSpecInstanceType MlG524xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.24xlarge");
         public static UserProfileResourceSpecInstanceType MlG548xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.48xlarge");
+        public static UserProfileResourceSpecInstanceType MlGeospatialInteractive { get; } = new UserProfileResourceSpecInstanceType("ml.geospatial.interactive");
 
         public static bool operator ==(UserProfileResourceSpecInstanceType left, UserProfileResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(UserProfileResourceSpecInstanceType left, UserProfileResourceSpecInstanceType right) => !left.Equals(right);

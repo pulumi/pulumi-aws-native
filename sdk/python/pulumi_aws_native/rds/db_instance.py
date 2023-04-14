@@ -72,6 +72,7 @@ class DBInstanceArgs:
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replica_mode: Optional[pulumi.Input[str]] = None,
                  restore_time: Optional[pulumi.Input[str]] = None,
+                 source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_instance_automated_backups_arn: Optional[pulumi.Input[str]] = None,
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  source_dbi_resource_id: Optional[pulumi.Input[str]] = None,
@@ -160,6 +161,7 @@ class DBInstanceArgs:
         :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
         :param pulumi.Input[str] replica_mode: The open mode of an Oracle read replica. The default is open-read-only.
         :param pulumi.Input[str] restore_time: The date and time to restore from.
+        :param pulumi.Input[str] source_db_cluster_identifier: The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
         :param pulumi.Input[str] source_db_instance_automated_backups_arn: The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
         :param pulumi.Input[str] source_db_instance_identifier: If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
         :param pulumi.Input[str] source_dbi_resource_id: The resource ID of the source DB instance from which to restore.
@@ -285,6 +287,8 @@ class DBInstanceArgs:
             pulumi.set(__self__, "replica_mode", replica_mode)
         if restore_time is not None:
             pulumi.set(__self__, "restore_time", restore_time)
+        if source_db_cluster_identifier is not None:
+            pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
         if source_db_instance_automated_backups_arn is not None:
             pulumi.set(__self__, "source_db_instance_automated_backups_arn", source_db_instance_automated_backups_arn)
         if source_db_instance_identifier is not None:
@@ -992,6 +996,18 @@ class DBInstanceArgs:
         pulumi.set(self, "restore_time", value)
 
     @property
+    @pulumi.getter(name="sourceDBClusterIdentifier")
+    def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+        """
+        return pulumi.get(self, "source_db_cluster_identifier")
+
+    @source_db_cluster_identifier.setter
+    def source_db_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_db_cluster_identifier", value)
+
+    @property
     @pulumi.getter(name="sourceDBInstanceAutomatedBackupsArn")
     def source_db_instance_automated_backups_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1220,6 +1236,7 @@ class DBInstance(pulumi.CustomResource):
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replica_mode: Optional[pulumi.Input[str]] = None,
                  restore_time: Optional[pulumi.Input[str]] = None,
+                 source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_instance_automated_backups_arn: Optional[pulumi.Input[str]] = None,
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  source_dbi_resource_id: Optional[pulumi.Input[str]] = None,
@@ -1312,6 +1329,7 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
         :param pulumi.Input[str] replica_mode: The open mode of an Oracle read replica. The default is open-read-only.
         :param pulumi.Input[str] restore_time: The date and time to restore from.
+        :param pulumi.Input[str] source_db_cluster_identifier: The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
         :param pulumi.Input[str] source_db_instance_automated_backups_arn: The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
         :param pulumi.Input[str] source_db_instance_identifier: If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
         :param pulumi.Input[str] source_dbi_resource_id: The resource ID of the source DB instance from which to restore.
@@ -1406,6 +1424,7 @@ class DBInstance(pulumi.CustomResource):
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replica_mode: Optional[pulumi.Input[str]] = None,
                  restore_time: Optional[pulumi.Input[str]] = None,
+                 source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_instance_automated_backups_arn: Optional[pulumi.Input[str]] = None,
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  source_dbi_resource_id: Optional[pulumi.Input[str]] = None,
@@ -1484,6 +1503,7 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["replica_mode"] = replica_mode
             __props__.__dict__["restore_time"] = restore_time
+            __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
             __props__.__dict__["source_db_instance_automated_backups_arn"] = source_db_instance_automated_backups_arn
             __props__.__dict__["source_db_instance_identifier"] = source_db_instance_identifier
             __props__.__dict__["source_dbi_resource_id"] = source_dbi_resource_id
@@ -1581,6 +1601,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["publicly_accessible"] = None
         __props__.__dict__["replica_mode"] = None
         __props__.__dict__["restore_time"] = None
+        __props__.__dict__["source_db_cluster_identifier"] = None
         __props__.__dict__["source_db_instance_automated_backups_arn"] = None
         __props__.__dict__["source_db_instance_identifier"] = None
         __props__.__dict__["source_dbi_resource_id"] = None
@@ -2077,6 +2098,14 @@ class DBInstance(pulumi.CustomResource):
         The date and time to restore from.
         """
         return pulumi.get(self, "restore_time")
+
+    @property
+    @pulumi.getter(name="sourceDBClusterIdentifier")
+    def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+        """
+        return pulumi.get(self, "source_db_cluster_identifier")
 
     @property
     @pulumi.getter(name="sourceDBInstanceAutomatedBackupsArn")

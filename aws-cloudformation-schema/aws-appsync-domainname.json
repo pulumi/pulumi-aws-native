@@ -30,7 +30,7 @@
   "taggable" : false,
   "required" : [ "DomainName", "CertificateArn" ],
   "primaryIdentifier" : [ "/properties/DomainName" ],
-  "readOnlyProperties" : [ "/properties/AppSyncDomainName", "/properties/DomainName", "/properties/HostedZoneId" ],
+  "readOnlyProperties" : [ "/properties/AppSyncDomainName", "/properties/HostedZoneId" ],
   "createOnlyProperties" : [ "/properties/DomainName", "/properties/CertificateArn" ],
   "handlers" : {
     "create" : {
@@ -44,6 +44,9 @@
     },
     "read" : {
       "permissions" : [ "appsync:GetDomainName" ]
+    },
+    "list" : {
+      "permissions" : [ "appsync:ListDomainNames" ]
     }
   }
 }

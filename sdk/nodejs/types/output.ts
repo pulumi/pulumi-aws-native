@@ -1161,6 +1161,34 @@ export namespace appconfig {
         value?: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ExtensionAssociationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ExtensionTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
 }
 
 export namespace appflow {
@@ -15590,6 +15618,13 @@ export namespace glue {
         tables?: string[];
     }
 
+    export interface CrawlerDeltaTarget {
+        connectionName?: string;
+        createNativeDeltaTable?: boolean;
+        deltaTables?: string[];
+        writeManifest?: boolean;
+    }
+
     export interface CrawlerDynamoDBTarget {
         path?: string;
     }
@@ -15629,6 +15664,7 @@ export namespace glue {
 
     export interface CrawlerTargets {
         catalogTargets?: outputs.glue.CrawlerCatalogTarget[];
+        deltaTargets?: outputs.glue.CrawlerDeltaTarget[];
         dynamoDBTargets?: outputs.glue.CrawlerDynamoDBTarget[];
         jdbcTargets?: outputs.glue.CrawlerJdbcTarget[];
         mongoDBTargets?: outputs.glue.CrawlerMongoDBTarget[];
@@ -15654,6 +15690,11 @@ export namespace glue {
         dataLakePrincipalIdentifier?: string;
     }
 
+    export interface DatabaseFederatedDatabase {
+        connectionName?: string;
+        identifier?: string;
+    }
+
     export interface DatabaseIdentifier {
         catalogId?: string;
         databaseName?: string;
@@ -15662,6 +15703,7 @@ export namespace glue {
     export interface DatabaseInput {
         createTableDefaultPermissions?: outputs.glue.DatabasePrincipalPrivileges[];
         description?: string;
+        federatedDatabase?: outputs.glue.DatabaseFederatedDatabase;
         locationUri?: string;
         name?: string;
         parameters?: any;
@@ -16015,6 +16057,20 @@ export namespace grafana {
          * XML blob of the IdPs metadata.
          */
         xml?: string;
+    }
+
+    /**
+     * The configuration settings for Network Access Control.
+     */
+    export interface WorkspaceNetworkAccessControl {
+        /**
+         * The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
+         */
+        prefixListIds?: string[];
+        /**
+         * The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
+         */
+        vpceIds?: string[];
     }
 
     /**
@@ -17556,6 +17612,16 @@ export namespace inspectorv2 {
 }
 
 export namespace internetmonitor {
+    export interface MonitorInternetMeasurementsLogDelivery {
+        s3Config?: outputs.internetmonitor.MonitorS3Config;
+    }
+
+    export interface MonitorS3Config {
+        bucketName?: string;
+        bucketPrefix?: string;
+        logDeliveryStatus?: enums.internetmonitor.MonitorS3ConfigLogDeliveryStatus;
+    }
+
     /**
      * The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
      */
@@ -22284,6 +22350,15 @@ export namespace lakeformation {
     }
 
     export interface DataLakeSettingsAdmins {
+    }
+
+    export interface DataLakeSettingsCreateDatabaseDefaultPermissions {
+    }
+
+    export interface DataLakeSettingsCreateTableDefaultPermissions {
+    }
+
+    export interface DataLakeSettingsExternalDataFilteringAllowList {
     }
 
     export interface PermissionsColumnWildcard {
@@ -36233,6 +36308,52 @@ export namespace quicksight {
         vpcConnectionArn: string;
     }
 
+    export interface RefreshScheduleMap {
+        refreshType?: enums.quicksight.RefreshScheduleMapRefreshType;
+        /**
+         * <p>Information about the schedule frequency.</p>
+         */
+        scheduleFrequency?: outputs.quicksight.RefreshScheduleMapScheduleFrequencyProperties;
+        /**
+         * <p>An unique identifier for the refresh schedule.</p>
+         */
+        scheduleId?: string;
+        /**
+         * <p>The date time after which refresh is to be scheduled</p>
+         */
+        startAfterDateTime?: string;
+    }
+
+    /**
+     * <p>Information about the schedule frequency.</p>
+     */
+    export interface RefreshScheduleMapScheduleFrequencyProperties {
+        interval?: enums.quicksight.RefreshScheduleMapScheduleFrequencyPropertiesInterval;
+        /**
+         * <p>The day scheduled for refresh.</p>
+         */
+        refreshOnDay?: outputs.quicksight.RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties;
+        /**
+         * <p>The time of the day for scheduled refresh.</p>
+         */
+        timeOfTheDay?: string;
+        /**
+         * <p>The timezone for scheduled refresh.</p>
+         */
+        timeZone?: string;
+    }
+
+    /**
+     * <p>The day scheduled for refresh.</p>
+     */
+    export interface RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties {
+        /**
+         * <p>The Day Of Month for scheduled refresh.</p>
+         */
+        dayOfMonth?: string;
+        dayOfWeek?: enums.quicksight.RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek;
+    }
+
     export interface TemplateAggregationFunction {
         categoricalAggregationFunction?: enums.quicksight.TemplateCategoricalAggregationFunction;
         dateAggregationFunction?: enums.quicksight.TemplateDateAggregationFunction;
@@ -46451,7 +46572,11 @@ export namespace ssmcontacts {
         /**
          * The time to wait until beginning the next stage.
          */
-        durationInMinutes: number;
+        durationInMinutes?: number;
+        /**
+         * List of Rotation Ids to associate with Contact
+         */
+        rotationIds?: string[];
         /**
          * The contacts or contact methods that the escalation plan or engagement plan is engaging.
          */

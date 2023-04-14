@@ -78,6 +78,8 @@ namespace Pulumi.AwsNative.MWAA
         public readonly string? RequirementsS3Path;
         public readonly int? Schedulers;
         public readonly string? SourceBucketArn;
+        public readonly string? StartupScriptS3ObjectVersion;
+        public readonly string? StartupScriptS3Path;
         /// <summary>
         /// A map of tags for the environment.
         /// </summary>
@@ -120,6 +122,10 @@ namespace Pulumi.AwsNative.MWAA
 
             string? sourceBucketArn,
 
+            string? startupScriptS3ObjectVersion,
+
+            string? startupScriptS3Path,
+
             object? tags,
 
             Pulumi.AwsNative.MWAA.EnvironmentWebserverAccessMode? webserverAccessMode,
@@ -144,6 +150,8 @@ namespace Pulumi.AwsNative.MWAA
             RequirementsS3Path = requirementsS3Path;
             Schedulers = schedulers;
             SourceBucketArn = sourceBucketArn;
+            StartupScriptS3ObjectVersion = startupScriptS3ObjectVersion;
+            StartupScriptS3Path = startupScriptS3Path;
             Tags = tags;
             WebserverAccessMode = webserverAccessMode;
             WebserverUrl = webserverUrl;

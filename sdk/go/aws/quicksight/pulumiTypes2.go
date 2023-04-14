@@ -10,6 +10,499 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type TemplateCategoricalMeasureField struct {
+	AggregationFunction *TemplateCategoricalAggregationFunction `pulumi:"aggregationFunction"`
+	Column              TemplateColumnIdentifier                `pulumi:"column"`
+	FieldId             string                                  `pulumi:"fieldId"`
+	FormatConfiguration *TemplateStringFormatConfiguration      `pulumi:"formatConfiguration"`
+}
+
+// TemplateCategoricalMeasureFieldInput is an input type that accepts TemplateCategoricalMeasureFieldArgs and TemplateCategoricalMeasureFieldOutput values.
+// You can construct a concrete instance of `TemplateCategoricalMeasureFieldInput` via:
+//
+//	TemplateCategoricalMeasureFieldArgs{...}
+type TemplateCategoricalMeasureFieldInput interface {
+	pulumi.Input
+
+	ToTemplateCategoricalMeasureFieldOutput() TemplateCategoricalMeasureFieldOutput
+	ToTemplateCategoricalMeasureFieldOutputWithContext(context.Context) TemplateCategoricalMeasureFieldOutput
+}
+
+type TemplateCategoricalMeasureFieldArgs struct {
+	AggregationFunction TemplateCategoricalAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
+	Column              TemplateColumnIdentifierInput                  `pulumi:"column"`
+	FieldId             pulumi.StringInput                             `pulumi:"fieldId"`
+	FormatConfiguration TemplateStringFormatConfigurationPtrInput      `pulumi:"formatConfiguration"`
+}
+
+func (TemplateCategoricalMeasureFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCategoricalMeasureField)(nil)).Elem()
+}
+
+func (i TemplateCategoricalMeasureFieldArgs) ToTemplateCategoricalMeasureFieldOutput() TemplateCategoricalMeasureFieldOutput {
+	return i.ToTemplateCategoricalMeasureFieldOutputWithContext(context.Background())
+}
+
+func (i TemplateCategoricalMeasureFieldArgs) ToTemplateCategoricalMeasureFieldOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoricalMeasureFieldOutput)
+}
+
+func (i TemplateCategoricalMeasureFieldArgs) ToTemplateCategoricalMeasureFieldPtrOutput() TemplateCategoricalMeasureFieldPtrOutput {
+	return i.ToTemplateCategoricalMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateCategoricalMeasureFieldArgs) ToTemplateCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoricalMeasureFieldOutput).ToTemplateCategoricalMeasureFieldPtrOutputWithContext(ctx)
+}
+
+// TemplateCategoricalMeasureFieldPtrInput is an input type that accepts TemplateCategoricalMeasureFieldArgs, TemplateCategoricalMeasureFieldPtr and TemplateCategoricalMeasureFieldPtrOutput values.
+// You can construct a concrete instance of `TemplateCategoricalMeasureFieldPtrInput` via:
+//
+//	        TemplateCategoricalMeasureFieldArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateCategoricalMeasureFieldPtrInput interface {
+	pulumi.Input
+
+	ToTemplateCategoricalMeasureFieldPtrOutput() TemplateCategoricalMeasureFieldPtrOutput
+	ToTemplateCategoricalMeasureFieldPtrOutputWithContext(context.Context) TemplateCategoricalMeasureFieldPtrOutput
+}
+
+type templateCategoricalMeasureFieldPtrType TemplateCategoricalMeasureFieldArgs
+
+func TemplateCategoricalMeasureFieldPtr(v *TemplateCategoricalMeasureFieldArgs) TemplateCategoricalMeasureFieldPtrInput {
+	return (*templateCategoricalMeasureFieldPtrType)(v)
+}
+
+func (*templateCategoricalMeasureFieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCategoricalMeasureField)(nil)).Elem()
+}
+
+func (i *templateCategoricalMeasureFieldPtrType) ToTemplateCategoricalMeasureFieldPtrOutput() TemplateCategoricalMeasureFieldPtrOutput {
+	return i.ToTemplateCategoricalMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i *templateCategoricalMeasureFieldPtrType) ToTemplateCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoricalMeasureFieldPtrOutput)
+}
+
+type TemplateCategoricalMeasureFieldOutput struct{ *pulumi.OutputState }
+
+func (TemplateCategoricalMeasureFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCategoricalMeasureField)(nil)).Elem()
+}
+
+func (o TemplateCategoricalMeasureFieldOutput) ToTemplateCategoricalMeasureFieldOutput() TemplateCategoricalMeasureFieldOutput {
+	return o
+}
+
+func (o TemplateCategoricalMeasureFieldOutput) ToTemplateCategoricalMeasureFieldOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldOutput {
+	return o
+}
+
+func (o TemplateCategoricalMeasureFieldOutput) ToTemplateCategoricalMeasureFieldPtrOutput() TemplateCategoricalMeasureFieldPtrOutput {
+	return o.ToTemplateCategoricalMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateCategoricalMeasureFieldOutput) ToTemplateCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateCategoricalMeasureField) *TemplateCategoricalMeasureField {
+		return &v
+	}).(TemplateCategoricalMeasureFieldPtrOutput)
+}
+
+func (o TemplateCategoricalMeasureFieldOutput) AggregationFunction() TemplateCategoricalAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v TemplateCategoricalMeasureField) *TemplateCategoricalAggregationFunction {
+		return v.AggregationFunction
+	}).(TemplateCategoricalAggregationFunctionPtrOutput)
+}
+
+func (o TemplateCategoricalMeasureFieldOutput) Column() TemplateColumnIdentifierOutput {
+	return o.ApplyT(func(v TemplateCategoricalMeasureField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
+}
+
+func (o TemplateCategoricalMeasureFieldOutput) FieldId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateCategoricalMeasureField) string { return v.FieldId }).(pulumi.StringOutput)
+}
+
+func (o TemplateCategoricalMeasureFieldOutput) FormatConfiguration() TemplateStringFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateCategoricalMeasureField) *TemplateStringFormatConfiguration {
+		return v.FormatConfiguration
+	}).(TemplateStringFormatConfigurationPtrOutput)
+}
+
+type TemplateCategoricalMeasureFieldPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateCategoricalMeasureFieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCategoricalMeasureField)(nil)).Elem()
+}
+
+func (o TemplateCategoricalMeasureFieldPtrOutput) ToTemplateCategoricalMeasureFieldPtrOutput() TemplateCategoricalMeasureFieldPtrOutput {
+	return o
+}
+
+func (o TemplateCategoricalMeasureFieldPtrOutput) ToTemplateCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldPtrOutput {
+	return o
+}
+
+func (o TemplateCategoricalMeasureFieldPtrOutput) Elem() TemplateCategoricalMeasureFieldOutput {
+	return o.ApplyT(func(v *TemplateCategoricalMeasureField) TemplateCategoricalMeasureField {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateCategoricalMeasureField
+		return ret
+	}).(TemplateCategoricalMeasureFieldOutput)
+}
+
+func (o TemplateCategoricalMeasureFieldPtrOutput) AggregationFunction() TemplateCategoricalAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoricalMeasureField) *TemplateCategoricalAggregationFunction {
+		if v == nil {
+			return nil
+		}
+		return v.AggregationFunction
+	}).(TemplateCategoricalAggregationFunctionPtrOutput)
+}
+
+func (o TemplateCategoricalMeasureFieldPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoricalMeasureField) *TemplateColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(TemplateColumnIdentifierPtrOutput)
+}
+
+func (o TemplateCategoricalMeasureFieldPtrOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoricalMeasureField) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateCategoricalMeasureFieldPtrOutput) FormatConfiguration() TemplateStringFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoricalMeasureField) *TemplateStringFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FormatConfiguration
+	}).(TemplateStringFormatConfigurationPtrOutput)
+}
+
+type TemplateCategoryDrillDownFilter struct {
+	CategoryValues []string                 `pulumi:"categoryValues"`
+	Column         TemplateColumnIdentifier `pulumi:"column"`
+}
+
+// TemplateCategoryDrillDownFilterInput is an input type that accepts TemplateCategoryDrillDownFilterArgs and TemplateCategoryDrillDownFilterOutput values.
+// You can construct a concrete instance of `TemplateCategoryDrillDownFilterInput` via:
+//
+//	TemplateCategoryDrillDownFilterArgs{...}
+type TemplateCategoryDrillDownFilterInput interface {
+	pulumi.Input
+
+	ToTemplateCategoryDrillDownFilterOutput() TemplateCategoryDrillDownFilterOutput
+	ToTemplateCategoryDrillDownFilterOutputWithContext(context.Context) TemplateCategoryDrillDownFilterOutput
+}
+
+type TemplateCategoryDrillDownFilterArgs struct {
+	CategoryValues pulumi.StringArrayInput       `pulumi:"categoryValues"`
+	Column         TemplateColumnIdentifierInput `pulumi:"column"`
+}
+
+func (TemplateCategoryDrillDownFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCategoryDrillDownFilter)(nil)).Elem()
+}
+
+func (i TemplateCategoryDrillDownFilterArgs) ToTemplateCategoryDrillDownFilterOutput() TemplateCategoryDrillDownFilterOutput {
+	return i.ToTemplateCategoryDrillDownFilterOutputWithContext(context.Background())
+}
+
+func (i TemplateCategoryDrillDownFilterArgs) ToTemplateCategoryDrillDownFilterOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryDrillDownFilterOutput)
+}
+
+func (i TemplateCategoryDrillDownFilterArgs) ToTemplateCategoryDrillDownFilterPtrOutput() TemplateCategoryDrillDownFilterPtrOutput {
+	return i.ToTemplateCategoryDrillDownFilterPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateCategoryDrillDownFilterArgs) ToTemplateCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryDrillDownFilterOutput).ToTemplateCategoryDrillDownFilterPtrOutputWithContext(ctx)
+}
+
+// TemplateCategoryDrillDownFilterPtrInput is an input type that accepts TemplateCategoryDrillDownFilterArgs, TemplateCategoryDrillDownFilterPtr and TemplateCategoryDrillDownFilterPtrOutput values.
+// You can construct a concrete instance of `TemplateCategoryDrillDownFilterPtrInput` via:
+//
+//	        TemplateCategoryDrillDownFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateCategoryDrillDownFilterPtrInput interface {
+	pulumi.Input
+
+	ToTemplateCategoryDrillDownFilterPtrOutput() TemplateCategoryDrillDownFilterPtrOutput
+	ToTemplateCategoryDrillDownFilterPtrOutputWithContext(context.Context) TemplateCategoryDrillDownFilterPtrOutput
+}
+
+type templateCategoryDrillDownFilterPtrType TemplateCategoryDrillDownFilterArgs
+
+func TemplateCategoryDrillDownFilterPtr(v *TemplateCategoryDrillDownFilterArgs) TemplateCategoryDrillDownFilterPtrInput {
+	return (*templateCategoryDrillDownFilterPtrType)(v)
+}
+
+func (*templateCategoryDrillDownFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCategoryDrillDownFilter)(nil)).Elem()
+}
+
+func (i *templateCategoryDrillDownFilterPtrType) ToTemplateCategoryDrillDownFilterPtrOutput() TemplateCategoryDrillDownFilterPtrOutput {
+	return i.ToTemplateCategoryDrillDownFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *templateCategoryDrillDownFilterPtrType) ToTemplateCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryDrillDownFilterPtrOutput)
+}
+
+type TemplateCategoryDrillDownFilterOutput struct{ *pulumi.OutputState }
+
+func (TemplateCategoryDrillDownFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCategoryDrillDownFilter)(nil)).Elem()
+}
+
+func (o TemplateCategoryDrillDownFilterOutput) ToTemplateCategoryDrillDownFilterOutput() TemplateCategoryDrillDownFilterOutput {
+	return o
+}
+
+func (o TemplateCategoryDrillDownFilterOutput) ToTemplateCategoryDrillDownFilterOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterOutput {
+	return o
+}
+
+func (o TemplateCategoryDrillDownFilterOutput) ToTemplateCategoryDrillDownFilterPtrOutput() TemplateCategoryDrillDownFilterPtrOutput {
+	return o.ToTemplateCategoryDrillDownFilterPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateCategoryDrillDownFilterOutput) ToTemplateCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateCategoryDrillDownFilter) *TemplateCategoryDrillDownFilter {
+		return &v
+	}).(TemplateCategoryDrillDownFilterPtrOutput)
+}
+
+func (o TemplateCategoryDrillDownFilterOutput) CategoryValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TemplateCategoryDrillDownFilter) []string { return v.CategoryValues }).(pulumi.StringArrayOutput)
+}
+
+func (o TemplateCategoryDrillDownFilterOutput) Column() TemplateColumnIdentifierOutput {
+	return o.ApplyT(func(v TemplateCategoryDrillDownFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
+}
+
+type TemplateCategoryDrillDownFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateCategoryDrillDownFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCategoryDrillDownFilter)(nil)).Elem()
+}
+
+func (o TemplateCategoryDrillDownFilterPtrOutput) ToTemplateCategoryDrillDownFilterPtrOutput() TemplateCategoryDrillDownFilterPtrOutput {
+	return o
+}
+
+func (o TemplateCategoryDrillDownFilterPtrOutput) ToTemplateCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterPtrOutput {
+	return o
+}
+
+func (o TemplateCategoryDrillDownFilterPtrOutput) Elem() TemplateCategoryDrillDownFilterOutput {
+	return o.ApplyT(func(v *TemplateCategoryDrillDownFilter) TemplateCategoryDrillDownFilter {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateCategoryDrillDownFilter
+		return ret
+	}).(TemplateCategoryDrillDownFilterOutput)
+}
+
+func (o TemplateCategoryDrillDownFilterPtrOutput) CategoryValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TemplateCategoryDrillDownFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o TemplateCategoryDrillDownFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoryDrillDownFilter) *TemplateColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(TemplateColumnIdentifierPtrOutput)
+}
+
+type TemplateCategoryFilter struct {
+	Column        TemplateColumnIdentifier            `pulumi:"column"`
+	Configuration TemplateCategoryFilterConfiguration `pulumi:"configuration"`
+	FilterId      string                              `pulumi:"filterId"`
+}
+
+// TemplateCategoryFilterInput is an input type that accepts TemplateCategoryFilterArgs and TemplateCategoryFilterOutput values.
+// You can construct a concrete instance of `TemplateCategoryFilterInput` via:
+//
+//	TemplateCategoryFilterArgs{...}
+type TemplateCategoryFilterInput interface {
+	pulumi.Input
+
+	ToTemplateCategoryFilterOutput() TemplateCategoryFilterOutput
+	ToTemplateCategoryFilterOutputWithContext(context.Context) TemplateCategoryFilterOutput
+}
+
+type TemplateCategoryFilterArgs struct {
+	Column        TemplateColumnIdentifierInput            `pulumi:"column"`
+	Configuration TemplateCategoryFilterConfigurationInput `pulumi:"configuration"`
+	FilterId      pulumi.StringInput                       `pulumi:"filterId"`
+}
+
+func (TemplateCategoryFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCategoryFilter)(nil)).Elem()
+}
+
+func (i TemplateCategoryFilterArgs) ToTemplateCategoryFilterOutput() TemplateCategoryFilterOutput {
+	return i.ToTemplateCategoryFilterOutputWithContext(context.Background())
+}
+
+func (i TemplateCategoryFilterArgs) ToTemplateCategoryFilterOutputWithContext(ctx context.Context) TemplateCategoryFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryFilterOutput)
+}
+
+func (i TemplateCategoryFilterArgs) ToTemplateCategoryFilterPtrOutput() TemplateCategoryFilterPtrOutput {
+	return i.ToTemplateCategoryFilterPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateCategoryFilterArgs) ToTemplateCategoryFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryFilterOutput).ToTemplateCategoryFilterPtrOutputWithContext(ctx)
+}
+
+// TemplateCategoryFilterPtrInput is an input type that accepts TemplateCategoryFilterArgs, TemplateCategoryFilterPtr and TemplateCategoryFilterPtrOutput values.
+// You can construct a concrete instance of `TemplateCategoryFilterPtrInput` via:
+//
+//	        TemplateCategoryFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateCategoryFilterPtrInput interface {
+	pulumi.Input
+
+	ToTemplateCategoryFilterPtrOutput() TemplateCategoryFilterPtrOutput
+	ToTemplateCategoryFilterPtrOutputWithContext(context.Context) TemplateCategoryFilterPtrOutput
+}
+
+type templateCategoryFilterPtrType TemplateCategoryFilterArgs
+
+func TemplateCategoryFilterPtr(v *TemplateCategoryFilterArgs) TemplateCategoryFilterPtrInput {
+	return (*templateCategoryFilterPtrType)(v)
+}
+
+func (*templateCategoryFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCategoryFilter)(nil)).Elem()
+}
+
+func (i *templateCategoryFilterPtrType) ToTemplateCategoryFilterPtrOutput() TemplateCategoryFilterPtrOutput {
+	return i.ToTemplateCategoryFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *templateCategoryFilterPtrType) ToTemplateCategoryFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryFilterPtrOutput)
+}
+
+type TemplateCategoryFilterOutput struct{ *pulumi.OutputState }
+
+func (TemplateCategoryFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCategoryFilter)(nil)).Elem()
+}
+
+func (o TemplateCategoryFilterOutput) ToTemplateCategoryFilterOutput() TemplateCategoryFilterOutput {
+	return o
+}
+
+func (o TemplateCategoryFilterOutput) ToTemplateCategoryFilterOutputWithContext(ctx context.Context) TemplateCategoryFilterOutput {
+	return o
+}
+
+func (o TemplateCategoryFilterOutput) ToTemplateCategoryFilterPtrOutput() TemplateCategoryFilterPtrOutput {
+	return o.ToTemplateCategoryFilterPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateCategoryFilterOutput) ToTemplateCategoryFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateCategoryFilter) *TemplateCategoryFilter {
+		return &v
+	}).(TemplateCategoryFilterPtrOutput)
+}
+
+func (o TemplateCategoryFilterOutput) Column() TemplateColumnIdentifierOutput {
+	return o.ApplyT(func(v TemplateCategoryFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
+}
+
+func (o TemplateCategoryFilterOutput) Configuration() TemplateCategoryFilterConfigurationOutput {
+	return o.ApplyT(func(v TemplateCategoryFilter) TemplateCategoryFilterConfiguration { return v.Configuration }).(TemplateCategoryFilterConfigurationOutput)
+}
+
+func (o TemplateCategoryFilterOutput) FilterId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateCategoryFilter) string { return v.FilterId }).(pulumi.StringOutput)
+}
+
+type TemplateCategoryFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateCategoryFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCategoryFilter)(nil)).Elem()
+}
+
+func (o TemplateCategoryFilterPtrOutput) ToTemplateCategoryFilterPtrOutput() TemplateCategoryFilterPtrOutput {
+	return o
+}
+
+func (o TemplateCategoryFilterPtrOutput) ToTemplateCategoryFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterPtrOutput {
+	return o
+}
+
+func (o TemplateCategoryFilterPtrOutput) Elem() TemplateCategoryFilterOutput {
+	return o.ApplyT(func(v *TemplateCategoryFilter) TemplateCategoryFilter {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateCategoryFilter
+		return ret
+	}).(TemplateCategoryFilterOutput)
+}
+
+func (o TemplateCategoryFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoryFilter) *TemplateColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(TemplateColumnIdentifierPtrOutput)
+}
+
+func (o TemplateCategoryFilterPtrOutput) Configuration() TemplateCategoryFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoryFilter) *TemplateCategoryFilterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Configuration
+	}).(TemplateCategoryFilterConfigurationPtrOutput)
+}
+
+func (o TemplateCategoryFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoryFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FilterId
+	}).(pulumi.StringPtrOutput)
+}
+
 type TemplateCategoryFilterConfiguration struct {
 	CustomFilterConfiguration     *TemplateCustomFilterConfiguration     `pulumi:"customFilterConfiguration"`
 	CustomFilterListConfiguration *TemplateCustomFilterListConfiguration `pulumi:"customFilterListConfiguration"`
@@ -67337,6 +67830,12 @@ func (o ThemeVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalMeasureFieldInput)(nil)).Elem(), TemplateCategoricalMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalMeasureFieldPtrInput)(nil)).Elem(), TemplateCategoricalMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoryDrillDownFilterInput)(nil)).Elem(), TemplateCategoryDrillDownFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoryDrillDownFilterPtrInput)(nil)).Elem(), TemplateCategoryDrillDownFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoryFilterInput)(nil)).Elem(), TemplateCategoryFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoryFilterPtrInput)(nil)).Elem(), TemplateCategoryFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoryFilterConfigurationInput)(nil)).Elem(), TemplateCategoryFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoryFilterConfigurationPtrInput)(nil)).Elem(), TemplateCategoryFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateChartAxisLabelOptionsInput)(nil)).Elem(), TemplateChartAxisLabelOptionsArgs{})
@@ -68171,6 +68670,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTypographyPtrInput)(nil)).Elem(), ThemeTypographyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeUIColorPaletteInput)(nil)).Elem(), ThemeUIColorPaletteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeUIColorPalettePtrInput)(nil)).Elem(), ThemeUIColorPaletteArgs{})
+	pulumi.RegisterOutputType(TemplateCategoricalMeasureFieldOutput{})
+	pulumi.RegisterOutputType(TemplateCategoricalMeasureFieldPtrOutput{})
+	pulumi.RegisterOutputType(TemplateCategoryDrillDownFilterOutput{})
+	pulumi.RegisterOutputType(TemplateCategoryDrillDownFilterPtrOutput{})
+	pulumi.RegisterOutputType(TemplateCategoryFilterOutput{})
+	pulumi.RegisterOutputType(TemplateCategoryFilterPtrOutput{})
 	pulumi.RegisterOutputType(TemplateCategoryFilterConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateCategoryFilterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateChartAxisLabelOptionsOutput{})

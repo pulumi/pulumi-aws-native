@@ -25,15 +25,16 @@ type LookupMonitorArgs struct {
 }
 
 type LookupMonitorResult struct {
-	CreatedAt                *string                      `pulumi:"createdAt"`
-	MaxCityNetworksToMonitor *int                         `pulumi:"maxCityNetworksToMonitor"`
-	ModifiedAt               *string                      `pulumi:"modifiedAt"`
-	MonitorArn               *string                      `pulumi:"monitorArn"`
-	ProcessingStatus         *MonitorProcessingStatusCode `pulumi:"processingStatus"`
-	ProcessingStatusInfo     *string                      `pulumi:"processingStatusInfo"`
-	Resources                []string                     `pulumi:"resources"`
-	Status                   *MonitorConfigState          `pulumi:"status"`
-	Tags                     []MonitorTag                 `pulumi:"tags"`
+	CreatedAt                       *string                                 `pulumi:"createdAt"`
+	InternetMeasurementsLogDelivery *MonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
+	MaxCityNetworksToMonitor        *int                                    `pulumi:"maxCityNetworksToMonitor"`
+	ModifiedAt                      *string                                 `pulumi:"modifiedAt"`
+	MonitorArn                      *string                                 `pulumi:"monitorArn"`
+	ProcessingStatus                *MonitorProcessingStatusCode            `pulumi:"processingStatus"`
+	ProcessingStatusInfo            *string                                 `pulumi:"processingStatusInfo"`
+	Resources                       []string                                `pulumi:"resources"`
+	Status                          *MonitorConfigState                     `pulumi:"status"`
+	Tags                            []MonitorTag                            `pulumi:"tags"`
 }
 
 func LookupMonitorOutput(ctx *pulumi.Context, args LookupMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupMonitorResultOutput {
@@ -73,6 +74,12 @@ func (o LookupMonitorResultOutput) ToLookupMonitorResultOutputWithContext(ctx co
 
 func (o LookupMonitorResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupMonitorResultOutput) InternetMeasurementsLogDelivery() MonitorInternetMeasurementsLogDeliveryPtrOutput {
+	return o.ApplyT(func(v LookupMonitorResult) *MonitorInternetMeasurementsLogDelivery {
+		return v.InternetMeasurementsLogDelivery
+	}).(MonitorInternetMeasurementsLogDeliveryPtrOutput)
 }
 
 func (o LookupMonitorResultOutput) MaxCityNetworksToMonitor() pulumi.IntPtrOutput {

@@ -182,6 +182,7 @@ const (
 	BuildOperatingSystemAmazonLinux  = BuildOperatingSystem("AMAZON_LINUX")
 	BuildOperatingSystemAmazonLinux2 = BuildOperatingSystem("AMAZON_LINUX_2")
 	BuildOperatingSystemWindows2012  = BuildOperatingSystem("WINDOWS_2012")
+	BuildOperatingSystemWindows2016  = BuildOperatingSystem("WINDOWS_2016")
 )
 
 func (BuildOperatingSystem) ElementType() reflect.Type {

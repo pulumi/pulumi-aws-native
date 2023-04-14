@@ -20,6 +20,14 @@ namespace Pulumi.AwsNative.Glue.Inputs
             set => _catalogTargets = value;
         }
 
+        [Input("deltaTargets")]
+        private InputList<Inputs.CrawlerDeltaTargetArgs>? _deltaTargets;
+        public InputList<Inputs.CrawlerDeltaTargetArgs> DeltaTargets
+        {
+            get => _deltaTargets ?? (_deltaTargets = new InputList<Inputs.CrawlerDeltaTargetArgs>());
+            set => _deltaTargets = value;
+        }
+
         [Input("dynamoDBTargets")]
         private InputList<Inputs.CrawlerDynamoDBTargetArgs>? _dynamoDBTargets;
         public InputList<Inputs.CrawlerDynamoDBTargetArgs> DynamoDBTargets

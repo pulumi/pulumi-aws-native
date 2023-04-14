@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.InternetMonitor
     public sealed class GetMonitorResult
     {
         public readonly string? CreatedAt;
+        public readonly Outputs.MonitorInternetMeasurementsLogDelivery? InternetMeasurementsLogDelivery;
         public readonly int? MaxCityNetworksToMonitor;
         public readonly string? ModifiedAt;
         public readonly string? MonitorArn;
@@ -64,6 +65,8 @@ namespace Pulumi.AwsNative.InternetMonitor
         [OutputConstructor]
         private GetMonitorResult(
             string? createdAt,
+
+            Outputs.MonitorInternetMeasurementsLogDelivery? internetMeasurementsLogDelivery,
 
             int? maxCityNetworksToMonitor,
 
@@ -82,6 +85,7 @@ namespace Pulumi.AwsNative.InternetMonitor
             ImmutableArray<Outputs.MonitorTag> tags)
         {
             CreatedAt = createdAt;
+            InternetMeasurementsLogDelivery = internetMeasurementsLogDelivery;
             MaxCityNetworksToMonitor = maxCityNetworksToMonitor;
             ModifiedAt = modifiedAt;
             MonitorArn = monitorArn;

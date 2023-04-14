@@ -19,7 +19,11 @@ namespace Pulumi.AwsNative.SSMContacts.Outputs
         /// <summary>
         /// The time to wait until beginning the next stage.
         /// </summary>
-        public readonly int DurationInMinutes;
+        public readonly int? DurationInMinutes;
+        /// <summary>
+        /// List of Rotation Ids to associate with Contact
+        /// </summary>
+        public readonly ImmutableArray<string> RotationIds;
         /// <summary>
         /// The contacts or contact methods that the escalation plan or engagement plan is engaging.
         /// </summary>
@@ -27,11 +31,14 @@ namespace Pulumi.AwsNative.SSMContacts.Outputs
 
         [OutputConstructor]
         private ContactStage(
-            int durationInMinutes,
+            int? durationInMinutes,
+
+            ImmutableArray<string> rotationIds,
 
             ImmutableArray<Outputs.ContactTargets> targets)
         {
             DurationInMinutes = durationInMinutes;
+            RotationIds = rotationIds;
             Targets = targets;
         }
     }

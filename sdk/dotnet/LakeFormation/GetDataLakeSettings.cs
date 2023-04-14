@@ -52,19 +52,43 @@ namespace Pulumi.AwsNative.LakeFormation
     public sealed class GetDataLakeSettingsResult
     {
         public readonly Outputs.DataLakeSettingsAdmins? Admins;
+        public readonly bool? AllowExternalDataFiltering;
+        public readonly ImmutableArray<string> AuthorizedSessionTagValueList;
+        public readonly Outputs.DataLakeSettingsCreateDatabaseDefaultPermissions? CreateDatabaseDefaultPermissions;
+        public readonly Outputs.DataLakeSettingsCreateTableDefaultPermissions? CreateTableDefaultPermissions;
+        public readonly Outputs.DataLakeSettingsExternalDataFilteringAllowList? ExternalDataFilteringAllowList;
         public readonly string? Id;
+        public readonly object? Parameters;
         public readonly ImmutableArray<string> TrustedResourceOwners;
 
         [OutputConstructor]
         private GetDataLakeSettingsResult(
             Outputs.DataLakeSettingsAdmins? admins,
 
+            bool? allowExternalDataFiltering,
+
+            ImmutableArray<string> authorizedSessionTagValueList,
+
+            Outputs.DataLakeSettingsCreateDatabaseDefaultPermissions? createDatabaseDefaultPermissions,
+
+            Outputs.DataLakeSettingsCreateTableDefaultPermissions? createTableDefaultPermissions,
+
+            Outputs.DataLakeSettingsExternalDataFilteringAllowList? externalDataFilteringAllowList,
+
             string? id,
+
+            object? parameters,
 
             ImmutableArray<string> trustedResourceOwners)
         {
             Admins = admins;
+            AllowExternalDataFiltering = allowExternalDataFiltering;
+            AuthorizedSessionTagValueList = authorizedSessionTagValueList;
+            CreateDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
+            CreateTableDefaultPermissions = createTableDefaultPermissions;
+            ExternalDataFilteringAllowList = externalDataFilteringAllowList;
             Id = id;
+            Parameters = parameters;
             TrustedResourceOwners = trustedResourceOwners;
         }
     }

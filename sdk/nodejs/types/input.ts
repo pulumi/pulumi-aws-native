@@ -1856,6 +1856,34 @@ export namespace appconfig {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
     }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ExtensionAssociationTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ExtensionTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
 }
 
 export namespace appflow {
@@ -15332,6 +15360,13 @@ export namespace glue {
         tables?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface CrawlerDeltaTargetArgs {
+        connectionName?: pulumi.Input<string>;
+        createNativeDeltaTable?: pulumi.Input<boolean>;
+        deltaTables?: pulumi.Input<pulumi.Input<string>[]>;
+        writeManifest?: pulumi.Input<boolean>;
+    }
+
     export interface CrawlerDynamoDBTargetArgs {
         path?: pulumi.Input<string>;
     }
@@ -15371,6 +15406,7 @@ export namespace glue {
 
     export interface CrawlerTargetsArgs {
         catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTargetArgs>[]>;
+        deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTargetArgs>[]>;
         dynamoDBTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamoDBTargetArgs>[]>;
         jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTargetArgs>[]>;
         mongoDBTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongoDBTargetArgs>[]>;
@@ -15396,6 +15432,11 @@ export namespace glue {
         dataLakePrincipalIdentifier?: pulumi.Input<string>;
     }
 
+    export interface DatabaseFederatedDatabaseArgs {
+        connectionName?: pulumi.Input<string>;
+        identifier?: pulumi.Input<string>;
+    }
+
     export interface DatabaseIdentifierArgs {
         catalogId?: pulumi.Input<string>;
         databaseName?: pulumi.Input<string>;
@@ -15404,6 +15445,7 @@ export namespace glue {
     export interface DatabaseInputArgs {
         createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.DatabasePrincipalPrivilegesArgs>[]>;
         description?: pulumi.Input<string>;
+        federatedDatabase?: pulumi.Input<inputs.glue.DatabaseFederatedDatabaseArgs>;
         locationUri?: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         parameters?: any;
@@ -15756,6 +15798,20 @@ export namespace grafana {
          * XML blob of the IdPs metadata.
          */
         xml?: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration settings for Network Access Control.
+     */
+    export interface WorkspaceNetworkAccessControlArgs {
+        /**
+         * The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
+         */
+        prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
+         */
+        vpceIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -17272,6 +17328,16 @@ export namespace inspectorv2 {
 }
 
 export namespace internetmonitor {
+    export interface MonitorInternetMeasurementsLogDeliveryArgs {
+        s3Config?: pulumi.Input<inputs.internetmonitor.MonitorS3ConfigArgs>;
+    }
+
+    export interface MonitorS3ConfigArgs {
+        bucketName?: pulumi.Input<string>;
+        bucketPrefix?: pulumi.Input<string>;
+        logDeliveryStatus?: pulumi.Input<enums.internetmonitor.MonitorS3ConfigLogDeliveryStatus>;
+    }
+
     /**
      * The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
      */
@@ -21946,6 +22012,15 @@ export namespace lakeformation {
     }
 
     export interface DataLakeSettingsAdminsArgs {
+    }
+
+    export interface DataLakeSettingsCreateDatabaseDefaultPermissionsArgs {
+    }
+
+    export interface DataLakeSettingsCreateTableDefaultPermissionsArgs {
+    }
+
+    export interface DataLakeSettingsExternalDataFilteringAllowListArgs {
     }
 
     export interface PermissionsColumnWildcardArgs {
@@ -35657,6 +35732,52 @@ export namespace quicksight {
         vpcConnectionArn: pulumi.Input<string>;
     }
 
+    export interface RefreshScheduleMapArgs {
+        refreshType?: pulumi.Input<enums.quicksight.RefreshScheduleMapRefreshType>;
+        /**
+         * <p>Information about the schedule frequency.</p>
+         */
+        scheduleFrequency?: pulumi.Input<inputs.quicksight.RefreshScheduleMapScheduleFrequencyPropertiesArgs>;
+        /**
+         * <p>An unique identifier for the refresh schedule.</p>
+         */
+        scheduleId?: pulumi.Input<string>;
+        /**
+         * <p>The date time after which refresh is to be scheduled</p>
+         */
+        startAfterDateTime?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>Information about the schedule frequency.</p>
+     */
+    export interface RefreshScheduleMapScheduleFrequencyPropertiesArgs {
+        interval?: pulumi.Input<enums.quicksight.RefreshScheduleMapScheduleFrequencyPropertiesInterval>;
+        /**
+         * <p>The day scheduled for refresh.</p>
+         */
+        refreshOnDay?: pulumi.Input<inputs.quicksight.RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs>;
+        /**
+         * <p>The time of the day for scheduled refresh.</p>
+         */
+        timeOfTheDay?: pulumi.Input<string>;
+        /**
+         * <p>The timezone for scheduled refresh.</p>
+         */
+        timeZone?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>The day scheduled for refresh.</p>
+     */
+    export interface RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs {
+        /**
+         * <p>The Day Of Month for scheduled refresh.</p>
+         */
+        dayOfMonth?: pulumi.Input<string>;
+        dayOfWeek?: pulumi.Input<enums.quicksight.RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek>;
+    }
+
     export interface TemplateAggregationFunctionArgs {
         categoricalAggregationFunction?: pulumi.Input<enums.quicksight.TemplateCategoricalAggregationFunction>;
         dateAggregationFunction?: pulumi.Input<enums.quicksight.TemplateDateAggregationFunction>;
@@ -45583,7 +45704,11 @@ export namespace ssmcontacts {
         /**
          * The time to wait until beginning the next stage.
          */
-        durationInMinutes: pulumi.Input<number>;
+        durationInMinutes?: pulumi.Input<number>;
+        /**
+         * List of Rotation Ids to associate with Contact
+         */
+        rotationIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The contacts or contact methods that the escalation plan or engagement plan is engaging.
          */

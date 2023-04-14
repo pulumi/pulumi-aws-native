@@ -34,22 +34,24 @@ type LookupEnvironmentResult struct {
 	//     Would be represented as
 	//
 	//     "core.dags_folder": "{AIRFLOW_HOME}/dags"
-	AirflowConfigurationOptions interface{}                      `pulumi:"airflowConfigurationOptions"`
-	AirflowVersion              *string                          `pulumi:"airflowVersion"`
-	Arn                         *string                          `pulumi:"arn"`
-	DagS3Path                   *string                          `pulumi:"dagS3Path"`
-	EnvironmentClass            *string                          `pulumi:"environmentClass"`
-	ExecutionRoleArn            *string                          `pulumi:"executionRoleArn"`
-	LoggingConfiguration        *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
-	MaxWorkers                  *int                             `pulumi:"maxWorkers"`
-	MinWorkers                  *int                             `pulumi:"minWorkers"`
-	NetworkConfiguration        *EnvironmentNetworkConfiguration `pulumi:"networkConfiguration"`
-	PluginsS3ObjectVersion      *string                          `pulumi:"pluginsS3ObjectVersion"`
-	PluginsS3Path               *string                          `pulumi:"pluginsS3Path"`
-	RequirementsS3ObjectVersion *string                          `pulumi:"requirementsS3ObjectVersion"`
-	RequirementsS3Path          *string                          `pulumi:"requirementsS3Path"`
-	Schedulers                  *int                             `pulumi:"schedulers"`
-	SourceBucketArn             *string                          `pulumi:"sourceBucketArn"`
+	AirflowConfigurationOptions  interface{}                      `pulumi:"airflowConfigurationOptions"`
+	AirflowVersion               *string                          `pulumi:"airflowVersion"`
+	Arn                          *string                          `pulumi:"arn"`
+	DagS3Path                    *string                          `pulumi:"dagS3Path"`
+	EnvironmentClass             *string                          `pulumi:"environmentClass"`
+	ExecutionRoleArn             *string                          `pulumi:"executionRoleArn"`
+	LoggingConfiguration         *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
+	MaxWorkers                   *int                             `pulumi:"maxWorkers"`
+	MinWorkers                   *int                             `pulumi:"minWorkers"`
+	NetworkConfiguration         *EnvironmentNetworkConfiguration `pulumi:"networkConfiguration"`
+	PluginsS3ObjectVersion       *string                          `pulumi:"pluginsS3ObjectVersion"`
+	PluginsS3Path                *string                          `pulumi:"pluginsS3Path"`
+	RequirementsS3ObjectVersion  *string                          `pulumi:"requirementsS3ObjectVersion"`
+	RequirementsS3Path           *string                          `pulumi:"requirementsS3Path"`
+	Schedulers                   *int                             `pulumi:"schedulers"`
+	SourceBucketArn              *string                          `pulumi:"sourceBucketArn"`
+	StartupScriptS3ObjectVersion *string                          `pulumi:"startupScriptS3ObjectVersion"`
+	StartupScriptS3Path          *string                          `pulumi:"startupScriptS3Path"`
 	// A map of tags for the environment.
 	Tags                         interface{}                     `pulumi:"tags"`
 	WebserverAccessMode          *EnvironmentWebserverAccessMode `pulumi:"webserverAccessMode"`
@@ -164,6 +166,14 @@ func (o LookupEnvironmentResultOutput) Schedulers() pulumi.IntPtrOutput {
 
 func (o LookupEnvironmentResultOutput) SourceBucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.SourceBucketArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupEnvironmentResultOutput) StartupScriptS3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.StartupScriptS3ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupEnvironmentResultOutput) StartupScriptS3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.StartupScriptS3Path }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags for the environment.

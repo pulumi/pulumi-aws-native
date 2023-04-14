@@ -381,6 +381,12 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> RestoreTime { get; private set; } = null!;
 
         /// <summary>
+        /// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+        /// </summary>
+        [Output("sourceDBClusterIdentifier")]
+        public Output<string?> SourceDBClusterIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
         /// </summary>
         [Output("sourceDBInstanceAutomatedBackupsArn")]
@@ -879,6 +885,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("restoreTime")]
         public Input<string>? RestoreTime { get; set; }
+
+        /// <summary>
+        /// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+        /// </summary>
+        [Input("sourceDBClusterIdentifier")]
+        public Input<string>? SourceDBClusterIdentifier { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.

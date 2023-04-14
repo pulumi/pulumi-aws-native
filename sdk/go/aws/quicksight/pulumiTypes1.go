@@ -72521,6 +72521,552 @@ func (o DataSourceVpcConnectionPropertiesPtrOutput) VpcConnectionArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type RefreshScheduleMap struct {
+	RefreshType *RefreshScheduleMapRefreshType `pulumi:"refreshType"`
+	// <p>Information about the schedule frequency.</p>
+	ScheduleFrequency *RefreshScheduleMapScheduleFrequencyProperties `pulumi:"scheduleFrequency"`
+	// <p>An unique identifier for the refresh schedule.</p>
+	ScheduleId *string `pulumi:"scheduleId"`
+	// <p>The date time after which refresh is to be scheduled</p>
+	StartAfterDateTime *string `pulumi:"startAfterDateTime"`
+}
+
+// RefreshScheduleMapInput is an input type that accepts RefreshScheduleMap and RefreshScheduleMapOutput values.
+// You can construct a concrete instance of `RefreshScheduleMapInput` via:
+//
+//	RefreshScheduleMap{ "key": RefreshScheduleArgs{...} }
+type RefreshScheduleMapInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapOutput() RefreshScheduleMapOutput
+	ToRefreshScheduleMapOutputWithContext(context.Context) RefreshScheduleMapOutput
+}
+
+type RefreshScheduleMapArgs struct {
+	RefreshType RefreshScheduleMapRefreshTypePtrInput `pulumi:"refreshType"`
+	// <p>Information about the schedule frequency.</p>
+	ScheduleFrequency RefreshScheduleMapScheduleFrequencyPropertiesPtrInput `pulumi:"scheduleFrequency"`
+	// <p>An unique identifier for the refresh schedule.</p>
+	ScheduleId pulumi.StringPtrInput `pulumi:"scheduleId"`
+	// <p>The date time after which refresh is to be scheduled</p>
+	StartAfterDateTime pulumi.StringPtrInput `pulumi:"startAfterDateTime"`
+}
+
+func (RefreshScheduleMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMap)(nil)).Elem()
+}
+
+func (i RefreshScheduleMapArgs) ToRefreshScheduleMapOutput() RefreshScheduleMapOutput {
+	return i.ToRefreshScheduleMapOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleMapArgs) ToRefreshScheduleMapOutputWithContext(ctx context.Context) RefreshScheduleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleMapOutput)
+}
+
+func (i RefreshScheduleMapArgs) ToRefreshScheduleMapPtrOutput() RefreshScheduleMapPtrOutput {
+	return i.ToRefreshScheduleMapPtrOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleMapArgs) ToRefreshScheduleMapPtrOutputWithContext(ctx context.Context) RefreshScheduleMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleMapOutput).ToRefreshScheduleMapPtrOutputWithContext(ctx)
+}
+
+// RefreshScheduleMapPtrInput is an input type that accepts RefreshScheduleMapArgs, RefreshScheduleMapPtr and RefreshScheduleMapPtrOutput values.
+// You can construct a concrete instance of `RefreshScheduleMapPtrInput` via:
+//
+//	        RefreshScheduleMapArgs{...}
+//
+//	or:
+//
+//	        nil
+type RefreshScheduleMapPtrInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapPtrOutput() RefreshScheduleMapPtrOutput
+	ToRefreshScheduleMapPtrOutputWithContext(context.Context) RefreshScheduleMapPtrOutput
+}
+
+type refreshScheduleMapPtrType RefreshScheduleMapArgs
+
+func RefreshScheduleMapPtr(v *RefreshScheduleMapArgs) RefreshScheduleMapPtrInput {
+	return (*refreshScheduleMapPtrType)(v)
+}
+
+func (*refreshScheduleMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleMap)(nil)).Elem()
+}
+
+func (i *refreshScheduleMapPtrType) ToRefreshScheduleMapPtrOutput() RefreshScheduleMapPtrOutput {
+	return i.ToRefreshScheduleMapPtrOutputWithContext(context.Background())
+}
+
+func (i *refreshScheduleMapPtrType) ToRefreshScheduleMapPtrOutputWithContext(ctx context.Context) RefreshScheduleMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleMapPtrOutput)
+}
+
+type RefreshScheduleMapOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMap)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapOutput) ToRefreshScheduleMapOutput() RefreshScheduleMapOutput {
+	return o
+}
+
+func (o RefreshScheduleMapOutput) ToRefreshScheduleMapOutputWithContext(ctx context.Context) RefreshScheduleMapOutput {
+	return o
+}
+
+func (o RefreshScheduleMapOutput) ToRefreshScheduleMapPtrOutput() RefreshScheduleMapPtrOutput {
+	return o.ToRefreshScheduleMapPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapOutput) ToRefreshScheduleMapPtrOutputWithContext(ctx context.Context) RefreshScheduleMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshScheduleMap) *RefreshScheduleMap {
+		return &v
+	}).(RefreshScheduleMapPtrOutput)
+}
+
+func (o RefreshScheduleMapOutput) RefreshType() RefreshScheduleMapRefreshTypePtrOutput {
+	return o.ApplyT(func(v RefreshScheduleMap) *RefreshScheduleMapRefreshType { return v.RefreshType }).(RefreshScheduleMapRefreshTypePtrOutput)
+}
+
+// <p>Information about the schedule frequency.</p>
+func (o RefreshScheduleMapOutput) ScheduleFrequency() RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleMap) *RefreshScheduleMapScheduleFrequencyProperties { return v.ScheduleFrequency }).(RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput)
+}
+
+// <p>An unique identifier for the refresh schedule.</p>
+func (o RefreshScheduleMapOutput) ScheduleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleMap) *string { return v.ScheduleId }).(pulumi.StringPtrOutput)
+}
+
+// <p>The date time after which refresh is to be scheduled</p>
+func (o RefreshScheduleMapOutput) StartAfterDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleMap) *string { return v.StartAfterDateTime }).(pulumi.StringPtrOutput)
+}
+
+type RefreshScheduleMapPtrOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleMap)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapPtrOutput) ToRefreshScheduleMapPtrOutput() RefreshScheduleMapPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapPtrOutput) ToRefreshScheduleMapPtrOutputWithContext(ctx context.Context) RefreshScheduleMapPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapPtrOutput) Elem() RefreshScheduleMapOutput {
+	return o.ApplyT(func(v *RefreshScheduleMap) RefreshScheduleMap {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshScheduleMap
+		return ret
+	}).(RefreshScheduleMapOutput)
+}
+
+func (o RefreshScheduleMapPtrOutput) RefreshType() RefreshScheduleMapRefreshTypePtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleMap) *RefreshScheduleMapRefreshType {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshType
+	}).(RefreshScheduleMapRefreshTypePtrOutput)
+}
+
+// <p>Information about the schedule frequency.</p>
+func (o RefreshScheduleMapPtrOutput) ScheduleFrequency() RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleMap) *RefreshScheduleMapScheduleFrequencyProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleFrequency
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput)
+}
+
+// <p>An unique identifier for the refresh schedule.</p>
+func (o RefreshScheduleMapPtrOutput) ScheduleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleMap) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleId
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The date time after which refresh is to be scheduled</p>
+func (o RefreshScheduleMapPtrOutput) StartAfterDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleMap) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartAfterDateTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Information about the schedule frequency.</p>
+type RefreshScheduleMapScheduleFrequencyProperties struct {
+	Interval *RefreshScheduleMapScheduleFrequencyPropertiesInterval `pulumi:"interval"`
+	// <p>The day scheduled for refresh.</p>
+	RefreshOnDay *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties `pulumi:"refreshOnDay"`
+	// <p>The time of the day for scheduled refresh.</p>
+	TimeOfTheDay *string `pulumi:"timeOfTheDay"`
+	// <p>The timezone for scheduled refresh.</p>
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// RefreshScheduleMapScheduleFrequencyPropertiesInput is an input type that accepts RefreshScheduleMapScheduleFrequencyPropertiesArgs and RefreshScheduleMapScheduleFrequencyPropertiesOutput values.
+// You can construct a concrete instance of `RefreshScheduleMapScheduleFrequencyPropertiesInput` via:
+//
+//	RefreshScheduleMapScheduleFrequencyPropertiesArgs{...}
+type RefreshScheduleMapScheduleFrequencyPropertiesInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapScheduleFrequencyPropertiesOutput() RefreshScheduleMapScheduleFrequencyPropertiesOutput
+	ToRefreshScheduleMapScheduleFrequencyPropertiesOutputWithContext(context.Context) RefreshScheduleMapScheduleFrequencyPropertiesOutput
+}
+
+// <p>Information about the schedule frequency.</p>
+type RefreshScheduleMapScheduleFrequencyPropertiesArgs struct {
+	Interval RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrInput `pulumi:"interval"`
+	// <p>The day scheduled for refresh.</p>
+	RefreshOnDay RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrInput `pulumi:"refreshOnDay"`
+	// <p>The time of the day for scheduled refresh.</p>
+	TimeOfTheDay pulumi.StringPtrInput `pulumi:"timeOfTheDay"`
+	// <p>The timezone for scheduled refresh.</p>
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyProperties)(nil)).Elem()
+}
+
+func (i RefreshScheduleMapScheduleFrequencyPropertiesArgs) ToRefreshScheduleMapScheduleFrequencyPropertiesOutput() RefreshScheduleMapScheduleFrequencyPropertiesOutput {
+	return i.ToRefreshScheduleMapScheduleFrequencyPropertiesOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleMapScheduleFrequencyPropertiesArgs) ToRefreshScheduleMapScheduleFrequencyPropertiesOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleMapScheduleFrequencyPropertiesOutput)
+}
+
+func (i RefreshScheduleMapScheduleFrequencyPropertiesArgs) ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput {
+	return i.ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleMapScheduleFrequencyPropertiesArgs) ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleMapScheduleFrequencyPropertiesOutput).ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutputWithContext(ctx)
+}
+
+// RefreshScheduleMapScheduleFrequencyPropertiesPtrInput is an input type that accepts RefreshScheduleMapScheduleFrequencyPropertiesArgs, RefreshScheduleMapScheduleFrequencyPropertiesPtr and RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput values.
+// You can construct a concrete instance of `RefreshScheduleMapScheduleFrequencyPropertiesPtrInput` via:
+//
+//	        RefreshScheduleMapScheduleFrequencyPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RefreshScheduleMapScheduleFrequencyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput
+	ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutputWithContext(context.Context) RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput
+}
+
+type refreshScheduleMapScheduleFrequencyPropertiesPtrType RefreshScheduleMapScheduleFrequencyPropertiesArgs
+
+func RefreshScheduleMapScheduleFrequencyPropertiesPtr(v *RefreshScheduleMapScheduleFrequencyPropertiesArgs) RefreshScheduleMapScheduleFrequencyPropertiesPtrInput {
+	return (*refreshScheduleMapScheduleFrequencyPropertiesPtrType)(v)
+}
+
+func (*refreshScheduleMapScheduleFrequencyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleMapScheduleFrequencyProperties)(nil)).Elem()
+}
+
+func (i *refreshScheduleMapScheduleFrequencyPropertiesPtrType) ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput {
+	return i.ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *refreshScheduleMapScheduleFrequencyPropertiesPtrType) ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput)
+}
+
+// <p>Information about the schedule frequency.</p>
+type RefreshScheduleMapScheduleFrequencyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyProperties)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesOutput() RefreshScheduleMapScheduleFrequencyPropertiesOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput {
+	return o.ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshScheduleMapScheduleFrequencyProperties) *RefreshScheduleMapScheduleFrequencyProperties {
+		return &v
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput)
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesOutput) Interval() RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleMapScheduleFrequencyProperties) *RefreshScheduleMapScheduleFrequencyPropertiesInterval {
+		return v.Interval
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput)
+}
+
+// <p>The day scheduled for refresh.</p>
+func (o RefreshScheduleMapScheduleFrequencyPropertiesOutput) RefreshOnDay() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleMapScheduleFrequencyProperties) *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties {
+		return v.RefreshOnDay
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput)
+}
+
+// <p>The time of the day for scheduled refresh.</p>
+func (o RefreshScheduleMapScheduleFrequencyPropertiesOutput) TimeOfTheDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleMapScheduleFrequencyProperties) *string { return v.TimeOfTheDay }).(pulumi.StringPtrOutput)
+}
+
+// <p>The timezone for scheduled refresh.</p>
+func (o RefreshScheduleMapScheduleFrequencyPropertiesOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleMapScheduleFrequencyProperties) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleMapScheduleFrequencyProperties)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput) Elem() RefreshScheduleMapScheduleFrequencyPropertiesOutput {
+	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyProperties) RefreshScheduleMapScheduleFrequencyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshScheduleMapScheduleFrequencyProperties
+		return ret
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesOutput)
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput) Interval() RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyProperties) *RefreshScheduleMapScheduleFrequencyPropertiesInterval {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput)
+}
+
+// <p>The day scheduled for refresh.</p>
+func (o RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput) RefreshOnDay() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyProperties) *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshOnDay
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput)
+}
+
+// <p>The time of the day for scheduled refresh.</p>
+func (o RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput) TimeOfTheDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeOfTheDay
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The timezone for scheduled refresh.</p>
+func (o RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The day scheduled for refresh.</p>
+type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties struct {
+	// <p>The Day Of Month for scheduled refresh.</p>
+	DayOfMonth *string                                                                       `pulumi:"dayOfMonth"`
+	DayOfWeek  *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek `pulumi:"dayOfWeek"`
+}
+
+// RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesInput is an input type that accepts RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs and RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput values.
+// You can construct a concrete instance of `RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesInput` via:
+//
+//	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs{...}
+type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput
+	ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutputWithContext(context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput
+}
+
+// <p>The day scheduled for refresh.</p>
+type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs struct {
+	// <p>The Day Of Month for scheduled refresh.</p>
+	DayOfMonth pulumi.StringPtrInput                                                                `pulumi:"dayOfMonth"`
+	DayOfWeek  RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrInput `pulumi:"dayOfWeek"`
+}
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties)(nil)).Elem()
+}
+
+func (i RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput {
+	return i.ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput)
+}
+
+func (i RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput {
+	return i.ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput).ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutputWithContext(ctx)
+}
+
+// RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrInput is an input type that accepts RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs, RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtr and RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput values.
+// You can construct a concrete instance of `RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrInput` via:
+//
+//	        RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput
+	ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutputWithContext(context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput
+}
+
+type refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrType RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs
+
+func RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtr(v *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrInput {
+	return (*refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrType)(v)
+}
+
+func (*refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties)(nil)).Elem()
+}
+
+func (i *refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrType) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput {
+	return i.ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrType) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput)
+}
+
+// <p>The day scheduled for refresh.</p>
+type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput {
+	return o.ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties) *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties {
+		return &v
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput)
+}
+
+// <p>The Day Of Month for scheduled refresh.</p>
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput) DayOfMonth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties) *string {
+		return v.DayOfMonth
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput) DayOfWeek() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties) *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek {
+		return v.DayOfWeek
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput)
+}
+
+type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput) Elem() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput {
+	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties
+		return ret
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput)
+}
+
+// <p>The Day Of Month for scheduled refresh.</p>
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput) DayOfMonth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfMonth
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput) DayOfWeek() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties) *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput)
+}
+
 type TemplateAggregationFunction struct {
 	CategoricalAggregationFunction *TemplateCategoricalAggregationFunction `pulumi:"categoricalAggregationFunction"`
 	DateAggregationFunction        *TemplateDateAggregationFunction        `pulumi:"dateAggregationFunction"`
@@ -78693,499 +79239,6 @@ func (o TemplateCategoricalDimensionFieldPtrOutput) HierarchyId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-type TemplateCategoricalMeasureField struct {
-	AggregationFunction *TemplateCategoricalAggregationFunction `pulumi:"aggregationFunction"`
-	Column              TemplateColumnIdentifier                `pulumi:"column"`
-	FieldId             string                                  `pulumi:"fieldId"`
-	FormatConfiguration *TemplateStringFormatConfiguration      `pulumi:"formatConfiguration"`
-}
-
-// TemplateCategoricalMeasureFieldInput is an input type that accepts TemplateCategoricalMeasureFieldArgs and TemplateCategoricalMeasureFieldOutput values.
-// You can construct a concrete instance of `TemplateCategoricalMeasureFieldInput` via:
-//
-//	TemplateCategoricalMeasureFieldArgs{...}
-type TemplateCategoricalMeasureFieldInput interface {
-	pulumi.Input
-
-	ToTemplateCategoricalMeasureFieldOutput() TemplateCategoricalMeasureFieldOutput
-	ToTemplateCategoricalMeasureFieldOutputWithContext(context.Context) TemplateCategoricalMeasureFieldOutput
-}
-
-type TemplateCategoricalMeasureFieldArgs struct {
-	AggregationFunction TemplateCategoricalAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
-	Column              TemplateColumnIdentifierInput                  `pulumi:"column"`
-	FieldId             pulumi.StringInput                             `pulumi:"fieldId"`
-	FormatConfiguration TemplateStringFormatConfigurationPtrInput      `pulumi:"formatConfiguration"`
-}
-
-func (TemplateCategoricalMeasureFieldArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateCategoricalMeasureField)(nil)).Elem()
-}
-
-func (i TemplateCategoricalMeasureFieldArgs) ToTemplateCategoricalMeasureFieldOutput() TemplateCategoricalMeasureFieldOutput {
-	return i.ToTemplateCategoricalMeasureFieldOutputWithContext(context.Background())
-}
-
-func (i TemplateCategoricalMeasureFieldArgs) ToTemplateCategoricalMeasureFieldOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoricalMeasureFieldOutput)
-}
-
-func (i TemplateCategoricalMeasureFieldArgs) ToTemplateCategoricalMeasureFieldPtrOutput() TemplateCategoricalMeasureFieldPtrOutput {
-	return i.ToTemplateCategoricalMeasureFieldPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateCategoricalMeasureFieldArgs) ToTemplateCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoricalMeasureFieldOutput).ToTemplateCategoricalMeasureFieldPtrOutputWithContext(ctx)
-}
-
-// TemplateCategoricalMeasureFieldPtrInput is an input type that accepts TemplateCategoricalMeasureFieldArgs, TemplateCategoricalMeasureFieldPtr and TemplateCategoricalMeasureFieldPtrOutput values.
-// You can construct a concrete instance of `TemplateCategoricalMeasureFieldPtrInput` via:
-//
-//	        TemplateCategoricalMeasureFieldArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateCategoricalMeasureFieldPtrInput interface {
-	pulumi.Input
-
-	ToTemplateCategoricalMeasureFieldPtrOutput() TemplateCategoricalMeasureFieldPtrOutput
-	ToTemplateCategoricalMeasureFieldPtrOutputWithContext(context.Context) TemplateCategoricalMeasureFieldPtrOutput
-}
-
-type templateCategoricalMeasureFieldPtrType TemplateCategoricalMeasureFieldArgs
-
-func TemplateCategoricalMeasureFieldPtr(v *TemplateCategoricalMeasureFieldArgs) TemplateCategoricalMeasureFieldPtrInput {
-	return (*templateCategoricalMeasureFieldPtrType)(v)
-}
-
-func (*templateCategoricalMeasureFieldPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateCategoricalMeasureField)(nil)).Elem()
-}
-
-func (i *templateCategoricalMeasureFieldPtrType) ToTemplateCategoricalMeasureFieldPtrOutput() TemplateCategoricalMeasureFieldPtrOutput {
-	return i.ToTemplateCategoricalMeasureFieldPtrOutputWithContext(context.Background())
-}
-
-func (i *templateCategoricalMeasureFieldPtrType) ToTemplateCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoricalMeasureFieldPtrOutput)
-}
-
-type TemplateCategoricalMeasureFieldOutput struct{ *pulumi.OutputState }
-
-func (TemplateCategoricalMeasureFieldOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateCategoricalMeasureField)(nil)).Elem()
-}
-
-func (o TemplateCategoricalMeasureFieldOutput) ToTemplateCategoricalMeasureFieldOutput() TemplateCategoricalMeasureFieldOutput {
-	return o
-}
-
-func (o TemplateCategoricalMeasureFieldOutput) ToTemplateCategoricalMeasureFieldOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldOutput {
-	return o
-}
-
-func (o TemplateCategoricalMeasureFieldOutput) ToTemplateCategoricalMeasureFieldPtrOutput() TemplateCategoricalMeasureFieldPtrOutput {
-	return o.ToTemplateCategoricalMeasureFieldPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateCategoricalMeasureFieldOutput) ToTemplateCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateCategoricalMeasureField) *TemplateCategoricalMeasureField {
-		return &v
-	}).(TemplateCategoricalMeasureFieldPtrOutput)
-}
-
-func (o TemplateCategoricalMeasureFieldOutput) AggregationFunction() TemplateCategoricalAggregationFunctionPtrOutput {
-	return o.ApplyT(func(v TemplateCategoricalMeasureField) *TemplateCategoricalAggregationFunction {
-		return v.AggregationFunction
-	}).(TemplateCategoricalAggregationFunctionPtrOutput)
-}
-
-func (o TemplateCategoricalMeasureFieldOutput) Column() TemplateColumnIdentifierOutput {
-	return o.ApplyT(func(v TemplateCategoricalMeasureField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
-}
-
-func (o TemplateCategoricalMeasureFieldOutput) FieldId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateCategoricalMeasureField) string { return v.FieldId }).(pulumi.StringOutput)
-}
-
-func (o TemplateCategoricalMeasureFieldOutput) FormatConfiguration() TemplateStringFormatConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateCategoricalMeasureField) *TemplateStringFormatConfiguration {
-		return v.FormatConfiguration
-	}).(TemplateStringFormatConfigurationPtrOutput)
-}
-
-type TemplateCategoricalMeasureFieldPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateCategoricalMeasureFieldPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateCategoricalMeasureField)(nil)).Elem()
-}
-
-func (o TemplateCategoricalMeasureFieldPtrOutput) ToTemplateCategoricalMeasureFieldPtrOutput() TemplateCategoricalMeasureFieldPtrOutput {
-	return o
-}
-
-func (o TemplateCategoricalMeasureFieldPtrOutput) ToTemplateCategoricalMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalMeasureFieldPtrOutput {
-	return o
-}
-
-func (o TemplateCategoricalMeasureFieldPtrOutput) Elem() TemplateCategoricalMeasureFieldOutput {
-	return o.ApplyT(func(v *TemplateCategoricalMeasureField) TemplateCategoricalMeasureField {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateCategoricalMeasureField
-		return ret
-	}).(TemplateCategoricalMeasureFieldOutput)
-}
-
-func (o TemplateCategoricalMeasureFieldPtrOutput) AggregationFunction() TemplateCategoricalAggregationFunctionPtrOutput {
-	return o.ApplyT(func(v *TemplateCategoricalMeasureField) *TemplateCategoricalAggregationFunction {
-		if v == nil {
-			return nil
-		}
-		return v.AggregationFunction
-	}).(TemplateCategoricalAggregationFunctionPtrOutput)
-}
-
-func (o TemplateCategoricalMeasureFieldPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
-	return o.ApplyT(func(v *TemplateCategoricalMeasureField) *TemplateColumnIdentifier {
-		if v == nil {
-			return nil
-		}
-		return &v.Column
-	}).(TemplateColumnIdentifierPtrOutput)
-}
-
-func (o TemplateCategoricalMeasureFieldPtrOutput) FieldId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateCategoricalMeasureField) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FieldId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TemplateCategoricalMeasureFieldPtrOutput) FormatConfiguration() TemplateStringFormatConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateCategoricalMeasureField) *TemplateStringFormatConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.FormatConfiguration
-	}).(TemplateStringFormatConfigurationPtrOutput)
-}
-
-type TemplateCategoryDrillDownFilter struct {
-	CategoryValues []string                 `pulumi:"categoryValues"`
-	Column         TemplateColumnIdentifier `pulumi:"column"`
-}
-
-// TemplateCategoryDrillDownFilterInput is an input type that accepts TemplateCategoryDrillDownFilterArgs and TemplateCategoryDrillDownFilterOutput values.
-// You can construct a concrete instance of `TemplateCategoryDrillDownFilterInput` via:
-//
-//	TemplateCategoryDrillDownFilterArgs{...}
-type TemplateCategoryDrillDownFilterInput interface {
-	pulumi.Input
-
-	ToTemplateCategoryDrillDownFilterOutput() TemplateCategoryDrillDownFilterOutput
-	ToTemplateCategoryDrillDownFilterOutputWithContext(context.Context) TemplateCategoryDrillDownFilterOutput
-}
-
-type TemplateCategoryDrillDownFilterArgs struct {
-	CategoryValues pulumi.StringArrayInput       `pulumi:"categoryValues"`
-	Column         TemplateColumnIdentifierInput `pulumi:"column"`
-}
-
-func (TemplateCategoryDrillDownFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateCategoryDrillDownFilter)(nil)).Elem()
-}
-
-func (i TemplateCategoryDrillDownFilterArgs) ToTemplateCategoryDrillDownFilterOutput() TemplateCategoryDrillDownFilterOutput {
-	return i.ToTemplateCategoryDrillDownFilterOutputWithContext(context.Background())
-}
-
-func (i TemplateCategoryDrillDownFilterArgs) ToTemplateCategoryDrillDownFilterOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryDrillDownFilterOutput)
-}
-
-func (i TemplateCategoryDrillDownFilterArgs) ToTemplateCategoryDrillDownFilterPtrOutput() TemplateCategoryDrillDownFilterPtrOutput {
-	return i.ToTemplateCategoryDrillDownFilterPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateCategoryDrillDownFilterArgs) ToTemplateCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryDrillDownFilterOutput).ToTemplateCategoryDrillDownFilterPtrOutputWithContext(ctx)
-}
-
-// TemplateCategoryDrillDownFilterPtrInput is an input type that accepts TemplateCategoryDrillDownFilterArgs, TemplateCategoryDrillDownFilterPtr and TemplateCategoryDrillDownFilterPtrOutput values.
-// You can construct a concrete instance of `TemplateCategoryDrillDownFilterPtrInput` via:
-//
-//	        TemplateCategoryDrillDownFilterArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateCategoryDrillDownFilterPtrInput interface {
-	pulumi.Input
-
-	ToTemplateCategoryDrillDownFilterPtrOutput() TemplateCategoryDrillDownFilterPtrOutput
-	ToTemplateCategoryDrillDownFilterPtrOutputWithContext(context.Context) TemplateCategoryDrillDownFilterPtrOutput
-}
-
-type templateCategoryDrillDownFilterPtrType TemplateCategoryDrillDownFilterArgs
-
-func TemplateCategoryDrillDownFilterPtr(v *TemplateCategoryDrillDownFilterArgs) TemplateCategoryDrillDownFilterPtrInput {
-	return (*templateCategoryDrillDownFilterPtrType)(v)
-}
-
-func (*templateCategoryDrillDownFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateCategoryDrillDownFilter)(nil)).Elem()
-}
-
-func (i *templateCategoryDrillDownFilterPtrType) ToTemplateCategoryDrillDownFilterPtrOutput() TemplateCategoryDrillDownFilterPtrOutput {
-	return i.ToTemplateCategoryDrillDownFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *templateCategoryDrillDownFilterPtrType) ToTemplateCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryDrillDownFilterPtrOutput)
-}
-
-type TemplateCategoryDrillDownFilterOutput struct{ *pulumi.OutputState }
-
-func (TemplateCategoryDrillDownFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateCategoryDrillDownFilter)(nil)).Elem()
-}
-
-func (o TemplateCategoryDrillDownFilterOutput) ToTemplateCategoryDrillDownFilterOutput() TemplateCategoryDrillDownFilterOutput {
-	return o
-}
-
-func (o TemplateCategoryDrillDownFilterOutput) ToTemplateCategoryDrillDownFilterOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterOutput {
-	return o
-}
-
-func (o TemplateCategoryDrillDownFilterOutput) ToTemplateCategoryDrillDownFilterPtrOutput() TemplateCategoryDrillDownFilterPtrOutput {
-	return o.ToTemplateCategoryDrillDownFilterPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateCategoryDrillDownFilterOutput) ToTemplateCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateCategoryDrillDownFilter) *TemplateCategoryDrillDownFilter {
-		return &v
-	}).(TemplateCategoryDrillDownFilterPtrOutput)
-}
-
-func (o TemplateCategoryDrillDownFilterOutput) CategoryValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TemplateCategoryDrillDownFilter) []string { return v.CategoryValues }).(pulumi.StringArrayOutput)
-}
-
-func (o TemplateCategoryDrillDownFilterOutput) Column() TemplateColumnIdentifierOutput {
-	return o.ApplyT(func(v TemplateCategoryDrillDownFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
-}
-
-type TemplateCategoryDrillDownFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateCategoryDrillDownFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateCategoryDrillDownFilter)(nil)).Elem()
-}
-
-func (o TemplateCategoryDrillDownFilterPtrOutput) ToTemplateCategoryDrillDownFilterPtrOutput() TemplateCategoryDrillDownFilterPtrOutput {
-	return o
-}
-
-func (o TemplateCategoryDrillDownFilterPtrOutput) ToTemplateCategoryDrillDownFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryDrillDownFilterPtrOutput {
-	return o
-}
-
-func (o TemplateCategoryDrillDownFilterPtrOutput) Elem() TemplateCategoryDrillDownFilterOutput {
-	return o.ApplyT(func(v *TemplateCategoryDrillDownFilter) TemplateCategoryDrillDownFilter {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateCategoryDrillDownFilter
-		return ret
-	}).(TemplateCategoryDrillDownFilterOutput)
-}
-
-func (o TemplateCategoryDrillDownFilterPtrOutput) CategoryValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TemplateCategoryDrillDownFilter) []string {
-		if v == nil {
-			return nil
-		}
-		return v.CategoryValues
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o TemplateCategoryDrillDownFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
-	return o.ApplyT(func(v *TemplateCategoryDrillDownFilter) *TemplateColumnIdentifier {
-		if v == nil {
-			return nil
-		}
-		return &v.Column
-	}).(TemplateColumnIdentifierPtrOutput)
-}
-
-type TemplateCategoryFilter struct {
-	Column        TemplateColumnIdentifier            `pulumi:"column"`
-	Configuration TemplateCategoryFilterConfiguration `pulumi:"configuration"`
-	FilterId      string                              `pulumi:"filterId"`
-}
-
-// TemplateCategoryFilterInput is an input type that accepts TemplateCategoryFilterArgs and TemplateCategoryFilterOutput values.
-// You can construct a concrete instance of `TemplateCategoryFilterInput` via:
-//
-//	TemplateCategoryFilterArgs{...}
-type TemplateCategoryFilterInput interface {
-	pulumi.Input
-
-	ToTemplateCategoryFilterOutput() TemplateCategoryFilterOutput
-	ToTemplateCategoryFilterOutputWithContext(context.Context) TemplateCategoryFilterOutput
-}
-
-type TemplateCategoryFilterArgs struct {
-	Column        TemplateColumnIdentifierInput            `pulumi:"column"`
-	Configuration TemplateCategoryFilterConfigurationInput `pulumi:"configuration"`
-	FilterId      pulumi.StringInput                       `pulumi:"filterId"`
-}
-
-func (TemplateCategoryFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateCategoryFilter)(nil)).Elem()
-}
-
-func (i TemplateCategoryFilterArgs) ToTemplateCategoryFilterOutput() TemplateCategoryFilterOutput {
-	return i.ToTemplateCategoryFilterOutputWithContext(context.Background())
-}
-
-func (i TemplateCategoryFilterArgs) ToTemplateCategoryFilterOutputWithContext(ctx context.Context) TemplateCategoryFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryFilterOutput)
-}
-
-func (i TemplateCategoryFilterArgs) ToTemplateCategoryFilterPtrOutput() TemplateCategoryFilterPtrOutput {
-	return i.ToTemplateCategoryFilterPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateCategoryFilterArgs) ToTemplateCategoryFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryFilterOutput).ToTemplateCategoryFilterPtrOutputWithContext(ctx)
-}
-
-// TemplateCategoryFilterPtrInput is an input type that accepts TemplateCategoryFilterArgs, TemplateCategoryFilterPtr and TemplateCategoryFilterPtrOutput values.
-// You can construct a concrete instance of `TemplateCategoryFilterPtrInput` via:
-//
-//	        TemplateCategoryFilterArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateCategoryFilterPtrInput interface {
-	pulumi.Input
-
-	ToTemplateCategoryFilterPtrOutput() TemplateCategoryFilterPtrOutput
-	ToTemplateCategoryFilterPtrOutputWithContext(context.Context) TemplateCategoryFilterPtrOutput
-}
-
-type templateCategoryFilterPtrType TemplateCategoryFilterArgs
-
-func TemplateCategoryFilterPtr(v *TemplateCategoryFilterArgs) TemplateCategoryFilterPtrInput {
-	return (*templateCategoryFilterPtrType)(v)
-}
-
-func (*templateCategoryFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateCategoryFilter)(nil)).Elem()
-}
-
-func (i *templateCategoryFilterPtrType) ToTemplateCategoryFilterPtrOutput() TemplateCategoryFilterPtrOutput {
-	return i.ToTemplateCategoryFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *templateCategoryFilterPtrType) ToTemplateCategoryFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoryFilterPtrOutput)
-}
-
-type TemplateCategoryFilterOutput struct{ *pulumi.OutputState }
-
-func (TemplateCategoryFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateCategoryFilter)(nil)).Elem()
-}
-
-func (o TemplateCategoryFilterOutput) ToTemplateCategoryFilterOutput() TemplateCategoryFilterOutput {
-	return o
-}
-
-func (o TemplateCategoryFilterOutput) ToTemplateCategoryFilterOutputWithContext(ctx context.Context) TemplateCategoryFilterOutput {
-	return o
-}
-
-func (o TemplateCategoryFilterOutput) ToTemplateCategoryFilterPtrOutput() TemplateCategoryFilterPtrOutput {
-	return o.ToTemplateCategoryFilterPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateCategoryFilterOutput) ToTemplateCategoryFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateCategoryFilter) *TemplateCategoryFilter {
-		return &v
-	}).(TemplateCategoryFilterPtrOutput)
-}
-
-func (o TemplateCategoryFilterOutput) Column() TemplateColumnIdentifierOutput {
-	return o.ApplyT(func(v TemplateCategoryFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
-}
-
-func (o TemplateCategoryFilterOutput) Configuration() TemplateCategoryFilterConfigurationOutput {
-	return o.ApplyT(func(v TemplateCategoryFilter) TemplateCategoryFilterConfiguration { return v.Configuration }).(TemplateCategoryFilterConfigurationOutput)
-}
-
-func (o TemplateCategoryFilterOutput) FilterId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateCategoryFilter) string { return v.FilterId }).(pulumi.StringOutput)
-}
-
-type TemplateCategoryFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateCategoryFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateCategoryFilter)(nil)).Elem()
-}
-
-func (o TemplateCategoryFilterPtrOutput) ToTemplateCategoryFilterPtrOutput() TemplateCategoryFilterPtrOutput {
-	return o
-}
-
-func (o TemplateCategoryFilterPtrOutput) ToTemplateCategoryFilterPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterPtrOutput {
-	return o
-}
-
-func (o TemplateCategoryFilterPtrOutput) Elem() TemplateCategoryFilterOutput {
-	return o.ApplyT(func(v *TemplateCategoryFilter) TemplateCategoryFilter {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateCategoryFilter
-		return ret
-	}).(TemplateCategoryFilterOutput)
-}
-
-func (o TemplateCategoryFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
-	return o.ApplyT(func(v *TemplateCategoryFilter) *TemplateColumnIdentifier {
-		if v == nil {
-			return nil
-		}
-		return &v.Column
-	}).(TemplateColumnIdentifierPtrOutput)
-}
-
-func (o TemplateCategoryFilterPtrOutput) Configuration() TemplateCategoryFilterConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateCategoryFilter) *TemplateCategoryFilterConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.Configuration
-	}).(TemplateCategoryFilterConfigurationPtrOutput)
-}
-
-func (o TemplateCategoryFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateCategoryFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FilterId
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardColorScaleInput)(nil)).Elem(), DashboardColorScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardColorScalePtrInput)(nil)).Elem(), DashboardColorScaleArgs{})
@@ -80088,6 +80141,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTeradataParametersPtrInput)(nil)).Elem(), DataSourceTeradataParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesPtrInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapInput)(nil)).Elem(), RefreshScheduleMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapPtrInput)(nil)).Elem(), RefreshScheduleMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesPtrInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAggregationFunctionInput)(nil)).Elem(), TemplateAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAggregationFunctionPtrInput)(nil)).Elem(), TemplateAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAggregationSortConfigurationInput)(nil)).Elem(), TemplateAggregationSortConfigurationArgs{})
@@ -80167,12 +80226,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCascadingControlSourceArrayInput)(nil)).Elem(), TemplateCascadingControlSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalDimensionFieldInput)(nil)).Elem(), TemplateCategoricalDimensionFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalDimensionFieldPtrInput)(nil)).Elem(), TemplateCategoricalDimensionFieldArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalMeasureFieldInput)(nil)).Elem(), TemplateCategoricalMeasureFieldArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalMeasureFieldPtrInput)(nil)).Elem(), TemplateCategoricalMeasureFieldArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoryDrillDownFilterInput)(nil)).Elem(), TemplateCategoryDrillDownFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoryDrillDownFilterPtrInput)(nil)).Elem(), TemplateCategoryDrillDownFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoryFilterInput)(nil)).Elem(), TemplateCategoryFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoryFilterPtrInput)(nil)).Elem(), TemplateCategoryFilterArgs{})
 	pulumi.RegisterOutputType(DashboardColorScaleOutput{})
 	pulumi.RegisterOutputType(DashboardColorScalePtrOutput{})
 	pulumi.RegisterOutputType(DashboardColorsConfigurationOutput{})
@@ -81084,6 +81137,12 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceTeradataParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapPtrOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TemplateAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(TemplateAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateAggregationSortConfigurationOutput{})
@@ -81163,10 +81222,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateCascadingControlSourceArrayOutput{})
 	pulumi.RegisterOutputType(TemplateCategoricalDimensionFieldOutput{})
 	pulumi.RegisterOutputType(TemplateCategoricalDimensionFieldPtrOutput{})
-	pulumi.RegisterOutputType(TemplateCategoricalMeasureFieldOutput{})
-	pulumi.RegisterOutputType(TemplateCategoricalMeasureFieldPtrOutput{})
-	pulumi.RegisterOutputType(TemplateCategoryDrillDownFilterOutput{})
-	pulumi.RegisterOutputType(TemplateCategoryDrillDownFilterPtrOutput{})
-	pulumi.RegisterOutputType(TemplateCategoryFilterOutput{})
-	pulumi.RegisterOutputType(TemplateCategoryFilterPtrOutput{})
 }

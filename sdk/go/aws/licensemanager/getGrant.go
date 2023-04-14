@@ -34,7 +34,6 @@ type LookupGrantResult struct {
 	HomeRegion *string `pulumi:"homeRegion"`
 	// License Arn for the grant.
 	LicenseArn *string `pulumi:"licenseArn"`
-	Status     *string `pulumi:"status"`
 	// The version of the grant.
 	Version *string `pulumi:"version"`
 }
@@ -93,10 +92,6 @@ func (o LookupGrantResultOutput) HomeRegion() pulumi.StringPtrOutput {
 // License Arn for the grant.
 func (o LookupGrantResultOutput) LicenseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGrantResult) *string { return v.LicenseArn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupGrantResultOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupGrantResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The version of the grant.

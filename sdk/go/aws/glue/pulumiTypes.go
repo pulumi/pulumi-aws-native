@@ -1144,6 +1144,118 @@ func (o CrawlerCatalogTargetArrayOutput) Index(i pulumi.IntInput) CrawlerCatalog
 	}).(CrawlerCatalogTargetOutput)
 }
 
+type CrawlerDeltaTarget struct {
+	ConnectionName         *string  `pulumi:"connectionName"`
+	CreateNativeDeltaTable *bool    `pulumi:"createNativeDeltaTable"`
+	DeltaTables            []string `pulumi:"deltaTables"`
+	WriteManifest          *bool    `pulumi:"writeManifest"`
+}
+
+// CrawlerDeltaTargetInput is an input type that accepts CrawlerDeltaTargetArgs and CrawlerDeltaTargetOutput values.
+// You can construct a concrete instance of `CrawlerDeltaTargetInput` via:
+//
+//	CrawlerDeltaTargetArgs{...}
+type CrawlerDeltaTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerDeltaTargetOutput() CrawlerDeltaTargetOutput
+	ToCrawlerDeltaTargetOutputWithContext(context.Context) CrawlerDeltaTargetOutput
+}
+
+type CrawlerDeltaTargetArgs struct {
+	ConnectionName         pulumi.StringPtrInput   `pulumi:"connectionName"`
+	CreateNativeDeltaTable pulumi.BoolPtrInput     `pulumi:"createNativeDeltaTable"`
+	DeltaTables            pulumi.StringArrayInput `pulumi:"deltaTables"`
+	WriteManifest          pulumi.BoolPtrInput     `pulumi:"writeManifest"`
+}
+
+func (CrawlerDeltaTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (i CrawlerDeltaTargetArgs) ToCrawlerDeltaTargetOutput() CrawlerDeltaTargetOutput {
+	return i.ToCrawlerDeltaTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerDeltaTargetArgs) ToCrawlerDeltaTargetOutputWithContext(ctx context.Context) CrawlerDeltaTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDeltaTargetOutput)
+}
+
+// CrawlerDeltaTargetArrayInput is an input type that accepts CrawlerDeltaTargetArray and CrawlerDeltaTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerDeltaTargetArrayInput` via:
+//
+//	CrawlerDeltaTargetArray{ CrawlerDeltaTargetArgs{...} }
+type CrawlerDeltaTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerDeltaTargetArrayOutput() CrawlerDeltaTargetArrayOutput
+	ToCrawlerDeltaTargetArrayOutputWithContext(context.Context) CrawlerDeltaTargetArrayOutput
+}
+
+type CrawlerDeltaTargetArray []CrawlerDeltaTargetInput
+
+func (CrawlerDeltaTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (i CrawlerDeltaTargetArray) ToCrawlerDeltaTargetArrayOutput() CrawlerDeltaTargetArrayOutput {
+	return i.ToCrawlerDeltaTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerDeltaTargetArray) ToCrawlerDeltaTargetArrayOutputWithContext(ctx context.Context) CrawlerDeltaTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDeltaTargetArrayOutput)
+}
+
+type CrawlerDeltaTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerDeltaTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (o CrawlerDeltaTargetOutput) ToCrawlerDeltaTargetOutput() CrawlerDeltaTargetOutput {
+	return o
+}
+
+func (o CrawlerDeltaTargetOutput) ToCrawlerDeltaTargetOutputWithContext(ctx context.Context) CrawlerDeltaTargetOutput {
+	return o
+}
+
+func (o CrawlerDeltaTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerDeltaTargetOutput) CreateNativeDeltaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) *bool { return v.CreateNativeDeltaTable }).(pulumi.BoolPtrOutput)
+}
+
+func (o CrawlerDeltaTargetOutput) DeltaTables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) []string { return v.DeltaTables }).(pulumi.StringArrayOutput)
+}
+
+func (o CrawlerDeltaTargetOutput) WriteManifest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) *bool { return v.WriteManifest }).(pulumi.BoolPtrOutput)
+}
+
+type CrawlerDeltaTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerDeltaTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (o CrawlerDeltaTargetArrayOutput) ToCrawlerDeltaTargetArrayOutput() CrawlerDeltaTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerDeltaTargetArrayOutput) ToCrawlerDeltaTargetArrayOutputWithContext(ctx context.Context) CrawlerDeltaTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerDeltaTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDeltaTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerDeltaTarget {
+		return vs[0].([]CrawlerDeltaTarget)[vs[1].(int)]
+	}).(CrawlerDeltaTargetOutput)
+}
+
 type CrawlerDynamoDBTarget struct {
 	Path *string `pulumi:"path"`
 }
@@ -1984,6 +2096,7 @@ func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOut
 
 type CrawlerTargets struct {
 	CatalogTargets  []CrawlerCatalogTarget  `pulumi:"catalogTargets"`
+	DeltaTargets    []CrawlerDeltaTarget    `pulumi:"deltaTargets"`
 	DynamoDBTargets []CrawlerDynamoDBTarget `pulumi:"dynamoDBTargets"`
 	JdbcTargets     []CrawlerJdbcTarget     `pulumi:"jdbcTargets"`
 	MongoDBTargets  []CrawlerMongoDBTarget  `pulumi:"mongoDBTargets"`
@@ -2003,6 +2116,7 @@ type CrawlerTargetsInput interface {
 
 type CrawlerTargetsArgs struct {
 	CatalogTargets  CrawlerCatalogTargetArrayInput  `pulumi:"catalogTargets"`
+	DeltaTargets    CrawlerDeltaTargetArrayInput    `pulumi:"deltaTargets"`
 	DynamoDBTargets CrawlerDynamoDBTargetArrayInput `pulumi:"dynamoDBTargets"`
 	JdbcTargets     CrawlerJdbcTargetArrayInput     `pulumi:"jdbcTargets"`
 	MongoDBTargets  CrawlerMongoDBTargetArrayInput  `pulumi:"mongoDBTargets"`
@@ -2037,6 +2151,10 @@ func (o CrawlerTargetsOutput) ToCrawlerTargetsOutputWithContext(ctx context.Cont
 
 func (o CrawlerTargetsOutput) CatalogTargets() CrawlerCatalogTargetArrayOutput {
 	return o.ApplyT(func(v CrawlerTargets) []CrawlerCatalogTarget { return v.CatalogTargets }).(CrawlerCatalogTargetArrayOutput)
+}
+
+func (o CrawlerTargetsOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerDeltaTarget { return v.DeltaTargets }).(CrawlerDeltaTargetArrayOutput)
 }
 
 func (o CrawlerTargetsOutput) DynamoDBTargets() CrawlerDynamoDBTargetArrayOutput {
@@ -2086,6 +2204,15 @@ func (o CrawlerTargetsPtrOutput) CatalogTargets() CrawlerCatalogTargetArrayOutpu
 		}
 		return v.CatalogTargets
 	}).(CrawlerCatalogTargetArrayOutput)
+}
+
+func (o CrawlerTargetsPtrOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerDeltaTarget {
+		if v == nil {
+			return nil
+		}
+		return v.DeltaTargets
+	}).(CrawlerDeltaTargetArrayOutput)
 }
 
 func (o CrawlerTargetsPtrOutput) DynamoDBTargets() CrawlerDynamoDBTargetArrayOutput {
@@ -2656,6 +2783,154 @@ func (o DatabaseDataLakePrincipalPtrOutput) DataLakePrincipalIdentifier() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+type DatabaseFederatedDatabase struct {
+	ConnectionName *string `pulumi:"connectionName"`
+	Identifier     *string `pulumi:"identifier"`
+}
+
+// DatabaseFederatedDatabaseInput is an input type that accepts DatabaseFederatedDatabaseArgs and DatabaseFederatedDatabaseOutput values.
+// You can construct a concrete instance of `DatabaseFederatedDatabaseInput` via:
+//
+//	DatabaseFederatedDatabaseArgs{...}
+type DatabaseFederatedDatabaseInput interface {
+	pulumi.Input
+
+	ToDatabaseFederatedDatabaseOutput() DatabaseFederatedDatabaseOutput
+	ToDatabaseFederatedDatabaseOutputWithContext(context.Context) DatabaseFederatedDatabaseOutput
+}
+
+type DatabaseFederatedDatabaseArgs struct {
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	Identifier     pulumi.StringPtrInput `pulumi:"identifier"`
+}
+
+func (DatabaseFederatedDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (i DatabaseFederatedDatabaseArgs) ToDatabaseFederatedDatabaseOutput() DatabaseFederatedDatabaseOutput {
+	return i.ToDatabaseFederatedDatabaseOutputWithContext(context.Background())
+}
+
+func (i DatabaseFederatedDatabaseArgs) ToDatabaseFederatedDatabaseOutputWithContext(ctx context.Context) DatabaseFederatedDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseFederatedDatabaseOutput)
+}
+
+func (i DatabaseFederatedDatabaseArgs) ToDatabaseFederatedDatabasePtrOutput() DatabaseFederatedDatabasePtrOutput {
+	return i.ToDatabaseFederatedDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseFederatedDatabaseArgs) ToDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) DatabaseFederatedDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseFederatedDatabaseOutput).ToDatabaseFederatedDatabasePtrOutputWithContext(ctx)
+}
+
+// DatabaseFederatedDatabasePtrInput is an input type that accepts DatabaseFederatedDatabaseArgs, DatabaseFederatedDatabasePtr and DatabaseFederatedDatabasePtrOutput values.
+// You can construct a concrete instance of `DatabaseFederatedDatabasePtrInput` via:
+//
+//	        DatabaseFederatedDatabaseArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatabaseFederatedDatabasePtrInput interface {
+	pulumi.Input
+
+	ToDatabaseFederatedDatabasePtrOutput() DatabaseFederatedDatabasePtrOutput
+	ToDatabaseFederatedDatabasePtrOutputWithContext(context.Context) DatabaseFederatedDatabasePtrOutput
+}
+
+type databaseFederatedDatabasePtrType DatabaseFederatedDatabaseArgs
+
+func DatabaseFederatedDatabasePtr(v *DatabaseFederatedDatabaseArgs) DatabaseFederatedDatabasePtrInput {
+	return (*databaseFederatedDatabasePtrType)(v)
+}
+
+func (*databaseFederatedDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (i *databaseFederatedDatabasePtrType) ToDatabaseFederatedDatabasePtrOutput() DatabaseFederatedDatabasePtrOutput {
+	return i.ToDatabaseFederatedDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *databaseFederatedDatabasePtrType) ToDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) DatabaseFederatedDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseFederatedDatabasePtrOutput)
+}
+
+type DatabaseFederatedDatabaseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseFederatedDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (o DatabaseFederatedDatabaseOutput) ToDatabaseFederatedDatabaseOutput() DatabaseFederatedDatabaseOutput {
+	return o
+}
+
+func (o DatabaseFederatedDatabaseOutput) ToDatabaseFederatedDatabaseOutputWithContext(ctx context.Context) DatabaseFederatedDatabaseOutput {
+	return o
+}
+
+func (o DatabaseFederatedDatabaseOutput) ToDatabaseFederatedDatabasePtrOutput() DatabaseFederatedDatabasePtrOutput {
+	return o.ToDatabaseFederatedDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseFederatedDatabaseOutput) ToDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) DatabaseFederatedDatabasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseFederatedDatabase) *DatabaseFederatedDatabase {
+		return &v
+	}).(DatabaseFederatedDatabasePtrOutput)
+}
+
+func (o DatabaseFederatedDatabaseOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseFederatedDatabase) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseFederatedDatabaseOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseFederatedDatabase) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseFederatedDatabasePtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseFederatedDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseFederatedDatabase)(nil)).Elem()
+}
+
+func (o DatabaseFederatedDatabasePtrOutput) ToDatabaseFederatedDatabasePtrOutput() DatabaseFederatedDatabasePtrOutput {
+	return o
+}
+
+func (o DatabaseFederatedDatabasePtrOutput) ToDatabaseFederatedDatabasePtrOutputWithContext(ctx context.Context) DatabaseFederatedDatabasePtrOutput {
+	return o
+}
+
+func (o DatabaseFederatedDatabasePtrOutput) Elem() DatabaseFederatedDatabaseOutput {
+	return o.ApplyT(func(v *DatabaseFederatedDatabase) DatabaseFederatedDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseFederatedDatabase
+		return ret
+	}).(DatabaseFederatedDatabaseOutput)
+}
+
+func (o DatabaseFederatedDatabasePtrOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseFederatedDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseFederatedDatabasePtrOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseFederatedDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Identifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type DatabaseIdentifier struct {
 	CatalogId    *string `pulumi:"catalogId"`
 	DatabaseName *string `pulumi:"databaseName"`
@@ -2807,6 +3082,7 @@ func (o DatabaseIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 type DatabaseInputType struct {
 	CreateTableDefaultPermissions []DatabasePrincipalPrivileges `pulumi:"createTableDefaultPermissions"`
 	Description                   *string                       `pulumi:"description"`
+	FederatedDatabase             *DatabaseFederatedDatabase    `pulumi:"federatedDatabase"`
 	LocationUri                   *string                       `pulumi:"locationUri"`
 	Name                          *string                       `pulumi:"name"`
 	Parameters                    interface{}                   `pulumi:"parameters"`
@@ -2827,6 +3103,7 @@ type DatabaseInputTypeInput interface {
 type DatabaseInputTypeArgs struct {
 	CreateTableDefaultPermissions DatabasePrincipalPrivilegesArrayInput `pulumi:"createTableDefaultPermissions"`
 	Description                   pulumi.StringPtrInput                 `pulumi:"description"`
+	FederatedDatabase             DatabaseFederatedDatabasePtrInput     `pulumi:"federatedDatabase"`
 	LocationUri                   pulumi.StringPtrInput                 `pulumi:"locationUri"`
 	Name                          pulumi.StringPtrInput                 `pulumi:"name"`
 	Parameters                    pulumi.Input                          `pulumi:"parameters"`
@@ -2865,6 +3142,10 @@ func (o DatabaseInputTypeOutput) CreateTableDefaultPermissions() DatabasePrincip
 
 func (o DatabaseInputTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseInputType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseInputTypeOutput) FederatedDatabase() DatabaseFederatedDatabasePtrOutput {
+	return o.ApplyT(func(v DatabaseInputType) *DatabaseFederatedDatabase { return v.FederatedDatabase }).(DatabaseFederatedDatabasePtrOutput)
 }
 
 func (o DatabaseInputTypeOutput) LocationUri() pulumi.StringPtrOutput {
@@ -2923,6 +3204,15 @@ func (o DatabaseInputTypePtrOutput) Description() pulumi.StringPtrOutput {
 		}
 		return v.Description
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseInputTypePtrOutput) FederatedDatabase() DatabaseFederatedDatabasePtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *DatabaseFederatedDatabase {
+		if v == nil {
+			return nil
+		}
+		return v.FederatedDatabase
+	}).(DatabaseFederatedDatabasePtrOutput)
 }
 
 func (o DatabaseInputTypePtrOutput) LocationUri() pulumi.StringPtrOutput {
@@ -8975,6 +9265,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPhysicalConnectionRequirementsPtrInput)(nil)).Elem(), ConnectionPhysicalConnectionRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetInput)(nil)).Elem(), CrawlerCatalogTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetArrayInput)(nil)).Elem(), CrawlerCatalogTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetInput)(nil)).Elem(), CrawlerDeltaTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetArrayInput)(nil)).Elem(), CrawlerDeltaTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamoDBTargetInput)(nil)).Elem(), CrawlerDynamoDBTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamoDBTargetArrayInput)(nil)).Elem(), CrawlerDynamoDBTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetInput)(nil)).Elem(), CrawlerJdbcTargetArgs{})
@@ -8997,6 +9289,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsEncryptionAtRestPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsEncryptionAtRestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalPtrInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseFederatedDatabaseInput)(nil)).Elem(), DatabaseFederatedDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseFederatedDatabasePtrInput)(nil)).Elem(), DatabaseFederatedDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseIdentifierInput)(nil)).Elem(), DatabaseIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseIdentifierPtrInput)(nil)).Elem(), DatabaseIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseInputTypeInput)(nil)).Elem(), DatabaseInputTypeArgs{})
@@ -9091,6 +9385,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerDeltaTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerDeltaTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamoDBTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamoDBTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})
@@ -9115,6 +9411,8 @@ func init() {
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseFederatedDatabaseOutput{})
+	pulumi.RegisterOutputType(DatabaseFederatedDatabasePtrOutput{})
 	pulumi.RegisterOutputType(DatabaseIdentifierOutput{})
 	pulumi.RegisterOutputType(DatabaseIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseInputTypeOutput{})

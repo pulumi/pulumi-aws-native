@@ -16,8 +16,14 @@ import (
 type DataLakeSettings struct {
 	pulumi.CustomResourceState
 
-	Admins                DataLakeSettingsAdminsPtrOutput `pulumi:"admins"`
-	TrustedResourceOwners pulumi.StringArrayOutput        `pulumi:"trustedResourceOwners"`
+	Admins                           DataLakeSettingsAdminsPtrOutput                           `pulumi:"admins"`
+	AllowExternalDataFiltering       pulumi.BoolPtrOutput                                      `pulumi:"allowExternalDataFiltering"`
+	AuthorizedSessionTagValueList    pulumi.StringArrayOutput                                  `pulumi:"authorizedSessionTagValueList"`
+	CreateDatabaseDefaultPermissions DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput `pulumi:"createDatabaseDefaultPermissions"`
+	CreateTableDefaultPermissions    DataLakeSettingsCreateTableDefaultPermissionsPtrOutput    `pulumi:"createTableDefaultPermissions"`
+	ExternalDataFilteringAllowList   DataLakeSettingsExternalDataFilteringAllowListPtrOutput   `pulumi:"externalDataFilteringAllowList"`
+	Parameters                       pulumi.AnyOutput                                          `pulumi:"parameters"`
+	TrustedResourceOwners            pulumi.StringArrayOutput                                  `pulumi:"trustedResourceOwners"`
 }
 
 // NewDataLakeSettings registers a new resource with the given unique name, arguments, and options.
@@ -59,14 +65,26 @@ func (DataLakeSettingsState) ElementType() reflect.Type {
 }
 
 type dataLakeSettingsArgs struct {
-	Admins                *DataLakeSettingsAdmins `pulumi:"admins"`
-	TrustedResourceOwners []string                `pulumi:"trustedResourceOwners"`
+	Admins                           *DataLakeSettingsAdmins                           `pulumi:"admins"`
+	AllowExternalDataFiltering       *bool                                             `pulumi:"allowExternalDataFiltering"`
+	AuthorizedSessionTagValueList    []string                                          `pulumi:"authorizedSessionTagValueList"`
+	CreateDatabaseDefaultPermissions *DataLakeSettingsCreateDatabaseDefaultPermissions `pulumi:"createDatabaseDefaultPermissions"`
+	CreateTableDefaultPermissions    *DataLakeSettingsCreateTableDefaultPermissions    `pulumi:"createTableDefaultPermissions"`
+	ExternalDataFilteringAllowList   *DataLakeSettingsExternalDataFilteringAllowList   `pulumi:"externalDataFilteringAllowList"`
+	Parameters                       interface{}                                       `pulumi:"parameters"`
+	TrustedResourceOwners            []string                                          `pulumi:"trustedResourceOwners"`
 }
 
 // The set of arguments for constructing a DataLakeSettings resource.
 type DataLakeSettingsArgs struct {
-	Admins                DataLakeSettingsAdminsPtrInput
-	TrustedResourceOwners pulumi.StringArrayInput
+	Admins                           DataLakeSettingsAdminsPtrInput
+	AllowExternalDataFiltering       pulumi.BoolPtrInput
+	AuthorizedSessionTagValueList    pulumi.StringArrayInput
+	CreateDatabaseDefaultPermissions DataLakeSettingsCreateDatabaseDefaultPermissionsPtrInput
+	CreateTableDefaultPermissions    DataLakeSettingsCreateTableDefaultPermissionsPtrInput
+	ExternalDataFilteringAllowList   DataLakeSettingsExternalDataFilteringAllowListPtrInput
+	Parameters                       pulumi.Input
+	TrustedResourceOwners            pulumi.StringArrayInput
 }
 
 func (DataLakeSettingsArgs) ElementType() reflect.Type {
@@ -108,6 +126,36 @@ func (o DataLakeSettingsOutput) ToDataLakeSettingsOutputWithContext(ctx context.
 
 func (o DataLakeSettingsOutput) Admins() DataLakeSettingsAdminsPtrOutput {
 	return o.ApplyT(func(v *DataLakeSettings) DataLakeSettingsAdminsPtrOutput { return v.Admins }).(DataLakeSettingsAdminsPtrOutput)
+}
+
+func (o DataLakeSettingsOutput) AllowExternalDataFiltering() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataLakeSettings) pulumi.BoolPtrOutput { return v.AllowExternalDataFiltering }).(pulumi.BoolPtrOutput)
+}
+
+func (o DataLakeSettingsOutput) AuthorizedSessionTagValueList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.AuthorizedSessionTagValueList }).(pulumi.StringArrayOutput)
+}
+
+func (o DataLakeSettingsOutput) CreateDatabaseDefaultPermissions() DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
+	return o.ApplyT(func(v *DataLakeSettings) DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
+		return v.CreateDatabaseDefaultPermissions
+	}).(DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput)
+}
+
+func (o DataLakeSettingsOutput) CreateTableDefaultPermissions() DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
+	return o.ApplyT(func(v *DataLakeSettings) DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
+		return v.CreateTableDefaultPermissions
+	}).(DataLakeSettingsCreateTableDefaultPermissionsPtrOutput)
+}
+
+func (o DataLakeSettingsOutput) ExternalDataFilteringAllowList() DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
+	return o.ApplyT(func(v *DataLakeSettings) DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
+		return v.ExternalDataFilteringAllowList
+	}).(DataLakeSettingsExternalDataFilteringAllowListPtrOutput)
+}
+
+func (o DataLakeSettingsOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataLakeSettings) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
 }
 
 func (o DataLakeSettingsOutput) TrustedResourceOwners() pulumi.StringArrayOutput {

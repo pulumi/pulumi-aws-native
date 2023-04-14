@@ -710,6 +710,224 @@ func (o EnvironmentTagsArrayOutput) Index(i pulumi.IntInput) EnvironmentTagsOutp
 	}).(EnvironmentTagsOutput)
 }
 
+// A key-value pair to associate with a resource.
+type ExtensionAssociationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ExtensionAssociationTagInput is an input type that accepts ExtensionAssociationTagArgs and ExtensionAssociationTagOutput values.
+// You can construct a concrete instance of `ExtensionAssociationTagInput` via:
+//
+//	ExtensionAssociationTagArgs{...}
+type ExtensionAssociationTagInput interface {
+	pulumi.Input
+
+	ToExtensionAssociationTagOutput() ExtensionAssociationTagOutput
+	ToExtensionAssociationTagOutputWithContext(context.Context) ExtensionAssociationTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ExtensionAssociationTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ExtensionAssociationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionAssociationTag)(nil)).Elem()
+}
+
+func (i ExtensionAssociationTagArgs) ToExtensionAssociationTagOutput() ExtensionAssociationTagOutput {
+	return i.ToExtensionAssociationTagOutputWithContext(context.Background())
+}
+
+func (i ExtensionAssociationTagArgs) ToExtensionAssociationTagOutputWithContext(ctx context.Context) ExtensionAssociationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionAssociationTagOutput)
+}
+
+// ExtensionAssociationTagArrayInput is an input type that accepts ExtensionAssociationTagArray and ExtensionAssociationTagArrayOutput values.
+// You can construct a concrete instance of `ExtensionAssociationTagArrayInput` via:
+//
+//	ExtensionAssociationTagArray{ ExtensionAssociationTagArgs{...} }
+type ExtensionAssociationTagArrayInput interface {
+	pulumi.Input
+
+	ToExtensionAssociationTagArrayOutput() ExtensionAssociationTagArrayOutput
+	ToExtensionAssociationTagArrayOutputWithContext(context.Context) ExtensionAssociationTagArrayOutput
+}
+
+type ExtensionAssociationTagArray []ExtensionAssociationTagInput
+
+func (ExtensionAssociationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionAssociationTag)(nil)).Elem()
+}
+
+func (i ExtensionAssociationTagArray) ToExtensionAssociationTagArrayOutput() ExtensionAssociationTagArrayOutput {
+	return i.ToExtensionAssociationTagArrayOutputWithContext(context.Background())
+}
+
+func (i ExtensionAssociationTagArray) ToExtensionAssociationTagArrayOutputWithContext(ctx context.Context) ExtensionAssociationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionAssociationTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ExtensionAssociationTagOutput struct{ *pulumi.OutputState }
+
+func (ExtensionAssociationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionAssociationTag)(nil)).Elem()
+}
+
+func (o ExtensionAssociationTagOutput) ToExtensionAssociationTagOutput() ExtensionAssociationTagOutput {
+	return o
+}
+
+func (o ExtensionAssociationTagOutput) ToExtensionAssociationTagOutputWithContext(ctx context.Context) ExtensionAssociationTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ExtensionAssociationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionAssociationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ExtensionAssociationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionAssociationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ExtensionAssociationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtensionAssociationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionAssociationTag)(nil)).Elem()
+}
+
+func (o ExtensionAssociationTagArrayOutput) ToExtensionAssociationTagArrayOutput() ExtensionAssociationTagArrayOutput {
+	return o
+}
+
+func (o ExtensionAssociationTagArrayOutput) ToExtensionAssociationTagArrayOutputWithContext(ctx context.Context) ExtensionAssociationTagArrayOutput {
+	return o
+}
+
+func (o ExtensionAssociationTagArrayOutput) Index(i pulumi.IntInput) ExtensionAssociationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtensionAssociationTag {
+		return vs[0].([]ExtensionAssociationTag)[vs[1].(int)]
+	}).(ExtensionAssociationTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ExtensionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ExtensionTagInput is an input type that accepts ExtensionTagArgs and ExtensionTagOutput values.
+// You can construct a concrete instance of `ExtensionTagInput` via:
+//
+//	ExtensionTagArgs{...}
+type ExtensionTagInput interface {
+	pulumi.Input
+
+	ToExtensionTagOutput() ExtensionTagOutput
+	ToExtensionTagOutputWithContext(context.Context) ExtensionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ExtensionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ExtensionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionTag)(nil)).Elem()
+}
+
+func (i ExtensionTagArgs) ToExtensionTagOutput() ExtensionTagOutput {
+	return i.ToExtensionTagOutputWithContext(context.Background())
+}
+
+func (i ExtensionTagArgs) ToExtensionTagOutputWithContext(ctx context.Context) ExtensionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionTagOutput)
+}
+
+// ExtensionTagArrayInput is an input type that accepts ExtensionTagArray and ExtensionTagArrayOutput values.
+// You can construct a concrete instance of `ExtensionTagArrayInput` via:
+//
+//	ExtensionTagArray{ ExtensionTagArgs{...} }
+type ExtensionTagArrayInput interface {
+	pulumi.Input
+
+	ToExtensionTagArrayOutput() ExtensionTagArrayOutput
+	ToExtensionTagArrayOutputWithContext(context.Context) ExtensionTagArrayOutput
+}
+
+type ExtensionTagArray []ExtensionTagInput
+
+func (ExtensionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionTag)(nil)).Elem()
+}
+
+func (i ExtensionTagArray) ToExtensionTagArrayOutput() ExtensionTagArrayOutput {
+	return i.ToExtensionTagArrayOutputWithContext(context.Background())
+}
+
+func (i ExtensionTagArray) ToExtensionTagArrayOutputWithContext(ctx context.Context) ExtensionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ExtensionTagOutput struct{ *pulumi.OutputState }
+
+func (ExtensionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionTag)(nil)).Elem()
+}
+
+func (o ExtensionTagOutput) ToExtensionTagOutput() ExtensionTagOutput {
+	return o
+}
+
+func (o ExtensionTagOutput) ToExtensionTagOutputWithContext(ctx context.Context) ExtensionTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ExtensionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ExtensionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ExtensionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtensionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionTag)(nil)).Elem()
+}
+
+func (o ExtensionTagArrayOutput) ToExtensionTagArrayOutput() ExtensionTagArrayOutput {
+	return o
+}
+
+func (o ExtensionTagArrayOutput) ToExtensionTagArrayOutputWithContext(ctx context.Context) ExtensionTagArrayOutput {
+	return o
+}
+
+func (o ExtensionTagArrayOutput) Index(i pulumi.IntInput) ExtensionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtensionTag {
+		return vs[0].([]ExtensionTag)[vs[1].(int)]
+	}).(ExtensionTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagsInput)(nil)).Elem(), ApplicationTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagsArrayInput)(nil)).Elem(), ApplicationTagsArray{})
@@ -725,6 +943,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorsArrayInput)(nil)).Elem(), EnvironmentMonitorsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagsInput)(nil)).Elem(), EnvironmentTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagsArrayInput)(nil)).Elem(), EnvironmentTagsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionAssociationTagInput)(nil)).Elem(), ExtensionAssociationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionAssociationTagArrayInput)(nil)).Elem(), ExtensionAssociationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionTagInput)(nil)).Elem(), ExtensionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionTagArrayInput)(nil)).Elem(), ExtensionTagArray{})
 	pulumi.RegisterOutputType(ApplicationTagsOutput{})
 	pulumi.RegisterOutputType(ApplicationTagsArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileTagsOutput{})
@@ -739,4 +961,8 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentMonitorsArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentTagsOutput{})
 	pulumi.RegisterOutputType(EnvironmentTagsArrayOutput{})
+	pulumi.RegisterOutputType(ExtensionAssociationTagOutput{})
+	pulumi.RegisterOutputType(ExtensionAssociationTagArrayOutput{})
+	pulumi.RegisterOutputType(ExtensionTagOutput{})
+	pulumi.RegisterOutputType(ExtensionTagArrayOutput{})
 }

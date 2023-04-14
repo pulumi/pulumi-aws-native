@@ -147,6 +147,8 @@ type DBInstance struct {
 	ReplicaMode pulumi.StringPtrOutput `pulumi:"replicaMode"`
 	// The date and time to restore from.
 	RestoreTime pulumi.StringPtrOutput `pulumi:"restoreTime"`
+	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+	SourceDBClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDBClusterIdentifier"`
 	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
 	SourceDBInstanceAutomatedBackupsArn pulumi.StringPtrOutput `pulumi:"sourceDBInstanceAutomatedBackupsArn"`
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
@@ -343,6 +345,8 @@ type dbinstanceArgs struct {
 	ReplicaMode *string `pulumi:"replicaMode"`
 	// The date and time to restore from.
 	RestoreTime *string `pulumi:"restoreTime"`
+	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+	SourceDBClusterIdentifier *string `pulumi:"sourceDBClusterIdentifier"`
 	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
 	SourceDBInstanceAutomatedBackupsArn *string `pulumi:"sourceDBInstanceAutomatedBackupsArn"`
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
@@ -502,6 +506,8 @@ type DBInstanceArgs struct {
 	ReplicaMode pulumi.StringPtrInput
 	// The date and time to restore from.
 	RestoreTime pulumi.StringPtrInput
+	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+	SourceDBClusterIdentifier pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
 	SourceDBInstanceAutomatedBackupsArn pulumi.StringPtrInput
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
@@ -874,6 +880,11 @@ func (o DBInstanceOutput) ReplicaMode() pulumi.StringPtrOutput {
 // The date and time to restore from.
 func (o DBInstanceOutput) RestoreTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.RestoreTime }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+func (o DBInstanceOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.

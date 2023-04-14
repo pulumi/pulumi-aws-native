@@ -19,6 +19,7 @@ __all__ = [
     'ConnectionInput',
     'ConnectionPhysicalConnectionRequirements',
     'CrawlerCatalogTarget',
+    'CrawlerDeltaTarget',
     'CrawlerDynamoDBTarget',
     'CrawlerJdbcTarget',
     'CrawlerMongoDBTarget',
@@ -31,6 +32,7 @@ __all__ = [
     'DataCatalogEncryptionSettingsConnectionPasswordEncryption',
     'DataCatalogEncryptionSettingsEncryptionAtRest',
     'DatabaseDataLakePrincipal',
+    'DatabaseFederatedDatabase',
     'DatabaseIdentifier',
     'DatabaseInput',
     'DatabasePrincipalPrivileges',
@@ -460,6 +462,66 @@ class CrawlerCatalogTarget(dict):
 
 
 @pulumi.output_type
+class CrawlerDeltaTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionName":
+            suggest = "connection_name"
+        elif key == "createNativeDeltaTable":
+            suggest = "create_native_delta_table"
+        elif key == "deltaTables":
+            suggest = "delta_tables"
+        elif key == "writeManifest":
+            suggest = "write_manifest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerDeltaTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerDeltaTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerDeltaTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_name: Optional[str] = None,
+                 create_native_delta_table: Optional[bool] = None,
+                 delta_tables: Optional[Sequence[str]] = None,
+                 write_manifest: Optional[bool] = None):
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if create_native_delta_table is not None:
+            pulumi.set(__self__, "create_native_delta_table", create_native_delta_table)
+        if delta_tables is not None:
+            pulumi.set(__self__, "delta_tables", delta_tables)
+        if write_manifest is not None:
+            pulumi.set(__self__, "write_manifest", write_manifest)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter(name="createNativeDeltaTable")
+    def create_native_delta_table(self) -> Optional[bool]:
+        return pulumi.get(self, "create_native_delta_table")
+
+    @property
+    @pulumi.getter(name="deltaTables")
+    def delta_tables(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "delta_tables")
+
+    @property
+    @pulumi.getter(name="writeManifest")
+    def write_manifest(self) -> Optional[bool]:
+        return pulumi.get(self, "write_manifest")
+
+
+@pulumi.output_type
 class CrawlerDynamoDBTarget(dict):
     def __init__(__self__, *,
                  path: Optional[str] = None):
@@ -739,6 +801,8 @@ class CrawlerTargets(dict):
         suggest = None
         if key == "catalogTargets":
             suggest = "catalog_targets"
+        elif key == "deltaTargets":
+            suggest = "delta_targets"
         elif key == "dynamoDBTargets":
             suggest = "dynamo_db_targets"
         elif key == "jdbcTargets":
@@ -761,12 +825,15 @@ class CrawlerTargets(dict):
 
     def __init__(__self__, *,
                  catalog_targets: Optional[Sequence['outputs.CrawlerCatalogTarget']] = None,
+                 delta_targets: Optional[Sequence['outputs.CrawlerDeltaTarget']] = None,
                  dynamo_db_targets: Optional[Sequence['outputs.CrawlerDynamoDBTarget']] = None,
                  jdbc_targets: Optional[Sequence['outputs.CrawlerJdbcTarget']] = None,
                  mongo_db_targets: Optional[Sequence['outputs.CrawlerMongoDBTarget']] = None,
                  s3_targets: Optional[Sequence['outputs.CrawlerS3Target']] = None):
         if catalog_targets is not None:
             pulumi.set(__self__, "catalog_targets", catalog_targets)
+        if delta_targets is not None:
+            pulumi.set(__self__, "delta_targets", delta_targets)
         if dynamo_db_targets is not None:
             pulumi.set(__self__, "dynamo_db_targets", dynamo_db_targets)
         if jdbc_targets is not None:
@@ -780,6 +847,11 @@ class CrawlerTargets(dict):
     @pulumi.getter(name="catalogTargets")
     def catalog_targets(self) -> Optional[Sequence['outputs.CrawlerCatalogTarget']]:
         return pulumi.get(self, "catalog_targets")
+
+    @property
+    @pulumi.getter(name="deltaTargets")
+    def delta_targets(self) -> Optional[Sequence['outputs.CrawlerDeltaTarget']]:
+        return pulumi.get(self, "delta_targets")
 
     @property
     @pulumi.getter(name="dynamoDBTargets")
@@ -953,6 +1025,44 @@ class DatabaseDataLakePrincipal(dict):
 
 
 @pulumi.output_type
+class DatabaseFederatedDatabase(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseFederatedDatabase. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseFederatedDatabase.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseFederatedDatabase.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_name: Optional[str] = None,
+                 identifier: Optional[str] = None):
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[str]:
+        return pulumi.get(self, "identifier")
+
+
+@pulumi.output_type
 class DatabaseIdentifier(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -999,6 +1109,8 @@ class DatabaseInput(dict):
         suggest = None
         if key == "createTableDefaultPermissions":
             suggest = "create_table_default_permissions"
+        elif key == "federatedDatabase":
+            suggest = "federated_database"
         elif key == "locationUri":
             suggest = "location_uri"
         elif key == "targetDatabase":
@@ -1018,6 +1130,7 @@ class DatabaseInput(dict):
     def __init__(__self__, *,
                  create_table_default_permissions: Optional[Sequence['outputs.DatabasePrincipalPrivileges']] = None,
                  description: Optional[str] = None,
+                 federated_database: Optional['outputs.DatabaseFederatedDatabase'] = None,
                  location_uri: Optional[str] = None,
                  name: Optional[str] = None,
                  parameters: Optional[Any] = None,
@@ -1026,6 +1139,8 @@ class DatabaseInput(dict):
             pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if federated_database is not None:
+            pulumi.set(__self__, "federated_database", federated_database)
         if location_uri is not None:
             pulumi.set(__self__, "location_uri", location_uri)
         if name is not None:
@@ -1044,6 +1159,11 @@ class DatabaseInput(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="federatedDatabase")
+    def federated_database(self) -> Optional['outputs.DatabaseFederatedDatabase']:
+        return pulumi.get(self, "federated_database")
 
     @property
     @pulumi.getter(name="locationUri")

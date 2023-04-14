@@ -234,6 +234,10 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly string? ReplicaMode;
         /// <summary>
+        /// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
+        /// </summary>
+        public readonly string? SourceDBClusterIdentifier;
+        /// <summary>
         /// Specifies the storage throughput for the DB instance.
         /// </summary>
         public readonly int? StorageThroughput;
@@ -344,6 +348,8 @@ namespace Pulumi.AwsNative.RDS
 
             string? replicaMode,
 
+            string? sourceDBClusterIdentifier,
+
             int? storageThroughput,
 
             string? storageType,
@@ -398,6 +404,7 @@ namespace Pulumi.AwsNative.RDS
             PromotionTier = promotionTier;
             PubliclyAccessible = publiclyAccessible;
             ReplicaMode = replicaMode;
+            SourceDBClusterIdentifier = sourceDBClusterIdentifier;
             StorageThroughput = storageThroughput;
             StorageType = storageType;
             Tags = tags;

@@ -33,6 +33,7 @@ class BuildOperatingSystem(str, Enum):
     AMAZON_LINUX = "AMAZON_LINUX"
     AMAZON_LINUX2 = "AMAZON_LINUX_2"
     WINDOWS2012 = "WINDOWS_2012"
+    WINDOWS2016 = "WINDOWS_2016"
 
 
 class FleetCertificateConfigurationCertificateType(str, Enum):

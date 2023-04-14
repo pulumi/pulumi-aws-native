@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.Glue.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("federatedDatabase")]
+        public Input<Inputs.DatabaseFederatedDatabaseArgs>? FederatedDatabase { get; set; }
+
         [Input("locationUri")]
         public Input<string>? LocationUri { get; set; }
 

@@ -24,6 +24,7 @@ export interface GetMonitorArgs {
 
 export interface GetMonitorResult {
     readonly createdAt?: string;
+    readonly internetMeasurementsLogDelivery?: outputs.internetmonitor.MonitorInternetMeasurementsLogDelivery;
     readonly maxCityNetworksToMonitor?: number;
     readonly modifiedAt?: string;
     readonly monitorArn?: string;

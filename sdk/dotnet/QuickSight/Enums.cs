@@ -6225,6 +6225,99 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct RefreshScheduleMapRefreshType : IEquatable<RefreshScheduleMapRefreshType>
+    {
+        private readonly string _value;
+
+        private RefreshScheduleMapRefreshType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RefreshScheduleMapRefreshType FullRefresh { get; } = new RefreshScheduleMapRefreshType("FULL_REFRESH");
+        public static RefreshScheduleMapRefreshType IncrementalRefresh { get; } = new RefreshScheduleMapRefreshType("INCREMENTAL_REFRESH");
+
+        public static bool operator ==(RefreshScheduleMapRefreshType left, RefreshScheduleMapRefreshType right) => left.Equals(right);
+        public static bool operator !=(RefreshScheduleMapRefreshType left, RefreshScheduleMapRefreshType right) => !left.Equals(right);
+
+        public static explicit operator string(RefreshScheduleMapRefreshType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RefreshScheduleMapRefreshType other && Equals(other);
+        public bool Equals(RefreshScheduleMapRefreshType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RefreshScheduleMapScheduleFrequencyPropertiesInterval : IEquatable<RefreshScheduleMapScheduleFrequencyPropertiesInterval>
+    {
+        private readonly string _value;
+
+        private RefreshScheduleMapScheduleFrequencyPropertiesInterval(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RefreshScheduleMapScheduleFrequencyPropertiesInterval Minute15 { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesInterval("MINUTE15");
+        public static RefreshScheduleMapScheduleFrequencyPropertiesInterval Minute30 { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesInterval("MINUTE30");
+        public static RefreshScheduleMapScheduleFrequencyPropertiesInterval Hourly { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesInterval("HOURLY");
+        public static RefreshScheduleMapScheduleFrequencyPropertiesInterval Daily { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesInterval("DAILY");
+        public static RefreshScheduleMapScheduleFrequencyPropertiesInterval Weekly { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesInterval("WEEKLY");
+        public static RefreshScheduleMapScheduleFrequencyPropertiesInterval Monthly { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesInterval("MONTHLY");
+
+        public static bool operator ==(RefreshScheduleMapScheduleFrequencyPropertiesInterval left, RefreshScheduleMapScheduleFrequencyPropertiesInterval right) => left.Equals(right);
+        public static bool operator !=(RefreshScheduleMapScheduleFrequencyPropertiesInterval left, RefreshScheduleMapScheduleFrequencyPropertiesInterval right) => !left.Equals(right);
+
+        public static explicit operator string(RefreshScheduleMapScheduleFrequencyPropertiesInterval value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RefreshScheduleMapScheduleFrequencyPropertiesInterval other && Equals(other);
+        public bool Equals(RefreshScheduleMapScheduleFrequencyPropertiesInterval other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek : IEquatable<RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek>
+    {
+        private readonly string _value;
+
+        private RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek Sunday { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("SUNDAY");
+        public static RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek Monday { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("MONDAY");
+        public static RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek Tuesday { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("TUESDAY");
+        public static RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek Wednesday { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("WEDNESDAY");
+        public static RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek Thursday { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("THURSDAY");
+        public static RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek Friday { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("FRIDAY");
+        public static RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek Saturday { get; } = new RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("SATURDAY");
+
+        public static bool operator ==(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek left, RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek right) => left.Equals(right);
+        public static bool operator !=(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek left, RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek other && Equals(other);
+        public bool Equals(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TemplateAnchorOption : IEquatable<TemplateAnchorOption>
     {
         private readonly string _value;

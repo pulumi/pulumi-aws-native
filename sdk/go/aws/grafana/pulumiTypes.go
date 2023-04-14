@@ -404,6 +404,165 @@ func (o WorkspaceIdpMetadataPtrOutput) Xml() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings for Network Access Control.
+type WorkspaceNetworkAccessControl struct {
+	// The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
+	PrefixListIds []string `pulumi:"prefixListIds"`
+	// The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
+	VpceIds []string `pulumi:"vpceIds"`
+}
+
+// WorkspaceNetworkAccessControlInput is an input type that accepts WorkspaceNetworkAccessControlArgs and WorkspaceNetworkAccessControlOutput values.
+// You can construct a concrete instance of `WorkspaceNetworkAccessControlInput` via:
+//
+//	WorkspaceNetworkAccessControlArgs{...}
+type WorkspaceNetworkAccessControlInput interface {
+	pulumi.Input
+
+	ToWorkspaceNetworkAccessControlOutput() WorkspaceNetworkAccessControlOutput
+	ToWorkspaceNetworkAccessControlOutputWithContext(context.Context) WorkspaceNetworkAccessControlOutput
+}
+
+// The configuration settings for Network Access Control.
+type WorkspaceNetworkAccessControlArgs struct {
+	// The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
+	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
+	// The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
+	VpceIds pulumi.StringArrayInput `pulumi:"vpceIds"`
+}
+
+func (WorkspaceNetworkAccessControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceNetworkAccessControl)(nil)).Elem()
+}
+
+func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlOutput() WorkspaceNetworkAccessControlOutput {
+	return i.ToWorkspaceNetworkAccessControlOutputWithContext(context.Background())
+}
+
+func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNetworkAccessControlOutput)
+}
+
+func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput {
+	return i.ToWorkspaceNetworkAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNetworkAccessControlOutput).ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx)
+}
+
+// WorkspaceNetworkAccessControlPtrInput is an input type that accepts WorkspaceNetworkAccessControlArgs, WorkspaceNetworkAccessControlPtr and WorkspaceNetworkAccessControlPtrOutput values.
+// You can construct a concrete instance of `WorkspaceNetworkAccessControlPtrInput` via:
+//
+//	        WorkspaceNetworkAccessControlArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceNetworkAccessControlPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput
+	ToWorkspaceNetworkAccessControlPtrOutputWithContext(context.Context) WorkspaceNetworkAccessControlPtrOutput
+}
+
+type workspaceNetworkAccessControlPtrType WorkspaceNetworkAccessControlArgs
+
+func WorkspaceNetworkAccessControlPtr(v *WorkspaceNetworkAccessControlArgs) WorkspaceNetworkAccessControlPtrInput {
+	return (*workspaceNetworkAccessControlPtrType)(v)
+}
+
+func (*workspaceNetworkAccessControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceNetworkAccessControl)(nil)).Elem()
+}
+
+func (i *workspaceNetworkAccessControlPtrType) ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput {
+	return i.ToWorkspaceNetworkAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceNetworkAccessControlPtrType) ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNetworkAccessControlPtrOutput)
+}
+
+// The configuration settings for Network Access Control.
+type WorkspaceNetworkAccessControlOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceNetworkAccessControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceNetworkAccessControl)(nil)).Elem()
+}
+
+func (o WorkspaceNetworkAccessControlOutput) ToWorkspaceNetworkAccessControlOutput() WorkspaceNetworkAccessControlOutput {
+	return o
+}
+
+func (o WorkspaceNetworkAccessControlOutput) ToWorkspaceNetworkAccessControlOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlOutput {
+	return o
+}
+
+func (o WorkspaceNetworkAccessControlOutput) ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput {
+	return o.ToWorkspaceNetworkAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceNetworkAccessControlOutput) ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceNetworkAccessControl) *WorkspaceNetworkAccessControl {
+		return &v
+	}).(WorkspaceNetworkAccessControlPtrOutput)
+}
+
+// The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
+func (o WorkspaceNetworkAccessControlOutput) PrefixListIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkspaceNetworkAccessControl) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
+}
+
+// The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
+func (o WorkspaceNetworkAccessControlOutput) VpceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkspaceNetworkAccessControl) []string { return v.VpceIds }).(pulumi.StringArrayOutput)
+}
+
+type WorkspaceNetworkAccessControlPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceNetworkAccessControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceNetworkAccessControl)(nil)).Elem()
+}
+
+func (o WorkspaceNetworkAccessControlPtrOutput) ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput {
+	return o
+}
+
+func (o WorkspaceNetworkAccessControlPtrOutput) ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlPtrOutput {
+	return o
+}
+
+func (o WorkspaceNetworkAccessControlPtrOutput) Elem() WorkspaceNetworkAccessControlOutput {
+	return o.ApplyT(func(v *WorkspaceNetworkAccessControl) WorkspaceNetworkAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceNetworkAccessControl
+		return ret
+	}).(WorkspaceNetworkAccessControlOutput)
+}
+
+// The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
+func (o WorkspaceNetworkAccessControlPtrOutput) PrefixListIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkspaceNetworkAccessControl) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixListIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
+func (o WorkspaceNetworkAccessControlPtrOutput) VpceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkspaceNetworkAccessControl) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VpceIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // Maps SAML roles to the Grafana Editor and Admin roles.
 type WorkspaceRoleValues struct {
 	// List of SAML roles which will be mapped into the Grafana Admin role.
@@ -931,6 +1090,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAssertionAttributesPtrInput)(nil)).Elem(), WorkspaceAssertionAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdpMetadataInput)(nil)).Elem(), WorkspaceIdpMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdpMetadataPtrInput)(nil)).Elem(), WorkspaceIdpMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceNetworkAccessControlInput)(nil)).Elem(), WorkspaceNetworkAccessControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceNetworkAccessControlPtrInput)(nil)).Elem(), WorkspaceNetworkAccessControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceRoleValuesInput)(nil)).Elem(), WorkspaceRoleValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceRoleValuesPtrInput)(nil)).Elem(), WorkspaceRoleValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSamlConfigurationInput)(nil)).Elem(), WorkspaceSamlConfigurationArgs{})
@@ -941,6 +1102,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceAssertionAttributesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdpMetadataOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdpMetadataPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceNetworkAccessControlOutput{})
+	pulumi.RegisterOutputType(WorkspaceNetworkAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceRoleValuesOutput{})
 	pulumi.RegisterOutputType(WorkspaceRoleValuesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceSamlConfigurationOutput{})

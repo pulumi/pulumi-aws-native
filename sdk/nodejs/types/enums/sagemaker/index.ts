@@ -60,6 +60,7 @@ export const AppResourceSpecInstanceType = {
     MlG516xlarge: "ml.g5.16xlarge",
     MlG524xlarge: "ml.g5.24xlarge",
     MlG548xlarge: "ml.g5.48xlarge",
+    MlGeospatialInteractive: "ml.geospatial.interactive",
 } as const;
 
 /**
@@ -238,6 +239,7 @@ export const DomainResourceSpecInstanceType = {
     MlG516xlarge: "ml.g5.16xlarge",
     MlG524xlarge: "ml.g5.24xlarge",
     MlG548xlarge: "ml.g5.48xlarge",
+    MlGeospatialInteractive: "ml.geospatial.interactive",
 } as const;
 
 /**
@@ -832,6 +834,7 @@ export const SpaceResourceSpecInstanceType = {
     MlG516xlarge: "ml.g5.16xlarge",
     MlG524xlarge: "ml.g5.24xlarge",
     MlG548xlarge: "ml.g5.48xlarge",
+    MlGeospatialInteractive: "ml.geospatial.interactive",
 } as const;
 
 /**
@@ -917,6 +920,7 @@ export const UserProfileResourceSpecInstanceType = {
     MlG516xlarge: "ml.g5.16xlarge",
     MlG524xlarge: "ml.g5.24xlarge",
     MlG548xlarge: "ml.g5.48xlarge",
+    MlGeospatialInteractive: "ml.geospatial.interactive",
 } as const;
 
 /**

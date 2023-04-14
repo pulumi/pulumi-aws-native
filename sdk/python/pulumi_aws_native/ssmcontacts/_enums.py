@@ -28,6 +28,7 @@ class ContactType(str, Enum):
     CUSTOM = "CUSTOM"
     SERVICE = "SERVICE"
     ESCALATION = "ESCALATION"
+    ONCALL_SCHEDULE = "ONCALL_SCHEDULE"
 
 
 class RotationDayOfWeek(str, Enum):

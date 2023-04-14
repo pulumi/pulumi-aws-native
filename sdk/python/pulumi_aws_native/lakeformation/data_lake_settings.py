@@ -17,12 +17,30 @@ __all__ = ['DataLakeSettingsArgs', 'DataLakeSettings']
 class DataLakeSettingsArgs:
     def __init__(__self__, *,
                  admins: Optional[pulumi.Input['DataLakeSettingsAdminsArgs']] = None,
+                 allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+                 authorized_session_tag_value_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 create_database_default_permissions: Optional[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionsArgs']] = None,
+                 create_table_default_permissions: Optional[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionsArgs']] = None,
+                 external_data_filtering_allow_list: Optional[pulumi.Input['DataLakeSettingsExternalDataFilteringAllowListArgs']] = None,
+                 parameters: Optional[Any] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DataLakeSettings resource.
         """
         if admins is not None:
             pulumi.set(__self__, "admins", admins)
+        if allow_external_data_filtering is not None:
+            pulumi.set(__self__, "allow_external_data_filtering", allow_external_data_filtering)
+        if authorized_session_tag_value_list is not None:
+            pulumi.set(__self__, "authorized_session_tag_value_list", authorized_session_tag_value_list)
+        if create_database_default_permissions is not None:
+            pulumi.set(__self__, "create_database_default_permissions", create_database_default_permissions)
+        if create_table_default_permissions is not None:
+            pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
+        if external_data_filtering_allow_list is not None:
+            pulumi.set(__self__, "external_data_filtering_allow_list", external_data_filtering_allow_list)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
         if trusted_resource_owners is not None:
             pulumi.set(__self__, "trusted_resource_owners", trusted_resource_owners)
 
@@ -34,6 +52,60 @@ class DataLakeSettingsArgs:
     @admins.setter
     def admins(self, value: Optional[pulumi.Input['DataLakeSettingsAdminsArgs']]):
         pulumi.set(self, "admins", value)
+
+    @property
+    @pulumi.getter(name="allowExternalDataFiltering")
+    def allow_external_data_filtering(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_external_data_filtering")
+
+    @allow_external_data_filtering.setter
+    def allow_external_data_filtering(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_external_data_filtering", value)
+
+    @property
+    @pulumi.getter(name="authorizedSessionTagValueList")
+    def authorized_session_tag_value_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorized_session_tag_value_list")
+
+    @authorized_session_tag_value_list.setter
+    def authorized_session_tag_value_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "authorized_session_tag_value_list", value)
+
+    @property
+    @pulumi.getter(name="createDatabaseDefaultPermissions")
+    def create_database_default_permissions(self) -> Optional[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionsArgs']]:
+        return pulumi.get(self, "create_database_default_permissions")
+
+    @create_database_default_permissions.setter
+    def create_database_default_permissions(self, value: Optional[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionsArgs']]):
+        pulumi.set(self, "create_database_default_permissions", value)
+
+    @property
+    @pulumi.getter(name="createTableDefaultPermissions")
+    def create_table_default_permissions(self) -> Optional[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionsArgs']]:
+        return pulumi.get(self, "create_table_default_permissions")
+
+    @create_table_default_permissions.setter
+    def create_table_default_permissions(self, value: Optional[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionsArgs']]):
+        pulumi.set(self, "create_table_default_permissions", value)
+
+    @property
+    @pulumi.getter(name="externalDataFilteringAllowList")
+    def external_data_filtering_allow_list(self) -> Optional[pulumi.Input['DataLakeSettingsExternalDataFilteringAllowListArgs']]:
+        return pulumi.get(self, "external_data_filtering_allow_list")
+
+    @external_data_filtering_allow_list.setter
+    def external_data_filtering_allow_list(self, value: Optional[pulumi.Input['DataLakeSettingsExternalDataFilteringAllowListArgs']]):
+        pulumi.set(self, "external_data_filtering_allow_list", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[Any]):
+        pulumi.set(self, "parameters", value)
 
     @property
     @pulumi.getter(name="trustedResourceOwners")
@@ -56,6 +128,12 @@ class DataLakeSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admins: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsAdminsArgs']]] = None,
+                 allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+                 authorized_session_tag_value_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 create_database_default_permissions: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionsArgs']]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionsArgs']]] = None,
+                 external_data_filtering_allow_list: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsExternalDataFilteringAllowListArgs']]] = None,
+                 parameters: Optional[Any] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -89,6 +167,12 @@ class DataLakeSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admins: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsAdminsArgs']]] = None,
+                 allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+                 authorized_session_tag_value_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 create_database_default_permissions: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionsArgs']]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionsArgs']]] = None,
+                 external_data_filtering_allow_list: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsExternalDataFilteringAllowListArgs']]] = None,
+                 parameters: Optional[Any] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""DataLakeSettings is deprecated: DataLakeSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -101,6 +185,12 @@ class DataLakeSettings(pulumi.CustomResource):
             __props__ = DataLakeSettingsArgs.__new__(DataLakeSettingsArgs)
 
             __props__.__dict__["admins"] = admins
+            __props__.__dict__["allow_external_data_filtering"] = allow_external_data_filtering
+            __props__.__dict__["authorized_session_tag_value_list"] = authorized_session_tag_value_list
+            __props__.__dict__["create_database_default_permissions"] = create_database_default_permissions
+            __props__.__dict__["create_table_default_permissions"] = create_table_default_permissions
+            __props__.__dict__["external_data_filtering_allow_list"] = external_data_filtering_allow_list
+            __props__.__dict__["parameters"] = parameters
             __props__.__dict__["trusted_resource_owners"] = trusted_resource_owners
         super(DataLakeSettings, __self__).__init__(
             'aws-native:lakeformation:DataLakeSettings',
@@ -125,6 +215,12 @@ class DataLakeSettings(pulumi.CustomResource):
         __props__ = DataLakeSettingsArgs.__new__(DataLakeSettingsArgs)
 
         __props__.__dict__["admins"] = None
+        __props__.__dict__["allow_external_data_filtering"] = None
+        __props__.__dict__["authorized_session_tag_value_list"] = None
+        __props__.__dict__["create_database_default_permissions"] = None
+        __props__.__dict__["create_table_default_permissions"] = None
+        __props__.__dict__["external_data_filtering_allow_list"] = None
+        __props__.__dict__["parameters"] = None
         __props__.__dict__["trusted_resource_owners"] = None
         return DataLakeSettings(resource_name, opts=opts, __props__=__props__)
 
@@ -132,6 +228,36 @@ class DataLakeSettings(pulumi.CustomResource):
     @pulumi.getter
     def admins(self) -> pulumi.Output[Optional['outputs.DataLakeSettingsAdmins']]:
         return pulumi.get(self, "admins")
+
+    @property
+    @pulumi.getter(name="allowExternalDataFiltering")
+    def allow_external_data_filtering(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "allow_external_data_filtering")
+
+    @property
+    @pulumi.getter(name="authorizedSessionTagValueList")
+    def authorized_session_tag_value_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "authorized_session_tag_value_list")
+
+    @property
+    @pulumi.getter(name="createDatabaseDefaultPermissions")
+    def create_database_default_permissions(self) -> pulumi.Output[Optional['outputs.DataLakeSettingsCreateDatabaseDefaultPermissions']]:
+        return pulumi.get(self, "create_database_default_permissions")
+
+    @property
+    @pulumi.getter(name="createTableDefaultPermissions")
+    def create_table_default_permissions(self) -> pulumi.Output[Optional['outputs.DataLakeSettingsCreateTableDefaultPermissions']]:
+        return pulumi.get(self, "create_table_default_permissions")
+
+    @property
+    @pulumi.getter(name="externalDataFilteringAllowList")
+    def external_data_filtering_allow_list(self) -> pulumi.Output[Optional['outputs.DataLakeSettingsExternalDataFilteringAllowList']]:
+        return pulumi.get(self, "external_data_filtering_allow_list")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Output[Optional[Any]]:
+        return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="trustedResourceOwners")

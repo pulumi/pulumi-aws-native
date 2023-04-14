@@ -38,6 +38,7 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public readonly internetMeasurementsLogDelivery!: pulumi.Output<outputs.internetmonitor.MonitorInternetMeasurementsLogDelivery | undefined>;
     public readonly maxCityNetworksToMonitor!: pulumi.Output<number | undefined>;
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     public /*out*/ readonly monitorArn!: pulumi.Output<string>;
@@ -61,6 +62,7 @@ export class Monitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["internetMeasurementsLogDelivery"] = args ? args.internetMeasurementsLogDelivery : undefined;
             resourceInputs["maxCityNetworksToMonitor"] = args ? args.maxCityNetworksToMonitor : undefined;
             resourceInputs["monitorName"] = args ? args.monitorName : undefined;
             resourceInputs["resources"] = args ? args.resources : undefined;
@@ -75,6 +77,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["processingStatusInfo"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["internetMeasurementsLogDelivery"] = undefined /*out*/;
             resourceInputs["maxCityNetworksToMonitor"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["monitorArn"] = undefined /*out*/;
@@ -96,6 +99,7 @@ export class Monitor extends pulumi.CustomResource {
  * The set of arguments for constructing a Monitor resource.
  */
 export interface MonitorArgs {
+    internetMeasurementsLogDelivery?: pulumi.Input<inputs.internetmonitor.MonitorInternetMeasurementsLogDeliveryArgs>;
     maxCityNetworksToMonitor?: pulumi.Input<number>;
     monitorName?: pulumi.Input<string>;
     resources?: pulumi.Input<pulumi.Input<string>[]>;

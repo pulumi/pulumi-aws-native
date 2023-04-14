@@ -72,6 +72,9 @@ namespace Pulumi.AwsNative.Grafana
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        [Output("networkAccessControl")]
+        public Output<Outputs.WorkspaceNetworkAccessControl?> NetworkAccessControl { get; private set; } = null!;
+
         /// <summary>
         /// List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
         /// </summary>
@@ -212,6 +215,9 @@ namespace Pulumi.AwsNative.Grafana
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("networkAccessControl")]
+        public Input<Inputs.WorkspaceNetworkAccessControlArgs>? NetworkAccessControl { get; set; }
 
         [Input("notificationDestinations")]
         private InputList<Pulumi.AwsNative.Grafana.WorkspaceNotificationDestinationType>? _notificationDestinations;

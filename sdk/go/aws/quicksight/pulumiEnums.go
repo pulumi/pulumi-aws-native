@@ -34689,6 +34689,507 @@ func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTypePtrOutput)
 }
 
+type RefreshScheduleMapRefreshType string
+
+const (
+	RefreshScheduleMapRefreshTypeFullRefresh        = RefreshScheduleMapRefreshType("FULL_REFRESH")
+	RefreshScheduleMapRefreshTypeIncrementalRefresh = RefreshScheduleMapRefreshType("INCREMENTAL_REFRESH")
+)
+
+func (RefreshScheduleMapRefreshType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMapRefreshType)(nil)).Elem()
+}
+
+func (e RefreshScheduleMapRefreshType) ToRefreshScheduleMapRefreshTypeOutput() RefreshScheduleMapRefreshTypeOutput {
+	return pulumi.ToOutput(e).(RefreshScheduleMapRefreshTypeOutput)
+}
+
+func (e RefreshScheduleMapRefreshType) ToRefreshScheduleMapRefreshTypeOutputWithContext(ctx context.Context) RefreshScheduleMapRefreshTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RefreshScheduleMapRefreshTypeOutput)
+}
+
+func (e RefreshScheduleMapRefreshType) ToRefreshScheduleMapRefreshTypePtrOutput() RefreshScheduleMapRefreshTypePtrOutput {
+	return e.ToRefreshScheduleMapRefreshTypePtrOutputWithContext(context.Background())
+}
+
+func (e RefreshScheduleMapRefreshType) ToRefreshScheduleMapRefreshTypePtrOutputWithContext(ctx context.Context) RefreshScheduleMapRefreshTypePtrOutput {
+	return RefreshScheduleMapRefreshType(e).ToRefreshScheduleMapRefreshTypeOutputWithContext(ctx).ToRefreshScheduleMapRefreshTypePtrOutputWithContext(ctx)
+}
+
+func (e RefreshScheduleMapRefreshType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RefreshScheduleMapRefreshType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RefreshScheduleMapRefreshType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RefreshScheduleMapRefreshType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RefreshScheduleMapRefreshTypeOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapRefreshTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMapRefreshType)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapRefreshTypeOutput) ToRefreshScheduleMapRefreshTypeOutput() RefreshScheduleMapRefreshTypeOutput {
+	return o
+}
+
+func (o RefreshScheduleMapRefreshTypeOutput) ToRefreshScheduleMapRefreshTypeOutputWithContext(ctx context.Context) RefreshScheduleMapRefreshTypeOutput {
+	return o
+}
+
+func (o RefreshScheduleMapRefreshTypeOutput) ToRefreshScheduleMapRefreshTypePtrOutput() RefreshScheduleMapRefreshTypePtrOutput {
+	return o.ToRefreshScheduleMapRefreshTypePtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapRefreshTypeOutput) ToRefreshScheduleMapRefreshTypePtrOutputWithContext(ctx context.Context) RefreshScheduleMapRefreshTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshScheduleMapRefreshType) *RefreshScheduleMapRefreshType {
+		return &v
+	}).(RefreshScheduleMapRefreshTypePtrOutput)
+}
+
+func (o RefreshScheduleMapRefreshTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapRefreshTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RefreshScheduleMapRefreshType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RefreshScheduleMapRefreshTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapRefreshTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RefreshScheduleMapRefreshType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RefreshScheduleMapRefreshTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapRefreshTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleMapRefreshType)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapRefreshTypePtrOutput) ToRefreshScheduleMapRefreshTypePtrOutput() RefreshScheduleMapRefreshTypePtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapRefreshTypePtrOutput) ToRefreshScheduleMapRefreshTypePtrOutputWithContext(ctx context.Context) RefreshScheduleMapRefreshTypePtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapRefreshTypePtrOutput) Elem() RefreshScheduleMapRefreshTypeOutput {
+	return o.ApplyT(func(v *RefreshScheduleMapRefreshType) RefreshScheduleMapRefreshType {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshScheduleMapRefreshType
+		return ret
+	}).(RefreshScheduleMapRefreshTypeOutput)
+}
+
+func (o RefreshScheduleMapRefreshTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapRefreshTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RefreshScheduleMapRefreshType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RefreshScheduleMapRefreshTypeInput is an input type that accepts RefreshScheduleMapRefreshTypeArgs and RefreshScheduleMapRefreshTypeOutput values.
+// You can construct a concrete instance of `RefreshScheduleMapRefreshTypeInput` via:
+//
+//	RefreshScheduleMapRefreshTypeArgs{...}
+type RefreshScheduleMapRefreshTypeInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapRefreshTypeOutput() RefreshScheduleMapRefreshTypeOutput
+	ToRefreshScheduleMapRefreshTypeOutputWithContext(context.Context) RefreshScheduleMapRefreshTypeOutput
+}
+
+var refreshScheduleMapRefreshTypePtrType = reflect.TypeOf((**RefreshScheduleMapRefreshType)(nil)).Elem()
+
+type RefreshScheduleMapRefreshTypePtrInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapRefreshTypePtrOutput() RefreshScheduleMapRefreshTypePtrOutput
+	ToRefreshScheduleMapRefreshTypePtrOutputWithContext(context.Context) RefreshScheduleMapRefreshTypePtrOutput
+}
+
+type refreshScheduleMapRefreshTypePtr string
+
+func RefreshScheduleMapRefreshTypePtr(v string) RefreshScheduleMapRefreshTypePtrInput {
+	return (*refreshScheduleMapRefreshTypePtr)(&v)
+}
+
+func (*refreshScheduleMapRefreshTypePtr) ElementType() reflect.Type {
+	return refreshScheduleMapRefreshTypePtrType
+}
+
+func (in *refreshScheduleMapRefreshTypePtr) ToRefreshScheduleMapRefreshTypePtrOutput() RefreshScheduleMapRefreshTypePtrOutput {
+	return pulumi.ToOutput(in).(RefreshScheduleMapRefreshTypePtrOutput)
+}
+
+func (in *refreshScheduleMapRefreshTypePtr) ToRefreshScheduleMapRefreshTypePtrOutputWithContext(ctx context.Context) RefreshScheduleMapRefreshTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RefreshScheduleMapRefreshTypePtrOutput)
+}
+
+type RefreshScheduleMapScheduleFrequencyPropertiesInterval string
+
+const (
+	RefreshScheduleMapScheduleFrequencyPropertiesIntervalMinute15 = RefreshScheduleMapScheduleFrequencyPropertiesInterval("MINUTE15")
+	RefreshScheduleMapScheduleFrequencyPropertiesIntervalMinute30 = RefreshScheduleMapScheduleFrequencyPropertiesInterval("MINUTE30")
+	RefreshScheduleMapScheduleFrequencyPropertiesIntervalHourly   = RefreshScheduleMapScheduleFrequencyPropertiesInterval("HOURLY")
+	RefreshScheduleMapScheduleFrequencyPropertiesIntervalDaily    = RefreshScheduleMapScheduleFrequencyPropertiesInterval("DAILY")
+	RefreshScheduleMapScheduleFrequencyPropertiesIntervalWeekly   = RefreshScheduleMapScheduleFrequencyPropertiesInterval("WEEKLY")
+	RefreshScheduleMapScheduleFrequencyPropertiesIntervalMonthly  = RefreshScheduleMapScheduleFrequencyPropertiesInterval("MONTHLY")
+)
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesInterval) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesInterval)(nil)).Elem()
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesInterval) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput() RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput {
+	return pulumi.ToOutput(e).(RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput)
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesInterval) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput)
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesInterval) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
+	return e.ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutputWithContext(context.Background())
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesInterval) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
+	return RefreshScheduleMapScheduleFrequencyPropertiesInterval(e).ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalOutputWithContext(ctx).ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutputWithContext(ctx)
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesInterval) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesInterval) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesInterval) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesInterval) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesInterval)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput() RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
+	return o.ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshScheduleMapScheduleFrequencyPropertiesInterval) *RefreshScheduleMapScheduleFrequencyPropertiesInterval {
+		return &v
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput)
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RefreshScheduleMapScheduleFrequencyPropertiesInterval) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RefreshScheduleMapScheduleFrequencyPropertiesInterval) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleMapScheduleFrequencyPropertiesInterval)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) Elem() RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput {
+	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyPropertiesInterval) RefreshScheduleMapScheduleFrequencyPropertiesInterval {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshScheduleMapScheduleFrequencyPropertiesInterval
+		return ret
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput)
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RefreshScheduleMapScheduleFrequencyPropertiesInterval) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RefreshScheduleMapScheduleFrequencyPropertiesIntervalInput is an input type that accepts RefreshScheduleMapScheduleFrequencyPropertiesIntervalArgs and RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput values.
+// You can construct a concrete instance of `RefreshScheduleMapScheduleFrequencyPropertiesIntervalInput` via:
+//
+//	RefreshScheduleMapScheduleFrequencyPropertiesIntervalArgs{...}
+type RefreshScheduleMapScheduleFrequencyPropertiesIntervalInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput() RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput
+	ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalOutputWithContext(context.Context) RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput
+}
+
+var refreshScheduleMapScheduleFrequencyPropertiesIntervalPtrType = reflect.TypeOf((**RefreshScheduleMapScheduleFrequencyPropertiesInterval)(nil)).Elem()
+
+type RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput
+	ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutputWithContext(context.Context) RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput
+}
+
+type refreshScheduleMapScheduleFrequencyPropertiesIntervalPtr string
+
+func RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtr(v string) RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrInput {
+	return (*refreshScheduleMapScheduleFrequencyPropertiesIntervalPtr)(&v)
+}
+
+func (*refreshScheduleMapScheduleFrequencyPropertiesIntervalPtr) ElementType() reflect.Type {
+	return refreshScheduleMapScheduleFrequencyPropertiesIntervalPtrType
+}
+
+func (in *refreshScheduleMapScheduleFrequencyPropertiesIntervalPtr) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
+	return pulumi.ToOutput(in).(RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput)
+}
+
+func (in *refreshScheduleMapScheduleFrequencyPropertiesIntervalPtr) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput)
+}
+
+type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek string
+
+const (
+	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekSunday    = RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("SUNDAY")
+	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekMonday    = RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("MONDAY")
+	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekTuesday   = RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("TUESDAY")
+	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekWednesday = RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("WEDNESDAY")
+	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekThursday  = RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("THURSDAY")
+	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekFriday    = RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("FRIDAY")
+	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekSaturday  = RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("SATURDAY")
+)
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek)(nil)).Elem()
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput {
+	return pulumi.ToOutput(e).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput)
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput)
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
+	return e.ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutputWithContext(context.Background())
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
+	return RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek(e).ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutputWithContext(ctx).ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutputWithContext(ctx)
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
+	return o.ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek {
+		return &v
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput)
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek)(nil)).Elem()
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput) Elem() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput {
+	return o.ApplyT(func(v *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek
+		return ret
+	}).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput)
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekInput is an input type that accepts RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekArgs and RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput values.
+// You can construct a concrete instance of `RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekInput` via:
+//
+//	RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekArgs{...}
+type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput
+	ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutputWithContext(context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput
+}
+
+var refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrType = reflect.TypeOf((**RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek)(nil)).Elem()
+
+type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput
+	ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutputWithContext(context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput
+}
+
+type refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtr string
+
+func RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtr(v string) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrInput {
+	return (*refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtr)(&v)
+}
+
+func (*refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtr) ElementType() reflect.Type {
+	return refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrType
+}
+
+func (in *refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtr) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
+	return pulumi.ToOutput(in).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput)
+}
+
+func (in *refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtr) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput)
+}
+
 type TemplateAnchorOption string
 
 const (
@@ -51912,6 +52413,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceErrorInfoTypePtrInput)(nil)).Elem(), DataSourceErrorInfoType("ACCESS_DENIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypeInput)(nil)).Elem(), DataSourceType("ADOBE_ANALYTICS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("ADOBE_ANALYTICS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapRefreshTypeInput)(nil)).Elem(), RefreshScheduleMapRefreshType("FULL_REFRESH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapRefreshTypePtrInput)(nil)).Elem(), RefreshScheduleMapRefreshType("FULL_REFRESH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesIntervalInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesInterval("MINUTE15"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesInterval("MINUTE15"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAnchorOptionInput)(nil)).Elem(), TemplateAnchorOption("NOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAnchorOptionPtrInput)(nil)).Elem(), TemplateAnchorOption("NOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateArcThicknessInput)(nil)).Elem(), TemplateArcThickness("SMALL"))
@@ -52534,6 +53041,12 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceResourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapRefreshTypeOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapRefreshTypePtrOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput{})
 	pulumi.RegisterOutputType(TemplateAnchorOptionOutput{})
 	pulumi.RegisterOutputType(TemplateAnchorOptionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateArcThicknessOutput{})
