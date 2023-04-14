@@ -54,3 +54,15 @@ $ pulumi config set aws:region us-west-2
 $ pulumi config set aws-native:region us-west-2
 $ pulumi up
 ``` 
+
+### Local Development
+
+#### Debugging / Logging
+
+Oftentimes, it can be informative to investigate the precise requests this provider makes to upstream AWS APIs. By default, the Pulumi CLI writes all of its logs to files rather than stdout or stderr (though this can be overridden with the `--logtostderr` flag). This works to our benefit, however, as the AWS SDK used in this provider writes to stderr by default. To view a trace of all HTTP requests and responses between this provider and AWS APIs, run the Pulumi CLI with the following arguments:
+
+```shell
+pulumi -v 9 --logflow [command]
+```
+
+this will correctly set verbosity to the level that the provider expects to log these requests (via `-v 9`), as well as flowing that verbosity setting down from the Pulumi CLI to the provider itself (via `--logflow`).
