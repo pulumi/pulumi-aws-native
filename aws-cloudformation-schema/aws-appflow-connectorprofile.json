@@ -899,7 +899,7 @@
     "AuthCode" : {
       "type" : "string",
       "pattern" : "\\S+",
-      "maxLength" : 512
+      "maxLength" : 4096
     },
     "BucketName" : {
       "type" : "string",
@@ -969,7 +969,7 @@
     "RefreshToken" : {
       "type" : "string",
       "pattern" : "\\S+",
-      "maxLength" : 2048
+      "maxLength" : 4096
     },
     "Region" : {
       "type" : "string",
@@ -1071,9 +1071,9 @@
     }
   },
   "required" : [ "ConnectorProfileName", "ConnectionMode", "ConnectorType" ],
-  "createOnlyProperties" : [ "/properties/ConnectorProfileName", "/properties/KMSArn", "/properties/ConnectorType" ],
+  "createOnlyProperties" : [ "/properties/ConnectorProfileName", "/properties/ConnectorType", "/properties/ConnectorLabel" ],
   "readOnlyProperties" : [ "/properties/ConnectorProfileArn", "/properties/CredentialsArn" ],
-  "writeOnlyProperties" : [ "/properties/ConnectorProfileConfig" ],
+  "writeOnlyProperties" : [ "/properties/ConnectorProfileConfig", "/properties/KMSArn" ],
   "primaryIdentifier" : [ "/properties/ConnectorProfileName" ],
   "handlers" : {
     "create" : {

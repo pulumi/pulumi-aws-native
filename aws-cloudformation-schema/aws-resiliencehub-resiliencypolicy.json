@@ -75,6 +75,13 @@
       "$ref" : "#/definitions/TagMap"
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "additionalProperties" : false,
   "required" : [ "PolicyName", "Tier", "Policy" ],
   "readOnlyProperties" : [ "/properties/PolicyArn" ],
