@@ -6754,6 +6754,10 @@ export namespace cloudwatch {
      */
     export interface MetricStreamFilterArgs {
         /**
+         * Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
+         */
+        metricNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * Only metrics with Namespace matching this value will be streamed.
          */
         namespace: pulumi.Input<string>;
@@ -10014,6 +10018,7 @@ export namespace dms {
         heartbeatEnable?: pulumi.Input<boolean>;
         heartbeatFrequency?: pulumi.Input<number>;
         heartbeatSchema?: pulumi.Input<string>;
+        mapBooleanAsBoolean?: pulumi.Input<boolean>;
         maxFileSize?: pulumi.Input<number>;
         pluginName?: pulumi.Input<string>;
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
@@ -10045,6 +10050,7 @@ export namespace dms {
         explicitIds?: pulumi.Input<boolean>;
         fileTransferUploadStreams?: pulumi.Input<number>;
         loadTimeout?: pulumi.Input<number>;
+        mapBooleanAsBoolean?: pulumi.Input<boolean>;
         maxFileSize?: pulumi.Input<number>;
         removeQuotes?: pulumi.Input<boolean>;
         replaceChars?: pulumi.Input<string>;
@@ -14279,7 +14285,7 @@ export namespace finspace {
         /**
          * Attribute map for SAML configuration
          */
-        attributeMap?: any;
+        attributeMap?: pulumi.Input<pulumi.Input<inputs.finspace.EnvironmentFederationParametersAttributeMapItemPropertiesArgs>[]>;
         /**
          * Federation provider name to link with the Environment
          */
@@ -14298,6 +14304,17 @@ export namespace finspace {
         samlMetadataURL?: pulumi.Input<string>;
     }
 
+    export interface EnvironmentFederationParametersAttributeMapItemPropertiesArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
     /**
      * Parameters of the first Superuser for the FinSpace Environment
      */
@@ -14314,6 +14331,20 @@ export namespace finspace {
          * Last name
          */
         lastName?: pulumi.Input<string>;
+    }
+
+    /**
+     * A list of all tags for a resource.
+     */
+    export interface EnvironmentTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -14704,6 +14735,20 @@ export namespace frauddetector {
 
     export interface LabelTagArgs {
         key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ListTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -25142,6 +25187,7 @@ export namespace medialive {
     export interface ChannelAudioCodecSettingsArgs {
         aacSettings?: pulumi.Input<inputs.medialive.ChannelAacSettingsArgs>;
         ac3Settings?: pulumi.Input<inputs.medialive.ChannelAc3SettingsArgs>;
+        eac3AtmosSettings?: pulumi.Input<inputs.medialive.ChannelEac3AtmosSettingsArgs>;
         eac3Settings?: pulumi.Input<inputs.medialive.ChannelEac3SettingsArgs>;
         mp2Settings?: pulumi.Input<inputs.medialive.ChannelMp2SettingsArgs>;
         passThroughSettings?: pulumi.Input<inputs.medialive.ChannelPassThroughSettingsArgs>;
@@ -25160,6 +25206,10 @@ export namespace medialive {
         name?: pulumi.Input<string>;
         remixSettings?: pulumi.Input<inputs.medialive.ChannelRemixSettingsArgs>;
         streamName?: pulumi.Input<string>;
+    }
+
+    export interface ChannelAudioDolbyEDecodeArgs {
+        programSelection?: pulumi.Input<string>;
     }
 
     export interface ChannelAudioHlsRenditionSelectionArgs {
@@ -25211,6 +25261,7 @@ export namespace medialive {
     }
 
     export interface ChannelAudioTrackSelectionArgs {
+        dolbyEDecode?: pulumi.Input<inputs.medialive.ChannelAudioDolbyEDecodeArgs>;
         tracks?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelAudioTrackArgs>[]>;
     }
 
@@ -25235,6 +25286,7 @@ export namespace medialive {
     }
 
     export interface ChannelAvailSettingsArgs {
+        esam?: pulumi.Input<inputs.medialive.ChannelEsamArgs>;
         scte35SpliceInsert?: pulumi.Input<inputs.medialive.ChannelScte35SpliceInsertArgs>;
         scte35TimeSignalApos?: pulumi.Input<inputs.medialive.ChannelScte35TimeSignalAposArgs>;
     }
@@ -25268,6 +25320,7 @@ export namespace medialive {
     }
 
     export interface ChannelCaptionDescriptionArgs {
+        accessibility?: pulumi.Input<string>;
         captionSelectorName?: pulumi.Input<string>;
         destinationSettings?: pulumi.Input<inputs.medialive.ChannelCaptionDestinationSettingsArgs>;
         languageCode?: pulumi.Input<string>;
@@ -25327,6 +25380,9 @@ export namespace medialive {
     export interface ChannelColorSpacePassthroughSettingsArgs {
     }
 
+    export interface ChannelDolbyVision81SettingsArgs {
+    }
+
     export interface ChannelDvbNitSettingsArgs {
         networkId?: pulumi.Input<number>;
         networkName?: pulumi.Input<string>;
@@ -25367,6 +25423,16 @@ export namespace medialive {
 
     export interface ChannelDvbTdtSettingsArgs {
         repInterval?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEac3AtmosSettingsArgs {
+        bitrate?: pulumi.Input<number>;
+        codingMode?: pulumi.Input<string>;
+        dialnorm?: pulumi.Input<number>;
+        drcLine?: pulumi.Input<string>;
+        drcRf?: pulumi.Input<string>;
+        heightTrim?: pulumi.Input<number>;
+        surroundTrim?: pulumi.Input<number>;
     }
 
     export interface ChannelEac3SettingsArgs {
@@ -25427,6 +25493,15 @@ export namespace medialive {
         videoDescriptions?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelVideoDescriptionArgs>[]>;
     }
 
+    export interface ChannelEsamArgs {
+        acquisitionPointId?: pulumi.Input<string>;
+        adAvailOffset?: pulumi.Input<number>;
+        passwordParam?: pulumi.Input<string>;
+        poisEndpoint?: pulumi.Input<string>;
+        username?: pulumi.Input<string>;
+        zoneIdentity?: pulumi.Input<string>;
+    }
+
     export interface ChannelFailoverConditionArgs {
         failoverConditionSettings?: pulumi.Input<inputs.medialive.ChannelFailoverConditionSettingsArgs>;
     }
@@ -25476,6 +25551,7 @@ export namespace medialive {
     export interface ChannelFrameCaptureSettingsArgs {
         captureInterval?: pulumi.Input<number>;
         captureIntervalUnits?: pulumi.Input<string>;
+        timecodeBurninSettings?: pulumi.Input<inputs.medialive.ChannelTimecodeBurninSettingsArgs>;
     }
 
     export interface ChannelGlobalConfigurationArgs {
@@ -25538,11 +25614,13 @@ export namespace medialive {
         subgopLength?: pulumi.Input<string>;
         syntax?: pulumi.Input<string>;
         temporalAq?: pulumi.Input<string>;
+        timecodeBurninSettings?: pulumi.Input<inputs.medialive.ChannelTimecodeBurninSettingsArgs>;
         timecodeInsertion?: pulumi.Input<string>;
     }
 
     export interface ChannelH265ColorSpaceSettingsArgs {
         colorSpacePassthroughSettings?: pulumi.Input<inputs.medialive.ChannelColorSpacePassthroughSettingsArgs>;
+        dolbyVision81Settings?: pulumi.Input<inputs.medialive.ChannelDolbyVision81SettingsArgs>;
         hdr10Settings?: pulumi.Input<inputs.medialive.ChannelHdr10SettingsArgs>;
         rec601Settings?: pulumi.Input<inputs.medialive.ChannelRec601SettingsArgs>;
         rec709Settings?: pulumi.Input<inputs.medialive.ChannelRec709SettingsArgs>;
@@ -25581,6 +25659,7 @@ export namespace medialive {
         sceneChangeDetect?: pulumi.Input<string>;
         slices?: pulumi.Input<number>;
         tier?: pulumi.Input<string>;
+        timecodeBurninSettings?: pulumi.Input<inputs.medialive.ChannelTimecodeBurninSettingsArgs>;
         timecodeInsertion?: pulumi.Input<string>;
     }
 
@@ -25800,6 +25879,7 @@ export namespace medialive {
         scte27Pids?: pulumi.Input<string>;
         scte35Control?: pulumi.Input<string>;
         scte35Pid?: pulumi.Input<string>;
+        scte35PrerollPullupMilliseconds?: pulumi.Input<number>;
         segmentationMarkers?: pulumi.Input<string>;
         segmentationStyle?: pulumi.Input<string>;
         segmentationTime?: pulumi.Input<number>;
@@ -25827,6 +25907,11 @@ export namespace medialive {
         timedMetadataPid?: pulumi.Input<string>;
         transportStreamId?: pulumi.Input<number>;
         videoPid?: pulumi.Input<string>;
+    }
+
+    export interface ChannelMaintenanceCreateSettingsArgs {
+        maintenanceDay?: pulumi.Input<string>;
+        maintenanceStartTime?: pulumi.Input<string>;
     }
 
     export interface ChannelMediaPackageGroupSettingsArgs {
@@ -25875,6 +25960,7 @@ export namespace medialive {
         gopSizeUnits?: pulumi.Input<string>;
         scanType?: pulumi.Input<string>;
         subgopLength?: pulumi.Input<string>;
+        timecodeBurninSettings?: pulumi.Input<inputs.medialive.ChannelTimecodeBurninSettingsArgs>;
         timecodeInsertion?: pulumi.Input<string>;
     }
 
@@ -25936,6 +26022,7 @@ export namespace medialive {
     export interface ChannelNielsenNaesIiNwArgs {
         checkDigitString?: pulumi.Input<string>;
         sid?: pulumi.Input<number>;
+        timezone?: pulumi.Input<string>;
     }
 
     export interface ChannelNielsenWatermarksSettingsArgs {
@@ -26088,6 +26175,12 @@ export namespace medialive {
     export interface ChannelTemporalFilterSettingsArgs {
         postFilterSharpening?: pulumi.Input<string>;
         strength?: pulumi.Input<string>;
+    }
+
+    export interface ChannelTimecodeBurninSettingsArgs {
+        fontSize?: pulumi.Input<string>;
+        position?: pulumi.Input<string>;
+        prefix?: pulumi.Input<string>;
     }
 
     export interface ChannelTimecodeConfigArgs {
@@ -26983,13 +27076,13 @@ export namespace memorydb {
      */
     export interface ACLTagArgs {
         /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         key: pulumi.Input<string>;
         /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
-        value: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
     }
 
     export interface AuthenticationModePropertiesArgs {
@@ -27061,13 +27154,13 @@ export namespace memorydb {
      */
     export interface UserTagArgs {
         /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         key: pulumi.Input<string>;
         /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
-        value: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
     }
 }
 
@@ -38885,6 +38978,17 @@ export namespace quicksight {
 }
 
 export namespace ram {
+    export interface PermissionTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface ResourceShareTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -42075,13 +42179,15 @@ export namespace sagemaker {
 
     export interface EndpointConfigAsyncInferenceNotificationConfigArgs {
         errorTopic?: pulumi.Input<string>;
+        includeInferenceResponseIn?: pulumi.Input<pulumi.Input<string>[]>;
         successTopic?: pulumi.Input<string>;
     }
 
     export interface EndpointConfigAsyncInferenceOutputConfigArgs {
         kmsKeyId?: pulumi.Input<string>;
         notificationConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigAsyncInferenceNotificationConfigArgs>;
-        s3OutputPath: pulumi.Input<string>;
+        s3FailurePath?: pulumi.Input<string>;
+        s3OutputPath?: pulumi.Input<string>;
     }
 
     export interface EndpointConfigCaptureContentTypeHeaderArgs {
@@ -48184,6 +48290,17 @@ export namespace xray {
         notificationsEnabled?: pulumi.Input<boolean>;
     }
 
+    export interface GroupTagArgs {
+        /**
+         * The key name of the tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface SamplingRuleArgs {
         /**
          * Matches attributes derived from the request.
@@ -48245,6 +48362,17 @@ export namespace xray {
         samplingRule?: pulumi.Input<inputs.xray.SamplingRuleArgs>;
     }
 
+    export interface SamplingRuleTagArgs {
+        /**
+         * The key name of the tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface SamplingRuleUpdateArgs {
         /**
          * Matches attributes derived from the request.
@@ -48288,10 +48416,5 @@ export namespace xray {
          * Matches the path from a request URL.
          */
         uRLPath?: pulumi.Input<string>;
-    }
-
-    export interface TagsItemPropertiesArgs {
-        key: pulumi.Input<string>;
-        value: pulumi.Input<string>;
     }
 }

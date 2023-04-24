@@ -87,6 +87,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.finspace.EnvironmentStatus>;
     public readonly superuserParameters!: pulumi.Output<outputs.finspace.EnvironmentSuperuserParameters | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.finspace.EnvironmentTag[] | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -106,6 +110,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["superuserParameters"] = args ? args.superuserParameters : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["dedicatedServiceAccountId"] = undefined /*out*/;
             resourceInputs["environmentArn"] = undefined /*out*/;
@@ -128,6 +133,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["sageMakerStudioDomainUrl"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["superuserParameters"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Environment.__pulumiType, name, resourceInputs, opts);
@@ -160,4 +166,8 @@ export interface EnvironmentArgs {
      */
     name?: pulumi.Input<string>;
     superuserParameters?: pulumi.Input<inputs.finspace.EnvironmentSuperuserParametersArgs>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.finspace.EnvironmentTagArgs>[]>;
 }

@@ -1833,6 +1833,8 @@ func (o InsightRuleTagsPtrOutput) Elem() InsightRuleTagsOutput {
 
 // This structure defines the metrics that will be streamed.
 type MetricStreamFilter struct {
+	// Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
+	MetricNames []string `pulumi:"metricNames"`
 	// Only metrics with Namespace matching this value will be streamed.
 	Namespace string `pulumi:"namespace"`
 }
@@ -1850,6 +1852,8 @@ type MetricStreamFilterInput interface {
 
 // This structure defines the metrics that will be streamed.
 type MetricStreamFilterArgs struct {
+	// Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
+	MetricNames pulumi.StringArrayInput `pulumi:"metricNames"`
 	// Only metrics with Namespace matching this value will be streamed.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
@@ -1904,6 +1908,11 @@ func (o MetricStreamFilterOutput) ToMetricStreamFilterOutput() MetricStreamFilte
 
 func (o MetricStreamFilterOutput) ToMetricStreamFilterOutputWithContext(ctx context.Context) MetricStreamFilterOutput {
 	return o
+}
+
+// Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
+func (o MetricStreamFilterOutput) MetricNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetricStreamFilter) []string { return v.MetricNames }).(pulumi.StringArrayOutput)
 }
 
 // Only metrics with Namespace matching this value will be streamed.

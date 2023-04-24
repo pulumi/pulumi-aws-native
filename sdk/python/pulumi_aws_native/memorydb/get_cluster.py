@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, a_cl_name=None, a_rn=None, auto_minor_version_upgrade=None, cluster_endpoint=None, description=None, engine_version=None, final_snapshot_name=None, maintenance_window=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, parameter_group_status=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, sns_topic_status=None, status=None, subnet_group_name=None, tags=None):
+    def __init__(__self__, a_cl_name=None, a_rn=None, auto_minor_version_upgrade=None, cluster_endpoint=None, description=None, engine_version=None, maintenance_window=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, parameter_group_status=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, sns_topic_status=None, status=None, tags=None):
         if a_cl_name and not isinstance(a_cl_name, str):
             raise TypeError("Expected argument 'a_cl_name' to be a str")
         pulumi.set(__self__, "a_cl_name", a_cl_name)
@@ -38,9 +38,6 @@ class GetClusterResult:
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
-        if final_snapshot_name and not isinstance(final_snapshot_name, str):
-            raise TypeError("Expected argument 'final_snapshot_name' to be a str")
-        pulumi.set(__self__, "final_snapshot_name", final_snapshot_name)
         if maintenance_window and not isinstance(maintenance_window, str):
             raise TypeError("Expected argument 'maintenance_window' to be a str")
         pulumi.set(__self__, "maintenance_window", maintenance_window)
@@ -77,9 +74,6 @@ class GetClusterResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if subnet_group_name and not isinstance(subnet_group_name, str):
-            raise TypeError("Expected argument 'subnet_group_name' to be a str")
-        pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -133,14 +127,6 @@ class GetClusterResult:
         The Redis engine version used by the cluster.
         """
         return pulumi.get(self, "engine_version")
-
-    @property
-    @pulumi.getter(name="finalSnapshotName")
-    def final_snapshot_name(self) -> Optional[str]:
-        """
-        The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
-        """
-        return pulumi.get(self, "final_snapshot_name")
 
     @property
     @pulumi.getter(name="maintenanceWindow")
@@ -239,14 +225,6 @@ class GetClusterResult:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> Optional[str]:
-        """
-        The name of the subnet group to be used for the cluster.
-        """
-        return pulumi.get(self, "subnet_group_name")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ClusterTag']]:
         """
@@ -267,7 +245,6 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_endpoint=self.cluster_endpoint,
             description=self.description,
             engine_version=self.engine_version,
-            final_snapshot_name=self.final_snapshot_name,
             maintenance_window=self.maintenance_window,
             node_type=self.node_type,
             num_replicas_per_shard=self.num_replicas_per_shard,
@@ -280,7 +257,6 @@ class AwaitableGetClusterResult(GetClusterResult):
             sns_topic_arn=self.sns_topic_arn,
             sns_topic_status=self.sns_topic_status,
             status=self.status,
-            subnet_group_name=self.subnet_group_name,
             tags=self.tags)
 
 
@@ -304,7 +280,6 @@ def get_cluster(cluster_name: Optional[str] = None,
         cluster_endpoint=__ret__.cluster_endpoint,
         description=__ret__.description,
         engine_version=__ret__.engine_version,
-        final_snapshot_name=__ret__.final_snapshot_name,
         maintenance_window=__ret__.maintenance_window,
         node_type=__ret__.node_type,
         num_replicas_per_shard=__ret__.num_replicas_per_shard,
@@ -317,7 +292,6 @@ def get_cluster(cluster_name: Optional[str] = None,
         sns_topic_arn=__ret__.sns_topic_arn,
         sns_topic_status=__ret__.sns_topic_status,
         status=__ret__.status,
-        subnet_group_name=__ret__.subnet_group_name,
         tags=__ret__.tags)
 
 

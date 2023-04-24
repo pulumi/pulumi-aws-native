@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.MediaLive
         public readonly Outputs.ChannelInputSpecification? InputSpecification;
         public readonly ImmutableArray<string> Inputs;
         public readonly string? LogLevel;
+        public readonly Outputs.ChannelMaintenanceCreateSettings? Maintenance;
         public readonly string? Name;
         public readonly string? RoleArn;
         public readonly object? Tags;
@@ -87,6 +88,8 @@ namespace Pulumi.AwsNative.MediaLive
 
             string? logLevel,
 
+            Outputs.ChannelMaintenanceCreateSettings? maintenance,
+
             string? name,
 
             string? roleArn,
@@ -103,6 +106,7 @@ namespace Pulumi.AwsNative.MediaLive
             InputSpecification = inputSpecification;
             Inputs = inputs;
             LogLevel = logLevel;
+            Maintenance = maintenance;
             Name = name;
             RoleArn = roleArn;
             Tags = tags;

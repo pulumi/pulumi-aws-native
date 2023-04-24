@@ -33,6 +33,7 @@ export interface GetMonitorResult {
     readonly resources?: string[];
     readonly status?: enums.internetmonitor.MonitorConfigState;
     readonly tags?: outputs.internetmonitor.MonitorTag[];
+    readonly trafficPercentageToMonitor?: number;
 }
 /**
  * Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application

@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly string? Scte27Pids;
         public readonly string? Scte35Control;
         public readonly string? Scte35Pid;
+        public readonly double? Scte35PrerollPullupMilliseconds;
         public readonly string? SegmentationMarkers;
         public readonly string? SegmentationStyle;
         public readonly double? SegmentationTime;
@@ -143,6 +144,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             string? scte35Pid,
 
+            double? scte35PrerollPullupMilliseconds,
+
             string? segmentationMarkers,
 
             string? segmentationStyle,
@@ -197,6 +200,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             Scte27Pids = scte27Pids;
             Scte35Control = scte35Control;
             Scte35Pid = scte35Pid;
+            Scte35PrerollPullupMilliseconds = scte35PrerollPullupMilliseconds;
             SegmentationMarkers = segmentationMarkers;
             SegmentationStyle = segmentationStyle;
             SegmentationTime = segmentationTime;

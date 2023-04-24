@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     {
         public readonly string? CheckDigitString;
         public readonly double? Sid;
+        public readonly string? Timezone;
 
         [OutputConstructor]
         private ChannelNielsenNaesIiNw(
             string? checkDigitString,
 
-            double? sid)
+            double? sid,
+
+            string? timezone)
         {
             CheckDigitString = checkDigitString;
             Sid = sid;
+            Timezone = timezone;
         }
     }
 }

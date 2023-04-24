@@ -53,10 +53,6 @@ export interface GetClusterResult {
      */
     readonly engineVersion?: string;
     /**
-     * The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
-     */
-    readonly finalSnapshotName?: string;
-    /**
      * Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
      */
     readonly maintenanceWindow?: string;
@@ -104,10 +100,6 @@ export interface GetClusterResult {
      * The status of the cluster. For example, Available, Updating, Creating.
      */
     readonly status?: string;
-    /**
-     * The name of the subnet group to be used for the cluster.
-     */
-    readonly subnetGroupName?: string;
     /**
      * An array of key-value pairs to apply to this cluster.
      */

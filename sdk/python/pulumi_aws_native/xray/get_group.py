@@ -67,7 +67,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.TagsItemProperties']]:
+    def tags(self) -> Optional[Sequence['outputs.GroupTag']]:
         return pulumi.get(self, "tags")
 
 

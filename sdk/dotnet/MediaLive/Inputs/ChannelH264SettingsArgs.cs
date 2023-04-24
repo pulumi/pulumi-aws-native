@@ -132,6 +132,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("temporalAq")]
         public Input<string>? TemporalAq { get; set; }
 
+        [Input("timecodeBurninSettings")]
+        public Input<Inputs.ChannelTimecodeBurninSettingsArgs>? TimecodeBurninSettings { get; set; }
+
         [Input("timecodeInsertion")]
         public Input<string>? TimecodeInsertion { get; set; }
 

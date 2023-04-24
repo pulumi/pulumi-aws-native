@@ -21,11 +21,17 @@ namespace Pulumi.AwsNative.FinSpace.Inputs
         [Input("applicationCallBackURL")]
         public Input<string>? ApplicationCallBackURL { get; set; }
 
+        [Input("attributeMap")]
+        private InputList<Inputs.EnvironmentFederationParametersAttributeMapItemPropertiesArgs>? _attributeMap;
+
         /// <summary>
         /// Attribute map for SAML configuration
         /// </summary>
-        [Input("attributeMap")]
-        public Input<object>? AttributeMap { get; set; }
+        public InputList<Inputs.EnvironmentFederationParametersAttributeMapItemPropertiesArgs> AttributeMap
+        {
+            get => _attributeMap ?? (_attributeMap = new InputList<Inputs.EnvironmentFederationParametersAttributeMapItemPropertiesArgs>());
+            set => _attributeMap = value;
+        }
 
         /// <summary>
         /// Federation provider name to link with the Environment

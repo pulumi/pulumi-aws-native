@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.XRay
         /// </summary>
         public readonly string? GroupName;
         public readonly Outputs.GroupInsightsConfiguration? InsightsConfiguration;
-        public readonly ImmutableArray<Outputs.TagsItemProperties> Tags;
+        public readonly ImmutableArray<Outputs.GroupTag> Tags;
 
         [OutputConstructor]
         private GetGroupResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.XRay
 
             Outputs.GroupInsightsConfiguration? insightsConfiguration,
 
-            ImmutableArray<Outputs.TagsItemProperties> tags)
+            ImmutableArray<Outputs.GroupTag> tags)
         {
             FilterExpression = filterExpression;
             GroupARN = groupARN;

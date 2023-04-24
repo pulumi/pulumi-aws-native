@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.MemoryDB
         /// Access permissions string used for this user account.
         /// </summary>
         [Output("accessString")]
-        public Output<string> AccessString { get; private set; } = null!;
+        public Output<string?> AccessString { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the user account.
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.MemoryDB
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("authenticationMode")]
-        public Output<Outputs.AuthenticationModeProperties> AuthenticationMode { get; private set; } = null!;
+        public Output<Outputs.AuthenticationModeProperties?> AuthenticationMode { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the user status. Can be "active", "modifying" or "deleting".
@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public User(string name, UserArgs args, CustomResourceOptions? options = null)
+        public User(string name, UserArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:memorydb:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -96,11 +96,11 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// Access permissions string used for this user account.
         /// </summary>
-        [Input("accessString", required: true)]
-        public Input<string> AccessString { get; set; } = null!;
+        [Input("accessString")]
+        public Input<string>? AccessString { get; set; }
 
-        [Input("authenticationMode", required: true)]
-        public Input<Inputs.AuthenticationModePropertiesArgs> AuthenticationMode { get; set; } = null!;
+        [Input("authenticationMode")]
+        public Input<Inputs.AuthenticationModePropertiesArgs>? AuthenticationMode { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.UserTagArgs>? _tags;

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BatchScramSecret{}
 	case "aws-native:msk:Cluster":
 		r = &Cluster{}
+	case "aws-native:msk:ClusterPolicy":
+		r = &ClusterPolicy{}
 	case "aws-native:msk:Configuration":
 		r = &Configuration{}
 	case "aws-native:msk:ServerlessCluster":

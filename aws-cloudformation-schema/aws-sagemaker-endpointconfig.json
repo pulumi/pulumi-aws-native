@@ -48,6 +48,13 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "IncludeInferenceResponseIn" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
         "SuccessTopic" : {
           "type" : "string"
         },
@@ -349,9 +356,11 @@
         },
         "S3OutputPath" : {
           "type" : "string"
+        },
+        "S3FailurePath" : {
+          "type" : "string"
         }
-      },
-      "required" : [ "S3OutputPath" ]
+      }
     }
   },
   "required" : [ "ProductionVariants" ],

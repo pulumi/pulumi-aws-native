@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
 
     public sealed class ChannelAvailSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("esam")]
+        public Input<Inputs.ChannelEsamArgs>? Esam { get; set; }
+
         [Input("scte35SpliceInsert")]
         public Input<Inputs.ChannelScte35SpliceInsertArgs>? Scte35SpliceInsert { get; set; }
 

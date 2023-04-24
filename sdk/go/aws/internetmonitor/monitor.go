@@ -27,6 +27,7 @@ type Monitor struct {
 	ResourcesToRemove               pulumi.StringArrayOutput                        `pulumi:"resourcesToRemove"`
 	Status                          MonitorConfigStatePtrOutput                     `pulumi:"status"`
 	Tags                            MonitorTagArrayOutput                           `pulumi:"tags"`
+	TrafficPercentageToMonitor      pulumi.IntPtrOutput                             `pulumi:"trafficPercentageToMonitor"`
 }
 
 // NewMonitor registers a new resource with the given unique name, arguments, and options.
@@ -76,6 +77,7 @@ type monitorArgs struct {
 	ResourcesToRemove               []string                                `pulumi:"resourcesToRemove"`
 	Status                          *MonitorConfigState                     `pulumi:"status"`
 	Tags                            []MonitorTag                            `pulumi:"tags"`
+	TrafficPercentageToMonitor      *int                                    `pulumi:"trafficPercentageToMonitor"`
 }
 
 // The set of arguments for constructing a Monitor resource.
@@ -88,6 +90,7 @@ type MonitorArgs struct {
 	ResourcesToRemove               pulumi.StringArrayInput
 	Status                          MonitorConfigStatePtrInput
 	Tags                            MonitorTagArrayInput
+	TrafficPercentageToMonitor      pulumi.IntPtrInput
 }
 
 func (MonitorArgs) ElementType() reflect.Type {
@@ -179,6 +182,10 @@ func (o MonitorOutput) Status() MonitorConfigStatePtrOutput {
 
 func (o MonitorOutput) Tags() MonitorTagArrayOutput {
 	return o.ApplyT(func(v *Monitor) MonitorTagArrayOutput { return v.Tags }).(MonitorTagArrayOutput)
+}
+
+func (o MonitorOutput) TrafficPercentageToMonitor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.TrafficPercentageToMonitor }).(pulumi.IntPtrOutput)
 }
 
 func init() {

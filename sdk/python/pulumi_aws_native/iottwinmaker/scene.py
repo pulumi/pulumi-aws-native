@@ -19,6 +19,7 @@ class SceneArgs:
                  workspace_id: pulumi.Input[str],
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 scene_metadata: Optional[Any] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Scene resource.
@@ -27,6 +28,7 @@ class SceneArgs:
         :param pulumi.Input[str] workspace_id: The ID of the scene.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities that the scene uses to render.
         :param pulumi.Input[str] description: The description of the scene.
+        :param Any scene_metadata: A key-value pair of scene metadata for the scene.
         :param Any tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "content_location", content_location)
@@ -36,6 +38,8 @@ class SceneArgs:
             pulumi.set(__self__, "capabilities", capabilities)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if scene_metadata is not None:
+            pulumi.set(__self__, "scene_metadata", scene_metadata)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -100,6 +104,18 @@ class SceneArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="sceneMetadata")
+    def scene_metadata(self) -> Optional[Any]:
+        """
+        A key-value pair of scene metadata for the scene.
+        """
+        return pulumi.get(self, "scene_metadata")
+
+    @scene_metadata.setter
+    def scene_metadata(self, value: Optional[Any]):
+        pulumi.set(self, "scene_metadata", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         """
@@ -121,6 +137,7 @@ class Scene(pulumi.CustomResource):
                  content_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  scene_id: Optional[pulumi.Input[str]] = None,
+                 scene_metadata: Optional[Any] = None,
                  tags: Optional[Any] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -133,6 +150,7 @@ class Scene(pulumi.CustomResource):
         :param pulumi.Input[str] content_location: The relative path that specifies the location of the content definition file.
         :param pulumi.Input[str] description: The description of the scene.
         :param pulumi.Input[str] scene_id: The ID of the scene.
+        :param Any scene_metadata: A key-value pair of scene metadata for the scene.
         :param Any tags: A key-value pair to associate with a resource.
         :param pulumi.Input[str] workspace_id: The ID of the scene.
         """
@@ -164,6 +182,7 @@ class Scene(pulumi.CustomResource):
                  content_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  scene_id: Optional[pulumi.Input[str]] = None,
+                 scene_metadata: Optional[Any] = None,
                  tags: Optional[Any] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -183,12 +202,14 @@ class Scene(pulumi.CustomResource):
             if scene_id is None and not opts.urn:
                 raise TypeError("Missing required property 'scene_id'")
             __props__.__dict__["scene_id"] = scene_id
+            __props__.__dict__["scene_metadata"] = scene_metadata
             __props__.__dict__["tags"] = tags
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_date_time"] = None
+            __props__.__dict__["generated_scene_metadata"] = None
             __props__.__dict__["update_date_time"] = None
         super(Scene, __self__).__init__(
             'aws-native:iottwinmaker:Scene',
@@ -217,7 +238,9 @@ class Scene(pulumi.CustomResource):
         __props__.__dict__["content_location"] = None
         __props__.__dict__["creation_date_time"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["generated_scene_metadata"] = None
         __props__.__dict__["scene_id"] = None
+        __props__.__dict__["scene_metadata"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["update_date_time"] = None
         __props__.__dict__["workspace_id"] = None
@@ -264,12 +287,28 @@ class Scene(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="generatedSceneMetadata")
+    def generated_scene_metadata(self) -> pulumi.Output[Any]:
+        """
+        A key-value pair of generated scene metadata for the scene.
+        """
+        return pulumi.get(self, "generated_scene_metadata")
+
+    @property
     @pulumi.getter(name="sceneId")
     def scene_id(self) -> pulumi.Output[str]:
         """
         The ID of the scene.
         """
         return pulumi.get(self, "scene_id")
+
+    @property
+    @pulumi.getter(name="sceneMetadata")
+    def scene_metadata(self) -> pulumi.Output[Optional[Any]]:
+        """
+        A key-value pair of scene metadata for the scene.
+        """
+        return pulumi.get(self, "scene_metadata")
 
     @property
     @pulumi.getter

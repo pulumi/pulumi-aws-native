@@ -12,10 +12,10 @@ import (
 
 // A key-value pair to associate with a resource.
 type ACLTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
 }
 
 // ACLTagInput is an input type that accepts ACLTagArgs and ACLTagOutput values.
@@ -31,10 +31,10 @@ type ACLTagInput interface {
 
 // A key-value pair to associate with a resource.
 type ACLTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ACLTagArgs) ElementType() reflect.Type {
@@ -89,14 +89,14 @@ func (o ACLTagOutput) ToACLTagOutputWithContext(ctx context.Context) ACLTagOutpu
 	return o
 }
 
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o ACLTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ACLTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ACLTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ACLTag) string { return v.Value }).(pulumi.StringOutput)
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ACLTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ACLTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type ACLTagArrayOutput struct{ *pulumi.OutputState }
@@ -156,6 +156,47 @@ func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesOutput)
 }
 
+func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput {
+	return i.ToAuthenticationModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesPtrOutputWithContext(ctx context.Context) AuthenticationModePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesOutput).ToAuthenticationModePropertiesPtrOutputWithContext(ctx)
+}
+
+// AuthenticationModePropertiesPtrInput is an input type that accepts AuthenticationModePropertiesArgs, AuthenticationModePropertiesPtr and AuthenticationModePropertiesPtrOutput values.
+// You can construct a concrete instance of `AuthenticationModePropertiesPtrInput` via:
+//
+//	        AuthenticationModePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AuthenticationModePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput
+	ToAuthenticationModePropertiesPtrOutputWithContext(context.Context) AuthenticationModePropertiesPtrOutput
+}
+
+type authenticationModePropertiesPtrType AuthenticationModePropertiesArgs
+
+func AuthenticationModePropertiesPtr(v *AuthenticationModePropertiesArgs) AuthenticationModePropertiesPtrInput {
+	return (*authenticationModePropertiesPtrType)(v)
+}
+
+func (*authenticationModePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationModeProperties)(nil)).Elem()
+}
+
+func (i *authenticationModePropertiesPtrType) ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput {
+	return i.ToAuthenticationModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *authenticationModePropertiesPtrType) ToAuthenticationModePropertiesPtrOutputWithContext(ctx context.Context) AuthenticationModePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesPtrOutput)
+}
+
 type AuthenticationModePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationModePropertiesOutput) ElementType() reflect.Type {
@@ -170,6 +211,16 @@ func (o AuthenticationModePropertiesOutput) ToAuthenticationModePropertiesOutput
 	return o
 }
 
+func (o AuthenticationModePropertiesOutput) ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput {
+	return o.ToAuthenticationModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticationModePropertiesOutput) ToAuthenticationModePropertiesPtrOutputWithContext(ctx context.Context) AuthenticationModePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticationModeProperties) *AuthenticationModeProperties {
+		return &v
+	}).(AuthenticationModePropertiesPtrOutput)
+}
+
 // Passwords used for this user account. You can create up to two passwords for each user.
 func (o AuthenticationModePropertiesOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthenticationModeProperties) []string { return v.Passwords }).(pulumi.StringArrayOutput)
@@ -178,6 +229,50 @@ func (o AuthenticationModePropertiesOutput) Passwords() pulumi.StringArrayOutput
 // Type of authentication strategy for this user.
 func (o AuthenticationModePropertiesOutput) Type() UserAuthenticationModePropertiesTypePtrOutput {
 	return o.ApplyT(func(v AuthenticationModeProperties) *UserAuthenticationModePropertiesType { return v.Type }).(UserAuthenticationModePropertiesTypePtrOutput)
+}
+
+type AuthenticationModePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationModePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationModeProperties)(nil)).Elem()
+}
+
+func (o AuthenticationModePropertiesPtrOutput) ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput {
+	return o
+}
+
+func (o AuthenticationModePropertiesPtrOutput) ToAuthenticationModePropertiesPtrOutputWithContext(ctx context.Context) AuthenticationModePropertiesPtrOutput {
+	return o
+}
+
+func (o AuthenticationModePropertiesPtrOutput) Elem() AuthenticationModePropertiesOutput {
+	return o.ApplyT(func(v *AuthenticationModeProperties) AuthenticationModeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticationModeProperties
+		return ret
+	}).(AuthenticationModePropertiesOutput)
+}
+
+// Passwords used for this user account. You can create up to two passwords for each user.
+func (o AuthenticationModePropertiesPtrOutput) Passwords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthenticationModeProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Passwords
+	}).(pulumi.StringArrayOutput)
+}
+
+// Type of authentication strategy for this user.
+func (o AuthenticationModePropertiesPtrOutput) Type() UserAuthenticationModePropertiesTypePtrOutput {
+	return o.ApplyT(func(v *AuthenticationModeProperties) *UserAuthenticationModePropertiesType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(UserAuthenticationModePropertiesTypePtrOutput)
 }
 
 type ClusterEndpoint struct {
@@ -665,10 +760,10 @@ func (o SubnetGroupTagArrayOutput) Index(i pulumi.IntInput) SubnetGroupTagOutput
 
 // A key-value pair to associate with a resource.
 type UserTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
 }
 
 // UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
@@ -684,10 +779,10 @@ type UserTagInput interface {
 
 // A key-value pair to associate with a resource.
 type UserTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (UserTagArgs) ElementType() reflect.Type {
@@ -742,14 +837,14 @@ func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOu
 	return o
 }
 
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o UserTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v UserTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o UserTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v UserTag) string { return v.Value }).(pulumi.StringOutput)
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o UserTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type UserTagArrayOutput struct{ *pulumi.OutputState }
@@ -776,6 +871,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ACLTagInput)(nil)).Elem(), ACLTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ACLTagArrayInput)(nil)).Elem(), ACLTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesPtrInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointInput)(nil)).Elem(), ClusterEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointPtrInput)(nil)).Elem(), ClusterEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagInput)(nil)).Elem(), ClusterTagArgs{})
@@ -789,6 +885,7 @@ func init() {
 	pulumi.RegisterOutputType(ACLTagOutput{})
 	pulumi.RegisterOutputType(ACLTagArrayOutput{})
 	pulumi.RegisterOutputType(AuthenticationModePropertiesOutput{})
+	pulumi.RegisterOutputType(AuthenticationModePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEndpointOutput{})
 	pulumi.RegisterOutputType(ClusterEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTagOutput{})

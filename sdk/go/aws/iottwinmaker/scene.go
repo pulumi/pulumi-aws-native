@@ -25,8 +25,12 @@ type Scene struct {
 	CreationDateTime pulumi.StringOutput `pulumi:"creationDateTime"`
 	// The description of the scene.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A key-value pair of generated scene metadata for the scene.
+	GeneratedSceneMetadata pulumi.AnyOutput `pulumi:"generatedSceneMetadata"`
 	// The ID of the scene.
 	SceneId pulumi.StringOutput `pulumi:"sceneId"`
+	// A key-value pair of scene metadata for the scene.
+	SceneMetadata pulumi.AnyOutput `pulumi:"sceneMetadata"`
 	// A key-value pair to associate with a resource.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// The date and time of the current update.
@@ -91,6 +95,8 @@ type sceneArgs struct {
 	Description *string `pulumi:"description"`
 	// The ID of the scene.
 	SceneId string `pulumi:"sceneId"`
+	// A key-value pair of scene metadata for the scene.
+	SceneMetadata interface{} `pulumi:"sceneMetadata"`
 	// A key-value pair to associate with a resource.
 	Tags interface{} `pulumi:"tags"`
 	// The ID of the scene.
@@ -107,6 +113,8 @@ type SceneArgs struct {
 	Description pulumi.StringPtrInput
 	// The ID of the scene.
 	SceneId pulumi.StringInput
+	// A key-value pair of scene metadata for the scene.
+	SceneMetadata pulumi.Input
 	// A key-value pair to associate with a resource.
 	Tags pulumi.Input
 	// The ID of the scene.
@@ -175,9 +183,19 @@ func (o SceneOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Scene) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair of generated scene metadata for the scene.
+func (o SceneOutput) GeneratedSceneMetadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Scene) pulumi.AnyOutput { return v.GeneratedSceneMetadata }).(pulumi.AnyOutput)
+}
+
 // The ID of the scene.
 func (o SceneOutput) SceneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scene) pulumi.StringOutput { return v.SceneId }).(pulumi.StringOutput)
+}
+
+// A key-value pair of scene metadata for the scene.
+func (o SceneOutput) SceneMetadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Scene) pulumi.AnyOutput { return v.SceneMetadata }).(pulumi.AnyOutput)
 }
 
 // A key-value pair to associate with a resource.

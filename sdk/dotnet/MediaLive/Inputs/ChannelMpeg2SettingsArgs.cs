@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("subgopLength")]
         public Input<string>? SubgopLength { get; set; }
 
+        [Input("timecodeBurninSettings")]
+        public Input<Inputs.ChannelTimecodeBurninSettingsArgs>? TimecodeBurninSettings { get; set; }
+
         [Input("timecodeInsertion")]
         public Input<string>? TimecodeInsertion { get; set; }
 

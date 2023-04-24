@@ -39,8 +39,7 @@ type LookupEnvironmentResult struct {
 	// URL used to login to the Environment
 	EnvironmentUrl *string `pulumi:"environmentUrl"`
 	// Federation mode used with the Environment
-	FederationMode       *EnvironmentFederationMode       `pulumi:"federationMode"`
-	FederationParameters *EnvironmentFederationParameters `pulumi:"federationParameters"`
+	FederationMode *EnvironmentFederationMode `pulumi:"federationMode"`
 	// Name of the Environment
 	Name *string `pulumi:"name"`
 	// SageMaker Studio Domain URL associated with the Environment
@@ -118,10 +117,6 @@ func (o LookupEnvironmentResultOutput) EnvironmentUrl() pulumi.StringPtrOutput {
 // Federation mode used with the Environment
 func (o LookupEnvironmentResultOutput) FederationMode() EnvironmentFederationModePtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *EnvironmentFederationMode { return v.FederationMode }).(EnvironmentFederationModePtrOutput)
-}
-
-func (o LookupEnvironmentResultOutput) FederationParameters() EnvironmentFederationParametersPtrOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) *EnvironmentFederationParameters { return v.FederationParameters }).(EnvironmentFederationParametersPtrOutput)
 }
 
 // Name of the Environment

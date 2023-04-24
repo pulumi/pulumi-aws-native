@@ -49,6 +49,7 @@ export class Channel extends pulumi.CustomResource {
     public readonly inputSpecification!: pulumi.Output<outputs.medialive.ChannelInputSpecification | undefined>;
     public /*out*/ readonly inputs!: pulumi.Output<string[]>;
     public readonly logLevel!: pulumi.Output<string | undefined>;
+    public readonly maintenance!: pulumi.Output<outputs.medialive.ChannelMaintenanceCreateSettings | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
@@ -74,6 +75,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["inputAttachments"] = args ? args.inputAttachments : undefined;
             resourceInputs["inputSpecification"] = args ? args.inputSpecification : undefined;
             resourceInputs["logLevel"] = args ? args.logLevel : undefined;
+            resourceInputs["maintenance"] = args ? args.maintenance : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -90,6 +92,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["inputSpecification"] = undefined /*out*/;
             resourceInputs["inputs"] = undefined /*out*/;
             resourceInputs["logLevel"] = undefined /*out*/;
+            resourceInputs["maintenance"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -111,6 +114,7 @@ export interface ChannelArgs {
     inputAttachments?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachmentArgs>[]>;
     inputSpecification?: pulumi.Input<inputs.medialive.ChannelInputSpecificationArgs>;
     logLevel?: pulumi.Input<string>;
+    maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenanceCreateSettingsArgs>;
     name?: pulumi.Input<string>;
     roleArn?: pulumi.Input<string>;
     tags?: any;

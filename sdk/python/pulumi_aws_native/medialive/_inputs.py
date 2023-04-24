@@ -23,6 +23,7 @@ __all__ = [
     'ChannelAudioChannelMappingArgs',
     'ChannelAudioCodecSettingsArgs',
     'ChannelAudioDescriptionArgs',
+    'ChannelAudioDolbyEDecodeArgs',
     'ChannelAudioHlsRenditionSelectionArgs',
     'ChannelAudioLanguageSelectionArgs',
     'ChannelAudioNormalizationSettingsArgs',
@@ -48,17 +49,20 @@ __all__ = [
     'ChannelCaptionSelectorArgs',
     'ChannelCdiInputSpecificationArgs',
     'ChannelColorSpacePassthroughSettingsArgs',
+    'ChannelDolbyVision81SettingsArgs',
     'ChannelDvbNitSettingsArgs',
     'ChannelDvbSdtSettingsArgs',
     'ChannelDvbSubDestinationSettingsArgs',
     'ChannelDvbSubSourceSettingsArgs',
     'ChannelDvbTdtSettingsArgs',
+    'ChannelEac3AtmosSettingsArgs',
     'ChannelEac3SettingsArgs',
     'ChannelEbuTtDDestinationSettingsArgs',
     'ChannelEmbeddedDestinationSettingsArgs',
     'ChannelEmbeddedPlusScte20DestinationSettingsArgs',
     'ChannelEmbeddedSourceSettingsArgs',
     'ChannelEncoderSettingsArgs',
+    'ChannelEsamArgs',
     'ChannelFailoverConditionSettingsArgs',
     'ChannelFailoverConditionArgs',
     'ChannelFeatureActivationsArgs',
@@ -99,6 +103,7 @@ __all__ = [
     'ChannelKeyProviderSettingsArgs',
     'ChannelM2tsSettingsArgs',
     'ChannelM3u8SettingsArgs',
+    'ChannelMaintenanceCreateSettingsArgs',
     'ChannelMediaPackageGroupSettingsArgs',
     'ChannelMediaPackageOutputDestinationSettingsArgs',
     'ChannelMediaPackageOutputSettingsArgs',
@@ -144,6 +149,7 @@ __all__ = [
     'ChannelTeletextDestinationSettingsArgs',
     'ChannelTeletextSourceSettingsArgs',
     'ChannelTemporalFilterSettingsArgs',
+    'ChannelTimecodeBurninSettingsArgs',
     'ChannelTimecodeConfigArgs',
     'ChannelTtmlDestinationSettingsArgs',
     'ChannelUdpContainerSettingsArgs',
@@ -578,6 +584,7 @@ class ChannelAudioCodecSettingsArgs:
     def __init__(__self__, *,
                  aac_settings: Optional[pulumi.Input['ChannelAacSettingsArgs']] = None,
                  ac3_settings: Optional[pulumi.Input['ChannelAc3SettingsArgs']] = None,
+                 eac3_atmos_settings: Optional[pulumi.Input['ChannelEac3AtmosSettingsArgs']] = None,
                  eac3_settings: Optional[pulumi.Input['ChannelEac3SettingsArgs']] = None,
                  mp2_settings: Optional[pulumi.Input['ChannelMp2SettingsArgs']] = None,
                  pass_through_settings: Optional[pulumi.Input['ChannelPassThroughSettingsArgs']] = None,
@@ -586,6 +593,8 @@ class ChannelAudioCodecSettingsArgs:
             pulumi.set(__self__, "aac_settings", aac_settings)
         if ac3_settings is not None:
             pulumi.set(__self__, "ac3_settings", ac3_settings)
+        if eac3_atmos_settings is not None:
+            pulumi.set(__self__, "eac3_atmos_settings", eac3_atmos_settings)
         if eac3_settings is not None:
             pulumi.set(__self__, "eac3_settings", eac3_settings)
         if mp2_settings is not None:
@@ -612,6 +621,15 @@ class ChannelAudioCodecSettingsArgs:
     @ac3_settings.setter
     def ac3_settings(self, value: Optional[pulumi.Input['ChannelAc3SettingsArgs']]):
         pulumi.set(self, "ac3_settings", value)
+
+    @property
+    @pulumi.getter(name="eac3AtmosSettings")
+    def eac3_atmos_settings(self) -> Optional[pulumi.Input['ChannelEac3AtmosSettingsArgs']]:
+        return pulumi.get(self, "eac3_atmos_settings")
+
+    @eac3_atmos_settings.setter
+    def eac3_atmos_settings(self, value: Optional[pulumi.Input['ChannelEac3AtmosSettingsArgs']]):
+        pulumi.set(self, "eac3_atmos_settings", value)
 
     @property
     @pulumi.getter(name="eac3Settings")
@@ -785,6 +803,23 @@ class ChannelAudioDescriptionArgs:
     @stream_name.setter
     def stream_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "stream_name", value)
+
+
+@pulumi.input_type
+class ChannelAudioDolbyEDecodeArgs:
+    def __init__(__self__, *,
+                 program_selection: Optional[pulumi.Input[str]] = None):
+        if program_selection is not None:
+            pulumi.set(__self__, "program_selection", program_selection)
+
+    @property
+    @pulumi.getter(name="programSelection")
+    def program_selection(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "program_selection")
+
+    @program_selection.setter
+    def program_selection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "program_selection", value)
 
 
 @pulumi.input_type
@@ -1070,9 +1105,21 @@ class ChannelAudioSilenceFailoverSettingsArgs:
 @pulumi.input_type
 class ChannelAudioTrackSelectionArgs:
     def __init__(__self__, *,
+                 dolby_e_decode: Optional[pulumi.Input['ChannelAudioDolbyEDecodeArgs']] = None,
                  tracks: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelAudioTrackArgs']]]] = None):
+        if dolby_e_decode is not None:
+            pulumi.set(__self__, "dolby_e_decode", dolby_e_decode)
         if tracks is not None:
             pulumi.set(__self__, "tracks", tracks)
+
+    @property
+    @pulumi.getter(name="dolbyEDecode")
+    def dolby_e_decode(self) -> Optional[pulumi.Input['ChannelAudioDolbyEDecodeArgs']]:
+        return pulumi.get(self, "dolby_e_decode")
+
+    @dolby_e_decode.setter
+    def dolby_e_decode(self, value: Optional[pulumi.Input['ChannelAudioDolbyEDecodeArgs']]):
+        pulumi.set(self, "dolby_e_decode", value)
 
     @property
     @pulumi.getter
@@ -1220,12 +1267,24 @@ class ChannelAvailConfigurationArgs:
 @pulumi.input_type
 class ChannelAvailSettingsArgs:
     def __init__(__self__, *,
+                 esam: Optional[pulumi.Input['ChannelEsamArgs']] = None,
                  scte35_splice_insert: Optional[pulumi.Input['ChannelScte35SpliceInsertArgs']] = None,
                  scte35_time_signal_apos: Optional[pulumi.Input['ChannelScte35TimeSignalAposArgs']] = None):
+        if esam is not None:
+            pulumi.set(__self__, "esam", esam)
         if scte35_splice_insert is not None:
             pulumi.set(__self__, "scte35_splice_insert", scte35_splice_insert)
         if scte35_time_signal_apos is not None:
             pulumi.set(__self__, "scte35_time_signal_apos", scte35_time_signal_apos)
+
+    @property
+    @pulumi.getter
+    def esam(self) -> Optional[pulumi.Input['ChannelEsamArgs']]:
+        return pulumi.get(self, "esam")
+
+    @esam.setter
+    def esam(self, value: Optional[pulumi.Input['ChannelEsamArgs']]):
+        pulumi.set(self, "esam", value)
 
     @property
     @pulumi.getter(name="scte35SpliceInsert")
@@ -1523,11 +1582,14 @@ class ChannelBurnInDestinationSettingsArgs:
 @pulumi.input_type
 class ChannelCaptionDescriptionArgs:
     def __init__(__self__, *,
+                 accessibility: Optional[pulumi.Input[str]] = None,
                  caption_selector_name: Optional[pulumi.Input[str]] = None,
                  destination_settings: Optional[pulumi.Input['ChannelCaptionDestinationSettingsArgs']] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  language_description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
+        if accessibility is not None:
+            pulumi.set(__self__, "accessibility", accessibility)
         if caption_selector_name is not None:
             pulumi.set(__self__, "caption_selector_name", caption_selector_name)
         if destination_settings is not None:
@@ -1538,6 +1600,15 @@ class ChannelCaptionDescriptionArgs:
             pulumi.set(__self__, "language_description", language_description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def accessibility(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "accessibility")
+
+    @accessibility.setter
+    def accessibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accessibility", value)
 
     @property
     @pulumi.getter(name="captionSelectorName")
@@ -1994,6 +2065,12 @@ class ChannelColorSpacePassthroughSettingsArgs:
 
 
 @pulumi.input_type
+class ChannelDolbyVision81SettingsArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
 class ChannelDvbNitSettingsArgs:
     def __init__(__self__, *,
                  network_id: Optional[pulumi.Input[int]] = None,
@@ -2340,6 +2417,95 @@ class ChannelDvbTdtSettingsArgs:
     @rep_interval.setter
     def rep_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "rep_interval", value)
+
+
+@pulumi.input_type
+class ChannelEac3AtmosSettingsArgs:
+    def __init__(__self__, *,
+                 bitrate: Optional[pulumi.Input[float]] = None,
+                 coding_mode: Optional[pulumi.Input[str]] = None,
+                 dialnorm: Optional[pulumi.Input[int]] = None,
+                 drc_line: Optional[pulumi.Input[str]] = None,
+                 drc_rf: Optional[pulumi.Input[str]] = None,
+                 height_trim: Optional[pulumi.Input[float]] = None,
+                 surround_trim: Optional[pulumi.Input[float]] = None):
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if coding_mode is not None:
+            pulumi.set(__self__, "coding_mode", coding_mode)
+        if dialnorm is not None:
+            pulumi.set(__self__, "dialnorm", dialnorm)
+        if drc_line is not None:
+            pulumi.set(__self__, "drc_line", drc_line)
+        if drc_rf is not None:
+            pulumi.set(__self__, "drc_rf", drc_rf)
+        if height_trim is not None:
+            pulumi.set(__self__, "height_trim", height_trim)
+        if surround_trim is not None:
+            pulumi.set(__self__, "surround_trim", surround_trim)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "bitrate")
+
+    @bitrate.setter
+    def bitrate(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "bitrate", value)
+
+    @property
+    @pulumi.getter(name="codingMode")
+    def coding_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "coding_mode")
+
+    @coding_mode.setter
+    def coding_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "coding_mode", value)
+
+    @property
+    @pulumi.getter
+    def dialnorm(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "dialnorm")
+
+    @dialnorm.setter
+    def dialnorm(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dialnorm", value)
+
+    @property
+    @pulumi.getter(name="drcLine")
+    def drc_line(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "drc_line")
+
+    @drc_line.setter
+    def drc_line(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "drc_line", value)
+
+    @property
+    @pulumi.getter(name="drcRf")
+    def drc_rf(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "drc_rf")
+
+    @drc_rf.setter
+    def drc_rf(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "drc_rf", value)
+
+    @property
+    @pulumi.getter(name="heightTrim")
+    def height_trim(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "height_trim")
+
+    @height_trim.setter
+    def height_trim(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "height_trim", value)
+
+    @property
+    @pulumi.getter(name="surroundTrim")
+    def surround_trim(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "surround_trim")
+
+    @surround_trim.setter
+    def surround_trim(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "surround_trim", value)
 
 
 @pulumi.input_type
@@ -2855,6 +3021,83 @@ class ChannelEncoderSettingsArgs:
 
 
 @pulumi.input_type
+class ChannelEsamArgs:
+    def __init__(__self__, *,
+                 acquisition_point_id: Optional[pulumi.Input[str]] = None,
+                 ad_avail_offset: Optional[pulumi.Input[int]] = None,
+                 password_param: Optional[pulumi.Input[str]] = None,
+                 pois_endpoint: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 zone_identity: Optional[pulumi.Input[str]] = None):
+        if acquisition_point_id is not None:
+            pulumi.set(__self__, "acquisition_point_id", acquisition_point_id)
+        if ad_avail_offset is not None:
+            pulumi.set(__self__, "ad_avail_offset", ad_avail_offset)
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if pois_endpoint is not None:
+            pulumi.set(__self__, "pois_endpoint", pois_endpoint)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+        if zone_identity is not None:
+            pulumi.set(__self__, "zone_identity", zone_identity)
+
+    @property
+    @pulumi.getter(name="acquisitionPointId")
+    def acquisition_point_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "acquisition_point_id")
+
+    @acquisition_point_id.setter
+    def acquisition_point_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "acquisition_point_id", value)
+
+    @property
+    @pulumi.getter(name="adAvailOffset")
+    def ad_avail_offset(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ad_avail_offset")
+
+    @ad_avail_offset.setter
+    def ad_avail_offset(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ad_avail_offset", value)
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password_param")
+
+    @password_param.setter
+    def password_param(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_param", value)
+
+    @property
+    @pulumi.getter(name="poisEndpoint")
+    def pois_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pois_endpoint")
+
+    @pois_endpoint.setter
+    def pois_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pois_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter(name="zoneIdentity")
+    def zone_identity(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "zone_identity")
+
+    @zone_identity.setter
+    def zone_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone_identity", value)
+
+
+@pulumi.input_type
 class ChannelFailoverConditionSettingsArgs:
     def __init__(__self__, *,
                  audio_silence_settings: Optional[pulumi.Input['ChannelAudioSilenceFailoverSettingsArgs']] = None,
@@ -3101,11 +3344,14 @@ class ChannelFrameCaptureS3SettingsArgs:
 class ChannelFrameCaptureSettingsArgs:
     def __init__(__self__, *,
                  capture_interval: Optional[pulumi.Input[int]] = None,
-                 capture_interval_units: Optional[pulumi.Input[str]] = None):
+                 capture_interval_units: Optional[pulumi.Input[str]] = None,
+                 timecode_burnin_settings: Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']] = None):
         if capture_interval is not None:
             pulumi.set(__self__, "capture_interval", capture_interval)
         if capture_interval_units is not None:
             pulumi.set(__self__, "capture_interval_units", capture_interval_units)
+        if timecode_burnin_settings is not None:
+            pulumi.set(__self__, "timecode_burnin_settings", timecode_burnin_settings)
 
     @property
     @pulumi.getter(name="captureInterval")
@@ -3124,6 +3370,15 @@ class ChannelFrameCaptureSettingsArgs:
     @capture_interval_units.setter
     def capture_interval_units(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "capture_interval_units", value)
+
+    @property
+    @pulumi.getter(name="timecodeBurninSettings")
+    def timecode_burnin_settings(self) -> Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']]:
+        return pulumi.get(self, "timecode_burnin_settings")
+
+    @timecode_burnin_settings.setter
+    def timecode_burnin_settings(self, value: Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']]):
+        pulumi.set(self, "timecode_burnin_settings", value)
 
 
 @pulumi.input_type
@@ -3304,6 +3559,7 @@ class ChannelH264SettingsArgs:
                  subgop_length: Optional[pulumi.Input[str]] = None,
                  syntax: Optional[pulumi.Input[str]] = None,
                  temporal_aq: Optional[pulumi.Input[str]] = None,
+                 timecode_burnin_settings: Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']] = None,
                  timecode_insertion: Optional[pulumi.Input[str]] = None):
         if adaptive_quantization is not None:
             pulumi.set(__self__, "adaptive_quantization", adaptive_quantization)
@@ -3385,6 +3641,8 @@ class ChannelH264SettingsArgs:
             pulumi.set(__self__, "syntax", syntax)
         if temporal_aq is not None:
             pulumi.set(__self__, "temporal_aq", temporal_aq)
+        if timecode_burnin_settings is not None:
+            pulumi.set(__self__, "timecode_burnin_settings", timecode_burnin_settings)
         if timecode_insertion is not None:
             pulumi.set(__self__, "timecode_insertion", timecode_insertion)
 
@@ -3749,6 +4007,15 @@ class ChannelH264SettingsArgs:
         pulumi.set(self, "temporal_aq", value)
 
     @property
+    @pulumi.getter(name="timecodeBurninSettings")
+    def timecode_burnin_settings(self) -> Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']]:
+        return pulumi.get(self, "timecode_burnin_settings")
+
+    @timecode_burnin_settings.setter
+    def timecode_burnin_settings(self, value: Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']]):
+        pulumi.set(self, "timecode_burnin_settings", value)
+
+    @property
     @pulumi.getter(name="timecodeInsertion")
     def timecode_insertion(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "timecode_insertion")
@@ -3762,11 +4029,14 @@ class ChannelH264SettingsArgs:
 class ChannelH265ColorSpaceSettingsArgs:
     def __init__(__self__, *,
                  color_space_passthrough_settings: Optional[pulumi.Input['ChannelColorSpacePassthroughSettingsArgs']] = None,
+                 dolby_vision81_settings: Optional[pulumi.Input['ChannelDolbyVision81SettingsArgs']] = None,
                  hdr10_settings: Optional[pulumi.Input['ChannelHdr10SettingsArgs']] = None,
                  rec601_settings: Optional[pulumi.Input['ChannelRec601SettingsArgs']] = None,
                  rec709_settings: Optional[pulumi.Input['ChannelRec709SettingsArgs']] = None):
         if color_space_passthrough_settings is not None:
             pulumi.set(__self__, "color_space_passthrough_settings", color_space_passthrough_settings)
+        if dolby_vision81_settings is not None:
+            pulumi.set(__self__, "dolby_vision81_settings", dolby_vision81_settings)
         if hdr10_settings is not None:
             pulumi.set(__self__, "hdr10_settings", hdr10_settings)
         if rec601_settings is not None:
@@ -3782,6 +4052,15 @@ class ChannelH265ColorSpaceSettingsArgs:
     @color_space_passthrough_settings.setter
     def color_space_passthrough_settings(self, value: Optional[pulumi.Input['ChannelColorSpacePassthroughSettingsArgs']]):
         pulumi.set(self, "color_space_passthrough_settings", value)
+
+    @property
+    @pulumi.getter(name="dolbyVision81Settings")
+    def dolby_vision81_settings(self) -> Optional[pulumi.Input['ChannelDolbyVision81SettingsArgs']]:
+        return pulumi.get(self, "dolby_vision81_settings")
+
+    @dolby_vision81_settings.setter
+    def dolby_vision81_settings(self, value: Optional[pulumi.Input['ChannelDolbyVision81SettingsArgs']]):
+        pulumi.set(self, "dolby_vision81_settings", value)
 
     @property
     @pulumi.getter(name="hdr10Settings")
@@ -3859,6 +4138,7 @@ class ChannelH265SettingsArgs:
                  scene_change_detect: Optional[pulumi.Input[str]] = None,
                  slices: Optional[pulumi.Input[int]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
+                 timecode_burnin_settings: Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']] = None,
                  timecode_insertion: Optional[pulumi.Input[str]] = None):
         if adaptive_quantization is not None:
             pulumi.set(__self__, "adaptive_quantization", adaptive_quantization)
@@ -3916,6 +4196,8 @@ class ChannelH265SettingsArgs:
             pulumi.set(__self__, "slices", slices)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
+        if timecode_burnin_settings is not None:
+            pulumi.set(__self__, "timecode_burnin_settings", timecode_burnin_settings)
         if timecode_insertion is not None:
             pulumi.set(__self__, "timecode_insertion", timecode_insertion)
 
@@ -4170,6 +4452,15 @@ class ChannelH265SettingsArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="timecodeBurninSettings")
+    def timecode_burnin_settings(self) -> Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']]:
+        return pulumi.get(self, "timecode_burnin_settings")
+
+    @timecode_burnin_settings.setter
+    def timecode_burnin_settings(self, value: Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']]):
+        pulumi.set(self, "timecode_burnin_settings", value)
 
     @property
     @pulumi.getter(name="timecodeInsertion")
@@ -5705,6 +5996,7 @@ class ChannelM2tsSettingsArgs:
                  scte27_pids: Optional[pulumi.Input[str]] = None,
                  scte35_control: Optional[pulumi.Input[str]] = None,
                  scte35_pid: Optional[pulumi.Input[str]] = None,
+                 scte35_preroll_pullup_milliseconds: Optional[pulumi.Input[float]] = None,
                  segmentation_markers: Optional[pulumi.Input[str]] = None,
                  segmentation_style: Optional[pulumi.Input[str]] = None,
                  segmentation_time: Optional[pulumi.Input[float]] = None,
@@ -5792,6 +6084,8 @@ class ChannelM2tsSettingsArgs:
             pulumi.set(__self__, "scte35_control", scte35_control)
         if scte35_pid is not None:
             pulumi.set(__self__, "scte35_pid", scte35_pid)
+        if scte35_preroll_pullup_milliseconds is not None:
+            pulumi.set(__self__, "scte35_preroll_pullup_milliseconds", scte35_preroll_pullup_milliseconds)
         if segmentation_markers is not None:
             pulumi.set(__self__, "segmentation_markers", segmentation_markers)
         if segmentation_style is not None:
@@ -6168,6 +6462,15 @@ class ChannelM2tsSettingsArgs:
         pulumi.set(self, "scte35_pid", value)
 
     @property
+    @pulumi.getter(name="scte35PrerollPullupMilliseconds")
+    def scte35_preroll_pullup_milliseconds(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "scte35_preroll_pullup_milliseconds")
+
+    @scte35_preroll_pullup_milliseconds.setter
+    def scte35_preroll_pullup_milliseconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "scte35_preroll_pullup_milliseconds", value)
+
+    @property
     @pulumi.getter(name="segmentationMarkers")
     def segmentation_markers(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "segmentation_markers")
@@ -6441,6 +6744,35 @@ class ChannelM3u8SettingsArgs:
 
 
 @pulumi.input_type
+class ChannelMaintenanceCreateSettingsArgs:
+    def __init__(__self__, *,
+                 maintenance_day: Optional[pulumi.Input[str]] = None,
+                 maintenance_start_time: Optional[pulumi.Input[str]] = None):
+        if maintenance_day is not None:
+            pulumi.set(__self__, "maintenance_day", maintenance_day)
+        if maintenance_start_time is not None:
+            pulumi.set(__self__, "maintenance_start_time", maintenance_start_time)
+
+    @property
+    @pulumi.getter(name="maintenanceDay")
+    def maintenance_day(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "maintenance_day")
+
+    @maintenance_day.setter
+    def maintenance_day(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_day", value)
+
+    @property
+    @pulumi.getter(name="maintenanceStartTime")
+    def maintenance_start_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "maintenance_start_time")
+
+    @maintenance_start_time.setter
+    def maintenance_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_start_time", value)
+
+
+@pulumi.input_type
 class ChannelMediaPackageGroupSettingsArgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input['ChannelOutputLocationRefArgs']] = None):
@@ -6602,6 +6934,7 @@ class ChannelMpeg2SettingsArgs:
                  gop_size_units: Optional[pulumi.Input[str]] = None,
                  scan_type: Optional[pulumi.Input[str]] = None,
                  subgop_length: Optional[pulumi.Input[str]] = None,
+                 timecode_burnin_settings: Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']] = None,
                  timecode_insertion: Optional[pulumi.Input[str]] = None):
         if adaptive_quantization is not None:
             pulumi.set(__self__, "adaptive_quantization", adaptive_quantization)
@@ -6633,6 +6966,8 @@ class ChannelMpeg2SettingsArgs:
             pulumi.set(__self__, "scan_type", scan_type)
         if subgop_length is not None:
             pulumi.set(__self__, "subgop_length", subgop_length)
+        if timecode_burnin_settings is not None:
+            pulumi.set(__self__, "timecode_burnin_settings", timecode_burnin_settings)
         if timecode_insertion is not None:
             pulumi.set(__self__, "timecode_insertion", timecode_insertion)
 
@@ -6770,6 +7105,15 @@ class ChannelMpeg2SettingsArgs:
     @subgop_length.setter
     def subgop_length(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subgop_length", value)
+
+    @property
+    @pulumi.getter(name="timecodeBurninSettings")
+    def timecode_burnin_settings(self) -> Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']]:
+        return pulumi.get(self, "timecode_burnin_settings")
+
+    @timecode_burnin_settings.setter
+    def timecode_burnin_settings(self, value: Optional[pulumi.Input['ChannelTimecodeBurninSettingsArgs']]):
+        pulumi.set(self, "timecode_burnin_settings", value)
 
     @property
     @pulumi.getter(name="timecodeInsertion")
@@ -7198,11 +7542,14 @@ class ChannelNielsenConfigurationArgs:
 class ChannelNielsenNaesIiNwArgs:
     def __init__(__self__, *,
                  check_digit_string: Optional[pulumi.Input[str]] = None,
-                 sid: Optional[pulumi.Input[float]] = None):
+                 sid: Optional[pulumi.Input[float]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None):
         if check_digit_string is not None:
             pulumi.set(__self__, "check_digit_string", check_digit_string)
         if sid is not None:
             pulumi.set(__self__, "sid", sid)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter(name="checkDigitString")
@@ -7221,6 +7568,15 @@ class ChannelNielsenNaesIiNwArgs:
     @sid.setter
     def sid(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "sid", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
 
 
 @pulumi.input_type
@@ -8186,6 +8542,47 @@ class ChannelTemporalFilterSettingsArgs:
     @strength.setter
     def strength(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "strength", value)
+
+
+@pulumi.input_type
+class ChannelTimecodeBurninSettingsArgs:
+    def __init__(__self__, *,
+                 font_size: Optional[pulumi.Input[str]] = None,
+                 position: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        if font_size is not None:
+            pulumi.set(__self__, "font_size", font_size)
+        if position is not None:
+            pulumi.set(__self__, "position", position)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="fontSize")
+    def font_size(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "font_size")
+
+    @font_size.setter
+    def font_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "font_size", value)
+
+    @property
+    @pulumi.getter
+    def position(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "position")
+
+    @position.setter
+    def position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "position", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
 
 
 @pulumi.input_type

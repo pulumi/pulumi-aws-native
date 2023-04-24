@@ -2343,9 +2343,12 @@ class EndpointConfigAsyncInferenceConfigArgs:
 class EndpointConfigAsyncInferenceNotificationConfigArgs:
     def __init__(__self__, *,
                  error_topic: Optional[pulumi.Input[str]] = None,
+                 include_inference_response_in: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  success_topic: Optional[pulumi.Input[str]] = None):
         if error_topic is not None:
             pulumi.set(__self__, "error_topic", error_topic)
+        if include_inference_response_in is not None:
+            pulumi.set(__self__, "include_inference_response_in", include_inference_response_in)
         if success_topic is not None:
             pulumi.set(__self__, "success_topic", success_topic)
 
@@ -2357,6 +2360,15 @@ class EndpointConfigAsyncInferenceNotificationConfigArgs:
     @error_topic.setter
     def error_topic(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "error_topic", value)
+
+    @property
+    @pulumi.getter(name="includeInferenceResponseIn")
+    def include_inference_response_in(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "include_inference_response_in")
+
+    @include_inference_response_in.setter
+    def include_inference_response_in(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include_inference_response_in", value)
 
     @property
     @pulumi.getter(name="successTopic")
@@ -2371,23 +2383,18 @@ class EndpointConfigAsyncInferenceNotificationConfigArgs:
 @pulumi.input_type
 class EndpointConfigAsyncInferenceOutputConfigArgs:
     def __init__(__self__, *,
-                 s3_output_path: pulumi.Input[str],
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 notification_config: Optional[pulumi.Input['EndpointConfigAsyncInferenceNotificationConfigArgs']] = None):
-        pulumi.set(__self__, "s3_output_path", s3_output_path)
+                 notification_config: Optional[pulumi.Input['EndpointConfigAsyncInferenceNotificationConfigArgs']] = None,
+                 s3_failure_path: Optional[pulumi.Input[str]] = None,
+                 s3_output_path: Optional[pulumi.Input[str]] = None):
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if notification_config is not None:
             pulumi.set(__self__, "notification_config", notification_config)
-
-    @property
-    @pulumi.getter(name="s3OutputPath")
-    def s3_output_path(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "s3_output_path")
-
-    @s3_output_path.setter
-    def s3_output_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "s3_output_path", value)
+        if s3_failure_path is not None:
+            pulumi.set(__self__, "s3_failure_path", s3_failure_path)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -2406,6 +2413,24 @@ class EndpointConfigAsyncInferenceOutputConfigArgs:
     @notification_config.setter
     def notification_config(self, value: Optional[pulumi.Input['EndpointConfigAsyncInferenceNotificationConfigArgs']]):
         pulumi.set(self, "notification_config", value)
+
+    @property
+    @pulumi.getter(name="s3FailurePath")
+    def s3_failure_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s3_failure_path")
+
+    @s3_failure_path.setter
+    def s3_failure_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_failure_path", value)
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_output_path", value)
 
 
 @pulumi.input_type

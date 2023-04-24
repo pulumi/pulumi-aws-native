@@ -93,6 +93,12 @@ namespace Pulumi.AwsNative.FinSpace
         [Output("superuserParameters")]
         public Output<Outputs.EnvironmentSuperuserParameters?> SuperuserParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.EnvironmentTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Environment resource with the given unique name, arguments, and options.
@@ -179,6 +185,18 @@ namespace Pulumi.AwsNative.FinSpace
 
         [Input("superuserParameters")]
         public Input<Inputs.EnvironmentSuperuserParametersArgs>? SuperuserParameters { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.EnvironmentTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Inputs.EnvironmentTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.EnvironmentTagArgs>());
+            set => _tags = value;
+        }
 
         public EnvironmentArgs()
         {

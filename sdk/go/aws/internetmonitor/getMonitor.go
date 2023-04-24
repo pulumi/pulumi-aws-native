@@ -35,6 +35,7 @@ type LookupMonitorResult struct {
 	Resources                       []string                                `pulumi:"resources"`
 	Status                          *MonitorConfigState                     `pulumi:"status"`
 	Tags                            []MonitorTag                            `pulumi:"tags"`
+	TrafficPercentageToMonitor      *int                                    `pulumi:"trafficPercentageToMonitor"`
 }
 
 func LookupMonitorOutput(ctx *pulumi.Context, args LookupMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupMonitorResultOutput {
@@ -112,6 +113,10 @@ func (o LookupMonitorResultOutput) Status() MonitorConfigStatePtrOutput {
 
 func (o LookupMonitorResultOutput) Tags() MonitorTagArrayOutput {
 	return o.ApplyT(func(v LookupMonitorResult) []MonitorTag { return v.Tags }).(MonitorTagArrayOutput)
+}
+
+func (o LookupMonitorResultOutput) TrafficPercentageToMonitor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupMonitorResult) *int { return v.TrafficPercentageToMonitor }).(pulumi.IntPtrOutput)
 }
 
 func init() {

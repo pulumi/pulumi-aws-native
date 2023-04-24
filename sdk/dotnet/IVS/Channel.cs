@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.IVS
         public Output<string> IngestEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the channel allows insecure ingest.
+        /// </summary>
+        [Output("insecureIngest")]
+        public Output<bool?> InsecureIngest { get; private set; } = null!;
+
+        /// <summary>
         /// Channel latency mode.
         /// </summary>
         [Output("latencyMode")]
@@ -119,6 +125,12 @@ namespace Pulumi.AwsNative.IVS
         /// </summary>
         [Input("authorized")]
         public Input<bool>? Authorized { get; set; }
+
+        /// <summary>
+        /// Whether the channel allows insecure ingest.
+        /// </summary>
+        [Input("insecureIngest")]
+        public Input<bool>? InsecureIngest { get; set; }
 
         /// <summary>
         /// Channel latency mode.

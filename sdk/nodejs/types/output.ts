@@ -6084,6 +6084,10 @@ export namespace cloudwatch {
      */
     export interface MetricStreamFilter {
         /**
+         * Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
+         */
+        metricNames?: string[];
+        /**
          * Only metrics with Namespace matching this value will be streamed.
          */
         namespace: string;
@@ -10074,6 +10078,7 @@ export namespace dms {
         heartbeatEnable?: boolean;
         heartbeatFrequency?: number;
         heartbeatSchema?: string;
+        mapBooleanAsBoolean?: boolean;
         maxFileSize?: number;
         pluginName?: string;
         secretsManagerAccessRoleArn?: string;
@@ -10105,6 +10110,7 @@ export namespace dms {
         explicitIds?: boolean;
         fileTransferUploadStreams?: number;
         loadTimeout?: number;
+        mapBooleanAsBoolean?: boolean;
         maxFileSize?: number;
         removeQuotes?: boolean;
         replaceChars?: string;
@@ -14528,7 +14534,7 @@ export namespace finspace {
         /**
          * Attribute map for SAML configuration
          */
-        attributeMap?: any;
+        attributeMap?: outputs.finspace.EnvironmentFederationParametersAttributeMapItemProperties[];
         /**
          * Federation provider name to link with the Environment
          */
@@ -14547,6 +14553,17 @@ export namespace finspace {
         samlMetadataURL?: string;
     }
 
+    export interface EnvironmentFederationParametersAttributeMapItemProperties {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key?: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
     /**
      * Parameters of the first Superuser for the FinSpace Environment
      */
@@ -14563,6 +14580,20 @@ export namespace finspace {
          * Last name
          */
         lastName?: string;
+    }
+
+    /**
+     * A list of all tags for a resource.
+     */
+    export interface EnvironmentTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
 }
@@ -14957,6 +14988,20 @@ export namespace frauddetector {
 
     export interface LabelTag {
         key: string;
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ListTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
@@ -25522,6 +25567,7 @@ export namespace medialive {
     export interface ChannelAudioCodecSettings {
         aacSettings?: outputs.medialive.ChannelAacSettings;
         ac3Settings?: outputs.medialive.ChannelAc3Settings;
+        eac3AtmosSettings?: outputs.medialive.ChannelEac3AtmosSettings;
         eac3Settings?: outputs.medialive.ChannelEac3Settings;
         mp2Settings?: outputs.medialive.ChannelMp2Settings;
         passThroughSettings?: outputs.medialive.ChannelPassThroughSettings;
@@ -25540,6 +25586,10 @@ export namespace medialive {
         name?: string;
         remixSettings?: outputs.medialive.ChannelRemixSettings;
         streamName?: string;
+    }
+
+    export interface ChannelAudioDolbyEDecode {
+        programSelection?: string;
     }
 
     export interface ChannelAudioHlsRenditionSelection {
@@ -25591,6 +25641,7 @@ export namespace medialive {
     }
 
     export interface ChannelAudioTrackSelection {
+        dolbyEDecode?: outputs.medialive.ChannelAudioDolbyEDecode;
         tracks?: outputs.medialive.ChannelAudioTrack[];
     }
 
@@ -25615,6 +25666,7 @@ export namespace medialive {
     }
 
     export interface ChannelAvailSettings {
+        esam?: outputs.medialive.ChannelEsam;
         scte35SpliceInsert?: outputs.medialive.ChannelScte35SpliceInsert;
         scte35TimeSignalApos?: outputs.medialive.ChannelScte35TimeSignalApos;
     }
@@ -25648,6 +25700,7 @@ export namespace medialive {
     }
 
     export interface ChannelCaptionDescription {
+        accessibility?: string;
         captionSelectorName?: string;
         destinationSettings?: outputs.medialive.ChannelCaptionDestinationSettings;
         languageCode?: string;
@@ -25707,6 +25760,9 @@ export namespace medialive {
     export interface ChannelColorSpacePassthroughSettings {
     }
 
+    export interface ChannelDolbyVision81Settings {
+    }
+
     export interface ChannelDvbNitSettings {
         networkId?: number;
         networkName?: string;
@@ -25747,6 +25803,16 @@ export namespace medialive {
 
     export interface ChannelDvbTdtSettings {
         repInterval?: number;
+    }
+
+    export interface ChannelEac3AtmosSettings {
+        bitrate?: number;
+        codingMode?: string;
+        dialnorm?: number;
+        drcLine?: string;
+        drcRf?: string;
+        heightTrim?: number;
+        surroundTrim?: number;
     }
 
     export interface ChannelEac3Settings {
@@ -25807,6 +25873,15 @@ export namespace medialive {
         videoDescriptions?: outputs.medialive.ChannelVideoDescription[];
     }
 
+    export interface ChannelEsam {
+        acquisitionPointId?: string;
+        adAvailOffset?: number;
+        passwordParam?: string;
+        poisEndpoint?: string;
+        username?: string;
+        zoneIdentity?: string;
+    }
+
     export interface ChannelFailoverCondition {
         failoverConditionSettings?: outputs.medialive.ChannelFailoverConditionSettings;
     }
@@ -25856,6 +25931,7 @@ export namespace medialive {
     export interface ChannelFrameCaptureSettings {
         captureInterval?: number;
         captureIntervalUnits?: string;
+        timecodeBurninSettings?: outputs.medialive.ChannelTimecodeBurninSettings;
     }
 
     export interface ChannelGlobalConfiguration {
@@ -25918,11 +25994,13 @@ export namespace medialive {
         subgopLength?: string;
         syntax?: string;
         temporalAq?: string;
+        timecodeBurninSettings?: outputs.medialive.ChannelTimecodeBurninSettings;
         timecodeInsertion?: string;
     }
 
     export interface ChannelH265ColorSpaceSettings {
         colorSpacePassthroughSettings?: outputs.medialive.ChannelColorSpacePassthroughSettings;
+        dolbyVision81Settings?: outputs.medialive.ChannelDolbyVision81Settings;
         hdr10Settings?: outputs.medialive.ChannelHdr10Settings;
         rec601Settings?: outputs.medialive.ChannelRec601Settings;
         rec709Settings?: outputs.medialive.ChannelRec709Settings;
@@ -25961,6 +26039,7 @@ export namespace medialive {
         sceneChangeDetect?: string;
         slices?: number;
         tier?: string;
+        timecodeBurninSettings?: outputs.medialive.ChannelTimecodeBurninSettings;
         timecodeInsertion?: string;
     }
 
@@ -26180,6 +26259,7 @@ export namespace medialive {
         scte27Pids?: string;
         scte35Control?: string;
         scte35Pid?: string;
+        scte35PrerollPullupMilliseconds?: number;
         segmentationMarkers?: string;
         segmentationStyle?: string;
         segmentationTime?: number;
@@ -26207,6 +26287,11 @@ export namespace medialive {
         timedMetadataPid?: string;
         transportStreamId?: number;
         videoPid?: string;
+    }
+
+    export interface ChannelMaintenanceCreateSettings {
+        maintenanceDay?: string;
+        maintenanceStartTime?: string;
     }
 
     export interface ChannelMediaPackageGroupSettings {
@@ -26255,6 +26340,7 @@ export namespace medialive {
         gopSizeUnits?: string;
         scanType?: string;
         subgopLength?: string;
+        timecodeBurninSettings?: outputs.medialive.ChannelTimecodeBurninSettings;
         timecodeInsertion?: string;
     }
 
@@ -26316,6 +26402,7 @@ export namespace medialive {
     export interface ChannelNielsenNaesIiNw {
         checkDigitString?: string;
         sid?: number;
+        timezone?: string;
     }
 
     export interface ChannelNielsenWatermarksSettings {
@@ -26468,6 +26555,12 @@ export namespace medialive {
     export interface ChannelTemporalFilterSettings {
         postFilterSharpening?: string;
         strength?: string;
+    }
+
+    export interface ChannelTimecodeBurninSettings {
+        fontSize?: string;
+        position?: string;
+        prefix?: string;
     }
 
     export interface ChannelTimecodeConfig {
@@ -27367,13 +27460,13 @@ export namespace memorydb {
      */
     export interface ACLTag {
         /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         key: string;
         /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
-        value: string;
+        value?: string;
     }
 
     export interface AuthenticationModeProperties {
@@ -27445,13 +27538,13 @@ export namespace memorydb {
      */
     export interface UserTag {
         /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         key: string;
         /**
-         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
-        value: string;
+        value?: string;
     }
 
 }
@@ -39532,6 +39625,17 @@ export namespace quicksight {
 }
 
 export namespace ram {
+    export interface PermissionTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
     export interface ResourceShareTag {
         key: string;
         value: string;
@@ -42908,13 +43012,15 @@ export namespace sagemaker {
 
     export interface EndpointConfigAsyncInferenceNotificationConfig {
         errorTopic?: string;
+        includeInferenceResponseIn?: string[];
         successTopic?: string;
     }
 
     export interface EndpointConfigAsyncInferenceOutputConfig {
         kmsKeyId?: string;
         notificationConfig?: outputs.sagemaker.EndpointConfigAsyncInferenceNotificationConfig;
-        s3OutputPath: string;
+        s3FailurePath?: string;
+        s3OutputPath?: string;
     }
 
     export interface EndpointConfigCaptureContentTypeHeader {
@@ -49074,6 +49180,17 @@ export namespace xray {
         notificationsEnabled?: boolean;
     }
 
+    export interface GroupTag {
+        /**
+         * The key name of the tag.
+         */
+        key: string;
+        /**
+         * The value for the tag.
+         */
+        value: string;
+    }
+
     export interface SamplingRule {
         /**
          * Matches attributes derived from the request.
@@ -49135,6 +49252,17 @@ export namespace xray {
         samplingRule?: outputs.xray.SamplingRule;
     }
 
+    export interface SamplingRuleTag {
+        /**
+         * The key name of the tag.
+         */
+        key: string;
+        /**
+         * The value for the tag.
+         */
+        value: string;
+    }
+
     export interface SamplingRuleUpdate {
         /**
          * Matches attributes derived from the request.
@@ -49178,11 +49306,6 @@ export namespace xray {
          * Matches the path from a request URL.
          */
         uRLPath?: string;
-    }
-
-    export interface TagsItemProperties {
-        key: string;
-        value: string;
     }
 
 }

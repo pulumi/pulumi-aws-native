@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.InternetMonitor
         [Output("tags")]
         public Output<ImmutableArray<Outputs.MonitorTag>> Tags { get; private set; } = null!;
 
+        [Output("trafficPercentageToMonitor")]
+        public Output<int?> TrafficPercentageToMonitor { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Monitor resource with the given unique name, arguments, and options.
@@ -142,6 +145,9 @@ namespace Pulumi.AwsNative.InternetMonitor
             get => _tags ?? (_tags = new InputList<Inputs.MonitorTagArgs>());
             set => _tags = value;
         }
+
+        [Input("trafficPercentageToMonitor")]
+        public Input<int>? TrafficPercentageToMonitor { get; set; }
 
         public MonitorArgs()
         {

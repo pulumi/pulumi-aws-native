@@ -1956,6 +1956,115 @@ func (o LabelTagArrayOutput) Index(i pulumi.IntInput) LabelTagOutput {
 	}).(LabelTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type ListTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ListTagInput is an input type that accepts ListTagArgs and ListTagOutput values.
+// You can construct a concrete instance of `ListTagInput` via:
+//
+//	ListTagArgs{...}
+type ListTagInput interface {
+	pulumi.Input
+
+	ToListTagOutput() ListTagOutput
+	ToListTagOutputWithContext(context.Context) ListTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ListTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ListTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTag)(nil)).Elem()
+}
+
+func (i ListTagArgs) ToListTagOutput() ListTagOutput {
+	return i.ToListTagOutputWithContext(context.Background())
+}
+
+func (i ListTagArgs) ToListTagOutputWithContext(ctx context.Context) ListTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListTagOutput)
+}
+
+// ListTagArrayInput is an input type that accepts ListTagArray and ListTagArrayOutput values.
+// You can construct a concrete instance of `ListTagArrayInput` via:
+//
+//	ListTagArray{ ListTagArgs{...} }
+type ListTagArrayInput interface {
+	pulumi.Input
+
+	ToListTagArrayOutput() ListTagArrayOutput
+	ToListTagArrayOutputWithContext(context.Context) ListTagArrayOutput
+}
+
+type ListTagArray []ListTagInput
+
+func (ListTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListTag)(nil)).Elem()
+}
+
+func (i ListTagArray) ToListTagArrayOutput() ListTagArrayOutput {
+	return i.ToListTagArrayOutputWithContext(context.Background())
+}
+
+func (i ListTagArray) ToListTagArrayOutputWithContext(ctx context.Context) ListTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ListTagOutput struct{ *pulumi.OutputState }
+
+func (ListTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTag)(nil)).Elem()
+}
+
+func (o ListTagOutput) ToListTagOutput() ListTagOutput {
+	return o
+}
+
+func (o ListTagOutput) ToListTagOutputWithContext(ctx context.Context) ListTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ListTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ListTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ListTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ListTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ListTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListTag)(nil)).Elem()
+}
+
+func (o ListTagArrayOutput) ToListTagArrayOutput() ListTagArrayOutput {
+	return o
+}
+
+func (o ListTagArrayOutput) ToListTagArrayOutputWithContext(ctx context.Context) ListTagArrayOutput {
+	return o
+}
+
+func (o ListTagArrayOutput) Index(i pulumi.IntInput) ListTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListTag {
+		return vs[0].([]ListTag)[vs[1].(int)]
+	}).(ListTagOutput)
+}
+
 type OutcomeTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -2184,6 +2293,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTypeTagArrayInput)(nil)).Elem(), EventTypeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LabelTagInput)(nil)).Elem(), LabelTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LabelTagArrayInput)(nil)).Elem(), LabelTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListTagInput)(nil)).Elem(), ListTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListTagArrayInput)(nil)).Elem(), ListTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutcomeTagInput)(nil)).Elem(), OutcomeTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutcomeTagArrayInput)(nil)).Elem(), OutcomeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableTagInput)(nil)).Elem(), VariableTagArgs{})
@@ -2216,6 +2327,8 @@ func init() {
 	pulumi.RegisterOutputType(EventTypeTagArrayOutput{})
 	pulumi.RegisterOutputType(LabelTagOutput{})
 	pulumi.RegisterOutputType(LabelTagArrayOutput{})
+	pulumi.RegisterOutputType(ListTagOutput{})
+	pulumi.RegisterOutputType(ListTagArrayOutput{})
 	pulumi.RegisterOutputType(OutcomeTagOutput{})
 	pulumi.RegisterOutputType(OutcomeTagArrayOutput{})
 	pulumi.RegisterOutputType(VariableTagOutput{})

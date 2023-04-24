@@ -6744,8 +6744,9 @@ func (o EndpointConfigAsyncInferenceConfigPtrOutput) OutputConfig() EndpointConf
 }
 
 type EndpointConfigAsyncInferenceNotificationConfig struct {
-	ErrorTopic   *string `pulumi:"errorTopic"`
-	SuccessTopic *string `pulumi:"successTopic"`
+	ErrorTopic                 *string  `pulumi:"errorTopic"`
+	IncludeInferenceResponseIn []string `pulumi:"includeInferenceResponseIn"`
+	SuccessTopic               *string  `pulumi:"successTopic"`
 }
 
 // EndpointConfigAsyncInferenceNotificationConfigInput is an input type that accepts EndpointConfigAsyncInferenceNotificationConfigArgs and EndpointConfigAsyncInferenceNotificationConfigOutput values.
@@ -6760,8 +6761,9 @@ type EndpointConfigAsyncInferenceNotificationConfigInput interface {
 }
 
 type EndpointConfigAsyncInferenceNotificationConfigArgs struct {
-	ErrorTopic   pulumi.StringPtrInput `pulumi:"errorTopic"`
-	SuccessTopic pulumi.StringPtrInput `pulumi:"successTopic"`
+	ErrorTopic                 pulumi.StringPtrInput   `pulumi:"errorTopic"`
+	IncludeInferenceResponseIn pulumi.StringArrayInput `pulumi:"includeInferenceResponseIn"`
+	SuccessTopic               pulumi.StringPtrInput   `pulumi:"successTopic"`
 }
 
 func (EndpointConfigAsyncInferenceNotificationConfigArgs) ElementType() reflect.Type {
@@ -6845,6 +6847,10 @@ func (o EndpointConfigAsyncInferenceNotificationConfigOutput) ErrorTopic() pulum
 	return o.ApplyT(func(v EndpointConfigAsyncInferenceNotificationConfig) *string { return v.ErrorTopic }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointConfigAsyncInferenceNotificationConfigOutput) IncludeInferenceResponseIn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceNotificationConfig) []string { return v.IncludeInferenceResponseIn }).(pulumi.StringArrayOutput)
+}
+
 func (o EndpointConfigAsyncInferenceNotificationConfigOutput) SuccessTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigAsyncInferenceNotificationConfig) *string { return v.SuccessTopic }).(pulumi.StringPtrOutput)
 }
@@ -6882,6 +6888,15 @@ func (o EndpointConfigAsyncInferenceNotificationConfigPtrOutput) ErrorTopic() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointConfigAsyncInferenceNotificationConfigPtrOutput) IncludeInferenceResponseIn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceNotificationConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeInferenceResponseIn
+	}).(pulumi.StringArrayOutput)
+}
+
 func (o EndpointConfigAsyncInferenceNotificationConfigPtrOutput) SuccessTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigAsyncInferenceNotificationConfig) *string {
 		if v == nil {
@@ -6894,7 +6909,8 @@ func (o EndpointConfigAsyncInferenceNotificationConfigPtrOutput) SuccessTopic() 
 type EndpointConfigAsyncInferenceOutputConfig struct {
 	KmsKeyId           *string                                         `pulumi:"kmsKeyId"`
 	NotificationConfig *EndpointConfigAsyncInferenceNotificationConfig `pulumi:"notificationConfig"`
-	S3OutputPath       string                                          `pulumi:"s3OutputPath"`
+	S3FailurePath      *string                                         `pulumi:"s3FailurePath"`
+	S3OutputPath       *string                                         `pulumi:"s3OutputPath"`
 }
 
 // EndpointConfigAsyncInferenceOutputConfigInput is an input type that accepts EndpointConfigAsyncInferenceOutputConfigArgs and EndpointConfigAsyncInferenceOutputConfigOutput values.
@@ -6911,7 +6927,8 @@ type EndpointConfigAsyncInferenceOutputConfigInput interface {
 type EndpointConfigAsyncInferenceOutputConfigArgs struct {
 	KmsKeyId           pulumi.StringPtrInput                                  `pulumi:"kmsKeyId"`
 	NotificationConfig EndpointConfigAsyncInferenceNotificationConfigPtrInput `pulumi:"notificationConfig"`
-	S3OutputPath       pulumi.StringInput                                     `pulumi:"s3OutputPath"`
+	S3FailurePath      pulumi.StringPtrInput                                  `pulumi:"s3FailurePath"`
+	S3OutputPath       pulumi.StringPtrInput                                  `pulumi:"s3OutputPath"`
 }
 
 func (EndpointConfigAsyncInferenceOutputConfigArgs) ElementType() reflect.Type {
@@ -7001,8 +7018,12 @@ func (o EndpointConfigAsyncInferenceOutputConfigOutput) NotificationConfig() End
 	}).(EndpointConfigAsyncInferenceNotificationConfigPtrOutput)
 }
 
-func (o EndpointConfigAsyncInferenceOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointConfigAsyncInferenceOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
+func (o EndpointConfigAsyncInferenceOutputConfigOutput) S3FailurePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceOutputConfig) *string { return v.S3FailurePath }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigAsyncInferenceOutputConfigOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceOutputConfig) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
 }
 
 type EndpointConfigAsyncInferenceOutputConfigPtrOutput struct{ *pulumi.OutputState }
@@ -7047,12 +7068,21 @@ func (o EndpointConfigAsyncInferenceOutputConfigPtrOutput) NotificationConfig() 
 	}).(EndpointConfigAsyncInferenceNotificationConfigPtrOutput)
 }
 
+func (o EndpointConfigAsyncInferenceOutputConfigPtrOutput) S3FailurePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3FailurePath
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointConfigAsyncInferenceOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigAsyncInferenceOutputConfig) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.S3OutputPath
+		return v.S3OutputPath
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.InternetMonitor
         public readonly ImmutableArray<string> Resources;
         public readonly Pulumi.AwsNative.InternetMonitor.MonitorConfigState? Status;
         public readonly ImmutableArray<Outputs.MonitorTag> Tags;
+        public readonly int? TrafficPercentageToMonitor;
 
         [OutputConstructor]
         private GetMonitorResult(
@@ -82,7 +83,9 @@ namespace Pulumi.AwsNative.InternetMonitor
 
             Pulumi.AwsNative.InternetMonitor.MonitorConfigState? status,
 
-            ImmutableArray<Outputs.MonitorTag> tags)
+            ImmutableArray<Outputs.MonitorTag> tags,
+
+            int? trafficPercentageToMonitor)
         {
             CreatedAt = createdAt;
             InternetMeasurementsLogDelivery = internetMeasurementsLogDelivery;
@@ -94,6 +97,7 @@ namespace Pulumi.AwsNative.InternetMonitor
             Resources = resources;
             Status = status;
             Tags = tags;
+            TrafficPercentageToMonitor = trafficPercentageToMonitor;
         }
     }
 }

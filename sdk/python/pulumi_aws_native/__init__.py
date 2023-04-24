@@ -1729,6 +1729,7 @@ _utilities.register(
    "aws-native:frauddetector:EntityType": "EntityType",
    "aws-native:frauddetector:EventType": "EventType",
    "aws-native:frauddetector:Label": "Label",
+   "aws-native:frauddetector:List": "List",
    "aws-native:frauddetector:Outcome": "Outcome",
    "aws-native:frauddetector:Variable": "Variable"
   }
@@ -2426,6 +2427,7 @@ _utilities.register(
   "classes": {
    "aws-native:msk:BatchScramSecret": "BatchScramSecret",
    "aws-native:msk:Cluster": "Cluster",
+   "aws-native:msk:ClusterPolicy": "ClusterPolicy",
    "aws-native:msk:Configuration": "Configuration",
    "aws-native:msk:ServerlessCluster": "ServerlessCluster"
   }
@@ -2662,6 +2664,7 @@ _utilities.register(
   "mod": "ram",
   "fqn": "pulumi_aws_native.ram",
   "classes": {
+   "aws-native:ram:Permission": "Permission",
    "aws-native:ram:ResourceShare": "ResourceShare"
   }
  },

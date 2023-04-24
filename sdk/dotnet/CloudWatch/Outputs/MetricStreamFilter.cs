@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
     public sealed class MetricStreamFilter
     {
         /// <summary>
+        /// Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
+        /// </summary>
+        public readonly ImmutableArray<string> MetricNames;
+        /// <summary>
         /// Only metrics with Namespace matching this value will be streamed.
         /// </summary>
         public readonly string Namespace;
 
         [OutputConstructor]
-        private MetricStreamFilter(string @namespace)
+        private MetricStreamFilter(
+            ImmutableArray<string> metricNames,
+
+            string @namespace)
         {
+            MetricNames = metricNames;
             Namespace = @namespace;
         }
     }

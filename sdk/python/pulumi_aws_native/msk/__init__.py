@@ -8,9 +8,11 @@ import typing
 from ._enums import *
 from .batch_scram_secret import *
 from .cluster import *
+from .cluster_policy import *
 from .configuration import *
 from .get_batch_scram_secret import *
 from .get_cluster import *
+from .get_cluster_policy import *
 from .get_configuration import *
 from .get_serverless_cluster import *
 from .serverless_cluster import *

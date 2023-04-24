@@ -16,19 +16,20 @@ import (
 type Channel struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput                   `pulumi:"arn"`
-	CdiInputSpecification ChannelCdiInputSpecificationPtrOutput `pulumi:"cdiInputSpecification"`
-	ChannelClass          pulumi.StringPtrOutput                `pulumi:"channelClass"`
-	Destinations          ChannelOutputDestinationArrayOutput   `pulumi:"destinations"`
-	EncoderSettings       ChannelEncoderSettingsPtrOutput       `pulumi:"encoderSettings"`
-	InputAttachments      ChannelInputAttachmentArrayOutput     `pulumi:"inputAttachments"`
-	InputSpecification    ChannelInputSpecificationPtrOutput    `pulumi:"inputSpecification"`
-	Inputs                pulumi.StringArrayOutput              `pulumi:"inputs"`
-	LogLevel              pulumi.StringPtrOutput                `pulumi:"logLevel"`
-	Name                  pulumi.StringPtrOutput                `pulumi:"name"`
-	RoleArn               pulumi.StringPtrOutput                `pulumi:"roleArn"`
-	Tags                  pulumi.AnyOutput                      `pulumi:"tags"`
-	Vpc                   ChannelVpcOutputSettingsPtrOutput     `pulumi:"vpc"`
+	Arn                   pulumi.StringOutput                       `pulumi:"arn"`
+	CdiInputSpecification ChannelCdiInputSpecificationPtrOutput     `pulumi:"cdiInputSpecification"`
+	ChannelClass          pulumi.StringPtrOutput                    `pulumi:"channelClass"`
+	Destinations          ChannelOutputDestinationArrayOutput       `pulumi:"destinations"`
+	EncoderSettings       ChannelEncoderSettingsPtrOutput           `pulumi:"encoderSettings"`
+	InputAttachments      ChannelInputAttachmentArrayOutput         `pulumi:"inputAttachments"`
+	InputSpecification    ChannelInputSpecificationPtrOutput        `pulumi:"inputSpecification"`
+	Inputs                pulumi.StringArrayOutput                  `pulumi:"inputs"`
+	LogLevel              pulumi.StringPtrOutput                    `pulumi:"logLevel"`
+	Maintenance           ChannelMaintenanceCreateSettingsPtrOutput `pulumi:"maintenance"`
+	Name                  pulumi.StringPtrOutput                    `pulumi:"name"`
+	RoleArn               pulumi.StringPtrOutput                    `pulumi:"roleArn"`
+	Tags                  pulumi.AnyOutput                          `pulumi:"tags"`
+	Vpc                   ChannelVpcOutputSettingsPtrOutput         `pulumi:"vpc"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -70,17 +71,18 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
-	CdiInputSpecification *ChannelCdiInputSpecification `pulumi:"cdiInputSpecification"`
-	ChannelClass          *string                       `pulumi:"channelClass"`
-	Destinations          []ChannelOutputDestination    `pulumi:"destinations"`
-	EncoderSettings       *ChannelEncoderSettings       `pulumi:"encoderSettings"`
-	InputAttachments      []ChannelInputAttachment      `pulumi:"inputAttachments"`
-	InputSpecification    *ChannelInputSpecification    `pulumi:"inputSpecification"`
-	LogLevel              *string                       `pulumi:"logLevel"`
-	Name                  *string                       `pulumi:"name"`
-	RoleArn               *string                       `pulumi:"roleArn"`
-	Tags                  interface{}                   `pulumi:"tags"`
-	Vpc                   *ChannelVpcOutputSettings     `pulumi:"vpc"`
+	CdiInputSpecification *ChannelCdiInputSpecification     `pulumi:"cdiInputSpecification"`
+	ChannelClass          *string                           `pulumi:"channelClass"`
+	Destinations          []ChannelOutputDestination        `pulumi:"destinations"`
+	EncoderSettings       *ChannelEncoderSettings           `pulumi:"encoderSettings"`
+	InputAttachments      []ChannelInputAttachment          `pulumi:"inputAttachments"`
+	InputSpecification    *ChannelInputSpecification        `pulumi:"inputSpecification"`
+	LogLevel              *string                           `pulumi:"logLevel"`
+	Maintenance           *ChannelMaintenanceCreateSettings `pulumi:"maintenance"`
+	Name                  *string                           `pulumi:"name"`
+	RoleArn               *string                           `pulumi:"roleArn"`
+	Tags                  interface{}                       `pulumi:"tags"`
+	Vpc                   *ChannelVpcOutputSettings         `pulumi:"vpc"`
 }
 
 // The set of arguments for constructing a Channel resource.
@@ -92,6 +94,7 @@ type ChannelArgs struct {
 	InputAttachments      ChannelInputAttachmentArrayInput
 	InputSpecification    ChannelInputSpecificationPtrInput
 	LogLevel              pulumi.StringPtrInput
+	Maintenance           ChannelMaintenanceCreateSettingsPtrInput
 	Name                  pulumi.StringPtrInput
 	RoleArn               pulumi.StringPtrInput
 	Tags                  pulumi.Input
@@ -169,6 +172,10 @@ func (o ChannelOutput) Inputs() pulumi.StringArrayOutput {
 
 func (o ChannelOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.LogLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelOutput) Maintenance() ChannelMaintenanceCreateSettingsPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelMaintenanceCreateSettingsPtrOutput { return v.Maintenance }).(ChannelMaintenanceCreateSettingsPtrOutput)
 }
 
 func (o ChannelOutput) Name() pulumi.StringPtrOutput {

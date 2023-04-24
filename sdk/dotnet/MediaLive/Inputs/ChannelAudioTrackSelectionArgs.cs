@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
 
     public sealed class ChannelAudioTrackSelectionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dolbyEDecode")]
+        public Input<Inputs.ChannelAudioDolbyEDecodeArgs>? DolbyEDecode { get; set; }
+
         [Input("tracks")]
         private InputList<Inputs.ChannelAudioTrackArgs>? _tracks;
         public InputList<Inputs.ChannelAudioTrackArgs> Tracks

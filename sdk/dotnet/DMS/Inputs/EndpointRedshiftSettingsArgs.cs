@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.DMS.Inputs
         [Input("loadTimeout")]
         public Input<int>? LoadTimeout { get; set; }
 
+        [Input("mapBooleanAsBoolean")]
+        public Input<bool>? MapBooleanAsBoolean { get; set; }
+
         [Input("maxFileSize")]
         public Input<int>? MaxFileSize { get; set; }
 

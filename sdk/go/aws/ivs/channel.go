@@ -20,6 +20,8 @@ type Channel struct {
 	Authorized pulumi.BoolPtrOutput `pulumi:"authorized"`
 	// Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
 	IngestEndpoint pulumi.StringOutput `pulumi:"ingestEndpoint"`
+	// Whether the channel allows insecure ingest.
+	InsecureIngest pulumi.BoolPtrOutput `pulumi:"insecureIngest"`
 	// Channel latency mode.
 	LatencyMode ChannelLatencyModePtrOutput `pulumi:"latencyMode"`
 	// Channel
@@ -75,6 +77,8 @@ func (ChannelState) ElementType() reflect.Type {
 type channelArgs struct {
 	// Whether the channel is authorized.
 	Authorized *bool `pulumi:"authorized"`
+	// Whether the channel allows insecure ingest.
+	InsecureIngest *bool `pulumi:"insecureIngest"`
 	// Channel latency mode.
 	LatencyMode *ChannelLatencyMode `pulumi:"latencyMode"`
 	// Channel
@@ -91,6 +95,8 @@ type channelArgs struct {
 type ChannelArgs struct {
 	// Whether the channel is authorized.
 	Authorized pulumi.BoolPtrInput
+	// Whether the channel allows insecure ingest.
+	InsecureIngest pulumi.BoolPtrInput
 	// Channel latency mode.
 	LatencyMode ChannelLatencyModePtrInput
 	// Channel
@@ -153,6 +159,11 @@ func (o ChannelOutput) Authorized() pulumi.BoolPtrOutput {
 // Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
 func (o ChannelOutput) IngestEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.IngestEndpoint }).(pulumi.StringOutput)
+}
+
+// Whether the channel allows insecure ingest.
+func (o ChannelOutput) InsecureIngest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.BoolPtrOutput { return v.InsecureIngest }).(pulumi.BoolPtrOutput)
 }
 
 // Channel latency mode.

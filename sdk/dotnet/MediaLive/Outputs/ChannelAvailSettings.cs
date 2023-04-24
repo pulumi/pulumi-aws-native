@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelAvailSettings
     {
+        public readonly Outputs.ChannelEsam? Esam;
         public readonly Outputs.ChannelScte35SpliceInsert? Scte35SpliceInsert;
         public readonly Outputs.ChannelScte35TimeSignalApos? Scte35TimeSignalApos;
 
         [OutputConstructor]
         private ChannelAvailSettings(
+            Outputs.ChannelEsam? esam,
+
             Outputs.ChannelScte35SpliceInsert? scte35SpliceInsert,
 
             Outputs.ChannelScte35TimeSignalApos? scte35TimeSignalApos)
         {
+            Esam = esam;
             Scte35SpliceInsert = scte35SpliceInsert;
             Scte35TimeSignalApos = scte35TimeSignalApos;
         }

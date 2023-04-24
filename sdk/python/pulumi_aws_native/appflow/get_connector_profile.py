@@ -19,13 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectorProfileResult:
-    def __init__(__self__, connection_mode=None, connector_label=None, connector_profile_arn=None, credentials_arn=None):
+    def __init__(__self__, connection_mode=None, connector_profile_arn=None, credentials_arn=None):
         if connection_mode and not isinstance(connection_mode, str):
             raise TypeError("Expected argument 'connection_mode' to be a str")
         pulumi.set(__self__, "connection_mode", connection_mode)
-        if connector_label and not isinstance(connector_label, str):
-            raise TypeError("Expected argument 'connector_label' to be a str")
-        pulumi.set(__self__, "connector_label", connector_label)
         if connector_profile_arn and not isinstance(connector_profile_arn, str):
             raise TypeError("Expected argument 'connector_profile_arn' to be a str")
         pulumi.set(__self__, "connector_profile_arn", connector_profile_arn)
@@ -40,14 +37,6 @@ class GetConnectorProfileResult:
         Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         """
         return pulumi.get(self, "connection_mode")
-
-    @property
-    @pulumi.getter(name="connectorLabel")
-    def connector_label(self) -> Optional[str]:
-        """
-        The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
-        """
-        return pulumi.get(self, "connector_label")
 
     @property
     @pulumi.getter(name="connectorProfileArn")
@@ -73,7 +62,6 @@ class AwaitableGetConnectorProfileResult(GetConnectorProfileResult):
             yield self
         return GetConnectorProfileResult(
             connection_mode=self.connection_mode,
-            connector_label=self.connector_label,
             connector_profile_arn=self.connector_profile_arn,
             credentials_arn=self.credentials_arn)
 
@@ -93,7 +81,6 @@ def get_connector_profile(connector_profile_name: Optional[str] = None,
 
     return AwaitableGetConnectorProfileResult(
         connection_mode=__ret__.connection_mode,
-        connector_label=__ret__.connector_label,
         connector_profile_arn=__ret__.connector_profile_arn,
         credentials_arn=__ret__.credentials_arn)
 

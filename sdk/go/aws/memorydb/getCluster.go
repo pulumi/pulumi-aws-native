@@ -40,8 +40,6 @@ type LookupClusterResult struct {
 	Description *string `pulumi:"description"`
 	// The Redis engine version used by the cluster.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
-	FinalSnapshotName *string `pulumi:"finalSnapshotName"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes in the cluster.
@@ -66,8 +64,6 @@ type LookupClusterResult struct {
 	SnsTopicStatus *string `pulumi:"snsTopicStatus"`
 	// The status of the cluster. For example, Available, Updating, Creating.
 	Status *string `pulumi:"status"`
-	// The name of the subnet group to be used for the cluster.
-	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// An array of key-value pairs to apply to this cluster.
 	Tags []ClusterTag `pulumi:"tags"`
 }
@@ -140,11 +136,6 @@ func (o LookupClusterResultOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
-// The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
-func (o LookupClusterResultOutput) FinalSnapshotName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *string { return v.FinalSnapshotName }).(pulumi.StringPtrOutput)
-}
-
 // Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
 func (o LookupClusterResultOutput) MaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
@@ -203,11 +194,6 @@ func (o LookupClusterResultOutput) SnsTopicStatus() pulumi.StringPtrOutput {
 // The status of the cluster. For example, Available, Updating, Creating.
 func (o LookupClusterResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// The name of the subnet group to be used for the cluster.
-func (o LookupClusterResultOutput) SubnetGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *string { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this cluster.

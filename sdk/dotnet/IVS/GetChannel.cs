@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.IVS
         /// </summary>
         public readonly string? IngestEndpoint;
         /// <summary>
+        /// Whether the channel allows insecure ingest.
+        /// </summary>
+        public readonly bool? InsecureIngest;
+        /// <summary>
         /// Channel latency mode.
         /// </summary>
         public readonly Pulumi.AwsNative.IVS.ChannelLatencyMode? LatencyMode;
@@ -102,6 +106,8 @@ namespace Pulumi.AwsNative.IVS
 
             string? ingestEndpoint,
 
+            bool? insecureIngest,
+
             Pulumi.AwsNative.IVS.ChannelLatencyMode? latencyMode,
 
             string? name,
@@ -117,6 +123,7 @@ namespace Pulumi.AwsNative.IVS
             Arn = arn;
             Authorized = authorized;
             IngestEndpoint = ingestEndpoint;
+            InsecureIngest = insecureIngest;
             LatencyMode = latencyMode;
             Name = name;
             PlaybackUrl = playbackUrl;

@@ -90,6 +90,14 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// A key-value pair of generated scene metadata for the scene.
+        /// </summary>
+        public readonly object? GeneratedSceneMetadata;
+        /// <summary>
+        /// A key-value pair of scene metadata for the scene.
+        /// </summary>
+        public readonly object? SceneMetadata;
+        /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
         public readonly object? Tags;
@@ -110,6 +118,10 @@ namespace Pulumi.AwsNative.IoTTwinMaker
 
             string? description,
 
+            object? generatedSceneMetadata,
+
+            object? sceneMetadata,
+
             object? tags,
 
             string? updateDateTime)
@@ -119,6 +131,8 @@ namespace Pulumi.AwsNative.IoTTwinMaker
             ContentLocation = contentLocation;
             CreationDateTime = creationDateTime;
             Description = description;
+            GeneratedSceneMetadata = generatedSceneMetadata;
+            SceneMetadata = sceneMetadata;
             Tags = tags;
             UpdateDateTime = updateDateTime;
         }

@@ -561,13 +561,34 @@ class MetricStreamFilter(dict):
     """
     This structure defines the metrics that will be streamed.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricNames":
+            suggest = "metric_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricStreamFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricStreamFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricStreamFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 namespace: str):
+                 namespace: str,
+                 metric_names: Optional[Sequence[str]] = None):
         """
         This structure defines the metrics that will be streamed.
         :param str namespace: Only metrics with Namespace matching this value will be streamed.
+        :param Sequence[str] metric_names: Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
         """
         pulumi.set(__self__, "namespace", namespace)
+        if metric_names is not None:
+            pulumi.set(__self__, "metric_names", metric_names)
 
     @property
     @pulumi.getter
@@ -576,6 +597,14 @@ class MetricStreamFilter(dict):
         Only metrics with Namespace matching this value will be streamed.
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> Optional[Sequence[str]]:
+        """
+        Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
+        """
+        return pulumi.get(self, "metric_names")
 
 
 @pulumi.output_type

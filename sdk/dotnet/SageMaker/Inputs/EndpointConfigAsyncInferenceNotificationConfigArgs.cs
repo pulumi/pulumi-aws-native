@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("errorTopic")]
         public Input<string>? ErrorTopic { get; set; }
 
+        [Input("includeInferenceResponseIn")]
+        private InputList<string>? _includeInferenceResponseIn;
+        public InputList<string> IncludeInferenceResponseIn
+        {
+            get => _includeInferenceResponseIn ?? (_includeInferenceResponseIn = new InputList<string>());
+            set => _includeInferenceResponseIn = value;
+        }
+
         [Input("successTopic")]
         public Input<string>? SuccessTopic { get; set; }
 

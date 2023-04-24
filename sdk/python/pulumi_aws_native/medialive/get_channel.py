@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetChannelResult:
-    def __init__(__self__, arn=None, cdi_input_specification=None, channel_class=None, destinations=None, encoder_settings=None, id=None, input_attachments=None, input_specification=None, inputs=None, log_level=None, name=None, role_arn=None, tags=None):
+    def __init__(__self__, arn=None, cdi_input_specification=None, channel_class=None, destinations=None, encoder_settings=None, id=None, input_attachments=None, input_specification=None, inputs=None, log_level=None, maintenance=None, name=None, role_arn=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetChannelResult:
         if log_level and not isinstance(log_level, str):
             raise TypeError("Expected argument 'log_level' to be a str")
         pulumi.set(__self__, "log_level", log_level)
+        if maintenance and not isinstance(maintenance, dict):
+            raise TypeError("Expected argument 'maintenance' to be a dict")
+        pulumi.set(__self__, "maintenance", maintenance)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -112,6 +115,11 @@ class GetChannelResult:
 
     @property
     @pulumi.getter
+    def maintenance(self) -> Optional['outputs.ChannelMaintenanceCreateSettings']:
+        return pulumi.get(self, "maintenance")
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
@@ -142,6 +150,7 @@ class AwaitableGetChannelResult(GetChannelResult):
             input_specification=self.input_specification,
             inputs=self.inputs,
             log_level=self.log_level,
+            maintenance=self.maintenance,
             name=self.name,
             role_arn=self.role_arn,
             tags=self.tags)
@@ -168,6 +177,7 @@ def get_channel(id: Optional[str] = None,
         input_specification=__ret__.input_specification,
         inputs=__ret__.inputs,
         log_level=__ret__.log_level,
+        maintenance=__ret__.maintenance,
         name=__ret__.name,
         role_arn=__ret__.role_arn,
         tags=__ret__.tags)

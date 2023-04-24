@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.XRay
         public Output<Outputs.GroupInsightsConfiguration?> InsightsConfiguration { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.TagsItemProperties>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GroupTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -100,10 +100,10 @@ namespace Pulumi.AwsNative.XRay
         public Input<Inputs.GroupInsightsConfigurationArgs>? InsightsConfiguration { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.TagsItemPropertiesArgs>? _tags;
-        public InputList<Inputs.TagsItemPropertiesArgs> Tags
+        private InputList<Inputs.GroupTagArgs>? _tags;
+        public InputList<Inputs.GroupTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.TagsItemPropertiesArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.GroupTagArgs>());
             set => _tags = value;
         }
 

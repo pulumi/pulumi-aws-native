@@ -13,9 +13,11 @@ from .get_detector import *
 from .get_entity_type import *
 from .get_event_type import *
 from .get_label import *
+from .get_list import *
 from .get_outcome import *
 from .get_variable import *
 from .label import *
+from .list import *
 from .outcome import *
 from .variable import *
 from ._inputs import *

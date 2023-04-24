@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("captureIntervalUnits")]
         public Input<string>? CaptureIntervalUnits { get; set; }
 
+        [Input("timecodeBurninSettings")]
+        public Input<Inputs.ChannelTimecodeBurninSettingsArgs>? TimecodeBurninSettings { get; set; }
+
         public ChannelFrameCaptureSettingsArgs()
         {
         }

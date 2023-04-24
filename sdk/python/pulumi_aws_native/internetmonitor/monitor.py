@@ -24,7 +24,8 @@ class MonitorArgs:
                  resources_to_add: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources_to_remove: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input['MonitorConfigState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]]] = None,
+                 traffic_percentage_to_monitor: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Monitor resource.
         """
@@ -44,6 +45,8 @@ class MonitorArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if traffic_percentage_to_monitor is not None:
+            pulumi.set(__self__, "traffic_percentage_to_monitor", traffic_percentage_to_monitor)
 
     @property
     @pulumi.getter(name="internetMeasurementsLogDelivery")
@@ -117,6 +120,15 @@ class MonitorArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="trafficPercentageToMonitor")
+    def traffic_percentage_to_monitor(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "traffic_percentage_to_monitor")
+
+    @traffic_percentage_to_monitor.setter
+    def traffic_percentage_to_monitor(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "traffic_percentage_to_monitor", value)
+
 
 class Monitor(pulumi.CustomResource):
     @overload
@@ -131,6 +143,7 @@ class Monitor(pulumi.CustomResource):
                  resources_to_remove: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input['MonitorConfigState']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]]] = None,
+                 traffic_percentage_to_monitor: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
@@ -170,6 +183,7 @@ class Monitor(pulumi.CustomResource):
                  resources_to_remove: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input['MonitorConfigState']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]]] = None,
+                 traffic_percentage_to_monitor: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -187,6 +201,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["resources_to_remove"] = resources_to_remove
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["traffic_percentage_to_monitor"] = traffic_percentage_to_monitor
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
             __props__.__dict__["monitor_arn"] = None
@@ -227,6 +242,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["resources_to_remove"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["traffic_percentage_to_monitor"] = None
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -293,4 +309,9 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MonitorTag']]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trafficPercentageToMonitor")
+    def traffic_percentage_to_monitor(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "traffic_percentage_to_monitor")
 

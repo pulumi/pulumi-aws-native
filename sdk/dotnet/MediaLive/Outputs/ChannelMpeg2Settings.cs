@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly string? GopSizeUnits;
         public readonly string? ScanType;
         public readonly string? SubgopLength;
+        public readonly Outputs.ChannelTimecodeBurninSettings? TimecodeBurninSettings;
         public readonly string? TimecodeInsertion;
 
         [OutputConstructor]
@@ -62,6 +63,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             string? subgopLength,
 
+            Outputs.ChannelTimecodeBurninSettings? timecodeBurninSettings,
+
             string? timecodeInsertion)
         {
             AdaptiveQuantization = adaptiveQuantization;
@@ -79,6 +82,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             GopSizeUnits = gopSizeUnits;
             ScanType = scanType;
             SubgopLength = subgopLength;
+            TimecodeBurninSettings = timecodeBurninSettings;
             TimecodeInsertion = timecodeInsertion;
         }
     }

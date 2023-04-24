@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.XRay
         public readonly Outputs.SamplingRule? SamplingRuleValue;
         public readonly Outputs.SamplingRuleRecord? SamplingRuleRecord;
         public readonly Outputs.SamplingRuleUpdate? SamplingRuleUpdate;
-        public readonly ImmutableArray<Outputs.TagsItemProperties> Tags;
+        public readonly ImmutableArray<Outputs.SamplingRuleTag> Tags;
 
         [OutputConstructor]
         private GetSamplingRuleResult(
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.XRay
 
             Outputs.SamplingRuleUpdate? samplingRuleUpdate,
 
-            ImmutableArray<Outputs.TagsItemProperties> tags)
+            ImmutableArray<Outputs.SamplingRuleTag> tags)
         {
             RuleARN = ruleARN;
             RuleName = ruleName;

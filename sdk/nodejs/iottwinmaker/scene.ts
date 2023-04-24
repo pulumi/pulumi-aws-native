@@ -55,9 +55,17 @@ export class Scene extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * A key-value pair of generated scene metadata for the scene.
+     */
+    public /*out*/ readonly generatedSceneMetadata!: pulumi.Output<any>;
+    /**
      * The ID of the scene.
      */
     public readonly sceneId!: pulumi.Output<string>;
+    /**
+     * A key-value pair of scene metadata for the scene.
+     */
+    public readonly sceneMetadata!: pulumi.Output<any | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
@@ -95,10 +103,12 @@ export class Scene extends pulumi.CustomResource {
             resourceInputs["contentLocation"] = args ? args.contentLocation : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["sceneId"] = args ? args.sceneId : undefined;
+            resourceInputs["sceneMetadata"] = args ? args.sceneMetadata : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
+            resourceInputs["generatedSceneMetadata"] = undefined /*out*/;
             resourceInputs["updateDateTime"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -106,7 +116,9 @@ export class Scene extends pulumi.CustomResource {
             resourceInputs["contentLocation"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["generatedSceneMetadata"] = undefined /*out*/;
             resourceInputs["sceneId"] = undefined /*out*/;
+            resourceInputs["sceneMetadata"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updateDateTime"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
@@ -136,6 +148,10 @@ export interface SceneArgs {
      * The ID of the scene.
      */
     sceneId: pulumi.Input<string>;
+    /**
+     * A key-value pair of scene metadata for the scene.
+     */
+    sceneMetadata?: any;
     /**
      * A key-value pair to associate with a resource.
      */

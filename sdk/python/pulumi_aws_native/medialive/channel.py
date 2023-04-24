@@ -23,6 +23,7 @@ class ChannelArgs:
                  input_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentArgs']]]] = None,
                  input_specification: Optional[pulumi.Input['ChannelInputSpecificationArgs']] = None,
                  log_level: Optional[pulumi.Input[str]] = None,
+                 maintenance: Optional[pulumi.Input['ChannelMaintenanceCreateSettingsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
@@ -44,6 +45,8 @@ class ChannelArgs:
             pulumi.set(__self__, "input_specification", input_specification)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
+        if maintenance is not None:
+            pulumi.set(__self__, "maintenance", maintenance)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if role_arn is not None:
@@ -118,6 +121,15 @@ class ChannelArgs:
 
     @property
     @pulumi.getter
+    def maintenance(self) -> Optional[pulumi.Input['ChannelMaintenanceCreateSettingsArgs']]:
+        return pulumi.get(self, "maintenance")
+
+    @maintenance.setter
+    def maintenance(self, value: Optional[pulumi.Input['ChannelMaintenanceCreateSettingsArgs']]):
+        pulumi.set(self, "maintenance", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
@@ -170,6 +182,7 @@ class Channel(pulumi.CustomResource):
                  input_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelInputAttachmentArgs']]]]] = None,
                  input_specification: Optional[pulumi.Input[pulumi.InputType['ChannelInputSpecificationArgs']]] = None,
                  log_level: Optional[pulumi.Input[str]] = None,
+                 maintenance: Optional[pulumi.Input[pulumi.InputType['ChannelMaintenanceCreateSettingsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
@@ -212,6 +225,7 @@ class Channel(pulumi.CustomResource):
                  input_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelInputAttachmentArgs']]]]] = None,
                  input_specification: Optional[pulumi.Input[pulumi.InputType['ChannelInputSpecificationArgs']]] = None,
                  log_level: Optional[pulumi.Input[str]] = None,
+                 maintenance: Optional[pulumi.Input[pulumi.InputType['ChannelMaintenanceCreateSettingsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
@@ -233,6 +247,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["input_attachments"] = input_attachments
             __props__.__dict__["input_specification"] = input_specification
             __props__.__dict__["log_level"] = log_level
+            __props__.__dict__["maintenance"] = maintenance
             __props__.__dict__["name"] = name
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
@@ -270,6 +285,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["input_specification"] = None
         __props__.__dict__["inputs"] = None
         __props__.__dict__["log_level"] = None
+        __props__.__dict__["maintenance"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
@@ -320,6 +336,11 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "log_level")
+
+    @property
+    @pulumi.getter
+    def maintenance(self) -> pulumi.Output[Optional['outputs.ChannelMaintenanceCreateSettings']]:
+        return pulumi.get(self, "maintenance")
 
     @property
     @pulumi.getter

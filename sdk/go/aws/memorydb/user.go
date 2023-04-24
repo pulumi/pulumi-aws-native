@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,10 +15,10 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// Access permissions string used for this user account.
-	AccessString pulumi.StringOutput `pulumi:"accessString"`
+	AccessString pulumi.StringPtrOutput `pulumi:"accessString"`
 	// The Amazon Resource Name (ARN) of the user account.
-	Arn                pulumi.StringOutput                `pulumi:"arn"`
-	AuthenticationMode AuthenticationModePropertiesOutput `pulumi:"authenticationMode"`
+	Arn                pulumi.StringOutput                   `pulumi:"arn"`
+	AuthenticationMode AuthenticationModePropertiesPtrOutput `pulumi:"authenticationMode"`
 	// Indicates the user status. Can be "active", "modifying" or "deleting".
 	Status pulumi.StringOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this user.
@@ -32,15 +31,9 @@ type User struct {
 func NewUser(ctx *pulumi.Context,
 	name string, args *UserArgs, opts ...pulumi.ResourceOption) (*User, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &UserArgs{}
 	}
 
-	if args.AccessString == nil {
-		return nil, errors.New("invalid value for required argument 'AccessString'")
-	}
-	if args.AuthenticationMode == nil {
-		return nil, errors.New("invalid value for required argument 'AuthenticationMode'")
-	}
 	var resource User
 	err := ctx.RegisterResource("aws-native:memorydb:User", name, args, &resource, opts...)
 	if err != nil {
@@ -74,8 +67,8 @@ func (UserState) ElementType() reflect.Type {
 
 type userArgs struct {
 	// Access permissions string used for this user account.
-	AccessString       string                       `pulumi:"accessString"`
-	AuthenticationMode AuthenticationModeProperties `pulumi:"authenticationMode"`
+	AccessString       *string                       `pulumi:"accessString"`
+	AuthenticationMode *AuthenticationModeProperties `pulumi:"authenticationMode"`
 	// An array of key-value pairs to apply to this user.
 	Tags []UserTag `pulumi:"tags"`
 	// The name of the user.
@@ -85,8 +78,8 @@ type userArgs struct {
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
 	// Access permissions string used for this user account.
-	AccessString       pulumi.StringInput
-	AuthenticationMode AuthenticationModePropertiesInput
+	AccessString       pulumi.StringPtrInput
+	AuthenticationMode AuthenticationModePropertiesPtrInput
 	// An array of key-value pairs to apply to this user.
 	Tags UserTagArrayInput
 	// The name of the user.
@@ -131,8 +124,8 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 }
 
 // Access permissions string used for this user account.
-func (o UserOutput) AccessString() pulumi.StringOutput {
-	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AccessString }).(pulumi.StringOutput)
+func (o UserOutput) AccessString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.AccessString }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the user account.
@@ -140,8 +133,8 @@ func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o UserOutput) AuthenticationMode() AuthenticationModePropertiesOutput {
-	return o.ApplyT(func(v *User) AuthenticationModePropertiesOutput { return v.AuthenticationMode }).(AuthenticationModePropertiesOutput)
+func (o UserOutput) AuthenticationMode() AuthenticationModePropertiesPtrOutput {
+	return o.ApplyT(func(v *User) AuthenticationModePropertiesPtrOutput { return v.AuthenticationMode }).(AuthenticationModePropertiesPtrOutput)
 }
 
 // Indicates the user status. Can be "active", "modifying" or "deleting".

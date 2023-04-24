@@ -2709,6 +2709,8 @@ class EndpointConfigAsyncInferenceNotificationConfig(dict):
         suggest = None
         if key == "errorTopic":
             suggest = "error_topic"
+        elif key == "includeInferenceResponseIn":
+            suggest = "include_inference_response_in"
         elif key == "successTopic":
             suggest = "success_topic"
 
@@ -2725,9 +2727,12 @@ class EndpointConfigAsyncInferenceNotificationConfig(dict):
 
     def __init__(__self__, *,
                  error_topic: Optional[str] = None,
+                 include_inference_response_in: Optional[Sequence[str]] = None,
                  success_topic: Optional[str] = None):
         if error_topic is not None:
             pulumi.set(__self__, "error_topic", error_topic)
+        if include_inference_response_in is not None:
+            pulumi.set(__self__, "include_inference_response_in", include_inference_response_in)
         if success_topic is not None:
             pulumi.set(__self__, "success_topic", success_topic)
 
@@ -2735,6 +2740,11 @@ class EndpointConfigAsyncInferenceNotificationConfig(dict):
     @pulumi.getter(name="errorTopic")
     def error_topic(self) -> Optional[str]:
         return pulumi.get(self, "error_topic")
+
+    @property
+    @pulumi.getter(name="includeInferenceResponseIn")
+    def include_inference_response_in(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "include_inference_response_in")
 
     @property
     @pulumi.getter(name="successTopic")
@@ -2747,12 +2757,14 @@ class EndpointConfigAsyncInferenceOutputConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "s3OutputPath":
-            suggest = "s3_output_path"
-        elif key == "kmsKeyId":
+        if key == "kmsKeyId":
             suggest = "kms_key_id"
         elif key == "notificationConfig":
             suggest = "notification_config"
+        elif key == "s3FailurePath":
+            suggest = "s3_failure_path"
+        elif key == "s3OutputPath":
+            suggest = "s3_output_path"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointConfigAsyncInferenceOutputConfig. Access the value via the '{suggest}' property getter instead.")
@@ -2766,19 +2778,18 @@ class EndpointConfigAsyncInferenceOutputConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 s3_output_path: str,
                  kms_key_id: Optional[str] = None,
-                 notification_config: Optional['outputs.EndpointConfigAsyncInferenceNotificationConfig'] = None):
-        pulumi.set(__self__, "s3_output_path", s3_output_path)
+                 notification_config: Optional['outputs.EndpointConfigAsyncInferenceNotificationConfig'] = None,
+                 s3_failure_path: Optional[str] = None,
+                 s3_output_path: Optional[str] = None):
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if notification_config is not None:
             pulumi.set(__self__, "notification_config", notification_config)
-
-    @property
-    @pulumi.getter(name="s3OutputPath")
-    def s3_output_path(self) -> str:
-        return pulumi.get(self, "s3_output_path")
+        if s3_failure_path is not None:
+            pulumi.set(__self__, "s3_failure_path", s3_failure_path)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -2789,6 +2800,16 @@ class EndpointConfigAsyncInferenceOutputConfig(dict):
     @pulumi.getter(name="notificationConfig")
     def notification_config(self) -> Optional['outputs.EndpointConfigAsyncInferenceNotificationConfig']:
         return pulumi.get(self, "notification_config")
+
+    @property
+    @pulumi.getter(name="s3FailurePath")
+    def s3_failure_path(self) -> Optional[str]:
+        return pulumi.get(self, "s3_failure_path")
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[str]:
+        return pulumi.get(self, "s3_output_path")
 
 
 @pulumi.output_type

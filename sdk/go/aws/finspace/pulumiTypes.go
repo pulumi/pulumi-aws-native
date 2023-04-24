@@ -15,7 +15,7 @@ type EnvironmentFederationParameters struct {
 	// SAML metadata URL to link with the Environment
 	ApplicationCallBackURL *string `pulumi:"applicationCallBackURL"`
 	// Attribute map for SAML configuration
-	AttributeMap interface{} `pulumi:"attributeMap"`
+	AttributeMap []EnvironmentFederationParametersAttributeMapItemProperties `pulumi:"attributeMap"`
 	// Federation provider name to link with the Environment
 	FederationProviderName *string `pulumi:"federationProviderName"`
 	// SAML metadata URL to link with the Environment
@@ -42,7 +42,7 @@ type EnvironmentFederationParametersArgs struct {
 	// SAML metadata URL to link with the Environment
 	ApplicationCallBackURL pulumi.StringPtrInput `pulumi:"applicationCallBackURL"`
 	// Attribute map for SAML configuration
-	AttributeMap pulumi.Input `pulumi:"attributeMap"`
+	AttributeMap EnvironmentFederationParametersAttributeMapItemPropertiesArrayInput `pulumi:"attributeMap"`
 	// Federation provider name to link with the Environment
 	FederationProviderName pulumi.StringPtrInput `pulumi:"federationProviderName"`
 	// SAML metadata URL to link with the Environment
@@ -137,8 +137,10 @@ func (o EnvironmentFederationParametersOutput) ApplicationCallBackURL() pulumi.S
 }
 
 // Attribute map for SAML configuration
-func (o EnvironmentFederationParametersOutput) AttributeMap() pulumi.AnyOutput {
-	return o.ApplyT(func(v EnvironmentFederationParameters) interface{} { return v.AttributeMap }).(pulumi.AnyOutput)
+func (o EnvironmentFederationParametersOutput) AttributeMap() EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput {
+	return o.ApplyT(func(v EnvironmentFederationParameters) []EnvironmentFederationParametersAttributeMapItemProperties {
+		return v.AttributeMap
+	}).(EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput)
 }
 
 // Federation provider name to link with the Environment
@@ -196,13 +198,13 @@ func (o EnvironmentFederationParametersPtrOutput) ApplicationCallBackURL() pulum
 }
 
 // Attribute map for SAML configuration
-func (o EnvironmentFederationParametersPtrOutput) AttributeMap() pulumi.AnyOutput {
-	return o.ApplyT(func(v *EnvironmentFederationParameters) interface{} {
+func (o EnvironmentFederationParametersPtrOutput) AttributeMap() EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput {
+	return o.ApplyT(func(v *EnvironmentFederationParameters) []EnvironmentFederationParametersAttributeMapItemProperties {
 		if v == nil {
 			return nil
 		}
 		return v.AttributeMap
-	}).(pulumi.AnyOutput)
+	}).(EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput)
 }
 
 // Federation provider name to link with the Environment
@@ -243,6 +245,112 @@ func (o EnvironmentFederationParametersPtrOutput) SamlMetadataURL() pulumi.Strin
 		}
 		return v.SamlMetadataURL
 	}).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentFederationParametersAttributeMapItemProperties struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key *string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// EnvironmentFederationParametersAttributeMapItemPropertiesInput is an input type that accepts EnvironmentFederationParametersAttributeMapItemPropertiesArgs and EnvironmentFederationParametersAttributeMapItemPropertiesOutput values.
+// You can construct a concrete instance of `EnvironmentFederationParametersAttributeMapItemPropertiesInput` via:
+//
+//	EnvironmentFederationParametersAttributeMapItemPropertiesArgs{...}
+type EnvironmentFederationParametersAttributeMapItemPropertiesInput interface {
+	pulumi.Input
+
+	ToEnvironmentFederationParametersAttributeMapItemPropertiesOutput() EnvironmentFederationParametersAttributeMapItemPropertiesOutput
+	ToEnvironmentFederationParametersAttributeMapItemPropertiesOutputWithContext(context.Context) EnvironmentFederationParametersAttributeMapItemPropertiesOutput
+}
+
+type EnvironmentFederationParametersAttributeMapItemPropertiesArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EnvironmentFederationParametersAttributeMapItemPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentFederationParametersAttributeMapItemProperties)(nil)).Elem()
+}
+
+func (i EnvironmentFederationParametersAttributeMapItemPropertiesArgs) ToEnvironmentFederationParametersAttributeMapItemPropertiesOutput() EnvironmentFederationParametersAttributeMapItemPropertiesOutput {
+	return i.ToEnvironmentFederationParametersAttributeMapItemPropertiesOutputWithContext(context.Background())
+}
+
+func (i EnvironmentFederationParametersAttributeMapItemPropertiesArgs) ToEnvironmentFederationParametersAttributeMapItemPropertiesOutputWithContext(ctx context.Context) EnvironmentFederationParametersAttributeMapItemPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentFederationParametersAttributeMapItemPropertiesOutput)
+}
+
+// EnvironmentFederationParametersAttributeMapItemPropertiesArrayInput is an input type that accepts EnvironmentFederationParametersAttributeMapItemPropertiesArray and EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput values.
+// You can construct a concrete instance of `EnvironmentFederationParametersAttributeMapItemPropertiesArrayInput` via:
+//
+//	EnvironmentFederationParametersAttributeMapItemPropertiesArray{ EnvironmentFederationParametersAttributeMapItemPropertiesArgs{...} }
+type EnvironmentFederationParametersAttributeMapItemPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput() EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput
+	ToEnvironmentFederationParametersAttributeMapItemPropertiesArrayOutputWithContext(context.Context) EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput
+}
+
+type EnvironmentFederationParametersAttributeMapItemPropertiesArray []EnvironmentFederationParametersAttributeMapItemPropertiesInput
+
+func (EnvironmentFederationParametersAttributeMapItemPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentFederationParametersAttributeMapItemProperties)(nil)).Elem()
+}
+
+func (i EnvironmentFederationParametersAttributeMapItemPropertiesArray) ToEnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput() EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput {
+	return i.ToEnvironmentFederationParametersAttributeMapItemPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentFederationParametersAttributeMapItemPropertiesArray) ToEnvironmentFederationParametersAttributeMapItemPropertiesArrayOutputWithContext(ctx context.Context) EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput)
+}
+
+type EnvironmentFederationParametersAttributeMapItemPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentFederationParametersAttributeMapItemPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentFederationParametersAttributeMapItemProperties)(nil)).Elem()
+}
+
+func (o EnvironmentFederationParametersAttributeMapItemPropertiesOutput) ToEnvironmentFederationParametersAttributeMapItemPropertiesOutput() EnvironmentFederationParametersAttributeMapItemPropertiesOutput {
+	return o
+}
+
+func (o EnvironmentFederationParametersAttributeMapItemPropertiesOutput) ToEnvironmentFederationParametersAttributeMapItemPropertiesOutputWithContext(ctx context.Context) EnvironmentFederationParametersAttributeMapItemPropertiesOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o EnvironmentFederationParametersAttributeMapItemPropertiesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentFederationParametersAttributeMapItemProperties) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o EnvironmentFederationParametersAttributeMapItemPropertiesOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentFederationParametersAttributeMapItemProperties) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentFederationParametersAttributeMapItemProperties)(nil)).Elem()
+}
+
+func (o EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput) ToEnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput() EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput {
+	return o
+}
+
+func (o EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput) ToEnvironmentFederationParametersAttributeMapItemPropertiesArrayOutputWithContext(ctx context.Context) EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput {
+	return o
+}
+
+func (o EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput) Index(i pulumi.IntInput) EnvironmentFederationParametersAttributeMapItemPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentFederationParametersAttributeMapItemProperties {
+		return vs[0].([]EnvironmentFederationParametersAttributeMapItemProperties)[vs[1].(int)]
+	}).(EnvironmentFederationParametersAttributeMapItemPropertiesOutput)
 }
 
 // Parameters of the first Superuser for the FinSpace Environment
@@ -423,13 +531,130 @@ func (o EnvironmentSuperuserParametersPtrOutput) LastName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of all tags for a resource.
+type EnvironmentTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// EnvironmentTagInput is an input type that accepts EnvironmentTagArgs and EnvironmentTagOutput values.
+// You can construct a concrete instance of `EnvironmentTagInput` via:
+//
+//	EnvironmentTagArgs{...}
+type EnvironmentTagInput interface {
+	pulumi.Input
+
+	ToEnvironmentTagOutput() EnvironmentTagOutput
+	ToEnvironmentTagOutputWithContext(context.Context) EnvironmentTagOutput
+}
+
+// A list of all tags for a resource.
+type EnvironmentTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EnvironmentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentTag)(nil)).Elem()
+}
+
+func (i EnvironmentTagArgs) ToEnvironmentTagOutput() EnvironmentTagOutput {
+	return i.ToEnvironmentTagOutputWithContext(context.Background())
+}
+
+func (i EnvironmentTagArgs) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagOutput)
+}
+
+// EnvironmentTagArrayInput is an input type that accepts EnvironmentTagArray and EnvironmentTagArrayOutput values.
+// You can construct a concrete instance of `EnvironmentTagArrayInput` via:
+//
+//	EnvironmentTagArray{ EnvironmentTagArgs{...} }
+type EnvironmentTagArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput
+	ToEnvironmentTagArrayOutputWithContext(context.Context) EnvironmentTagArrayOutput
+}
+
+type EnvironmentTagArray []EnvironmentTagInput
+
+func (EnvironmentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentTag)(nil)).Elem()
+}
+
+func (i EnvironmentTagArray) ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput {
+	return i.ToEnvironmentTagArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentTagArray) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagArrayOutput)
+}
+
+// A list of all tags for a resource.
+type EnvironmentTagOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentTag)(nil)).Elem()
+}
+
+func (o EnvironmentTagOutput) ToEnvironmentTagOutput() EnvironmentTagOutput {
+	return o
+}
+
+func (o EnvironmentTagOutput) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o EnvironmentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o EnvironmentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EnvironmentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentTag)(nil)).Elem()
+}
+
+func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutput() EnvironmentTagArrayOutput {
+	return o
+}
+
+func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
+	return o
+}
+
+func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentTag {
+		return vs[0].([]EnvironmentTag)[vs[1].(int)]
+	}).(EnvironmentTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFederationParametersInput)(nil)).Elem(), EnvironmentFederationParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFederationParametersPtrInput)(nil)).Elem(), EnvironmentFederationParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFederationParametersAttributeMapItemPropertiesInput)(nil)).Elem(), EnvironmentFederationParametersAttributeMapItemPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFederationParametersAttributeMapItemPropertiesArrayInput)(nil)).Elem(), EnvironmentFederationParametersAttributeMapItemPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSuperuserParametersInput)(nil)).Elem(), EnvironmentSuperuserParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSuperuserParametersPtrInput)(nil)).Elem(), EnvironmentSuperuserParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagInput)(nil)).Elem(), EnvironmentTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagArrayInput)(nil)).Elem(), EnvironmentTagArray{})
 	pulumi.RegisterOutputType(EnvironmentFederationParametersOutput{})
 	pulumi.RegisterOutputType(EnvironmentFederationParametersPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentFederationParametersAttributeMapItemPropertiesOutput{})
+	pulumi.RegisterOutputType(EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentSuperuserParametersOutput{})
 	pulumi.RegisterOutputType(EnvironmentSuperuserParametersPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentTagOutput{})
+	pulumi.RegisterOutputType(EnvironmentTagArrayOutput{})
 }

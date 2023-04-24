@@ -50,6 +50,10 @@ export class Channel extends pulumi.CustomResource {
      */
     public /*out*/ readonly ingestEndpoint!: pulumi.Output<string>;
     /**
+     * Whether the channel allows insecure ingest.
+     */
+    public readonly insecureIngest!: pulumi.Output<boolean | undefined>;
+    /**
      * Channel latency mode.
      */
     public readonly latencyMode!: pulumi.Output<enums.ivs.ChannelLatencyMode | undefined>;
@@ -86,6 +90,7 @@ export class Channel extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["authorized"] = args ? args.authorized : undefined;
+            resourceInputs["insecureIngest"] = args ? args.insecureIngest : undefined;
             resourceInputs["latencyMode"] = args ? args.latencyMode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recordingConfigurationArn"] = args ? args.recordingConfigurationArn : undefined;
@@ -98,6 +103,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authorized"] = undefined /*out*/;
             resourceInputs["ingestEndpoint"] = undefined /*out*/;
+            resourceInputs["insecureIngest"] = undefined /*out*/;
             resourceInputs["latencyMode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["playbackUrl"] = undefined /*out*/;
@@ -118,6 +124,10 @@ export interface ChannelArgs {
      * Whether the channel is authorized.
      */
     authorized?: pulumi.Input<boolean>;
+    /**
+     * Whether the channel allows insecure ingest.
+     */
+    insecureIngest?: pulumi.Input<boolean>;
     /**
      * Channel latency mode.
      */

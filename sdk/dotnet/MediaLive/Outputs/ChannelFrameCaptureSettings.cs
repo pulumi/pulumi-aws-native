@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     {
         public readonly int? CaptureInterval;
         public readonly string? CaptureIntervalUnits;
+        public readonly Outputs.ChannelTimecodeBurninSettings? TimecodeBurninSettings;
 
         [OutputConstructor]
         private ChannelFrameCaptureSettings(
             int? captureInterval,
 
-            string? captureIntervalUnits)
+            string? captureIntervalUnits,
+
+            Outputs.ChannelTimecodeBurninSettings? timecodeBurninSettings)
         {
             CaptureInterval = captureInterval;
             CaptureIntervalUnits = captureIntervalUnits;
+            TimecodeBurninSettings = timecodeBurninSettings;
         }
     }
 }

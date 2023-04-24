@@ -15,7 +15,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     {
         public readonly string? KmsKeyId;
         public readonly Outputs.EndpointConfigAsyncInferenceNotificationConfig? NotificationConfig;
-        public readonly string S3OutputPath;
+        public readonly string? S3FailurePath;
+        public readonly string? S3OutputPath;
 
         [OutputConstructor]
         private EndpointConfigAsyncInferenceOutputConfig(
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.EndpointConfigAsyncInferenceNotificationConfig? notificationConfig,
 
-            string s3OutputPath)
+            string? s3FailurePath,
+
+            string? s3OutputPath)
         {
             KmsKeyId = kmsKeyId;
             NotificationConfig = notificationConfig;
+            S3FailurePath = s3FailurePath;
             S3OutputPath = s3OutputPath;
         }
     }

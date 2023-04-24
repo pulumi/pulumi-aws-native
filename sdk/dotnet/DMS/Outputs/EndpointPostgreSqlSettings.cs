@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.DMS.Outputs
         public readonly bool? HeartbeatEnable;
         public readonly int? HeartbeatFrequency;
         public readonly string? HeartbeatSchema;
+        public readonly bool? MapBooleanAsBoolean;
         public readonly int? MaxFileSize;
         public readonly string? PluginName;
         public readonly string? SecretsManagerAccessRoleArn;
@@ -45,6 +46,8 @@ namespace Pulumi.AwsNative.DMS.Outputs
 
             string? heartbeatSchema,
 
+            bool? mapBooleanAsBoolean,
+
             int? maxFileSize,
 
             string? pluginName,
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.DMS.Outputs
             HeartbeatEnable = heartbeatEnable;
             HeartbeatFrequency = heartbeatFrequency;
             HeartbeatSchema = heartbeatSchema;
+            MapBooleanAsBoolean = mapBooleanAsBoolean;
             MaxFileSize = maxFileSize;
             PluginName = pluginName;
             SecretsManagerAccessRoleArn = secretsManagerAccessRoleArn;

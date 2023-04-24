@@ -181,7 +181,8 @@
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/Status", "/properties/ClusterEndpoint/Address", "/properties/ClusterEndpoint/Port", "/properties/ARN", "/properties/ParameterGroupStatus" ],
   "required" : [ "ClusterName", "NodeType", "ACLName" ],
-  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/TLSEnabled", "/properties/DataTiering", "/properties/KmsKeyId", "/properties/Port", "/properties/SnapshotArns", "/properties/SnapshotName" ],
+  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/TLSEnabled", "/properties/DataTiering", "/properties/KmsKeyId", "/properties/Port", "/properties/SubnetGroupName", "/properties/SnapshotArns", "/properties/SnapshotName" ],
+  "writeOnlyProperties" : [ "/properties/SnapshotArns", "/properties/SnapshotName", "/properties/FinalSnapshotName" ],
   "primaryIdentifier" : [ "/properties/ClusterName" ],
   "handlers" : {
     "create" : {

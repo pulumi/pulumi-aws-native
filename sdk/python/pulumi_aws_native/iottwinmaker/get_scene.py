@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSceneResult:
-    def __init__(__self__, arn=None, capabilities=None, content_location=None, creation_date_time=None, description=None, tags=None, update_date_time=None):
+    def __init__(__self__, arn=None, capabilities=None, content_location=None, creation_date_time=None, description=None, generated_scene_metadata=None, scene_metadata=None, tags=None, update_date_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,12 @@ class GetSceneResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if generated_scene_metadata and not isinstance(generated_scene_metadata, dict):
+            raise TypeError("Expected argument 'generated_scene_metadata' to be a dict")
+        pulumi.set(__self__, "generated_scene_metadata", generated_scene_metadata)
+        if scene_metadata and not isinstance(scene_metadata, dict):
+            raise TypeError("Expected argument 'scene_metadata' to be a dict")
+        pulumi.set(__self__, "scene_metadata", scene_metadata)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -82,6 +88,22 @@ class GetSceneResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="generatedSceneMetadata")
+    def generated_scene_metadata(self) -> Optional[Any]:
+        """
+        A key-value pair of generated scene metadata for the scene.
+        """
+        return pulumi.get(self, "generated_scene_metadata")
+
+    @property
+    @pulumi.getter(name="sceneMetadata")
+    def scene_metadata(self) -> Optional[Any]:
+        """
+        A key-value pair of scene metadata for the scene.
+        """
+        return pulumi.get(self, "scene_metadata")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         """
@@ -109,6 +131,8 @@ class AwaitableGetSceneResult(GetSceneResult):
             content_location=self.content_location,
             creation_date_time=self.creation_date_time,
             description=self.description,
+            generated_scene_metadata=self.generated_scene_metadata,
+            scene_metadata=self.scene_metadata,
             tags=self.tags,
             update_date_time=self.update_date_time)
 
@@ -135,6 +159,8 @@ def get_scene(scene_id: Optional[str] = None,
         content_location=__ret__.content_location,
         creation_date_time=__ret__.creation_date_time,
         description=__ret__.description,
+        generated_scene_metadata=__ret__.generated_scene_metadata,
+        scene_metadata=__ret__.scene_metadata,
         tags=__ret__.tags,
         update_date_time=__ret__.update_date_time)
 

@@ -132,6 +132,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("scte35Pid")]
         public Input<string>? Scte35Pid { get; set; }
 
+        [Input("scte35PrerollPullupMilliseconds")]
+        public Input<double>? Scte35PrerollPullupMilliseconds { get; set; }
+
         [Input("segmentationMarkers")]
         public Input<string>? SegmentationMarkers { get; set; }
 

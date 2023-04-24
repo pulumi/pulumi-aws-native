@@ -14,12 +14,12 @@ import (
 type SamplingRule struct {
 	pulumi.CustomResourceState
 
-	RuleARN            pulumi.StringOutput           `pulumi:"ruleARN"`
-	RuleName           pulumi.StringPtrOutput        `pulumi:"ruleName"`
-	SamplingRule       SamplingRuleTypePtrOutput     `pulumi:"samplingRule"`
-	SamplingRuleRecord SamplingRuleRecordPtrOutput   `pulumi:"samplingRuleRecord"`
-	SamplingRuleUpdate SamplingRuleUpdatePtrOutput   `pulumi:"samplingRuleUpdate"`
-	Tags               TagsItemPropertiesArrayOutput `pulumi:"tags"`
+	RuleARN            pulumi.StringOutput         `pulumi:"ruleARN"`
+	RuleName           pulumi.StringPtrOutput      `pulumi:"ruleName"`
+	SamplingRule       SamplingRuleTypePtrOutput   `pulumi:"samplingRule"`
+	SamplingRuleRecord SamplingRuleRecordPtrOutput `pulumi:"samplingRuleRecord"`
+	SamplingRuleUpdate SamplingRuleUpdatePtrOutput `pulumi:"samplingRuleUpdate"`
+	Tags               SamplingRuleTagArrayOutput  `pulumi:"tags"`
 }
 
 // NewSamplingRule registers a new resource with the given unique name, arguments, and options.
@@ -61,11 +61,11 @@ func (SamplingRuleState) ElementType() reflect.Type {
 }
 
 type samplingRuleArgs struct {
-	RuleName           *string              `pulumi:"ruleName"`
-	SamplingRule       *SamplingRuleType    `pulumi:"samplingRule"`
-	SamplingRuleRecord *SamplingRuleRecord  `pulumi:"samplingRuleRecord"`
-	SamplingRuleUpdate *SamplingRuleUpdate  `pulumi:"samplingRuleUpdate"`
-	Tags               []TagsItemProperties `pulumi:"tags"`
+	RuleName           *string             `pulumi:"ruleName"`
+	SamplingRule       *SamplingRuleType   `pulumi:"samplingRule"`
+	SamplingRuleRecord *SamplingRuleRecord `pulumi:"samplingRuleRecord"`
+	SamplingRuleUpdate *SamplingRuleUpdate `pulumi:"samplingRuleUpdate"`
+	Tags               []SamplingRuleTag   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SamplingRule resource.
@@ -74,7 +74,7 @@ type SamplingRuleArgs struct {
 	SamplingRule       SamplingRuleTypePtrInput
 	SamplingRuleRecord SamplingRuleRecordPtrInput
 	SamplingRuleUpdate SamplingRuleUpdatePtrInput
-	Tags               TagsItemPropertiesArrayInput
+	Tags               SamplingRuleTagArrayInput
 }
 
 func (SamplingRuleArgs) ElementType() reflect.Type {
@@ -134,8 +134,8 @@ func (o SamplingRuleOutput) SamplingRuleUpdate() SamplingRuleUpdatePtrOutput {
 	return o.ApplyT(func(v *SamplingRule) SamplingRuleUpdatePtrOutput { return v.SamplingRuleUpdate }).(SamplingRuleUpdatePtrOutput)
 }
 
-func (o SamplingRuleOutput) Tags() TagsItemPropertiesArrayOutput {
-	return o.ApplyT(func(v *SamplingRule) TagsItemPropertiesArrayOutput { return v.Tags }).(TagsItemPropertiesArrayOutput)
+func (o SamplingRuleOutput) Tags() SamplingRuleTagArrayOutput {
+	return o.ApplyT(func(v *SamplingRule) SamplingRuleTagArrayOutput { return v.Tags }).(SamplingRuleTagArrayOutput)
 }
 
 func init() {

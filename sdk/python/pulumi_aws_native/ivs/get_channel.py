@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetChannelResult:
-    def __init__(__self__, arn=None, authorized=None, ingest_endpoint=None, latency_mode=None, name=None, playback_url=None, recording_configuration_arn=None, tags=None, type=None):
+    def __init__(__self__, arn=None, authorized=None, ingest_endpoint=None, insecure_ingest=None, latency_mode=None, name=None, playback_url=None, recording_configuration_arn=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -30,6 +30,9 @@ class GetChannelResult:
         if ingest_endpoint and not isinstance(ingest_endpoint, str):
             raise TypeError("Expected argument 'ingest_endpoint' to be a str")
         pulumi.set(__self__, "ingest_endpoint", ingest_endpoint)
+        if insecure_ingest and not isinstance(insecure_ingest, bool):
+            raise TypeError("Expected argument 'insecure_ingest' to be a bool")
+        pulumi.set(__self__, "insecure_ingest", insecure_ingest)
         if latency_mode and not isinstance(latency_mode, str):
             raise TypeError("Expected argument 'latency_mode' to be a str")
         pulumi.set(__self__, "latency_mode", latency_mode)
@@ -72,6 +75,14 @@ class GetChannelResult:
         Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
         """
         return pulumi.get(self, "ingest_endpoint")
+
+    @property
+    @pulumi.getter(name="insecureIngest")
+    def insecure_ingest(self) -> Optional[bool]:
+        """
+        Whether the channel allows insecure ingest.
+        """
+        return pulumi.get(self, "insecure_ingest")
 
     @property
     @pulumi.getter(name="latencyMode")
@@ -131,6 +142,7 @@ class AwaitableGetChannelResult(GetChannelResult):
             arn=self.arn,
             authorized=self.authorized,
             ingest_endpoint=self.ingest_endpoint,
+            insecure_ingest=self.insecure_ingest,
             latency_mode=self.latency_mode,
             name=self.name,
             playback_url=self.playback_url,
@@ -156,6 +168,7 @@ def get_channel(arn: Optional[str] = None,
         arn=__ret__.arn,
         authorized=__ret__.authorized,
         ingest_endpoint=__ret__.ingest_endpoint,
+        insecure_ingest=__ret__.insecure_ingest,
         latency_mode=__ret__.latency_mode,
         name=__ret__.name,
         playback_url=__ret__.playback_url,

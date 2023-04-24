@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.DMS.Inputs
         [Input("heartbeatSchema")]
         public Input<string>? HeartbeatSchema { get; set; }
 
+        [Input("mapBooleanAsBoolean")]
+        public Input<bool>? MapBooleanAsBoolean { get; set; }
+
         [Input("maxFileSize")]
         public Input<int>? MaxFileSize { get; set; }
 

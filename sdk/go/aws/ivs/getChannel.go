@@ -32,6 +32,8 @@ type LookupChannelResult struct {
 	Authorized *bool `pulumi:"authorized"`
 	// Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
 	IngestEndpoint *string `pulumi:"ingestEndpoint"`
+	// Whether the channel allows insecure ingest.
+	InsecureIngest *bool `pulumi:"insecureIngest"`
 	// Channel latency mode.
 	LatencyMode *ChannelLatencyMode `pulumi:"latencyMode"`
 	// Channel
@@ -95,6 +97,11 @@ func (o LookupChannelResultOutput) Authorized() pulumi.BoolPtrOutput {
 // Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
 func (o LookupChannelResultOutput) IngestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.IngestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Whether the channel allows insecure ingest.
+func (o LookupChannelResultOutput) InsecureIngest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupChannelResult) *bool { return v.InsecureIngest }).(pulumi.BoolPtrOutput)
 }
 
 // Channel latency mode.

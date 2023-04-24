@@ -18,6 +18,7 @@ __all__ = ['ChannelArgs', 'Channel']
 class ChannelArgs:
     def __init__(__self__, *,
                  authorized: Optional[pulumi.Input[bool]] = None,
+                 insecure_ingest: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class ChannelArgs:
         """
         The set of arguments for constructing a Channel resource.
         :param pulumi.Input[bool] authorized: Whether the channel is authorized.
+        :param pulumi.Input[bool] insecure_ingest: Whether the channel allows insecure ingest.
         :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
         :param pulumi.Input[str] name: Channel
         :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
@@ -34,6 +36,8 @@ class ChannelArgs:
         """
         if authorized is not None:
             pulumi.set(__self__, "authorized", authorized)
+        if insecure_ingest is not None:
+            pulumi.set(__self__, "insecure_ingest", insecure_ingest)
         if latency_mode is not None:
             pulumi.set(__self__, "latency_mode", latency_mode)
         if name is not None:
@@ -56,6 +60,18 @@ class ChannelArgs:
     @authorized.setter
     def authorized(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "authorized", value)
+
+    @property
+    @pulumi.getter(name="insecureIngest")
+    def insecure_ingest(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the channel allows insecure ingest.
+        """
+        return pulumi.get(self, "insecure_ingest")
+
+    @insecure_ingest.setter
+    def insecure_ingest(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "insecure_ingest", value)
 
     @property
     @pulumi.getter(name="latencyMode")
@@ -124,6 +140,7 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized: Optional[pulumi.Input[bool]] = None,
+                 insecure_ingest: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
@@ -136,6 +153,7 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] authorized: Whether the channel is authorized.
+        :param pulumi.Input[bool] insecure_ingest: Whether the channel allows insecure ingest.
         :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
         :param pulumi.Input[str] name: Channel
         :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
@@ -167,6 +185,7 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized: Optional[pulumi.Input[bool]] = None,
+                 insecure_ingest: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
@@ -182,6 +201,7 @@ class Channel(pulumi.CustomResource):
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
             __props__.__dict__["authorized"] = authorized
+            __props__.__dict__["insecure_ingest"] = insecure_ingest
             __props__.__dict__["latency_mode"] = latency_mode
             __props__.__dict__["name"] = name
             __props__.__dict__["recording_configuration_arn"] = recording_configuration_arn
@@ -215,6 +235,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["authorized"] = None
         __props__.__dict__["ingest_endpoint"] = None
+        __props__.__dict__["insecure_ingest"] = None
         __props__.__dict__["latency_mode"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["playback_url"] = None
@@ -246,6 +267,14 @@ class Channel(pulumi.CustomResource):
         Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
         """
         return pulumi.get(self, "ingest_endpoint")
+
+    @property
+    @pulumi.getter(name="insecureIngest")
+    def insecure_ingest(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the channel allows insecure ingest.
+        """
+        return pulumi.get(self, "insecure_ingest")
 
     @property
     @pulumi.getter(name="latencyMode")

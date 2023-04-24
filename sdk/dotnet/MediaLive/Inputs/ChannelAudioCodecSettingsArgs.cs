@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("ac3Settings")]
         public Input<Inputs.ChannelAc3SettingsArgs>? Ac3Settings { get; set; }
 
+        [Input("eac3AtmosSettings")]
+        public Input<Inputs.ChannelEac3AtmosSettingsArgs>? Eac3AtmosSettings { get; set; }
+
         [Input("eac3Settings")]
         public Input<Inputs.ChannelEac3SettingsArgs>? Eac3Settings { get; set; }
 

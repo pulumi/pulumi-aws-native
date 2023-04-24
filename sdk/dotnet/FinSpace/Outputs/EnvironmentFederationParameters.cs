@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.FinSpace.Outputs
         /// <summary>
         /// Attribute map for SAML configuration
         /// </summary>
-        public readonly object? AttributeMap;
+        public readonly ImmutableArray<Outputs.EnvironmentFederationParametersAttributeMapItemProperties> AttributeMap;
         /// <summary>
         /// Federation provider name to link with the Environment
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.FinSpace.Outputs
         private EnvironmentFederationParameters(
             string? applicationCallBackURL,
 
-            object? attributeMap,
+            ImmutableArray<Outputs.EnvironmentFederationParametersAttributeMapItemProperties> attributeMap,
 
             string? federationProviderName,
 

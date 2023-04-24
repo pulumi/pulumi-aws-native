@@ -43,6 +43,9 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("logLevel")]
         public Output<string?> LogLevel { get; private set; } = null!;
 
+        [Output("maintenance")]
+        public Output<Outputs.ChannelMaintenanceCreateSettings?> Maintenance { get; private set; } = null!;
+
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
@@ -130,6 +133,9 @@ namespace Pulumi.AwsNative.MediaLive
 
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
+
+        [Input("maintenance")]
+        public Input<Inputs.ChannelMaintenanceCreateSettingsArgs>? Maintenance { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -40,12 +40,12 @@ export class User extends pulumi.CustomResource {
     /**
      * Access permissions string used for this user account.
      */
-    public readonly accessString!: pulumi.Output<string>;
+    public readonly accessString!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the user account.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly authenticationMode!: pulumi.Output<outputs.memorydb.AuthenticationModeProperties>;
+    public readonly authenticationMode!: pulumi.Output<outputs.memorydb.AuthenticationModeProperties | undefined>;
     /**
      * Indicates the user status. Can be "active", "modifying" or "deleting".
      */
@@ -66,16 +66,10 @@ export class User extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: UserArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessString === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'accessString'");
-            }
-            if ((!args || args.authenticationMode === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'authenticationMode'");
-            }
             resourceInputs["accessString"] = args ? args.accessString : undefined;
             resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -102,8 +96,8 @@ export interface UserArgs {
     /**
      * Access permissions string used for this user account.
      */
-    accessString: pulumi.Input<string>;
-    authenticationMode: pulumi.Input<inputs.memorydb.AuthenticationModePropertiesArgs>;
+    accessString?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<inputs.memorydb.AuthenticationModePropertiesArgs>;
     /**
      * An array of key-value pairs to apply to this user.
      */

@@ -15,6 +15,18 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
     /// </summary>
     public sealed class MetricStreamFilterArgs : global::Pulumi.ResourceArgs
     {
+        [Input("metricNames")]
+        private InputList<string>? _metricNames;
+
+        /// <summary>
+        /// Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
+        /// </summary>
+        public InputList<string> MetricNames
+        {
+            get => _metricNames ?? (_metricNames = new InputList<string>());
+            set => _metricNames = value;
+        }
+
         /// <summary>
         /// Only metrics with Namespace matching this value will be streamed.
         /// </summary>

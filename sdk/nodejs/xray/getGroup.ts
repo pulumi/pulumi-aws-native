@@ -39,7 +39,7 @@ export interface GetGroupResult {
      */
     readonly groupName?: string;
     readonly insightsConfiguration?: outputs.xray.GroupInsightsConfiguration;
-    readonly tags?: outputs.xray.TagsItemProperties[];
+    readonly tags?: outputs.xray.GroupTag[];
 }
 /**
  * This schema provides construct and validation rules for AWS-XRay Group resource parameters.

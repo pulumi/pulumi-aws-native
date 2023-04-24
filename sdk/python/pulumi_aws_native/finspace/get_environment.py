@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -20,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEnvironmentResult:
-    def __init__(__self__, aws_account_id=None, dedicated_service_account_id=None, description=None, environment_arn=None, environment_id=None, environment_url=None, federation_mode=None, federation_parameters=None, name=None, sage_maker_studio_domain_url=None, status=None):
+    def __init__(__self__, aws_account_id=None, dedicated_service_account_id=None, description=None, environment_arn=None, environment_id=None, environment_url=None, federation_mode=None, name=None, sage_maker_studio_domain_url=None, status=None):
         if aws_account_id and not isinstance(aws_account_id, str):
             raise TypeError("Expected argument 'aws_account_id' to be a str")
         pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -42,9 +41,6 @@ class GetEnvironmentResult:
         if federation_mode and not isinstance(federation_mode, str):
             raise TypeError("Expected argument 'federation_mode' to be a str")
         pulumi.set(__self__, "federation_mode", federation_mode)
-        if federation_parameters and not isinstance(federation_parameters, dict):
-            raise TypeError("Expected argument 'federation_parameters' to be a dict")
-        pulumi.set(__self__, "federation_parameters", federation_parameters)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -112,11 +108,6 @@ class GetEnvironmentResult:
         return pulumi.get(self, "federation_mode")
 
     @property
-    @pulumi.getter(name="federationParameters")
-    def federation_parameters(self) -> Optional['outputs.EnvironmentFederationParameters']:
-        return pulumi.get(self, "federation_parameters")
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -154,7 +145,6 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             environment_id=self.environment_id,
             environment_url=self.environment_url,
             federation_mode=self.federation_mode,
-            federation_parameters=self.federation_parameters,
             name=self.name,
             sage_maker_studio_domain_url=self.sage_maker_studio_domain_url,
             status=self.status)
@@ -181,7 +171,6 @@ def get_environment(environment_id: Optional[str] = None,
         environment_id=__ret__.environment_id,
         environment_url=__ret__.environment_url,
         federation_mode=__ret__.federation_mode,
-        federation_parameters=__ret__.federation_parameters,
         name=__ret__.name,
         sage_maker_studio_domain_url=__ret__.sage_maker_studio_domain_url,
         status=__ret__.status)

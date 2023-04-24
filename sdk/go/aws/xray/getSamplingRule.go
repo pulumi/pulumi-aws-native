@@ -25,12 +25,12 @@ type LookupSamplingRuleArgs struct {
 }
 
 type LookupSamplingRuleResult struct {
-	RuleARN            *string              `pulumi:"ruleARN"`
-	RuleName           *string              `pulumi:"ruleName"`
-	SamplingRule       *SamplingRuleType    `pulumi:"samplingRule"`
-	SamplingRuleRecord *SamplingRuleRecord  `pulumi:"samplingRuleRecord"`
-	SamplingRuleUpdate *SamplingRuleUpdate  `pulumi:"samplingRuleUpdate"`
-	Tags               []TagsItemProperties `pulumi:"tags"`
+	RuleARN            *string             `pulumi:"ruleARN"`
+	RuleName           *string             `pulumi:"ruleName"`
+	SamplingRule       *SamplingRuleType   `pulumi:"samplingRule"`
+	SamplingRuleRecord *SamplingRuleRecord `pulumi:"samplingRuleRecord"`
+	SamplingRuleUpdate *SamplingRuleUpdate `pulumi:"samplingRuleUpdate"`
+	Tags               []SamplingRuleTag   `pulumi:"tags"`
 }
 
 func LookupSamplingRuleOutput(ctx *pulumi.Context, args LookupSamplingRuleOutputArgs, opts ...pulumi.InvokeOption) LookupSamplingRuleResultOutput {
@@ -88,8 +88,8 @@ func (o LookupSamplingRuleResultOutput) SamplingRuleUpdate() SamplingRuleUpdateP
 	return o.ApplyT(func(v LookupSamplingRuleResult) *SamplingRuleUpdate { return v.SamplingRuleUpdate }).(SamplingRuleUpdatePtrOutput)
 }
 
-func (o LookupSamplingRuleResultOutput) Tags() TagsItemPropertiesArrayOutput {
-	return o.ApplyT(func(v LookupSamplingRuleResult) []TagsItemProperties { return v.Tags }).(TagsItemPropertiesArrayOutput)
+func (o LookupSamplingRuleResultOutput) Tags() SamplingRuleTagArrayOutput {
+	return o.ApplyT(func(v LookupSamplingRuleResult) []SamplingRuleTag { return v.Tags }).(SamplingRuleTagArrayOutput)
 }
 
 func init() {

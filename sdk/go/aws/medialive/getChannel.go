@@ -25,19 +25,20 @@ type LookupChannelArgs struct {
 }
 
 type LookupChannelResult struct {
-	Arn                   *string                       `pulumi:"arn"`
-	CdiInputSpecification *ChannelCdiInputSpecification `pulumi:"cdiInputSpecification"`
-	ChannelClass          *string                       `pulumi:"channelClass"`
-	Destinations          []ChannelOutputDestination    `pulumi:"destinations"`
-	EncoderSettings       *ChannelEncoderSettings       `pulumi:"encoderSettings"`
-	Id                    *string                       `pulumi:"id"`
-	InputAttachments      []ChannelInputAttachment      `pulumi:"inputAttachments"`
-	InputSpecification    *ChannelInputSpecification    `pulumi:"inputSpecification"`
-	Inputs                []string                      `pulumi:"inputs"`
-	LogLevel              *string                       `pulumi:"logLevel"`
-	Name                  *string                       `pulumi:"name"`
-	RoleArn               *string                       `pulumi:"roleArn"`
-	Tags                  interface{}                   `pulumi:"tags"`
+	Arn                   *string                           `pulumi:"arn"`
+	CdiInputSpecification *ChannelCdiInputSpecification     `pulumi:"cdiInputSpecification"`
+	ChannelClass          *string                           `pulumi:"channelClass"`
+	Destinations          []ChannelOutputDestination        `pulumi:"destinations"`
+	EncoderSettings       *ChannelEncoderSettings           `pulumi:"encoderSettings"`
+	Id                    *string                           `pulumi:"id"`
+	InputAttachments      []ChannelInputAttachment          `pulumi:"inputAttachments"`
+	InputSpecification    *ChannelInputSpecification        `pulumi:"inputSpecification"`
+	Inputs                []string                          `pulumi:"inputs"`
+	LogLevel              *string                           `pulumi:"logLevel"`
+	Maintenance           *ChannelMaintenanceCreateSettings `pulumi:"maintenance"`
+	Name                  *string                           `pulumi:"name"`
+	RoleArn               *string                           `pulumi:"roleArn"`
+	Tags                  interface{}                       `pulumi:"tags"`
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -113,6 +114,10 @@ func (o LookupChannelResultOutput) Inputs() pulumi.StringArrayOutput {
 
 func (o LookupChannelResultOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupChannelResultOutput) Maintenance() ChannelMaintenanceCreateSettingsPtrOutput {
+	return o.ApplyT(func(v LookupChannelResult) *ChannelMaintenanceCreateSettings { return v.Maintenance }).(ChannelMaintenanceCreateSettingsPtrOutput)
 }
 
 func (o LookupChannelResultOutput) Name() pulumi.StringPtrOutput {

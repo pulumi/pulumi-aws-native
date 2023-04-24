@@ -15,6 +15,11 @@ export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
+export { ClusterPolicyArgs } from "./clusterPolicy";
+export type ClusterPolicy = import("./clusterPolicy").ClusterPolicy;
+export const ClusterPolicy: typeof import("./clusterPolicy").ClusterPolicy = null as any;
+utilities.lazyLoad(exports, ["ClusterPolicy"], () => require("./clusterPolicy"));
+
 export { ConfigurationArgs } from "./configuration";
 export type Configuration = import("./configuration").Configuration;
 export const Configuration: typeof import("./configuration").Configuration = null as any;
@@ -29,6 +34,11 @@ export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getClu
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
+export { GetClusterPolicyArgs, GetClusterPolicyResult, GetClusterPolicyOutputArgs } from "./getClusterPolicy";
+export const getClusterPolicy: typeof import("./getClusterPolicy").getClusterPolicy = null as any;
+export const getClusterPolicyOutput: typeof import("./getClusterPolicy").getClusterPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterPolicy","getClusterPolicyOutput"], () => require("./getClusterPolicy"));
 
 export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
 export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
@@ -57,6 +67,8 @@ const _module = {
                 return new BatchScramSecret(name, <any>undefined, { urn })
             case "aws-native:msk:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws-native:msk:ClusterPolicy":
+                return new ClusterPolicy(name, <any>undefined, { urn })
             case "aws-native:msk:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
             case "aws-native:msk:ServerlessCluster":

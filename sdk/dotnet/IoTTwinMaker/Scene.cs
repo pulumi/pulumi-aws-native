@@ -46,10 +46,22 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// A key-value pair of generated scene metadata for the scene.
+        /// </summary>
+        [Output("generatedSceneMetadata")]
+        public Output<object> GeneratedSceneMetadata { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the scene.
         /// </summary>
         [Output("sceneId")]
         public Output<string> SceneId { get; private set; } = null!;
+
+        /// <summary>
+        /// A key-value pair of scene metadata for the scene.
+        /// </summary>
+        [Output("sceneMetadata")]
+        public Output<object?> SceneMetadata { get; private set; } = null!;
 
         /// <summary>
         /// A key-value pair to associate with a resource.
@@ -143,6 +155,12 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// </summary>
         [Input("sceneId", required: true)]
         public Input<string> SceneId { get; set; } = null!;
+
+        /// <summary>
+        /// A key-value pair of scene metadata for the scene.
+        /// </summary>
+        [Input("sceneMetadata")]
+        public Input<object>? SceneMetadata { get; set; }
 
         /// <summary>
         /// A key-value pair to associate with a resource.

@@ -85,7 +85,6 @@ namespace Pulumi.AwsNative.FinSpace
         /// Federation mode used with the Environment
         /// </summary>
         public readonly Pulumi.AwsNative.FinSpace.EnvironmentFederationMode? FederationMode;
-        public readonly Outputs.EnvironmentFederationParameters? FederationParameters;
         /// <summary>
         /// Name of the Environment
         /// </summary>
@@ -115,8 +114,6 @@ namespace Pulumi.AwsNative.FinSpace
 
             Pulumi.AwsNative.FinSpace.EnvironmentFederationMode? federationMode,
 
-            Outputs.EnvironmentFederationParameters? federationParameters,
-
             string? name,
 
             string? sageMakerStudioDomainUrl,
@@ -130,7 +127,6 @@ namespace Pulumi.AwsNative.FinSpace
             EnvironmentId = environmentId;
             EnvironmentUrl = environmentUrl;
             FederationMode = federationMode;
-            FederationParameters = federationParameters;
             Name = name;
             SageMakerStudioDomainUrl = sageMakerStudioDomainUrl;
             Status = status;

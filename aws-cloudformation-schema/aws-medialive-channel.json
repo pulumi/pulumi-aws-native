@@ -23,6 +23,9 @@
     "Vpc" : {
       "$ref" : "#/definitions/VpcOutputSettings"
     },
+    "Maintenance" : {
+      "$ref" : "#/definitions/MaintenanceCreateSettings"
+    },
     "LogLevel" : {
       "type" : "string"
     },
@@ -131,6 +134,15 @@
         }
       }
     },
+    "AudioDolbyEDecode" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ProgramSelection" : {
+          "type" : "string"
+        }
+      }
+    },
     "AudioCodecSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -143,6 +155,9 @@
         },
         "Mp2Settings" : {
           "$ref" : "#/definitions/Mp2Settings"
+        },
+        "Eac3AtmosSettings" : {
+          "$ref" : "#/definitions/Eac3AtmosSettings"
         },
         "PassThroughSettings" : {
           "$ref" : "#/definitions/PassThroughSettings"
@@ -187,6 +202,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "TimecodeBurninSettings" : {
+          "$ref" : "#/definitions/TimecodeBurninSettings"
+        },
         "NumRefFrames" : {
           "type" : "integer"
         },
@@ -476,6 +494,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "DolbyEDecode" : {
+          "$ref" : "#/definitions/AudioDolbyEDecode"
+        },
         "Tracks" : {
           "type" : "array",
           "uniqueItems" : false,
@@ -651,6 +672,9 @@
         },
         "Scte35TimeSignalApos" : {
           "$ref" : "#/definitions/Scte35TimeSignalApos"
+        },
+        "Esam" : {
+          "$ref" : "#/definitions/Esam"
         }
       }
     },
@@ -956,11 +980,14 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "CaptureInterval" : {
-          "type" : "integer"
+        "TimecodeBurninSettings" : {
+          "$ref" : "#/definitions/TimecodeBurninSettings"
         },
         "CaptureIntervalUnits" : {
           "type" : "string"
+        },
+        "CaptureInterval" : {
+          "type" : "integer"
         }
       }
     },
@@ -969,6 +996,42 @@
       "additionalProperties" : false,
       "properties" : {
         "Resolution" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Esam" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AdAvailOffset" : {
+          "type" : "integer"
+        },
+        "ZoneIdentity" : {
+          "type" : "string"
+        },
+        "AcquisitionPointId" : {
+          "type" : "string"
+        },
+        "PoisEndpoint" : {
+          "type" : "string"
+        },
+        "Username" : {
+          "type" : "string"
+        },
+        "PasswordParam" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MaintenanceCreateSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MaintenanceDay" : {
+          "type" : "string"
+        },
+        "MaintenanceStartTime" : {
           "type" : "string"
         }
       }
@@ -1078,6 +1141,9 @@
         },
         "ColorSpacePassthroughSettings" : {
           "$ref" : "#/definitions/ColorSpacePassthroughSettings"
+        },
+        "DolbyVision81Settings" : {
+          "$ref" : "#/definitions/DolbyVision81Settings"
         },
         "Hdr10Settings" : {
           "$ref" : "#/definitions/Hdr10Settings"
@@ -1359,6 +1425,69 @@
         "EtvPlatformPid" : {
           "type" : "string"
         },
+        "AribCaptionsPid" : {
+          "type" : "string"
+        },
+        "EbpPlacement" : {
+          "type" : "string"
+        },
+        "DvbSubPids" : {
+          "type" : "string"
+        },
+        "SegmentationStyle" : {
+          "type" : "string"
+        },
+        "Klv" : {
+          "type" : "string"
+        },
+        "Scte35PrerollPullupMilliseconds" : {
+          "type" : "number"
+        },
+        "TimedMetadataBehavior" : {
+          "type" : "string"
+        },
+        "DvbTeletextPid" : {
+          "type" : "string"
+        },
+        "Scte35Control" : {
+          "type" : "string"
+        },
+        "PcrPeriod" : {
+          "type" : "integer"
+        },
+        "SegmentationTime" : {
+          "type" : "number"
+        },
+        "CcDescriptor" : {
+          "type" : "string"
+        },
+        "PmtPid" : {
+          "type" : "string"
+        },
+        "DvbNitSettings" : {
+          "$ref" : "#/definitions/DvbNitSettings"
+        },
+        "EtvSignalPid" : {
+          "type" : "string"
+        },
+        "Arib" : {
+          "type" : "string"
+        },
+        "TimedMetadataPid" : {
+          "type" : "string"
+        },
+        "AudioPids" : {
+          "type" : "string"
+        },
+        "AudioBufferModel" : {
+          "type" : "string"
+        },
+        "Ebif" : {
+          "type" : "string"
+        },
+        "PcrControl" : {
+          "type" : "string"
+        },
         "PatInterval" : {
           "type" : "integer"
         },
@@ -1377,9 +1506,6 @@
         "PmtInterval" : {
           "type" : "integer"
         },
-        "AribCaptionsPid" : {
-          "type" : "string"
-        },
         "EsRateInPes" : {
           "type" : "string"
         },
@@ -1389,22 +1515,10 @@
         "TransportStreamId" : {
           "type" : "integer"
         },
-        "EbpPlacement" : {
-          "type" : "string"
-        },
-        "DvbSubPids" : {
-          "type" : "string"
-        },
-        "SegmentationStyle" : {
-          "type" : "string"
-        },
         "Scte35Pid" : {
           "type" : "string"
         },
         "AudioStreamType" : {
-          "type" : "string"
-        },
-        "Klv" : {
           "type" : "string"
         },
         "EbpLookaheadMs" : {
@@ -1413,34 +1527,16 @@
         "DvbTdtSettings" : {
           "$ref" : "#/definitions/DvbTdtSettings"
         },
-        "TimedMetadataBehavior" : {
-          "type" : "string"
-        },
         "EbpAudioInterval" : {
           "type" : "string"
         },
         "FragmentTime" : {
           "type" : "number"
         },
-        "DvbTeletextPid" : {
-          "type" : "string"
-        },
-        "Scte35Control" : {
-          "type" : "string"
-        },
-        "PcrPeriod" : {
-          "type" : "integer"
-        },
         "NielsenId3Behavior" : {
           "type" : "string"
         },
         "PcrPid" : {
-          "type" : "string"
-        },
-        "SegmentationTime" : {
-          "type" : "number"
-        },
-        "CcDescriptor" : {
           "type" : "string"
         },
         "AudioFramesPerPes" : {
@@ -1452,26 +1548,14 @@
         "Bitrate" : {
           "type" : "integer"
         },
-        "PmtPid" : {
-          "type" : "string"
-        },
         "Scte27Pids" : {
           "type" : "string"
         },
         "SegmentationMarkers" : {
           "type" : "string"
         },
-        "DvbNitSettings" : {
-          "$ref" : "#/definitions/DvbNitSettings"
-        },
         "DvbSdtSettings" : {
           "$ref" : "#/definitions/DvbSdtSettings"
-        },
-        "EtvSignalPid" : {
-          "type" : "string"
-        },
-        "Arib" : {
-          "type" : "string"
         },
         "BufferModel" : {
           "type" : "string"
@@ -1479,25 +1563,14 @@
         "EcmPid" : {
           "type" : "string"
         },
-        "TimedMetadataPid" : {
-          "type" : "string"
-        },
-        "AudioPids" : {
-          "type" : "string"
-        },
-        "AudioBufferModel" : {
-          "type" : "string"
-        },
-        "Ebif" : {
-          "type" : "string"
-        },
         "AribCaptionsPidControl" : {
-          "type" : "string"
-        },
-        "PcrControl" : {
           "type" : "string"
         }
       }
+    },
+    "DolbyVision81Settings" : {
+      "type" : "object",
+      "additionalProperties" : false
     },
     "HlsGroupSettings" : {
       "type" : "object",
@@ -1818,6 +1891,33 @@
     "PassThroughSettings" : {
       "type" : "object",
       "additionalProperties" : false
+    },
+    "Eac3AtmosSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CodingMode" : {
+          "type" : "string"
+        },
+        "Dialnorm" : {
+          "type" : "integer"
+        },
+        "SurroundTrim" : {
+          "type" : "number"
+        },
+        "DrcRf" : {
+          "type" : "string"
+        },
+        "Bitrate" : {
+          "type" : "number"
+        },
+        "DrcLine" : {
+          "type" : "string"
+        },
+        "HeightTrim" : {
+          "type" : "number"
+        }
+      }
     },
     "InputLossFailoverSettings" : {
       "type" : "object",
@@ -2172,6 +2272,21 @@
         }
       }
     },
+    "TimecodeBurninSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Prefix" : {
+          "type" : "string"
+        },
+        "FontSize" : {
+          "type" : "string"
+        },
+        "Position" : {
+          "type" : "string"
+        }
+      }
+    },
     "AudioSelector" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -2227,6 +2342,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "TimecodeBurninSettings" : {
+          "$ref" : "#/definitions/TimecodeBurninSettings"
+        },
         "Slices" : {
           "type" : "integer"
         },
@@ -2428,13 +2546,16 @@
         "DestinationSettings" : {
           "$ref" : "#/definitions/CaptionDestinationSettings"
         },
-        "CaptionSelectorName" : {
-          "type" : "string"
-        },
         "LanguageCode" : {
           "type" : "string"
         },
         "LanguageDescription" : {
+          "type" : "string"
+        },
+        "Accessibility" : {
+          "type" : "string"
+        },
+        "CaptionSelectorName" : {
           "type" : "string"
         },
         "Name" : {
@@ -2503,6 +2624,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "TimecodeBurninSettings" : {
+          "$ref" : "#/definitions/TimecodeBurninSettings"
+        },
         "ColorSpace" : {
           "type" : "string"
         },
@@ -2952,6 +3076,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "Timezone" : {
+          "type" : "string"
+        },
         "CheckDigitString" : {
           "type" : "string"
         },

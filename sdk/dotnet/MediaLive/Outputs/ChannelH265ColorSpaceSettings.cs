@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     public sealed class ChannelH265ColorSpaceSettings
     {
         public readonly Outputs.ChannelColorSpacePassthroughSettings? ColorSpacePassthroughSettings;
+        public readonly Outputs.ChannelDolbyVision81Settings? DolbyVision81Settings;
         public readonly Outputs.ChannelHdr10Settings? Hdr10Settings;
         public readonly Outputs.ChannelRec601Settings? Rec601Settings;
         public readonly Outputs.ChannelRec709Settings? Rec709Settings;
@@ -22,6 +23,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         private ChannelH265ColorSpaceSettings(
             Outputs.ChannelColorSpacePassthroughSettings? colorSpacePassthroughSettings,
 
+            Outputs.ChannelDolbyVision81Settings? dolbyVision81Settings,
+
             Outputs.ChannelHdr10Settings? hdr10Settings,
 
             Outputs.ChannelRec601Settings? rec601Settings,
@@ -29,6 +32,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             Outputs.ChannelRec709Settings? rec709Settings)
         {
             ColorSpacePassthroughSettings = colorSpacePassthroughSettings;
+            DolbyVision81Settings = dolbyVision81Settings;
             Hdr10Settings = hdr10Settings;
             Rec601Settings = rec601Settings;
             Rec709Settings = rec709Settings;

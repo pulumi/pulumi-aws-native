@@ -166,6 +166,112 @@ func (o GroupInsightsConfigurationPtrOutput) NotificationsEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GroupTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// GroupTagInput is an input type that accepts GroupTagArgs and GroupTagOutput values.
+// You can construct a concrete instance of `GroupTagInput` via:
+//
+//	GroupTagArgs{...}
+type GroupTagInput interface {
+	pulumi.Input
+
+	ToGroupTagOutput() GroupTagOutput
+	ToGroupTagOutputWithContext(context.Context) GroupTagOutput
+}
+
+type GroupTagArgs struct {
+	// The key name of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupTag)(nil)).Elem()
+}
+
+func (i GroupTagArgs) ToGroupTagOutput() GroupTagOutput {
+	return i.ToGroupTagOutputWithContext(context.Background())
+}
+
+func (i GroupTagArgs) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupTagOutput)
+}
+
+// GroupTagArrayInput is an input type that accepts GroupTagArray and GroupTagArrayOutput values.
+// You can construct a concrete instance of `GroupTagArrayInput` via:
+//
+//	GroupTagArray{ GroupTagArgs{...} }
+type GroupTagArrayInput interface {
+	pulumi.Input
+
+	ToGroupTagArrayOutput() GroupTagArrayOutput
+	ToGroupTagArrayOutputWithContext(context.Context) GroupTagArrayOutput
+}
+
+type GroupTagArray []GroupTagInput
+
+func (GroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupTag)(nil)).Elem()
+}
+
+func (i GroupTagArray) ToGroupTagArrayOutput() GroupTagArrayOutput {
+	return i.ToGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i GroupTagArray) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupTagArrayOutput)
+}
+
+type GroupTagOutput struct{ *pulumi.OutputState }
+
+func (GroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupTag)(nil)).Elem()
+}
+
+func (o GroupTagOutput) ToGroupTagOutput() GroupTagOutput {
+	return o
+}
+
+func (o GroupTagOutput) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
+	return o
+}
+
+// The key name of the tag.
+func (o GroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag.
+func (o GroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupTag)(nil)).Elem()
+}
+
+func (o GroupTagArrayOutput) ToGroupTagArrayOutput() GroupTagArrayOutput {
+	return o
+}
+
+func (o GroupTagArrayOutput) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
+	return o
+}
+
+func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupTag {
+		return vs[0].([]GroupTag)[vs[1].(int)]
+	}).(GroupTagOutput)
+}
+
 type SamplingRuleType struct {
 	// Matches attributes derived from the request.
 	Attributes interface{} `pulumi:"attributes"`
@@ -694,6 +800,112 @@ func (o SamplingRuleRecordPtrOutput) SamplingRule() SamplingRuleTypePtrOutput {
 	}).(SamplingRuleTypePtrOutput)
 }
 
+type SamplingRuleTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// SamplingRuleTagInput is an input type that accepts SamplingRuleTagArgs and SamplingRuleTagOutput values.
+// You can construct a concrete instance of `SamplingRuleTagInput` via:
+//
+//	SamplingRuleTagArgs{...}
+type SamplingRuleTagInput interface {
+	pulumi.Input
+
+	ToSamplingRuleTagOutput() SamplingRuleTagOutput
+	ToSamplingRuleTagOutputWithContext(context.Context) SamplingRuleTagOutput
+}
+
+type SamplingRuleTagArgs struct {
+	// The key name of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SamplingRuleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRuleTag)(nil)).Elem()
+}
+
+func (i SamplingRuleTagArgs) ToSamplingRuleTagOutput() SamplingRuleTagOutput {
+	return i.ToSamplingRuleTagOutputWithContext(context.Background())
+}
+
+func (i SamplingRuleTagArgs) ToSamplingRuleTagOutputWithContext(ctx context.Context) SamplingRuleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleTagOutput)
+}
+
+// SamplingRuleTagArrayInput is an input type that accepts SamplingRuleTagArray and SamplingRuleTagArrayOutput values.
+// You can construct a concrete instance of `SamplingRuleTagArrayInput` via:
+//
+//	SamplingRuleTagArray{ SamplingRuleTagArgs{...} }
+type SamplingRuleTagArrayInput interface {
+	pulumi.Input
+
+	ToSamplingRuleTagArrayOutput() SamplingRuleTagArrayOutput
+	ToSamplingRuleTagArrayOutputWithContext(context.Context) SamplingRuleTagArrayOutput
+}
+
+type SamplingRuleTagArray []SamplingRuleTagInput
+
+func (SamplingRuleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamplingRuleTag)(nil)).Elem()
+}
+
+func (i SamplingRuleTagArray) ToSamplingRuleTagArrayOutput() SamplingRuleTagArrayOutput {
+	return i.ToSamplingRuleTagArrayOutputWithContext(context.Background())
+}
+
+func (i SamplingRuleTagArray) ToSamplingRuleTagArrayOutputWithContext(ctx context.Context) SamplingRuleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleTagArrayOutput)
+}
+
+type SamplingRuleTagOutput struct{ *pulumi.OutputState }
+
+func (SamplingRuleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRuleTag)(nil)).Elem()
+}
+
+func (o SamplingRuleTagOutput) ToSamplingRuleTagOutput() SamplingRuleTagOutput {
+	return o
+}
+
+func (o SamplingRuleTagOutput) ToSamplingRuleTagOutputWithContext(ctx context.Context) SamplingRuleTagOutput {
+	return o
+}
+
+// The key name of the tag.
+func (o SamplingRuleTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SamplingRuleTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag.
+func (o SamplingRuleTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SamplingRuleTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SamplingRuleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SamplingRuleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamplingRuleTag)(nil)).Elem()
+}
+
+func (o SamplingRuleTagArrayOutput) ToSamplingRuleTagArrayOutput() SamplingRuleTagArrayOutput {
+	return o
+}
+
+func (o SamplingRuleTagArrayOutput) ToSamplingRuleTagArrayOutputWithContext(ctx context.Context) SamplingRuleTagArrayOutput {
+	return o
+}
+
+func (o SamplingRuleTagArrayOutput) Index(i pulumi.IntInput) SamplingRuleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamplingRuleTag {
+		return vs[0].([]SamplingRuleTag)[vs[1].(int)]
+	}).(SamplingRuleTagOutput)
+}
+
 type SamplingRuleUpdate struct {
 	// Matches attributes derived from the request.
 	Attributes interface{} `pulumi:"attributes"`
@@ -1032,125 +1244,29 @@ func (o SamplingRuleUpdatePtrOutput) URLPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type TagsItemProperties struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
-}
-
-// TagsItemPropertiesInput is an input type that accepts TagsItemPropertiesArgs and TagsItemPropertiesOutput values.
-// You can construct a concrete instance of `TagsItemPropertiesInput` via:
-//
-//	TagsItemPropertiesArgs{...}
-type TagsItemPropertiesInput interface {
-	pulumi.Input
-
-	ToTagsItemPropertiesOutput() TagsItemPropertiesOutput
-	ToTagsItemPropertiesOutputWithContext(context.Context) TagsItemPropertiesOutput
-}
-
-type TagsItemPropertiesArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TagsItemPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsItemProperties)(nil)).Elem()
-}
-
-func (i TagsItemPropertiesArgs) ToTagsItemPropertiesOutput() TagsItemPropertiesOutput {
-	return i.ToTagsItemPropertiesOutputWithContext(context.Background())
-}
-
-func (i TagsItemPropertiesArgs) ToTagsItemPropertiesOutputWithContext(ctx context.Context) TagsItemPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsItemPropertiesOutput)
-}
-
-// TagsItemPropertiesArrayInput is an input type that accepts TagsItemPropertiesArray and TagsItemPropertiesArrayOutput values.
-// You can construct a concrete instance of `TagsItemPropertiesArrayInput` via:
-//
-//	TagsItemPropertiesArray{ TagsItemPropertiesArgs{...} }
-type TagsItemPropertiesArrayInput interface {
-	pulumi.Input
-
-	ToTagsItemPropertiesArrayOutput() TagsItemPropertiesArrayOutput
-	ToTagsItemPropertiesArrayOutputWithContext(context.Context) TagsItemPropertiesArrayOutput
-}
-
-type TagsItemPropertiesArray []TagsItemPropertiesInput
-
-func (TagsItemPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TagsItemProperties)(nil)).Elem()
-}
-
-func (i TagsItemPropertiesArray) ToTagsItemPropertiesArrayOutput() TagsItemPropertiesArrayOutput {
-	return i.ToTagsItemPropertiesArrayOutputWithContext(context.Background())
-}
-
-func (i TagsItemPropertiesArray) ToTagsItemPropertiesArrayOutputWithContext(ctx context.Context) TagsItemPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsItemPropertiesArrayOutput)
-}
-
-type TagsItemPropertiesOutput struct{ *pulumi.OutputState }
-
-func (TagsItemPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsItemProperties)(nil)).Elem()
-}
-
-func (o TagsItemPropertiesOutput) ToTagsItemPropertiesOutput() TagsItemPropertiesOutput {
-	return o
-}
-
-func (o TagsItemPropertiesOutput) ToTagsItemPropertiesOutputWithContext(ctx context.Context) TagsItemPropertiesOutput {
-	return o
-}
-
-func (o TagsItemPropertiesOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TagsItemProperties) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o TagsItemPropertiesOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TagsItemProperties) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TagsItemPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (TagsItemPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TagsItemProperties)(nil)).Elem()
-}
-
-func (o TagsItemPropertiesArrayOutput) ToTagsItemPropertiesArrayOutput() TagsItemPropertiesArrayOutput {
-	return o
-}
-
-func (o TagsItemPropertiesArrayOutput) ToTagsItemPropertiesArrayOutputWithContext(ctx context.Context) TagsItemPropertiesArrayOutput {
-	return o
-}
-
-func (o TagsItemPropertiesArrayOutput) Index(i pulumi.IntInput) TagsItemPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagsItemProperties {
-		return vs[0].([]TagsItemProperties)[vs[1].(int)]
-	}).(TagsItemPropertiesOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInsightsConfigurationInput)(nil)).Elem(), GroupInsightsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInsightsConfigurationPtrInput)(nil)).Elem(), GroupInsightsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagInput)(nil)).Elem(), GroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagArrayInput)(nil)).Elem(), GroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleTypeInput)(nil)).Elem(), SamplingRuleTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleTypePtrInput)(nil)).Elem(), SamplingRuleTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleRecordInput)(nil)).Elem(), SamplingRuleRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleRecordPtrInput)(nil)).Elem(), SamplingRuleRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleTagInput)(nil)).Elem(), SamplingRuleTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleTagArrayInput)(nil)).Elem(), SamplingRuleTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleUpdateInput)(nil)).Elem(), SamplingRuleUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleUpdatePtrInput)(nil)).Elem(), SamplingRuleUpdateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagsItemPropertiesInput)(nil)).Elem(), TagsItemPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagsItemPropertiesArrayInput)(nil)).Elem(), TagsItemPropertiesArray{})
 	pulumi.RegisterOutputType(GroupInsightsConfigurationOutput{})
 	pulumi.RegisterOutputType(GroupInsightsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GroupTagOutput{})
+	pulumi.RegisterOutputType(GroupTagArrayOutput{})
 	pulumi.RegisterOutputType(SamplingRuleTypeOutput{})
 	pulumi.RegisterOutputType(SamplingRuleTypePtrOutput{})
 	pulumi.RegisterOutputType(SamplingRuleRecordOutput{})
 	pulumi.RegisterOutputType(SamplingRuleRecordPtrOutput{})
+	pulumi.RegisterOutputType(SamplingRuleTagOutput{})
+	pulumi.RegisterOutputType(SamplingRuleTagArrayOutput{})
 	pulumi.RegisterOutputType(SamplingRuleUpdateOutput{})
 	pulumi.RegisterOutputType(SamplingRuleUpdatePtrOutput{})
-	pulumi.RegisterOutputType(TagsItemPropertiesOutput{})
-	pulumi.RegisterOutputType(TagsItemPropertiesArrayOutput{})
 }

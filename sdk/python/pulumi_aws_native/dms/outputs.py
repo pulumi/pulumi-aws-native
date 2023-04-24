@@ -1569,6 +1569,8 @@ class EndpointPostgreSqlSettings(dict):
             suggest = "heartbeat_frequency"
         elif key == "heartbeatSchema":
             suggest = "heartbeat_schema"
+        elif key == "mapBooleanAsBoolean":
+            suggest = "map_boolean_as_boolean"
         elif key == "maxFileSize":
             suggest = "max_file_size"
         elif key == "pluginName":
@@ -1600,6 +1602,7 @@ class EndpointPostgreSqlSettings(dict):
                  heartbeat_enable: Optional[bool] = None,
                  heartbeat_frequency: Optional[int] = None,
                  heartbeat_schema: Optional[str] = None,
+                 map_boolean_as_boolean: Optional[bool] = None,
                  max_file_size: Optional[int] = None,
                  plugin_name: Optional[str] = None,
                  secrets_manager_access_role_arn: Optional[str] = None,
@@ -1621,6 +1624,8 @@ class EndpointPostgreSqlSettings(dict):
             pulumi.set(__self__, "heartbeat_frequency", heartbeat_frequency)
         if heartbeat_schema is not None:
             pulumi.set(__self__, "heartbeat_schema", heartbeat_schema)
+        if map_boolean_as_boolean is not None:
+            pulumi.set(__self__, "map_boolean_as_boolean", map_boolean_as_boolean)
         if max_file_size is not None:
             pulumi.set(__self__, "max_file_size", max_file_size)
         if plugin_name is not None:
@@ -1671,6 +1676,11 @@ class EndpointPostgreSqlSettings(dict):
     @pulumi.getter(name="heartbeatSchema")
     def heartbeat_schema(self) -> Optional[str]:
         return pulumi.get(self, "heartbeat_schema")
+
+    @property
+    @pulumi.getter(name="mapBooleanAsBoolean")
+    def map_boolean_as_boolean(self) -> Optional[bool]:
+        return pulumi.get(self, "map_boolean_as_boolean")
 
     @property
     @pulumi.getter(name="maxFileSize")
@@ -1817,6 +1827,8 @@ class EndpointRedshiftSettings(dict):
             suggest = "file_transfer_upload_streams"
         elif key == "loadTimeout":
             suggest = "load_timeout"
+        elif key == "mapBooleanAsBoolean":
+            suggest = "map_boolean_as_boolean"
         elif key == "maxFileSize":
             suggest = "max_file_size"
         elif key == "removeQuotes":
@@ -1867,6 +1879,7 @@ class EndpointRedshiftSettings(dict):
                  explicit_ids: Optional[bool] = None,
                  file_transfer_upload_streams: Optional[int] = None,
                  load_timeout: Optional[int] = None,
+                 map_boolean_as_boolean: Optional[bool] = None,
                  max_file_size: Optional[int] = None,
                  remove_quotes: Optional[bool] = None,
                  replace_chars: Optional[str] = None,
@@ -1905,6 +1918,8 @@ class EndpointRedshiftSettings(dict):
             pulumi.set(__self__, "file_transfer_upload_streams", file_transfer_upload_streams)
         if load_timeout is not None:
             pulumi.set(__self__, "load_timeout", load_timeout)
+        if map_boolean_as_boolean is not None:
+            pulumi.set(__self__, "map_boolean_as_boolean", map_boolean_as_boolean)
         if max_file_size is not None:
             pulumi.set(__self__, "max_file_size", max_file_size)
         if remove_quotes is not None:
@@ -1994,6 +2009,11 @@ class EndpointRedshiftSettings(dict):
     @pulumi.getter(name="loadTimeout")
     def load_timeout(self) -> Optional[int]:
         return pulumi.get(self, "load_timeout")
+
+    @property
+    @pulumi.getter(name="mapBooleanAsBoolean")
+    def map_boolean_as_boolean(self) -> Optional[bool]:
+        return pulumi.get(self, "map_boolean_as_boolean")
 
     @property
     @pulumi.getter(name="maxFileSize")

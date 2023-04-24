@@ -33,6 +33,7 @@ export interface GetChannelResult {
     readonly inputSpecification?: outputs.medialive.ChannelInputSpecification;
     readonly inputs?: string[];
     readonly logLevel?: string;
+    readonly maintenance?: outputs.medialive.ChannelMaintenanceCreateSettings;
     readonly name?: string;
     readonly roleArn?: string;
     readonly tags?: any;

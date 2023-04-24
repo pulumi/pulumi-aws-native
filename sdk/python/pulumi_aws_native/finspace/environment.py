@@ -23,7 +23,8 @@ class EnvironmentArgs:
                  federation_parameters: Optional[pulumi.Input['EnvironmentFederationParametersArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 superuser_parameters: Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']] = None):
+                 superuser_parameters: Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_bundles: ARNs of FinSpace Data Bundles to install
@@ -31,6 +32,7 @@ class EnvironmentArgs:
         :param pulumi.Input['EnvironmentFederationMode'] federation_mode: Federation mode used with the Environment
         :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
         :param pulumi.Input[str] name: Name of the Environment
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if data_bundles is not None:
             pulumi.set(__self__, "data_bundles", data_bundles)
@@ -46,6 +48,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "name", name)
         if superuser_parameters is not None:
             pulumi.set(__self__, "superuser_parameters", superuser_parameters)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataBundles")
@@ -125,6 +129,18 @@ class EnvironmentArgs:
     def superuser_parameters(self, value: Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']]):
         pulumi.set(self, "superuser_parameters", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Environment(pulumi.CustomResource):
     @overload
@@ -138,6 +154,7 @@ class Environment(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  superuser_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentSuperuserParametersArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -149,6 +166,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input['EnvironmentFederationMode'] federation_mode: Federation mode used with the Environment
         :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
         :param pulumi.Input[str] name: Name of the Environment
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -181,6 +199,7 @@ class Environment(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  superuser_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentSuperuserParametersArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -197,6 +216,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
             __props__.__dict__["superuser_parameters"] = superuser_parameters
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["aws_account_id"] = None
             __props__.__dict__["dedicated_service_account_id"] = None
             __props__.__dict__["environment_arn"] = None
@@ -240,6 +260,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["sage_maker_studio_domain_url"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["superuser_parameters"] = None
+        __props__.__dict__["tags"] = None
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -347,4 +368,12 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="superuserParameters")
     def superuser_parameters(self) -> pulumi.Output[Optional['outputs.EnvironmentSuperuserParameters']]:
         return pulumi.get(self, "superuser_parameters")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 

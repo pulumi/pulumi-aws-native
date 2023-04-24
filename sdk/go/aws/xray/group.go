@@ -21,7 +21,7 @@ type Group struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             pulumi.StringPtrOutput              `pulumi:"groupName"`
 	InsightsConfiguration GroupInsightsConfigurationPtrOutput `pulumi:"insightsConfiguration"`
-	Tags                  TagsItemPropertiesArrayOutput       `pulumi:"tags"`
+	Tags                  GroupTagArrayOutput                 `pulumi:"tags"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -68,7 +68,7 @@ type groupArgs struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             *string                     `pulumi:"groupName"`
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
-	Tags                  []TagsItemProperties        `pulumi:"tags"`
+	Tags                  []GroupTag                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -78,7 +78,7 @@ type GroupArgs struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             pulumi.StringPtrInput
 	InsightsConfiguration GroupInsightsConfigurationPtrInput
-	Tags                  TagsItemPropertiesArrayInput
+	Tags                  GroupTagArrayInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -137,8 +137,8 @@ func (o GroupOutput) InsightsConfiguration() GroupInsightsConfigurationPtrOutput
 	return o.ApplyT(func(v *Group) GroupInsightsConfigurationPtrOutput { return v.InsightsConfiguration }).(GroupInsightsConfigurationPtrOutput)
 }
 
-func (o GroupOutput) Tags() TagsItemPropertiesArrayOutput {
-	return o.ApplyT(func(v *Group) TagsItemPropertiesArrayOutput { return v.Tags }).(TagsItemPropertiesArrayOutput)
+func (o GroupOutput) Tags() GroupTagArrayOutput {
+	return o.ApplyT(func(v *Group) GroupTagArrayOutput { return v.Tags }).(GroupTagArrayOutput)
 }
 
 func init() {

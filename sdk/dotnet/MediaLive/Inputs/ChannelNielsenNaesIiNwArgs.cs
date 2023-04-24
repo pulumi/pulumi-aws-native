@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("sid")]
         public Input<double>? Sid { get; set; }
 
+        [Input("timezone")]
+        public Input<string>? Timezone { get; set; }
+
         public ChannelNielsenNaesIiNwArgs()
         {
         }

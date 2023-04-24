@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     {
         public readonly Outputs.ChannelAacSettings? AacSettings;
         public readonly Outputs.ChannelAc3Settings? Ac3Settings;
+        public readonly Outputs.ChannelEac3AtmosSettings? Eac3AtmosSettings;
         public readonly Outputs.ChannelEac3Settings? Eac3Settings;
         public readonly Outputs.ChannelMp2Settings? Mp2Settings;
         public readonly Outputs.ChannelPassThroughSettings? PassThroughSettings;
@@ -26,6 +27,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             Outputs.ChannelAc3Settings? ac3Settings,
 
+            Outputs.ChannelEac3AtmosSettings? eac3AtmosSettings,
+
             Outputs.ChannelEac3Settings? eac3Settings,
 
             Outputs.ChannelMp2Settings? mp2Settings,
@@ -36,6 +39,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         {
             AacSettings = aacSettings;
             Ac3Settings = ac3Settings;
+            Eac3AtmosSettings = eac3AtmosSettings;
             Eac3Settings = eac3Settings;
             Mp2Settings = mp2Settings;
             PassThroughSettings = passThroughSettings;

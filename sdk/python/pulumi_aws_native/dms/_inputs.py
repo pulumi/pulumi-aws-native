@@ -1653,6 +1653,7 @@ class EndpointPostgreSqlSettingsArgs:
                  heartbeat_enable: Optional[pulumi.Input[bool]] = None,
                  heartbeat_frequency: Optional[pulumi.Input[int]] = None,
                  heartbeat_schema: Optional[pulumi.Input[str]] = None,
+                 map_boolean_as_boolean: Optional[pulumi.Input[bool]] = None,
                  max_file_size: Optional[pulumi.Input[int]] = None,
                  plugin_name: Optional[pulumi.Input[str]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
@@ -1674,6 +1675,8 @@ class EndpointPostgreSqlSettingsArgs:
             pulumi.set(__self__, "heartbeat_frequency", heartbeat_frequency)
         if heartbeat_schema is not None:
             pulumi.set(__self__, "heartbeat_schema", heartbeat_schema)
+        if map_boolean_as_boolean is not None:
+            pulumi.set(__self__, "map_boolean_as_boolean", map_boolean_as_boolean)
         if max_file_size is not None:
             pulumi.set(__self__, "max_file_size", max_file_size)
         if plugin_name is not None:
@@ -1756,6 +1759,15 @@ class EndpointPostgreSqlSettingsArgs:
     @heartbeat_schema.setter
     def heartbeat_schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "heartbeat_schema", value)
+
+    @property
+    @pulumi.getter(name="mapBooleanAsBoolean")
+    def map_boolean_as_boolean(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "map_boolean_as_boolean")
+
+    @map_boolean_as_boolean.setter
+    def map_boolean_as_boolean(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "map_boolean_as_boolean", value)
 
     @property
     @pulumi.getter(name="maxFileSize")
@@ -1908,6 +1920,7 @@ class EndpointRedshiftSettingsArgs:
                  explicit_ids: Optional[pulumi.Input[bool]] = None,
                  file_transfer_upload_streams: Optional[pulumi.Input[int]] = None,
                  load_timeout: Optional[pulumi.Input[int]] = None,
+                 map_boolean_as_boolean: Optional[pulumi.Input[bool]] = None,
                  max_file_size: Optional[pulumi.Input[int]] = None,
                  remove_quotes: Optional[pulumi.Input[bool]] = None,
                  replace_chars: Optional[pulumi.Input[str]] = None,
@@ -1946,6 +1959,8 @@ class EndpointRedshiftSettingsArgs:
             pulumi.set(__self__, "file_transfer_upload_streams", file_transfer_upload_streams)
         if load_timeout is not None:
             pulumi.set(__self__, "load_timeout", load_timeout)
+        if map_boolean_as_boolean is not None:
+            pulumi.set(__self__, "map_boolean_as_boolean", map_boolean_as_boolean)
         if max_file_size is not None:
             pulumi.set(__self__, "max_file_size", max_file_size)
         if remove_quotes is not None:
@@ -2087,6 +2102,15 @@ class EndpointRedshiftSettingsArgs:
     @load_timeout.setter
     def load_timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "load_timeout", value)
+
+    @property
+    @pulumi.getter(name="mapBooleanAsBoolean")
+    def map_boolean_as_boolean(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "map_boolean_as_boolean")
+
+    @map_boolean_as_boolean.setter
+    def map_boolean_as_boolean(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "map_boolean_as_boolean", value)
 
     @property
     @pulumi.getter(name="maxFileSize")

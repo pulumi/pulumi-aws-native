@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("colorSpacePassthroughSettings")]
         public Input<Inputs.ChannelColorSpacePassthroughSettingsArgs>? ColorSpacePassthroughSettings { get; set; }
 
+        [Input("dolbyVision81Settings")]
+        public Input<Inputs.ChannelDolbyVision81SettingsArgs>? DolbyVision81Settings { get; set; }
+
         [Input("hdr10Settings")]
         public Input<Inputs.ChannelHdr10SettingsArgs>? Hdr10Settings { get; set; }
 

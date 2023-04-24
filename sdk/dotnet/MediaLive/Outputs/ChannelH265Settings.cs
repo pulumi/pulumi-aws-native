@@ -41,6 +41,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly string? SceneChangeDetect;
         public readonly int? Slices;
         public readonly string? Tier;
+        public readonly Outputs.ChannelTimecodeBurninSettings? TimecodeBurninSettings;
         public readonly string? TimecodeInsertion;
 
         [OutputConstructor]
@@ -101,6 +102,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             string? tier,
 
+            Outputs.ChannelTimecodeBurninSettings? timecodeBurninSettings,
+
             string? timecodeInsertion)
         {
             AdaptiveQuantization = adaptiveQuantization;
@@ -131,6 +134,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             SceneChangeDetect = sceneChangeDetect;
             Slices = slices;
             Tier = tier;
+            TimecodeBurninSettings = timecodeBurninSettings;
             TimecodeInsertion = timecodeInsertion;
         }
     }

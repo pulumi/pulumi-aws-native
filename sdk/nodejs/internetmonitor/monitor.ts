@@ -50,6 +50,7 @@ export class Monitor extends pulumi.CustomResource {
     public readonly resourcesToRemove!: pulumi.Output<string[] | undefined>;
     public readonly status!: pulumi.Output<enums.internetmonitor.MonitorConfigState | undefined>;
     public readonly tags!: pulumi.Output<outputs.internetmonitor.MonitorTag[] | undefined>;
+    public readonly trafficPercentageToMonitor!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -70,6 +71,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["resourcesToRemove"] = args ? args.resourcesToRemove : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trafficPercentageToMonitor"] = args ? args.trafficPercentageToMonitor : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["monitorArn"] = undefined /*out*/;
@@ -89,6 +91,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["resourcesToRemove"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trafficPercentageToMonitor"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
@@ -107,4 +110,5 @@ export interface MonitorArgs {
     resourcesToRemove?: pulumi.Input<pulumi.Input<string>[]>;
     status?: pulumi.Input<enums.internetmonitor.MonitorConfigState>;
     tags?: pulumi.Input<pulumi.Input<inputs.internetmonitor.MonitorTagArgs>[]>;
+    trafficPercentageToMonitor?: pulumi.Input<number>;
 }

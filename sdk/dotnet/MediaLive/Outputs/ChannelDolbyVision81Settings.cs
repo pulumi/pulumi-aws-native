@@ -7,23 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.XRay.Outputs
+namespace Pulumi.AwsNative.MediaLive.Outputs
 {
 
     [OutputType]
-    public sealed class TagsItemProperties
+    public sealed class ChannelDolbyVision81Settings
     {
-        public readonly string Key;
-        public readonly string Value;
-
         [OutputConstructor]
-        private TagsItemProperties(
-            string key,
-
-            string value)
+        private ChannelDolbyVision81Settings()
         {
-            Key = key;
-            Value = value;
         }
     }
 }

@@ -84,10 +84,6 @@ namespace Pulumi.AwsNative.MemoryDB
         /// </summary>
         public readonly string? EngineVersion;
         /// <summary>
-        /// The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
-        /// </summary>
-        public readonly string? FinalSnapshotName;
-        /// <summary>
         /// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
         /// </summary>
         public readonly string? MaintenanceWindow;
@@ -136,10 +132,6 @@ namespace Pulumi.AwsNative.MemoryDB
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// The name of the subnet group to be used for the cluster.
-        /// </summary>
-        public readonly string? SubnetGroupName;
-        /// <summary>
         /// An array of key-value pairs to apply to this cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterTag> Tags;
@@ -157,8 +149,6 @@ namespace Pulumi.AwsNative.MemoryDB
             string? description,
 
             string? engineVersion,
-
-            string? finalSnapshotName,
 
             string? maintenanceWindow,
 
@@ -184,8 +174,6 @@ namespace Pulumi.AwsNative.MemoryDB
 
             string? status,
 
-            string? subnetGroupName,
-
             ImmutableArray<Outputs.ClusterTag> tags)
         {
             ACLName = aCLName;
@@ -194,7 +182,6 @@ namespace Pulumi.AwsNative.MemoryDB
             ClusterEndpoint = clusterEndpoint;
             Description = description;
             EngineVersion = engineVersion;
-            FinalSnapshotName = finalSnapshotName;
             MaintenanceWindow = maintenanceWindow;
             NodeType = nodeType;
             NumReplicasPerShard = numReplicasPerShard;
@@ -207,7 +194,6 @@ namespace Pulumi.AwsNative.MemoryDB
             SnsTopicArn = snsTopicArn;
             SnsTopicStatus = snsTopicStatus;
             Status = status;
-            SubnetGroupName = subnetGroupName;
             Tags = tags;
         }
     }

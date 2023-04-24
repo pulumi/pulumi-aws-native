@@ -3370,6 +3370,7 @@ type EndpointPostgreSqlSettings struct {
 	HeartbeatEnable             *bool   `pulumi:"heartbeatEnable"`
 	HeartbeatFrequency          *int    `pulumi:"heartbeatFrequency"`
 	HeartbeatSchema             *string `pulumi:"heartbeatSchema"`
+	MapBooleanAsBoolean         *bool   `pulumi:"mapBooleanAsBoolean"`
 	MaxFileSize                 *int    `pulumi:"maxFileSize"`
 	PluginName                  *string `pulumi:"pluginName"`
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
@@ -3397,6 +3398,7 @@ type EndpointPostgreSqlSettingsArgs struct {
 	HeartbeatEnable             pulumi.BoolPtrInput   `pulumi:"heartbeatEnable"`
 	HeartbeatFrequency          pulumi.IntPtrInput    `pulumi:"heartbeatFrequency"`
 	HeartbeatSchema             pulumi.StringPtrInput `pulumi:"heartbeatSchema"`
+	MapBooleanAsBoolean         pulumi.BoolPtrInput   `pulumi:"mapBooleanAsBoolean"`
 	MaxFileSize                 pulumi.IntPtrInput    `pulumi:"maxFileSize"`
 	PluginName                  pulumi.StringPtrInput `pulumi:"pluginName"`
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
@@ -3513,6 +3515,10 @@ func (o EndpointPostgreSqlSettingsOutput) HeartbeatSchema() pulumi.StringPtrOutp
 	return o.ApplyT(func(v EndpointPostgreSqlSettings) *string { return v.HeartbeatSchema }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointPostgreSqlSettingsOutput) MapBooleanAsBoolean() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointPostgreSqlSettings) *bool { return v.MapBooleanAsBoolean }).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointPostgreSqlSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointPostgreSqlSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
 }
@@ -3627,6 +3633,15 @@ func (o EndpointPostgreSqlSettingsPtrOutput) HeartbeatSchema() pulumi.StringPtrO
 		}
 		return v.HeartbeatSchema
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointPostgreSqlSettingsPtrOutput) MapBooleanAsBoolean() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgreSqlSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MapBooleanAsBoolean
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o EndpointPostgreSqlSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
@@ -3911,6 +3926,7 @@ type EndpointRedshiftSettings struct {
 	ExplicitIds                  *bool   `pulumi:"explicitIds"`
 	FileTransferUploadStreams    *int    `pulumi:"fileTransferUploadStreams"`
 	LoadTimeout                  *int    `pulumi:"loadTimeout"`
+	MapBooleanAsBoolean          *bool   `pulumi:"mapBooleanAsBoolean"`
 	MaxFileSize                  *int    `pulumi:"maxFileSize"`
 	RemoveQuotes                 *bool   `pulumi:"removeQuotes"`
 	ReplaceChars                 *string `pulumi:"replaceChars"`
@@ -3950,6 +3966,7 @@ type EndpointRedshiftSettingsArgs struct {
 	ExplicitIds                  pulumi.BoolPtrInput   `pulumi:"explicitIds"`
 	FileTransferUploadStreams    pulumi.IntPtrInput    `pulumi:"fileTransferUploadStreams"`
 	LoadTimeout                  pulumi.IntPtrInput    `pulumi:"loadTimeout"`
+	MapBooleanAsBoolean          pulumi.BoolPtrInput   `pulumi:"mapBooleanAsBoolean"`
 	MaxFileSize                  pulumi.IntPtrInput    `pulumi:"maxFileSize"`
 	RemoveQuotes                 pulumi.BoolPtrInput   `pulumi:"removeQuotes"`
 	ReplaceChars                 pulumi.StringPtrInput `pulumi:"replaceChars"`
@@ -4091,6 +4108,10 @@ func (o EndpointRedshiftSettingsOutput) FileTransferUploadStreams() pulumi.IntPt
 
 func (o EndpointRedshiftSettingsOutput) LoadTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *int { return v.LoadTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) MapBooleanAsBoolean() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *bool { return v.MapBooleanAsBoolean }).(pulumi.BoolPtrOutput)
 }
 
 func (o EndpointRedshiftSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
@@ -4280,6 +4301,15 @@ func (o EndpointRedshiftSettingsPtrOutput) LoadTimeout() pulumi.IntPtrOutput {
 		}
 		return v.LoadTimeout
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) MapBooleanAsBoolean() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MapBooleanAsBoolean
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o EndpointRedshiftSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {

@@ -20,7 +20,7 @@ class SamplingRuleInitArgs:
                  sampling_rule: Optional[pulumi.Input['SamplingRuleArgs']] = None,
                  sampling_rule_record: Optional[pulumi.Input['SamplingRuleRecordArgs']] = None,
                  sampling_rule_update: Optional[pulumi.Input['SamplingRuleUpdateArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SamplingRuleTagArgs']]]] = None):
         """
         The set of arguments for constructing a SamplingRule resource.
         """
@@ -73,11 +73,11 @@ class SamplingRuleInitArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamplingRuleTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamplingRuleTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -90,7 +90,7 @@ class SamplingRule(pulumi.CustomResource):
                  sampling_rule: Optional[pulumi.Input[pulumi.InputType['SamplingRuleArgs']]] = None,
                  sampling_rule_record: Optional[pulumi.Input[pulumi.InputType['SamplingRuleRecordArgs']]] = None,
                  sampling_rule_update: Optional[pulumi.Input[pulumi.InputType['SamplingRuleUpdateArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagsItemPropertiesArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamplingRuleTagArgs']]]]] = None,
                  __props__=None):
         """
         This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
@@ -126,7 +126,7 @@ class SamplingRule(pulumi.CustomResource):
                  sampling_rule: Optional[pulumi.Input[pulumi.InputType['SamplingRuleArgs']]] = None,
                  sampling_rule_record: Optional[pulumi.Input[pulumi.InputType['SamplingRuleRecordArgs']]] = None,
                  sampling_rule_update: Optional[pulumi.Input[pulumi.InputType['SamplingRuleUpdateArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagsItemPropertiesArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SamplingRuleTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -199,6 +199,6 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TagsItemProperties']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SamplingRuleTag']]]:
         return pulumi.get(self, "tags")
 

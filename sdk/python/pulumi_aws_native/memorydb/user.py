@@ -17,8 +17,8 @@ __all__ = ['UserArgs', 'User']
 @pulumi.input_type
 class UserArgs:
     def __init__(__self__, *,
-                 access_string: pulumi.Input[str],
-                 authentication_mode: pulumi.Input['AuthenticationModePropertiesArgs'],
+                 access_string: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input['AuthenticationModePropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
@@ -27,8 +27,10 @@ class UserArgs:
         :param pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]] tags: An array of key-value pairs to apply to this user.
         :param pulumi.Input[str] user_name: The name of the user.
         """
-        pulumi.set(__self__, "access_string", access_string)
-        pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if access_string is not None:
+            pulumi.set(__self__, "access_string", access_string)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if user_name is not None:
@@ -36,23 +38,23 @@ class UserArgs:
 
     @property
     @pulumi.getter(name="accessString")
-    def access_string(self) -> pulumi.Input[str]:
+    def access_string(self) -> Optional[pulumi.Input[str]]:
         """
         Access permissions string used for this user account.
         """
         return pulumi.get(self, "access_string")
 
     @access_string.setter
-    def access_string(self, value: pulumi.Input[str]):
+    def access_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_string", value)
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> pulumi.Input['AuthenticationModePropertiesArgs']:
+    def authentication_mode(self) -> Optional[pulumi.Input['AuthenticationModePropertiesArgs']]:
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: pulumi.Input['AuthenticationModePropertiesArgs']):
+    def authentication_mode(self, value: Optional[pulumi.Input['AuthenticationModePropertiesArgs']]):
         pulumi.set(self, "authentication_mode", value)
 
     @property
@@ -103,7 +105,7 @@ class User(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserArgs,
+                 args: Optional[UserArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MemoryDB::User
@@ -136,11 +138,7 @@ class User(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserArgs.__new__(UserArgs)
 
-            if access_string is None and not opts.urn:
-                raise TypeError("Missing required property 'access_string'")
             __props__.__dict__["access_string"] = access_string
-            if authentication_mode is None and not opts.urn:
-                raise TypeError("Missing required property 'authentication_mode'")
             __props__.__dict__["authentication_mode"] = authentication_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_name"] = user_name
@@ -178,7 +176,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessString")
-    def access_string(self) -> pulumi.Output[str]:
+    def access_string(self) -> pulumi.Output[Optional[str]]:
         """
         Access permissions string used for this user account.
         """
@@ -194,7 +192,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> pulumi.Output['outputs.AuthenticationModeProperties']:
+    def authentication_mode(self) -> pulumi.Output[Optional['outputs.AuthenticationModeProperties']]:
         return pulumi.get(self, "authentication_mode")
 
     @property

@@ -66,7 +66,7 @@ class GetSamplingRuleResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.TagsItemProperties']]:
+    def tags(self) -> Optional[Sequence['outputs.SamplingRuleTag']]:
         return pulumi.get(self, "tags")
 
 

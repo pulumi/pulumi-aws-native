@@ -10,17 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.XRay.Inputs
 {
 
-    public sealed class TagsItemPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class GroupTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key name of the tag.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value for the tag.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
-        public TagsItemPropertiesArgs()
+        public GroupTagArgs()
         {
         }
-        public static new TagsItemPropertiesArgs Empty => new TagsItemPropertiesArgs();
+        public static new GroupTagArgs Empty => new GroupTagArgs();
     }
 }

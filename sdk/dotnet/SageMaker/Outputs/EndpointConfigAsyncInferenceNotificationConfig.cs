@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class EndpointConfigAsyncInferenceNotificationConfig
     {
         public readonly string? ErrorTopic;
+        public readonly ImmutableArray<string> IncludeInferenceResponseIn;
         public readonly string? SuccessTopic;
 
         [OutputConstructor]
         private EndpointConfigAsyncInferenceNotificationConfig(
             string? errorTopic,
 
+            ImmutableArray<string> includeInferenceResponseIn,
+
             string? successTopic)
         {
             ErrorTopic = errorTopic;
+            IncludeInferenceResponseIn = includeInferenceResponseIn;
             SuccessTopic = successTopic;
         }
     }

@@ -40,6 +40,8 @@ type Environment struct {
 	// State of the Environment
 	Status              EnvironmentStatusOutput                 `pulumi:"status"`
 	SuperuserParameters EnvironmentSuperuserParametersPtrOutput `pulumi:"superuserParameters"`
+	// An array of key-value pairs to apply to this resource.
+	Tags EnvironmentTagArrayOutput `pulumi:"tags"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -93,6 +95,8 @@ type environmentArgs struct {
 	// Name of the Environment
 	Name                *string                         `pulumi:"name"`
 	SuperuserParameters *EnvironmentSuperuserParameters `pulumi:"superuserParameters"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []EnvironmentTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -109,6 +113,8 @@ type EnvironmentArgs struct {
 	// Name of the Environment
 	Name                pulumi.StringPtrInput
 	SuperuserParameters EnvironmentSuperuserParametersPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags EnvironmentTagArrayInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -214,6 +220,11 @@ func (o EnvironmentOutput) Status() EnvironmentStatusOutput {
 
 func (o EnvironmentOutput) SuperuserParameters() EnvironmentSuperuserParametersPtrOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentSuperuserParametersPtrOutput { return v.SuperuserParameters }).(EnvironmentSuperuserParametersPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o EnvironmentOutput) Tags() EnvironmentTagArrayOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentTagArrayOutput { return v.Tags }).(EnvironmentTagArrayOutput)
 }
 
 func init() {

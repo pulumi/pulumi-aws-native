@@ -38,6 +38,10 @@ type LookupSceneResult struct {
 	CreationDateTime *string `pulumi:"creationDateTime"`
 	// The description of the scene.
 	Description *string `pulumi:"description"`
+	// A key-value pair of generated scene metadata for the scene.
+	GeneratedSceneMetadata interface{} `pulumi:"generatedSceneMetadata"`
+	// A key-value pair of scene metadata for the scene.
+	SceneMetadata interface{} `pulumi:"sceneMetadata"`
 	// A key-value pair to associate with a resource.
 	Tags interface{} `pulumi:"tags"`
 	// The date and time of the current update.
@@ -105,6 +109,16 @@ func (o LookupSceneResultOutput) CreationDateTime() pulumi.StringPtrOutput {
 // The description of the scene.
 func (o LookupSceneResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSceneResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair of generated scene metadata for the scene.
+func (o LookupSceneResultOutput) GeneratedSceneMetadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupSceneResult) interface{} { return v.GeneratedSceneMetadata }).(pulumi.AnyOutput)
+}
+
+// A key-value pair of scene metadata for the scene.
+func (o LookupSceneResultOutput) SceneMetadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupSceneResult) interface{} { return v.SceneMetadata }).(pulumi.AnyOutput)
 }
 
 // A key-value pair to associate with a resource.

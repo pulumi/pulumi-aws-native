@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventType{}
 	case "aws-native:frauddetector:Label":
 		r = &Label{}
+	case "aws-native:frauddetector:List":
+		r = &List{}
 	case "aws-native:frauddetector:Outcome":
 		r = &Outcome{}
 	case "aws-native:frauddetector:Variable":

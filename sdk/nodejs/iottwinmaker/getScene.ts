@@ -49,6 +49,14 @@ export interface GetSceneResult {
      */
     readonly description?: string;
     /**
+     * A key-value pair of generated scene metadata for the scene.
+     */
+    readonly generatedSceneMetadata?: any;
+    /**
+     * A key-value pair of scene metadata for the scene.
+     */
+    readonly sceneMetadata?: any;
+    /**
      * A key-value pair to associate with a resource.
      */
     readonly tags?: any;

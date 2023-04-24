@@ -40,6 +40,11 @@ export const getLabel: typeof import("./getLabel").getLabel = null as any;
 export const getLabelOutput: typeof import("./getLabel").getLabelOutput = null as any;
 utilities.lazyLoad(exports, ["getLabel","getLabelOutput"], () => require("./getLabel"));
 
+export { GetListArgs, GetListResult, GetListOutputArgs } from "./getList";
+export const getList: typeof import("./getList").getList = null as any;
+export const getListOutput: typeof import("./getList").getListOutput = null as any;
+utilities.lazyLoad(exports, ["getList","getListOutput"], () => require("./getList"));
+
 export { GetOutcomeArgs, GetOutcomeResult, GetOutcomeOutputArgs } from "./getOutcome";
 export const getOutcome: typeof import("./getOutcome").getOutcome = null as any;
 export const getOutcomeOutput: typeof import("./getOutcome").getOutcomeOutput = null as any;
@@ -54,6 +59,11 @@ export { LabelArgs } from "./label";
 export type Label = import("./label").Label;
 export const Label: typeof import("./label").Label = null as any;
 utilities.lazyLoad(exports, ["Label"], () => require("./label"));
+
+export { ListArgs } from "./list";
+export type List = import("./list").List;
+export const List: typeof import("./list").List = null as any;
+utilities.lazyLoad(exports, ["List"], () => require("./list"));
 
 export { OutcomeArgs } from "./outcome";
 export type Outcome = import("./outcome").Outcome;
@@ -81,6 +91,8 @@ const _module = {
                 return new EventType(name, <any>undefined, { urn })
             case "aws-native:frauddetector:Label":
                 return new Label(name, <any>undefined, { urn })
+            case "aws-native:frauddetector:List":
+                return new List(name, <any>undefined, { urn })
             case "aws-native:frauddetector:Outcome":
                 return new Outcome(name, <any>undefined, { urn })
             case "aws-native:frauddetector:Variable":

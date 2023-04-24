@@ -54,7 +54,6 @@ export interface GetEnvironmentResult {
      * Federation mode used with the Environment
      */
     readonly federationMode?: enums.finspace.EnvironmentFederationMode;
-    readonly federationParameters?: outputs.finspace.EnvironmentFederationParameters;
     /**
      * Name of the Environment
      */

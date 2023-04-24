@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMonitorResult:
-    def __init__(__self__, created_at=None, internet_measurements_log_delivery=None, max_city_networks_to_monitor=None, modified_at=None, monitor_arn=None, processing_status=None, processing_status_info=None, resources=None, status=None, tags=None):
+    def __init__(__self__, created_at=None, internet_measurements_log_delivery=None, max_city_networks_to_monitor=None, modified_at=None, monitor_arn=None, processing_status=None, processing_status_info=None, resources=None, status=None, tags=None, traffic_percentage_to_monitor=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -51,6 +51,9 @@ class GetMonitorResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if traffic_percentage_to_monitor and not isinstance(traffic_percentage_to_monitor, int):
+            raise TypeError("Expected argument 'traffic_percentage_to_monitor' to be a int")
+        pulumi.set(__self__, "traffic_percentage_to_monitor", traffic_percentage_to_monitor)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -102,6 +105,11 @@ class GetMonitorResult:
     def tags(self) -> Optional[Sequence['outputs.MonitorTag']]:
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="trafficPercentageToMonitor")
+    def traffic_percentage_to_monitor(self) -> Optional[int]:
+        return pulumi.get(self, "traffic_percentage_to_monitor")
+
 
 class AwaitableGetMonitorResult(GetMonitorResult):
     # pylint: disable=using-constant-test
@@ -118,7 +126,8 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             processing_status_info=self.processing_status_info,
             resources=self.resources,
             status=self.status,
-            tags=self.tags)
+            tags=self.tags,
+            traffic_percentage_to_monitor=self.traffic_percentage_to_monitor)
 
 
 def get_monitor(monitor_name: Optional[str] = None,
@@ -141,7 +150,8 @@ def get_monitor(monitor_name: Optional[str] = None,
         processing_status_info=__ret__.processing_status_info,
         resources=__ret__.resources,
         status=__ret__.status,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        traffic_percentage_to_monitor=__ret__.traffic_percentage_to_monitor)
 
 
 @_utilities.lift_output_func(get_monitor)

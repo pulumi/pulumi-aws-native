@@ -18,8 +18,11 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("notificationConfig")]
         public Input<Inputs.EndpointConfigAsyncInferenceNotificationConfigArgs>? NotificationConfig { get; set; }
 
-        [Input("s3OutputPath", required: true)]
-        public Input<string> S3OutputPath { get; set; } = null!;
+        [Input("s3FailurePath")]
+        public Input<string>? S3FailurePath { get; set; }
+
+        [Input("s3OutputPath")]
+        public Input<string>? S3OutputPath { get; set; }
 
         public EndpointConfigAsyncInferenceOutputConfigArgs()
         {

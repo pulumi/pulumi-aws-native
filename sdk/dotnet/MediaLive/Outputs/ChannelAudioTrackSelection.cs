@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelAudioTrackSelection
     {
+        public readonly Outputs.ChannelAudioDolbyEDecode? DolbyEDecode;
         public readonly ImmutableArray<Outputs.ChannelAudioTrack> Tracks;
 
         [OutputConstructor]
-        private ChannelAudioTrackSelection(ImmutableArray<Outputs.ChannelAudioTrack> tracks)
+        private ChannelAudioTrackSelection(
+            Outputs.ChannelAudioDolbyEDecode? dolbyEDecode,
+
+            ImmutableArray<Outputs.ChannelAudioTrack> tracks)
         {
+            DolbyEDecode = dolbyEDecode;
             Tracks = tracks;
         }
     }

@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelCaptionDescription
     {
+        public readonly string? Accessibility;
         public readonly string? CaptionSelectorName;
         public readonly Outputs.ChannelCaptionDestinationSettings? DestinationSettings;
         public readonly string? LanguageCode;
@@ -21,6 +22,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
         [OutputConstructor]
         private ChannelCaptionDescription(
+            string? accessibility,
+
             string? captionSelectorName,
 
             Outputs.ChannelCaptionDestinationSettings? destinationSettings,
@@ -31,6 +34,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             string? name)
         {
+            Accessibility = accessibility;
             CaptionSelectorName = captionSelectorName;
             DestinationSettings = destinationSettings;
             LanguageCode = languageCode;

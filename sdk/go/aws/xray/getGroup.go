@@ -33,7 +33,7 @@ type LookupGroupResult struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             *string                     `pulumi:"groupName"`
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
-	Tags                  []TagsItemProperties        `pulumi:"tags"`
+	Tags                  []GroupTag                  `pulumi:"tags"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -91,8 +91,8 @@ func (o LookupGroupResultOutput) InsightsConfiguration() GroupInsightsConfigurat
 	return o.ApplyT(func(v LookupGroupResult) *GroupInsightsConfiguration { return v.InsightsConfiguration }).(GroupInsightsConfigurationPtrOutput)
 }
 
-func (o LookupGroupResultOutput) Tags() TagsItemPropertiesArrayOutput {
-	return o.ApplyT(func(v LookupGroupResult) []TagsItemProperties { return v.Tags }).(TagsItemPropertiesArrayOutput)
+func (o LookupGroupResultOutput) Tags() GroupTagArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []GroupTag { return v.Tags }).(GroupTagArrayOutput)
 }
 
 func init() {

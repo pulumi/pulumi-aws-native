@@ -8,11 +8,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'EnvironmentFederationParameters',
+    'EnvironmentFederationParametersAttributeMapItemProperties',
     'EnvironmentSuperuserParameters',
+    'EnvironmentTag',
 ]
 
 @pulumi.output_type
@@ -49,7 +52,7 @@ class EnvironmentFederationParameters(dict):
 
     def __init__(__self__, *,
                  application_call_back_url: Optional[str] = None,
-                 attribute_map: Optional[Any] = None,
+                 attribute_map: Optional[Sequence['outputs.EnvironmentFederationParametersAttributeMapItemProperties']] = None,
                  federation_provider_name: Optional[str] = None,
                  federation_urn: Optional[str] = None,
                  saml_metadata_document: Optional[str] = None,
@@ -57,7 +60,7 @@ class EnvironmentFederationParameters(dict):
         """
         Additional parameters to identify Federation mode
         :param str application_call_back_url: SAML metadata URL to link with the Environment
-        :param Any attribute_map: Attribute map for SAML configuration
+        :param Sequence['EnvironmentFederationParametersAttributeMapItemProperties'] attribute_map: Attribute map for SAML configuration
         :param str federation_provider_name: Federation provider name to link with the Environment
         :param str federation_urn: SAML metadata URL to link with the Environment
         :param str saml_metadata_document: SAML metadata document to link the federation provider to the Environment
@@ -86,7 +89,7 @@ class EnvironmentFederationParameters(dict):
 
     @property
     @pulumi.getter(name="attributeMap")
-    def attribute_map(self) -> Optional[Any]:
+    def attribute_map(self) -> Optional[Sequence['outputs.EnvironmentFederationParametersAttributeMapItemProperties']]:
         """
         Attribute map for SAML configuration
         """
@@ -123,6 +126,37 @@ class EnvironmentFederationParameters(dict):
         SAML metadata URL to link with the Environment
         """
         return pulumi.get(self, "saml_metadata_url")
+
+
+@pulumi.output_type
+class EnvironmentFederationParametersAttributeMapItemProperties(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -191,5 +225,38 @@ class EnvironmentSuperuserParameters(dict):
         Last name
         """
         return pulumi.get(self, "last_name")
+
+
+@pulumi.output_type
+class EnvironmentTag(dict):
+    """
+    A list of all tags for a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A list of all tags for a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
 
 

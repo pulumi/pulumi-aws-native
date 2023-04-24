@@ -26,6 +26,7 @@ namespace Pulumi.AwsNative.DMS.Outputs
         public readonly bool? ExplicitIds;
         public readonly int? FileTransferUploadStreams;
         public readonly int? LoadTimeout;
+        public readonly bool? MapBooleanAsBoolean;
         public readonly int? MaxFileSize;
         public readonly bool? RemoveQuotes;
         public readonly string? ReplaceChars;
@@ -67,6 +68,8 @@ namespace Pulumi.AwsNative.DMS.Outputs
 
             int? loadTimeout,
 
+            bool? mapBooleanAsBoolean,
+
             int? maxFileSize,
 
             bool? removeQuotes,
@@ -104,6 +107,7 @@ namespace Pulumi.AwsNative.DMS.Outputs
             ExplicitIds = explicitIds;
             FileTransferUploadStreams = fileTransferUploadStreams;
             LoadTimeout = loadTimeout;
+            MapBooleanAsBoolean = mapBooleanAsBoolean;
             MaxFileSize = maxFileSize;
             RemoveQuotes = removeQuotes;
             ReplaceChars = replaceChars;

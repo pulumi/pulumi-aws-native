@@ -574,12 +574,16 @@ class InsightRuleTagsArgs:
 @pulumi.input_type
 class MetricStreamFilterArgs:
     def __init__(__self__, *,
-                 namespace: pulumi.Input[str]):
+                 namespace: pulumi.Input[str],
+                 metric_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         This structure defines the metrics that will be streamed.
         :param pulumi.Input[str] namespace: Only metrics with Namespace matching this value will be streamed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_names: Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
         """
         pulumi.set(__self__, "namespace", namespace)
+        if metric_names is not None:
+            pulumi.set(__self__, "metric_names", metric_names)
 
     @property
     @pulumi.getter
@@ -592,6 +596,18 @@ class MetricStreamFilterArgs:
     @namespace.setter
     def namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
+        """
+        return pulumi.get(self, "metric_names")
+
+    @metric_names.setter
+    def metric_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "metric_names", value)
 
 
 @pulumi.input_type

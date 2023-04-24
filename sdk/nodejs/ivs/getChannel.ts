@@ -39,6 +39,10 @@ export interface GetChannelResult {
      */
     readonly ingestEndpoint?: string;
     /**
+     * Whether the channel allows insecure ingest.
+     */
+    readonly insecureIngest?: boolean;
+    /**
      * Channel latency mode.
      */
     readonly latencyMode?: enums.ivs.ChannelLatencyMode;

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
 
     public sealed class ChannelCaptionDescriptionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessibility")]
+        public Input<string>? Accessibility { get; set; }
+
         [Input("captionSelectorName")]
         public Input<string>? CaptionSelectorName { get; set; }
 

@@ -10,6 +10,112 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type PermissionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// PermissionTagInput is an input type that accepts PermissionTagArgs and PermissionTagOutput values.
+// You can construct a concrete instance of `PermissionTagInput` via:
+//
+//	PermissionTagArgs{...}
+type PermissionTagInput interface {
+	pulumi.Input
+
+	ToPermissionTagOutput() PermissionTagOutput
+	ToPermissionTagOutputWithContext(context.Context) PermissionTagOutput
+}
+
+type PermissionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PermissionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionTag)(nil)).Elem()
+}
+
+func (i PermissionTagArgs) ToPermissionTagOutput() PermissionTagOutput {
+	return i.ToPermissionTagOutputWithContext(context.Background())
+}
+
+func (i PermissionTagArgs) ToPermissionTagOutputWithContext(ctx context.Context) PermissionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionTagOutput)
+}
+
+// PermissionTagArrayInput is an input type that accepts PermissionTagArray and PermissionTagArrayOutput values.
+// You can construct a concrete instance of `PermissionTagArrayInput` via:
+//
+//	PermissionTagArray{ PermissionTagArgs{...} }
+type PermissionTagArrayInput interface {
+	pulumi.Input
+
+	ToPermissionTagArrayOutput() PermissionTagArrayOutput
+	ToPermissionTagArrayOutputWithContext(context.Context) PermissionTagArrayOutput
+}
+
+type PermissionTagArray []PermissionTagInput
+
+func (PermissionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionTag)(nil)).Elem()
+}
+
+func (i PermissionTagArray) ToPermissionTagArrayOutput() PermissionTagArrayOutput {
+	return i.ToPermissionTagArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionTagArray) ToPermissionTagArrayOutputWithContext(ctx context.Context) PermissionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionTagArrayOutput)
+}
+
+type PermissionTagOutput struct{ *pulumi.OutputState }
+
+func (PermissionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionTag)(nil)).Elem()
+}
+
+func (o PermissionTagOutput) ToPermissionTagOutput() PermissionTagOutput {
+	return o
+}
+
+func (o PermissionTagOutput) ToPermissionTagOutputWithContext(ctx context.Context) PermissionTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PermissionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PermissionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PermissionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionTag)(nil)).Elem()
+}
+
+func (o PermissionTagArrayOutput) ToPermissionTagArrayOutput() PermissionTagArrayOutput {
+	return o
+}
+
+func (o PermissionTagArrayOutput) ToPermissionTagArrayOutputWithContext(ctx context.Context) PermissionTagArrayOutput {
+	return o
+}
+
+func (o PermissionTagArrayOutput) Index(i pulumi.IntInput) PermissionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionTag {
+		return vs[0].([]PermissionTag)[vs[1].(int)]
+	}).(PermissionTagOutput)
+}
+
 type ResourceShareTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -111,8 +217,12 @@ func (o ResourceShareTagArrayOutput) Index(i pulumi.IntInput) ResourceShareTagOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTagInput)(nil)).Elem(), PermissionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTagArrayInput)(nil)).Elem(), PermissionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareTagInput)(nil)).Elem(), ResourceShareTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareTagArrayInput)(nil)).Elem(), ResourceShareTagArray{})
+	pulumi.RegisterOutputType(PermissionTagOutput{})
+	pulumi.RegisterOutputType(PermissionTagArrayOutput{})
 	pulumi.RegisterOutputType(ResourceShareTagOutput{})
 	pulumi.RegisterOutputType(ResourceShareTagArrayOutput{})
 }
