@@ -113,6 +113,13 @@
       "enum" : [ "Disabled", "Daily" ]
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "additionalProperties" : false,
   "required" : [ "Name", "AppTemplateBody", "ResourceMappings" ],
   "createOnlyProperties" : [ "/properties/Name" ],

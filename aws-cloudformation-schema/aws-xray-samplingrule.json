@@ -196,21 +196,27 @@
       "description" : "The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.",
       "type" : "string"
     },
+    "Tag" : {
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "description" : "The key name of the tag."
+        },
+        "Value" : {
+          "type" : "string",
+          "description" : "The value for the tag."
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
+    },
     "Tags" : {
       "type" : "array",
       "insertionOrder" : false,
+      "description" : "An array of key-value pairs to apply to this resource.",
       "items" : {
-        "type" : "object",
-        "required" : [ "Key", "Value" ],
-        "properties" : {
-          "Key" : {
-            "type" : "string"
-          },
-          "Value" : {
-            "type" : "string"
-          }
-        },
-        "additionalProperties" : false
+        "$ref" : "#/definitions/Tag"
       }
     }
   },
@@ -219,16 +225,20 @@
       "permissions" : [ "xray:CreateSamplingRule", "xray:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "xray:GetSamplingRules" ]
+      "permissions" : [ "xray:GetSamplingRules", "xray:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "xray:UpdateSamplingRule" ]
     },
     "delete" : {
       "permissions" : [ "xray:DeleteSamplingRule" ]
+    },
+    "list" : {
+      "permissions" : [ "xray:GetSamplingRules", "xray:ListTagsForResource" ]
     }
   },
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/RuleARN" ],
-  "readOnlyProperties" : [ "/properties/RuleARN" ]
+  "readOnlyProperties" : [ "/properties/RuleARN" ],
+  "deprecatedProperties" : [ "/properties/SamplingRuleRecord", "/properties/SamplingRuleUpdate" ]
 }

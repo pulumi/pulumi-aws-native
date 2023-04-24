@@ -692,6 +692,9 @@
         "ConnectionTimeout" : {
           "type" : "integer"
         },
+        "MapBooleanAsBoolean" : {
+          "type" : "boolean"
+        },
         "AfterConnectScript" : {
           "type" : "string"
         },
@@ -830,6 +833,9 @@
       "properties" : {
         "PluginName" : {
           "type" : "string"
+        },
+        "MapBooleanAsBoolean" : {
+          "type" : "boolean"
         },
         "AfterConnectScript" : {
           "type" : "string"

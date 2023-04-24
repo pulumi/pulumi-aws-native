@@ -295,6 +295,7 @@ AWS::FraudDetector::Detector
 AWS::FraudDetector::EntityType
 AWS::FraudDetector::EventType
 AWS::FraudDetector::Label
+AWS::FraudDetector::List
 AWS::FraudDetector::Outcome
 AWS::FraudDetector::Variable
 AWS::GameCast::Application
@@ -533,6 +534,7 @@ AWS::QuickSight::DataSource
 AWS::QuickSight::RefreshSchedule
 AWS::QuickSight::Template
 AWS::QuickSight::Theme
+AWS::RAM::Permission
 AWS::RDS::DBCluster
 AWS::RDS::DBClusterParameterGroup
 AWS::RDS::DBInstance
