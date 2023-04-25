@@ -413,6 +413,7 @@ AWS::LakeFormation::PrincipalPermissions
 AWS::LakeFormation::Tag
 AWS::LakeFormation::TagAssociation
 AWS::Lambda::CodeSigningConfig
+AWS::Lambda::EventInvokeConfig
 AWS::Lambda::EventSourceMapping
 AWS::Lambda::Function
 AWS::Lambda::Url
@@ -452,6 +453,7 @@ AWS::M2::Application
 AWS::M2::Environment
 AWS::MSK::BatchScramSecret
 AWS::MSK::Cluster
+AWS::MSK::ClusterPolicy
 AWS::MSK::Configuration
 AWS::MSK::ServerlessCluster
 AWS::MWAA::Environment
