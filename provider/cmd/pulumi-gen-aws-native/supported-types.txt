@@ -32,6 +32,7 @@ AWS::ApiGateway::VpcLink
 AWS::ApiGatewayV2::Api
 AWS::ApiGatewayV2::Authorizer
 AWS::ApiGatewayV2::Deployment
+AWS::ApiGatewayV2::IntegrationResponse
 AWS::ApiGatewayV2::Model
 AWS::ApiGatewayV2::Route
 AWS::ApiGatewayV2::RouteResponse
@@ -130,6 +131,7 @@ AWS::Config::StoredQuery
 AWS::Connect::ApprovedOrigin
 AWS::Connect::ContactFlow
 AWS::Connect::ContactFlowModule
+AWS::Connect::EvaluationForm
 AWS::Connect::HoursOfOperation
 AWS::Connect::Instance
 AWS::Connect::InstanceStorageConfig
@@ -164,6 +166,7 @@ AWS::DataSync::LocationNFS
 AWS::DataSync::LocationObjectStorage
 AWS::DataSync::LocationS3
 AWS::DataSync::LocationSMB
+AWS::DataSync::StorageSystem
 AWS::DataSync::Task
 AWS::Detective::Graph
 AWS::Detective::MemberInvitation
@@ -233,6 +236,7 @@ AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
 AWS::EC2::VPCEndpoint
 AWS::EC2::VPCEndpointService
+AWS::EC2::VPCEndpointServicePermissions
 AWS::EC2::VPCPeeringConnection
 AWS::EC2::VPNConnection
 AWS::EC2::VPNConnectionRoute
@@ -413,6 +417,7 @@ AWS::LakeFormation::PrincipalPermissions
 AWS::LakeFormation::Tag
 AWS::LakeFormation::TagAssociation
 AWS::Lambda::CodeSigningConfig
+AWS::Lambda::EventInvokeConfig
 AWS::Lambda::EventSourceMapping
 AWS::Lambda::Function
 AWS::Lambda::Url
@@ -452,8 +457,10 @@ AWS::M2::Application
 AWS::M2::Environment
 AWS::MSK::BatchScramSecret
 AWS::MSK::Cluster
+AWS::MSK::ClusterPolicy
 AWS::MSK::Configuration
 AWS::MSK::ServerlessCluster
+AWS::MSK::VpcConnection
 AWS::MWAA::Environment
 AWS::Macie::AllowList
 AWS::Macie::CustomDataIdentifier
