@@ -1,5 +1,34 @@
 ## HEAD (Unreleased)
 
+## 0.60.0 (May 1, 2023)
+
+Upstream breaking changes:
+- `PolicyStatus` was removed from S3 `AccessPoint` upstream, resulting in
+  - Resource "aws-native:s3:AccessPoint" missing input `policyStatus`
+  - Resource "aws-native:s3:AccessPoint" missing output `policyStatus`
+  - Function "aws-native:s3:getAccessPoint" missing output `policyStatus`
+  - Type "aws-native:s3:AccessPointPolicyStatusPropertiesIsPublic" missing
+
+New resources:
+- `apigatewayv2.IntegrationResponse`
+- `connect.EvaluationForm`
+- `datasync.StorageSystem`
+- `ec2.VPCEndpointServicePermissions`
+- `lambda.EventInvokeConfig`
+- `msk.ClusterPolicy`
+- `msk.VpcConnection`
+- `quicksight.VPCConnection`
+
+New functions:
+- `apigatewayv2.getIntegrationResponse`
+- `connect.getEvaluationForm`
+- `datasync.getStorageSystem`
+- `ec2.getVPCEndpointServicePermissions`
+- `lambda.getEventInvokeConfig`
+- `msk.getClusterPolicy`
+- `msk.getVpcConnection`
+- `quicksight.getVPCConnection`
+
 ## 0.58.0 (April 14, 2023)
 
 Upstream breaking changes:
