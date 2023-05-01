@@ -8,6 +8,7 @@ __all__ = [
     'ClusterEncryptionInTransitClientBroker',
     'ClusterEnhancedMonitoring',
     'ClusterStorageMode',
+    'VpcConnectionAuthentication',
 ]
 
 
@@ -27,3 +28,12 @@ class ClusterEnhancedMonitoring(str, Enum):
 class ClusterStorageMode(str, Enum):
     LOCAL = "LOCAL"
     TIERED = "TIERED"
+
+
+class VpcConnectionAuthentication(str, Enum):
+    """
+    The type of private link authentication
+    """
+    SASL_IAM = "SASL_IAM"
+    SASL_SCRAM = "SASL_SCRAM"
+    TLS = "TLS"

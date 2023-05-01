@@ -120,6 +120,9 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/ImageId", "/properties/ImageUri" ],
   "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/ContainerRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/ImageScanningConfiguration", "/properties/EnhancedImageMetadataEnabled", "/properties/Tags" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ecr:BatchGetRepositoryScanningConfiguration", "iam:GetRole", "iam:CreateServiceLinkedRole", "imagebuilder:GetImageRecipe", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:GetDistributionConfiguration", "imagebuilder:GetImage", "imagebuilder:CreateImage", "imagebuilder:TagResource", "inspector2:BatchGetAccountStatus" ],

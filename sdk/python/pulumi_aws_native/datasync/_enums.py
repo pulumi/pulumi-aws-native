@@ -17,6 +17,8 @@ __all__ = [
     'LocationObjectStorageServerProtocol',
     'LocationS3S3StorageClass',
     'LocationSMBMountOptionsVersion',
+    'StorageSystemConnectivityStatus',
+    'StorageSystemSystemType',
     'TaskFilterRuleFilterType',
     'TaskOptionsAtime',
     'TaskOptionsGid',
@@ -150,6 +152,22 @@ class LocationSMBMountOptionsVersion(str, Enum):
     SMB20 = "SMB2_0"
     SMB2 = "SMB2"
     SMB3 = "SMB3"
+
+
+class StorageSystemConnectivityStatus(str, Enum):
+    """
+    Indicates whether the DataSync agent can access the on-premises storage system.
+    """
+    PASS_ = "PASS"
+    FAIL = "FAIL"
+    UNKNOWN = "UNKNOWN"
+
+
+class StorageSystemSystemType(str, Enum):
+    """
+    The type of on-premises storage system that DataSync Discovery will analyze.
+    """
+    NET_APP_ONTAP = "NetAppONTAP"
 
 
 class TaskFilterRuleFilterType(str, Enum):

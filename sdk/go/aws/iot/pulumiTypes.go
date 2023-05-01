@@ -1833,6 +1833,139 @@ func (o DomainConfigurationTagArrayOutput) Index(i pulumi.IntInput) DomainConfig
 	}).(DomainConfigurationTagOutput)
 }
 
+type DomainConfigurationTlsConfig struct {
+	SecurityPolicy *string `pulumi:"securityPolicy"`
+}
+
+// DomainConfigurationTlsConfigInput is an input type that accepts DomainConfigurationTlsConfigArgs and DomainConfigurationTlsConfigOutput values.
+// You can construct a concrete instance of `DomainConfigurationTlsConfigInput` via:
+//
+//	DomainConfigurationTlsConfigArgs{...}
+type DomainConfigurationTlsConfigInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationTlsConfigOutput() DomainConfigurationTlsConfigOutput
+	ToDomainConfigurationTlsConfigOutputWithContext(context.Context) DomainConfigurationTlsConfigOutput
+}
+
+type DomainConfigurationTlsConfigArgs struct {
+	SecurityPolicy pulumi.StringPtrInput `pulumi:"securityPolicy"`
+}
+
+func (DomainConfigurationTlsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationTlsConfig)(nil)).Elem()
+}
+
+func (i DomainConfigurationTlsConfigArgs) ToDomainConfigurationTlsConfigOutput() DomainConfigurationTlsConfigOutput {
+	return i.ToDomainConfigurationTlsConfigOutputWithContext(context.Background())
+}
+
+func (i DomainConfigurationTlsConfigArgs) ToDomainConfigurationTlsConfigOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationTlsConfigOutput)
+}
+
+func (i DomainConfigurationTlsConfigArgs) ToDomainConfigurationTlsConfigPtrOutput() DomainConfigurationTlsConfigPtrOutput {
+	return i.ToDomainConfigurationTlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainConfigurationTlsConfigArgs) ToDomainConfigurationTlsConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationTlsConfigOutput).ToDomainConfigurationTlsConfigPtrOutputWithContext(ctx)
+}
+
+// DomainConfigurationTlsConfigPtrInput is an input type that accepts DomainConfigurationTlsConfigArgs, DomainConfigurationTlsConfigPtr and DomainConfigurationTlsConfigPtrOutput values.
+// You can construct a concrete instance of `DomainConfigurationTlsConfigPtrInput` via:
+//
+//	        DomainConfigurationTlsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainConfigurationTlsConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationTlsConfigPtrOutput() DomainConfigurationTlsConfigPtrOutput
+	ToDomainConfigurationTlsConfigPtrOutputWithContext(context.Context) DomainConfigurationTlsConfigPtrOutput
+}
+
+type domainConfigurationTlsConfigPtrType DomainConfigurationTlsConfigArgs
+
+func DomainConfigurationTlsConfigPtr(v *DomainConfigurationTlsConfigArgs) DomainConfigurationTlsConfigPtrInput {
+	return (*domainConfigurationTlsConfigPtrType)(v)
+}
+
+func (*domainConfigurationTlsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConfigurationTlsConfig)(nil)).Elem()
+}
+
+func (i *domainConfigurationTlsConfigPtrType) ToDomainConfigurationTlsConfigPtrOutput() DomainConfigurationTlsConfigPtrOutput {
+	return i.ToDomainConfigurationTlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainConfigurationTlsConfigPtrType) ToDomainConfigurationTlsConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationTlsConfigPtrOutput)
+}
+
+type DomainConfigurationTlsConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationTlsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationTlsConfig)(nil)).Elem()
+}
+
+func (o DomainConfigurationTlsConfigOutput) ToDomainConfigurationTlsConfigOutput() DomainConfigurationTlsConfigOutput {
+	return o
+}
+
+func (o DomainConfigurationTlsConfigOutput) ToDomainConfigurationTlsConfigOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigOutput {
+	return o
+}
+
+func (o DomainConfigurationTlsConfigOutput) ToDomainConfigurationTlsConfigPtrOutput() DomainConfigurationTlsConfigPtrOutput {
+	return o.ToDomainConfigurationTlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationTlsConfigOutput) ToDomainConfigurationTlsConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainConfigurationTlsConfig) *DomainConfigurationTlsConfig {
+		return &v
+	}).(DomainConfigurationTlsConfigPtrOutput)
+}
+
+func (o DomainConfigurationTlsConfigOutput) SecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainConfigurationTlsConfig) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
+}
+
+type DomainConfigurationTlsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationTlsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConfigurationTlsConfig)(nil)).Elem()
+}
+
+func (o DomainConfigurationTlsConfigPtrOutput) ToDomainConfigurationTlsConfigPtrOutput() DomainConfigurationTlsConfigPtrOutput {
+	return o
+}
+
+func (o DomainConfigurationTlsConfigPtrOutput) ToDomainConfigurationTlsConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigPtrOutput {
+	return o
+}
+
+func (o DomainConfigurationTlsConfigPtrOutput) Elem() DomainConfigurationTlsConfigOutput {
+	return o.ApplyT(func(v *DomainConfigurationTlsConfig) DomainConfigurationTlsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainConfigurationTlsConfig
+		return ret
+	}).(DomainConfigurationTlsConfigOutput)
+}
+
+func (o DomainConfigurationTlsConfigPtrOutput) SecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainConfigurationTlsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
 // Aggregation types supported by Fleet Indexing
 type FleetMetricAggregationType struct {
 	// Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
@@ -13059,6 +13192,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthorizerConfigPtrInput)(nil)).Elem(), DomainConfigurationAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationTagInput)(nil)).Elem(), DomainConfigurationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationTagArrayInput)(nil)).Elem(), DomainConfigurationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationTlsConfigInput)(nil)).Elem(), DomainConfigurationTlsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationTlsConfigPtrInput)(nil)).Elem(), DomainConfigurationTlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMetricAggregationTypeInput)(nil)).Elem(), FleetMetricAggregationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMetricAggregationTypePtrInput)(nil)).Elem(), FleetMetricAggregationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMetricTagInput)(nil)).Elem(), FleetMetricTagArgs{})
@@ -13228,6 +13363,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainConfigurationServerCertificateSummaryArrayOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationTagOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationTagArrayOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationTlsConfigOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationTlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(FleetMetricAggregationTypeOutput{})
 	pulumi.RegisterOutputType(FleetMetricAggregationTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetMetricTagOutput{})

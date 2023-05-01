@@ -12,16 +12,6 @@ export const AccessPointNetworkOrigin = {
  */
 export type AccessPointNetworkOrigin = (typeof AccessPointNetworkOrigin)[keyof typeof AccessPointNetworkOrigin];
 
-export const AccessPointPolicyStatusPropertiesIsPublic = {
-    True: "true",
-    False: "false",
-} as const;
-
-/**
- * Specifies whether the policy is public or not.
- */
-export type AccessPointPolicyStatusPropertiesIsPublic = (typeof AccessPointPolicyStatusPropertiesIsPublic)[keyof typeof AccessPointPolicyStatusPropertiesIsPublic];
-
 export const BucketAccelerateConfigurationAccelerationStatus = {
     Enabled: "Enabled",
     Suspended: "Suspended",

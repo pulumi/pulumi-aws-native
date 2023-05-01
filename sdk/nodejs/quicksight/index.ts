@@ -55,6 +55,11 @@ export const getTheme: typeof import("./getTheme").getTheme = null as any;
 export const getThemeOutput: typeof import("./getTheme").getThemeOutput = null as any;
 utilities.lazyLoad(exports, ["getTheme","getThemeOutput"], () => require("./getTheme"));
 
+export { GetVPCConnectionArgs, GetVPCConnectionResult, GetVPCConnectionOutputArgs } from "./getVPCConnection";
+export const getVPCConnection: typeof import("./getVPCConnection").getVPCConnection = null as any;
+export const getVPCConnectionOutput: typeof import("./getVPCConnection").getVPCConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getVPCConnection","getVPCConnectionOutput"], () => require("./getVPCConnection"));
+
 export { RefreshScheduleArgs } from "./refreshSchedule";
 export type RefreshSchedule = import("./refreshSchedule").RefreshSchedule;
 export const RefreshSchedule: typeof import("./refreshSchedule").RefreshSchedule = null as any;
@@ -69,6 +74,11 @@ export { ThemeArgs } from "./theme";
 export type Theme = import("./theme").Theme;
 export const Theme: typeof import("./theme").Theme = null as any;
 utilities.lazyLoad(exports, ["Theme"], () => require("./theme"));
+
+export { VPCConnectionArgs } from "./vpcconnection";
+export type VPCConnection = import("./vpcconnection").VPCConnection;
+export const VPCConnection: typeof import("./vpcconnection").VPCConnection = null as any;
+utilities.lazyLoad(exports, ["VPCConnection"], () => require("./vpcconnection"));
 
 
 // Export enums:
@@ -92,6 +102,8 @@ const _module = {
                 return new Template(name, <any>undefined, { urn })
             case "aws-native:quicksight:Theme":
                 return new Theme(name, <any>undefined, { urn })
+            case "aws-native:quicksight:VPCConnection":
+                return new VPCConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

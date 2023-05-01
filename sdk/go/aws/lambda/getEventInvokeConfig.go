@@ -21,12 +21,12 @@ func LookupEventInvokeConfig(ctx *pulumi.Context, args *LookupEventInvokeConfigA
 }
 
 type LookupEventInvokeConfigArgs struct {
-	Id string `pulumi:"id"`
+	FunctionName string `pulumi:"functionName"`
+	Qualifier    string `pulumi:"qualifier"`
 }
 
 type LookupEventInvokeConfigResult struct {
 	DestinationConfig        *EventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
-	Id                       *string                             `pulumi:"id"`
 	MaximumEventAgeInSeconds *int                                `pulumi:"maximumEventAgeInSeconds"`
 	MaximumRetryAttempts     *int                                `pulumi:"maximumRetryAttempts"`
 }
@@ -45,7 +45,8 @@ func LookupEventInvokeConfigOutput(ctx *pulumi.Context, args LookupEventInvokeCo
 }
 
 type LookupEventInvokeConfigOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	FunctionName pulumi.StringInput `pulumi:"functionName"`
+	Qualifier    pulumi.StringInput `pulumi:"qualifier"`
 }
 
 func (LookupEventInvokeConfigOutputArgs) ElementType() reflect.Type {
@@ -68,10 +69,6 @@ func (o LookupEventInvokeConfigResultOutput) ToLookupEventInvokeConfigResultOutp
 
 func (o LookupEventInvokeConfigResultOutput) DestinationConfig() EventInvokeConfigDestinationConfigPtrOutput {
 	return o.ApplyT(func(v LookupEventInvokeConfigResult) *EventInvokeConfigDestinationConfig { return v.DestinationConfig }).(EventInvokeConfigDestinationConfigPtrOutput)
-}
-
-func (o LookupEventInvokeConfigResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEventInvokeConfigResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupEventInvokeConfigResultOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {

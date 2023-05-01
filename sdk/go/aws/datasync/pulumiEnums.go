@@ -1936,6 +1936,262 @@ func (in *locationSMBMountOptionsVersionPtr) ToLocationSMBMountOptionsVersionPtr
 	return pulumi.ToOutputWithContext(ctx, in).(LocationSMBMountOptionsVersionPtrOutput)
 }
 
+// Indicates whether the DataSync agent can access the on-premises storage system.
+type StorageSystemConnectivityStatus string
+
+const (
+	StorageSystemConnectivityStatusPass    = StorageSystemConnectivityStatus("PASS")
+	StorageSystemConnectivityStatusFail    = StorageSystemConnectivityStatus("FAIL")
+	StorageSystemConnectivityStatusUnknown = StorageSystemConnectivityStatus("UNKNOWN")
+)
+
+type StorageSystemConnectivityStatusOutput struct{ *pulumi.OutputState }
+
+func (StorageSystemConnectivityStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSystemConnectivityStatus)(nil)).Elem()
+}
+
+func (o StorageSystemConnectivityStatusOutput) ToStorageSystemConnectivityStatusOutput() StorageSystemConnectivityStatusOutput {
+	return o
+}
+
+func (o StorageSystemConnectivityStatusOutput) ToStorageSystemConnectivityStatusOutputWithContext(ctx context.Context) StorageSystemConnectivityStatusOutput {
+	return o
+}
+
+func (o StorageSystemConnectivityStatusOutput) ToStorageSystemConnectivityStatusPtrOutput() StorageSystemConnectivityStatusPtrOutput {
+	return o.ToStorageSystemConnectivityStatusPtrOutputWithContext(context.Background())
+}
+
+func (o StorageSystemConnectivityStatusOutput) ToStorageSystemConnectivityStatusPtrOutputWithContext(ctx context.Context) StorageSystemConnectivityStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageSystemConnectivityStatus) *StorageSystemConnectivityStatus {
+		return &v
+	}).(StorageSystemConnectivityStatusPtrOutput)
+}
+
+func (o StorageSystemConnectivityStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StorageSystemConnectivityStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageSystemConnectivityStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StorageSystemConnectivityStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageSystemConnectivityStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageSystemConnectivityStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageSystemConnectivityStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageSystemConnectivityStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageSystemConnectivityStatus)(nil)).Elem()
+}
+
+func (o StorageSystemConnectivityStatusPtrOutput) ToStorageSystemConnectivityStatusPtrOutput() StorageSystemConnectivityStatusPtrOutput {
+	return o
+}
+
+func (o StorageSystemConnectivityStatusPtrOutput) ToStorageSystemConnectivityStatusPtrOutputWithContext(ctx context.Context) StorageSystemConnectivityStatusPtrOutput {
+	return o
+}
+
+func (o StorageSystemConnectivityStatusPtrOutput) Elem() StorageSystemConnectivityStatusOutput {
+	return o.ApplyT(func(v *StorageSystemConnectivityStatus) StorageSystemConnectivityStatus {
+		if v != nil {
+			return *v
+		}
+		var ret StorageSystemConnectivityStatus
+		return ret
+	}).(StorageSystemConnectivityStatusOutput)
+}
+
+func (o StorageSystemConnectivityStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageSystemConnectivityStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageSystemConnectivityStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of on-premises storage system that DataSync Discovery will analyze.
+type StorageSystemSystemType string
+
+const (
+	StorageSystemSystemTypeNetAppONTAP = StorageSystemSystemType("NetAppONTAP")
+)
+
+func (StorageSystemSystemType) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSystemSystemType)(nil)).Elem()
+}
+
+func (e StorageSystemSystemType) ToStorageSystemSystemTypeOutput() StorageSystemSystemTypeOutput {
+	return pulumi.ToOutput(e).(StorageSystemSystemTypeOutput)
+}
+
+func (e StorageSystemSystemType) ToStorageSystemSystemTypeOutputWithContext(ctx context.Context) StorageSystemSystemTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StorageSystemSystemTypeOutput)
+}
+
+func (e StorageSystemSystemType) ToStorageSystemSystemTypePtrOutput() StorageSystemSystemTypePtrOutput {
+	return e.ToStorageSystemSystemTypePtrOutputWithContext(context.Background())
+}
+
+func (e StorageSystemSystemType) ToStorageSystemSystemTypePtrOutputWithContext(ctx context.Context) StorageSystemSystemTypePtrOutput {
+	return StorageSystemSystemType(e).ToStorageSystemSystemTypeOutputWithContext(ctx).ToStorageSystemSystemTypePtrOutputWithContext(ctx)
+}
+
+func (e StorageSystemSystemType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StorageSystemSystemType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StorageSystemSystemType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StorageSystemSystemType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StorageSystemSystemTypeOutput struct{ *pulumi.OutputState }
+
+func (StorageSystemSystemTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSystemSystemType)(nil)).Elem()
+}
+
+func (o StorageSystemSystemTypeOutput) ToStorageSystemSystemTypeOutput() StorageSystemSystemTypeOutput {
+	return o
+}
+
+func (o StorageSystemSystemTypeOutput) ToStorageSystemSystemTypeOutputWithContext(ctx context.Context) StorageSystemSystemTypeOutput {
+	return o
+}
+
+func (o StorageSystemSystemTypeOutput) ToStorageSystemSystemTypePtrOutput() StorageSystemSystemTypePtrOutput {
+	return o.ToStorageSystemSystemTypePtrOutputWithContext(context.Background())
+}
+
+func (o StorageSystemSystemTypeOutput) ToStorageSystemSystemTypePtrOutputWithContext(ctx context.Context) StorageSystemSystemTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageSystemSystemType) *StorageSystemSystemType {
+		return &v
+	}).(StorageSystemSystemTypePtrOutput)
+}
+
+func (o StorageSystemSystemTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StorageSystemSystemTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageSystemSystemType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StorageSystemSystemTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageSystemSystemTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageSystemSystemType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageSystemSystemTypePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageSystemSystemTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageSystemSystemType)(nil)).Elem()
+}
+
+func (o StorageSystemSystemTypePtrOutput) ToStorageSystemSystemTypePtrOutput() StorageSystemSystemTypePtrOutput {
+	return o
+}
+
+func (o StorageSystemSystemTypePtrOutput) ToStorageSystemSystemTypePtrOutputWithContext(ctx context.Context) StorageSystemSystemTypePtrOutput {
+	return o
+}
+
+func (o StorageSystemSystemTypePtrOutput) Elem() StorageSystemSystemTypeOutput {
+	return o.ApplyT(func(v *StorageSystemSystemType) StorageSystemSystemType {
+		if v != nil {
+			return *v
+		}
+		var ret StorageSystemSystemType
+		return ret
+	}).(StorageSystemSystemTypeOutput)
+}
+
+func (o StorageSystemSystemTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageSystemSystemTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageSystemSystemType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StorageSystemSystemTypeInput is an input type that accepts StorageSystemSystemTypeArgs and StorageSystemSystemTypeOutput values.
+// You can construct a concrete instance of `StorageSystemSystemTypeInput` via:
+//
+//	StorageSystemSystemTypeArgs{...}
+type StorageSystemSystemTypeInput interface {
+	pulumi.Input
+
+	ToStorageSystemSystemTypeOutput() StorageSystemSystemTypeOutput
+	ToStorageSystemSystemTypeOutputWithContext(context.Context) StorageSystemSystemTypeOutput
+}
+
+var storageSystemSystemTypePtrType = reflect.TypeOf((**StorageSystemSystemType)(nil)).Elem()
+
+type StorageSystemSystemTypePtrInput interface {
+	pulumi.Input
+
+	ToStorageSystemSystemTypePtrOutput() StorageSystemSystemTypePtrOutput
+	ToStorageSystemSystemTypePtrOutputWithContext(context.Context) StorageSystemSystemTypePtrOutput
+}
+
+type storageSystemSystemTypePtr string
+
+func StorageSystemSystemTypePtr(v string) StorageSystemSystemTypePtrInput {
+	return (*storageSystemSystemTypePtr)(&v)
+}
+
+func (*storageSystemSystemTypePtr) ElementType() reflect.Type {
+	return storageSystemSystemTypePtrType
+}
+
+func (in *storageSystemSystemTypePtr) ToStorageSystemSystemTypePtrOutput() StorageSystemSystemTypePtrOutput {
+	return pulumi.ToOutput(in).(StorageSystemSystemTypePtrOutput)
+}
+
+func (in *storageSystemSystemTypePtr) ToStorageSystemSystemTypePtrOutputWithContext(ctx context.Context) StorageSystemSystemTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StorageSystemSystemTypePtrOutput)
+}
+
 // The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
 type TaskFilterRuleFilterType string
 
@@ -4534,6 +4790,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3S3StorageClassPtrInput)(nil)).Elem(), LocationS3S3StorageClass("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSMBMountOptionsVersionInput)(nil)).Elem(), LocationSMBMountOptionsVersion("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSMBMountOptionsVersionPtrInput)(nil)).Elem(), LocationSMBMountOptionsVersion("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemSystemTypeInput)(nil)).Elem(), StorageSystemSystemType("NetAppONTAP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemSystemTypePtrInput)(nil)).Elem(), StorageSystemSystemType("NetAppONTAP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskFilterRuleFilterTypeInput)(nil)).Elem(), TaskFilterRuleFilterType("SIMPLE_PATTERN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskFilterRuleFilterTypePtrInput)(nil)).Elem(), TaskFilterRuleFilterType("SIMPLE_PATTERN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsAtimeInput)(nil)).Elem(), TaskOptionsAtime("NONE"))
@@ -4588,6 +4846,10 @@ func init() {
 	pulumi.RegisterOutputType(LocationS3S3StorageClassPtrOutput{})
 	pulumi.RegisterOutputType(LocationSMBMountOptionsVersionOutput{})
 	pulumi.RegisterOutputType(LocationSMBMountOptionsVersionPtrOutput{})
+	pulumi.RegisterOutputType(StorageSystemConnectivityStatusOutput{})
+	pulumi.RegisterOutputType(StorageSystemConnectivityStatusPtrOutput{})
+	pulumi.RegisterOutputType(StorageSystemSystemTypeOutput{})
+	pulumi.RegisterOutputType(StorageSystemSystemTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleFilterTypeOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsAtimeOutput{})

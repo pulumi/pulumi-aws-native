@@ -2646,3 +2646,40 @@ export const ThemeType = {
 } as const;
 
 export type ThemeType = (typeof ThemeType)[keyof typeof ThemeType];
+
+export const VPCConnectionAvailabilityStatus = {
+    Available: "AVAILABLE",
+    Unavailable: "UNAVAILABLE",
+    PartiallyAvailable: "PARTIALLY_AVAILABLE",
+} as const;
+
+export type VPCConnectionAvailabilityStatus = (typeof VPCConnectionAvailabilityStatus)[keyof typeof VPCConnectionAvailabilityStatus];
+
+export const VPCConnectionNetworkInterfaceStatus = {
+    Creating: "CREATING",
+    Available: "AVAILABLE",
+    CreationFailed: "CREATION_FAILED",
+    Updating: "UPDATING",
+    UpdateFailed: "UPDATE_FAILED",
+    Deleting: "DELETING",
+    Deleted: "DELETED",
+    DeletionFailed: "DELETION_FAILED",
+    DeletionScheduled: "DELETION_SCHEDULED",
+    AttachmentFailedRollbackFailed: "ATTACHMENT_FAILED_ROLLBACK_FAILED",
+} as const;
+
+export type VPCConnectionNetworkInterfaceStatus = (typeof VPCConnectionNetworkInterfaceStatus)[keyof typeof VPCConnectionNetworkInterfaceStatus];
+
+export const VPCConnectionResourceStatus = {
+    CreationInProgress: "CREATION_IN_PROGRESS",
+    CreationSuccessful: "CREATION_SUCCESSFUL",
+    CreationFailed: "CREATION_FAILED",
+    UpdateInProgress: "UPDATE_IN_PROGRESS",
+    UpdateSuccessful: "UPDATE_SUCCESSFUL",
+    UpdateFailed: "UPDATE_FAILED",
+    DeletionInProgress: "DELETION_IN_PROGRESS",
+    DeletionFailed: "DELETION_FAILED",
+    Deleted: "DELETED",
+} as const;
+
+export type VPCConnectionResourceStatus = (typeof VPCConnectionResourceStatus)[keyof typeof VPCConnectionResourceStatus];

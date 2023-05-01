@@ -38,6 +38,9 @@ __all__ = [
     'LocationS3Tag',
     'LocationSMBMountOptions',
     'LocationSMBTag',
+    'StorageSystemServerConfiguration',
+    'StorageSystemServerCredentials',
+    'StorageSystemTag',
     'TaskFilterRule',
     'TaskOptions',
     'TaskSchedule',
@@ -929,6 +932,125 @@ class LocationSMBMountOptions(dict):
 
 @pulumi.output_type
 class LocationSMBTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key for an AWS resource tag.
+        :param str value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class StorageSystemServerConfiguration(dict):
+    """
+    The server name and network port required to connect with the management interface of the on-premises storage system.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverHostname":
+            suggest = "server_hostname"
+        elif key == "serverPort":
+            suggest = "server_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageSystemServerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageSystemServerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageSystemServerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server_hostname: str,
+                 server_port: Optional[int] = None):
+        """
+        The server name and network port required to connect with the management interface of the on-premises storage system.
+        :param str server_hostname: The domain name or IP address of the storage system's management interface.
+        :param int server_port: The network port needed to access the system's management interface
+        """
+        pulumi.set(__self__, "server_hostname", server_hostname)
+        if server_port is not None:
+            pulumi.set(__self__, "server_port", server_port)
+
+    @property
+    @pulumi.getter(name="serverHostname")
+    def server_hostname(self) -> str:
+        """
+        The domain name or IP address of the storage system's management interface.
+        """
+        return pulumi.get(self, "server_hostname")
+
+    @property
+    @pulumi.getter(name="serverPort")
+    def server_port(self) -> Optional[int]:
+        """
+        The network port needed to access the system's management interface
+        """
+        return pulumi.get(self, "server_port")
+
+
+@pulumi.output_type
+class StorageSystemServerCredentials(dict):
+    """
+    The username and password for accessing your on-premises storage system's management interface.
+    """
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        The username and password for accessing your on-premises storage system's management interface.
+        :param str password: The password for your storage system's management interface
+        :param str username: The username for your storage system's management interface.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password for your storage system's management interface
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The username for your storage system's management interface.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class StorageSystemTag(dict):
     """
     A key-value pair to associate with a resource.
     """

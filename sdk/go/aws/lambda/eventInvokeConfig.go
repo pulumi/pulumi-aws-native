@@ -12,8 +12,6 @@ import (
 )
 
 // Resource Type definition for AWS::Lambda::EventInvokeConfig
-//
-// Deprecated: EventInvokeConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type EventInvokeConfig struct {
 	pulumi.CustomResourceState
 

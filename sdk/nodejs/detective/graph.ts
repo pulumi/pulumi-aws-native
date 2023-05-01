@@ -41,6 +41,10 @@ export class Graph extends pulumi.CustomResource {
      * The Detective graph ARN
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+     */
+    public readonly autoEnableMembers!: pulumi.Output<boolean | undefined>;
     public readonly tags!: pulumi.Output<outputs.detective.GraphTag[] | undefined>;
 
     /**
@@ -54,10 +58,12 @@ export class Graph extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["autoEnableMembers"] = args ? args.autoEnableMembers : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoEnableMembers"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -69,5 +75,9 @@ export class Graph extends pulumi.CustomResource {
  * The set of arguments for constructing a Graph resource.
  */
 export interface GraphArgs {
+    /**
+     * Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+     */
+    autoEnableMembers?: pulumi.Input<boolean>;
     tags?: pulumi.Input<pulumi.Input<inputs.detective.GraphTagArgs>[]>;
 }

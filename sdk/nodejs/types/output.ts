@@ -7912,6 +7912,278 @@ export namespace connect {
     }
 
     /**
+     * The evaluation form base item.
+     */
+    export interface EvaluationFormBaseItem {
+        /**
+         * The evaluation form section item
+         */
+        section: outputs.connect.EvaluationFormSection;
+    }
+
+    /**
+     * The evaluation form item.
+     */
+    export interface EvaluationFormItem {
+        /**
+         * The evaluation form question item
+         */
+        question?: outputs.connect.EvaluationFormQuestion;
+        /**
+         * The evaluation form section item
+         */
+        section?: outputs.connect.EvaluationFormSection;
+    }
+
+    /**
+     * The automation properties for the numeric question.
+     */
+    export interface EvaluationFormNumericQuestionAutomation {
+        /**
+         * The automation property name of the question.
+         */
+        propertyValue: outputs.connect.EvaluationFormNumericQuestionPropertyValueAutomation;
+    }
+
+    /**
+     * The option ranges used for scoring in numeric questions.
+     */
+    export interface EvaluationFormNumericQuestionOption {
+        /**
+         * The flag to mark the option as automatic fail.
+         */
+        automaticFail?: boolean;
+        /**
+         * The maximum value of the option range.
+         */
+        maxValue: number;
+        /**
+         * The minimum value of the option range.
+         */
+        minValue: number;
+        /**
+         * The score of the option range.
+         */
+        score?: number;
+    }
+
+    /**
+     * The properties of the numeric question.
+     */
+    export interface EvaluationFormNumericQuestionProperties {
+        /**
+         * The automation properties for the numeric question.
+         */
+        automation?: outputs.connect.EvaluationFormNumericQuestionAutomation;
+        /**
+         * The maximum value for answers of the question.
+         */
+        maxValue: number;
+        /**
+         * The minimum value for answers of the question.
+         */
+        minValue: number;
+        /**
+         * The list of option ranges used for scoring.
+         */
+        options?: outputs.connect.EvaluationFormNumericQuestionOption[];
+    }
+
+    /**
+     * The automation property name of the question.
+     */
+    export interface EvaluationFormNumericQuestionPropertyValueAutomation {
+        /**
+         * The automation property label.
+         */
+        label: enums.connect.EvaluationFormNumericQuestionPropertyValueAutomationLabel;
+    }
+
+    /**
+     * The evaluation form question.
+     */
+    export interface EvaluationFormQuestion {
+        /**
+         * The instructions for the question.
+         */
+        instructions?: string;
+        /**
+         * The flag to enable not applicable answers to the question.
+         */
+        notApplicableEnabled?: boolean;
+        /**
+         * The type of the question.
+         */
+        questionType: enums.connect.EvaluationFormQuestionQuestionType;
+        /**
+         * The properties of the question
+         */
+        questionTypeProperties?: outputs.connect.EvaluationFormQuestionTypeProperties;
+        /**
+         * The identifier used to reference the question.
+         */
+        refId: string;
+        /**
+         * The title of the question.
+         */
+        title: string;
+        /**
+         * The question weight used for scoring.
+         */
+        weight?: number;
+    }
+
+    /**
+     * The properties of the question.
+     */
+    export interface EvaluationFormQuestionTypeProperties {
+        /**
+         * The properties of the numeric question.
+         */
+        numeric?: outputs.connect.EvaluationFormNumericQuestionProperties;
+        /**
+         * The properties of the single-select question.
+         */
+        singleSelect?: outputs.connect.EvaluationFormSingleSelectQuestionProperties;
+    }
+
+    /**
+     * The scoring strategy.
+     */
+    export interface EvaluationFormScoringStrategy {
+        /**
+         * The scoring mode.
+         */
+        mode: enums.connect.EvaluationFormScoringStrategyMode;
+        /**
+         * The scoring status.
+         */
+        status: enums.connect.EvaluationFormScoringStrategyStatus;
+    }
+
+    /**
+     * The evaluation form section.
+     */
+    export interface EvaluationFormSection {
+        /**
+         * The instructions for the section.
+         */
+        instructions?: string;
+        /**
+         * The list of section items.
+         */
+        items?: outputs.connect.EvaluationFormItem[];
+        /**
+         * The identifier to reference the section.
+         */
+        refId: string;
+        /**
+         * The title of the section.
+         */
+        title: string;
+        /**
+         * The item weight used for scoring.
+         */
+        weight?: number;
+    }
+
+    /**
+     * The automation properties for the single-select question.
+     */
+    export interface EvaluationFormSingleSelectQuestionAutomation {
+        /**
+         * The option reference identifier of the default answer.
+         */
+        defaultOptionRefId?: string;
+        /**
+         * The answer options for the automation.
+         */
+        options: outputs.connect.EvaluationFormSingleSelectQuestionAutomationOption[];
+    }
+
+    /**
+     * The automation option for the single-select question.
+     */
+    export interface EvaluationFormSingleSelectQuestionAutomationOption {
+        /**
+         * The automation option based on Rules categories.
+         */
+        ruleCategory: outputs.connect.EvaluationFormSingleSelectQuestionRuleCategoryAutomation;
+    }
+
+    /**
+     * The option for a question.
+     */
+    export interface EvaluationFormSingleSelectQuestionOption {
+        /**
+         * The flag to mark the option as automatic fail.
+         */
+        automaticFail?: boolean;
+        /**
+         * The identifier used to reference the option.
+         */
+        refId: string;
+        /**
+         * The score of the option.
+         */
+        score?: number;
+        /**
+         * The title of the option.
+         */
+        text: string;
+    }
+
+    /**
+     * The properties of the single-select question.
+     */
+    export interface EvaluationFormSingleSelectQuestionProperties {
+        /**
+         * The automation properties for the single-select question.
+         */
+        automation?: outputs.connect.EvaluationFormSingleSelectQuestionAutomation;
+        /**
+         * The display mode of the single-select question.
+         */
+        displayAs?: enums.connect.EvaluationFormSingleSelectQuestionPropertiesDisplayAs;
+        /**
+         * The list of options for the question.
+         */
+        options: outputs.connect.EvaluationFormSingleSelectQuestionOption[];
+    }
+
+    /**
+     * The automation option based on Rules categories.
+     */
+    export interface EvaluationFormSingleSelectQuestionRuleCategoryAutomation {
+        /**
+         * The category name as defined in Rules.
+         */
+        category: string;
+        /**
+         * The automation condition applied on contact categories.
+         */
+        condition: enums.connect.EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition;
+        /**
+         * The option identifier referencing the option to be selected when the automation option is triggered.
+         */
+        optionRefId: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface EvaluationFormTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that's 1 to 256 characters in length.
+         */
+        value: string;
+    }
+
+    /**
      * Contains information about the hours of operation.
      */
     export interface HoursOfOperationConfig {
@@ -9487,6 +9759,48 @@ export namespace datasync {
      * A key-value pair to associate with a resource.
      */
     export interface LocationSMBTag {
+        /**
+         * The key for an AWS resource tag.
+         */
+        key: string;
+        /**
+         * The value for an AWS resource tag.
+         */
+        value: string;
+    }
+
+    /**
+     * The server name and network port required to connect with the management interface of the on-premises storage system.
+     */
+    export interface StorageSystemServerConfiguration {
+        /**
+         * The domain name or IP address of the storage system's management interface.
+         */
+        serverHostname: string;
+        /**
+         * The network port needed to access the system's management interface
+         */
+        serverPort?: number;
+    }
+
+    /**
+     * The username and password for accessing your on-premises storage system's management interface.
+     */
+    export interface StorageSystemServerCredentials {
+        /**
+         * The password for your storage system's management interface
+         */
+        password: string;
+        /**
+         * The username for your storage system's management interface.
+         */
+        username: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface StorageSystemTag {
         /**
          * The key for an AWS resource tag.
          */
@@ -17808,6 +18122,10 @@ export namespace iot {
         value: string;
     }
 
+    export interface DomainConfigurationTlsConfig {
+        securityPolicy?: string;
+    }
+
     /**
      * Aggregation types supported by Fleet Indexing
      */
@@ -22014,6 +22332,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration {
         bufferingHints?: outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessBufferingHints;
+        bulkRequestCustomizationConfiguration?: outputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfiguration;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         collectionEndpoint?: string;
         indexName: string;
@@ -22036,8 +22355,10 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamAmazonopensearchserviceDestinationConfiguration {
         bufferingHints?: outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceBufferingHints;
+        bulkRequestCustomizationConfiguration?: outputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfiguration;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         clusterEndpoint?: string;
+        documentIdOptions?: outputs.kinesisfirehose.DeliveryStreamDocumentIdOptions;
         domainARN?: string;
         indexName: string;
         indexRotationPeriod?: enums.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod;
@@ -22057,6 +22378,12 @@ export namespace kinesisfirehose {
     export interface DeliveryStreamBufferingHints {
         intervalInSeconds?: number;
         sizeInMBs?: number;
+    }
+
+    export interface DeliveryStreamBulkRequestCustomizationConfiguration {
+        enabled?: boolean;
+        jqExpression?: string;
+        jqVersion?: enums.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfigurationJqVersion;
     }
 
     export interface DeliveryStreamCloudWatchLoggingOptions {
@@ -22083,6 +22410,10 @@ export namespace kinesisfirehose {
         openXJsonSerDe?: outputs.kinesisfirehose.DeliveryStreamOpenXJsonSerDe;
     }
 
+    export interface DeliveryStreamDocumentIdOptions {
+        defaultDocumentIdFormat: enums.kinesisfirehose.DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat;
+    }
+
     export interface DeliveryStreamDynamicPartitioningConfiguration {
         enabled?: boolean;
         retryOptions?: outputs.kinesisfirehose.DeliveryStreamRetryOptions;
@@ -22095,8 +22426,10 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamElasticsearchDestinationConfiguration {
         bufferingHints?: outputs.kinesisfirehose.DeliveryStreamElasticsearchBufferingHints;
+        bulkRequestCustomizationConfiguration?: outputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfiguration;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         clusterEndpoint?: string;
+        documentIdOptions?: outputs.kinesisfirehose.DeliveryStreamDocumentIdOptions;
         domainARN?: string;
         indexName: string;
         indexRotationPeriod?: enums.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod;
@@ -27713,6 +28046,12 @@ export namespace msk {
     export interface ServerlessClusterVpcConfig {
         securityGroups?: string[];
         subnetIds: string[];
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface VpcConnectionTags {
     }
 
 }
@@ -39620,6 +39959,19 @@ export namespace quicksight {
          * <p>The version number of the theme.</p>
          */
         versionNumber?: number;
+    }
+
+    export interface VPCConnectionNetworkInterface {
+        availabilityZone?: string;
+        errorMessage?: string;
+        networkInterfaceId?: string;
+        status?: enums.quicksight.VPCConnectionNetworkInterfaceStatus;
+        subnetId?: string;
+    }
+
+    export interface VPCConnectionTag {
+        key: string;
+        value: string;
     }
 
 }

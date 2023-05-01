@@ -60,6 +60,8 @@ export const AppResourceSpecInstanceType = {
     MlG516xlarge: "ml.g5.16xlarge",
     MlG524xlarge: "ml.g5.24xlarge",
     MlG548xlarge: "ml.g5.48xlarge",
+    MlP4d24xlarge: "ml.p4d.24xlarge",
+    MlP4de24xlarge: "ml.p4de.24xlarge",
     MlGeospatialInteractive: "ml.geospatial.interactive",
 } as const;
 

@@ -25,6 +25,7 @@ __all__ = [
     'DomainConfigurationAuthorizerConfig',
     'DomainConfigurationServerCertificateSummary',
     'DomainConfigurationTag',
+    'DomainConfigurationTlsConfig',
     'FleetMetricAggregationType',
     'FleetMetricTag',
     'JobExecutionsRetryConfigProperties',
@@ -700,6 +701,36 @@ class DomainConfigurationTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DomainConfigurationTlsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityPolicy":
+            suggest = "security_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainConfigurationTlsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainConfigurationTlsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainConfigurationTlsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_policy: Optional[str] = None):
+        if security_policy is not None:
+            pulumi.set(__self__, "security_policy", security_policy)
+
+    @property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> Optional[str]:
+        return pulumi.get(self, "security_policy")
 
 
 @pulumi.output_type

@@ -142,6 +142,26 @@ export const LocationSMBMountOptionsVersion = {
  */
 export type LocationSMBMountOptionsVersion = (typeof LocationSMBMountOptionsVersion)[keyof typeof LocationSMBMountOptionsVersion];
 
+export const StorageSystemConnectivityStatus = {
+    Pass: "PASS",
+    Fail: "FAIL",
+    Unknown: "UNKNOWN",
+} as const;
+
+/**
+ * Indicates whether the DataSync agent can access the on-premises storage system.
+ */
+export type StorageSystemConnectivityStatus = (typeof StorageSystemConnectivityStatus)[keyof typeof StorageSystemConnectivityStatus];
+
+export const StorageSystemSystemType = {
+    NetAppONTAP: "NetAppONTAP",
+} as const;
+
+/**
+ * The type of on-premises storage system that DataSync Discovery will analyze.
+ */
+export type StorageSystemSystemType = (typeof StorageSystemSystemType)[keyof typeof StorageSystemSystemType];
+
 export const TaskFilterRuleFilterType = {
     SimplePattern: "SIMPLE_PATTERN",
 } as const;

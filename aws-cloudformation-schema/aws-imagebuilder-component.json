@@ -76,6 +76,9 @@
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Type", "/properties/Encrypted" ],
   "writeOnlyProperties" : [ "/properties/Data", "/properties/Uri", "/properties/Platform" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/ChangeDescription", "/properties/Description", "/properties/Platform", "/properties/Data", "/properties/Uri", "/properties/KmsKeyId", "/properties/SupportedOsVersions", "/properties/Tags" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:CreateServiceLinkedRole", "iam:GetRole", "kms:GenerateDataKey*", "kms:Encrypt", "kms:Decrypt", "s3:GetObject", "s3:HeadBucket", "s3:GetBucketLocation", "imagebuilder:TagResource", "imagebuilder:GetComponent", "imagebuilder:CreateComponent" ]

@@ -505,6 +505,172 @@ func (in *clusterStorageModePtr) ToClusterStorageModePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterStorageModePtrOutput)
 }
 
+// The type of private link authentication
+type VpcConnectionAuthentication string
+
+const (
+	VpcConnectionAuthenticationSaslIam   = VpcConnectionAuthentication("SASL_IAM")
+	VpcConnectionAuthenticationSaslScram = VpcConnectionAuthentication("SASL_SCRAM")
+	VpcConnectionAuthenticationTls       = VpcConnectionAuthentication("TLS")
+)
+
+func (VpcConnectionAuthentication) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcConnectionAuthentication)(nil)).Elem()
+}
+
+func (e VpcConnectionAuthentication) ToVpcConnectionAuthenticationOutput() VpcConnectionAuthenticationOutput {
+	return pulumi.ToOutput(e).(VpcConnectionAuthenticationOutput)
+}
+
+func (e VpcConnectionAuthentication) ToVpcConnectionAuthenticationOutputWithContext(ctx context.Context) VpcConnectionAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcConnectionAuthenticationOutput)
+}
+
+func (e VpcConnectionAuthentication) ToVpcConnectionAuthenticationPtrOutput() VpcConnectionAuthenticationPtrOutput {
+	return e.ToVpcConnectionAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (e VpcConnectionAuthentication) ToVpcConnectionAuthenticationPtrOutputWithContext(ctx context.Context) VpcConnectionAuthenticationPtrOutput {
+	return VpcConnectionAuthentication(e).ToVpcConnectionAuthenticationOutputWithContext(ctx).ToVpcConnectionAuthenticationPtrOutputWithContext(ctx)
+}
+
+func (e VpcConnectionAuthentication) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcConnectionAuthentication) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcConnectionAuthentication) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcConnectionAuthentication) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcConnectionAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (VpcConnectionAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcConnectionAuthentication)(nil)).Elem()
+}
+
+func (o VpcConnectionAuthenticationOutput) ToVpcConnectionAuthenticationOutput() VpcConnectionAuthenticationOutput {
+	return o
+}
+
+func (o VpcConnectionAuthenticationOutput) ToVpcConnectionAuthenticationOutputWithContext(ctx context.Context) VpcConnectionAuthenticationOutput {
+	return o
+}
+
+func (o VpcConnectionAuthenticationOutput) ToVpcConnectionAuthenticationPtrOutput() VpcConnectionAuthenticationPtrOutput {
+	return o.ToVpcConnectionAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o VpcConnectionAuthenticationOutput) ToVpcConnectionAuthenticationPtrOutputWithContext(ctx context.Context) VpcConnectionAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcConnectionAuthentication) *VpcConnectionAuthentication {
+		return &v
+	}).(VpcConnectionAuthenticationPtrOutput)
+}
+
+func (o VpcConnectionAuthenticationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcConnectionAuthenticationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcConnectionAuthentication) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcConnectionAuthenticationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcConnectionAuthenticationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcConnectionAuthentication) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcConnectionAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcConnectionAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcConnectionAuthentication)(nil)).Elem()
+}
+
+func (o VpcConnectionAuthenticationPtrOutput) ToVpcConnectionAuthenticationPtrOutput() VpcConnectionAuthenticationPtrOutput {
+	return o
+}
+
+func (o VpcConnectionAuthenticationPtrOutput) ToVpcConnectionAuthenticationPtrOutputWithContext(ctx context.Context) VpcConnectionAuthenticationPtrOutput {
+	return o
+}
+
+func (o VpcConnectionAuthenticationPtrOutput) Elem() VpcConnectionAuthenticationOutput {
+	return o.ApplyT(func(v *VpcConnectionAuthentication) VpcConnectionAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret VpcConnectionAuthentication
+		return ret
+	}).(VpcConnectionAuthenticationOutput)
+}
+
+func (o VpcConnectionAuthenticationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcConnectionAuthenticationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcConnectionAuthentication) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcConnectionAuthenticationInput is an input type that accepts VpcConnectionAuthenticationArgs and VpcConnectionAuthenticationOutput values.
+// You can construct a concrete instance of `VpcConnectionAuthenticationInput` via:
+//
+//	VpcConnectionAuthenticationArgs{...}
+type VpcConnectionAuthenticationInput interface {
+	pulumi.Input
+
+	ToVpcConnectionAuthenticationOutput() VpcConnectionAuthenticationOutput
+	ToVpcConnectionAuthenticationOutputWithContext(context.Context) VpcConnectionAuthenticationOutput
+}
+
+var vpcConnectionAuthenticationPtrType = reflect.TypeOf((**VpcConnectionAuthentication)(nil)).Elem()
+
+type VpcConnectionAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToVpcConnectionAuthenticationPtrOutput() VpcConnectionAuthenticationPtrOutput
+	ToVpcConnectionAuthenticationPtrOutputWithContext(context.Context) VpcConnectionAuthenticationPtrOutput
+}
+
+type vpcConnectionAuthenticationPtr string
+
+func VpcConnectionAuthenticationPtr(v string) VpcConnectionAuthenticationPtrInput {
+	return (*vpcConnectionAuthenticationPtr)(&v)
+}
+
+func (*vpcConnectionAuthenticationPtr) ElementType() reflect.Type {
+	return vpcConnectionAuthenticationPtrType
+}
+
+func (in *vpcConnectionAuthenticationPtr) ToVpcConnectionAuthenticationPtrOutput() VpcConnectionAuthenticationPtrOutput {
+	return pulumi.ToOutput(in).(VpcConnectionAuthenticationPtrOutput)
+}
+
+func (in *vpcConnectionAuthenticationPtr) ToVpcConnectionAuthenticationPtrOutputWithContext(ctx context.Context) VpcConnectionAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcConnectionAuthenticationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionInTransitClientBrokerInput)(nil)).Elem(), ClusterEncryptionInTransitClientBroker("TLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionInTransitClientBrokerPtrInput)(nil)).Elem(), ClusterEncryptionInTransitClientBroker("TLS"))
@@ -512,10 +678,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnhancedMonitoringPtrInput)(nil)).Elem(), ClusterEnhancedMonitoring("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModeInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModePtrInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionAuthenticationInput)(nil)).Elem(), VpcConnectionAuthentication("SASL_IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionAuthenticationPtrInput)(nil)).Elem(), VpcConnectionAuthentication("SASL_IAM"))
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitClientBrokerOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitClientBrokerPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEnhancedMonitoringOutput{})
 	pulumi.RegisterOutputType(ClusterEnhancedMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(ClusterStorageModeOutput{})
 	pulumi.RegisterOutputType(ClusterStorageModePtrOutput{})
+	pulumi.RegisterOutputType(VpcConnectionAuthenticationOutput{})
+	pulumi.RegisterOutputType(VpcConnectionAuthenticationPtrOutput{})
 }

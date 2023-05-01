@@ -1234,6 +1234,7 @@ _utilities.register(
    "aws-native:connect:ApprovedOrigin": "ApprovedOrigin",
    "aws-native:connect:ContactFlow": "ContactFlow",
    "aws-native:connect:ContactFlowModule": "ContactFlowModule",
+   "aws-native:connect:EvaluationForm": "EvaluationForm",
    "aws-native:connect:HoursOfOperation": "HoursOfOperation",
    "aws-native:connect:Instance": "Instance",
    "aws-native:connect:InstanceStorageConfig": "InstanceStorageConfig",
@@ -1318,6 +1319,7 @@ _utilities.register(
    "aws-native:datasync:LocationObjectStorage": "LocationObjectStorage",
    "aws-native:datasync:LocationS3": "LocationS3",
    "aws-native:datasync:LocationSMB": "LocationSMB",
+   "aws-native:datasync:StorageSystem": "StorageSystem",
    "aws-native:datasync:Task": "Task"
   }
  },
@@ -2429,7 +2431,8 @@ _utilities.register(
    "aws-native:msk:Cluster": "Cluster",
    "aws-native:msk:ClusterPolicy": "ClusterPolicy",
    "aws-native:msk:Configuration": "Configuration",
-   "aws-native:msk:ServerlessCluster": "ServerlessCluster"
+   "aws-native:msk:ServerlessCluster": "ServerlessCluster",
+   "aws-native:msk:VpcConnection": "VpcConnection"
   }
  },
  {
@@ -2656,7 +2659,8 @@ _utilities.register(
    "aws-native:quicksight:DataSource": "DataSource",
    "aws-native:quicksight:RefreshSchedule": "RefreshSchedule",
    "aws-native:quicksight:Template": "Template",
-   "aws-native:quicksight:Theme": "Theme"
+   "aws-native:quicksight:Theme": "Theme",
+   "aws-native:quicksight:VPCConnection": "VPCConnection"
   }
  },
  {

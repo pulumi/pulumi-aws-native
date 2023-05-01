@@ -400,6 +400,68 @@ namespace Pulumi.AwsNative.DataSync
     }
 
     /// <summary>
+    /// Indicates whether the DataSync agent can access the on-premises storage system.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageSystemConnectivityStatus : IEquatable<StorageSystemConnectivityStatus>
+    {
+        private readonly string _value;
+
+        private StorageSystemConnectivityStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageSystemConnectivityStatus Pass { get; } = new StorageSystemConnectivityStatus("PASS");
+        public static StorageSystemConnectivityStatus Fail { get; } = new StorageSystemConnectivityStatus("FAIL");
+        public static StorageSystemConnectivityStatus Unknown { get; } = new StorageSystemConnectivityStatus("UNKNOWN");
+
+        public static bool operator ==(StorageSystemConnectivityStatus left, StorageSystemConnectivityStatus right) => left.Equals(right);
+        public static bool operator !=(StorageSystemConnectivityStatus left, StorageSystemConnectivityStatus right) => !left.Equals(right);
+
+        public static explicit operator string(StorageSystemConnectivityStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageSystemConnectivityStatus other && Equals(other);
+        public bool Equals(StorageSystemConnectivityStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of on-premises storage system that DataSync Discovery will analyze.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageSystemSystemType : IEquatable<StorageSystemSystemType>
+    {
+        private readonly string _value;
+
+        private StorageSystemSystemType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageSystemSystemType NetAppONTAP { get; } = new StorageSystemSystemType("NetAppONTAP");
+
+        public static bool operator ==(StorageSystemSystemType left, StorageSystemSystemType right) => left.Equals(right);
+        public static bool operator !=(StorageSystemSystemType left, StorageSystemSystemType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageSystemSystemType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageSystemSystemType other && Equals(other);
+        public bool Equals(StorageSystemSystemType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
     /// </summary>
     [EnumType]

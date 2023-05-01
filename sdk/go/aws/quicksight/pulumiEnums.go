@@ -51998,6 +51998,366 @@ func (o ThemeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
+type VPCConnectionAvailabilityStatus string
+
+const (
+	VPCConnectionAvailabilityStatusAvailable          = VPCConnectionAvailabilityStatus("AVAILABLE")
+	VPCConnectionAvailabilityStatusUnavailable        = VPCConnectionAvailabilityStatus("UNAVAILABLE")
+	VPCConnectionAvailabilityStatusPartiallyAvailable = VPCConnectionAvailabilityStatus("PARTIALLY_AVAILABLE")
+)
+
+func (VPCConnectionAvailabilityStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCConnectionAvailabilityStatus)(nil)).Elem()
+}
+
+func (e VPCConnectionAvailabilityStatus) ToVPCConnectionAvailabilityStatusOutput() VPCConnectionAvailabilityStatusOutput {
+	return pulumi.ToOutput(e).(VPCConnectionAvailabilityStatusOutput)
+}
+
+func (e VPCConnectionAvailabilityStatus) ToVPCConnectionAvailabilityStatusOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VPCConnectionAvailabilityStatusOutput)
+}
+
+func (e VPCConnectionAvailabilityStatus) ToVPCConnectionAvailabilityStatusPtrOutput() VPCConnectionAvailabilityStatusPtrOutput {
+	return e.ToVPCConnectionAvailabilityStatusPtrOutputWithContext(context.Background())
+}
+
+func (e VPCConnectionAvailabilityStatus) ToVPCConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusPtrOutput {
+	return VPCConnectionAvailabilityStatus(e).ToVPCConnectionAvailabilityStatusOutputWithContext(ctx).ToVPCConnectionAvailabilityStatusPtrOutputWithContext(ctx)
+}
+
+func (e VPCConnectionAvailabilityStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VPCConnectionAvailabilityStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VPCConnectionAvailabilityStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VPCConnectionAvailabilityStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VPCConnectionAvailabilityStatusOutput struct{ *pulumi.OutputState }
+
+func (VPCConnectionAvailabilityStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCConnectionAvailabilityStatus)(nil)).Elem()
+}
+
+func (o VPCConnectionAvailabilityStatusOutput) ToVPCConnectionAvailabilityStatusOutput() VPCConnectionAvailabilityStatusOutput {
+	return o
+}
+
+func (o VPCConnectionAvailabilityStatusOutput) ToVPCConnectionAvailabilityStatusOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusOutput {
+	return o
+}
+
+func (o VPCConnectionAvailabilityStatusOutput) ToVPCConnectionAvailabilityStatusPtrOutput() VPCConnectionAvailabilityStatusPtrOutput {
+	return o.ToVPCConnectionAvailabilityStatusPtrOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionAvailabilityStatusOutput) ToVPCConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VPCConnectionAvailabilityStatus) *VPCConnectionAvailabilityStatus {
+		return &v
+	}).(VPCConnectionAvailabilityStatusPtrOutput)
+}
+
+func (o VPCConnectionAvailabilityStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionAvailabilityStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionAvailabilityStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VPCConnectionAvailabilityStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionAvailabilityStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionAvailabilityStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VPCConnectionAvailabilityStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (VPCConnectionAvailabilityStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VPCConnectionAvailabilityStatus)(nil)).Elem()
+}
+
+func (o VPCConnectionAvailabilityStatusPtrOutput) ToVPCConnectionAvailabilityStatusPtrOutput() VPCConnectionAvailabilityStatusPtrOutput {
+	return o
+}
+
+func (o VPCConnectionAvailabilityStatusPtrOutput) ToVPCConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusPtrOutput {
+	return o
+}
+
+func (o VPCConnectionAvailabilityStatusPtrOutput) Elem() VPCConnectionAvailabilityStatusOutput {
+	return o.ApplyT(func(v *VPCConnectionAvailabilityStatus) VPCConnectionAvailabilityStatus {
+		if v != nil {
+			return *v
+		}
+		var ret VPCConnectionAvailabilityStatus
+		return ret
+	}).(VPCConnectionAvailabilityStatusOutput)
+}
+
+func (o VPCConnectionAvailabilityStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionAvailabilityStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VPCConnectionAvailabilityStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VPCConnectionAvailabilityStatusInput is an input type that accepts VPCConnectionAvailabilityStatusArgs and VPCConnectionAvailabilityStatusOutput values.
+// You can construct a concrete instance of `VPCConnectionAvailabilityStatusInput` via:
+//
+//	VPCConnectionAvailabilityStatusArgs{...}
+type VPCConnectionAvailabilityStatusInput interface {
+	pulumi.Input
+
+	ToVPCConnectionAvailabilityStatusOutput() VPCConnectionAvailabilityStatusOutput
+	ToVPCConnectionAvailabilityStatusOutputWithContext(context.Context) VPCConnectionAvailabilityStatusOutput
+}
+
+var vpcconnectionAvailabilityStatusPtrType = reflect.TypeOf((**VPCConnectionAvailabilityStatus)(nil)).Elem()
+
+type VPCConnectionAvailabilityStatusPtrInput interface {
+	pulumi.Input
+
+	ToVPCConnectionAvailabilityStatusPtrOutput() VPCConnectionAvailabilityStatusPtrOutput
+	ToVPCConnectionAvailabilityStatusPtrOutputWithContext(context.Context) VPCConnectionAvailabilityStatusPtrOutput
+}
+
+type vpcconnectionAvailabilityStatusPtr string
+
+func VPCConnectionAvailabilityStatusPtr(v string) VPCConnectionAvailabilityStatusPtrInput {
+	return (*vpcconnectionAvailabilityStatusPtr)(&v)
+}
+
+func (*vpcconnectionAvailabilityStatusPtr) ElementType() reflect.Type {
+	return vpcconnectionAvailabilityStatusPtrType
+}
+
+func (in *vpcconnectionAvailabilityStatusPtr) ToVPCConnectionAvailabilityStatusPtrOutput() VPCConnectionAvailabilityStatusPtrOutput {
+	return pulumi.ToOutput(in).(VPCConnectionAvailabilityStatusPtrOutput)
+}
+
+func (in *vpcconnectionAvailabilityStatusPtr) ToVPCConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VPCConnectionAvailabilityStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VPCConnectionAvailabilityStatusPtrOutput)
+}
+
+type VPCConnectionNetworkInterfaceStatus string
+
+const (
+	VPCConnectionNetworkInterfaceStatusCreating                       = VPCConnectionNetworkInterfaceStatus("CREATING")
+	VPCConnectionNetworkInterfaceStatusAvailable                      = VPCConnectionNetworkInterfaceStatus("AVAILABLE")
+	VPCConnectionNetworkInterfaceStatusCreationFailed                 = VPCConnectionNetworkInterfaceStatus("CREATION_FAILED")
+	VPCConnectionNetworkInterfaceStatusUpdating                       = VPCConnectionNetworkInterfaceStatus("UPDATING")
+	VPCConnectionNetworkInterfaceStatusUpdateFailed                   = VPCConnectionNetworkInterfaceStatus("UPDATE_FAILED")
+	VPCConnectionNetworkInterfaceStatusDeleting                       = VPCConnectionNetworkInterfaceStatus("DELETING")
+	VPCConnectionNetworkInterfaceStatusDeleted                        = VPCConnectionNetworkInterfaceStatus("DELETED")
+	VPCConnectionNetworkInterfaceStatusDeletionFailed                 = VPCConnectionNetworkInterfaceStatus("DELETION_FAILED")
+	VPCConnectionNetworkInterfaceStatusDeletionScheduled              = VPCConnectionNetworkInterfaceStatus("DELETION_SCHEDULED")
+	VPCConnectionNetworkInterfaceStatusAttachmentFailedRollbackFailed = VPCConnectionNetworkInterfaceStatus("ATTACHMENT_FAILED_ROLLBACK_FAILED")
+)
+
+type VPCConnectionNetworkInterfaceStatusOutput struct{ *pulumi.OutputState }
+
+func (VPCConnectionNetworkInterfaceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCConnectionNetworkInterfaceStatus)(nil)).Elem()
+}
+
+func (o VPCConnectionNetworkInterfaceStatusOutput) ToVPCConnectionNetworkInterfaceStatusOutput() VPCConnectionNetworkInterfaceStatusOutput {
+	return o
+}
+
+func (o VPCConnectionNetworkInterfaceStatusOutput) ToVPCConnectionNetworkInterfaceStatusOutputWithContext(ctx context.Context) VPCConnectionNetworkInterfaceStatusOutput {
+	return o
+}
+
+func (o VPCConnectionNetworkInterfaceStatusOutput) ToVPCConnectionNetworkInterfaceStatusPtrOutput() VPCConnectionNetworkInterfaceStatusPtrOutput {
+	return o.ToVPCConnectionNetworkInterfaceStatusPtrOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionNetworkInterfaceStatusOutput) ToVPCConnectionNetworkInterfaceStatusPtrOutputWithContext(ctx context.Context) VPCConnectionNetworkInterfaceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VPCConnectionNetworkInterfaceStatus) *VPCConnectionNetworkInterfaceStatus {
+		return &v
+	}).(VPCConnectionNetworkInterfaceStatusPtrOutput)
+}
+
+func (o VPCConnectionNetworkInterfaceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionNetworkInterfaceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionNetworkInterfaceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VPCConnectionNetworkInterfaceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionNetworkInterfaceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionNetworkInterfaceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VPCConnectionNetworkInterfaceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (VPCConnectionNetworkInterfaceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VPCConnectionNetworkInterfaceStatus)(nil)).Elem()
+}
+
+func (o VPCConnectionNetworkInterfaceStatusPtrOutput) ToVPCConnectionNetworkInterfaceStatusPtrOutput() VPCConnectionNetworkInterfaceStatusPtrOutput {
+	return o
+}
+
+func (o VPCConnectionNetworkInterfaceStatusPtrOutput) ToVPCConnectionNetworkInterfaceStatusPtrOutputWithContext(ctx context.Context) VPCConnectionNetworkInterfaceStatusPtrOutput {
+	return o
+}
+
+func (o VPCConnectionNetworkInterfaceStatusPtrOutput) Elem() VPCConnectionNetworkInterfaceStatusOutput {
+	return o.ApplyT(func(v *VPCConnectionNetworkInterfaceStatus) VPCConnectionNetworkInterfaceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret VPCConnectionNetworkInterfaceStatus
+		return ret
+	}).(VPCConnectionNetworkInterfaceStatusOutput)
+}
+
+func (o VPCConnectionNetworkInterfaceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionNetworkInterfaceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VPCConnectionNetworkInterfaceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VPCConnectionResourceStatus string
+
+const (
+	VPCConnectionResourceStatusCreationInProgress = VPCConnectionResourceStatus("CREATION_IN_PROGRESS")
+	VPCConnectionResourceStatusCreationSuccessful = VPCConnectionResourceStatus("CREATION_SUCCESSFUL")
+	VPCConnectionResourceStatusCreationFailed     = VPCConnectionResourceStatus("CREATION_FAILED")
+	VPCConnectionResourceStatusUpdateInProgress   = VPCConnectionResourceStatus("UPDATE_IN_PROGRESS")
+	VPCConnectionResourceStatusUpdateSuccessful   = VPCConnectionResourceStatus("UPDATE_SUCCESSFUL")
+	VPCConnectionResourceStatusUpdateFailed       = VPCConnectionResourceStatus("UPDATE_FAILED")
+	VPCConnectionResourceStatusDeletionInProgress = VPCConnectionResourceStatus("DELETION_IN_PROGRESS")
+	VPCConnectionResourceStatusDeletionFailed     = VPCConnectionResourceStatus("DELETION_FAILED")
+	VPCConnectionResourceStatusDeleted            = VPCConnectionResourceStatus("DELETED")
+)
+
+type VPCConnectionResourceStatusOutput struct{ *pulumi.OutputState }
+
+func (VPCConnectionResourceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCConnectionResourceStatus)(nil)).Elem()
+}
+
+func (o VPCConnectionResourceStatusOutput) ToVPCConnectionResourceStatusOutput() VPCConnectionResourceStatusOutput {
+	return o
+}
+
+func (o VPCConnectionResourceStatusOutput) ToVPCConnectionResourceStatusOutputWithContext(ctx context.Context) VPCConnectionResourceStatusOutput {
+	return o
+}
+
+func (o VPCConnectionResourceStatusOutput) ToVPCConnectionResourceStatusPtrOutput() VPCConnectionResourceStatusPtrOutput {
+	return o.ToVPCConnectionResourceStatusPtrOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionResourceStatusOutput) ToVPCConnectionResourceStatusPtrOutputWithContext(ctx context.Context) VPCConnectionResourceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VPCConnectionResourceStatus) *VPCConnectionResourceStatus {
+		return &v
+	}).(VPCConnectionResourceStatusPtrOutput)
+}
+
+func (o VPCConnectionResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionResourceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionResourceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VPCConnectionResourceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionResourceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VPCConnectionResourceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VPCConnectionResourceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (VPCConnectionResourceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VPCConnectionResourceStatus)(nil)).Elem()
+}
+
+func (o VPCConnectionResourceStatusPtrOutput) ToVPCConnectionResourceStatusPtrOutput() VPCConnectionResourceStatusPtrOutput {
+	return o
+}
+
+func (o VPCConnectionResourceStatusPtrOutput) ToVPCConnectionResourceStatusPtrOutputWithContext(ctx context.Context) VPCConnectionResourceStatusPtrOutput {
+	return o
+}
+
+func (o VPCConnectionResourceStatusPtrOutput) Elem() VPCConnectionResourceStatusOutput {
+	return o.ApplyT(func(v *VPCConnectionResourceStatus) VPCConnectionResourceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret VPCConnectionResourceStatus
+		return ret
+	}).(VPCConnectionResourceStatusOutput)
+}
+
+func (o VPCConnectionResourceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VPCConnectionResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VPCConnectionResourceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAnchorOptionInput)(nil)).Elem(), AnalysisAnchorOption("NOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAnchorOptionPtrInput)(nil)).Elem(), AnalysisAnchorOption("NOW"))
@@ -52617,6 +52977,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudWordPaddingPtrInput)(nil)).Elem(), TemplateWordCloudWordPadding("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudWordScalingInput)(nil)).Elem(), TemplateWordCloudWordScaling("EMPHASIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudWordScalingPtrInput)(nil)).Elem(), TemplateWordCloudWordScaling("EMPHASIZE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionAvailabilityStatusInput)(nil)).Elem(), VPCConnectionAvailabilityStatus("AVAILABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionAvailabilityStatusPtrInput)(nil)).Elem(), VPCConnectionAvailabilityStatus("AVAILABLE"))
 	pulumi.RegisterOutputType(AnalysisAnchorOptionOutput{})
 	pulumi.RegisterOutputType(AnalysisAnchorOptionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisArcThicknessOutput{})
@@ -53255,4 +53617,10 @@ func init() {
 	pulumi.RegisterOutputType(ThemeResourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(ThemeTypeOutput{})
 	pulumi.RegisterOutputType(ThemeTypePtrOutput{})
+	pulumi.RegisterOutputType(VPCConnectionAvailabilityStatusOutput{})
+	pulumi.RegisterOutputType(VPCConnectionAvailabilityStatusPtrOutput{})
+	pulumi.RegisterOutputType(VPCConnectionNetworkInterfaceStatusOutput{})
+	pulumi.RegisterOutputType(VPCConnectionNetworkInterfaceStatusPtrOutput{})
+	pulumi.RegisterOutputType(VPCConnectionResourceStatusOutput{})
+	pulumi.RegisterOutputType(VPCConnectionResourceStatusPtrOutput{})
 }

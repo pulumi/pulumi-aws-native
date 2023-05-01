@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetGraphResult:
-    def __init__(__self__, arn=None, tags=None):
+    def __init__(__self__, arn=None, auto_enable_members=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if auto_enable_members and not isinstance(auto_enable_members, bool):
+            raise TypeError("Expected argument 'auto_enable_members' to be a bool")
+        pulumi.set(__self__, "auto_enable_members", auto_enable_members)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -34,6 +37,14 @@ class GetGraphResult:
         The Detective graph ARN
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoEnableMembers")
+    def auto_enable_members(self) -> Optional[bool]:
+        """
+        Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+        """
+        return pulumi.get(self, "auto_enable_members")
 
     @property
     @pulumi.getter
@@ -48,6 +59,7 @@ class AwaitableGetGraphResult(GetGraphResult):
             yield self
         return GetGraphResult(
             arn=self.arn,
+            auto_enable_members=self.auto_enable_members,
             tags=self.tags)
 
 
@@ -66,6 +78,7 @@ def get_graph(arn: Optional[str] = None,
 
     return AwaitableGetGraphResult(
         arn=__ret__.arn,
+        auto_enable_members=__ret__.auto_enable_members,
         tags=__ret__.tags)
 
 

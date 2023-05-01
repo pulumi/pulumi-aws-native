@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("bufferingHints")]
         public Input<Inputs.DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs>? BufferingHints { get; set; }
 
+        [Input("bulkRequestCustomizationConfiguration")]
+        public Input<Inputs.DeliveryStreamBulkRequestCustomizationConfigurationArgs>? BulkRequestCustomizationConfiguration { get; set; }
+
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
 

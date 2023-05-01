@@ -93,4 +93,36 @@ namespace Pulumi.AwsNative.MSK
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type of private link authentication
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcConnectionAuthentication : IEquatable<VpcConnectionAuthentication>
+    {
+        private readonly string _value;
+
+        private VpcConnectionAuthentication(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcConnectionAuthentication SaslIam { get; } = new VpcConnectionAuthentication("SASL_IAM");
+        public static VpcConnectionAuthentication SaslScram { get; } = new VpcConnectionAuthentication("SASL_SCRAM");
+        public static VpcConnectionAuthentication Tls { get; } = new VpcConnectionAuthentication("TLS");
+
+        public static bool operator ==(VpcConnectionAuthentication left, VpcConnectionAuthentication right) => left.Equals(right);
+        public static bool operator !=(VpcConnectionAuthentication left, VpcConnectionAuthentication right) => !left.Equals(right);
+
+        public static explicit operator string(VpcConnectionAuthentication value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcConnectionAuthentication other && Equals(other);
+        public bool Equals(VpcConnectionAuthentication other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

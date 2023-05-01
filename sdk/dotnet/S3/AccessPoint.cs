@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.S3
         /// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
@@ -56,9 +56,6 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         [Output("policy")]
         public Output<object?> Policy { get; private set; } = null!;
-
-        [Output("policyStatus")]
-        public Output<Outputs.PolicyStatusProperties?> PolicyStatus { get; private set; } = null!;
 
         /// <summary>
         /// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
@@ -140,9 +137,6 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         [Input("policy")]
         public Input<object>? Policy { get; set; }
-
-        [Input("policyStatus")]
-        public Input<Inputs.PolicyStatusPropertiesArgs>? PolicyStatus { get; set; }
 
         /// <summary>
         /// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.

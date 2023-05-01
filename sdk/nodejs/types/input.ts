@@ -7864,6 +7864,278 @@ export namespace connect {
     }
 
     /**
+     * The evaluation form base item.
+     */
+    export interface EvaluationFormBaseItemArgs {
+        /**
+         * The evaluation form section item
+         */
+        section: pulumi.Input<inputs.connect.EvaluationFormSectionArgs>;
+    }
+
+    /**
+     * The evaluation form item.
+     */
+    export interface EvaluationFormItemArgs {
+        /**
+         * The evaluation form question item
+         */
+        question?: pulumi.Input<inputs.connect.EvaluationFormQuestionArgs>;
+        /**
+         * The evaluation form section item
+         */
+        section?: pulumi.Input<inputs.connect.EvaluationFormSectionArgs>;
+    }
+
+    /**
+     * The automation properties for the numeric question.
+     */
+    export interface EvaluationFormNumericQuestionAutomationArgs {
+        /**
+         * The automation property name of the question.
+         */
+        propertyValue: pulumi.Input<inputs.connect.EvaluationFormNumericQuestionPropertyValueAutomationArgs>;
+    }
+
+    /**
+     * The option ranges used for scoring in numeric questions.
+     */
+    export interface EvaluationFormNumericQuestionOptionArgs {
+        /**
+         * The flag to mark the option as automatic fail.
+         */
+        automaticFail?: pulumi.Input<boolean>;
+        /**
+         * The maximum value of the option range.
+         */
+        maxValue: pulumi.Input<number>;
+        /**
+         * The minimum value of the option range.
+         */
+        minValue: pulumi.Input<number>;
+        /**
+         * The score of the option range.
+         */
+        score?: pulumi.Input<number>;
+    }
+
+    /**
+     * The properties of the numeric question.
+     */
+    export interface EvaluationFormNumericQuestionPropertiesArgs {
+        /**
+         * The automation properties for the numeric question.
+         */
+        automation?: pulumi.Input<inputs.connect.EvaluationFormNumericQuestionAutomationArgs>;
+        /**
+         * The maximum value for answers of the question.
+         */
+        maxValue: pulumi.Input<number>;
+        /**
+         * The minimum value for answers of the question.
+         */
+        minValue: pulumi.Input<number>;
+        /**
+         * The list of option ranges used for scoring.
+         */
+        options?: pulumi.Input<pulumi.Input<inputs.connect.EvaluationFormNumericQuestionOptionArgs>[]>;
+    }
+
+    /**
+     * The automation property name of the question.
+     */
+    export interface EvaluationFormNumericQuestionPropertyValueAutomationArgs {
+        /**
+         * The automation property label.
+         */
+        label: pulumi.Input<enums.connect.EvaluationFormNumericQuestionPropertyValueAutomationLabel>;
+    }
+
+    /**
+     * The evaluation form question.
+     */
+    export interface EvaluationFormQuestionArgs {
+        /**
+         * The instructions for the question.
+         */
+        instructions?: pulumi.Input<string>;
+        /**
+         * The flag to enable not applicable answers to the question.
+         */
+        notApplicableEnabled?: pulumi.Input<boolean>;
+        /**
+         * The type of the question.
+         */
+        questionType: pulumi.Input<enums.connect.EvaluationFormQuestionQuestionType>;
+        /**
+         * The properties of the question
+         */
+        questionTypeProperties?: pulumi.Input<inputs.connect.EvaluationFormQuestionTypePropertiesArgs>;
+        /**
+         * The identifier used to reference the question.
+         */
+        refId: pulumi.Input<string>;
+        /**
+         * The title of the question.
+         */
+        title: pulumi.Input<string>;
+        /**
+         * The question weight used for scoring.
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    /**
+     * The properties of the question.
+     */
+    export interface EvaluationFormQuestionTypePropertiesArgs {
+        /**
+         * The properties of the numeric question.
+         */
+        numeric?: pulumi.Input<inputs.connect.EvaluationFormNumericQuestionPropertiesArgs>;
+        /**
+         * The properties of the single-select question.
+         */
+        singleSelect?: pulumi.Input<inputs.connect.EvaluationFormSingleSelectQuestionPropertiesArgs>;
+    }
+
+    /**
+     * The scoring strategy.
+     */
+    export interface EvaluationFormScoringStrategyArgs {
+        /**
+         * The scoring mode.
+         */
+        mode: pulumi.Input<enums.connect.EvaluationFormScoringStrategyMode>;
+        /**
+         * The scoring status.
+         */
+        status: pulumi.Input<enums.connect.EvaluationFormScoringStrategyStatus>;
+    }
+
+    /**
+     * The evaluation form section.
+     */
+    export interface EvaluationFormSectionArgs {
+        /**
+         * The instructions for the section.
+         */
+        instructions?: pulumi.Input<string>;
+        /**
+         * The list of section items.
+         */
+        items?: pulumi.Input<pulumi.Input<inputs.connect.EvaluationFormItemArgs>[]>;
+        /**
+         * The identifier to reference the section.
+         */
+        refId: pulumi.Input<string>;
+        /**
+         * The title of the section.
+         */
+        title: pulumi.Input<string>;
+        /**
+         * The item weight used for scoring.
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    /**
+     * The automation properties for the single-select question.
+     */
+    export interface EvaluationFormSingleSelectQuestionAutomationArgs {
+        /**
+         * The option reference identifier of the default answer.
+         */
+        defaultOptionRefId?: pulumi.Input<string>;
+        /**
+         * The answer options for the automation.
+         */
+        options: pulumi.Input<pulumi.Input<inputs.connect.EvaluationFormSingleSelectQuestionAutomationOptionArgs>[]>;
+    }
+
+    /**
+     * The automation option for the single-select question.
+     */
+    export interface EvaluationFormSingleSelectQuestionAutomationOptionArgs {
+        /**
+         * The automation option based on Rules categories.
+         */
+        ruleCategory: pulumi.Input<inputs.connect.EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs>;
+    }
+
+    /**
+     * The option for a question.
+     */
+    export interface EvaluationFormSingleSelectQuestionOptionArgs {
+        /**
+         * The flag to mark the option as automatic fail.
+         */
+        automaticFail?: pulumi.Input<boolean>;
+        /**
+         * The identifier used to reference the option.
+         */
+        refId: pulumi.Input<string>;
+        /**
+         * The score of the option.
+         */
+        score?: pulumi.Input<number>;
+        /**
+         * The title of the option.
+         */
+        text: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties of the single-select question.
+     */
+    export interface EvaluationFormSingleSelectQuestionPropertiesArgs {
+        /**
+         * The automation properties for the single-select question.
+         */
+        automation?: pulumi.Input<inputs.connect.EvaluationFormSingleSelectQuestionAutomationArgs>;
+        /**
+         * The display mode of the single-select question.
+         */
+        displayAs?: pulumi.Input<enums.connect.EvaluationFormSingleSelectQuestionPropertiesDisplayAs>;
+        /**
+         * The list of options for the question.
+         */
+        options: pulumi.Input<pulumi.Input<inputs.connect.EvaluationFormSingleSelectQuestionOptionArgs>[]>;
+    }
+
+    /**
+     * The automation option based on Rules categories.
+     */
+    export interface EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs {
+        /**
+         * The category name as defined in Rules.
+         */
+        category: pulumi.Input<string>;
+        /**
+         * The automation condition applied on contact categories.
+         */
+        condition: pulumi.Input<enums.connect.EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition>;
+        /**
+         * The option identifier referencing the option to be selected when the automation option is triggered.
+         */
+        optionRefId: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface EvaluationFormTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that's 1 to 256 characters in length.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * Contains information about the hours of operation.
      */
     export interface HoursOfOperationConfigArgs {
@@ -9434,6 +9706,48 @@ export namespace datasync {
      * A key-value pair to associate with a resource.
      */
     export interface LocationSMBTagArgs {
+        /**
+         * The key for an AWS resource tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for an AWS resource tag.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * The server name and network port required to connect with the management interface of the on-premises storage system.
+     */
+    export interface StorageSystemServerConfigurationArgs {
+        /**
+         * The domain name or IP address of the storage system's management interface.
+         */
+        serverHostname: pulumi.Input<string>;
+        /**
+         * The network port needed to access the system's management interface
+         */
+        serverPort?: pulumi.Input<number>;
+    }
+
+    /**
+     * The username and password for accessing your on-premises storage system's management interface.
+     */
+    export interface StorageSystemServerCredentialsArgs {
+        /**
+         * The password for your storage system's management interface
+         */
+        password: pulumi.Input<string>;
+        /**
+         * The username for your storage system's management interface.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface StorageSystemTagArgs {
         /**
          * The key for an AWS resource tag.
          */
@@ -17517,6 +17831,10 @@ export namespace iot {
         value: pulumi.Input<string>;
     }
 
+    export interface DomainConfigurationTlsConfigArgs {
+        securityPolicy?: pulumi.Input<string>;
+    }
+
     /**
      * Aggregation types supported by Fleet Indexing
      */
@@ -21679,6 +21997,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs {
         bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs>;
+        bulkRequestCustomizationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfigurationArgs>;
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         collectionEndpoint?: pulumi.Input<string>;
         indexName: pulumi.Input<string>;
@@ -21701,8 +22020,10 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs {
         bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceBufferingHintsArgs>;
+        bulkRequestCustomizationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfigurationArgs>;
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         clusterEndpoint?: pulumi.Input<string>;
+        documentIdOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDocumentIdOptionsArgs>;
         domainARN?: pulumi.Input<string>;
         indexName: pulumi.Input<string>;
         indexRotationPeriod?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod>;
@@ -21722,6 +22043,12 @@ export namespace kinesisfirehose {
     export interface DeliveryStreamBufferingHintsArgs {
         intervalInSeconds?: pulumi.Input<number>;
         sizeInMBs?: pulumi.Input<number>;
+    }
+
+    export interface DeliveryStreamBulkRequestCustomizationConfigurationArgs {
+        enabled?: pulumi.Input<boolean>;
+        jqExpression?: pulumi.Input<string>;
+        jqVersion?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfigurationJqVersion>;
     }
 
     export interface DeliveryStreamCloudWatchLoggingOptionsArgs {
@@ -21748,6 +22075,10 @@ export namespace kinesisfirehose {
         openXJsonSerDe?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamOpenXJsonSerDeArgs>;
     }
 
+    export interface DeliveryStreamDocumentIdOptionsArgs {
+        defaultDocumentIdFormat: pulumi.Input<enums.kinesisfirehose.DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat>;
+    }
+
     export interface DeliveryStreamDynamicPartitioningConfigurationArgs {
         enabled?: pulumi.Input<boolean>;
         retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamRetryOptionsArgs>;
@@ -21760,8 +22091,10 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamElasticsearchDestinationConfigurationArgs {
         bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamElasticsearchBufferingHintsArgs>;
+        bulkRequestCustomizationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfigurationArgs>;
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         clusterEndpoint?: pulumi.Input<string>;
+        documentIdOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDocumentIdOptionsArgs>;
         domainARN?: pulumi.Input<string>;
         indexName: pulumi.Input<string>;
         indexRotationPeriod?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod>;
@@ -27328,6 +27661,12 @@ export namespace msk {
     export interface ServerlessClusterVpcConfigArgs {
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface VpcConnectionTagsArgs {
     }
 }
 
@@ -38975,6 +39314,10 @@ export namespace quicksight {
         warningForeground?: pulumi.Input<string>;
     }
 
+    export interface VPCConnectionTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
 }
 
 export namespace ram {
@@ -41253,16 +41596,6 @@ export namespace s3 {
     export interface MultiRegionAccessPointRegionArgs {
         bucket: pulumi.Input<string>;
         bucketAccountId?: pulumi.Input<string>;
-    }
-
-    /**
-     * The Policy Status associated with this Multi Region Access Point
-     */
-    export interface PolicyStatusPropertiesArgs {
-        /**
-         * Specifies whether the policy is public or not.
-         */
-        isPublic: pulumi.Input<enums.s3.MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic>;
     }
 
     /**

@@ -31,6 +31,7 @@ type LookupDomainConfigurationResult struct {
 	DomainType                *DomainConfigurationDomainType                `pulumi:"domainType"`
 	ServerCertificates        []DomainConfigurationServerCertificateSummary `pulumi:"serverCertificates"`
 	Tags                      []DomainConfigurationTag                      `pulumi:"tags"`
+	TlsConfig                 *DomainConfigurationTlsConfig                 `pulumi:"tlsConfig"`
 }
 
 func LookupDomainConfigurationOutput(ctx *pulumi.Context, args LookupDomainConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupDomainConfigurationResultOutput {
@@ -94,6 +95,10 @@ func (o LookupDomainConfigurationResultOutput) ServerCertificates() DomainConfig
 
 func (o LookupDomainConfigurationResultOutput) Tags() DomainConfigurationTagArrayOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) []DomainConfigurationTag { return v.Tags }).(DomainConfigurationTagArrayOutput)
+}
+
+func (o LookupDomainConfigurationResultOutput) TlsConfig() DomainConfigurationTlsConfigPtrOutput {
+	return o.ApplyT(func(v LookupDomainConfigurationResult) *DomainConfigurationTlsConfig { return v.TlsConfig }).(DomainConfigurationTlsConfigPtrOutput)
 }
 
 func init() {

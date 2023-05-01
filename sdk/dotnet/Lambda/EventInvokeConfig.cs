@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Lambda
     /// <summary>
     /// Resource Type definition for AWS::Lambda::EventInvokeConfig
     /// </summary>
-    [Obsolete(@"EventInvokeConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lambda:EventInvokeConfig")]
     public partial class EventInvokeConfig : global::Pulumi.CustomResource
     {

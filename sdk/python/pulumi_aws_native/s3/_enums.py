@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'AccessPointNetworkOrigin',
-    'AccessPointPolicyStatusPropertiesIsPublic',
     'BucketAccelerateConfigurationAccelerationStatus',
     'BucketAccessControl',
     'BucketCorsRuleAllowedMethodsItem',
@@ -44,14 +43,6 @@ class AccessPointNetworkOrigin(str, Enum):
     """
     INTERNET = "Internet"
     VPC = "VPC"
-
-
-class AccessPointPolicyStatusPropertiesIsPublic(str, Enum):
-    """
-    Specifies whether the policy is public or not.
-    """
-    TRUE = "true"
-    FALSE = "false"
 
 
 class BucketAccelerateConfigurationAccelerationStatus(str, Enum):

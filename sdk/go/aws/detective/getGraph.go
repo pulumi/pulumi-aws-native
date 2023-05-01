@@ -27,8 +27,10 @@ type LookupGraphArgs struct {
 
 type LookupGraphResult struct {
 	// The Detective graph ARN
-	Arn  *string    `pulumi:"arn"`
-	Tags []GraphTag `pulumi:"tags"`
+	Arn *string `pulumi:"arn"`
+	// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+	AutoEnableMembers *bool      `pulumi:"autoEnableMembers"`
+	Tags              []GraphTag `pulumi:"tags"`
 }
 
 func LookupGraphOutput(ctx *pulumi.Context, args LookupGraphOutputArgs, opts ...pulumi.InvokeOption) LookupGraphResultOutput {
@@ -70,6 +72,11 @@ func (o LookupGraphResultOutput) ToLookupGraphResultOutputWithContext(ctx contex
 // The Detective graph ARN
 func (o LookupGraphResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+func (o LookupGraphResultOutput) AutoEnableMembers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupGraphResult) *bool { return v.AutoEnableMembers }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupGraphResultOutput) Tags() GraphTagArrayOutput {

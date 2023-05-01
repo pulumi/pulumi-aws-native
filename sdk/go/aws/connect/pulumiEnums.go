@@ -603,6 +603,1168 @@ func (in *contactFlowTypePtr) ToContactFlowTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ContactFlowTypePtrOutput)
 }
 
+// The automation property label.
+type EvaluationFormNumericQuestionPropertyValueAutomationLabel string
+
+const (
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelOverallCustomerSentimentScore = EvaluationFormNumericQuestionPropertyValueAutomationLabel("OVERALL_CUSTOMER_SENTIMENT_SCORE")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelOverallAgentSentimentScore    = EvaluationFormNumericQuestionPropertyValueAutomationLabel("OVERALL_AGENT_SENTIMENT_SCORE")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelNonTalkTime                   = EvaluationFormNumericQuestionPropertyValueAutomationLabel("NON_TALK_TIME")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelNonTalkTimePercentage         = EvaluationFormNumericQuestionPropertyValueAutomationLabel("NON_TALK_TIME_PERCENTAGE")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelNumberOfInterruptions         = EvaluationFormNumericQuestionPropertyValueAutomationLabel("NUMBER_OF_INTERRUPTIONS")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelContactDuration               = EvaluationFormNumericQuestionPropertyValueAutomationLabel("CONTACT_DURATION")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelAgentInteractionDuration      = EvaluationFormNumericQuestionPropertyValueAutomationLabel("AGENT_INTERACTION_DURATION")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelCustomerHoldTime              = EvaluationFormNumericQuestionPropertyValueAutomationLabel("CUSTOMER_HOLD_TIME")
+)
+
+func (EvaluationFormNumericQuestionPropertyValueAutomationLabel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormNumericQuestionPropertyValueAutomationLabel)(nil)).Elem()
+}
+
+func (e EvaluationFormNumericQuestionPropertyValueAutomationLabel) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelOutput() EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput {
+	return pulumi.ToOutput(e).(EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput)
+}
+
+func (e EvaluationFormNumericQuestionPropertyValueAutomationLabel) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput)
+}
+
+func (e EvaluationFormNumericQuestionPropertyValueAutomationLabel) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput() EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
+	return e.ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormNumericQuestionPropertyValueAutomationLabel) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
+	return EvaluationFormNumericQuestionPropertyValueAutomationLabel(e).ToEvaluationFormNumericQuestionPropertyValueAutomationLabelOutputWithContext(ctx).ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutputWithContext(ctx)
+}
+
+func (e EvaluationFormNumericQuestionPropertyValueAutomationLabel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormNumericQuestionPropertyValueAutomationLabel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormNumericQuestionPropertyValueAutomationLabel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormNumericQuestionPropertyValueAutomationLabel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormNumericQuestionPropertyValueAutomationLabel)(nil)).Elem()
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelOutput() EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput() EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
+	return o.ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormNumericQuestionPropertyValueAutomationLabel) *EvaluationFormNumericQuestionPropertyValueAutomationLabel {
+		return &v
+	}).(EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput)
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormNumericQuestionPropertyValueAutomationLabel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormNumericQuestionPropertyValueAutomationLabel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormNumericQuestionPropertyValueAutomationLabel)(nil)).Elem()
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput() EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) Elem() EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput {
+	return o.ApplyT(func(v *EvaluationFormNumericQuestionPropertyValueAutomationLabel) EvaluationFormNumericQuestionPropertyValueAutomationLabel {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormNumericQuestionPropertyValueAutomationLabel
+		return ret
+	}).(EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput)
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluationFormNumericQuestionPropertyValueAutomationLabel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluationFormNumericQuestionPropertyValueAutomationLabelInput is an input type that accepts EvaluationFormNumericQuestionPropertyValueAutomationLabelArgs and EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput values.
+// You can construct a concrete instance of `EvaluationFormNumericQuestionPropertyValueAutomationLabelInput` via:
+//
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelArgs{...}
+type EvaluationFormNumericQuestionPropertyValueAutomationLabelInput interface {
+	pulumi.Input
+
+	ToEvaluationFormNumericQuestionPropertyValueAutomationLabelOutput() EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput
+	ToEvaluationFormNumericQuestionPropertyValueAutomationLabelOutputWithContext(context.Context) EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput
+}
+
+var evaluationFormNumericQuestionPropertyValueAutomationLabelPtrType = reflect.TypeOf((**EvaluationFormNumericQuestionPropertyValueAutomationLabel)(nil)).Elem()
+
+type EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput() EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput
+	ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutputWithContext(context.Context) EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput
+}
+
+type evaluationFormNumericQuestionPropertyValueAutomationLabelPtr string
+
+func EvaluationFormNumericQuestionPropertyValueAutomationLabelPtr(v string) EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrInput {
+	return (*evaluationFormNumericQuestionPropertyValueAutomationLabelPtr)(&v)
+}
+
+func (*evaluationFormNumericQuestionPropertyValueAutomationLabelPtr) ElementType() reflect.Type {
+	return evaluationFormNumericQuestionPropertyValueAutomationLabelPtrType
+}
+
+func (in *evaluationFormNumericQuestionPropertyValueAutomationLabelPtr) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput() EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
+	return pulumi.ToOutput(in).(EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput)
+}
+
+func (in *evaluationFormNumericQuestionPropertyValueAutomationLabelPtr) ToEvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput)
+}
+
+// The type of the question.
+type EvaluationFormQuestionQuestionType string
+
+const (
+	EvaluationFormQuestionQuestionTypeNumeric      = EvaluationFormQuestionQuestionType("NUMERIC")
+	EvaluationFormQuestionQuestionTypeSingleselect = EvaluationFormQuestionQuestionType("SINGLESELECT")
+	EvaluationFormQuestionQuestionTypeText         = EvaluationFormQuestionQuestionType("TEXT")
+)
+
+func (EvaluationFormQuestionQuestionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestionQuestionType)(nil)).Elem()
+}
+
+func (e EvaluationFormQuestionQuestionType) ToEvaluationFormQuestionQuestionTypeOutput() EvaluationFormQuestionQuestionTypeOutput {
+	return pulumi.ToOutput(e).(EvaluationFormQuestionQuestionTypeOutput)
+}
+
+func (e EvaluationFormQuestionQuestionType) ToEvaluationFormQuestionQuestionTypeOutputWithContext(ctx context.Context) EvaluationFormQuestionQuestionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluationFormQuestionQuestionTypeOutput)
+}
+
+func (e EvaluationFormQuestionQuestionType) ToEvaluationFormQuestionQuestionTypePtrOutput() EvaluationFormQuestionQuestionTypePtrOutput {
+	return e.ToEvaluationFormQuestionQuestionTypePtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormQuestionQuestionType) ToEvaluationFormQuestionQuestionTypePtrOutputWithContext(ctx context.Context) EvaluationFormQuestionQuestionTypePtrOutput {
+	return EvaluationFormQuestionQuestionType(e).ToEvaluationFormQuestionQuestionTypeOutputWithContext(ctx).ToEvaluationFormQuestionQuestionTypePtrOutputWithContext(ctx)
+}
+
+func (e EvaluationFormQuestionQuestionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormQuestionQuestionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormQuestionQuestionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormQuestionQuestionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluationFormQuestionQuestionTypeOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionQuestionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestionQuestionType)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionQuestionTypeOutput) ToEvaluationFormQuestionQuestionTypeOutput() EvaluationFormQuestionQuestionTypeOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionQuestionTypeOutput) ToEvaluationFormQuestionQuestionTypeOutputWithContext(ctx context.Context) EvaluationFormQuestionQuestionTypeOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionQuestionTypeOutput) ToEvaluationFormQuestionQuestionTypePtrOutput() EvaluationFormQuestionQuestionTypePtrOutput {
+	return o.ToEvaluationFormQuestionQuestionTypePtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormQuestionQuestionTypeOutput) ToEvaluationFormQuestionQuestionTypePtrOutputWithContext(ctx context.Context) EvaluationFormQuestionQuestionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormQuestionQuestionType) *EvaluationFormQuestionQuestionType {
+		return &v
+	}).(EvaluationFormQuestionQuestionTypePtrOutput)
+}
+
+func (o EvaluationFormQuestionQuestionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormQuestionQuestionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormQuestionQuestionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluationFormQuestionQuestionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormQuestionQuestionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormQuestionQuestionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationFormQuestionQuestionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionQuestionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormQuestionQuestionType)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionQuestionTypePtrOutput) ToEvaluationFormQuestionQuestionTypePtrOutput() EvaluationFormQuestionQuestionTypePtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionQuestionTypePtrOutput) ToEvaluationFormQuestionQuestionTypePtrOutputWithContext(ctx context.Context) EvaluationFormQuestionQuestionTypePtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionQuestionTypePtrOutput) Elem() EvaluationFormQuestionQuestionTypeOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionQuestionType) EvaluationFormQuestionQuestionType {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormQuestionQuestionType
+		return ret
+	}).(EvaluationFormQuestionQuestionTypeOutput)
+}
+
+func (o EvaluationFormQuestionQuestionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormQuestionQuestionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluationFormQuestionQuestionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluationFormQuestionQuestionTypeInput is an input type that accepts EvaluationFormQuestionQuestionTypeArgs and EvaluationFormQuestionQuestionTypeOutput values.
+// You can construct a concrete instance of `EvaluationFormQuestionQuestionTypeInput` via:
+//
+//	EvaluationFormQuestionQuestionTypeArgs{...}
+type EvaluationFormQuestionQuestionTypeInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionQuestionTypeOutput() EvaluationFormQuestionQuestionTypeOutput
+	ToEvaluationFormQuestionQuestionTypeOutputWithContext(context.Context) EvaluationFormQuestionQuestionTypeOutput
+}
+
+var evaluationFormQuestionQuestionTypePtrType = reflect.TypeOf((**EvaluationFormQuestionQuestionType)(nil)).Elem()
+
+type EvaluationFormQuestionQuestionTypePtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionQuestionTypePtrOutput() EvaluationFormQuestionQuestionTypePtrOutput
+	ToEvaluationFormQuestionQuestionTypePtrOutputWithContext(context.Context) EvaluationFormQuestionQuestionTypePtrOutput
+}
+
+type evaluationFormQuestionQuestionTypePtr string
+
+func EvaluationFormQuestionQuestionTypePtr(v string) EvaluationFormQuestionQuestionTypePtrInput {
+	return (*evaluationFormQuestionQuestionTypePtr)(&v)
+}
+
+func (*evaluationFormQuestionQuestionTypePtr) ElementType() reflect.Type {
+	return evaluationFormQuestionQuestionTypePtrType
+}
+
+func (in *evaluationFormQuestionQuestionTypePtr) ToEvaluationFormQuestionQuestionTypePtrOutput() EvaluationFormQuestionQuestionTypePtrOutput {
+	return pulumi.ToOutput(in).(EvaluationFormQuestionQuestionTypePtrOutput)
+}
+
+func (in *evaluationFormQuestionQuestionTypePtr) ToEvaluationFormQuestionQuestionTypePtrOutputWithContext(ctx context.Context) EvaluationFormQuestionQuestionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormQuestionQuestionTypePtrOutput)
+}
+
+// The scoring mode.
+type EvaluationFormScoringStrategyMode string
+
+const (
+	EvaluationFormScoringStrategyModeQuestionOnly = EvaluationFormScoringStrategyMode("QUESTION_ONLY")
+	EvaluationFormScoringStrategyModeSectionOnly  = EvaluationFormScoringStrategyMode("SECTION_ONLY")
+)
+
+func (EvaluationFormScoringStrategyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormScoringStrategyMode)(nil)).Elem()
+}
+
+func (e EvaluationFormScoringStrategyMode) ToEvaluationFormScoringStrategyModeOutput() EvaluationFormScoringStrategyModeOutput {
+	return pulumi.ToOutput(e).(EvaluationFormScoringStrategyModeOutput)
+}
+
+func (e EvaluationFormScoringStrategyMode) ToEvaluationFormScoringStrategyModeOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluationFormScoringStrategyModeOutput)
+}
+
+func (e EvaluationFormScoringStrategyMode) ToEvaluationFormScoringStrategyModePtrOutput() EvaluationFormScoringStrategyModePtrOutput {
+	return e.ToEvaluationFormScoringStrategyModePtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormScoringStrategyMode) ToEvaluationFormScoringStrategyModePtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyModePtrOutput {
+	return EvaluationFormScoringStrategyMode(e).ToEvaluationFormScoringStrategyModeOutputWithContext(ctx).ToEvaluationFormScoringStrategyModePtrOutputWithContext(ctx)
+}
+
+func (e EvaluationFormScoringStrategyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormScoringStrategyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormScoringStrategyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormScoringStrategyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluationFormScoringStrategyModeOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormScoringStrategyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormScoringStrategyMode)(nil)).Elem()
+}
+
+func (o EvaluationFormScoringStrategyModeOutput) ToEvaluationFormScoringStrategyModeOutput() EvaluationFormScoringStrategyModeOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyModeOutput) ToEvaluationFormScoringStrategyModeOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyModeOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyModeOutput) ToEvaluationFormScoringStrategyModePtrOutput() EvaluationFormScoringStrategyModePtrOutput {
+	return o.ToEvaluationFormScoringStrategyModePtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoringStrategyModeOutput) ToEvaluationFormScoringStrategyModePtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormScoringStrategyMode) *EvaluationFormScoringStrategyMode {
+		return &v
+	}).(EvaluationFormScoringStrategyModePtrOutput)
+}
+
+func (o EvaluationFormScoringStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoringStrategyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormScoringStrategyMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluationFormScoringStrategyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoringStrategyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormScoringStrategyMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationFormScoringStrategyModePtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormScoringStrategyModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormScoringStrategyMode)(nil)).Elem()
+}
+
+func (o EvaluationFormScoringStrategyModePtrOutput) ToEvaluationFormScoringStrategyModePtrOutput() EvaluationFormScoringStrategyModePtrOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyModePtrOutput) ToEvaluationFormScoringStrategyModePtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyModePtrOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyModePtrOutput) Elem() EvaluationFormScoringStrategyModeOutput {
+	return o.ApplyT(func(v *EvaluationFormScoringStrategyMode) EvaluationFormScoringStrategyMode {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormScoringStrategyMode
+		return ret
+	}).(EvaluationFormScoringStrategyModeOutput)
+}
+
+func (o EvaluationFormScoringStrategyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoringStrategyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluationFormScoringStrategyMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluationFormScoringStrategyModeInput is an input type that accepts EvaluationFormScoringStrategyModeArgs and EvaluationFormScoringStrategyModeOutput values.
+// You can construct a concrete instance of `EvaluationFormScoringStrategyModeInput` via:
+//
+//	EvaluationFormScoringStrategyModeArgs{...}
+type EvaluationFormScoringStrategyModeInput interface {
+	pulumi.Input
+
+	ToEvaluationFormScoringStrategyModeOutput() EvaluationFormScoringStrategyModeOutput
+	ToEvaluationFormScoringStrategyModeOutputWithContext(context.Context) EvaluationFormScoringStrategyModeOutput
+}
+
+var evaluationFormScoringStrategyModePtrType = reflect.TypeOf((**EvaluationFormScoringStrategyMode)(nil)).Elem()
+
+type EvaluationFormScoringStrategyModePtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormScoringStrategyModePtrOutput() EvaluationFormScoringStrategyModePtrOutput
+	ToEvaluationFormScoringStrategyModePtrOutputWithContext(context.Context) EvaluationFormScoringStrategyModePtrOutput
+}
+
+type evaluationFormScoringStrategyModePtr string
+
+func EvaluationFormScoringStrategyModePtr(v string) EvaluationFormScoringStrategyModePtrInput {
+	return (*evaluationFormScoringStrategyModePtr)(&v)
+}
+
+func (*evaluationFormScoringStrategyModePtr) ElementType() reflect.Type {
+	return evaluationFormScoringStrategyModePtrType
+}
+
+func (in *evaluationFormScoringStrategyModePtr) ToEvaluationFormScoringStrategyModePtrOutput() EvaluationFormScoringStrategyModePtrOutput {
+	return pulumi.ToOutput(in).(EvaluationFormScoringStrategyModePtrOutput)
+}
+
+func (in *evaluationFormScoringStrategyModePtr) ToEvaluationFormScoringStrategyModePtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormScoringStrategyModePtrOutput)
+}
+
+// The scoring status.
+type EvaluationFormScoringStrategyStatus string
+
+const (
+	EvaluationFormScoringStrategyStatusEnabled  = EvaluationFormScoringStrategyStatus("ENABLED")
+	EvaluationFormScoringStrategyStatusDisabled = EvaluationFormScoringStrategyStatus("DISABLED")
+)
+
+func (EvaluationFormScoringStrategyStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormScoringStrategyStatus)(nil)).Elem()
+}
+
+func (e EvaluationFormScoringStrategyStatus) ToEvaluationFormScoringStrategyStatusOutput() EvaluationFormScoringStrategyStatusOutput {
+	return pulumi.ToOutput(e).(EvaluationFormScoringStrategyStatusOutput)
+}
+
+func (e EvaluationFormScoringStrategyStatus) ToEvaluationFormScoringStrategyStatusOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluationFormScoringStrategyStatusOutput)
+}
+
+func (e EvaluationFormScoringStrategyStatus) ToEvaluationFormScoringStrategyStatusPtrOutput() EvaluationFormScoringStrategyStatusPtrOutput {
+	return e.ToEvaluationFormScoringStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormScoringStrategyStatus) ToEvaluationFormScoringStrategyStatusPtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyStatusPtrOutput {
+	return EvaluationFormScoringStrategyStatus(e).ToEvaluationFormScoringStrategyStatusOutputWithContext(ctx).ToEvaluationFormScoringStrategyStatusPtrOutputWithContext(ctx)
+}
+
+func (e EvaluationFormScoringStrategyStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormScoringStrategyStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormScoringStrategyStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormScoringStrategyStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluationFormScoringStrategyStatusOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormScoringStrategyStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormScoringStrategyStatus)(nil)).Elem()
+}
+
+func (o EvaluationFormScoringStrategyStatusOutput) ToEvaluationFormScoringStrategyStatusOutput() EvaluationFormScoringStrategyStatusOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyStatusOutput) ToEvaluationFormScoringStrategyStatusOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyStatusOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyStatusOutput) ToEvaluationFormScoringStrategyStatusPtrOutput() EvaluationFormScoringStrategyStatusPtrOutput {
+	return o.ToEvaluationFormScoringStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoringStrategyStatusOutput) ToEvaluationFormScoringStrategyStatusPtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormScoringStrategyStatus) *EvaluationFormScoringStrategyStatus {
+		return &v
+	}).(EvaluationFormScoringStrategyStatusPtrOutput)
+}
+
+func (o EvaluationFormScoringStrategyStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoringStrategyStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormScoringStrategyStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluationFormScoringStrategyStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoringStrategyStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormScoringStrategyStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationFormScoringStrategyStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormScoringStrategyStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormScoringStrategyStatus)(nil)).Elem()
+}
+
+func (o EvaluationFormScoringStrategyStatusPtrOutput) ToEvaluationFormScoringStrategyStatusPtrOutput() EvaluationFormScoringStrategyStatusPtrOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyStatusPtrOutput) ToEvaluationFormScoringStrategyStatusPtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyStatusPtrOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyStatusPtrOutput) Elem() EvaluationFormScoringStrategyStatusOutput {
+	return o.ApplyT(func(v *EvaluationFormScoringStrategyStatus) EvaluationFormScoringStrategyStatus {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormScoringStrategyStatus
+		return ret
+	}).(EvaluationFormScoringStrategyStatusOutput)
+}
+
+func (o EvaluationFormScoringStrategyStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoringStrategyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluationFormScoringStrategyStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluationFormScoringStrategyStatusInput is an input type that accepts EvaluationFormScoringStrategyStatusArgs and EvaluationFormScoringStrategyStatusOutput values.
+// You can construct a concrete instance of `EvaluationFormScoringStrategyStatusInput` via:
+//
+//	EvaluationFormScoringStrategyStatusArgs{...}
+type EvaluationFormScoringStrategyStatusInput interface {
+	pulumi.Input
+
+	ToEvaluationFormScoringStrategyStatusOutput() EvaluationFormScoringStrategyStatusOutput
+	ToEvaluationFormScoringStrategyStatusOutputWithContext(context.Context) EvaluationFormScoringStrategyStatusOutput
+}
+
+var evaluationFormScoringStrategyStatusPtrType = reflect.TypeOf((**EvaluationFormScoringStrategyStatus)(nil)).Elem()
+
+type EvaluationFormScoringStrategyStatusPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormScoringStrategyStatusPtrOutput() EvaluationFormScoringStrategyStatusPtrOutput
+	ToEvaluationFormScoringStrategyStatusPtrOutputWithContext(context.Context) EvaluationFormScoringStrategyStatusPtrOutput
+}
+
+type evaluationFormScoringStrategyStatusPtr string
+
+func EvaluationFormScoringStrategyStatusPtr(v string) EvaluationFormScoringStrategyStatusPtrInput {
+	return (*evaluationFormScoringStrategyStatusPtr)(&v)
+}
+
+func (*evaluationFormScoringStrategyStatusPtr) ElementType() reflect.Type {
+	return evaluationFormScoringStrategyStatusPtrType
+}
+
+func (in *evaluationFormScoringStrategyStatusPtr) ToEvaluationFormScoringStrategyStatusPtrOutput() EvaluationFormScoringStrategyStatusPtrOutput {
+	return pulumi.ToOutput(in).(EvaluationFormScoringStrategyStatusPtrOutput)
+}
+
+func (in *evaluationFormScoringStrategyStatusPtr) ToEvaluationFormScoringStrategyStatusPtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormScoringStrategyStatusPtrOutput)
+}
+
+// The display mode of the single-select question.
+type EvaluationFormSingleSelectQuestionPropertiesDisplayAs string
+
+const (
+	EvaluationFormSingleSelectQuestionPropertiesDisplayAsDropdown = EvaluationFormSingleSelectQuestionPropertiesDisplayAs("DROPDOWN")
+	EvaluationFormSingleSelectQuestionPropertiesDisplayAsRadio    = EvaluationFormSingleSelectQuestionPropertiesDisplayAs("RADIO")
+)
+
+func (EvaluationFormSingleSelectQuestionPropertiesDisplayAs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionPropertiesDisplayAs)(nil)).Elem()
+}
+
+func (e EvaluationFormSingleSelectQuestionPropertiesDisplayAs) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput() EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput {
+	return pulumi.ToOutput(e).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput)
+}
+
+func (e EvaluationFormSingleSelectQuestionPropertiesDisplayAs) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput)
+}
+
+func (e EvaluationFormSingleSelectQuestionPropertiesDisplayAs) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput() EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
+	return e.ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormSingleSelectQuestionPropertiesDisplayAs) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
+	return EvaluationFormSingleSelectQuestionPropertiesDisplayAs(e).ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsOutputWithContext(ctx).ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutputWithContext(ctx)
+}
+
+func (e EvaluationFormSingleSelectQuestionPropertiesDisplayAs) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormSingleSelectQuestionPropertiesDisplayAs) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormSingleSelectQuestionPropertiesDisplayAs) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormSingleSelectQuestionPropertiesDisplayAs) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionPropertiesDisplayAs)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput() EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput() EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
+	return o.ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormSingleSelectQuestionPropertiesDisplayAs) *EvaluationFormSingleSelectQuestionPropertiesDisplayAs {
+		return &v
+	}).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput)
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormSingleSelectQuestionPropertiesDisplayAs) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormSingleSelectQuestionPropertiesDisplayAs) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormSingleSelectQuestionPropertiesDisplayAs)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput() EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) Elem() EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput {
+	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionPropertiesDisplayAs) EvaluationFormSingleSelectQuestionPropertiesDisplayAs {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormSingleSelectQuestionPropertiesDisplayAs
+		return ret
+	}).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput)
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluationFormSingleSelectQuestionPropertiesDisplayAs) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluationFormSingleSelectQuestionPropertiesDisplayAsInput is an input type that accepts EvaluationFormSingleSelectQuestionPropertiesDisplayAsArgs and EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput values.
+// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionPropertiesDisplayAsInput` via:
+//
+//	EvaluationFormSingleSelectQuestionPropertiesDisplayAsArgs{...}
+type EvaluationFormSingleSelectQuestionPropertiesDisplayAsInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput() EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput
+	ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput
+}
+
+var evaluationFormSingleSelectQuestionPropertiesDisplayAsPtrType = reflect.TypeOf((**EvaluationFormSingleSelectQuestionPropertiesDisplayAs)(nil)).Elem()
+
+type EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput() EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput
+	ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput
+}
+
+type evaluationFormSingleSelectQuestionPropertiesDisplayAsPtr string
+
+func EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtr(v string) EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrInput {
+	return (*evaluationFormSingleSelectQuestionPropertiesDisplayAsPtr)(&v)
+}
+
+func (*evaluationFormSingleSelectQuestionPropertiesDisplayAsPtr) ElementType() reflect.Type {
+	return evaluationFormSingleSelectQuestionPropertiesDisplayAsPtrType
+}
+
+func (in *evaluationFormSingleSelectQuestionPropertiesDisplayAsPtr) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput() EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
+	return pulumi.ToOutput(in).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput)
+}
+
+func (in *evaluationFormSingleSelectQuestionPropertiesDisplayAsPtr) ToEvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput)
+}
+
+// The automation condition applied on contact categories.
+type EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition string
+
+const (
+	EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPresent    = EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition("PRESENT")
+	EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionNotPresent = EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition("NOT_PRESENT")
+)
+
+func (EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition)(nil)).Elem()
+}
+
+func (e EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput {
+	return pulumi.ToOutput(e).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput)
+}
+
+func (e EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput)
+}
+
+func (e EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput {
+	return e.ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput {
+	return EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition(e).ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutputWithContext(ctx).ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutputWithContext(ctx)
+}
+
+func (e EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput {
+	return o.ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) *EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition {
+		return &v
+	}).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput)
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput) Elem() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput {
+	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition
+		return ret
+	}).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput)
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput is an input type that accepts EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionArgs and EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput values.
+// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput` via:
+//
+//	EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionArgs{...}
+type EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput
+	ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput
+}
+
+var evaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrType = reflect.TypeOf((**EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition)(nil)).Elem()
+
+type EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput
+	ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput
+}
+
+type evaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtr string
+
+func EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtr(v string) EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrInput {
+	return (*evaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtr)(&v)
+}
+
+func (*evaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtr) ElementType() reflect.Type {
+	return evaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrType
+}
+
+func (in *evaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtr) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput {
+	return pulumi.ToOutput(in).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput)
+}
+
+func (in *evaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtr) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput)
+}
+
+// The status of the evaluation form.
+type EvaluationFormStatus string
+
+const (
+	EvaluationFormStatusDraft  = EvaluationFormStatus("DRAFT")
+	EvaluationFormStatusActive = EvaluationFormStatus("ACTIVE")
+)
+
+func (EvaluationFormStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormStatus)(nil)).Elem()
+}
+
+func (e EvaluationFormStatus) ToEvaluationFormStatusOutput() EvaluationFormStatusOutput {
+	return pulumi.ToOutput(e).(EvaluationFormStatusOutput)
+}
+
+func (e EvaluationFormStatus) ToEvaluationFormStatusOutputWithContext(ctx context.Context) EvaluationFormStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluationFormStatusOutput)
+}
+
+func (e EvaluationFormStatus) ToEvaluationFormStatusPtrOutput() EvaluationFormStatusPtrOutput {
+	return e.ToEvaluationFormStatusPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormStatus) ToEvaluationFormStatusPtrOutputWithContext(ctx context.Context) EvaluationFormStatusPtrOutput {
+	return EvaluationFormStatus(e).ToEvaluationFormStatusOutputWithContext(ctx).ToEvaluationFormStatusPtrOutputWithContext(ctx)
+}
+
+func (e EvaluationFormStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluationFormStatusOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormStatus)(nil)).Elem()
+}
+
+func (o EvaluationFormStatusOutput) ToEvaluationFormStatusOutput() EvaluationFormStatusOutput {
+	return o
+}
+
+func (o EvaluationFormStatusOutput) ToEvaluationFormStatusOutputWithContext(ctx context.Context) EvaluationFormStatusOutput {
+	return o
+}
+
+func (o EvaluationFormStatusOutput) ToEvaluationFormStatusPtrOutput() EvaluationFormStatusPtrOutput {
+	return o.ToEvaluationFormStatusPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormStatusOutput) ToEvaluationFormStatusPtrOutputWithContext(ctx context.Context) EvaluationFormStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormStatus) *EvaluationFormStatus {
+		return &v
+	}).(EvaluationFormStatusPtrOutput)
+}
+
+func (o EvaluationFormStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluationFormStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationFormStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormStatus)(nil)).Elem()
+}
+
+func (o EvaluationFormStatusPtrOutput) ToEvaluationFormStatusPtrOutput() EvaluationFormStatusPtrOutput {
+	return o
+}
+
+func (o EvaluationFormStatusPtrOutput) ToEvaluationFormStatusPtrOutputWithContext(ctx context.Context) EvaluationFormStatusPtrOutput {
+	return o
+}
+
+func (o EvaluationFormStatusPtrOutput) Elem() EvaluationFormStatusOutput {
+	return o.ApplyT(func(v *EvaluationFormStatus) EvaluationFormStatus {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormStatus
+		return ret
+	}).(EvaluationFormStatusOutput)
+}
+
+func (o EvaluationFormStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluationFormStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluationFormStatusInput is an input type that accepts EvaluationFormStatusArgs and EvaluationFormStatusOutput values.
+// You can construct a concrete instance of `EvaluationFormStatusInput` via:
+//
+//	EvaluationFormStatusArgs{...}
+type EvaluationFormStatusInput interface {
+	pulumi.Input
+
+	ToEvaluationFormStatusOutput() EvaluationFormStatusOutput
+	ToEvaluationFormStatusOutputWithContext(context.Context) EvaluationFormStatusOutput
+}
+
+var evaluationFormStatusPtrType = reflect.TypeOf((**EvaluationFormStatus)(nil)).Elem()
+
+type EvaluationFormStatusPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormStatusPtrOutput() EvaluationFormStatusPtrOutput
+	ToEvaluationFormStatusPtrOutputWithContext(context.Context) EvaluationFormStatusPtrOutput
+}
+
+type evaluationFormStatusPtr string
+
+func EvaluationFormStatusPtr(v string) EvaluationFormStatusPtrInput {
+	return (*evaluationFormStatusPtr)(&v)
+}
+
+func (*evaluationFormStatusPtr) ElementType() reflect.Type {
+	return evaluationFormStatusPtrType
+}
+
+func (in *evaluationFormStatusPtr) ToEvaluationFormStatusPtrOutput() EvaluationFormStatusPtrOutput {
+	return pulumi.ToOutput(in).(EvaluationFormStatusPtrOutput)
+}
+
+func (in *evaluationFormStatusPtr) ToEvaluationFormStatusPtrOutputWithContext(ctx context.Context) EvaluationFormStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormStatusPtrOutput)
+}
+
 // The day that the hours of operation applies to.
 type HoursOfOperationConfigDay string
 
@@ -3036,6 +4198,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowStateEnumPtrInput)(nil)).Elem(), ContactFlowStateEnum("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTypeInput)(nil)).Elem(), ContactFlowType("CONTACT_FLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTypePtrInput)(nil)).Elem(), ContactFlowType("CONTACT_FLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormNumericQuestionPropertyValueAutomationLabelInput)(nil)).Elem(), EvaluationFormNumericQuestionPropertyValueAutomationLabel("OVERALL_CUSTOMER_SENTIMENT_SCORE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrInput)(nil)).Elem(), EvaluationFormNumericQuestionPropertyValueAutomationLabel("OVERALL_CUSTOMER_SENTIMENT_SCORE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionQuestionTypeInput)(nil)).Elem(), EvaluationFormQuestionQuestionType("NUMERIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionQuestionTypePtrInput)(nil)).Elem(), EvaluationFormQuestionQuestionType("NUMERIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoringStrategyModeInput)(nil)).Elem(), EvaluationFormScoringStrategyMode("QUESTION_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoringStrategyModePtrInput)(nil)).Elem(), EvaluationFormScoringStrategyMode("QUESTION_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoringStrategyStatusInput)(nil)).Elem(), EvaluationFormScoringStrategyStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoringStrategyStatusPtrInput)(nil)).Elem(), EvaluationFormScoringStrategyStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionPropertiesDisplayAsInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionPropertiesDisplayAs("DROPDOWN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionPropertiesDisplayAs("DROPDOWN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition("PRESENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition("PRESENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormStatusInput)(nil)).Elem(), EvaluationFormStatus("DRAFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormStatusPtrInput)(nil)).Elem(), EvaluationFormStatus("DRAFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigDayInput)(nil)).Elem(), HoursOfOperationConfigDay("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigDayPtrInput)(nil)).Elem(), HoursOfOperationConfigDay("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIdentityManagementTypeInput)(nil)).Elem(), InstanceIdentityManagementType("SAML"))
@@ -3072,6 +4248,20 @@ func init() {
 	pulumi.RegisterOutputType(ContactFlowStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(ContactFlowTypeOutput{})
 	pulumi.RegisterOutputType(ContactFlowTypePtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput{})
+	pulumi.RegisterOutputType(EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionQuestionTypeOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionQuestionTypePtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormScoringStrategyModeOutput{})
+	pulumi.RegisterOutputType(EvaluationFormScoringStrategyModePtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormScoringStrategyStatusOutput{})
+	pulumi.RegisterOutputType(EvaluationFormScoringStrategyStatusPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionPropertiesDisplayAsOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormStatusOutput{})
+	pulumi.RegisterOutputType(EvaluationFormStatusPtrOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigDayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigDayPtrOutput{})
 	pulumi.RegisterOutputType(InstanceIdentityManagementTypeOutput{})

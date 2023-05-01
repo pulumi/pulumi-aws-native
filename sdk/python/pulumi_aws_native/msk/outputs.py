@@ -47,6 +47,7 @@ __all__ = [
     'ServerlessClusterIam',
     'ServerlessClusterSasl',
     'ServerlessClusterVpcConfig',
+    'VpcConnectionTags',
 ]
 
 @pulumi.output_type
@@ -1008,5 +1009,17 @@ class ServerlessClusterVpcConfig(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "security_groups")
+
+
+@pulumi.output_type
+class VpcConnectionTags(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pass
 
 

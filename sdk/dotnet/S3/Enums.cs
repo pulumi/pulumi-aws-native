@@ -39,37 +39,6 @@ namespace Pulumi.AwsNative.S3
     }
 
     /// <summary>
-    /// Specifies whether the policy is public or not.
-    /// </summary>
-    [EnumType]
-    public readonly struct AccessPointPolicyStatusPropertiesIsPublic : IEquatable<AccessPointPolicyStatusPropertiesIsPublic>
-    {
-        private readonly string _value;
-
-        private AccessPointPolicyStatusPropertiesIsPublic(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AccessPointPolicyStatusPropertiesIsPublic True { get; } = new AccessPointPolicyStatusPropertiesIsPublic("true");
-        public static AccessPointPolicyStatusPropertiesIsPublic False { get; } = new AccessPointPolicyStatusPropertiesIsPublic("false");
-
-        public static bool operator ==(AccessPointPolicyStatusPropertiesIsPublic left, AccessPointPolicyStatusPropertiesIsPublic right) => left.Equals(right);
-        public static bool operator !=(AccessPointPolicyStatusPropertiesIsPublic left, AccessPointPolicyStatusPropertiesIsPublic right) => !left.Equals(right);
-
-        public static explicit operator string(AccessPointPolicyStatusPropertiesIsPublic value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AccessPointPolicyStatusPropertiesIsPublic other && Equals(other);
-        public bool Equals(AccessPointPolicyStatusPropertiesIsPublic other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Configures the transfer acceleration state for an Amazon S3 bucket.
     /// </summary>
     [EnumType]

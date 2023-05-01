@@ -15,8 +15,10 @@ type Graph struct {
 	pulumi.CustomResourceState
 
 	// The Detective graph ARN
-	Arn  pulumi.StringOutput `pulumi:"arn"`
-	Tags GraphTagArrayOutput `pulumi:"tags"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+	AutoEnableMembers pulumi.BoolPtrOutput `pulumi:"autoEnableMembers"`
+	Tags              GraphTagArrayOutput  `pulumi:"tags"`
 }
 
 // NewGraph registers a new resource with the given unique name, arguments, and options.
@@ -58,12 +60,16 @@ func (GraphState) ElementType() reflect.Type {
 }
 
 type graphArgs struct {
-	Tags []GraphTag `pulumi:"tags"`
+	// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+	AutoEnableMembers *bool      `pulumi:"autoEnableMembers"`
+	Tags              []GraphTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Graph resource.
 type GraphArgs struct {
-	Tags GraphTagArrayInput
+	// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+	AutoEnableMembers pulumi.BoolPtrInput
+	Tags              GraphTagArrayInput
 }
 
 func (GraphArgs) ElementType() reflect.Type {
@@ -106,6 +112,11 @@ func (o GraphOutput) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 // The Detective graph ARN
 func (o GraphOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+func (o GraphOutput) AutoEnableMembers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Graph) pulumi.BoolPtrOutput { return v.AutoEnableMembers }).(pulumi.BoolPtrOutput)
 }
 
 func (o GraphOutput) Tags() GraphTagArrayOutput {

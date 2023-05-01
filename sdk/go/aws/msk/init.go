@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Configuration{}
 	case "aws-native:msk:ServerlessCluster":
 		r = &ServerlessCluster{}
+	case "aws-native:msk:VpcConnection":
+		r = &VpcConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

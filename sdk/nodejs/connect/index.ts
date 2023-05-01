@@ -20,6 +20,11 @@ export type ContactFlowModule = import("./contactFlowModule").ContactFlowModule;
 export const ContactFlowModule: typeof import("./contactFlowModule").ContactFlowModule = null as any;
 utilities.lazyLoad(exports, ["ContactFlowModule"], () => require("./contactFlowModule"));
 
+export { EvaluationFormArgs } from "./evaluationForm";
+export type EvaluationForm = import("./evaluationForm").EvaluationForm;
+export const EvaluationForm: typeof import("./evaluationForm").EvaluationForm = null as any;
+utilities.lazyLoad(exports, ["EvaluationForm"], () => require("./evaluationForm"));
+
 export { GetContactFlowArgs, GetContactFlowResult, GetContactFlowOutputArgs } from "./getContactFlow";
 export const getContactFlow: typeof import("./getContactFlow").getContactFlow = null as any;
 export const getContactFlowOutput: typeof import("./getContactFlow").getContactFlowOutput = null as any;
@@ -29,6 +34,11 @@ export { GetContactFlowModuleArgs, GetContactFlowModuleResult, GetContactFlowMod
 export const getContactFlowModule: typeof import("./getContactFlowModule").getContactFlowModule = null as any;
 export const getContactFlowModuleOutput: typeof import("./getContactFlowModule").getContactFlowModuleOutput = null as any;
 utilities.lazyLoad(exports, ["getContactFlowModule","getContactFlowModuleOutput"], () => require("./getContactFlowModule"));
+
+export { GetEvaluationFormArgs, GetEvaluationFormResult, GetEvaluationFormOutputArgs } from "./getEvaluationForm";
+export const getEvaluationForm: typeof import("./getEvaluationForm").getEvaluationForm = null as any;
+export const getEvaluationFormOutput: typeof import("./getEvaluationForm").getEvaluationFormOutput = null as any;
+utilities.lazyLoad(exports, ["getEvaluationForm","getEvaluationFormOutput"], () => require("./getEvaluationForm"));
 
 export { GetHoursOfOperationArgs, GetHoursOfOperationResult, GetHoursOfOperationOutputArgs } from "./getHoursOfOperation";
 export const getHoursOfOperation: typeof import("./getHoursOfOperation").getHoursOfOperation = null as any;
@@ -154,6 +164,8 @@ const _module = {
                 return new ContactFlow(name, <any>undefined, { urn })
             case "aws-native:connect:ContactFlowModule":
                 return new ContactFlowModule(name, <any>undefined, { urn })
+            case "aws-native:connect:EvaluationForm":
+                return new EvaluationForm(name, <any>undefined, { urn })
             case "aws-native:connect:HoursOfOperation":
                 return new HoursOfOperation(name, <any>undefined, { urn })
             case "aws-native:connect:Instance":

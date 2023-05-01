@@ -61,15 +61,22 @@ namespace Pulumi.AwsNative.Detective
         /// The Detective graph ARN
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+        /// </summary>
+        public readonly bool? AutoEnableMembers;
         public readonly ImmutableArray<Outputs.GraphTag> Tags;
 
         [OutputConstructor]
         private GetGraphResult(
             string? arn,
 
+            bool? autoEnableMembers,
+
             ImmutableArray<Outputs.GraphTag> tags)
         {
             Arn = arn;
+            AutoEnableMembers = autoEnableMembers;
             Tags = tags;
         }
     }

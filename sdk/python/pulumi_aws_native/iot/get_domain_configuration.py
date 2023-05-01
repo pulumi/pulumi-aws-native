@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainConfigurationResult:
-    def __init__(__self__, arn=None, authorizer_config=None, domain_configuration_status=None, domain_type=None, server_certificates=None, tags=None):
+    def __init__(__self__, arn=None, authorizer_config=None, domain_configuration_status=None, domain_type=None, server_certificates=None, tags=None, tls_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetDomainConfigurationResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if tls_config and not isinstance(tls_config, dict):
+            raise TypeError("Expected argument 'tls_config' to be a dict")
+        pulumi.set(__self__, "tls_config", tls_config)
 
     @property
     @pulumi.getter
@@ -70,6 +73,11 @@ class GetDomainConfigurationResult:
     def tags(self) -> Optional[Sequence['outputs.DomainConfigurationTag']]:
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="tlsConfig")
+    def tls_config(self) -> Optional['outputs.DomainConfigurationTlsConfig']:
+        return pulumi.get(self, "tls_config")
+
 
 class AwaitableGetDomainConfigurationResult(GetDomainConfigurationResult):
     # pylint: disable=using-constant-test
@@ -82,7 +90,8 @@ class AwaitableGetDomainConfigurationResult(GetDomainConfigurationResult):
             domain_configuration_status=self.domain_configuration_status,
             domain_type=self.domain_type,
             server_certificates=self.server_certificates,
-            tags=self.tags)
+            tags=self.tags,
+            tls_config=self.tls_config)
 
 
 def get_domain_configuration(domain_configuration_name: Optional[str] = None,
@@ -101,7 +110,8 @@ def get_domain_configuration(domain_configuration_name: Optional[str] = None,
         domain_configuration_status=__ret__.domain_configuration_status,
         domain_type=__ret__.domain_type,
         server_certificates=__ret__.server_certificates,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        tls_config=__ret__.tls_config)
 
 
 @_utilities.lift_output_func(get_domain_configuration)

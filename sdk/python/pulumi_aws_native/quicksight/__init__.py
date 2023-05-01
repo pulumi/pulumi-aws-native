@@ -16,8 +16,10 @@ from .get_data_set import *
 from .get_data_source import *
 from .get_template import *
 from .get_theme import *
+from .get_vpc_connection import *
 from .refresh_schedule import *
 from .template import *
 from .theme import *
+from .vpc_connection import *
 from ._inputs import *
 from . import outputs

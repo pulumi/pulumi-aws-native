@@ -23,6 +23,7 @@ __all__ = [
     'DimensionTagArgs',
     'DomainConfigurationAuthorizerConfigArgs',
     'DomainConfigurationTagArgs',
+    'DomainConfigurationTlsConfigArgs',
     'FleetMetricAggregationTypeArgs',
     'FleetMetricTagArgs',
     'JobExecutionsRetryConfigPropertiesArgs',
@@ -652,6 +653,23 @@ class DomainConfigurationTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DomainConfigurationTlsConfigArgs:
+    def __init__(__self__, *,
+                 security_policy: Optional[pulumi.Input[str]] = None):
+        if security_policy is not None:
+            pulumi.set(__self__, "security_policy", security_policy)
+
+    @property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "security_policy")
+
+    @security_policy.setter
+    def security_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_policy", value)
 
 
 @pulumi.input_type

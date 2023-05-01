@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("bufferingHints")]
         public Input<Inputs.DeliveryStreamElasticsearchBufferingHintsArgs>? BufferingHints { get; set; }
 
+        [Input("bulkRequestCustomizationConfiguration")]
+        public Input<Inputs.DeliveryStreamBulkRequestCustomizationConfigurationArgs>? BulkRequestCustomizationConfiguration { get; set; }
+
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
 
         [Input("clusterEndpoint")]
         public Input<string>? ClusterEndpoint { get; set; }
+
+        [Input("documentIdOptions")]
+        public Input<Inputs.DeliveryStreamDocumentIdOptionsArgs>? DocumentIdOptions { get; set; }
 
         [Input("domainARN")]
         public Input<string>? DomainARN { get; set; }

@@ -21,7 +21,6 @@ class AccessPointArgs:
                  bucket_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 policy_status: Optional[pulumi.Input['PolicyStatusPropertiesArgs']] = None,
                  public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
                  vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None):
         """
@@ -40,8 +39,6 @@ class AccessPointArgs:
             pulumi.set(__self__, "name", name)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
-        if policy_status is not None:
-            pulumi.set(__self__, "policy_status", policy_status)
         if public_access_block_configuration is not None:
             pulumi.set(__self__, "public_access_block_configuration", public_access_block_configuration)
         if vpc_configuration is not None:
@@ -96,15 +93,6 @@ class AccessPointArgs:
         pulumi.set(self, "policy", value)
 
     @property
-    @pulumi.getter(name="policyStatus")
-    def policy_status(self) -> Optional[pulumi.Input['PolicyStatusPropertiesArgs']]:
-        return pulumi.get(self, "policy_status")
-
-    @policy_status.setter
-    def policy_status(self, value: Optional[pulumi.Input['PolicyStatusPropertiesArgs']]):
-        pulumi.set(self, "policy_status", value)
-
-    @property
     @pulumi.getter(name="publicAccessBlockConfiguration")
     def public_access_block_configuration(self) -> Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']]:
         """
@@ -138,7 +126,6 @@ class AccessPoint(pulumi.CustomResource):
                  bucket_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 policy_status: Optional[pulumi.Input[pulumi.InputType['PolicyStatusPropertiesArgs']]] = None,
                  public_access_block_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointPublicAccessBlockConfigurationArgs']]] = None,
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointVpcConfigurationArgs']]] = None,
                  __props__=None):
@@ -182,7 +169,6 @@ class AccessPoint(pulumi.CustomResource):
                  bucket_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 policy_status: Optional[pulumi.Input[pulumi.InputType['PolicyStatusPropertiesArgs']]] = None,
                  public_access_block_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointPublicAccessBlockConfigurationArgs']]] = None,
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointVpcConfigurationArgs']]] = None,
                  __props__=None):
@@ -200,7 +186,6 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["bucket_account_id"] = bucket_account_id
             __props__.__dict__["name"] = name
             __props__.__dict__["policy"] = policy
-            __props__.__dict__["policy_status"] = policy_status
             __props__.__dict__["public_access_block_configuration"] = public_access_block_configuration
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["alias"] = None
@@ -235,7 +220,6 @@ class AccessPoint(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["network_origin"] = None
         __props__.__dict__["policy"] = None
-        __props__.__dict__["policy_status"] = None
         __props__.__dict__["public_access_block_configuration"] = None
         __props__.__dict__["vpc_configuration"] = None
         return AccessPoint(resource_name, opts=opts, __props__=__props__)
@@ -274,7 +258,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
         """
@@ -295,11 +279,6 @@ class AccessPoint(pulumi.CustomResource):
         The Access Point Policy you want to apply to this access point.
         """
         return pulumi.get(self, "policy")
-
-    @property
-    @pulumi.getter(name="policyStatus")
-    def policy_status(self) -> pulumi.Output[Optional['outputs.PolicyStatusProperties']]:
-        return pulumi.get(self, "policy_status")
 
     @property
     @pulumi.getter(name="publicAccessBlockConfiguration")

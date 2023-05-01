@@ -14,8 +14,10 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamAmazonopensearchserviceDestinationConfiguration
     {
         public readonly Outputs.DeliveryStreamAmazonopensearchserviceBufferingHints? BufferingHints;
+        public readonly Outputs.DeliveryStreamBulkRequestCustomizationConfiguration? BulkRequestCustomizationConfiguration;
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         public readonly string? ClusterEndpoint;
+        public readonly Outputs.DeliveryStreamDocumentIdOptions? DocumentIdOptions;
         public readonly string? DomainARN;
         public readonly string IndexName;
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod? IndexRotationPeriod;
@@ -31,9 +33,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         private DeliveryStreamAmazonopensearchserviceDestinationConfiguration(
             Outputs.DeliveryStreamAmazonopensearchserviceBufferingHints? bufferingHints,
 
+            Outputs.DeliveryStreamBulkRequestCustomizationConfiguration? bulkRequestCustomizationConfiguration,
+
             Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
             string? clusterEndpoint,
+
+            Outputs.DeliveryStreamDocumentIdOptions? documentIdOptions,
 
             string? domainARN,
 
@@ -56,8 +62,10 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             Outputs.DeliveryStreamVpcConfiguration? vpcConfiguration)
         {
             BufferingHints = bufferingHints;
+            BulkRequestCustomizationConfiguration = bulkRequestCustomizationConfiguration;
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
             ClusterEndpoint = clusterEndpoint;
+            DocumentIdOptions = documentIdOptions;
             DomainARN = domainARN;
             IndexName = indexName;
             IndexRotationPeriod = indexRotationPeriod;

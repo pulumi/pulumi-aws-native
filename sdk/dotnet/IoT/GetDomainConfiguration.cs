@@ -57,6 +57,7 @@ namespace Pulumi.AwsNative.IoT
         public readonly Pulumi.AwsNative.IoT.DomainConfigurationDomainType? DomainType;
         public readonly ImmutableArray<Outputs.DomainConfigurationServerCertificateSummary> ServerCertificates;
         public readonly ImmutableArray<Outputs.DomainConfigurationTag> Tags;
+        public readonly Outputs.DomainConfigurationTlsConfig? TlsConfig;
 
         [OutputConstructor]
         private GetDomainConfigurationResult(
@@ -70,7 +71,9 @@ namespace Pulumi.AwsNative.IoT
 
             ImmutableArray<Outputs.DomainConfigurationServerCertificateSummary> serverCertificates,
 
-            ImmutableArray<Outputs.DomainConfigurationTag> tags)
+            ImmutableArray<Outputs.DomainConfigurationTag> tags,
+
+            Outputs.DomainConfigurationTlsConfig? tlsConfig)
         {
             Arn = arn;
             AuthorizerConfig = authorizerConfig;
@@ -78,6 +81,7 @@ namespace Pulumi.AwsNative.IoT
             DomainType = domainType;
             ServerCertificates = serverCertificates;
             Tags = tags;
+            TlsConfig = tlsConfig;
         }
     }
 }

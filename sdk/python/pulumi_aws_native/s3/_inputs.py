@@ -72,7 +72,6 @@ __all__ = [
     'BucketWebsiteConfigurationArgs',
     'MultiRegionAccessPointPublicAccessBlockConfigurationArgs',
     'MultiRegionAccessPointRegionArgs',
-    'PolicyStatusPropertiesArgs',
     'StorageLensAccountLevelArgs',
     'StorageLensActivityMetricsArgs',
     'StorageLensAdvancedCostOptimizationMetricsArgs',
@@ -2825,29 +2824,6 @@ class MultiRegionAccessPointRegionArgs:
     @bucket_account_id.setter
     def bucket_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bucket_account_id", value)
-
-
-@pulumi.input_type
-class PolicyStatusPropertiesArgs:
-    def __init__(__self__, *,
-                 is_public: pulumi.Input['MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic']):
-        """
-        The Policy Status associated with this Multi Region Access Point
-        :param pulumi.Input['MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic'] is_public: Specifies whether the policy is public or not.
-        """
-        pulumi.set(__self__, "is_public", is_public)
-
-    @property
-    @pulumi.getter(name="isPublic")
-    def is_public(self) -> pulumi.Input['MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic']:
-        """
-        Specifies whether the policy is public or not.
-        """
-        return pulumi.get(self, "is_public")
-
-    @is_public.setter
-    def is_public(self, value: pulumi.Input['MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic']):
-        pulumi.set(self, "is_public", value)
 
 
 @pulumi.input_type

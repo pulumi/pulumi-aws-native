@@ -16,12 +16,28 @@ __all__ = ['GraphArgs', 'Graph']
 @pulumi.input_type
 class GraphArgs:
     def __init__(__self__, *,
+                 auto_enable_members: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphTagArgs']]]] = None):
         """
         The set of arguments for constructing a Graph resource.
+        :param pulumi.Input[bool] auto_enable_members: Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
         """
+        if auto_enable_members is not None:
+            pulumi.set(__self__, "auto_enable_members", auto_enable_members)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="autoEnableMembers")
+    def auto_enable_members(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+        """
+        return pulumi.get(self, "auto_enable_members")
+
+    @auto_enable_members.setter
+    def auto_enable_members(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_enable_members", value)
 
     @property
     @pulumi.getter
@@ -38,6 +54,7 @@ class Graph(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_enable_members: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -45,6 +62,7 @@ class Graph(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_enable_members: Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
         """
         ...
     @overload
@@ -70,6 +88,7 @@ class Graph(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_enable_members: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -80,6 +99,7 @@ class Graph(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GraphArgs.__new__(GraphArgs)
 
+            __props__.__dict__["auto_enable_members"] = auto_enable_members
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Graph, __self__).__init__(
@@ -105,6 +125,7 @@ class Graph(pulumi.CustomResource):
         __props__ = GraphArgs.__new__(GraphArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["auto_enable_members"] = None
         __props__.__dict__["tags"] = None
         return Graph(resource_name, opts=opts, __props__=__props__)
 
@@ -115,6 +136,14 @@ class Graph(pulumi.CustomResource):
         The Detective graph ARN
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoEnableMembers")
+    def auto_enable_members(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+        """
+        return pulumi.get(self, "auto_enable_members")
 
     @property
     @pulumi.getter

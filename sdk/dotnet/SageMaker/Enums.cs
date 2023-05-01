@@ -77,6 +77,8 @@ namespace Pulumi.AwsNative.SageMaker
         public static AppResourceSpecInstanceType MlG516xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.16xlarge");
         public static AppResourceSpecInstanceType MlG524xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.24xlarge");
         public static AppResourceSpecInstanceType MlG548xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.48xlarge");
+        public static AppResourceSpecInstanceType MlP4d24xlarge { get; } = new AppResourceSpecInstanceType("ml.p4d.24xlarge");
+        public static AppResourceSpecInstanceType MlP4de24xlarge { get; } = new AppResourceSpecInstanceType("ml.p4de.24xlarge");
         public static AppResourceSpecInstanceType MlGeospatialInteractive { get; } = new AppResourceSpecInstanceType("ml.geospatial.interactive");
 
         public static bool operator ==(AppResourceSpecInstanceType left, AppResourceSpecInstanceType right) => left.Equals(right);

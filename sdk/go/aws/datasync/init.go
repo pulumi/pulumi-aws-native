@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocationS3{}
 	case "aws-native:datasync:LocationSMB":
 		r = &LocationSMB{}
+	case "aws-native:datasync:StorageSystem":
+		r = &StorageSystem{}
 	case "aws-native:datasync:Task":
 		r = &Task{}
 	default:

@@ -47,6 +47,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
     public /*out*/ readonly serverCertificates!: pulumi.Output<outputs.iot.DomainConfigurationServerCertificateSummary[]>;
     public readonly serviceType!: pulumi.Output<enums.iot.DomainConfigurationServiceType | undefined>;
     public readonly tags!: pulumi.Output<outputs.iot.DomainConfigurationTag[] | undefined>;
+    public readonly tlsConfig!: pulumi.Output<outputs.iot.DomainConfigurationTlsConfig | undefined>;
     public readonly validationCertificateArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -67,6 +68,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
             resourceInputs["serverCertificateArns"] = args ? args.serverCertificateArns : undefined;
             resourceInputs["serviceType"] = args ? args.serviceType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tlsConfig"] = args ? args.tlsConfig : undefined;
             resourceInputs["validationCertificateArn"] = args ? args.validationCertificateArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainType"] = undefined /*out*/;
@@ -82,6 +84,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
             resourceInputs["serverCertificates"] = undefined /*out*/;
             resourceInputs["serviceType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tlsConfig"] = undefined /*out*/;
             resourceInputs["validationCertificateArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -100,5 +103,6 @@ export interface DomainConfigurationArgs {
     serverCertificateArns?: pulumi.Input<pulumi.Input<string>[]>;
     serviceType?: pulumi.Input<enums.iot.DomainConfigurationServiceType>;
     tags?: pulumi.Input<pulumi.Input<inputs.iot.DomainConfigurationTagArgs>[]>;
+    tlsConfig?: pulumi.Input<inputs.iot.DomainConfigurationTlsConfigArgs>;
     validationCertificateArn?: pulumi.Input<string>;
 }

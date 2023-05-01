@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAccessPointResult:
-    def __init__(__self__, alias=None, arn=None, network_origin=None, policy=None, policy_status=None):
+    def __init__(__self__, alias=None, arn=None, network_origin=None, policy=None, public_access_block_configuration=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -33,9 +33,9 @@ class GetAccessPointResult:
         if policy and not isinstance(policy, dict):
             raise TypeError("Expected argument 'policy' to be a dict")
         pulumi.set(__self__, "policy", policy)
-        if policy_status and not isinstance(policy_status, dict):
-            raise TypeError("Expected argument 'policy_status' to be a dict")
-        pulumi.set(__self__, "policy_status", policy_status)
+        if public_access_block_configuration and not isinstance(public_access_block_configuration, dict):
+            raise TypeError("Expected argument 'public_access_block_configuration' to be a dict")
+        pulumi.set(__self__, "public_access_block_configuration", public_access_block_configuration)
 
     @property
     @pulumi.getter
@@ -70,9 +70,12 @@ class GetAccessPointResult:
         return pulumi.get(self, "policy")
 
     @property
-    @pulumi.getter(name="policyStatus")
-    def policy_status(self) -> Optional['outputs.PolicyStatusProperties']:
-        return pulumi.get(self, "policy_status")
+    @pulumi.getter(name="publicAccessBlockConfiguration")
+    def public_access_block_configuration(self) -> Optional['outputs.AccessPointPublicAccessBlockConfiguration']:
+        """
+        The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
+        """
+        return pulumi.get(self, "public_access_block_configuration")
 
 
 class AwaitableGetAccessPointResult(GetAccessPointResult):
@@ -85,7 +88,7 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             arn=self.arn,
             network_origin=self.network_origin,
             policy=self.policy,
-            policy_status=self.policy_status)
+            public_access_block_configuration=self.public_access_block_configuration)
 
 
 def get_access_point(name: Optional[str] = None,
@@ -106,7 +109,7 @@ def get_access_point(name: Optional[str] = None,
         arn=__ret__.arn,
         network_origin=__ret__.network_origin,
         policy=__ret__.policy,
-        policy_status=__ret__.policy_status)
+        public_access_block_configuration=__ret__.public_access_block_configuration)
 
 
 @_utilities.lift_output_func(get_access_point)

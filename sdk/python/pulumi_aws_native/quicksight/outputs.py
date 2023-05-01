@@ -1440,6 +1440,8 @@ __all__ = [
     'ThemeTypography',
     'ThemeUIColorPalette',
     'ThemeVersion',
+    'VPCConnectionNetworkInterface',
+    'VPCConnectionTag',
 ]
 
 @pulumi.output_type
@@ -70095,5 +70097,92 @@ class ThemeVersion(dict):
         <p>The version number of the theme.</p>
         """
         return pulumi.get(self, "version_number")
+
+
+@pulumi.output_type
+class VPCConnectionNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "networkInterfaceId":
+            suggest = "network_interface_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VPCConnectionNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VPCConnectionNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VPCConnectionNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone: Optional[str] = None,
+                 error_message: Optional[str] = None,
+                 network_interface_id: Optional[str] = None,
+                 status: Optional['VPCConnectionNetworkInterfaceStatus'] = None,
+                 subnet_id: Optional[str] = None):
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[str]:
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[str]:
+        return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['VPCConnectionNetworkInterfaceStatus']:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class VPCConnectionTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

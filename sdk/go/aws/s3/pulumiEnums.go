@@ -101,14 +101,6 @@ func (o AccessPointNetworkOriginPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the policy is public or not.
-type AccessPointPolicyStatusPropertiesIsPublic string
-
-const (
-	AccessPointPolicyStatusPropertiesIsPublicTrue  = AccessPointPolicyStatusPropertiesIsPublic("true")
-	AccessPointPolicyStatusPropertiesIsPublicFalse = AccessPointPolicyStatusPropertiesIsPublic("false")
-)
-
 // Configures the transfer acceleration state for an Amazon S3 bucket.
 type BucketAccelerateConfigurationAccelerationStatus string
 
@@ -4358,42 +4350,6 @@ const (
 	MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicFalse = MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic("false")
 )
 
-func (MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic)(nil)).Elem()
-}
-
-func (e MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic) ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput() MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput {
-	return pulumi.ToOutput(e).(MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput)
-}
-
-func (e MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic) ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput)
-}
-
-func (e MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic) ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput() MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput {
-	return e.ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutputWithContext(context.Background())
-}
-
-func (e MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic) ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput {
-	return MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic(e).ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutputWithContext(ctx).ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutputWithContext(ctx)
-}
-
-func (e MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput) ElementType() reflect.Type {
@@ -4475,44 +4431,6 @@ func (o MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput) ToS
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicInput is an input type that accepts MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicArgs and MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput values.
-// You can construct a concrete instance of `MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicInput` via:
-//
-//	MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicArgs{...}
-type MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicInput interface {
-	pulumi.Input
-
-	ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput() MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput
-	ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutputWithContext(context.Context) MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput
-}
-
-var multiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrType = reflect.TypeOf((**MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic)(nil)).Elem()
-
-type MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrInput interface {
-	pulumi.Input
-
-	ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput() MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput
-	ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutputWithContext(context.Context) MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput
-}
-
-type multiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtr string
-
-func MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtr(v string) MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrInput {
-	return (*multiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtr)(&v)
-}
-
-func (*multiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtr) ElementType() reflect.Type {
-	return multiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrType
-}
-
-func (in *multiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtr) ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput() MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput {
-	return pulumi.ToOutput(in).(MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput)
-}
-
-func (in *multiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtr) ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput)
 }
 
 // Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
@@ -4897,8 +4815,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTransitionStorageClassPtrInput)(nil)).Elem(), BucketTransitionStorageClass("DEEP_ARCHIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketVersioningConfigurationStatusInput)(nil)).Elem(), BucketVersioningConfigurationStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketVersioningConfigurationStatusPtrInput)(nil)).Elem(), BucketVersioningConfigurationStatus("Enabled"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicInput)(nil)).Elem(), MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic("true"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrInput)(nil)).Elem(), MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic("true"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensS3BucketDestinationFormatInput)(nil)).Elem(), StorageLensS3BucketDestinationFormat("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensS3BucketDestinationFormatPtrInput)(nil)).Elem(), StorageLensS3BucketDestinationFormat("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensS3BucketDestinationOutputSchemaVersionInput)(nil)).Elem(), StorageLensS3BucketDestinationOutputSchemaVersion("V_1"))

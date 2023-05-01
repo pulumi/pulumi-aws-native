@@ -71,6 +71,8 @@ const (
 	AppResourceSpecInstanceTypeMlG516xlarge            = AppResourceSpecInstanceType("ml.g5.16xlarge")
 	AppResourceSpecInstanceTypeMlG524xlarge            = AppResourceSpecInstanceType("ml.g5.24xlarge")
 	AppResourceSpecInstanceTypeMlG548xlarge            = AppResourceSpecInstanceType("ml.g5.48xlarge")
+	AppResourceSpecInstanceTypeMlP4d24xlarge           = AppResourceSpecInstanceType("ml.p4d.24xlarge")
+	AppResourceSpecInstanceTypeMlP4de24xlarge          = AppResourceSpecInstanceType("ml.p4de.24xlarge")
 	AppResourceSpecInstanceTypeMlGeospatialInteractive = AppResourceSpecInstanceType("ml.geospatial.interactive")
 )
 

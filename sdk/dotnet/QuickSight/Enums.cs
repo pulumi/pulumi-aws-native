@@ -9350,4 +9350,104 @@ namespace Pulumi.AwsNative.QuickSight
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct VPCConnectionAvailabilityStatus : IEquatable<VPCConnectionAvailabilityStatus>
+    {
+        private readonly string _value;
+
+        private VPCConnectionAvailabilityStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VPCConnectionAvailabilityStatus Available { get; } = new VPCConnectionAvailabilityStatus("AVAILABLE");
+        public static VPCConnectionAvailabilityStatus Unavailable { get; } = new VPCConnectionAvailabilityStatus("UNAVAILABLE");
+        public static VPCConnectionAvailabilityStatus PartiallyAvailable { get; } = new VPCConnectionAvailabilityStatus("PARTIALLY_AVAILABLE");
+
+        public static bool operator ==(VPCConnectionAvailabilityStatus left, VPCConnectionAvailabilityStatus right) => left.Equals(right);
+        public static bool operator !=(VPCConnectionAvailabilityStatus left, VPCConnectionAvailabilityStatus right) => !left.Equals(right);
+
+        public static explicit operator string(VPCConnectionAvailabilityStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VPCConnectionAvailabilityStatus other && Equals(other);
+        public bool Equals(VPCConnectionAvailabilityStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VPCConnectionNetworkInterfaceStatus : IEquatable<VPCConnectionNetworkInterfaceStatus>
+    {
+        private readonly string _value;
+
+        private VPCConnectionNetworkInterfaceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VPCConnectionNetworkInterfaceStatus Creating { get; } = new VPCConnectionNetworkInterfaceStatus("CREATING");
+        public static VPCConnectionNetworkInterfaceStatus Available { get; } = new VPCConnectionNetworkInterfaceStatus("AVAILABLE");
+        public static VPCConnectionNetworkInterfaceStatus CreationFailed { get; } = new VPCConnectionNetworkInterfaceStatus("CREATION_FAILED");
+        public static VPCConnectionNetworkInterfaceStatus Updating { get; } = new VPCConnectionNetworkInterfaceStatus("UPDATING");
+        public static VPCConnectionNetworkInterfaceStatus UpdateFailed { get; } = new VPCConnectionNetworkInterfaceStatus("UPDATE_FAILED");
+        public static VPCConnectionNetworkInterfaceStatus Deleting { get; } = new VPCConnectionNetworkInterfaceStatus("DELETING");
+        public static VPCConnectionNetworkInterfaceStatus Deleted { get; } = new VPCConnectionNetworkInterfaceStatus("DELETED");
+        public static VPCConnectionNetworkInterfaceStatus DeletionFailed { get; } = new VPCConnectionNetworkInterfaceStatus("DELETION_FAILED");
+        public static VPCConnectionNetworkInterfaceStatus DeletionScheduled { get; } = new VPCConnectionNetworkInterfaceStatus("DELETION_SCHEDULED");
+        public static VPCConnectionNetworkInterfaceStatus AttachmentFailedRollbackFailed { get; } = new VPCConnectionNetworkInterfaceStatus("ATTACHMENT_FAILED_ROLLBACK_FAILED");
+
+        public static bool operator ==(VPCConnectionNetworkInterfaceStatus left, VPCConnectionNetworkInterfaceStatus right) => left.Equals(right);
+        public static bool operator !=(VPCConnectionNetworkInterfaceStatus left, VPCConnectionNetworkInterfaceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(VPCConnectionNetworkInterfaceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VPCConnectionNetworkInterfaceStatus other && Equals(other);
+        public bool Equals(VPCConnectionNetworkInterfaceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VPCConnectionResourceStatus : IEquatable<VPCConnectionResourceStatus>
+    {
+        private readonly string _value;
+
+        private VPCConnectionResourceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VPCConnectionResourceStatus CreationInProgress { get; } = new VPCConnectionResourceStatus("CREATION_IN_PROGRESS");
+        public static VPCConnectionResourceStatus CreationSuccessful { get; } = new VPCConnectionResourceStatus("CREATION_SUCCESSFUL");
+        public static VPCConnectionResourceStatus CreationFailed { get; } = new VPCConnectionResourceStatus("CREATION_FAILED");
+        public static VPCConnectionResourceStatus UpdateInProgress { get; } = new VPCConnectionResourceStatus("UPDATE_IN_PROGRESS");
+        public static VPCConnectionResourceStatus UpdateSuccessful { get; } = new VPCConnectionResourceStatus("UPDATE_SUCCESSFUL");
+        public static VPCConnectionResourceStatus UpdateFailed { get; } = new VPCConnectionResourceStatus("UPDATE_FAILED");
+        public static VPCConnectionResourceStatus DeletionInProgress { get; } = new VPCConnectionResourceStatus("DELETION_IN_PROGRESS");
+        public static VPCConnectionResourceStatus DeletionFailed { get; } = new VPCConnectionResourceStatus("DELETION_FAILED");
+        public static VPCConnectionResourceStatus Deleted { get; } = new VPCConnectionResourceStatus("DELETED");
+
+        public static bool operator ==(VPCConnectionResourceStatus left, VPCConnectionResourceStatus right) => left.Equals(right);
+        public static bool operator !=(VPCConnectionResourceStatus left, VPCConnectionResourceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(VPCConnectionResourceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VPCConnectionResourceStatus other && Equals(other);
+        public bool Equals(VPCConnectionResourceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

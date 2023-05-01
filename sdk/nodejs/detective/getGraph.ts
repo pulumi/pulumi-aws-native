@@ -30,6 +30,10 @@ export interface GetGraphResult {
      * The Detective graph ARN
      */
     readonly arn?: string;
+    /**
+     * Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+     */
+    readonly autoEnableMembers?: boolean;
     readonly tags?: outputs.detective.GraphTag[];
 }
 /**

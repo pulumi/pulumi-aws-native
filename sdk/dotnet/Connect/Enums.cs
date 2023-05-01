@@ -139,6 +139,230 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The automation property label.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormNumericQuestionPropertyValueAutomationLabel : IEquatable<EvaluationFormNumericQuestionPropertyValueAutomationLabel>
+    {
+        private readonly string _value;
+
+        private EvaluationFormNumericQuestionPropertyValueAutomationLabel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel OverallCustomerSentimentScore { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("OVERALL_CUSTOMER_SENTIMENT_SCORE");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel OverallAgentSentimentScore { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("OVERALL_AGENT_SENTIMENT_SCORE");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel NonTalkTime { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("NON_TALK_TIME");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel NonTalkTimePercentage { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("NON_TALK_TIME_PERCENTAGE");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel NumberOfInterruptions { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("NUMBER_OF_INTERRUPTIONS");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel ContactDuration { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("CONTACT_DURATION");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel AgentInteractionDuration { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("AGENT_INTERACTION_DURATION");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel CustomerHoldTime { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("CUSTOMER_HOLD_TIME");
+
+        public static bool operator ==(EvaluationFormNumericQuestionPropertyValueAutomationLabel left, EvaluationFormNumericQuestionPropertyValueAutomationLabel right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormNumericQuestionPropertyValueAutomationLabel left, EvaluationFormNumericQuestionPropertyValueAutomationLabel right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormNumericQuestionPropertyValueAutomationLabel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormNumericQuestionPropertyValueAutomationLabel other && Equals(other);
+        public bool Equals(EvaluationFormNumericQuestionPropertyValueAutomationLabel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the question.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormQuestionQuestionType : IEquatable<EvaluationFormQuestionQuestionType>
+    {
+        private readonly string _value;
+
+        private EvaluationFormQuestionQuestionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormQuestionQuestionType Numeric { get; } = new EvaluationFormQuestionQuestionType("NUMERIC");
+        public static EvaluationFormQuestionQuestionType Singleselect { get; } = new EvaluationFormQuestionQuestionType("SINGLESELECT");
+        public static EvaluationFormQuestionQuestionType Text { get; } = new EvaluationFormQuestionQuestionType("TEXT");
+
+        public static bool operator ==(EvaluationFormQuestionQuestionType left, EvaluationFormQuestionQuestionType right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormQuestionQuestionType left, EvaluationFormQuestionQuestionType right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormQuestionQuestionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormQuestionQuestionType other && Equals(other);
+        public bool Equals(EvaluationFormQuestionQuestionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scoring mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormScoringStrategyMode : IEquatable<EvaluationFormScoringStrategyMode>
+    {
+        private readonly string _value;
+
+        private EvaluationFormScoringStrategyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormScoringStrategyMode QuestionOnly { get; } = new EvaluationFormScoringStrategyMode("QUESTION_ONLY");
+        public static EvaluationFormScoringStrategyMode SectionOnly { get; } = new EvaluationFormScoringStrategyMode("SECTION_ONLY");
+
+        public static bool operator ==(EvaluationFormScoringStrategyMode left, EvaluationFormScoringStrategyMode right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormScoringStrategyMode left, EvaluationFormScoringStrategyMode right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormScoringStrategyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormScoringStrategyMode other && Equals(other);
+        public bool Equals(EvaluationFormScoringStrategyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scoring status.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormScoringStrategyStatus : IEquatable<EvaluationFormScoringStrategyStatus>
+    {
+        private readonly string _value;
+
+        private EvaluationFormScoringStrategyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormScoringStrategyStatus Enabled { get; } = new EvaluationFormScoringStrategyStatus("ENABLED");
+        public static EvaluationFormScoringStrategyStatus Disabled { get; } = new EvaluationFormScoringStrategyStatus("DISABLED");
+
+        public static bool operator ==(EvaluationFormScoringStrategyStatus left, EvaluationFormScoringStrategyStatus right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormScoringStrategyStatus left, EvaluationFormScoringStrategyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormScoringStrategyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormScoringStrategyStatus other && Equals(other);
+        public bool Equals(EvaluationFormScoringStrategyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The display mode of the single-select question.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormSingleSelectQuestionPropertiesDisplayAs : IEquatable<EvaluationFormSingleSelectQuestionPropertiesDisplayAs>
+    {
+        private readonly string _value;
+
+        private EvaluationFormSingleSelectQuestionPropertiesDisplayAs(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormSingleSelectQuestionPropertiesDisplayAs Dropdown { get; } = new EvaluationFormSingleSelectQuestionPropertiesDisplayAs("DROPDOWN");
+        public static EvaluationFormSingleSelectQuestionPropertiesDisplayAs Radio { get; } = new EvaluationFormSingleSelectQuestionPropertiesDisplayAs("RADIO");
+
+        public static bool operator ==(EvaluationFormSingleSelectQuestionPropertiesDisplayAs left, EvaluationFormSingleSelectQuestionPropertiesDisplayAs right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormSingleSelectQuestionPropertiesDisplayAs left, EvaluationFormSingleSelectQuestionPropertiesDisplayAs right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormSingleSelectQuestionPropertiesDisplayAs value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormSingleSelectQuestionPropertiesDisplayAs other && Equals(other);
+        public bool Equals(EvaluationFormSingleSelectQuestionPropertiesDisplayAs other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The automation condition applied on contact categories.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition : IEquatable<EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition>
+    {
+        private readonly string _value;
+
+        private EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition Present { get; } = new EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition("PRESENT");
+        public static EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition NotPresent { get; } = new EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition("NOT_PRESENT");
+
+        public static bool operator ==(EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition left, EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition left, EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition other && Equals(other);
+        public bool Equals(EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the evaluation form.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormStatus : IEquatable<EvaluationFormStatus>
+    {
+        private readonly string _value;
+
+        private EvaluationFormStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormStatus Draft { get; } = new EvaluationFormStatus("DRAFT");
+        public static EvaluationFormStatus Active { get; } = new EvaluationFormStatus("ACTIVE");
+
+        public static bool operator ==(EvaluationFormStatus left, EvaluationFormStatus right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormStatus left, EvaluationFormStatus right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormStatus other && Equals(other);
+        public bool Equals(EvaluationFormStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The day that the hours of operation applies to.
     /// </summary>
     [EnumType]

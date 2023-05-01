@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DomainConfigurationTag>> Tags { get; private set; } = null!;
 
+        [Output("tlsConfig")]
+        public Output<Outputs.DomainConfigurationTlsConfig?> TlsConfig { get; private set; } = null!;
+
         [Output("validationCertificateArn")]
         public Output<string?> ValidationCertificateArn { get; private set; } = null!;
 
@@ -123,6 +126,9 @@ namespace Pulumi.AwsNative.IoT
             get => _tags ?? (_tags = new InputList<Inputs.DomainConfigurationTagArgs>());
             set => _tags = value;
         }
+
+        [Input("tlsConfig")]
+        public Input<Inputs.DomainConfigurationTlsConfigArgs>? TlsConfig { get; set; }
 
         [Input("validationCertificateArn")]
         public Input<string>? ValidationCertificateArn { get; set; }

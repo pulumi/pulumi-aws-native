@@ -21,12 +21,11 @@ func LookupVPCEndpointServicePermissions(ctx *pulumi.Context, args *LookupVPCEnd
 }
 
 type LookupVPCEndpointServicePermissionsArgs struct {
-	Id string `pulumi:"id"`
+	ServiceId string `pulumi:"serviceId"`
 }
 
 type LookupVPCEndpointServicePermissionsResult struct {
 	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
-	Id                *string  `pulumi:"id"`
 }
 
 func LookupVPCEndpointServicePermissionsOutput(ctx *pulumi.Context, args LookupVPCEndpointServicePermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupVPCEndpointServicePermissionsResultOutput {
@@ -43,7 +42,7 @@ func LookupVPCEndpointServicePermissionsOutput(ctx *pulumi.Context, args LookupV
 }
 
 type LookupVPCEndpointServicePermissionsOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ServiceId pulumi.StringInput `pulumi:"serviceId"`
 }
 
 func (LookupVPCEndpointServicePermissionsOutputArgs) ElementType() reflect.Type {
@@ -66,10 +65,6 @@ func (o LookupVPCEndpointServicePermissionsResultOutput) ToLookupVPCEndpointServ
 
 func (o LookupVPCEndpointServicePermissionsResultOutput) AllowedPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVPCEndpointServicePermissionsResult) []string { return v.AllowedPrincipals }).(pulumi.StringArrayOutput)
-}
-
-func (o LookupVPCEndpointServicePermissionsResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVPCEndpointServicePermissionsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

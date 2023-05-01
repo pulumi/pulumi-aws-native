@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.MSK
     /// <summary>
     /// Resource Type definition for AWS::MSK::ClusterPolicy
     /// </summary>
-    [Obsolete(@"ClusterPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:msk:ClusterPolicy")]
     public partial class ClusterPolicy : global::Pulumi.CustomResource
     {

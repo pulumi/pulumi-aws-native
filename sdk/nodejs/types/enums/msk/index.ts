@@ -25,3 +25,14 @@ export const ClusterStorageMode = {
 } as const;
 
 export type ClusterStorageMode = (typeof ClusterStorageMode)[keyof typeof ClusterStorageMode];
+
+export const VpcConnectionAuthentication = {
+    SaslIam: "SASL_IAM",
+    SaslScram: "SASL_SCRAM",
+    Tls: "TLS",
+} as const;
+
+/**
+ * The type of private link authentication
+ */
+export type VpcConnectionAuthentication = (typeof VpcConnectionAuthentication)[keyof typeof VpcConnectionAuthentication];

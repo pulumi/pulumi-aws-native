@@ -65,6 +65,11 @@ export const getLocationSMB: typeof import("./getLocationSMB").getLocationSMB = 
 export const getLocationSMBOutput: typeof import("./getLocationSMB").getLocationSMBOutput = null as any;
 utilities.lazyLoad(exports, ["getLocationSMB","getLocationSMBOutput"], () => require("./getLocationSMB"));
 
+export { GetStorageSystemArgs, GetStorageSystemResult, GetStorageSystemOutputArgs } from "./getStorageSystem";
+export const getStorageSystem: typeof import("./getStorageSystem").getStorageSystem = null as any;
+export const getStorageSystemOutput: typeof import("./getStorageSystem").getStorageSystemOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageSystem","getStorageSystemOutput"], () => require("./getStorageSystem"));
+
 export { GetTaskArgs, GetTaskResult, GetTaskOutputArgs } from "./getTask";
 export const getTask: typeof import("./getTask").getTask = null as any;
 export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
@@ -120,6 +125,11 @@ export type LocationSMB = import("./locationSMB").LocationSMB;
 export const LocationSMB: typeof import("./locationSMB").LocationSMB = null as any;
 utilities.lazyLoad(exports, ["LocationSMB"], () => require("./locationSMB"));
 
+export { StorageSystemArgs } from "./storageSystem";
+export type StorageSystem = import("./storageSystem").StorageSystem;
+export const StorageSystem: typeof import("./storageSystem").StorageSystem = null as any;
+utilities.lazyLoad(exports, ["StorageSystem"], () => require("./storageSystem"));
+
 export { TaskArgs } from "./task";
 export type Task = import("./task").Task;
 export const Task: typeof import("./task").Task = null as any;
@@ -155,6 +165,8 @@ const _module = {
                 return new LocationS3(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationSMB":
                 return new LocationSMB(name, <any>undefined, { urn })
+            case "aws-native:datasync:StorageSystem":
+                return new StorageSystem(name, <any>undefined, { urn })
             case "aws-native:datasync:Task":
                 return new Task(name, <any>undefined, { urn })
             default:

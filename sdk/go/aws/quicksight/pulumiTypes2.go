@@ -67829,6 +67829,168 @@ func (o ThemeVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+type VPCConnectionNetworkInterface struct {
+	AvailabilityZone   *string                              `pulumi:"availabilityZone"`
+	ErrorMessage       *string                              `pulumi:"errorMessage"`
+	NetworkInterfaceId *string                              `pulumi:"networkInterfaceId"`
+	Status             *VPCConnectionNetworkInterfaceStatus `pulumi:"status"`
+	SubnetId           *string                              `pulumi:"subnetId"`
+}
+
+type VPCConnectionNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (VPCConnectionNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCConnectionNetworkInterface)(nil)).Elem()
+}
+
+func (o VPCConnectionNetworkInterfaceOutput) ToVPCConnectionNetworkInterfaceOutput() VPCConnectionNetworkInterfaceOutput {
+	return o
+}
+
+func (o VPCConnectionNetworkInterfaceOutput) ToVPCConnectionNetworkInterfaceOutputWithContext(ctx context.Context) VPCConnectionNetworkInterfaceOutput {
+	return o
+}
+
+func (o VPCConnectionNetworkInterfaceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VPCConnectionNetworkInterface) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCConnectionNetworkInterfaceOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VPCConnectionNetworkInterface) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCConnectionNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VPCConnectionNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o VPCConnectionNetworkInterfaceOutput) Status() VPCConnectionNetworkInterfaceStatusPtrOutput {
+	return o.ApplyT(func(v VPCConnectionNetworkInterface) *VPCConnectionNetworkInterfaceStatus { return v.Status }).(VPCConnectionNetworkInterfaceStatusPtrOutput)
+}
+
+func (o VPCConnectionNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VPCConnectionNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type VPCConnectionNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (VPCConnectionNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPCConnectionNetworkInterface)(nil)).Elem()
+}
+
+func (o VPCConnectionNetworkInterfaceArrayOutput) ToVPCConnectionNetworkInterfaceArrayOutput() VPCConnectionNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o VPCConnectionNetworkInterfaceArrayOutput) ToVPCConnectionNetworkInterfaceArrayOutputWithContext(ctx context.Context) VPCConnectionNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o VPCConnectionNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) VPCConnectionNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPCConnectionNetworkInterface {
+		return vs[0].([]VPCConnectionNetworkInterface)[vs[1].(int)]
+	}).(VPCConnectionNetworkInterfaceOutput)
+}
+
+type VPCConnectionTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VPCConnectionTagInput is an input type that accepts VPCConnectionTagArgs and VPCConnectionTagOutput values.
+// You can construct a concrete instance of `VPCConnectionTagInput` via:
+//
+//	VPCConnectionTagArgs{...}
+type VPCConnectionTagInput interface {
+	pulumi.Input
+
+	ToVPCConnectionTagOutput() VPCConnectionTagOutput
+	ToVPCConnectionTagOutputWithContext(context.Context) VPCConnectionTagOutput
+}
+
+type VPCConnectionTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VPCConnectionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCConnectionTag)(nil)).Elem()
+}
+
+func (i VPCConnectionTagArgs) ToVPCConnectionTagOutput() VPCConnectionTagOutput {
+	return i.ToVPCConnectionTagOutputWithContext(context.Background())
+}
+
+func (i VPCConnectionTagArgs) ToVPCConnectionTagOutputWithContext(ctx context.Context) VPCConnectionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCConnectionTagOutput)
+}
+
+// VPCConnectionTagArrayInput is an input type that accepts VPCConnectionTagArray and VPCConnectionTagArrayOutput values.
+// You can construct a concrete instance of `VPCConnectionTagArrayInput` via:
+//
+//	VPCConnectionTagArray{ VPCConnectionTagArgs{...} }
+type VPCConnectionTagArrayInput interface {
+	pulumi.Input
+
+	ToVPCConnectionTagArrayOutput() VPCConnectionTagArrayOutput
+	ToVPCConnectionTagArrayOutputWithContext(context.Context) VPCConnectionTagArrayOutput
+}
+
+type VPCConnectionTagArray []VPCConnectionTagInput
+
+func (VPCConnectionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPCConnectionTag)(nil)).Elem()
+}
+
+func (i VPCConnectionTagArray) ToVPCConnectionTagArrayOutput() VPCConnectionTagArrayOutput {
+	return i.ToVPCConnectionTagArrayOutputWithContext(context.Background())
+}
+
+func (i VPCConnectionTagArray) ToVPCConnectionTagArrayOutputWithContext(ctx context.Context) VPCConnectionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCConnectionTagArrayOutput)
+}
+
+type VPCConnectionTagOutput struct{ *pulumi.OutputState }
+
+func (VPCConnectionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCConnectionTag)(nil)).Elem()
+}
+
+func (o VPCConnectionTagOutput) ToVPCConnectionTagOutput() VPCConnectionTagOutput {
+	return o
+}
+
+func (o VPCConnectionTagOutput) ToVPCConnectionTagOutputWithContext(ctx context.Context) VPCConnectionTagOutput {
+	return o
+}
+
+func (o VPCConnectionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VPCConnectionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VPCConnectionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VPCConnectionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VPCConnectionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VPCConnectionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPCConnectionTag)(nil)).Elem()
+}
+
+func (o VPCConnectionTagArrayOutput) ToVPCConnectionTagArrayOutput() VPCConnectionTagArrayOutput {
+	return o
+}
+
+func (o VPCConnectionTagArrayOutput) ToVPCConnectionTagArrayOutputWithContext(ctx context.Context) VPCConnectionTagArrayOutput {
+	return o
+}
+
+func (o VPCConnectionTagArrayOutput) Index(i pulumi.IntInput) VPCConnectionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPCConnectionTag {
+		return vs[0].([]VPCConnectionTag)[vs[1].(int)]
+	}).(VPCConnectionTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalMeasureFieldInput)(nil)).Elem(), TemplateCategoricalMeasureFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalMeasureFieldPtrInput)(nil)).Elem(), TemplateCategoricalMeasureFieldArgs{})
@@ -68670,6 +68832,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTypographyPtrInput)(nil)).Elem(), ThemeTypographyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeUIColorPaletteInput)(nil)).Elem(), ThemeUIColorPaletteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeUIColorPalettePtrInput)(nil)).Elem(), ThemeUIColorPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionTagInput)(nil)).Elem(), VPCConnectionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionTagArrayInput)(nil)).Elem(), VPCConnectionTagArray{})
 	pulumi.RegisterOutputType(TemplateCategoricalMeasureFieldOutput{})
 	pulumi.RegisterOutputType(TemplateCategoricalMeasureFieldPtrOutput{})
 	pulumi.RegisterOutputType(TemplateCategoryDrillDownFilterOutput{})
@@ -69521,4 +69685,8 @@ func init() {
 	pulumi.RegisterOutputType(ThemeUIColorPalettePtrOutput{})
 	pulumi.RegisterOutputType(ThemeVersionOutput{})
 	pulumi.RegisterOutputType(ThemeVersionPtrOutput{})
+	pulumi.RegisterOutputType(VPCConnectionNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(VPCConnectionNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(VPCConnectionTagOutput{})
+	pulumi.RegisterOutputType(VPCConnectionTagArrayOutput{})
 }

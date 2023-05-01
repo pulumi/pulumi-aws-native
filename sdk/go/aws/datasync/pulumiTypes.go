@@ -3057,6 +3057,382 @@ func (o LocationSMBTagArrayOutput) Index(i pulumi.IntInput) LocationSMBTagOutput
 	}).(LocationSMBTagOutput)
 }
 
+// The server name and network port required to connect with the management interface of the on-premises storage system.
+type StorageSystemServerConfiguration struct {
+	// The domain name or IP address of the storage system's management interface.
+	ServerHostname string `pulumi:"serverHostname"`
+	// The network port needed to access the system's management interface
+	ServerPort *int `pulumi:"serverPort"`
+}
+
+// StorageSystemServerConfigurationInput is an input type that accepts StorageSystemServerConfigurationArgs and StorageSystemServerConfigurationOutput values.
+// You can construct a concrete instance of `StorageSystemServerConfigurationInput` via:
+//
+//	StorageSystemServerConfigurationArgs{...}
+type StorageSystemServerConfigurationInput interface {
+	pulumi.Input
+
+	ToStorageSystemServerConfigurationOutput() StorageSystemServerConfigurationOutput
+	ToStorageSystemServerConfigurationOutputWithContext(context.Context) StorageSystemServerConfigurationOutput
+}
+
+// The server name and network port required to connect with the management interface of the on-premises storage system.
+type StorageSystemServerConfigurationArgs struct {
+	// The domain name or IP address of the storage system's management interface.
+	ServerHostname pulumi.StringInput `pulumi:"serverHostname"`
+	// The network port needed to access the system's management interface
+	ServerPort pulumi.IntPtrInput `pulumi:"serverPort"`
+}
+
+func (StorageSystemServerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSystemServerConfiguration)(nil)).Elem()
+}
+
+func (i StorageSystemServerConfigurationArgs) ToStorageSystemServerConfigurationOutput() StorageSystemServerConfigurationOutput {
+	return i.ToStorageSystemServerConfigurationOutputWithContext(context.Background())
+}
+
+func (i StorageSystemServerConfigurationArgs) ToStorageSystemServerConfigurationOutputWithContext(ctx context.Context) StorageSystemServerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemServerConfigurationOutput)
+}
+
+// The server name and network port required to connect with the management interface of the on-premises storage system.
+type StorageSystemServerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StorageSystemServerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSystemServerConfiguration)(nil)).Elem()
+}
+
+func (o StorageSystemServerConfigurationOutput) ToStorageSystemServerConfigurationOutput() StorageSystemServerConfigurationOutput {
+	return o
+}
+
+func (o StorageSystemServerConfigurationOutput) ToStorageSystemServerConfigurationOutputWithContext(ctx context.Context) StorageSystemServerConfigurationOutput {
+	return o
+}
+
+// The domain name or IP address of the storage system's management interface.
+func (o StorageSystemServerConfigurationOutput) ServerHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageSystemServerConfiguration) string { return v.ServerHostname }).(pulumi.StringOutput)
+}
+
+// The network port needed to access the system's management interface
+func (o StorageSystemServerConfigurationOutput) ServerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageSystemServerConfiguration) *int { return v.ServerPort }).(pulumi.IntPtrOutput)
+}
+
+type StorageSystemServerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageSystemServerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageSystemServerConfiguration)(nil)).Elem()
+}
+
+func (o StorageSystemServerConfigurationPtrOutput) ToStorageSystemServerConfigurationPtrOutput() StorageSystemServerConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageSystemServerConfigurationPtrOutput) ToStorageSystemServerConfigurationPtrOutputWithContext(ctx context.Context) StorageSystemServerConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageSystemServerConfigurationPtrOutput) Elem() StorageSystemServerConfigurationOutput {
+	return o.ApplyT(func(v *StorageSystemServerConfiguration) StorageSystemServerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StorageSystemServerConfiguration
+		return ret
+	}).(StorageSystemServerConfigurationOutput)
+}
+
+// The domain name or IP address of the storage system's management interface.
+func (o StorageSystemServerConfigurationPtrOutput) ServerHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageSystemServerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerHostname
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network port needed to access the system's management interface
+func (o StorageSystemServerConfigurationPtrOutput) ServerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageSystemServerConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ServerPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The username and password for accessing your on-premises storage system's management interface.
+type StorageSystemServerCredentials struct {
+	// The password for your storage system's management interface
+	Password string `pulumi:"password"`
+	// The username for your storage system's management interface.
+	Username string `pulumi:"username"`
+}
+
+// StorageSystemServerCredentialsInput is an input type that accepts StorageSystemServerCredentialsArgs and StorageSystemServerCredentialsOutput values.
+// You can construct a concrete instance of `StorageSystemServerCredentialsInput` via:
+//
+//	StorageSystemServerCredentialsArgs{...}
+type StorageSystemServerCredentialsInput interface {
+	pulumi.Input
+
+	ToStorageSystemServerCredentialsOutput() StorageSystemServerCredentialsOutput
+	ToStorageSystemServerCredentialsOutputWithContext(context.Context) StorageSystemServerCredentialsOutput
+}
+
+// The username and password for accessing your on-premises storage system's management interface.
+type StorageSystemServerCredentialsArgs struct {
+	// The password for your storage system's management interface
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username for your storage system's management interface.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (StorageSystemServerCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSystemServerCredentials)(nil)).Elem()
+}
+
+func (i StorageSystemServerCredentialsArgs) ToStorageSystemServerCredentialsOutput() StorageSystemServerCredentialsOutput {
+	return i.ToStorageSystemServerCredentialsOutputWithContext(context.Background())
+}
+
+func (i StorageSystemServerCredentialsArgs) ToStorageSystemServerCredentialsOutputWithContext(ctx context.Context) StorageSystemServerCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemServerCredentialsOutput)
+}
+
+func (i StorageSystemServerCredentialsArgs) ToStorageSystemServerCredentialsPtrOutput() StorageSystemServerCredentialsPtrOutput {
+	return i.ToStorageSystemServerCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageSystemServerCredentialsArgs) ToStorageSystemServerCredentialsPtrOutputWithContext(ctx context.Context) StorageSystemServerCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemServerCredentialsOutput).ToStorageSystemServerCredentialsPtrOutputWithContext(ctx)
+}
+
+// StorageSystemServerCredentialsPtrInput is an input type that accepts StorageSystemServerCredentialsArgs, StorageSystemServerCredentialsPtr and StorageSystemServerCredentialsPtrOutput values.
+// You can construct a concrete instance of `StorageSystemServerCredentialsPtrInput` via:
+//
+//	        StorageSystemServerCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageSystemServerCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToStorageSystemServerCredentialsPtrOutput() StorageSystemServerCredentialsPtrOutput
+	ToStorageSystemServerCredentialsPtrOutputWithContext(context.Context) StorageSystemServerCredentialsPtrOutput
+}
+
+type storageSystemServerCredentialsPtrType StorageSystemServerCredentialsArgs
+
+func StorageSystemServerCredentialsPtr(v *StorageSystemServerCredentialsArgs) StorageSystemServerCredentialsPtrInput {
+	return (*storageSystemServerCredentialsPtrType)(v)
+}
+
+func (*storageSystemServerCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageSystemServerCredentials)(nil)).Elem()
+}
+
+func (i *storageSystemServerCredentialsPtrType) ToStorageSystemServerCredentialsPtrOutput() StorageSystemServerCredentialsPtrOutput {
+	return i.ToStorageSystemServerCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageSystemServerCredentialsPtrType) ToStorageSystemServerCredentialsPtrOutputWithContext(ctx context.Context) StorageSystemServerCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemServerCredentialsPtrOutput)
+}
+
+// The username and password for accessing your on-premises storage system's management interface.
+type StorageSystemServerCredentialsOutput struct{ *pulumi.OutputState }
+
+func (StorageSystemServerCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSystemServerCredentials)(nil)).Elem()
+}
+
+func (o StorageSystemServerCredentialsOutput) ToStorageSystemServerCredentialsOutput() StorageSystemServerCredentialsOutput {
+	return o
+}
+
+func (o StorageSystemServerCredentialsOutput) ToStorageSystemServerCredentialsOutputWithContext(ctx context.Context) StorageSystemServerCredentialsOutput {
+	return o
+}
+
+func (o StorageSystemServerCredentialsOutput) ToStorageSystemServerCredentialsPtrOutput() StorageSystemServerCredentialsPtrOutput {
+	return o.ToStorageSystemServerCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageSystemServerCredentialsOutput) ToStorageSystemServerCredentialsPtrOutputWithContext(ctx context.Context) StorageSystemServerCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageSystemServerCredentials) *StorageSystemServerCredentials {
+		return &v
+	}).(StorageSystemServerCredentialsPtrOutput)
+}
+
+// The password for your storage system's management interface
+func (o StorageSystemServerCredentialsOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageSystemServerCredentials) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The username for your storage system's management interface.
+func (o StorageSystemServerCredentialsOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageSystemServerCredentials) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type StorageSystemServerCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageSystemServerCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageSystemServerCredentials)(nil)).Elem()
+}
+
+func (o StorageSystemServerCredentialsPtrOutput) ToStorageSystemServerCredentialsPtrOutput() StorageSystemServerCredentialsPtrOutput {
+	return o
+}
+
+func (o StorageSystemServerCredentialsPtrOutput) ToStorageSystemServerCredentialsPtrOutputWithContext(ctx context.Context) StorageSystemServerCredentialsPtrOutput {
+	return o
+}
+
+func (o StorageSystemServerCredentialsPtrOutput) Elem() StorageSystemServerCredentialsOutput {
+	return o.ApplyT(func(v *StorageSystemServerCredentials) StorageSystemServerCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret StorageSystemServerCredentials
+		return ret
+	}).(StorageSystemServerCredentialsOutput)
+}
+
+// The password for your storage system's management interface
+func (o StorageSystemServerCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageSystemServerCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username for your storage system's management interface.
+func (o StorageSystemServerCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageSystemServerCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type StorageSystemTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// StorageSystemTagInput is an input type that accepts StorageSystemTagArgs and StorageSystemTagOutput values.
+// You can construct a concrete instance of `StorageSystemTagInput` via:
+//
+//	StorageSystemTagArgs{...}
+type StorageSystemTagInput interface {
+	pulumi.Input
+
+	ToStorageSystemTagOutput() StorageSystemTagOutput
+	ToStorageSystemTagOutputWithContext(context.Context) StorageSystemTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type StorageSystemTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StorageSystemTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSystemTag)(nil)).Elem()
+}
+
+func (i StorageSystemTagArgs) ToStorageSystemTagOutput() StorageSystemTagOutput {
+	return i.ToStorageSystemTagOutputWithContext(context.Background())
+}
+
+func (i StorageSystemTagArgs) ToStorageSystemTagOutputWithContext(ctx context.Context) StorageSystemTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemTagOutput)
+}
+
+// StorageSystemTagArrayInput is an input type that accepts StorageSystemTagArray and StorageSystemTagArrayOutput values.
+// You can construct a concrete instance of `StorageSystemTagArrayInput` via:
+//
+//	StorageSystemTagArray{ StorageSystemTagArgs{...} }
+type StorageSystemTagArrayInput interface {
+	pulumi.Input
+
+	ToStorageSystemTagArrayOutput() StorageSystemTagArrayOutput
+	ToStorageSystemTagArrayOutputWithContext(context.Context) StorageSystemTagArrayOutput
+}
+
+type StorageSystemTagArray []StorageSystemTagInput
+
+func (StorageSystemTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageSystemTag)(nil)).Elem()
+}
+
+func (i StorageSystemTagArray) ToStorageSystemTagArrayOutput() StorageSystemTagArrayOutput {
+	return i.ToStorageSystemTagArrayOutputWithContext(context.Background())
+}
+
+func (i StorageSystemTagArray) ToStorageSystemTagArrayOutputWithContext(ctx context.Context) StorageSystemTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type StorageSystemTagOutput struct{ *pulumi.OutputState }
+
+func (StorageSystemTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSystemTag)(nil)).Elem()
+}
+
+func (o StorageSystemTagOutput) ToStorageSystemTagOutput() StorageSystemTagOutput {
+	return o
+}
+
+func (o StorageSystemTagOutput) ToStorageSystemTagOutputWithContext(ctx context.Context) StorageSystemTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o StorageSystemTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageSystemTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o StorageSystemTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageSystemTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StorageSystemTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageSystemTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageSystemTag)(nil)).Elem()
+}
+
+func (o StorageSystemTagArrayOutput) ToStorageSystemTagArrayOutput() StorageSystemTagArrayOutput {
+	return o
+}
+
+func (o StorageSystemTagArrayOutput) ToStorageSystemTagArrayOutputWithContext(ctx context.Context) StorageSystemTagArrayOutput {
+	return o
+}
+
+func (o StorageSystemTagArrayOutput) Index(i pulumi.IntInput) StorageSystemTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageSystemTag {
+		return vs[0].([]StorageSystemTag)[vs[1].(int)]
+	}).(StorageSystemTagOutput)
+}
+
 // Specifies which files folders and objects to include or exclude when transferring files from source to destination.
 type TaskFilterRule struct {
 	// The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
@@ -3870,6 +4246,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSMBMountOptionsPtrInput)(nil)).Elem(), LocationSMBMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSMBTagInput)(nil)).Elem(), LocationSMBTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSMBTagArrayInput)(nil)).Elem(), LocationSMBTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemServerConfigurationInput)(nil)).Elem(), StorageSystemServerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemServerCredentialsInput)(nil)).Elem(), StorageSystemServerCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemServerCredentialsPtrInput)(nil)).Elem(), StorageSystemServerCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemTagInput)(nil)).Elem(), StorageSystemTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemTagArrayInput)(nil)).Elem(), StorageSystemTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskFilterRuleInput)(nil)).Elem(), TaskFilterRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskFilterRuleArrayInput)(nil)).Elem(), TaskFilterRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsInput)(nil)).Elem(), TaskOptionsArgs{})
@@ -3927,6 +4308,12 @@ func init() {
 	pulumi.RegisterOutputType(LocationSMBMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LocationSMBTagOutput{})
 	pulumi.RegisterOutputType(LocationSMBTagArrayOutput{})
+	pulumi.RegisterOutputType(StorageSystemServerConfigurationOutput{})
+	pulumi.RegisterOutputType(StorageSystemServerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StorageSystemServerCredentialsOutput{})
+	pulumi.RegisterOutputType(StorageSystemServerCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(StorageSystemTagOutput{})
+	pulumi.RegisterOutputType(StorageSystemTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(TaskOptionsOutput{})

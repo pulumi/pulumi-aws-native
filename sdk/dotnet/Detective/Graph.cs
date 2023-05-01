@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Detective
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+        /// </summary>
+        [Output("autoEnableMembers")]
+        public Output<bool?> AutoEnableMembers { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.GraphTag>> Tags { get; private set; } = null!;
 
@@ -69,6 +75,12 @@ namespace Pulumi.AwsNative.Detective
 
     public sealed class GraphArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
+        /// </summary>
+        [Input("autoEnableMembers")]
+        public Input<bool>? AutoEnableMembers { get; set; }
+
         [Input("tags")]
         private InputList<Inputs.GraphTagArgs>? _tags;
         public InputList<Inputs.GraphTagArgs> Tags

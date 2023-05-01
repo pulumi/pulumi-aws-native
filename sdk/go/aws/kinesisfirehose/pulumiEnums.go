@@ -505,6 +505,333 @@ func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupM
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput)
 }
 
+type DeliveryStreamBulkRequestCustomizationConfigurationJqVersion string
+
+const (
+	DeliveryStreamBulkRequestCustomizationConfigurationJqVersionJq16 = DeliveryStreamBulkRequestCustomizationConfigurationJqVersion("JQ_1_6")
+)
+
+func (DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamBulkRequestCustomizationConfigurationJqVersion)(nil)).Elem()
+}
+
+func (e DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput() DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput {
+	return pulumi.ToOutput(e).(DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput)
+}
+
+func (e DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutputWithContext(ctx context.Context) DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput)
+}
+
+func (e DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput() DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput {
+	return e.ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutputWithContext(ctx context.Context) DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput {
+	return DeliveryStreamBulkRequestCustomizationConfigurationJqVersion(e).ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutputWithContext(ctx).ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutputWithContext(ctx)
+}
+
+func (e DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamBulkRequestCustomizationConfigurationJqVersion)(nil)).Elem()
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput() DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput {
+	return o
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutputWithContext(ctx context.Context) DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput {
+	return o
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput() DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput {
+	return o.ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutputWithContext(ctx context.Context) DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) *DeliveryStreamBulkRequestCustomizationConfigurationJqVersion {
+		return &v
+	}).(DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput)
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamBulkRequestCustomizationConfigurationJqVersion)(nil)).Elem()
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput() DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutputWithContext(ctx context.Context) DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput) Elem() DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput {
+	return o.ApplyT(func(v *DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) DeliveryStreamBulkRequestCustomizationConfigurationJqVersion {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamBulkRequestCustomizationConfigurationJqVersion
+		return ret
+	}).(DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput)
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamBulkRequestCustomizationConfigurationJqVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeliveryStreamBulkRequestCustomizationConfigurationJqVersionInput is an input type that accepts DeliveryStreamBulkRequestCustomizationConfigurationJqVersionArgs and DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput values.
+// You can construct a concrete instance of `DeliveryStreamBulkRequestCustomizationConfigurationJqVersionInput` via:
+//
+//	DeliveryStreamBulkRequestCustomizationConfigurationJqVersionArgs{...}
+type DeliveryStreamBulkRequestCustomizationConfigurationJqVersionInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput() DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput
+	ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutputWithContext(context.Context) DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput
+}
+
+var deliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrType = reflect.TypeOf((**DeliveryStreamBulkRequestCustomizationConfigurationJqVersion)(nil)).Elem()
+
+type DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput() DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput
+	ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutputWithContext(context.Context) DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput
+}
+
+type deliveryStreamBulkRequestCustomizationConfigurationJqVersionPtr string
+
+func DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtr(v string) DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrInput {
+	return (*deliveryStreamBulkRequestCustomizationConfigurationJqVersionPtr)(&v)
+}
+
+func (*deliveryStreamBulkRequestCustomizationConfigurationJqVersionPtr) ElementType() reflect.Type {
+	return deliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrType
+}
+
+func (in *deliveryStreamBulkRequestCustomizationConfigurationJqVersionPtr) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput() DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput {
+	return pulumi.ToOutput(in).(DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput)
+}
+
+func (in *deliveryStreamBulkRequestCustomizationConfigurationJqVersionPtr) ToDeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutputWithContext(ctx context.Context) DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput)
+}
+
+type DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat string
+
+const (
+	DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatFirehoseDefault = DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat("FIREHOSE_DEFAULT")
+	DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatNoDocumentId    = DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat("NO_DOCUMENT_ID")
+)
+
+func (DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat)(nil)).Elem()
+}
+
+func (e DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput {
+	return pulumi.ToOutput(e).(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput)
+}
+
+func (e DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutputWithContext(ctx context.Context) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput)
+}
+
+func (e DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput {
+	return e.ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput {
+	return DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat(e).ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutputWithContext(ctx).ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(ctx)
+}
+
+func (e DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat)(nil)).Elem()
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput {
+	return o
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutputWithContext(ctx context.Context) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput {
+	return o
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput {
+	return o.ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) *DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat {
+		return &v
+	}).(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput)
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat)(nil)).Elem()
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) Elem() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput {
+	return o.ApplyT(func(v *DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat
+		return ret
+	}).(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput)
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatInput is an input type that accepts DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatArgs and DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput values.
+// You can construct a concrete instance of `DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatInput` via:
+//
+//	DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatArgs{...}
+type DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput
+	ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutputWithContext(context.Context) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput
+}
+
+var deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrType = reflect.TypeOf((**DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat)(nil)).Elem()
+
+type DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput
+	ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(context.Context) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput
+}
+
+type deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr string
+
+func DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr(v string) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrInput {
+	return (*deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr)(&v)
+}
+
+func (*deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr) ElementType() reflect.Type {
+	return deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrType
+}
+
+func (in *deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput() DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput {
+	return pulumi.ToOutput(in).(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput)
+}
+
+func (in *deliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtr) ToDeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutputWithContext(ctx context.Context) DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput)
+}
+
 type DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod string
 
 const (
@@ -2490,6 +2817,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod("NoRotation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode("FailedDocumentsOnly"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode("FailedDocumentsOnly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamBulkRequestCustomizationConfigurationJqVersionInput)(nil)).Elem(), DeliveryStreamBulkRequestCustomizationConfigurationJqVersion("JQ_1_6"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrInput)(nil)).Elem(), DeliveryStreamBulkRequestCustomizationConfigurationJqVersion("JQ_1_6"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatInput)(nil)).Elem(), DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat("FIREHOSE_DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrInput)(nil)).Elem(), DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat("FIREHOSE_DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodInput)(nil)).Elem(), DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("NoRotation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrInput)(nil)).Elem(), DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("NoRotation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeInput)(nil)).Elem(), DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode("FailedDocumentsOnly"))
@@ -2520,6 +2851,10 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamBulkRequestCustomizationConfigurationJqVersionOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamBulkRequestCustomizationConfigurationJqVersionPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput{})

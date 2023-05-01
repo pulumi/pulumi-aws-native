@@ -18,6 +18,7 @@ from .get_location_nfs import *
 from .get_location_object_storage import *
 from .get_location_s3 import *
 from .get_location_smb import *
+from .get_storage_system import *
 from .get_task import *
 from .location_efs import *
 from .location_f_sx_lustre import *
@@ -29,6 +30,7 @@ from .location_nfs import *
 from .location_object_storage import *
 from .location_s3 import *
 from .location_smb import *
+from .storage_system import *
 from .task import *
 from ._inputs import *
 from . import outputs

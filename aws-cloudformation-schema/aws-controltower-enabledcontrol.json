@@ -28,6 +28,17 @@
     },
     "read" : {
       "permissions" : [ "controltower:ListEnabledControls" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "TargetIdentifier" : {
+            "$ref" : "resource-schema.json#/properties/TargetIdentifier"
+          }
+        },
+        "required" : [ "TargetIdentifier" ]
+      },
+      "permissions" : [ "controltower:ListEnabledControls" ]
     }
   },
   "additionalProperties" : false,

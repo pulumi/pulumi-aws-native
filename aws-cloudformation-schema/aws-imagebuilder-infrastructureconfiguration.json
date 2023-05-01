@@ -146,6 +146,9 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:PassRole", "iam:GetRole", "iam:GetInstanceProfile", "iam:CreateServiceLinkedRole", "sns:Publish", "imagebuilder:TagResource", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:CreateInfrastructureConfiguration" ]

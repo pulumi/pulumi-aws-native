@@ -137,6 +137,8 @@ class AppResourceSpecInstanceType(str, Enum):
     ML_G516XLARGE = "ml.g5.16xlarge"
     ML_G524XLARGE = "ml.g5.24xlarge"
     ML_G548XLARGE = "ml.g5.48xlarge"
+    ML_P4D24XLARGE = "ml.p4d.24xlarge"
+    ML_P4DE24XLARGE = "ml.p4de.24xlarge"
     ML_GEOSPATIAL_INTERACTIVE = "ml.geospatial.interactive"
 
 

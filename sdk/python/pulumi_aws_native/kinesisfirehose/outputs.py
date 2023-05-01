@@ -19,10 +19,12 @@ __all__ = [
     'DeliveryStreamAmazonopensearchserviceDestinationConfiguration',
     'DeliveryStreamAmazonopensearchserviceRetryOptions',
     'DeliveryStreamBufferingHints',
+    'DeliveryStreamBulkRequestCustomizationConfiguration',
     'DeliveryStreamCloudWatchLoggingOptions',
     'DeliveryStreamCopyCommand',
     'DeliveryStreamDataFormatConversionConfiguration',
     'DeliveryStreamDeserializer',
+    'DeliveryStreamDocumentIdOptions',
     'DeliveryStreamDynamicPartitioningConfiguration',
     'DeliveryStreamElasticsearchBufferingHints',
     'DeliveryStreamElasticsearchDestinationConfiguration',
@@ -110,6 +112,8 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
             suggest = "s3_configuration"
         elif key == "bufferingHints":
             suggest = "buffering_hints"
+        elif key == "bulkRequestCustomizationConfiguration":
+            suggest = "bulk_request_customization_configuration"
         elif key == "cloudWatchLoggingOptions":
             suggest = "cloud_watch_logging_options"
         elif key == "collectionEndpoint":
@@ -139,6 +143,7 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
                  role_arn: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
                  buffering_hints: Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessBufferingHints'] = None,
+                 bulk_request_customization_configuration: Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration'] = None,
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
                  collection_endpoint: Optional[str] = None,
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
@@ -150,6 +155,8 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_hints is not None:
             pulumi.set(__self__, "buffering_hints", buffering_hints)
+        if bulk_request_customization_configuration is not None:
+            pulumi.set(__self__, "bulk_request_customization_configuration", bulk_request_customization_configuration)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if collection_endpoint is not None:
@@ -182,6 +189,11 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
     @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessBufferingHints']:
         return pulumi.get(self, "buffering_hints")
+
+    @property
+    @pulumi.getter(name="bulkRequestCustomizationConfiguration")
+    def bulk_request_customization_configuration(self) -> Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration']:
+        return pulumi.get(self, "bulk_request_customization_configuration")
 
     @property
     @pulumi.getter(name="cloudWatchLoggingOptions")
@@ -297,10 +309,14 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
             suggest = "s3_configuration"
         elif key == "bufferingHints":
             suggest = "buffering_hints"
+        elif key == "bulkRequestCustomizationConfiguration":
+            suggest = "bulk_request_customization_configuration"
         elif key == "cloudWatchLoggingOptions":
             suggest = "cloud_watch_logging_options"
         elif key == "clusterEndpoint":
             suggest = "cluster_endpoint"
+        elif key == "documentIdOptions":
+            suggest = "document_id_options"
         elif key == "domainARN":
             suggest = "domain_arn"
         elif key == "indexRotationPeriod":
@@ -332,8 +348,10 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
                  role_arn: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
                  buffering_hints: Optional['outputs.DeliveryStreamAmazonopensearchserviceBufferingHints'] = None,
+                 bulk_request_customization_configuration: Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration'] = None,
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
                  cluster_endpoint: Optional[str] = None,
+                 document_id_options: Optional['outputs.DeliveryStreamDocumentIdOptions'] = None,
                  domain_arn: Optional[str] = None,
                  index_rotation_period: Optional['DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod'] = None,
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
@@ -346,10 +364,14 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_hints is not None:
             pulumi.set(__self__, "buffering_hints", buffering_hints)
+        if bulk_request_customization_configuration is not None:
+            pulumi.set(__self__, "bulk_request_customization_configuration", bulk_request_customization_configuration)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if cluster_endpoint is not None:
             pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+        if document_id_options is not None:
+            pulumi.set(__self__, "document_id_options", document_id_options)
         if domain_arn is not None:
             pulumi.set(__self__, "domain_arn", domain_arn)
         if index_rotation_period is not None:
@@ -386,6 +408,11 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
         return pulumi.get(self, "buffering_hints")
 
     @property
+    @pulumi.getter(name="bulkRequestCustomizationConfiguration")
+    def bulk_request_customization_configuration(self) -> Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration']:
+        return pulumi.get(self, "bulk_request_customization_configuration")
+
+    @property
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         return pulumi.get(self, "cloud_watch_logging_options")
@@ -394,6 +421,11 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
     @pulumi.getter(name="clusterEndpoint")
     def cluster_endpoint(self) -> Optional[str]:
         return pulumi.get(self, "cluster_endpoint")
+
+    @property
+    @pulumi.getter(name="documentIdOptions")
+    def document_id_options(self) -> Optional['outputs.DeliveryStreamDocumentIdOptions']:
+        return pulumi.get(self, "document_id_options")
 
     @property
     @pulumi.getter(name="domainARN")
@@ -499,6 +531,54 @@ class DeliveryStreamBufferingHints(dict):
     @pulumi.getter(name="sizeInMBs")
     def size_in_mbs(self) -> Optional[int]:
         return pulumi.get(self, "size_in_mbs")
+
+
+@pulumi.output_type
+class DeliveryStreamBulkRequestCustomizationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jqExpression":
+            suggest = "jq_expression"
+        elif key == "jqVersion":
+            suggest = "jq_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamBulkRequestCustomizationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamBulkRequestCustomizationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamBulkRequestCustomizationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 jq_expression: Optional[str] = None,
+                 jq_version: Optional['DeliveryStreamBulkRequestCustomizationConfigurationJqVersion'] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if jq_expression is not None:
+            pulumi.set(__self__, "jq_expression", jq_expression)
+        if jq_version is not None:
+            pulumi.set(__self__, "jq_version", jq_version)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="jqExpression")
+    def jq_expression(self) -> Optional[str]:
+        return pulumi.get(self, "jq_expression")
+
+    @property
+    @pulumi.getter(name="jqVersion")
+    def jq_version(self) -> Optional['DeliveryStreamBulkRequestCustomizationConfigurationJqVersion']:
+        return pulumi.get(self, "jq_version")
 
 
 @pulumi.output_type
@@ -697,6 +777,35 @@ class DeliveryStreamDeserializer(dict):
 
 
 @pulumi.output_type
+class DeliveryStreamDocumentIdOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultDocumentIdFormat":
+            suggest = "default_document_id_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamDocumentIdOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamDocumentIdOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamDocumentIdOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_document_id_format: 'DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat'):
+        pulumi.set(__self__, "default_document_id_format", default_document_id_format)
+
+    @property
+    @pulumi.getter(name="defaultDocumentIdFormat")
+    def default_document_id_format(self) -> 'DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat':
+        return pulumi.get(self, "default_document_id_format")
+
+
+@pulumi.output_type
 class DeliveryStreamDynamicPartitioningConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -787,10 +896,14 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
             suggest = "s3_configuration"
         elif key == "bufferingHints":
             suggest = "buffering_hints"
+        elif key == "bulkRequestCustomizationConfiguration":
+            suggest = "bulk_request_customization_configuration"
         elif key == "cloudWatchLoggingOptions":
             suggest = "cloud_watch_logging_options"
         elif key == "clusterEndpoint":
             suggest = "cluster_endpoint"
+        elif key == "documentIdOptions":
+            suggest = "document_id_options"
         elif key == "domainARN":
             suggest = "domain_arn"
         elif key == "indexRotationPeriod":
@@ -822,8 +935,10 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
                  role_arn: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
                  buffering_hints: Optional['outputs.DeliveryStreamElasticsearchBufferingHints'] = None,
+                 bulk_request_customization_configuration: Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration'] = None,
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
                  cluster_endpoint: Optional[str] = None,
+                 document_id_options: Optional['outputs.DeliveryStreamDocumentIdOptions'] = None,
                  domain_arn: Optional[str] = None,
                  index_rotation_period: Optional['DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod'] = None,
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
@@ -836,10 +951,14 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_hints is not None:
             pulumi.set(__self__, "buffering_hints", buffering_hints)
+        if bulk_request_customization_configuration is not None:
+            pulumi.set(__self__, "bulk_request_customization_configuration", bulk_request_customization_configuration)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if cluster_endpoint is not None:
             pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+        if document_id_options is not None:
+            pulumi.set(__self__, "document_id_options", document_id_options)
         if domain_arn is not None:
             pulumi.set(__self__, "domain_arn", domain_arn)
         if index_rotation_period is not None:
@@ -876,6 +995,11 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "buffering_hints")
 
     @property
+    @pulumi.getter(name="bulkRequestCustomizationConfiguration")
+    def bulk_request_customization_configuration(self) -> Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration']:
+        return pulumi.get(self, "bulk_request_customization_configuration")
+
+    @property
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         return pulumi.get(self, "cloud_watch_logging_options")
@@ -884,6 +1008,11 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
     @pulumi.getter(name="clusterEndpoint")
     def cluster_endpoint(self) -> Optional[str]:
         return pulumi.get(self, "cluster_endpoint")
+
+    @property
+    @pulumi.getter(name="documentIdOptions")
+    def document_id_options(self) -> Optional['outputs.DeliveryStreamDocumentIdOptions']:
+        return pulumi.get(self, "document_id_options")
 
     @property
     @pulumi.getter(name="domainARN")

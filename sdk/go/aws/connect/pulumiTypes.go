@@ -394,6 +394,2377 @@ func (o ContactFlowTagArrayOutput) Index(i pulumi.IntInput) ContactFlowTagOutput
 	}).(ContactFlowTagOutput)
 }
 
+// The evaluation form base item.
+type EvaluationFormBaseItem struct {
+	// The evaluation form section item
+	Section EvaluationFormSection `pulumi:"section"`
+}
+
+// EvaluationFormBaseItemInput is an input type that accepts EvaluationFormBaseItemArgs and EvaluationFormBaseItemOutput values.
+// You can construct a concrete instance of `EvaluationFormBaseItemInput` via:
+//
+//	EvaluationFormBaseItemArgs{...}
+type EvaluationFormBaseItemInput interface {
+	pulumi.Input
+
+	ToEvaluationFormBaseItemOutput() EvaluationFormBaseItemOutput
+	ToEvaluationFormBaseItemOutputWithContext(context.Context) EvaluationFormBaseItemOutput
+}
+
+// The evaluation form base item.
+type EvaluationFormBaseItemArgs struct {
+	// The evaluation form section item
+	Section EvaluationFormSectionInput `pulumi:"section"`
+}
+
+func (EvaluationFormBaseItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormBaseItem)(nil)).Elem()
+}
+
+func (i EvaluationFormBaseItemArgs) ToEvaluationFormBaseItemOutput() EvaluationFormBaseItemOutput {
+	return i.ToEvaluationFormBaseItemOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormBaseItemArgs) ToEvaluationFormBaseItemOutputWithContext(ctx context.Context) EvaluationFormBaseItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormBaseItemOutput)
+}
+
+// EvaluationFormBaseItemArrayInput is an input type that accepts EvaluationFormBaseItemArray and EvaluationFormBaseItemArrayOutput values.
+// You can construct a concrete instance of `EvaluationFormBaseItemArrayInput` via:
+//
+//	EvaluationFormBaseItemArray{ EvaluationFormBaseItemArgs{...} }
+type EvaluationFormBaseItemArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationFormBaseItemArrayOutput() EvaluationFormBaseItemArrayOutput
+	ToEvaluationFormBaseItemArrayOutputWithContext(context.Context) EvaluationFormBaseItemArrayOutput
+}
+
+type EvaluationFormBaseItemArray []EvaluationFormBaseItemInput
+
+func (EvaluationFormBaseItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormBaseItem)(nil)).Elem()
+}
+
+func (i EvaluationFormBaseItemArray) ToEvaluationFormBaseItemArrayOutput() EvaluationFormBaseItemArrayOutput {
+	return i.ToEvaluationFormBaseItemArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormBaseItemArray) ToEvaluationFormBaseItemArrayOutputWithContext(ctx context.Context) EvaluationFormBaseItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormBaseItemArrayOutput)
+}
+
+// The evaluation form base item.
+type EvaluationFormBaseItemOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormBaseItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormBaseItem)(nil)).Elem()
+}
+
+func (o EvaluationFormBaseItemOutput) ToEvaluationFormBaseItemOutput() EvaluationFormBaseItemOutput {
+	return o
+}
+
+func (o EvaluationFormBaseItemOutput) ToEvaluationFormBaseItemOutputWithContext(ctx context.Context) EvaluationFormBaseItemOutput {
+	return o
+}
+
+// The evaluation form section item
+func (o EvaluationFormBaseItemOutput) Section() EvaluationFormSectionOutput {
+	return o.ApplyT(func(v EvaluationFormBaseItem) EvaluationFormSection { return v.Section }).(EvaluationFormSectionOutput)
+}
+
+type EvaluationFormBaseItemArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormBaseItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormBaseItem)(nil)).Elem()
+}
+
+func (o EvaluationFormBaseItemArrayOutput) ToEvaluationFormBaseItemArrayOutput() EvaluationFormBaseItemArrayOutput {
+	return o
+}
+
+func (o EvaluationFormBaseItemArrayOutput) ToEvaluationFormBaseItemArrayOutputWithContext(ctx context.Context) EvaluationFormBaseItemArrayOutput {
+	return o
+}
+
+func (o EvaluationFormBaseItemArrayOutput) Index(i pulumi.IntInput) EvaluationFormBaseItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationFormBaseItem {
+		return vs[0].([]EvaluationFormBaseItem)[vs[1].(int)]
+	}).(EvaluationFormBaseItemOutput)
+}
+
+// The evaluation form item.
+type EvaluationFormItem struct {
+	// The evaluation form question item
+	Question *EvaluationFormQuestion `pulumi:"question"`
+	// The evaluation form section item
+	Section *EvaluationFormSection `pulumi:"section"`
+}
+
+// EvaluationFormItemInput is an input type that accepts EvaluationFormItemArgs and EvaluationFormItemOutput values.
+// You can construct a concrete instance of `EvaluationFormItemInput` via:
+//
+//	EvaluationFormItemArgs{...}
+type EvaluationFormItemInput interface {
+	pulumi.Input
+
+	ToEvaluationFormItemOutput() EvaluationFormItemOutput
+	ToEvaluationFormItemOutputWithContext(context.Context) EvaluationFormItemOutput
+}
+
+// The evaluation form item.
+type EvaluationFormItemArgs struct {
+	// The evaluation form question item
+	Question EvaluationFormQuestionPtrInput `pulumi:"question"`
+	// The evaluation form section item
+	Section EvaluationFormSectionPtrInput `pulumi:"section"`
+}
+
+func (EvaluationFormItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormItem)(nil)).Elem()
+}
+
+func (i EvaluationFormItemArgs) ToEvaluationFormItemOutput() EvaluationFormItemOutput {
+	return i.ToEvaluationFormItemOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormItemArgs) ToEvaluationFormItemOutputWithContext(ctx context.Context) EvaluationFormItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormItemOutput)
+}
+
+// EvaluationFormItemArrayInput is an input type that accepts EvaluationFormItemArray and EvaluationFormItemArrayOutput values.
+// You can construct a concrete instance of `EvaluationFormItemArrayInput` via:
+//
+//	EvaluationFormItemArray{ EvaluationFormItemArgs{...} }
+type EvaluationFormItemArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationFormItemArrayOutput() EvaluationFormItemArrayOutput
+	ToEvaluationFormItemArrayOutputWithContext(context.Context) EvaluationFormItemArrayOutput
+}
+
+type EvaluationFormItemArray []EvaluationFormItemInput
+
+func (EvaluationFormItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormItem)(nil)).Elem()
+}
+
+func (i EvaluationFormItemArray) ToEvaluationFormItemArrayOutput() EvaluationFormItemArrayOutput {
+	return i.ToEvaluationFormItemArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormItemArray) ToEvaluationFormItemArrayOutputWithContext(ctx context.Context) EvaluationFormItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormItemArrayOutput)
+}
+
+// The evaluation form item.
+type EvaluationFormItemOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormItem)(nil)).Elem()
+}
+
+func (o EvaluationFormItemOutput) ToEvaluationFormItemOutput() EvaluationFormItemOutput {
+	return o
+}
+
+func (o EvaluationFormItemOutput) ToEvaluationFormItemOutputWithContext(ctx context.Context) EvaluationFormItemOutput {
+	return o
+}
+
+// The evaluation form question item
+func (o EvaluationFormItemOutput) Question() EvaluationFormQuestionPtrOutput {
+	return o.ApplyT(func(v EvaluationFormItem) *EvaluationFormQuestion { return v.Question }).(EvaluationFormQuestionPtrOutput)
+}
+
+// The evaluation form section item
+func (o EvaluationFormItemOutput) Section() EvaluationFormSectionPtrOutput {
+	return o.ApplyT(func(v EvaluationFormItem) *EvaluationFormSection { return v.Section }).(EvaluationFormSectionPtrOutput)
+}
+
+type EvaluationFormItemArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormItem)(nil)).Elem()
+}
+
+func (o EvaluationFormItemArrayOutput) ToEvaluationFormItemArrayOutput() EvaluationFormItemArrayOutput {
+	return o
+}
+
+func (o EvaluationFormItemArrayOutput) ToEvaluationFormItemArrayOutputWithContext(ctx context.Context) EvaluationFormItemArrayOutput {
+	return o
+}
+
+func (o EvaluationFormItemArrayOutput) Index(i pulumi.IntInput) EvaluationFormItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationFormItem {
+		return vs[0].([]EvaluationFormItem)[vs[1].(int)]
+	}).(EvaluationFormItemOutput)
+}
+
+// The automation properties for the numeric question.
+type EvaluationFormNumericQuestionAutomation struct {
+	// The automation property name of the question.
+	PropertyValue EvaluationFormNumericQuestionPropertyValueAutomation `pulumi:"propertyValue"`
+}
+
+// EvaluationFormNumericQuestionAutomationInput is an input type that accepts EvaluationFormNumericQuestionAutomationArgs and EvaluationFormNumericQuestionAutomationOutput values.
+// You can construct a concrete instance of `EvaluationFormNumericQuestionAutomationInput` via:
+//
+//	EvaluationFormNumericQuestionAutomationArgs{...}
+type EvaluationFormNumericQuestionAutomationInput interface {
+	pulumi.Input
+
+	ToEvaluationFormNumericQuestionAutomationOutput() EvaluationFormNumericQuestionAutomationOutput
+	ToEvaluationFormNumericQuestionAutomationOutputWithContext(context.Context) EvaluationFormNumericQuestionAutomationOutput
+}
+
+// The automation properties for the numeric question.
+type EvaluationFormNumericQuestionAutomationArgs struct {
+	// The automation property name of the question.
+	PropertyValue EvaluationFormNumericQuestionPropertyValueAutomationInput `pulumi:"propertyValue"`
+}
+
+func (EvaluationFormNumericQuestionAutomationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormNumericQuestionAutomation)(nil)).Elem()
+}
+
+func (i EvaluationFormNumericQuestionAutomationArgs) ToEvaluationFormNumericQuestionAutomationOutput() EvaluationFormNumericQuestionAutomationOutput {
+	return i.ToEvaluationFormNumericQuestionAutomationOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormNumericQuestionAutomationArgs) ToEvaluationFormNumericQuestionAutomationOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionAutomationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionAutomationOutput)
+}
+
+func (i EvaluationFormNumericQuestionAutomationArgs) ToEvaluationFormNumericQuestionAutomationPtrOutput() EvaluationFormNumericQuestionAutomationPtrOutput {
+	return i.ToEvaluationFormNumericQuestionAutomationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormNumericQuestionAutomationArgs) ToEvaluationFormNumericQuestionAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionAutomationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionAutomationOutput).ToEvaluationFormNumericQuestionAutomationPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormNumericQuestionAutomationPtrInput is an input type that accepts EvaluationFormNumericQuestionAutomationArgs, EvaluationFormNumericQuestionAutomationPtr and EvaluationFormNumericQuestionAutomationPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormNumericQuestionAutomationPtrInput` via:
+//
+//	        EvaluationFormNumericQuestionAutomationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormNumericQuestionAutomationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormNumericQuestionAutomationPtrOutput() EvaluationFormNumericQuestionAutomationPtrOutput
+	ToEvaluationFormNumericQuestionAutomationPtrOutputWithContext(context.Context) EvaluationFormNumericQuestionAutomationPtrOutput
+}
+
+type evaluationFormNumericQuestionAutomationPtrType EvaluationFormNumericQuestionAutomationArgs
+
+func EvaluationFormNumericQuestionAutomationPtr(v *EvaluationFormNumericQuestionAutomationArgs) EvaluationFormNumericQuestionAutomationPtrInput {
+	return (*evaluationFormNumericQuestionAutomationPtrType)(v)
+}
+
+func (*evaluationFormNumericQuestionAutomationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormNumericQuestionAutomation)(nil)).Elem()
+}
+
+func (i *evaluationFormNumericQuestionAutomationPtrType) ToEvaluationFormNumericQuestionAutomationPtrOutput() EvaluationFormNumericQuestionAutomationPtrOutput {
+	return i.ToEvaluationFormNumericQuestionAutomationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormNumericQuestionAutomationPtrType) ToEvaluationFormNumericQuestionAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionAutomationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionAutomationPtrOutput)
+}
+
+// The automation properties for the numeric question.
+type EvaluationFormNumericQuestionAutomationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormNumericQuestionAutomationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormNumericQuestionAutomation)(nil)).Elem()
+}
+
+func (o EvaluationFormNumericQuestionAutomationOutput) ToEvaluationFormNumericQuestionAutomationOutput() EvaluationFormNumericQuestionAutomationOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionAutomationOutput) ToEvaluationFormNumericQuestionAutomationOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionAutomationOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionAutomationOutput) ToEvaluationFormNumericQuestionAutomationPtrOutput() EvaluationFormNumericQuestionAutomationPtrOutput {
+	return o.ToEvaluationFormNumericQuestionAutomationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormNumericQuestionAutomationOutput) ToEvaluationFormNumericQuestionAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionAutomationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormNumericQuestionAutomation) *EvaluationFormNumericQuestionAutomation {
+		return &v
+	}).(EvaluationFormNumericQuestionAutomationPtrOutput)
+}
+
+// The automation property name of the question.
+func (o EvaluationFormNumericQuestionAutomationOutput) PropertyValue() EvaluationFormNumericQuestionPropertyValueAutomationOutput {
+	return o.ApplyT(func(v EvaluationFormNumericQuestionAutomation) EvaluationFormNumericQuestionPropertyValueAutomation {
+		return v.PropertyValue
+	}).(EvaluationFormNumericQuestionPropertyValueAutomationOutput)
+}
+
+type EvaluationFormNumericQuestionAutomationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormNumericQuestionAutomationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormNumericQuestionAutomation)(nil)).Elem()
+}
+
+func (o EvaluationFormNumericQuestionAutomationPtrOutput) ToEvaluationFormNumericQuestionAutomationPtrOutput() EvaluationFormNumericQuestionAutomationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionAutomationPtrOutput) ToEvaluationFormNumericQuestionAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionAutomationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionAutomationPtrOutput) Elem() EvaluationFormNumericQuestionAutomationOutput {
+	return o.ApplyT(func(v *EvaluationFormNumericQuestionAutomation) EvaluationFormNumericQuestionAutomation {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormNumericQuestionAutomation
+		return ret
+	}).(EvaluationFormNumericQuestionAutomationOutput)
+}
+
+// The automation property name of the question.
+func (o EvaluationFormNumericQuestionAutomationPtrOutput) PropertyValue() EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormNumericQuestionAutomation) *EvaluationFormNumericQuestionPropertyValueAutomation {
+		if v == nil {
+			return nil
+		}
+		return &v.PropertyValue
+	}).(EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput)
+}
+
+// The option ranges used for scoring in numeric questions.
+type EvaluationFormNumericQuestionOption struct {
+	// The flag to mark the option as automatic fail.
+	AutomaticFail *bool `pulumi:"automaticFail"`
+	// The maximum value of the option range.
+	MaxValue int `pulumi:"maxValue"`
+	// The minimum value of the option range.
+	MinValue int `pulumi:"minValue"`
+	// The score of the option range.
+	Score *int `pulumi:"score"`
+}
+
+// EvaluationFormNumericQuestionOptionInput is an input type that accepts EvaluationFormNumericQuestionOptionArgs and EvaluationFormNumericQuestionOptionOutput values.
+// You can construct a concrete instance of `EvaluationFormNumericQuestionOptionInput` via:
+//
+//	EvaluationFormNumericQuestionOptionArgs{...}
+type EvaluationFormNumericQuestionOptionInput interface {
+	pulumi.Input
+
+	ToEvaluationFormNumericQuestionOptionOutput() EvaluationFormNumericQuestionOptionOutput
+	ToEvaluationFormNumericQuestionOptionOutputWithContext(context.Context) EvaluationFormNumericQuestionOptionOutput
+}
+
+// The option ranges used for scoring in numeric questions.
+type EvaluationFormNumericQuestionOptionArgs struct {
+	// The flag to mark the option as automatic fail.
+	AutomaticFail pulumi.BoolPtrInput `pulumi:"automaticFail"`
+	// The maximum value of the option range.
+	MaxValue pulumi.IntInput `pulumi:"maxValue"`
+	// The minimum value of the option range.
+	MinValue pulumi.IntInput `pulumi:"minValue"`
+	// The score of the option range.
+	Score pulumi.IntPtrInput `pulumi:"score"`
+}
+
+func (EvaluationFormNumericQuestionOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormNumericQuestionOption)(nil)).Elem()
+}
+
+func (i EvaluationFormNumericQuestionOptionArgs) ToEvaluationFormNumericQuestionOptionOutput() EvaluationFormNumericQuestionOptionOutput {
+	return i.ToEvaluationFormNumericQuestionOptionOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormNumericQuestionOptionArgs) ToEvaluationFormNumericQuestionOptionOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionOptionOutput)
+}
+
+// EvaluationFormNumericQuestionOptionArrayInput is an input type that accepts EvaluationFormNumericQuestionOptionArray and EvaluationFormNumericQuestionOptionArrayOutput values.
+// You can construct a concrete instance of `EvaluationFormNumericQuestionOptionArrayInput` via:
+//
+//	EvaluationFormNumericQuestionOptionArray{ EvaluationFormNumericQuestionOptionArgs{...} }
+type EvaluationFormNumericQuestionOptionArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationFormNumericQuestionOptionArrayOutput() EvaluationFormNumericQuestionOptionArrayOutput
+	ToEvaluationFormNumericQuestionOptionArrayOutputWithContext(context.Context) EvaluationFormNumericQuestionOptionArrayOutput
+}
+
+type EvaluationFormNumericQuestionOptionArray []EvaluationFormNumericQuestionOptionInput
+
+func (EvaluationFormNumericQuestionOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormNumericQuestionOption)(nil)).Elem()
+}
+
+func (i EvaluationFormNumericQuestionOptionArray) ToEvaluationFormNumericQuestionOptionArrayOutput() EvaluationFormNumericQuestionOptionArrayOutput {
+	return i.ToEvaluationFormNumericQuestionOptionArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormNumericQuestionOptionArray) ToEvaluationFormNumericQuestionOptionArrayOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionOptionArrayOutput)
+}
+
+// The option ranges used for scoring in numeric questions.
+type EvaluationFormNumericQuestionOptionOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormNumericQuestionOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormNumericQuestionOption)(nil)).Elem()
+}
+
+func (o EvaluationFormNumericQuestionOptionOutput) ToEvaluationFormNumericQuestionOptionOutput() EvaluationFormNumericQuestionOptionOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionOptionOutput) ToEvaluationFormNumericQuestionOptionOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionOptionOutput {
+	return o
+}
+
+// The flag to mark the option as automatic fail.
+func (o EvaluationFormNumericQuestionOptionOutput) AutomaticFail() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EvaluationFormNumericQuestionOption) *bool { return v.AutomaticFail }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum value of the option range.
+func (o EvaluationFormNumericQuestionOptionOutput) MaxValue() pulumi.IntOutput {
+	return o.ApplyT(func(v EvaluationFormNumericQuestionOption) int { return v.MaxValue }).(pulumi.IntOutput)
+}
+
+// The minimum value of the option range.
+func (o EvaluationFormNumericQuestionOptionOutput) MinValue() pulumi.IntOutput {
+	return o.ApplyT(func(v EvaluationFormNumericQuestionOption) int { return v.MinValue }).(pulumi.IntOutput)
+}
+
+// The score of the option range.
+func (o EvaluationFormNumericQuestionOptionOutput) Score() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluationFormNumericQuestionOption) *int { return v.Score }).(pulumi.IntPtrOutput)
+}
+
+type EvaluationFormNumericQuestionOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormNumericQuestionOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormNumericQuestionOption)(nil)).Elem()
+}
+
+func (o EvaluationFormNumericQuestionOptionArrayOutput) ToEvaluationFormNumericQuestionOptionArrayOutput() EvaluationFormNumericQuestionOptionArrayOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionOptionArrayOutput) ToEvaluationFormNumericQuestionOptionArrayOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionOptionArrayOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionOptionArrayOutput) Index(i pulumi.IntInput) EvaluationFormNumericQuestionOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationFormNumericQuestionOption {
+		return vs[0].([]EvaluationFormNumericQuestionOption)[vs[1].(int)]
+	}).(EvaluationFormNumericQuestionOptionOutput)
+}
+
+// The properties of the numeric question.
+type EvaluationFormNumericQuestionProperties struct {
+	// The automation properties for the numeric question.
+	Automation *EvaluationFormNumericQuestionAutomation `pulumi:"automation"`
+	// The maximum value for answers of the question.
+	MaxValue int `pulumi:"maxValue"`
+	// The minimum value for answers of the question.
+	MinValue int `pulumi:"minValue"`
+	// The list of option ranges used for scoring.
+	Options []EvaluationFormNumericQuestionOption `pulumi:"options"`
+}
+
+// EvaluationFormNumericQuestionPropertiesInput is an input type that accepts EvaluationFormNumericQuestionPropertiesArgs and EvaluationFormNumericQuestionPropertiesOutput values.
+// You can construct a concrete instance of `EvaluationFormNumericQuestionPropertiesInput` via:
+//
+//	EvaluationFormNumericQuestionPropertiesArgs{...}
+type EvaluationFormNumericQuestionPropertiesInput interface {
+	pulumi.Input
+
+	ToEvaluationFormNumericQuestionPropertiesOutput() EvaluationFormNumericQuestionPropertiesOutput
+	ToEvaluationFormNumericQuestionPropertiesOutputWithContext(context.Context) EvaluationFormNumericQuestionPropertiesOutput
+}
+
+// The properties of the numeric question.
+type EvaluationFormNumericQuestionPropertiesArgs struct {
+	// The automation properties for the numeric question.
+	Automation EvaluationFormNumericQuestionAutomationPtrInput `pulumi:"automation"`
+	// The maximum value for answers of the question.
+	MaxValue pulumi.IntInput `pulumi:"maxValue"`
+	// The minimum value for answers of the question.
+	MinValue pulumi.IntInput `pulumi:"minValue"`
+	// The list of option ranges used for scoring.
+	Options EvaluationFormNumericQuestionOptionArrayInput `pulumi:"options"`
+}
+
+func (EvaluationFormNumericQuestionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormNumericQuestionProperties)(nil)).Elem()
+}
+
+func (i EvaluationFormNumericQuestionPropertiesArgs) ToEvaluationFormNumericQuestionPropertiesOutput() EvaluationFormNumericQuestionPropertiesOutput {
+	return i.ToEvaluationFormNumericQuestionPropertiesOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormNumericQuestionPropertiesArgs) ToEvaluationFormNumericQuestionPropertiesOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionPropertiesOutput)
+}
+
+func (i EvaluationFormNumericQuestionPropertiesArgs) ToEvaluationFormNumericQuestionPropertiesPtrOutput() EvaluationFormNumericQuestionPropertiesPtrOutput {
+	return i.ToEvaluationFormNumericQuestionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormNumericQuestionPropertiesArgs) ToEvaluationFormNumericQuestionPropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionPropertiesOutput).ToEvaluationFormNumericQuestionPropertiesPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormNumericQuestionPropertiesPtrInput is an input type that accepts EvaluationFormNumericQuestionPropertiesArgs, EvaluationFormNumericQuestionPropertiesPtr and EvaluationFormNumericQuestionPropertiesPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormNumericQuestionPropertiesPtrInput` via:
+//
+//	        EvaluationFormNumericQuestionPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormNumericQuestionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormNumericQuestionPropertiesPtrOutput() EvaluationFormNumericQuestionPropertiesPtrOutput
+	ToEvaluationFormNumericQuestionPropertiesPtrOutputWithContext(context.Context) EvaluationFormNumericQuestionPropertiesPtrOutput
+}
+
+type evaluationFormNumericQuestionPropertiesPtrType EvaluationFormNumericQuestionPropertiesArgs
+
+func EvaluationFormNumericQuestionPropertiesPtr(v *EvaluationFormNumericQuestionPropertiesArgs) EvaluationFormNumericQuestionPropertiesPtrInput {
+	return (*evaluationFormNumericQuestionPropertiesPtrType)(v)
+}
+
+func (*evaluationFormNumericQuestionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormNumericQuestionProperties)(nil)).Elem()
+}
+
+func (i *evaluationFormNumericQuestionPropertiesPtrType) ToEvaluationFormNumericQuestionPropertiesPtrOutput() EvaluationFormNumericQuestionPropertiesPtrOutput {
+	return i.ToEvaluationFormNumericQuestionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormNumericQuestionPropertiesPtrType) ToEvaluationFormNumericQuestionPropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionPropertiesPtrOutput)
+}
+
+// The properties of the numeric question.
+type EvaluationFormNumericQuestionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormNumericQuestionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormNumericQuestionProperties)(nil)).Elem()
+}
+
+func (o EvaluationFormNumericQuestionPropertiesOutput) ToEvaluationFormNumericQuestionPropertiesOutput() EvaluationFormNumericQuestionPropertiesOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertiesOutput) ToEvaluationFormNumericQuestionPropertiesOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertiesOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertiesOutput) ToEvaluationFormNumericQuestionPropertiesPtrOutput() EvaluationFormNumericQuestionPropertiesPtrOutput {
+	return o.ToEvaluationFormNumericQuestionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormNumericQuestionPropertiesOutput) ToEvaluationFormNumericQuestionPropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormNumericQuestionProperties) *EvaluationFormNumericQuestionProperties {
+		return &v
+	}).(EvaluationFormNumericQuestionPropertiesPtrOutput)
+}
+
+// The automation properties for the numeric question.
+func (o EvaluationFormNumericQuestionPropertiesOutput) Automation() EvaluationFormNumericQuestionAutomationPtrOutput {
+	return o.ApplyT(func(v EvaluationFormNumericQuestionProperties) *EvaluationFormNumericQuestionAutomation {
+		return v.Automation
+	}).(EvaluationFormNumericQuestionAutomationPtrOutput)
+}
+
+// The maximum value for answers of the question.
+func (o EvaluationFormNumericQuestionPropertiesOutput) MaxValue() pulumi.IntOutput {
+	return o.ApplyT(func(v EvaluationFormNumericQuestionProperties) int { return v.MaxValue }).(pulumi.IntOutput)
+}
+
+// The minimum value for answers of the question.
+func (o EvaluationFormNumericQuestionPropertiesOutput) MinValue() pulumi.IntOutput {
+	return o.ApplyT(func(v EvaluationFormNumericQuestionProperties) int { return v.MinValue }).(pulumi.IntOutput)
+}
+
+// The list of option ranges used for scoring.
+func (o EvaluationFormNumericQuestionPropertiesOutput) Options() EvaluationFormNumericQuestionOptionArrayOutput {
+	return o.ApplyT(func(v EvaluationFormNumericQuestionProperties) []EvaluationFormNumericQuestionOption {
+		return v.Options
+	}).(EvaluationFormNumericQuestionOptionArrayOutput)
+}
+
+type EvaluationFormNumericQuestionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormNumericQuestionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormNumericQuestionProperties)(nil)).Elem()
+}
+
+func (o EvaluationFormNumericQuestionPropertiesPtrOutput) ToEvaluationFormNumericQuestionPropertiesPtrOutput() EvaluationFormNumericQuestionPropertiesPtrOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertiesPtrOutput) ToEvaluationFormNumericQuestionPropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertiesPtrOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertiesPtrOutput) Elem() EvaluationFormNumericQuestionPropertiesOutput {
+	return o.ApplyT(func(v *EvaluationFormNumericQuestionProperties) EvaluationFormNumericQuestionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormNumericQuestionProperties
+		return ret
+	}).(EvaluationFormNumericQuestionPropertiesOutput)
+}
+
+// The automation properties for the numeric question.
+func (o EvaluationFormNumericQuestionPropertiesPtrOutput) Automation() EvaluationFormNumericQuestionAutomationPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormNumericQuestionProperties) *EvaluationFormNumericQuestionAutomation {
+		if v == nil {
+			return nil
+		}
+		return v.Automation
+	}).(EvaluationFormNumericQuestionAutomationPtrOutput)
+}
+
+// The maximum value for answers of the question.
+func (o EvaluationFormNumericQuestionPropertiesPtrOutput) MaxValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormNumericQuestionProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value for answers of the question.
+func (o EvaluationFormNumericQuestionPropertiesPtrOutput) MinValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormNumericQuestionProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// The list of option ranges used for scoring.
+func (o EvaluationFormNumericQuestionPropertiesPtrOutput) Options() EvaluationFormNumericQuestionOptionArrayOutput {
+	return o.ApplyT(func(v *EvaluationFormNumericQuestionProperties) []EvaluationFormNumericQuestionOption {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(EvaluationFormNumericQuestionOptionArrayOutput)
+}
+
+// The automation property name of the question.
+type EvaluationFormNumericQuestionPropertyValueAutomation struct {
+	// The automation property label.
+	Label EvaluationFormNumericQuestionPropertyValueAutomationLabel `pulumi:"label"`
+}
+
+// EvaluationFormNumericQuestionPropertyValueAutomationInput is an input type that accepts EvaluationFormNumericQuestionPropertyValueAutomationArgs and EvaluationFormNumericQuestionPropertyValueAutomationOutput values.
+// You can construct a concrete instance of `EvaluationFormNumericQuestionPropertyValueAutomationInput` via:
+//
+//	EvaluationFormNumericQuestionPropertyValueAutomationArgs{...}
+type EvaluationFormNumericQuestionPropertyValueAutomationInput interface {
+	pulumi.Input
+
+	ToEvaluationFormNumericQuestionPropertyValueAutomationOutput() EvaluationFormNumericQuestionPropertyValueAutomationOutput
+	ToEvaluationFormNumericQuestionPropertyValueAutomationOutputWithContext(context.Context) EvaluationFormNumericQuestionPropertyValueAutomationOutput
+}
+
+// The automation property name of the question.
+type EvaluationFormNumericQuestionPropertyValueAutomationArgs struct {
+	// The automation property label.
+	Label EvaluationFormNumericQuestionPropertyValueAutomationLabelInput `pulumi:"label"`
+}
+
+func (EvaluationFormNumericQuestionPropertyValueAutomationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormNumericQuestionPropertyValueAutomation)(nil)).Elem()
+}
+
+func (i EvaluationFormNumericQuestionPropertyValueAutomationArgs) ToEvaluationFormNumericQuestionPropertyValueAutomationOutput() EvaluationFormNumericQuestionPropertyValueAutomationOutput {
+	return i.ToEvaluationFormNumericQuestionPropertyValueAutomationOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormNumericQuestionPropertyValueAutomationArgs) ToEvaluationFormNumericQuestionPropertyValueAutomationOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionPropertyValueAutomationOutput)
+}
+
+func (i EvaluationFormNumericQuestionPropertyValueAutomationArgs) ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutput() EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput {
+	return i.ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormNumericQuestionPropertyValueAutomationArgs) ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionPropertyValueAutomationOutput).ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormNumericQuestionPropertyValueAutomationPtrInput is an input type that accepts EvaluationFormNumericQuestionPropertyValueAutomationArgs, EvaluationFormNumericQuestionPropertyValueAutomationPtr and EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormNumericQuestionPropertyValueAutomationPtrInput` via:
+//
+//	        EvaluationFormNumericQuestionPropertyValueAutomationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormNumericQuestionPropertyValueAutomationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutput() EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput
+	ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutputWithContext(context.Context) EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput
+}
+
+type evaluationFormNumericQuestionPropertyValueAutomationPtrType EvaluationFormNumericQuestionPropertyValueAutomationArgs
+
+func EvaluationFormNumericQuestionPropertyValueAutomationPtr(v *EvaluationFormNumericQuestionPropertyValueAutomationArgs) EvaluationFormNumericQuestionPropertyValueAutomationPtrInput {
+	return (*evaluationFormNumericQuestionPropertyValueAutomationPtrType)(v)
+}
+
+func (*evaluationFormNumericQuestionPropertyValueAutomationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormNumericQuestionPropertyValueAutomation)(nil)).Elem()
+}
+
+func (i *evaluationFormNumericQuestionPropertyValueAutomationPtrType) ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutput() EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput {
+	return i.ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormNumericQuestionPropertyValueAutomationPtrType) ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput)
+}
+
+// The automation property name of the question.
+type EvaluationFormNumericQuestionPropertyValueAutomationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormNumericQuestionPropertyValueAutomationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormNumericQuestionPropertyValueAutomation)(nil)).Elem()
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationOutput() EvaluationFormNumericQuestionPropertyValueAutomationOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutput() EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput {
+	return o.ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormNumericQuestionPropertyValueAutomation) *EvaluationFormNumericQuestionPropertyValueAutomation {
+		return &v
+	}).(EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput)
+}
+
+// The automation property label.
+func (o EvaluationFormNumericQuestionPropertyValueAutomationOutput) Label() EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput {
+	return o.ApplyT(func(v EvaluationFormNumericQuestionPropertyValueAutomation) EvaluationFormNumericQuestionPropertyValueAutomationLabel {
+		return v.Label
+	}).(EvaluationFormNumericQuestionPropertyValueAutomationLabelOutput)
+}
+
+type EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormNumericQuestionPropertyValueAutomation)(nil)).Elem()
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutput() EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput) ToEvaluationFormNumericQuestionPropertyValueAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput) Elem() EvaluationFormNumericQuestionPropertyValueAutomationOutput {
+	return o.ApplyT(func(v *EvaluationFormNumericQuestionPropertyValueAutomation) EvaluationFormNumericQuestionPropertyValueAutomation {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormNumericQuestionPropertyValueAutomation
+		return ret
+	}).(EvaluationFormNumericQuestionPropertyValueAutomationOutput)
+}
+
+// The automation property label.
+func (o EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput) Label() EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormNumericQuestionPropertyValueAutomation) *EvaluationFormNumericQuestionPropertyValueAutomationLabel {
+		if v == nil {
+			return nil
+		}
+		return &v.Label
+	}).(EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput)
+}
+
+// The evaluation form question.
+type EvaluationFormQuestion struct {
+	// The instructions for the question.
+	Instructions *string `pulumi:"instructions"`
+	// The flag to enable not applicable answers to the question.
+	NotApplicableEnabled *bool `pulumi:"notApplicableEnabled"`
+	// The type of the question.
+	QuestionType EvaluationFormQuestionQuestionType `pulumi:"questionType"`
+	// The properties of the question
+	QuestionTypeProperties *EvaluationFormQuestionTypeProperties `pulumi:"questionTypeProperties"`
+	// The identifier used to reference the question.
+	RefId string `pulumi:"refId"`
+	// The title of the question.
+	Title string `pulumi:"title"`
+	// The question weight used for scoring.
+	Weight *float64 `pulumi:"weight"`
+}
+
+// EvaluationFormQuestionInput is an input type that accepts EvaluationFormQuestionArgs and EvaluationFormQuestionOutput values.
+// You can construct a concrete instance of `EvaluationFormQuestionInput` via:
+//
+//	EvaluationFormQuestionArgs{...}
+type EvaluationFormQuestionInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionOutput() EvaluationFormQuestionOutput
+	ToEvaluationFormQuestionOutputWithContext(context.Context) EvaluationFormQuestionOutput
+}
+
+// The evaluation form question.
+type EvaluationFormQuestionArgs struct {
+	// The instructions for the question.
+	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
+	// The flag to enable not applicable answers to the question.
+	NotApplicableEnabled pulumi.BoolPtrInput `pulumi:"notApplicableEnabled"`
+	// The type of the question.
+	QuestionType EvaluationFormQuestionQuestionTypeInput `pulumi:"questionType"`
+	// The properties of the question
+	QuestionTypeProperties EvaluationFormQuestionTypePropertiesPtrInput `pulumi:"questionTypeProperties"`
+	// The identifier used to reference the question.
+	RefId pulumi.StringInput `pulumi:"refId"`
+	// The title of the question.
+	Title pulumi.StringInput `pulumi:"title"`
+	// The question weight used for scoring.
+	Weight pulumi.Float64PtrInput `pulumi:"weight"`
+}
+
+func (EvaluationFormQuestionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestion)(nil)).Elem()
+}
+
+func (i EvaluationFormQuestionArgs) ToEvaluationFormQuestionOutput() EvaluationFormQuestionOutput {
+	return i.ToEvaluationFormQuestionOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormQuestionArgs) ToEvaluationFormQuestionOutputWithContext(ctx context.Context) EvaluationFormQuestionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionOutput)
+}
+
+func (i EvaluationFormQuestionArgs) ToEvaluationFormQuestionPtrOutput() EvaluationFormQuestionPtrOutput {
+	return i.ToEvaluationFormQuestionPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormQuestionArgs) ToEvaluationFormQuestionPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionOutput).ToEvaluationFormQuestionPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormQuestionPtrInput is an input type that accepts EvaluationFormQuestionArgs, EvaluationFormQuestionPtr and EvaluationFormQuestionPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormQuestionPtrInput` via:
+//
+//	        EvaluationFormQuestionArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormQuestionPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionPtrOutput() EvaluationFormQuestionPtrOutput
+	ToEvaluationFormQuestionPtrOutputWithContext(context.Context) EvaluationFormQuestionPtrOutput
+}
+
+type evaluationFormQuestionPtrType EvaluationFormQuestionArgs
+
+func EvaluationFormQuestionPtr(v *EvaluationFormQuestionArgs) EvaluationFormQuestionPtrInput {
+	return (*evaluationFormQuestionPtrType)(v)
+}
+
+func (*evaluationFormQuestionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormQuestion)(nil)).Elem()
+}
+
+func (i *evaluationFormQuestionPtrType) ToEvaluationFormQuestionPtrOutput() EvaluationFormQuestionPtrOutput {
+	return i.ToEvaluationFormQuestionPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormQuestionPtrType) ToEvaluationFormQuestionPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionPtrOutput)
+}
+
+// The evaluation form question.
+type EvaluationFormQuestionOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestion)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionOutput) ToEvaluationFormQuestionOutput() EvaluationFormQuestionOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionOutput) ToEvaluationFormQuestionOutputWithContext(ctx context.Context) EvaluationFormQuestionOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionOutput) ToEvaluationFormQuestionPtrOutput() EvaluationFormQuestionPtrOutput {
+	return o.ToEvaluationFormQuestionPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormQuestionOutput) ToEvaluationFormQuestionPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormQuestion) *EvaluationFormQuestion {
+		return &v
+	}).(EvaluationFormQuestionPtrOutput)
+}
+
+// The instructions for the question.
+func (o EvaluationFormQuestionOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestion) *string { return v.Instructions }).(pulumi.StringPtrOutput)
+}
+
+// The flag to enable not applicable answers to the question.
+func (o EvaluationFormQuestionOutput) NotApplicableEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestion) *bool { return v.NotApplicableEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The type of the question.
+func (o EvaluationFormQuestionOutput) QuestionType() EvaluationFormQuestionQuestionTypeOutput {
+	return o.ApplyT(func(v EvaluationFormQuestion) EvaluationFormQuestionQuestionType { return v.QuestionType }).(EvaluationFormQuestionQuestionTypeOutput)
+}
+
+// The properties of the question
+func (o EvaluationFormQuestionOutput) QuestionTypeProperties() EvaluationFormQuestionTypePropertiesPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestion) *EvaluationFormQuestionTypeProperties { return v.QuestionTypeProperties }).(EvaluationFormQuestionTypePropertiesPtrOutput)
+}
+
+// The identifier used to reference the question.
+func (o EvaluationFormQuestionOutput) RefId() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationFormQuestion) string { return v.RefId }).(pulumi.StringOutput)
+}
+
+// The title of the question.
+func (o EvaluationFormQuestionOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationFormQuestion) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// The question weight used for scoring.
+func (o EvaluationFormQuestionOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestion) *float64 { return v.Weight }).(pulumi.Float64PtrOutput)
+}
+
+type EvaluationFormQuestionPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormQuestion)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionPtrOutput) ToEvaluationFormQuestionPtrOutput() EvaluationFormQuestionPtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionPtrOutput) ToEvaluationFormQuestionPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionPtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionPtrOutput) Elem() EvaluationFormQuestionOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestion) EvaluationFormQuestion {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormQuestion
+		return ret
+	}).(EvaluationFormQuestionOutput)
+}
+
+// The instructions for the question.
+func (o EvaluationFormQuestionPtrOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Instructions
+	}).(pulumi.StringPtrOutput)
+}
+
+// The flag to enable not applicable answers to the question.
+func (o EvaluationFormQuestionPtrOutput) NotApplicableEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestion) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NotApplicableEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The type of the question.
+func (o EvaluationFormQuestionPtrOutput) QuestionType() EvaluationFormQuestionQuestionTypePtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestion) *EvaluationFormQuestionQuestionType {
+		if v == nil {
+			return nil
+		}
+		return &v.QuestionType
+	}).(EvaluationFormQuestionQuestionTypePtrOutput)
+}
+
+// The properties of the question
+func (o EvaluationFormQuestionPtrOutput) QuestionTypeProperties() EvaluationFormQuestionTypePropertiesPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestion) *EvaluationFormQuestionTypeProperties {
+		if v == nil {
+			return nil
+		}
+		return v.QuestionTypeProperties
+	}).(EvaluationFormQuestionTypePropertiesPtrOutput)
+}
+
+// The identifier used to reference the question.
+func (o EvaluationFormQuestionPtrOutput) RefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RefId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the question.
+func (o EvaluationFormQuestionPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// The question weight used for scoring.
+func (o EvaluationFormQuestionPtrOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestion) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Weight
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The properties of the question.
+type EvaluationFormQuestionTypeProperties struct {
+	// The properties of the numeric question.
+	Numeric *EvaluationFormNumericQuestionProperties `pulumi:"numeric"`
+	// The properties of the single-select question.
+	SingleSelect *EvaluationFormSingleSelectQuestionProperties `pulumi:"singleSelect"`
+}
+
+// EvaluationFormQuestionTypePropertiesInput is an input type that accepts EvaluationFormQuestionTypePropertiesArgs and EvaluationFormQuestionTypePropertiesOutput values.
+// You can construct a concrete instance of `EvaluationFormQuestionTypePropertiesInput` via:
+//
+//	EvaluationFormQuestionTypePropertiesArgs{...}
+type EvaluationFormQuestionTypePropertiesInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionTypePropertiesOutput() EvaluationFormQuestionTypePropertiesOutput
+	ToEvaluationFormQuestionTypePropertiesOutputWithContext(context.Context) EvaluationFormQuestionTypePropertiesOutput
+}
+
+// The properties of the question.
+type EvaluationFormQuestionTypePropertiesArgs struct {
+	// The properties of the numeric question.
+	Numeric EvaluationFormNumericQuestionPropertiesPtrInput `pulumi:"numeric"`
+	// The properties of the single-select question.
+	SingleSelect EvaluationFormSingleSelectQuestionPropertiesPtrInput `pulumi:"singleSelect"`
+}
+
+func (EvaluationFormQuestionTypePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestionTypeProperties)(nil)).Elem()
+}
+
+func (i EvaluationFormQuestionTypePropertiesArgs) ToEvaluationFormQuestionTypePropertiesOutput() EvaluationFormQuestionTypePropertiesOutput {
+	return i.ToEvaluationFormQuestionTypePropertiesOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormQuestionTypePropertiesArgs) ToEvaluationFormQuestionTypePropertiesOutputWithContext(ctx context.Context) EvaluationFormQuestionTypePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionTypePropertiesOutput)
+}
+
+func (i EvaluationFormQuestionTypePropertiesArgs) ToEvaluationFormQuestionTypePropertiesPtrOutput() EvaluationFormQuestionTypePropertiesPtrOutput {
+	return i.ToEvaluationFormQuestionTypePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormQuestionTypePropertiesArgs) ToEvaluationFormQuestionTypePropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionTypePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionTypePropertiesOutput).ToEvaluationFormQuestionTypePropertiesPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormQuestionTypePropertiesPtrInput is an input type that accepts EvaluationFormQuestionTypePropertiesArgs, EvaluationFormQuestionTypePropertiesPtr and EvaluationFormQuestionTypePropertiesPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormQuestionTypePropertiesPtrInput` via:
+//
+//	        EvaluationFormQuestionTypePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormQuestionTypePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionTypePropertiesPtrOutput() EvaluationFormQuestionTypePropertiesPtrOutput
+	ToEvaluationFormQuestionTypePropertiesPtrOutputWithContext(context.Context) EvaluationFormQuestionTypePropertiesPtrOutput
+}
+
+type evaluationFormQuestionTypePropertiesPtrType EvaluationFormQuestionTypePropertiesArgs
+
+func EvaluationFormQuestionTypePropertiesPtr(v *EvaluationFormQuestionTypePropertiesArgs) EvaluationFormQuestionTypePropertiesPtrInput {
+	return (*evaluationFormQuestionTypePropertiesPtrType)(v)
+}
+
+func (*evaluationFormQuestionTypePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormQuestionTypeProperties)(nil)).Elem()
+}
+
+func (i *evaluationFormQuestionTypePropertiesPtrType) ToEvaluationFormQuestionTypePropertiesPtrOutput() EvaluationFormQuestionTypePropertiesPtrOutput {
+	return i.ToEvaluationFormQuestionTypePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormQuestionTypePropertiesPtrType) ToEvaluationFormQuestionTypePropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionTypePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionTypePropertiesPtrOutput)
+}
+
+// The properties of the question.
+type EvaluationFormQuestionTypePropertiesOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionTypePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestionTypeProperties)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionTypePropertiesOutput) ToEvaluationFormQuestionTypePropertiesOutput() EvaluationFormQuestionTypePropertiesOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionTypePropertiesOutput) ToEvaluationFormQuestionTypePropertiesOutputWithContext(ctx context.Context) EvaluationFormQuestionTypePropertiesOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionTypePropertiesOutput) ToEvaluationFormQuestionTypePropertiesPtrOutput() EvaluationFormQuestionTypePropertiesPtrOutput {
+	return o.ToEvaluationFormQuestionTypePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormQuestionTypePropertiesOutput) ToEvaluationFormQuestionTypePropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionTypePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormQuestionTypeProperties) *EvaluationFormQuestionTypeProperties {
+		return &v
+	}).(EvaluationFormQuestionTypePropertiesPtrOutput)
+}
+
+// The properties of the numeric question.
+func (o EvaluationFormQuestionTypePropertiesOutput) Numeric() EvaluationFormNumericQuestionPropertiesPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestionTypeProperties) *EvaluationFormNumericQuestionProperties {
+		return v.Numeric
+	}).(EvaluationFormNumericQuestionPropertiesPtrOutput)
+}
+
+// The properties of the single-select question.
+func (o EvaluationFormQuestionTypePropertiesOutput) SingleSelect() EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestionTypeProperties) *EvaluationFormSingleSelectQuestionProperties {
+		return v.SingleSelect
+	}).(EvaluationFormSingleSelectQuestionPropertiesPtrOutput)
+}
+
+type EvaluationFormQuestionTypePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionTypePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormQuestionTypeProperties)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionTypePropertiesPtrOutput) ToEvaluationFormQuestionTypePropertiesPtrOutput() EvaluationFormQuestionTypePropertiesPtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionTypePropertiesPtrOutput) ToEvaluationFormQuestionTypePropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionTypePropertiesPtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionTypePropertiesPtrOutput) Elem() EvaluationFormQuestionTypePropertiesOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionTypeProperties) EvaluationFormQuestionTypeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormQuestionTypeProperties
+		return ret
+	}).(EvaluationFormQuestionTypePropertiesOutput)
+}
+
+// The properties of the numeric question.
+func (o EvaluationFormQuestionTypePropertiesPtrOutput) Numeric() EvaluationFormNumericQuestionPropertiesPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionTypeProperties) *EvaluationFormNumericQuestionProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Numeric
+	}).(EvaluationFormNumericQuestionPropertiesPtrOutput)
+}
+
+// The properties of the single-select question.
+func (o EvaluationFormQuestionTypePropertiesPtrOutput) SingleSelect() EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionTypeProperties) *EvaluationFormSingleSelectQuestionProperties {
+		if v == nil {
+			return nil
+		}
+		return v.SingleSelect
+	}).(EvaluationFormSingleSelectQuestionPropertiesPtrOutput)
+}
+
+// The scoring strategy.
+type EvaluationFormScoringStrategy struct {
+	// The scoring mode.
+	Mode EvaluationFormScoringStrategyMode `pulumi:"mode"`
+	// The scoring status.
+	Status EvaluationFormScoringStrategyStatus `pulumi:"status"`
+}
+
+// EvaluationFormScoringStrategyInput is an input type that accepts EvaluationFormScoringStrategyArgs and EvaluationFormScoringStrategyOutput values.
+// You can construct a concrete instance of `EvaluationFormScoringStrategyInput` via:
+//
+//	EvaluationFormScoringStrategyArgs{...}
+type EvaluationFormScoringStrategyInput interface {
+	pulumi.Input
+
+	ToEvaluationFormScoringStrategyOutput() EvaluationFormScoringStrategyOutput
+	ToEvaluationFormScoringStrategyOutputWithContext(context.Context) EvaluationFormScoringStrategyOutput
+}
+
+// The scoring strategy.
+type EvaluationFormScoringStrategyArgs struct {
+	// The scoring mode.
+	Mode EvaluationFormScoringStrategyModeInput `pulumi:"mode"`
+	// The scoring status.
+	Status EvaluationFormScoringStrategyStatusInput `pulumi:"status"`
+}
+
+func (EvaluationFormScoringStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormScoringStrategy)(nil)).Elem()
+}
+
+func (i EvaluationFormScoringStrategyArgs) ToEvaluationFormScoringStrategyOutput() EvaluationFormScoringStrategyOutput {
+	return i.ToEvaluationFormScoringStrategyOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormScoringStrategyArgs) ToEvaluationFormScoringStrategyOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormScoringStrategyOutput)
+}
+
+func (i EvaluationFormScoringStrategyArgs) ToEvaluationFormScoringStrategyPtrOutput() EvaluationFormScoringStrategyPtrOutput {
+	return i.ToEvaluationFormScoringStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormScoringStrategyArgs) ToEvaluationFormScoringStrategyPtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormScoringStrategyOutput).ToEvaluationFormScoringStrategyPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormScoringStrategyPtrInput is an input type that accepts EvaluationFormScoringStrategyArgs, EvaluationFormScoringStrategyPtr and EvaluationFormScoringStrategyPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormScoringStrategyPtrInput` via:
+//
+//	        EvaluationFormScoringStrategyArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormScoringStrategyPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormScoringStrategyPtrOutput() EvaluationFormScoringStrategyPtrOutput
+	ToEvaluationFormScoringStrategyPtrOutputWithContext(context.Context) EvaluationFormScoringStrategyPtrOutput
+}
+
+type evaluationFormScoringStrategyPtrType EvaluationFormScoringStrategyArgs
+
+func EvaluationFormScoringStrategyPtr(v *EvaluationFormScoringStrategyArgs) EvaluationFormScoringStrategyPtrInput {
+	return (*evaluationFormScoringStrategyPtrType)(v)
+}
+
+func (*evaluationFormScoringStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormScoringStrategy)(nil)).Elem()
+}
+
+func (i *evaluationFormScoringStrategyPtrType) ToEvaluationFormScoringStrategyPtrOutput() EvaluationFormScoringStrategyPtrOutput {
+	return i.ToEvaluationFormScoringStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormScoringStrategyPtrType) ToEvaluationFormScoringStrategyPtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormScoringStrategyPtrOutput)
+}
+
+// The scoring strategy.
+type EvaluationFormScoringStrategyOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormScoringStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormScoringStrategy)(nil)).Elem()
+}
+
+func (o EvaluationFormScoringStrategyOutput) ToEvaluationFormScoringStrategyOutput() EvaluationFormScoringStrategyOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyOutput) ToEvaluationFormScoringStrategyOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyOutput) ToEvaluationFormScoringStrategyPtrOutput() EvaluationFormScoringStrategyPtrOutput {
+	return o.ToEvaluationFormScoringStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoringStrategyOutput) ToEvaluationFormScoringStrategyPtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormScoringStrategy) *EvaluationFormScoringStrategy {
+		return &v
+	}).(EvaluationFormScoringStrategyPtrOutput)
+}
+
+// The scoring mode.
+func (o EvaluationFormScoringStrategyOutput) Mode() EvaluationFormScoringStrategyModeOutput {
+	return o.ApplyT(func(v EvaluationFormScoringStrategy) EvaluationFormScoringStrategyMode { return v.Mode }).(EvaluationFormScoringStrategyModeOutput)
+}
+
+// The scoring status.
+func (o EvaluationFormScoringStrategyOutput) Status() EvaluationFormScoringStrategyStatusOutput {
+	return o.ApplyT(func(v EvaluationFormScoringStrategy) EvaluationFormScoringStrategyStatus { return v.Status }).(EvaluationFormScoringStrategyStatusOutput)
+}
+
+type EvaluationFormScoringStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormScoringStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormScoringStrategy)(nil)).Elem()
+}
+
+func (o EvaluationFormScoringStrategyPtrOutput) ToEvaluationFormScoringStrategyPtrOutput() EvaluationFormScoringStrategyPtrOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyPtrOutput) ToEvaluationFormScoringStrategyPtrOutputWithContext(ctx context.Context) EvaluationFormScoringStrategyPtrOutput {
+	return o
+}
+
+func (o EvaluationFormScoringStrategyPtrOutput) Elem() EvaluationFormScoringStrategyOutput {
+	return o.ApplyT(func(v *EvaluationFormScoringStrategy) EvaluationFormScoringStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormScoringStrategy
+		return ret
+	}).(EvaluationFormScoringStrategyOutput)
+}
+
+// The scoring mode.
+func (o EvaluationFormScoringStrategyPtrOutput) Mode() EvaluationFormScoringStrategyModePtrOutput {
+	return o.ApplyT(func(v *EvaluationFormScoringStrategy) *EvaluationFormScoringStrategyMode {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(EvaluationFormScoringStrategyModePtrOutput)
+}
+
+// The scoring status.
+func (o EvaluationFormScoringStrategyPtrOutput) Status() EvaluationFormScoringStrategyStatusPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormScoringStrategy) *EvaluationFormScoringStrategyStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(EvaluationFormScoringStrategyStatusPtrOutput)
+}
+
+// The evaluation form section.
+type EvaluationFormSection struct {
+	// The instructions for the section.
+	Instructions *string `pulumi:"instructions"`
+	// The list of section items.
+	Items []EvaluationFormItem `pulumi:"items"`
+	// The identifier to reference the section.
+	RefId string `pulumi:"refId"`
+	// The title of the section.
+	Title string `pulumi:"title"`
+	// The item weight used for scoring.
+	Weight *float64 `pulumi:"weight"`
+}
+
+// EvaluationFormSectionInput is an input type that accepts EvaluationFormSectionArgs and EvaluationFormSectionOutput values.
+// You can construct a concrete instance of `EvaluationFormSectionInput` via:
+//
+//	EvaluationFormSectionArgs{...}
+type EvaluationFormSectionInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSectionOutput() EvaluationFormSectionOutput
+	ToEvaluationFormSectionOutputWithContext(context.Context) EvaluationFormSectionOutput
+}
+
+// The evaluation form section.
+type EvaluationFormSectionArgs struct {
+	// The instructions for the section.
+	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
+	// The list of section items.
+	Items EvaluationFormItemArrayInput `pulumi:"items"`
+	// The identifier to reference the section.
+	RefId pulumi.StringInput `pulumi:"refId"`
+	// The title of the section.
+	Title pulumi.StringInput `pulumi:"title"`
+	// The item weight used for scoring.
+	Weight pulumi.Float64PtrInput `pulumi:"weight"`
+}
+
+func (EvaluationFormSectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSection)(nil)).Elem()
+}
+
+func (i EvaluationFormSectionArgs) ToEvaluationFormSectionOutput() EvaluationFormSectionOutput {
+	return i.ToEvaluationFormSectionOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormSectionArgs) ToEvaluationFormSectionOutputWithContext(ctx context.Context) EvaluationFormSectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSectionOutput)
+}
+
+func (i EvaluationFormSectionArgs) ToEvaluationFormSectionPtrOutput() EvaluationFormSectionPtrOutput {
+	return i.ToEvaluationFormSectionPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormSectionArgs) ToEvaluationFormSectionPtrOutputWithContext(ctx context.Context) EvaluationFormSectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSectionOutput).ToEvaluationFormSectionPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormSectionPtrInput is an input type that accepts EvaluationFormSectionArgs, EvaluationFormSectionPtr and EvaluationFormSectionPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormSectionPtrInput` via:
+//
+//	        EvaluationFormSectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormSectionPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSectionPtrOutput() EvaluationFormSectionPtrOutput
+	ToEvaluationFormSectionPtrOutputWithContext(context.Context) EvaluationFormSectionPtrOutput
+}
+
+type evaluationFormSectionPtrType EvaluationFormSectionArgs
+
+func EvaluationFormSectionPtr(v *EvaluationFormSectionArgs) EvaluationFormSectionPtrInput {
+	return (*evaluationFormSectionPtrType)(v)
+}
+
+func (*evaluationFormSectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormSection)(nil)).Elem()
+}
+
+func (i *evaluationFormSectionPtrType) ToEvaluationFormSectionPtrOutput() EvaluationFormSectionPtrOutput {
+	return i.ToEvaluationFormSectionPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormSectionPtrType) ToEvaluationFormSectionPtrOutputWithContext(ctx context.Context) EvaluationFormSectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSectionPtrOutput)
+}
+
+// The evaluation form section.
+type EvaluationFormSectionOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSection)(nil)).Elem()
+}
+
+func (o EvaluationFormSectionOutput) ToEvaluationFormSectionOutput() EvaluationFormSectionOutput {
+	return o
+}
+
+func (o EvaluationFormSectionOutput) ToEvaluationFormSectionOutputWithContext(ctx context.Context) EvaluationFormSectionOutput {
+	return o
+}
+
+func (o EvaluationFormSectionOutput) ToEvaluationFormSectionPtrOutput() EvaluationFormSectionPtrOutput {
+	return o.ToEvaluationFormSectionPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormSectionOutput) ToEvaluationFormSectionPtrOutputWithContext(ctx context.Context) EvaluationFormSectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormSection) *EvaluationFormSection {
+		return &v
+	}).(EvaluationFormSectionPtrOutput)
+}
+
+// The instructions for the section.
+func (o EvaluationFormSectionOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluationFormSection) *string { return v.Instructions }).(pulumi.StringPtrOutput)
+}
+
+// The list of section items.
+func (o EvaluationFormSectionOutput) Items() EvaluationFormItemArrayOutput {
+	return o.ApplyT(func(v EvaluationFormSection) []EvaluationFormItem { return v.Items }).(EvaluationFormItemArrayOutput)
+}
+
+// The identifier to reference the section.
+func (o EvaluationFormSectionOutput) RefId() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationFormSection) string { return v.RefId }).(pulumi.StringOutput)
+}
+
+// The title of the section.
+func (o EvaluationFormSectionOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationFormSection) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// The item weight used for scoring.
+func (o EvaluationFormSectionOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EvaluationFormSection) *float64 { return v.Weight }).(pulumi.Float64PtrOutput)
+}
+
+type EvaluationFormSectionPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormSection)(nil)).Elem()
+}
+
+func (o EvaluationFormSectionPtrOutput) ToEvaluationFormSectionPtrOutput() EvaluationFormSectionPtrOutput {
+	return o
+}
+
+func (o EvaluationFormSectionPtrOutput) ToEvaluationFormSectionPtrOutputWithContext(ctx context.Context) EvaluationFormSectionPtrOutput {
+	return o
+}
+
+func (o EvaluationFormSectionPtrOutput) Elem() EvaluationFormSectionOutput {
+	return o.ApplyT(func(v *EvaluationFormSection) EvaluationFormSection {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormSection
+		return ret
+	}).(EvaluationFormSectionOutput)
+}
+
+// The instructions for the section.
+func (o EvaluationFormSectionPtrOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormSection) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Instructions
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of section items.
+func (o EvaluationFormSectionPtrOutput) Items() EvaluationFormItemArrayOutput {
+	return o.ApplyT(func(v *EvaluationFormSection) []EvaluationFormItem {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(EvaluationFormItemArrayOutput)
+}
+
+// The identifier to reference the section.
+func (o EvaluationFormSectionPtrOutput) RefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormSection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RefId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the section.
+func (o EvaluationFormSectionPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormSection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// The item weight used for scoring.
+func (o EvaluationFormSectionPtrOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EvaluationFormSection) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Weight
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The automation properties for the single-select question.
+type EvaluationFormSingleSelectQuestionAutomation struct {
+	// The option reference identifier of the default answer.
+	DefaultOptionRefId *string `pulumi:"defaultOptionRefId"`
+	// The answer options for the automation.
+	Options []EvaluationFormSingleSelectQuestionAutomationOption `pulumi:"options"`
+}
+
+// EvaluationFormSingleSelectQuestionAutomationInput is an input type that accepts EvaluationFormSingleSelectQuestionAutomationArgs and EvaluationFormSingleSelectQuestionAutomationOutput values.
+// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionAutomationInput` via:
+//
+//	EvaluationFormSingleSelectQuestionAutomationArgs{...}
+type EvaluationFormSingleSelectQuestionAutomationInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionAutomationOutput() EvaluationFormSingleSelectQuestionAutomationOutput
+	ToEvaluationFormSingleSelectQuestionAutomationOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionAutomationOutput
+}
+
+// The automation properties for the single-select question.
+type EvaluationFormSingleSelectQuestionAutomationArgs struct {
+	// The option reference identifier of the default answer.
+	DefaultOptionRefId pulumi.StringPtrInput `pulumi:"defaultOptionRefId"`
+	// The answer options for the automation.
+	Options EvaluationFormSingleSelectQuestionAutomationOptionArrayInput `pulumi:"options"`
+}
+
+func (EvaluationFormSingleSelectQuestionAutomationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionAutomation)(nil)).Elem()
+}
+
+func (i EvaluationFormSingleSelectQuestionAutomationArgs) ToEvaluationFormSingleSelectQuestionAutomationOutput() EvaluationFormSingleSelectQuestionAutomationOutput {
+	return i.ToEvaluationFormSingleSelectQuestionAutomationOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormSingleSelectQuestionAutomationArgs) ToEvaluationFormSingleSelectQuestionAutomationOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionAutomationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionAutomationOutput)
+}
+
+func (i EvaluationFormSingleSelectQuestionAutomationArgs) ToEvaluationFormSingleSelectQuestionAutomationPtrOutput() EvaluationFormSingleSelectQuestionAutomationPtrOutput {
+	return i.ToEvaluationFormSingleSelectQuestionAutomationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormSingleSelectQuestionAutomationArgs) ToEvaluationFormSingleSelectQuestionAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionAutomationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionAutomationOutput).ToEvaluationFormSingleSelectQuestionAutomationPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormSingleSelectQuestionAutomationPtrInput is an input type that accepts EvaluationFormSingleSelectQuestionAutomationArgs, EvaluationFormSingleSelectQuestionAutomationPtr and EvaluationFormSingleSelectQuestionAutomationPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionAutomationPtrInput` via:
+//
+//	        EvaluationFormSingleSelectQuestionAutomationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormSingleSelectQuestionAutomationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionAutomationPtrOutput() EvaluationFormSingleSelectQuestionAutomationPtrOutput
+	ToEvaluationFormSingleSelectQuestionAutomationPtrOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionAutomationPtrOutput
+}
+
+type evaluationFormSingleSelectQuestionAutomationPtrType EvaluationFormSingleSelectQuestionAutomationArgs
+
+func EvaluationFormSingleSelectQuestionAutomationPtr(v *EvaluationFormSingleSelectQuestionAutomationArgs) EvaluationFormSingleSelectQuestionAutomationPtrInput {
+	return (*evaluationFormSingleSelectQuestionAutomationPtrType)(v)
+}
+
+func (*evaluationFormSingleSelectQuestionAutomationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormSingleSelectQuestionAutomation)(nil)).Elem()
+}
+
+func (i *evaluationFormSingleSelectQuestionAutomationPtrType) ToEvaluationFormSingleSelectQuestionAutomationPtrOutput() EvaluationFormSingleSelectQuestionAutomationPtrOutput {
+	return i.ToEvaluationFormSingleSelectQuestionAutomationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormSingleSelectQuestionAutomationPtrType) ToEvaluationFormSingleSelectQuestionAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionAutomationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionAutomationPtrOutput)
+}
+
+// The automation properties for the single-select question.
+type EvaluationFormSingleSelectQuestionAutomationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionAutomationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionAutomation)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationOutput) ToEvaluationFormSingleSelectQuestionAutomationOutput() EvaluationFormSingleSelectQuestionAutomationOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationOutput) ToEvaluationFormSingleSelectQuestionAutomationOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionAutomationOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationOutput) ToEvaluationFormSingleSelectQuestionAutomationPtrOutput() EvaluationFormSingleSelectQuestionAutomationPtrOutput {
+	return o.ToEvaluationFormSingleSelectQuestionAutomationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationOutput) ToEvaluationFormSingleSelectQuestionAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionAutomationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormSingleSelectQuestionAutomation) *EvaluationFormSingleSelectQuestionAutomation {
+		return &v
+	}).(EvaluationFormSingleSelectQuestionAutomationPtrOutput)
+}
+
+// The option reference identifier of the default answer.
+func (o EvaluationFormSingleSelectQuestionAutomationOutput) DefaultOptionRefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionAutomation) *string { return v.DefaultOptionRefId }).(pulumi.StringPtrOutput)
+}
+
+// The answer options for the automation.
+func (o EvaluationFormSingleSelectQuestionAutomationOutput) Options() EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionAutomation) []EvaluationFormSingleSelectQuestionAutomationOption {
+		return v.Options
+	}).(EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput)
+}
+
+type EvaluationFormSingleSelectQuestionAutomationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionAutomationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormSingleSelectQuestionAutomation)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationPtrOutput) ToEvaluationFormSingleSelectQuestionAutomationPtrOutput() EvaluationFormSingleSelectQuestionAutomationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationPtrOutput) ToEvaluationFormSingleSelectQuestionAutomationPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionAutomationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationPtrOutput) Elem() EvaluationFormSingleSelectQuestionAutomationOutput {
+	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionAutomation) EvaluationFormSingleSelectQuestionAutomation {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormSingleSelectQuestionAutomation
+		return ret
+	}).(EvaluationFormSingleSelectQuestionAutomationOutput)
+}
+
+// The option reference identifier of the default answer.
+func (o EvaluationFormSingleSelectQuestionAutomationPtrOutput) DefaultOptionRefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionAutomation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultOptionRefId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The answer options for the automation.
+func (o EvaluationFormSingleSelectQuestionAutomationPtrOutput) Options() EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput {
+	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionAutomation) []EvaluationFormSingleSelectQuestionAutomationOption {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput)
+}
+
+// The automation option for the single-select question.
+type EvaluationFormSingleSelectQuestionAutomationOption struct {
+	// The automation option based on Rules categories.
+	RuleCategory EvaluationFormSingleSelectQuestionRuleCategoryAutomation `pulumi:"ruleCategory"`
+}
+
+// EvaluationFormSingleSelectQuestionAutomationOptionInput is an input type that accepts EvaluationFormSingleSelectQuestionAutomationOptionArgs and EvaluationFormSingleSelectQuestionAutomationOptionOutput values.
+// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionAutomationOptionInput` via:
+//
+//	EvaluationFormSingleSelectQuestionAutomationOptionArgs{...}
+type EvaluationFormSingleSelectQuestionAutomationOptionInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionAutomationOptionOutput() EvaluationFormSingleSelectQuestionAutomationOptionOutput
+	ToEvaluationFormSingleSelectQuestionAutomationOptionOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionAutomationOptionOutput
+}
+
+// The automation option for the single-select question.
+type EvaluationFormSingleSelectQuestionAutomationOptionArgs struct {
+	// The automation option based on Rules categories.
+	RuleCategory EvaluationFormSingleSelectQuestionRuleCategoryAutomationInput `pulumi:"ruleCategory"`
+}
+
+func (EvaluationFormSingleSelectQuestionAutomationOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionAutomationOption)(nil)).Elem()
+}
+
+func (i EvaluationFormSingleSelectQuestionAutomationOptionArgs) ToEvaluationFormSingleSelectQuestionAutomationOptionOutput() EvaluationFormSingleSelectQuestionAutomationOptionOutput {
+	return i.ToEvaluationFormSingleSelectQuestionAutomationOptionOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormSingleSelectQuestionAutomationOptionArgs) ToEvaluationFormSingleSelectQuestionAutomationOptionOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionAutomationOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionAutomationOptionOutput)
+}
+
+// EvaluationFormSingleSelectQuestionAutomationOptionArrayInput is an input type that accepts EvaluationFormSingleSelectQuestionAutomationOptionArray and EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput values.
+// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionAutomationOptionArrayInput` via:
+//
+//	EvaluationFormSingleSelectQuestionAutomationOptionArray{ EvaluationFormSingleSelectQuestionAutomationOptionArgs{...} }
+type EvaluationFormSingleSelectQuestionAutomationOptionArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionAutomationOptionArrayOutput() EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput
+	ToEvaluationFormSingleSelectQuestionAutomationOptionArrayOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput
+}
+
+type EvaluationFormSingleSelectQuestionAutomationOptionArray []EvaluationFormSingleSelectQuestionAutomationOptionInput
+
+func (EvaluationFormSingleSelectQuestionAutomationOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormSingleSelectQuestionAutomationOption)(nil)).Elem()
+}
+
+func (i EvaluationFormSingleSelectQuestionAutomationOptionArray) ToEvaluationFormSingleSelectQuestionAutomationOptionArrayOutput() EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput {
+	return i.ToEvaluationFormSingleSelectQuestionAutomationOptionArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormSingleSelectQuestionAutomationOptionArray) ToEvaluationFormSingleSelectQuestionAutomationOptionArrayOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput)
+}
+
+// The automation option for the single-select question.
+type EvaluationFormSingleSelectQuestionAutomationOptionOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionAutomationOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionAutomationOption)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationOptionOutput) ToEvaluationFormSingleSelectQuestionAutomationOptionOutput() EvaluationFormSingleSelectQuestionAutomationOptionOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationOptionOutput) ToEvaluationFormSingleSelectQuestionAutomationOptionOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionAutomationOptionOutput {
+	return o
+}
+
+// The automation option based on Rules categories.
+func (o EvaluationFormSingleSelectQuestionAutomationOptionOutput) RuleCategory() EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionAutomationOption) EvaluationFormSingleSelectQuestionRuleCategoryAutomation {
+		return v.RuleCategory
+	}).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput)
+}
+
+type EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormSingleSelectQuestionAutomationOption)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput) ToEvaluationFormSingleSelectQuestionAutomationOptionArrayOutput() EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput) ToEvaluationFormSingleSelectQuestionAutomationOptionArrayOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput) Index(i pulumi.IntInput) EvaluationFormSingleSelectQuestionAutomationOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationFormSingleSelectQuestionAutomationOption {
+		return vs[0].([]EvaluationFormSingleSelectQuestionAutomationOption)[vs[1].(int)]
+	}).(EvaluationFormSingleSelectQuestionAutomationOptionOutput)
+}
+
+// The option for a question.
+type EvaluationFormSingleSelectQuestionOption struct {
+	// The flag to mark the option as automatic fail.
+	AutomaticFail *bool `pulumi:"automaticFail"`
+	// The identifier used to reference the option.
+	RefId string `pulumi:"refId"`
+	// The score of the option.
+	Score *int `pulumi:"score"`
+	// The title of the option.
+	Text string `pulumi:"text"`
+}
+
+// EvaluationFormSingleSelectQuestionOptionInput is an input type that accepts EvaluationFormSingleSelectQuestionOptionArgs and EvaluationFormSingleSelectQuestionOptionOutput values.
+// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionOptionInput` via:
+//
+//	EvaluationFormSingleSelectQuestionOptionArgs{...}
+type EvaluationFormSingleSelectQuestionOptionInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionOptionOutput() EvaluationFormSingleSelectQuestionOptionOutput
+	ToEvaluationFormSingleSelectQuestionOptionOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionOptionOutput
+}
+
+// The option for a question.
+type EvaluationFormSingleSelectQuestionOptionArgs struct {
+	// The flag to mark the option as automatic fail.
+	AutomaticFail pulumi.BoolPtrInput `pulumi:"automaticFail"`
+	// The identifier used to reference the option.
+	RefId pulumi.StringInput `pulumi:"refId"`
+	// The score of the option.
+	Score pulumi.IntPtrInput `pulumi:"score"`
+	// The title of the option.
+	Text pulumi.StringInput `pulumi:"text"`
+}
+
+func (EvaluationFormSingleSelectQuestionOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionOption)(nil)).Elem()
+}
+
+func (i EvaluationFormSingleSelectQuestionOptionArgs) ToEvaluationFormSingleSelectQuestionOptionOutput() EvaluationFormSingleSelectQuestionOptionOutput {
+	return i.ToEvaluationFormSingleSelectQuestionOptionOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormSingleSelectQuestionOptionArgs) ToEvaluationFormSingleSelectQuestionOptionOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionOptionOutput)
+}
+
+// EvaluationFormSingleSelectQuestionOptionArrayInput is an input type that accepts EvaluationFormSingleSelectQuestionOptionArray and EvaluationFormSingleSelectQuestionOptionArrayOutput values.
+// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionOptionArrayInput` via:
+//
+//	EvaluationFormSingleSelectQuestionOptionArray{ EvaluationFormSingleSelectQuestionOptionArgs{...} }
+type EvaluationFormSingleSelectQuestionOptionArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionOptionArrayOutput() EvaluationFormSingleSelectQuestionOptionArrayOutput
+	ToEvaluationFormSingleSelectQuestionOptionArrayOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionOptionArrayOutput
+}
+
+type EvaluationFormSingleSelectQuestionOptionArray []EvaluationFormSingleSelectQuestionOptionInput
+
+func (EvaluationFormSingleSelectQuestionOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormSingleSelectQuestionOption)(nil)).Elem()
+}
+
+func (i EvaluationFormSingleSelectQuestionOptionArray) ToEvaluationFormSingleSelectQuestionOptionArrayOutput() EvaluationFormSingleSelectQuestionOptionArrayOutput {
+	return i.ToEvaluationFormSingleSelectQuestionOptionArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormSingleSelectQuestionOptionArray) ToEvaluationFormSingleSelectQuestionOptionArrayOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionOptionArrayOutput)
+}
+
+// The option for a question.
+type EvaluationFormSingleSelectQuestionOptionOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionOption)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionOptionOutput) ToEvaluationFormSingleSelectQuestionOptionOutput() EvaluationFormSingleSelectQuestionOptionOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionOptionOutput) ToEvaluationFormSingleSelectQuestionOptionOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionOptionOutput {
+	return o
+}
+
+// The flag to mark the option as automatic fail.
+func (o EvaluationFormSingleSelectQuestionOptionOutput) AutomaticFail() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionOption) *bool { return v.AutomaticFail }).(pulumi.BoolPtrOutput)
+}
+
+// The identifier used to reference the option.
+func (o EvaluationFormSingleSelectQuestionOptionOutput) RefId() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionOption) string { return v.RefId }).(pulumi.StringOutput)
+}
+
+// The score of the option.
+func (o EvaluationFormSingleSelectQuestionOptionOutput) Score() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionOption) *int { return v.Score }).(pulumi.IntPtrOutput)
+}
+
+// The title of the option.
+func (o EvaluationFormSingleSelectQuestionOptionOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionOption) string { return v.Text }).(pulumi.StringOutput)
+}
+
+type EvaluationFormSingleSelectQuestionOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormSingleSelectQuestionOption)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionOptionArrayOutput) ToEvaluationFormSingleSelectQuestionOptionArrayOutput() EvaluationFormSingleSelectQuestionOptionArrayOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionOptionArrayOutput) ToEvaluationFormSingleSelectQuestionOptionArrayOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionOptionArrayOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionOptionArrayOutput) Index(i pulumi.IntInput) EvaluationFormSingleSelectQuestionOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationFormSingleSelectQuestionOption {
+		return vs[0].([]EvaluationFormSingleSelectQuestionOption)[vs[1].(int)]
+	}).(EvaluationFormSingleSelectQuestionOptionOutput)
+}
+
+// The properties of the single-select question.
+type EvaluationFormSingleSelectQuestionProperties struct {
+	// The automation properties for the single-select question.
+	Automation *EvaluationFormSingleSelectQuestionAutomation `pulumi:"automation"`
+	// The display mode of the single-select question.
+	DisplayAs *EvaluationFormSingleSelectQuestionPropertiesDisplayAs `pulumi:"displayAs"`
+	// The list of options for the question.
+	Options []EvaluationFormSingleSelectQuestionOption `pulumi:"options"`
+}
+
+// EvaluationFormSingleSelectQuestionPropertiesInput is an input type that accepts EvaluationFormSingleSelectQuestionPropertiesArgs and EvaluationFormSingleSelectQuestionPropertiesOutput values.
+// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionPropertiesInput` via:
+//
+//	EvaluationFormSingleSelectQuestionPropertiesArgs{...}
+type EvaluationFormSingleSelectQuestionPropertiesInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionPropertiesOutput() EvaluationFormSingleSelectQuestionPropertiesOutput
+	ToEvaluationFormSingleSelectQuestionPropertiesOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionPropertiesOutput
+}
+
+// The properties of the single-select question.
+type EvaluationFormSingleSelectQuestionPropertiesArgs struct {
+	// The automation properties for the single-select question.
+	Automation EvaluationFormSingleSelectQuestionAutomationPtrInput `pulumi:"automation"`
+	// The display mode of the single-select question.
+	DisplayAs EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrInput `pulumi:"displayAs"`
+	// The list of options for the question.
+	Options EvaluationFormSingleSelectQuestionOptionArrayInput `pulumi:"options"`
+}
+
+func (EvaluationFormSingleSelectQuestionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionProperties)(nil)).Elem()
+}
+
+func (i EvaluationFormSingleSelectQuestionPropertiesArgs) ToEvaluationFormSingleSelectQuestionPropertiesOutput() EvaluationFormSingleSelectQuestionPropertiesOutput {
+	return i.ToEvaluationFormSingleSelectQuestionPropertiesOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormSingleSelectQuestionPropertiesArgs) ToEvaluationFormSingleSelectQuestionPropertiesOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionPropertiesOutput)
+}
+
+func (i EvaluationFormSingleSelectQuestionPropertiesArgs) ToEvaluationFormSingleSelectQuestionPropertiesPtrOutput() EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
+	return i.ToEvaluationFormSingleSelectQuestionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormSingleSelectQuestionPropertiesArgs) ToEvaluationFormSingleSelectQuestionPropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionPropertiesOutput).ToEvaluationFormSingleSelectQuestionPropertiesPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormSingleSelectQuestionPropertiesPtrInput is an input type that accepts EvaluationFormSingleSelectQuestionPropertiesArgs, EvaluationFormSingleSelectQuestionPropertiesPtr and EvaluationFormSingleSelectQuestionPropertiesPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionPropertiesPtrInput` via:
+//
+//	        EvaluationFormSingleSelectQuestionPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormSingleSelectQuestionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionPropertiesPtrOutput() EvaluationFormSingleSelectQuestionPropertiesPtrOutput
+	ToEvaluationFormSingleSelectQuestionPropertiesPtrOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionPropertiesPtrOutput
+}
+
+type evaluationFormSingleSelectQuestionPropertiesPtrType EvaluationFormSingleSelectQuestionPropertiesArgs
+
+func EvaluationFormSingleSelectQuestionPropertiesPtr(v *EvaluationFormSingleSelectQuestionPropertiesArgs) EvaluationFormSingleSelectQuestionPropertiesPtrInput {
+	return (*evaluationFormSingleSelectQuestionPropertiesPtrType)(v)
+}
+
+func (*evaluationFormSingleSelectQuestionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormSingleSelectQuestionProperties)(nil)).Elem()
+}
+
+func (i *evaluationFormSingleSelectQuestionPropertiesPtrType) ToEvaluationFormSingleSelectQuestionPropertiesPtrOutput() EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
+	return i.ToEvaluationFormSingleSelectQuestionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormSingleSelectQuestionPropertiesPtrType) ToEvaluationFormSingleSelectQuestionPropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionPropertiesPtrOutput)
+}
+
+// The properties of the single-select question.
+type EvaluationFormSingleSelectQuestionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionProperties)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesOutput) ToEvaluationFormSingleSelectQuestionPropertiesOutput() EvaluationFormSingleSelectQuestionPropertiesOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesOutput) ToEvaluationFormSingleSelectQuestionPropertiesOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesOutput) ToEvaluationFormSingleSelectQuestionPropertiesPtrOutput() EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
+	return o.ToEvaluationFormSingleSelectQuestionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesOutput) ToEvaluationFormSingleSelectQuestionPropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormSingleSelectQuestionProperties) *EvaluationFormSingleSelectQuestionProperties {
+		return &v
+	}).(EvaluationFormSingleSelectQuestionPropertiesPtrOutput)
+}
+
+// The automation properties for the single-select question.
+func (o EvaluationFormSingleSelectQuestionPropertiesOutput) Automation() EvaluationFormSingleSelectQuestionAutomationPtrOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionProperties) *EvaluationFormSingleSelectQuestionAutomation {
+		return v.Automation
+	}).(EvaluationFormSingleSelectQuestionAutomationPtrOutput)
+}
+
+// The display mode of the single-select question.
+func (o EvaluationFormSingleSelectQuestionPropertiesOutput) DisplayAs() EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionProperties) *EvaluationFormSingleSelectQuestionPropertiesDisplayAs {
+		return v.DisplayAs
+	}).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput)
+}
+
+// The list of options for the question.
+func (o EvaluationFormSingleSelectQuestionPropertiesOutput) Options() EvaluationFormSingleSelectQuestionOptionArrayOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionProperties) []EvaluationFormSingleSelectQuestionOption {
+		return v.Options
+	}).(EvaluationFormSingleSelectQuestionOptionArrayOutput)
+}
+
+type EvaluationFormSingleSelectQuestionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormSingleSelectQuestionProperties)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) ToEvaluationFormSingleSelectQuestionPropertiesPtrOutput() EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) ToEvaluationFormSingleSelectQuestionPropertiesPtrOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionPropertiesPtrOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) Elem() EvaluationFormSingleSelectQuestionPropertiesOutput {
+	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionProperties) EvaluationFormSingleSelectQuestionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormSingleSelectQuestionProperties
+		return ret
+	}).(EvaluationFormSingleSelectQuestionPropertiesOutput)
+}
+
+// The automation properties for the single-select question.
+func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) Automation() EvaluationFormSingleSelectQuestionAutomationPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionProperties) *EvaluationFormSingleSelectQuestionAutomation {
+		if v == nil {
+			return nil
+		}
+		return v.Automation
+	}).(EvaluationFormSingleSelectQuestionAutomationPtrOutput)
+}
+
+// The display mode of the single-select question.
+func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) DisplayAs() EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionProperties) *EvaluationFormSingleSelectQuestionPropertiesDisplayAs {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayAs
+	}).(EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrOutput)
+}
+
+// The list of options for the question.
+func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) Options() EvaluationFormSingleSelectQuestionOptionArrayOutput {
+	return o.ApplyT(func(v *EvaluationFormSingleSelectQuestionProperties) []EvaluationFormSingleSelectQuestionOption {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(EvaluationFormSingleSelectQuestionOptionArrayOutput)
+}
+
+// The automation option based on Rules categories.
+type EvaluationFormSingleSelectQuestionRuleCategoryAutomation struct {
+	// The category name as defined in Rules.
+	Category string `pulumi:"category"`
+	// The automation condition applied on contact categories.
+	Condition EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition `pulumi:"condition"`
+	// The option identifier referencing the option to be selected when the automation option is triggered.
+	OptionRefId string `pulumi:"optionRefId"`
+}
+
+// EvaluationFormSingleSelectQuestionRuleCategoryAutomationInput is an input type that accepts EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs and EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput values.
+// You can construct a concrete instance of `EvaluationFormSingleSelectQuestionRuleCategoryAutomationInput` via:
+//
+//	EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs{...}
+type EvaluationFormSingleSelectQuestionRuleCategoryAutomationInput interface {
+	pulumi.Input
+
+	ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput() EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput
+	ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationOutputWithContext(context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput
+}
+
+// The automation option based on Rules categories.
+type EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs struct {
+	// The category name as defined in Rules.
+	Category pulumi.StringInput `pulumi:"category"`
+	// The automation condition applied on contact categories.
+	Condition EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput `pulumi:"condition"`
+	// The option identifier referencing the option to be selected when the automation option is triggered.
+	OptionRefId pulumi.StringInput `pulumi:"optionRefId"`
+}
+
+func (EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionRuleCategoryAutomation)(nil)).Elem()
+}
+
+func (i EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput() EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput {
+	return i.ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput)
+}
+
+// The automation option based on Rules categories.
+type EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormSingleSelectQuestionRuleCategoryAutomation)(nil)).Elem()
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput() EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput {
+	return o
+}
+
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput) ToEvaluationFormSingleSelectQuestionRuleCategoryAutomationOutputWithContext(ctx context.Context) EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput {
+	return o
+}
+
+// The category name as defined in Rules.
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionRuleCategoryAutomation) string { return v.Category }).(pulumi.StringOutput)
+}
+
+// The automation condition applied on contact categories.
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput) Condition() EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionRuleCategoryAutomation) EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition {
+		return v.Condition
+	}).(EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionOutput)
+}
+
+// The option identifier referencing the option to be selected when the automation option is triggered.
+func (o EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput) OptionRefId() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionRuleCategoryAutomation) string { return v.OptionRefId }).(pulumi.StringOutput)
+}
+
+// A key-value pair to associate with a resource.
+type EvaluationFormTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that's 1 to 256 characters in length.
+	Value string `pulumi:"value"`
+}
+
+// EvaluationFormTagInput is an input type that accepts EvaluationFormTagArgs and EvaluationFormTagOutput values.
+// You can construct a concrete instance of `EvaluationFormTagInput` via:
+//
+//	EvaluationFormTagArgs{...}
+type EvaluationFormTagInput interface {
+	pulumi.Input
+
+	ToEvaluationFormTagOutput() EvaluationFormTagOutput
+	ToEvaluationFormTagOutputWithContext(context.Context) EvaluationFormTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type EvaluationFormTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that's 1 to 256 characters in length.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EvaluationFormTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormTag)(nil)).Elem()
+}
+
+func (i EvaluationFormTagArgs) ToEvaluationFormTagOutput() EvaluationFormTagOutput {
+	return i.ToEvaluationFormTagOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormTagArgs) ToEvaluationFormTagOutputWithContext(ctx context.Context) EvaluationFormTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormTagOutput)
+}
+
+// EvaluationFormTagArrayInput is an input type that accepts EvaluationFormTagArray and EvaluationFormTagArrayOutput values.
+// You can construct a concrete instance of `EvaluationFormTagArrayInput` via:
+//
+//	EvaluationFormTagArray{ EvaluationFormTagArgs{...} }
+type EvaluationFormTagArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationFormTagArrayOutput() EvaluationFormTagArrayOutput
+	ToEvaluationFormTagArrayOutputWithContext(context.Context) EvaluationFormTagArrayOutput
+}
+
+type EvaluationFormTagArray []EvaluationFormTagInput
+
+func (EvaluationFormTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormTag)(nil)).Elem()
+}
+
+func (i EvaluationFormTagArray) ToEvaluationFormTagArrayOutput() EvaluationFormTagArrayOutput {
+	return i.ToEvaluationFormTagArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormTagArray) ToEvaluationFormTagArrayOutputWithContext(ctx context.Context) EvaluationFormTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type EvaluationFormTagOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormTag)(nil)).Elem()
+}
+
+func (o EvaluationFormTagOutput) ToEvaluationFormTagOutput() EvaluationFormTagOutput {
+	return o
+}
+
+func (o EvaluationFormTagOutput) ToEvaluationFormTagOutputWithContext(ctx context.Context) EvaluationFormTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o EvaluationFormTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationFormTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that's 1 to 256 characters in length.
+func (o EvaluationFormTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationFormTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EvaluationFormTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormTag)(nil)).Elem()
+}
+
+func (o EvaluationFormTagArrayOutput) ToEvaluationFormTagArrayOutput() EvaluationFormTagArrayOutput {
+	return o
+}
+
+func (o EvaluationFormTagArrayOutput) ToEvaluationFormTagArrayOutputWithContext(ctx context.Context) EvaluationFormTagArrayOutput {
+	return o
+}
+
+func (o EvaluationFormTagArrayOutput) Index(i pulumi.IntInput) EvaluationFormTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationFormTag {
+		return vs[0].([]EvaluationFormTag)[vs[1].(int)]
+	}).(EvaluationFormTagOutput)
+}
+
 // Contains information about the hours of operation.
 type HoursOfOperationConfig struct {
 	// The day that the hours of operation applies to.
@@ -4328,6 +6699,37 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowModuleTagArrayInput)(nil)).Elem(), ContactFlowModuleTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTagInput)(nil)).Elem(), ContactFlowTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTagArrayInput)(nil)).Elem(), ContactFlowTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormBaseItemInput)(nil)).Elem(), EvaluationFormBaseItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormBaseItemArrayInput)(nil)).Elem(), EvaluationFormBaseItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemInput)(nil)).Elem(), EvaluationFormItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemArrayInput)(nil)).Elem(), EvaluationFormItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormNumericQuestionAutomationInput)(nil)).Elem(), EvaluationFormNumericQuestionAutomationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormNumericQuestionAutomationPtrInput)(nil)).Elem(), EvaluationFormNumericQuestionAutomationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormNumericQuestionOptionInput)(nil)).Elem(), EvaluationFormNumericQuestionOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormNumericQuestionOptionArrayInput)(nil)).Elem(), EvaluationFormNumericQuestionOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormNumericQuestionPropertiesInput)(nil)).Elem(), EvaluationFormNumericQuestionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormNumericQuestionPropertiesPtrInput)(nil)).Elem(), EvaluationFormNumericQuestionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormNumericQuestionPropertyValueAutomationInput)(nil)).Elem(), EvaluationFormNumericQuestionPropertyValueAutomationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormNumericQuestionPropertyValueAutomationPtrInput)(nil)).Elem(), EvaluationFormNumericQuestionPropertyValueAutomationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionInput)(nil)).Elem(), EvaluationFormQuestionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionPtrInput)(nil)).Elem(), EvaluationFormQuestionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionTypePropertiesInput)(nil)).Elem(), EvaluationFormQuestionTypePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionTypePropertiesPtrInput)(nil)).Elem(), EvaluationFormQuestionTypePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoringStrategyInput)(nil)).Elem(), EvaluationFormScoringStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoringStrategyPtrInput)(nil)).Elem(), EvaluationFormScoringStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSectionInput)(nil)).Elem(), EvaluationFormSectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSectionPtrInput)(nil)).Elem(), EvaluationFormSectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionAutomationInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionAutomationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionAutomationPtrInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionAutomationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionAutomationOptionInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionAutomationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionAutomationOptionArrayInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionAutomationOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionOptionInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionOptionArrayInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionPropertiesInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionPropertiesPtrInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionRuleCategoryAutomationInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormTagInput)(nil)).Elem(), EvaluationFormTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormTagArrayInput)(nil)).Elem(), EvaluationFormTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigInput)(nil)).Elem(), HoursOfOperationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigArrayInput)(nil)).Elem(), HoursOfOperationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTagInput)(nil)).Elem(), HoursOfOperationTagArgs{})
@@ -4392,6 +6794,37 @@ func init() {
 	pulumi.RegisterOutputType(ContactFlowModuleTagArrayOutput{})
 	pulumi.RegisterOutputType(ContactFlowTagOutput{})
 	pulumi.RegisterOutputType(ContactFlowTagArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationFormBaseItemOutput{})
+	pulumi.RegisterOutputType(EvaluationFormBaseItemArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationFormItemOutput{})
+	pulumi.RegisterOutputType(EvaluationFormItemArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationFormNumericQuestionAutomationOutput{})
+	pulumi.RegisterOutputType(EvaluationFormNumericQuestionAutomationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormNumericQuestionOptionOutput{})
+	pulumi.RegisterOutputType(EvaluationFormNumericQuestionOptionArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationFormNumericQuestionPropertiesOutput{})
+	pulumi.RegisterOutputType(EvaluationFormNumericQuestionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormNumericQuestionPropertyValueAutomationOutput{})
+	pulumi.RegisterOutputType(EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionTypePropertiesOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionTypePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormScoringStrategyOutput{})
+	pulumi.RegisterOutputType(EvaluationFormScoringStrategyPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSectionOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSectionPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionAutomationOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionAutomationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionAutomationOptionOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionAutomationOptionArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionOptionOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionOptionArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionPropertiesOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput{})
+	pulumi.RegisterOutputType(EvaluationFormTagOutput{})
+	pulumi.RegisterOutputType(EvaluationFormTagArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationTagOutput{})

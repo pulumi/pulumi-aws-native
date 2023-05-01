@@ -9,6 +9,13 @@ __all__ = [
     'ContactFlowModuleStatus',
     'ContactFlowState',
     'ContactFlowType',
+    'EvaluationFormNumericQuestionPropertyValueAutomationLabel',
+    'EvaluationFormQuestionQuestionType',
+    'EvaluationFormScoringStrategyMode',
+    'EvaluationFormScoringStrategyStatus',
+    'EvaluationFormSingleSelectQuestionPropertiesDisplayAs',
+    'EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition',
+    'EvaluationFormStatus',
     'HoursOfOperationConfigDay',
     'InstanceIdentityManagementType',
     'InstanceStatus',
@@ -64,6 +71,69 @@ class ContactFlowType(str, Enum):
     OUTBOUND_WHISPER = "OUTBOUND_WHISPER"
     AGENT_TRANSFER = "AGENT_TRANSFER"
     QUEUE_TRANSFER = "QUEUE_TRANSFER"
+
+
+class EvaluationFormNumericQuestionPropertyValueAutomationLabel(str, Enum):
+    """
+    The automation property label.
+    """
+    OVERALL_CUSTOMER_SENTIMENT_SCORE = "OVERALL_CUSTOMER_SENTIMENT_SCORE"
+    OVERALL_AGENT_SENTIMENT_SCORE = "OVERALL_AGENT_SENTIMENT_SCORE"
+    NON_TALK_TIME = "NON_TALK_TIME"
+    NON_TALK_TIME_PERCENTAGE = "NON_TALK_TIME_PERCENTAGE"
+    NUMBER_OF_INTERRUPTIONS = "NUMBER_OF_INTERRUPTIONS"
+    CONTACT_DURATION = "CONTACT_DURATION"
+    AGENT_INTERACTION_DURATION = "AGENT_INTERACTION_DURATION"
+    CUSTOMER_HOLD_TIME = "CUSTOMER_HOLD_TIME"
+
+
+class EvaluationFormQuestionQuestionType(str, Enum):
+    """
+    The type of the question.
+    """
+    NUMERIC = "NUMERIC"
+    SINGLESELECT = "SINGLESELECT"
+    TEXT = "TEXT"
+
+
+class EvaluationFormScoringStrategyMode(str, Enum):
+    """
+    The scoring mode.
+    """
+    QUESTION_ONLY = "QUESTION_ONLY"
+    SECTION_ONLY = "SECTION_ONLY"
+
+
+class EvaluationFormScoringStrategyStatus(str, Enum):
+    """
+    The scoring status.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class EvaluationFormSingleSelectQuestionPropertiesDisplayAs(str, Enum):
+    """
+    The display mode of the single-select question.
+    """
+    DROPDOWN = "DROPDOWN"
+    RADIO = "RADIO"
+
+
+class EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition(str, Enum):
+    """
+    The automation condition applied on contact categories.
+    """
+    PRESENT = "PRESENT"
+    NOT_PRESENT = "NOT_PRESENT"
+
+
+class EvaluationFormStatus(str, Enum):
+    """
+    The status of the evaluation form.
+    """
+    DRAFT = "DRAFT"
+    ACTIVE = "ACTIVE"
 
 
 class HoursOfOperationConfigDay(str, Enum):

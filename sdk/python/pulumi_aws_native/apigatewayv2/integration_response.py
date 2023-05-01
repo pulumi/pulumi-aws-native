@@ -23,6 +23,13 @@ class IntegrationResponseArgs:
                  template_selection_expression: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IntegrationResponse resource.
+        :param pulumi.Input[str] api_id: The API identifier
+        :param pulumi.Input[str] integration_id: The integration ID
+        :param pulumi.Input[str] integration_response_key: The integration response key
+        :param pulumi.Input[str] content_handling_strategy:  Specifies how to handle response payload content type conversions
+        :param Any response_parameters: A key-value map specifying response parameters that are passed to the method response from the backend
+        :param Any response_templates: The collection of response templates for the integration response as a string-to-string map of key-value pairs
+        :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration response. Supported only for WebSocket APIs
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "integration_id", integration_id)
@@ -39,6 +46,9 @@ class IntegrationResponseArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
+        """
+        The API identifier
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -48,6 +58,9 @@ class IntegrationResponseArgs:
     @property
     @pulumi.getter(name="integrationId")
     def integration_id(self) -> pulumi.Input[str]:
+        """
+        The integration ID
+        """
         return pulumi.get(self, "integration_id")
 
     @integration_id.setter
@@ -57,6 +70,9 @@ class IntegrationResponseArgs:
     @property
     @pulumi.getter(name="integrationResponseKey")
     def integration_response_key(self) -> pulumi.Input[str]:
+        """
+        The integration response key
+        """
         return pulumi.get(self, "integration_response_key")
 
     @integration_response_key.setter
@@ -66,6 +82,9 @@ class IntegrationResponseArgs:
     @property
     @pulumi.getter(name="contentHandlingStrategy")
     def content_handling_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+         Specifies how to handle response payload content type conversions
+        """
         return pulumi.get(self, "content_handling_strategy")
 
     @content_handling_strategy.setter
@@ -75,6 +94,9 @@ class IntegrationResponseArgs:
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[Any]:
+        """
+        A key-value map specifying response parameters that are passed to the method response from the backend
+        """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
@@ -84,6 +106,9 @@ class IntegrationResponseArgs:
     @property
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[Any]:
+        """
+        The collection of response templates for the integration response as a string-to-string map of key-value pairs
+        """
         return pulumi.get(self, "response_templates")
 
     @response_templates.setter
@@ -93,6 +118,9 @@ class IntegrationResponseArgs:
     @property
     @pulumi.getter(name="templateSelectionExpression")
     def template_selection_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template selection expression for the integration response. Supported only for WebSocket APIs
+        """
         return pulumi.get(self, "template_selection_expression")
 
     @template_selection_expression.setter
@@ -100,12 +128,7 @@ class IntegrationResponseArgs:
         pulumi.set(self, "template_selection_expression", value)
 
 
-warnings.warn("""IntegrationResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class IntegrationResponse(pulumi.CustomResource):
-    warnings.warn("""IntegrationResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -119,10 +142,17 @@ class IntegrationResponse(pulumi.CustomResource):
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::IntegrationResponse
+        Schema for ApiGatewayV2 Integration Response
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: The API identifier
+        :param pulumi.Input[str] content_handling_strategy:  Specifies how to handle response payload content type conversions
+        :param pulumi.Input[str] integration_id: The integration ID
+        :param pulumi.Input[str] integration_response_key: The integration response key
+        :param Any response_parameters: A key-value map specifying response parameters that are passed to the method response from the backend
+        :param Any response_templates: The collection of response templates for the integration response as a string-to-string map of key-value pairs
+        :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration response. Supported only for WebSocket APIs
         """
         ...
     @overload
@@ -131,7 +161,7 @@ class IntegrationResponse(pulumi.CustomResource):
                  args: IntegrationResponseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::IntegrationResponse
+        Schema for ApiGatewayV2 Integration Response
 
         :param str resource_name: The name of the resource.
         :param IntegrationResponseArgs args: The arguments to use to populate this resource's properties.
@@ -156,7 +186,6 @@ class IntegrationResponse(pulumi.CustomResource):
                  response_templates: Optional[Any] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""IntegrationResponse is deprecated: IntegrationResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -178,6 +207,7 @@ class IntegrationResponse(pulumi.CustomResource):
             __props__.__dict__["response_parameters"] = response_parameters
             __props__.__dict__["response_templates"] = response_templates
             __props__.__dict__["template_selection_expression"] = template_selection_expression
+            __props__.__dict__["integration_response_id"] = None
         super(IntegrationResponse, __self__).__init__(
             'aws-native:apigatewayv2:IntegrationResponse',
             resource_name,
@@ -203,6 +233,7 @@ class IntegrationResponse(pulumi.CustomResource):
         __props__.__dict__["api_id"] = None
         __props__.__dict__["content_handling_strategy"] = None
         __props__.__dict__["integration_id"] = None
+        __props__.__dict__["integration_response_id"] = None
         __props__.__dict__["integration_response_key"] = None
         __props__.__dict__["response_parameters"] = None
         __props__.__dict__["response_templates"] = None
@@ -212,35 +243,64 @@ class IntegrationResponse(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
+        """
+        The API identifier
+        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter(name="contentHandlingStrategy")
     def content_handling_strategy(self) -> pulumi.Output[Optional[str]]:
+        """
+         Specifies how to handle response payload content type conversions
+        """
         return pulumi.get(self, "content_handling_strategy")
 
     @property
     @pulumi.getter(name="integrationId")
     def integration_id(self) -> pulumi.Output[str]:
+        """
+        The integration ID
+        """
         return pulumi.get(self, "integration_id")
+
+    @property
+    @pulumi.getter(name="integrationResponseId")
+    def integration_response_id(self) -> pulumi.Output[str]:
+        """
+        Integration Response ID generated by service
+        """
+        return pulumi.get(self, "integration_response_id")
 
     @property
     @pulumi.getter(name="integrationResponseKey")
     def integration_response_key(self) -> pulumi.Output[str]:
+        """
+        The integration response key
+        """
         return pulumi.get(self, "integration_response_key")
 
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> pulumi.Output[Optional[Any]]:
+        """
+        A key-value map specifying response parameters that are passed to the method response from the backend
+        """
         return pulumi.get(self, "response_parameters")
 
     @property
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The collection of response templates for the integration response as a string-to-string map of key-value pairs
+        """
         return pulumi.get(self, "response_templates")
 
     @property
     @pulumi.getter(name="templateSelectionExpression")
     def template_selection_expression(self) -> pulumi.Output[Optional[str]]:
+        """
+        The template selection expression for the integration response. Supported only for WebSocket APIs
+        """
         return pulumi.get(self, "template_selection_expression")
 

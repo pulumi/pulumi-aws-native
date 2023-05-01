@@ -49,6 +49,83 @@ export const ContactFlowType = {
  */
 export type ContactFlowType = (typeof ContactFlowType)[keyof typeof ContactFlowType];
 
+export const EvaluationFormNumericQuestionPropertyValueAutomationLabel = {
+    OverallCustomerSentimentScore: "OVERALL_CUSTOMER_SENTIMENT_SCORE",
+    OverallAgentSentimentScore: "OVERALL_AGENT_SENTIMENT_SCORE",
+    NonTalkTime: "NON_TALK_TIME",
+    NonTalkTimePercentage: "NON_TALK_TIME_PERCENTAGE",
+    NumberOfInterruptions: "NUMBER_OF_INTERRUPTIONS",
+    ContactDuration: "CONTACT_DURATION",
+    AgentInteractionDuration: "AGENT_INTERACTION_DURATION",
+    CustomerHoldTime: "CUSTOMER_HOLD_TIME",
+} as const;
+
+/**
+ * The automation property label.
+ */
+export type EvaluationFormNumericQuestionPropertyValueAutomationLabel = (typeof EvaluationFormNumericQuestionPropertyValueAutomationLabel)[keyof typeof EvaluationFormNumericQuestionPropertyValueAutomationLabel];
+
+export const EvaluationFormQuestionQuestionType = {
+    Numeric: "NUMERIC",
+    Singleselect: "SINGLESELECT",
+    Text: "TEXT",
+} as const;
+
+/**
+ * The type of the question.
+ */
+export type EvaluationFormQuestionQuestionType = (typeof EvaluationFormQuestionQuestionType)[keyof typeof EvaluationFormQuestionQuestionType];
+
+export const EvaluationFormScoringStrategyMode = {
+    QuestionOnly: "QUESTION_ONLY",
+    SectionOnly: "SECTION_ONLY",
+} as const;
+
+/**
+ * The scoring mode.
+ */
+export type EvaluationFormScoringStrategyMode = (typeof EvaluationFormScoringStrategyMode)[keyof typeof EvaluationFormScoringStrategyMode];
+
+export const EvaluationFormScoringStrategyStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The scoring status.
+ */
+export type EvaluationFormScoringStrategyStatus = (typeof EvaluationFormScoringStrategyStatus)[keyof typeof EvaluationFormScoringStrategyStatus];
+
+export const EvaluationFormSingleSelectQuestionPropertiesDisplayAs = {
+    Dropdown: "DROPDOWN",
+    Radio: "RADIO",
+} as const;
+
+/**
+ * The display mode of the single-select question.
+ */
+export type EvaluationFormSingleSelectQuestionPropertiesDisplayAs = (typeof EvaluationFormSingleSelectQuestionPropertiesDisplayAs)[keyof typeof EvaluationFormSingleSelectQuestionPropertiesDisplayAs];
+
+export const EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition = {
+    Present: "PRESENT",
+    NotPresent: "NOT_PRESENT",
+} as const;
+
+/**
+ * The automation condition applied on contact categories.
+ */
+export type EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition = (typeof EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition)[keyof typeof EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition];
+
+export const EvaluationFormStatus = {
+    Draft: "DRAFT",
+    Active: "ACTIVE",
+} as const;
+
+/**
+ * The status of the evaluation form.
+ */
+export type EvaluationFormStatus = (typeof EvaluationFormStatus)[keyof typeof EvaluationFormStatus];
+
 export const HoursOfOperationConfigDay = {
     Sunday: "SUNDAY",
     Monday: "MONDAY",

@@ -24,6 +24,7 @@ type DomainConfiguration struct {
 	ServerCertificates        DomainConfigurationServerCertificateSummaryArrayOutput `pulumi:"serverCertificates"`
 	ServiceType               DomainConfigurationServiceTypePtrOutput                `pulumi:"serviceType"`
 	Tags                      DomainConfigurationTagArrayOutput                      `pulumi:"tags"`
+	TlsConfig                 DomainConfigurationTlsConfigPtrOutput                  `pulumi:"tlsConfig"`
 	ValidationCertificateArn  pulumi.StringPtrOutput                                 `pulumi:"validationCertificateArn"`
 }
 
@@ -73,6 +74,7 @@ type domainConfigurationArgs struct {
 	ServerCertificateArns     []string                             `pulumi:"serverCertificateArns"`
 	ServiceType               *DomainConfigurationServiceType      `pulumi:"serviceType"`
 	Tags                      []DomainConfigurationTag             `pulumi:"tags"`
+	TlsConfig                 *DomainConfigurationTlsConfig        `pulumi:"tlsConfig"`
 	ValidationCertificateArn  *string                              `pulumi:"validationCertificateArn"`
 }
 
@@ -85,6 +87,7 @@ type DomainConfigurationArgs struct {
 	ServerCertificateArns     pulumi.StringArrayInput
 	ServiceType               DomainConfigurationServiceTypePtrInput
 	Tags                      DomainConfigurationTagArrayInput
+	TlsConfig                 DomainConfigurationTlsConfigPtrInput
 	ValidationCertificateArn  pulumi.StringPtrInput
 }
 
@@ -165,6 +168,10 @@ func (o DomainConfigurationOutput) ServiceType() DomainConfigurationServiceTypeP
 
 func (o DomainConfigurationOutput) Tags() DomainConfigurationTagArrayOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationTagArrayOutput { return v.Tags }).(DomainConfigurationTagArrayOutput)
+}
+
+func (o DomainConfigurationOutput) TlsConfig() DomainConfigurationTlsConfigPtrOutput {
+	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationTlsConfigPtrOutput { return v.TlsConfig }).(DomainConfigurationTlsConfigPtrOutput)
 }
 
 func (o DomainConfigurationOutput) ValidationCertificateArn() pulumi.StringPtrOutput {

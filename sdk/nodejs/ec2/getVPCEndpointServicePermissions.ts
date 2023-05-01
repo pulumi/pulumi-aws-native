@@ -11,17 +11,16 @@ export function getVPCEndpointServicePermissions(args: GetVPCEndpointServicePerm
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPCEndpointServicePermissions", {
-        "id": args.id,
+        "serviceId": args.serviceId,
     }, opts);
 }
 
 export interface GetVPCEndpointServicePermissionsArgs {
-    id: string;
+    serviceId: string;
 }
 
 export interface GetVPCEndpointServicePermissionsResult {
     readonly allowedPrincipals?: string[];
-    readonly id?: string;
 }
 /**
  * Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
@@ -31,5 +30,5 @@ export function getVPCEndpointServicePermissionsOutput(args: GetVPCEndpointServi
 }
 
 export interface GetVPCEndpointServicePermissionsOutputArgs {
-    id: pulumi.Input<string>;
+    serviceId: pulumi.Input<string>;
 }

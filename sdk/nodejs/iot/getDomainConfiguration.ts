@@ -29,6 +29,7 @@ export interface GetDomainConfigurationResult {
     readonly domainType?: enums.iot.DomainConfigurationDomainType;
     readonly serverCertificates?: outputs.iot.DomainConfigurationServerCertificateSummary[];
     readonly tags?: outputs.iot.DomainConfigurationTag[];
+    readonly tlsConfig?: outputs.iot.DomainConfigurationTlsConfig;
 }
 /**
  * Create and manage a Domain Configuration
