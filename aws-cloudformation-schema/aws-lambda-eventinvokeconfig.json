@@ -15,9 +15,6 @@
     "DestinationConfig" : {
       "$ref" : "#/definitions/DestinationConfig"
     },
-    "Id" : {
-      "type" : "string"
-    },
     "MaximumEventAgeInSeconds" : {
       "type" : "integer"
     }
@@ -58,6 +55,29 @@
   },
   "required" : [ "FunctionName", "Qualifier" ],
   "createOnlyProperties" : [ "/properties/FunctionName", "/properties/Qualifier" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/FunctionName", "/properties/Qualifier" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "lambda:*" ]
+    },
+    "update" : {
+      "permissions" : [ "lambda:*" ]
+    },
+    "read" : {
+      "permissions" : [ "lambda:*" ]
+    },
+    "delete" : {
+      "permissions" : [ "lambda:*" ]
+    },
+    "list" : {
+      "permissions" : [ "lambda:*" ]
+    }
+  }
 }

@@ -51,7 +51,15 @@
       "permissions" : [ "logs:DeleteSubscriptionFilter" ]
     },
     "list" : {
-      "permissions" : [ "logs:DescribeSubscriptionFilters" ]
+      "permissions" : [ "logs:DescribeSubscriptionFilters" ],
+      "handlerSchema" : {
+        "properties" : {
+          "LogGroupName" : {
+            "$ref" : "resource-schema.json#/properties/LogGroupName"
+          }
+        },
+        "required" : [ "LogGroupName" ]
+      }
     }
   },
   "required" : [ "DestinationArn", "FilterPattern", "LogGroupName" ],

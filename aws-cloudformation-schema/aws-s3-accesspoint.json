@@ -80,16 +80,6 @@
       "description" : "The Access Point Policy you want to apply to this access point.",
       "type" : "object"
     },
-    "PolicyStatus" : {
-      "type" : "object",
-      "properties" : {
-        "IsPublic" : {
-          "type" : "string",
-          "description" : "Specifies whether the policy is public or not.",
-          "enum" : [ "true", "false" ]
-        }
-      }
-    },
     "NetworkOrigin" : {
       "description" : "Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.",
       "type" : "string",
@@ -102,15 +92,15 @@
     }
   },
   "required" : [ "Bucket" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Bucket", "/properties/BucketAccountId", "/properties/VpcConfiguration", "/properties/PublicAccessBlockConfiguration" ],
-  "readOnlyProperties" : [ "/properties/Name", "/properties/Alias", "/properties/NetworkOrigin", "/properties/Arn" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Bucket", "/properties/BucketAccountId", "/properties/VpcConfiguration" ],
+  "readOnlyProperties" : [ "/properties/Alias", "/properties/NetworkOrigin", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "s3:CreateAccessPoint", "s3:PutAccessPointPolicy", "s3:PutAccessPointPublicAccessBlock" ]
     },
     "read" : {
-      "permissions" : [ "s3:GetAccessPoint", "s3:GetAccessPointPolicy", "s3:GetAccessPointPolicyStatus" ]
+      "permissions" : [ "s3:GetAccessPoint", "s3:GetAccessPointPolicy" ]
     },
     "update" : {
       "permissions" : [ "s3:PutAccessPointPolicy", "s3:PutAccessPointPublicAccessBlock", "s3:DeleteAccessPointPolicy" ]

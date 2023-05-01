@@ -230,6 +230,9 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/ContainerType", "/properties/TargetRepository", "/properties/InstanceConfiguration", "/properties/ParentImage", "/properties/Description", "/properties/DockerfileTemplateUri", "/properties/DockerfileTemplateData", "/properties/ImageOsVersionOverride", "/properties/KmsKeyId", "/properties/PlatformOverride", "/properties/WorkingDirectory", "/properties/Components", "/properties/Tags" ],
   "writeOnlyProperties" : [ "/properties/DockerfileTemplateData", "/properties/DockerfileTemplateUri" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:GetRole", "iam:CreateServiceLinkedRole", "imagebuilder:GetComponent", "imagebuilder:TagResource", "imagebuilder:GetContainerRecipe", "imagebuilder:CreateContainerRecipe", "ecr:DescribeRepositories", "ec2:DescribeImages" ]

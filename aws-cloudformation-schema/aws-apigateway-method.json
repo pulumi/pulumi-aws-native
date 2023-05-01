@@ -242,7 +242,6 @@
   "required" : [ "RestApiId", "ResourceId", "HttpMethod" ],
   "primaryIdentifier" : [ "/properties/RestApiId", "/properties/ResourceId", "/properties/HttpMethod" ],
   "createOnlyProperties" : [ "/properties/RestApiId", "/properties/ResourceId", "/properties/HttpMethod" ],
-  "replacementStrategy" : "delete_then_create",
   "tagging" : {
     "taggable" : false,
     "tagOnCreate" : false,
