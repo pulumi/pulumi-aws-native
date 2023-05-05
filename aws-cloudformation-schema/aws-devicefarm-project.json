@@ -18,6 +18,9 @@
       "maxLength" : 1011,
       "pattern" : "^arn:.+"
     },
+    "VpcConfig" : {
+      "$ref" : "#/definitions/VpcConfig"
+    },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -28,6 +31,47 @@
     }
   },
   "definitions" : {
+    "VpcConfig" : {
+      "description" : "The VPC security groups and subnets that are attached to a project",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SecurityGroupIds" : {
+          "type" : "array",
+          "description" : "An array of security group Ids in your Amazon VPC",
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 4096,
+            "pattern" : "^sg-[0-9a-fA-F]{8,}$"
+          },
+          "minItems" : 1,
+          "maxItems" : 5
+        },
+        "SubnetIds" : {
+          "type" : "array",
+          "description" : "A array of subnet IDs in your Amazon VPC.",
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 4096,
+            "pattern" : "^subnet-[0-9a-fA-F]{8,}$"
+          },
+          "minItems" : 1,
+          "maxItems" : 8
+        },
+        "VpcId" : {
+          "type" : "string",
+          "description" : "The ID of the Amazon VPC",
+          "minLength" : 1,
+          "maxLength" : 4096,
+          "pattern" : ".*\\S.*"
+        }
+      },
+      "required" : [ "SecurityGroupIds", "SubnetIds", "VpcId" ]
+    },
     "Tag" : {
       "type" : "object",
       "additionalProperties" : false,

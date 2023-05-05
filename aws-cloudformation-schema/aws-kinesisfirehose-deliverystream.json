@@ -216,23 +216,6 @@
       },
       "required" : [ "DefaultDocumentIdFormat" ]
     },
-    "BulkRequestCustomizationConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        },
-        "JqExpression" : {
-          "type" : "string",
-          "maxLength" : 16384
-        },
-        "JqVersion" : {
-          "type" : "string",
-          "enum" : [ "JQ_1_6" ]
-        }
-      }
-    },
     "ExtendedS3DestinationConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -443,9 +426,6 @@
         },
         "DocumentIdOptions" : {
           "$ref" : "#/definitions/DocumentIdOptions"
-        },
-        "BulkRequestCustomizationConfiguration" : {
-          "$ref" : "#/definitions/BulkRequestCustomizationConfiguration"
         }
       },
       "required" : [ "IndexName", "S3Configuration", "RoleARN" ]
@@ -510,9 +490,6 @@
         },
         "DocumentIdOptions" : {
           "$ref" : "#/definitions/DocumentIdOptions"
-        },
-        "BulkRequestCustomizationConfiguration" : {
-          "$ref" : "#/definitions/BulkRequestCustomizationConfiguration"
         }
       },
       "required" : [ "IndexName", "S3Configuration", "RoleARN" ]
@@ -559,9 +536,6 @@
         },
         "VpcConfiguration" : {
           "$ref" : "#/definitions/VpcConfiguration"
-        },
-        "BulkRequestCustomizationConfiguration" : {
-          "$ref" : "#/definitions/BulkRequestCustomizationConfiguration"
         }
       },
       "required" : [ "IndexName", "S3Configuration", "RoleARN" ]
