@@ -402,6 +402,9 @@
         "ThreadsPerCore" : {
           "type" : "integer"
         },
+        "AmdSevSnp" : {
+          "type" : "string"
+        },
         "CoreCount" : {
           "type" : "integer"
         }
