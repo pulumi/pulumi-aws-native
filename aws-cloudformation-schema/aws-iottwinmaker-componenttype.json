@@ -1,7 +1,7 @@
 {
   "typeName" : "AWS::IoTTwinMaker::ComponentType",
   "description" : "Resource schema for AWS::IoTTwinMaker::ComponentType",
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iottwinmaker",
   "definitions" : {
     "DateTimeFormat" : {
       "type" : "string",
@@ -445,6 +445,15 @@
       "permissions" : [ "iottwinmaker:DeleteComponentType", "iottwinmaker:GetComponentType", "iottwinmaker:GetWorkspace" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "WorkspaceId" : {
+            "type" : "string",
+            "$ref" : "resource-schema.json#/properties/WorkspaceId"
+          }
+        },
+        "required" : [ "WorkspaceId" ]
+      },
       "permissions" : [ "iottwinmaker:GetComponentType", "iottwinmaker:GetWorkspace", "iottwinmaker:ListComponentTypes", "iottwinmaker:ListTagsForResource" ]
     }
   }

@@ -33,6 +33,7 @@
   "additionalProperties" : false,
   "required" : [ "Application", "AttributeGroup" ],
   "readOnlyProperties" : [ "/properties/ApplicationArn", "/properties/AttributeGroupArn", "/properties/Id" ],
+  "createOnlyProperties" : [ "/properties/Application", "/properties/AttributeGroup" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "taggable" : false,
   "handlers" : {

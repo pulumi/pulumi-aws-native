@@ -65,6 +65,7 @@
       }
     }
   },
+  "required" : [ "GroupName" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "xray:CreateGroup", "xray:TagResource" ]
