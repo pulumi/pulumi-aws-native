@@ -1,5 +1,15 @@
 ## HEAD (Unreleased)
 
+## 0.61.0 (May 9, 2023)
+Upstream breaking changes:
+
+- `s3objectlambda.AccessPoint` `AliasProperties` and `PolicyStatusProperties` changed.
+- `lambda.EventInvokeConfig` changed identifier.
+- `lightsail.Instance` `userData` now write-only.
+- `secretsmanager.Secret` `generateSecretString` and `secretString` are now write-only.
+- `servicecatalogappregistry` resources have additional properties marked as create-only.
+- `kinesisfirehose.DeliveryStream` removed properties.
+
 ## 0.60.0 (May 1, 2023)
 
  Upstream breaking changes:
