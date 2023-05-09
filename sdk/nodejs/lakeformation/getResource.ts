@@ -24,6 +24,7 @@ export interface GetResourceResult {
     readonly resourceArn?: string;
     readonly roleArn?: string;
     readonly useServiceLinkedRole?: boolean;
+    readonly withFederation?: boolean;
 }
 /**
  * Resource Type definition for AWS::LakeFormation::Resource

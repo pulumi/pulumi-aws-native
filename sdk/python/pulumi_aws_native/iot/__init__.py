@@ -8,6 +8,7 @@ import typing
 from ._enums import *
 from .account_audit_configuration import *
 from .authorizer import *
+from .billing_group import *
 from .ca_certificate import *
 from .certificate import *
 from .custom_metric import *
@@ -16,6 +17,7 @@ from .domain_configuration import *
 from .fleet_metric import *
 from .get_account_audit_configuration import *
 from .get_authorizer import *
+from .get_billing_group import *
 from .get_ca_certificate import *
 from .get_certificate import *
 from .get_custom_metric import *
@@ -33,7 +35,9 @@ from .get_role_alias import *
 from .get_scheduled_audit import *
 from .get_security_profile import *
 from .get_thing import *
+from .get_thing_group import *
 from .get_thing_principal_attachment import *
+from .get_thing_type import *
 from .get_topic_rule import *
 from .get_topic_rule_destination import *
 from .job_template import *
@@ -47,7 +51,9 @@ from .role_alias import *
 from .scheduled_audit import *
 from .security_profile import *
 from .thing import *
+from .thing_group import *
 from .thing_principal_attachment import *
+from .thing_type import *
 from .topic_rule import *
 from .topic_rule_destination import *
 from ._inputs import *

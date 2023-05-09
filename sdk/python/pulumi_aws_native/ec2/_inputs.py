@@ -134,6 +134,8 @@ __all__ = [
     'NetworkInsightsAccessScopeTagArgs',
     'NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs',
     'NetworkInsightsAnalysisTagArgs',
+    'NetworkInsightsPathFilterPortRangeArgs',
+    'NetworkInsightsPathPathFilterArgs',
     'NetworkInsightsPathTagArgs',
     'NetworkInterfaceInstanceIpv6AddressArgs',
     'NetworkInterfacePrivateIpAddressSpecificationArgs',
@@ -198,6 +200,19 @@ __all__ = [
     'VPNConnectionTagArgs',
     'VPNConnectionVpnTunnelOptionsSpecificationArgs',
     'VPNGatewayTagArgs',
+    'VerifiedAccessEndpointLoadBalancerOptionsArgs',
+    'VerifiedAccessEndpointNetworkInterfaceOptionsArgs',
+    'VerifiedAccessEndpointTagArgs',
+    'VerifiedAccessGroupTagArgs',
+    'VerifiedAccessInstanceTagArgs',
+    'VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs',
+    'VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs',
+    'VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs',
+    'VerifiedAccessInstanceVerifiedAccessLogsArgs',
+    'VerifiedAccessInstanceVerifiedAccessTrustProviderArgs',
+    'VerifiedAccessTrustProviderDeviceOptionsArgs',
+    'VerifiedAccessTrustProviderOidcOptionsArgs',
+    'VerifiedAccessTrustProviderTagArgs',
     'VolumeTagArgs',
 ]
 
@@ -3214,12 +3229,24 @@ class LaunchTemplateCapacityReservationTargetArgs:
 @pulumi.input_type
 class LaunchTemplateCpuOptionsArgs:
     def __init__(__self__, *,
+                 amd_sev_snp: Optional[pulumi.Input[str]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
                  threads_per_core: Optional[pulumi.Input[int]] = None):
+        if amd_sev_snp is not None:
+            pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="amdSevSnp")
+    def amd_sev_snp(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "amd_sev_snp")
+
+    @amd_sev_snp.setter
+    def amd_sev_snp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "amd_sev_snp", value)
 
     @property
     @pulumi.getter(name="coreCount")
@@ -5518,6 +5545,88 @@ class NetworkInsightsAnalysisTagArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NetworkInsightsPathFilterPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: Optional[pulumi.Input[int]] = None,
+                 to_port: Optional[pulumi.Input[int]] = None):
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to_port", value)
+
+
+@pulumi.input_type
+class NetworkInsightsPathPathFilterArgs:
+    def __init__(__self__, *,
+                 destination_address: Optional[pulumi.Input[str]] = None,
+                 destination_port_range: Optional[pulumi.Input['NetworkInsightsPathFilterPortRangeArgs']] = None,
+                 source_address: Optional[pulumi.Input[str]] = None,
+                 source_port_range: Optional[pulumi.Input['NetworkInsightsPathFilterPortRangeArgs']] = None):
+        if destination_address is not None:
+            pulumi.set(__self__, "destination_address", destination_address)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if source_address is not None:
+            pulumi.set(__self__, "source_address", source_address)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_address")
+
+    @destination_address.setter
+    def destination_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_address", value)
+
+    @property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterPortRangeArgs']]:
+        return pulumi.get(self, "destination_port_range")
+
+    @destination_port_range.setter
+    def destination_port_range(self, value: Optional[pulumi.Input['NetworkInsightsPathFilterPortRangeArgs']]):
+        pulumi.set(self, "destination_port_range", value)
+
+    @property
+    @pulumi.getter(name="sourceAddress")
+    def source_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_address")
+
+    @source_address.setter
+    def source_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_address", value)
+
+    @property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterPortRangeArgs']]:
+        return pulumi.get(self, "source_port_range")
+
+    @source_port_range.setter
+    def source_port_range(self, value: Optional[pulumi.Input['NetworkInsightsPathFilterPortRangeArgs']]):
+        pulumi.set(self, "source_port_range", value)
 
 
 @pulumi.input_type
@@ -8406,6 +8515,726 @@ class VPNGatewayTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VerifiedAccessEndpointLoadBalancerOptionsArgs:
+    def __init__(__self__, *,
+                 load_balancer_arn: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
+        :param pulumi.Input[str] load_balancer_arn: The ARN of the load balancer.
+        :param pulumi.Input[int] port: The IP port number.
+        :param pulumi.Input[str] protocol: The IP protocol.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of the subnets.
+        """
+        if load_balancer_arn is not None:
+            pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="loadBalancerArn")
+    def load_balancer_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the load balancer.
+        """
+        return pulumi.get(self, "load_balancer_arn")
+
+    @load_balancer_arn.setter
+    def load_balancer_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancer_arn", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The IP port number.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the subnets.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+
+@pulumi.input_type
+class VerifiedAccessEndpointNetworkInterfaceOptionsArgs:
+    def __init__(__self__, *,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None):
+        """
+        The options for network-interface type endpoint.
+        :param pulumi.Input[str] network_interface_id: The ID of the network interface.
+        :param pulumi.Input[int] port: The IP port number.
+        :param pulumi.Input[str] protocol: The IP protocol.
+        """
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the network interface.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The IP port number.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class VerifiedAccessEndpointTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VerifiedAccessGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VerifiedAccessInstanceTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_group: Optional[pulumi.Input[str]] = None):
+        """
+        Sends Verified Access logs to CloudWatch Logs.
+        :param pulumi.Input[bool] enabled: Indicates whether logging is enabled.
+        :param pulumi.Input[str] log_group: The ID of the CloudWatch Logs log group.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the CloudWatch Logs log group.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group", value)
+
+
+@pulumi.input_type
+class VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs:
+    def __init__(__self__, *,
+                 delivery_stream: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Sends Verified Access logs to Kinesis.
+        :param pulumi.Input[str] delivery_stream: The ID of the delivery stream.
+        :param pulumi.Input[bool] enabled: Indicates whether logging is enabled.
+        """
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the delivery stream.
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @delivery_stream.setter
+    def delivery_stream(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delivery_stream", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs:
+    def __init__(__self__, *,
+                 bucket_name: Optional[pulumi.Input[str]] = None,
+                 bucket_owner: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        """
+        Sends Verified Access logs to Amazon S3.
+        :param pulumi.Input[str] bucket_name: The bucket name.
+        :param pulumi.Input[str] bucket_owner: The ID of the AWS account that owns the Amazon S3 bucket.
+        :param pulumi.Input[bool] enabled: Indicates whether logging is enabled.
+        :param pulumi.Input[str] prefix: The bucket prefix.
+        """
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bucket name.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AWS account that owns the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "bucket_owner")
+
+    @bucket_owner.setter
+    def bucket_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bucket prefix.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+
+@pulumi.input_type
+class VerifiedAccessInstanceVerifiedAccessLogsArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs']] = None,
+                 kinesis_data_firehose: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs']] = None,
+                 s3: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs']] = None):
+        """
+        The configuration options for AWS Verified Access instances.
+        :param pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs'] cloud_watch_logs: Sends Verified Access logs to CloudWatch Logs.
+        :param pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs'] kinesis_data_firehose: Sends Verified Access logs to Kinesis.
+        :param pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs'] s3: Sends Verified Access logs to Amazon S3.
+        """
+        if cloud_watch_logs is not None:
+            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+        if kinesis_data_firehose is not None:
+            pulumi.set(__self__, "kinesis_data_firehose", kinesis_data_firehose)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs']]:
+        """
+        Sends Verified Access logs to CloudWatch Logs.
+        """
+        return pulumi.get(self, "cloud_watch_logs")
+
+    @cloud_watch_logs.setter
+    def cloud_watch_logs(self, value: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs']]):
+        pulumi.set(self, "cloud_watch_logs", value)
+
+    @property
+    @pulumi.getter(name="kinesisDataFirehose")
+    def kinesis_data_firehose(self) -> Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs']]:
+        """
+        Sends Verified Access logs to Kinesis.
+        """
+        return pulumi.get(self, "kinesis_data_firehose")
+
+    @kinesis_data_firehose.setter
+    def kinesis_data_firehose(self, value: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs']]):
+        pulumi.set(self, "kinesis_data_firehose", value)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs']]:
+        """
+        Sends Verified Access logs to Amazon S3.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs']]):
+        pulumi.set(self, "s3", value)
+
+
+@pulumi.input_type
+class VerifiedAccessInstanceVerifiedAccessTrustProviderArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 device_trust_provider_type: Optional[pulumi.Input[str]] = None,
+                 trust_provider_type: Optional[pulumi.Input[str]] = None,
+                 user_trust_provider_type: Optional[pulumi.Input[str]] = None,
+                 verified_access_trust_provider_id: Optional[pulumi.Input[str]] = None):
+        """
+        A Verified Access Trust Provider.
+        :param pulumi.Input[str] description: The description of trust provider.
+        :param pulumi.Input[str] device_trust_provider_type: The type of device-based trust provider.
+        :param pulumi.Input[str] trust_provider_type: The type of trust provider (user- or device-based).
+        :param pulumi.Input[str] user_trust_provider_type: The type of user-based trust provider.
+        :param pulumi.Input[str] verified_access_trust_provider_id: The ID of the trust provider.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if device_trust_provider_type is not None:
+            pulumi.set(__self__, "device_trust_provider_type", device_trust_provider_type)
+        if trust_provider_type is not None:
+            pulumi.set(__self__, "trust_provider_type", trust_provider_type)
+        if user_trust_provider_type is not None:
+            pulumi.set(__self__, "user_trust_provider_type", user_trust_provider_type)
+        if verified_access_trust_provider_id is not None:
+            pulumi.set(__self__, "verified_access_trust_provider_id", verified_access_trust_provider_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of trust provider.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="deviceTrustProviderType")
+    def device_trust_provider_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of device-based trust provider.
+        """
+        return pulumi.get(self, "device_trust_provider_type")
+
+    @device_trust_provider_type.setter
+    def device_trust_provider_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_trust_provider_type", value)
+
+    @property
+    @pulumi.getter(name="trustProviderType")
+    def trust_provider_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of trust provider (user- or device-based).
+        """
+        return pulumi.get(self, "trust_provider_type")
+
+    @trust_provider_type.setter
+    def trust_provider_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trust_provider_type", value)
+
+    @property
+    @pulumi.getter(name="userTrustProviderType")
+    def user_trust_provider_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of user-based trust provider.
+        """
+        return pulumi.get(self, "user_trust_provider_type")
+
+    @user_trust_provider_type.setter
+    def user_trust_provider_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_trust_provider_type", value)
+
+    @property
+    @pulumi.getter(name="verifiedAccessTrustProviderId")
+    def verified_access_trust_provider_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the trust provider.
+        """
+        return pulumi.get(self, "verified_access_trust_provider_id")
+
+    @verified_access_trust_provider_id.setter
+    def verified_access_trust_provider_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "verified_access_trust_provider_id", value)
+
+
+@pulumi.input_type
+class VerifiedAccessTrustProviderDeviceOptionsArgs:
+    def __init__(__self__, *,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        The options for device identity based trust providers.
+        :param pulumi.Input[str] tenant_id: The ID of the tenant application with the device-identity provider.
+        """
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the tenant application with the device-identity provider.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class VerifiedAccessTrustProviderOidcOptionsArgs:
+    def __init__(__self__, *,
+                 authorization_endpoint: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 token_endpoint: Optional[pulumi.Input[str]] = None,
+                 user_info_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        The OpenID Connect details for an oidc -type, user-identity based trust provider.
+        :param pulumi.Input[str] authorization_endpoint: The OIDC authorization endpoint.
+        :param pulumi.Input[str] client_id: The client identifier.
+        :param pulumi.Input[str] client_secret: The client secret.
+        :param pulumi.Input[str] issuer: The OIDC issuer.
+        :param pulumi.Input[str] scope: OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+        :param pulumi.Input[str] token_endpoint: The OIDC token endpoint.
+        :param pulumi.Input[str] user_info_endpoint: The OIDC user info endpoint.
+        """
+        if authorization_endpoint is not None:
+            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if user_info_endpoint is not None:
+            pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OIDC authorization endpoint.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @authorization_endpoint.setter
+    def authorization_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_endpoint", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client identifier.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OIDC issuer.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OIDC token endpoint.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_endpoint", value)
+
+    @property
+    @pulumi.getter(name="userInfoEndpoint")
+    def user_info_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OIDC user info endpoint.
+        """
+        return pulumi.get(self, "user_info_endpoint")
+
+    @user_info_endpoint.setter
+    def user_info_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_info_endpoint", value)
+
+
+@pulumi.input_type
+class VerifiedAccessTrustProviderTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

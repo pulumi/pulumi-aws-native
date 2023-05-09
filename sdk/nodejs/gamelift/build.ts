@@ -50,6 +50,10 @@ export class Build extends pulumi.CustomResource {
      */
     public readonly operatingSystem!: pulumi.Output<enums.gamelift.BuildOperatingSystem | undefined>;
     /**
+     * A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
+     */
+    public readonly serverSdkVersion!: pulumi.Output<string | undefined>;
+    /**
      * Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
      */
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.BuildStorageLocation | undefined>;
@@ -71,6 +75,7 @@ export class Build extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
+            resourceInputs["serverSdkVersion"] = args ? args.serverSdkVersion : undefined;
             resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["buildId"] = undefined /*out*/;
@@ -78,6 +83,7 @@ export class Build extends pulumi.CustomResource {
             resourceInputs["buildId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operatingSystem"] = undefined /*out*/;
+            resourceInputs["serverSdkVersion"] = undefined /*out*/;
             resourceInputs["storageLocation"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
@@ -98,6 +104,10 @@ export interface BuildArgs {
      * The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
      */
     operatingSystem?: pulumi.Input<enums.gamelift.BuildOperatingSystem>;
+    /**
+     * A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
+     */
+    serverSdkVersion?: pulumi.Input<string>;
     /**
      * Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
      */

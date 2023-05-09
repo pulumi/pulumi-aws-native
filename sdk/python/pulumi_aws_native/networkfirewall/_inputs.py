@@ -14,7 +14,9 @@ __all__ = [
     'FirewallPolicyActionDefinitionArgs',
     'FirewallPolicyCustomActionArgs',
     'FirewallPolicyDimensionArgs',
+    'FirewallPolicyPolicyVariablesPropertiesArgs',
     'FirewallPolicyPublishMetricActionArgs',
+    'FirewallPolicyRuleVariablesArgs',
     'FirewallPolicyStatefulEngineOptionsArgs',
     'FirewallPolicyStatefulRuleGroupOverrideArgs',
     'FirewallPolicyStatefulRuleGroupReferenceArgs',
@@ -109,6 +111,23 @@ class FirewallPolicyDimensionArgs:
 
 
 @pulumi.input_type
+class FirewallPolicyPolicyVariablesPropertiesArgs:
+    def __init__(__self__, *,
+                 rule_variables: Optional[pulumi.Input['FirewallPolicyRuleVariablesArgs']] = None):
+        if rule_variables is not None:
+            pulumi.set(__self__, "rule_variables", rule_variables)
+
+    @property
+    @pulumi.getter(name="ruleVariables")
+    def rule_variables(self) -> Optional[pulumi.Input['FirewallPolicyRuleVariablesArgs']]:
+        return pulumi.get(self, "rule_variables")
+
+    @rule_variables.setter
+    def rule_variables(self, value: Optional[pulumi.Input['FirewallPolicyRuleVariablesArgs']]):
+        pulumi.set(self, "rule_variables", value)
+
+
+@pulumi.input_type
 class FirewallPolicyPublishMetricActionArgs:
     def __init__(__self__, *,
                  dimensions: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]):
@@ -122,6 +141,12 @@ class FirewallPolicyPublishMetricActionArgs:
     @dimensions.setter
     def dimensions(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]):
         pulumi.set(self, "dimensions", value)
+
+
+@pulumi.input_type
+class FirewallPolicyRuleVariablesArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type
@@ -269,6 +294,7 @@ class FirewallPolicyArgs:
     def __init__(__self__, *,
                  stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 policy_variables: Optional[pulumi.Input['FirewallPolicyPolicyVariablesPropertiesArgs']] = None,
                  stateful_default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  stateful_engine_options: Optional[pulumi.Input['FirewallPolicyStatefulEngineOptionsArgs']] = None,
                  stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
@@ -276,6 +302,8 @@ class FirewallPolicyArgs:
                  stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None):
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        if policy_variables is not None:
+            pulumi.set(__self__, "policy_variables", policy_variables)
         if stateful_default_actions is not None:
             pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
         if stateful_engine_options is not None:
@@ -304,6 +332,15 @@ class FirewallPolicyArgs:
     @stateless_fragment_default_actions.setter
     def stateless_fragment_default_actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "stateless_fragment_default_actions", value)
+
+    @property
+    @pulumi.getter(name="policyVariables")
+    def policy_variables(self) -> Optional[pulumi.Input['FirewallPolicyPolicyVariablesPropertiesArgs']]:
+        return pulumi.get(self, "policy_variables")
+
+    @policy_variables.setter
+    def policy_variables(self, value: Optional[pulumi.Input['FirewallPolicyPolicyVariablesPropertiesArgs']]):
+        pulumi.set(self, "policy_variables", value)
 
     @property
     @pulumi.getter(name="statefulDefaultActions")

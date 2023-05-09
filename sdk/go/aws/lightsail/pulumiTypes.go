@@ -2045,6 +2045,78 @@ type DiskLocation struct {
 	RegionName *string `pulumi:"regionName"`
 }
 
+// DiskLocationInput is an input type that accepts DiskLocationArgs and DiskLocationOutput values.
+// You can construct a concrete instance of `DiskLocationInput` via:
+//
+//	DiskLocationArgs{...}
+type DiskLocationInput interface {
+	pulumi.Input
+
+	ToDiskLocationOutput() DiskLocationOutput
+	ToDiskLocationOutputWithContext(context.Context) DiskLocationOutput
+}
+
+// Location of a resource.
+type DiskLocationArgs struct {
+	// The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The Region Name in which to create your disk.
+	RegionName pulumi.StringPtrInput `pulumi:"regionName"`
+}
+
+func (DiskLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskLocation)(nil)).Elem()
+}
+
+func (i DiskLocationArgs) ToDiskLocationOutput() DiskLocationOutput {
+	return i.ToDiskLocationOutputWithContext(context.Background())
+}
+
+func (i DiskLocationArgs) ToDiskLocationOutputWithContext(ctx context.Context) DiskLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskLocationOutput)
+}
+
+func (i DiskLocationArgs) ToDiskLocationPtrOutput() DiskLocationPtrOutput {
+	return i.ToDiskLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DiskLocationArgs) ToDiskLocationPtrOutputWithContext(ctx context.Context) DiskLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskLocationOutput).ToDiskLocationPtrOutputWithContext(ctx)
+}
+
+// DiskLocationPtrInput is an input type that accepts DiskLocationArgs, DiskLocationPtr and DiskLocationPtrOutput values.
+// You can construct a concrete instance of `DiskLocationPtrInput` via:
+//
+//	        DiskLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DiskLocationPtrInput interface {
+	pulumi.Input
+
+	ToDiskLocationPtrOutput() DiskLocationPtrOutput
+	ToDiskLocationPtrOutputWithContext(context.Context) DiskLocationPtrOutput
+}
+
+type diskLocationPtrType DiskLocationArgs
+
+func DiskLocationPtr(v *DiskLocationArgs) DiskLocationPtrInput {
+	return (*diskLocationPtrType)(v)
+}
+
+func (*diskLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskLocation)(nil)).Elem()
+}
+
+func (i *diskLocationPtrType) ToDiskLocationPtrOutput() DiskLocationPtrOutput {
+	return i.ToDiskLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *diskLocationPtrType) ToDiskLocationPtrOutputWithContext(ctx context.Context) DiskLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskLocationPtrOutput)
+}
+
 // Location of a resource.
 type DiskLocationOutput struct{ *pulumi.OutputState }
 
@@ -2058,6 +2130,16 @@ func (o DiskLocationOutput) ToDiskLocationOutput() DiskLocationOutput {
 
 func (o DiskLocationOutput) ToDiskLocationOutputWithContext(ctx context.Context) DiskLocationOutput {
 	return o
+}
+
+func (o DiskLocationOutput) ToDiskLocationPtrOutput() DiskLocationPtrOutput {
+	return o.ToDiskLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DiskLocationOutput) ToDiskLocationPtrOutputWithContext(ctx context.Context) DiskLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskLocation) *DiskLocation {
+		return &v
+	}).(DiskLocationPtrOutput)
 }
 
 // The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
@@ -5028,6 +5110,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAddOnArrayInput)(nil)).Elem(), DiskAddOnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAutoSnapshotAddOnInput)(nil)).Elem(), DiskAutoSnapshotAddOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAutoSnapshotAddOnPtrInput)(nil)).Elem(), DiskAutoSnapshotAddOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskLocationInput)(nil)).Elem(), DiskLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskLocationPtrInput)(nil)).Elem(), DiskLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskTagInput)(nil)).Elem(), DiskTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskTagArrayInput)(nil)).Elem(), DiskTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorInput)(nil)).Elem(), DistributionCacheBehaviorArgs{})

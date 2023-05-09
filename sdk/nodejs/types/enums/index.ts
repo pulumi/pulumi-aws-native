@@ -97,6 +97,7 @@ import * as panorama from "./panorama";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
+import * as proton from "./proton";
 import * as quicksight from "./quicksight";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
@@ -228,6 +229,7 @@ export {
     personalize,
     pinpoint,
     pipes,
+    proton,
     quicksight,
     rds,
     redshift,

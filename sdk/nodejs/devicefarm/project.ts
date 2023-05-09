@@ -41,6 +41,7 @@ export class Project extends pulumi.CustomResource {
     public readonly defaultJobTimeoutMinutes!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.devicefarm.ProjectTag[] | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.devicefarm.ProjectVpcConfig | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -56,12 +57,14 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["defaultJobTimeoutMinutes"] = args ? args.defaultJobTimeoutMinutes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultJobTimeoutMinutes"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Project.__pulumiType, name, resourceInputs, opts);
@@ -75,4 +78,5 @@ export interface ProjectArgs {
     defaultJobTimeoutMinutes?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.devicefarm.ProjectTagArgs>[]>;
+    vpcConfig?: pulumi.Input<inputs.devicefarm.ProjectVpcConfigArgs>;
 }

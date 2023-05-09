@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.XRay
         /// The case-sensitive name of the new group. Names must be unique.
         /// </summary>
         [Output("groupName")]
-        public Output<string?> GroupName { get; private set; } = null!;
+        public Output<string> GroupName { get; private set; } = null!;
 
         [Output("insightsConfiguration")]
         public Output<Outputs.GroupInsightsConfiguration?> InsightsConfiguration { get; private set; } = null!;

@@ -20,15 +20,7 @@ export interface GetAttributeGroupAssociationArgs {
 }
 
 export interface GetAttributeGroupAssociationResult {
-    /**
-     * The name or the Id of the Application.
-     */
-    readonly application?: string;
     readonly applicationArn?: string;
-    /**
-     * The name or the Id of the AttributeGroup.
-     */
-    readonly attributeGroup?: string;
     readonly attributeGroupArn?: string;
     readonly id?: string;
 }

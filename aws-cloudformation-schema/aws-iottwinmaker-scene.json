@@ -1,6 +1,7 @@
 {
   "typeName" : "AWS::IoTTwinMaker::Scene",
   "description" : "Resource schema for AWS::IoTTwinMaker::Scene",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iottwinmaker",
   "definitions" : {
     "DateTimeFormat" : {
       "type" : "string",
@@ -131,6 +132,15 @@
       "permissions" : [ "iottwinmaker:DeleteScene", "iottwinmaker:GetWorkspace" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "WorkspaceId" : {
+            "type" : "string",
+            "$ref" : "resource-schema.json#/properties/WorkspaceId"
+          }
+        },
+        "required" : [ "WorkspaceId" ]
+      },
       "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource", "iottwinmaker:ListScenes" ]
     }
   }

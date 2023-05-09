@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -23,21 +20,9 @@ export interface GetResourceAssociationArgs {
 }
 
 export interface GetResourceAssociationResult {
-    /**
-     * The name or the Id of the Application.
-     */
-    readonly application?: string;
     readonly applicationArn?: string;
     readonly id?: string;
-    /**
-     * The name or the Id of the Resource.
-     */
-    readonly resource?: string;
     readonly resourceArn?: string;
-    /**
-     * The type of the CFN Resource for now it's enum CFN_STACK.
-     */
-    readonly resourceType?: enums.servicecatalogappregistry.ResourceAssociationResourceType;
 }
 /**
  * Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation

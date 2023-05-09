@@ -342,6 +342,7 @@ type FirewallPolicyStreamExceptionPolicy string
 const (
 	FirewallPolicyStreamExceptionPolicyDrop     = FirewallPolicyStreamExceptionPolicy("DROP")
 	FirewallPolicyStreamExceptionPolicyContinue = FirewallPolicyStreamExceptionPolicy("CONTINUE")
+	FirewallPolicyStreamExceptionPolicyReject   = FirewallPolicyStreamExceptionPolicy("REJECT")
 )
 
 func (FirewallPolicyStreamExceptionPolicy) ElementType() reflect.Type {

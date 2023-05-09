@@ -8,7 +8,6 @@ __all__ = [
     'DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode',
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod',
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode',
-    'DeliveryStreamBulkRequestCustomizationConfigurationJqVersion',
     'DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat',
     'DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod',
     'DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode',
@@ -41,10 +40,6 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotation
 class DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode(str, Enum):
     FAILED_DOCUMENTS_ONLY = "FailedDocumentsOnly"
     ALL_DOCUMENTS = "AllDocuments"
-
-
-class DeliveryStreamBulkRequestCustomizationConfigurationJqVersion(str, Enum):
-    JQ16 = "JQ_1_6"
 
 
 class DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat(str, Enum):

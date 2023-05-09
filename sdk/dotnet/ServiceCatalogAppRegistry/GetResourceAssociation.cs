@@ -51,42 +51,21 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     [OutputType]
     public sealed class GetResourceAssociationResult
     {
-        /// <summary>
-        /// The name or the Id of the Application.
-        /// </summary>
-        public readonly string? Application;
         public readonly string? ApplicationArn;
         public readonly string? Id;
-        /// <summary>
-        /// The name or the Id of the Resource.
-        /// </summary>
-        public readonly string? Resource;
         public readonly string? ResourceArn;
-        /// <summary>
-        /// The type of the CFN Resource for now it's enum CFN_STACK.
-        /// </summary>
-        public readonly Pulumi.AwsNative.ServiceCatalogAppRegistry.ResourceAssociationResourceType? ResourceType;
 
         [OutputConstructor]
         private GetResourceAssociationResult(
-            string? application,
-
             string? applicationArn,
 
             string? id,
 
-            string? resource,
-
-            string? resourceArn,
-
-            Pulumi.AwsNative.ServiceCatalogAppRegistry.ResourceAssociationResourceType? resourceType)
+            string? resourceArn)
         {
-            Application = application;
             ApplicationArn = applicationArn;
             Id = id;
-            Resource = resource;
             ResourceArn = resourceArn;
-            ResourceType = resourceType;
         }
     }
 }

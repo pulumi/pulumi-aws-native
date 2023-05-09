@@ -495,6 +495,26 @@ export const getVPNGatewayRoutePropagation: typeof import("./getVPNGatewayRouteP
 export const getVPNGatewayRoutePropagationOutput: typeof import("./getVPNGatewayRoutePropagation").getVPNGatewayRoutePropagationOutput = null as any;
 utilities.lazyLoad(exports, ["getVPNGatewayRoutePropagation","getVPNGatewayRoutePropagationOutput"], () => require("./getVPNGatewayRoutePropagation"));
 
+export { GetVerifiedAccessEndpointArgs, GetVerifiedAccessEndpointResult, GetVerifiedAccessEndpointOutputArgs } from "./getVerifiedAccessEndpoint";
+export const getVerifiedAccessEndpoint: typeof import("./getVerifiedAccessEndpoint").getVerifiedAccessEndpoint = null as any;
+export const getVerifiedAccessEndpointOutput: typeof import("./getVerifiedAccessEndpoint").getVerifiedAccessEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getVerifiedAccessEndpoint","getVerifiedAccessEndpointOutput"], () => require("./getVerifiedAccessEndpoint"));
+
+export { GetVerifiedAccessGroupArgs, GetVerifiedAccessGroupResult, GetVerifiedAccessGroupOutputArgs } from "./getVerifiedAccessGroup";
+export const getVerifiedAccessGroup: typeof import("./getVerifiedAccessGroup").getVerifiedAccessGroup = null as any;
+export const getVerifiedAccessGroupOutput: typeof import("./getVerifiedAccessGroup").getVerifiedAccessGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getVerifiedAccessGroup","getVerifiedAccessGroupOutput"], () => require("./getVerifiedAccessGroup"));
+
+export { GetVerifiedAccessInstanceArgs, GetVerifiedAccessInstanceResult, GetVerifiedAccessInstanceOutputArgs } from "./getVerifiedAccessInstance";
+export const getVerifiedAccessInstance: typeof import("./getVerifiedAccessInstance").getVerifiedAccessInstance = null as any;
+export const getVerifiedAccessInstanceOutput: typeof import("./getVerifiedAccessInstance").getVerifiedAccessInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getVerifiedAccessInstance","getVerifiedAccessInstanceOutput"], () => require("./getVerifiedAccessInstance"));
+
+export { GetVerifiedAccessTrustProviderArgs, GetVerifiedAccessTrustProviderResult, GetVerifiedAccessTrustProviderOutputArgs } from "./getVerifiedAccessTrustProvider";
+export const getVerifiedAccessTrustProvider: typeof import("./getVerifiedAccessTrustProvider").getVerifiedAccessTrustProvider = null as any;
+export const getVerifiedAccessTrustProviderOutput: typeof import("./getVerifiedAccessTrustProvider").getVerifiedAccessTrustProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getVerifiedAccessTrustProvider","getVerifiedAccessTrustProviderOutput"], () => require("./getVerifiedAccessTrustProvider"));
+
 export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
@@ -785,6 +805,26 @@ export type TransitGatewayVpcAttachment = import("./transitGatewayVpcAttachment"
 export const TransitGatewayVpcAttachment: typeof import("./transitGatewayVpcAttachment").TransitGatewayVpcAttachment = null as any;
 utilities.lazyLoad(exports, ["TransitGatewayVpcAttachment"], () => require("./transitGatewayVpcAttachment"));
 
+export { VerifiedAccessEndpointArgs } from "./verifiedAccessEndpoint";
+export type VerifiedAccessEndpoint = import("./verifiedAccessEndpoint").VerifiedAccessEndpoint;
+export const VerifiedAccessEndpoint: typeof import("./verifiedAccessEndpoint").VerifiedAccessEndpoint = null as any;
+utilities.lazyLoad(exports, ["VerifiedAccessEndpoint"], () => require("./verifiedAccessEndpoint"));
+
+export { VerifiedAccessGroupArgs } from "./verifiedAccessGroup";
+export type VerifiedAccessGroup = import("./verifiedAccessGroup").VerifiedAccessGroup;
+export const VerifiedAccessGroup: typeof import("./verifiedAccessGroup").VerifiedAccessGroup = null as any;
+utilities.lazyLoad(exports, ["VerifiedAccessGroup"], () => require("./verifiedAccessGroup"));
+
+export { VerifiedAccessInstanceArgs } from "./verifiedAccessInstance";
+export type VerifiedAccessInstance = import("./verifiedAccessInstance").VerifiedAccessInstance;
+export const VerifiedAccessInstance: typeof import("./verifiedAccessInstance").VerifiedAccessInstance = null as any;
+utilities.lazyLoad(exports, ["VerifiedAccessInstance"], () => require("./verifiedAccessInstance"));
+
+export { VerifiedAccessTrustProviderArgs } from "./verifiedAccessTrustProvider";
+export type VerifiedAccessTrustProvider = import("./verifiedAccessTrustProvider").VerifiedAccessTrustProvider;
+export const VerifiedAccessTrustProvider: typeof import("./verifiedAccessTrustProvider").VerifiedAccessTrustProvider = null as any;
+utilities.lazyLoad(exports, ["VerifiedAccessTrustProvider"], () => require("./verifiedAccessTrustProvider"));
+
 export { VolumeArgs } from "./volume";
 export type Volume = import("./volume").Volume;
 export const Volume: typeof import("./volume").Volume = null as any;
@@ -1038,6 +1078,14 @@ const _module = {
                 return new VPNGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:VPNGatewayRoutePropagation":
                 return new VPNGatewayRoutePropagation(name, <any>undefined, { urn })
+            case "aws-native:ec2:VerifiedAccessEndpoint":
+                return new VerifiedAccessEndpoint(name, <any>undefined, { urn })
+            case "aws-native:ec2:VerifiedAccessGroup":
+                return new VerifiedAccessGroup(name, <any>undefined, { urn })
+            case "aws-native:ec2:VerifiedAccessInstance":
+                return new VerifiedAccessInstance(name, <any>undefined, { urn })
+            case "aws-native:ec2:VerifiedAccessTrustProvider":
+                return new VerifiedAccessTrustProvider(name, <any>undefined, { urn })
             case "aws-native:ec2:Volume":
                 return new Volume(name, <any>undefined, { urn })
             case "aws-native:ec2:VolumeAttachment":

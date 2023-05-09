@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.EC2
         [Output("destinationPort")]
         public Output<int?> DestinationPort { get; private set; } = null!;
 
+        [Output("filterAtDestination")]
+        public Output<Outputs.NetworkInsightsPathPathFilter?> FilterAtDestination { get; private set; } = null!;
+
+        [Output("filterAtSource")]
+        public Output<Outputs.NetworkInsightsPathPathFilter?> FilterAtSource { get; private set; } = null!;
+
         [Output("networkInsightsPathArn")]
         public Output<string> NetworkInsightsPathArn { get; private set; } = null!;
 
@@ -104,6 +110,12 @@ namespace Pulumi.AwsNative.EC2
 
         [Input("destinationPort")]
         public Input<int>? DestinationPort { get; set; }
+
+        [Input("filterAtDestination")]
+        public Input<Inputs.NetworkInsightsPathPathFilterArgs>? FilterAtDestination { get; set; }
+
+        [Input("filterAtSource")]
+        public Input<Inputs.NetworkInsightsPathPathFilterArgs>? FilterAtSource { get; set; }
 
         [Input("protocol", required: true)]
         public Input<Pulumi.AwsNative.EC2.NetworkInsightsPathProtocol> Protocol { get; set; } = null!;

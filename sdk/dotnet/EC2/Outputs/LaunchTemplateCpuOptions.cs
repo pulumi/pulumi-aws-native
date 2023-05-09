@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class LaunchTemplateCpuOptions
     {
+        public readonly string? AmdSevSnp;
         public readonly int? CoreCount;
         public readonly int? ThreadsPerCore;
 
         [OutputConstructor]
         private LaunchTemplateCpuOptions(
+            string? amdSevSnp,
+
             int? coreCount,
 
             int? threadsPerCore)
         {
+            AmdSevSnp = amdSevSnp;
             CoreCount = coreCount;
             ThreadsPerCore = threadsPerCore;
         }

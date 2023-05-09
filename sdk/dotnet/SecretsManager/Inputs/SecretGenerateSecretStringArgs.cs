@@ -12,33 +12,63 @@ namespace Pulumi.AwsNative.SecretsManager.Inputs
 
     public sealed class SecretGenerateSecretStringArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters. 
+        /// </summary>
         [Input("excludeCharacters")]
         public Input<string>? ExcludeCharacters { get; set; }
 
+        /// <summary>
+        /// Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
+        /// </summary>
         [Input("excludeLowercase")]
         public Input<bool>? ExcludeLowercase { get; set; }
 
+        /// <summary>
+        /// Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
+        /// </summary>
         [Input("excludeNumbers")]
         public Input<bool>? ExcludeNumbers { get; set; }
 
+        /// <summary>
+        /// Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. 
+        /// </summary>
         [Input("excludePunctuation")]
         public Input<bool>? ExcludePunctuation { get; set; }
 
+        /// <summary>
+        /// Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters. 
+        /// </summary>
         [Input("excludeUppercase")]
         public Input<bool>? ExcludeUppercase { get; set; }
 
+        /// <summary>
+        /// The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate. 
+        /// </summary>
         [Input("generateStringKey")]
         public Input<string>? GenerateStringKey { get; set; }
 
+        /// <summary>
+        /// Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
+        /// </summary>
         [Input("includeSpace")]
         public Input<bool>? IncludeSpace { get; set; }
 
+        /// <summary>
+        /// The desired length of the generated password. The default value if you do not include this parameter is 32 characters. 
+        /// </summary>
         [Input("passwordLength")]
         public Input<int>? PasswordLength { get; set; }
 
+        /// <summary>
+        /// Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
+        /// </summary>
         [Input("requireEachIncludedType")]
         public Input<bool>? RequireEachIncludedType { get; set; }
 
+        /// <summary>
+        /// A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
+        /// </summary>
         [Input("secretStringTemplate")]
         public Input<string>? SecretStringTemplate { get; set; }
 

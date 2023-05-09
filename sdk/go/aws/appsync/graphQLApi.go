@@ -21,13 +21,17 @@ type GraphQLApi struct {
 	ApiId                             pulumi.StringOutput                                   `pulumi:"apiId"`
 	Arn                               pulumi.StringOutput                                   `pulumi:"arn"`
 	AuthenticationType                pulumi.StringOutput                                   `pulumi:"authenticationType"`
+	GraphQLDns                        pulumi.StringOutput                                   `pulumi:"graphQLDns"`
 	GraphQLUrl                        pulumi.StringOutput                                   `pulumi:"graphQLUrl"`
 	LambdaAuthorizerConfig            GraphQLApiLambdaAuthorizerConfigPtrOutput             `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         GraphQLApiLogConfigPtrOutput                          `pulumi:"logConfig"`
 	Name                              pulumi.StringOutput                                   `pulumi:"name"`
 	OpenIDConnectConfig               GraphQLApiOpenIDConnectConfigPtrOutput                `pulumi:"openIDConnectConfig"`
+	RealtimeDns                       pulumi.StringOutput                                   `pulumi:"realtimeDns"`
+	RealtimeUrl                       pulumi.StringOutput                                   `pulumi:"realtimeUrl"`
 	Tags                              GraphQLApiTagArrayOutput                              `pulumi:"tags"`
 	UserPoolConfig                    GraphQLApiUserPoolConfigPtrOutput                     `pulumi:"userPoolConfig"`
+	Visibility                        pulumi.StringPtrOutput                                `pulumi:"visibility"`
 	XrayEnabled                       pulumi.BoolPtrOutput                                  `pulumi:"xrayEnabled"`
 }
 
@@ -81,6 +85,7 @@ type graphQLApiArgs struct {
 	OpenIDConnectConfig               *GraphQLApiOpenIDConnectConfig               `pulumi:"openIDConnectConfig"`
 	Tags                              []GraphQLApiTag                              `pulumi:"tags"`
 	UserPoolConfig                    *GraphQLApiUserPoolConfig                    `pulumi:"userPoolConfig"`
+	Visibility                        *string                                      `pulumi:"visibility"`
 	XrayEnabled                       *bool                                        `pulumi:"xrayEnabled"`
 }
 
@@ -94,6 +99,7 @@ type GraphQLApiArgs struct {
 	OpenIDConnectConfig               GraphQLApiOpenIDConnectConfigPtrInput
 	Tags                              GraphQLApiTagArrayInput
 	UserPoolConfig                    GraphQLApiUserPoolConfigPtrInput
+	Visibility                        pulumi.StringPtrInput
 	XrayEnabled                       pulumi.BoolPtrInput
 }
 
@@ -152,6 +158,10 @@ func (o GraphQLApiOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
+func (o GraphQLApiOutput) GraphQLDns() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.GraphQLDns }).(pulumi.StringOutput)
+}
+
 func (o GraphQLApiOutput) GraphQLUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.GraphQLUrl }).(pulumi.StringOutput)
 }
@@ -172,12 +182,24 @@ func (o GraphQLApiOutput) OpenIDConnectConfig() GraphQLApiOpenIDConnectConfigPtr
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiOpenIDConnectConfigPtrOutput { return v.OpenIDConnectConfig }).(GraphQLApiOpenIDConnectConfigPtrOutput)
 }
 
+func (o GraphQLApiOutput) RealtimeDns() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.RealtimeDns }).(pulumi.StringOutput)
+}
+
+func (o GraphQLApiOutput) RealtimeUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.RealtimeUrl }).(pulumi.StringOutput)
+}
+
 func (o GraphQLApiOutput) Tags() GraphQLApiTagArrayOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiTagArrayOutput { return v.Tags }).(GraphQLApiTagArrayOutput)
 }
 
 func (o GraphQLApiOutput) UserPoolConfig() GraphQLApiUserPoolConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiUserPoolConfigPtrOutput { return v.UserPoolConfig }).(GraphQLApiUserPoolConfigPtrOutput)
+}
+
+func (o GraphQLApiOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.Visibility }).(pulumi.StringPtrOutput)
 }
 
 func (o GraphQLApiOutput) XrayEnabled() pulumi.BoolPtrOutput {

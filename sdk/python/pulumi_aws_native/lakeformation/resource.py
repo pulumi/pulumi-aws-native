@@ -16,7 +16,8 @@ class ResourceArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str],
                  use_service_linked_role: pulumi.Input[bool],
-                 role_arn: Optional[pulumi.Input[str]] = None):
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 with_federation: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Resource resource.
         """
@@ -24,6 +25,8 @@ class ResourceArgs:
         pulumi.set(__self__, "use_service_linked_role", use_service_linked_role)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
+        if with_federation is not None:
+            pulumi.set(__self__, "with_federation", with_federation)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -52,6 +55,15 @@ class ResourceArgs:
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
 
+    @property
+    @pulumi.getter(name="withFederation")
+    def with_federation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "with_federation")
+
+    @with_federation.setter
+    def with_federation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "with_federation", value)
+
 
 warnings.warn("""Resource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -66,6 +78,7 @@ class Resource(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  use_service_linked_role: Optional[pulumi.Input[bool]] = None,
+                 with_federation: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::LakeFormation::Resource
@@ -100,6 +113,7 @@ class Resource(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  use_service_linked_role: Optional[pulumi.Input[bool]] = None,
+                 with_federation: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         pulumi.log.warn("""Resource is deprecated: Resource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -117,6 +131,7 @@ class Resource(pulumi.CustomResource):
             if use_service_linked_role is None and not opts.urn:
                 raise TypeError("Missing required property 'use_service_linked_role'")
             __props__.__dict__["use_service_linked_role"] = use_service_linked_role
+            __props__.__dict__["with_federation"] = with_federation
         super(Resource, __self__).__init__(
             'aws-native:lakeformation:Resource',
             resource_name,
@@ -142,6 +157,7 @@ class Resource(pulumi.CustomResource):
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["use_service_linked_role"] = None
+        __props__.__dict__["with_federation"] = None
         return Resource(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -158,4 +174,9 @@ class Resource(pulumi.CustomResource):
     @pulumi.getter(name="useServiceLinkedRole")
     def use_service_linked_role(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "use_service_linked_role")
+
+    @property
+    @pulumi.getter(name="withFederation")
+    def with_federation(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "with_federation")
 

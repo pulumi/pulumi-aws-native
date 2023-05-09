@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("policyVariables")]
+        public Input<Inputs.FirewallPolicyPolicyVariablesPropertiesArgs>? PolicyVariables { get; set; }
+
         [Input("statefulDefaultActions")]
         private InputList<string>? _statefulDefaultActions;
         public InputList<string> StatefulDefaultActions

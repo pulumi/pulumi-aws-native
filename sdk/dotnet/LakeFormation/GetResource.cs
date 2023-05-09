@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.LakeFormation
         public readonly string? ResourceArn;
         public readonly string? RoleArn;
         public readonly bool? UseServiceLinkedRole;
+        public readonly bool? WithFederation;
 
         [OutputConstructor]
         private GetResourceResult(
@@ -64,12 +65,15 @@ namespace Pulumi.AwsNative.LakeFormation
 
             string? roleArn,
 
-            bool? useServiceLinkedRole)
+            bool? useServiceLinkedRole,
+
+            bool? withFederation)
         {
             Id = id;
             ResourceArn = resourceArn;
             RoleArn = roleArn;
             UseServiceLinkedRole = useServiceLinkedRole;
+            WithFederation = withFederation;
         }
     }
 }

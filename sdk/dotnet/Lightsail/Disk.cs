@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Lightsail
         public Output<bool> IsAttached { get; private set; } = null!;
 
         [Output("location")]
-        public Output<Outputs.DiskLocation> Location { get; private set; } = null!;
+        public Output<Outputs.DiskLocation?> Location { get; private set; } = null!;
 
         /// <summary>
         /// Path of the  attached Disk
@@ -167,6 +167,9 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         [Input("diskName")]
         public Input<string>? DiskName { get; set; }
+
+        [Input("location")]
+        public Input<Inputs.DiskLocationArgs>? Location { get; set; }
 
         /// <summary>
         /// Size of the Lightsail disk

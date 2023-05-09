@@ -1041,6 +1041,248 @@ func (o AuthorizerTagArrayOutput) Index(i pulumi.IntInput) AuthorizerTagOutput {
 	}).(AuthorizerTagOutput)
 }
 
+type BillingGroupPropertiesProperties struct {
+	BillingGroupDescription *string `pulumi:"billingGroupDescription"`
+}
+
+// BillingGroupPropertiesPropertiesInput is an input type that accepts BillingGroupPropertiesPropertiesArgs and BillingGroupPropertiesPropertiesOutput values.
+// You can construct a concrete instance of `BillingGroupPropertiesPropertiesInput` via:
+//
+//	BillingGroupPropertiesPropertiesArgs{...}
+type BillingGroupPropertiesPropertiesInput interface {
+	pulumi.Input
+
+	ToBillingGroupPropertiesPropertiesOutput() BillingGroupPropertiesPropertiesOutput
+	ToBillingGroupPropertiesPropertiesOutputWithContext(context.Context) BillingGroupPropertiesPropertiesOutput
+}
+
+type BillingGroupPropertiesPropertiesArgs struct {
+	BillingGroupDescription pulumi.StringPtrInput `pulumi:"billingGroupDescription"`
+}
+
+func (BillingGroupPropertiesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingGroupPropertiesProperties)(nil)).Elem()
+}
+
+func (i BillingGroupPropertiesPropertiesArgs) ToBillingGroupPropertiesPropertiesOutput() BillingGroupPropertiesPropertiesOutput {
+	return i.ToBillingGroupPropertiesPropertiesOutputWithContext(context.Background())
+}
+
+func (i BillingGroupPropertiesPropertiesArgs) ToBillingGroupPropertiesPropertiesOutputWithContext(ctx context.Context) BillingGroupPropertiesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupPropertiesPropertiesOutput)
+}
+
+func (i BillingGroupPropertiesPropertiesArgs) ToBillingGroupPropertiesPropertiesPtrOutput() BillingGroupPropertiesPropertiesPtrOutput {
+	return i.ToBillingGroupPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BillingGroupPropertiesPropertiesArgs) ToBillingGroupPropertiesPropertiesPtrOutputWithContext(ctx context.Context) BillingGroupPropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupPropertiesPropertiesOutput).ToBillingGroupPropertiesPropertiesPtrOutputWithContext(ctx)
+}
+
+// BillingGroupPropertiesPropertiesPtrInput is an input type that accepts BillingGroupPropertiesPropertiesArgs, BillingGroupPropertiesPropertiesPtr and BillingGroupPropertiesPropertiesPtrOutput values.
+// You can construct a concrete instance of `BillingGroupPropertiesPropertiesPtrInput` via:
+//
+//	        BillingGroupPropertiesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BillingGroupPropertiesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBillingGroupPropertiesPropertiesPtrOutput() BillingGroupPropertiesPropertiesPtrOutput
+	ToBillingGroupPropertiesPropertiesPtrOutputWithContext(context.Context) BillingGroupPropertiesPropertiesPtrOutput
+}
+
+type billingGroupPropertiesPropertiesPtrType BillingGroupPropertiesPropertiesArgs
+
+func BillingGroupPropertiesPropertiesPtr(v *BillingGroupPropertiesPropertiesArgs) BillingGroupPropertiesPropertiesPtrInput {
+	return (*billingGroupPropertiesPropertiesPtrType)(v)
+}
+
+func (*billingGroupPropertiesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BillingGroupPropertiesProperties)(nil)).Elem()
+}
+
+func (i *billingGroupPropertiesPropertiesPtrType) ToBillingGroupPropertiesPropertiesPtrOutput() BillingGroupPropertiesPropertiesPtrOutput {
+	return i.ToBillingGroupPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *billingGroupPropertiesPropertiesPtrType) ToBillingGroupPropertiesPropertiesPtrOutputWithContext(ctx context.Context) BillingGroupPropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupPropertiesPropertiesPtrOutput)
+}
+
+type BillingGroupPropertiesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BillingGroupPropertiesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingGroupPropertiesProperties)(nil)).Elem()
+}
+
+func (o BillingGroupPropertiesPropertiesOutput) ToBillingGroupPropertiesPropertiesOutput() BillingGroupPropertiesPropertiesOutput {
+	return o
+}
+
+func (o BillingGroupPropertiesPropertiesOutput) ToBillingGroupPropertiesPropertiesOutputWithContext(ctx context.Context) BillingGroupPropertiesPropertiesOutput {
+	return o
+}
+
+func (o BillingGroupPropertiesPropertiesOutput) ToBillingGroupPropertiesPropertiesPtrOutput() BillingGroupPropertiesPropertiesPtrOutput {
+	return o.ToBillingGroupPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BillingGroupPropertiesPropertiesOutput) ToBillingGroupPropertiesPropertiesPtrOutputWithContext(ctx context.Context) BillingGroupPropertiesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BillingGroupPropertiesProperties) *BillingGroupPropertiesProperties {
+		return &v
+	}).(BillingGroupPropertiesPropertiesPtrOutput)
+}
+
+func (o BillingGroupPropertiesPropertiesOutput) BillingGroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingGroupPropertiesProperties) *string { return v.BillingGroupDescription }).(pulumi.StringPtrOutput)
+}
+
+type BillingGroupPropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BillingGroupPropertiesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BillingGroupPropertiesProperties)(nil)).Elem()
+}
+
+func (o BillingGroupPropertiesPropertiesPtrOutput) ToBillingGroupPropertiesPropertiesPtrOutput() BillingGroupPropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o BillingGroupPropertiesPropertiesPtrOutput) ToBillingGroupPropertiesPropertiesPtrOutputWithContext(ctx context.Context) BillingGroupPropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o BillingGroupPropertiesPropertiesPtrOutput) Elem() BillingGroupPropertiesPropertiesOutput {
+	return o.ApplyT(func(v *BillingGroupPropertiesProperties) BillingGroupPropertiesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BillingGroupPropertiesProperties
+		return ret
+	}).(BillingGroupPropertiesPropertiesOutput)
+}
+
+func (o BillingGroupPropertiesPropertiesPtrOutput) BillingGroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingGroupPropertiesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingGroupDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type BillingGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// BillingGroupTagInput is an input type that accepts BillingGroupTagArgs and BillingGroupTagOutput values.
+// You can construct a concrete instance of `BillingGroupTagInput` via:
+//
+//	BillingGroupTagArgs{...}
+type BillingGroupTagInput interface {
+	pulumi.Input
+
+	ToBillingGroupTagOutput() BillingGroupTagOutput
+	ToBillingGroupTagOutputWithContext(context.Context) BillingGroupTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type BillingGroupTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (BillingGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingGroupTag)(nil)).Elem()
+}
+
+func (i BillingGroupTagArgs) ToBillingGroupTagOutput() BillingGroupTagOutput {
+	return i.ToBillingGroupTagOutputWithContext(context.Background())
+}
+
+func (i BillingGroupTagArgs) ToBillingGroupTagOutputWithContext(ctx context.Context) BillingGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupTagOutput)
+}
+
+// BillingGroupTagArrayInput is an input type that accepts BillingGroupTagArray and BillingGroupTagArrayOutput values.
+// You can construct a concrete instance of `BillingGroupTagArrayInput` via:
+//
+//	BillingGroupTagArray{ BillingGroupTagArgs{...} }
+type BillingGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToBillingGroupTagArrayOutput() BillingGroupTagArrayOutput
+	ToBillingGroupTagArrayOutputWithContext(context.Context) BillingGroupTagArrayOutput
+}
+
+type BillingGroupTagArray []BillingGroupTagInput
+
+func (BillingGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingGroupTag)(nil)).Elem()
+}
+
+func (i BillingGroupTagArray) ToBillingGroupTagArrayOutput() BillingGroupTagArrayOutput {
+	return i.ToBillingGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i BillingGroupTagArray) ToBillingGroupTagArrayOutputWithContext(ctx context.Context) BillingGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type BillingGroupTagOutput struct{ *pulumi.OutputState }
+
+func (BillingGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingGroupTag)(nil)).Elem()
+}
+
+func (o BillingGroupTagOutput) ToBillingGroupTagOutput() BillingGroupTagOutput {
+	return o
+}
+
+func (o BillingGroupTagOutput) ToBillingGroupTagOutputWithContext(ctx context.Context) BillingGroupTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o BillingGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BillingGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o BillingGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BillingGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type BillingGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (BillingGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingGroupTag)(nil)).Elem()
+}
+
+func (o BillingGroupTagArrayOutput) ToBillingGroupTagArrayOutput() BillingGroupTagArrayOutput {
+	return o
+}
+
+func (o BillingGroupTagArrayOutput) ToBillingGroupTagArrayOutputWithContext(ctx context.Context) BillingGroupTagArrayOutput {
+	return o
+}
+
+func (o BillingGroupTagArrayOutput) Index(i pulumi.IntInput) BillingGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BillingGroupTag {
+		return vs[0].([]BillingGroupTag)[vs[1].(int)]
+	}).(BillingGroupTagOutput)
+}
+
 type CACertificateRegistrationConfig struct {
 	RoleArn      *string `pulumi:"roleArn"`
 	TemplateBody *string `pulumi:"templateBody"`
@@ -6472,6 +6714,653 @@ func (o ThingAttributePayloadPtrOutput) Attributes() pulumi.AnyOutput {
 		}
 		return v.Attributes
 	}).(pulumi.AnyOutput)
+}
+
+type ThingGroupAttributePayload struct {
+	Attributes interface{} `pulumi:"attributes"`
+}
+
+// ThingGroupAttributePayloadInput is an input type that accepts ThingGroupAttributePayloadArgs and ThingGroupAttributePayloadOutput values.
+// You can construct a concrete instance of `ThingGroupAttributePayloadInput` via:
+//
+//	ThingGroupAttributePayloadArgs{...}
+type ThingGroupAttributePayloadInput interface {
+	pulumi.Input
+
+	ToThingGroupAttributePayloadOutput() ThingGroupAttributePayloadOutput
+	ToThingGroupAttributePayloadOutputWithContext(context.Context) ThingGroupAttributePayloadOutput
+}
+
+type ThingGroupAttributePayloadArgs struct {
+	Attributes pulumi.Input `pulumi:"attributes"`
+}
+
+func (ThingGroupAttributePayloadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupAttributePayload)(nil)).Elem()
+}
+
+func (i ThingGroupAttributePayloadArgs) ToThingGroupAttributePayloadOutput() ThingGroupAttributePayloadOutput {
+	return i.ToThingGroupAttributePayloadOutputWithContext(context.Background())
+}
+
+func (i ThingGroupAttributePayloadArgs) ToThingGroupAttributePayloadOutputWithContext(ctx context.Context) ThingGroupAttributePayloadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupAttributePayloadOutput)
+}
+
+func (i ThingGroupAttributePayloadArgs) ToThingGroupAttributePayloadPtrOutput() ThingGroupAttributePayloadPtrOutput {
+	return i.ToThingGroupAttributePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i ThingGroupAttributePayloadArgs) ToThingGroupAttributePayloadPtrOutputWithContext(ctx context.Context) ThingGroupAttributePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupAttributePayloadOutput).ToThingGroupAttributePayloadPtrOutputWithContext(ctx)
+}
+
+// ThingGroupAttributePayloadPtrInput is an input type that accepts ThingGroupAttributePayloadArgs, ThingGroupAttributePayloadPtr and ThingGroupAttributePayloadPtrOutput values.
+// You can construct a concrete instance of `ThingGroupAttributePayloadPtrInput` via:
+//
+//	        ThingGroupAttributePayloadArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThingGroupAttributePayloadPtrInput interface {
+	pulumi.Input
+
+	ToThingGroupAttributePayloadPtrOutput() ThingGroupAttributePayloadPtrOutput
+	ToThingGroupAttributePayloadPtrOutputWithContext(context.Context) ThingGroupAttributePayloadPtrOutput
+}
+
+type thingGroupAttributePayloadPtrType ThingGroupAttributePayloadArgs
+
+func ThingGroupAttributePayloadPtr(v *ThingGroupAttributePayloadArgs) ThingGroupAttributePayloadPtrInput {
+	return (*thingGroupAttributePayloadPtrType)(v)
+}
+
+func (*thingGroupAttributePayloadPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingGroupAttributePayload)(nil)).Elem()
+}
+
+func (i *thingGroupAttributePayloadPtrType) ToThingGroupAttributePayloadPtrOutput() ThingGroupAttributePayloadPtrOutput {
+	return i.ToThingGroupAttributePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i *thingGroupAttributePayloadPtrType) ToThingGroupAttributePayloadPtrOutputWithContext(ctx context.Context) ThingGroupAttributePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupAttributePayloadPtrOutput)
+}
+
+type ThingGroupAttributePayloadOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupAttributePayloadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupAttributePayload)(nil)).Elem()
+}
+
+func (o ThingGroupAttributePayloadOutput) ToThingGroupAttributePayloadOutput() ThingGroupAttributePayloadOutput {
+	return o
+}
+
+func (o ThingGroupAttributePayloadOutput) ToThingGroupAttributePayloadOutputWithContext(ctx context.Context) ThingGroupAttributePayloadOutput {
+	return o
+}
+
+func (o ThingGroupAttributePayloadOutput) ToThingGroupAttributePayloadPtrOutput() ThingGroupAttributePayloadPtrOutput {
+	return o.ToThingGroupAttributePayloadPtrOutputWithContext(context.Background())
+}
+
+func (o ThingGroupAttributePayloadOutput) ToThingGroupAttributePayloadPtrOutputWithContext(ctx context.Context) ThingGroupAttributePayloadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingGroupAttributePayload) *ThingGroupAttributePayload {
+		return &v
+	}).(ThingGroupAttributePayloadPtrOutput)
+}
+
+func (o ThingGroupAttributePayloadOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v ThingGroupAttributePayload) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+}
+
+type ThingGroupAttributePayloadPtrOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupAttributePayloadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingGroupAttributePayload)(nil)).Elem()
+}
+
+func (o ThingGroupAttributePayloadPtrOutput) ToThingGroupAttributePayloadPtrOutput() ThingGroupAttributePayloadPtrOutput {
+	return o
+}
+
+func (o ThingGroupAttributePayloadPtrOutput) ToThingGroupAttributePayloadPtrOutputWithContext(ctx context.Context) ThingGroupAttributePayloadPtrOutput {
+	return o
+}
+
+func (o ThingGroupAttributePayloadPtrOutput) Elem() ThingGroupAttributePayloadOutput {
+	return o.ApplyT(func(v *ThingGroupAttributePayload) ThingGroupAttributePayload {
+		if v != nil {
+			return *v
+		}
+		var ret ThingGroupAttributePayload
+		return ret
+	}).(ThingGroupAttributePayloadOutput)
+}
+
+func (o ThingGroupAttributePayloadPtrOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ThingGroupAttributePayload) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(pulumi.AnyOutput)
+}
+
+type ThingGroupPropertiesProperties struct {
+	AttributePayload      *ThingGroupAttributePayload `pulumi:"attributePayload"`
+	ThingGroupDescription *string                     `pulumi:"thingGroupDescription"`
+}
+
+// ThingGroupPropertiesPropertiesInput is an input type that accepts ThingGroupPropertiesPropertiesArgs and ThingGroupPropertiesPropertiesOutput values.
+// You can construct a concrete instance of `ThingGroupPropertiesPropertiesInput` via:
+//
+//	ThingGroupPropertiesPropertiesArgs{...}
+type ThingGroupPropertiesPropertiesInput interface {
+	pulumi.Input
+
+	ToThingGroupPropertiesPropertiesOutput() ThingGroupPropertiesPropertiesOutput
+	ToThingGroupPropertiesPropertiesOutputWithContext(context.Context) ThingGroupPropertiesPropertiesOutput
+}
+
+type ThingGroupPropertiesPropertiesArgs struct {
+	AttributePayload      ThingGroupAttributePayloadPtrInput `pulumi:"attributePayload"`
+	ThingGroupDescription pulumi.StringPtrInput              `pulumi:"thingGroupDescription"`
+}
+
+func (ThingGroupPropertiesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupPropertiesProperties)(nil)).Elem()
+}
+
+func (i ThingGroupPropertiesPropertiesArgs) ToThingGroupPropertiesPropertiesOutput() ThingGroupPropertiesPropertiesOutput {
+	return i.ToThingGroupPropertiesPropertiesOutputWithContext(context.Background())
+}
+
+func (i ThingGroupPropertiesPropertiesArgs) ToThingGroupPropertiesPropertiesOutputWithContext(ctx context.Context) ThingGroupPropertiesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPropertiesPropertiesOutput)
+}
+
+func (i ThingGroupPropertiesPropertiesArgs) ToThingGroupPropertiesPropertiesPtrOutput() ThingGroupPropertiesPropertiesPtrOutput {
+	return i.ToThingGroupPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ThingGroupPropertiesPropertiesArgs) ToThingGroupPropertiesPropertiesPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPropertiesPropertiesOutput).ToThingGroupPropertiesPropertiesPtrOutputWithContext(ctx)
+}
+
+// ThingGroupPropertiesPropertiesPtrInput is an input type that accepts ThingGroupPropertiesPropertiesArgs, ThingGroupPropertiesPropertiesPtr and ThingGroupPropertiesPropertiesPtrOutput values.
+// You can construct a concrete instance of `ThingGroupPropertiesPropertiesPtrInput` via:
+//
+//	        ThingGroupPropertiesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThingGroupPropertiesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToThingGroupPropertiesPropertiesPtrOutput() ThingGroupPropertiesPropertiesPtrOutput
+	ToThingGroupPropertiesPropertiesPtrOutputWithContext(context.Context) ThingGroupPropertiesPropertiesPtrOutput
+}
+
+type thingGroupPropertiesPropertiesPtrType ThingGroupPropertiesPropertiesArgs
+
+func ThingGroupPropertiesPropertiesPtr(v *ThingGroupPropertiesPropertiesArgs) ThingGroupPropertiesPropertiesPtrInput {
+	return (*thingGroupPropertiesPropertiesPtrType)(v)
+}
+
+func (*thingGroupPropertiesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingGroupPropertiesProperties)(nil)).Elem()
+}
+
+func (i *thingGroupPropertiesPropertiesPtrType) ToThingGroupPropertiesPropertiesPtrOutput() ThingGroupPropertiesPropertiesPtrOutput {
+	return i.ToThingGroupPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *thingGroupPropertiesPropertiesPtrType) ToThingGroupPropertiesPropertiesPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPropertiesPropertiesPtrOutput)
+}
+
+type ThingGroupPropertiesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupPropertiesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupPropertiesProperties)(nil)).Elem()
+}
+
+func (o ThingGroupPropertiesPropertiesOutput) ToThingGroupPropertiesPropertiesOutput() ThingGroupPropertiesPropertiesOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesPropertiesOutput) ToThingGroupPropertiesPropertiesOutputWithContext(ctx context.Context) ThingGroupPropertiesPropertiesOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesPropertiesOutput) ToThingGroupPropertiesPropertiesPtrOutput() ThingGroupPropertiesPropertiesPtrOutput {
+	return o.ToThingGroupPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ThingGroupPropertiesPropertiesOutput) ToThingGroupPropertiesPropertiesPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingGroupPropertiesProperties) *ThingGroupPropertiesProperties {
+		return &v
+	}).(ThingGroupPropertiesPropertiesPtrOutput)
+}
+
+func (o ThingGroupPropertiesPropertiesOutput) AttributePayload() ThingGroupAttributePayloadPtrOutput {
+	return o.ApplyT(func(v ThingGroupPropertiesProperties) *ThingGroupAttributePayload { return v.AttributePayload }).(ThingGroupAttributePayloadPtrOutput)
+}
+
+func (o ThingGroupPropertiesPropertiesOutput) ThingGroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThingGroupPropertiesProperties) *string { return v.ThingGroupDescription }).(pulumi.StringPtrOutput)
+}
+
+type ThingGroupPropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupPropertiesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingGroupPropertiesProperties)(nil)).Elem()
+}
+
+func (o ThingGroupPropertiesPropertiesPtrOutput) ToThingGroupPropertiesPropertiesPtrOutput() ThingGroupPropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesPropertiesPtrOutput) ToThingGroupPropertiesPropertiesPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesPropertiesPtrOutput) Elem() ThingGroupPropertiesPropertiesOutput {
+	return o.ApplyT(func(v *ThingGroupPropertiesProperties) ThingGroupPropertiesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ThingGroupPropertiesProperties
+		return ret
+	}).(ThingGroupPropertiesPropertiesOutput)
+}
+
+func (o ThingGroupPropertiesPropertiesPtrOutput) AttributePayload() ThingGroupAttributePayloadPtrOutput {
+	return o.ApplyT(func(v *ThingGroupPropertiesProperties) *ThingGroupAttributePayload {
+		if v == nil {
+			return nil
+		}
+		return v.AttributePayload
+	}).(ThingGroupAttributePayloadPtrOutput)
+}
+
+func (o ThingGroupPropertiesPropertiesPtrOutput) ThingGroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThingGroupPropertiesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThingGroupDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ThingGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ThingGroupTagInput is an input type that accepts ThingGroupTagArgs and ThingGroupTagOutput values.
+// You can construct a concrete instance of `ThingGroupTagInput` via:
+//
+//	ThingGroupTagArgs{...}
+type ThingGroupTagInput interface {
+	pulumi.Input
+
+	ToThingGroupTagOutput() ThingGroupTagOutput
+	ToThingGroupTagOutputWithContext(context.Context) ThingGroupTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ThingGroupTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ThingGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupTag)(nil)).Elem()
+}
+
+func (i ThingGroupTagArgs) ToThingGroupTagOutput() ThingGroupTagOutput {
+	return i.ToThingGroupTagOutputWithContext(context.Background())
+}
+
+func (i ThingGroupTagArgs) ToThingGroupTagOutputWithContext(ctx context.Context) ThingGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupTagOutput)
+}
+
+// ThingGroupTagArrayInput is an input type that accepts ThingGroupTagArray and ThingGroupTagArrayOutput values.
+// You can construct a concrete instance of `ThingGroupTagArrayInput` via:
+//
+//	ThingGroupTagArray{ ThingGroupTagArgs{...} }
+type ThingGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToThingGroupTagArrayOutput() ThingGroupTagArrayOutput
+	ToThingGroupTagArrayOutputWithContext(context.Context) ThingGroupTagArrayOutput
+}
+
+type ThingGroupTagArray []ThingGroupTagInput
+
+func (ThingGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThingGroupTag)(nil)).Elem()
+}
+
+func (i ThingGroupTagArray) ToThingGroupTagArrayOutput() ThingGroupTagArrayOutput {
+	return i.ToThingGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i ThingGroupTagArray) ToThingGroupTagArrayOutputWithContext(ctx context.Context) ThingGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ThingGroupTagOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupTag)(nil)).Elem()
+}
+
+func (o ThingGroupTagOutput) ToThingGroupTagOutput() ThingGroupTagOutput {
+	return o
+}
+
+func (o ThingGroupTagOutput) ToThingGroupTagOutputWithContext(ctx context.Context) ThingGroupTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ThingGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ThingGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ThingGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ThingGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ThingGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThingGroupTag)(nil)).Elem()
+}
+
+func (o ThingGroupTagArrayOutput) ToThingGroupTagArrayOutput() ThingGroupTagArrayOutput {
+	return o
+}
+
+func (o ThingGroupTagArrayOutput) ToThingGroupTagArrayOutputWithContext(ctx context.Context) ThingGroupTagArrayOutput {
+	return o
+}
+
+func (o ThingGroupTagArrayOutput) Index(i pulumi.IntInput) ThingGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThingGroupTag {
+		return vs[0].([]ThingGroupTag)[vs[1].(int)]
+	}).(ThingGroupTagOutput)
+}
+
+type ThingTypePropertiesProperties struct {
+	SearchableAttributes []string `pulumi:"searchableAttributes"`
+	ThingTypeDescription *string  `pulumi:"thingTypeDescription"`
+}
+
+// ThingTypePropertiesPropertiesInput is an input type that accepts ThingTypePropertiesPropertiesArgs and ThingTypePropertiesPropertiesOutput values.
+// You can construct a concrete instance of `ThingTypePropertiesPropertiesInput` via:
+//
+//	ThingTypePropertiesPropertiesArgs{...}
+type ThingTypePropertiesPropertiesInput interface {
+	pulumi.Input
+
+	ToThingTypePropertiesPropertiesOutput() ThingTypePropertiesPropertiesOutput
+	ToThingTypePropertiesPropertiesOutputWithContext(context.Context) ThingTypePropertiesPropertiesOutput
+}
+
+type ThingTypePropertiesPropertiesArgs struct {
+	SearchableAttributes pulumi.StringArrayInput `pulumi:"searchableAttributes"`
+	ThingTypeDescription pulumi.StringPtrInput   `pulumi:"thingTypeDescription"`
+}
+
+func (ThingTypePropertiesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingTypePropertiesProperties)(nil)).Elem()
+}
+
+func (i ThingTypePropertiesPropertiesArgs) ToThingTypePropertiesPropertiesOutput() ThingTypePropertiesPropertiesOutput {
+	return i.ToThingTypePropertiesPropertiesOutputWithContext(context.Background())
+}
+
+func (i ThingTypePropertiesPropertiesArgs) ToThingTypePropertiesPropertiesOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePropertiesPropertiesOutput)
+}
+
+func (i ThingTypePropertiesPropertiesArgs) ToThingTypePropertiesPropertiesPtrOutput() ThingTypePropertiesPropertiesPtrOutput {
+	return i.ToThingTypePropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ThingTypePropertiesPropertiesArgs) ToThingTypePropertiesPropertiesPtrOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePropertiesPropertiesOutput).ToThingTypePropertiesPropertiesPtrOutputWithContext(ctx)
+}
+
+// ThingTypePropertiesPropertiesPtrInput is an input type that accepts ThingTypePropertiesPropertiesArgs, ThingTypePropertiesPropertiesPtr and ThingTypePropertiesPropertiesPtrOutput values.
+// You can construct a concrete instance of `ThingTypePropertiesPropertiesPtrInput` via:
+//
+//	        ThingTypePropertiesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThingTypePropertiesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToThingTypePropertiesPropertiesPtrOutput() ThingTypePropertiesPropertiesPtrOutput
+	ToThingTypePropertiesPropertiesPtrOutputWithContext(context.Context) ThingTypePropertiesPropertiesPtrOutput
+}
+
+type thingTypePropertiesPropertiesPtrType ThingTypePropertiesPropertiesArgs
+
+func ThingTypePropertiesPropertiesPtr(v *ThingTypePropertiesPropertiesArgs) ThingTypePropertiesPropertiesPtrInput {
+	return (*thingTypePropertiesPropertiesPtrType)(v)
+}
+
+func (*thingTypePropertiesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingTypePropertiesProperties)(nil)).Elem()
+}
+
+func (i *thingTypePropertiesPropertiesPtrType) ToThingTypePropertiesPropertiesPtrOutput() ThingTypePropertiesPropertiesPtrOutput {
+	return i.ToThingTypePropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *thingTypePropertiesPropertiesPtrType) ToThingTypePropertiesPropertiesPtrOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePropertiesPropertiesPtrOutput)
+}
+
+type ThingTypePropertiesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ThingTypePropertiesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingTypePropertiesProperties)(nil)).Elem()
+}
+
+func (o ThingTypePropertiesPropertiesOutput) ToThingTypePropertiesPropertiesOutput() ThingTypePropertiesPropertiesOutput {
+	return o
+}
+
+func (o ThingTypePropertiesPropertiesOutput) ToThingTypePropertiesPropertiesOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesOutput {
+	return o
+}
+
+func (o ThingTypePropertiesPropertiesOutput) ToThingTypePropertiesPropertiesPtrOutput() ThingTypePropertiesPropertiesPtrOutput {
+	return o.ToThingTypePropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ThingTypePropertiesPropertiesOutput) ToThingTypePropertiesPropertiesPtrOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingTypePropertiesProperties) *ThingTypePropertiesProperties {
+		return &v
+	}).(ThingTypePropertiesPropertiesPtrOutput)
+}
+
+func (o ThingTypePropertiesPropertiesOutput) SearchableAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ThingTypePropertiesProperties) []string { return v.SearchableAttributes }).(pulumi.StringArrayOutput)
+}
+
+func (o ThingTypePropertiesPropertiesOutput) ThingTypeDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThingTypePropertiesProperties) *string { return v.ThingTypeDescription }).(pulumi.StringPtrOutput)
+}
+
+type ThingTypePropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ThingTypePropertiesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingTypePropertiesProperties)(nil)).Elem()
+}
+
+func (o ThingTypePropertiesPropertiesPtrOutput) ToThingTypePropertiesPropertiesPtrOutput() ThingTypePropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o ThingTypePropertiesPropertiesPtrOutput) ToThingTypePropertiesPropertiesPtrOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o ThingTypePropertiesPropertiesPtrOutput) Elem() ThingTypePropertiesPropertiesOutput {
+	return o.ApplyT(func(v *ThingTypePropertiesProperties) ThingTypePropertiesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ThingTypePropertiesProperties
+		return ret
+	}).(ThingTypePropertiesPropertiesOutput)
+}
+
+func (o ThingTypePropertiesPropertiesPtrOutput) SearchableAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ThingTypePropertiesProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchableAttributes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ThingTypePropertiesPropertiesPtrOutput) ThingTypeDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThingTypePropertiesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThingTypeDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ThingTypeTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ThingTypeTagInput is an input type that accepts ThingTypeTagArgs and ThingTypeTagOutput values.
+// You can construct a concrete instance of `ThingTypeTagInput` via:
+//
+//	ThingTypeTagArgs{...}
+type ThingTypeTagInput interface {
+	pulumi.Input
+
+	ToThingTypeTagOutput() ThingTypeTagOutput
+	ToThingTypeTagOutputWithContext(context.Context) ThingTypeTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ThingTypeTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ThingTypeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingTypeTag)(nil)).Elem()
+}
+
+func (i ThingTypeTagArgs) ToThingTypeTagOutput() ThingTypeTagOutput {
+	return i.ToThingTypeTagOutputWithContext(context.Background())
+}
+
+func (i ThingTypeTagArgs) ToThingTypeTagOutputWithContext(ctx context.Context) ThingTypeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingTypeTagOutput)
+}
+
+// ThingTypeTagArrayInput is an input type that accepts ThingTypeTagArray and ThingTypeTagArrayOutput values.
+// You can construct a concrete instance of `ThingTypeTagArrayInput` via:
+//
+//	ThingTypeTagArray{ ThingTypeTagArgs{...} }
+type ThingTypeTagArrayInput interface {
+	pulumi.Input
+
+	ToThingTypeTagArrayOutput() ThingTypeTagArrayOutput
+	ToThingTypeTagArrayOutputWithContext(context.Context) ThingTypeTagArrayOutput
+}
+
+type ThingTypeTagArray []ThingTypeTagInput
+
+func (ThingTypeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThingTypeTag)(nil)).Elem()
+}
+
+func (i ThingTypeTagArray) ToThingTypeTagArrayOutput() ThingTypeTagArrayOutput {
+	return i.ToThingTypeTagArrayOutputWithContext(context.Background())
+}
+
+func (i ThingTypeTagArray) ToThingTypeTagArrayOutputWithContext(ctx context.Context) ThingTypeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingTypeTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ThingTypeTagOutput struct{ *pulumi.OutputState }
+
+func (ThingTypeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingTypeTag)(nil)).Elem()
+}
+
+func (o ThingTypeTagOutput) ToThingTypeTagOutput() ThingTypeTagOutput {
+	return o
+}
+
+func (o ThingTypeTagOutput) ToThingTypeTagOutputWithContext(ctx context.Context) ThingTypeTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ThingTypeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ThingTypeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ThingTypeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ThingTypeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ThingTypeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ThingTypeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThingTypeTag)(nil)).Elem()
+}
+
+func (o ThingTypeTagArrayOutput) ToThingTypeTagArrayOutput() ThingTypeTagArrayOutput {
+	return o
+}
+
+func (o ThingTypeTagArrayOutput) ToThingTypeTagArrayOutputWithContext(ctx context.Context) ThingTypeTagArrayOutput {
+	return o
+}
+
+func (o ThingTypeTagArrayOutput) Index(i pulumi.IntInput) ThingTypeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThingTypeTag {
+		return vs[0].([]ThingTypeTag)[vs[1].(int)]
+	}).(ThingTypeTagOutput)
 }
 
 // Specifies the amount of time each device has to finish its execution of the job.
@@ -13180,6 +14069,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrInput)(nil)).Elem(), AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerTagInput)(nil)).Elem(), AuthorizerTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerTagArrayInput)(nil)).Elem(), AuthorizerTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupPropertiesPropertiesInput)(nil)).Elem(), BillingGroupPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupPropertiesPropertiesPtrInput)(nil)).Elem(), BillingGroupPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupTagInput)(nil)).Elem(), BillingGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupTagArrayInput)(nil)).Elem(), BillingGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateRegistrationConfigInput)(nil)).Elem(), CACertificateRegistrationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateRegistrationConfigPtrInput)(nil)).Elem(), CACertificateRegistrationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CACertificateTagInput)(nil)).Elem(), CACertificateTagArgs{})
@@ -13257,6 +14150,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileTagArrayInput)(nil)).Elem(), SecurityProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingAttributePayloadInput)(nil)).Elem(), ThingAttributePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingAttributePayloadPtrInput)(nil)).Elem(), ThingAttributePayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupAttributePayloadInput)(nil)).Elem(), ThingGroupAttributePayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupAttributePayloadPtrInput)(nil)).Elem(), ThingGroupAttributePayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPropertiesPropertiesInput)(nil)).Elem(), ThingGroupPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPropertiesPropertiesPtrInput)(nil)).Elem(), ThingGroupPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupTagInput)(nil)).Elem(), ThingGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupTagArrayInput)(nil)).Elem(), ThingGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropertiesPropertiesInput)(nil)).Elem(), ThingTypePropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropertiesPropertiesPtrInput)(nil)).Elem(), ThingTypePropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypeTagInput)(nil)).Elem(), ThingTypeTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypeTagArrayInput)(nil)).Elem(), ThingTypeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeoutConfigPropertiesInput)(nil)).Elem(), TimeoutConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeoutConfigPropertiesPtrInput)(nil)).Elem(), TimeoutConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleActionInput)(nil)).Elem(), TopicRuleActionArgs{})
@@ -13349,6 +14252,10 @@ func init() {
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizerTagOutput{})
 	pulumi.RegisterOutputType(AuthorizerTagArrayOutput{})
+	pulumi.RegisterOutputType(BillingGroupPropertiesPropertiesOutput{})
+	pulumi.RegisterOutputType(BillingGroupPropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BillingGroupTagOutput{})
+	pulumi.RegisterOutputType(BillingGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(CACertificateRegistrationConfigOutput{})
 	pulumi.RegisterOutputType(CACertificateRegistrationConfigPtrOutput{})
 	pulumi.RegisterOutputType(CACertificateTagOutput{})
@@ -13429,6 +14336,16 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadPtrOutput{})
+	pulumi.RegisterOutputType(ThingGroupAttributePayloadOutput{})
+	pulumi.RegisterOutputType(ThingGroupAttributePayloadPtrOutput{})
+	pulumi.RegisterOutputType(ThingGroupPropertiesPropertiesOutput{})
+	pulumi.RegisterOutputType(ThingGroupPropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ThingGroupTagOutput{})
+	pulumi.RegisterOutputType(ThingGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(ThingTypePropertiesPropertiesOutput{})
+	pulumi.RegisterOutputType(ThingTypePropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ThingTypeTagOutput{})
+	pulumi.RegisterOutputType(ThingTypeTagArrayOutput{})
 	pulumi.RegisterOutputType(TimeoutConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(TimeoutConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleActionOutput{})

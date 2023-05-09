@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         public readonly int? DefaultJobTimeoutMinutes;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.ProjectTag> Tags;
+        public readonly Outputs.ProjectVpcConfig? VpcConfig;
 
         [OutputConstructor]
         private GetProjectResult(
@@ -64,12 +65,15 @@ namespace Pulumi.AwsNative.DeviceFarm
 
             string? name,
 
-            ImmutableArray<Outputs.ProjectTag> tags)
+            ImmutableArray<Outputs.ProjectTag> tags,
+
+            Outputs.ProjectVpcConfig? vpcConfig)
         {
             Arn = arn;
             DefaultJobTimeoutMinutes = defaultJobTimeoutMinutes;
             Name = name;
             Tags = tags;
+            VpcConfig = vpcConfig;
         }
     }
 }

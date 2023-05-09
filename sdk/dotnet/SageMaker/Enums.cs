@@ -510,6 +510,8 @@ namespace Pulumi.AwsNative.SageMaker
         public static DomainResourceSpecInstanceType MlG516xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.16xlarge");
         public static DomainResourceSpecInstanceType MlG524xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.24xlarge");
         public static DomainResourceSpecInstanceType MlG548xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.48xlarge");
+        public static DomainResourceSpecInstanceType MlP4d24xlarge { get; } = new DomainResourceSpecInstanceType("ml.p4d.24xlarge");
+        public static DomainResourceSpecInstanceType MlP4de24xlarge { get; } = new DomainResourceSpecInstanceType("ml.p4de.24xlarge");
         public static DomainResourceSpecInstanceType MlGeospatialInteractive { get; } = new DomainResourceSpecInstanceType("ml.geospatial.interactive");
 
         public static bool operator ==(DomainResourceSpecInstanceType left, DomainResourceSpecInstanceType right) => left.Equals(right);
@@ -2176,6 +2178,8 @@ namespace Pulumi.AwsNative.SageMaker
         public static SpaceResourceSpecInstanceType MlG516xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.16xlarge");
         public static SpaceResourceSpecInstanceType MlG524xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.24xlarge");
         public static SpaceResourceSpecInstanceType MlG548xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.48xlarge");
+        public static SpaceResourceSpecInstanceType MlP4d24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p4d.24xlarge");
+        public static SpaceResourceSpecInstanceType MlP4de24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p4de.24xlarge");
         public static SpaceResourceSpecInstanceType MlGeospatialInteractive { get; } = new SpaceResourceSpecInstanceType("ml.geospatial.interactive");
 
         public static bool operator ==(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => left.Equals(right);
@@ -2325,6 +2329,8 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileResourceSpecInstanceType MlG516xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.16xlarge");
         public static UserProfileResourceSpecInstanceType MlG524xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.24xlarge");
         public static UserProfileResourceSpecInstanceType MlG548xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.48xlarge");
+        public static UserProfileResourceSpecInstanceType MlP4d24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p4d.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlP4de24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p4de.24xlarge");
         public static UserProfileResourceSpecInstanceType MlGeospatialInteractive { get; } = new UserProfileResourceSpecInstanceType("ml.geospatial.interactive");
 
         public static bool operator ==(UserProfileResourceSpecInstanceType left, UserProfileResourceSpecInstanceType right) => left.Equals(right);

@@ -29,8 +29,8 @@ type Disk struct {
 	// Iops of the Lightsail disk
 	Iops pulumi.IntOutput `pulumi:"iops"`
 	// Check is Disk is attached state
-	IsAttached pulumi.BoolOutput  `pulumi:"isAttached"`
-	Location   DiskLocationOutput `pulumi:"location"`
+	IsAttached pulumi.BoolOutput     `pulumi:"isAttached"`
+	Location   DiskLocationPtrOutput `pulumi:"location"`
 	// Path of the  attached Disk
 	Path pulumi.StringOutput `pulumi:"path"`
 	// Resource type of Lightsail instance.
@@ -92,7 +92,8 @@ type diskArgs struct {
 	// The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The names to use for your new Lightsail disk.
-	DiskName *string `pulumi:"diskName"`
+	DiskName *string       `pulumi:"diskName"`
+	Location *DiskLocation `pulumi:"location"`
 	// Size of the Lightsail disk
 	SizeInGb int `pulumi:"sizeInGb"`
 	// An array of key-value pairs to apply to this resource.
@@ -107,6 +108,7 @@ type DiskArgs struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The names to use for your new Lightsail disk.
 	DiskName pulumi.StringPtrInput
+	Location DiskLocationPtrInput
 	// Size of the Lightsail disk
 	SizeInGb pulumi.IntInput
 	// An array of key-value pairs to apply to this resource.
@@ -189,8 +191,8 @@ func (o DiskOutput) IsAttached() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Disk) pulumi.BoolOutput { return v.IsAttached }).(pulumi.BoolOutput)
 }
 
-func (o DiskOutput) Location() DiskLocationOutput {
-	return o.ApplyT(func(v *Disk) DiskLocationOutput { return v.Location }).(DiskLocationOutput)
+func (o DiskOutput) Location() DiskLocationPtrOutput {
+	return o.ApplyT(func(v *Disk) DiskLocationPtrOutput { return v.Location }).(DiskLocationPtrOutput)
 }
 
 // Path of the  attached Disk

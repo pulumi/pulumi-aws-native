@@ -48,7 +48,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * The case-sensitive name of the new group. Names must be unique.
      */
-    public readonly groupName!: pulumi.Output<string | undefined>;
+    public readonly groupName!: pulumi.Output<string>;
     public readonly insightsConfiguration!: pulumi.Output<outputs.xray.GroupInsightsConfiguration | undefined>;
     public readonly tags!: pulumi.Output<outputs.xray.GroupTag[] | undefined>;
 

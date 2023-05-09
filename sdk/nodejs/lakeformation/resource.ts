@@ -40,6 +40,7 @@ export class Resource extends pulumi.CustomResource {
     public readonly resourceArn!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
     public readonly useServiceLinkedRole!: pulumi.Output<boolean>;
+    public readonly withFederation!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -63,10 +64,12 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["useServiceLinkedRole"] = args ? args.useServiceLinkedRole : undefined;
+            resourceInputs["withFederation"] = args ? args.withFederation : undefined;
         } else {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["useServiceLinkedRole"] = undefined /*out*/;
+            resourceInputs["withFederation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Resource.__pulumiType, name, resourceInputs, opts);
@@ -80,4 +83,5 @@ export interface ResourceArgs {
     resourceArn: pulumi.Input<string>;
     roleArn?: pulumi.Input<string>;
     useServiceLinkedRole: pulumi.Input<boolean>;
+    withFederation?: pulumi.Input<boolean>;
 }

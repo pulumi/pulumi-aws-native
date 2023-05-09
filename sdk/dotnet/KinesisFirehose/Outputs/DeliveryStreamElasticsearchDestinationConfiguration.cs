@@ -14,7 +14,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamElasticsearchDestinationConfiguration
     {
         public readonly Outputs.DeliveryStreamElasticsearchBufferingHints? BufferingHints;
-        public readonly Outputs.DeliveryStreamBulkRequestCustomizationConfiguration? BulkRequestCustomizationConfiguration;
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         public readonly string? ClusterEndpoint;
         public readonly Outputs.DeliveryStreamDocumentIdOptions? DocumentIdOptions;
@@ -32,8 +31,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         [OutputConstructor]
         private DeliveryStreamElasticsearchDestinationConfiguration(
             Outputs.DeliveryStreamElasticsearchBufferingHints? bufferingHints,
-
-            Outputs.DeliveryStreamBulkRequestCustomizationConfiguration? bulkRequestCustomizationConfiguration,
 
             Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
@@ -62,7 +59,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             Outputs.DeliveryStreamVpcConfiguration? vpcConfiguration)
         {
             BufferingHints = bufferingHints;
-            BulkRequestCustomizationConfiguration = bulkRequestCustomizationConfiguration;
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
             ClusterEndpoint = clusterEndpoint;
             DocumentIdOptions = documentIdOptions;

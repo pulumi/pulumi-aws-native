@@ -10,6 +10,81 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccessPointAlias struct {
+	// The status of the Object Lambda alias.
+	Status string `pulumi:"status"`
+	// The value of the Object Lambda alias.
+	Value string `pulumi:"value"`
+}
+
+type AccessPointAliasOutput struct{ *pulumi.OutputState }
+
+func (AccessPointAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointAlias)(nil)).Elem()
+}
+
+func (o AccessPointAliasOutput) ToAccessPointAliasOutput() AccessPointAliasOutput {
+	return o
+}
+
+func (o AccessPointAliasOutput) ToAccessPointAliasOutputWithContext(ctx context.Context) AccessPointAliasOutput {
+	return o
+}
+
+// The status of the Object Lambda alias.
+func (o AccessPointAliasOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessPointAlias) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The value of the Object Lambda alias.
+func (o AccessPointAliasOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessPointAlias) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AccessPointAliasPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointAliasPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointAlias)(nil)).Elem()
+}
+
+func (o AccessPointAliasPtrOutput) ToAccessPointAliasPtrOutput() AccessPointAliasPtrOutput {
+	return o
+}
+
+func (o AccessPointAliasPtrOutput) ToAccessPointAliasPtrOutputWithContext(ctx context.Context) AccessPointAliasPtrOutput {
+	return o
+}
+
+func (o AccessPointAliasPtrOutput) Elem() AccessPointAliasOutput {
+	return o.ApplyT(func(v *AccessPointAlias) AccessPointAlias {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointAlias
+		return ret
+	}).(AccessPointAliasOutput)
+}
+
+// The status of the Object Lambda alias.
+func (o AccessPointAliasPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointAlias) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the Object Lambda alias.
+func (o AccessPointAliasPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointAlias) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccessPointAwsLambda struct {
 	FunctionArn     string  `pulumi:"functionArn"`
 	FunctionPayload *string `pulumi:"functionPayload"`
@@ -195,6 +270,64 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) TransformationConfigurati
 		}
 		return v.TransformationConfigurations
 	}).(AccessPointTransformationConfigurationArrayOutput)
+}
+
+type AccessPointPolicyStatus struct {
+	// Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
+	IsPublic *bool `pulumi:"isPublic"`
+}
+
+type AccessPointPolicyStatusOutput struct{ *pulumi.OutputState }
+
+func (AccessPointPolicyStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointPolicyStatus)(nil)).Elem()
+}
+
+func (o AccessPointPolicyStatusOutput) ToAccessPointPolicyStatusOutput() AccessPointPolicyStatusOutput {
+	return o
+}
+
+func (o AccessPointPolicyStatusOutput) ToAccessPointPolicyStatusOutputWithContext(ctx context.Context) AccessPointPolicyStatusOutput {
+	return o
+}
+
+// Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
+func (o AccessPointPolicyStatusOutput) IsPublic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessPointPolicyStatus) *bool { return v.IsPublic }).(pulumi.BoolPtrOutput)
+}
+
+type AccessPointPolicyStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointPolicyStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointPolicyStatus)(nil)).Elem()
+}
+
+func (o AccessPointPolicyStatusPtrOutput) ToAccessPointPolicyStatusPtrOutput() AccessPointPolicyStatusPtrOutput {
+	return o
+}
+
+func (o AccessPointPolicyStatusPtrOutput) ToAccessPointPolicyStatusPtrOutputWithContext(ctx context.Context) AccessPointPolicyStatusPtrOutput {
+	return o
+}
+
+func (o AccessPointPolicyStatusPtrOutput) Elem() AccessPointPolicyStatusOutput {
+	return o.ApplyT(func(v *AccessPointPolicyStatus) AccessPointPolicyStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointPolicyStatus
+		return ret
+	}).(AccessPointPolicyStatusOutput)
+}
+
+// Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
+func (o AccessPointPolicyStatusPtrOutput) IsPublic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPointPolicyStatus) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsPublic
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Public Access Block Configuration is used to block policies that would allow public access to this Object lambda Access Point. All public access to Object lambda Access Points are blocked by default, and any policy that would give public access to them will be also blocked. This behavior cannot be changed for Object lambda Access Points.
@@ -479,155 +612,22 @@ func (o AccessPointTransformationConfigurationContentTransformationPropertiesOut
 	}).(AccessPointAwsLambdaOutput)
 }
 
-type AliasProperties struct {
-	// The status of the Object Lambda alias.
-	Status *string `pulumi:"status"`
-	// The value of the Object Lambda alias.
-	Value *string `pulumi:"value"`
-}
-
-type AliasPropertiesOutput struct{ *pulumi.OutputState }
-
-func (AliasPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AliasProperties)(nil)).Elem()
-}
-
-func (o AliasPropertiesOutput) ToAliasPropertiesOutput() AliasPropertiesOutput {
-	return o
-}
-
-func (o AliasPropertiesOutput) ToAliasPropertiesOutputWithContext(ctx context.Context) AliasPropertiesOutput {
-	return o
-}
-
-// The status of the Object Lambda alias.
-func (o AliasPropertiesOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AliasProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// The value of the Object Lambda alias.
-func (o AliasPropertiesOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AliasProperties) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type AliasPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (AliasPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AliasProperties)(nil)).Elem()
-}
-
-func (o AliasPropertiesPtrOutput) ToAliasPropertiesPtrOutput() AliasPropertiesPtrOutput {
-	return o
-}
-
-func (o AliasPropertiesPtrOutput) ToAliasPropertiesPtrOutputWithContext(ctx context.Context) AliasPropertiesPtrOutput {
-	return o
-}
-
-func (o AliasPropertiesPtrOutput) Elem() AliasPropertiesOutput {
-	return o.ApplyT(func(v *AliasProperties) AliasProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AliasProperties
-		return ret
-	}).(AliasPropertiesOutput)
-}
-
-// The status of the Object Lambda alias.
-func (o AliasPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AliasProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the Object Lambda alias.
-func (o AliasPropertiesPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AliasProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-type PolicyStatusProperties struct {
-	// Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
-	IsPublic *bool `pulumi:"isPublic"`
-}
-
-type PolicyStatusPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PolicyStatusPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyStatusProperties)(nil)).Elem()
-}
-
-func (o PolicyStatusPropertiesOutput) ToPolicyStatusPropertiesOutput() PolicyStatusPropertiesOutput {
-	return o
-}
-
-func (o PolicyStatusPropertiesOutput) ToPolicyStatusPropertiesOutputWithContext(ctx context.Context) PolicyStatusPropertiesOutput {
-	return o
-}
-
-// Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
-func (o PolicyStatusPropertiesOutput) IsPublic() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PolicyStatusProperties) *bool { return v.IsPublic }).(pulumi.BoolPtrOutput)
-}
-
-type PolicyStatusPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyStatusPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyStatusProperties)(nil)).Elem()
-}
-
-func (o PolicyStatusPropertiesPtrOutput) ToPolicyStatusPropertiesPtrOutput() PolicyStatusPropertiesPtrOutput {
-	return o
-}
-
-func (o PolicyStatusPropertiesPtrOutput) ToPolicyStatusPropertiesPtrOutputWithContext(ctx context.Context) PolicyStatusPropertiesPtrOutput {
-	return o
-}
-
-func (o PolicyStatusPropertiesPtrOutput) Elem() PolicyStatusPropertiesOutput {
-	return o.ApplyT(func(v *PolicyStatusProperties) PolicyStatusProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyStatusProperties
-		return ret
-	}).(PolicyStatusPropertiesOutput)
-}
-
-// Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
-func (o PolicyStatusPropertiesPtrOutput) IsPublic() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PolicyStatusProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsPublic
-	}).(pulumi.BoolPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointAwsLambdaInput)(nil)).Elem(), AccessPointAwsLambdaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointObjectLambdaConfigurationInput)(nil)).Elem(), AccessPointObjectLambdaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTransformationConfigurationInput)(nil)).Elem(), AccessPointTransformationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTransformationConfigurationArrayInput)(nil)).Elem(), AccessPointTransformationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTransformationConfigurationContentTransformationPropertiesInput)(nil)).Elem(), AccessPointTransformationConfigurationContentTransformationPropertiesArgs{})
+	pulumi.RegisterOutputType(AccessPointAliasOutput{})
+	pulumi.RegisterOutputType(AccessPointAliasPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointAwsLambdaOutput{})
 	pulumi.RegisterOutputType(AccessPointObjectLambdaConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointObjectLambdaConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointPolicyStatusOutput{})
+	pulumi.RegisterOutputType(AccessPointPolicyStatusPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointTransformationConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointTransformationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AccessPointTransformationConfigurationContentTransformationPropertiesOutput{})
-	pulumi.RegisterOutputType(AliasPropertiesOutput{})
-	pulumi.RegisterOutputType(AliasPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(PolicyStatusPropertiesOutput{})
-	pulumi.RegisterOutputType(PolicyStatusPropertiesPtrOutput{})
 }

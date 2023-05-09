@@ -19,19 +19,25 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataIntegrationResult:
-    def __init__(__self__, data_integration_arn=None, description=None, id=None, name=None, tags=None):
+    def __init__(__self__, data_integration_arn=None, description=None, file_configuration=None, id=None, name=None, object_configuration=None, tags=None):
         if data_integration_arn and not isinstance(data_integration_arn, str):
             raise TypeError("Expected argument 'data_integration_arn' to be a str")
         pulumi.set(__self__, "data_integration_arn", data_integration_arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if file_configuration and not isinstance(file_configuration, dict):
+            raise TypeError("Expected argument 'file_configuration' to be a dict")
+        pulumi.set(__self__, "file_configuration", file_configuration)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if object_configuration and not isinstance(object_configuration, dict):
+            raise TypeError("Expected argument 'object_configuration' to be a dict")
+        pulumi.set(__self__, "object_configuration", object_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -53,6 +59,14 @@ class GetDataIntegrationResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="fileConfiguration")
+    def file_configuration(self) -> Optional['outputs.DataIntegrationFileConfiguration']:
+        """
+        The configuration for what files should be pulled from the source.
+        """
+        return pulumi.get(self, "file_configuration")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
@@ -67,6 +81,14 @@ class GetDataIntegrationResult:
         The name of the data integration.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectConfiguration")
+    def object_configuration(self) -> Optional['outputs.DataIntegrationObjectConfiguration']:
+        """
+        The configuration for what data should be pulled from the source.
+        """
+        return pulumi.get(self, "object_configuration")
 
     @property
     @pulumi.getter
@@ -85,8 +107,10 @@ class AwaitableGetDataIntegrationResult(GetDataIntegrationResult):
         return GetDataIntegrationResult(
             data_integration_arn=self.data_integration_arn,
             description=self.description,
+            file_configuration=self.file_configuration,
             id=self.id,
             name=self.name,
+            object_configuration=self.object_configuration,
             tags=self.tags)
 
 
@@ -106,8 +130,10 @@ def get_data_integration(id: Optional[str] = None,
     return AwaitableGetDataIntegrationResult(
         data_integration_arn=__ret__.data_integration_arn,
         description=__ret__.description,
+        file_configuration=__ret__.file_configuration,
         id=__ret__.id,
         name=__ret__.name,
+        object_configuration=__ret__.object_configuration,
         tags=__ret__.tags)
 
 

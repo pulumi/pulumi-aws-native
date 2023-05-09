@@ -19,7 +19,7 @@ type Group struct {
 	// The ARN of the group that was generated on creation.
 	GroupARN pulumi.StringOutput `pulumi:"groupARN"`
 	// The case-sensitive name of the new group. Names must be unique.
-	GroupName             pulumi.StringPtrOutput              `pulumi:"groupName"`
+	GroupName             pulumi.StringOutput                 `pulumi:"groupName"`
 	InsightsConfiguration GroupInsightsConfigurationPtrOutput `pulumi:"insightsConfiguration"`
 	Tags                  GroupTagArrayOutput                 `pulumi:"tags"`
 }
@@ -129,8 +129,8 @@ func (o GroupOutput) GroupARN() pulumi.StringOutput {
 }
 
 // The case-sensitive name of the new group. Names must be unique.
-func (o GroupOutput) GroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
+func (o GroupOutput) GroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
 func (o GroupOutput) InsightsConfiguration() GroupInsightsConfigurationPtrOutput {

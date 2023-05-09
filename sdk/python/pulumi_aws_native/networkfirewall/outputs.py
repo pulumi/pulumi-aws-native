@@ -16,7 +16,9 @@ __all__ = [
     'FirewallPolicyActionDefinition',
     'FirewallPolicyCustomAction',
     'FirewallPolicyDimension',
+    'FirewallPolicyPolicyVariablesProperties',
     'FirewallPolicyPublishMetricAction',
+    'FirewallPolicyRuleVariables',
     'FirewallPolicyStatefulEngineOptions',
     'FirewallPolicyStatefulRuleGroupOverride',
     'FirewallPolicyStatefulRuleGroupReference',
@@ -58,6 +60,8 @@ class FirewallPolicy(dict):
             suggest = "stateless_default_actions"
         elif key == "statelessFragmentDefaultActions":
             suggest = "stateless_fragment_default_actions"
+        elif key == "policyVariables":
+            suggest = "policy_variables"
         elif key == "statefulDefaultActions":
             suggest = "stateful_default_actions"
         elif key == "statefulEngineOptions":
@@ -83,6 +87,7 @@ class FirewallPolicy(dict):
     def __init__(__self__, *,
                  stateless_default_actions: Sequence[str],
                  stateless_fragment_default_actions: Sequence[str],
+                 policy_variables: Optional['outputs.FirewallPolicyPolicyVariablesProperties'] = None,
                  stateful_default_actions: Optional[Sequence[str]] = None,
                  stateful_engine_options: Optional['outputs.FirewallPolicyStatefulEngineOptions'] = None,
                  stateful_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatefulRuleGroupReference']] = None,
@@ -90,6 +95,8 @@ class FirewallPolicy(dict):
                  stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatelessRuleGroupReference']] = None):
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        if policy_variables is not None:
+            pulumi.set(__self__, "policy_variables", policy_variables)
         if stateful_default_actions is not None:
             pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
         if stateful_engine_options is not None:
@@ -110,6 +117,11 @@ class FirewallPolicy(dict):
     @pulumi.getter(name="statelessFragmentDefaultActions")
     def stateless_fragment_default_actions(self) -> Sequence[str]:
         return pulumi.get(self, "stateless_fragment_default_actions")
+
+    @property
+    @pulumi.getter(name="policyVariables")
+    def policy_variables(self) -> Optional['outputs.FirewallPolicyPolicyVariablesProperties']:
+        return pulumi.get(self, "policy_variables")
 
     @property
     @pulumi.getter(name="statefulDefaultActions")
@@ -218,6 +230,36 @@ class FirewallPolicyDimension(dict):
 
 
 @pulumi.output_type
+class FirewallPolicyPolicyVariablesProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleVariables":
+            suggest = "rule_variables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyPolicyVariablesProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyPolicyVariablesProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyPolicyVariablesProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_variables: Optional['outputs.FirewallPolicyRuleVariables'] = None):
+        if rule_variables is not None:
+            pulumi.set(__self__, "rule_variables", rule_variables)
+
+    @property
+    @pulumi.getter(name="ruleVariables")
+    def rule_variables(self) -> Optional['outputs.FirewallPolicyRuleVariables']:
+        return pulumi.get(self, "rule_variables")
+
+
+@pulumi.output_type
 class FirewallPolicyPublishMetricAction(dict):
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.FirewallPolicyDimension']):
@@ -227,6 +269,12 @@ class FirewallPolicyPublishMetricAction(dict):
     @pulumi.getter
     def dimensions(self) -> Sequence['outputs.FirewallPolicyDimension']:
         return pulumi.get(self, "dimensions")
+
+
+@pulumi.output_type
+class FirewallPolicyRuleVariables(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type

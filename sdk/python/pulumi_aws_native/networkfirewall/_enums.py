@@ -33,6 +33,7 @@ class FirewallPolicyRuleOrder(str, Enum):
 class FirewallPolicyStreamExceptionPolicy(str, Enum):
     DROP = "DROP"
     CONTINUE_ = "CONTINUE"
+    REJECT = "REJECT"
 
 
 class LoggingConfigurationLogDestinationConfigLogDestinationType(str, Enum):

@@ -25,10 +25,11 @@ type LookupProjectArgs struct {
 }
 
 type LookupProjectResult struct {
-	Arn                      *string      `pulumi:"arn"`
-	DefaultJobTimeoutMinutes *int         `pulumi:"defaultJobTimeoutMinutes"`
-	Name                     *string      `pulumi:"name"`
-	Tags                     []ProjectTag `pulumi:"tags"`
+	Arn                      *string           `pulumi:"arn"`
+	DefaultJobTimeoutMinutes *int              `pulumi:"defaultJobTimeoutMinutes"`
+	Name                     *string           `pulumi:"name"`
+	Tags                     []ProjectTag      `pulumi:"tags"`
+	VpcConfig                *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
 
 func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
@@ -80,6 +81,10 @@ func (o LookupProjectResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupProjectResultOutput) Tags() ProjectTagArrayOutput {
 	return o.ApplyT(func(v LookupProjectResult) []ProjectTag { return v.Tags }).(ProjectTagArrayOutput)
+}
+
+func (o LookupProjectResultOutput) VpcConfig() ProjectVpcConfigPtrOutput {
+	return o.ApplyT(func(v LookupProjectResult) *ProjectVpcConfig { return v.VpcConfig }).(ProjectVpcConfigPtrOutput)
 }
 
 func init() {

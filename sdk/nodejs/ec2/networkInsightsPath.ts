@@ -42,6 +42,8 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     public /*out*/ readonly destinationArn!: pulumi.Output<string>;
     public readonly destinationIp!: pulumi.Output<string | undefined>;
     public readonly destinationPort!: pulumi.Output<number | undefined>;
+    public readonly filterAtDestination!: pulumi.Output<outputs.ec2.NetworkInsightsPathPathFilter | undefined>;
+    public readonly filterAtSource!: pulumi.Output<outputs.ec2.NetworkInsightsPathPathFilter | undefined>;
     public /*out*/ readonly networkInsightsPathArn!: pulumi.Output<string>;
     public /*out*/ readonly networkInsightsPathId!: pulumi.Output<string>;
     public readonly protocol!: pulumi.Output<enums.ec2.NetworkInsightsPathProtocol>;
@@ -70,6 +72,8 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["destinationIp"] = args ? args.destinationIp : undefined;
             resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
+            resourceInputs["filterAtDestination"] = args ? args.filterAtDestination : undefined;
+            resourceInputs["filterAtSource"] = args ? args.filterAtSource : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceIp"] = args ? args.sourceIp : undefined;
@@ -85,6 +89,8 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             resourceInputs["destinationArn"] = undefined /*out*/;
             resourceInputs["destinationIp"] = undefined /*out*/;
             resourceInputs["destinationPort"] = undefined /*out*/;
+            resourceInputs["filterAtDestination"] = undefined /*out*/;
+            resourceInputs["filterAtSource"] = undefined /*out*/;
             resourceInputs["networkInsightsPathArn"] = undefined /*out*/;
             resourceInputs["networkInsightsPathId"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
@@ -105,6 +111,8 @@ export interface NetworkInsightsPathArgs {
     destination?: pulumi.Input<string>;
     destinationIp?: pulumi.Input<string>;
     destinationPort?: pulumi.Input<number>;
+    filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathPathFilterArgs>;
+    filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathPathFilterArgs>;
     protocol: pulumi.Input<enums.ec2.NetworkInsightsPathProtocol>;
     source: pulumi.Input<string>;
     sourceIp?: pulumi.Input<string>;

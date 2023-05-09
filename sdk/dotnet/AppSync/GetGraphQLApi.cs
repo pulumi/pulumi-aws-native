@@ -55,12 +55,15 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? ApiId;
         public readonly string? Arn;
         public readonly string? AuthenticationType;
+        public readonly string? GraphQLDns;
         public readonly string? GraphQLUrl;
         public readonly string? Id;
         public readonly Outputs.GraphQLApiLambdaAuthorizerConfig? LambdaAuthorizerConfig;
         public readonly Outputs.GraphQLApiLogConfig? LogConfig;
         public readonly string? Name;
         public readonly Outputs.GraphQLApiOpenIDConnectConfig? OpenIDConnectConfig;
+        public readonly string? RealtimeDns;
+        public readonly string? RealtimeUrl;
         public readonly ImmutableArray<Outputs.GraphQLApiTag> Tags;
         public readonly Outputs.GraphQLApiUserPoolConfig? UserPoolConfig;
         public readonly bool? XrayEnabled;
@@ -75,6 +78,8 @@ namespace Pulumi.AwsNative.AppSync
 
             string? authenticationType,
 
+            string? graphQLDns,
+
             string? graphQLUrl,
 
             string? id,
@@ -87,6 +92,10 @@ namespace Pulumi.AwsNative.AppSync
 
             Outputs.GraphQLApiOpenIDConnectConfig? openIDConnectConfig,
 
+            string? realtimeDns,
+
+            string? realtimeUrl,
+
             ImmutableArray<Outputs.GraphQLApiTag> tags,
 
             Outputs.GraphQLApiUserPoolConfig? userPoolConfig,
@@ -97,12 +106,15 @@ namespace Pulumi.AwsNative.AppSync
             ApiId = apiId;
             Arn = arn;
             AuthenticationType = authenticationType;
+            GraphQLDns = graphQLDns;
             GraphQLUrl = graphQLUrl;
             Id = id;
             LambdaAuthorizerConfig = lambdaAuthorizerConfig;
             LogConfig = logConfig;
             Name = name;
             OpenIDConnectConfig = openIDConnectConfig;
+            RealtimeDns = realtimeDns;
+            RealtimeUrl = realtimeUrl;
             Tags = tags;
             UserPoolConfig = userPoolConfig;
             XrayEnabled = xrayEnabled;

@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
 
+        [Output("graphQLDns")]
+        public Output<string> GraphQLDns { get; private set; } = null!;
+
         [Output("graphQLUrl")]
         public Output<string> GraphQLUrl { get; private set; } = null!;
 
@@ -43,11 +46,20 @@ namespace Pulumi.AwsNative.AppSync
         [Output("openIDConnectConfig")]
         public Output<Outputs.GraphQLApiOpenIDConnectConfig?> OpenIDConnectConfig { get; private set; } = null!;
 
+        [Output("realtimeDns")]
+        public Output<string> RealtimeDns { get; private set; } = null!;
+
+        [Output("realtimeUrl")]
+        public Output<string> RealtimeUrl { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.GraphQLApiTag>> Tags { get; private set; } = null!;
 
         [Output("userPoolConfig")]
         public Output<Outputs.GraphQLApiUserPoolConfig?> UserPoolConfig { get; private set; } = null!;
+
+        [Output("visibility")]
+        public Output<string?> Visibility { get; private set; } = null!;
 
         [Output("xrayEnabled")]
         public Output<bool?> XrayEnabled { get; private set; } = null!;
@@ -130,6 +142,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigArgs>? UserPoolConfig { get; set; }
+
+        [Input("visibility")]
+        public Input<string>? Visibility { get; set; }
 
         [Input("xrayEnabled")]
         public Input<bool>? XrayEnabled { get; set; }

@@ -26,12 +26,6 @@ export const DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3Back
 
 export type DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode = (typeof DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode)[keyof typeof DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode];
 
-export const DeliveryStreamBulkRequestCustomizationConfigurationJqVersion = {
-    Jq16: "JQ_1_6",
-} as const;
-
-export type DeliveryStreamBulkRequestCustomizationConfigurationJqVersion = (typeof DeliveryStreamBulkRequestCustomizationConfigurationJqVersion)[keyof typeof DeliveryStreamBulkRequestCustomizationConfigurationJqVersion];
-
 export const DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat = {
     FirehoseDefault: "FIREHOSE_DEFAULT",
     NoDocumentId: "NO_DOCUMENT_ID",

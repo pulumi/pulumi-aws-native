@@ -24,6 +24,7 @@ class GraphQLApiArgs:
                  open_id_connect_config: Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiTagArgs']]]] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GraphQLApi resource.
@@ -43,6 +44,8 @@ class GraphQLApiArgs:
             pulumi.set(__self__, "tags", tags)
         if user_pool_config is not None:
             pulumi.set(__self__, "user_pool_config", user_pool_config)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
         if xray_enabled is not None:
             pulumi.set(__self__, "xray_enabled", xray_enabled)
 
@@ -119,6 +122,15 @@ class GraphQLApiArgs:
         pulumi.set(self, "user_pool_config", value)
 
     @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "visibility", value)
+
+    @property
     @pulumi.getter(name="xrayEnabled")
     def xray_enabled(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "xray_enabled")
@@ -146,6 +158,7 @@ class GraphQLApi(pulumi.CustomResource):
                  open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenIDConnectConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiTagArgs']]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -186,6 +199,7 @@ class GraphQLApi(pulumi.CustomResource):
                  open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenIDConnectConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiTagArgs']]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         pulumi.log.warn("""GraphQLApi is deprecated: GraphQLApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -207,10 +221,14 @@ class GraphQLApi(pulumi.CustomResource):
             __props__.__dict__["open_id_connect_config"] = open_id_connect_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_pool_config"] = user_pool_config
+            __props__.__dict__["visibility"] = visibility
             __props__.__dict__["xray_enabled"] = xray_enabled
             __props__.__dict__["api_id"] = None
             __props__.__dict__["arn"] = None
+            __props__.__dict__["graph_ql_dns"] = None
             __props__.__dict__["graph_ql_url"] = None
+            __props__.__dict__["realtime_dns"] = None
+            __props__.__dict__["realtime_url"] = None
         super(GraphQLApi, __self__).__init__(
             'aws-native:appsync:GraphQLApi',
             resource_name,
@@ -237,13 +255,17 @@ class GraphQLApi(pulumi.CustomResource):
         __props__.__dict__["api_id"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["authentication_type"] = None
+        __props__.__dict__["graph_ql_dns"] = None
         __props__.__dict__["graph_ql_url"] = None
         __props__.__dict__["lambda_authorizer_config"] = None
         __props__.__dict__["log_config"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["open_id_connect_config"] = None
+        __props__.__dict__["realtime_dns"] = None
+        __props__.__dict__["realtime_url"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["user_pool_config"] = None
+        __props__.__dict__["visibility"] = None
         __props__.__dict__["xray_enabled"] = None
         return GraphQLApi(resource_name, opts=opts, __props__=__props__)
 
@@ -266,6 +288,11 @@ class GraphQLApi(pulumi.CustomResource):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="graphQLDns")
+    def graph_ql_dns(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "graph_ql_dns")
 
     @property
     @pulumi.getter(name="graphQLUrl")
@@ -293,6 +320,16 @@ class GraphQLApi(pulumi.CustomResource):
         return pulumi.get(self, "open_id_connect_config")
 
     @property
+    @pulumi.getter(name="realtimeDns")
+    def realtime_dns(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "realtime_dns")
+
+    @property
+    @pulumi.getter(name="realtimeUrl")
+    def realtime_url(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "realtime_url")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GraphQLApiTag']]]:
         return pulumi.get(self, "tags")
@@ -301,6 +338,11 @@ class GraphQLApi(pulumi.CustomResource):
     @pulumi.getter(name="userPoolConfig")
     def user_pool_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiUserPoolConfig']]:
         return pulumi.get(self, "user_pool_config")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "visibility")
 
     @property
     @pulumi.getter(name="xrayEnabled")

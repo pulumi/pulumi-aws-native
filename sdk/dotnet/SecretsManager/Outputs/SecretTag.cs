@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecretsManager.Outputs
 {
 
+    /// <summary>
+    /// A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string.
+    /// </summary>
     [OutputType]
     public sealed class SecretTag
     {
+        /// <summary>
+        /// The value for the tag. You can specify a value that's 1 to 256 characters in length.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

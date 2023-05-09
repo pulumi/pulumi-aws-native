@@ -15,18 +15,20 @@ import (
 type NetworkInsightsPath struct {
 	pulumi.CustomResourceState
 
-	CreatedDate            pulumi.StringOutput               `pulumi:"createdDate"`
-	Destination            pulumi.StringPtrOutput            `pulumi:"destination"`
-	DestinationArn         pulumi.StringOutput               `pulumi:"destinationArn"`
-	DestinationIp          pulumi.StringPtrOutput            `pulumi:"destinationIp"`
-	DestinationPort        pulumi.IntPtrOutput               `pulumi:"destinationPort"`
-	NetworkInsightsPathArn pulumi.StringOutput               `pulumi:"networkInsightsPathArn"`
-	NetworkInsightsPathId  pulumi.StringOutput               `pulumi:"networkInsightsPathId"`
-	Protocol               NetworkInsightsPathProtocolOutput `pulumi:"protocol"`
-	Source                 pulumi.StringOutput               `pulumi:"source"`
-	SourceArn              pulumi.StringOutput               `pulumi:"sourceArn"`
-	SourceIp               pulumi.StringPtrOutput            `pulumi:"sourceIp"`
-	Tags                   NetworkInsightsPathTagArrayOutput `pulumi:"tags"`
+	CreatedDate            pulumi.StringOutput                    `pulumi:"createdDate"`
+	Destination            pulumi.StringPtrOutput                 `pulumi:"destination"`
+	DestinationArn         pulumi.StringOutput                    `pulumi:"destinationArn"`
+	DestinationIp          pulumi.StringPtrOutput                 `pulumi:"destinationIp"`
+	DestinationPort        pulumi.IntPtrOutput                    `pulumi:"destinationPort"`
+	FilterAtDestination    NetworkInsightsPathPathFilterPtrOutput `pulumi:"filterAtDestination"`
+	FilterAtSource         NetworkInsightsPathPathFilterPtrOutput `pulumi:"filterAtSource"`
+	NetworkInsightsPathArn pulumi.StringOutput                    `pulumi:"networkInsightsPathArn"`
+	NetworkInsightsPathId  pulumi.StringOutput                    `pulumi:"networkInsightsPathId"`
+	Protocol               NetworkInsightsPathProtocolOutput      `pulumi:"protocol"`
+	Source                 pulumi.StringOutput                    `pulumi:"source"`
+	SourceArn              pulumi.StringOutput                    `pulumi:"sourceArn"`
+	SourceIp               pulumi.StringPtrOutput                 `pulumi:"sourceIp"`
+	Tags                   NetworkInsightsPathTagArrayOutput      `pulumi:"tags"`
 }
 
 // NewNetworkInsightsPath registers a new resource with the given unique name, arguments, and options.
@@ -74,24 +76,28 @@ func (NetworkInsightsPathState) ElementType() reflect.Type {
 }
 
 type networkInsightsPathArgs struct {
-	Destination     *string                     `pulumi:"destination"`
-	DestinationIp   *string                     `pulumi:"destinationIp"`
-	DestinationPort *int                        `pulumi:"destinationPort"`
-	Protocol        NetworkInsightsPathProtocol `pulumi:"protocol"`
-	Source          string                      `pulumi:"source"`
-	SourceIp        *string                     `pulumi:"sourceIp"`
-	Tags            []NetworkInsightsPathTag    `pulumi:"tags"`
+	Destination         *string                        `pulumi:"destination"`
+	DestinationIp       *string                        `pulumi:"destinationIp"`
+	DestinationPort     *int                           `pulumi:"destinationPort"`
+	FilterAtDestination *NetworkInsightsPathPathFilter `pulumi:"filterAtDestination"`
+	FilterAtSource      *NetworkInsightsPathPathFilter `pulumi:"filterAtSource"`
+	Protocol            NetworkInsightsPathProtocol    `pulumi:"protocol"`
+	Source              string                         `pulumi:"source"`
+	SourceIp            *string                        `pulumi:"sourceIp"`
+	Tags                []NetworkInsightsPathTag       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInsightsPath resource.
 type NetworkInsightsPathArgs struct {
-	Destination     pulumi.StringPtrInput
-	DestinationIp   pulumi.StringPtrInput
-	DestinationPort pulumi.IntPtrInput
-	Protocol        NetworkInsightsPathProtocolInput
-	Source          pulumi.StringInput
-	SourceIp        pulumi.StringPtrInput
-	Tags            NetworkInsightsPathTagArrayInput
+	Destination         pulumi.StringPtrInput
+	DestinationIp       pulumi.StringPtrInput
+	DestinationPort     pulumi.IntPtrInput
+	FilterAtDestination NetworkInsightsPathPathFilterPtrInput
+	FilterAtSource      NetworkInsightsPathPathFilterPtrInput
+	Protocol            NetworkInsightsPathProtocolInput
+	Source              pulumi.StringInput
+	SourceIp            pulumi.StringPtrInput
+	Tags                NetworkInsightsPathTagArrayInput
 }
 
 func (NetworkInsightsPathArgs) ElementType() reflect.Type {
@@ -149,6 +155,14 @@ func (o NetworkInsightsPathOutput) DestinationIp() pulumi.StringPtrOutput {
 
 func (o NetworkInsightsPathOutput) DestinationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.IntPtrOutput { return v.DestinationPort }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkInsightsPathOutput) FilterAtDestination() NetworkInsightsPathPathFilterPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) NetworkInsightsPathPathFilterPtrOutput { return v.FilterAtDestination }).(NetworkInsightsPathPathFilterPtrOutput)
+}
+
+func (o NetworkInsightsPathOutput) FilterAtSource() NetworkInsightsPathPathFilterPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) NetworkInsightsPathPathFilterPtrOutput { return v.FilterAtSource }).(NetworkInsightsPathPathFilterPtrOutput)
 }
 
 func (o NetworkInsightsPathOutput) NetworkInsightsPathArn() pulumi.StringOutput {

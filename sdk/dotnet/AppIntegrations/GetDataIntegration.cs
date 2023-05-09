@@ -66,6 +66,10 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The configuration for what files should be pulled from the source.
+        /// </summary>
+        public readonly Outputs.DataIntegrationFileConfiguration? FileConfiguration;
+        /// <summary>
         /// The unique identifer of the data integration.
         /// </summary>
         public readonly string? Id;
@@ -73,6 +77,10 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// The name of the data integration.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The configuration for what data should be pulled from the source.
+        /// </summary>
+        public readonly Outputs.DataIntegrationObjectConfiguration? ObjectConfiguration;
         /// <summary>
         /// The tags (keys and values) associated with the data integration.
         /// </summary>
@@ -84,16 +92,22 @@ namespace Pulumi.AwsNative.AppIntegrations
 
             string? description,
 
+            Outputs.DataIntegrationFileConfiguration? fileConfiguration,
+
             string? id,
 
             string? name,
+
+            Outputs.DataIntegrationObjectConfiguration? objectConfiguration,
 
             ImmutableArray<Outputs.DataIntegrationTag> tags)
         {
             DataIntegrationArn = dataIntegrationArn;
             Description = description;
+            FileConfiguration = fileConfiguration;
             Id = id;
             Name = name;
+            ObjectConfiguration = objectConfiguration;
             Tags = tags;
         }
     }

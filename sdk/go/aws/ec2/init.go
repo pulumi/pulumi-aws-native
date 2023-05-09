@@ -191,6 +191,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VPNGateway{}
 	case "aws-native:ec2:VPNGatewayRoutePropagation":
 		r = &VPNGatewayRoutePropagation{}
+	case "aws-native:ec2:VerifiedAccessEndpoint":
+		r = &VerifiedAccessEndpoint{}
+	case "aws-native:ec2:VerifiedAccessGroup":
+		r = &VerifiedAccessGroup{}
+	case "aws-native:ec2:VerifiedAccessInstance":
+		r = &VerifiedAccessInstance{}
+	case "aws-native:ec2:VerifiedAccessTrustProvider":
+		r = &VerifiedAccessTrustProvider{}
 	case "aws-native:ec2:Volume":
 		r = &Volume{}
 	case "aws-native:ec2:VolumeAttachment":

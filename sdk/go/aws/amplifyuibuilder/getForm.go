@@ -34,6 +34,7 @@ type LookupFormResult struct {
 	Fields            *FormFieldsMap           `pulumi:"fields"`
 	FormActionType    *FormActionType          `pulumi:"formActionType"`
 	Id                *string                  `pulumi:"id"`
+	LabelDecorator    *FormLabelDecorator      `pulumi:"labelDecorator"`
 	Name              *string                  `pulumi:"name"`
 	SchemaVersion     *string                  `pulumi:"schemaVersion"`
 	SectionalElements *FormSectionalElementMap `pulumi:"sectionalElements"`
@@ -103,6 +104,10 @@ func (o LookupFormResultOutput) FormActionType() FormActionTypePtrOutput {
 
 func (o LookupFormResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFormResultOutput) LabelDecorator() FormLabelDecoratorPtrOutput {
+	return o.ApplyT(func(v LookupFormResult) *FormLabelDecorator { return v.LabelDecorator }).(FormLabelDecoratorPtrOutput)
 }
 
 func (o LookupFormResultOutput) Name() pulumi.StringPtrOutput {

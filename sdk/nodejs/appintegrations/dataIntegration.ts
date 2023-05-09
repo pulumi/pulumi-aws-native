@@ -46,6 +46,10 @@ export class DataIntegration extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The configuration for what files should be pulled from the source.
+     */
+    public readonly fileConfiguration!: pulumi.Output<outputs.appintegrations.DataIntegrationFileConfiguration | undefined>;
+    /**
      * The KMS key of the data integration.
      */
     public readonly kmsKey!: pulumi.Output<string>;
@@ -53,6 +57,10 @@ export class DataIntegration extends pulumi.CustomResource {
      * The name of the data integration.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The configuration for what data should be pulled from the source.
+     */
+    public readonly objectConfiguration!: pulumi.Output<outputs.appintegrations.DataIntegrationObjectConfiguration | undefined>;
     /**
      * The name of the data and how often it should be pulled from the source.
      */
@@ -87,8 +95,10 @@ export class DataIntegration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sourceURI'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["fileConfiguration"] = args ? args.fileConfiguration : undefined;
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["objectConfiguration"] = args ? args.objectConfiguration : undefined;
             resourceInputs["scheduleConfig"] = args ? args.scheduleConfig : undefined;
             resourceInputs["sourceURI"] = args ? args.sourceURI : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -96,8 +106,10 @@ export class DataIntegration extends pulumi.CustomResource {
         } else {
             resourceInputs["dataIntegrationArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["fileConfiguration"] = undefined /*out*/;
             resourceInputs["kmsKey"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectConfiguration"] = undefined /*out*/;
             resourceInputs["scheduleConfig"] = undefined /*out*/;
             resourceInputs["sourceURI"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -116,6 +128,10 @@ export interface DataIntegrationArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * The configuration for what files should be pulled from the source.
+     */
+    fileConfiguration?: pulumi.Input<inputs.appintegrations.DataIntegrationFileConfigurationArgs>;
+    /**
      * The KMS key of the data integration.
      */
     kmsKey: pulumi.Input<string>;
@@ -123,6 +139,10 @@ export interface DataIntegrationArgs {
      * The name of the data integration.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The configuration for what data should be pulled from the source.
+     */
+    objectConfiguration?: pulumi.Input<inputs.appintegrations.DataIntegrationObjectConfigurationArgs>;
     /**
      * The name of the data and how often it should be pulled from the source.
      */

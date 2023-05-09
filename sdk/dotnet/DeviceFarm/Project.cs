@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.DeviceFarm
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ProjectTag>> Tags { get; private set; } = null!;
 
+        [Output("vpcConfig")]
+        public Output<Outputs.ProjectVpcConfig?> VpcConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Project resource with the given unique name, arguments, and options.
@@ -85,6 +88,9 @@ namespace Pulumi.AwsNative.DeviceFarm
             get => _tags ?? (_tags = new InputList<Inputs.ProjectTagArgs>());
             set => _tags = value;
         }
+
+        [Input("vpcConfig")]
+        public Input<Inputs.ProjectVpcConfigArgs>? VpcConfig { get; set; }
 
         public ProjectArgs()
         {

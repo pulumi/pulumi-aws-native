@@ -145,7 +145,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def alias(self) -> pulumi.Output['outputs.AliasProperties']:
+    def alias(self) -> pulumi.Output['outputs.AccessPointAlias']:
         return pulumi.get(self, "alias")
 
     @property
@@ -179,7 +179,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyStatus")
-    def policy_status(self) -> pulumi.Output['outputs.PolicyStatusProperties']:
+    def policy_status(self) -> pulumi.Output['outputs.AccessPointPolicyStatus']:
         return pulumi.get(self, "policy_status")
 
     @property

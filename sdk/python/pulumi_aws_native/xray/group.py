@@ -184,7 +184,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> pulumi.Output[Optional[str]]:
+    def group_name(self) -> pulumi.Output[str]:
         """
         The case-sensitive name of the new group. Names must be unique.
         """

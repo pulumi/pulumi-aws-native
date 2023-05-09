@@ -8,6 +8,7 @@ __all__ = [
     'FormActionType',
     'FormButtonsPosition',
     'FormDataSourceType',
+    'FormLabelDecorator',
 ]
 
 
@@ -25,3 +26,9 @@ class FormButtonsPosition(str, Enum):
 class FormDataSourceType(str, Enum):
     DATA_STORE = "DataStore"
     CUSTOM = "Custom"
+
+
+class FormLabelDecorator(str, Enum):
+    REQUIRED = "required"
+    OPTIONAL = "optional"
+    NONE = "none"

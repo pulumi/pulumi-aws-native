@@ -91,4 +91,33 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct FormLabelDecorator : IEquatable<FormLabelDecorator>
+    {
+        private readonly string _value;
+
+        private FormLabelDecorator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FormLabelDecorator Required { get; } = new FormLabelDecorator("required");
+        public static FormLabelDecorator Optional { get; } = new FormLabelDecorator("optional");
+        public static FormLabelDecorator None { get; } = new FormLabelDecorator("none");
+
+        public static bool operator ==(FormLabelDecorator left, FormLabelDecorator right) => left.Equals(right);
+        public static bool operator !=(FormLabelDecorator left, FormLabelDecorator right) => !left.Equals(right);
+
+        public static explicit operator string(FormLabelDecorator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FormLabelDecorator other && Equals(other);
+        public bool Equals(FormLabelDecorator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

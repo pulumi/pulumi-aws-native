@@ -35,6 +35,10 @@ export interface GetDataIntegrationResult {
      */
     readonly description?: string;
     /**
+     * The configuration for what files should be pulled from the source.
+     */
+    readonly fileConfiguration?: outputs.appintegrations.DataIntegrationFileConfiguration;
+    /**
      * The unique identifer of the data integration.
      */
     readonly id?: string;
@@ -42,6 +46,10 @@ export interface GetDataIntegrationResult {
      * The name of the data integration.
      */
     readonly name?: string;
+    /**
+     * The configuration for what data should be pulled from the source.
+     */
+    readonly objectConfiguration?: outputs.appintegrations.DataIntegrationObjectConfiguration;
     /**
      * The tags (keys and values) associated with the data integration.
      */

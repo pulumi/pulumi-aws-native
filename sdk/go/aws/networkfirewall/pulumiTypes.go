@@ -11,6 +11,7 @@ import (
 )
 
 type FirewallPolicyType struct {
+	PolicyVariables                 *FirewallPolicyPolicyVariablesProperties    `pulumi:"policyVariables"`
 	StatefulDefaultActions          []string                                    `pulumi:"statefulDefaultActions"`
 	StatefulEngineOptions           *FirewallPolicyStatefulEngineOptions        `pulumi:"statefulEngineOptions"`
 	StatefulRuleGroupReferences     []FirewallPolicyStatefulRuleGroupReference  `pulumi:"statefulRuleGroupReferences"`
@@ -32,6 +33,7 @@ type FirewallPolicyTypeInput interface {
 }
 
 type FirewallPolicyTypeArgs struct {
+	PolicyVariables                 FirewallPolicyPolicyVariablesPropertiesPtrInput     `pulumi:"policyVariables"`
 	StatefulDefaultActions          pulumi.StringArrayInput                             `pulumi:"statefulDefaultActions"`
 	StatefulEngineOptions           FirewallPolicyStatefulEngineOptionsPtrInput         `pulumi:"statefulEngineOptions"`
 	StatefulRuleGroupReferences     FirewallPolicyStatefulRuleGroupReferenceArrayInput  `pulumi:"statefulRuleGroupReferences"`
@@ -65,6 +67,10 @@ func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypeOutput() FirewallPolicyTyp
 
 func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypeOutputWithContext(ctx context.Context) FirewallPolicyTypeOutput {
 	return o
+}
+
+func (o FirewallPolicyTypeOutput) PolicyVariables() FirewallPolicyPolicyVariablesPropertiesPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyType) *FirewallPolicyPolicyVariablesProperties { return v.PolicyVariables }).(FirewallPolicyPolicyVariablesPropertiesPtrOutput)
 }
 
 func (o FirewallPolicyTypeOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
@@ -121,6 +127,15 @@ func (o FirewallPolicyTypePtrOutput) Elem() FirewallPolicyTypeOutput {
 		var ret FirewallPolicyType
 		return ret
 	}).(FirewallPolicyTypeOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) PolicyVariables() FirewallPolicyPolicyVariablesPropertiesPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) *FirewallPolicyPolicyVariablesProperties {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyVariables
+	}).(FirewallPolicyPolicyVariablesPropertiesPtrOutput)
 }
 
 func (o FirewallPolicyTypePtrOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
@@ -431,6 +446,139 @@ func (o FirewallPolicyDimensionArrayOutput) Index(i pulumi.IntInput) FirewallPol
 	}).(FirewallPolicyDimensionOutput)
 }
 
+type FirewallPolicyPolicyVariablesProperties struct {
+	RuleVariables *FirewallPolicyRuleVariables `pulumi:"ruleVariables"`
+}
+
+// FirewallPolicyPolicyVariablesPropertiesInput is an input type that accepts FirewallPolicyPolicyVariablesPropertiesArgs and FirewallPolicyPolicyVariablesPropertiesOutput values.
+// You can construct a concrete instance of `FirewallPolicyPolicyVariablesPropertiesInput` via:
+//
+//	FirewallPolicyPolicyVariablesPropertiesArgs{...}
+type FirewallPolicyPolicyVariablesPropertiesInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyPolicyVariablesPropertiesOutput() FirewallPolicyPolicyVariablesPropertiesOutput
+	ToFirewallPolicyPolicyVariablesPropertiesOutputWithContext(context.Context) FirewallPolicyPolicyVariablesPropertiesOutput
+}
+
+type FirewallPolicyPolicyVariablesPropertiesArgs struct {
+	RuleVariables FirewallPolicyRuleVariablesPtrInput `pulumi:"ruleVariables"`
+}
+
+func (FirewallPolicyPolicyVariablesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyPolicyVariablesProperties)(nil)).Elem()
+}
+
+func (i FirewallPolicyPolicyVariablesPropertiesArgs) ToFirewallPolicyPolicyVariablesPropertiesOutput() FirewallPolicyPolicyVariablesPropertiesOutput {
+	return i.ToFirewallPolicyPolicyVariablesPropertiesOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyPolicyVariablesPropertiesArgs) ToFirewallPolicyPolicyVariablesPropertiesOutputWithContext(ctx context.Context) FirewallPolicyPolicyVariablesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyPolicyVariablesPropertiesOutput)
+}
+
+func (i FirewallPolicyPolicyVariablesPropertiesArgs) ToFirewallPolicyPolicyVariablesPropertiesPtrOutput() FirewallPolicyPolicyVariablesPropertiesPtrOutput {
+	return i.ToFirewallPolicyPolicyVariablesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyPolicyVariablesPropertiesArgs) ToFirewallPolicyPolicyVariablesPropertiesPtrOutputWithContext(ctx context.Context) FirewallPolicyPolicyVariablesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyPolicyVariablesPropertiesOutput).ToFirewallPolicyPolicyVariablesPropertiesPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyPolicyVariablesPropertiesPtrInput is an input type that accepts FirewallPolicyPolicyVariablesPropertiesArgs, FirewallPolicyPolicyVariablesPropertiesPtr and FirewallPolicyPolicyVariablesPropertiesPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyPolicyVariablesPropertiesPtrInput` via:
+//
+//	        FirewallPolicyPolicyVariablesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallPolicyPolicyVariablesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyPolicyVariablesPropertiesPtrOutput() FirewallPolicyPolicyVariablesPropertiesPtrOutput
+	ToFirewallPolicyPolicyVariablesPropertiesPtrOutputWithContext(context.Context) FirewallPolicyPolicyVariablesPropertiesPtrOutput
+}
+
+type firewallPolicyPolicyVariablesPropertiesPtrType FirewallPolicyPolicyVariablesPropertiesArgs
+
+func FirewallPolicyPolicyVariablesPropertiesPtr(v *FirewallPolicyPolicyVariablesPropertiesArgs) FirewallPolicyPolicyVariablesPropertiesPtrInput {
+	return (*firewallPolicyPolicyVariablesPropertiesPtrType)(v)
+}
+
+func (*firewallPolicyPolicyVariablesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyPolicyVariablesProperties)(nil)).Elem()
+}
+
+func (i *firewallPolicyPolicyVariablesPropertiesPtrType) ToFirewallPolicyPolicyVariablesPropertiesPtrOutput() FirewallPolicyPolicyVariablesPropertiesPtrOutput {
+	return i.ToFirewallPolicyPolicyVariablesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyPolicyVariablesPropertiesPtrType) ToFirewallPolicyPolicyVariablesPropertiesPtrOutputWithContext(ctx context.Context) FirewallPolicyPolicyVariablesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyPolicyVariablesPropertiesPtrOutput)
+}
+
+type FirewallPolicyPolicyVariablesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyPolicyVariablesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyPolicyVariablesProperties)(nil)).Elem()
+}
+
+func (o FirewallPolicyPolicyVariablesPropertiesOutput) ToFirewallPolicyPolicyVariablesPropertiesOutput() FirewallPolicyPolicyVariablesPropertiesOutput {
+	return o
+}
+
+func (o FirewallPolicyPolicyVariablesPropertiesOutput) ToFirewallPolicyPolicyVariablesPropertiesOutputWithContext(ctx context.Context) FirewallPolicyPolicyVariablesPropertiesOutput {
+	return o
+}
+
+func (o FirewallPolicyPolicyVariablesPropertiesOutput) ToFirewallPolicyPolicyVariablesPropertiesPtrOutput() FirewallPolicyPolicyVariablesPropertiesPtrOutput {
+	return o.ToFirewallPolicyPolicyVariablesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyPolicyVariablesPropertiesOutput) ToFirewallPolicyPolicyVariablesPropertiesPtrOutputWithContext(ctx context.Context) FirewallPolicyPolicyVariablesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyPolicyVariablesProperties) *FirewallPolicyPolicyVariablesProperties {
+		return &v
+	}).(FirewallPolicyPolicyVariablesPropertiesPtrOutput)
+}
+
+func (o FirewallPolicyPolicyVariablesPropertiesOutput) RuleVariables() FirewallPolicyRuleVariablesPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyPolicyVariablesProperties) *FirewallPolicyRuleVariables { return v.RuleVariables }).(FirewallPolicyRuleVariablesPtrOutput)
+}
+
+type FirewallPolicyPolicyVariablesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyPolicyVariablesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyPolicyVariablesProperties)(nil)).Elem()
+}
+
+func (o FirewallPolicyPolicyVariablesPropertiesPtrOutput) ToFirewallPolicyPolicyVariablesPropertiesPtrOutput() FirewallPolicyPolicyVariablesPropertiesPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyPolicyVariablesPropertiesPtrOutput) ToFirewallPolicyPolicyVariablesPropertiesPtrOutputWithContext(ctx context.Context) FirewallPolicyPolicyVariablesPropertiesPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyPolicyVariablesPropertiesPtrOutput) Elem() FirewallPolicyPolicyVariablesPropertiesOutput {
+	return o.ApplyT(func(v *FirewallPolicyPolicyVariablesProperties) FirewallPolicyPolicyVariablesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyPolicyVariablesProperties
+		return ret
+	}).(FirewallPolicyPolicyVariablesPropertiesOutput)
+}
+
+func (o FirewallPolicyPolicyVariablesPropertiesPtrOutput) RuleVariables() FirewallPolicyRuleVariablesPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyPolicyVariablesProperties) *FirewallPolicyRuleVariables {
+		if v == nil {
+			return nil
+		}
+		return v.RuleVariables
+	}).(FirewallPolicyRuleVariablesPtrOutput)
+}
+
 type FirewallPolicyPublishMetricAction struct {
 	Dimensions []FirewallPolicyDimension `pulumi:"dimensions"`
 }
@@ -562,6 +710,124 @@ func (o FirewallPolicyPublishMetricActionPtrOutput) Dimensions() FirewallPolicyD
 		}
 		return v.Dimensions
 	}).(FirewallPolicyDimensionArrayOutput)
+}
+
+type FirewallPolicyRuleVariables struct {
+}
+
+// FirewallPolicyRuleVariablesInput is an input type that accepts FirewallPolicyRuleVariablesArgs and FirewallPolicyRuleVariablesOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleVariablesInput` via:
+//
+//	FirewallPolicyRuleVariablesArgs{...}
+type FirewallPolicyRuleVariablesInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleVariablesOutput() FirewallPolicyRuleVariablesOutput
+	ToFirewallPolicyRuleVariablesOutputWithContext(context.Context) FirewallPolicyRuleVariablesOutput
+}
+
+type FirewallPolicyRuleVariablesArgs struct {
+}
+
+func (FirewallPolicyRuleVariablesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleVariables)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleVariablesArgs) ToFirewallPolicyRuleVariablesOutput() FirewallPolicyRuleVariablesOutput {
+	return i.ToFirewallPolicyRuleVariablesOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleVariablesArgs) ToFirewallPolicyRuleVariablesOutputWithContext(ctx context.Context) FirewallPolicyRuleVariablesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleVariablesOutput)
+}
+
+func (i FirewallPolicyRuleVariablesArgs) ToFirewallPolicyRuleVariablesPtrOutput() FirewallPolicyRuleVariablesPtrOutput {
+	return i.ToFirewallPolicyRuleVariablesPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleVariablesArgs) ToFirewallPolicyRuleVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyRuleVariablesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleVariablesOutput).ToFirewallPolicyRuleVariablesPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyRuleVariablesPtrInput is an input type that accepts FirewallPolicyRuleVariablesArgs, FirewallPolicyRuleVariablesPtr and FirewallPolicyRuleVariablesPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleVariablesPtrInput` via:
+//
+//	        FirewallPolicyRuleVariablesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallPolicyRuleVariablesPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleVariablesPtrOutput() FirewallPolicyRuleVariablesPtrOutput
+	ToFirewallPolicyRuleVariablesPtrOutputWithContext(context.Context) FirewallPolicyRuleVariablesPtrOutput
+}
+
+type firewallPolicyRuleVariablesPtrType FirewallPolicyRuleVariablesArgs
+
+func FirewallPolicyRuleVariablesPtr(v *FirewallPolicyRuleVariablesArgs) FirewallPolicyRuleVariablesPtrInput {
+	return (*firewallPolicyRuleVariablesPtrType)(v)
+}
+
+func (*firewallPolicyRuleVariablesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyRuleVariables)(nil)).Elem()
+}
+
+func (i *firewallPolicyRuleVariablesPtrType) ToFirewallPolicyRuleVariablesPtrOutput() FirewallPolicyRuleVariablesPtrOutput {
+	return i.ToFirewallPolicyRuleVariablesPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyRuleVariablesPtrType) ToFirewallPolicyRuleVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyRuleVariablesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleVariablesPtrOutput)
+}
+
+type FirewallPolicyRuleVariablesOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleVariablesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleVariables)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleVariablesOutput) ToFirewallPolicyRuleVariablesOutput() FirewallPolicyRuleVariablesOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleVariablesOutput) ToFirewallPolicyRuleVariablesOutputWithContext(ctx context.Context) FirewallPolicyRuleVariablesOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleVariablesOutput) ToFirewallPolicyRuleVariablesPtrOutput() FirewallPolicyRuleVariablesPtrOutput {
+	return o.ToFirewallPolicyRuleVariablesPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRuleVariablesOutput) ToFirewallPolicyRuleVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyRuleVariablesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyRuleVariables) *FirewallPolicyRuleVariables {
+		return &v
+	}).(FirewallPolicyRuleVariablesPtrOutput)
+}
+
+type FirewallPolicyRuleVariablesPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleVariablesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyRuleVariables)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleVariablesPtrOutput) ToFirewallPolicyRuleVariablesPtrOutput() FirewallPolicyRuleVariablesPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleVariablesPtrOutput) ToFirewallPolicyRuleVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyRuleVariablesPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleVariablesPtrOutput) Elem() FirewallPolicyRuleVariablesOutput {
+	return o.ApplyT(func(v *FirewallPolicyRuleVariables) FirewallPolicyRuleVariables {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyRuleVariables
+		return ret
+	}).(FirewallPolicyRuleVariablesOutput)
 }
 
 type FirewallPolicyStatefulEngineOptions struct {
@@ -3937,8 +4203,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyCustomActionArrayInput)(nil)).Elem(), FirewallPolicyCustomActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyDimensionInput)(nil)).Elem(), FirewallPolicyDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyDimensionArrayInput)(nil)).Elem(), FirewallPolicyDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyPolicyVariablesPropertiesInput)(nil)).Elem(), FirewallPolicyPolicyVariablesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyPolicyVariablesPropertiesPtrInput)(nil)).Elem(), FirewallPolicyPolicyVariablesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyPublishMetricActionInput)(nil)).Elem(), FirewallPolicyPublishMetricActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyPublishMetricActionPtrInput)(nil)).Elem(), FirewallPolicyPublishMetricActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleVariablesInput)(nil)).Elem(), FirewallPolicyRuleVariablesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleVariablesPtrInput)(nil)).Elem(), FirewallPolicyRuleVariablesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulEngineOptionsInput)(nil)).Elem(), FirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulEngineOptionsPtrInput)(nil)).Elem(), FirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulRuleGroupOverrideInput)(nil)).Elem(), FirewallPolicyStatefulRuleGroupOverrideArgs{})
@@ -4001,8 +4271,12 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyCustomActionArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDimensionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDimensionArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyPolicyVariablesPropertiesOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyPolicyVariablesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyPublishMetricActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyPublishMetricActionPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleVariablesOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleVariablesPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulEngineOptionsOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulEngineOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupOverrideOutput{})

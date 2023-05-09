@@ -19,12 +19,14 @@ class BuildArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['BuildOperatingSystem']] = None,
+                 server_sdk_version: Optional[pulumi.Input[str]] = None,
                  storage_location: Optional[pulumi.Input['BuildStorageLocationArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Build resource.
         :param pulumi.Input[str] name: A descriptive label that is associated with a build. Build names do not need to be unique.
         :param pulumi.Input['BuildOperatingSystem'] operating_system: The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+        :param pulumi.Input[str] server_sdk_version: A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
         :param pulumi.Input['BuildStorageLocationArgs'] storage_location: Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
         :param pulumi.Input[str] version: Version information that is associated with this build. Version strings do not need to be unique.
         """
@@ -32,6 +34,8 @@ class BuildArgs:
             pulumi.set(__self__, "name", name)
         if operating_system is not None:
             pulumi.set(__self__, "operating_system", operating_system)
+        if server_sdk_version is not None:
+            pulumi.set(__self__, "server_sdk_version", server_sdk_version)
         if storage_location is not None:
             pulumi.set(__self__, "storage_location", storage_location)
         if version is not None:
@@ -60,6 +64,18 @@ class BuildArgs:
     @operating_system.setter
     def operating_system(self, value: Optional[pulumi.Input['BuildOperatingSystem']]):
         pulumi.set(self, "operating_system", value)
+
+    @property
+    @pulumi.getter(name="serverSdkVersion")
+    def server_sdk_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
+        """
+        return pulumi.get(self, "server_sdk_version")
+
+    @server_sdk_version.setter
+    def server_sdk_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_sdk_version", value)
 
     @property
     @pulumi.getter(name="storageLocation")
@@ -93,6 +109,7 @@ class Build(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['BuildOperatingSystem']] = None,
+                 server_sdk_version: Optional[pulumi.Input[str]] = None,
                  storage_location: Optional[pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -103,6 +120,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: A descriptive label that is associated with a build. Build names do not need to be unique.
         :param pulumi.Input['BuildOperatingSystem'] operating_system: The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+        :param pulumi.Input[str] server_sdk_version: A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
         :param pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']] storage_location: Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
         :param pulumi.Input[str] version: Version information that is associated with this build. Version strings do not need to be unique.
         """
@@ -132,6 +150,7 @@ class Build(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['BuildOperatingSystem']] = None,
+                 server_sdk_version: Optional[pulumi.Input[str]] = None,
                  storage_location: Optional[pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -145,6 +164,7 @@ class Build(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["operating_system"] = operating_system
+            __props__.__dict__["server_sdk_version"] = server_sdk_version
             __props__.__dict__["storage_location"] = storage_location
             __props__.__dict__["version"] = version
             __props__.__dict__["build_id"] = None
@@ -173,6 +193,7 @@ class Build(pulumi.CustomResource):
         __props__.__dict__["build_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["operating_system"] = None
+        __props__.__dict__["server_sdk_version"] = None
         __props__.__dict__["storage_location"] = None
         __props__.__dict__["version"] = None
         return Build(resource_name, opts=opts, __props__=__props__)
@@ -200,6 +221,14 @@ class Build(pulumi.CustomResource):
         The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
         """
         return pulumi.get(self, "operating_system")
+
+    @property
+    @pulumi.getter(name="serverSdkVersion")
+    def server_sdk_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
+        """
+        return pulumi.get(self, "server_sdk_version")
 
     @property
     @pulumi.getter(name="storageLocation")

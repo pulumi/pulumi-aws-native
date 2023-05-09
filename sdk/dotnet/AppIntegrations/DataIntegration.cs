@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.AppIntegrations
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration for what files should be pulled from the source.
+        /// </summary>
+        [Output("fileConfiguration")]
+        public Output<Outputs.DataIntegrationFileConfiguration?> FileConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The KMS key of the data integration.
         /// </summary>
         [Output("kmsKey")]
@@ -38,6 +44,12 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The configuration for what data should be pulled from the source.
+        /// </summary>
+        [Output("objectConfiguration")]
+        public Output<Outputs.DataIntegrationObjectConfiguration?> ObjectConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the data and how often it should be pulled from the source.
@@ -109,6 +121,12 @@ namespace Pulumi.AwsNative.AppIntegrations
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The configuration for what files should be pulled from the source.
+        /// </summary>
+        [Input("fileConfiguration")]
+        public Input<Inputs.DataIntegrationFileConfigurationArgs>? FileConfiguration { get; set; }
+
+        /// <summary>
         /// The KMS key of the data integration.
         /// </summary>
         [Input("kmsKey", required: true)]
@@ -119,6 +137,12 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The configuration for what data should be pulled from the source.
+        /// </summary>
+        [Input("objectConfiguration")]
+        public Input<Inputs.DataIntegrationObjectConfigurationArgs>? ObjectConfiguration { get; set; }
 
         /// <summary>
         /// The name of the data and how often it should be pulled from the source.

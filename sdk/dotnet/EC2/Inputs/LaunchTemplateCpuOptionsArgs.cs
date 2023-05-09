@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
     public sealed class LaunchTemplateCpuOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("amdSevSnp")]
+        public Input<string>? AmdSevSnp { get; set; }
+
         [Input("coreCount")]
         public Input<int>? CoreCount { get; set; }
 

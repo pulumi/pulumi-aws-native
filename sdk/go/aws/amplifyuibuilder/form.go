@@ -21,6 +21,7 @@ type Form struct {
 	EnvironmentName   pulumi.StringPtrOutput        `pulumi:"environmentName"`
 	Fields            FormFieldsMapOutput           `pulumi:"fields"`
 	FormActionType    FormActionTypeOutput          `pulumi:"formActionType"`
+	LabelDecorator    FormLabelDecoratorPtrOutput   `pulumi:"labelDecorator"`
 	Name              pulumi.StringOutput           `pulumi:"name"`
 	SchemaVersion     pulumi.StringOutput           `pulumi:"schemaVersion"`
 	SectionalElements FormSectionalElementMapOutput `pulumi:"sectionalElements"`
@@ -91,6 +92,7 @@ type formArgs struct {
 	EnvironmentName   *string                 `pulumi:"environmentName"`
 	Fields            FormFieldsMap           `pulumi:"fields"`
 	FormActionType    FormActionType          `pulumi:"formActionType"`
+	LabelDecorator    *FormLabelDecorator     `pulumi:"labelDecorator"`
 	Name              *string                 `pulumi:"name"`
 	SchemaVersion     string                  `pulumi:"schemaVersion"`
 	SectionalElements FormSectionalElementMap `pulumi:"sectionalElements"`
@@ -106,6 +108,7 @@ type FormArgs struct {
 	EnvironmentName   pulumi.StringPtrInput
 	Fields            FormFieldsMapInput
 	FormActionType    FormActionTypeInput
+	LabelDecorator    FormLabelDecoratorPtrInput
 	Name              pulumi.StringPtrInput
 	SchemaVersion     pulumi.StringInput
 	SectionalElements FormSectionalElementMapInput
@@ -172,6 +175,10 @@ func (o FormOutput) Fields() FormFieldsMapOutput {
 
 func (o FormOutput) FormActionType() FormActionTypeOutput {
 	return o.ApplyT(func(v *Form) FormActionTypeOutput { return v.FormActionType }).(FormActionTypeOutput)
+}
+
+func (o FormOutput) LabelDecorator() FormLabelDecoratorPtrOutput {
+	return o.ApplyT(func(v *Form) FormLabelDecoratorPtrOutput { return v.LabelDecorator }).(FormLabelDecoratorPtrOutput)
 }
 
 func (o FormOutput) Name() pulumi.StringOutput {

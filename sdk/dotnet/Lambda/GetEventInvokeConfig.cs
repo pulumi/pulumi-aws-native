@@ -27,11 +27,8 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetEventInvokeConfigArgs : global::Pulumi.InvokeArgs
     {
-        [Input("functionName", required: true)]
-        public string FunctionName { get; set; } = null!;
-
-        [Input("qualifier", required: true)]
-        public string Qualifier { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetEventInvokeConfigArgs()
         {
@@ -41,11 +38,8 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetEventInvokeConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("functionName", required: true)]
-        public Input<string> FunctionName { get; set; } = null!;
-
-        [Input("qualifier", required: true)]
-        public Input<string> Qualifier { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetEventInvokeConfigInvokeArgs()
         {
@@ -58,6 +52,7 @@ namespace Pulumi.AwsNative.Lambda
     public sealed class GetEventInvokeConfigResult
     {
         public readonly Outputs.EventInvokeConfigDestinationConfig? DestinationConfig;
+        public readonly string? Id;
         public readonly int? MaximumEventAgeInSeconds;
         public readonly int? MaximumRetryAttempts;
 
@@ -65,11 +60,14 @@ namespace Pulumi.AwsNative.Lambda
         private GetEventInvokeConfigResult(
             Outputs.EventInvokeConfigDestinationConfig? destinationConfig,
 
+            string? id,
+
             int? maximumEventAgeInSeconds,
 
             int? maximumRetryAttempts)
         {
             DestinationConfig = destinationConfig;
+            Id = id;
             MaximumEventAgeInSeconds = maximumEventAgeInSeconds;
             MaximumRetryAttempts = maximumRetryAttempts;
         }

@@ -41,7 +41,7 @@ class GetAccessPointResult:
 
     @property
     @pulumi.getter
-    def alias(self) -> Optional['outputs.AliasProperties']:
+    def alias(self) -> Optional['outputs.AccessPointAlias']:
         return pulumi.get(self, "alias")
 
     @property
@@ -67,7 +67,7 @@ class GetAccessPointResult:
 
     @property
     @pulumi.getter(name="policyStatus")
-    def policy_status(self) -> Optional['outputs.PolicyStatusProperties']:
+    def policy_status(self) -> Optional['outputs.AccessPointPolicyStatus']:
         return pulumi.get(self, "policy_status")
 
     @property

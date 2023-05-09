@@ -93,6 +93,10 @@ from .get_transit_gateway_route_table import *
 from .get_transit_gateway_route_table_association import *
 from .get_transit_gateway_route_table_propagation import *
 from .get_transit_gateway_vpc_attachment import *
+from .get_verified_access_endpoint import *
+from .get_verified_access_group import *
+from .get_verified_access_instance import *
+from .get_verified_access_trust_provider import *
 from .get_volume import *
 from .get_volume_attachment import *
 from .get_vpc import *
@@ -162,6 +166,10 @@ from .transit_gateway_route_table import *
 from .transit_gateway_route_table_association import *
 from .transit_gateway_route_table_propagation import *
 from .transit_gateway_vpc_attachment import *
+from .verified_access_endpoint import *
+from .verified_access_group import *
+from .verified_access_instance import *
+from .verified_access_trust_provider import *
 from .volume import *
 from .volume_attachment import *
 from .vpc import *

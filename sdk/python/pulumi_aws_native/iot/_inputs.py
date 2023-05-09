@@ -17,6 +17,8 @@ __all__ = [
     'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs',
     'AccountAuditConfigurationAuditNotificationTargetArgs',
     'AuthorizerTagArgs',
+    'BillingGroupPropertiesPropertiesArgs',
+    'BillingGroupTagArgs',
     'CACertificateRegistrationConfigArgs',
     'CACertificateTagArgs',
     'CustomMetricTagArgs',
@@ -56,6 +58,11 @@ __all__ = [
     'SecurityProfileStatisticalThresholdArgs',
     'SecurityProfileTagArgs',
     'ThingAttributePayloadArgs',
+    'ThingGroupAttributePayloadArgs',
+    'ThingGroupPropertiesPropertiesArgs',
+    'ThingGroupTagArgs',
+    'ThingTypePropertiesPropertiesArgs',
+    'ThingTypeTagArgs',
     'TimeoutConfigPropertiesArgs',
     'TopicRuleActionArgs',
     'TopicRuleAssetPropertyTimestampArgs',
@@ -437,6 +444,61 @@ class AuthorizerTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class BillingGroupPropertiesPropertiesArgs:
+    def __init__(__self__, *,
+                 billing_group_description: Optional[pulumi.Input[str]] = None):
+        if billing_group_description is not None:
+            pulumi.set(__self__, "billing_group_description", billing_group_description)
+
+    @property
+    @pulumi.getter(name="billingGroupDescription")
+    def billing_group_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "billing_group_description")
+
+    @billing_group_description.setter
+    def billing_group_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_group_description", value)
+
+
+@pulumi.input_type
+class BillingGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1961,6 +2023,157 @@ class ThingAttributePayloadArgs:
     @attributes.setter
     def attributes(self, value: Optional[Any]):
         pulumi.set(self, "attributes", value)
+
+
+@pulumi.input_type
+class ThingGroupAttributePayloadArgs:
+    def __init__(__self__, *,
+                 attributes: Optional[Any] = None):
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[Any]:
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[Any]):
+        pulumi.set(self, "attributes", value)
+
+
+@pulumi.input_type
+class ThingGroupPropertiesPropertiesArgs:
+    def __init__(__self__, *,
+                 attribute_payload: Optional[pulumi.Input['ThingGroupAttributePayloadArgs']] = None,
+                 thing_group_description: Optional[pulumi.Input[str]] = None):
+        if attribute_payload is not None:
+            pulumi.set(__self__, "attribute_payload", attribute_payload)
+        if thing_group_description is not None:
+            pulumi.set(__self__, "thing_group_description", thing_group_description)
+
+    @property
+    @pulumi.getter(name="attributePayload")
+    def attribute_payload(self) -> Optional[pulumi.Input['ThingGroupAttributePayloadArgs']]:
+        return pulumi.get(self, "attribute_payload")
+
+    @attribute_payload.setter
+    def attribute_payload(self, value: Optional[pulumi.Input['ThingGroupAttributePayloadArgs']]):
+        pulumi.set(self, "attribute_payload", value)
+
+    @property
+    @pulumi.getter(name="thingGroupDescription")
+    def thing_group_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "thing_group_description")
+
+    @thing_group_description.setter
+    def thing_group_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thing_group_description", value)
+
+
+@pulumi.input_type
+class ThingGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ThingTypePropertiesPropertiesArgs:
+    def __init__(__self__, *,
+                 searchable_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 thing_type_description: Optional[pulumi.Input[str]] = None):
+        if searchable_attributes is not None:
+            pulumi.set(__self__, "searchable_attributes", searchable_attributes)
+        if thing_type_description is not None:
+            pulumi.set(__self__, "thing_type_description", thing_type_description)
+
+    @property
+    @pulumi.getter(name="searchableAttributes")
+    def searchable_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "searchable_attributes")
+
+    @searchable_attributes.setter
+    def searchable_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "searchable_attributes", value)
+
+    @property
+    @pulumi.getter(name="thingTypeDescription")
+    def thing_type_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "thing_type_description")
+
+    @thing_type_description.setter
+    def thing_type_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thing_type_description", value)
+
+
+@pulumi.input_type
+class ThingTypeTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

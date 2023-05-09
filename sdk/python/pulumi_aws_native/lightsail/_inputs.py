@@ -26,6 +26,7 @@ __all__ = [
     'DatabaseTagArgs',
     'DiskAddOnArgs',
     'DiskAutoSnapshotAddOnArgs',
+    'DiskLocationArgs',
     'DiskTagArgs',
     'DistributionCacheBehaviorPerPathArgs',
     'DistributionCacheBehaviorArgs',
@@ -835,6 +836,46 @@ class DiskAutoSnapshotAddOnArgs:
     @snapshot_time_of_day.setter
     def snapshot_time_of_day(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "snapshot_time_of_day", value)
+
+
+@pulumi.input_type
+class DiskLocationArgs:
+    def __init__(__self__, *,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 region_name: Optional[pulumi.Input[str]] = None):
+        """
+        Location of a resource.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+        :param pulumi.Input[str] region_name: The Region Name in which to create your disk.
+        """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if region_name is not None:
+            pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Region Name in which to create your disk.
+        """
+        return pulumi.get(self, "region_name")
+
+    @region_name.setter
+    def region_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region_name", value)
 
 
 @pulumi.input_type

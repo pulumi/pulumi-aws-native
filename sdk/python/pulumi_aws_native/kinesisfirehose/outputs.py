@@ -19,7 +19,6 @@ __all__ = [
     'DeliveryStreamAmazonopensearchserviceDestinationConfiguration',
     'DeliveryStreamAmazonopensearchserviceRetryOptions',
     'DeliveryStreamBufferingHints',
-    'DeliveryStreamBulkRequestCustomizationConfiguration',
     'DeliveryStreamCloudWatchLoggingOptions',
     'DeliveryStreamCopyCommand',
     'DeliveryStreamDataFormatConversionConfiguration',
@@ -112,8 +111,6 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
             suggest = "s3_configuration"
         elif key == "bufferingHints":
             suggest = "buffering_hints"
-        elif key == "bulkRequestCustomizationConfiguration":
-            suggest = "bulk_request_customization_configuration"
         elif key == "cloudWatchLoggingOptions":
             suggest = "cloud_watch_logging_options"
         elif key == "collectionEndpoint":
@@ -143,7 +140,6 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
                  role_arn: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
                  buffering_hints: Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessBufferingHints'] = None,
-                 bulk_request_customization_configuration: Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration'] = None,
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
                  collection_endpoint: Optional[str] = None,
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
@@ -155,8 +151,6 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_hints is not None:
             pulumi.set(__self__, "buffering_hints", buffering_hints)
-        if bulk_request_customization_configuration is not None:
-            pulumi.set(__self__, "bulk_request_customization_configuration", bulk_request_customization_configuration)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if collection_endpoint is not None:
@@ -189,11 +183,6 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
     @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessBufferingHints']:
         return pulumi.get(self, "buffering_hints")
-
-    @property
-    @pulumi.getter(name="bulkRequestCustomizationConfiguration")
-    def bulk_request_customization_configuration(self) -> Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration']:
-        return pulumi.get(self, "bulk_request_customization_configuration")
 
     @property
     @pulumi.getter(name="cloudWatchLoggingOptions")
@@ -309,8 +298,6 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
             suggest = "s3_configuration"
         elif key == "bufferingHints":
             suggest = "buffering_hints"
-        elif key == "bulkRequestCustomizationConfiguration":
-            suggest = "bulk_request_customization_configuration"
         elif key == "cloudWatchLoggingOptions":
             suggest = "cloud_watch_logging_options"
         elif key == "clusterEndpoint":
@@ -348,7 +335,6 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
                  role_arn: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
                  buffering_hints: Optional['outputs.DeliveryStreamAmazonopensearchserviceBufferingHints'] = None,
-                 bulk_request_customization_configuration: Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration'] = None,
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
                  cluster_endpoint: Optional[str] = None,
                  document_id_options: Optional['outputs.DeliveryStreamDocumentIdOptions'] = None,
@@ -364,8 +350,6 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_hints is not None:
             pulumi.set(__self__, "buffering_hints", buffering_hints)
-        if bulk_request_customization_configuration is not None:
-            pulumi.set(__self__, "bulk_request_customization_configuration", bulk_request_customization_configuration)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if cluster_endpoint is not None:
@@ -406,11 +390,6 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
     @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamAmazonopensearchserviceBufferingHints']:
         return pulumi.get(self, "buffering_hints")
-
-    @property
-    @pulumi.getter(name="bulkRequestCustomizationConfiguration")
-    def bulk_request_customization_configuration(self) -> Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration']:
-        return pulumi.get(self, "bulk_request_customization_configuration")
 
     @property
     @pulumi.getter(name="cloudWatchLoggingOptions")
@@ -531,54 +510,6 @@ class DeliveryStreamBufferingHints(dict):
     @pulumi.getter(name="sizeInMBs")
     def size_in_mbs(self) -> Optional[int]:
         return pulumi.get(self, "size_in_mbs")
-
-
-@pulumi.output_type
-class DeliveryStreamBulkRequestCustomizationConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "jqExpression":
-            suggest = "jq_expression"
-        elif key == "jqVersion":
-            suggest = "jq_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamBulkRequestCustomizationConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DeliveryStreamBulkRequestCustomizationConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DeliveryStreamBulkRequestCustomizationConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled: Optional[bool] = None,
-                 jq_expression: Optional[str] = None,
-                 jq_version: Optional['DeliveryStreamBulkRequestCustomizationConfigurationJqVersion'] = None):
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if jq_expression is not None:
-            pulumi.set(__self__, "jq_expression", jq_expression)
-        if jq_version is not None:
-            pulumi.set(__self__, "jq_version", jq_version)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="jqExpression")
-    def jq_expression(self) -> Optional[str]:
-        return pulumi.get(self, "jq_expression")
-
-    @property
-    @pulumi.getter(name="jqVersion")
-    def jq_version(self) -> Optional['DeliveryStreamBulkRequestCustomizationConfigurationJqVersion']:
-        return pulumi.get(self, "jq_version")
 
 
 @pulumi.output_type
@@ -896,8 +827,6 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
             suggest = "s3_configuration"
         elif key == "bufferingHints":
             suggest = "buffering_hints"
-        elif key == "bulkRequestCustomizationConfiguration":
-            suggest = "bulk_request_customization_configuration"
         elif key == "cloudWatchLoggingOptions":
             suggest = "cloud_watch_logging_options"
         elif key == "clusterEndpoint":
@@ -935,7 +864,6 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
                  role_arn: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
                  buffering_hints: Optional['outputs.DeliveryStreamElasticsearchBufferingHints'] = None,
-                 bulk_request_customization_configuration: Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration'] = None,
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
                  cluster_endpoint: Optional[str] = None,
                  document_id_options: Optional['outputs.DeliveryStreamDocumentIdOptions'] = None,
@@ -951,8 +879,6 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_hints is not None:
             pulumi.set(__self__, "buffering_hints", buffering_hints)
-        if bulk_request_customization_configuration is not None:
-            pulumi.set(__self__, "bulk_request_customization_configuration", bulk_request_customization_configuration)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if cluster_endpoint is not None:
@@ -993,11 +919,6 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
     @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamElasticsearchBufferingHints']:
         return pulumi.get(self, "buffering_hints")
-
-    @property
-    @pulumi.getter(name="bulkRequestCustomizationConfiguration")
-    def bulk_request_customization_configuration(self) -> Optional['outputs.DeliveryStreamBulkRequestCustomizationConfiguration']:
-        return pulumi.get(self, "bulk_request_customization_configuration")
 
     @property
     @pulumi.getter(name="cloudWatchLoggingOptions")

@@ -2869,15 +2869,35 @@ export namespace appflow {
 }
 
 export namespace appintegrations {
+    /**
+     * The configuration for what files should be pulled from the source.
+     */
+    export interface DataIntegrationFileConfigurationArgs {
+        /**
+         * Restrictions for what files should be pulled from the source.
+         */
+        filters?: any;
+        /**
+         * Identifiers for the source folders to pull all files from recursively.
+         */
+        folders: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The configuration for what data should be pulled from the source.
+     */
+    export interface DataIntegrationObjectConfigurationArgs {
+    }
+
     export interface DataIntegrationScheduleConfigArgs {
         /**
          * The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
          */
-        firstExecutionFrom: pulumi.Input<string>;
+        firstExecutionFrom?: pulumi.Input<string>;
         /**
          * The name of the object to pull from the data source.
          */
-        object: pulumi.Input<string>;
+        object?: pulumi.Input<string>;
         /**
          * How often the data should be pulled from data source.
          */
@@ -5355,6 +5375,13 @@ export namespace backup {
          * Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
          */
         reportTemplate: pulumi.Input<string>;
+    }
+}
+
+export namespace backupgateway {
+    export interface HypervisorTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 }
 
@@ -9924,6 +9951,24 @@ export namespace devicefarm {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * The VPC security groups and subnets that are attached to a project
+     */
+    export interface ProjectVpcConfigArgs {
+        /**
+         * An array of security group Ids in your Amazon VPC
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A array of subnet IDs in your Amazon VPC.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Amazon VPC
+         */
+        vpcId: pulumi.Input<string>;
+    }
+
     export interface TestGridProjectTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -11194,6 +11239,7 @@ export namespace ec2 {
     }
 
     export interface LaunchTemplateCpuOptionsArgs {
+        amdSevSnp?: pulumi.Input<string>;
         coreCount?: pulumi.Input<number>;
         threadsPerCore?: pulumi.Input<number>;
     }
@@ -11503,6 +11549,18 @@ export namespace ec2 {
     export interface NetworkInsightsAnalysisTagArgs {
         key: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+
+    export interface NetworkInsightsPathFilterPortRangeArgs {
+        fromPort?: pulumi.Input<number>;
+        toPort?: pulumi.Input<number>;
+    }
+
+    export interface NetworkInsightsPathPathFilterArgs {
+        destinationAddress?: pulumi.Input<string>;
+        destinationPortRange?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterPortRangeArgs>;
+        sourceAddress?: pulumi.Input<string>;
+        sourcePortRange?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterPortRangeArgs>;
     }
 
     export interface NetworkInsightsPathTagArgs {
@@ -11958,6 +12016,240 @@ export namespace ec2 {
 
     export interface VPNGatewayTagArgs {
         key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
+     */
+    export interface VerifiedAccessEndpointLoadBalancerOptionsArgs {
+        /**
+         * The ARN of the load balancer.
+         */
+        loadBalancerArn?: pulumi.Input<string>;
+        /**
+         * The IP port number.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * The IP protocol.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * The IDs of the subnets.
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The options for network-interface type endpoint.
+     */
+    export interface VerifiedAccessEndpointNetworkInterfaceOptionsArgs {
+        /**
+         * The ID of the network interface.
+         */
+        networkInterfaceId?: pulumi.Input<string>;
+        /**
+         * The IP port number.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * The IP protocol.
+         */
+        protocol?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface VerifiedAccessEndpointTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface VerifiedAccessGroupTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface VerifiedAccessInstanceTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration options for AWS Verified Access instances.
+     */
+    export interface VerifiedAccessInstanceVerifiedAccessLogsArgs {
+        /**
+         * Sends Verified Access logs to CloudWatch Logs.
+         */
+        cloudWatchLogs?: pulumi.Input<inputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs>;
+        /**
+         * Sends Verified Access logs to Kinesis.
+         */
+        kinesisDataFirehose?: pulumi.Input<inputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs>;
+        /**
+         * Sends Verified Access logs to Amazon S3.
+         */
+        s3?: pulumi.Input<inputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs>;
+    }
+
+    /**
+     * Sends Verified Access logs to CloudWatch Logs.
+     */
+    export interface VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs {
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The ID of the CloudWatch Logs log group.
+         */
+        logGroup?: pulumi.Input<string>;
+    }
+
+    /**
+     * Sends Verified Access logs to Kinesis.
+     */
+    export interface VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs {
+        /**
+         * The ID of the delivery stream.
+         */
+        deliveryStream?: pulumi.Input<string>;
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Sends Verified Access logs to Amazon S3.
+     */
+    export interface VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs {
+        /**
+         * The bucket name.
+         */
+        bucketName?: pulumi.Input<string>;
+        /**
+         * The ID of the AWS account that owns the Amazon S3 bucket.
+         */
+        bucketOwner?: pulumi.Input<string>;
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The bucket prefix.
+         */
+        prefix?: pulumi.Input<string>;
+    }
+
+    /**
+     * A Verified Access Trust Provider.
+     */
+    export interface VerifiedAccessInstanceVerifiedAccessTrustProviderArgs {
+        /**
+         * The description of trust provider.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The type of device-based trust provider.
+         */
+        deviceTrustProviderType?: pulumi.Input<string>;
+        /**
+         * The type of trust provider (user- or device-based).
+         */
+        trustProviderType?: pulumi.Input<string>;
+        /**
+         * The type of user-based trust provider.
+         */
+        userTrustProviderType?: pulumi.Input<string>;
+        /**
+         * The ID of the trust provider.
+         */
+        verifiedAccessTrustProviderId?: pulumi.Input<string>;
+    }
+
+    /**
+     * The options for device identity based trust providers.
+     */
+    export interface VerifiedAccessTrustProviderDeviceOptionsArgs {
+        /**
+         * The ID of the tenant application with the device-identity provider.
+         */
+        tenantId?: pulumi.Input<string>;
+    }
+
+    /**
+     * The OpenID Connect details for an oidc -type, user-identity based trust provider.
+     */
+    export interface VerifiedAccessTrustProviderOidcOptionsArgs {
+        /**
+         * The OIDC authorization endpoint.
+         */
+        authorizationEndpoint?: pulumi.Input<string>;
+        /**
+         * The client identifier.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The client secret.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The OIDC issuer.
+         */
+        issuer?: pulumi.Input<string>;
+        /**
+         * OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+         */
+        scope?: pulumi.Input<string>;
+        /**
+         * The OIDC token endpoint.
+         */
+        tokenEndpoint?: pulumi.Input<string>;
+        /**
+         * The OIDC user info endpoint.
+         */
+        userInfoEndpoint?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface VerifiedAccessTrustProviderTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -17773,6 +18065,24 @@ export namespace iot {
         value: pulumi.Input<string>;
     }
 
+    export interface BillingGroupPropertiesPropertiesArgs {
+        billingGroupDescription?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface BillingGroupTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface CACertificateRegistrationConfigArgs {
         roleArn?: pulumi.Input<string>;
         templateBody?: pulumi.Input<string>;
@@ -18223,6 +18533,48 @@ export namespace iot {
 
     export interface ThingAttributePayloadArgs {
         attributes?: any;
+    }
+
+    export interface ThingGroupAttributePayloadArgs {
+        attributes?: any;
+    }
+
+    export interface ThingGroupPropertiesPropertiesArgs {
+        attributePayload?: pulumi.Input<inputs.iot.ThingGroupAttributePayloadArgs>;
+        thingGroupDescription?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ThingGroupTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ThingTypePropertiesPropertiesArgs {
+        searchableAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+        thingTypeDescription?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ThingTypeTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -21997,7 +22349,6 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs {
         bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs>;
-        bulkRequestCustomizationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfigurationArgs>;
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         collectionEndpoint?: pulumi.Input<string>;
         indexName: pulumi.Input<string>;
@@ -22020,7 +22371,6 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs {
         bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceBufferingHintsArgs>;
-        bulkRequestCustomizationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfigurationArgs>;
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         clusterEndpoint?: pulumi.Input<string>;
         documentIdOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDocumentIdOptionsArgs>;
@@ -22043,12 +22393,6 @@ export namespace kinesisfirehose {
     export interface DeliveryStreamBufferingHintsArgs {
         intervalInSeconds?: pulumi.Input<number>;
         sizeInMBs?: pulumi.Input<number>;
-    }
-
-    export interface DeliveryStreamBulkRequestCustomizationConfigurationArgs {
-        enabled?: pulumi.Input<boolean>;
-        jqExpression?: pulumi.Input<string>;
-        jqVersion?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfigurationJqVersion>;
     }
 
     export interface DeliveryStreamCloudWatchLoggingOptionsArgs {
@@ -22091,7 +22435,6 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamElasticsearchDestinationConfigurationArgs {
         bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamElasticsearchBufferingHintsArgs>;
-        bulkRequestCustomizationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfigurationArgs>;
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         clusterEndpoint?: pulumi.Input<string>;
         documentIdOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDocumentIdOptionsArgs>;
@@ -24410,6 +24753,20 @@ export namespace lightsail {
          * The daily time when an automatic snapshot will be created.
          */
         snapshotTimeOfDay?: pulumi.Input<string>;
+    }
+
+    /**
+     * Location of a resource.
+     */
+    export interface DiskLocationArgs {
+        /**
+         * The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+         */
+        availabilityZone?: pulumi.Input<string>;
+        /**
+         * The Region Name in which to create your disk.
+         */
+        regionName?: pulumi.Input<string>;
     }
 
     /**
@@ -27758,6 +28115,7 @@ export namespace neptune {
 
 export namespace networkfirewall {
     export interface FirewallPolicyArgs {
+        policyVariables?: pulumi.Input<inputs.networkfirewall.FirewallPolicyPolicyVariablesPropertiesArgs>;
         statefulDefaultActions?: pulumi.Input<pulumi.Input<string>[]>;
         statefulEngineOptions?: pulumi.Input<inputs.networkfirewall.FirewallPolicyStatefulEngineOptionsArgs>;
         statefulRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyStatefulRuleGroupReferenceArgs>[]>;
@@ -27780,8 +28138,15 @@ export namespace networkfirewall {
         value: pulumi.Input<string>;
     }
 
+    export interface FirewallPolicyPolicyVariablesPropertiesArgs {
+        ruleVariables?: pulumi.Input<inputs.networkfirewall.FirewallPolicyRuleVariablesArgs>;
+    }
+
     export interface FirewallPolicyPublishMetricActionArgs {
         dimensions: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyDimensionArgs>[]>;
+    }
+
+    export interface FirewallPolicyRuleVariablesArgs {
     }
 
     export interface FirewallPolicyStatefulEngineOptionsArgs {
@@ -28792,6 +29157,57 @@ export namespace organizations {
     }
 }
 
+export namespace osis {
+    /**
+     * Key-value pairs to configure log publishing.
+     */
+    export interface PipelineLogPublishingOptionsArgs {
+        /**
+         * The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
+         */
+        cloudWatchLogDestination?: pulumi.Input<inputs.osis.PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs>;
+        /**
+         * Whether logs should be published.
+         */
+        isLoggingEnabled?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
+     */
+    export interface PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs {
+        logGroup?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PipelineTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
+     */
+    export interface PipelineVpcOptionsArgs {
+        /**
+         * A list of security groups associated with the VPC endpoint.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of subnet IDs associated with the VPC endpoint.
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+}
+
 export namespace panorama {
     export interface ApplicationInstanceManifestOverridesPayloadArgs {
         payloadData?: pulumi.Input<string>;
@@ -29751,6 +30167,50 @@ export namespace pipes {
 
     export interface PipeTargetStateMachineParametersArgs {
         invocationType?: pulumi.Input<enums.pipes.PipeTargetInvocationType>;
+    }
+}
+
+export namespace proton {
+    /**
+     * <p>A description of a resource tag.</p>
+     */
+    export interface EnvironmentAccountConnectionTagArgs {
+        /**
+         * <p>The key of the resource tag.</p>
+         */
+        key: pulumi.Input<string>;
+        /**
+         * <p>The value of the resource tag.</p>
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>A description of a resource tag.</p>
+     */
+    export interface EnvironmentTemplateTagArgs {
+        /**
+         * <p>The key of the resource tag.</p>
+         */
+        key: pulumi.Input<string>;
+        /**
+         * <p>The value of the resource tag.</p>
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>A description of a resource tag.</p>
+     */
+    export interface ServiceTemplateTagArgs {
+        /**
+         * <p>The key of the resource tag.</p>
+         */
+        key: pulumi.Input<string>;
+        /**
+         * <p>The value of the resource tag.</p>
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -41812,7 +42272,6 @@ export namespace s3objectlambda {
     export interface AccessPointTransformationConfigurationContentTransformationPropertiesArgs {
         awsLambda: pulumi.Input<inputs.s3objectlambda.AccessPointAwsLambdaArgs>;
     }
-
 }
 
 export namespace s3outposts {
@@ -45376,25 +45835,73 @@ export namespace secretsmanager {
     }
 
     export interface SecretGenerateSecretStringArgs {
+        /**
+         * A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters. 
+         */
         excludeCharacters?: pulumi.Input<string>;
+        /**
+         * Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
+         */
         excludeLowercase?: pulumi.Input<boolean>;
+        /**
+         * Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
+         */
         excludeNumbers?: pulumi.Input<boolean>;
+        /**
+         * Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. 
+         */
         excludePunctuation?: pulumi.Input<boolean>;
+        /**
+         * Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters. 
+         */
         excludeUppercase?: pulumi.Input<boolean>;
+        /**
+         * The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate. 
+         */
         generateStringKey?: pulumi.Input<string>;
+        /**
+         * Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
+         */
         includeSpace?: pulumi.Input<boolean>;
+        /**
+         * The desired length of the generated password. The default value if you do not include this parameter is 32 characters. 
+         */
         passwordLength?: pulumi.Input<number>;
+        /**
+         * Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
+         */
         requireEachIncludedType?: pulumi.Input<boolean>;
+        /**
+         * A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
+         */
         secretStringTemplate?: pulumi.Input<string>;
     }
 
+    /**
+     * A custom type that specifies a Region and the KmsKeyId for a replica secret.
+     */
     export interface SecretReplicaRegionArgs {
+        /**
+         * The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses aws/secretsmanager.
+         */
         kmsKeyId?: pulumi.Input<string>;
+        /**
+         * (Optional) A string that represents a Region, for example "us-east-1".
+         */
         region: pulumi.Input<string>;
     }
 
+    /**
+     * A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string.
+     */
     export interface SecretTagArgs {
+        /**
+         * The value for the tag. You can specify a value that's 1 to 256 characters in length.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws.
+         */
         value: pulumi.Input<string>;
     }
 }

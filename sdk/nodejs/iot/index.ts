@@ -15,6 +15,11 @@ export type Authorizer = import("./authorizer").Authorizer;
 export const Authorizer: typeof import("./authorizer").Authorizer = null as any;
 utilities.lazyLoad(exports, ["Authorizer"], () => require("./authorizer"));
 
+export { BillingGroupArgs } from "./billingGroup";
+export type BillingGroup = import("./billingGroup").BillingGroup;
+export const BillingGroup: typeof import("./billingGroup").BillingGroup = null as any;
+utilities.lazyLoad(exports, ["BillingGroup"], () => require("./billingGroup"));
+
 export { CACertificateArgs } from "./cacertificate";
 export type CACertificate = import("./cacertificate").CACertificate;
 export const CACertificate: typeof import("./cacertificate").CACertificate = null as any;
@@ -54,6 +59,11 @@ export { GetAuthorizerArgs, GetAuthorizerResult, GetAuthorizerOutputArgs } from 
 export const getAuthorizer: typeof import("./getAuthorizer").getAuthorizer = null as any;
 export const getAuthorizerOutput: typeof import("./getAuthorizer").getAuthorizerOutput = null as any;
 utilities.lazyLoad(exports, ["getAuthorizer","getAuthorizerOutput"], () => require("./getAuthorizer"));
+
+export { GetBillingGroupArgs, GetBillingGroupResult, GetBillingGroupOutputArgs } from "./getBillingGroup";
+export const getBillingGroup: typeof import("./getBillingGroup").getBillingGroup = null as any;
+export const getBillingGroupOutput: typeof import("./getBillingGroup").getBillingGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getBillingGroup","getBillingGroupOutput"], () => require("./getBillingGroup"));
 
 export { GetCACertificateArgs, GetCACertificateResult, GetCACertificateOutputArgs } from "./getCACertificate";
 export const getCACertificate: typeof import("./getCACertificate").getCACertificate = null as any;
@@ -140,10 +150,20 @@ export const getThing: typeof import("./getThing").getThing = null as any;
 export const getThingOutput: typeof import("./getThing").getThingOutput = null as any;
 utilities.lazyLoad(exports, ["getThing","getThingOutput"], () => require("./getThing"));
 
+export { GetThingGroupArgs, GetThingGroupResult, GetThingGroupOutputArgs } from "./getThingGroup";
+export const getThingGroup: typeof import("./getThingGroup").getThingGroup = null as any;
+export const getThingGroupOutput: typeof import("./getThingGroup").getThingGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getThingGroup","getThingGroupOutput"], () => require("./getThingGroup"));
+
 export { GetThingPrincipalAttachmentArgs, GetThingPrincipalAttachmentResult, GetThingPrincipalAttachmentOutputArgs } from "./getThingPrincipalAttachment";
 export const getThingPrincipalAttachment: typeof import("./getThingPrincipalAttachment").getThingPrincipalAttachment = null as any;
 export const getThingPrincipalAttachmentOutput: typeof import("./getThingPrincipalAttachment").getThingPrincipalAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getThingPrincipalAttachment","getThingPrincipalAttachmentOutput"], () => require("./getThingPrincipalAttachment"));
+
+export { GetThingTypeArgs, GetThingTypeResult, GetThingTypeOutputArgs } from "./getThingType";
+export const getThingType: typeof import("./getThingType").getThingType = null as any;
+export const getThingTypeOutput: typeof import("./getThingType").getThingTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getThingType","getThingTypeOutput"], () => require("./getThingType"));
 
 export { GetTopicRuleArgs, GetTopicRuleResult, GetTopicRuleOutputArgs } from "./getTopicRule";
 export const getTopicRule: typeof import("./getTopicRule").getTopicRule = null as any;
@@ -210,10 +230,20 @@ export type Thing = import("./thing").Thing;
 export const Thing: typeof import("./thing").Thing = null as any;
 utilities.lazyLoad(exports, ["Thing"], () => require("./thing"));
 
+export { ThingGroupArgs } from "./thingGroup";
+export type ThingGroup = import("./thingGroup").ThingGroup;
+export const ThingGroup: typeof import("./thingGroup").ThingGroup = null as any;
+utilities.lazyLoad(exports, ["ThingGroup"], () => require("./thingGroup"));
+
 export { ThingPrincipalAttachmentArgs } from "./thingPrincipalAttachment";
 export type ThingPrincipalAttachment = import("./thingPrincipalAttachment").ThingPrincipalAttachment;
 export const ThingPrincipalAttachment: typeof import("./thingPrincipalAttachment").ThingPrincipalAttachment = null as any;
 utilities.lazyLoad(exports, ["ThingPrincipalAttachment"], () => require("./thingPrincipalAttachment"));
+
+export { ThingTypeArgs } from "./thingType";
+export type ThingType = import("./thingType").ThingType;
+export const ThingType: typeof import("./thingType").ThingType = null as any;
+utilities.lazyLoad(exports, ["ThingType"], () => require("./thingType"));
 
 export { TopicRuleArgs } from "./topicRule";
 export type TopicRule = import("./topicRule").TopicRule;
@@ -237,6 +267,8 @@ const _module = {
                 return new AccountAuditConfiguration(name, <any>undefined, { urn })
             case "aws-native:iot:Authorizer":
                 return new Authorizer(name, <any>undefined, { urn })
+            case "aws-native:iot:BillingGroup":
+                return new BillingGroup(name, <any>undefined, { urn })
             case "aws-native:iot:CACertificate":
                 return new CACertificate(name, <any>undefined, { urn })
             case "aws-native:iot:Certificate":
@@ -271,8 +303,12 @@ const _module = {
                 return new SecurityProfile(name, <any>undefined, { urn })
             case "aws-native:iot:Thing":
                 return new Thing(name, <any>undefined, { urn })
+            case "aws-native:iot:ThingGroup":
+                return new ThingGroup(name, <any>undefined, { urn })
             case "aws-native:iot:ThingPrincipalAttachment":
                 return new ThingPrincipalAttachment(name, <any>undefined, { urn })
+            case "aws-native:iot:ThingType":
+                return new ThingType(name, <any>undefined, { urn })
             case "aws-native:iot:TopicRule":
                 return new TopicRule(name, <any>undefined, { urn })
             case "aws-native:iot:TopicRuleDestination":

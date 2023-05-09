@@ -66,7 +66,7 @@ export class Disk extends pulumi.CustomResource {
      * Check is Disk is attached state
      */
     public /*out*/ readonly isAttached!: pulumi.Output<boolean>;
-    public /*out*/ readonly location!: pulumi.Output<outputs.lightsail.DiskLocation>;
+    public readonly location!: pulumi.Output<outputs.lightsail.DiskLocation | undefined>;
     /**
      * Path of the  attached Disk
      */
@@ -109,6 +109,7 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["addOns"] = args ? args.addOns : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["diskName"] = args ? args.diskName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["sizeInGb"] = args ? args.sizeInGb : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["attachedTo"] = undefined /*out*/;
@@ -116,7 +117,6 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["diskArn"] = undefined /*out*/;
             resourceInputs["iops"] = undefined /*out*/;
             resourceInputs["isAttached"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["path"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -159,6 +159,7 @@ export interface DiskArgs {
      * The names to use for your new Lightsail disk.
      */
     diskName?: pulumi.Input<string>;
+    location?: pulumi.Input<inputs.lightsail.DiskLocationArgs>;
     /**
      * Size of the Lightsail disk
      */

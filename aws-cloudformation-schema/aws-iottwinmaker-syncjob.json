@@ -1,6 +1,7 @@
 {
   "typeName" : "AWS::IoTTwinMaker::SyncJob",
   "description" : "Resource schema for AWS::IoTTwinMaker::SyncJob",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iottwinmaker",
   "definitions" : {
     "DateTimeFormat" : {
       "type" : "string",
@@ -86,6 +87,15 @@
       "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:DeleteSyncJob" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "WorkspaceId" : {
+            "type" : "string",
+            "$ref" : "resource-schema.json#/properties/WorkspaceId"
+          }
+        },
+        "required" : [ "WorkspaceId" ]
+      },
       "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:ListSyncJobs", "iottwinmaker:ListTagsForResource" ]
     }
   },

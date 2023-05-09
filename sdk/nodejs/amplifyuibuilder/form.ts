@@ -43,6 +43,7 @@ export class Form extends pulumi.CustomResource {
     public readonly environmentName!: pulumi.Output<string | undefined>;
     public readonly fields!: pulumi.Output<outputs.amplifyuibuilder.FormFieldsMap>;
     public readonly formActionType!: pulumi.Output<enums.amplifyuibuilder.FormActionType>;
+    public readonly labelDecorator!: pulumi.Output<enums.amplifyuibuilder.FormLabelDecorator | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly schemaVersion!: pulumi.Output<string>;
     public readonly sectionalElements!: pulumi.Output<outputs.amplifyuibuilder.FormSectionalElementMap>;
@@ -84,6 +85,7 @@ export class Form extends pulumi.CustomResource {
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["fields"] = args ? args.fields : undefined;
             resourceInputs["formActionType"] = args ? args.formActionType : undefined;
+            resourceInputs["labelDecorator"] = args ? args.labelDecorator : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["schemaVersion"] = args ? args.schemaVersion : undefined;
             resourceInputs["sectionalElements"] = args ? args.sectionalElements : undefined;
@@ -96,6 +98,7 @@ export class Form extends pulumi.CustomResource {
             resourceInputs["environmentName"] = undefined /*out*/;
             resourceInputs["fields"] = undefined /*out*/;
             resourceInputs["formActionType"] = undefined /*out*/;
+            resourceInputs["labelDecorator"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["schemaVersion"] = undefined /*out*/;
             resourceInputs["sectionalElements"] = undefined /*out*/;
@@ -117,6 +120,7 @@ export interface FormArgs {
     environmentName?: pulumi.Input<string>;
     fields: pulumi.Input<inputs.amplifyuibuilder.FormFieldsMapArgs>;
     formActionType: pulumi.Input<enums.amplifyuibuilder.FormActionType>;
+    labelDecorator?: pulumi.Input<enums.amplifyuibuilder.FormLabelDecorator>;
     name?: pulumi.Input<string>;
     schemaVersion: pulumi.Input<string>;
     sectionalElements: pulumi.Input<inputs.amplifyuibuilder.FormSectionalElementMapArgs>;

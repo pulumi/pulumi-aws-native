@@ -2175,15 +2175,35 @@ export namespace appflow {
 }
 
 export namespace appintegrations {
+    /**
+     * The configuration for what files should be pulled from the source.
+     */
+    export interface DataIntegrationFileConfiguration {
+        /**
+         * Restrictions for what files should be pulled from the source.
+         */
+        filters?: any;
+        /**
+         * Identifiers for the source folders to pull all files from recursively.
+         */
+        folders: string[];
+    }
+
+    /**
+     * The configuration for what data should be pulled from the source.
+     */
+    export interface DataIntegrationObjectConfiguration {
+    }
+
     export interface DataIntegrationScheduleConfig {
         /**
          * The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
          */
-        firstExecutionFrom: string;
+        firstExecutionFrom?: string;
         /**
          * The name of the object to pull from the data source.
          */
-        object: string;
+        object?: string;
         /**
          * How often the data should be pulled from data source.
          */
@@ -4674,6 +4694,14 @@ export namespace backup {
          * Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
          */
         reportTemplate: string;
+    }
+
+}
+
+export namespace backupgateway {
+    export interface HypervisorTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -9980,6 +10008,24 @@ export namespace devicefarm {
         value: string;
     }
 
+    /**
+     * The VPC security groups and subnets that are attached to a project
+     */
+    export interface ProjectVpcConfig {
+        /**
+         * An array of security group Ids in your Amazon VPC
+         */
+        securityGroupIds: string[];
+        /**
+         * A array of subnet IDs in your Amazon VPC.
+         */
+        subnetIds: string[];
+        /**
+         * The ID of the Amazon VPC
+         */
+        vpcId: string;
+    }
+
     export interface TestGridProjectTag {
         key: string;
         value: string;
@@ -11258,6 +11304,7 @@ export namespace ec2 {
     }
 
     export interface LaunchTemplateCpuOptions {
+        amdSevSnp?: string;
         coreCount?: number;
         threadsPerCore?: number;
     }
@@ -11727,6 +11774,18 @@ export namespace ec2 {
         state?: string;
     }
 
+    export interface NetworkInsightsPathFilterPortRange {
+        fromPort?: number;
+        toPort?: number;
+    }
+
+    export interface NetworkInsightsPathPathFilter {
+        destinationAddress?: string;
+        destinationPortRange?: outputs.ec2.NetworkInsightsPathFilterPortRange;
+        sourceAddress?: string;
+        sourcePortRange?: outputs.ec2.NetworkInsightsPathFilterPortRange;
+    }
+
     export interface NetworkInsightsPathTag {
         key: string;
         value?: string;
@@ -12191,6 +12250,240 @@ export namespace ec2 {
 
     export interface VPNGatewayTag {
         key: string;
+        value: string;
+    }
+
+    /**
+     * The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
+     */
+    export interface VerifiedAccessEndpointLoadBalancerOptions {
+        /**
+         * The ARN of the load balancer.
+         */
+        loadBalancerArn?: string;
+        /**
+         * The IP port number.
+         */
+        port?: number;
+        /**
+         * The IP protocol.
+         */
+        protocol?: string;
+        /**
+         * The IDs of the subnets.
+         */
+        subnetIds?: string[];
+    }
+
+    /**
+     * The options for network-interface type endpoint.
+     */
+    export interface VerifiedAccessEndpointNetworkInterfaceOptions {
+        /**
+         * The ID of the network interface.
+         */
+        networkInterfaceId?: string;
+        /**
+         * The IP port number.
+         */
+        port?: number;
+        /**
+         * The IP protocol.
+         */
+        protocol?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface VerifiedAccessEndpointTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface VerifiedAccessGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface VerifiedAccessInstanceTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * The configuration options for AWS Verified Access instances.
+     */
+    export interface VerifiedAccessInstanceVerifiedAccessLogs {
+        /**
+         * Sends Verified Access logs to CloudWatch Logs.
+         */
+        cloudWatchLogs?: outputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties;
+        /**
+         * Sends Verified Access logs to Kinesis.
+         */
+        kinesisDataFirehose?: outputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties;
+        /**
+         * Sends Verified Access logs to Amazon S3.
+         */
+        s3?: outputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsS3Properties;
+    }
+
+    /**
+     * Sends Verified Access logs to CloudWatch Logs.
+     */
+    export interface VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties {
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled?: boolean;
+        /**
+         * The ID of the CloudWatch Logs log group.
+         */
+        logGroup?: string;
+    }
+
+    /**
+     * Sends Verified Access logs to Kinesis.
+     */
+    export interface VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties {
+        /**
+         * The ID of the delivery stream.
+         */
+        deliveryStream?: string;
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled?: boolean;
+    }
+
+    /**
+     * Sends Verified Access logs to Amazon S3.
+     */
+    export interface VerifiedAccessInstanceVerifiedAccessLogsS3Properties {
+        /**
+         * The bucket name.
+         */
+        bucketName?: string;
+        /**
+         * The ID of the AWS account that owns the Amazon S3 bucket.
+         */
+        bucketOwner?: string;
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled?: boolean;
+        /**
+         * The bucket prefix.
+         */
+        prefix?: string;
+    }
+
+    /**
+     * A Verified Access Trust Provider.
+     */
+    export interface VerifiedAccessInstanceVerifiedAccessTrustProvider {
+        /**
+         * The description of trust provider.
+         */
+        description?: string;
+        /**
+         * The type of device-based trust provider.
+         */
+        deviceTrustProviderType?: string;
+        /**
+         * The type of trust provider (user- or device-based).
+         */
+        trustProviderType?: string;
+        /**
+         * The type of user-based trust provider.
+         */
+        userTrustProviderType?: string;
+        /**
+         * The ID of the trust provider.
+         */
+        verifiedAccessTrustProviderId?: string;
+    }
+
+    /**
+     * The options for device identity based trust providers.
+     */
+    export interface VerifiedAccessTrustProviderDeviceOptions {
+        /**
+         * The ID of the tenant application with the device-identity provider.
+         */
+        tenantId?: string;
+    }
+
+    /**
+     * The OpenID Connect details for an oidc -type, user-identity based trust provider.
+     */
+    export interface VerifiedAccessTrustProviderOidcOptions {
+        /**
+         * The OIDC authorization endpoint.
+         */
+        authorizationEndpoint?: string;
+        /**
+         * The client identifier.
+         */
+        clientId?: string;
+        /**
+         * The client secret.
+         */
+        clientSecret?: string;
+        /**
+         * The OIDC issuer.
+         */
+        issuer?: string;
+        /**
+         * OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+         */
+        scope?: string;
+        /**
+         * The OIDC token endpoint.
+         */
+        tokenEndpoint?: string;
+        /**
+         * The OIDC user info endpoint.
+         */
+        userInfoEndpoint?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface VerifiedAccessTrustProviderTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
@@ -18058,6 +18351,24 @@ export namespace iot {
         value: string;
     }
 
+    export interface BillingGroupPropertiesProperties {
+        billingGroupDescription?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface BillingGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
     export interface CACertificateRegistrationConfig {
         roleArn?: string;
         templateBody?: string;
@@ -18514,6 +18825,48 @@ export namespace iot {
 
     export interface ThingAttributePayload {
         attributes?: any;
+    }
+
+    export interface ThingGroupAttributePayload {
+        attributes?: any;
+    }
+
+    export interface ThingGroupPropertiesProperties {
+        attributePayload?: outputs.iot.ThingGroupAttributePayload;
+        thingGroupDescription?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ThingGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+    export interface ThingTypePropertiesProperties {
+        searchableAttributes?: string[];
+        thingTypeDescription?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ThingTypeTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
     }
 
     /**
@@ -22332,7 +22685,6 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration {
         bufferingHints?: outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessBufferingHints;
-        bulkRequestCustomizationConfiguration?: outputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfiguration;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         collectionEndpoint?: string;
         indexName: string;
@@ -22355,7 +22707,6 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamAmazonopensearchserviceDestinationConfiguration {
         bufferingHints?: outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceBufferingHints;
-        bulkRequestCustomizationConfiguration?: outputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfiguration;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         clusterEndpoint?: string;
         documentIdOptions?: outputs.kinesisfirehose.DeliveryStreamDocumentIdOptions;
@@ -22378,12 +22729,6 @@ export namespace kinesisfirehose {
     export interface DeliveryStreamBufferingHints {
         intervalInSeconds?: number;
         sizeInMBs?: number;
-    }
-
-    export interface DeliveryStreamBulkRequestCustomizationConfiguration {
-        enabled?: boolean;
-        jqExpression?: string;
-        jqVersion?: enums.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfigurationJqVersion;
     }
 
     export interface DeliveryStreamCloudWatchLoggingOptions {
@@ -22426,7 +22771,6 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamElasticsearchDestinationConfiguration {
         bufferingHints?: outputs.kinesisfirehose.DeliveryStreamElasticsearchBufferingHints;
-        bulkRequestCustomizationConfiguration?: outputs.kinesisfirehose.DeliveryStreamBulkRequestCustomizationConfiguration;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         clusterEndpoint?: string;
         documentIdOptions?: outputs.kinesisfirehose.DeliveryStreamDocumentIdOptions;
@@ -28146,6 +28490,7 @@ export namespace neptune {
 
 export namespace networkfirewall {
     export interface FirewallPolicy {
+        policyVariables?: outputs.networkfirewall.FirewallPolicyPolicyVariablesProperties;
         statefulDefaultActions?: string[];
         statefulEngineOptions?: outputs.networkfirewall.FirewallPolicyStatefulEngineOptions;
         statefulRuleGroupReferences?: outputs.networkfirewall.FirewallPolicyStatefulRuleGroupReference[];
@@ -28168,8 +28513,15 @@ export namespace networkfirewall {
         value: string;
     }
 
+    export interface FirewallPolicyPolicyVariablesProperties {
+        ruleVariables?: outputs.networkfirewall.FirewallPolicyRuleVariables;
+    }
+
     export interface FirewallPolicyPublishMetricAction {
         dimensions: outputs.networkfirewall.FirewallPolicyDimension[];
+    }
+
+    export interface FirewallPolicyRuleVariables {
     }
 
     export interface FirewallPolicyStatefulEngineOptions {
@@ -29304,6 +29656,73 @@ export namespace organizations {
 
 }
 
+export namespace osis {
+    /**
+     * Key-value pairs to configure log publishing.
+     */
+    export interface PipelineLogPublishingOptions {
+        /**
+         * The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
+         */
+        cloudWatchLogDestination?: outputs.osis.PipelineLogPublishingOptionsCloudWatchLogDestinationProperties;
+        /**
+         * Whether logs should be published.
+         */
+        isLoggingEnabled?: boolean;
+    }
+
+    /**
+     * The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
+     */
+    export interface PipelineLogPublishingOptionsCloudWatchLogDestinationProperties {
+        logGroup?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PipelineTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * An OpenSearch Ingestion Service-managed VPC endpoint that will access one or more pipelines.
+     */
+    export interface PipelineVpcEndpoint {
+        /**
+         * The unique identifier of the endpoint.
+         */
+        vpcEndpointId?: string;
+        /**
+         * The ID for your VPC. AWS Privatelink generates this value when you create a VPC.
+         */
+        vpcId?: string;
+        vpcOptions?: outputs.osis.PipelineVpcOptions;
+    }
+
+    /**
+     * Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
+     */
+    export interface PipelineVpcOptions {
+        /**
+         * A list of security groups associated with the VPC endpoint.
+         */
+        securityGroupIds?: string[];
+        /**
+         * A list of subnet IDs associated with the VPC endpoint.
+         */
+        subnetIds?: string[];
+    }
+
+}
+
 export namespace panorama {
     export interface ApplicationInstanceManifestOverridesPayload {
         payloadData?: string;
@@ -30267,6 +30686,51 @@ export namespace pipes {
 
     export interface PipeTargetStateMachineParameters {
         invocationType?: enums.pipes.PipeTargetInvocationType;
+    }
+
+}
+
+export namespace proton {
+    /**
+     * <p>A description of a resource tag.</p>
+     */
+    export interface EnvironmentAccountConnectionTag {
+        /**
+         * <p>The key of the resource tag.</p>
+         */
+        key: string;
+        /**
+         * <p>The value of the resource tag.</p>
+         */
+        value: string;
+    }
+
+    /**
+     * <p>A description of a resource tag.</p>
+     */
+    export interface EnvironmentTemplateTag {
+        /**
+         * <p>The key of the resource tag.</p>
+         */
+        key: string;
+        /**
+         * <p>The value of the resource tag.</p>
+         */
+        value: string;
+    }
+
+    /**
+     * <p>A description of a resource tag.</p>
+     */
+    export interface ServiceTemplateTag {
+        /**
+         * <p>The key of the resource tag.</p>
+         */
+        key: string;
+        /**
+         * <p>The value of the resource tag.</p>
+         */
+        value: string;
     }
 
 }
@@ -42586,6 +43050,17 @@ export namespace s3 {
 }
 
 export namespace s3objectlambda {
+    export interface AccessPointAlias {
+        /**
+         * The status of the Object Lambda alias.
+         */
+        status: string;
+        /**
+         * The value of the Object Lambda alias.
+         */
+        value: string;
+    }
+
     export interface AccessPointAwsLambda {
         functionArn: string;
         functionPayload?: string;
@@ -42599,6 +43074,13 @@ export namespace s3objectlambda {
         cloudWatchMetricsEnabled?: boolean;
         supportingAccessPoint: string;
         transformationConfigurations: outputs.s3objectlambda.AccessPointTransformationConfiguration[];
+    }
+
+    export interface AccessPointPolicyStatus {
+        /**
+         * Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
+         */
+        isPublic?: boolean;
     }
 
     /**
@@ -42638,24 +43120,6 @@ export namespace s3objectlambda {
 
     export interface AccessPointTransformationConfigurationContentTransformationProperties {
         awsLambda: outputs.s3objectlambda.AccessPointAwsLambda;
-    }
-
-    export interface AliasProperties {
-        /**
-         * The status of the Object Lambda alias.
-         */
-        status?: string;
-        /**
-         * The value of the Object Lambda alias.
-         */
-        value?: string;
-    }
-
-    export interface PolicyStatusProperties {
-        /**
-         * Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
-         */
-        isPublic?: boolean;
     }
 
 }
@@ -46253,25 +46717,73 @@ export namespace secretsmanager {
     }
 
     export interface SecretGenerateSecretString {
+        /**
+         * A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters. 
+         */
         excludeCharacters?: string;
+        /**
+         * Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
+         */
         excludeLowercase?: boolean;
+        /**
+         * Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
+         */
         excludeNumbers?: boolean;
+        /**
+         * Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. 
+         */
         excludePunctuation?: boolean;
+        /**
+         * Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters. 
+         */
         excludeUppercase?: boolean;
+        /**
+         * The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate. 
+         */
         generateStringKey?: string;
+        /**
+         * Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
+         */
         includeSpace?: boolean;
+        /**
+         * The desired length of the generated password. The default value if you do not include this parameter is 32 characters. 
+         */
         passwordLength?: number;
+        /**
+         * Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
+         */
         requireEachIncludedType?: boolean;
+        /**
+         * A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
+         */
         secretStringTemplate?: string;
     }
 
+    /**
+     * A custom type that specifies a Region and the KmsKeyId for a replica secret.
+     */
     export interface SecretReplicaRegion {
+        /**
+         * The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses aws/secretsmanager.
+         */
         kmsKeyId?: string;
+        /**
+         * (Optional) A string that represents a Region, for example "us-east-1".
+         */
         region: string;
     }
 
+    /**
+     * A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string.
+     */
     export interface SecretTag {
+        /**
+         * The value for the tag. You can specify a value that's 1 to 256 characters in length.
+         */
         key: string;
+        /**
+         * The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws.
+         */
         value: string;
     }
 

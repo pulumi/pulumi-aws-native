@@ -348,6 +348,7 @@
   "additionalProperties" : false,
   "required" : [ "InstanceName", "BlueprintId", "BundleId" ],
   "readOnlyProperties" : [ "/properties/InstanceArn", "/properties/SshKeyName", "/properties/SupportCode", "/properties/ResourceType", "/properties/IsStaticIp", "/properties/PrivateIpAddress", "/properties/PublicIpAddress", "/properties/Location/AvailabilityZone", "/properties/Location/RegionName", "/properties/Hardware/CpuCount", "/properties/Hardware/RamSizeInGb", "/properties/State/Code", "/properties/State/Name", "/properties/UserName", "/properties/Networking/MonthlyTransfer/GbPerMonthAllocated" ],
+  "writeOnlyProperties" : [ "/properties/UserData" ],
   "taggable" : true,
   "primaryIdentifier" : [ "/properties/InstanceName" ],
   "createOnlyProperties" : [ "/properties/InstanceName", "/properties/BlueprintId", "/properties/BundleId", "/properties/AvailabilityZone" ],

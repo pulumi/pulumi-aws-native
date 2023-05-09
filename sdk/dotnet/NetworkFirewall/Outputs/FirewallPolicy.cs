@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicy
     {
+        public readonly Outputs.FirewallPolicyPolicyVariablesProperties? PolicyVariables;
         public readonly ImmutableArray<string> StatefulDefaultActions;
         public readonly Outputs.FirewallPolicyStatefulEngineOptions? StatefulEngineOptions;
         public readonly ImmutableArray<Outputs.FirewallPolicyStatefulRuleGroupReference> StatefulRuleGroupReferences;
@@ -23,6 +24,8 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private FirewallPolicy(
+            Outputs.FirewallPolicyPolicyVariablesProperties? policyVariables,
+
             ImmutableArray<string> statefulDefaultActions,
 
             Outputs.FirewallPolicyStatefulEngineOptions? statefulEngineOptions,
@@ -37,6 +40,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
             ImmutableArray<Outputs.FirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences)
         {
+            PolicyVariables = policyVariables;
             StatefulDefaultActions = statefulDefaultActions;
             StatefulEngineOptions = statefulEngineOptions;
             StatefulRuleGroupReferences = statefulRuleGroupReferences;

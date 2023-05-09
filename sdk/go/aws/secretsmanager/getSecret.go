@@ -21,17 +21,21 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 }
 
 type LookupSecretArgs struct {
+	// secret Id, the Arn of the resource.
 	Id string `pulumi:"id"`
 }
 
 type LookupSecretResult struct {
-	Description          *string                     `pulumi:"description"`
-	GenerateSecretString *SecretGenerateSecretString `pulumi:"generateSecretString"`
-	Id                   *string                     `pulumi:"id"`
-	KmsKeyId             *string                     `pulumi:"kmsKeyId"`
-	ReplicaRegions       []SecretReplicaRegion       `pulumi:"replicaRegions"`
-	SecretString         *string                     `pulumi:"secretString"`
-	Tags                 []SecretTag                 `pulumi:"tags"`
+	// (Optional) Specifies a user-provided description of the secret.
+	Description *string `pulumi:"description"`
+	// secret Id, the Arn of the resource.
+	Id *string `pulumi:"id"`
+	// (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
+	ReplicaRegions []SecretReplicaRegion `pulumi:"replicaRegions"`
+	// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
+	Tags []SecretTag `pulumi:"tags"`
 }
 
 func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts ...pulumi.InvokeOption) LookupSecretResultOutput {
@@ -48,6 +52,7 @@ func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts .
 }
 
 type LookupSecretOutputArgs struct {
+	// secret Id, the Arn of the resource.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -69,30 +74,27 @@ func (o LookupSecretResultOutput) ToLookupSecretResultOutputWithContext(ctx cont
 	return o
 }
 
+// (Optional) Specifies a user-provided description of the secret.
 func (o LookupSecretResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecretResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSecretResultOutput) GenerateSecretString() SecretGenerateSecretStringPtrOutput {
-	return o.ApplyT(func(v LookupSecretResult) *SecretGenerateSecretString { return v.GenerateSecretString }).(SecretGenerateSecretStringPtrOutput)
-}
-
+// secret Id, the Arn of the resource.
 func (o LookupSecretResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecretResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
 func (o LookupSecretResultOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecretResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
 func (o LookupSecretResultOutput) ReplicaRegions() SecretReplicaRegionArrayOutput {
 	return o.ApplyT(func(v LookupSecretResult) []SecretReplicaRegion { return v.ReplicaRegions }).(SecretReplicaRegionArrayOutput)
 }
 
-func (o LookupSecretResultOutput) SecretString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSecretResult) *string { return v.SecretString }).(pulumi.StringPtrOutput)
-}
-
+// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
 func (o LookupSecretResultOutput) Tags() SecretTagArrayOutput {
 	return o.ApplyT(func(v LookupSecretResult) []SecretTag { return v.Tags }).(SecretTagArrayOutput)
 }

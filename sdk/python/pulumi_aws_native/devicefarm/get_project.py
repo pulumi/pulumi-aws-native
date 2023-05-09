@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetProjectResult:
-    def __init__(__self__, arn=None, default_job_timeout_minutes=None, name=None, tags=None):
+    def __init__(__self__, arn=None, default_job_timeout_minutes=None, name=None, tags=None, vpc_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -32,6 +32,9 @@ class GetProjectResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if vpc_config and not isinstance(vpc_config, dict):
+            raise TypeError("Expected argument 'vpc_config' to be a dict")
+        pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter
@@ -53,6 +56,11 @@ class GetProjectResult:
     def tags(self) -> Optional[Sequence['outputs.ProjectTag']]:
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.ProjectVpcConfig']:
+        return pulumi.get(self, "vpc_config")
+
 
 class AwaitableGetProjectResult(GetProjectResult):
     # pylint: disable=using-constant-test
@@ -63,7 +71,8 @@ class AwaitableGetProjectResult(GetProjectResult):
             arn=self.arn,
             default_job_timeout_minutes=self.default_job_timeout_minutes,
             name=self.name,
-            tags=self.tags)
+            tags=self.tags,
+            vpc_config=self.vpc_config)
 
 
 def get_project(arn: Optional[str] = None,
@@ -80,7 +89,8 @@ def get_project(arn: Optional[str] = None,
         arn=__ret__.arn,
         default_job_timeout_minutes=__ret__.default_job_timeout_minutes,
         name=__ret__.name,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        vpc_config=__ret__.vpc_config)
 
 
 @_utilities.lift_output_func(get_project)

@@ -14,10 +14,11 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
-	Arn                      pulumi.StringOutput   `pulumi:"arn"`
-	DefaultJobTimeoutMinutes pulumi.IntPtrOutput   `pulumi:"defaultJobTimeoutMinutes"`
-	Name                     pulumi.StringOutput   `pulumi:"name"`
-	Tags                     ProjectTagArrayOutput `pulumi:"tags"`
+	Arn                      pulumi.StringOutput       `pulumi:"arn"`
+	DefaultJobTimeoutMinutes pulumi.IntPtrOutput       `pulumi:"defaultJobTimeoutMinutes"`
+	Name                     pulumi.StringOutput       `pulumi:"name"`
+	Tags                     ProjectTagArrayOutput     `pulumi:"tags"`
+	VpcConfig                ProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -59,9 +60,10 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	DefaultJobTimeoutMinutes *int         `pulumi:"defaultJobTimeoutMinutes"`
-	Name                     *string      `pulumi:"name"`
-	Tags                     []ProjectTag `pulumi:"tags"`
+	DefaultJobTimeoutMinutes *int              `pulumi:"defaultJobTimeoutMinutes"`
+	Name                     *string           `pulumi:"name"`
+	Tags                     []ProjectTag      `pulumi:"tags"`
+	VpcConfig                *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a Project resource.
@@ -69,6 +71,7 @@ type ProjectArgs struct {
 	DefaultJobTimeoutMinutes pulumi.IntPtrInput
 	Name                     pulumi.StringPtrInput
 	Tags                     ProjectTagArrayInput
+	VpcConfig                ProjectVpcConfigPtrInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -122,6 +125,10 @@ func (o ProjectOutput) Name() pulumi.StringOutput {
 
 func (o ProjectOutput) Tags() ProjectTagArrayOutput {
 	return o.ApplyT(func(v *Project) ProjectTagArrayOutput { return v.Tags }).(ProjectTagArrayOutput)
+}
+
+func (o ProjectOutput) VpcConfig() ProjectVpcConfigPtrOutput {
+	return o.ApplyT(func(v *Project) ProjectVpcConfigPtrOutput { return v.VpcConfig }).(ProjectVpcConfigPtrOutput)
 }
 
 func init() {

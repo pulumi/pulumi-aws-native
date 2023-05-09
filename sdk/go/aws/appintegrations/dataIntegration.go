@@ -19,10 +19,14 @@ type DataIntegration struct {
 	DataIntegrationArn pulumi.StringOutput `pulumi:"dataIntegrationArn"`
 	// The data integration description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The configuration for what files should be pulled from the source.
+	FileConfiguration DataIntegrationFileConfigurationPtrOutput `pulumi:"fileConfiguration"`
 	// The KMS key of the data integration.
 	KmsKey pulumi.StringOutput `pulumi:"kmsKey"`
 	// The name of the data integration.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The configuration for what data should be pulled from the source.
+	ObjectConfiguration DataIntegrationObjectConfigurationPtrOutput `pulumi:"objectConfiguration"`
 	// The name of the data and how often it should be pulled from the source.
 	ScheduleConfig DataIntegrationScheduleConfigOutput `pulumi:"scheduleConfig"`
 	// The URI of the data source.
@@ -81,10 +85,14 @@ func (DataIntegrationState) ElementType() reflect.Type {
 type dataIntegrationArgs struct {
 	// The data integration description.
 	Description *string `pulumi:"description"`
+	// The configuration for what files should be pulled from the source.
+	FileConfiguration *DataIntegrationFileConfiguration `pulumi:"fileConfiguration"`
 	// The KMS key of the data integration.
 	KmsKey string `pulumi:"kmsKey"`
 	// The name of the data integration.
 	Name *string `pulumi:"name"`
+	// The configuration for what data should be pulled from the source.
+	ObjectConfiguration *DataIntegrationObjectConfiguration `pulumi:"objectConfiguration"`
 	// The name of the data and how often it should be pulled from the source.
 	ScheduleConfig DataIntegrationScheduleConfig `pulumi:"scheduleConfig"`
 	// The URI of the data source.
@@ -97,10 +105,14 @@ type dataIntegrationArgs struct {
 type DataIntegrationArgs struct {
 	// The data integration description.
 	Description pulumi.StringPtrInput
+	// The configuration for what files should be pulled from the source.
+	FileConfiguration DataIntegrationFileConfigurationPtrInput
 	// The KMS key of the data integration.
 	KmsKey pulumi.StringInput
 	// The name of the data integration.
 	Name pulumi.StringPtrInput
+	// The configuration for what data should be pulled from the source.
+	ObjectConfiguration DataIntegrationObjectConfigurationPtrInput
 	// The name of the data and how often it should be pulled from the source.
 	ScheduleConfig DataIntegrationScheduleConfigInput
 	// The URI of the data source.
@@ -156,6 +168,11 @@ func (o DataIntegrationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The configuration for what files should be pulled from the source.
+func (o DataIntegrationOutput) FileConfiguration() DataIntegrationFileConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataIntegration) DataIntegrationFileConfigurationPtrOutput { return v.FileConfiguration }).(DataIntegrationFileConfigurationPtrOutput)
+}
+
 // The KMS key of the data integration.
 func (o DataIntegrationOutput) KmsKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.KmsKey }).(pulumi.StringOutput)
@@ -164,6 +181,11 @@ func (o DataIntegrationOutput) KmsKey() pulumi.StringOutput {
 // The name of the data integration.
 func (o DataIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The configuration for what data should be pulled from the source.
+func (o DataIntegrationOutput) ObjectConfiguration() DataIntegrationObjectConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataIntegration) DataIntegrationObjectConfigurationPtrOutput { return v.ObjectConfiguration }).(DataIntegrationObjectConfigurationPtrOutput)
 }
 
 // The name of the data and how often it should be pulled from the source.

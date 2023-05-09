@@ -14,18 +14,17 @@ export function getEventInvokeConfig(args: GetEventInvokeConfigArgs, opts?: pulu
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getEventInvokeConfig", {
-        "functionName": args.functionName,
-        "qualifier": args.qualifier,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetEventInvokeConfigArgs {
-    functionName: string;
-    qualifier: string;
+    id: string;
 }
 
 export interface GetEventInvokeConfigResult {
     readonly destinationConfig?: outputs.lambda.EventInvokeConfigDestinationConfig;
+    readonly id?: string;
     readonly maximumEventAgeInSeconds?: number;
     readonly maximumRetryAttempts?: number;
 }
@@ -37,6 +36,5 @@ export function getEventInvokeConfigOutput(args: GetEventInvokeConfigOutputArgs,
 }
 
 export interface GetEventInvokeConfigOutputArgs {
-    functionName: pulumi.Input<string>;
-    qualifier: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

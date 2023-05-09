@@ -148,6 +148,8 @@ __all__ = [
     'NetworkInsightsAnalysisPortRange',
     'NetworkInsightsAnalysisTag',
     'NetworkInsightsAnalysisTransitGatewayRouteTableRoute',
+    'NetworkInsightsPathFilterPortRange',
+    'NetworkInsightsPathPathFilter',
     'NetworkInsightsPathTag',
     'NetworkInterfaceInstanceIpv6Address',
     'NetworkInterfacePrivateIpAddressSpecification',
@@ -213,6 +215,19 @@ __all__ = [
     'VPNConnectionTag',
     'VPNConnectionVpnTunnelOptionsSpecification',
     'VPNGatewayTag',
+    'VerifiedAccessEndpointLoadBalancerOptions',
+    'VerifiedAccessEndpointNetworkInterfaceOptions',
+    'VerifiedAccessEndpointTag',
+    'VerifiedAccessGroupTag',
+    'VerifiedAccessInstanceTag',
+    'VerifiedAccessInstanceVerifiedAccessLogs',
+    'VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties',
+    'VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties',
+    'VerifiedAccessInstanceVerifiedAccessLogsS3Properties',
+    'VerifiedAccessInstanceVerifiedAccessTrustProvider',
+    'VerifiedAccessTrustProviderDeviceOptions',
+    'VerifiedAccessTrustProviderOidcOptions',
+    'VerifiedAccessTrustProviderTag',
     'VolumeTag',
 ]
 
@@ -3259,7 +3274,9 @@ class LaunchTemplateCpuOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "coreCount":
+        if key == "amdSevSnp":
+            suggest = "amd_sev_snp"
+        elif key == "coreCount":
             suggest = "core_count"
         elif key == "threadsPerCore":
             suggest = "threads_per_core"
@@ -3276,12 +3293,20 @@ class LaunchTemplateCpuOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 amd_sev_snp: Optional[str] = None,
                  core_count: Optional[int] = None,
                  threads_per_core: Optional[int] = None):
+        if amd_sev_snp is not None:
+            pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="amdSevSnp")
+    def amd_sev_snp(self) -> Optional[str]:
+        return pulumi.get(self, "amd_sev_snp")
 
     @property
     @pulumi.getter(name="coreCount")
@@ -6833,6 +6858,106 @@ class NetworkInsightsAnalysisTransitGatewayRouteTableRoute(dict):
 
 
 @pulumi.output_type
+class NetworkInsightsPathFilterPortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsPathFilterPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsPathFilterPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsPathFilterPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: Optional[int] = None,
+                 to_port: Optional[int] = None):
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[int]:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[int]:
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class NetworkInsightsPathPathFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddress":
+            suggest = "destination_address"
+        elif key == "destinationPortRange":
+            suggest = "destination_port_range"
+        elif key == "sourceAddress":
+            suggest = "source_address"
+        elif key == "sourcePortRange":
+            suggest = "source_port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsPathPathFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsPathPathFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsPathPathFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_address: Optional[str] = None,
+                 destination_port_range: Optional['outputs.NetworkInsightsPathFilterPortRange'] = None,
+                 source_address: Optional[str] = None,
+                 source_port_range: Optional['outputs.NetworkInsightsPathFilterPortRange'] = None):
+        if destination_address is not None:
+            pulumi.set(__self__, "destination_address", destination_address)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if source_address is not None:
+            pulumi.set(__self__, "source_address", source_address)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> Optional[str]:
+        return pulumi.get(self, "destination_address")
+
+    @property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional['outputs.NetworkInsightsPathFilterPortRange']:
+        return pulumi.get(self, "destination_port_range")
+
+    @property
+    @pulumi.getter(name="sourceAddress")
+    def source_address(self) -> Optional[str]:
+        return pulumi.get(self, "source_address")
+
+    @property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional['outputs.NetworkInsightsPathFilterPortRange']:
+        return pulumi.get(self, "source_port_range")
+
+
+@pulumi.output_type
 class NetworkInsightsPathTag(dict):
     def __init__(__self__, *,
                  key: str,
@@ -9567,6 +9692,782 @@ class VPNGatewayTag(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VerifiedAccessEndpointLoadBalancerOptions(dict):
+    """
+    The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loadBalancerArn":
+            suggest = "load_balancer_arn"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessEndpointLoadBalancerOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessEndpointLoadBalancerOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessEndpointLoadBalancerOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 load_balancer_arn: Optional[str] = None,
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None,
+                 subnet_ids: Optional[Sequence[str]] = None):
+        """
+        The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
+        :param str load_balancer_arn: The ARN of the load balancer.
+        :param int port: The IP port number.
+        :param str protocol: The IP protocol.
+        :param Sequence[str] subnet_ids: The IDs of the subnets.
+        """
+        if load_balancer_arn is not None:
+            pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="loadBalancerArn")
+    def load_balancer_arn(self) -> Optional[str]:
+        """
+        The ARN of the load balancer.
+        """
+        return pulumi.get(self, "load_balancer_arn")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The IP port number.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The IP protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The IDs of the subnets.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
+class VerifiedAccessEndpointNetworkInterfaceOptions(dict):
+    """
+    The options for network-interface type endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaceId":
+            suggest = "network_interface_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessEndpointNetworkInterfaceOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessEndpointNetworkInterfaceOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessEndpointNetworkInterfaceOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_interface_id: Optional[str] = None,
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None):
+        """
+        The options for network-interface type endpoint.
+        :param str network_interface_id: The ID of the network interface.
+        :param int port: The IP port number.
+        :param str protocol: The IP protocol.
+        """
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[str]:
+        """
+        The ID of the network interface.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The IP port number.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The IP protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class VerifiedAccessEndpointTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VerifiedAccessGroupTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VerifiedAccessInstanceTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VerifiedAccessInstanceVerifiedAccessLogs(dict):
+    """
+    The configuration options for AWS Verified Access instances.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogs":
+            suggest = "cloud_watch_logs"
+        elif key == "kinesisDataFirehose":
+            suggest = "kinesis_data_firehose"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessInstanceVerifiedAccessLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessInstanceVerifiedAccessLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessInstanceVerifiedAccessLogs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logs: Optional['outputs.VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties'] = None,
+                 kinesis_data_firehose: Optional['outputs.VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties'] = None,
+                 s3: Optional['outputs.VerifiedAccessInstanceVerifiedAccessLogsS3Properties'] = None):
+        """
+        The configuration options for AWS Verified Access instances.
+        :param 'VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties' cloud_watch_logs: Sends Verified Access logs to CloudWatch Logs.
+        :param 'VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties' kinesis_data_firehose: Sends Verified Access logs to Kinesis.
+        :param 'VerifiedAccessInstanceVerifiedAccessLogsS3Properties' s3: Sends Verified Access logs to Amazon S3.
+        """
+        if cloud_watch_logs is not None:
+            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+        if kinesis_data_firehose is not None:
+            pulumi.set(__self__, "kinesis_data_firehose", kinesis_data_firehose)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> Optional['outputs.VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties']:
+        """
+        Sends Verified Access logs to CloudWatch Logs.
+        """
+        return pulumi.get(self, "cloud_watch_logs")
+
+    @property
+    @pulumi.getter(name="kinesisDataFirehose")
+    def kinesis_data_firehose(self) -> Optional['outputs.VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties']:
+        """
+        Sends Verified Access logs to Kinesis.
+        """
+        return pulumi.get(self, "kinesis_data_firehose")
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.VerifiedAccessInstanceVerifiedAccessLogsS3Properties']:
+        """
+        Sends Verified Access logs to Amazon S3.
+        """
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties(dict):
+    """
+    Sends Verified Access logs to CloudWatch Logs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroup":
+            suggest = "log_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 log_group: Optional[str] = None):
+        """
+        Sends Verified Access logs to CloudWatch Logs.
+        :param bool enabled: Indicates whether logging is enabled.
+        :param str log_group: The ID of the CloudWatch Logs log group.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[str]:
+        """
+        The ID of the CloudWatch Logs log group.
+        """
+        return pulumi.get(self, "log_group")
+
+
+@pulumi.output_type
+class VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties(dict):
+    """
+    Sends Verified Access logs to Kinesis.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStream":
+            suggest = "delivery_stream"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delivery_stream: Optional[str] = None,
+                 enabled: Optional[bool] = None):
+        """
+        Sends Verified Access logs to Kinesis.
+        :param str delivery_stream: The ID of the delivery stream.
+        :param bool enabled: Indicates whether logging is enabled.
+        """
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> Optional[str]:
+        """
+        The ID of the delivery stream.
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class VerifiedAccessInstanceVerifiedAccessLogsS3Properties(dict):
+    """
+    Sends Verified Access logs to Amazon S3.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "bucketOwner":
+            suggest = "bucket_owner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessInstanceVerifiedAccessLogsS3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessInstanceVerifiedAccessLogsS3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessInstanceVerifiedAccessLogsS3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: Optional[str] = None,
+                 bucket_owner: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 prefix: Optional[str] = None):
+        """
+        Sends Verified Access logs to Amazon S3.
+        :param str bucket_name: The bucket name.
+        :param str bucket_owner: The ID of the AWS account that owns the Amazon S3 bucket.
+        :param bool enabled: Indicates whether logging is enabled.
+        :param str prefix: The bucket prefix.
+        """
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[str]:
+        """
+        The bucket name.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[str]:
+        """
+        The ID of the AWS account that owns the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "bucket_owner")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The bucket prefix.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class VerifiedAccessInstanceVerifiedAccessTrustProvider(dict):
+    """
+    A Verified Access Trust Provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceTrustProviderType":
+            suggest = "device_trust_provider_type"
+        elif key == "trustProviderType":
+            suggest = "trust_provider_type"
+        elif key == "userTrustProviderType":
+            suggest = "user_trust_provider_type"
+        elif key == "verifiedAccessTrustProviderId":
+            suggest = "verified_access_trust_provider_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessInstanceVerifiedAccessTrustProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessInstanceVerifiedAccessTrustProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessInstanceVerifiedAccessTrustProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 device_trust_provider_type: Optional[str] = None,
+                 trust_provider_type: Optional[str] = None,
+                 user_trust_provider_type: Optional[str] = None,
+                 verified_access_trust_provider_id: Optional[str] = None):
+        """
+        A Verified Access Trust Provider.
+        :param str description: The description of trust provider.
+        :param str device_trust_provider_type: The type of device-based trust provider.
+        :param str trust_provider_type: The type of trust provider (user- or device-based).
+        :param str user_trust_provider_type: The type of user-based trust provider.
+        :param str verified_access_trust_provider_id: The ID of the trust provider.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if device_trust_provider_type is not None:
+            pulumi.set(__self__, "device_trust_provider_type", device_trust_provider_type)
+        if trust_provider_type is not None:
+            pulumi.set(__self__, "trust_provider_type", trust_provider_type)
+        if user_trust_provider_type is not None:
+            pulumi.set(__self__, "user_trust_provider_type", user_trust_provider_type)
+        if verified_access_trust_provider_id is not None:
+            pulumi.set(__self__, "verified_access_trust_provider_id", verified_access_trust_provider_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of trust provider.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="deviceTrustProviderType")
+    def device_trust_provider_type(self) -> Optional[str]:
+        """
+        The type of device-based trust provider.
+        """
+        return pulumi.get(self, "device_trust_provider_type")
+
+    @property
+    @pulumi.getter(name="trustProviderType")
+    def trust_provider_type(self) -> Optional[str]:
+        """
+        The type of trust provider (user- or device-based).
+        """
+        return pulumi.get(self, "trust_provider_type")
+
+    @property
+    @pulumi.getter(name="userTrustProviderType")
+    def user_trust_provider_type(self) -> Optional[str]:
+        """
+        The type of user-based trust provider.
+        """
+        return pulumi.get(self, "user_trust_provider_type")
+
+    @property
+    @pulumi.getter(name="verifiedAccessTrustProviderId")
+    def verified_access_trust_provider_id(self) -> Optional[str]:
+        """
+        The ID of the trust provider.
+        """
+        return pulumi.get(self, "verified_access_trust_provider_id")
+
+
+@pulumi.output_type
+class VerifiedAccessTrustProviderDeviceOptions(dict):
+    """
+    The options for device identity based trust providers.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessTrustProviderDeviceOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessTrustProviderDeviceOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessTrustProviderDeviceOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tenant_id: Optional[str] = None):
+        """
+        The options for device identity based trust providers.
+        :param str tenant_id: The ID of the tenant application with the device-identity provider.
+        """
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The ID of the tenant application with the device-identity provider.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class VerifiedAccessTrustProviderOidcOptions(dict):
+    """
+    The OpenID Connect details for an oidc -type, user-identity based trust provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+        elif key == "userInfoEndpoint":
+            suggest = "user_info_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifiedAccessTrustProviderOidcOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifiedAccessTrustProviderOidcOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifiedAccessTrustProviderOidcOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 issuer: Optional[str] = None,
+                 scope: Optional[str] = None,
+                 token_endpoint: Optional[str] = None,
+                 user_info_endpoint: Optional[str] = None):
+        """
+        The OpenID Connect details for an oidc -type, user-identity based trust provider.
+        :param str authorization_endpoint: The OIDC authorization endpoint.
+        :param str client_id: The client identifier.
+        :param str client_secret: The client secret.
+        :param str issuer: The OIDC issuer.
+        :param str scope: OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+        :param str token_endpoint: The OIDC token endpoint.
+        :param str user_info_endpoint: The OIDC user info endpoint.
+        """
+        if authorization_endpoint is not None:
+            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if user_info_endpoint is not None:
+            pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> Optional[str]:
+        """
+        The OIDC authorization endpoint.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The client identifier.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        """
+        The client secret.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[str]:
+        """
+        The OIDC issuer.
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[str]:
+        """
+        The OIDC token endpoint.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @property
+    @pulumi.getter(name="userInfoEndpoint")
+    def user_info_endpoint(self) -> Optional[str]:
+        """
+        The OIDC user info endpoint.
+        """
+        return pulumi.get(self, "user_info_endpoint")
+
+
+@pulumi.output_type
+class VerifiedAccessTrustProviderTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
 

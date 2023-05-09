@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetResourceResult:
-    def __init__(__self__, id=None, resource_arn=None, role_arn=None, use_service_linked_role=None):
+    def __init__(__self__, id=None, resource_arn=None, role_arn=None, use_service_linked_role=None, with_federation=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -31,6 +31,9 @@ class GetResourceResult:
         if use_service_linked_role and not isinstance(use_service_linked_role, bool):
             raise TypeError("Expected argument 'use_service_linked_role' to be a bool")
         pulumi.set(__self__, "use_service_linked_role", use_service_linked_role)
+        if with_federation and not isinstance(with_federation, bool):
+            raise TypeError("Expected argument 'with_federation' to be a bool")
+        pulumi.set(__self__, "with_federation", with_federation)
 
     @property
     @pulumi.getter
@@ -52,6 +55,11 @@ class GetResourceResult:
     def use_service_linked_role(self) -> Optional[bool]:
         return pulumi.get(self, "use_service_linked_role")
 
+    @property
+    @pulumi.getter(name="withFederation")
+    def with_federation(self) -> Optional[bool]:
+        return pulumi.get(self, "with_federation")
+
 
 class AwaitableGetResourceResult(GetResourceResult):
     # pylint: disable=using-constant-test
@@ -62,7 +70,8 @@ class AwaitableGetResourceResult(GetResourceResult):
             id=self.id,
             resource_arn=self.resource_arn,
             role_arn=self.role_arn,
-            use_service_linked_role=self.use_service_linked_role)
+            use_service_linked_role=self.use_service_linked_role,
+            with_federation=self.with_federation)
 
 
 def get_resource(id: Optional[str] = None,
@@ -79,7 +88,8 @@ def get_resource(id: Optional[str] = None,
         id=__ret__.id,
         resource_arn=__ret__.resource_arn,
         role_arn=__ret__.role_arn,
-        use_service_linked_role=__ret__.use_service_linked_role)
+        use_service_linked_role=__ret__.use_service_linked_role,
+        with_federation=__ret__.with_federation)
 
 
 @_utilities.lift_output_func(get_resource)

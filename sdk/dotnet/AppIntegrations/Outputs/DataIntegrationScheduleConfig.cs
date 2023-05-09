@@ -16,11 +16,11 @@ namespace Pulumi.AwsNative.AppIntegrations.Outputs
         /// <summary>
         /// The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
         /// </summary>
-        public readonly string FirstExecutionFrom;
+        public readonly string? FirstExecutionFrom;
         /// <summary>
         /// The name of the object to pull from the data source.
         /// </summary>
-        public readonly string Object;
+        public readonly string? Object;
         /// <summary>
         /// How often the data should be pulled from data source.
         /// </summary>
@@ -28,9 +28,9 @@ namespace Pulumi.AwsNative.AppIntegrations.Outputs
 
         [OutputConstructor]
         private DataIntegrationScheduleConfig(
-            string firstExecutionFrom,
+            string? firstExecutionFrom,
 
-            string @object,
+            string? @object,
 
             string scheduleExpression)
         {

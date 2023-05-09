@@ -95,33 +95,6 @@ namespace Pulumi.AwsNative.KinesisFirehose
     }
 
     [EnumType]
-    public readonly struct DeliveryStreamBulkRequestCustomizationConfigurationJqVersion : IEquatable<DeliveryStreamBulkRequestCustomizationConfigurationJqVersion>
-    {
-        private readonly string _value;
-
-        private DeliveryStreamBulkRequestCustomizationConfigurationJqVersion(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DeliveryStreamBulkRequestCustomizationConfigurationJqVersion Jq16 { get; } = new DeliveryStreamBulkRequestCustomizationConfigurationJqVersion("JQ_1_6");
-
-        public static bool operator ==(DeliveryStreamBulkRequestCustomizationConfigurationJqVersion left, DeliveryStreamBulkRequestCustomizationConfigurationJqVersion right) => left.Equals(right);
-        public static bool operator !=(DeliveryStreamBulkRequestCustomizationConfigurationJqVersion left, DeliveryStreamBulkRequestCustomizationConfigurationJqVersion right) => !left.Equals(right);
-
-        public static explicit operator string(DeliveryStreamBulkRequestCustomizationConfigurationJqVersion value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeliveryStreamBulkRequestCustomizationConfigurationJqVersion other && Equals(other);
-        public bool Equals(DeliveryStreamBulkRequestCustomizationConfigurationJqVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat : IEquatable<DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat>
     {
         private readonly string _value;

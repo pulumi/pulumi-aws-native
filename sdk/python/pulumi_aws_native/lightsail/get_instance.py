@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInstanceResult:
-    def __init__(__self__, add_ons=None, hardware=None, instance_arn=None, is_static_ip=None, key_pair_name=None, location=None, networking=None, private_ip_address=None, public_ip_address=None, resource_type=None, ssh_key_name=None, state=None, support_code=None, tags=None, user_data=None, user_name=None):
+    def __init__(__self__, add_ons=None, hardware=None, instance_arn=None, is_static_ip=None, key_pair_name=None, location=None, networking=None, private_ip_address=None, public_ip_address=None, resource_type=None, ssh_key_name=None, state=None, support_code=None, tags=None, user_name=None):
         if add_ons and not isinstance(add_ons, list):
             raise TypeError("Expected argument 'add_ons' to be a list")
         pulumi.set(__self__, "add_ons", add_ons)
@@ -63,9 +63,6 @@ class GetInstanceResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-        if user_data and not isinstance(user_data, str):
-            raise TypeError("Expected argument 'user_data' to be a str")
-        pulumi.set(__self__, "user_data", user_data)
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
@@ -168,14 +165,6 @@ class GetInstanceResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[str]:
-        """
-        A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
-        """
-        return pulumi.get(self, "user_data")
-
-    @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[str]:
         """
@@ -204,7 +193,6 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             state=self.state,
             support_code=self.support_code,
             tags=self.tags,
-            user_data=self.user_data,
             user_name=self.user_name)
 
 
@@ -236,7 +224,6 @@ def get_instance(instance_name: Optional[str] = None,
         state=__ret__.state,
         support_code=__ret__.support_code,
         tags=__ret__.tags,
-        user_data=__ret__.user_data,
         user_name=__ret__.user_name)
 
 

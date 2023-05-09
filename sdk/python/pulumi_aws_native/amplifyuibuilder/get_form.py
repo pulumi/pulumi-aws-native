@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFormResult:
-    def __init__(__self__, app_id=None, cta=None, data_type=None, environment_name=None, fields=None, form_action_type=None, id=None, name=None, schema_version=None, sectional_elements=None, style=None):
+    def __init__(__self__, app_id=None, cta=None, data_type=None, environment_name=None, fields=None, form_action_type=None, id=None, label_decorator=None, name=None, schema_version=None, sectional_elements=None, style=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -42,6 +42,9 @@ class GetFormResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if label_decorator and not isinstance(label_decorator, str):
+            raise TypeError("Expected argument 'label_decorator' to be a str")
+        pulumi.set(__self__, "label_decorator", label_decorator)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -91,6 +94,11 @@ class GetFormResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="labelDecorator")
+    def label_decorator(self) -> Optional['FormLabelDecorator']:
+        return pulumi.get(self, "label_decorator")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
@@ -124,6 +132,7 @@ class AwaitableGetFormResult(GetFormResult):
             fields=self.fields,
             form_action_type=self.form_action_type,
             id=self.id,
+            label_decorator=self.label_decorator,
             name=self.name,
             schema_version=self.schema_version,
             sectional_elements=self.sectional_elements,
@@ -152,6 +161,7 @@ def get_form(app_id: Optional[str] = None,
         fields=__ret__.fields,
         form_action_type=__ret__.form_action_type,
         id=__ret__.id,
+        label_decorator=__ret__.label_decorator,
         name=__ret__.name,
         schema_version=__ret__.schema_version,
         sectional_elements=__ret__.sectional_elements,

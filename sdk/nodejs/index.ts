@@ -84,6 +84,7 @@ import * as auditmanager from "./auditmanager";
 import * as autoscaling from "./autoscaling";
 import * as autoscalingplans from "./autoscalingplans";
 import * as backup from "./backup";
+import * as backupgateway from "./backupgateway";
 import * as batch from "./batch";
 import * as billingconductor from "./billingconductor";
 import * as budgets from "./budgets";
@@ -221,11 +222,13 @@ import * as opensearchservice from "./opensearchservice";
 import * as opsworks from "./opsworks";
 import * as opsworkscm from "./opsworkscm";
 import * as organizations from "./organizations";
+import * as osis from "./osis";
 import * as panorama from "./panorama";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
 import * as pinpointemail from "./pinpointemail";
 import * as pipes from "./pipes";
+import * as proton from "./proton";
 import * as qldb from "./qldb";
 import * as quicksight from "./quicksight";
 import * as ram from "./ram";
@@ -304,6 +307,7 @@ export {
     autoscaling,
     autoscalingplans,
     backup,
+    backupgateway,
     batch,
     billingconductor,
     budgets,
@@ -441,11 +445,13 @@ export {
     opsworks,
     opsworkscm,
     organizations,
+    osis,
     panorama,
     personalize,
     pinpoint,
     pinpointemail,
     pipes,
+    proton,
     qldb,
     quicksight,
     ram,

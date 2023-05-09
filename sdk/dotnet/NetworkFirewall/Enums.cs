@@ -74,6 +74,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
         public static FirewallPolicyStreamExceptionPolicy Drop { get; } = new FirewallPolicyStreamExceptionPolicy("DROP");
         public static FirewallPolicyStreamExceptionPolicy Continue { get; } = new FirewallPolicyStreamExceptionPolicy("CONTINUE");
+        public static FirewallPolicyStreamExceptionPolicy Reject { get; } = new FirewallPolicyStreamExceptionPolicy("REJECT");
 
         public static bool operator ==(FirewallPolicyStreamExceptionPolicy left, FirewallPolicyStreamExceptionPolicy right) => left.Equals(right);
         public static bool operator !=(FirewallPolicyStreamExceptionPolicy left, FirewallPolicyStreamExceptionPolicy right) => !left.Equals(right);

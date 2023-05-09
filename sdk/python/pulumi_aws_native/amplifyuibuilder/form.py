@@ -26,6 +26,7 @@ class FormArgs:
                  app_id: Optional[pulumi.Input[str]] = None,
                  cta: Optional[pulumi.Input['FormCTAArgs']] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
+                 label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['FormTagsArgs']] = None):
         """
@@ -43,6 +44,8 @@ class FormArgs:
             pulumi.set(__self__, "cta", cta)
         if environment_name is not None:
             pulumi.set(__self__, "environment_name", environment_name)
+        if label_decorator is not None:
+            pulumi.set(__self__, "label_decorator", label_decorator)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -130,6 +133,15 @@ class FormArgs:
         pulumi.set(self, "environment_name", value)
 
     @property
+    @pulumi.getter(name="labelDecorator")
+    def label_decorator(self) -> Optional[pulumi.Input['FormLabelDecorator']]:
+        return pulumi.get(self, "label_decorator")
+
+    @label_decorator.setter
+    def label_decorator(self, value: Optional[pulumi.Input['FormLabelDecorator']]):
+        pulumi.set(self, "label_decorator", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
@@ -159,6 +171,7 @@ class Form(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  fields: Optional[pulumi.Input[pulumi.InputType['FormFieldsMapArgs']]] = None,
                  form_action_type: Optional[pulumi.Input['FormActionType']] = None,
+                 label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema_version: Optional[pulumi.Input[str]] = None,
                  sectional_elements: Optional[pulumi.Input[pulumi.InputType['FormSectionalElementMapArgs']]] = None,
@@ -201,6 +214,7 @@ class Form(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  fields: Optional[pulumi.Input[pulumi.InputType['FormFieldsMapArgs']]] = None,
                  form_action_type: Optional[pulumi.Input['FormActionType']] = None,
+                 label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema_version: Optional[pulumi.Input[str]] = None,
                  sectional_elements: Optional[pulumi.Input[pulumi.InputType['FormSectionalElementMapArgs']]] = None,
@@ -227,6 +241,7 @@ class Form(pulumi.CustomResource):
             if form_action_type is None and not opts.urn:
                 raise TypeError("Missing required property 'form_action_type'")
             __props__.__dict__["form_action_type"] = form_action_type
+            __props__.__dict__["label_decorator"] = label_decorator
             __props__.__dict__["name"] = name
             if schema_version is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_version'")
@@ -266,6 +281,7 @@ class Form(pulumi.CustomResource):
         __props__.__dict__["environment_name"] = None
         __props__.__dict__["fields"] = None
         __props__.__dict__["form_action_type"] = None
+        __props__.__dict__["label_decorator"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["schema_version"] = None
         __props__.__dict__["sectional_elements"] = None
@@ -302,6 +318,11 @@ class Form(pulumi.CustomResource):
     @pulumi.getter(name="formActionType")
     def form_action_type(self) -> pulumi.Output['FormActionType']:
         return pulumi.get(self, "form_action_type")
+
+    @property
+    @pulumi.getter(name="labelDecorator")
+    def label_decorator(self) -> pulumi.Output[Optional['FormLabelDecorator']]:
+        return pulumi.get(self, "label_decorator")
 
     @property
     @pulumi.getter

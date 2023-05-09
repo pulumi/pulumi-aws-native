@@ -503,6 +503,171 @@ func (in *formDataSourceTypePtr) ToFormDataSourceTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FormDataSourceTypePtrOutput)
 }
 
+type FormLabelDecorator string
+
+const (
+	FormLabelDecoratorRequired = FormLabelDecorator("required")
+	FormLabelDecoratorOptional = FormLabelDecorator("optional")
+	FormLabelDecoratorNone     = FormLabelDecorator("none")
+)
+
+func (FormLabelDecorator) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormLabelDecorator)(nil)).Elem()
+}
+
+func (e FormLabelDecorator) ToFormLabelDecoratorOutput() FormLabelDecoratorOutput {
+	return pulumi.ToOutput(e).(FormLabelDecoratorOutput)
+}
+
+func (e FormLabelDecorator) ToFormLabelDecoratorOutputWithContext(ctx context.Context) FormLabelDecoratorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FormLabelDecoratorOutput)
+}
+
+func (e FormLabelDecorator) ToFormLabelDecoratorPtrOutput() FormLabelDecoratorPtrOutput {
+	return e.ToFormLabelDecoratorPtrOutputWithContext(context.Background())
+}
+
+func (e FormLabelDecorator) ToFormLabelDecoratorPtrOutputWithContext(ctx context.Context) FormLabelDecoratorPtrOutput {
+	return FormLabelDecorator(e).ToFormLabelDecoratorOutputWithContext(ctx).ToFormLabelDecoratorPtrOutputWithContext(ctx)
+}
+
+func (e FormLabelDecorator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FormLabelDecorator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FormLabelDecorator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FormLabelDecorator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FormLabelDecoratorOutput struct{ *pulumi.OutputState }
+
+func (FormLabelDecoratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormLabelDecorator)(nil)).Elem()
+}
+
+func (o FormLabelDecoratorOutput) ToFormLabelDecoratorOutput() FormLabelDecoratorOutput {
+	return o
+}
+
+func (o FormLabelDecoratorOutput) ToFormLabelDecoratorOutputWithContext(ctx context.Context) FormLabelDecoratorOutput {
+	return o
+}
+
+func (o FormLabelDecoratorOutput) ToFormLabelDecoratorPtrOutput() FormLabelDecoratorPtrOutput {
+	return o.ToFormLabelDecoratorPtrOutputWithContext(context.Background())
+}
+
+func (o FormLabelDecoratorOutput) ToFormLabelDecoratorPtrOutputWithContext(ctx context.Context) FormLabelDecoratorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormLabelDecorator) *FormLabelDecorator {
+		return &v
+	}).(FormLabelDecoratorPtrOutput)
+}
+
+func (o FormLabelDecoratorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FormLabelDecoratorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FormLabelDecorator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FormLabelDecoratorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FormLabelDecoratorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FormLabelDecorator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FormLabelDecoratorPtrOutput struct{ *pulumi.OutputState }
+
+func (FormLabelDecoratorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormLabelDecorator)(nil)).Elem()
+}
+
+func (o FormLabelDecoratorPtrOutput) ToFormLabelDecoratorPtrOutput() FormLabelDecoratorPtrOutput {
+	return o
+}
+
+func (o FormLabelDecoratorPtrOutput) ToFormLabelDecoratorPtrOutputWithContext(ctx context.Context) FormLabelDecoratorPtrOutput {
+	return o
+}
+
+func (o FormLabelDecoratorPtrOutput) Elem() FormLabelDecoratorOutput {
+	return o.ApplyT(func(v *FormLabelDecorator) FormLabelDecorator {
+		if v != nil {
+			return *v
+		}
+		var ret FormLabelDecorator
+		return ret
+	}).(FormLabelDecoratorOutput)
+}
+
+func (o FormLabelDecoratorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FormLabelDecoratorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FormLabelDecorator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FormLabelDecoratorInput is an input type that accepts FormLabelDecoratorArgs and FormLabelDecoratorOutput values.
+// You can construct a concrete instance of `FormLabelDecoratorInput` via:
+//
+//	FormLabelDecoratorArgs{...}
+type FormLabelDecoratorInput interface {
+	pulumi.Input
+
+	ToFormLabelDecoratorOutput() FormLabelDecoratorOutput
+	ToFormLabelDecoratorOutputWithContext(context.Context) FormLabelDecoratorOutput
+}
+
+var formLabelDecoratorPtrType = reflect.TypeOf((**FormLabelDecorator)(nil)).Elem()
+
+type FormLabelDecoratorPtrInput interface {
+	pulumi.Input
+
+	ToFormLabelDecoratorPtrOutput() FormLabelDecoratorPtrOutput
+	ToFormLabelDecoratorPtrOutputWithContext(context.Context) FormLabelDecoratorPtrOutput
+}
+
+type formLabelDecoratorPtr string
+
+func FormLabelDecoratorPtr(v string) FormLabelDecoratorPtrInput {
+	return (*formLabelDecoratorPtr)(&v)
+}
+
+func (*formLabelDecoratorPtr) ElementType() reflect.Type {
+	return formLabelDecoratorPtrType
+}
+
+func (in *formLabelDecoratorPtr) ToFormLabelDecoratorPtrOutput() FormLabelDecoratorPtrOutput {
+	return pulumi.ToOutput(in).(FormLabelDecoratorPtrOutput)
+}
+
+func (in *formLabelDecoratorPtr) ToFormLabelDecoratorPtrOutputWithContext(ctx context.Context) FormLabelDecoratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FormLabelDecoratorPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FormActionTypeInput)(nil)).Elem(), FormActionType("create"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormActionTypePtrInput)(nil)).Elem(), FormActionType("create"))
@@ -510,10 +675,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FormButtonsPositionPtrInput)(nil)).Elem(), FormButtonsPosition("top"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormDataSourceTypeInput)(nil)).Elem(), FormDataSourceType("DataStore"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormDataSourceTypePtrInput)(nil)).Elem(), FormDataSourceType("DataStore"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FormLabelDecoratorInput)(nil)).Elem(), FormLabelDecorator("required"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FormLabelDecoratorPtrInput)(nil)).Elem(), FormLabelDecorator("required"))
 	pulumi.RegisterOutputType(FormActionTypeOutput{})
 	pulumi.RegisterOutputType(FormActionTypePtrOutput{})
 	pulumi.RegisterOutputType(FormButtonsPositionOutput{})
 	pulumi.RegisterOutputType(FormButtonsPositionPtrOutput{})
 	pulumi.RegisterOutputType(FormDataSourceTypeOutput{})
 	pulumi.RegisterOutputType(FormDataSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(FormLabelDecoratorOutput{})
+	pulumi.RegisterOutputType(FormLabelDecoratorPtrOutput{})
 }

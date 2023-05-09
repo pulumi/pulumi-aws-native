@@ -34,6 +34,7 @@ export interface GetFormResult {
     readonly fields?: outputs.amplifyuibuilder.FormFieldsMap;
     readonly formActionType?: enums.amplifyuibuilder.FormActionType;
     readonly id?: string;
+    readonly labelDecorator?: enums.amplifyuibuilder.FormLabelDecorator;
     readonly name?: string;
     readonly schemaVersion?: string;
     readonly sectionalElements?: outputs.amplifyuibuilder.FormSectionalElementMap;

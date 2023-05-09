@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
     [OutputType]
     public sealed class GetAccessPointResult
     {
-        public readonly Outputs.AliasProperties? Alias;
+        public readonly Outputs.AccessPointAlias? Alias;
         public readonly string? Arn;
         /// <summary>
         /// The date and time when the Object lambda Access Point was created.
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         /// </summary>
         public readonly Outputs.AccessPointObjectLambdaConfiguration? ObjectLambdaConfiguration;
-        public readonly Outputs.PolicyStatusProperties? PolicyStatus;
+        public readonly Outputs.AccessPointPolicyStatus? PolicyStatus;
         /// <summary>
         /// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
 
         [OutputConstructor]
         private GetAccessPointResult(
-            Outputs.AliasProperties? alias,
+            Outputs.AccessPointAlias? alias,
 
             string? arn,
 
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
 
             Outputs.AccessPointObjectLambdaConfiguration? objectLambdaConfiguration,
 
-            Outputs.PolicyStatusProperties? policyStatus,
+            Outputs.AccessPointPolicyStatus? policyStatus,
 
             Outputs.AccessPointPublicAccessBlockConfiguration? publicAccessBlockConfiguration)
         {

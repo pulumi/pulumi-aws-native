@@ -25,11 +25,7 @@ type LookupAttributeGroupAssociationArgs struct {
 }
 
 type LookupAttributeGroupAssociationResult struct {
-	// The name or the Id of the Application.
-	Application    *string `pulumi:"application"`
-	ApplicationArn *string `pulumi:"applicationArn"`
-	// The name or the Id of the AttributeGroup.
-	AttributeGroup    *string `pulumi:"attributeGroup"`
+	ApplicationArn    *string `pulumi:"applicationArn"`
 	AttributeGroupArn *string `pulumi:"attributeGroupArn"`
 	Id                *string `pulumi:"id"`
 }
@@ -69,18 +65,8 @@ func (o LookupAttributeGroupAssociationResultOutput) ToLookupAttributeGroupAssoc
 	return o
 }
 
-// The name or the Id of the Application.
-func (o LookupAttributeGroupAssociationResultOutput) Application() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAttributeGroupAssociationResult) *string { return v.Application }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupAttributeGroupAssociationResultOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAttributeGroupAssociationResult) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
-}
-
-// The name or the Id of the AttributeGroup.
-func (o LookupAttributeGroupAssociationResultOutput) AttributeGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAttributeGroupAssociationResult) *string { return v.AttributeGroup }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAttributeGroupAssociationResultOutput) AttributeGroupArn() pulumi.StringPtrOutput {

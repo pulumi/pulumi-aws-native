@@ -99,10 +99,6 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         public readonly ImmutableArray<Outputs.InstanceTag> Tags;
         /// <summary>
-        /// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
-        /// </summary>
-        public readonly string? UserData;
-        /// <summary>
         /// Username of the  Lightsail instance.
         /// </summary>
         public readonly string? UserName;
@@ -137,8 +133,6 @@ namespace Pulumi.AwsNative.Lightsail
 
             ImmutableArray<Outputs.InstanceTag> tags,
 
-            string? userData,
-
             string? userName)
         {
             AddOns = addOns;
@@ -155,7 +149,6 @@ namespace Pulumi.AwsNative.Lightsail
             State = state;
             SupportCode = supportCode;
             Tags = tags;
-            UserData = userData;
             UserName = userName;
         }
     }

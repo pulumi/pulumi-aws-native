@@ -37,7 +37,7 @@ export class AccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPoint.__pulumiType;
     }
 
-    public /*out*/ readonly alias!: pulumi.Output<outputs.s3objectlambda.AliasProperties>;
+    public /*out*/ readonly alias!: pulumi.Output<outputs.s3objectlambda.AccessPointAlias>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date and time when the Object lambda Access Point was created.
@@ -51,7 +51,7 @@ export class AccessPoint extends pulumi.CustomResource {
      * The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
      */
     public readonly objectLambdaConfiguration!: pulumi.Output<outputs.s3objectlambda.AccessPointObjectLambdaConfiguration>;
-    public /*out*/ readonly policyStatus!: pulumi.Output<outputs.s3objectlambda.PolicyStatusProperties>;
+    public /*out*/ readonly policyStatus!: pulumi.Output<outputs.s3objectlambda.AccessPointPolicyStatus>;
     /**
      * The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
      */

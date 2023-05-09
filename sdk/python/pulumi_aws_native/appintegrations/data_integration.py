@@ -20,7 +20,9 @@ class DataIntegrationArgs:
                  schedule_config: pulumi.Input['DataIntegrationScheduleConfigArgs'],
                  source_uri: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 file_configuration: Optional[pulumi.Input['DataIntegrationFileConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 object_configuration: Optional[pulumi.Input['DataIntegrationObjectConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]]] = None):
         """
         The set of arguments for constructing a DataIntegration resource.
@@ -28,7 +30,9 @@ class DataIntegrationArgs:
         :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: The name of the data and how often it should be pulled from the source.
         :param pulumi.Input[str] source_uri: The URI of the data source.
         :param pulumi.Input[str] description: The data integration description.
+        :param pulumi.Input['DataIntegrationFileConfigurationArgs'] file_configuration: The configuration for what files should be pulled from the source.
         :param pulumi.Input[str] name: The name of the data integration.
+        :param pulumi.Input['DataIntegrationObjectConfigurationArgs'] object_configuration: The configuration for what data should be pulled from the source.
         :param pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]] tags: The tags (keys and values) associated with the data integration.
         """
         pulumi.set(__self__, "kms_key", kms_key)
@@ -36,8 +40,12 @@ class DataIntegrationArgs:
         pulumi.set(__self__, "source_uri", source_uri)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if file_configuration is not None:
+            pulumi.set(__self__, "file_configuration", file_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if object_configuration is not None:
+            pulumi.set(__self__, "object_configuration", object_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -90,6 +98,18 @@ class DataIntegrationArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="fileConfiguration")
+    def file_configuration(self) -> Optional[pulumi.Input['DataIntegrationFileConfigurationArgs']]:
+        """
+        The configuration for what files should be pulled from the source.
+        """
+        return pulumi.get(self, "file_configuration")
+
+    @file_configuration.setter
+    def file_configuration(self, value: Optional[pulumi.Input['DataIntegrationFileConfigurationArgs']]):
+        pulumi.set(self, "file_configuration", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -100,6 +120,18 @@ class DataIntegrationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="objectConfiguration")
+    def object_configuration(self) -> Optional[pulumi.Input['DataIntegrationObjectConfigurationArgs']]:
+        """
+        The configuration for what data should be pulled from the source.
+        """
+        return pulumi.get(self, "object_configuration")
+
+    @object_configuration.setter
+    def object_configuration(self, value: Optional[pulumi.Input['DataIntegrationObjectConfigurationArgs']]):
+        pulumi.set(self, "object_configuration", value)
 
     @property
     @pulumi.getter
@@ -120,8 +152,10 @@ class DataIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 file_configuration: Optional[pulumi.Input[pulumi.InputType['DataIntegrationFileConfigurationArgs']]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 object_configuration: Optional[pulumi.Input[pulumi.InputType['DataIntegrationObjectConfigurationArgs']]] = None,
                  schedule_config: Optional[pulumi.Input[pulumi.InputType['DataIntegrationScheduleConfigArgs']]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataIntegrationTagArgs']]]]] = None,
@@ -132,8 +166,10 @@ class DataIntegration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The data integration description.
+        :param pulumi.Input[pulumi.InputType['DataIntegrationFileConfigurationArgs']] file_configuration: The configuration for what files should be pulled from the source.
         :param pulumi.Input[str] kms_key: The KMS key of the data integration.
         :param pulumi.Input[str] name: The name of the data integration.
+        :param pulumi.Input[pulumi.InputType['DataIntegrationObjectConfigurationArgs']] object_configuration: The configuration for what data should be pulled from the source.
         :param pulumi.Input[pulumi.InputType['DataIntegrationScheduleConfigArgs']] schedule_config: The name of the data and how often it should be pulled from the source.
         :param pulumi.Input[str] source_uri: The URI of the data source.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataIntegrationTagArgs']]]] tags: The tags (keys and values) associated with the data integration.
@@ -163,8 +199,10 @@ class DataIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 file_configuration: Optional[pulumi.Input[pulumi.InputType['DataIntegrationFileConfigurationArgs']]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 object_configuration: Optional[pulumi.Input[pulumi.InputType['DataIntegrationObjectConfigurationArgs']]] = None,
                  schedule_config: Optional[pulumi.Input[pulumi.InputType['DataIntegrationScheduleConfigArgs']]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataIntegrationTagArgs']]]]] = None,
@@ -178,10 +216,12 @@ class DataIntegration(pulumi.CustomResource):
             __props__ = DataIntegrationArgs.__new__(DataIntegrationArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["file_configuration"] = file_configuration
             if kms_key is None and not opts.urn:
                 raise TypeError("Missing required property 'kms_key'")
             __props__.__dict__["kms_key"] = kms_key
             __props__.__dict__["name"] = name
+            __props__.__dict__["object_configuration"] = object_configuration
             if schedule_config is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_config'")
             __props__.__dict__["schedule_config"] = schedule_config
@@ -214,8 +254,10 @@ class DataIntegration(pulumi.CustomResource):
 
         __props__.__dict__["data_integration_arn"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["file_configuration"] = None
         __props__.__dict__["kms_key"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["object_configuration"] = None
         __props__.__dict__["schedule_config"] = None
         __props__.__dict__["source_uri"] = None
         __props__.__dict__["tags"] = None
@@ -238,6 +280,14 @@ class DataIntegration(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="fileConfiguration")
+    def file_configuration(self) -> pulumi.Output[Optional['outputs.DataIntegrationFileConfiguration']]:
+        """
+        The configuration for what files should be pulled from the source.
+        """
+        return pulumi.get(self, "file_configuration")
+
+    @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Output[str]:
         """
@@ -252,6 +302,14 @@ class DataIntegration(pulumi.CustomResource):
         The name of the data integration.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectConfiguration")
+    def object_configuration(self) -> pulumi.Output[Optional['outputs.DataIntegrationObjectConfiguration']]:
+        """
+        The configuration for what data should be pulled from the source.
+        """
+        return pulumi.get(self, "object_configuration")
 
     @property
     @pulumi.getter(name="scheduleConfig")

@@ -18,6 +18,7 @@ export type FirewallPolicyRuleOrder = (typeof FirewallPolicyRuleOrder)[keyof typ
 export const FirewallPolicyStreamExceptionPolicy = {
     Drop: "DROP",
     Continue: "CONTINUE",
+    Reject: "REJECT",
 } as const;
 
 export type FirewallPolicyStreamExceptionPolicy = (typeof FirewallPolicyStreamExceptionPolicy)[keyof typeof FirewallPolicyStreamExceptionPolicy];

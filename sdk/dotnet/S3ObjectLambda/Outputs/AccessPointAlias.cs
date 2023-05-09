@@ -11,17 +11,25 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
 {
 
     [OutputType]
-    public sealed class PolicyStatusProperties
+    public sealed class AccessPointAlias
     {
         /// <summary>
-        /// Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
+        /// The status of the Object Lambda alias.
         /// </summary>
-        public readonly bool? IsPublic;
+        public readonly string Status;
+        /// <summary>
+        /// The value of the Object Lambda alias.
+        /// </summary>
+        public readonly string Value;
 
         [OutputConstructor]
-        private PolicyStatusProperties(bool? isPublic)
+        private AccessPointAlias(
+            string status,
+
+            string value)
         {
-            IsPublic = isPublic;
+            Status = status;
+            Value = value;
         }
     }
 }

@@ -29,12 +29,15 @@ type LookupGraphQLApiResult struct {
 	ApiId                             *string                                      `pulumi:"apiId"`
 	Arn                               *string                                      `pulumi:"arn"`
 	AuthenticationType                *string                                      `pulumi:"authenticationType"`
+	GraphQLDns                        *string                                      `pulumi:"graphQLDns"`
 	GraphQLUrl                        *string                                      `pulumi:"graphQLUrl"`
 	Id                                *string                                      `pulumi:"id"`
 	LambdaAuthorizerConfig            *GraphQLApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         *GraphQLApiLogConfig                         `pulumi:"logConfig"`
 	Name                              *string                                      `pulumi:"name"`
 	OpenIDConnectConfig               *GraphQLApiOpenIDConnectConfig               `pulumi:"openIDConnectConfig"`
+	RealtimeDns                       *string                                      `pulumi:"realtimeDns"`
+	RealtimeUrl                       *string                                      `pulumi:"realtimeUrl"`
 	Tags                              []GraphQLApiTag                              `pulumi:"tags"`
 	UserPoolConfig                    *GraphQLApiUserPoolConfig                    `pulumi:"userPoolConfig"`
 	XrayEnabled                       *bool                                        `pulumi:"xrayEnabled"`
@@ -93,6 +96,10 @@ func (o LookupGraphQLApiResultOutput) AuthenticationType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupGraphQLApiResultOutput) GraphQLDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.GraphQLDns }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupGraphQLApiResultOutput) GraphQLUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.GraphQLUrl }).(pulumi.StringPtrOutput)
 }
@@ -115,6 +122,14 @@ func (o LookupGraphQLApiResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupGraphQLApiResultOutput) OpenIDConnectConfig() GraphQLApiOpenIDConnectConfigPtrOutput {
 	return o.ApplyT(func(v LookupGraphQLApiResult) *GraphQLApiOpenIDConnectConfig { return v.OpenIDConnectConfig }).(GraphQLApiOpenIDConnectConfigPtrOutput)
+}
+
+func (o LookupGraphQLApiResultOutput) RealtimeDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.RealtimeDns }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGraphQLApiResultOutput) RealtimeUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.RealtimeUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupGraphQLApiResultOutput) Tags() GraphQLApiTagArrayOutput {

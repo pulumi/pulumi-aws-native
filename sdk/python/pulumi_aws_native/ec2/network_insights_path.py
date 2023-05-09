@@ -22,6 +22,8 @@ class NetworkInsightsPathArgs:
                  destination: Optional[pulumi.Input[str]] = None,
                  destination_ip: Optional[pulumi.Input[str]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
+                 filter_at_destination: Optional[pulumi.Input['NetworkInsightsPathPathFilterArgs']] = None,
+                 filter_at_source: Optional[pulumi.Input['NetworkInsightsPathPathFilterArgs']] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsPathTagArgs']]]] = None):
         """
@@ -35,6 +37,10 @@ class NetworkInsightsPathArgs:
             pulumi.set(__self__, "destination_ip", destination_ip)
         if destination_port is not None:
             pulumi.set(__self__, "destination_port", destination_port)
+        if filter_at_destination is not None:
+            pulumi.set(__self__, "filter_at_destination", filter_at_destination)
+        if filter_at_source is not None:
+            pulumi.set(__self__, "filter_at_source", filter_at_source)
         if source_ip is not None:
             pulumi.set(__self__, "source_ip", source_ip)
         if tags is not None:
@@ -86,6 +92,24 @@ class NetworkInsightsPathArgs:
         pulumi.set(self, "destination_port", value)
 
     @property
+    @pulumi.getter(name="filterAtDestination")
+    def filter_at_destination(self) -> Optional[pulumi.Input['NetworkInsightsPathPathFilterArgs']]:
+        return pulumi.get(self, "filter_at_destination")
+
+    @filter_at_destination.setter
+    def filter_at_destination(self, value: Optional[pulumi.Input['NetworkInsightsPathPathFilterArgs']]):
+        pulumi.set(self, "filter_at_destination", value)
+
+    @property
+    @pulumi.getter(name="filterAtSource")
+    def filter_at_source(self) -> Optional[pulumi.Input['NetworkInsightsPathPathFilterArgs']]:
+        return pulumi.get(self, "filter_at_source")
+
+    @filter_at_source.setter
+    def filter_at_source(self, value: Optional[pulumi.Input['NetworkInsightsPathPathFilterArgs']]):
+        pulumi.set(self, "filter_at_source", value)
+
+    @property
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "source_ip")
@@ -112,6 +136,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[str]] = None,
                  destination_ip: Optional[pulumi.Input[str]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
+                 filter_at_destination: Optional[pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']]] = None,
+                 filter_at_source: Optional[pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']]] = None,
                  protocol: Optional[pulumi.Input['NetworkInsightsPathProtocol']] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
@@ -150,6 +176,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[str]] = None,
                  destination_ip: Optional[pulumi.Input[str]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
+                 filter_at_destination: Optional[pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']]] = None,
+                 filter_at_source: Optional[pulumi.Input[pulumi.InputType['NetworkInsightsPathPathFilterArgs']]] = None,
                  protocol: Optional[pulumi.Input['NetworkInsightsPathProtocol']] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
@@ -166,6 +194,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
             __props__.__dict__["destination"] = destination
             __props__.__dict__["destination_ip"] = destination_ip
             __props__.__dict__["destination_port"] = destination_port
+            __props__.__dict__["filter_at_destination"] = filter_at_destination
+            __props__.__dict__["filter_at_source"] = filter_at_source
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
@@ -206,6 +236,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
         __props__.__dict__["destination_arn"] = None
         __props__.__dict__["destination_ip"] = None
         __props__.__dict__["destination_port"] = None
+        __props__.__dict__["filter_at_destination"] = None
+        __props__.__dict__["filter_at_source"] = None
         __props__.__dict__["network_insights_path_arn"] = None
         __props__.__dict__["network_insights_path_id"] = None
         __props__.__dict__["protocol"] = None
@@ -239,6 +271,16 @@ class NetworkInsightsPath(pulumi.CustomResource):
     @pulumi.getter(name="destinationPort")
     def destination_port(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "destination_port")
+
+    @property
+    @pulumi.getter(name="filterAtDestination")
+    def filter_at_destination(self) -> pulumi.Output[Optional['outputs.NetworkInsightsPathPathFilter']]:
+        return pulumi.get(self, "filter_at_destination")
+
+    @property
+    @pulumi.getter(name="filterAtSource")
+    def filter_at_source(self) -> pulumi.Output[Optional['outputs.NetworkInsightsPathPathFilter']]:
+        return pulumi.get(self, "filter_at_source")
 
     @property
     @pulumi.getter(name="networkInsightsPathArn")

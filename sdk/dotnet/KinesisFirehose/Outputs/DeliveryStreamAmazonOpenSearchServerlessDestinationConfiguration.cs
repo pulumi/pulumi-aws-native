@@ -14,7 +14,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration
     {
         public readonly Outputs.DeliveryStreamAmazonOpenSearchServerlessBufferingHints? BufferingHints;
-        public readonly Outputs.DeliveryStreamBulkRequestCustomizationConfiguration? BulkRequestCustomizationConfiguration;
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         public readonly string? CollectionEndpoint;
         public readonly string IndexName;
@@ -28,8 +27,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         [OutputConstructor]
         private DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(
             Outputs.DeliveryStreamAmazonOpenSearchServerlessBufferingHints? bufferingHints,
-
-            Outputs.DeliveryStreamBulkRequestCustomizationConfiguration? bulkRequestCustomizationConfiguration,
 
             Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
@@ -50,7 +47,6 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             Outputs.DeliveryStreamVpcConfiguration? vpcConfiguration)
         {
             BufferingHints = bufferingHints;
-            BulkRequestCustomizationConfiguration = bulkRequestCustomizationConfiguration;
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
             CollectionEndpoint = collectionEndpoint;
             IndexName = indexName;

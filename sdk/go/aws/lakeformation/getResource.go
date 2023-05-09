@@ -29,6 +29,7 @@ type LookupResourceResult struct {
 	ResourceArn          *string `pulumi:"resourceArn"`
 	RoleArn              *string `pulumi:"roleArn"`
 	UseServiceLinkedRole *bool   `pulumi:"useServiceLinkedRole"`
+	WithFederation       *bool   `pulumi:"withFederation"`
 }
 
 func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, opts ...pulumi.InvokeOption) LookupResourceResultOutput {
@@ -80,6 +81,10 @@ func (o LookupResourceResultOutput) RoleArn() pulumi.StringPtrOutput {
 
 func (o LookupResourceResultOutput) UseServiceLinkedRole() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupResourceResult) *bool { return v.UseServiceLinkedRole }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupResourceResultOutput) WithFederation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupResourceResult) *bool { return v.WithFederation }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

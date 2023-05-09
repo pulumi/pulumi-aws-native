@@ -27,6 +27,7 @@ export interface GetProjectResult {
     readonly defaultJobTimeoutMinutes?: number;
     readonly name?: string;
     readonly tags?: outputs.devicefarm.ProjectTag[];
+    readonly vpcConfig?: outputs.devicefarm.ProjectVpcConfig;
 }
 /**
  * AWS::DeviceFarm::Project creates a new Device Farm Project

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountAuditConfiguration{}
 	case "aws-native:iot:Authorizer":
 		r = &Authorizer{}
+	case "aws-native:iot:BillingGroup":
+		r = &BillingGroup{}
 	case "aws-native:iot:CACertificate":
 		r = &CACertificate{}
 	case "aws-native:iot:Certificate":
@@ -59,8 +61,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityProfile{}
 	case "aws-native:iot:Thing":
 		r = &Thing{}
+	case "aws-native:iot:ThingGroup":
+		r = &ThingGroup{}
 	case "aws-native:iot:ThingPrincipalAttachment":
 		r = &ThingPrincipalAttachment{}
+	case "aws-native:iot:ThingType":
+		r = &ThingType{}
 	case "aws-native:iot:TopicRule":
 		r = &TopicRule{}
 	case "aws-native:iot:TopicRuleDestination":

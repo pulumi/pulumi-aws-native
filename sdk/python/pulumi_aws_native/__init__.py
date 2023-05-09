@@ -67,6 +67,8 @@ if typing.TYPE_CHECKING:
     autoscalingplans = __autoscalingplans
     import pulumi_aws_native.backup as __backup
     backup = __backup
+    import pulumi_aws_native.backupgateway as __backupgateway
+    backupgateway = __backupgateway
     import pulumi_aws_native.batch as __batch
     batch = __batch
     import pulumi_aws_native.billingconductor as __billingconductor
@@ -341,6 +343,8 @@ if typing.TYPE_CHECKING:
     opsworkscm = __opsworkscm
     import pulumi_aws_native.organizations as __organizations
     organizations = __organizations
+    import pulumi_aws_native.osis as __osis
+    osis = __osis
     import pulumi_aws_native.panorama as __panorama
     panorama = __panorama
     import pulumi_aws_native.personalize as __personalize
@@ -351,6 +355,8 @@ if typing.TYPE_CHECKING:
     pinpointemail = __pinpointemail
     import pulumi_aws_native.pipes as __pipes
     pipes = __pipes
+    import pulumi_aws_native.proton as __proton
+    proton = __proton
     import pulumi_aws_native.qldb as __qldb
     qldb = __qldb
     import pulumi_aws_native.quicksight as __quicksight
@@ -479,6 +485,7 @@ else:
     autoscaling = _utilities.lazy_import('pulumi_aws_native.autoscaling')
     autoscalingplans = _utilities.lazy_import('pulumi_aws_native.autoscalingplans')
     backup = _utilities.lazy_import('pulumi_aws_native.backup')
+    backupgateway = _utilities.lazy_import('pulumi_aws_native.backupgateway')
     batch = _utilities.lazy_import('pulumi_aws_native.batch')
     billingconductor = _utilities.lazy_import('pulumi_aws_native.billingconductor')
     budgets = _utilities.lazy_import('pulumi_aws_native.budgets')
@@ -616,11 +623,13 @@ else:
     opsworks = _utilities.lazy_import('pulumi_aws_native.opsworks')
     opsworkscm = _utilities.lazy_import('pulumi_aws_native.opsworkscm')
     organizations = _utilities.lazy_import('pulumi_aws_native.organizations')
+    osis = _utilities.lazy_import('pulumi_aws_native.osis')
     panorama = _utilities.lazy_import('pulumi_aws_native.panorama')
     personalize = _utilities.lazy_import('pulumi_aws_native.personalize')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
     pinpointemail = _utilities.lazy_import('pulumi_aws_native.pinpointemail')
     pipes = _utilities.lazy_import('pulumi_aws_native.pipes')
+    proton = _utilities.lazy_import('pulumi_aws_native.proton')
     qldb = _utilities.lazy_import('pulumi_aws_native.qldb')
     quicksight = _utilities.lazy_import('pulumi_aws_native.quicksight')
     ram = _utilities.lazy_import('pulumi_aws_native.ram')
@@ -950,6 +959,14 @@ _utilities.register(
    "aws-native:backup:BackupVault": "BackupVault",
    "aws-native:backup:Framework": "Framework",
    "aws-native:backup:ReportPlan": "ReportPlan"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "backupgateway",
+  "fqn": "pulumi_aws_native.backupgateway",
+  "classes": {
+   "aws-native:backupgateway:Hypervisor": "Hypervisor"
   }
  },
  {
@@ -1513,6 +1530,10 @@ _utilities.register(
    "aws-native:ec2:VPNConnectionRoute": "VPNConnectionRoute",
    "aws-native:ec2:VPNGateway": "VPNGateway",
    "aws-native:ec2:VPNGatewayRoutePropagation": "VPNGatewayRoutePropagation",
+   "aws-native:ec2:VerifiedAccessEndpoint": "VerifiedAccessEndpoint",
+   "aws-native:ec2:VerifiedAccessGroup": "VerifiedAccessGroup",
+   "aws-native:ec2:VerifiedAccessInstance": "VerifiedAccessInstance",
+   "aws-native:ec2:VerifiedAccessTrustProvider": "VerifiedAccessTrustProvider",
    "aws-native:ec2:Volume": "Volume",
    "aws-native:ec2:VolumeAttachment": "VolumeAttachment"
   }
@@ -1962,6 +1983,7 @@ _utilities.register(
   "classes": {
    "aws-native:iot:AccountAuditConfiguration": "AccountAuditConfiguration",
    "aws-native:iot:Authorizer": "Authorizer",
+   "aws-native:iot:BillingGroup": "BillingGroup",
    "aws-native:iot:CACertificate": "CACertificate",
    "aws-native:iot:Certificate": "Certificate",
    "aws-native:iot:CustomMetric": "CustomMetric",
@@ -1979,7 +2001,9 @@ _utilities.register(
    "aws-native:iot:ScheduledAudit": "ScheduledAudit",
    "aws-native:iot:SecurityProfile": "SecurityProfile",
    "aws-native:iot:Thing": "Thing",
+   "aws-native:iot:ThingGroup": "ThingGroup",
    "aws-native:iot:ThingPrincipalAttachment": "ThingPrincipalAttachment",
+   "aws-native:iot:ThingType": "ThingType",
    "aws-native:iot:TopicRule": "TopicRule",
    "aws-native:iot:TopicRuleDestination": "TopicRuleDestination"
   }
@@ -2575,6 +2599,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "osis",
+  "fqn": "pulumi_aws_native.osis",
+  "classes": {
+   "aws-native:osis:Pipeline": "Pipeline"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "panorama",
   "fqn": "pulumi_aws_native.panorama",
   "classes": {
@@ -2637,6 +2669,16 @@ _utilities.register(
   "fqn": "pulumi_aws_native.pipes",
   "classes": {
    "aws-native:pipes:Pipe": "Pipe"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "proton",
+  "fqn": "pulumi_aws_native.proton",
+  "classes": {
+   "aws-native:proton:EnvironmentAccountConnection": "EnvironmentAccountConnection",
+   "aws-native:proton:EnvironmentTemplate": "EnvironmentTemplate",
+   "aws-native:proton:ServiceTemplate": "ServiceTemplate"
   }
  },
  {

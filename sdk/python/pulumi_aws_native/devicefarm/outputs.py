@@ -16,6 +16,7 @@ __all__ = [
     'InstanceProfileTag',
     'NetworkProfileTag',
     'ProjectTag',
+    'ProjectVpcConfig',
     'TestGridProjectTag',
     'TestGridProjectVpcConfig',
     'VPCEConfigurationTag',
@@ -142,6 +143,71 @@ class ProjectTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProjectVpcConfig(dict):
+    """
+    The VPC security groups and subnets that are attached to a project
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[str],
+                 subnet_ids: Sequence[str],
+                 vpc_id: str):
+        """
+        The VPC security groups and subnets that are attached to a project
+        :param Sequence[str] security_group_ids: An array of security group Ids in your Amazon VPC
+        :param Sequence[str] subnet_ids: A array of subnet IDs in your Amazon VPC.
+        :param str vpc_id: The ID of the Amazon VPC
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        """
+        An array of security group Ids in your Amazon VPC
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        """
+        A array of subnet IDs in your Amazon VPC.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The ID of the Amazon VPC
+        """
+        return pulumi.get(self, "vpc_id")
 
 
 @pulumi.output_type

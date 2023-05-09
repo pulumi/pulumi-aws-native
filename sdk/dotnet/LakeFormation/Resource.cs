@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.LakeFormation
         [Output("useServiceLinkedRole")]
         public Output<bool> UseServiceLinkedRole { get; private set; } = null!;
 
+        [Output("withFederation")]
+        public Output<bool?> WithFederation { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Resource resource with the given unique name, arguments, and options.
@@ -78,6 +81,9 @@ namespace Pulumi.AwsNative.LakeFormation
 
         [Input("useServiceLinkedRole", required: true)]
         public Input<bool> UseServiceLinkedRole { get; set; } = null!;
+
+        [Input("withFederation")]
+        public Input<bool>? WithFederation { get; set; }
 
         public ResourceArgs()
         {

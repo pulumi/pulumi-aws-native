@@ -49,8 +49,6 @@ type LookupInstanceResult struct {
 	SupportCode *string `pulumi:"supportCode"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []InstanceTag `pulumi:"tags"`
-	// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
-	UserData *string `pulumi:"userData"`
 	// Username of the  Lightsail instance.
 	UserName *string `pulumi:"userName"`
 }
@@ -154,11 +152,6 @@ func (o LookupInstanceResultOutput) SupportCode() pulumi.StringPtrOutput {
 // An array of key-value pairs to apply to this resource.
 func (o LookupInstanceResultOutput) Tags() InstanceTagArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []InstanceTag { return v.Tags }).(InstanceTagArrayOutput)
-}
-
-// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
-func (o LookupInstanceResultOutput) UserData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupInstanceResult) *string { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
 // Username of the  Lightsail instance.

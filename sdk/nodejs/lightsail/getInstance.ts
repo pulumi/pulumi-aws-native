@@ -68,10 +68,6 @@ export interface GetInstanceResult {
      */
     readonly tags?: outputs.lightsail.InstanceTag[];
     /**
-     * A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
-     */
-    readonly userData?: string;
-    /**
      * Username of the  Lightsail instance.
      */
     readonly userName?: string;

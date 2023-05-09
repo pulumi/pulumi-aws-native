@@ -20,6 +20,8 @@ type Build struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
 	OperatingSystem BuildOperatingSystemPtrOutput `pulumi:"operatingSystem"`
+	// A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
+	ServerSdkVersion pulumi.StringPtrOutput `pulumi:"serverSdkVersion"`
 	// Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
 	StorageLocation BuildStorageLocationPtrOutput `pulumi:"storageLocation"`
 	// Version information that is associated with this build. Version strings do not need to be unique.
@@ -69,6 +71,8 @@ type buildArgs struct {
 	Name *string `pulumi:"name"`
 	// The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
 	OperatingSystem *BuildOperatingSystem `pulumi:"operatingSystem"`
+	// A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
+	ServerSdkVersion *string `pulumi:"serverSdkVersion"`
 	// Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
 	StorageLocation *BuildStorageLocation `pulumi:"storageLocation"`
 	// Version information that is associated with this build. Version strings do not need to be unique.
@@ -81,6 +85,8 @@ type BuildArgs struct {
 	Name pulumi.StringPtrInput
 	// The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
 	OperatingSystem BuildOperatingSystemPtrInput
+	// A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
+	ServerSdkVersion pulumi.StringPtrInput
 	// Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
 	StorageLocation BuildStorageLocationPtrInput
 	// Version information that is associated with this build. Version strings do not need to be unique.
@@ -137,6 +143,11 @@ func (o BuildOutput) Name() pulumi.StringPtrOutput {
 // The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
 func (o BuildOutput) OperatingSystem() BuildOperatingSystemPtrOutput {
 	return o.ApplyT(func(v *Build) BuildOperatingSystemPtrOutput { return v.OperatingSystem }).(BuildOperatingSystemPtrOutput)
+}
+
+// A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
+func (o BuildOutput) ServerSdkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Build) pulumi.StringPtrOutput { return v.ServerSdkVersion }).(pulumi.StringPtrOutput)
 }
 
 // Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.

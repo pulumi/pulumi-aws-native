@@ -44,13 +44,17 @@ export class GraphQLApi extends pulumi.CustomResource {
     public /*out*/ readonly apiId!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authenticationType!: pulumi.Output<string>;
+    public /*out*/ readonly graphQLDns!: pulumi.Output<string>;
     public /*out*/ readonly graphQLUrl!: pulumi.Output<string>;
     public readonly lambdaAuthorizerConfig!: pulumi.Output<outputs.appsync.GraphQLApiLambdaAuthorizerConfig | undefined>;
     public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQLApiLogConfig | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly openIDConnectConfig!: pulumi.Output<outputs.appsync.GraphQLApiOpenIDConnectConfig | undefined>;
+    public /*out*/ readonly realtimeDns!: pulumi.Output<string>;
+    public /*out*/ readonly realtimeUrl!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.appsync.GraphQLApiTag[] | undefined>;
     public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQLApiUserPoolConfig | undefined>;
+    public readonly visibility!: pulumi.Output<string | undefined>;
     public readonly xrayEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -77,22 +81,30 @@ export class GraphQLApi extends pulumi.CustomResource {
             resourceInputs["openIDConnectConfig"] = args ? args.openIDConnectConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
+            resourceInputs["visibility"] = args ? args.visibility : undefined;
             resourceInputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["graphQLDns"] = undefined /*out*/;
             resourceInputs["graphQLUrl"] = undefined /*out*/;
+            resourceInputs["realtimeDns"] = undefined /*out*/;
+            resourceInputs["realtimeUrl"] = undefined /*out*/;
         } else {
             resourceInputs["additionalAuthenticationProviders"] = undefined /*out*/;
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authenticationType"] = undefined /*out*/;
+            resourceInputs["graphQLDns"] = undefined /*out*/;
             resourceInputs["graphQLUrl"] = undefined /*out*/;
             resourceInputs["lambdaAuthorizerConfig"] = undefined /*out*/;
             resourceInputs["logConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["openIDConnectConfig"] = undefined /*out*/;
+            resourceInputs["realtimeDns"] = undefined /*out*/;
+            resourceInputs["realtimeUrl"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["userPoolConfig"] = undefined /*out*/;
+            resourceInputs["visibility"] = undefined /*out*/;
             resourceInputs["xrayEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -112,5 +124,6 @@ export interface GraphQLApiArgs {
     openIDConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenIDConnectConfigArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiTagArgs>[]>;
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfigArgs>;
+    visibility?: pulumi.Input<string>;
     xrayEnabled?: pulumi.Input<boolean>;
 }

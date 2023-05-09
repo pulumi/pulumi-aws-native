@@ -15,15 +15,15 @@ import (
 type AccessPoint struct {
 	pulumi.CustomResourceState
 
-	Alias AliasPropertiesOutput `pulumi:"alias"`
-	Arn   pulumi.StringOutput   `pulumi:"arn"`
+	Alias AccessPointAliasOutput `pulumi:"alias"`
+	Arn   pulumi.StringOutput    `pulumi:"arn"`
 	// The date and time when the Object lambda Access Point was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The name you want to assign to this Object lambda Access Point.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
 	ObjectLambdaConfiguration AccessPointObjectLambdaConfigurationOutput `pulumi:"objectLambdaConfiguration"`
-	PolicyStatus              PolicyStatusPropertiesOutput               `pulumi:"policyStatus"`
+	PolicyStatus              AccessPointPolicyStatusOutput              `pulumi:"policyStatus"`
 	// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
 	PublicAccessBlockConfiguration AccessPointPublicAccessBlockConfigurationOutput `pulumi:"publicAccessBlockConfiguration"`
 }
@@ -121,8 +121,8 @@ func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) A
 	return o
 }
 
-func (o AccessPointOutput) Alias() AliasPropertiesOutput {
-	return o.ApplyT(func(v *AccessPoint) AliasPropertiesOutput { return v.Alias }).(AliasPropertiesOutput)
+func (o AccessPointOutput) Alias() AccessPointAliasOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointAliasOutput { return v.Alias }).(AccessPointAliasOutput)
 }
 
 func (o AccessPointOutput) Arn() pulumi.StringOutput {
@@ -144,8 +144,8 @@ func (o AccessPointOutput) ObjectLambdaConfiguration() AccessPointObjectLambdaCo
 	return o.ApplyT(func(v *AccessPoint) AccessPointObjectLambdaConfigurationOutput { return v.ObjectLambdaConfiguration }).(AccessPointObjectLambdaConfigurationOutput)
 }
 
-func (o AccessPointOutput) PolicyStatus() PolicyStatusPropertiesOutput {
-	return o.ApplyT(func(v *AccessPoint) PolicyStatusPropertiesOutput { return v.PolicyStatus }).(PolicyStatusPropertiesOutput)
+func (o AccessPointOutput) PolicyStatus() AccessPointPolicyStatusOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointPolicyStatusOutput { return v.PolicyStatus }).(AccessPointPolicyStatusOutput)
 }
 
 // The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.

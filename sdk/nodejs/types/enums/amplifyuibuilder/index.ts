@@ -23,3 +23,11 @@ export const FormDataSourceType = {
 } as const;
 
 export type FormDataSourceType = (typeof FormDataSourceType)[keyof typeof FormDataSourceType];
+
+export const FormLabelDecorator = {
+    Required: "required",
+    Optional: "optional",
+    None: "none",
+} as const;
+
+export type FormLabelDecorator = (typeof FormLabelDecorator)[keyof typeof FormLabelDecorator];

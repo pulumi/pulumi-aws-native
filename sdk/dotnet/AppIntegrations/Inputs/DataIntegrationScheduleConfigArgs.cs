@@ -15,14 +15,14 @@ namespace Pulumi.AwsNative.AppIntegrations.Inputs
         /// <summary>
         /// The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
         /// </summary>
-        [Input("firstExecutionFrom", required: true)]
-        public Input<string> FirstExecutionFrom { get; set; } = null!;
+        [Input("firstExecutionFrom")]
+        public Input<string>? FirstExecutionFrom { get; set; }
 
         /// <summary>
         /// The name of the object to pull from the data source.
         /// </summary>
-        [Input("object", required: true)]
-        public Input<string> Object { get; set; } = null!;
+        [Input("object")]
+        public Input<string>? Object { get; set; }
 
         /// <summary>
         /// How often the data should be pulled from data source.

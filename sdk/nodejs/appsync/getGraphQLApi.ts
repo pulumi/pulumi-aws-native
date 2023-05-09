@@ -27,12 +27,15 @@ export interface GetGraphQLApiResult {
     readonly apiId?: string;
     readonly arn?: string;
     readonly authenticationType?: string;
+    readonly graphQLDns?: string;
     readonly graphQLUrl?: string;
     readonly id?: string;
     readonly lambdaAuthorizerConfig?: outputs.appsync.GraphQLApiLambdaAuthorizerConfig;
     readonly logConfig?: outputs.appsync.GraphQLApiLogConfig;
     readonly name?: string;
     readonly openIDConnectConfig?: outputs.appsync.GraphQLApiOpenIDConnectConfig;
+    readonly realtimeDns?: string;
+    readonly realtimeUrl?: string;
     readonly tags?: outputs.appsync.GraphQLApiTag[];
     readonly userPoolConfig?: outputs.appsync.GraphQLApiUserPoolConfig;
     readonly xrayEnabled?: boolean;

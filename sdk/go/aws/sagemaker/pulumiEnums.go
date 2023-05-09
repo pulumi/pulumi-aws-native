@@ -2112,6 +2112,8 @@ const (
 	DomainResourceSpecInstanceTypeMlG516xlarge            = DomainResourceSpecInstanceType("ml.g5.16xlarge")
 	DomainResourceSpecInstanceTypeMlG524xlarge            = DomainResourceSpecInstanceType("ml.g5.24xlarge")
 	DomainResourceSpecInstanceTypeMlG548xlarge            = DomainResourceSpecInstanceType("ml.g5.48xlarge")
+	DomainResourceSpecInstanceTypeMlP4d24xlarge           = DomainResourceSpecInstanceType("ml.p4d.24xlarge")
+	DomainResourceSpecInstanceTypeMlP4de24xlarge          = DomainResourceSpecInstanceType("ml.p4de.24xlarge")
 	DomainResourceSpecInstanceTypeMlGeospatialInteractive = DomainResourceSpecInstanceType("ml.geospatial.interactive")
 )
 
@@ -9552,6 +9554,8 @@ const (
 	SpaceResourceSpecInstanceTypeMlG516xlarge            = SpaceResourceSpecInstanceType("ml.g5.16xlarge")
 	SpaceResourceSpecInstanceTypeMlG524xlarge            = SpaceResourceSpecInstanceType("ml.g5.24xlarge")
 	SpaceResourceSpecInstanceTypeMlG548xlarge            = SpaceResourceSpecInstanceType("ml.g5.48xlarge")
+	SpaceResourceSpecInstanceTypeMlP4d24xlarge           = SpaceResourceSpecInstanceType("ml.p4d.24xlarge")
+	SpaceResourceSpecInstanceTypeMlP4de24xlarge          = SpaceResourceSpecInstanceType("ml.p4de.24xlarge")
 	SpaceResourceSpecInstanceTypeMlGeospatialInteractive = SpaceResourceSpecInstanceType("ml.geospatial.interactive")
 )
 
@@ -10103,6 +10107,8 @@ const (
 	UserProfileResourceSpecInstanceTypeMlG516xlarge            = UserProfileResourceSpecInstanceType("ml.g5.16xlarge")
 	UserProfileResourceSpecInstanceTypeMlG524xlarge            = UserProfileResourceSpecInstanceType("ml.g5.24xlarge")
 	UserProfileResourceSpecInstanceTypeMlG548xlarge            = UserProfileResourceSpecInstanceType("ml.g5.48xlarge")
+	UserProfileResourceSpecInstanceTypeMlP4d24xlarge           = UserProfileResourceSpecInstanceType("ml.p4d.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlP4de24xlarge          = UserProfileResourceSpecInstanceType("ml.p4de.24xlarge")
 	UserProfileResourceSpecInstanceTypeMlGeospatialInteractive = UserProfileResourceSpecInstanceType("ml.geospatial.interactive")
 )
 

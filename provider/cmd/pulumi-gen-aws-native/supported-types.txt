@@ -74,6 +74,7 @@ AWS::Backup::BackupSelection
 AWS::Backup::BackupVault
 AWS::Backup::Framework
 AWS::Backup::ReportPlan
+AWS::BackupGateway::Hypervisor
 AWS::Batch::ComputeEnvironment
 AWS::Batch::JobQueue
 AWS::Batch::SchedulingPolicy
@@ -241,6 +242,10 @@ AWS::EC2::VPCPeeringConnection
 AWS::EC2::VPNConnection
 AWS::EC2::VPNConnectionRoute
 AWS::EC2::VPNGateway
+AWS::EC2::VerifiedAccessEndpoint
+AWS::EC2::VerifiedAccessGroup
+AWS::EC2::VerifiedAccessInstance
+AWS::EC2::VerifiedAccessTrustProvider
 AWS::EC2::Volume
 AWS::ECR::PullThroughCacheRule
 AWS::ECR::RegistryPolicy
@@ -351,6 +356,7 @@ AWS::InspectorV2::Filter
 AWS::InternetMonitor::Monitor
 AWS::IoT::AccountAuditConfiguration
 AWS::IoT::Authorizer
+AWS::IoT::BillingGroup
 AWS::IoT::CACertificate
 AWS::IoT::Certificate
 AWS::IoT::CustomMetric
@@ -367,6 +373,8 @@ AWS::IoT::RoleAlias
 AWS::IoT::ScheduledAudit
 AWS::IoT::SecurityProfile
 AWS::IoT::Thing
+AWS::IoT::ThingGroup
+AWS::IoT::ThingType
 AWS::IoT::TopicRule
 AWS::IoT::TopicRuleDestination
 AWS::IoTAnalytics::Channel
@@ -505,6 +513,7 @@ AWS::NimbleStudio::LaunchProfile
 AWS::NimbleStudio::StreamingImage
 AWS::NimbleStudio::Studio
 AWS::NimbleStudio::StudioComponent
+AWS::OSIS::Pipeline
 AWS::Oam::Link
 AWS::Oam::Sink
 AWS::Omics::AnnotationStore
@@ -533,6 +542,9 @@ AWS::Personalize::Schema
 AWS::Personalize::Solution
 AWS::Pinpoint::InAppTemplate
 AWS::Pipes::Pipe
+AWS::Proton::EnvironmentAccountConnection
+AWS::Proton::EnvironmentTemplate
+AWS::Proton::ServiceTemplate
 AWS::QLDB::Stream
 AWS::QuickSight::Analysis
 AWS::QuickSight::Dashboard
@@ -724,6 +736,7 @@ Atlassian::Opsgenie::Team
 Atlassian::Opsgenie::User
 AwsCommunity::Account::AlternateContact
 AwsCommunity::DynamoDB::Item
+AwsCommunity::Resource::Lookup
 AwsCommunity::S3::DeleteBucketContents
 AwsCommunity::Time::Offset
 AwsCommunity::Time::Sleep

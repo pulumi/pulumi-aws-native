@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         [Output("formActionType")]
         public Output<Pulumi.AwsNative.AmplifyUIBuilder.FormActionType> FormActionType { get; private set; } = null!;
 
+        [Output("labelDecorator")]
+        public Output<Pulumi.AwsNative.AmplifyUIBuilder.FormLabelDecorator?> LabelDecorator { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -110,6 +113,9 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
 
         [Input("formActionType", required: true)]
         public Input<Pulumi.AwsNative.AmplifyUIBuilder.FormActionType> FormActionType { get; set; } = null!;
+
+        [Input("labelDecorator")]
+        public Input<Pulumi.AwsNative.AmplifyUIBuilder.FormLabelDecorator>? LabelDecorator { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

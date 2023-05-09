@@ -7,28 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
+namespace Pulumi.AwsNative.Proton.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;A description of a resource tag.&lt;/p&gt;
+    /// </summary>
     [OutputType]
-    public sealed class AliasProperties
+    public sealed class EnvironmentTemplateTag
     {
         /// <summary>
-        /// The status of the Object Lambda alias.
+        /// &lt;p&gt;The key of the resource tag.&lt;/p&gt;
         /// </summary>
-        public readonly string? Status;
+        public readonly string Key;
         /// <summary>
-        /// The value of the Object Lambda alias.
+        /// &lt;p&gt;The value of the resource tag.&lt;/p&gt;
         /// </summary>
-        public readonly string? Value;
+        public readonly string Value;
 
         [OutputConstructor]
-        private AliasProperties(
-            string? status,
+        private EnvironmentTemplateTag(
+            string key,
 
-            string? value)
+            string value)
         {
-            Status = status;
+            Key = key;
             Value = value;
         }
     }

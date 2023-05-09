@@ -30,10 +30,14 @@ type LookupDataIntegrationResult struct {
 	DataIntegrationArn *string `pulumi:"dataIntegrationArn"`
 	// The data integration description.
 	Description *string `pulumi:"description"`
+	// The configuration for what files should be pulled from the source.
+	FileConfiguration *DataIntegrationFileConfiguration `pulumi:"fileConfiguration"`
 	// The unique identifer of the data integration.
 	Id *string `pulumi:"id"`
 	// The name of the data integration.
 	Name *string `pulumi:"name"`
+	// The configuration for what data should be pulled from the source.
+	ObjectConfiguration *DataIntegrationObjectConfiguration `pulumi:"objectConfiguration"`
 	// The tags (keys and values) associated with the data integration.
 	Tags []DataIntegrationTag `pulumi:"tags"`
 }
@@ -84,6 +88,11 @@ func (o LookupDataIntegrationResultOutput) Description() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupDataIntegrationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The configuration for what files should be pulled from the source.
+func (o LookupDataIntegrationResultOutput) FileConfiguration() DataIntegrationFileConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDataIntegrationResult) *DataIntegrationFileConfiguration { return v.FileConfiguration }).(DataIntegrationFileConfigurationPtrOutput)
+}
+
 // The unique identifer of the data integration.
 func (o LookupDataIntegrationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataIntegrationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -92,6 +101,11 @@ func (o LookupDataIntegrationResultOutput) Id() pulumi.StringPtrOutput {
 // The name of the data integration.
 func (o LookupDataIntegrationResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataIntegrationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The configuration for what data should be pulled from the source.
+func (o LookupDataIntegrationResultOutput) ObjectConfiguration() DataIntegrationObjectConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDataIntegrationResult) *DataIntegrationObjectConfiguration { return v.ObjectConfiguration }).(DataIntegrationObjectConfigurationPtrOutput)
 }
 
 // The tags (keys and values) associated with the data integration.

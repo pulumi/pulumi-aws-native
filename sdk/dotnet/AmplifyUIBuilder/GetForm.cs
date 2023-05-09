@@ -70,6 +70,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         public readonly Outputs.FormFieldsMap? Fields;
         public readonly Pulumi.AwsNative.AmplifyUIBuilder.FormActionType? FormActionType;
         public readonly string? Id;
+        public readonly Pulumi.AwsNative.AmplifyUIBuilder.FormLabelDecorator? LabelDecorator;
         public readonly string? Name;
         public readonly string? SchemaVersion;
         public readonly Outputs.FormSectionalElementMap? SectionalElements;
@@ -91,6 +92,8 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
 
             string? id,
 
+            Pulumi.AwsNative.AmplifyUIBuilder.FormLabelDecorator? labelDecorator,
+
             string? name,
 
             string? schemaVersion,
@@ -106,6 +109,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
             Fields = fields;
             FormActionType = formActionType;
             Id = id;
+            LabelDecorator = labelDecorator;
             Name = name;
             SchemaVersion = schemaVersion;
             SectionalElements = sectionalElements;

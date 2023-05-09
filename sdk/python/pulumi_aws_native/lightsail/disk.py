@@ -21,6 +21,7 @@ class DiskArgs:
                  add_ons: Optional[pulumi.Input[Sequence[pulumi.Input['DiskAddOnArgs']]]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input['DiskLocationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DiskTagArgs']]]] = None):
         """
         The set of arguments for constructing a Disk resource.
@@ -37,6 +38,8 @@ class DiskArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if disk_name is not None:
             pulumi.set(__self__, "disk_name", disk_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -90,6 +93,15 @@ class DiskArgs:
 
     @property
     @pulumi.getter
+    def location(self) -> Optional[pulumi.Input['DiskLocationArgs']]:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input['DiskLocationArgs']]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
@@ -109,6 +121,7 @@ class Disk(pulumi.CustomResource):
                  add_ons: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskAddOnArgs']]]]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[pulumi.InputType['DiskLocationArgs']]] = None,
                  size_in_gb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskTagArgs']]]]] = None,
                  __props__=None):
@@ -150,6 +163,7 @@ class Disk(pulumi.CustomResource):
                  add_ons: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskAddOnArgs']]]]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[pulumi.InputType['DiskLocationArgs']]] = None,
                  size_in_gb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiskTagArgs']]]]] = None,
                  __props__=None):
@@ -164,6 +178,7 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["add_ons"] = add_ons
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["disk_name"] = disk_name
+            __props__.__dict__["location"] = location
             if size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'size_in_gb'")
             __props__.__dict__["size_in_gb"] = size_in_gb
@@ -173,7 +188,6 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["disk_arn"] = None
             __props__.__dict__["iops"] = None
             __props__.__dict__["is_attached"] = None
-            __props__.__dict__["location"] = None
             __props__.__dict__["path"] = None
             __props__.__dict__["resource_type"] = None
             __props__.__dict__["state"] = None
@@ -280,7 +294,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output['outputs.DiskLocation']:
+    def location(self) -> pulumi.Output[Optional['outputs.DiskLocation']]:
         return pulumi.get(self, "location")
 
     @property

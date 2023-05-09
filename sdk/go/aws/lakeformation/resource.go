@@ -20,6 +20,7 @@ type Resource struct {
 	ResourceArn          pulumi.StringOutput    `pulumi:"resourceArn"`
 	RoleArn              pulumi.StringPtrOutput `pulumi:"roleArn"`
 	UseServiceLinkedRole pulumi.BoolOutput      `pulumi:"useServiceLinkedRole"`
+	WithFederation       pulumi.BoolPtrOutput   `pulumi:"withFederation"`
 }
 
 // NewResource registers a new resource with the given unique name, arguments, and options.
@@ -70,6 +71,7 @@ type resourceArgs struct {
 	ResourceArn          string  `pulumi:"resourceArn"`
 	RoleArn              *string `pulumi:"roleArn"`
 	UseServiceLinkedRole bool    `pulumi:"useServiceLinkedRole"`
+	WithFederation       *bool   `pulumi:"withFederation"`
 }
 
 // The set of arguments for constructing a Resource resource.
@@ -77,6 +79,7 @@ type ResourceArgs struct {
 	ResourceArn          pulumi.StringInput
 	RoleArn              pulumi.StringPtrInput
 	UseServiceLinkedRole pulumi.BoolInput
+	WithFederation       pulumi.BoolPtrInput
 }
 
 func (ResourceArgs) ElementType() reflect.Type {
@@ -126,6 +129,10 @@ func (o ResourceOutput) RoleArn() pulumi.StringPtrOutput {
 
 func (o ResourceOutput) UseServiceLinkedRole() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Resource) pulumi.BoolOutput { return v.UseServiceLinkedRole }).(pulumi.BoolOutput)
+}
+
+func (o ResourceOutput) WithFederation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Resource) pulumi.BoolPtrOutput { return v.WithFederation }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

@@ -18,7 +18,8 @@ class ProjectArgs:
     def __init__(__self__, *,
                  default_job_timeout_minutes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
+                 vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
         """
@@ -28,6 +29,8 @@ class ProjectArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="defaultJobTimeoutMinutes")
@@ -56,6 +59,15 @@ class ProjectArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['ProjectVpcConfigArgs']]:
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['ProjectVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
+
 
 class Project(pulumi.CustomResource):
     @overload
@@ -65,6 +77,7 @@ class Project(pulumi.CustomResource):
                  default_job_timeout_minutes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None,
                  __props__=None):
         """
         AWS::DeviceFarm::Project creates a new Device Farm Project
@@ -99,6 +112,7 @@ class Project(pulumi.CustomResource):
                  default_job_timeout_minutes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -111,6 +125,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["default_job_timeout_minutes"] = default_job_timeout_minutes
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
         super(Project, __self__).__init__(
             'aws-native:devicefarm:Project',
@@ -138,6 +153,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["default_job_timeout_minutes"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_config"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -159,4 +175,9 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectTag']]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> pulumi.Output[Optional['outputs.ProjectVpcConfig']]:
+        return pulumi.get(self, "vpc_config")
 

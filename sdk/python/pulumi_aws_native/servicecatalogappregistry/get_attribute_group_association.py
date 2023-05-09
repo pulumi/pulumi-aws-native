@@ -18,16 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetAttributeGroupAssociationResult:
-    def __init__(__self__, application=None, application_arn=None, attribute_group=None, attribute_group_arn=None, id=None):
-        if application and not isinstance(application, str):
-            raise TypeError("Expected argument 'application' to be a str")
-        pulumi.set(__self__, "application", application)
+    def __init__(__self__, application_arn=None, attribute_group_arn=None, id=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
-        if attribute_group and not isinstance(attribute_group, str):
-            raise TypeError("Expected argument 'attribute_group' to be a str")
-        pulumi.set(__self__, "attribute_group", attribute_group)
         if attribute_group_arn and not isinstance(attribute_group_arn, str):
             raise TypeError("Expected argument 'attribute_group_arn' to be a str")
         pulumi.set(__self__, "attribute_group_arn", attribute_group_arn)
@@ -36,25 +30,9 @@ class GetAttributeGroupAssociationResult:
         pulumi.set(__self__, "id", id)
 
     @property
-    @pulumi.getter
-    def application(self) -> Optional[str]:
-        """
-        The name or the Id of the Application.
-        """
-        return pulumi.get(self, "application")
-
-    @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[str]:
         return pulumi.get(self, "application_arn")
-
-    @property
-    @pulumi.getter(name="attributeGroup")
-    def attribute_group(self) -> Optional[str]:
-        """
-        The name or the Id of the AttributeGroup.
-        """
-        return pulumi.get(self, "attribute_group")
 
     @property
     @pulumi.getter(name="attributeGroupArn")
@@ -73,9 +51,7 @@ class AwaitableGetAttributeGroupAssociationResult(GetAttributeGroupAssociationRe
         if False:
             yield self
         return GetAttributeGroupAssociationResult(
-            application=self.application,
             application_arn=self.application_arn,
-            attribute_group=self.attribute_group,
             attribute_group_arn=self.attribute_group_arn,
             id=self.id)
 
@@ -91,9 +67,7 @@ def get_attribute_group_association(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalogappregistry:getAttributeGroupAssociation', __args__, opts=opts, typ=GetAttributeGroupAssociationResult).value
 
     return AwaitableGetAttributeGroupAssociationResult(
-        application=__ret__.application,
         application_arn=__ret__.application_arn,
-        attribute_group=__ret__.attribute_group,
         attribute_group_arn=__ret__.attribute_group_arn,
         id=__ret__.id)
 

@@ -51,33 +51,19 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     [OutputType]
     public sealed class GetAttributeGroupAssociationResult
     {
-        /// <summary>
-        /// The name or the Id of the Application.
-        /// </summary>
-        public readonly string? Application;
         public readonly string? ApplicationArn;
-        /// <summary>
-        /// The name or the Id of the AttributeGroup.
-        /// </summary>
-        public readonly string? AttributeGroup;
         public readonly string? AttributeGroupArn;
         public readonly string? Id;
 
         [OutputConstructor]
         private GetAttributeGroupAssociationResult(
-            string? application,
-
             string? applicationArn,
-
-            string? attributeGroup,
 
             string? attributeGroupArn,
 
             string? id)
         {
-            Application = application;
             ApplicationArn = applicationArn;
-            AttributeGroup = attributeGroup;
             AttributeGroupArn = attributeGroupArn;
             Id = id;
         }

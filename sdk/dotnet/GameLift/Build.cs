@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.GameLift
         public Output<Pulumi.AwsNative.GameLift.BuildOperatingSystem?> OperatingSystem { get; private set; } = null!;
 
         /// <summary>
+        /// A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
+        /// </summary>
+        [Output("serverSdkVersion")]
+        public Output<string?> ServerSdkVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
         /// </summary>
         [Output("storageLocation")]
@@ -101,6 +107,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("operatingSystem")]
         public Input<Pulumi.AwsNative.GameLift.BuildOperatingSystem>? OperatingSystem { get; set; }
+
+        /// <summary>
+        /// A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
+        /// </summary>
+        [Input("serverSdkVersion")]
+        public Input<string>? ServerSdkVersion { get; set; }
 
         /// <summary>
         /// Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.

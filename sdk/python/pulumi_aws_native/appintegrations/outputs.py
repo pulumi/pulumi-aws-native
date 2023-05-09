@@ -10,6 +10,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DataIntegrationFileConfiguration',
+    'DataIntegrationObjectConfiguration',
     'DataIntegrationScheduleConfig',
     'DataIntegrationTag',
     'EventIntegrationEventFilter',
@@ -17,14 +19,60 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class DataIntegrationFileConfiguration(dict):
+    """
+    The configuration for what files should be pulled from the source.
+    """
+    def __init__(__self__, *,
+                 folders: Sequence[str],
+                 filters: Optional[Any] = None):
+        """
+        The configuration for what files should be pulled from the source.
+        :param Sequence[str] folders: Identifiers for the source folders to pull all files from recursively.
+        :param Any filters: Restrictions for what files should be pulled from the source.
+        """
+        pulumi.set(__self__, "folders", folders)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def folders(self) -> Sequence[str]:
+        """
+        Identifiers for the source folders to pull all files from recursively.
+        """
+        return pulumi.get(self, "folders")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Any]:
+        """
+        Restrictions for what files should be pulled from the source.
+        """
+        return pulumi.get(self, "filters")
+
+
+@pulumi.output_type
+class DataIntegrationObjectConfiguration(dict):
+    """
+    The configuration for what data should be pulled from the source.
+    """
+    def __init__(__self__):
+        """
+        The configuration for what data should be pulled from the source.
+        """
+        pass
+
+
+@pulumi.output_type
 class DataIntegrationScheduleConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "firstExecutionFrom":
-            suggest = "first_execution_from"
-        elif key == "scheduleExpression":
+        if key == "scheduleExpression":
             suggest = "schedule_expression"
+        elif key == "firstExecutionFrom":
+            suggest = "first_execution_from"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataIntegrationScheduleConfig. Access the value via the '{suggest}' property getter instead.")
@@ -38,33 +86,19 @@ class DataIntegrationScheduleConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 first_execution_from: str,
-                 object: str,
-                 schedule_expression: str):
+                 schedule_expression: str,
+                 first_execution_from: Optional[str] = None,
+                 object: Optional[str] = None):
         """
+        :param str schedule_expression: How often the data should be pulled from data source.
         :param str first_execution_from: The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
         :param str object: The name of the object to pull from the data source.
-        :param str schedule_expression: How often the data should be pulled from data source.
         """
-        pulumi.set(__self__, "first_execution_from", first_execution_from)
-        pulumi.set(__self__, "object", object)
         pulumi.set(__self__, "schedule_expression", schedule_expression)
-
-    @property
-    @pulumi.getter(name="firstExecutionFrom")
-    def first_execution_from(self) -> str:
-        """
-        The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
-        """
-        return pulumi.get(self, "first_execution_from")
-
-    @property
-    @pulumi.getter
-    def object(self) -> str:
-        """
-        The name of the object to pull from the data source.
-        """
-        return pulumi.get(self, "object")
+        if first_execution_from is not None:
+            pulumi.set(__self__, "first_execution_from", first_execution_from)
+        if object is not None:
+            pulumi.set(__self__, "object", object)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -73,6 +107,22 @@ class DataIntegrationScheduleConfig(dict):
         How often the data should be pulled from data source.
         """
         return pulumi.get(self, "schedule_expression")
+
+    @property
+    @pulumi.getter(name="firstExecutionFrom")
+    def first_execution_from(self) -> Optional[str]:
+        """
+        The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
+        """
+        return pulumi.get(self, "first_execution_from")
+
+    @property
+    @pulumi.getter
+    def object(self) -> Optional[str]:
+        """
+        The name of the object to pull from the data source.
+        """
+        return pulumi.get(self, "object")
 
 
 @pulumi.output_type

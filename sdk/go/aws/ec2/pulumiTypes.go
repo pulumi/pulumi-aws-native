@@ -10313,8 +10313,9 @@ func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationRes
 }
 
 type LaunchTemplateCpuOptions struct {
-	CoreCount      *int `pulumi:"coreCount"`
-	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+	AmdSevSnp      *string `pulumi:"amdSevSnp"`
+	CoreCount      *int    `pulumi:"coreCount"`
+	ThreadsPerCore *int    `pulumi:"threadsPerCore"`
 }
 
 // LaunchTemplateCpuOptionsInput is an input type that accepts LaunchTemplateCpuOptionsArgs and LaunchTemplateCpuOptionsOutput values.
@@ -10329,8 +10330,9 @@ type LaunchTemplateCpuOptionsInput interface {
 }
 
 type LaunchTemplateCpuOptionsArgs struct {
-	CoreCount      pulumi.IntPtrInput `pulumi:"coreCount"`
-	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+	AmdSevSnp      pulumi.StringPtrInput `pulumi:"amdSevSnp"`
+	CoreCount      pulumi.IntPtrInput    `pulumi:"coreCount"`
+	ThreadsPerCore pulumi.IntPtrInput    `pulumi:"threadsPerCore"`
 }
 
 func (LaunchTemplateCpuOptionsArgs) ElementType() reflect.Type {
@@ -10410,6 +10412,10 @@ func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutputWithC
 	}).(LaunchTemplateCpuOptionsPtrOutput)
 }
 
+func (o LaunchTemplateCpuOptionsOutput) AmdSevSnp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCpuOptions) *string { return v.AmdSevSnp }).(pulumi.StringPtrOutput)
+}
+
 func (o LaunchTemplateCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
@@ -10440,6 +10446,15 @@ func (o LaunchTemplateCpuOptionsPtrOutput) Elem() LaunchTemplateCpuOptionsOutput
 		var ret LaunchTemplateCpuOptions
 		return ret
 	}).(LaunchTemplateCpuOptionsOutput)
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) AmdSevSnp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AmdSevSnp
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
@@ -18914,6 +18929,334 @@ func (o NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput) State() p
 		}
 		return v.State
 	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkInsightsPathFilterPortRange struct {
+	FromPort *int `pulumi:"fromPort"`
+	ToPort   *int `pulumi:"toPort"`
+}
+
+// NetworkInsightsPathFilterPortRangeInput is an input type that accepts NetworkInsightsPathFilterPortRangeArgs and NetworkInsightsPathFilterPortRangeOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterPortRangeInput` via:
+//
+//	NetworkInsightsPathFilterPortRangeArgs{...}
+type NetworkInsightsPathFilterPortRangeInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterPortRangeOutput() NetworkInsightsPathFilterPortRangeOutput
+	ToNetworkInsightsPathFilterPortRangeOutputWithContext(context.Context) NetworkInsightsPathFilterPortRangeOutput
+}
+
+type NetworkInsightsPathFilterPortRangeArgs struct {
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	ToPort   pulumi.IntPtrInput `pulumi:"toPort"`
+}
+
+func (NetworkInsightsPathFilterPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterPortRange)(nil)).Elem()
+}
+
+func (i NetworkInsightsPathFilterPortRangeArgs) ToNetworkInsightsPathFilterPortRangeOutput() NetworkInsightsPathFilterPortRangeOutput {
+	return i.ToNetworkInsightsPathFilterPortRangeOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterPortRangeArgs) ToNetworkInsightsPathFilterPortRangeOutputWithContext(ctx context.Context) NetworkInsightsPathFilterPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterPortRangeOutput)
+}
+
+func (i NetworkInsightsPathFilterPortRangeArgs) ToNetworkInsightsPathFilterPortRangePtrOutput() NetworkInsightsPathFilterPortRangePtrOutput {
+	return i.ToNetworkInsightsPathFilterPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathFilterPortRangeArgs) ToNetworkInsightsPathFilterPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterPortRangeOutput).ToNetworkInsightsPathFilterPortRangePtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsPathFilterPortRangePtrInput is an input type that accepts NetworkInsightsPathFilterPortRangeArgs, NetworkInsightsPathFilterPortRangePtr and NetworkInsightsPathFilterPortRangePtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathFilterPortRangePtrInput` via:
+//
+//	        NetworkInsightsPathFilterPortRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInsightsPathFilterPortRangePtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathFilterPortRangePtrOutput() NetworkInsightsPathFilterPortRangePtrOutput
+	ToNetworkInsightsPathFilterPortRangePtrOutputWithContext(context.Context) NetworkInsightsPathFilterPortRangePtrOutput
+}
+
+type networkInsightsPathFilterPortRangePtrType NetworkInsightsPathFilterPortRangeArgs
+
+func NetworkInsightsPathFilterPortRangePtr(v *NetworkInsightsPathFilterPortRangeArgs) NetworkInsightsPathFilterPortRangePtrInput {
+	return (*networkInsightsPathFilterPortRangePtrType)(v)
+}
+
+func (*networkInsightsPathFilterPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterPortRange)(nil)).Elem()
+}
+
+func (i *networkInsightsPathFilterPortRangePtrType) ToNetworkInsightsPathFilterPortRangePtrOutput() NetworkInsightsPathFilterPortRangePtrOutput {
+	return i.ToNetworkInsightsPathFilterPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsPathFilterPortRangePtrType) ToNetworkInsightsPathFilterPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathFilterPortRangePtrOutput)
+}
+
+type NetworkInsightsPathFilterPortRangeOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathFilterPortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterPortRangeOutput) ToNetworkInsightsPathFilterPortRangeOutput() NetworkInsightsPathFilterPortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterPortRangeOutput) ToNetworkInsightsPathFilterPortRangeOutputWithContext(ctx context.Context) NetworkInsightsPathFilterPortRangeOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterPortRangeOutput) ToNetworkInsightsPathFilterPortRangePtrOutput() NetworkInsightsPathFilterPortRangePtrOutput {
+	return o.ToNetworkInsightsPathFilterPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsPathFilterPortRangeOutput) ToNetworkInsightsPathFilterPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterPortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsPathFilterPortRange) *NetworkInsightsPathFilterPortRange {
+		return &v
+	}).(NetworkInsightsPathFilterPortRangePtrOutput)
+}
+
+func (o NetworkInsightsPathFilterPortRangeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterPortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkInsightsPathFilterPortRangeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathFilterPortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsPathFilterPortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathFilterPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathFilterPortRange)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathFilterPortRangePtrOutput) ToNetworkInsightsPathFilterPortRangePtrOutput() NetworkInsightsPathFilterPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterPortRangePtrOutput) ToNetworkInsightsPathFilterPortRangePtrOutputWithContext(ctx context.Context) NetworkInsightsPathFilterPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathFilterPortRangePtrOutput) Elem() NetworkInsightsPathFilterPortRangeOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterPortRange) NetworkInsightsPathFilterPortRange {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsPathFilterPortRange
+		return ret
+	}).(NetworkInsightsPathFilterPortRangeOutput)
+}
+
+func (o NetworkInsightsPathFilterPortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FromPort
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkInsightsPathFilterPortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathFilterPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ToPort
+	}).(pulumi.IntPtrOutput)
+}
+
+type NetworkInsightsPathPathFilter struct {
+	DestinationAddress   *string                             `pulumi:"destinationAddress"`
+	DestinationPortRange *NetworkInsightsPathFilterPortRange `pulumi:"destinationPortRange"`
+	SourceAddress        *string                             `pulumi:"sourceAddress"`
+	SourcePortRange      *NetworkInsightsPathFilterPortRange `pulumi:"sourcePortRange"`
+}
+
+// NetworkInsightsPathPathFilterInput is an input type that accepts NetworkInsightsPathPathFilterArgs and NetworkInsightsPathPathFilterOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathPathFilterInput` via:
+//
+//	NetworkInsightsPathPathFilterArgs{...}
+type NetworkInsightsPathPathFilterInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathPathFilterOutput() NetworkInsightsPathPathFilterOutput
+	ToNetworkInsightsPathPathFilterOutputWithContext(context.Context) NetworkInsightsPathPathFilterOutput
+}
+
+type NetworkInsightsPathPathFilterArgs struct {
+	DestinationAddress   pulumi.StringPtrInput                      `pulumi:"destinationAddress"`
+	DestinationPortRange NetworkInsightsPathFilterPortRangePtrInput `pulumi:"destinationPortRange"`
+	SourceAddress        pulumi.StringPtrInput                      `pulumi:"sourceAddress"`
+	SourcePortRange      NetworkInsightsPathFilterPortRangePtrInput `pulumi:"sourcePortRange"`
+}
+
+func (NetworkInsightsPathPathFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathPathFilter)(nil)).Elem()
+}
+
+func (i NetworkInsightsPathPathFilterArgs) ToNetworkInsightsPathPathFilterOutput() NetworkInsightsPathPathFilterOutput {
+	return i.ToNetworkInsightsPathPathFilterOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathPathFilterArgs) ToNetworkInsightsPathPathFilterOutputWithContext(ctx context.Context) NetworkInsightsPathPathFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathPathFilterOutput)
+}
+
+func (i NetworkInsightsPathPathFilterArgs) ToNetworkInsightsPathPathFilterPtrOutput() NetworkInsightsPathPathFilterPtrOutput {
+	return i.ToNetworkInsightsPathPathFilterPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInsightsPathPathFilterArgs) ToNetworkInsightsPathPathFilterPtrOutputWithContext(ctx context.Context) NetworkInsightsPathPathFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathPathFilterOutput).ToNetworkInsightsPathPathFilterPtrOutputWithContext(ctx)
+}
+
+// NetworkInsightsPathPathFilterPtrInput is an input type that accepts NetworkInsightsPathPathFilterArgs, NetworkInsightsPathPathFilterPtr and NetworkInsightsPathPathFilterPtrOutput values.
+// You can construct a concrete instance of `NetworkInsightsPathPathFilterPtrInput` via:
+//
+//	        NetworkInsightsPathPathFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInsightsPathPathFilterPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInsightsPathPathFilterPtrOutput() NetworkInsightsPathPathFilterPtrOutput
+	ToNetworkInsightsPathPathFilterPtrOutputWithContext(context.Context) NetworkInsightsPathPathFilterPtrOutput
+}
+
+type networkInsightsPathPathFilterPtrType NetworkInsightsPathPathFilterArgs
+
+func NetworkInsightsPathPathFilterPtr(v *NetworkInsightsPathPathFilterArgs) NetworkInsightsPathPathFilterPtrInput {
+	return (*networkInsightsPathPathFilterPtrType)(v)
+}
+
+func (*networkInsightsPathPathFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathPathFilter)(nil)).Elem()
+}
+
+func (i *networkInsightsPathPathFilterPtrType) ToNetworkInsightsPathPathFilterPtrOutput() NetworkInsightsPathPathFilterPtrOutput {
+	return i.ToNetworkInsightsPathPathFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInsightsPathPathFilterPtrType) ToNetworkInsightsPathPathFilterPtrOutputWithContext(ctx context.Context) NetworkInsightsPathPathFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathPathFilterPtrOutput)
+}
+
+type NetworkInsightsPathPathFilterOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathPathFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInsightsPathPathFilter)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathPathFilterOutput) ToNetworkInsightsPathPathFilterOutput() NetworkInsightsPathPathFilterOutput {
+	return o
+}
+
+func (o NetworkInsightsPathPathFilterOutput) ToNetworkInsightsPathPathFilterOutputWithContext(ctx context.Context) NetworkInsightsPathPathFilterOutput {
+	return o
+}
+
+func (o NetworkInsightsPathPathFilterOutput) ToNetworkInsightsPathPathFilterPtrOutput() NetworkInsightsPathPathFilterPtrOutput {
+	return o.ToNetworkInsightsPathPathFilterPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInsightsPathPathFilterOutput) ToNetworkInsightsPathPathFilterPtrOutputWithContext(ctx context.Context) NetworkInsightsPathPathFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsPathPathFilter) *NetworkInsightsPathPathFilter {
+		return &v
+	}).(NetworkInsightsPathPathFilterPtrOutput)
+}
+
+func (o NetworkInsightsPathPathFilterOutput) DestinationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathPathFilter) *string { return v.DestinationAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsPathPathFilterOutput) DestinationPortRange() NetworkInsightsPathFilterPortRangePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathPathFilter) *NetworkInsightsPathFilterPortRange {
+		return v.DestinationPortRange
+	}).(NetworkInsightsPathFilterPortRangePtrOutput)
+}
+
+func (o NetworkInsightsPathPathFilterOutput) SourceAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathPathFilter) *string { return v.SourceAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsPathPathFilterOutput) SourcePortRange() NetworkInsightsPathFilterPortRangePtrOutput {
+	return o.ApplyT(func(v NetworkInsightsPathPathFilter) *NetworkInsightsPathFilterPortRange { return v.SourcePortRange }).(NetworkInsightsPathFilterPortRangePtrOutput)
+}
+
+type NetworkInsightsPathPathFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInsightsPathPathFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInsightsPathPathFilter)(nil)).Elem()
+}
+
+func (o NetworkInsightsPathPathFilterPtrOutput) ToNetworkInsightsPathPathFilterPtrOutput() NetworkInsightsPathPathFilterPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathPathFilterPtrOutput) ToNetworkInsightsPathPathFilterPtrOutputWithContext(ctx context.Context) NetworkInsightsPathPathFilterPtrOutput {
+	return o
+}
+
+func (o NetworkInsightsPathPathFilterPtrOutput) Elem() NetworkInsightsPathPathFilterOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathPathFilter) NetworkInsightsPathPathFilter {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInsightsPathPathFilter
+		return ret
+	}).(NetworkInsightsPathPathFilterOutput)
+}
+
+func (o NetworkInsightsPathPathFilterPtrOutput) DestinationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathPathFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsPathPathFilterPtrOutput) DestinationPortRange() NetworkInsightsPathFilterPortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathPathFilter) *NetworkInsightsPathFilterPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPortRange
+	}).(NetworkInsightsPathFilterPortRangePtrOutput)
+}
+
+func (o NetworkInsightsPathPathFilterPtrOutput) SourceAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathPathFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInsightsPathPathFilterPtrOutput) SourcePortRange() NetworkInsightsPathFilterPortRangePtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPathPathFilter) *NetworkInsightsPathFilterPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePortRange
+	}).(NetworkInsightsPathFilterPortRangePtrOutput)
 }
 
 type NetworkInsightsPathTag struct {
@@ -27478,6 +27821,2050 @@ func (o VPNGatewayTagArrayOutput) Index(i pulumi.IntInput) VPNGatewayTagOutput {
 	}).(VPNGatewayTagOutput)
 }
 
+// The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
+type VerifiedAccessEndpointLoadBalancerOptions struct {
+	// The ARN of the load balancer.
+	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
+	// The IP port number.
+	Port *int `pulumi:"port"`
+	// The IP protocol.
+	Protocol *string `pulumi:"protocol"`
+	// The IDs of the subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// VerifiedAccessEndpointLoadBalancerOptionsInput is an input type that accepts VerifiedAccessEndpointLoadBalancerOptionsArgs and VerifiedAccessEndpointLoadBalancerOptionsOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointLoadBalancerOptionsInput` via:
+//
+//	VerifiedAccessEndpointLoadBalancerOptionsArgs{...}
+type VerifiedAccessEndpointLoadBalancerOptionsInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointLoadBalancerOptionsOutput() VerifiedAccessEndpointLoadBalancerOptionsOutput
+	ToVerifiedAccessEndpointLoadBalancerOptionsOutputWithContext(context.Context) VerifiedAccessEndpointLoadBalancerOptionsOutput
+}
+
+// The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
+type VerifiedAccessEndpointLoadBalancerOptionsArgs struct {
+	// The ARN of the load balancer.
+	LoadBalancerArn pulumi.StringPtrInput `pulumi:"loadBalancerArn"`
+	// The IP port number.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The IP protocol.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// The IDs of the subnets.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (VerifiedAccessEndpointLoadBalancerOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptions)(nil)).Elem()
+}
+
+func (i VerifiedAccessEndpointLoadBalancerOptionsArgs) ToVerifiedAccessEndpointLoadBalancerOptionsOutput() VerifiedAccessEndpointLoadBalancerOptionsOutput {
+	return i.ToVerifiedAccessEndpointLoadBalancerOptionsOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointLoadBalancerOptionsArgs) ToVerifiedAccessEndpointLoadBalancerOptionsOutputWithContext(ctx context.Context) VerifiedAccessEndpointLoadBalancerOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointLoadBalancerOptionsOutput)
+}
+
+func (i VerifiedAccessEndpointLoadBalancerOptionsArgs) ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutput() VerifiedAccessEndpointLoadBalancerOptionsPtrOutput {
+	return i.ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointLoadBalancerOptionsArgs) ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointLoadBalancerOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointLoadBalancerOptionsOutput).ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessEndpointLoadBalancerOptionsPtrInput is an input type that accepts VerifiedAccessEndpointLoadBalancerOptionsArgs, VerifiedAccessEndpointLoadBalancerOptionsPtr and VerifiedAccessEndpointLoadBalancerOptionsPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointLoadBalancerOptionsPtrInput` via:
+//
+//	        VerifiedAccessEndpointLoadBalancerOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessEndpointLoadBalancerOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutput() VerifiedAccessEndpointLoadBalancerOptionsPtrOutput
+	ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutputWithContext(context.Context) VerifiedAccessEndpointLoadBalancerOptionsPtrOutput
+}
+
+type verifiedAccessEndpointLoadBalancerOptionsPtrType VerifiedAccessEndpointLoadBalancerOptionsArgs
+
+func VerifiedAccessEndpointLoadBalancerOptionsPtr(v *VerifiedAccessEndpointLoadBalancerOptionsArgs) VerifiedAccessEndpointLoadBalancerOptionsPtrInput {
+	return (*verifiedAccessEndpointLoadBalancerOptionsPtrType)(v)
+}
+
+func (*verifiedAccessEndpointLoadBalancerOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessEndpointLoadBalancerOptions)(nil)).Elem()
+}
+
+func (i *verifiedAccessEndpointLoadBalancerOptionsPtrType) ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutput() VerifiedAccessEndpointLoadBalancerOptionsPtrOutput {
+	return i.ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessEndpointLoadBalancerOptionsPtrType) ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointLoadBalancerOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointLoadBalancerOptionsPtrOutput)
+}
+
+// The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
+type VerifiedAccessEndpointLoadBalancerOptionsOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointLoadBalancerOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointLoadBalancerOptionsOutput) ToVerifiedAccessEndpointLoadBalancerOptionsOutput() VerifiedAccessEndpointLoadBalancerOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointLoadBalancerOptionsOutput) ToVerifiedAccessEndpointLoadBalancerOptionsOutputWithContext(ctx context.Context) VerifiedAccessEndpointLoadBalancerOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointLoadBalancerOptionsOutput) ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutput() VerifiedAccessEndpointLoadBalancerOptionsPtrOutput {
+	return o.ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessEndpointLoadBalancerOptionsOutput) ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointLoadBalancerOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessEndpointLoadBalancerOptions) *VerifiedAccessEndpointLoadBalancerOptions {
+		return &v
+	}).(VerifiedAccessEndpointLoadBalancerOptionsPtrOutput)
+}
+
+// The ARN of the load balancer.
+func (o VerifiedAccessEndpointLoadBalancerOptionsOutput) LoadBalancerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointLoadBalancerOptions) *string { return v.LoadBalancerArn }).(pulumi.StringPtrOutput)
+}
+
+// The IP port number.
+func (o VerifiedAccessEndpointLoadBalancerOptionsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointLoadBalancerOptions) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The IP protocol.
+func (o VerifiedAccessEndpointLoadBalancerOptionsOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointLoadBalancerOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The IDs of the subnets.
+func (o VerifiedAccessEndpointLoadBalancerOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointLoadBalancerOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type VerifiedAccessEndpointLoadBalancerOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointLoadBalancerOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessEndpointLoadBalancerOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointLoadBalancerOptionsPtrOutput) ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutput() VerifiedAccessEndpointLoadBalancerOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointLoadBalancerOptionsPtrOutput) ToVerifiedAccessEndpointLoadBalancerOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointLoadBalancerOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointLoadBalancerOptionsPtrOutput) Elem() VerifiedAccessEndpointLoadBalancerOptionsOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointLoadBalancerOptions) VerifiedAccessEndpointLoadBalancerOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessEndpointLoadBalancerOptions
+		return ret
+	}).(VerifiedAccessEndpointLoadBalancerOptionsOutput)
+}
+
+// The ARN of the load balancer.
+func (o VerifiedAccessEndpointLoadBalancerOptionsPtrOutput) LoadBalancerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointLoadBalancerOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP port number.
+func (o VerifiedAccessEndpointLoadBalancerOptionsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointLoadBalancerOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The IP protocol.
+func (o VerifiedAccessEndpointLoadBalancerOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointLoadBalancerOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IDs of the subnets.
+func (o VerifiedAccessEndpointLoadBalancerOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointLoadBalancerOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The options for network-interface type endpoint.
+type VerifiedAccessEndpointNetworkInterfaceOptions struct {
+	// The ID of the network interface.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The IP port number.
+	Port *int `pulumi:"port"`
+	// The IP protocol.
+	Protocol *string `pulumi:"protocol"`
+}
+
+// VerifiedAccessEndpointNetworkInterfaceOptionsInput is an input type that accepts VerifiedAccessEndpointNetworkInterfaceOptionsArgs and VerifiedAccessEndpointNetworkInterfaceOptionsOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointNetworkInterfaceOptionsInput` via:
+//
+//	VerifiedAccessEndpointNetworkInterfaceOptionsArgs{...}
+type VerifiedAccessEndpointNetworkInterfaceOptionsInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointNetworkInterfaceOptionsOutput() VerifiedAccessEndpointNetworkInterfaceOptionsOutput
+	ToVerifiedAccessEndpointNetworkInterfaceOptionsOutputWithContext(context.Context) VerifiedAccessEndpointNetworkInterfaceOptionsOutput
+}
+
+// The options for network-interface type endpoint.
+type VerifiedAccessEndpointNetworkInterfaceOptionsArgs struct {
+	// The ID of the network interface.
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// The IP port number.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The IP protocol.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (VerifiedAccessEndpointNetworkInterfaceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointNetworkInterfaceOptions)(nil)).Elem()
+}
+
+func (i VerifiedAccessEndpointNetworkInterfaceOptionsArgs) ToVerifiedAccessEndpointNetworkInterfaceOptionsOutput() VerifiedAccessEndpointNetworkInterfaceOptionsOutput {
+	return i.ToVerifiedAccessEndpointNetworkInterfaceOptionsOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointNetworkInterfaceOptionsArgs) ToVerifiedAccessEndpointNetworkInterfaceOptionsOutputWithContext(ctx context.Context) VerifiedAccessEndpointNetworkInterfaceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointNetworkInterfaceOptionsOutput)
+}
+
+func (i VerifiedAccessEndpointNetworkInterfaceOptionsArgs) ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput() VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput {
+	return i.ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointNetworkInterfaceOptionsArgs) ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointNetworkInterfaceOptionsOutput).ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessEndpointNetworkInterfaceOptionsPtrInput is an input type that accepts VerifiedAccessEndpointNetworkInterfaceOptionsArgs, VerifiedAccessEndpointNetworkInterfaceOptionsPtr and VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointNetworkInterfaceOptionsPtrInput` via:
+//
+//	        VerifiedAccessEndpointNetworkInterfaceOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessEndpointNetworkInterfaceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput() VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput
+	ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutputWithContext(context.Context) VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput
+}
+
+type verifiedAccessEndpointNetworkInterfaceOptionsPtrType VerifiedAccessEndpointNetworkInterfaceOptionsArgs
+
+func VerifiedAccessEndpointNetworkInterfaceOptionsPtr(v *VerifiedAccessEndpointNetworkInterfaceOptionsArgs) VerifiedAccessEndpointNetworkInterfaceOptionsPtrInput {
+	return (*verifiedAccessEndpointNetworkInterfaceOptionsPtrType)(v)
+}
+
+func (*verifiedAccessEndpointNetworkInterfaceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessEndpointNetworkInterfaceOptions)(nil)).Elem()
+}
+
+func (i *verifiedAccessEndpointNetworkInterfaceOptionsPtrType) ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput() VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput {
+	return i.ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessEndpointNetworkInterfaceOptionsPtrType) ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput)
+}
+
+// The options for network-interface type endpoint.
+type VerifiedAccessEndpointNetworkInterfaceOptionsOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointNetworkInterfaceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointNetworkInterfaceOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsOutput) ToVerifiedAccessEndpointNetworkInterfaceOptionsOutput() VerifiedAccessEndpointNetworkInterfaceOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsOutput) ToVerifiedAccessEndpointNetworkInterfaceOptionsOutputWithContext(ctx context.Context) VerifiedAccessEndpointNetworkInterfaceOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsOutput) ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput() VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput {
+	return o.ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsOutput) ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessEndpointNetworkInterfaceOptions) *VerifiedAccessEndpointNetworkInterfaceOptions {
+		return &v
+	}).(VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput)
+}
+
+// The ID of the network interface.
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointNetworkInterfaceOptions) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+// The IP port number.
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointNetworkInterfaceOptions) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The IP protocol.
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointNetworkInterfaceOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessEndpointNetworkInterfaceOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput() VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) ToVerifiedAccessEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) Elem() VerifiedAccessEndpointNetworkInterfaceOptionsOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointNetworkInterfaceOptions) VerifiedAccessEndpointNetworkInterfaceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessEndpointNetworkInterfaceOptions
+		return ret
+	}).(VerifiedAccessEndpointNetworkInterfaceOptionsOutput)
+}
+
+// The ID of the network interface.
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointNetworkInterfaceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP port number.
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointNetworkInterfaceOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The IP protocol.
+func (o VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessEndpointNetworkInterfaceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessEndpointTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// VerifiedAccessEndpointTagInput is an input type that accepts VerifiedAccessEndpointTagArgs and VerifiedAccessEndpointTagOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointTagInput` via:
+//
+//	VerifiedAccessEndpointTagArgs{...}
+type VerifiedAccessEndpointTagInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointTagOutput() VerifiedAccessEndpointTagOutput
+	ToVerifiedAccessEndpointTagOutputWithContext(context.Context) VerifiedAccessEndpointTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessEndpointTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VerifiedAccessEndpointTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointTag)(nil)).Elem()
+}
+
+func (i VerifiedAccessEndpointTagArgs) ToVerifiedAccessEndpointTagOutput() VerifiedAccessEndpointTagOutput {
+	return i.ToVerifiedAccessEndpointTagOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointTagArgs) ToVerifiedAccessEndpointTagOutputWithContext(ctx context.Context) VerifiedAccessEndpointTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointTagOutput)
+}
+
+// VerifiedAccessEndpointTagArrayInput is an input type that accepts VerifiedAccessEndpointTagArray and VerifiedAccessEndpointTagArrayOutput values.
+// You can construct a concrete instance of `VerifiedAccessEndpointTagArrayInput` via:
+//
+//	VerifiedAccessEndpointTagArray{ VerifiedAccessEndpointTagArgs{...} }
+type VerifiedAccessEndpointTagArrayInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessEndpointTagArrayOutput() VerifiedAccessEndpointTagArrayOutput
+	ToVerifiedAccessEndpointTagArrayOutputWithContext(context.Context) VerifiedAccessEndpointTagArrayOutput
+}
+
+type VerifiedAccessEndpointTagArray []VerifiedAccessEndpointTagInput
+
+func (VerifiedAccessEndpointTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessEndpointTag)(nil)).Elem()
+}
+
+func (i VerifiedAccessEndpointTagArray) ToVerifiedAccessEndpointTagArrayOutput() VerifiedAccessEndpointTagArrayOutput {
+	return i.ToVerifiedAccessEndpointTagArrayOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessEndpointTagArray) ToVerifiedAccessEndpointTagArrayOutputWithContext(ctx context.Context) VerifiedAccessEndpointTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessEndpointTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessEndpointTagOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessEndpointTag)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointTagOutput) ToVerifiedAccessEndpointTagOutput() VerifiedAccessEndpointTagOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointTagOutput) ToVerifiedAccessEndpointTagOutputWithContext(ctx context.Context) VerifiedAccessEndpointTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VerifiedAccessEndpointTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VerifiedAccessEndpointTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VerifiedAccessEndpointTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VerifiedAccessEndpointTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessEndpointTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessEndpointTag)(nil)).Elem()
+}
+
+func (o VerifiedAccessEndpointTagArrayOutput) ToVerifiedAccessEndpointTagArrayOutput() VerifiedAccessEndpointTagArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointTagArrayOutput) ToVerifiedAccessEndpointTagArrayOutputWithContext(ctx context.Context) VerifiedAccessEndpointTagArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessEndpointTagArrayOutput) Index(i pulumi.IntInput) VerifiedAccessEndpointTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VerifiedAccessEndpointTag {
+		return vs[0].([]VerifiedAccessEndpointTag)[vs[1].(int)]
+	}).(VerifiedAccessEndpointTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// VerifiedAccessGroupTagInput is an input type that accepts VerifiedAccessGroupTagArgs and VerifiedAccessGroupTagOutput values.
+// You can construct a concrete instance of `VerifiedAccessGroupTagInput` via:
+//
+//	VerifiedAccessGroupTagArgs{...}
+type VerifiedAccessGroupTagInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessGroupTagOutput() VerifiedAccessGroupTagOutput
+	ToVerifiedAccessGroupTagOutputWithContext(context.Context) VerifiedAccessGroupTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessGroupTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VerifiedAccessGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessGroupTag)(nil)).Elem()
+}
+
+func (i VerifiedAccessGroupTagArgs) ToVerifiedAccessGroupTagOutput() VerifiedAccessGroupTagOutput {
+	return i.ToVerifiedAccessGroupTagOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessGroupTagArgs) ToVerifiedAccessGroupTagOutputWithContext(ctx context.Context) VerifiedAccessGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessGroupTagOutput)
+}
+
+// VerifiedAccessGroupTagArrayInput is an input type that accepts VerifiedAccessGroupTagArray and VerifiedAccessGroupTagArrayOutput values.
+// You can construct a concrete instance of `VerifiedAccessGroupTagArrayInput` via:
+//
+//	VerifiedAccessGroupTagArray{ VerifiedAccessGroupTagArgs{...} }
+type VerifiedAccessGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessGroupTagArrayOutput() VerifiedAccessGroupTagArrayOutput
+	ToVerifiedAccessGroupTagArrayOutputWithContext(context.Context) VerifiedAccessGroupTagArrayOutput
+}
+
+type VerifiedAccessGroupTagArray []VerifiedAccessGroupTagInput
+
+func (VerifiedAccessGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessGroupTag)(nil)).Elem()
+}
+
+func (i VerifiedAccessGroupTagArray) ToVerifiedAccessGroupTagArrayOutput() VerifiedAccessGroupTagArrayOutput {
+	return i.ToVerifiedAccessGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessGroupTagArray) ToVerifiedAccessGroupTagArrayOutputWithContext(ctx context.Context) VerifiedAccessGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessGroupTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessGroupTagOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessGroupTag)(nil)).Elem()
+}
+
+func (o VerifiedAccessGroupTagOutput) ToVerifiedAccessGroupTagOutput() VerifiedAccessGroupTagOutput {
+	return o
+}
+
+func (o VerifiedAccessGroupTagOutput) ToVerifiedAccessGroupTagOutputWithContext(ctx context.Context) VerifiedAccessGroupTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VerifiedAccessGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VerifiedAccessGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VerifiedAccessGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VerifiedAccessGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VerifiedAccessGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessGroupTag)(nil)).Elem()
+}
+
+func (o VerifiedAccessGroupTagArrayOutput) ToVerifiedAccessGroupTagArrayOutput() VerifiedAccessGroupTagArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessGroupTagArrayOutput) ToVerifiedAccessGroupTagArrayOutputWithContext(ctx context.Context) VerifiedAccessGroupTagArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessGroupTagArrayOutput) Index(i pulumi.IntInput) VerifiedAccessGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VerifiedAccessGroupTag {
+		return vs[0].([]VerifiedAccessGroupTag)[vs[1].(int)]
+	}).(VerifiedAccessGroupTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessInstanceTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// VerifiedAccessInstanceTagInput is an input type that accepts VerifiedAccessInstanceTagArgs and VerifiedAccessInstanceTagOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceTagInput` via:
+//
+//	VerifiedAccessInstanceTagArgs{...}
+type VerifiedAccessInstanceTagInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceTagOutput() VerifiedAccessInstanceTagOutput
+	ToVerifiedAccessInstanceTagOutputWithContext(context.Context) VerifiedAccessInstanceTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessInstanceTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VerifiedAccessInstanceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceTag)(nil)).Elem()
+}
+
+func (i VerifiedAccessInstanceTagArgs) ToVerifiedAccessInstanceTagOutput() VerifiedAccessInstanceTagOutput {
+	return i.ToVerifiedAccessInstanceTagOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceTagArgs) ToVerifiedAccessInstanceTagOutputWithContext(ctx context.Context) VerifiedAccessInstanceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceTagOutput)
+}
+
+// VerifiedAccessInstanceTagArrayInput is an input type that accepts VerifiedAccessInstanceTagArray and VerifiedAccessInstanceTagArrayOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceTagArrayInput` via:
+//
+//	VerifiedAccessInstanceTagArray{ VerifiedAccessInstanceTagArgs{...} }
+type VerifiedAccessInstanceTagArrayInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceTagArrayOutput() VerifiedAccessInstanceTagArrayOutput
+	ToVerifiedAccessInstanceTagArrayOutputWithContext(context.Context) VerifiedAccessInstanceTagArrayOutput
+}
+
+type VerifiedAccessInstanceTagArray []VerifiedAccessInstanceTagInput
+
+func (VerifiedAccessInstanceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessInstanceTag)(nil)).Elem()
+}
+
+func (i VerifiedAccessInstanceTagArray) ToVerifiedAccessInstanceTagArrayOutput() VerifiedAccessInstanceTagArrayOutput {
+	return i.ToVerifiedAccessInstanceTagArrayOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceTagArray) ToVerifiedAccessInstanceTagArrayOutputWithContext(ctx context.Context) VerifiedAccessInstanceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessInstanceTagOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceTag)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceTagOutput) ToVerifiedAccessInstanceTagOutput() VerifiedAccessInstanceTagOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceTagOutput) ToVerifiedAccessInstanceTagOutputWithContext(ctx context.Context) VerifiedAccessInstanceTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VerifiedAccessInstanceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VerifiedAccessInstanceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VerifiedAccessInstanceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessInstanceTag)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceTagArrayOutput) ToVerifiedAccessInstanceTagArrayOutput() VerifiedAccessInstanceTagArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceTagArrayOutput) ToVerifiedAccessInstanceTagArrayOutputWithContext(ctx context.Context) VerifiedAccessInstanceTagArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceTagArrayOutput) Index(i pulumi.IntInput) VerifiedAccessInstanceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VerifiedAccessInstanceTag {
+		return vs[0].([]VerifiedAccessInstanceTag)[vs[1].(int)]
+	}).(VerifiedAccessInstanceTagOutput)
+}
+
+// The configuration options for AWS Verified Access instances.
+type VerifiedAccessInstanceVerifiedAccessLogs struct {
+	// Sends Verified Access logs to CloudWatch Logs.
+	CloudWatchLogs *VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties `pulumi:"cloudWatchLogs"`
+	// Sends Verified Access logs to Kinesis.
+	KinesisDataFirehose *VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties `pulumi:"kinesisDataFirehose"`
+	// Sends Verified Access logs to Amazon S3.
+	S3 *VerifiedAccessInstanceVerifiedAccessLogsS3Properties `pulumi:"s3"`
+}
+
+// VerifiedAccessInstanceVerifiedAccessLogsInput is an input type that accepts VerifiedAccessInstanceVerifiedAccessLogsArgs and VerifiedAccessInstanceVerifiedAccessLogsOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceVerifiedAccessLogsInput` via:
+//
+//	VerifiedAccessInstanceVerifiedAccessLogsArgs{...}
+type VerifiedAccessInstanceVerifiedAccessLogsInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceVerifiedAccessLogsOutput() VerifiedAccessInstanceVerifiedAccessLogsOutput
+	ToVerifiedAccessInstanceVerifiedAccessLogsOutputWithContext(context.Context) VerifiedAccessInstanceVerifiedAccessLogsOutput
+}
+
+// The configuration options for AWS Verified Access instances.
+type VerifiedAccessInstanceVerifiedAccessLogsArgs struct {
+	// Sends Verified Access logs to CloudWatch Logs.
+	CloudWatchLogs VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrInput `pulumi:"cloudWatchLogs"`
+	// Sends Verified Access logs to Kinesis.
+	KinesisDataFirehose VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrInput `pulumi:"kinesisDataFirehose"`
+	// Sends Verified Access logs to Amazon S3.
+	S3 VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrInput `pulumi:"s3"`
+}
+
+func (VerifiedAccessInstanceVerifiedAccessLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogs)(nil)).Elem()
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsArgs) ToVerifiedAccessInstanceVerifiedAccessLogsOutput() VerifiedAccessInstanceVerifiedAccessLogsOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsArgs) ToVerifiedAccessInstanceVerifiedAccessLogsOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsOutput)
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsArgs) ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsPtrOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsArgs) ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsOutput).ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessInstanceVerifiedAccessLogsPtrInput is an input type that accepts VerifiedAccessInstanceVerifiedAccessLogsArgs, VerifiedAccessInstanceVerifiedAccessLogsPtr and VerifiedAccessInstanceVerifiedAccessLogsPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceVerifiedAccessLogsPtrInput` via:
+//
+//	        VerifiedAccessInstanceVerifiedAccessLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessInstanceVerifiedAccessLogsPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsPtrOutput
+	ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutputWithContext(context.Context) VerifiedAccessInstanceVerifiedAccessLogsPtrOutput
+}
+
+type verifiedAccessInstanceVerifiedAccessLogsPtrType VerifiedAccessInstanceVerifiedAccessLogsArgs
+
+func VerifiedAccessInstanceVerifiedAccessLogsPtr(v *VerifiedAccessInstanceVerifiedAccessLogsArgs) VerifiedAccessInstanceVerifiedAccessLogsPtrInput {
+	return (*verifiedAccessInstanceVerifiedAccessLogsPtrType)(v)
+}
+
+func (*verifiedAccessInstanceVerifiedAccessLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessInstanceVerifiedAccessLogs)(nil)).Elem()
+}
+
+func (i *verifiedAccessInstanceVerifiedAccessLogsPtrType) ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsPtrOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessInstanceVerifiedAccessLogsPtrType) ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsPtrOutput)
+}
+
+// The configuration options for AWS Verified Access instances.
+type VerifiedAccessInstanceVerifiedAccessLogsOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceVerifiedAccessLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogs)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsOutput) ToVerifiedAccessInstanceVerifiedAccessLogsOutput() VerifiedAccessInstanceVerifiedAccessLogsOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsOutput) ToVerifiedAccessInstanceVerifiedAccessLogsOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsOutput) ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsPtrOutput {
+	return o.ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsOutput) ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessInstanceVerifiedAccessLogs) *VerifiedAccessInstanceVerifiedAccessLogs {
+		return &v
+	}).(VerifiedAccessInstanceVerifiedAccessLogsPtrOutput)
+}
+
+// Sends Verified Access logs to CloudWatch Logs.
+func (o VerifiedAccessInstanceVerifiedAccessLogsOutput) CloudWatchLogs() VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogs) *VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties {
+		return v.CloudWatchLogs
+	}).(VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput)
+}
+
+// Sends Verified Access logs to Kinesis.
+func (o VerifiedAccessInstanceVerifiedAccessLogsOutput) KinesisDataFirehose() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogs) *VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties {
+		return v.KinesisDataFirehose
+	}).(VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput)
+}
+
+// Sends Verified Access logs to Amazon S3.
+func (o VerifiedAccessInstanceVerifiedAccessLogsOutput) S3() VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogs) *VerifiedAccessInstanceVerifiedAccessLogsS3Properties {
+		return v.S3
+	}).(VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput)
+}
+
+type VerifiedAccessInstanceVerifiedAccessLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessInstanceVerifiedAccessLogs)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) ToVerifiedAccessInstanceVerifiedAccessLogsPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) Elem() VerifiedAccessInstanceVerifiedAccessLogsOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogs) VerifiedAccessInstanceVerifiedAccessLogs {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessInstanceVerifiedAccessLogs
+		return ret
+	}).(VerifiedAccessInstanceVerifiedAccessLogsOutput)
+}
+
+// Sends Verified Access logs to CloudWatch Logs.
+func (o VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) CloudWatchLogs() VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogs) *VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogs
+	}).(VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput)
+}
+
+// Sends Verified Access logs to Kinesis.
+func (o VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) KinesisDataFirehose() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogs) *VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisDataFirehose
+	}).(VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput)
+}
+
+// Sends Verified Access logs to Amazon S3.
+func (o VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) S3() VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogs) *VerifiedAccessInstanceVerifiedAccessLogsS3Properties {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput)
+}
+
+// Sends Verified Access logs to CloudWatch Logs.
+type VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties struct {
+	// Indicates whether logging is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The ID of the CloudWatch Logs log group.
+	LogGroup *string `pulumi:"logGroup"`
+}
+
+// VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesInput is an input type that accepts VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs and VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesInput` via:
+//
+//	VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs{...}
+type VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput() VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput
+	ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutputWithContext(context.Context) VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput
+}
+
+// Sends Verified Access logs to CloudWatch Logs.
+type VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs struct {
+	// Indicates whether logging is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The ID of the CloudWatch Logs log group.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+}
+
+func (VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties)(nil)).Elem()
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput() VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput)
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput).ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrInput is an input type that accepts VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs, VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtr and VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrInput` via:
+//
+//	        VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput
+	ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutputWithContext(context.Context) VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput
+}
+
+type verifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrType VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs
+
+func VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtr(v *VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs) VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrInput {
+	return (*verifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrType)(v)
+}
+
+func (*verifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties)(nil)).Elem()
+}
+
+func (i *verifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrType) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrType) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput)
+}
+
+// Sends Verified Access logs to CloudWatch Logs.
+type VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput() VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput {
+	return o.ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties) *VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties {
+		return &v
+	}).(VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput)
+}
+
+// Indicates whether logging is enabled.
+func (o VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the CloudWatch Logs log group.
+func (o VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+type VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput) ToVerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput) Elem() VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties) VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties
+		return ret
+	}).(VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput)
+}
+
+// Indicates whether logging is enabled.
+func (o VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the CloudWatch Logs log group.
+func (o VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sends Verified Access logs to Kinesis.
+type VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties struct {
+	// The ID of the delivery stream.
+	DeliveryStream *string `pulumi:"deliveryStream"`
+	// Indicates whether logging is enabled.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesInput is an input type that accepts VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs and VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesInput` via:
+//
+//	VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs{...}
+type VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput
+	ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutputWithContext(context.Context) VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput
+}
+
+// Sends Verified Access logs to Kinesis.
+type VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs struct {
+	// The ID of the delivery stream.
+	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
+	// Indicates whether logging is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties)(nil)).Elem()
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput)
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput).ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrInput is an input type that accepts VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs, VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtr and VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrInput` via:
+//
+//	        VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput
+	ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutputWithContext(context.Context) VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput
+}
+
+type verifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrType VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs
+
+func VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtr(v *VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs) VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrInput {
+	return (*verifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrType)(v)
+}
+
+func (*verifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties)(nil)).Elem()
+}
+
+func (i *verifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrType) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrType) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput)
+}
+
+// Sends Verified Access logs to Kinesis.
+type VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
+	return o.ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties) *VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties {
+		return &v
+	}).(VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput)
+}
+
+// The ID of the delivery stream.
+func (o VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties) *string {
+		return v.DeliveryStream
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether logging is enabled.
+func (o VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput) ToVerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput) Elem() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties) VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties
+		return ret
+	}).(VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput)
+}
+
+// The ID of the delivery stream.
+func (o VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryStream
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether logging is enabled.
+func (o VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sends Verified Access logs to Amazon S3.
+type VerifiedAccessInstanceVerifiedAccessLogsS3Properties struct {
+	// The bucket name.
+	BucketName *string `pulumi:"bucketName"`
+	// The ID of the AWS account that owns the Amazon S3 bucket.
+	BucketOwner *string `pulumi:"bucketOwner"`
+	// Indicates whether logging is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The bucket prefix.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesInput is an input type that accepts VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs and VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesInput` via:
+//
+//	VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs{...}
+type VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput() VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput
+	ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutputWithContext(context.Context) VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput
+}
+
+// Sends Verified Access logs to Amazon S3.
+type VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs struct {
+	// The bucket name.
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// The ID of the AWS account that owns the Amazon S3 bucket.
+	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
+	// Indicates whether logging is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The bucket prefix.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsS3Properties)(nil)).Elem()
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput() VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput)
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput).ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrInput is an input type that accepts VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs, VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtr and VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrInput` via:
+//
+//	        VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput
+	ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutputWithContext(context.Context) VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput
+}
+
+type verifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrType VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs
+
+func VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtr(v *VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs) VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrInput {
+	return (*verifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrType)(v)
+}
+
+func (*verifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessInstanceVerifiedAccessLogsS3Properties)(nil)).Elem()
+}
+
+func (i *verifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrType) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrType) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput)
+}
+
+// Sends Verified Access logs to Amazon S3.
+type VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsS3Properties)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput() VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput {
+	return o.ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessInstanceVerifiedAccessLogsS3Properties) *VerifiedAccessInstanceVerifiedAccessLogsS3Properties {
+		return &v
+	}).(VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput)
+}
+
+// The bucket name.
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogsS3Properties) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS account that owns the Amazon S3 bucket.
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogsS3Properties) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether logging is enabled.
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogsS3Properties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The bucket prefix.
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogsS3Properties) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessInstanceVerifiedAccessLogsS3Properties)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput() VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput) ToVerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput) Elem() VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogsS3Properties) VerifiedAccessInstanceVerifiedAccessLogsS3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessInstanceVerifiedAccessLogsS3Properties
+		return ret
+	}).(VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput)
+}
+
+// The bucket name.
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogsS3Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS account that owns the Amazon S3 bucket.
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogsS3Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether logging is enabled.
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogsS3Properties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The bucket prefix.
+func (o VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogsS3Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// A Verified Access Trust Provider.
+type VerifiedAccessInstanceVerifiedAccessTrustProvider struct {
+	// The description of trust provider.
+	Description *string `pulumi:"description"`
+	// The type of device-based trust provider.
+	DeviceTrustProviderType *string `pulumi:"deviceTrustProviderType"`
+	// The type of trust provider (user- or device-based).
+	TrustProviderType *string `pulumi:"trustProviderType"`
+	// The type of user-based trust provider.
+	UserTrustProviderType *string `pulumi:"userTrustProviderType"`
+	// The ID of the trust provider.
+	VerifiedAccessTrustProviderId *string `pulumi:"verifiedAccessTrustProviderId"`
+}
+
+// VerifiedAccessInstanceVerifiedAccessTrustProviderInput is an input type that accepts VerifiedAccessInstanceVerifiedAccessTrustProviderArgs and VerifiedAccessInstanceVerifiedAccessTrustProviderOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceVerifiedAccessTrustProviderInput` via:
+//
+//	VerifiedAccessInstanceVerifiedAccessTrustProviderArgs{...}
+type VerifiedAccessInstanceVerifiedAccessTrustProviderInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceVerifiedAccessTrustProviderOutput() VerifiedAccessInstanceVerifiedAccessTrustProviderOutput
+	ToVerifiedAccessInstanceVerifiedAccessTrustProviderOutputWithContext(context.Context) VerifiedAccessInstanceVerifiedAccessTrustProviderOutput
+}
+
+// A Verified Access Trust Provider.
+type VerifiedAccessInstanceVerifiedAccessTrustProviderArgs struct {
+	// The description of trust provider.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The type of device-based trust provider.
+	DeviceTrustProviderType pulumi.StringPtrInput `pulumi:"deviceTrustProviderType"`
+	// The type of trust provider (user- or device-based).
+	TrustProviderType pulumi.StringPtrInput `pulumi:"trustProviderType"`
+	// The type of user-based trust provider.
+	UserTrustProviderType pulumi.StringPtrInput `pulumi:"userTrustProviderType"`
+	// The ID of the trust provider.
+	VerifiedAccessTrustProviderId pulumi.StringPtrInput `pulumi:"verifiedAccessTrustProviderId"`
+}
+
+func (VerifiedAccessInstanceVerifiedAccessTrustProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessTrustProvider)(nil)).Elem()
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessTrustProviderArgs) ToVerifiedAccessInstanceVerifiedAccessTrustProviderOutput() VerifiedAccessInstanceVerifiedAccessTrustProviderOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessTrustProviderOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessTrustProviderArgs) ToVerifiedAccessInstanceVerifiedAccessTrustProviderOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessTrustProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessTrustProviderOutput)
+}
+
+// VerifiedAccessInstanceVerifiedAccessTrustProviderArrayInput is an input type that accepts VerifiedAccessInstanceVerifiedAccessTrustProviderArray and VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput values.
+// You can construct a concrete instance of `VerifiedAccessInstanceVerifiedAccessTrustProviderArrayInput` via:
+//
+//	VerifiedAccessInstanceVerifiedAccessTrustProviderArray{ VerifiedAccessInstanceVerifiedAccessTrustProviderArgs{...} }
+type VerifiedAccessInstanceVerifiedAccessTrustProviderArrayInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput() VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput
+	ToVerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutputWithContext(context.Context) VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput
+}
+
+type VerifiedAccessInstanceVerifiedAccessTrustProviderArray []VerifiedAccessInstanceVerifiedAccessTrustProviderInput
+
+func (VerifiedAccessInstanceVerifiedAccessTrustProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessInstanceVerifiedAccessTrustProvider)(nil)).Elem()
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessTrustProviderArray) ToVerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput() VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput {
+	return i.ToVerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessInstanceVerifiedAccessTrustProviderArray) ToVerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput)
+}
+
+// A Verified Access Trust Provider.
+type VerifiedAccessInstanceVerifiedAccessTrustProviderOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceVerifiedAccessTrustProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessTrustProvider)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessTrustProviderOutput) ToVerifiedAccessInstanceVerifiedAccessTrustProviderOutput() VerifiedAccessInstanceVerifiedAccessTrustProviderOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessTrustProviderOutput) ToVerifiedAccessInstanceVerifiedAccessTrustProviderOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessTrustProviderOutput {
+	return o
+}
+
+// The description of trust provider.
+func (o VerifiedAccessInstanceVerifiedAccessTrustProviderOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessTrustProvider) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The type of device-based trust provider.
+func (o VerifiedAccessInstanceVerifiedAccessTrustProviderOutput) DeviceTrustProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessTrustProvider) *string { return v.DeviceTrustProviderType }).(pulumi.StringPtrOutput)
+}
+
+// The type of trust provider (user- or device-based).
+func (o VerifiedAccessInstanceVerifiedAccessTrustProviderOutput) TrustProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessTrustProvider) *string { return v.TrustProviderType }).(pulumi.StringPtrOutput)
+}
+
+// The type of user-based trust provider.
+func (o VerifiedAccessInstanceVerifiedAccessTrustProviderOutput) UserTrustProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessTrustProvider) *string { return v.UserTrustProviderType }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the trust provider.
+func (o VerifiedAccessInstanceVerifiedAccessTrustProviderOutput) VerifiedAccessTrustProviderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessTrustProvider) *string {
+		return v.VerifiedAccessTrustProviderId
+	}).(pulumi.StringPtrOutput)
+}
+
+type VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessInstanceVerifiedAccessTrustProvider)(nil)).Elem()
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput) ToVerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput() VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput) ToVerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutputWithContext(ctx context.Context) VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput) Index(i pulumi.IntInput) VerifiedAccessInstanceVerifiedAccessTrustProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VerifiedAccessInstanceVerifiedAccessTrustProvider {
+		return vs[0].([]VerifiedAccessInstanceVerifiedAccessTrustProvider)[vs[1].(int)]
+	}).(VerifiedAccessInstanceVerifiedAccessTrustProviderOutput)
+}
+
+// The options for device identity based trust providers.
+type VerifiedAccessTrustProviderDeviceOptions struct {
+	// The ID of the tenant application with the device-identity provider.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// VerifiedAccessTrustProviderDeviceOptionsInput is an input type that accepts VerifiedAccessTrustProviderDeviceOptionsArgs and VerifiedAccessTrustProviderDeviceOptionsOutput values.
+// You can construct a concrete instance of `VerifiedAccessTrustProviderDeviceOptionsInput` via:
+//
+//	VerifiedAccessTrustProviderDeviceOptionsArgs{...}
+type VerifiedAccessTrustProviderDeviceOptionsInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessTrustProviderDeviceOptionsOutput() VerifiedAccessTrustProviderDeviceOptionsOutput
+	ToVerifiedAccessTrustProviderDeviceOptionsOutputWithContext(context.Context) VerifiedAccessTrustProviderDeviceOptionsOutput
+}
+
+// The options for device identity based trust providers.
+type VerifiedAccessTrustProviderDeviceOptionsArgs struct {
+	// The ID of the tenant application with the device-identity provider.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (VerifiedAccessTrustProviderDeviceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessTrustProviderDeviceOptions)(nil)).Elem()
+}
+
+func (i VerifiedAccessTrustProviderDeviceOptionsArgs) ToVerifiedAccessTrustProviderDeviceOptionsOutput() VerifiedAccessTrustProviderDeviceOptionsOutput {
+	return i.ToVerifiedAccessTrustProviderDeviceOptionsOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessTrustProviderDeviceOptionsArgs) ToVerifiedAccessTrustProviderDeviceOptionsOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderDeviceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderDeviceOptionsOutput)
+}
+
+func (i VerifiedAccessTrustProviderDeviceOptionsArgs) ToVerifiedAccessTrustProviderDeviceOptionsPtrOutput() VerifiedAccessTrustProviderDeviceOptionsPtrOutput {
+	return i.ToVerifiedAccessTrustProviderDeviceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessTrustProviderDeviceOptionsArgs) ToVerifiedAccessTrustProviderDeviceOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderDeviceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderDeviceOptionsOutput).ToVerifiedAccessTrustProviderDeviceOptionsPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessTrustProviderDeviceOptionsPtrInput is an input type that accepts VerifiedAccessTrustProviderDeviceOptionsArgs, VerifiedAccessTrustProviderDeviceOptionsPtr and VerifiedAccessTrustProviderDeviceOptionsPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessTrustProviderDeviceOptionsPtrInput` via:
+//
+//	        VerifiedAccessTrustProviderDeviceOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessTrustProviderDeviceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessTrustProviderDeviceOptionsPtrOutput() VerifiedAccessTrustProviderDeviceOptionsPtrOutput
+	ToVerifiedAccessTrustProviderDeviceOptionsPtrOutputWithContext(context.Context) VerifiedAccessTrustProviderDeviceOptionsPtrOutput
+}
+
+type verifiedAccessTrustProviderDeviceOptionsPtrType VerifiedAccessTrustProviderDeviceOptionsArgs
+
+func VerifiedAccessTrustProviderDeviceOptionsPtr(v *VerifiedAccessTrustProviderDeviceOptionsArgs) VerifiedAccessTrustProviderDeviceOptionsPtrInput {
+	return (*verifiedAccessTrustProviderDeviceOptionsPtrType)(v)
+}
+
+func (*verifiedAccessTrustProviderDeviceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessTrustProviderDeviceOptions)(nil)).Elem()
+}
+
+func (i *verifiedAccessTrustProviderDeviceOptionsPtrType) ToVerifiedAccessTrustProviderDeviceOptionsPtrOutput() VerifiedAccessTrustProviderDeviceOptionsPtrOutput {
+	return i.ToVerifiedAccessTrustProviderDeviceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessTrustProviderDeviceOptionsPtrType) ToVerifiedAccessTrustProviderDeviceOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderDeviceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderDeviceOptionsPtrOutput)
+}
+
+// The options for device identity based trust providers.
+type VerifiedAccessTrustProviderDeviceOptionsOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessTrustProviderDeviceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessTrustProviderDeviceOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessTrustProviderDeviceOptionsOutput) ToVerifiedAccessTrustProviderDeviceOptionsOutput() VerifiedAccessTrustProviderDeviceOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderDeviceOptionsOutput) ToVerifiedAccessTrustProviderDeviceOptionsOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderDeviceOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderDeviceOptionsOutput) ToVerifiedAccessTrustProviderDeviceOptionsPtrOutput() VerifiedAccessTrustProviderDeviceOptionsPtrOutput {
+	return o.ToVerifiedAccessTrustProviderDeviceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessTrustProviderDeviceOptionsOutput) ToVerifiedAccessTrustProviderDeviceOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderDeviceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessTrustProviderDeviceOptions) *VerifiedAccessTrustProviderDeviceOptions {
+		return &v
+	}).(VerifiedAccessTrustProviderDeviceOptionsPtrOutput)
+}
+
+// The ID of the tenant application with the device-identity provider.
+func (o VerifiedAccessTrustProviderDeviceOptionsOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderDeviceOptions) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type VerifiedAccessTrustProviderDeviceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessTrustProviderDeviceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessTrustProviderDeviceOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessTrustProviderDeviceOptionsPtrOutput) ToVerifiedAccessTrustProviderDeviceOptionsPtrOutput() VerifiedAccessTrustProviderDeviceOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderDeviceOptionsPtrOutput) ToVerifiedAccessTrustProviderDeviceOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderDeviceOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderDeviceOptionsPtrOutput) Elem() VerifiedAccessTrustProviderDeviceOptionsOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderDeviceOptions) VerifiedAccessTrustProviderDeviceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessTrustProviderDeviceOptions
+		return ret
+	}).(VerifiedAccessTrustProviderDeviceOptionsOutput)
+}
+
+// The ID of the tenant application with the device-identity provider.
+func (o VerifiedAccessTrustProviderDeviceOptionsPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderDeviceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OpenID Connect details for an oidc -type, user-identity based trust provider.
+type VerifiedAccessTrustProviderOidcOptions struct {
+	// The OIDC authorization endpoint.
+	AuthorizationEndpoint *string `pulumi:"authorizationEndpoint"`
+	// The client identifier.
+	ClientId *string `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// The OIDC issuer.
+	Issuer *string `pulumi:"issuer"`
+	// OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+	Scope *string `pulumi:"scope"`
+	// The OIDC token endpoint.
+	TokenEndpoint *string `pulumi:"tokenEndpoint"`
+	// The OIDC user info endpoint.
+	UserInfoEndpoint *string `pulumi:"userInfoEndpoint"`
+}
+
+// VerifiedAccessTrustProviderOidcOptionsInput is an input type that accepts VerifiedAccessTrustProviderOidcOptionsArgs and VerifiedAccessTrustProviderOidcOptionsOutput values.
+// You can construct a concrete instance of `VerifiedAccessTrustProviderOidcOptionsInput` via:
+//
+//	VerifiedAccessTrustProviderOidcOptionsArgs{...}
+type VerifiedAccessTrustProviderOidcOptionsInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessTrustProviderOidcOptionsOutput() VerifiedAccessTrustProviderOidcOptionsOutput
+	ToVerifiedAccessTrustProviderOidcOptionsOutputWithContext(context.Context) VerifiedAccessTrustProviderOidcOptionsOutput
+}
+
+// The OpenID Connect details for an oidc -type, user-identity based trust provider.
+type VerifiedAccessTrustProviderOidcOptionsArgs struct {
+	// The OIDC authorization endpoint.
+	AuthorizationEndpoint pulumi.StringPtrInput `pulumi:"authorizationEndpoint"`
+	// The client identifier.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// The OIDC issuer.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// The OIDC token endpoint.
+	TokenEndpoint pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
+	// The OIDC user info endpoint.
+	UserInfoEndpoint pulumi.StringPtrInput `pulumi:"userInfoEndpoint"`
+}
+
+func (VerifiedAccessTrustProviderOidcOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessTrustProviderOidcOptions)(nil)).Elem()
+}
+
+func (i VerifiedAccessTrustProviderOidcOptionsArgs) ToVerifiedAccessTrustProviderOidcOptionsOutput() VerifiedAccessTrustProviderOidcOptionsOutput {
+	return i.ToVerifiedAccessTrustProviderOidcOptionsOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessTrustProviderOidcOptionsArgs) ToVerifiedAccessTrustProviderOidcOptionsOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderOidcOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderOidcOptionsOutput)
+}
+
+func (i VerifiedAccessTrustProviderOidcOptionsArgs) ToVerifiedAccessTrustProviderOidcOptionsPtrOutput() VerifiedAccessTrustProviderOidcOptionsPtrOutput {
+	return i.ToVerifiedAccessTrustProviderOidcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessTrustProviderOidcOptionsArgs) ToVerifiedAccessTrustProviderOidcOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderOidcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderOidcOptionsOutput).ToVerifiedAccessTrustProviderOidcOptionsPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessTrustProviderOidcOptionsPtrInput is an input type that accepts VerifiedAccessTrustProviderOidcOptionsArgs, VerifiedAccessTrustProviderOidcOptionsPtr and VerifiedAccessTrustProviderOidcOptionsPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessTrustProviderOidcOptionsPtrInput` via:
+//
+//	        VerifiedAccessTrustProviderOidcOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessTrustProviderOidcOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessTrustProviderOidcOptionsPtrOutput() VerifiedAccessTrustProviderOidcOptionsPtrOutput
+	ToVerifiedAccessTrustProviderOidcOptionsPtrOutputWithContext(context.Context) VerifiedAccessTrustProviderOidcOptionsPtrOutput
+}
+
+type verifiedAccessTrustProviderOidcOptionsPtrType VerifiedAccessTrustProviderOidcOptionsArgs
+
+func VerifiedAccessTrustProviderOidcOptionsPtr(v *VerifiedAccessTrustProviderOidcOptionsArgs) VerifiedAccessTrustProviderOidcOptionsPtrInput {
+	return (*verifiedAccessTrustProviderOidcOptionsPtrType)(v)
+}
+
+func (*verifiedAccessTrustProviderOidcOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessTrustProviderOidcOptions)(nil)).Elem()
+}
+
+func (i *verifiedAccessTrustProviderOidcOptionsPtrType) ToVerifiedAccessTrustProviderOidcOptionsPtrOutput() VerifiedAccessTrustProviderOidcOptionsPtrOutput {
+	return i.ToVerifiedAccessTrustProviderOidcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessTrustProviderOidcOptionsPtrType) ToVerifiedAccessTrustProviderOidcOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderOidcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderOidcOptionsPtrOutput)
+}
+
+// The OpenID Connect details for an oidc -type, user-identity based trust provider.
+type VerifiedAccessTrustProviderOidcOptionsOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessTrustProviderOidcOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessTrustProviderOidcOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessTrustProviderOidcOptionsOutput) ToVerifiedAccessTrustProviderOidcOptionsOutput() VerifiedAccessTrustProviderOidcOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderOidcOptionsOutput) ToVerifiedAccessTrustProviderOidcOptionsOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderOidcOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderOidcOptionsOutput) ToVerifiedAccessTrustProviderOidcOptionsPtrOutput() VerifiedAccessTrustProviderOidcOptionsPtrOutput {
+	return o.ToVerifiedAccessTrustProviderOidcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessTrustProviderOidcOptionsOutput) ToVerifiedAccessTrustProviderOidcOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderOidcOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessTrustProviderOidcOptions) *VerifiedAccessTrustProviderOidcOptions {
+		return &v
+	}).(VerifiedAccessTrustProviderOidcOptionsPtrOutput)
+}
+
+// The OIDC authorization endpoint.
+func (o VerifiedAccessTrustProviderOidcOptionsOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderOidcOptions) *string { return v.AuthorizationEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The client identifier.
+func (o VerifiedAccessTrustProviderOidcOptionsOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderOidcOptions) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o VerifiedAccessTrustProviderOidcOptionsOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderOidcOptions) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// The OIDC issuer.
+func (o VerifiedAccessTrustProviderOidcOptionsOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderOidcOptions) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+// OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+func (o VerifiedAccessTrustProviderOidcOptionsOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderOidcOptions) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The OIDC token endpoint.
+func (o VerifiedAccessTrustProviderOidcOptionsOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderOidcOptions) *string { return v.TokenEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The OIDC user info endpoint.
+func (o VerifiedAccessTrustProviderOidcOptionsOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderOidcOptions) *string { return v.UserInfoEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type VerifiedAccessTrustProviderOidcOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessTrustProviderOidcOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessTrustProviderOidcOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessTrustProviderOidcOptionsPtrOutput) ToVerifiedAccessTrustProviderOidcOptionsPtrOutput() VerifiedAccessTrustProviderOidcOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderOidcOptionsPtrOutput) ToVerifiedAccessTrustProviderOidcOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderOidcOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderOidcOptionsPtrOutput) Elem() VerifiedAccessTrustProviderOidcOptionsOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderOidcOptions) VerifiedAccessTrustProviderOidcOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessTrustProviderOidcOptions
+		return ret
+	}).(VerifiedAccessTrustProviderOidcOptionsOutput)
+}
+
+// The OIDC authorization endpoint.
+func (o VerifiedAccessTrustProviderOidcOptionsPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client identifier.
+func (o VerifiedAccessTrustProviderOidcOptionsPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o VerifiedAccessTrustProviderOidcOptionsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC issuer.
+func (o VerifiedAccessTrustProviderOidcOptionsPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+func (o VerifiedAccessTrustProviderOidcOptionsPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC token endpoint.
+func (o VerifiedAccessTrustProviderOidcOptionsPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC user info endpoint.
+func (o VerifiedAccessTrustProviderOidcOptionsPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserInfoEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessTrustProviderTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// VerifiedAccessTrustProviderTagInput is an input type that accepts VerifiedAccessTrustProviderTagArgs and VerifiedAccessTrustProviderTagOutput values.
+// You can construct a concrete instance of `VerifiedAccessTrustProviderTagInput` via:
+//
+//	VerifiedAccessTrustProviderTagArgs{...}
+type VerifiedAccessTrustProviderTagInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessTrustProviderTagOutput() VerifiedAccessTrustProviderTagOutput
+	ToVerifiedAccessTrustProviderTagOutputWithContext(context.Context) VerifiedAccessTrustProviderTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessTrustProviderTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VerifiedAccessTrustProviderTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessTrustProviderTag)(nil)).Elem()
+}
+
+func (i VerifiedAccessTrustProviderTagArgs) ToVerifiedAccessTrustProviderTagOutput() VerifiedAccessTrustProviderTagOutput {
+	return i.ToVerifiedAccessTrustProviderTagOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessTrustProviderTagArgs) ToVerifiedAccessTrustProviderTagOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderTagOutput)
+}
+
+// VerifiedAccessTrustProviderTagArrayInput is an input type that accepts VerifiedAccessTrustProviderTagArray and VerifiedAccessTrustProviderTagArrayOutput values.
+// You can construct a concrete instance of `VerifiedAccessTrustProviderTagArrayInput` via:
+//
+//	VerifiedAccessTrustProviderTagArray{ VerifiedAccessTrustProviderTagArgs{...} }
+type VerifiedAccessTrustProviderTagArrayInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessTrustProviderTagArrayOutput() VerifiedAccessTrustProviderTagArrayOutput
+	ToVerifiedAccessTrustProviderTagArrayOutputWithContext(context.Context) VerifiedAccessTrustProviderTagArrayOutput
+}
+
+type VerifiedAccessTrustProviderTagArray []VerifiedAccessTrustProviderTagInput
+
+func (VerifiedAccessTrustProviderTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessTrustProviderTag)(nil)).Elem()
+}
+
+func (i VerifiedAccessTrustProviderTagArray) ToVerifiedAccessTrustProviderTagArrayOutput() VerifiedAccessTrustProviderTagArrayOutput {
+	return i.ToVerifiedAccessTrustProviderTagArrayOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessTrustProviderTagArray) ToVerifiedAccessTrustProviderTagArrayOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedAccessTrustProviderTagOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessTrustProviderTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessTrustProviderTag)(nil)).Elem()
+}
+
+func (o VerifiedAccessTrustProviderTagOutput) ToVerifiedAccessTrustProviderTagOutput() VerifiedAccessTrustProviderTagOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderTagOutput) ToVerifiedAccessTrustProviderTagOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VerifiedAccessTrustProviderTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o VerifiedAccessTrustProviderTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VerifiedAccessTrustProviderTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessTrustProviderTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VerifiedAccessTrustProviderTag)(nil)).Elem()
+}
+
+func (o VerifiedAccessTrustProviderTagArrayOutput) ToVerifiedAccessTrustProviderTagArrayOutput() VerifiedAccessTrustProviderTagArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderTagArrayOutput) ToVerifiedAccessTrustProviderTagArrayOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderTagArrayOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderTagArrayOutput) Index(i pulumi.IntInput) VerifiedAccessTrustProviderTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VerifiedAccessTrustProviderTag {
+		return vs[0].([]VerifiedAccessTrustProviderTag)[vs[1].(int)]
+	}).(VerifiedAccessTrustProviderTagOutput)
+}
+
 type VolumeTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
@@ -27828,6 +30215,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeThroughResourcesStatementRequestArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeThroughResourcesStatementRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisTagInput)(nil)).Elem(), NetworkInsightsAnalysisTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisTagArrayInput)(nil)).Elem(), NetworkInsightsAnalysisTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterPortRangeInput)(nil)).Elem(), NetworkInsightsPathFilterPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterPortRangePtrInput)(nil)).Elem(), NetworkInsightsPathFilterPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathPathFilterInput)(nil)).Elem(), NetworkInsightsPathPathFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathPathFilterPtrInput)(nil)).Elem(), NetworkInsightsPathPathFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathTagInput)(nil)).Elem(), NetworkInsightsPathTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathTagArrayInput)(nil)).Elem(), NetworkInsightsPathTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceInstanceIpv6AddressInput)(nil)).Elem(), NetworkInterfaceInstanceIpv6AddressArgs{})
@@ -27954,6 +30345,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VPNConnectionVpnTunnelOptionsSpecificationArrayInput)(nil)).Elem(), VPNConnectionVpnTunnelOptionsSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VPNGatewayTagInput)(nil)).Elem(), VPNGatewayTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VPNGatewayTagArrayInput)(nil)).Elem(), VPNGatewayTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptionsInput)(nil)).Elem(), VerifiedAccessEndpointLoadBalancerOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointLoadBalancerOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointNetworkInterfaceOptionsInput)(nil)).Elem(), VerifiedAccessEndpointNetworkInterfaceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointNetworkInterfaceOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointNetworkInterfaceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointTagInput)(nil)).Elem(), VerifiedAccessEndpointTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointTagArrayInput)(nil)).Elem(), VerifiedAccessEndpointTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessGroupTagInput)(nil)).Elem(), VerifiedAccessGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessGroupTagArrayInput)(nil)).Elem(), VerifiedAccessGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceTagInput)(nil)).Elem(), VerifiedAccessInstanceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceTagArrayInput)(nil)).Elem(), VerifiedAccessInstanceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsInput)(nil)).Elem(), VerifiedAccessInstanceVerifiedAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsPtrInput)(nil)).Elem(), VerifiedAccessInstanceVerifiedAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesInput)(nil)).Elem(), VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrInput)(nil)).Elem(), VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesInput)(nil)).Elem(), VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrInput)(nil)).Elem(), VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesInput)(nil)).Elem(), VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrInput)(nil)).Elem(), VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessTrustProviderInput)(nil)).Elem(), VerifiedAccessInstanceVerifiedAccessTrustProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessTrustProviderArrayInput)(nil)).Elem(), VerifiedAccessInstanceVerifiedAccessTrustProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderDeviceOptionsInput)(nil)).Elem(), VerifiedAccessTrustProviderDeviceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderDeviceOptionsPtrInput)(nil)).Elem(), VerifiedAccessTrustProviderDeviceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderOidcOptionsInput)(nil)).Elem(), VerifiedAccessTrustProviderOidcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderOidcOptionsPtrInput)(nil)).Elem(), VerifiedAccessTrustProviderOidcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderTagInput)(nil)).Elem(), VerifiedAccessTrustProviderTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderTagArrayInput)(nil)).Elem(), VerifiedAccessTrustProviderTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagInput)(nil)).Elem(), VolumeTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagArrayInput)(nil)).Elem(), VolumeTagArray{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceTypeSpecificationOutput{})
@@ -28230,6 +30647,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisTagArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisTransitGatewayRouteTableRouteOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisTransitGatewayRouteTableRoutePtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterPortRangeOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathFilterPortRangePtrOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathPathFilterOutput{})
+	pulumi.RegisterOutputType(NetworkInsightsPathPathFilterPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathTagOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathTagArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressOutput{})
@@ -28359,6 +30780,32 @@ func init() {
 	pulumi.RegisterOutputType(VPNConnectionVpnTunnelOptionsSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(VPNGatewayTagOutput{})
 	pulumi.RegisterOutputType(VPNGatewayTagArrayOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointLoadBalancerOptionsOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointLoadBalancerOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointNetworkInterfaceOptionsOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointNetworkInterfaceOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointTagOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessEndpointTagArrayOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessGroupTagOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceTagOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceTagArrayOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceVerifiedAccessLogsOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceVerifiedAccessLogsPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceVerifiedAccessTrustProviderOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessTrustProviderDeviceOptionsOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessTrustProviderDeviceOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessTrustProviderOidcOptionsOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessTrustProviderOidcOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessTrustProviderTagOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessTrustProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(VolumeTagOutput{})
 	pulumi.RegisterOutputType(VolumeTagArrayOutput{})
 }

@@ -11,14 +11,43 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccessPointAlias',
     'AccessPointAwsLambda',
     'AccessPointObjectLambdaConfiguration',
+    'AccessPointPolicyStatus',
     'AccessPointPublicAccessBlockConfiguration',
     'AccessPointTransformationConfiguration',
     'AccessPointTransformationConfigurationContentTransformationProperties',
-    'AliasProperties',
-    'PolicyStatusProperties',
 ]
+
+@pulumi.output_type
+class AccessPointAlias(dict):
+    def __init__(__self__, *,
+                 status: str,
+                 value: str):
+        """
+        :param str status: The status of the Object Lambda alias.
+        :param str value: The value of the Object Lambda alias.
+        """
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the Object Lambda alias.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the Object Lambda alias.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class AccessPointAwsLambda(dict):
@@ -121,6 +150,42 @@ class AccessPointObjectLambdaConfiguration(dict):
     @pulumi.getter(name="cloudWatchMetricsEnabled")
     def cloud_watch_metrics_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "cloud_watch_metrics_enabled")
+
+
+@pulumi.output_type
+class AccessPointPolicyStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isPublic":
+            suggest = "is_public"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointPolicyStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointPolicyStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointPolicyStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_public: Optional[bool] = None):
+        """
+        :param bool is_public: Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
+        """
+        if is_public is not None:
+            pulumi.set(__self__, "is_public", is_public)
+
+    @property
+    @pulumi.getter(name="isPublic")
+    def is_public(self) -> Optional[bool]:
+        """
+        Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
+        """
+        return pulumi.get(self, "is_public")
 
 
 @pulumi.output_type
@@ -284,72 +349,5 @@ class AccessPointTransformationConfigurationContentTransformationProperties(dict
     @pulumi.getter(name="awsLambda")
     def aws_lambda(self) -> 'outputs.AccessPointAwsLambda':
         return pulumi.get(self, "aws_lambda")
-
-
-@pulumi.output_type
-class AliasProperties(dict):
-    def __init__(__self__, *,
-                 status: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        :param str status: The status of the Object Lambda alias.
-        :param str value: The value of the Object Lambda alias.
-        """
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        The status of the Object Lambda alias.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value of the Object Lambda alias.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class PolicyStatusProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isPublic":
-            suggest = "is_public"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PolicyStatusProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PolicyStatusProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PolicyStatusProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 is_public: Optional[bool] = None):
-        """
-        :param bool is_public: Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
-        """
-        if is_public is not None:
-            pulumi.set(__self__, "is_public", is_public)
-
-    @property
-    @pulumi.getter(name="isPublic")
-    def is_public(self) -> Optional[bool]:
-        """
-        Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
-        """
-        return pulumi.get(self, "is_public")
 
 

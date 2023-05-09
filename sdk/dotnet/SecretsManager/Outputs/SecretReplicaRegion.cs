@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecretsManager.Outputs
 {
 
+    /// <summary>
+    /// A custom type that specifies a Region and the KmsKeyId for a replica secret.
+    /// </summary>
     [OutputType]
     public sealed class SecretReplicaRegion
     {
+        /// <summary>
+        /// The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses aws/secretsmanager.
+        /// </summary>
         public readonly string? KmsKeyId;
+        /// <summary>
+        /// (Optional) A string that represents a Region, for example "us-east-1".
+        /// </summary>
         public readonly string Region;
 
         [OutputConstructor]
