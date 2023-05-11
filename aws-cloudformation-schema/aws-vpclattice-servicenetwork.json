@@ -65,7 +65,7 @@
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/LastUpdatedAt" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "additionalIdentifiers" : [ [ "/properties/Id" ] ],
+  "additionalIdentifiers" : [ [ "/properties/Id" ], [ "/properties/Name" ] ],
   "handlers" : {
     "create" : {
       "permissions" : [ "vpc-lattice:GetServiceNetwork", "vpc-lattice:ListTagsForResource", "vpc-lattice:CreateServiceNetwork", "vpc-lattice:TagResource" ]
