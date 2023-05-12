@@ -47,7 +47,7 @@
         "Type" : {
           "type" : "string",
           "description" : "Type of authentication strategy for this user.",
-          "enum" : [ "password" ]
+          "enum" : [ "password", "iam" ]
         },
         "Passwords" : {
           "type" : "array",

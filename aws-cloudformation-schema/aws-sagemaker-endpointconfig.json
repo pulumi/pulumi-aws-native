@@ -279,6 +279,9 @@
         },
         "MemorySizeInMB" : {
           "type" : "integer"
+        },
+        "ProvisionedConcurrency" : {
+          "type" : "integer"
         }
       },
       "required" : [ "MaxConcurrency", "MemorySizeInMB" ]
