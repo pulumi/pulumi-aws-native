@@ -119,7 +119,7 @@
   "writeOnlyProperties" : [ "/properties/ServiceNetworkIdentifier", "/properties/ServiceIdentifier" ],
   "createOnlyProperties" : [ "/properties/ServiceNetworkIdentifier", "/properties/ServiceIdentifier" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "additionalIdentifiers" : [ [ "/properties/Id" ] ],
+  "additionalIdentifiers" : [ [ "/properties/Id" ], [ "/properties/ServiceNetworkIdentifier", "/properties/ServiceIdentifier" ] ],
   "handlers" : {
     "create" : {
       "permissions" : [ "vpc-lattice:CreateServiceNetworkServiceAssociation", "vpc-lattice:GetServiceNetworkServiceAssociation", "vpc-lattice:TagResource", "vpc-lattice:ListTagsForResource" ]
@@ -134,7 +134,24 @@
       "permissions" : [ "vpc-lattice:DeleteServiceNetworkServiceAssociation", "vpc-lattice:GetServiceNetworkServiceAssociation" ]
     },
     "list" : {
-      "permissions" : [ "vpc-lattice:ListServiceNetworkServiceAssociations" ]
+      "permissions" : [ "vpc-lattice:ListServiceNetworkServiceAssociations" ],
+      "handlerSchema" : {
+        "properties" : {
+          "ServiceNetworkIdentifier" : {
+            "type" : "string",
+            "maxLength" : 2048,
+            "minLength" : 20,
+            "pattern" : "^((sn-[0-9a-z]{17})|(arn:[a-z0-9\\-]+:vpc-lattice:[a-zA-Z0-9\\-]+:\\d{12}:servicenetwork/sn-[0-9a-z]{17}))$"
+          },
+          "ServiceIdentifier" : {
+            "type" : "string",
+            "maxLength" : 2048,
+            "minLength" : 20,
+            "pattern" : "^((svc-[0-9a-z]{17})|(arn:[a-z0-9\\-]+:vpc-lattice:[a-zA-Z0-9\\-]+:\\d{12}:service/svc-[0-9a-z]{17}))$"
+          }
+        },
+        "required" : [ ]
+      }
     }
   },
   "tagging" : {
