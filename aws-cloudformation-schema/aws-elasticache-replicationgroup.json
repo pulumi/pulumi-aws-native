@@ -10,16 +10,6 @@
         "type" : "string"
       }
     },
-    "PrimaryEndPointPort" : {
-      "type" : "string"
-    },
-    "CacheSecurityGroupNames" : {
-      "type" : "array",
-      "uniqueItems" : true,
-      "items" : {
-        "type" : "string"
-      }
-    },
     "ReaderEndPointPort" : {
       "type" : "string"
     },
@@ -43,20 +33,10 @@
     "Port" : {
       "type" : "integer"
     },
-    "ReadEndPointPortsList" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "type" : "string"
-      }
-    },
     "NumNodeGroups" : {
       "type" : "integer"
     },
     "NotificationTopicArn" : {
-      "type" : "string"
-    },
-    "SnapshotName" : {
       "type" : "string"
     },
     "AutomaticFailoverEnabled" : {
@@ -65,23 +45,8 @@
     "ReplicasPerNodeGroup" : {
       "type" : "integer"
     },
-    "ReplicationGroupDescription" : {
-      "type" : "string"
-    },
-    "ReaderEndPointAddress" : {
-      "type" : "string"
-    },
-    "MultiAZEnabled" : {
-      "type" : "boolean"
-    },
     "TransitEncryptionEnabled" : {
       "type" : "boolean"
-    },
-    "NetworkType" : {
-      "type" : "string"
-    },
-    "ReplicationGroupId" : {
-      "type" : "string"
     },
     "Engine" : {
       "type" : "string"
@@ -92,9 +57,6 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
-    },
-    "NumCacheClusters" : {
-      "type" : "integer"
     },
     "PrimaryEndPointAddress" : {
       "type" : "string"
@@ -111,23 +73,11 @@
     "KmsKeyId" : {
       "type" : "string"
     },
-    "CacheSubnetGroupName" : {
-      "type" : "string"
-    },
-    "CacheParameterGroupName" : {
-      "type" : "string"
-    },
-    "PreferredMaintenanceWindow" : {
-      "type" : "string"
-    },
     "PrimaryClusterId" : {
       "type" : "string"
     },
     "ReadEndPointPorts" : {
       "type" : "string"
-    },
-    "AtRestEncryptionEnabled" : {
-      "type" : "boolean"
     },
     "AutoMinorVersionUpgrade" : {
       "type" : "boolean"
@@ -145,9 +95,6 @@
     "TransitEncryptionMode" : {
       "type" : "string"
     },
-    "CacheNodeType" : {
-      "type" : "string"
-    },
     "SnapshotRetentionLimit" : {
       "type" : "integer"
     },
@@ -161,15 +108,74 @@
     "SnapshottingClusterId" : {
       "type" : "string"
     },
-    "UserGroupIds" : {
+    "IpDiscovery" : {
+      "type" : "string"
+    },
+    "ReadEndPointAddresses" : {
+      "type" : "string"
+    },
+    "PrimaryEndPointPort" : {
+      "type" : "string"
+    },
+    "CacheSecurityGroupNames" : {
       "type" : "array",
       "uniqueItems" : true,
       "items" : {
         "type" : "string"
       }
     },
-    "IpDiscovery" : {
+    "ClusterMode" : {
       "type" : "string"
+    },
+    "ReadEndPointPortsList" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "SnapshotName" : {
+      "type" : "string"
+    },
+    "ReplicationGroupDescription" : {
+      "type" : "string"
+    },
+    "ReaderEndPointAddress" : {
+      "type" : "string"
+    },
+    "MultiAZEnabled" : {
+      "type" : "boolean"
+    },
+    "NetworkType" : {
+      "type" : "string"
+    },
+    "ReplicationGroupId" : {
+      "type" : "string"
+    },
+    "NumCacheClusters" : {
+      "type" : "integer"
+    },
+    "CacheSubnetGroupName" : {
+      "type" : "string"
+    },
+    "CacheParameterGroupName" : {
+      "type" : "string"
+    },
+    "PreferredMaintenanceWindow" : {
+      "type" : "string"
+    },
+    "AtRestEncryptionEnabled" : {
+      "type" : "boolean"
+    },
+    "CacheNodeType" : {
+      "type" : "string"
+    },
+    "UserGroupIds" : {
+      "type" : "array",
+      "uniqueItems" : true,
+      "items" : {
+        "type" : "string"
+      }
     },
     "AuthToken" : {
       "type" : "string"
@@ -183,9 +189,6 @@
       "items" : {
         "$ref" : "#/definitions/LogDeliveryConfigurationRequest"
       }
-    },
-    "ReadEndPointAddresses" : {
-      "type" : "string"
     }
   },
   "definitions" : {

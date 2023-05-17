@@ -196,7 +196,7 @@
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/LastUpdatedAt", "/properties/Status" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Type", "/properties/Config/Port", "/properties/Config/IpAddressType", "/properties/Config/Protocol", "/properties/Config/ProtocolVersion", "/properties/Config/VpcIdentifier" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "additionalIdentifiers" : [ [ "/properties/Id" ] ],
+  "additionalIdentifiers" : [ [ "/properties/Id" ], [ "/properties/Name" ] ],
   "handlers" : {
     "create" : {
       "permissions" : [ "vpc-lattice:CreateTargetGroup", "vpc-lattice:GetTargetGroup", "vpc-lattice:RegisterTargets", "vpc-lattice:ListTargets", "vpc-lattice:ListTagsForResource", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "ec2:DescribeVpcs", "ec2:DescribeInstances", "ec2:DescribeSubnets", "ec2:DescribeAvailabilityZoneMappings", "lambda:Invoke", "lambda:AddPermission", "elasticloadbalancing:DescribeLoadBalancers" ]
