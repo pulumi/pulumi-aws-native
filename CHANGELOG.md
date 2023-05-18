@@ -1,5 +1,30 @@
 ## HEAD (Unreleased)
 
+## 0.62.0 (May 18, 2023)
+
+Upstream breaking changes:
+
+- Resource "aws-native:ec2:IPAM" removed input "resourceDiscoveryAssociationCount"
+- Function "aws-native:simspaceweaver:getSimulation" removed output "roleArn"
+- Function "aws-native:simspaceweaver:getSimulation" removed output "schemaS3Location"
+- Function "aws-native:rds:getDBInstance" removed output "useDefaultProcessorFeatures"
+- Function "aws-native:synthetics:getCanary" removed output "visualReference"
+- Function "aws-native:synthetics:getCanary" removed output "deleteLambdaResourcesOnCanaryDeletion"
+- Function "aws-native:synthetics:getCanary" removed output "startCanaryAfterCreation"
+- Type "aws-native:appflow:FlowTriggerConfig" removed property "activateFlowOnCreate"
+
+#### New resources:
+
+- `connect.Prompt`
+- `ec2.SubnetCidrBlock`
+- `quicksight.Topic`
+
+#### New functions:
+
+- `connect.getPrompt`
+- `ec2.getSubnetCidrBlock`
+- `quicksight.getTopic`
+
 ## 0.61.0 (May 9, 2023)
 Upstream breaking changes:
 
