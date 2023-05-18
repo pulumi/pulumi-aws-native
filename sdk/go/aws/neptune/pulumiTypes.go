@@ -219,6 +219,165 @@ func (o DBClusterRoleArrayOutput) Index(i pulumi.IntInput) DBClusterRoleOutput {
 	}).(DBClusterRoleOutput)
 }
 
+// Contains the scaling configuration of an Neptune Serverless DB cluster.
+type DBClusterServerlessScalingConfiguration struct {
+	// The maximum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on. The smallest value you can use is 2.5, whereas the largest is 128.
+	MaxCapacity float64 `pulumi:"maxCapacity"`
+	// The minimum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value you can use is 1, whereas the largest is 128.
+	MinCapacity float64 `pulumi:"minCapacity"`
+}
+
+// DBClusterServerlessScalingConfigurationInput is an input type that accepts DBClusterServerlessScalingConfigurationArgs and DBClusterServerlessScalingConfigurationOutput values.
+// You can construct a concrete instance of `DBClusterServerlessScalingConfigurationInput` via:
+//
+//	DBClusterServerlessScalingConfigurationArgs{...}
+type DBClusterServerlessScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToDBClusterServerlessScalingConfigurationOutput() DBClusterServerlessScalingConfigurationOutput
+	ToDBClusterServerlessScalingConfigurationOutputWithContext(context.Context) DBClusterServerlessScalingConfigurationOutput
+}
+
+// Contains the scaling configuration of an Neptune Serverless DB cluster.
+type DBClusterServerlessScalingConfigurationArgs struct {
+	// The maximum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on. The smallest value you can use is 2.5, whereas the largest is 128.
+	MaxCapacity pulumi.Float64Input `pulumi:"maxCapacity"`
+	// The minimum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value you can use is 1, whereas the largest is 128.
+	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
+}
+
+func (DBClusterServerlessScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterServerlessScalingConfiguration)(nil)).Elem()
+}
+
+func (i DBClusterServerlessScalingConfigurationArgs) ToDBClusterServerlessScalingConfigurationOutput() DBClusterServerlessScalingConfigurationOutput {
+	return i.ToDBClusterServerlessScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DBClusterServerlessScalingConfigurationArgs) ToDBClusterServerlessScalingConfigurationOutputWithContext(ctx context.Context) DBClusterServerlessScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterServerlessScalingConfigurationOutput)
+}
+
+func (i DBClusterServerlessScalingConfigurationArgs) ToDBClusterServerlessScalingConfigurationPtrOutput() DBClusterServerlessScalingConfigurationPtrOutput {
+	return i.ToDBClusterServerlessScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DBClusterServerlessScalingConfigurationArgs) ToDBClusterServerlessScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterServerlessScalingConfigurationOutput).ToDBClusterServerlessScalingConfigurationPtrOutputWithContext(ctx)
+}
+
+// DBClusterServerlessScalingConfigurationPtrInput is an input type that accepts DBClusterServerlessScalingConfigurationArgs, DBClusterServerlessScalingConfigurationPtr and DBClusterServerlessScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DBClusterServerlessScalingConfigurationPtrInput` via:
+//
+//	        DBClusterServerlessScalingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DBClusterServerlessScalingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDBClusterServerlessScalingConfigurationPtrOutput() DBClusterServerlessScalingConfigurationPtrOutput
+	ToDBClusterServerlessScalingConfigurationPtrOutputWithContext(context.Context) DBClusterServerlessScalingConfigurationPtrOutput
+}
+
+type dbclusterServerlessScalingConfigurationPtrType DBClusterServerlessScalingConfigurationArgs
+
+func DBClusterServerlessScalingConfigurationPtr(v *DBClusterServerlessScalingConfigurationArgs) DBClusterServerlessScalingConfigurationPtrInput {
+	return (*dbclusterServerlessScalingConfigurationPtrType)(v)
+}
+
+func (*dbclusterServerlessScalingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBClusterServerlessScalingConfiguration)(nil)).Elem()
+}
+
+func (i *dbclusterServerlessScalingConfigurationPtrType) ToDBClusterServerlessScalingConfigurationPtrOutput() DBClusterServerlessScalingConfigurationPtrOutput {
+	return i.ToDBClusterServerlessScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dbclusterServerlessScalingConfigurationPtrType) ToDBClusterServerlessScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterServerlessScalingConfigurationPtrOutput)
+}
+
+// Contains the scaling configuration of an Neptune Serverless DB cluster.
+type DBClusterServerlessScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DBClusterServerlessScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterServerlessScalingConfiguration)(nil)).Elem()
+}
+
+func (o DBClusterServerlessScalingConfigurationOutput) ToDBClusterServerlessScalingConfigurationOutput() DBClusterServerlessScalingConfigurationOutput {
+	return o
+}
+
+func (o DBClusterServerlessScalingConfigurationOutput) ToDBClusterServerlessScalingConfigurationOutputWithContext(ctx context.Context) DBClusterServerlessScalingConfigurationOutput {
+	return o
+}
+
+func (o DBClusterServerlessScalingConfigurationOutput) ToDBClusterServerlessScalingConfigurationPtrOutput() DBClusterServerlessScalingConfigurationPtrOutput {
+	return o.ToDBClusterServerlessScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DBClusterServerlessScalingConfigurationOutput) ToDBClusterServerlessScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessScalingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBClusterServerlessScalingConfiguration) *DBClusterServerlessScalingConfiguration {
+		return &v
+	}).(DBClusterServerlessScalingConfigurationPtrOutput)
+}
+
+// The maximum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on. The smallest value you can use is 2.5, whereas the largest is 128.
+func (o DBClusterServerlessScalingConfigurationOutput) MaxCapacity() pulumi.Float64Output {
+	return o.ApplyT(func(v DBClusterServerlessScalingConfiguration) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
+}
+
+// The minimum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value you can use is 1, whereas the largest is 128.
+func (o DBClusterServerlessScalingConfigurationOutput) MinCapacity() pulumi.Float64Output {
+	return o.ApplyT(func(v DBClusterServerlessScalingConfiguration) float64 { return v.MinCapacity }).(pulumi.Float64Output)
+}
+
+type DBClusterServerlessScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DBClusterServerlessScalingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBClusterServerlessScalingConfiguration)(nil)).Elem()
+}
+
+func (o DBClusterServerlessScalingConfigurationPtrOutput) ToDBClusterServerlessScalingConfigurationPtrOutput() DBClusterServerlessScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o DBClusterServerlessScalingConfigurationPtrOutput) ToDBClusterServerlessScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o DBClusterServerlessScalingConfigurationPtrOutput) Elem() DBClusterServerlessScalingConfigurationOutput {
+	return o.ApplyT(func(v *DBClusterServerlessScalingConfiguration) DBClusterServerlessScalingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DBClusterServerlessScalingConfiguration
+		return ret
+	}).(DBClusterServerlessScalingConfigurationOutput)
+}
+
+// The maximum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on. The smallest value you can use is 2.5, whereas the largest is 128.
+func (o DBClusterServerlessScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DBClusterServerlessScalingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The minimum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value you can use is 1, whereas the largest is 128.
+func (o DBClusterServerlessScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DBClusterServerlessScalingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MinCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type DBClusterTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -633,6 +792,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterParameterGroupTagArrayInput)(nil)).Elem(), DBClusterParameterGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterRoleInput)(nil)).Elem(), DBClusterRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterRoleArrayInput)(nil)).Elem(), DBClusterRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterServerlessScalingConfigurationInput)(nil)).Elem(), DBClusterServerlessScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterServerlessScalingConfigurationPtrInput)(nil)).Elem(), DBClusterServerlessScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterTagInput)(nil)).Elem(), DBClusterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterTagArrayInput)(nil)).Elem(), DBClusterTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceTagInput)(nil)).Elem(), DBInstanceTagArgs{})
@@ -645,6 +806,8 @@ func init() {
 	pulumi.RegisterOutputType(DBClusterParameterGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(DBClusterRoleOutput{})
 	pulumi.RegisterOutputType(DBClusterRoleArrayOutput{})
+	pulumi.RegisterOutputType(DBClusterServerlessScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(DBClusterServerlessScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DBClusterTagOutput{})
 	pulumi.RegisterOutputType(DBClusterTagArrayOutput{})
 	pulumi.RegisterOutputType(DBInstanceTagOutput{})

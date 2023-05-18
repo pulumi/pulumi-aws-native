@@ -57,6 +57,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public readonly string? CacheNodeType;
         public readonly string? CacheParameterGroupName;
         public readonly ImmutableArray<string> CacheSecurityGroupNames;
+        public readonly string? ClusterMode;
         public readonly string? ConfigurationEndPointAddress;
         public readonly string? ConfigurationEndPointPort;
         public readonly string? EngineVersion;
@@ -100,6 +101,8 @@ namespace Pulumi.AwsNative.ElastiCache
             string? cacheParameterGroupName,
 
             ImmutableArray<string> cacheSecurityGroupNames,
+
+            string? clusterMode,
 
             string? configurationEndPointAddress,
 
@@ -165,6 +168,7 @@ namespace Pulumi.AwsNative.ElastiCache
             CacheNodeType = cacheNodeType;
             CacheParameterGroupName = cacheParameterGroupName;
             CacheSecurityGroupNames = cacheSecurityGroupNames;
+            ClusterMode = clusterMode;
             ConfigurationEndPointAddress = configurationEndPointAddress;
             ConfigurationEndPointPort = configurationEndPointPort;
             EngineVersion = engineVersion;

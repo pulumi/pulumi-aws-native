@@ -123,6 +123,7 @@ class FlowSourceEncryptionKeyType(str, Enum):
     """
     SPEKE = "speke"
     STATIC_KEY = "static-key"
+    SRT_PASSWORD = "srt-password"
 
 
 class FlowSourceProtocol(str, Enum):

@@ -26,6 +26,14 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorOAuthRequest? ConnectorOAuthRequest;
         /// <summary>
+        /// The credentials used to access your Salesforce records
+        /// </summary>
+        public readonly string? JwtToken;
+        /// <summary>
+        /// The grant types to fetch an access token
+        /// </summary>
+        public readonly Pulumi.AwsNative.AppFlow.ConnectorProfileOAuth2GrantType? OAuth2GrantType;
+        /// <summary>
         /// The credentials used to acquire new access tokens.
         /// </summary>
         public readonly string? RefreshToken;
@@ -38,11 +46,17 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.ConnectorProfileConnectorOAuthRequest? connectorOAuthRequest,
 
+            string? jwtToken,
+
+            Pulumi.AwsNative.AppFlow.ConnectorProfileOAuth2GrantType? oAuth2GrantType,
+
             string? refreshToken)
         {
             AccessToken = accessToken;
             ClientCredentialsArn = clientCredentialsArn;
             ConnectorOAuthRequest = connectorOAuthRequest;
+            JwtToken = jwtToken;
+            OAuth2GrantType = oAuth2GrantType;
             RefreshToken = refreshToken;
         }
     }

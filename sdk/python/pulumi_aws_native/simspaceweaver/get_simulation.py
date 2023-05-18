@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetSimulationResult',
@@ -19,16 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetSimulationResult:
-    def __init__(__self__, describe_payload=None, role_arn=None, schema_s3_location=None):
+    def __init__(__self__, describe_payload=None):
         if describe_payload and not isinstance(describe_payload, str):
             raise TypeError("Expected argument 'describe_payload' to be a str")
         pulumi.set(__self__, "describe_payload", describe_payload)
-        if role_arn and not isinstance(role_arn, str):
-            raise TypeError("Expected argument 'role_arn' to be a str")
-        pulumi.set(__self__, "role_arn", role_arn)
-        if schema_s3_location and not isinstance(schema_s3_location, dict):
-            raise TypeError("Expected argument 'schema_s3_location' to be a dict")
-        pulumi.set(__self__, "schema_s3_location", schema_s3_location)
 
     @property
     @pulumi.getter(name="describePayload")
@@ -38,19 +31,6 @@ class GetSimulationResult:
         """
         return pulumi.get(self, "describe_payload")
 
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[str]:
-        """
-        Role ARN.
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="schemaS3Location")
-    def schema_s3_location(self) -> Optional['outputs.SimulationS3Location']:
-        return pulumi.get(self, "schema_s3_location")
-
 
 class AwaitableGetSimulationResult(GetSimulationResult):
     # pylint: disable=using-constant-test
@@ -58,9 +38,7 @@ class AwaitableGetSimulationResult(GetSimulationResult):
         if False:
             yield self
         return GetSimulationResult(
-            describe_payload=self.describe_payload,
-            role_arn=self.role_arn,
-            schema_s3_location=self.schema_s3_location)
+            describe_payload=self.describe_payload)
 
 
 def get_simulation(name: Optional[str] = None,
@@ -77,9 +55,7 @@ def get_simulation(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:simspaceweaver:getSimulation', __args__, opts=opts, typ=GetSimulationResult).value
 
     return AwaitableGetSimulationResult(
-        describe_payload=__ret__.describe_payload,
-        role_arn=__ret__.role_arn,
-        schema_s3_location=__ret__.schema_s3_location)
+        describe_payload=__ret__.describe_payload)
 
 
 @_utilities.lift_output_func(get_simulation)

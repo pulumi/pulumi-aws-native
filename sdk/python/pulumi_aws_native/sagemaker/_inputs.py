@@ -117,18 +117,23 @@ __all__ = [
     'ModelCardAdditionalInformationArgs',
     'ModelCardBarChartMetricArgs',
     'ModelCardBusinessDetailsArgs',
+    'ModelCardContainerArgs',
     'ModelCardContentArgs',
     'ModelCardEvaluationDetailArgs',
+    'ModelCardInferenceSpecificationArgs',
     'ModelCardIntendedUsesArgs',
     'ModelCardLinearGraphMetricArgs',
     'ModelCardMatrixMetricArgs',
     'ModelCardMetricGroupArgs',
     'ModelCardModelOverviewInferenceEnvironmentPropertiesArgs',
     'ModelCardModelOverviewArgs',
+    'ModelCardModelPackageCreatorArgs',
+    'ModelCardModelPackageDetailsArgs',
     'ModelCardObjectiveFunctionFunctionPropertiesArgs',
     'ModelCardObjectiveFunctionArgs',
     'ModelCardSecurityConfigArgs',
     'ModelCardSimpleMetricArgs',
+    'ModelCardSourceAlgorithmArgs',
     'ModelCardTagArgs',
     'ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs',
     'ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs',
@@ -3028,9 +3033,12 @@ class EndpointConfigProductionVariantArgs:
 class EndpointConfigServerlessConfigArgs:
     def __init__(__self__, *,
                  max_concurrency: pulumi.Input[int],
-                 memory_size_in_mb: pulumi.Input[int]):
+                 memory_size_in_mb: pulumi.Input[int],
+                 provisioned_concurrency: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "max_concurrency", max_concurrency)
         pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
+        if provisioned_concurrency is not None:
+            pulumi.set(__self__, "provisioned_concurrency", provisioned_concurrency)
 
     @property
     @pulumi.getter(name="maxConcurrency")
@@ -3049,6 +3057,15 @@ class EndpointConfigServerlessConfigArgs:
     @memory_size_in_mb.setter
     def memory_size_in_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "memory_size_in_mb", value)
+
+    @property
+    @pulumi.getter(name="provisionedConcurrency")
+    def provisioned_concurrency(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "provisioned_concurrency")
+
+    @provisioned_concurrency.setter
+    def provisioned_concurrency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "provisioned_concurrency", value)
 
 
 @pulumi.input_type
@@ -4882,6 +4899,60 @@ class ModelCardBusinessDetailsArgs:
 
 
 @pulumi.input_type
+class ModelCardContainerArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[str],
+                 model_data_url: Optional[pulumi.Input[str]] = None,
+                 nearest_model_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] image: Inference environment path. The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+        :param pulumi.Input[str] model_data_url: The Amazon S3 path where the model artifacts, which result from model training, are stored.
+        :param pulumi.Input[str] nearest_model_name: The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+        """
+        pulumi.set(__self__, "image", image)
+        if model_data_url is not None:
+            pulumi.set(__self__, "model_data_url", model_data_url)
+        if nearest_model_name is not None:
+            pulumi.set(__self__, "nearest_model_name", nearest_model_name)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        """
+        Inference environment path. The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter(name="modelDataUrl")
+    def model_data_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 path where the model artifacts, which result from model training, are stored.
+        """
+        return pulumi.get(self, "model_data_url")
+
+    @model_data_url.setter
+    def model_data_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_data_url", value)
+
+    @property
+    @pulumi.getter(name="nearestModelName")
+    def nearest_model_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+        """
+        return pulumi.get(self, "nearest_model_name")
+
+    @nearest_model_name.setter
+    def nearest_model_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nearest_model_name", value)
+
+
+@pulumi.input_type
 class ModelCardContentArgs:
     def __init__(__self__, *,
                  additional_information: Optional[pulumi.Input['ModelCardAdditionalInformationArgs']] = None,
@@ -4889,6 +4960,7 @@ class ModelCardContentArgs:
                  evaluation_details: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardEvaluationDetailArgs']]]] = None,
                  intended_uses: Optional[pulumi.Input['ModelCardIntendedUsesArgs']] = None,
                  model_overview: Optional[pulumi.Input['ModelCardModelOverviewArgs']] = None,
+                 model_package_details: Optional[pulumi.Input['ModelCardModelPackageDetailsArgs']] = None,
                  training_details: Optional[pulumi.Input['ModelCardTrainingDetailsArgs']] = None):
         """
         The content of the model card.
@@ -4903,6 +4975,8 @@ class ModelCardContentArgs:
             pulumi.set(__self__, "intended_uses", intended_uses)
         if model_overview is not None:
             pulumi.set(__self__, "model_overview", model_overview)
+        if model_package_details is not None:
+            pulumi.set(__self__, "model_package_details", model_package_details)
         if training_details is not None:
             pulumi.set(__self__, "training_details", training_details)
 
@@ -4950,6 +5024,15 @@ class ModelCardContentArgs:
     @model_overview.setter
     def model_overview(self, value: Optional[pulumi.Input['ModelCardModelOverviewArgs']]):
         pulumi.set(self, "model_overview", value)
+
+    @property
+    @pulumi.getter(name="modelPackageDetails")
+    def model_package_details(self) -> Optional[pulumi.Input['ModelCardModelPackageDetailsArgs']]:
+        return pulumi.get(self, "model_package_details")
+
+    @model_package_details.setter
+    def model_package_details(self, value: Optional[pulumi.Input['ModelCardModelPackageDetailsArgs']]):
+        pulumi.set(self, "model_package_details", value)
 
     @property
     @pulumi.getter(name="trainingDetails")
@@ -5042,6 +5125,28 @@ class ModelCardEvaluationDetailArgs:
     @metric_groups.setter
     def metric_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardMetricGroupArgs']]]]):
         pulumi.set(self, "metric_groups", value)
+
+
+@pulumi.input_type
+class ModelCardInferenceSpecificationArgs:
+    def __init__(__self__, *,
+                 containers: pulumi.Input[Sequence[pulumi.Input['ModelCardContainerArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ModelCardContainerArgs']]] containers: Contains inference related information which were used to create model package.
+        """
+        pulumi.set(__self__, "containers", containers)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> pulumi.Input[Sequence[pulumi.Input['ModelCardContainerArgs']]]:
+        """
+        Contains inference related information which were used to create model package.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: pulumi.Input[Sequence[pulumi.Input['ModelCardContainerArgs']]]):
+        pulumi.set(self, "containers", value)
 
 
 @pulumi.input_type
@@ -5494,6 +5599,245 @@ class ModelCardModelOverviewArgs:
 
 
 @pulumi.input_type
+class ModelCardModelPackageCreatorArgs:
+    def __init__(__self__, *,
+                 user_profile_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] user_profile_name: The name of the user's profile in Studio
+        """
+        if user_profile_name is not None:
+            pulumi.set(__self__, "user_profile_name", user_profile_name)
+
+    @property
+    @pulumi.getter(name="userProfileName")
+    def user_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user's profile in Studio
+        """
+        return pulumi.get(self, "user_profile_name")
+
+    @user_profile_name.setter
+    def user_profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_profile_name", value)
+
+
+@pulumi.input_type
+class ModelCardModelPackageDetailsArgs:
+    def __init__(__self__, *,
+                 approval_description: Optional[pulumi.Input[str]] = None,
+                 created_by: Optional[pulumi.Input['ModelCardModelPackageCreatorArgs']] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 inference_specification: Optional[pulumi.Input['ModelCardInferenceSpecificationArgs']] = None,
+                 model_approval_status: Optional[pulumi.Input['ModelCardModelPackageDetailsModelApprovalStatus']] = None,
+                 model_package_arn: Optional[pulumi.Input[str]] = None,
+                 model_package_description: Optional[pulumi.Input[str]] = None,
+                 model_package_group_name: Optional[pulumi.Input[str]] = None,
+                 model_package_name: Optional[pulumi.Input[str]] = None,
+                 model_package_status: Optional[pulumi.Input['ModelCardModelPackageDetailsModelPackageStatus']] = None,
+                 model_package_version: Optional[pulumi.Input[float]] = None,
+                 source_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardSourceAlgorithmArgs']]]] = None,
+                 task: Optional[pulumi.Input[str]] = None):
+        """
+        Metadata information related to model package version
+        :param pulumi.Input[str] approval_description: A description provided for the model approval
+        :param pulumi.Input['ModelCardModelPackageCreatorArgs'] created_by: Information about the user who created model package.
+        :param pulumi.Input[str] domain: The machine learning domain of the model package you specified. Common machine learning domains include computer vision and natural language processing.
+        :param pulumi.Input['ModelCardInferenceSpecificationArgs'] inference_specification: Details about inference jobs that can be run with models based on this model package.
+        :param pulumi.Input['ModelCardModelPackageDetailsModelApprovalStatus'] model_approval_status: Current approval status of model package
+        :param pulumi.Input[str] model_package_arn: The Amazon Resource Name (ARN) of the model package
+        :param pulumi.Input[str] model_package_description: A brief summary of the model package
+        :param pulumi.Input[str] model_package_group_name: If the model is a versioned model, the name of the model group that the versioned model belongs to.
+        :param pulumi.Input[str] model_package_name: Name of the model package
+        :param pulumi.Input['ModelCardModelPackageDetailsModelPackageStatus'] model_package_status: Current status of model package
+        :param pulumi.Input[float] model_package_version: Version of the model package
+        :param pulumi.Input[Sequence[pulumi.Input['ModelCardSourceAlgorithmArgs']]] source_algorithms: A list of algorithms that were used to create a model package.
+        :param pulumi.Input[str] task: The machine learning task you specified that your model package accomplishes. Common machine learning tasks include object detection and image classification.
+        """
+        if approval_description is not None:
+            pulumi.set(__self__, "approval_description", approval_description)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if inference_specification is not None:
+            pulumi.set(__self__, "inference_specification", inference_specification)
+        if model_approval_status is not None:
+            pulumi.set(__self__, "model_approval_status", model_approval_status)
+        if model_package_arn is not None:
+            pulumi.set(__self__, "model_package_arn", model_package_arn)
+        if model_package_description is not None:
+            pulumi.set(__self__, "model_package_description", model_package_description)
+        if model_package_group_name is not None:
+            pulumi.set(__self__, "model_package_group_name", model_package_group_name)
+        if model_package_name is not None:
+            pulumi.set(__self__, "model_package_name", model_package_name)
+        if model_package_status is not None:
+            pulumi.set(__self__, "model_package_status", model_package_status)
+        if model_package_version is not None:
+            pulumi.set(__self__, "model_package_version", model_package_version)
+        if source_algorithms is not None:
+            pulumi.set(__self__, "source_algorithms", source_algorithms)
+        if task is not None:
+            pulumi.set(__self__, "task", task)
+
+    @property
+    @pulumi.getter(name="approvalDescription")
+    def approval_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description provided for the model approval
+        """
+        return pulumi.get(self, "approval_description")
+
+    @approval_description.setter
+    def approval_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "approval_description", value)
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[pulumi.Input['ModelCardModelPackageCreatorArgs']]:
+        """
+        Information about the user who created model package.
+        """
+        return pulumi.get(self, "created_by")
+
+    @created_by.setter
+    def created_by(self, value: Optional[pulumi.Input['ModelCardModelPackageCreatorArgs']]):
+        pulumi.set(self, "created_by", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The machine learning domain of the model package you specified. Common machine learning domains include computer vision and natural language processing.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="inferenceSpecification")
+    def inference_specification(self) -> Optional[pulumi.Input['ModelCardInferenceSpecificationArgs']]:
+        """
+        Details about inference jobs that can be run with models based on this model package.
+        """
+        return pulumi.get(self, "inference_specification")
+
+    @inference_specification.setter
+    def inference_specification(self, value: Optional[pulumi.Input['ModelCardInferenceSpecificationArgs']]):
+        pulumi.set(self, "inference_specification", value)
+
+    @property
+    @pulumi.getter(name="modelApprovalStatus")
+    def model_approval_status(self) -> Optional[pulumi.Input['ModelCardModelPackageDetailsModelApprovalStatus']]:
+        """
+        Current approval status of model package
+        """
+        return pulumi.get(self, "model_approval_status")
+
+    @model_approval_status.setter
+    def model_approval_status(self, value: Optional[pulumi.Input['ModelCardModelPackageDetailsModelApprovalStatus']]):
+        pulumi.set(self, "model_approval_status", value)
+
+    @property
+    @pulumi.getter(name="modelPackageArn")
+    def model_package_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the model package
+        """
+        return pulumi.get(self, "model_package_arn")
+
+    @model_package_arn.setter
+    def model_package_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_arn", value)
+
+    @property
+    @pulumi.getter(name="modelPackageDescription")
+    def model_package_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A brief summary of the model package
+        """
+        return pulumi.get(self, "model_package_description")
+
+    @model_package_description.setter
+    def model_package_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_description", value)
+
+    @property
+    @pulumi.getter(name="modelPackageGroupName")
+    def model_package_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the model is a versioned model, the name of the model group that the versioned model belongs to.
+        """
+        return pulumi.get(self, "model_package_group_name")
+
+    @model_package_group_name.setter
+    def model_package_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_group_name", value)
+
+    @property
+    @pulumi.getter(name="modelPackageName")
+    def model_package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the model package
+        """
+        return pulumi.get(self, "model_package_name")
+
+    @model_package_name.setter
+    def model_package_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_name", value)
+
+    @property
+    @pulumi.getter(name="modelPackageStatus")
+    def model_package_status(self) -> Optional[pulumi.Input['ModelCardModelPackageDetailsModelPackageStatus']]:
+        """
+        Current status of model package
+        """
+        return pulumi.get(self, "model_package_status")
+
+    @model_package_status.setter
+    def model_package_status(self, value: Optional[pulumi.Input['ModelCardModelPackageDetailsModelPackageStatus']]):
+        pulumi.set(self, "model_package_status", value)
+
+    @property
+    @pulumi.getter(name="modelPackageVersion")
+    def model_package_version(self) -> Optional[pulumi.Input[float]]:
+        """
+        Version of the model package
+        """
+        return pulumi.get(self, "model_package_version")
+
+    @model_package_version.setter
+    def model_package_version(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "model_package_version", value)
+
+    @property
+    @pulumi.getter(name="sourceAlgorithms")
+    def source_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardSourceAlgorithmArgs']]]]:
+        """
+        A list of algorithms that were used to create a model package.
+        """
+        return pulumi.get(self, "source_algorithms")
+
+    @source_algorithms.setter
+    def source_algorithms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardSourceAlgorithmArgs']]]]):
+        pulumi.set(self, "source_algorithms", value)
+
+    @property
+    @pulumi.getter
+    def task(self) -> Optional[pulumi.Input[str]]:
+        """
+        The machine learning task you specified that your model package accomplishes. Common machine learning tasks include object detection and image classification.
+        """
+        return pulumi.get(self, "task")
+
+    @task.setter
+    def task(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task", value)
+
+
+@pulumi.input_type
 class ModelCardObjectiveFunctionFunctionPropertiesArgs:
     def __init__(__self__, *,
                  condition: Optional[pulumi.Input[str]] = None,
@@ -5674,6 +6018,44 @@ class ModelCardSimpleMetricArgs:
     @y_axis_name.setter
     def y_axis_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "y_axis_name", value)
+
+
+@pulumi.input_type
+class ModelCardSourceAlgorithmArgs:
+    def __init__(__self__, *,
+                 algorithm_name: pulumi.Input[str],
+                 model_data_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] algorithm_name: The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+        :param pulumi.Input[str] model_data_url: The Amazon S3 path where the model artifacts, which result from model training, are stored.
+        """
+        pulumi.set(__self__, "algorithm_name", algorithm_name)
+        if model_data_url is not None:
+            pulumi.set(__self__, "model_data_url", model_data_url)
+
+    @property
+    @pulumi.getter(name="algorithmName")
+    def algorithm_name(self) -> pulumi.Input[str]:
+        """
+        The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+        """
+        return pulumi.get(self, "algorithm_name")
+
+    @algorithm_name.setter
+    def algorithm_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "algorithm_name", value)
+
+    @property
+    @pulumi.getter(name="modelDataUrl")
+    def model_data_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 path where the model artifacts, which result from model training, are stored.
+        """
+        return pulumi.get(self, "model_data_url")
+
+    @model_data_url.setter
+    def model_data_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_data_url", value)
 
 
 @pulumi.input_type

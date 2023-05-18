@@ -18,6 +18,8 @@ class SubnetCidrBlockArgs:
                  subnet_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a SubnetCidrBlock resource.
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
+        :param pulumi.Input[str] subnet_id: The ID of the subnet
         """
         pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -25,6 +27,9 @@ class SubnetCidrBlockArgs:
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Input[str]:
+        """
+        The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
+        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
@@ -34,6 +39,9 @@ class SubnetCidrBlockArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the subnet
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -41,12 +49,7 @@ class SubnetCidrBlockArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-warnings.warn("""SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class SubnetCidrBlock(pulumi.CustomResource):
-    warnings.warn("""SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -55,10 +58,12 @@ class SubnetCidrBlock(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::SubnetCidrBlock
+        The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
+        :param pulumi.Input[str] subnet_id: The ID of the subnet
         """
         ...
     @overload
@@ -67,7 +72,7 @@ class SubnetCidrBlock(pulumi.CustomResource):
                  args: SubnetCidrBlockArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::SubnetCidrBlock
+        The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
 
         :param str resource_name: The name of the resource.
         :param SubnetCidrBlockArgs args: The arguments to use to populate this resource's properties.
@@ -87,7 +92,6 @@ class SubnetCidrBlock(pulumi.CustomResource):
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SubnetCidrBlock is deprecated: SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -131,10 +135,16 @@ class SubnetCidrBlock(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[str]:
+        """
+        The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
+        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the subnet
+        """
         return pulumi.get(self, "subnet_id")
 

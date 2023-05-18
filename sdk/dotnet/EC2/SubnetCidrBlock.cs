@@ -10,15 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::SubnetCidrBlock
+    /// The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
     /// </summary>
-    [Obsolete(@"SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:SubnetCidrBlock")]
     public partial class SubnetCidrBlock : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
+        /// </summary>
         [Output("ipv6CidrBlock")]
         public Output<string> Ipv6CidrBlock { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the subnet
+        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
@@ -67,9 +72,15 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class SubnetCidrBlockArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
+        /// </summary>
         [Input("ipv6CidrBlock", required: true)]
         public Input<string> Ipv6CidrBlock { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the subnet
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 

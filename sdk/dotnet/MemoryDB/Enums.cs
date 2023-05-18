@@ -49,6 +49,7 @@ namespace Pulumi.AwsNative.MemoryDB
         }
 
         public static UserAuthenticationModePropertiesType Password { get; } = new UserAuthenticationModePropertiesType("password");
+        public static UserAuthenticationModePropertiesType Iam { get; } = new UserAuthenticationModePropertiesType("iam");
 
         public static bool operator ==(UserAuthenticationModePropertiesType left, UserAuthenticationModePropertiesType right) => left.Equals(right);
         public static bool operator !=(UserAuthenticationModePropertiesType left, UserAuthenticationModePropertiesType right) => !left.Equals(right);

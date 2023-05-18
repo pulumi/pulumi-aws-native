@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,20 +17,26 @@ type Simulation struct {
 
 	// Json object with all simulation details
 	DescribePayload pulumi.StringOutput `pulumi:"describePayload"`
+	// The maximum running time of the simulation.
+	MaximumDuration pulumi.StringPtrOutput `pulumi:"maximumDuration"`
 	// The name of the simulation.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Role ARN.
-	RoleArn          pulumi.StringPtrOutput        `pulumi:"roleArn"`
-	SchemaS3Location SimulationS3LocationPtrOutput `pulumi:"schemaS3Location"`
+	RoleArn            pulumi.StringOutput           `pulumi:"roleArn"`
+	SchemaS3Location   SimulationS3LocationPtrOutput `pulumi:"schemaS3Location"`
+	SnapshotS3Location SimulationS3LocationPtrOutput `pulumi:"snapshotS3Location"`
 }
 
 // NewSimulation registers a new resource with the given unique name, arguments, and options.
 func NewSimulation(ctx *pulumi.Context,
 	name string, args *SimulationArgs, opts ...pulumi.ResourceOption) (*Simulation, error) {
 	if args == nil {
-		args = &SimulationArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
+	}
 	var resource Simulation
 	err := ctx.RegisterResource("aws-native:simspaceweaver:Simulation", name, args, &resource, opts...)
 	if err != nil {
@@ -62,20 +69,26 @@ func (SimulationState) ElementType() reflect.Type {
 }
 
 type simulationArgs struct {
+	// The maximum running time of the simulation.
+	MaximumDuration *string `pulumi:"maximumDuration"`
 	// The name of the simulation.
 	Name *string `pulumi:"name"`
 	// Role ARN.
-	RoleArn          *string               `pulumi:"roleArn"`
-	SchemaS3Location *SimulationS3Location `pulumi:"schemaS3Location"`
+	RoleArn            string                `pulumi:"roleArn"`
+	SchemaS3Location   *SimulationS3Location `pulumi:"schemaS3Location"`
+	SnapshotS3Location *SimulationS3Location `pulumi:"snapshotS3Location"`
 }
 
 // The set of arguments for constructing a Simulation resource.
 type SimulationArgs struct {
+	// The maximum running time of the simulation.
+	MaximumDuration pulumi.StringPtrInput
 	// The name of the simulation.
 	Name pulumi.StringPtrInput
 	// Role ARN.
-	RoleArn          pulumi.StringPtrInput
-	SchemaS3Location SimulationS3LocationPtrInput
+	RoleArn            pulumi.StringInput
+	SchemaS3Location   SimulationS3LocationPtrInput
+	SnapshotS3Location SimulationS3LocationPtrInput
 }
 
 func (SimulationArgs) ElementType() reflect.Type {
@@ -120,18 +133,27 @@ func (o SimulationOutput) DescribePayload() pulumi.StringOutput {
 	return o.ApplyT(func(v *Simulation) pulumi.StringOutput { return v.DescribePayload }).(pulumi.StringOutput)
 }
 
+// The maximum running time of the simulation.
+func (o SimulationOutput) MaximumDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Simulation) pulumi.StringPtrOutput { return v.MaximumDuration }).(pulumi.StringPtrOutput)
+}
+
 // The name of the simulation.
-func (o SimulationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Simulation) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o SimulationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Simulation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Role ARN.
-func (o SimulationOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Simulation) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+func (o SimulationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Simulation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 func (o SimulationOutput) SchemaS3Location() SimulationS3LocationPtrOutput {
 	return o.ApplyT(func(v *Simulation) SimulationS3LocationPtrOutput { return v.SchemaS3Location }).(SimulationS3LocationPtrOutput)
+}
+
+func (o SimulationOutput) SnapshotS3Location() SimulationS3LocationPtrOutput {
+	return o.ApplyT(func(v *Simulation) SimulationS3LocationPtrOutput { return v.SnapshotS3Location }).(SimulationS3LocationPtrOutput)
 }
 
 func init() {

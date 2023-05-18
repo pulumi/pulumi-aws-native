@@ -30,7 +30,7 @@ type IPAM struct {
 	// The Id of the default scope for publicly routable IP space, created with this IPAM.
 	PublicDefaultScopeId pulumi.StringOutput `pulumi:"publicDefaultScopeId"`
 	// The count of resource discoveries associated with this IPAM.
-	ResourceDiscoveryAssociationCount pulumi.IntPtrOutput `pulumi:"resourceDiscoveryAssociationCount"`
+	ResourceDiscoveryAssociationCount pulumi.IntOutput `pulumi:"resourceDiscoveryAssociationCount"`
 	// The number of scopes that currently exist in this IPAM.
 	ScopeCount pulumi.IntOutput `pulumi:"scopeCount"`
 	// An array of key-value pairs to apply to this resource.
@@ -83,8 +83,6 @@ type ipamArgs struct {
 	Description                *string `pulumi:"description"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions []IPAMIpamOperatingRegion `pulumi:"operatingRegions"`
-	// The count of resource discoveries associated with this IPAM.
-	ResourceDiscoveryAssociationCount *int `pulumi:"resourceDiscoveryAssociationCount"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []IPAMTag `pulumi:"tags"`
 }
@@ -98,8 +96,6 @@ type IPAMArgs struct {
 	Description                pulumi.StringPtrInput
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions IPAMIpamOperatingRegionArrayInput
-	// The count of resource discoveries associated with this IPAM.
-	ResourceDiscoveryAssociationCount pulumi.IntPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags IPAMTagArrayInput
 }
@@ -181,8 +177,8 @@ func (o IPAMOutput) PublicDefaultScopeId() pulumi.StringOutput {
 }
 
 // The count of resource discoveries associated with this IPAM.
-func (o IPAMOutput) ResourceDiscoveryAssociationCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IPAM) pulumi.IntPtrOutput { return v.ResourceDiscoveryAssociationCount }).(pulumi.IntPtrOutput)
+func (o IPAMOutput) ResourceDiscoveryAssociationCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *IPAM) pulumi.IntOutput { return v.ResourceDiscoveryAssociationCount }).(pulumi.IntOutput)
 }
 
 // The number of scopes that currently exist in this IPAM.

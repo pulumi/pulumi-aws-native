@@ -25,6 +25,7 @@ type ReplicationGroup struct {
 	CacheParameterGroupName      pulumi.StringPtrOutput                                     `pulumi:"cacheParameterGroupName"`
 	CacheSecurityGroupNames      pulumi.StringArrayOutput                                   `pulumi:"cacheSecurityGroupNames"`
 	CacheSubnetGroupName         pulumi.StringPtrOutput                                     `pulumi:"cacheSubnetGroupName"`
+	ClusterMode                  pulumi.StringPtrOutput                                     `pulumi:"clusterMode"`
 	ConfigurationEndPointAddress pulumi.StringPtrOutput                                     `pulumi:"configurationEndPointAddress"`
 	ConfigurationEndPointPort    pulumi.StringPtrOutput                                     `pulumi:"configurationEndPointPort"`
 	DataTieringEnabled           pulumi.BoolPtrOutput                                       `pulumi:"dataTieringEnabled"`
@@ -117,6 +118,7 @@ type replicationGroupArgs struct {
 	CacheParameterGroupName      *string                                           `pulumi:"cacheParameterGroupName"`
 	CacheSecurityGroupNames      []string                                          `pulumi:"cacheSecurityGroupNames"`
 	CacheSubnetGroupName         *string                                           `pulumi:"cacheSubnetGroupName"`
+	ClusterMode                  *string                                           `pulumi:"clusterMode"`
 	ConfigurationEndPointAddress *string                                           `pulumi:"configurationEndPointAddress"`
 	ConfigurationEndPointPort    *string                                           `pulumi:"configurationEndPointPort"`
 	DataTieringEnabled           *bool                                             `pulumi:"dataTieringEnabled"`
@@ -169,6 +171,7 @@ type ReplicationGroupArgs struct {
 	CacheParameterGroupName      pulumi.StringPtrInput
 	CacheSecurityGroupNames      pulumi.StringArrayInput
 	CacheSubnetGroupName         pulumi.StringPtrInput
+	ClusterMode                  pulumi.StringPtrInput
 	ConfigurationEndPointAddress pulumi.StringPtrInput
 	ConfigurationEndPointPort    pulumi.StringPtrInput
 	DataTieringEnabled           pulumi.BoolPtrInput
@@ -278,6 +281,10 @@ func (o ReplicationGroupOutput) CacheSecurityGroupNames() pulumi.StringArrayOutp
 
 func (o ReplicationGroupOutput) CacheSubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.CacheSubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationGroupOutput) ClusterMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.ClusterMode }).(pulumi.StringPtrOutput)
 }
 
 func (o ReplicationGroupOutput) ConfigurationEndPointAddress() pulumi.StringPtrOutput {

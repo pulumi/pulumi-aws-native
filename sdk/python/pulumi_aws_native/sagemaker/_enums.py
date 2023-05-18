@@ -34,6 +34,8 @@ __all__ = [
     'ModelCardBarChartMetricType',
     'ModelCardLinearGraphMetricType',
     'ModelCardMatrixMetricType',
+    'ModelCardModelPackageDetailsModelApprovalStatus',
+    'ModelCardModelPackageDetailsModelPackageStatus',
     'ModelCardObjectiveFunctionFunctionPropertiesFunction',
     'ModelCardProcessingStatus',
     'ModelCardRiskRating',
@@ -422,6 +424,26 @@ class ModelCardLinearGraphMetricType(str, Enum):
 
 class ModelCardMatrixMetricType(str, Enum):
     MATRIX = "matrix"
+
+
+class ModelCardModelPackageDetailsModelApprovalStatus(str, Enum):
+    """
+    Current approval status of model package
+    """
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+    PENDING_MANUAL_APPROVAL = "PendingManualApproval"
+
+
+class ModelCardModelPackageDetailsModelPackageStatus(str, Enum):
+    """
+    Current status of model package
+    """
+    PENDING = "Pending"
+    IN_PROGRESS = "InProgress"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+    DELETING = "Deleting"
 
 
 class ModelCardObjectiveFunctionFunctionPropertiesFunction(str, Enum):

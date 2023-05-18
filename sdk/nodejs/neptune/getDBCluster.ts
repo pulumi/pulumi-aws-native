@@ -39,6 +39,10 @@ export interface GetDBClusterResult {
      */
     readonly clusterResourceId?: string;
     /**
+     * A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+     */
+    readonly copyTagsToSnapshot?: boolean;
+    /**
      * Provides the name of the DB cluster parameter group.
      */
     readonly dBClusterParameterGroupName?: string;
@@ -54,6 +58,10 @@ export interface GetDBClusterResult {
      * The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
      */
     readonly endpoint?: string;
+    /**
+     * Indicates the database engine version.
+     */
+    readonly engineVersion?: string;
     /**
      * True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
      */
@@ -74,6 +82,10 @@ export interface GetDBClusterResult {
      * The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
      */
     readonly readEndpoint?: string;
+    /**
+     * Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+     */
+    readonly serverlessScalingConfiguration?: outputs.neptune.DBClusterServerlessScalingConfiguration;
     /**
      * The tags assigned to this cluster.
      */

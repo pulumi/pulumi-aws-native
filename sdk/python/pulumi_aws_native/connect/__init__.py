@@ -18,6 +18,7 @@ from .get_instance import *
 from .get_instance_storage_config import *
 from .get_integration_association import *
 from .get_phone_number import *
+from .get_prompt import *
 from .get_quick_connect import *
 from .get_rule import *
 from .get_security_key import *
@@ -29,6 +30,7 @@ from .instance import *
 from .instance_storage_config import *
 from .integration_association import *
 from .phone_number import *
+from .prompt import *
 from .quick_connect import *
 from .rule import *
 from .security_key import *

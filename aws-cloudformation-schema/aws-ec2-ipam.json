@@ -96,7 +96,7 @@
   "additionalProperties" : false,
   "required" : [ ],
   "primaryIdentifier" : [ "/properties/IpamId" ],
-  "readOnlyProperties" : [ "/properties/IpamId", "/properties/Arn", "/properties/PublicDefaultScopeId", "/properties/PrivateDefaultScopeId", "/properties/ScopeCount" ],
+  "readOnlyProperties" : [ "/properties/IpamId", "/properties/Arn", "/properties/PublicDefaultScopeId", "/properties/PrivateDefaultScopeId", "/properties/ScopeCount", "/properties/ResourceDiscoveryAssociationCount" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateIpam", "iam:CreateServiceLinkedRole", "ec2:CreateTags" ]

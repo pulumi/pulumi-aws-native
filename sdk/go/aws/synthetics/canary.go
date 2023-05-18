@@ -36,7 +36,7 @@ type Canary struct {
 	// Frequency to run your canaries
 	Schedule CanaryScheduleOutput `pulumi:"schedule"`
 	// Runs canary if set to True. Default is False
-	StartCanaryAfterCreation pulumi.BoolOutput `pulumi:"startCanaryAfterCreation"`
+	StartCanaryAfterCreation pulumi.BoolPtrOutput `pulumi:"startCanaryAfterCreation"`
 	// State of the canary
 	State pulumi.StringOutput `pulumi:"state"`
 	// Retention period of successful canary runs represented in number of days
@@ -69,9 +69,6 @@ func NewCanary(ctx *pulumi.Context,
 	}
 	if args.Schedule == nil {
 		return nil, errors.New("invalid value for required argument 'Schedule'")
-	}
-	if args.StartCanaryAfterCreation == nil {
-		return nil, errors.New("invalid value for required argument 'StartCanaryAfterCreation'")
 	}
 	var resource Canary
 	err := ctx.RegisterResource("aws-native:synthetics:Canary", name, args, &resource, opts...)
@@ -126,7 +123,7 @@ type canaryArgs struct {
 	// Frequency to run your canaries
 	Schedule CanarySchedule `pulumi:"schedule"`
 	// Runs canary if set to True. Default is False
-	StartCanaryAfterCreation bool `pulumi:"startCanaryAfterCreation"`
+	StartCanaryAfterCreation *bool `pulumi:"startCanaryAfterCreation"`
 	// Retention period of successful canary runs represented in number of days
 	SuccessRetentionPeriod *int        `pulumi:"successRetentionPeriod"`
 	Tags                   []CanaryTag `pulumi:"tags"`
@@ -159,7 +156,7 @@ type CanaryArgs struct {
 	// Frequency to run your canaries
 	Schedule CanaryScheduleInput
 	// Runs canary if set to True. Default is False
-	StartCanaryAfterCreation pulumi.BoolInput
+	StartCanaryAfterCreation pulumi.BoolPtrInput
 	// Retention period of successful canary runs represented in number of days
 	SuccessRetentionPeriod pulumi.IntPtrInput
 	Tags                   CanaryTagArrayInput
@@ -257,8 +254,8 @@ func (o CanaryOutput) Schedule() CanaryScheduleOutput {
 }
 
 // Runs canary if set to True. Default is False
-func (o CanaryOutput) StartCanaryAfterCreation() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Canary) pulumi.BoolOutput { return v.StartCanaryAfterCreation }).(pulumi.BoolOutput)
+func (o CanaryOutput) StartCanaryAfterCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.BoolPtrOutput { return v.StartCanaryAfterCreation }).(pulumi.BoolPtrOutput)
 }
 
 // State of the canary

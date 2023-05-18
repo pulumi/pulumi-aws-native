@@ -11,6 +11,7 @@ export type ClusterDataTieringStatus = (typeof ClusterDataTieringStatus)[keyof t
 
 export const UserAuthenticationModePropertiesType = {
     Password: "password",
+    Iam: "iam",
 } as const;
 
 /**

@@ -80,7 +80,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * Runs canary if set to True. Default is False
      */
-    public readonly startCanaryAfterCreation!: pulumi.Output<boolean>;
+    public readonly startCanaryAfterCreation!: pulumi.Output<boolean | undefined>;
     /**
      * State of the canary
      */
@@ -124,9 +124,6 @@ export class Canary extends pulumi.CustomResource {
             }
             if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
-            }
-            if ((!args || args.startCanaryAfterCreation === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'startCanaryAfterCreation'");
             }
             resourceInputs["artifactConfig"] = args ? args.artifactConfig : undefined;
             resourceInputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
@@ -214,7 +211,7 @@ export interface CanaryArgs {
     /**
      * Runs canary if set to True. Default is False
      */
-    startCanaryAfterCreation: pulumi.Input<boolean>;
+    startCanaryAfterCreation?: pulumi.Input<boolean>;
     /**
      * Retention period of successful canary runs represented in number of days
      */

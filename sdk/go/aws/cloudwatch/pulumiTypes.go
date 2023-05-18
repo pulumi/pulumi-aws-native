@@ -2162,8 +2162,8 @@ func (o MetricStreamStatisticsMetricArrayOutput) Index(i pulumi.IntInput) Metric
 type MetricStreamTag struct {
 	// A unique identifier for the tag.
 	Key string `pulumi:"key"`
-	// An optional string, which you can use to describe or define the tag.
-	Value *string `pulumi:"value"`
+	// String which you can use to describe or define the tag.
+	Value string `pulumi:"value"`
 }
 
 // MetricStreamTagInput is an input type that accepts MetricStreamTagArgs and MetricStreamTagOutput values.
@@ -2181,8 +2181,8 @@ type MetricStreamTagInput interface {
 type MetricStreamTagArgs struct {
 	// A unique identifier for the tag.
 	Key pulumi.StringInput `pulumi:"key"`
-	// An optional string, which you can use to describe or define the tag.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	// String which you can use to describe or define the tag.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (MetricStreamTagArgs) ElementType() reflect.Type {
@@ -2242,9 +2242,9 @@ func (o MetricStreamTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// An optional string, which you can use to describe or define the tag.
-func (o MetricStreamTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MetricStreamTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+// String which you can use to describe or define the tag.
+func (o MetricStreamTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type MetricStreamTagArrayOutput struct{ *pulumi.OutputState }

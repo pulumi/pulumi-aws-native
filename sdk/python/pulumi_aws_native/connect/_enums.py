@@ -239,6 +239,7 @@ class RuleTriggerEventSourceEventSourceName(str, Enum):
     """
     The name of event source.
     """
+    ON_CONTACT_EVALUATION_SUBMIT = "OnContactEvaluationSubmit"
     ON_POST_CALL_ANALYSIS_AVAILABLE = "OnPostCallAnalysisAvailable"
     ON_REAL_TIME_CALL_ANALYSIS_AVAILABLE = "OnRealTimeCallAnalysisAvailable"
     ON_POST_CHAT_ANALYSIS_AVAILABLE = "OnPostChatAnalysisAvailable"

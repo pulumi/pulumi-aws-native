@@ -59,9 +59,21 @@ export interface GetFlowSourceResult {
      */
     readonly maxLatency?: number;
     /**
+     * The minimum latency in milliseconds.
+     */
+    readonly minLatency?: number;
+    /**
      * The protocol that is used by the source.
      */
     readonly protocol?: enums.mediaconnect.FlowSourceProtocol;
+    /**
+     * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+     */
+    readonly senderControlPort?: number;
+    /**
+     * The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+     */
+    readonly senderIpAddress?: string;
     /**
      * The ARN of the source.
      */
@@ -70,6 +82,14 @@ export interface GetFlowSourceResult {
      * The port that the flow will be listening on for incoming content.(ReadOnly)
      */
     readonly sourceIngestPort?: string;
+    /**
+     * Source IP or domain name for SRT-caller protocol.
+     */
+    readonly sourceListenerAddress?: string;
+    /**
+     * Source port for SRT-caller protocol.
+     */
+    readonly sourceListenerPort?: number;
     /**
      * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
      */

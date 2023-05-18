@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetReplicationGroupResult:
-    def __init__(__self__, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, configuration_end_point_address=None, configuration_end_point_port=None, engine_version=None, ip_discovery=None, log_delivery_configurations=None, multi_az_enabled=None, node_group_configuration=None, notification_topic_arn=None, num_cache_clusters=None, num_node_groups=None, preferred_maintenance_window=None, primary_cluster_id=None, primary_end_point_address=None, primary_end_point_port=None, read_end_point_addresses=None, read_end_point_addresses_list=None, read_end_point_ports=None, read_end_point_ports_list=None, reader_end_point_address=None, reader_end_point_port=None, replication_group_description=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, snapshotting_cluster_id=None, tags=None, transit_encryption_enabled=None, transit_encryption_mode=None, user_group_ids=None):
+    def __init__(__self__, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, cluster_mode=None, configuration_end_point_address=None, configuration_end_point_port=None, engine_version=None, ip_discovery=None, log_delivery_configurations=None, multi_az_enabled=None, node_group_configuration=None, notification_topic_arn=None, num_cache_clusters=None, num_node_groups=None, preferred_maintenance_window=None, primary_cluster_id=None, primary_end_point_address=None, primary_end_point_port=None, read_end_point_addresses=None, read_end_point_addresses_list=None, read_end_point_ports=None, read_end_point_ports_list=None, reader_end_point_address=None, reader_end_point_port=None, replication_group_description=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, snapshotting_cluster_id=None, tags=None, transit_encryption_enabled=None, transit_encryption_mode=None, user_group_ids=None):
         if auth_token and not isinstance(auth_token, str):
             raise TypeError("Expected argument 'auth_token' to be a str")
         pulumi.set(__self__, "auth_token", auth_token)
@@ -38,6 +38,9 @@ class GetReplicationGroupResult:
         if cache_security_group_names and not isinstance(cache_security_group_names, list):
             raise TypeError("Expected argument 'cache_security_group_names' to be a list")
         pulumi.set(__self__, "cache_security_group_names", cache_security_group_names)
+        if cluster_mode and not isinstance(cluster_mode, str):
+            raise TypeError("Expected argument 'cluster_mode' to be a str")
+        pulumi.set(__self__, "cluster_mode", cluster_mode)
         if configuration_end_point_address and not isinstance(configuration_end_point_address, str):
             raise TypeError("Expected argument 'configuration_end_point_address' to be a str")
         pulumi.set(__self__, "configuration_end_point_address", configuration_end_point_address)
@@ -155,6 +158,11 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="cacheSecurityGroupNames")
     def cache_security_group_names(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "cache_security_group_names")
+
+    @property
+    @pulumi.getter(name="clusterMode")
+    def cluster_mode(self) -> Optional[str]:
+        return pulumi.get(self, "cluster_mode")
 
     @property
     @pulumi.getter(name="configurationEndPointAddress")
@@ -314,6 +322,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             cache_node_type=self.cache_node_type,
             cache_parameter_group_name=self.cache_parameter_group_name,
             cache_security_group_names=self.cache_security_group_names,
+            cluster_mode=self.cluster_mode,
             configuration_end_point_address=self.configuration_end_point_address,
             configuration_end_point_port=self.configuration_end_point_port,
             engine_version=self.engine_version,
@@ -362,6 +371,7 @@ def get_replication_group(replication_group_id: Optional[str] = None,
         cache_node_type=__ret__.cache_node_type,
         cache_parameter_group_name=__ret__.cache_parameter_group_name,
         cache_security_group_names=__ret__.cache_security_group_names,
+        cluster_mode=__ret__.cluster_mode,
         configuration_end_point_address=__ret__.configuration_end_point_address,
         configuration_end_point_port=__ret__.configuration_end_point_port,
         engine_version=__ret__.engine_version,

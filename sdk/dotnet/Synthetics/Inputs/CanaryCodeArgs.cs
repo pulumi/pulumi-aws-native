@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         [Input("script")]
         public Input<string>? Script { get; set; }
 
+        [Input("sourceLocationArn")]
+        public Input<string>? SourceLocationArn { get; set; }
+
         public CanaryCodeArgs()
         {
         }

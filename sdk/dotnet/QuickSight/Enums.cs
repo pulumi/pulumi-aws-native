@@ -9352,6 +9352,598 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct TopicAuthorSpecifiedAggregation : IEquatable<TopicAuthorSpecifiedAggregation>
+    {
+        private readonly string _value;
+
+        private TopicAuthorSpecifiedAggregation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicAuthorSpecifiedAggregation Count { get; } = new TopicAuthorSpecifiedAggregation("COUNT");
+        public static TopicAuthorSpecifiedAggregation DistinctCount { get; } = new TopicAuthorSpecifiedAggregation("DISTINCT_COUNT");
+        public static TopicAuthorSpecifiedAggregation Min { get; } = new TopicAuthorSpecifiedAggregation("MIN");
+        public static TopicAuthorSpecifiedAggregation Max { get; } = new TopicAuthorSpecifiedAggregation("MAX");
+        public static TopicAuthorSpecifiedAggregation Median { get; } = new TopicAuthorSpecifiedAggregation("MEDIAN");
+        public static TopicAuthorSpecifiedAggregation Sum { get; } = new TopicAuthorSpecifiedAggregation("SUM");
+        public static TopicAuthorSpecifiedAggregation Average { get; } = new TopicAuthorSpecifiedAggregation("AVERAGE");
+        public static TopicAuthorSpecifiedAggregation Stdev { get; } = new TopicAuthorSpecifiedAggregation("STDEV");
+        public static TopicAuthorSpecifiedAggregation Stdevp { get; } = new TopicAuthorSpecifiedAggregation("STDEVP");
+        public static TopicAuthorSpecifiedAggregation Var { get; } = new TopicAuthorSpecifiedAggregation("VAR");
+        public static TopicAuthorSpecifiedAggregation Varp { get; } = new TopicAuthorSpecifiedAggregation("VARP");
+        public static TopicAuthorSpecifiedAggregation Percentile { get; } = new TopicAuthorSpecifiedAggregation("PERCENTILE");
+
+        public static bool operator ==(TopicAuthorSpecifiedAggregation left, TopicAuthorSpecifiedAggregation right) => left.Equals(right);
+        public static bool operator !=(TopicAuthorSpecifiedAggregation left, TopicAuthorSpecifiedAggregation right) => !left.Equals(right);
+
+        public static explicit operator string(TopicAuthorSpecifiedAggregation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicAuthorSpecifiedAggregation other && Equals(other);
+        public bool Equals(TopicAuthorSpecifiedAggregation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicCategoryFilterFunction : IEquatable<TopicCategoryFilterFunction>
+    {
+        private readonly string _value;
+
+        private TopicCategoryFilterFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicCategoryFilterFunction Exact { get; } = new TopicCategoryFilterFunction("EXACT");
+        public static TopicCategoryFilterFunction Contains { get; } = new TopicCategoryFilterFunction("CONTAINS");
+
+        public static bool operator ==(TopicCategoryFilterFunction left, TopicCategoryFilterFunction right) => left.Equals(right);
+        public static bool operator !=(TopicCategoryFilterFunction left, TopicCategoryFilterFunction right) => !left.Equals(right);
+
+        public static explicit operator string(TopicCategoryFilterFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicCategoryFilterFunction other && Equals(other);
+        public bool Equals(TopicCategoryFilterFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicCategoryFilterType : IEquatable<TopicCategoryFilterType>
+    {
+        private readonly string _value;
+
+        private TopicCategoryFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicCategoryFilterType CustomFilter { get; } = new TopicCategoryFilterType("CUSTOM_FILTER");
+        public static TopicCategoryFilterType CustomFilterList { get; } = new TopicCategoryFilterType("CUSTOM_FILTER_LIST");
+        public static TopicCategoryFilterType FilterList { get; } = new TopicCategoryFilterType("FILTER_LIST");
+
+        public static bool operator ==(TopicCategoryFilterType left, TopicCategoryFilterType right) => left.Equals(right);
+        public static bool operator !=(TopicCategoryFilterType left, TopicCategoryFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(TopicCategoryFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicCategoryFilterType other && Equals(other);
+        public bool Equals(TopicCategoryFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicColumnDataRole : IEquatable<TopicColumnDataRole>
+    {
+        private readonly string _value;
+
+        private TopicColumnDataRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicColumnDataRole Dimension { get; } = new TopicColumnDataRole("DIMENSION");
+        public static TopicColumnDataRole Measure { get; } = new TopicColumnDataRole("MEASURE");
+
+        public static bool operator ==(TopicColumnDataRole left, TopicColumnDataRole right) => left.Equals(right);
+        public static bool operator !=(TopicColumnDataRole left, TopicColumnDataRole right) => !left.Equals(right);
+
+        public static explicit operator string(TopicColumnDataRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicColumnDataRole other && Equals(other);
+        public bool Equals(TopicColumnDataRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicColumnOrderingType : IEquatable<TopicColumnOrderingType>
+    {
+        private readonly string _value;
+
+        private TopicColumnOrderingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicColumnOrderingType GreaterIsBetter { get; } = new TopicColumnOrderingType("GREATER_IS_BETTER");
+        public static TopicColumnOrderingType LesserIsBetter { get; } = new TopicColumnOrderingType("LESSER_IS_BETTER");
+        public static TopicColumnOrderingType Specified { get; } = new TopicColumnOrderingType("SPECIFIED");
+
+        public static bool operator ==(TopicColumnOrderingType left, TopicColumnOrderingType right) => left.Equals(right);
+        public static bool operator !=(TopicColumnOrderingType left, TopicColumnOrderingType right) => !left.Equals(right);
+
+        public static explicit operator string(TopicColumnOrderingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicColumnOrderingType other && Equals(other);
+        public bool Equals(TopicColumnOrderingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicConstantType : IEquatable<TopicConstantType>
+    {
+        private readonly string _value;
+
+        private TopicConstantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicConstantType Singular { get; } = new TopicConstantType("SINGULAR");
+        public static TopicConstantType Range { get; } = new TopicConstantType("RANGE");
+        public static TopicConstantType Collective { get; } = new TopicConstantType("COLLECTIVE");
+
+        public static bool operator ==(TopicConstantType left, TopicConstantType right) => left.Equals(right);
+        public static bool operator !=(TopicConstantType left, TopicConstantType right) => !left.Equals(right);
+
+        public static explicit operator string(TopicConstantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicConstantType other && Equals(other);
+        public bool Equals(TopicConstantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicDefaultAggregation : IEquatable<TopicDefaultAggregation>
+    {
+        private readonly string _value;
+
+        private TopicDefaultAggregation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicDefaultAggregation Sum { get; } = new TopicDefaultAggregation("SUM");
+        public static TopicDefaultAggregation Max { get; } = new TopicDefaultAggregation("MAX");
+        public static TopicDefaultAggregation Min { get; } = new TopicDefaultAggregation("MIN");
+        public static TopicDefaultAggregation Count { get; } = new TopicDefaultAggregation("COUNT");
+        public static TopicDefaultAggregation DistinctCount { get; } = new TopicDefaultAggregation("DISTINCT_COUNT");
+        public static TopicDefaultAggregation Average { get; } = new TopicDefaultAggregation("AVERAGE");
+
+        public static bool operator ==(TopicDefaultAggregation left, TopicDefaultAggregation right) => left.Equals(right);
+        public static bool operator !=(TopicDefaultAggregation left, TopicDefaultAggregation right) => !left.Equals(right);
+
+        public static explicit operator string(TopicDefaultAggregation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicDefaultAggregation other && Equals(other);
+        public bool Equals(TopicDefaultAggregation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicDisplayFormat : IEquatable<TopicDisplayFormat>
+    {
+        private readonly string _value;
+
+        private TopicDisplayFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicDisplayFormat Auto { get; } = new TopicDisplayFormat("AUTO");
+        public static TopicDisplayFormat Percent { get; } = new TopicDisplayFormat("PERCENT");
+        public static TopicDisplayFormat Currency { get; } = new TopicDisplayFormat("CURRENCY");
+        public static TopicDisplayFormat Number { get; } = new TopicDisplayFormat("NUMBER");
+        public static TopicDisplayFormat Date { get; } = new TopicDisplayFormat("DATE");
+        public static TopicDisplayFormat String { get; } = new TopicDisplayFormat("STRING");
+
+        public static bool operator ==(TopicDisplayFormat left, TopicDisplayFormat right) => left.Equals(right);
+        public static bool operator !=(TopicDisplayFormat left, TopicDisplayFormat right) => !left.Equals(right);
+
+        public static explicit operator string(TopicDisplayFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicDisplayFormat other && Equals(other);
+        public bool Equals(TopicDisplayFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicFilterClass : IEquatable<TopicFilterClass>
+    {
+        private readonly string _value;
+
+        private TopicFilterClass(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicFilterClass EnforcedValueFilter { get; } = new TopicFilterClass("ENFORCED_VALUE_FILTER");
+        public static TopicFilterClass ConditionalValueFilter { get; } = new TopicFilterClass("CONDITIONAL_VALUE_FILTER");
+        public static TopicFilterClass NamedValueFilter { get; } = new TopicFilterClass("NAMED_VALUE_FILTER");
+
+        public static bool operator ==(TopicFilterClass left, TopicFilterClass right) => left.Equals(right);
+        public static bool operator !=(TopicFilterClass left, TopicFilterClass right) => !left.Equals(right);
+
+        public static explicit operator string(TopicFilterClass value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicFilterClass other && Equals(other);
+        public bool Equals(TopicFilterClass other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicNamedEntityAggType : IEquatable<TopicNamedEntityAggType>
+    {
+        private readonly string _value;
+
+        private TopicNamedEntityAggType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicNamedEntityAggType Sum { get; } = new TopicNamedEntityAggType("SUM");
+        public static TopicNamedEntityAggType Min { get; } = new TopicNamedEntityAggType("MIN");
+        public static TopicNamedEntityAggType Max { get; } = new TopicNamedEntityAggType("MAX");
+        public static TopicNamedEntityAggType Count { get; } = new TopicNamedEntityAggType("COUNT");
+        public static TopicNamedEntityAggType Average { get; } = new TopicNamedEntityAggType("AVERAGE");
+        public static TopicNamedEntityAggType DistinctCount { get; } = new TopicNamedEntityAggType("DISTINCT_COUNT");
+        public static TopicNamedEntityAggType Stdev { get; } = new TopicNamedEntityAggType("STDEV");
+        public static TopicNamedEntityAggType Stdevp { get; } = new TopicNamedEntityAggType("STDEVP");
+        public static TopicNamedEntityAggType Var { get; } = new TopicNamedEntityAggType("VAR");
+        public static TopicNamedEntityAggType Varp { get; } = new TopicNamedEntityAggType("VARP");
+        public static TopicNamedEntityAggType Percentile { get; } = new TopicNamedEntityAggType("PERCENTILE");
+        public static TopicNamedEntityAggType Median { get; } = new TopicNamedEntityAggType("MEDIAN");
+        public static TopicNamedEntityAggType Custom { get; } = new TopicNamedEntityAggType("CUSTOM");
+
+        public static bool operator ==(TopicNamedEntityAggType left, TopicNamedEntityAggType right) => left.Equals(right);
+        public static bool operator !=(TopicNamedEntityAggType left, TopicNamedEntityAggType right) => !left.Equals(right);
+
+        public static explicit operator string(TopicNamedEntityAggType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicNamedEntityAggType other && Equals(other);
+        public bool Equals(TopicNamedEntityAggType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicNamedFilterAggType : IEquatable<TopicNamedFilterAggType>
+    {
+        private readonly string _value;
+
+        private TopicNamedFilterAggType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicNamedFilterAggType NoAggregation { get; } = new TopicNamedFilterAggType("NO_AGGREGATION");
+        public static TopicNamedFilterAggType Sum { get; } = new TopicNamedFilterAggType("SUM");
+        public static TopicNamedFilterAggType Average { get; } = new TopicNamedFilterAggType("AVERAGE");
+        public static TopicNamedFilterAggType Count { get; } = new TopicNamedFilterAggType("COUNT");
+        public static TopicNamedFilterAggType DistinctCount { get; } = new TopicNamedFilterAggType("DISTINCT_COUNT");
+        public static TopicNamedFilterAggType Max { get; } = new TopicNamedFilterAggType("MAX");
+        public static TopicNamedFilterAggType Median { get; } = new TopicNamedFilterAggType("MEDIAN");
+        public static TopicNamedFilterAggType Min { get; } = new TopicNamedFilterAggType("MIN");
+        public static TopicNamedFilterAggType Stdev { get; } = new TopicNamedFilterAggType("STDEV");
+        public static TopicNamedFilterAggType Stdevp { get; } = new TopicNamedFilterAggType("STDEVP");
+        public static TopicNamedFilterAggType Var { get; } = new TopicNamedFilterAggType("VAR");
+        public static TopicNamedFilterAggType Varp { get; } = new TopicNamedFilterAggType("VARP");
+
+        public static bool operator ==(TopicNamedFilterAggType left, TopicNamedFilterAggType right) => left.Equals(right);
+        public static bool operator !=(TopicNamedFilterAggType left, TopicNamedFilterAggType right) => !left.Equals(right);
+
+        public static explicit operator string(TopicNamedFilterAggType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicNamedFilterAggType other && Equals(other);
+        public bool Equals(TopicNamedFilterAggType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicNamedFilterType : IEquatable<TopicNamedFilterType>
+    {
+        private readonly string _value;
+
+        private TopicNamedFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicNamedFilterType CategoryFilter { get; } = new TopicNamedFilterType("CATEGORY_FILTER");
+        public static TopicNamedFilterType NumericEqualityFilter { get; } = new TopicNamedFilterType("NUMERIC_EQUALITY_FILTER");
+        public static TopicNamedFilterType NumericRangeFilter { get; } = new TopicNamedFilterType("NUMERIC_RANGE_FILTER");
+        public static TopicNamedFilterType DateRangeFilter { get; } = new TopicNamedFilterType("DATE_RANGE_FILTER");
+        public static TopicNamedFilterType RelativeDateFilter { get; } = new TopicNamedFilterType("RELATIVE_DATE_FILTER");
+
+        public static bool operator ==(TopicNamedFilterType left, TopicNamedFilterType right) => left.Equals(right);
+        public static bool operator !=(TopicNamedFilterType left, TopicNamedFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(TopicNamedFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicNamedFilterType other && Equals(other);
+        public bool Equals(TopicNamedFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicNumberScale : IEquatable<TopicNumberScale>
+    {
+        private readonly string _value;
+
+        private TopicNumberScale(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicNumberScale None { get; } = new TopicNumberScale("NONE");
+        public static TopicNumberScale Auto { get; } = new TopicNumberScale("AUTO");
+        public static TopicNumberScale Thousands { get; } = new TopicNumberScale("THOUSANDS");
+        public static TopicNumberScale Millions { get; } = new TopicNumberScale("MILLIONS");
+        public static TopicNumberScale Billions { get; } = new TopicNumberScale("BILLIONS");
+        public static TopicNumberScale Trillions { get; } = new TopicNumberScale("TRILLIONS");
+
+        public static bool operator ==(TopicNumberScale left, TopicNumberScale right) => left.Equals(right);
+        public static bool operator !=(TopicNumberScale left, TopicNumberScale right) => !left.Equals(right);
+
+        public static explicit operator string(TopicNumberScale value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicNumberScale other && Equals(other);
+        public bool Equals(TopicNumberScale other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicNumericSeparatorSymbol : IEquatable<TopicNumericSeparatorSymbol>
+    {
+        private readonly string _value;
+
+        private TopicNumericSeparatorSymbol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicNumericSeparatorSymbol Comma { get; } = new TopicNumericSeparatorSymbol("COMMA");
+        public static TopicNumericSeparatorSymbol Dot { get; } = new TopicNumericSeparatorSymbol("DOT");
+
+        public static bool operator ==(TopicNumericSeparatorSymbol left, TopicNumericSeparatorSymbol right) => left.Equals(right);
+        public static bool operator !=(TopicNumericSeparatorSymbol left, TopicNumericSeparatorSymbol right) => !left.Equals(right);
+
+        public static explicit operator string(TopicNumericSeparatorSymbol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicNumericSeparatorSymbol other && Equals(other);
+        public bool Equals(TopicNumericSeparatorSymbol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicPropertyRole : IEquatable<TopicPropertyRole>
+    {
+        private readonly string _value;
+
+        private TopicPropertyRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicPropertyRole Primary { get; } = new TopicPropertyRole("PRIMARY");
+        public static TopicPropertyRole Id { get; } = new TopicPropertyRole("ID");
+
+        public static bool operator ==(TopicPropertyRole left, TopicPropertyRole right) => left.Equals(right);
+        public static bool operator !=(TopicPropertyRole left, TopicPropertyRole right) => !left.Equals(right);
+
+        public static explicit operator string(TopicPropertyRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicPropertyRole other && Equals(other);
+        public bool Equals(TopicPropertyRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicPropertyUsage : IEquatable<TopicPropertyUsage>
+    {
+        private readonly string _value;
+
+        private TopicPropertyUsage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicPropertyUsage Inherit { get; } = new TopicPropertyUsage("INHERIT");
+        public static TopicPropertyUsage Dimension { get; } = new TopicPropertyUsage("DIMENSION");
+        public static TopicPropertyUsage Measure { get; } = new TopicPropertyUsage("MEASURE");
+
+        public static bool operator ==(TopicPropertyUsage left, TopicPropertyUsage right) => left.Equals(right);
+        public static bool operator !=(TopicPropertyUsage left, TopicPropertyUsage right) => !left.Equals(right);
+
+        public static explicit operator string(TopicPropertyUsage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicPropertyUsage other && Equals(other);
+        public bool Equals(TopicPropertyUsage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicRelativeDateFilterFunction : IEquatable<TopicRelativeDateFilterFunction>
+    {
+        private readonly string _value;
+
+        private TopicRelativeDateFilterFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicRelativeDateFilterFunction Previous { get; } = new TopicRelativeDateFilterFunction("PREVIOUS");
+        public static TopicRelativeDateFilterFunction This { get; } = new TopicRelativeDateFilterFunction("THIS");
+        public static TopicRelativeDateFilterFunction Last { get; } = new TopicRelativeDateFilterFunction("LAST");
+        public static TopicRelativeDateFilterFunction Next { get; } = new TopicRelativeDateFilterFunction("NEXT");
+        public static TopicRelativeDateFilterFunction Now { get; } = new TopicRelativeDateFilterFunction("NOW");
+
+        public static bool operator ==(TopicRelativeDateFilterFunction left, TopicRelativeDateFilterFunction right) => left.Equals(right);
+        public static bool operator !=(TopicRelativeDateFilterFunction left, TopicRelativeDateFilterFunction right) => !left.Equals(right);
+
+        public static explicit operator string(TopicRelativeDateFilterFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicRelativeDateFilterFunction other && Equals(other);
+        public bool Equals(TopicRelativeDateFilterFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicTimeGranularity : IEquatable<TopicTimeGranularity>
+    {
+        private readonly string _value;
+
+        private TopicTimeGranularity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicTimeGranularity Second { get; } = new TopicTimeGranularity("SECOND");
+        public static TopicTimeGranularity Minute { get; } = new TopicTimeGranularity("MINUTE");
+        public static TopicTimeGranularity Hour { get; } = new TopicTimeGranularity("HOUR");
+        public static TopicTimeGranularity Day { get; } = new TopicTimeGranularity("DAY");
+        public static TopicTimeGranularity Week { get; } = new TopicTimeGranularity("WEEK");
+        public static TopicTimeGranularity Month { get; } = new TopicTimeGranularity("MONTH");
+        public static TopicTimeGranularity Quarter { get; } = new TopicTimeGranularity("QUARTER");
+        public static TopicTimeGranularity Year { get; } = new TopicTimeGranularity("YEAR");
+
+        public static bool operator ==(TopicTimeGranularity left, TopicTimeGranularity right) => left.Equals(right);
+        public static bool operator !=(TopicTimeGranularity left, TopicTimeGranularity right) => !left.Equals(right);
+
+        public static explicit operator string(TopicTimeGranularity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicTimeGranularity other && Equals(other);
+        public bool Equals(TopicTimeGranularity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TopicUndefinedSpecifiedValueType : IEquatable<TopicUndefinedSpecifiedValueType>
+    {
+        private readonly string _value;
+
+        private TopicUndefinedSpecifiedValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicUndefinedSpecifiedValueType Least { get; } = new TopicUndefinedSpecifiedValueType("LEAST");
+        public static TopicUndefinedSpecifiedValueType Most { get; } = new TopicUndefinedSpecifiedValueType("MOST");
+
+        public static bool operator ==(TopicUndefinedSpecifiedValueType left, TopicUndefinedSpecifiedValueType right) => left.Equals(right);
+        public static bool operator !=(TopicUndefinedSpecifiedValueType left, TopicUndefinedSpecifiedValueType right) => !left.Equals(right);
+
+        public static explicit operator string(TopicUndefinedSpecifiedValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicUndefinedSpecifiedValueType other && Equals(other);
+        public bool Equals(TopicUndefinedSpecifiedValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct VPCConnectionAvailabilityStatus : IEquatable<VPCConnectionAvailabilityStatus>
     {
         private readonly string _value;

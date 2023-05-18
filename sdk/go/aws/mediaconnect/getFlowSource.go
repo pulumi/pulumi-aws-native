@@ -42,12 +42,22 @@ type LookupFlowSourceResult struct {
 	MaxBitrate *int `pulumi:"maxBitrate"`
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency *int `pulumi:"maxLatency"`
+	// The minimum latency in milliseconds.
+	MinLatency *int `pulumi:"minLatency"`
 	// The protocol that is used by the source.
 	Protocol *FlowSourceProtocol `pulumi:"protocol"`
+	// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+	SenderControlPort *int `pulumi:"senderControlPort"`
+	// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+	SenderIpAddress *string `pulumi:"senderIpAddress"`
 	// The ARN of the source.
 	SourceArn *string `pulumi:"sourceArn"`
 	// The port that the flow will be listening on for incoming content.(ReadOnly)
 	SourceIngestPort *string `pulumi:"sourceIngestPort"`
+	// Source IP or domain name for SRT-caller protocol.
+	SourceListenerAddress *string `pulumi:"sourceListenerAddress"`
+	// Source port for SRT-caller protocol.
+	SourceListenerPort *int `pulumi:"sourceListenerPort"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId *string `pulumi:"streamId"`
 	// The name of the VPC Interface this Source is configured with.
@@ -132,9 +142,24 @@ func (o LookupFlowSourceResultOutput) MaxLatency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFlowSourceResult) *int { return v.MaxLatency }).(pulumi.IntPtrOutput)
 }
 
+// The minimum latency in milliseconds.
+func (o LookupFlowSourceResultOutput) MinLatency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFlowSourceResult) *int { return v.MinLatency }).(pulumi.IntPtrOutput)
+}
+
 // The protocol that is used by the source.
 func (o LookupFlowSourceResultOutput) Protocol() FlowSourceProtocolPtrOutput {
 	return o.ApplyT(func(v LookupFlowSourceResult) *FlowSourceProtocol { return v.Protocol }).(FlowSourceProtocolPtrOutput)
+}
+
+// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+func (o LookupFlowSourceResultOutput) SenderControlPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFlowSourceResult) *int { return v.SenderControlPort }).(pulumi.IntPtrOutput)
+}
+
+// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+func (o LookupFlowSourceResultOutput) SenderIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFlowSourceResult) *string { return v.SenderIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the source.
@@ -145,6 +170,16 @@ func (o LookupFlowSourceResultOutput) SourceArn() pulumi.StringPtrOutput {
 // The port that the flow will be listening on for incoming content.(ReadOnly)
 func (o LookupFlowSourceResultOutput) SourceIngestPort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowSourceResult) *string { return v.SourceIngestPort }).(pulumi.StringPtrOutput)
+}
+
+// Source IP or domain name for SRT-caller protocol.
+func (o LookupFlowSourceResultOutput) SourceListenerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFlowSourceResult) *string { return v.SourceListenerAddress }).(pulumi.StringPtrOutput)
+}
+
+// Source port for SRT-caller protocol.
+func (o LookupFlowSourceResultOutput) SourceListenerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFlowSourceResult) *int { return v.SourceListenerPort }).(pulumi.IntPtrOutput)
 }
 
 // The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.

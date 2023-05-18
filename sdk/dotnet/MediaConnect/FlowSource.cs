@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<int?> MaxLatency { get; private set; } = null!;
 
         /// <summary>
+        /// The minimum latency in milliseconds.
+        /// </summary>
+        [Output("minLatency")]
+        public Output<int?> MinLatency { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the source.
         /// </summary>
         [Output("name")]
@@ -76,6 +82,18 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<Pulumi.AwsNative.MediaConnect.FlowSourceProtocol?> Protocol { get; private set; } = null!;
 
         /// <summary>
+        /// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        /// </summary>
+        [Output("senderControlPort")]
+        public Output<int?> SenderControlPort { get; private set; } = null!;
+
+        /// <summary>
+        /// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+        /// </summary>
+        [Output("senderIpAddress")]
+        public Output<string?> SenderIpAddress { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the source.
         /// </summary>
         [Output("sourceArn")]
@@ -86,6 +104,18 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Output("sourceIngestPort")]
         public Output<string> SourceIngestPort { get; private set; } = null!;
+
+        /// <summary>
+        /// Source IP or domain name for SRT-caller protocol.
+        /// </summary>
+        [Output("sourceListenerAddress")]
+        public Output<string?> SourceListenerAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// Source port for SRT-caller protocol.
+        /// </summary>
+        [Output("sourceListenerPort")]
+        public Output<int?> SourceListenerPort { get; private set; } = null!;
 
         /// <summary>
         /// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -193,6 +223,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Input<int>? MaxLatency { get; set; }
 
         /// <summary>
+        /// The minimum latency in milliseconds.
+        /// </summary>
+        [Input("minLatency")]
+        public Input<int>? MinLatency { get; set; }
+
+        /// <summary>
         /// The name of the source.
         /// </summary>
         [Input("name")]
@@ -203,6 +239,30 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("protocol")]
         public Input<Pulumi.AwsNative.MediaConnect.FlowSourceProtocol>? Protocol { get; set; }
+
+        /// <summary>
+        /// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        /// </summary>
+        [Input("senderControlPort")]
+        public Input<int>? SenderControlPort { get; set; }
+
+        /// <summary>
+        /// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+        /// </summary>
+        [Input("senderIpAddress")]
+        public Input<string>? SenderIpAddress { get; set; }
+
+        /// <summary>
+        /// Source IP or domain name for SRT-caller protocol.
+        /// </summary>
+        [Input("sourceListenerAddress")]
+        public Input<string>? SourceListenerAddress { get; set; }
+
+        /// <summary>
+        /// Source port for SRT-caller protocol.
+        /// </summary>
+        [Input("sourceListenerPort")]
+        public Input<int>? SourceListenerPort { get; set; }
 
         /// <summary>
         /// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.

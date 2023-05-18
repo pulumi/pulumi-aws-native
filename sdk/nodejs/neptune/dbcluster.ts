@@ -54,6 +54,10 @@ export class DBCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
     /**
+     * A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+     */
+    public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
+    /**
      * The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
      */
     public readonly dBClusterIdentifier!: pulumi.Output<string | undefined>;
@@ -61,6 +65,10 @@ export class DBCluster extends pulumi.CustomResource {
      * Provides the name of the DB cluster parameter group.
      */
     public readonly dBClusterParameterGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+     */
+    public readonly dBInstanceParameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
      */
@@ -122,6 +130,10 @@ export class DBCluster extends pulumi.CustomResource {
      */
     public readonly restoreType!: pulumi.Output<string | undefined>;
     /**
+     * Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+     */
+    public readonly serverlessScalingConfiguration!: pulumi.Output<outputs.neptune.DBClusterServerlessScalingConfiguration | undefined>;
+    /**
      * Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
      *
      * After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
@@ -176,8 +188,10 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["associatedRoles"] = args ? args.associatedRoles : undefined;
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
+            resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
             resourceInputs["dBClusterParameterGroupName"] = args ? args.dBClusterParameterGroupName : undefined;
+            resourceInputs["dBInstanceParameterGroupName"] = args ? args.dBInstanceParameterGroupName : undefined;
             resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
@@ -188,6 +202,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["restoreToTime"] = args ? args.restoreToTime : undefined;
             resourceInputs["restoreType"] = args ? args.restoreType : undefined;
+            resourceInputs["serverlessScalingConfiguration"] = args ? args.serverlessScalingConfiguration : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
@@ -203,8 +218,10 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
+            resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
             resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
             resourceInputs["dBClusterParameterGroupName"] = undefined /*out*/;
+            resourceInputs["dBInstanceParameterGroupName"] = undefined /*out*/;
             resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["enableCloudwatchLogsExports"] = undefined /*out*/;
@@ -218,6 +235,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["readEndpoint"] = undefined /*out*/;
             resourceInputs["restoreToTime"] = undefined /*out*/;
             resourceInputs["restoreType"] = undefined /*out*/;
+            resourceInputs["serverlessScalingConfiguration"] = undefined /*out*/;
             resourceInputs["snapshotIdentifier"] = undefined /*out*/;
             resourceInputs["sourceDBClusterIdentifier"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
@@ -247,6 +265,10 @@ export interface DBClusterArgs {
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
+     * A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+     */
+    copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
      * The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
      */
     dBClusterIdentifier?: pulumi.Input<string>;
@@ -254,6 +276,10 @@ export interface DBClusterArgs {
      * Provides the name of the DB cluster parameter group.
      */
     dBClusterParameterGroupName?: pulumi.Input<string>;
+    /**
+     * The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+     */
+    dBInstanceParameterGroupName?: pulumi.Input<string>;
     /**
      * Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
      */
@@ -302,6 +328,10 @@ export interface DBClusterArgs {
      * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
      */
     restoreType?: pulumi.Input<string>;
+    /**
+     * Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+     */
+    serverlessScalingConfiguration?: pulumi.Input<inputs.neptune.DBClusterServerlessScalingConfigurationArgs>;
     /**
      * Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
      *

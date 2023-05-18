@@ -22,19 +22,28 @@ namespace Pulumi.AwsNative.SimSpaceWeaver
         public Output<string> DescribePayload { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum running time of the simulation.
+        /// </summary>
+        [Output("maximumDuration")]
+        public Output<string?> MaximumDuration { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the simulation.
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Role ARN.
         /// </summary>
         [Output("roleArn")]
-        public Output<string?> RoleArn { get; private set; } = null!;
+        public Output<string> RoleArn { get; private set; } = null!;
 
         [Output("schemaS3Location")]
         public Output<Outputs.SimulationS3Location?> SchemaS3Location { get; private set; } = null!;
+
+        [Output("snapshotS3Location")]
+        public Output<Outputs.SimulationS3Location?> SnapshotS3Location { get; private set; } = null!;
 
 
         /// <summary>
@@ -44,7 +53,7 @@ namespace Pulumi.AwsNative.SimSpaceWeaver
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Simulation(string name, SimulationArgs? args = null, CustomResourceOptions? options = null)
+        public Simulation(string name, SimulationArgs args, CustomResourceOptions? options = null)
             : base("aws-native:simspaceweaver:Simulation", name, args ?? new SimulationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -82,6 +91,12 @@ namespace Pulumi.AwsNative.SimSpaceWeaver
     public sealed class SimulationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The maximum running time of the simulation.
+        /// </summary>
+        [Input("maximumDuration")]
+        public Input<string>? MaximumDuration { get; set; }
+
+        /// <summary>
         /// The name of the simulation.
         /// </summary>
         [Input("name")]
@@ -90,11 +105,14 @@ namespace Pulumi.AwsNative.SimSpaceWeaver
         /// <summary>
         /// Role ARN.
         /// </summary>
-        [Input("roleArn")]
-        public Input<string>? RoleArn { get; set; }
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
         [Input("schemaS3Location")]
         public Input<Inputs.SimulationS3LocationArgs>? SchemaS3Location { get; set; }
+
+        [Input("snapshotS3Location")]
+        public Input<Inputs.SimulationS3LocationArgs>? SnapshotS3Location { get; set; }
 
         public SimulationArgs()
         {

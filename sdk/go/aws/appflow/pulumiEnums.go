@@ -526,6 +526,7 @@ type ConnectorProfileOAuth2GrantType string
 const (
 	ConnectorProfileOAuth2GrantTypeClientCredentials = ConnectorProfileOAuth2GrantType("CLIENT_CREDENTIALS")
 	ConnectorProfileOAuth2GrantTypeAuthorizationCode = ConnectorProfileOAuth2GrantType("AUTHORIZATION_CODE")
+	ConnectorProfileOAuth2GrantTypeJwtBearer         = ConnectorProfileOAuth2GrantType("JWT_BEARER")
 )
 
 func (ConnectorProfileOAuth2GrantType) ElementType() reflect.Type {
@@ -4890,6 +4891,171 @@ func (in *flowSlackConnectorOperatorPtr) ToFlowSlackConnectorOperatorPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSlackConnectorOperatorPtrOutput)
 }
 
+// Flow activation status for Scheduled- and Event-triggered flows
+type FlowStatus string
+
+const (
+	FlowStatusActive    = FlowStatus("Active")
+	FlowStatusSuspended = FlowStatus("Suspended")
+)
+
+func (FlowStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowStatus)(nil)).Elem()
+}
+
+func (e FlowStatus) ToFlowStatusOutput() FlowStatusOutput {
+	return pulumi.ToOutput(e).(FlowStatusOutput)
+}
+
+func (e FlowStatus) ToFlowStatusOutputWithContext(ctx context.Context) FlowStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowStatusOutput)
+}
+
+func (e FlowStatus) ToFlowStatusPtrOutput() FlowStatusPtrOutput {
+	return e.ToFlowStatusPtrOutputWithContext(context.Background())
+}
+
+func (e FlowStatus) ToFlowStatusPtrOutputWithContext(ctx context.Context) FlowStatusPtrOutput {
+	return FlowStatus(e).ToFlowStatusOutputWithContext(ctx).ToFlowStatusPtrOutputWithContext(ctx)
+}
+
+func (e FlowStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowStatusOutput struct{ *pulumi.OutputState }
+
+func (FlowStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowStatus)(nil)).Elem()
+}
+
+func (o FlowStatusOutput) ToFlowStatusOutput() FlowStatusOutput {
+	return o
+}
+
+func (o FlowStatusOutput) ToFlowStatusOutputWithContext(ctx context.Context) FlowStatusOutput {
+	return o
+}
+
+func (o FlowStatusOutput) ToFlowStatusPtrOutput() FlowStatusPtrOutput {
+	return o.ToFlowStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FlowStatusOutput) ToFlowStatusPtrOutputWithContext(ctx context.Context) FlowStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowStatus) *FlowStatus {
+		return &v
+	}).(FlowStatusPtrOutput)
+}
+
+func (o FlowStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowStatus)(nil)).Elem()
+}
+
+func (o FlowStatusPtrOutput) ToFlowStatusPtrOutput() FlowStatusPtrOutput {
+	return o
+}
+
+func (o FlowStatusPtrOutput) ToFlowStatusPtrOutputWithContext(ctx context.Context) FlowStatusPtrOutput {
+	return o
+}
+
+func (o FlowStatusPtrOutput) Elem() FlowStatusOutput {
+	return o.ApplyT(func(v *FlowStatus) FlowStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FlowStatus
+		return ret
+	}).(FlowStatusOutput)
+}
+
+func (o FlowStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowStatusInput is an input type that accepts FlowStatusArgs and FlowStatusOutput values.
+// You can construct a concrete instance of `FlowStatusInput` via:
+//
+//	FlowStatusArgs{...}
+type FlowStatusInput interface {
+	pulumi.Input
+
+	ToFlowStatusOutput() FlowStatusOutput
+	ToFlowStatusOutputWithContext(context.Context) FlowStatusOutput
+}
+
+var flowStatusPtrType = reflect.TypeOf((**FlowStatus)(nil)).Elem()
+
+type FlowStatusPtrInput interface {
+	pulumi.Input
+
+	ToFlowStatusPtrOutput() FlowStatusPtrOutput
+	ToFlowStatusPtrOutputWithContext(context.Context) FlowStatusPtrOutput
+}
+
+type flowStatusPtr string
+
+func FlowStatusPtr(v string) FlowStatusPtrInput {
+	return (*flowStatusPtr)(&v)
+}
+
+func (*flowStatusPtr) ElementType() reflect.Type {
+	return flowStatusPtrType
+}
+
+func (in *flowStatusPtr) ToFlowStatusPtrOutput() FlowStatusPtrOutput {
+	return pulumi.ToOutput(in).(FlowStatusPtrOutput)
+}
+
+func (in *flowStatusPtr) ToFlowStatusPtrOutputWithContext(ctx context.Context) FlowStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowStatusPtrOutput)
+}
+
 type FlowTaskType string
 
 const (
@@ -5985,6 +6151,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSingularConnectorOperatorPtrInput)(nil)).Elem(), FlowSingularConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSlackConnectorOperatorInput)(nil)).Elem(), FlowSlackConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSlackConnectorOperatorPtrInput)(nil)).Elem(), FlowSlackConnectorOperator("PROJECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowStatusInput)(nil)).Elem(), FlowStatus("Active"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowStatusPtrInput)(nil)).Elem(), FlowStatus("Active"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTaskTypeInput)(nil)).Elem(), FlowTaskType("Arithmetic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTaskTypePtrInput)(nil)).Elem(), FlowTaskType("Arithmetic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTrendmicroConnectorOperatorInput)(nil)).Elem(), FlowTrendmicroConnectorOperator("PROJECTION"))
@@ -6054,6 +6222,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowSingularConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FlowSlackConnectorOperatorOutput{})
 	pulumi.RegisterOutputType(FlowSlackConnectorOperatorPtrOutput{})
+	pulumi.RegisterOutputType(FlowStatusOutput{})
+	pulumi.RegisterOutputType(FlowStatusPtrOutput{})
 	pulumi.RegisterOutputType(FlowTaskTypeOutput{})
 	pulumi.RegisterOutputType(FlowTaskTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowTrendmicroConnectorOperatorOutput{})

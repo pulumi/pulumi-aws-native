@@ -16,12 +16,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class FlowTriggerConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
-        /// </summary>
-        [Input("activateFlowOnCreate")]
-        public Input<bool>? ActivateFlowOnCreate { get; set; }
-
-        /// <summary>
         /// Details required based on the type of trigger
         /// </summary>
         [Input("triggerProperties")]

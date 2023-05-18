@@ -727,6 +727,7 @@ namespace Pulumi.AwsNative.Connect
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static RuleTriggerEventSourceEventSourceName OnContactEvaluationSubmit { get; } = new RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit");
         public static RuleTriggerEventSourceEventSourceName OnPostCallAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable");
         public static RuleTriggerEventSourceEventSourceName OnRealTimeCallAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnRealTimeCallAnalysisAvailable");
         public static RuleTriggerEventSourceEventSourceName OnPostChatAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnPostChatAnalysisAvailable");

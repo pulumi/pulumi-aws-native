@@ -1698,7 +1698,7 @@ func (o FlowSourceTypePtrOutput) WhitelistCidr() pulumi.StringPtrOutput {
 // Information about the encryption of the flow.
 type FlowSourceEncryption struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm FlowSourceEncryptionAlgorithm `pulumi:"algorithm"`
+	Algorithm *FlowSourceEncryptionAlgorithm `pulumi:"algorithm"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -1731,7 +1731,7 @@ type FlowSourceEncryptionInput interface {
 // Information about the encryption of the flow.
 type FlowSourceEncryptionArgs struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm FlowSourceEncryptionAlgorithmInput `pulumi:"algorithm"`
+	Algorithm FlowSourceEncryptionAlgorithmPtrInput `pulumi:"algorithm"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -1829,8 +1829,8 @@ func (o FlowSourceEncryptionOutput) ToFlowSourceEncryptionPtrOutputWithContext(c
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-func (o FlowSourceEncryptionOutput) Algorithm() FlowSourceEncryptionAlgorithmOutput {
-	return o.ApplyT(func(v FlowSourceEncryption) FlowSourceEncryptionAlgorithm { return v.Algorithm }).(FlowSourceEncryptionAlgorithmOutput)
+func (o FlowSourceEncryptionOutput) Algorithm() FlowSourceEncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v FlowSourceEncryption) *FlowSourceEncryptionAlgorithm { return v.Algorithm }).(FlowSourceEncryptionAlgorithmPtrOutput)
 }
 
 // A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -1903,7 +1903,7 @@ func (o FlowSourceEncryptionPtrOutput) Algorithm() FlowSourceEncryptionAlgorithm
 		if v == nil {
 			return nil
 		}
-		return &v.Algorithm
+		return v.Algorithm
 	}).(FlowSourceEncryptionAlgorithmPtrOutput)
 }
 

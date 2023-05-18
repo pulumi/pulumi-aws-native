@@ -2647,6 +2647,199 @@ export const ThemeType = {
 
 export type ThemeType = (typeof ThemeType)[keyof typeof ThemeType];
 
+export const TopicAuthorSpecifiedAggregation = {
+    Count: "COUNT",
+    DistinctCount: "DISTINCT_COUNT",
+    Min: "MIN",
+    Max: "MAX",
+    Median: "MEDIAN",
+    Sum: "SUM",
+    Average: "AVERAGE",
+    Stdev: "STDEV",
+    Stdevp: "STDEVP",
+    Var: "VAR",
+    Varp: "VARP",
+    Percentile: "PERCENTILE",
+} as const;
+
+export type TopicAuthorSpecifiedAggregation = (typeof TopicAuthorSpecifiedAggregation)[keyof typeof TopicAuthorSpecifiedAggregation];
+
+export const TopicCategoryFilterFunction = {
+    Exact: "EXACT",
+    Contains: "CONTAINS",
+} as const;
+
+export type TopicCategoryFilterFunction = (typeof TopicCategoryFilterFunction)[keyof typeof TopicCategoryFilterFunction];
+
+export const TopicCategoryFilterType = {
+    CustomFilter: "CUSTOM_FILTER",
+    CustomFilterList: "CUSTOM_FILTER_LIST",
+    FilterList: "FILTER_LIST",
+} as const;
+
+export type TopicCategoryFilterType = (typeof TopicCategoryFilterType)[keyof typeof TopicCategoryFilterType];
+
+export const TopicColumnDataRole = {
+    Dimension: "DIMENSION",
+    Measure: "MEASURE",
+} as const;
+
+export type TopicColumnDataRole = (typeof TopicColumnDataRole)[keyof typeof TopicColumnDataRole];
+
+export const TopicColumnOrderingType = {
+    GreaterIsBetter: "GREATER_IS_BETTER",
+    LesserIsBetter: "LESSER_IS_BETTER",
+    Specified: "SPECIFIED",
+} as const;
+
+export type TopicColumnOrderingType = (typeof TopicColumnOrderingType)[keyof typeof TopicColumnOrderingType];
+
+export const TopicConstantType = {
+    Singular: "SINGULAR",
+    Range: "RANGE",
+    Collective: "COLLECTIVE",
+} as const;
+
+export type TopicConstantType = (typeof TopicConstantType)[keyof typeof TopicConstantType];
+
+export const TopicDefaultAggregation = {
+    Sum: "SUM",
+    Max: "MAX",
+    Min: "MIN",
+    Count: "COUNT",
+    DistinctCount: "DISTINCT_COUNT",
+    Average: "AVERAGE",
+} as const;
+
+export type TopicDefaultAggregation = (typeof TopicDefaultAggregation)[keyof typeof TopicDefaultAggregation];
+
+export const TopicDisplayFormat = {
+    Auto: "AUTO",
+    Percent: "PERCENT",
+    Currency: "CURRENCY",
+    Number: "NUMBER",
+    Date: "DATE",
+    String: "STRING",
+} as const;
+
+export type TopicDisplayFormat = (typeof TopicDisplayFormat)[keyof typeof TopicDisplayFormat];
+
+export const TopicFilterClass = {
+    EnforcedValueFilter: "ENFORCED_VALUE_FILTER",
+    ConditionalValueFilter: "CONDITIONAL_VALUE_FILTER",
+    NamedValueFilter: "NAMED_VALUE_FILTER",
+} as const;
+
+export type TopicFilterClass = (typeof TopicFilterClass)[keyof typeof TopicFilterClass];
+
+export const TopicNamedEntityAggType = {
+    Sum: "SUM",
+    Min: "MIN",
+    Max: "MAX",
+    Count: "COUNT",
+    Average: "AVERAGE",
+    DistinctCount: "DISTINCT_COUNT",
+    Stdev: "STDEV",
+    Stdevp: "STDEVP",
+    Var: "VAR",
+    Varp: "VARP",
+    Percentile: "PERCENTILE",
+    Median: "MEDIAN",
+    Custom: "CUSTOM",
+} as const;
+
+export type TopicNamedEntityAggType = (typeof TopicNamedEntityAggType)[keyof typeof TopicNamedEntityAggType];
+
+export const TopicNamedFilterAggType = {
+    NoAggregation: "NO_AGGREGATION",
+    Sum: "SUM",
+    Average: "AVERAGE",
+    Count: "COUNT",
+    DistinctCount: "DISTINCT_COUNT",
+    Max: "MAX",
+    Median: "MEDIAN",
+    Min: "MIN",
+    Stdev: "STDEV",
+    Stdevp: "STDEVP",
+    Var: "VAR",
+    Varp: "VARP",
+} as const;
+
+export type TopicNamedFilterAggType = (typeof TopicNamedFilterAggType)[keyof typeof TopicNamedFilterAggType];
+
+export const TopicNamedFilterType = {
+    CategoryFilter: "CATEGORY_FILTER",
+    NumericEqualityFilter: "NUMERIC_EQUALITY_FILTER",
+    NumericRangeFilter: "NUMERIC_RANGE_FILTER",
+    DateRangeFilter: "DATE_RANGE_FILTER",
+    RelativeDateFilter: "RELATIVE_DATE_FILTER",
+} as const;
+
+export type TopicNamedFilterType = (typeof TopicNamedFilterType)[keyof typeof TopicNamedFilterType];
+
+export const TopicNumberScale = {
+    None: "NONE",
+    Auto: "AUTO",
+    Thousands: "THOUSANDS",
+    Millions: "MILLIONS",
+    Billions: "BILLIONS",
+    Trillions: "TRILLIONS",
+} as const;
+
+export type TopicNumberScale = (typeof TopicNumberScale)[keyof typeof TopicNumberScale];
+
+export const TopicNumericSeparatorSymbol = {
+    Comma: "COMMA",
+    Dot: "DOT",
+} as const;
+
+export type TopicNumericSeparatorSymbol = (typeof TopicNumericSeparatorSymbol)[keyof typeof TopicNumericSeparatorSymbol];
+
+export const TopicPropertyRole = {
+    Primary: "PRIMARY",
+    Id: "ID",
+} as const;
+
+export type TopicPropertyRole = (typeof TopicPropertyRole)[keyof typeof TopicPropertyRole];
+
+export const TopicPropertyUsage = {
+    Inherit: "INHERIT",
+    Dimension: "DIMENSION",
+    Measure: "MEASURE",
+} as const;
+
+export type TopicPropertyUsage = (typeof TopicPropertyUsage)[keyof typeof TopicPropertyUsage];
+
+export const TopicRelativeDateFilterFunction = {
+    Previous: "PREVIOUS",
+    This: "THIS",
+    Last: "LAST",
+    Next: "NEXT",
+    Now: "NOW",
+} as const;
+
+export type TopicRelativeDateFilterFunction = (typeof TopicRelativeDateFilterFunction)[keyof typeof TopicRelativeDateFilterFunction];
+
+export const TopicTimeGranularity = {
+    Second: "SECOND",
+    Minute: "MINUTE",
+    Hour: "HOUR",
+    Day: "DAY",
+    Week: "WEEK",
+    Month: "MONTH",
+    Quarter: "QUARTER",
+    Year: "YEAR",
+} as const;
+
+export type TopicTimeGranularity = (typeof TopicTimeGranularity)[keyof typeof TopicTimeGranularity];
+
+export const TopicUndefinedSpecifiedValueType = {
+    Least: "LEAST",
+    Most: "MOST",
+} as const;
+
+export type TopicUndefinedSpecifiedValueType = (typeof TopicUndefinedSpecifiedValueType)[keyof typeof TopicUndefinedSpecifiedValueType];
+
 export const VPCConnectionAvailabilityStatus = {
     Available: "AVAILABLE",
     Unavailable: "UNAVAILABLE",

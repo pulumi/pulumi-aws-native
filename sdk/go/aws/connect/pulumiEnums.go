@@ -3521,6 +3521,7 @@ func (in *ruleSendNotificationActionDeliveryMethodPtr) ToRuleSendNotificationAct
 type RuleTriggerEventSourceEventSourceName string
 
 const (
+	RuleTriggerEventSourceEventSourceNameOnContactEvaluationSubmit       = RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit")
 	RuleTriggerEventSourceEventSourceNameOnPostCallAnalysisAvailable     = RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable")
 	RuleTriggerEventSourceEventSourceNameOnRealTimeCallAnalysisAvailable = RuleTriggerEventSourceEventSourceName("OnRealTimeCallAnalysisAvailable")
 	RuleTriggerEventSourceEventSourceNameOnPostChatAnalysisAvailable     = RuleTriggerEventSourceEventSourceName("OnPostChatAnalysisAvailable")
@@ -4232,8 +4233,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionContentTypePtrInput)(nil)).Elem(), RuleSendNotificationActionContentType("PLAIN_TEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionDeliveryMethodInput)(nil)).Elem(), RuleSendNotificationActionDeliveryMethod("EMAIL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionDeliveryMethodPtrInput)(nil)).Elem(), RuleSendNotificationActionDeliveryMethod("EMAIL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNameInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNamePtrInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNameInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNamePtrInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypeInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypePtrInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))

@@ -138,6 +138,7 @@ AWS::Connect::Instance
 AWS::Connect::InstanceStorageConfig
 AWS::Connect::IntegrationAssociation
 AWS::Connect::PhoneNumber
+AWS::Connect::Prompt
 AWS::Connect::QuickConnect
 AWS::Connect::Rule
 AWS::Connect::SecurityKey
@@ -222,6 +223,7 @@ AWS::EC2::PrefixList
 AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet
+AWS::EC2::SubnetCidrBlock
 AWS::EC2::SubnetNetworkAclAssociation
 AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TransitGateway
@@ -553,6 +555,7 @@ AWS::QuickSight::DataSource
 AWS::QuickSight::RefreshSchedule
 AWS::QuickSight::Template
 AWS::QuickSight::Theme
+AWS::QuickSight::Topic
 AWS::QuickSight::VPCConnection
 AWS::RAM::Permission
 AWS::RDS::DBCluster

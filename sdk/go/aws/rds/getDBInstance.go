@@ -128,8 +128,6 @@ type LookupDBInstanceResult struct {
 	Tags []DBInstanceTag `pulumi:"tags"`
 	// The ARN from the key store with which to associate the instance for TDE encryption.
 	TdeCredentialArn *string `pulumi:"tdeCredentialArn"`
-	// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
-	UseDefaultProcessorFeatures *bool `pulumi:"useDefaultProcessorFeatures"`
 	// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
 	VPCSecurityGroups []string `pulumi:"vPCSecurityGroups"`
 }
@@ -411,11 +409,6 @@ func (o LookupDBInstanceResultOutput) Tags() DBInstanceTagArrayOutput {
 // The ARN from the key store with which to associate the instance for TDE encryption.
 func (o LookupDBInstanceResultOutput) TdeCredentialArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.TdeCredentialArn }).(pulumi.StringPtrOutput)
-}
-
-// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
-func (o LookupDBInstanceResultOutput) UseDefaultProcessorFeatures() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.UseDefaultProcessorFeatures }).(pulumi.BoolPtrOutput)
 }
 
 // A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.

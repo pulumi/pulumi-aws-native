@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("cacheSubnetGroupName")]
         public Output<string?> CacheSubnetGroupName { get; private set; } = null!;
 
+        [Output("clusterMode")]
+        public Output<string?> ClusterMode { get; private set; } = null!;
+
         [Output("configurationEndPointAddress")]
         public Output<string?> ConfigurationEndPointAddress { get; private set; } = null!;
 
@@ -233,6 +236,9 @@ namespace Pulumi.AwsNative.ElastiCache
 
         [Input("cacheSubnetGroupName")]
         public Input<string>? CacheSubnetGroupName { get; set; }
+
+        [Input("clusterMode")]
+        public Input<string>? ClusterMode { get; set; }
 
         [Input("configurationEndPointAddress")]
         public Input<string>? ConfigurationEndPointAddress { get; set; }

@@ -23,6 +23,8 @@ type Flow struct {
 	FlowArn pulumi.StringOutput `pulumi:"flowArn"`
 	// Name of the flow.
 	FlowName pulumi.StringOutput `pulumi:"flowName"`
+	// Flow activation status for Scheduled- and Event-triggered flows
+	FlowStatus FlowStatusPtrOutput `pulumi:"flowStatus"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 	KMSArn pulumi.StringPtrOutput `pulumi:"kMSArn"`
 	// Configurations of metadata catalog of the flow.
@@ -94,6 +96,8 @@ type flowArgs struct {
 	DestinationFlowConfigList []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigList"`
 	// Name of the flow.
 	FlowName *string `pulumi:"flowName"`
+	// Flow activation status for Scheduled- and Event-triggered flows
+	FlowStatus *FlowStatus `pulumi:"flowStatus"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 	KMSArn *string `pulumi:"kMSArn"`
 	// Configurations of metadata catalog of the flow.
@@ -116,6 +120,8 @@ type FlowArgs struct {
 	DestinationFlowConfigList FlowDestinationFlowConfigArrayInput
 	// Name of the flow.
 	FlowName pulumi.StringPtrInput
+	// Flow activation status for Scheduled- and Event-triggered flows
+	FlowStatus FlowStatusPtrInput
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 	KMSArn pulumi.StringPtrInput
 	// Configurations of metadata catalog of the flow.
@@ -185,6 +191,11 @@ func (o FlowOutput) FlowArn() pulumi.StringOutput {
 // Name of the flow.
 func (o FlowOutput) FlowName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowName }).(pulumi.StringOutput)
+}
+
+// Flow activation status for Scheduled- and Event-triggered flows
+func (o FlowOutput) FlowStatus() FlowStatusPtrOutput {
+	return o.ApplyT(func(v *Flow) FlowStatusPtrOutput { return v.FlowStatus }).(FlowStatusPtrOutput)
 }
 
 // The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.

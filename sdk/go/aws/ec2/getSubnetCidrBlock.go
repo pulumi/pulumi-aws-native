@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::SubnetCidrBlock
+// The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
 func LookupSubnetCidrBlock(ctx *pulumi.Context, args *LookupSubnetCidrBlockArgs, opts ...pulumi.InvokeOption) (*LookupSubnetCidrBlockResult, error) {
 	var rv LookupSubnetCidrBlockResult
 	err := ctx.Invoke("aws-native:ec2:getSubnetCidrBlock", args, &rv, opts...)
@@ -21,10 +21,12 @@ func LookupSubnetCidrBlock(ctx *pulumi.Context, args *LookupSubnetCidrBlockArgs,
 }
 
 type LookupSubnetCidrBlockArgs struct {
+	// Information about the IPv6 association.
 	Id string `pulumi:"id"`
 }
 
 type LookupSubnetCidrBlockResult struct {
+	// Information about the IPv6 association.
 	Id *string `pulumi:"id"`
 }
 
@@ -42,6 +44,7 @@ func LookupSubnetCidrBlockOutput(ctx *pulumi.Context, args LookupSubnetCidrBlock
 }
 
 type LookupSubnetCidrBlockOutputArgs struct {
+	// Information about the IPv6 association.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -63,6 +66,7 @@ func (o LookupSubnetCidrBlockResultOutput) ToLookupSubnetCidrBlockResultOutputWi
 	return o
 }
 
+// Information about the IPv6 association.
 func (o LookupSubnetCidrBlockResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetCidrBlockResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

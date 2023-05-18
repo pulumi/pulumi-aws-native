@@ -254,11 +254,12 @@ func (o CanaryBaseScreenshotArrayOutput) Index(i pulumi.IntInput) CanaryBaseScre
 }
 
 type CanaryCode struct {
-	Handler         string  `pulumi:"handler"`
-	S3Bucket        *string `pulumi:"s3Bucket"`
-	S3Key           *string `pulumi:"s3Key"`
-	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
-	Script          *string `pulumi:"script"`
+	Handler           string  `pulumi:"handler"`
+	S3Bucket          *string `pulumi:"s3Bucket"`
+	S3Key             *string `pulumi:"s3Key"`
+	S3ObjectVersion   *string `pulumi:"s3ObjectVersion"`
+	Script            *string `pulumi:"script"`
+	SourceLocationArn *string `pulumi:"sourceLocationArn"`
 }
 
 // CanaryCodeInput is an input type that accepts CanaryCodeArgs and CanaryCodeOutput values.
@@ -273,11 +274,12 @@ type CanaryCodeInput interface {
 }
 
 type CanaryCodeArgs struct {
-	Handler         pulumi.StringInput    `pulumi:"handler"`
-	S3Bucket        pulumi.StringPtrInput `pulumi:"s3Bucket"`
-	S3Key           pulumi.StringPtrInput `pulumi:"s3Key"`
-	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
-	Script          pulumi.StringPtrInput `pulumi:"script"`
+	Handler           pulumi.StringInput    `pulumi:"handler"`
+	S3Bucket          pulumi.StringPtrInput `pulumi:"s3Bucket"`
+	S3Key             pulumi.StringPtrInput `pulumi:"s3Key"`
+	S3ObjectVersion   pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
+	Script            pulumi.StringPtrInput `pulumi:"script"`
+	SourceLocationArn pulumi.StringPtrInput `pulumi:"sourceLocationArn"`
 }
 
 func (CanaryCodeArgs) ElementType() reflect.Type {
@@ -324,6 +326,10 @@ func (o CanaryCodeOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 
 func (o CanaryCodeOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+func (o CanaryCodeOutput) SourceLocationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanaryCode) *string { return v.SourceLocationArn }).(pulumi.StringPtrOutput)
 }
 
 type CanaryCodePtrOutput struct{ *pulumi.OutputState }
@@ -392,6 +398,15 @@ func (o CanaryCodePtrOutput) Script() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Script
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CanaryCodePtrOutput) SourceLocationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanaryCode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceLocationArn
 	}).(pulumi.StringPtrOutput)
 }
 

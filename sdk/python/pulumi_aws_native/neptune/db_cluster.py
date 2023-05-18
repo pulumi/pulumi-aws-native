@@ -19,8 +19,10 @@ class DBClusterArgs:
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterRoleArgs']]]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -31,6 +33,7 @@ class DBClusterArgs:
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
+                 serverless_scaling_configuration: Optional[pulumi.Input['DBClusterServerlessScalingConfigurationArgs']] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -42,8 +45,10 @@ class DBClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DBClusterRoleArgs']]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
         :param pulumi.Input[int] backup_retention_period: Specifies the number of days for which automatic DB snapshots are retained.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
         :param pulumi.Input[str] d_b_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         :param pulumi.Input[str] d_b_cluster_parameter_group_name: Provides the name of the DB cluster parameter group.
+        :param pulumi.Input[str] d_b_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
         :param pulumi.Input[str] d_b_subnet_group_name: Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
         :param pulumi.Input[bool] deletion_protection: Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: Specifies a list of log types that are enabled for export to CloudWatch Logs.
@@ -62,6 +67,7 @@ class DBClusterArgs:
                If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
                
                If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        :param pulumi.Input['DBClusterServerlessScalingConfigurationArgs'] serverless_scaling_configuration: Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
         :param pulumi.Input[str] snapshot_identifier: Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
                
                After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
@@ -91,10 +97,14 @@ class DBClusterArgs:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if backup_retention_period is not None:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+        if copy_tags_to_snapshot is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if d_b_cluster_identifier is not None:
             pulumi.set(__self__, "d_b_cluster_identifier", d_b_cluster_identifier)
         if d_b_cluster_parameter_group_name is not None:
             pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
+        if d_b_instance_parameter_group_name is not None:
+            pulumi.set(__self__, "d_b_instance_parameter_group_name", d_b_instance_parameter_group_name)
         if d_b_subnet_group_name is not None:
             pulumi.set(__self__, "d_b_subnet_group_name", d_b_subnet_group_name)
         if deletion_protection is not None:
@@ -115,6 +125,8 @@ class DBClusterArgs:
             pulumi.set(__self__, "restore_to_time", restore_to_time)
         if restore_type is not None:
             pulumi.set(__self__, "restore_type", restore_type)
+        if serverless_scaling_configuration is not None:
+            pulumi.set(__self__, "serverless_scaling_configuration", serverless_scaling_configuration)
         if snapshot_identifier is not None:
             pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if source_db_cluster_identifier is not None:
@@ -165,6 +177,18 @@ class DBClusterArgs:
         pulumi.set(self, "backup_retention_period", value)
 
     @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @copy_tags_to_snapshot.setter
+    def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
     @pulumi.getter(name="dBClusterIdentifier")
     def d_b_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -187,6 +211,18 @@ class DBClusterArgs:
     @d_b_cluster_parameter_group_name.setter
     def d_b_cluster_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "d_b_cluster_parameter_group_name", value)
+
+    @property
+    @pulumi.getter(name="dBInstanceParameterGroupName")
+    def d_b_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+        """
+        return pulumi.get(self, "d_b_instance_parameter_group_name")
+
+    @d_b_instance_parameter_group_name.setter
+    def d_b_instance_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "d_b_instance_parameter_group_name", value)
 
     @property
     @pulumi.getter(name="dBSubnetGroupName")
@@ -317,6 +353,18 @@ class DBClusterArgs:
         pulumi.set(self, "restore_type", value)
 
     @property
+    @pulumi.getter(name="serverlessScalingConfiguration")
+    def serverless_scaling_configuration(self) -> Optional[pulumi.Input['DBClusterServerlessScalingConfigurationArgs']]:
+        """
+        Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+        """
+        return pulumi.get(self, "serverless_scaling_configuration")
+
+    @serverless_scaling_configuration.setter
+    def serverless_scaling_configuration(self, value: Optional[pulumi.Input['DBClusterServerlessScalingConfigurationArgs']]):
+        pulumi.set(self, "serverless_scaling_configuration", value)
+
+    @property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -413,8 +461,10 @@ class DBCluster(pulumi.CustomResource):
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterRoleArgs']]]]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -425,6 +475,7 @@ class DBCluster(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
+                 serverless_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterServerlessScalingConfigurationArgs']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -440,8 +491,10 @@ class DBCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterRoleArgs']]]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
         :param pulumi.Input[int] backup_retention_period: Specifies the number of days for which automatic DB snapshots are retained.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
         :param pulumi.Input[str] d_b_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         :param pulumi.Input[str] d_b_cluster_parameter_group_name: Provides the name of the DB cluster parameter group.
+        :param pulumi.Input[str] d_b_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
         :param pulumi.Input[str] d_b_subnet_group_name: Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
         :param pulumi.Input[bool] deletion_protection: Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: Specifies a list of log types that are enabled for export to CloudWatch Logs.
@@ -460,6 +513,7 @@ class DBCluster(pulumi.CustomResource):
                If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
                
                If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+        :param pulumi.Input[pulumi.InputType['DBClusterServerlessScalingConfigurationArgs']] serverless_scaling_configuration: Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
         :param pulumi.Input[str] snapshot_identifier: Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
                
                After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
@@ -510,8 +564,10 @@ class DBCluster(pulumi.CustomResource):
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterRoleArgs']]]]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -522,6 +578,7 @@ class DBCluster(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
+                 serverless_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterServerlessScalingConfigurationArgs']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -540,8 +597,10 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["associated_roles"] = associated_roles
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["backup_retention_period"] = backup_retention_period
+            __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["d_b_cluster_identifier"] = d_b_cluster_identifier
             __props__.__dict__["d_b_cluster_parameter_group_name"] = d_b_cluster_parameter_group_name
+            __props__.__dict__["d_b_instance_parameter_group_name"] = d_b_instance_parameter_group_name
             __props__.__dict__["d_b_subnet_group_name"] = d_b_subnet_group_name
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
@@ -552,6 +611,7 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["restore_to_time"] = restore_to_time
             __props__.__dict__["restore_type"] = restore_type
+            __props__.__dict__["serverless_scaling_configuration"] = serverless_scaling_configuration
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
             __props__.__dict__["storage_encrypted"] = storage_encrypted
@@ -588,8 +648,10 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["availability_zones"] = None
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["cluster_resource_id"] = None
+        __props__.__dict__["copy_tags_to_snapshot"] = None
         __props__.__dict__["d_b_cluster_identifier"] = None
         __props__.__dict__["d_b_cluster_parameter_group_name"] = None
+        __props__.__dict__["d_b_instance_parameter_group_name"] = None
         __props__.__dict__["d_b_subnet_group_name"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["enable_cloudwatch_logs_exports"] = None
@@ -603,6 +665,7 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["read_endpoint"] = None
         __props__.__dict__["restore_to_time"] = None
         __props__.__dict__["restore_type"] = None
+        __props__.__dict__["serverless_scaling_configuration"] = None
         __props__.__dict__["snapshot_identifier"] = None
         __props__.__dict__["source_db_cluster_identifier"] = None
         __props__.__dict__["storage_encrypted"] = None
@@ -644,6 +707,14 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "cluster_resource_id")
 
     @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
     @pulumi.getter(name="dBClusterIdentifier")
     def d_b_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
@@ -658,6 +729,14 @@ class DBCluster(pulumi.CustomResource):
         Provides the name of the DB cluster parameter group.
         """
         return pulumi.get(self, "d_b_cluster_parameter_group_name")
+
+    @property
+    @pulumi.getter(name="dBInstanceParameterGroupName")
+    def d_b_instance_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+        """
+        return pulumi.get(self, "d_b_instance_parameter_group_name")
 
     @property
     @pulumi.getter(name="dBSubnetGroupName")
@@ -770,6 +849,14 @@ class DBCluster(pulumi.CustomResource):
         If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
         """
         return pulumi.get(self, "restore_type")
+
+    @property
+    @pulumi.getter(name="serverlessScalingConfiguration")
+    def serverless_scaling_configuration(self) -> pulumi.Output[Optional['outputs.DBClusterServerlessScalingConfiguration']]:
+        """
+        Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+        """
+        return pulumi.get(self, "serverless_scaling_configuration")
 
     @property
     @pulumi.getter(name="snapshotIdentifier")

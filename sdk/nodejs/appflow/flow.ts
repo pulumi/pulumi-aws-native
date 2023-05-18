@@ -54,6 +54,10 @@ export class Flow extends pulumi.CustomResource {
      */
     public readonly flowName!: pulumi.Output<string>;
     /**
+     * Flow activation status for Scheduled- and Event-triggered flows
+     */
+    public readonly flowStatus!: pulumi.Output<enums.appflow.FlowStatus | undefined>;
+    /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */
     public readonly kMSArn!: pulumi.Output<string | undefined>;
@@ -104,6 +108,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["destinationFlowConfigList"] = args ? args.destinationFlowConfigList : undefined;
             resourceInputs["flowName"] = args ? args.flowName : undefined;
+            resourceInputs["flowStatus"] = args ? args.flowStatus : undefined;
             resourceInputs["kMSArn"] = args ? args.kMSArn : undefined;
             resourceInputs["metadataCatalogConfig"] = args ? args.metadataCatalogConfig : undefined;
             resourceInputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
@@ -116,6 +121,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["destinationFlowConfigList"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["flowName"] = undefined /*out*/;
+            resourceInputs["flowStatus"] = undefined /*out*/;
             resourceInputs["kMSArn"] = undefined /*out*/;
             resourceInputs["metadataCatalogConfig"] = undefined /*out*/;
             resourceInputs["sourceFlowConfig"] = undefined /*out*/;
@@ -144,6 +150,10 @@ export interface FlowArgs {
      * Name of the flow.
      */
     flowName?: pulumi.Input<string>;
+    /**
+     * Flow activation status for Scheduled- and Event-triggered flows
+     */
+    flowStatus?: pulumi.Input<enums.appflow.FlowStatus>;
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */

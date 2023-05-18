@@ -24,8 +24,13 @@ class FlowSourceInitArgs:
                  ingest_port: Optional[pulumi.Input[int]] = None,
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
+                 min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
+                 sender_control_port: Optional[pulumi.Input[int]] = None,
+                 sender_ip_address: Optional[pulumi.Input[str]] = None,
+                 source_listener_address: Optional[pulumi.Input[str]] = None,
+                 source_listener_port: Optional[pulumi.Input[int]] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
                  vpc_interface_name: Optional[pulumi.Input[str]] = None,
                  whitelist_cidr: Optional[pulumi.Input[str]] = None):
@@ -38,8 +43,13 @@ class FlowSourceInitArgs:
         :param pulumi.Input[int] ingest_port: The port that the flow will be listening on for incoming content.
         :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param pulumi.Input[int] min_latency: The minimum latency in milliseconds.
         :param pulumi.Input[str] name: The name of the source.
         :param pulumi.Input['FlowSourceProtocol'] protocol: The protocol that is used by the source.
+        :param pulumi.Input[int] sender_control_port: The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        :param pulumi.Input[str] sender_ip_address: The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+        :param pulumi.Input[str] source_listener_address: Source IP or domain name for SRT-caller protocol.
+        :param pulumi.Input[int] source_listener_port: Source port for SRT-caller protocol.
         :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param pulumi.Input[str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -57,10 +67,20 @@ class FlowSourceInitArgs:
             pulumi.set(__self__, "max_bitrate", max_bitrate)
         if max_latency is not None:
             pulumi.set(__self__, "max_latency", max_latency)
+        if min_latency is not None:
+            pulumi.set(__self__, "min_latency", min_latency)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if sender_control_port is not None:
+            pulumi.set(__self__, "sender_control_port", sender_control_port)
+        if sender_ip_address is not None:
+            pulumi.set(__self__, "sender_ip_address", sender_ip_address)
+        if source_listener_address is not None:
+            pulumi.set(__self__, "source_listener_address", source_listener_address)
+        if source_listener_port is not None:
+            pulumi.set(__self__, "source_listener_port", source_listener_port)
         if stream_id is not None:
             pulumi.set(__self__, "stream_id", stream_id)
         if vpc_interface_name is not None:
@@ -153,6 +173,18 @@ class FlowSourceInitArgs:
         pulumi.set(self, "max_latency", value)
 
     @property
+    @pulumi.getter(name="minLatency")
+    def min_latency(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum latency in milliseconds.
+        """
+        return pulumi.get(self, "min_latency")
+
+    @min_latency.setter
+    def min_latency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_latency", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -175,6 +207,54 @@ class FlowSourceInitArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input['FlowSourceProtocol']]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="senderControlPort")
+    def sender_control_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        return pulumi.get(self, "sender_control_port")
+
+    @sender_control_port.setter
+    def sender_control_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sender_control_port", value)
+
+    @property
+    @pulumi.getter(name="senderIpAddress")
+    def sender_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        return pulumi.get(self, "sender_ip_address")
+
+    @sender_ip_address.setter
+    def sender_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sender_ip_address", value)
+
+    @property
+    @pulumi.getter(name="sourceListenerAddress")
+    def source_listener_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source IP or domain name for SRT-caller protocol.
+        """
+        return pulumi.get(self, "source_listener_address")
+
+    @source_listener_address.setter
+    def source_listener_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_listener_address", value)
+
+    @property
+    @pulumi.getter(name="sourceListenerPort")
+    def source_listener_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Source port for SRT-caller protocol.
+        """
+        return pulumi.get(self, "source_listener_port")
+
+    @source_listener_port.setter
+    def source_listener_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "source_listener_port", value)
 
     @property
     @pulumi.getter(name="streamId")
@@ -225,8 +305,13 @@ class FlowSource(pulumi.CustomResource):
                  ingest_port: Optional[pulumi.Input[int]] = None,
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
+                 min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
+                 sender_control_port: Optional[pulumi.Input[int]] = None,
+                 sender_ip_address: Optional[pulumi.Input[str]] = None,
+                 source_listener_address: Optional[pulumi.Input[str]] = None,
+                 source_listener_port: Optional[pulumi.Input[int]] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
                  vpc_interface_name: Optional[pulumi.Input[str]] = None,
                  whitelist_cidr: Optional[pulumi.Input[str]] = None,
@@ -243,8 +328,13 @@ class FlowSource(pulumi.CustomResource):
         :param pulumi.Input[int] ingest_port: The port that the flow will be listening on for incoming content.
         :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param pulumi.Input[int] min_latency: The minimum latency in milliseconds.
         :param pulumi.Input[str] name: The name of the source.
         :param pulumi.Input['FlowSourceProtocol'] protocol: The protocol that is used by the source.
+        :param pulumi.Input[int] sender_control_port: The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        :param pulumi.Input[str] sender_ip_address: The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+        :param pulumi.Input[str] source_listener_address: Source IP or domain name for SRT-caller protocol.
+        :param pulumi.Input[int] source_listener_port: Source port for SRT-caller protocol.
         :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param pulumi.Input[str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -280,8 +370,13 @@ class FlowSource(pulumi.CustomResource):
                  ingest_port: Optional[pulumi.Input[int]] = None,
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
+                 min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
+                 sender_control_port: Optional[pulumi.Input[int]] = None,
+                 sender_ip_address: Optional[pulumi.Input[str]] = None,
+                 source_listener_address: Optional[pulumi.Input[str]] = None,
+                 source_listener_port: Optional[pulumi.Input[int]] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
                  vpc_interface_name: Optional[pulumi.Input[str]] = None,
                  whitelist_cidr: Optional[pulumi.Input[str]] = None,
@@ -303,8 +398,13 @@ class FlowSource(pulumi.CustomResource):
             __props__.__dict__["ingest_port"] = ingest_port
             __props__.__dict__["max_bitrate"] = max_bitrate
             __props__.__dict__["max_latency"] = max_latency
+            __props__.__dict__["min_latency"] = min_latency
             __props__.__dict__["name"] = name
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["sender_control_port"] = sender_control_port
+            __props__.__dict__["sender_ip_address"] = sender_ip_address
+            __props__.__dict__["source_listener_address"] = source_listener_address
+            __props__.__dict__["source_listener_port"] = source_listener_port
             __props__.__dict__["stream_id"] = stream_id
             __props__.__dict__["vpc_interface_name"] = vpc_interface_name
             __props__.__dict__["whitelist_cidr"] = whitelist_cidr
@@ -341,10 +441,15 @@ class FlowSource(pulumi.CustomResource):
         __props__.__dict__["ingest_port"] = None
         __props__.__dict__["max_bitrate"] = None
         __props__.__dict__["max_latency"] = None
+        __props__.__dict__["min_latency"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["protocol"] = None
+        __props__.__dict__["sender_control_port"] = None
+        __props__.__dict__["sender_ip_address"] = None
         __props__.__dict__["source_arn"] = None
         __props__.__dict__["source_ingest_port"] = None
+        __props__.__dict__["source_listener_address"] = None
+        __props__.__dict__["source_listener_port"] = None
         __props__.__dict__["stream_id"] = None
         __props__.__dict__["vpc_interface_name"] = None
         __props__.__dict__["whitelist_cidr"] = None
@@ -415,6 +520,14 @@ class FlowSource(pulumi.CustomResource):
         return pulumi.get(self, "max_latency")
 
     @property
+    @pulumi.getter(name="minLatency")
+    def min_latency(self) -> pulumi.Output[Optional[int]]:
+        """
+        The minimum latency in milliseconds.
+        """
+        return pulumi.get(self, "min_latency")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -431,6 +544,22 @@ class FlowSource(pulumi.CustomResource):
         return pulumi.get(self, "protocol")
 
     @property
+    @pulumi.getter(name="senderControlPort")
+    def sender_control_port(self) -> pulumi.Output[Optional[int]]:
+        """
+        The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        return pulumi.get(self, "sender_control_port")
+
+    @property
+    @pulumi.getter(name="senderIpAddress")
+    def sender_ip_address(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        return pulumi.get(self, "sender_ip_address")
+
+    @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[str]:
         """
@@ -445,6 +574,22 @@ class FlowSource(pulumi.CustomResource):
         The port that the flow will be listening on for incoming content.(ReadOnly)
         """
         return pulumi.get(self, "source_ingest_port")
+
+    @property
+    @pulumi.getter(name="sourceListenerAddress")
+    def source_listener_address(self) -> pulumi.Output[Optional[str]]:
+        """
+        Source IP or domain name for SRT-caller protocol.
+        """
+        return pulumi.get(self, "source_listener_address")
+
+    @property
+    @pulumi.getter(name="sourceListenerPort")
+    def source_listener_port(self) -> pulumi.Output[Optional[int]]:
+        """
+        Source port for SRT-caller protocol.
+        """
+        return pulumi.get(self, "source_listener_port")
 
     @property
     @pulumi.getter(name="streamId")

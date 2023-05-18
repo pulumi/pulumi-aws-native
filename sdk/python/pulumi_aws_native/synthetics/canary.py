@@ -21,12 +21,12 @@ class CanaryArgs:
                  execution_role_arn: pulumi.Input[str],
                  runtime_version: pulumi.Input[str],
                  schedule: pulumi.Input['CanaryScheduleArgs'],
-                 start_canary_after_creation: pulumi.Input[bool],
                  artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
                  delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[bool]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
+                 start_canary_after_creation: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTagArgs']]]] = None,
                  v_pc_config: Optional[pulumi.Input['CanaryVPCConfigArgs']] = None,
@@ -38,12 +38,12 @@ class CanaryArgs:
         :param pulumi.Input[str] execution_role_arn: Lambda Execution role used to run your canaries
         :param pulumi.Input[str] runtime_version: Runtime version of Synthetics Library
         :param pulumi.Input['CanaryScheduleArgs'] schedule: Frequency to run your canaries
-        :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: Provide artifact configuration
         :param pulumi.Input[bool] delete_lambda_resources_on_canary_deletion: Deletes associated lambda resources created by Synthetics if set to True. Default is False
         :param pulumi.Input[int] failure_retention_period: Retention period of failed canary runs represented in number of days
         :param pulumi.Input[str] name: Name of the canary.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Provide canary run configuration
+        :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
         :param pulumi.Input[int] success_retention_period: Retention period of successful canary runs represented in number of days
         :param pulumi.Input['CanaryVPCConfigArgs'] v_pc_config: Provide VPC Configuration if enabled.
         :param pulumi.Input['CanaryVisualReferenceArgs'] visual_reference: Visual reference configuration for visual testing
@@ -53,7 +53,6 @@ class CanaryArgs:
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         pulumi.set(__self__, "runtime_version", runtime_version)
         pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "start_canary_after_creation", start_canary_after_creation)
         if artifact_config is not None:
             pulumi.set(__self__, "artifact_config", artifact_config)
         if delete_lambda_resources_on_canary_deletion is not None:
@@ -64,6 +63,8 @@ class CanaryArgs:
             pulumi.set(__self__, "name", name)
         if run_config is not None:
             pulumi.set(__self__, "run_config", run_config)
+        if start_canary_after_creation is not None:
+            pulumi.set(__self__, "start_canary_after_creation", start_canary_after_creation)
         if success_retention_period is not None:
             pulumi.set(__self__, "success_retention_period", success_retention_period)
         if tags is not None:
@@ -134,18 +135,6 @@ class CanaryArgs:
         pulumi.set(self, "schedule", value)
 
     @property
-    @pulumi.getter(name="startCanaryAfterCreation")
-    def start_canary_after_creation(self) -> pulumi.Input[bool]:
-        """
-        Runs canary if set to True. Default is False
-        """
-        return pulumi.get(self, "start_canary_after_creation")
-
-    @start_canary_after_creation.setter
-    def start_canary_after_creation(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "start_canary_after_creation", value)
-
-    @property
     @pulumi.getter(name="artifactConfig")
     def artifact_config(self) -> Optional[pulumi.Input['CanaryArtifactConfigArgs']]:
         """
@@ -204,6 +193,18 @@ class CanaryArgs:
     @run_config.setter
     def run_config(self, value: Optional[pulumi.Input['CanaryRunConfigArgs']]):
         pulumi.set(self, "run_config", value)
+
+    @property
+    @pulumi.getter(name="startCanaryAfterCreation")
+    def start_canary_after_creation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Runs canary if set to True. Default is False
+        """
+        return pulumi.get(self, "start_canary_after_creation")
+
+    @start_canary_after_creation.setter
+    def start_canary_after_creation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "start_canary_after_creation", value)
 
     @property
     @pulumi.getter(name="successRetentionPeriod")
@@ -360,8 +361,6 @@ class Canary(pulumi.CustomResource):
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
-            if start_canary_after_creation is None and not opts.urn:
-                raise TypeError("Missing required property 'start_canary_after_creation'")
             __props__.__dict__["start_canary_after_creation"] = start_canary_after_creation
             __props__.__dict__["success_retention_period"] = success_retention_period
             __props__.__dict__["tags"] = tags
@@ -490,7 +489,7 @@ class Canary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startCanaryAfterCreation")
-    def start_canary_after_creation(self) -> pulumi.Output[bool]:
+    def start_canary_after_creation(self) -> pulumi.Output[Optional[bool]]:
         """
         Runs canary if set to True. Default is False
         """

@@ -32,6 +32,8 @@ type LookupDBClusterResult struct {
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// The resource id for the DB cluster. For example: `cluster-ABCD1234EFGH5678IJKL90MNOP`. The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
 	ClusterResourceId *string `pulumi:"clusterResourceId"`
+	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// Provides the name of the DB cluster parameter group.
 	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
@@ -40,6 +42,8 @@ type LookupDBClusterResult struct {
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
 	Endpoint *string `pulumi:"endpoint"`
+	// Indicates the database engine version.
+	EngineVersion *string `pulumi:"engineVersion"`
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled *bool `pulumi:"iamAuthEnabled"`
 	// Specifies the port that the database engine is listening on.
@@ -50,6 +54,8 @@ type LookupDBClusterResult struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
 	ReadEndpoint *string `pulumi:"readEndpoint"`
+	// Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+	ServerlessScalingConfiguration *DBClusterServerlessScalingConfiguration `pulumi:"serverlessScalingConfiguration"`
 	// The tags assigned to this cluster.
 	Tags []DBClusterTag `pulumi:"tags"`
 	// Provides a list of VPC security groups that the DB cluster belongs to.
@@ -107,6 +113,11 @@ func (o LookupDBClusterResultOutput) ClusterResourceId() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
+// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+func (o LookupDBClusterResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *bool { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
+}
+
 // Provides the name of the DB cluster parameter group.
 func (o LookupDBClusterResultOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
@@ -125,6 +136,11 @@ func (o LookupDBClusterResultOutput) EnableCloudwatchLogsExports() pulumi.String
 // The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
 func (o LookupDBClusterResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the database engine version.
+func (o LookupDBClusterResultOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
@@ -150,6 +166,13 @@ func (o LookupDBClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringP
 // The reader endpoint for the DB cluster. For example: mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
 func (o LookupDBClusterResultOutput) ReadEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.ReadEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+func (o LookupDBClusterResultOutput) ServerlessScalingConfiguration() DBClusterServerlessScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *DBClusterServerlessScalingConfiguration {
+		return v.ServerlessScalingConfiguration
+	}).(DBClusterServerlessScalingConfigurationPtrOutput)
 }
 
 // The tags assigned to this cluster.

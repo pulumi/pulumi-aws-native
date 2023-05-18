@@ -47,6 +47,7 @@ export type ConnectorProfileConnectorType = (typeof ConnectorProfileConnectorTyp
 export const ConnectorProfileOAuth2GrantType = {
     ClientCredentials: "CLIENT_CREDENTIALS",
     AuthorizationCode: "AUTHORIZATION_CODE",
+    JwtBearer: "JWT_BEARER",
 } as const;
 
 export type ConnectorProfileOAuth2GrantType = (typeof ConnectorProfileOAuth2GrantType)[keyof typeof ConnectorProfileOAuth2GrantType];
@@ -442,6 +443,16 @@ export const FlowSlackConnectorOperator = {
 } as const;
 
 export type FlowSlackConnectorOperator = (typeof FlowSlackConnectorOperator)[keyof typeof FlowSlackConnectorOperator];
+
+export const FlowStatus = {
+    Active: "Active",
+    Suspended: "Suspended",
+} as const;
+
+/**
+ * Flow activation status for Scheduled- and Event-triggered flows
+ */
+export type FlowStatus = (typeof FlowStatus)[keyof typeof FlowStatus];
 
 export const FlowTaskType = {
     Arithmetic: "Arithmetic",

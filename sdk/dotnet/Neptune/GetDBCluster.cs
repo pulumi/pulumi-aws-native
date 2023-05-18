@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         public readonly string? ClusterResourceId;
         /// <summary>
+        /// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+        /// </summary>
+        public readonly bool? CopyTagsToSnapshot;
+        /// <summary>
         /// Provides the name of the DB cluster parameter group.
         /// </summary>
         public readonly string? DBClusterParameterGroupName;
@@ -85,6 +89,10 @@ namespace Pulumi.AwsNative.Neptune
         /// The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
         /// </summary>
         public readonly string? Endpoint;
+        /// <summary>
+        /// Indicates the database engine version.
+        /// </summary>
+        public readonly string? EngineVersion;
         /// <summary>
         /// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
         /// </summary>
@@ -106,6 +114,10 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         public readonly string? ReadEndpoint;
         /// <summary>
+        /// Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+        /// </summary>
+        public readonly Outputs.DBClusterServerlessScalingConfiguration? ServerlessScalingConfiguration;
+        /// <summary>
         /// The tags assigned to this cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.DBClusterTag> Tags;
@@ -122,6 +134,8 @@ namespace Pulumi.AwsNative.Neptune
 
             string? clusterResourceId,
 
+            bool? copyTagsToSnapshot,
+
             string? dBClusterParameterGroupName,
 
             bool? deletionProtection,
@@ -129,6 +143,8 @@ namespace Pulumi.AwsNative.Neptune
             ImmutableArray<string> enableCloudwatchLogsExports,
 
             string? endpoint,
+
+            string? engineVersion,
 
             bool? iamAuthEnabled,
 
@@ -140,6 +156,8 @@ namespace Pulumi.AwsNative.Neptune
 
             string? readEndpoint,
 
+            Outputs.DBClusterServerlessScalingConfiguration? serverlessScalingConfiguration,
+
             ImmutableArray<Outputs.DBClusterTag> tags,
 
             ImmutableArray<string> vpcSecurityGroupIds)
@@ -147,15 +165,18 @@ namespace Pulumi.AwsNative.Neptune
             AssociatedRoles = associatedRoles;
             BackupRetentionPeriod = backupRetentionPeriod;
             ClusterResourceId = clusterResourceId;
+            CopyTagsToSnapshot = copyTagsToSnapshot;
             DBClusterParameterGroupName = dBClusterParameterGroupName;
             DeletionProtection = deletionProtection;
             EnableCloudwatchLogsExports = enableCloudwatchLogsExports;
             Endpoint = endpoint;
+            EngineVersion = engineVersion;
             IamAuthEnabled = iamAuthEnabled;
             Port = port;
             PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             ReadEndpoint = readEndpoint;
+            ServerlessScalingConfiguration = serverlessScalingConfiguration;
             Tags = tags;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
         }

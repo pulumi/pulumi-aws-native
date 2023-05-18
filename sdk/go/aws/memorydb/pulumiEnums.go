@@ -179,6 +179,7 @@ type UserAuthenticationModePropertiesType string
 
 const (
 	UserAuthenticationModePropertiesTypePassword = UserAuthenticationModePropertiesType("password")
+	UserAuthenticationModePropertiesTypeIam      = UserAuthenticationModePropertiesType("iam")
 )
 
 func (UserAuthenticationModePropertiesType) ElementType() reflect.Type {

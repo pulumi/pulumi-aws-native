@@ -223,10 +223,6 @@ export interface GetDBInstanceResult {
      */
     readonly tdeCredentialArn?: string;
     /**
-     * A value that indicates whether the DB instance class of the DB instance uses its default processor features.
-     */
-    readonly useDefaultProcessorFeatures?: boolean;
-    /**
      * A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
      */
     readonly vPCSecurityGroups?: string[];

@@ -408,6 +408,30 @@ export const ModelCardMatrixMetricType = {
 
 export type ModelCardMatrixMetricType = (typeof ModelCardMatrixMetricType)[keyof typeof ModelCardMatrixMetricType];
 
+export const ModelCardModelPackageDetailsModelApprovalStatus = {
+    Approved: "Approved",
+    Rejected: "Rejected",
+    PendingManualApproval: "PendingManualApproval",
+} as const;
+
+/**
+ * Current approval status of model package
+ */
+export type ModelCardModelPackageDetailsModelApprovalStatus = (typeof ModelCardModelPackageDetailsModelApprovalStatus)[keyof typeof ModelCardModelPackageDetailsModelApprovalStatus];
+
+export const ModelCardModelPackageDetailsModelPackageStatus = {
+    Pending: "Pending",
+    InProgress: "InProgress",
+    Completed: "Completed",
+    Failed: "Failed",
+    Deleting: "Deleting",
+} as const;
+
+/**
+ * Current status of model package
+ */
+export type ModelCardModelPackageDetailsModelPackageStatus = (typeof ModelCardModelPackageDetailsModelPackageStatus)[keyof typeof ModelCardModelPackageDetailsModelPackageStatus];
+
 export const ModelCardObjectiveFunctionFunctionPropertiesFunction = {
     Maximize: "Maximize",
     Minimize: "Minimize",

@@ -65,6 +65,11 @@ export const getPhoneNumber: typeof import("./getPhoneNumber").getPhoneNumber = 
 export const getPhoneNumberOutput: typeof import("./getPhoneNumber").getPhoneNumberOutput = null as any;
 utilities.lazyLoad(exports, ["getPhoneNumber","getPhoneNumberOutput"], () => require("./getPhoneNumber"));
 
+export { GetPromptArgs, GetPromptResult, GetPromptOutputArgs } from "./getPrompt";
+export const getPrompt: typeof import("./getPrompt").getPrompt = null as any;
+export const getPromptOutput: typeof import("./getPrompt").getPromptOutput = null as any;
+utilities.lazyLoad(exports, ["getPrompt","getPromptOutput"], () => require("./getPrompt"));
+
 export { GetQuickConnectArgs, GetQuickConnectResult, GetQuickConnectOutputArgs } from "./getQuickConnect";
 export const getQuickConnect: typeof import("./getQuickConnect").getQuickConnect = null as any;
 export const getQuickConnectOutput: typeof import("./getQuickConnect").getQuickConnectOutput = null as any;
@@ -119,6 +124,11 @@ export { PhoneNumberArgs } from "./phoneNumber";
 export type PhoneNumber = import("./phoneNumber").PhoneNumber;
 export const PhoneNumber: typeof import("./phoneNumber").PhoneNumber = null as any;
 utilities.lazyLoad(exports, ["PhoneNumber"], () => require("./phoneNumber"));
+
+export { PromptArgs } from "./prompt";
+export type Prompt = import("./prompt").Prompt;
+export const Prompt: typeof import("./prompt").Prompt = null as any;
+utilities.lazyLoad(exports, ["Prompt"], () => require("./prompt"));
 
 export { QuickConnectArgs } from "./quickConnect";
 export type QuickConnect = import("./quickConnect").QuickConnect;
@@ -176,6 +186,8 @@ const _module = {
                 return new IntegrationAssociation(name, <any>undefined, { urn })
             case "aws-native:connect:PhoneNumber":
                 return new PhoneNumber(name, <any>undefined, { urn })
+            case "aws-native:connect:Prompt":
+                return new Prompt(name, <any>undefined, { urn })
             case "aws-native:connect:QuickConnect":
                 return new QuickConnect(name, <any>undefined, { urn })
             case "aws-native:connect:Rule":

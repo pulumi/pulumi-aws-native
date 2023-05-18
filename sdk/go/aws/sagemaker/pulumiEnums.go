@@ -4300,6 +4300,340 @@ const (
 	ModelCardMatrixMetricTypeMatrix = ModelCardMatrixMetricType("matrix")
 )
 
+// Current approval status of model package
+type ModelCardModelPackageDetailsModelApprovalStatus string
+
+const (
+	ModelCardModelPackageDetailsModelApprovalStatusApproved              = ModelCardModelPackageDetailsModelApprovalStatus("Approved")
+	ModelCardModelPackageDetailsModelApprovalStatusRejected              = ModelCardModelPackageDetailsModelApprovalStatus("Rejected")
+	ModelCardModelPackageDetailsModelApprovalStatusPendingManualApproval = ModelCardModelPackageDetailsModelApprovalStatus("PendingManualApproval")
+)
+
+func (ModelCardModelPackageDetailsModelApprovalStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelPackageDetailsModelApprovalStatus)(nil)).Elem()
+}
+
+func (e ModelCardModelPackageDetailsModelApprovalStatus) ToModelCardModelPackageDetailsModelApprovalStatusOutput() ModelCardModelPackageDetailsModelApprovalStatusOutput {
+	return pulumi.ToOutput(e).(ModelCardModelPackageDetailsModelApprovalStatusOutput)
+}
+
+func (e ModelCardModelPackageDetailsModelApprovalStatus) ToModelCardModelPackageDetailsModelApprovalStatusOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelApprovalStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelCardModelPackageDetailsModelApprovalStatusOutput)
+}
+
+func (e ModelCardModelPackageDetailsModelApprovalStatus) ToModelCardModelPackageDetailsModelApprovalStatusPtrOutput() ModelCardModelPackageDetailsModelApprovalStatusPtrOutput {
+	return e.ToModelCardModelPackageDetailsModelApprovalStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ModelCardModelPackageDetailsModelApprovalStatus) ToModelCardModelPackageDetailsModelApprovalStatusPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelApprovalStatusPtrOutput {
+	return ModelCardModelPackageDetailsModelApprovalStatus(e).ToModelCardModelPackageDetailsModelApprovalStatusOutputWithContext(ctx).ToModelCardModelPackageDetailsModelApprovalStatusPtrOutputWithContext(ctx)
+}
+
+func (e ModelCardModelPackageDetailsModelApprovalStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelCardModelPackageDetailsModelApprovalStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelCardModelPackageDetailsModelApprovalStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelCardModelPackageDetailsModelApprovalStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelCardModelPackageDetailsModelApprovalStatusOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelPackageDetailsModelApprovalStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelPackageDetailsModelApprovalStatus)(nil)).Elem()
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusOutput) ToModelCardModelPackageDetailsModelApprovalStatusOutput() ModelCardModelPackageDetailsModelApprovalStatusOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusOutput) ToModelCardModelPackageDetailsModelApprovalStatusOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelApprovalStatusOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusOutput) ToModelCardModelPackageDetailsModelApprovalStatusPtrOutput() ModelCardModelPackageDetailsModelApprovalStatusPtrOutput {
+	return o.ToModelCardModelPackageDetailsModelApprovalStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusOutput) ToModelCardModelPackageDetailsModelApprovalStatusPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelApprovalStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardModelPackageDetailsModelApprovalStatus) *ModelCardModelPackageDetailsModelApprovalStatus {
+		return &v
+	}).(ModelCardModelPackageDetailsModelApprovalStatusPtrOutput)
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardModelPackageDetailsModelApprovalStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardModelPackageDetailsModelApprovalStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelCardModelPackageDetailsModelApprovalStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelPackageDetailsModelApprovalStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardModelPackageDetailsModelApprovalStatus)(nil)).Elem()
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusPtrOutput) ToModelCardModelPackageDetailsModelApprovalStatusPtrOutput() ModelCardModelPackageDetailsModelApprovalStatusPtrOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusPtrOutput) ToModelCardModelPackageDetailsModelApprovalStatusPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelApprovalStatusPtrOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusPtrOutput) Elem() ModelCardModelPackageDetailsModelApprovalStatusOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetailsModelApprovalStatus) ModelCardModelPackageDetailsModelApprovalStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardModelPackageDetailsModelApprovalStatus
+		return ret
+	}).(ModelCardModelPackageDetailsModelApprovalStatusOutput)
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelPackageDetailsModelApprovalStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelCardModelPackageDetailsModelApprovalStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelCardModelPackageDetailsModelApprovalStatusInput is an input type that accepts ModelCardModelPackageDetailsModelApprovalStatusArgs and ModelCardModelPackageDetailsModelApprovalStatusOutput values.
+// You can construct a concrete instance of `ModelCardModelPackageDetailsModelApprovalStatusInput` via:
+//
+//	ModelCardModelPackageDetailsModelApprovalStatusArgs{...}
+type ModelCardModelPackageDetailsModelApprovalStatusInput interface {
+	pulumi.Input
+
+	ToModelCardModelPackageDetailsModelApprovalStatusOutput() ModelCardModelPackageDetailsModelApprovalStatusOutput
+	ToModelCardModelPackageDetailsModelApprovalStatusOutputWithContext(context.Context) ModelCardModelPackageDetailsModelApprovalStatusOutput
+}
+
+var modelCardModelPackageDetailsModelApprovalStatusPtrType = reflect.TypeOf((**ModelCardModelPackageDetailsModelApprovalStatus)(nil)).Elem()
+
+type ModelCardModelPackageDetailsModelApprovalStatusPtrInput interface {
+	pulumi.Input
+
+	ToModelCardModelPackageDetailsModelApprovalStatusPtrOutput() ModelCardModelPackageDetailsModelApprovalStatusPtrOutput
+	ToModelCardModelPackageDetailsModelApprovalStatusPtrOutputWithContext(context.Context) ModelCardModelPackageDetailsModelApprovalStatusPtrOutput
+}
+
+type modelCardModelPackageDetailsModelApprovalStatusPtr string
+
+func ModelCardModelPackageDetailsModelApprovalStatusPtr(v string) ModelCardModelPackageDetailsModelApprovalStatusPtrInput {
+	return (*modelCardModelPackageDetailsModelApprovalStatusPtr)(&v)
+}
+
+func (*modelCardModelPackageDetailsModelApprovalStatusPtr) ElementType() reflect.Type {
+	return modelCardModelPackageDetailsModelApprovalStatusPtrType
+}
+
+func (in *modelCardModelPackageDetailsModelApprovalStatusPtr) ToModelCardModelPackageDetailsModelApprovalStatusPtrOutput() ModelCardModelPackageDetailsModelApprovalStatusPtrOutput {
+	return pulumi.ToOutput(in).(ModelCardModelPackageDetailsModelApprovalStatusPtrOutput)
+}
+
+func (in *modelCardModelPackageDetailsModelApprovalStatusPtr) ToModelCardModelPackageDetailsModelApprovalStatusPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelApprovalStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelCardModelPackageDetailsModelApprovalStatusPtrOutput)
+}
+
+// Current status of model package
+type ModelCardModelPackageDetailsModelPackageStatus string
+
+const (
+	ModelCardModelPackageDetailsModelPackageStatusPending    = ModelCardModelPackageDetailsModelPackageStatus("Pending")
+	ModelCardModelPackageDetailsModelPackageStatusInProgress = ModelCardModelPackageDetailsModelPackageStatus("InProgress")
+	ModelCardModelPackageDetailsModelPackageStatusCompleted  = ModelCardModelPackageDetailsModelPackageStatus("Completed")
+	ModelCardModelPackageDetailsModelPackageStatusFailed     = ModelCardModelPackageDetailsModelPackageStatus("Failed")
+	ModelCardModelPackageDetailsModelPackageStatusDeleting   = ModelCardModelPackageDetailsModelPackageStatus("Deleting")
+)
+
+func (ModelCardModelPackageDetailsModelPackageStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelPackageDetailsModelPackageStatus)(nil)).Elem()
+}
+
+func (e ModelCardModelPackageDetailsModelPackageStatus) ToModelCardModelPackageDetailsModelPackageStatusOutput() ModelCardModelPackageDetailsModelPackageStatusOutput {
+	return pulumi.ToOutput(e).(ModelCardModelPackageDetailsModelPackageStatusOutput)
+}
+
+func (e ModelCardModelPackageDetailsModelPackageStatus) ToModelCardModelPackageDetailsModelPackageStatusOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelPackageStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelCardModelPackageDetailsModelPackageStatusOutput)
+}
+
+func (e ModelCardModelPackageDetailsModelPackageStatus) ToModelCardModelPackageDetailsModelPackageStatusPtrOutput() ModelCardModelPackageDetailsModelPackageStatusPtrOutput {
+	return e.ToModelCardModelPackageDetailsModelPackageStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ModelCardModelPackageDetailsModelPackageStatus) ToModelCardModelPackageDetailsModelPackageStatusPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelPackageStatusPtrOutput {
+	return ModelCardModelPackageDetailsModelPackageStatus(e).ToModelCardModelPackageDetailsModelPackageStatusOutputWithContext(ctx).ToModelCardModelPackageDetailsModelPackageStatusPtrOutputWithContext(ctx)
+}
+
+func (e ModelCardModelPackageDetailsModelPackageStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelCardModelPackageDetailsModelPackageStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelCardModelPackageDetailsModelPackageStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelCardModelPackageDetailsModelPackageStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelCardModelPackageDetailsModelPackageStatusOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelPackageDetailsModelPackageStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelPackageDetailsModelPackageStatus)(nil)).Elem()
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusOutput) ToModelCardModelPackageDetailsModelPackageStatusOutput() ModelCardModelPackageDetailsModelPackageStatusOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusOutput) ToModelCardModelPackageDetailsModelPackageStatusOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelPackageStatusOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusOutput) ToModelCardModelPackageDetailsModelPackageStatusPtrOutput() ModelCardModelPackageDetailsModelPackageStatusPtrOutput {
+	return o.ToModelCardModelPackageDetailsModelPackageStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusOutput) ToModelCardModelPackageDetailsModelPackageStatusPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelPackageStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardModelPackageDetailsModelPackageStatus) *ModelCardModelPackageDetailsModelPackageStatus {
+		return &v
+	}).(ModelCardModelPackageDetailsModelPackageStatusPtrOutput)
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardModelPackageDetailsModelPackageStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelCardModelPackageDetailsModelPackageStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelCardModelPackageDetailsModelPackageStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelPackageDetailsModelPackageStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardModelPackageDetailsModelPackageStatus)(nil)).Elem()
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusPtrOutput) ToModelCardModelPackageDetailsModelPackageStatusPtrOutput() ModelCardModelPackageDetailsModelPackageStatusPtrOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusPtrOutput) ToModelCardModelPackageDetailsModelPackageStatusPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelPackageStatusPtrOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusPtrOutput) Elem() ModelCardModelPackageDetailsModelPackageStatusOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetailsModelPackageStatus) ModelCardModelPackageDetailsModelPackageStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardModelPackageDetailsModelPackageStatus
+		return ret
+	}).(ModelCardModelPackageDetailsModelPackageStatusOutput)
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelPackageDetailsModelPackageStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelCardModelPackageDetailsModelPackageStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelCardModelPackageDetailsModelPackageStatusInput is an input type that accepts ModelCardModelPackageDetailsModelPackageStatusArgs and ModelCardModelPackageDetailsModelPackageStatusOutput values.
+// You can construct a concrete instance of `ModelCardModelPackageDetailsModelPackageStatusInput` via:
+//
+//	ModelCardModelPackageDetailsModelPackageStatusArgs{...}
+type ModelCardModelPackageDetailsModelPackageStatusInput interface {
+	pulumi.Input
+
+	ToModelCardModelPackageDetailsModelPackageStatusOutput() ModelCardModelPackageDetailsModelPackageStatusOutput
+	ToModelCardModelPackageDetailsModelPackageStatusOutputWithContext(context.Context) ModelCardModelPackageDetailsModelPackageStatusOutput
+}
+
+var modelCardModelPackageDetailsModelPackageStatusPtrType = reflect.TypeOf((**ModelCardModelPackageDetailsModelPackageStatus)(nil)).Elem()
+
+type ModelCardModelPackageDetailsModelPackageStatusPtrInput interface {
+	pulumi.Input
+
+	ToModelCardModelPackageDetailsModelPackageStatusPtrOutput() ModelCardModelPackageDetailsModelPackageStatusPtrOutput
+	ToModelCardModelPackageDetailsModelPackageStatusPtrOutputWithContext(context.Context) ModelCardModelPackageDetailsModelPackageStatusPtrOutput
+}
+
+type modelCardModelPackageDetailsModelPackageStatusPtr string
+
+func ModelCardModelPackageDetailsModelPackageStatusPtr(v string) ModelCardModelPackageDetailsModelPackageStatusPtrInput {
+	return (*modelCardModelPackageDetailsModelPackageStatusPtr)(&v)
+}
+
+func (*modelCardModelPackageDetailsModelPackageStatusPtr) ElementType() reflect.Type {
+	return modelCardModelPackageDetailsModelPackageStatusPtrType
+}
+
+func (in *modelCardModelPackageDetailsModelPackageStatusPtr) ToModelCardModelPackageDetailsModelPackageStatusPtrOutput() ModelCardModelPackageDetailsModelPackageStatusPtrOutput {
+	return pulumi.ToOutput(in).(ModelCardModelPackageDetailsModelPackageStatusPtrOutput)
+}
+
+func (in *modelCardModelPackageDetailsModelPackageStatusPtr) ToModelCardModelPackageDetailsModelPackageStatusPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelPackageStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelCardModelPackageDetailsModelPackageStatusPtrOutput)
+}
+
 type ModelCardObjectiveFunctionFunctionPropertiesFunction string
 
 const (
@@ -10483,6 +10817,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionEndpointInputS3InputModePtrInput)(nil)).Elem(), ModelBiasJobDefinitionEndpointInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionS3OutputS3UploadModeInput)(nil)).Elem(), ModelBiasJobDefinitionS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionS3OutputS3UploadModePtrInput)(nil)).Elem(), ModelBiasJobDefinitionS3OutputS3UploadMode("Continuous"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelPackageDetailsModelApprovalStatusInput)(nil)).Elem(), ModelCardModelPackageDetailsModelApprovalStatus("Approved"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelPackageDetailsModelApprovalStatusPtrInput)(nil)).Elem(), ModelCardModelPackageDetailsModelApprovalStatus("Approved"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelPackageDetailsModelPackageStatusInput)(nil)).Elem(), ModelCardModelPackageDetailsModelPackageStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelPackageDetailsModelPackageStatusPtrInput)(nil)).Elem(), ModelCardModelPackageDetailsModelPackageStatus("Pending"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionFunctionPropertiesFunctionInput)(nil)).Elem(), ModelCardObjectiveFunctionFunctionPropertiesFunction("Maximize"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrInput)(nil)).Elem(), ModelCardObjectiveFunctionFunctionPropertiesFunction("Maximize"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardRiskRatingInput)(nil)).Elem(), ModelCardRiskRating("High"))
@@ -10603,6 +10941,10 @@ func init() {
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionS3OutputS3UploadModeOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput{})
+	pulumi.RegisterOutputType(ModelCardModelPackageDetailsModelApprovalStatusOutput{})
+	pulumi.RegisterOutputType(ModelCardModelPackageDetailsModelApprovalStatusPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardModelPackageDetailsModelPackageStatusOutput{})
+	pulumi.RegisterOutputType(ModelCardModelPackageDetailsModelPackageStatusPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput{})
 	pulumi.RegisterOutputType(ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardProcessingStatusOutput{})

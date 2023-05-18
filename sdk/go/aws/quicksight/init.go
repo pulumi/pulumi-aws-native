@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Template{}
 	case "aws-native:quicksight:Theme":
 		r = &Theme{}
+	case "aws-native:quicksight:Topic":
+		r = &Topic{}
 	case "aws-native:quicksight:VPCConnection":
 		r = &VPCConnection{}
 	default:

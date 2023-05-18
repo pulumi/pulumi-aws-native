@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Neptune
         public Output<string> ClusterResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+        /// </summary>
+        [Output("copyTagsToSnapshot")]
+        public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
+
+        /// <summary>
         /// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         /// </summary>
         [Output("dBClusterIdentifier")]
@@ -50,6 +56,12 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         [Output("dBClusterParameterGroupName")]
         public Output<string?> DBClusterParameterGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+        /// </summary>
+        [Output("dBInstanceParameterGroupName")]
+        public Output<string?> DBInstanceParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
@@ -136,6 +148,12 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         [Output("restoreType")]
         public Output<string?> RestoreType { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+        /// </summary>
+        [Output("serverlessScalingConfiguration")]
+        public Output<Outputs.DBClusterServerlessScalingConfiguration?> ServerlessScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
@@ -265,6 +283,12 @@ namespace Pulumi.AwsNative.Neptune
         public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
+        /// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+        /// </summary>
+        [Input("copyTagsToSnapshot")]
+        public Input<bool>? CopyTagsToSnapshot { get; set; }
+
+        /// <summary>
         /// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         /// </summary>
         [Input("dBClusterIdentifier")]
@@ -275,6 +299,12 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         [Input("dBClusterParameterGroupName")]
         public Input<string>? DBClusterParameterGroupName { get; set; }
+
+        /// <summary>
+        /// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+        /// </summary>
+        [Input("dBInstanceParameterGroupName")]
+        public Input<string>? DBInstanceParameterGroupName { get; set; }
 
         /// <summary>
         /// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
@@ -349,6 +379,12 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         [Input("restoreType")]
         public Input<string>? RestoreType { get; set; }
+
+        /// <summary>
+        /// Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+        /// </summary>
+        [Input("serverlessScalingConfiguration")]
+        public Input<Inputs.DBClusterServerlessScalingConfigurationArgs>? ServerlessScalingConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.

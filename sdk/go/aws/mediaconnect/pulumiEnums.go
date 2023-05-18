@@ -1839,8 +1839,9 @@ func (in *flowSourceEncryptionAlgorithmPtr) ToFlowSourceEncryptionAlgorithmPtrOu
 type FlowSourceEncryptionKeyType string
 
 const (
-	FlowSourceEncryptionKeyTypeSpeke     = FlowSourceEncryptionKeyType("speke")
-	FlowSourceEncryptionKeyTypeStaticKey = FlowSourceEncryptionKeyType("static-key")
+	FlowSourceEncryptionKeyTypeSpeke       = FlowSourceEncryptionKeyType("speke")
+	FlowSourceEncryptionKeyTypeStaticKey   = FlowSourceEncryptionKeyType("static-key")
+	FlowSourceEncryptionKeyTypeSrtPassword = FlowSourceEncryptionKeyType("srt-password")
 )
 
 func (FlowSourceEncryptionKeyType) ElementType() reflect.Type {

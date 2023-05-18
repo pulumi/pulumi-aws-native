@@ -61,23 +61,11 @@ namespace Pulumi.AwsNative.SimSpaceWeaver
         /// Json object with all simulation details
         /// </summary>
         public readonly string? DescribePayload;
-        /// <summary>
-        /// Role ARN.
-        /// </summary>
-        public readonly string? RoleArn;
-        public readonly Outputs.SimulationS3Location? SchemaS3Location;
 
         [OutputConstructor]
-        private GetSimulationResult(
-            string? describePayload,
-
-            string? roleArn,
-
-            Outputs.SimulationS3Location? schemaS3Location)
+        private GetSimulationResult(string? describePayload)
         {
             DescribePayload = describePayload;
-            RoleArn = roleArn;
-            SchemaS3Location = schemaS3Location;
         }
     }
 }

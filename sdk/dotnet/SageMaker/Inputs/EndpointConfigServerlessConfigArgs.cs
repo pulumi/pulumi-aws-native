@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("memorySizeInMB", required: true)]
         public Input<int> MemorySizeInMB { get; set; } = null!;
 
+        [Input("provisionedConcurrency")]
+        public Input<int>? ProvisionedConcurrency { get; set; }
+
         public EndpointConfigServerlessConfigArgs()
         {
         }

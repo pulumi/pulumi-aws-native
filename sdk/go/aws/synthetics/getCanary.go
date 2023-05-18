@@ -32,8 +32,6 @@ type LookupCanaryResult struct {
 	ArtifactS3Location *string `pulumi:"artifactS3Location"`
 	// Provide the canary script source
 	Code *CanaryCode `pulumi:"code"`
-	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
-	DeleteLambdaResourcesOnCanaryDeletion *bool `pulumi:"deleteLambdaResourcesOnCanaryDeletion"`
 	// Lambda Execution role used to run your canaries
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Retention period of failed canary runs represented in number of days
@@ -46,8 +44,6 @@ type LookupCanaryResult struct {
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 	// Frequency to run your canaries
 	Schedule *CanarySchedule `pulumi:"schedule"`
-	// Runs canary if set to True. Default is False
-	StartCanaryAfterCreation *bool `pulumi:"startCanaryAfterCreation"`
 	// State of the canary
 	State *string `pulumi:"state"`
 	// Retention period of successful canary runs represented in number of days
@@ -55,8 +51,6 @@ type LookupCanaryResult struct {
 	Tags                   []CanaryTag `pulumi:"tags"`
 	// Provide VPC Configuration if enabled.
 	VPCConfig *CanaryVPCConfig `pulumi:"vPCConfig"`
-	// Visual reference configuration for visual testing
-	VisualReference *CanaryVisualReference `pulumi:"visualReference"`
 }
 
 func LookupCanaryOutput(ctx *pulumi.Context, args LookupCanaryOutputArgs, opts ...pulumi.InvokeOption) LookupCanaryResultOutput {
@@ -110,11 +104,6 @@ func (o LookupCanaryResultOutput) Code() CanaryCodePtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *CanaryCode { return v.Code }).(CanaryCodePtrOutput)
 }
 
-// Deletes associated lambda resources created by Synthetics if set to True. Default is False
-func (o LookupCanaryResultOutput) DeleteLambdaResourcesOnCanaryDeletion() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupCanaryResult) *bool { return v.DeleteLambdaResourcesOnCanaryDeletion }).(pulumi.BoolPtrOutput)
-}
-
 // Lambda Execution role used to run your canaries
 func (o LookupCanaryResultOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
@@ -145,11 +134,6 @@ func (o LookupCanaryResultOutput) Schedule() CanarySchedulePtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *CanarySchedule { return v.Schedule }).(CanarySchedulePtrOutput)
 }
 
-// Runs canary if set to True. Default is False
-func (o LookupCanaryResultOutput) StartCanaryAfterCreation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupCanaryResult) *bool { return v.StartCanaryAfterCreation }).(pulumi.BoolPtrOutput)
-}
-
 // State of the canary
 func (o LookupCanaryResultOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *string { return v.State }).(pulumi.StringPtrOutput)
@@ -167,11 +151,6 @@ func (o LookupCanaryResultOutput) Tags() CanaryTagArrayOutput {
 // Provide VPC Configuration if enabled.
 func (o LookupCanaryResultOutput) VPCConfig() CanaryVPCConfigPtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *CanaryVPCConfig { return v.VPCConfig }).(CanaryVPCConfigPtrOutput)
-}
-
-// Visual reference configuration for visual testing
-func (o LookupCanaryResultOutput) VisualReference() CanaryVisualReferencePtrOutput {
-	return o.ApplyT(func(v LookupCanaryResult) *CanaryVisualReference { return v.VisualReference }).(CanaryVisualReferencePtrOutput)
 }
 
 func init() {

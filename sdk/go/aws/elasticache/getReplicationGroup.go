@@ -31,6 +31,7 @@ type LookupReplicationGroupResult struct {
 	CacheNodeType                *string                                           `pulumi:"cacheNodeType"`
 	CacheParameterGroupName      *string                                           `pulumi:"cacheParameterGroupName"`
 	CacheSecurityGroupNames      []string                                          `pulumi:"cacheSecurityGroupNames"`
+	ClusterMode                  *string                                           `pulumi:"clusterMode"`
 	ConfigurationEndPointAddress *string                                           `pulumi:"configurationEndPointAddress"`
 	ConfigurationEndPointPort    *string                                           `pulumi:"configurationEndPointPort"`
 	EngineVersion                *string                                           `pulumi:"engineVersion"`
@@ -119,6 +120,10 @@ func (o LookupReplicationGroupResultOutput) CacheParameterGroupName() pulumi.Str
 
 func (o LookupReplicationGroupResultOutput) CacheSecurityGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) []string { return v.CacheSecurityGroupNames }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupReplicationGroupResultOutput) ClusterMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) *string { return v.ClusterMode }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupReplicationGroupResultOutput) ConfigurationEndPointAddress() pulumi.StringPtrOutput {

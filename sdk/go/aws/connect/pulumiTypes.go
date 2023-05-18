@@ -4083,6 +4083,115 @@ func (o PhoneNumberTagArrayOutput) Index(i pulumi.IntInput) PhoneNumberTagOutput
 	}).(PhoneNumberTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type PromptTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// PromptTagInput is an input type that accepts PromptTagArgs and PromptTagOutput values.
+// You can construct a concrete instance of `PromptTagInput` via:
+//
+//	PromptTagArgs{...}
+type PromptTagInput interface {
+	pulumi.Input
+
+	ToPromptTagOutput() PromptTagOutput
+	ToPromptTagOutputWithContext(context.Context) PromptTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type PromptTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PromptTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptTag)(nil)).Elem()
+}
+
+func (i PromptTagArgs) ToPromptTagOutput() PromptTagOutput {
+	return i.ToPromptTagOutputWithContext(context.Background())
+}
+
+func (i PromptTagArgs) ToPromptTagOutputWithContext(ctx context.Context) PromptTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptTagOutput)
+}
+
+// PromptTagArrayInput is an input type that accepts PromptTagArray and PromptTagArrayOutput values.
+// You can construct a concrete instance of `PromptTagArrayInput` via:
+//
+//	PromptTagArray{ PromptTagArgs{...} }
+type PromptTagArrayInput interface {
+	pulumi.Input
+
+	ToPromptTagArrayOutput() PromptTagArrayOutput
+	ToPromptTagArrayOutputWithContext(context.Context) PromptTagArrayOutput
+}
+
+type PromptTagArray []PromptTagInput
+
+func (PromptTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PromptTag)(nil)).Elem()
+}
+
+func (i PromptTagArray) ToPromptTagArrayOutput() PromptTagArrayOutput {
+	return i.ToPromptTagArrayOutputWithContext(context.Background())
+}
+
+func (i PromptTagArray) ToPromptTagArrayOutputWithContext(ctx context.Context) PromptTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PromptTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type PromptTagOutput struct{ *pulumi.OutputState }
+
+func (PromptTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptTag)(nil)).Elem()
+}
+
+func (o PromptTagOutput) ToPromptTagOutput() PromptTagOutput {
+	return o
+}
+
+func (o PromptTagOutput) ToPromptTagOutputWithContext(ctx context.Context) PromptTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PromptTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PromptTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PromptTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PromptTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PromptTag)(nil)).Elem()
+}
+
+func (o PromptTagArrayOutput) ToPromptTagArrayOutput() PromptTagArrayOutput {
+	return o
+}
+
+func (o PromptTagArrayOutput) ToPromptTagArrayOutputWithContext(ctx context.Context) PromptTagArrayOutput {
+	return o
+}
+
+func (o PromptTagArrayOutput) Index(i pulumi.IntInput) PromptTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptTag {
+		return vs[0].([]PromptTag)[vs[1].(int)]
+	}).(PromptTagOutput)
+}
+
 // Configuration settings for the quick connect.
 type QuickConnectConfig struct {
 	PhoneConfig      *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
@@ -6748,6 +6857,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigPtrInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberTagInput)(nil)).Elem(), PhoneNumberTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberTagArrayInput)(nil)).Elem(), PhoneNumberTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptTagInput)(nil)).Elem(), PromptTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptTagArrayInput)(nil)).Elem(), PromptTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectConfigInput)(nil)).Elem(), QuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
@@ -6844,6 +6955,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigS3ConfigPtrOutput{})
 	pulumi.RegisterOutputType(PhoneNumberTagOutput{})
 	pulumi.RegisterOutputType(PhoneNumberTagArrayOutput{})
+	pulumi.RegisterOutputType(PromptTagOutput{})
+	pulumi.RegisterOutputType(PromptTagArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigOutput{})

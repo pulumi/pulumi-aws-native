@@ -94,7 +94,7 @@
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/DnsEntry/DomainName", "/properties/DnsEntry/HostedZoneId", "/properties/Id", "/properties/LastUpdatedAt", "/properties/Status" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/CustomDomainName" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "additionalIdentifiers" : [ [ "/properties/Id" ] ],
+  "additionalIdentifiers" : [ [ "/properties/Id" ], [ "/properties/Name" ] ],
   "handlers" : {
     "create" : {
       "permissions" : [ "vpc-lattice:CreateService", "vpc-lattice:GetService", "vpc-lattice:ListTagsForResource", "vpc-lattice:TagResource", "acm:DescribeCertificate", "acm:ListCertificates" ]

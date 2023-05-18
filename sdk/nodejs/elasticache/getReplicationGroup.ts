@@ -29,6 +29,7 @@ export interface GetReplicationGroupResult {
     readonly cacheNodeType?: string;
     readonly cacheParameterGroupName?: string;
     readonly cacheSecurityGroupNames?: string[];
+    readonly clusterMode?: string;
     readonly configurationEndPointAddress?: string;
     readonly configurationEndPointPort?: string;
     readonly engineVersion?: string;

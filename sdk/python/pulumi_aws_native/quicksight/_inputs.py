@@ -1425,6 +1425,33 @@ __all__ = [
     'ThemeTileStyleArgs',
     'ThemeTypographyArgs',
     'ThemeUIColorPaletteArgs',
+    'TopicAggregationFunctionParametersArgs',
+    'TopicCalculatedFieldArgs',
+    'TopicCategoryFilterConstantArgs',
+    'TopicCategoryFilterArgs',
+    'TopicCellValueSynonymArgs',
+    'TopicCollectiveConstantArgs',
+    'TopicColumnArgs',
+    'TopicComparativeOrderArgs',
+    'TopicDataAggregationArgs',
+    'TopicDatasetMetadataArgs',
+    'TopicDateRangeFilterArgs',
+    'TopicDefaultFormattingArgs',
+    'TopicDisplayFormatOptionsArgs',
+    'TopicFilterArgs',
+    'TopicNamedEntityDefinitionMetricArgs',
+    'TopicNamedEntityDefinitionArgs',
+    'TopicNamedEntityArgs',
+    'TopicNegativeFormatArgs',
+    'TopicNumericEqualityFilterArgs',
+    'TopicNumericRangeFilterArgs',
+    'TopicRangeConstantArgs',
+    'TopicRangeFilterConstantArgs',
+    'TopicRelativeDateFilterArgs',
+    'TopicSemanticEntityTypeArgs',
+    'TopicSemanticTypeArgs',
+    'TopicSingularFilterConstantArgs',
+    'TopicTypeParametersArgs',
     'VPCConnectionTagArgs',
 ]
 
@@ -63585,6 +63612,1552 @@ class ThemeUIColorPaletteArgs:
     @warning_foreground.setter
     def warning_foreground(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "warning_foreground", value)
+
+
+@pulumi.input_type
+class TopicAggregationFunctionParametersArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class TopicCalculatedFieldArgs:
+    def __init__(__self__, *,
+                 calculated_field_name: pulumi.Input[str],
+                 expression: pulumi.Input[str],
+                 aggregation: Optional[pulumi.Input['TopicDefaultAggregation']] = None,
+                 allowed_aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]] = None,
+                 calculated_field_description: Optional[pulumi.Input[str]] = None,
+                 calculated_field_synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cell_value_synonyms: Optional[pulumi.Input[Sequence[pulumi.Input['TopicCellValueSynonymArgs']]]] = None,
+                 column_data_role: Optional[pulumi.Input['TopicColumnDataRole']] = None,
+                 comparative_order: Optional[pulumi.Input['TopicComparativeOrderArgs']] = None,
+                 default_formatting: Optional[pulumi.Input['TopicDefaultFormattingArgs']] = None,
+                 is_included_in_topic: Optional[pulumi.Input[bool]] = None,
+                 never_aggregate_in_filter: Optional[pulumi.Input[bool]] = None,
+                 not_allowed_aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]] = None,
+                 semantic_type: Optional[pulumi.Input['TopicSemanticTypeArgs']] = None,
+                 time_granularity: Optional[pulumi.Input['TopicTimeGranularity']] = None):
+        pulumi.set(__self__, "calculated_field_name", calculated_field_name)
+        pulumi.set(__self__, "expression", expression)
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if allowed_aggregations is not None:
+            pulumi.set(__self__, "allowed_aggregations", allowed_aggregations)
+        if calculated_field_description is not None:
+            pulumi.set(__self__, "calculated_field_description", calculated_field_description)
+        if calculated_field_synonyms is not None:
+            pulumi.set(__self__, "calculated_field_synonyms", calculated_field_synonyms)
+        if cell_value_synonyms is not None:
+            pulumi.set(__self__, "cell_value_synonyms", cell_value_synonyms)
+        if column_data_role is not None:
+            pulumi.set(__self__, "column_data_role", column_data_role)
+        if comparative_order is not None:
+            pulumi.set(__self__, "comparative_order", comparative_order)
+        if default_formatting is not None:
+            pulumi.set(__self__, "default_formatting", default_formatting)
+        if is_included_in_topic is not None:
+            pulumi.set(__self__, "is_included_in_topic", is_included_in_topic)
+        if never_aggregate_in_filter is not None:
+            pulumi.set(__self__, "never_aggregate_in_filter", never_aggregate_in_filter)
+        if not_allowed_aggregations is not None:
+            pulumi.set(__self__, "not_allowed_aggregations", not_allowed_aggregations)
+        if semantic_type is not None:
+            pulumi.set(__self__, "semantic_type", semantic_type)
+        if time_granularity is not None:
+            pulumi.set(__self__, "time_granularity", time_granularity)
+
+    @property
+    @pulumi.getter(name="calculatedFieldName")
+    def calculated_field_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "calculated_field_name")
+
+    @calculated_field_name.setter
+    def calculated_field_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "calculated_field_name", value)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[pulumi.Input['TopicDefaultAggregation']]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: Optional[pulumi.Input['TopicDefaultAggregation']]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter(name="allowedAggregations")
+    def allowed_aggregations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]]:
+        return pulumi.get(self, "allowed_aggregations")
+
+    @allowed_aggregations.setter
+    def allowed_aggregations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]]):
+        pulumi.set(self, "allowed_aggregations", value)
+
+    @property
+    @pulumi.getter(name="calculatedFieldDescription")
+    def calculated_field_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "calculated_field_description")
+
+    @calculated_field_description.setter
+    def calculated_field_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "calculated_field_description", value)
+
+    @property
+    @pulumi.getter(name="calculatedFieldSynonyms")
+    def calculated_field_synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "calculated_field_synonyms")
+
+    @calculated_field_synonyms.setter
+    def calculated_field_synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "calculated_field_synonyms", value)
+
+    @property
+    @pulumi.getter(name="cellValueSynonyms")
+    def cell_value_synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicCellValueSynonymArgs']]]]:
+        return pulumi.get(self, "cell_value_synonyms")
+
+    @cell_value_synonyms.setter
+    def cell_value_synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicCellValueSynonymArgs']]]]):
+        pulumi.set(self, "cell_value_synonyms", value)
+
+    @property
+    @pulumi.getter(name="columnDataRole")
+    def column_data_role(self) -> Optional[pulumi.Input['TopicColumnDataRole']]:
+        return pulumi.get(self, "column_data_role")
+
+    @column_data_role.setter
+    def column_data_role(self, value: Optional[pulumi.Input['TopicColumnDataRole']]):
+        pulumi.set(self, "column_data_role", value)
+
+    @property
+    @pulumi.getter(name="comparativeOrder")
+    def comparative_order(self) -> Optional[pulumi.Input['TopicComparativeOrderArgs']]:
+        return pulumi.get(self, "comparative_order")
+
+    @comparative_order.setter
+    def comparative_order(self, value: Optional[pulumi.Input['TopicComparativeOrderArgs']]):
+        pulumi.set(self, "comparative_order", value)
+
+    @property
+    @pulumi.getter(name="defaultFormatting")
+    def default_formatting(self) -> Optional[pulumi.Input['TopicDefaultFormattingArgs']]:
+        return pulumi.get(self, "default_formatting")
+
+    @default_formatting.setter
+    def default_formatting(self, value: Optional[pulumi.Input['TopicDefaultFormattingArgs']]):
+        pulumi.set(self, "default_formatting", value)
+
+    @property
+    @pulumi.getter(name="isIncludedInTopic")
+    def is_included_in_topic(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_included_in_topic")
+
+    @is_included_in_topic.setter
+    def is_included_in_topic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_included_in_topic", value)
+
+    @property
+    @pulumi.getter(name="neverAggregateInFilter")
+    def never_aggregate_in_filter(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "never_aggregate_in_filter")
+
+    @never_aggregate_in_filter.setter
+    def never_aggregate_in_filter(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "never_aggregate_in_filter", value)
+
+    @property
+    @pulumi.getter(name="notAllowedAggregations")
+    def not_allowed_aggregations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]]:
+        return pulumi.get(self, "not_allowed_aggregations")
+
+    @not_allowed_aggregations.setter
+    def not_allowed_aggregations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]]):
+        pulumi.set(self, "not_allowed_aggregations", value)
+
+    @property
+    @pulumi.getter(name="semanticType")
+    def semantic_type(self) -> Optional[pulumi.Input['TopicSemanticTypeArgs']]:
+        return pulumi.get(self, "semantic_type")
+
+    @semantic_type.setter
+    def semantic_type(self, value: Optional[pulumi.Input['TopicSemanticTypeArgs']]):
+        pulumi.set(self, "semantic_type", value)
+
+    @property
+    @pulumi.getter(name="timeGranularity")
+    def time_granularity(self) -> Optional[pulumi.Input['TopicTimeGranularity']]:
+        return pulumi.get(self, "time_granularity")
+
+    @time_granularity.setter
+    def time_granularity(self, value: Optional[pulumi.Input['TopicTimeGranularity']]):
+        pulumi.set(self, "time_granularity", value)
+
+
+@pulumi.input_type
+class TopicCategoryFilterConstantArgs:
+    def __init__(__self__, *,
+                 collective_constant: Optional[pulumi.Input['TopicCollectiveConstantArgs']] = None,
+                 constant_type: Optional[pulumi.Input['TopicConstantType']] = None,
+                 singular_constant: Optional[pulumi.Input[str]] = None):
+        if collective_constant is not None:
+            pulumi.set(__self__, "collective_constant", collective_constant)
+        if constant_type is not None:
+            pulumi.set(__self__, "constant_type", constant_type)
+        if singular_constant is not None:
+            pulumi.set(__self__, "singular_constant", singular_constant)
+
+    @property
+    @pulumi.getter(name="collectiveConstant")
+    def collective_constant(self) -> Optional[pulumi.Input['TopicCollectiveConstantArgs']]:
+        return pulumi.get(self, "collective_constant")
+
+    @collective_constant.setter
+    def collective_constant(self, value: Optional[pulumi.Input['TopicCollectiveConstantArgs']]):
+        pulumi.set(self, "collective_constant", value)
+
+    @property
+    @pulumi.getter(name="constantType")
+    def constant_type(self) -> Optional[pulumi.Input['TopicConstantType']]:
+        return pulumi.get(self, "constant_type")
+
+    @constant_type.setter
+    def constant_type(self, value: Optional[pulumi.Input['TopicConstantType']]):
+        pulumi.set(self, "constant_type", value)
+
+    @property
+    @pulumi.getter(name="singularConstant")
+    def singular_constant(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "singular_constant")
+
+    @singular_constant.setter
+    def singular_constant(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "singular_constant", value)
+
+
+@pulumi.input_type
+class TopicCategoryFilterArgs:
+    def __init__(__self__, *,
+                 category_filter_function: Optional[pulumi.Input['TopicCategoryFilterFunction']] = None,
+                 category_filter_type: Optional[pulumi.Input['TopicCategoryFilterType']] = None,
+                 constant: Optional[pulumi.Input['TopicCategoryFilterConstantArgs']] = None,
+                 inverse: Optional[pulumi.Input[bool]] = None):
+        if category_filter_function is not None:
+            pulumi.set(__self__, "category_filter_function", category_filter_function)
+        if category_filter_type is not None:
+            pulumi.set(__self__, "category_filter_type", category_filter_type)
+        if constant is not None:
+            pulumi.set(__self__, "constant", constant)
+        if inverse is not None:
+            pulumi.set(__self__, "inverse", inverse)
+
+    @property
+    @pulumi.getter(name="categoryFilterFunction")
+    def category_filter_function(self) -> Optional[pulumi.Input['TopicCategoryFilterFunction']]:
+        return pulumi.get(self, "category_filter_function")
+
+    @category_filter_function.setter
+    def category_filter_function(self, value: Optional[pulumi.Input['TopicCategoryFilterFunction']]):
+        pulumi.set(self, "category_filter_function", value)
+
+    @property
+    @pulumi.getter(name="categoryFilterType")
+    def category_filter_type(self) -> Optional[pulumi.Input['TopicCategoryFilterType']]:
+        return pulumi.get(self, "category_filter_type")
+
+    @category_filter_type.setter
+    def category_filter_type(self, value: Optional[pulumi.Input['TopicCategoryFilterType']]):
+        pulumi.set(self, "category_filter_type", value)
+
+    @property
+    @pulumi.getter
+    def constant(self) -> Optional[pulumi.Input['TopicCategoryFilterConstantArgs']]:
+        return pulumi.get(self, "constant")
+
+    @constant.setter
+    def constant(self, value: Optional[pulumi.Input['TopicCategoryFilterConstantArgs']]):
+        pulumi.set(self, "constant", value)
+
+    @property
+    @pulumi.getter
+    def inverse(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "inverse")
+
+    @inverse.setter
+    def inverse(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "inverse", value)
+
+
+@pulumi.input_type
+class TopicCellValueSynonymArgs:
+    def __init__(__self__, *,
+                 cell_value: Optional[pulumi.Input[str]] = None,
+                 synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if cell_value is not None:
+            pulumi.set(__self__, "cell_value", cell_value)
+        if synonyms is not None:
+            pulumi.set(__self__, "synonyms", synonyms)
+
+    @property
+    @pulumi.getter(name="cellValue")
+    def cell_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cell_value")
+
+    @cell_value.setter
+    def cell_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cell_value", value)
+
+    @property
+    @pulumi.getter
+    def synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "synonyms")
+
+    @synonyms.setter
+    def synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "synonyms", value)
+
+
+@pulumi.input_type
+class TopicCollectiveConstantArgs:
+    def __init__(__self__, *,
+                 value_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if value_list is not None:
+            pulumi.set(__self__, "value_list", value_list)
+
+    @property
+    @pulumi.getter(name="valueList")
+    def value_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "value_list")
+
+    @value_list.setter
+    def value_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "value_list", value)
+
+
+@pulumi.input_type
+class TopicColumnArgs:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[str],
+                 aggregation: Optional[pulumi.Input['TopicDefaultAggregation']] = None,
+                 allowed_aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]] = None,
+                 cell_value_synonyms: Optional[pulumi.Input[Sequence[pulumi.Input['TopicCellValueSynonymArgs']]]] = None,
+                 column_data_role: Optional[pulumi.Input['TopicColumnDataRole']] = None,
+                 column_description: Optional[pulumi.Input[str]] = None,
+                 column_friendly_name: Optional[pulumi.Input[str]] = None,
+                 column_synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 comparative_order: Optional[pulumi.Input['TopicComparativeOrderArgs']] = None,
+                 default_formatting: Optional[pulumi.Input['TopicDefaultFormattingArgs']] = None,
+                 is_included_in_topic: Optional[pulumi.Input[bool]] = None,
+                 never_aggregate_in_filter: Optional[pulumi.Input[bool]] = None,
+                 not_allowed_aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]] = None,
+                 semantic_type: Optional[pulumi.Input['TopicSemanticTypeArgs']] = None,
+                 time_granularity: Optional[pulumi.Input['TopicTimeGranularity']] = None):
+        pulumi.set(__self__, "column_name", column_name)
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if allowed_aggregations is not None:
+            pulumi.set(__self__, "allowed_aggregations", allowed_aggregations)
+        if cell_value_synonyms is not None:
+            pulumi.set(__self__, "cell_value_synonyms", cell_value_synonyms)
+        if column_data_role is not None:
+            pulumi.set(__self__, "column_data_role", column_data_role)
+        if column_description is not None:
+            pulumi.set(__self__, "column_description", column_description)
+        if column_friendly_name is not None:
+            pulumi.set(__self__, "column_friendly_name", column_friendly_name)
+        if column_synonyms is not None:
+            pulumi.set(__self__, "column_synonyms", column_synonyms)
+        if comparative_order is not None:
+            pulumi.set(__self__, "comparative_order", comparative_order)
+        if default_formatting is not None:
+            pulumi.set(__self__, "default_formatting", default_formatting)
+        if is_included_in_topic is not None:
+            pulumi.set(__self__, "is_included_in_topic", is_included_in_topic)
+        if never_aggregate_in_filter is not None:
+            pulumi.set(__self__, "never_aggregate_in_filter", never_aggregate_in_filter)
+        if not_allowed_aggregations is not None:
+            pulumi.set(__self__, "not_allowed_aggregations", not_allowed_aggregations)
+        if semantic_type is not None:
+            pulumi.set(__self__, "semantic_type", semantic_type)
+        if time_granularity is not None:
+            pulumi.set(__self__, "time_granularity", time_granularity)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[pulumi.Input['TopicDefaultAggregation']]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: Optional[pulumi.Input['TopicDefaultAggregation']]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter(name="allowedAggregations")
+    def allowed_aggregations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]]:
+        return pulumi.get(self, "allowed_aggregations")
+
+    @allowed_aggregations.setter
+    def allowed_aggregations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]]):
+        pulumi.set(self, "allowed_aggregations", value)
+
+    @property
+    @pulumi.getter(name="cellValueSynonyms")
+    def cell_value_synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicCellValueSynonymArgs']]]]:
+        return pulumi.get(self, "cell_value_synonyms")
+
+    @cell_value_synonyms.setter
+    def cell_value_synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicCellValueSynonymArgs']]]]):
+        pulumi.set(self, "cell_value_synonyms", value)
+
+    @property
+    @pulumi.getter(name="columnDataRole")
+    def column_data_role(self) -> Optional[pulumi.Input['TopicColumnDataRole']]:
+        return pulumi.get(self, "column_data_role")
+
+    @column_data_role.setter
+    def column_data_role(self, value: Optional[pulumi.Input['TopicColumnDataRole']]):
+        pulumi.set(self, "column_data_role", value)
+
+    @property
+    @pulumi.getter(name="columnDescription")
+    def column_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "column_description")
+
+    @column_description.setter
+    def column_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "column_description", value)
+
+    @property
+    @pulumi.getter(name="columnFriendlyName")
+    def column_friendly_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "column_friendly_name")
+
+    @column_friendly_name.setter
+    def column_friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "column_friendly_name", value)
+
+    @property
+    @pulumi.getter(name="columnSynonyms")
+    def column_synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "column_synonyms")
+
+    @column_synonyms.setter
+    def column_synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "column_synonyms", value)
+
+    @property
+    @pulumi.getter(name="comparativeOrder")
+    def comparative_order(self) -> Optional[pulumi.Input['TopicComparativeOrderArgs']]:
+        return pulumi.get(self, "comparative_order")
+
+    @comparative_order.setter
+    def comparative_order(self, value: Optional[pulumi.Input['TopicComparativeOrderArgs']]):
+        pulumi.set(self, "comparative_order", value)
+
+    @property
+    @pulumi.getter(name="defaultFormatting")
+    def default_formatting(self) -> Optional[pulumi.Input['TopicDefaultFormattingArgs']]:
+        return pulumi.get(self, "default_formatting")
+
+    @default_formatting.setter
+    def default_formatting(self, value: Optional[pulumi.Input['TopicDefaultFormattingArgs']]):
+        pulumi.set(self, "default_formatting", value)
+
+    @property
+    @pulumi.getter(name="isIncludedInTopic")
+    def is_included_in_topic(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_included_in_topic")
+
+    @is_included_in_topic.setter
+    def is_included_in_topic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_included_in_topic", value)
+
+    @property
+    @pulumi.getter(name="neverAggregateInFilter")
+    def never_aggregate_in_filter(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "never_aggregate_in_filter")
+
+    @never_aggregate_in_filter.setter
+    def never_aggregate_in_filter(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "never_aggregate_in_filter", value)
+
+    @property
+    @pulumi.getter(name="notAllowedAggregations")
+    def not_allowed_aggregations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]]:
+        return pulumi.get(self, "not_allowed_aggregations")
+
+    @not_allowed_aggregations.setter
+    def not_allowed_aggregations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicAuthorSpecifiedAggregation']]]]):
+        pulumi.set(self, "not_allowed_aggregations", value)
+
+    @property
+    @pulumi.getter(name="semanticType")
+    def semantic_type(self) -> Optional[pulumi.Input['TopicSemanticTypeArgs']]:
+        return pulumi.get(self, "semantic_type")
+
+    @semantic_type.setter
+    def semantic_type(self, value: Optional[pulumi.Input['TopicSemanticTypeArgs']]):
+        pulumi.set(self, "semantic_type", value)
+
+    @property
+    @pulumi.getter(name="timeGranularity")
+    def time_granularity(self) -> Optional[pulumi.Input['TopicTimeGranularity']]:
+        return pulumi.get(self, "time_granularity")
+
+    @time_granularity.setter
+    def time_granularity(self, value: Optional[pulumi.Input['TopicTimeGranularity']]):
+        pulumi.set(self, "time_granularity", value)
+
+
+@pulumi.input_type
+class TopicComparativeOrderArgs:
+    def __init__(__self__, *,
+                 specifed_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 treat_undefined_specified_values: Optional[pulumi.Input['TopicUndefinedSpecifiedValueType']] = None,
+                 use_ordering: Optional[pulumi.Input['TopicColumnOrderingType']] = None):
+        if specifed_order is not None:
+            pulumi.set(__self__, "specifed_order", specifed_order)
+        if treat_undefined_specified_values is not None:
+            pulumi.set(__self__, "treat_undefined_specified_values", treat_undefined_specified_values)
+        if use_ordering is not None:
+            pulumi.set(__self__, "use_ordering", use_ordering)
+
+    @property
+    @pulumi.getter(name="specifedOrder")
+    def specifed_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "specifed_order")
+
+    @specifed_order.setter
+    def specifed_order(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "specifed_order", value)
+
+    @property
+    @pulumi.getter(name="treatUndefinedSpecifiedValues")
+    def treat_undefined_specified_values(self) -> Optional[pulumi.Input['TopicUndefinedSpecifiedValueType']]:
+        return pulumi.get(self, "treat_undefined_specified_values")
+
+    @treat_undefined_specified_values.setter
+    def treat_undefined_specified_values(self, value: Optional[pulumi.Input['TopicUndefinedSpecifiedValueType']]):
+        pulumi.set(self, "treat_undefined_specified_values", value)
+
+    @property
+    @pulumi.getter(name="useOrdering")
+    def use_ordering(self) -> Optional[pulumi.Input['TopicColumnOrderingType']]:
+        return pulumi.get(self, "use_ordering")
+
+    @use_ordering.setter
+    def use_ordering(self, value: Optional[pulumi.Input['TopicColumnOrderingType']]):
+        pulumi.set(self, "use_ordering", value)
+
+
+@pulumi.input_type
+class TopicDataAggregationArgs:
+    def __init__(__self__, *,
+                 dataset_row_date_granularity: Optional[pulumi.Input['TopicTimeGranularity']] = None,
+                 default_date_column_name: Optional[pulumi.Input[str]] = None):
+        if dataset_row_date_granularity is not None:
+            pulumi.set(__self__, "dataset_row_date_granularity", dataset_row_date_granularity)
+        if default_date_column_name is not None:
+            pulumi.set(__self__, "default_date_column_name", default_date_column_name)
+
+    @property
+    @pulumi.getter(name="datasetRowDateGranularity")
+    def dataset_row_date_granularity(self) -> Optional[pulumi.Input['TopicTimeGranularity']]:
+        return pulumi.get(self, "dataset_row_date_granularity")
+
+    @dataset_row_date_granularity.setter
+    def dataset_row_date_granularity(self, value: Optional[pulumi.Input['TopicTimeGranularity']]):
+        pulumi.set(self, "dataset_row_date_granularity", value)
+
+    @property
+    @pulumi.getter(name="defaultDateColumnName")
+    def default_date_column_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_date_column_name")
+
+    @default_date_column_name.setter
+    def default_date_column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_date_column_name", value)
+
+
+@pulumi.input_type
+class TopicDatasetMetadataArgs:
+    def __init__(__self__, *,
+                 dataset_arn: pulumi.Input[str],
+                 calculated_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TopicCalculatedFieldArgs']]]] = None,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicColumnArgs']]]] = None,
+                 data_aggregation: Optional[pulumi.Input['TopicDataAggregationArgs']] = None,
+                 dataset_description: Optional[pulumi.Input[str]] = None,
+                 dataset_name: Optional[pulumi.Input[str]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['TopicFilterArgs']]]] = None,
+                 named_entities: Optional[pulumi.Input[Sequence[pulumi.Input['TopicNamedEntityArgs']]]] = None):
+        pulumi.set(__self__, "dataset_arn", dataset_arn)
+        if calculated_fields is not None:
+            pulumi.set(__self__, "calculated_fields", calculated_fields)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if data_aggregation is not None:
+            pulumi.set(__self__, "data_aggregation", data_aggregation)
+        if dataset_description is not None:
+            pulumi.set(__self__, "dataset_description", dataset_description)
+        if dataset_name is not None:
+            pulumi.set(__self__, "dataset_name", dataset_name)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if named_entities is not None:
+            pulumi.set(__self__, "named_entities", named_entities)
+
+    @property
+    @pulumi.getter(name="datasetArn")
+    def dataset_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "dataset_arn")
+
+    @dataset_arn.setter
+    def dataset_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dataset_arn", value)
+
+    @property
+    @pulumi.getter(name="calculatedFields")
+    def calculated_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicCalculatedFieldArgs']]]]:
+        return pulumi.get(self, "calculated_fields")
+
+    @calculated_fields.setter
+    def calculated_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicCalculatedFieldArgs']]]]):
+        pulumi.set(self, "calculated_fields", value)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicColumnArgs']]]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter(name="dataAggregation")
+    def data_aggregation(self) -> Optional[pulumi.Input['TopicDataAggregationArgs']]:
+        return pulumi.get(self, "data_aggregation")
+
+    @data_aggregation.setter
+    def data_aggregation(self, value: Optional[pulumi.Input['TopicDataAggregationArgs']]):
+        pulumi.set(self, "data_aggregation", value)
+
+    @property
+    @pulumi.getter(name="datasetDescription")
+    def dataset_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "dataset_description")
+
+    @dataset_description.setter
+    def dataset_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dataset_description", value)
+
+    @property
+    @pulumi.getter(name="datasetName")
+    def dataset_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "dataset_name")
+
+    @dataset_name.setter
+    def dataset_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dataset_name", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicFilterArgs']]]]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter(name="namedEntities")
+    def named_entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicNamedEntityArgs']]]]:
+        return pulumi.get(self, "named_entities")
+
+    @named_entities.setter
+    def named_entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicNamedEntityArgs']]]]):
+        pulumi.set(self, "named_entities", value)
+
+
+@pulumi.input_type
+class TopicDateRangeFilterArgs:
+    def __init__(__self__, *,
+                 constant: Optional[pulumi.Input['TopicRangeFilterConstantArgs']] = None,
+                 inclusive: Optional[pulumi.Input[bool]] = None):
+        if constant is not None:
+            pulumi.set(__self__, "constant", constant)
+        if inclusive is not None:
+            pulumi.set(__self__, "inclusive", inclusive)
+
+    @property
+    @pulumi.getter
+    def constant(self) -> Optional[pulumi.Input['TopicRangeFilterConstantArgs']]:
+        return pulumi.get(self, "constant")
+
+    @constant.setter
+    def constant(self, value: Optional[pulumi.Input['TopicRangeFilterConstantArgs']]):
+        pulumi.set(self, "constant", value)
+
+    @property
+    @pulumi.getter
+    def inclusive(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "inclusive")
+
+    @inclusive.setter
+    def inclusive(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "inclusive", value)
+
+
+@pulumi.input_type
+class TopicDefaultFormattingArgs:
+    def __init__(__self__, *,
+                 display_format: Optional[pulumi.Input['TopicDisplayFormat']] = None,
+                 display_format_options: Optional[pulumi.Input['TopicDisplayFormatOptionsArgs']] = None):
+        if display_format is not None:
+            pulumi.set(__self__, "display_format", display_format)
+        if display_format_options is not None:
+            pulumi.set(__self__, "display_format_options", display_format_options)
+
+    @property
+    @pulumi.getter(name="displayFormat")
+    def display_format(self) -> Optional[pulumi.Input['TopicDisplayFormat']]:
+        return pulumi.get(self, "display_format")
+
+    @display_format.setter
+    def display_format(self, value: Optional[pulumi.Input['TopicDisplayFormat']]):
+        pulumi.set(self, "display_format", value)
+
+    @property
+    @pulumi.getter(name="displayFormatOptions")
+    def display_format_options(self) -> Optional[pulumi.Input['TopicDisplayFormatOptionsArgs']]:
+        return pulumi.get(self, "display_format_options")
+
+    @display_format_options.setter
+    def display_format_options(self, value: Optional[pulumi.Input['TopicDisplayFormatOptionsArgs']]):
+        pulumi.set(self, "display_format_options", value)
+
+
+@pulumi.input_type
+class TopicDisplayFormatOptionsArgs:
+    def __init__(__self__, *,
+                 blank_cell_format: Optional[pulumi.Input[str]] = None,
+                 currency_symbol: Optional[pulumi.Input[str]] = None,
+                 date_format: Optional[pulumi.Input[str]] = None,
+                 decimal_separator: Optional[pulumi.Input['TopicNumericSeparatorSymbol']] = None,
+                 fraction_digits: Optional[pulumi.Input[float]] = None,
+                 grouping_separator: Optional[pulumi.Input[str]] = None,
+                 negative_format: Optional[pulumi.Input['TopicNegativeFormatArgs']] = None,
+                 prefix: Optional[pulumi.Input[str]] = None,
+                 suffix: Optional[pulumi.Input[str]] = None,
+                 unit_scaler: Optional[pulumi.Input['TopicNumberScale']] = None,
+                 use_blank_cell_format: Optional[pulumi.Input[bool]] = None,
+                 use_grouping: Optional[pulumi.Input[bool]] = None):
+        if blank_cell_format is not None:
+            pulumi.set(__self__, "blank_cell_format", blank_cell_format)
+        if currency_symbol is not None:
+            pulumi.set(__self__, "currency_symbol", currency_symbol)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if decimal_separator is not None:
+            pulumi.set(__self__, "decimal_separator", decimal_separator)
+        if fraction_digits is not None:
+            pulumi.set(__self__, "fraction_digits", fraction_digits)
+        if grouping_separator is not None:
+            pulumi.set(__self__, "grouping_separator", grouping_separator)
+        if negative_format is not None:
+            pulumi.set(__self__, "negative_format", negative_format)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
+        if unit_scaler is not None:
+            pulumi.set(__self__, "unit_scaler", unit_scaler)
+        if use_blank_cell_format is not None:
+            pulumi.set(__self__, "use_blank_cell_format", use_blank_cell_format)
+        if use_grouping is not None:
+            pulumi.set(__self__, "use_grouping", use_grouping)
+
+    @property
+    @pulumi.getter(name="blankCellFormat")
+    def blank_cell_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "blank_cell_format")
+
+    @blank_cell_format.setter
+    def blank_cell_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blank_cell_format", value)
+
+    @property
+    @pulumi.getter(name="currencySymbol")
+    def currency_symbol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "currency_symbol")
+
+    @currency_symbol.setter
+    def currency_symbol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "currency_symbol", value)
+
+    @property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "date_format")
+
+    @date_format.setter
+    def date_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_format", value)
+
+    @property
+    @pulumi.getter(name="decimalSeparator")
+    def decimal_separator(self) -> Optional[pulumi.Input['TopicNumericSeparatorSymbol']]:
+        return pulumi.get(self, "decimal_separator")
+
+    @decimal_separator.setter
+    def decimal_separator(self, value: Optional[pulumi.Input['TopicNumericSeparatorSymbol']]):
+        pulumi.set(self, "decimal_separator", value)
+
+    @property
+    @pulumi.getter(name="fractionDigits")
+    def fraction_digits(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "fraction_digits")
+
+    @fraction_digits.setter
+    def fraction_digits(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "fraction_digits", value)
+
+    @property
+    @pulumi.getter(name="groupingSeparator")
+    def grouping_separator(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "grouping_separator")
+
+    @grouping_separator.setter
+    def grouping_separator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "grouping_separator", value)
+
+    @property
+    @pulumi.getter(name="negativeFormat")
+    def negative_format(self) -> Optional[pulumi.Input['TopicNegativeFormatArgs']]:
+        return pulumi.get(self, "negative_format")
+
+    @negative_format.setter
+    def negative_format(self, value: Optional[pulumi.Input['TopicNegativeFormatArgs']]):
+        pulumi.set(self, "negative_format", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "suffix")
+
+    @suffix.setter
+    def suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "suffix", value)
+
+    @property
+    @pulumi.getter(name="unitScaler")
+    def unit_scaler(self) -> Optional[pulumi.Input['TopicNumberScale']]:
+        return pulumi.get(self, "unit_scaler")
+
+    @unit_scaler.setter
+    def unit_scaler(self, value: Optional[pulumi.Input['TopicNumberScale']]):
+        pulumi.set(self, "unit_scaler", value)
+
+    @property
+    @pulumi.getter(name="useBlankCellFormat")
+    def use_blank_cell_format(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_blank_cell_format")
+
+    @use_blank_cell_format.setter
+    def use_blank_cell_format(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_blank_cell_format", value)
+
+    @property
+    @pulumi.getter(name="useGrouping")
+    def use_grouping(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_grouping")
+
+    @use_grouping.setter
+    def use_grouping(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_grouping", value)
+
+
+@pulumi.input_type
+class TopicFilterArgs:
+    def __init__(__self__, *,
+                 filter_name: pulumi.Input[str],
+                 operand_field_name: pulumi.Input[str],
+                 category_filter: Optional[pulumi.Input['TopicCategoryFilterArgs']] = None,
+                 date_range_filter: Optional[pulumi.Input['TopicDateRangeFilterArgs']] = None,
+                 filter_class: Optional[pulumi.Input['TopicFilterClass']] = None,
+                 filter_description: Optional[pulumi.Input[str]] = None,
+                 filter_synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 filter_type: Optional[pulumi.Input['TopicNamedFilterType']] = None,
+                 numeric_equality_filter: Optional[pulumi.Input['TopicNumericEqualityFilterArgs']] = None,
+                 numeric_range_filter: Optional[pulumi.Input['TopicNumericRangeFilterArgs']] = None,
+                 relative_date_filter: Optional[pulumi.Input['TopicRelativeDateFilterArgs']] = None):
+        pulumi.set(__self__, "filter_name", filter_name)
+        pulumi.set(__self__, "operand_field_name", operand_field_name)
+        if category_filter is not None:
+            pulumi.set(__self__, "category_filter", category_filter)
+        if date_range_filter is not None:
+            pulumi.set(__self__, "date_range_filter", date_range_filter)
+        if filter_class is not None:
+            pulumi.set(__self__, "filter_class", filter_class)
+        if filter_description is not None:
+            pulumi.set(__self__, "filter_description", filter_description)
+        if filter_synonyms is not None:
+            pulumi.set(__self__, "filter_synonyms", filter_synonyms)
+        if filter_type is not None:
+            pulumi.set(__self__, "filter_type", filter_type)
+        if numeric_equality_filter is not None:
+            pulumi.set(__self__, "numeric_equality_filter", numeric_equality_filter)
+        if numeric_range_filter is not None:
+            pulumi.set(__self__, "numeric_range_filter", numeric_range_filter)
+        if relative_date_filter is not None:
+            pulumi.set(__self__, "relative_date_filter", relative_date_filter)
+
+    @property
+    @pulumi.getter(name="filterName")
+    def filter_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "filter_name")
+
+    @filter_name.setter
+    def filter_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter_name", value)
+
+    @property
+    @pulumi.getter(name="operandFieldName")
+    def operand_field_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "operand_field_name")
+
+    @operand_field_name.setter
+    def operand_field_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operand_field_name", value)
+
+    @property
+    @pulumi.getter(name="categoryFilter")
+    def category_filter(self) -> Optional[pulumi.Input['TopicCategoryFilterArgs']]:
+        return pulumi.get(self, "category_filter")
+
+    @category_filter.setter
+    def category_filter(self, value: Optional[pulumi.Input['TopicCategoryFilterArgs']]):
+        pulumi.set(self, "category_filter", value)
+
+    @property
+    @pulumi.getter(name="dateRangeFilter")
+    def date_range_filter(self) -> Optional[pulumi.Input['TopicDateRangeFilterArgs']]:
+        return pulumi.get(self, "date_range_filter")
+
+    @date_range_filter.setter
+    def date_range_filter(self, value: Optional[pulumi.Input['TopicDateRangeFilterArgs']]):
+        pulumi.set(self, "date_range_filter", value)
+
+    @property
+    @pulumi.getter(name="filterClass")
+    def filter_class(self) -> Optional[pulumi.Input['TopicFilterClass']]:
+        return pulumi.get(self, "filter_class")
+
+    @filter_class.setter
+    def filter_class(self, value: Optional[pulumi.Input['TopicFilterClass']]):
+        pulumi.set(self, "filter_class", value)
+
+    @property
+    @pulumi.getter(name="filterDescription")
+    def filter_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "filter_description")
+
+    @filter_description.setter
+    def filter_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_description", value)
+
+    @property
+    @pulumi.getter(name="filterSynonyms")
+    def filter_synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "filter_synonyms")
+
+    @filter_synonyms.setter
+    def filter_synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "filter_synonyms", value)
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> Optional[pulumi.Input['TopicNamedFilterType']]:
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: Optional[pulumi.Input['TopicNamedFilterType']]):
+        pulumi.set(self, "filter_type", value)
+
+    @property
+    @pulumi.getter(name="numericEqualityFilter")
+    def numeric_equality_filter(self) -> Optional[pulumi.Input['TopicNumericEqualityFilterArgs']]:
+        return pulumi.get(self, "numeric_equality_filter")
+
+    @numeric_equality_filter.setter
+    def numeric_equality_filter(self, value: Optional[pulumi.Input['TopicNumericEqualityFilterArgs']]):
+        pulumi.set(self, "numeric_equality_filter", value)
+
+    @property
+    @pulumi.getter(name="numericRangeFilter")
+    def numeric_range_filter(self) -> Optional[pulumi.Input['TopicNumericRangeFilterArgs']]:
+        return pulumi.get(self, "numeric_range_filter")
+
+    @numeric_range_filter.setter
+    def numeric_range_filter(self, value: Optional[pulumi.Input['TopicNumericRangeFilterArgs']]):
+        pulumi.set(self, "numeric_range_filter", value)
+
+    @property
+    @pulumi.getter(name="relativeDateFilter")
+    def relative_date_filter(self) -> Optional[pulumi.Input['TopicRelativeDateFilterArgs']]:
+        return pulumi.get(self, "relative_date_filter")
+
+    @relative_date_filter.setter
+    def relative_date_filter(self, value: Optional[pulumi.Input['TopicRelativeDateFilterArgs']]):
+        pulumi.set(self, "relative_date_filter", value)
+
+
+@pulumi.input_type
+class TopicNamedEntityDefinitionMetricArgs:
+    def __init__(__self__, *,
+                 aggregation: Optional[pulumi.Input['TopicNamedEntityAggType']] = None,
+                 aggregation_function_parameters: Optional[pulumi.Input['TopicAggregationFunctionParametersArgs']] = None):
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if aggregation_function_parameters is not None:
+            pulumi.set(__self__, "aggregation_function_parameters", aggregation_function_parameters)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[pulumi.Input['TopicNamedEntityAggType']]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: Optional[pulumi.Input['TopicNamedEntityAggType']]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter(name="aggregationFunctionParameters")
+    def aggregation_function_parameters(self) -> Optional[pulumi.Input['TopicAggregationFunctionParametersArgs']]:
+        return pulumi.get(self, "aggregation_function_parameters")
+
+    @aggregation_function_parameters.setter
+    def aggregation_function_parameters(self, value: Optional[pulumi.Input['TopicAggregationFunctionParametersArgs']]):
+        pulumi.set(self, "aggregation_function_parameters", value)
+
+
+@pulumi.input_type
+class TopicNamedEntityDefinitionArgs:
+    def __init__(__self__, *,
+                 field_name: Optional[pulumi.Input[str]] = None,
+                 metric: Optional[pulumi.Input['TopicNamedEntityDefinitionMetricArgs']] = None,
+                 property_name: Optional[pulumi.Input[str]] = None,
+                 property_role: Optional[pulumi.Input['TopicPropertyRole']] = None,
+                 property_usage: Optional[pulumi.Input['TopicPropertyUsage']] = None):
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+        if property_role is not None:
+            pulumi.set(__self__, "property_role", property_role)
+        if property_usage is not None:
+            pulumi.set(__self__, "property_usage", property_usage)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field_name")
+
+    @field_name.setter
+    def field_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_name", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input['TopicNamedEntityDefinitionMetricArgs']]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input['TopicNamedEntityDefinitionMetricArgs']]):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "property_name")
+
+    @property_name.setter
+    def property_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property_name", value)
+
+    @property
+    @pulumi.getter(name="propertyRole")
+    def property_role(self) -> Optional[pulumi.Input['TopicPropertyRole']]:
+        return pulumi.get(self, "property_role")
+
+    @property_role.setter
+    def property_role(self, value: Optional[pulumi.Input['TopicPropertyRole']]):
+        pulumi.set(self, "property_role", value)
+
+    @property
+    @pulumi.getter(name="propertyUsage")
+    def property_usage(self) -> Optional[pulumi.Input['TopicPropertyUsage']]:
+        return pulumi.get(self, "property_usage")
+
+    @property_usage.setter
+    def property_usage(self, value: Optional[pulumi.Input['TopicPropertyUsage']]):
+        pulumi.set(self, "property_usage", value)
+
+
+@pulumi.input_type
+class TopicNamedEntityArgs:
+    def __init__(__self__, *,
+                 entity_name: pulumi.Input[str],
+                 definition: Optional[pulumi.Input[Sequence[pulumi.Input['TopicNamedEntityDefinitionArgs']]]] = None,
+                 entity_description: Optional[pulumi.Input[str]] = None,
+                 entity_synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 semantic_entity_type: Optional[pulumi.Input['TopicSemanticEntityTypeArgs']] = None):
+        pulumi.set(__self__, "entity_name", entity_name)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+        if entity_description is not None:
+            pulumi.set(__self__, "entity_description", entity_description)
+        if entity_synonyms is not None:
+            pulumi.set(__self__, "entity_synonyms", entity_synonyms)
+        if semantic_entity_type is not None:
+            pulumi.set(__self__, "semantic_entity_type", semantic_entity_type)
+
+    @property
+    @pulumi.getter(name="entityName")
+    def entity_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "entity_name")
+
+    @entity_name.setter
+    def entity_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "entity_name", value)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicNamedEntityDefinitionArgs']]]]:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicNamedEntityDefinitionArgs']]]]):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter(name="entityDescription")
+    def entity_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "entity_description")
+
+    @entity_description.setter
+    def entity_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_description", value)
+
+    @property
+    @pulumi.getter(name="entitySynonyms")
+    def entity_synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "entity_synonyms")
+
+    @entity_synonyms.setter
+    def entity_synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "entity_synonyms", value)
+
+    @property
+    @pulumi.getter(name="semanticEntityType")
+    def semantic_entity_type(self) -> Optional[pulumi.Input['TopicSemanticEntityTypeArgs']]:
+        return pulumi.get(self, "semantic_entity_type")
+
+    @semantic_entity_type.setter
+    def semantic_entity_type(self, value: Optional[pulumi.Input['TopicSemanticEntityTypeArgs']]):
+        pulumi.set(self, "semantic_entity_type", value)
+
+
+@pulumi.input_type
+class TopicNegativeFormatArgs:
+    def __init__(__self__, *,
+                 prefix: Optional[pulumi.Input[str]] = None,
+                 suffix: Optional[pulumi.Input[str]] = None):
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "suffix")
+
+    @suffix.setter
+    def suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "suffix", value)
+
+
+@pulumi.input_type
+class TopicNumericEqualityFilterArgs:
+    def __init__(__self__, *,
+                 aggregation: Optional[pulumi.Input['TopicNamedFilterAggType']] = None,
+                 constant: Optional[pulumi.Input['TopicSingularFilterConstantArgs']] = None):
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if constant is not None:
+            pulumi.set(__self__, "constant", constant)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[pulumi.Input['TopicNamedFilterAggType']]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: Optional[pulumi.Input['TopicNamedFilterAggType']]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter
+    def constant(self) -> Optional[pulumi.Input['TopicSingularFilterConstantArgs']]:
+        return pulumi.get(self, "constant")
+
+    @constant.setter
+    def constant(self, value: Optional[pulumi.Input['TopicSingularFilterConstantArgs']]):
+        pulumi.set(self, "constant", value)
+
+
+@pulumi.input_type
+class TopicNumericRangeFilterArgs:
+    def __init__(__self__, *,
+                 aggregation: Optional[pulumi.Input['TopicNamedFilterAggType']] = None,
+                 constant: Optional[pulumi.Input['TopicRangeFilterConstantArgs']] = None,
+                 inclusive: Optional[pulumi.Input[bool]] = None):
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if constant is not None:
+            pulumi.set(__self__, "constant", constant)
+        if inclusive is not None:
+            pulumi.set(__self__, "inclusive", inclusive)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[pulumi.Input['TopicNamedFilterAggType']]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: Optional[pulumi.Input['TopicNamedFilterAggType']]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter
+    def constant(self) -> Optional[pulumi.Input['TopicRangeFilterConstantArgs']]:
+        return pulumi.get(self, "constant")
+
+    @constant.setter
+    def constant(self, value: Optional[pulumi.Input['TopicRangeFilterConstantArgs']]):
+        pulumi.set(self, "constant", value)
+
+    @property
+    @pulumi.getter
+    def inclusive(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "inclusive")
+
+    @inclusive.setter
+    def inclusive(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "inclusive", value)
+
+
+@pulumi.input_type
+class TopicRangeConstantArgs:
+    def __init__(__self__, *,
+                 maximum: Optional[pulumi.Input[str]] = None,
+                 minimum: Optional[pulumi.Input[str]] = None):
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum", value)
+
+
+@pulumi.input_type
+class TopicRangeFilterConstantArgs:
+    def __init__(__self__, *,
+                 constant_type: Optional[pulumi.Input['TopicConstantType']] = None,
+                 range_constant: Optional[pulumi.Input['TopicRangeConstantArgs']] = None):
+        if constant_type is not None:
+            pulumi.set(__self__, "constant_type", constant_type)
+        if range_constant is not None:
+            pulumi.set(__self__, "range_constant", range_constant)
+
+    @property
+    @pulumi.getter(name="constantType")
+    def constant_type(self) -> Optional[pulumi.Input['TopicConstantType']]:
+        return pulumi.get(self, "constant_type")
+
+    @constant_type.setter
+    def constant_type(self, value: Optional[pulumi.Input['TopicConstantType']]):
+        pulumi.set(self, "constant_type", value)
+
+    @property
+    @pulumi.getter(name="rangeConstant")
+    def range_constant(self) -> Optional[pulumi.Input['TopicRangeConstantArgs']]:
+        return pulumi.get(self, "range_constant")
+
+    @range_constant.setter
+    def range_constant(self, value: Optional[pulumi.Input['TopicRangeConstantArgs']]):
+        pulumi.set(self, "range_constant", value)
+
+
+@pulumi.input_type
+class TopicRelativeDateFilterArgs:
+    def __init__(__self__, *,
+                 constant: Optional[pulumi.Input['TopicSingularFilterConstantArgs']] = None,
+                 relative_date_filter_function: Optional[pulumi.Input['TopicRelativeDateFilterFunction']] = None,
+                 time_granularity: Optional[pulumi.Input['TopicTimeGranularity']] = None):
+        if constant is not None:
+            pulumi.set(__self__, "constant", constant)
+        if relative_date_filter_function is not None:
+            pulumi.set(__self__, "relative_date_filter_function", relative_date_filter_function)
+        if time_granularity is not None:
+            pulumi.set(__self__, "time_granularity", time_granularity)
+
+    @property
+    @pulumi.getter
+    def constant(self) -> Optional[pulumi.Input['TopicSingularFilterConstantArgs']]:
+        return pulumi.get(self, "constant")
+
+    @constant.setter
+    def constant(self, value: Optional[pulumi.Input['TopicSingularFilterConstantArgs']]):
+        pulumi.set(self, "constant", value)
+
+    @property
+    @pulumi.getter(name="relativeDateFilterFunction")
+    def relative_date_filter_function(self) -> Optional[pulumi.Input['TopicRelativeDateFilterFunction']]:
+        return pulumi.get(self, "relative_date_filter_function")
+
+    @relative_date_filter_function.setter
+    def relative_date_filter_function(self, value: Optional[pulumi.Input['TopicRelativeDateFilterFunction']]):
+        pulumi.set(self, "relative_date_filter_function", value)
+
+    @property
+    @pulumi.getter(name="timeGranularity")
+    def time_granularity(self) -> Optional[pulumi.Input['TopicTimeGranularity']]:
+        return pulumi.get(self, "time_granularity")
+
+    @time_granularity.setter
+    def time_granularity(self, value: Optional[pulumi.Input['TopicTimeGranularity']]):
+        pulumi.set(self, "time_granularity", value)
+
+
+@pulumi.input_type
+class TopicSemanticEntityTypeArgs:
+    def __init__(__self__, *,
+                 sub_type_name: Optional[pulumi.Input[str]] = None,
+                 type_name: Optional[pulumi.Input[str]] = None,
+                 type_parameters: Optional[pulumi.Input['TopicTypeParametersArgs']] = None):
+        if sub_type_name is not None:
+            pulumi.set(__self__, "sub_type_name", sub_type_name)
+        if type_name is not None:
+            pulumi.set(__self__, "type_name", type_name)
+        if type_parameters is not None:
+            pulumi.set(__self__, "type_parameters", type_parameters)
+
+    @property
+    @pulumi.getter(name="subTypeName")
+    def sub_type_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sub_type_name")
+
+    @sub_type_name.setter
+    def sub_type_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sub_type_name", value)
+
+    @property
+    @pulumi.getter(name="typeName")
+    def type_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type_name")
+
+    @type_name.setter
+    def type_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type_name", value)
+
+    @property
+    @pulumi.getter(name="typeParameters")
+    def type_parameters(self) -> Optional[pulumi.Input['TopicTypeParametersArgs']]:
+        return pulumi.get(self, "type_parameters")
+
+    @type_parameters.setter
+    def type_parameters(self, value: Optional[pulumi.Input['TopicTypeParametersArgs']]):
+        pulumi.set(self, "type_parameters", value)
+
+
+@pulumi.input_type
+class TopicSemanticTypeArgs:
+    def __init__(__self__, *,
+                 falsey_cell_value: Optional[pulumi.Input[str]] = None,
+                 falsey_cell_value_synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sub_type_name: Optional[pulumi.Input[str]] = None,
+                 truthy_cell_value: Optional[pulumi.Input[str]] = None,
+                 truthy_cell_value_synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 type_name: Optional[pulumi.Input[str]] = None,
+                 type_parameters: Optional[pulumi.Input['TopicTypeParametersArgs']] = None):
+        if falsey_cell_value is not None:
+            pulumi.set(__self__, "falsey_cell_value", falsey_cell_value)
+        if falsey_cell_value_synonyms is not None:
+            pulumi.set(__self__, "falsey_cell_value_synonyms", falsey_cell_value_synonyms)
+        if sub_type_name is not None:
+            pulumi.set(__self__, "sub_type_name", sub_type_name)
+        if truthy_cell_value is not None:
+            pulumi.set(__self__, "truthy_cell_value", truthy_cell_value)
+        if truthy_cell_value_synonyms is not None:
+            pulumi.set(__self__, "truthy_cell_value_synonyms", truthy_cell_value_synonyms)
+        if type_name is not None:
+            pulumi.set(__self__, "type_name", type_name)
+        if type_parameters is not None:
+            pulumi.set(__self__, "type_parameters", type_parameters)
+
+    @property
+    @pulumi.getter(name="falseyCellValue")
+    def falsey_cell_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "falsey_cell_value")
+
+    @falsey_cell_value.setter
+    def falsey_cell_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "falsey_cell_value", value)
+
+    @property
+    @pulumi.getter(name="falseyCellValueSynonyms")
+    def falsey_cell_value_synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "falsey_cell_value_synonyms")
+
+    @falsey_cell_value_synonyms.setter
+    def falsey_cell_value_synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "falsey_cell_value_synonyms", value)
+
+    @property
+    @pulumi.getter(name="subTypeName")
+    def sub_type_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sub_type_name")
+
+    @sub_type_name.setter
+    def sub_type_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sub_type_name", value)
+
+    @property
+    @pulumi.getter(name="truthyCellValue")
+    def truthy_cell_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "truthy_cell_value")
+
+    @truthy_cell_value.setter
+    def truthy_cell_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "truthy_cell_value", value)
+
+    @property
+    @pulumi.getter(name="truthyCellValueSynonyms")
+    def truthy_cell_value_synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "truthy_cell_value_synonyms")
+
+    @truthy_cell_value_synonyms.setter
+    def truthy_cell_value_synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "truthy_cell_value_synonyms", value)
+
+    @property
+    @pulumi.getter(name="typeName")
+    def type_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type_name")
+
+    @type_name.setter
+    def type_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type_name", value)
+
+    @property
+    @pulumi.getter(name="typeParameters")
+    def type_parameters(self) -> Optional[pulumi.Input['TopicTypeParametersArgs']]:
+        return pulumi.get(self, "type_parameters")
+
+    @type_parameters.setter
+    def type_parameters(self, value: Optional[pulumi.Input['TopicTypeParametersArgs']]):
+        pulumi.set(self, "type_parameters", value)
+
+
+@pulumi.input_type
+class TopicSingularFilterConstantArgs:
+    def __init__(__self__, *,
+                 constant_type: Optional[pulumi.Input['TopicConstantType']] = None,
+                 singular_constant: Optional[pulumi.Input[str]] = None):
+        if constant_type is not None:
+            pulumi.set(__self__, "constant_type", constant_type)
+        if singular_constant is not None:
+            pulumi.set(__self__, "singular_constant", singular_constant)
+
+    @property
+    @pulumi.getter(name="constantType")
+    def constant_type(self) -> Optional[pulumi.Input['TopicConstantType']]:
+        return pulumi.get(self, "constant_type")
+
+    @constant_type.setter
+    def constant_type(self, value: Optional[pulumi.Input['TopicConstantType']]):
+        pulumi.set(self, "constant_type", value)
+
+    @property
+    @pulumi.getter(name="singularConstant")
+    def singular_constant(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "singular_constant")
+
+    @singular_constant.setter
+    def singular_constant(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "singular_constant", value)
+
+
+@pulumi.input_type
+class TopicTypeParametersArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type

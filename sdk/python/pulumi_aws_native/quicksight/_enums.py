@@ -324,6 +324,25 @@ __all__ = [
     'ThemeErrorType',
     'ThemeResourceStatus',
     'ThemeType',
+    'TopicAuthorSpecifiedAggregation',
+    'TopicCategoryFilterFunction',
+    'TopicCategoryFilterType',
+    'TopicColumnDataRole',
+    'TopicColumnOrderingType',
+    'TopicConstantType',
+    'TopicDefaultAggregation',
+    'TopicDisplayFormat',
+    'TopicFilterClass',
+    'TopicNamedEntityAggType',
+    'TopicNamedFilterAggType',
+    'TopicNamedFilterType',
+    'TopicNumberScale',
+    'TopicNumericSeparatorSymbol',
+    'TopicPropertyRole',
+    'TopicPropertyUsage',
+    'TopicRelativeDateFilterFunction',
+    'TopicTimeGranularity',
+    'TopicUndefinedSpecifiedValueType',
     'VPCConnectionAvailabilityStatus',
     'VPCConnectionNetworkInterfaceStatus',
     'VPCConnectionResourceStatus',
@@ -2335,6 +2354,161 @@ class ThemeType(str, Enum):
     QUICKSIGHT = "QUICKSIGHT"
     CUSTOM = "CUSTOM"
     ALL = "ALL"
+
+
+class TopicAuthorSpecifiedAggregation(str, Enum):
+    COUNT = "COUNT"
+    DISTINCT_COUNT = "DISTINCT_COUNT"
+    MIN = "MIN"
+    MAX = "MAX"
+    MEDIAN = "MEDIAN"
+    SUM = "SUM"
+    AVERAGE = "AVERAGE"
+    STDEV = "STDEV"
+    STDEVP = "STDEVP"
+    VAR = "VAR"
+    VARP = "VARP"
+    PERCENTILE = "PERCENTILE"
+
+
+class TopicCategoryFilterFunction(str, Enum):
+    EXACT = "EXACT"
+    CONTAINS = "CONTAINS"
+
+
+class TopicCategoryFilterType(str, Enum):
+    CUSTOM_FILTER = "CUSTOM_FILTER"
+    CUSTOM_FILTER_LIST = "CUSTOM_FILTER_LIST"
+    FILTER_LIST = "FILTER_LIST"
+
+
+class TopicColumnDataRole(str, Enum):
+    DIMENSION = "DIMENSION"
+    MEASURE = "MEASURE"
+
+
+class TopicColumnOrderingType(str, Enum):
+    GREATER_IS_BETTER = "GREATER_IS_BETTER"
+    LESSER_IS_BETTER = "LESSER_IS_BETTER"
+    SPECIFIED = "SPECIFIED"
+
+
+class TopicConstantType(str, Enum):
+    SINGULAR = "SINGULAR"
+    RANGE = "RANGE"
+    COLLECTIVE = "COLLECTIVE"
+
+
+class TopicDefaultAggregation(str, Enum):
+    SUM = "SUM"
+    MAX = "MAX"
+    MIN = "MIN"
+    COUNT = "COUNT"
+    DISTINCT_COUNT = "DISTINCT_COUNT"
+    AVERAGE = "AVERAGE"
+
+
+class TopicDisplayFormat(str, Enum):
+    AUTO = "AUTO"
+    PERCENT = "PERCENT"
+    CURRENCY = "CURRENCY"
+    NUMBER = "NUMBER"
+    DATE = "DATE"
+    STRING = "STRING"
+
+
+class TopicFilterClass(str, Enum):
+    ENFORCED_VALUE_FILTER = "ENFORCED_VALUE_FILTER"
+    CONDITIONAL_VALUE_FILTER = "CONDITIONAL_VALUE_FILTER"
+    NAMED_VALUE_FILTER = "NAMED_VALUE_FILTER"
+
+
+class TopicNamedEntityAggType(str, Enum):
+    SUM = "SUM"
+    MIN = "MIN"
+    MAX = "MAX"
+    COUNT = "COUNT"
+    AVERAGE = "AVERAGE"
+    DISTINCT_COUNT = "DISTINCT_COUNT"
+    STDEV = "STDEV"
+    STDEVP = "STDEVP"
+    VAR = "VAR"
+    VARP = "VARP"
+    PERCENTILE = "PERCENTILE"
+    MEDIAN = "MEDIAN"
+    CUSTOM = "CUSTOM"
+
+
+class TopicNamedFilterAggType(str, Enum):
+    NO_AGGREGATION = "NO_AGGREGATION"
+    SUM = "SUM"
+    AVERAGE = "AVERAGE"
+    COUNT = "COUNT"
+    DISTINCT_COUNT = "DISTINCT_COUNT"
+    MAX = "MAX"
+    MEDIAN = "MEDIAN"
+    MIN = "MIN"
+    STDEV = "STDEV"
+    STDEVP = "STDEVP"
+    VAR = "VAR"
+    VARP = "VARP"
+
+
+class TopicNamedFilterType(str, Enum):
+    CATEGORY_FILTER = "CATEGORY_FILTER"
+    NUMERIC_EQUALITY_FILTER = "NUMERIC_EQUALITY_FILTER"
+    NUMERIC_RANGE_FILTER = "NUMERIC_RANGE_FILTER"
+    DATE_RANGE_FILTER = "DATE_RANGE_FILTER"
+    RELATIVE_DATE_FILTER = "RELATIVE_DATE_FILTER"
+
+
+class TopicNumberScale(str, Enum):
+    NONE = "NONE"
+    AUTO = "AUTO"
+    THOUSANDS = "THOUSANDS"
+    MILLIONS = "MILLIONS"
+    BILLIONS = "BILLIONS"
+    TRILLIONS = "TRILLIONS"
+
+
+class TopicNumericSeparatorSymbol(str, Enum):
+    COMMA = "COMMA"
+    DOT = "DOT"
+
+
+class TopicPropertyRole(str, Enum):
+    PRIMARY = "PRIMARY"
+    ID = "ID"
+
+
+class TopicPropertyUsage(str, Enum):
+    INHERIT = "INHERIT"
+    DIMENSION = "DIMENSION"
+    MEASURE = "MEASURE"
+
+
+class TopicRelativeDateFilterFunction(str, Enum):
+    PREVIOUS = "PREVIOUS"
+    THIS = "THIS"
+    LAST = "LAST"
+    NEXT = "NEXT"
+    NOW = "NOW"
+
+
+class TopicTimeGranularity(str, Enum):
+    SECOND = "SECOND"
+    MINUTE = "MINUTE"
+    HOUR = "HOUR"
+    DAY = "DAY"
+    WEEK = "WEEK"
+    MONTH = "MONTH"
+    QUARTER = "QUARTER"
+    YEAR = "YEAR"
+
+
+class TopicUndefinedSpecifiedValueType(str, Enum):
+    LEAST = "LEAST"
+    MOST = "MOST"
 
 
 class VPCConnectionAvailabilityStatus(str, Enum):

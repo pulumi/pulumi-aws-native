@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBClusterResult:
-    def __init__(__self__, associated_roles=None, backup_retention_period=None, cluster_resource_id=None, d_b_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, iam_auth_enabled=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, associated_roles=None, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, d_b_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, engine_version=None, iam_auth_enabled=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, serverless_scaling_configuration=None, tags=None, vpc_security_group_ids=None):
         if associated_roles and not isinstance(associated_roles, list):
             raise TypeError("Expected argument 'associated_roles' to be a list")
         pulumi.set(__self__, "associated_roles", associated_roles)
@@ -29,6 +29,9 @@ class GetDBClusterResult:
         if cluster_resource_id and not isinstance(cluster_resource_id, str):
             raise TypeError("Expected argument 'cluster_resource_id' to be a str")
         pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
+            raise TypeError("Expected argument 'copy_tags_to_snapshot' to be a bool")
+        pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if d_b_cluster_parameter_group_name and not isinstance(d_b_cluster_parameter_group_name, str):
             raise TypeError("Expected argument 'd_b_cluster_parameter_group_name' to be a str")
         pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
@@ -41,6 +44,9 @@ class GetDBClusterResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if engine_version and not isinstance(engine_version, str):
+            raise TypeError("Expected argument 'engine_version' to be a str")
+        pulumi.set(__self__, "engine_version", engine_version)
         if iam_auth_enabled and not isinstance(iam_auth_enabled, bool):
             raise TypeError("Expected argument 'iam_auth_enabled' to be a bool")
         pulumi.set(__self__, "iam_auth_enabled", iam_auth_enabled)
@@ -56,6 +62,9 @@ class GetDBClusterResult:
         if read_endpoint and not isinstance(read_endpoint, str):
             raise TypeError("Expected argument 'read_endpoint' to be a str")
         pulumi.set(__self__, "read_endpoint", read_endpoint)
+        if serverless_scaling_configuration and not isinstance(serverless_scaling_configuration, dict):
+            raise TypeError("Expected argument 'serverless_scaling_configuration' to be a dict")
+        pulumi.set(__self__, "serverless_scaling_configuration", serverless_scaling_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -88,6 +97,14 @@ class GetDBClusterResult:
         return pulumi.get(self, "cluster_resource_id")
 
     @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> Optional[bool]:
+        """
+        A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
     @pulumi.getter(name="dBClusterParameterGroupName")
     def d_b_cluster_parameter_group_name(self) -> Optional[str]:
         """
@@ -118,6 +135,14 @@ class GetDBClusterResult:
         The connection endpoint for the DB cluster. For example: mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional[str]:
+        """
+        Indicates the database engine version.
+        """
+        return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="iamAuthEnabled")
@@ -160,6 +185,14 @@ class GetDBClusterResult:
         return pulumi.get(self, "read_endpoint")
 
     @property
+    @pulumi.getter(name="serverlessScalingConfiguration")
+    def serverless_scaling_configuration(self) -> Optional['outputs.DBClusterServerlessScalingConfiguration']:
+        """
+        Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+        """
+        return pulumi.get(self, "serverless_scaling_configuration")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DBClusterTag']]:
         """
@@ -185,15 +218,18 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             associated_roles=self.associated_roles,
             backup_retention_period=self.backup_retention_period,
             cluster_resource_id=self.cluster_resource_id,
+            copy_tags_to_snapshot=self.copy_tags_to_snapshot,
             d_b_cluster_parameter_group_name=self.d_b_cluster_parameter_group_name,
             deletion_protection=self.deletion_protection,
             enable_cloudwatch_logs_exports=self.enable_cloudwatch_logs_exports,
             endpoint=self.endpoint,
+            engine_version=self.engine_version,
             iam_auth_enabled=self.iam_auth_enabled,
             port=self.port,
             preferred_backup_window=self.preferred_backup_window,
             preferred_maintenance_window=self.preferred_maintenance_window,
             read_endpoint=self.read_endpoint,
+            serverless_scaling_configuration=self.serverless_scaling_configuration,
             tags=self.tags,
             vpc_security_group_ids=self.vpc_security_group_ids)
 
@@ -215,15 +251,18 @@ def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
         associated_roles=__ret__.associated_roles,
         backup_retention_period=__ret__.backup_retention_period,
         cluster_resource_id=__ret__.cluster_resource_id,
+        copy_tags_to_snapshot=__ret__.copy_tags_to_snapshot,
         d_b_cluster_parameter_group_name=__ret__.d_b_cluster_parameter_group_name,
         deletion_protection=__ret__.deletion_protection,
         enable_cloudwatch_logs_exports=__ret__.enable_cloudwatch_logs_exports,
         endpoint=__ret__.endpoint,
+        engine_version=__ret__.engine_version,
         iam_auth_enabled=__ret__.iam_auth_enabled,
         port=__ret__.port,
         preferred_backup_window=__ret__.preferred_backup_window,
         preferred_maintenance_window=__ret__.preferred_maintenance_window,
         read_endpoint=__ret__.read_endpoint,
+        serverless_scaling_configuration=__ret__.serverless_scaling_configuration,
         tags=__ret__.tags,
         vpc_security_group_ids=__ret__.vpc_security_group_ids)
 

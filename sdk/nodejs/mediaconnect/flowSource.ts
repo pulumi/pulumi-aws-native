@@ -70,6 +70,10 @@ export class FlowSource extends pulumi.CustomResource {
      */
     public readonly maxLatency!: pulumi.Output<number | undefined>;
     /**
+     * The minimum latency in milliseconds.
+     */
+    public readonly minLatency!: pulumi.Output<number | undefined>;
+    /**
      * The name of the source.
      */
     public readonly name!: pulumi.Output<string>;
@@ -78,6 +82,14 @@ export class FlowSource extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<enums.mediaconnect.FlowSourceProtocol | undefined>;
     /**
+     * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+     */
+    public readonly senderControlPort!: pulumi.Output<number | undefined>;
+    /**
+     * The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+     */
+    public readonly senderIpAddress!: pulumi.Output<string | undefined>;
+    /**
      * The ARN of the source.
      */
     public /*out*/ readonly sourceArn!: pulumi.Output<string>;
@@ -85,6 +97,14 @@ export class FlowSource extends pulumi.CustomResource {
      * The port that the flow will be listening on for incoming content.(ReadOnly)
      */
     public /*out*/ readonly sourceIngestPort!: pulumi.Output<string>;
+    /**
+     * Source IP or domain name for SRT-caller protocol.
+     */
+    public readonly sourceListenerAddress!: pulumi.Output<string | undefined>;
+    /**
+     * Source port for SRT-caller protocol.
+     */
+    public readonly sourceListenerPort!: pulumi.Output<number | undefined>;
     /**
      * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
      */
@@ -119,8 +139,13 @@ export class FlowSource extends pulumi.CustomResource {
             resourceInputs["ingestPort"] = args ? args.ingestPort : undefined;
             resourceInputs["maxBitrate"] = args ? args.maxBitrate : undefined;
             resourceInputs["maxLatency"] = args ? args.maxLatency : undefined;
+            resourceInputs["minLatency"] = args ? args.minLatency : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["senderControlPort"] = args ? args.senderControlPort : undefined;
+            resourceInputs["senderIpAddress"] = args ? args.senderIpAddress : undefined;
+            resourceInputs["sourceListenerAddress"] = args ? args.sourceListenerAddress : undefined;
+            resourceInputs["sourceListenerPort"] = args ? args.sourceListenerPort : undefined;
             resourceInputs["streamId"] = args ? args.streamId : undefined;
             resourceInputs["vpcInterfaceName"] = args ? args.vpcInterfaceName : undefined;
             resourceInputs["whitelistCidr"] = args ? args.whitelistCidr : undefined;
@@ -136,10 +161,15 @@ export class FlowSource extends pulumi.CustomResource {
             resourceInputs["ingestPort"] = undefined /*out*/;
             resourceInputs["maxBitrate"] = undefined /*out*/;
             resourceInputs["maxLatency"] = undefined /*out*/;
+            resourceInputs["minLatency"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["senderControlPort"] = undefined /*out*/;
+            resourceInputs["senderIpAddress"] = undefined /*out*/;
             resourceInputs["sourceArn"] = undefined /*out*/;
             resourceInputs["sourceIngestPort"] = undefined /*out*/;
+            resourceInputs["sourceListenerAddress"] = undefined /*out*/;
+            resourceInputs["sourceListenerPort"] = undefined /*out*/;
             resourceInputs["streamId"] = undefined /*out*/;
             resourceInputs["vpcInterfaceName"] = undefined /*out*/;
             resourceInputs["whitelistCidr"] = undefined /*out*/;
@@ -182,6 +212,10 @@ export interface FlowSourceArgs {
      */
     maxLatency?: pulumi.Input<number>;
     /**
+     * The minimum latency in milliseconds.
+     */
+    minLatency?: pulumi.Input<number>;
+    /**
      * The name of the source.
      */
     name?: pulumi.Input<string>;
@@ -189,6 +223,22 @@ export interface FlowSourceArgs {
      * The protocol that is used by the source.
      */
     protocol?: pulumi.Input<enums.mediaconnect.FlowSourceProtocol>;
+    /**
+     * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+     */
+    senderControlPort?: pulumi.Input<number>;
+    /**
+     * The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+     */
+    senderIpAddress?: pulumi.Input<string>;
+    /**
+     * Source IP or domain name for SRT-caller protocol.
+     */
+    sourceListenerAddress?: pulumi.Input<string>;
+    /**
+     * Source port for SRT-caller protocol.
+     */
+    sourceListenerPort?: pulumi.Input<number>;
     /**
      * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
      */

@@ -5802,6 +5802,10 @@ type ConnectorProfileSalesforceConnectorProfileCredentials struct {
 	ClientCredentialsArn *string `pulumi:"clientCredentialsArn"`
 	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest *ConnectorProfileConnectorOAuthRequest `pulumi:"connectorOAuthRequest"`
+	// The credentials used to access your Salesforce records
+	JwtToken *string `pulumi:"jwtToken"`
+	// The grant types to fetch an access token
+	OAuth2GrantType *ConnectorProfileOAuth2GrantType `pulumi:"oAuth2GrantType"`
 	// The credentials used to acquire new access tokens.
 	RefreshToken *string `pulumi:"refreshToken"`
 }
@@ -5824,6 +5828,10 @@ type ConnectorProfileSalesforceConnectorProfileCredentialsArgs struct {
 	ClientCredentialsArn pulumi.StringPtrInput `pulumi:"clientCredentialsArn"`
 	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest ConnectorProfileConnectorOAuthRequestPtrInput `pulumi:"connectorOAuthRequest"`
+	// The credentials used to access your Salesforce records
+	JwtToken pulumi.StringPtrInput `pulumi:"jwtToken"`
+	// The grant types to fetch an access token
+	OAuth2GrantType ConnectorProfileOAuth2GrantTypePtrInput `pulumi:"oAuth2GrantType"`
 	// The credentials used to acquire new access tokens.
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
 }
@@ -5922,6 +5930,18 @@ func (o ConnectorProfileSalesforceConnectorProfileCredentialsOutput) ConnectorOA
 	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
 }
 
+// The credentials used to access your Salesforce records
+func (o ConnectorProfileSalesforceConnectorProfileCredentialsOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileCredentials) *string { return v.JwtToken }).(pulumi.StringPtrOutput)
+}
+
+// The grant types to fetch an access token
+func (o ConnectorProfileSalesforceConnectorProfileCredentialsOutput) OAuth2GrantType() ConnectorProfileOAuth2GrantTypePtrOutput {
+	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileCredentials) *ConnectorProfileOAuth2GrantType {
+		return v.OAuth2GrantType
+	}).(ConnectorProfileOAuth2GrantTypePtrOutput)
+}
+
 // The credentials used to acquire new access tokens.
 func (o ConnectorProfileSalesforceConnectorProfileCredentialsOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileCredentials) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
@@ -5979,6 +5999,26 @@ func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) Connecto
 		}
 		return v.ConnectorOAuthRequest
 	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
+}
+
+// The credentials used to access your Salesforce records
+func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSalesforceConnectorProfileCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JwtToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The grant types to fetch an access token
+func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) OAuth2GrantType() ConnectorProfileOAuth2GrantTypePtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileSalesforceConnectorProfileCredentials) *ConnectorProfileOAuth2GrantType {
+		if v == nil {
+			return nil
+		}
+		return v.OAuth2GrantType
+	}).(ConnectorProfileOAuth2GrantTypePtrOutput)
 }
 
 // The credentials used to acquire new access tokens.
@@ -15152,8 +15192,6 @@ func (o FlowTrendmicroSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput
 
 // Trigger settings of the flow.
 type FlowTriggerConfig struct {
-	// Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
-	ActivateFlowOnCreate *bool `pulumi:"activateFlowOnCreate"`
 	// Details required based on the type of trigger
 	TriggerProperties *FlowScheduledTriggerProperties `pulumi:"triggerProperties"`
 	// Trigger type of the flow
@@ -15173,8 +15211,6 @@ type FlowTriggerConfigInput interface {
 
 // Trigger settings of the flow.
 type FlowTriggerConfigArgs struct {
-	// Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
-	ActivateFlowOnCreate pulumi.BoolPtrInput `pulumi:"activateFlowOnCreate"`
 	// Details required based on the type of trigger
 	TriggerProperties FlowScheduledTriggerPropertiesPtrInput `pulumi:"triggerProperties"`
 	// Trigger type of the flow
@@ -15206,11 +15242,6 @@ func (o FlowTriggerConfigOutput) ToFlowTriggerConfigOutput() FlowTriggerConfigOu
 
 func (o FlowTriggerConfigOutput) ToFlowTriggerConfigOutputWithContext(ctx context.Context) FlowTriggerConfigOutput {
 	return o
-}
-
-// Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
-func (o FlowTriggerConfigOutput) ActivateFlowOnCreate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FlowTriggerConfig) *bool { return v.ActivateFlowOnCreate }).(pulumi.BoolPtrOutput)
 }
 
 // Details required based on the type of trigger
@@ -15245,16 +15276,6 @@ func (o FlowTriggerConfigPtrOutput) Elem() FlowTriggerConfigOutput {
 		var ret FlowTriggerConfig
 		return ret
 	}).(FlowTriggerConfigOutput)
-}
-
-// Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
-func (o FlowTriggerConfigPtrOutput) ActivateFlowOnCreate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FlowTriggerConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ActivateFlowOnCreate
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Details required based on the type of trigger

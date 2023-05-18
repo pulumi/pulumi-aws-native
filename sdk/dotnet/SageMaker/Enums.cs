@@ -1022,6 +1022,72 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Current approval status of model package
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelCardModelPackageDetailsModelApprovalStatus : IEquatable<ModelCardModelPackageDetailsModelApprovalStatus>
+    {
+        private readonly string _value;
+
+        private ModelCardModelPackageDetailsModelApprovalStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelCardModelPackageDetailsModelApprovalStatus Approved { get; } = new ModelCardModelPackageDetailsModelApprovalStatus("Approved");
+        public static ModelCardModelPackageDetailsModelApprovalStatus Rejected { get; } = new ModelCardModelPackageDetailsModelApprovalStatus("Rejected");
+        public static ModelCardModelPackageDetailsModelApprovalStatus PendingManualApproval { get; } = new ModelCardModelPackageDetailsModelApprovalStatus("PendingManualApproval");
+
+        public static bool operator ==(ModelCardModelPackageDetailsModelApprovalStatus left, ModelCardModelPackageDetailsModelApprovalStatus right) => left.Equals(right);
+        public static bool operator !=(ModelCardModelPackageDetailsModelApprovalStatus left, ModelCardModelPackageDetailsModelApprovalStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ModelCardModelPackageDetailsModelApprovalStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelCardModelPackageDetailsModelApprovalStatus other && Equals(other);
+        public bool Equals(ModelCardModelPackageDetailsModelApprovalStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Current status of model package
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelCardModelPackageDetailsModelPackageStatus : IEquatable<ModelCardModelPackageDetailsModelPackageStatus>
+    {
+        private readonly string _value;
+
+        private ModelCardModelPackageDetailsModelPackageStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelCardModelPackageDetailsModelPackageStatus Pending { get; } = new ModelCardModelPackageDetailsModelPackageStatus("Pending");
+        public static ModelCardModelPackageDetailsModelPackageStatus InProgress { get; } = new ModelCardModelPackageDetailsModelPackageStatus("InProgress");
+        public static ModelCardModelPackageDetailsModelPackageStatus Completed { get; } = new ModelCardModelPackageDetailsModelPackageStatus("Completed");
+        public static ModelCardModelPackageDetailsModelPackageStatus Failed { get; } = new ModelCardModelPackageDetailsModelPackageStatus("Failed");
+        public static ModelCardModelPackageDetailsModelPackageStatus Deleting { get; } = new ModelCardModelPackageDetailsModelPackageStatus("Deleting");
+
+        public static bool operator ==(ModelCardModelPackageDetailsModelPackageStatus left, ModelCardModelPackageDetailsModelPackageStatus right) => left.Equals(right);
+        public static bool operator !=(ModelCardModelPackageDetailsModelPackageStatus left, ModelCardModelPackageDetailsModelPackageStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ModelCardModelPackageDetailsModelPackageStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelCardModelPackageDetailsModelPackageStatus other && Equals(other);
+        public bool Equals(ModelCardModelPackageDetailsModelPackageStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct ModelCardObjectiveFunctionFunctionPropertiesFunction : IEquatable<ModelCardObjectiveFunctionFunctionPropertiesFunction>
     {

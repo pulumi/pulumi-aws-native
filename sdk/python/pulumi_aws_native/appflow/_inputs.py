@@ -1850,11 +1850,15 @@ class ConnectorProfileSalesforceConnectorProfileCredentialsArgs:
                  access_token: Optional[pulumi.Input[str]] = None,
                  client_credentials_arn: Optional[pulumi.Input[str]] = None,
                  connector_o_auth_request: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']] = None,
+                 jwt_token: Optional[pulumi.Input[str]] = None,
+                 o_auth2_grant_type: Optional[pulumi.Input['ConnectorProfileOAuth2GrantType']] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] access_token: The credentials used to access protected resources.
         :param pulumi.Input[str] client_credentials_arn: The client credentials to fetch access token and refresh token.
         :param pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs'] connector_o_auth_request: The oauth needed to request security tokens from the connector endpoint.
+        :param pulumi.Input[str] jwt_token: The credentials used to access your Salesforce records
+        :param pulumi.Input['ConnectorProfileOAuth2GrantType'] o_auth2_grant_type: The grant types to fetch an access token
         :param pulumi.Input[str] refresh_token: The credentials used to acquire new access tokens.
         """
         if access_token is not None:
@@ -1863,6 +1867,10 @@ class ConnectorProfileSalesforceConnectorProfileCredentialsArgs:
             pulumi.set(__self__, "client_credentials_arn", client_credentials_arn)
         if connector_o_auth_request is not None:
             pulumi.set(__self__, "connector_o_auth_request", connector_o_auth_request)
+        if jwt_token is not None:
+            pulumi.set(__self__, "jwt_token", jwt_token)
+        if o_auth2_grant_type is not None:
+            pulumi.set(__self__, "o_auth2_grant_type", o_auth2_grant_type)
         if refresh_token is not None:
             pulumi.set(__self__, "refresh_token", refresh_token)
 
@@ -1901,6 +1909,30 @@ class ConnectorProfileSalesforceConnectorProfileCredentialsArgs:
     @connector_o_auth_request.setter
     def connector_o_auth_request(self, value: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]):
         pulumi.set(self, "connector_o_auth_request", value)
+
+    @property
+    @pulumi.getter(name="jwtToken")
+    def jwt_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The credentials used to access your Salesforce records
+        """
+        return pulumi.get(self, "jwt_token")
+
+    @jwt_token.setter
+    def jwt_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "jwt_token", value)
+
+    @property
+    @pulumi.getter(name="oAuth2GrantType")
+    def o_auth2_grant_type(self) -> Optional[pulumi.Input['ConnectorProfileOAuth2GrantType']]:
+        """
+        The grant types to fetch an access token
+        """
+        return pulumi.get(self, "o_auth2_grant_type")
+
+    @o_auth2_grant_type.setter
+    def o_auth2_grant_type(self, value: Optional[pulumi.Input['ConnectorProfileOAuth2GrantType']]):
+        pulumi.set(self, "o_auth2_grant_type", value)
 
     @property
     @pulumi.getter(name="refreshToken")
@@ -4534,17 +4566,13 @@ class FlowTrendmicroSourcePropertiesArgs:
 class FlowTriggerConfigArgs:
     def __init__(__self__, *,
                  trigger_type: pulumi.Input['FlowTriggerType'],
-                 activate_flow_on_create: Optional[pulumi.Input[bool]] = None,
                  trigger_properties: Optional[pulumi.Input['FlowScheduledTriggerPropertiesArgs']] = None):
         """
         Trigger settings of the flow.
         :param pulumi.Input['FlowTriggerType'] trigger_type: Trigger type of the flow
-        :param pulumi.Input[bool] activate_flow_on_create: Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
         :param pulumi.Input['FlowScheduledTriggerPropertiesArgs'] trigger_properties: Details required based on the type of trigger
         """
         pulumi.set(__self__, "trigger_type", trigger_type)
-        if activate_flow_on_create is not None:
-            pulumi.set(__self__, "activate_flow_on_create", activate_flow_on_create)
         if trigger_properties is not None:
             pulumi.set(__self__, "trigger_properties", trigger_properties)
 
@@ -4559,18 +4587,6 @@ class FlowTriggerConfigArgs:
     @trigger_type.setter
     def trigger_type(self, value: pulumi.Input['FlowTriggerType']):
         pulumi.set(self, "trigger_type", value)
-
-    @property
-    @pulumi.getter(name="activateFlowOnCreate")
-    def activate_flow_on_create(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
-        """
-        return pulumi.get(self, "activate_flow_on_create")
-
-    @activate_flow_on_create.setter
-    def activate_flow_on_create(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "activate_flow_on_create", value)
 
     @property
     @pulumi.getter(name="triggerProperties")

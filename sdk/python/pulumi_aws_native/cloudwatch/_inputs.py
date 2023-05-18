@@ -690,15 +690,14 @@ class MetricStreamStatisticsMetricArgs:
 class MetricStreamTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: Optional[pulumi.Input[str]] = None):
+                 value: pulumi.Input[str]):
         """
         Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
         :param pulumi.Input[str] key: A unique identifier for the tag.
-        :param pulumi.Input[str] value: An optional string, which you can use to describe or define the tag.
+        :param pulumi.Input[str] value: String which you can use to describe or define the tag.
         """
         pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -714,14 +713,14 @@ class MetricStreamTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
+    def value(self) -> pulumi.Input[str]:
         """
-        An optional string, which you can use to describe or define the tag.
+        String which you can use to describe or define the tag.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 

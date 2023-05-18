@@ -33,6 +33,7 @@ __all__ = [
     'FlowServiceNowConnectorOperator',
     'FlowSingularConnectorOperator',
     'FlowSlackConnectorOperator',
+    'FlowStatus',
     'FlowTaskType',
     'FlowTrendmicroConnectorOperator',
     'FlowTriggerType',
@@ -81,6 +82,7 @@ class ConnectorProfileConnectorType(str, Enum):
 class ConnectorProfileOAuth2GrantType(str, Enum):
     CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
     AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
+    JWT_BEARER = "JWT_BEARER"
 
 
 class FlowAggregationType(str, Enum):
@@ -425,6 +427,14 @@ class FlowSlackConnectorOperator(str, Enum):
     VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE"
     VALIDATE_NUMERIC = "VALIDATE_NUMERIC"
     NO_OP = "NO_OP"
+
+
+class FlowStatus(str, Enum):
+    """
+    Flow activation status for Scheduled- and Event-triggered flows
+    """
+    ACTIVE = "Active"
+    SUSPENDED = "Suspended"
 
 
 class FlowTaskType(str, Enum):

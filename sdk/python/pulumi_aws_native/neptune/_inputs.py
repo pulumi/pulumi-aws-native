@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'DBClusterParameterGroupTagArgs',
     'DBClusterRoleArgs',
+    'DBClusterServerlessScalingConfigurationArgs',
     'DBClusterTagArgs',
     'DBInstanceTagArgs',
     'DBParameterGroupTagArgs',
@@ -82,6 +83,44 @@ class DBClusterRoleArgs:
     @feature_name.setter
     def feature_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "feature_name", value)
+
+
+@pulumi.input_type
+class DBClusterServerlessScalingConfigurationArgs:
+    def __init__(__self__, *,
+                 max_capacity: pulumi.Input[float],
+                 min_capacity: pulumi.Input[float]):
+        """
+        Contains the scaling configuration of an Neptune Serverless DB cluster.
+        :param pulumi.Input[float] max_capacity: The maximum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on. The smallest value you can use is 2.5, whereas the largest is 128.
+        :param pulumi.Input[float] min_capacity: The minimum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value you can use is 1, whereas the largest is 128.
+        """
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> pulumi.Input[float]:
+        """
+        The maximum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on. The smallest value you can use is 2.5, whereas the largest is 128.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: pulumi.Input[float]):
+        pulumi.set(self, "max_capacity", value)
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> pulumi.Input[float]:
+        """
+        The minimum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value you can use is 1, whereas the largest is 128.
+        """
+        return pulumi.get(self, "min_capacity")
+
+    @min_capacity.setter
+    def min_capacity(self, value: pulumi.Input[float]):
+        pulumi.set(self, "min_capacity", value)
 
 
 @pulumi.input_type

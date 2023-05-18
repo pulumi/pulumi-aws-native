@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("modelOverview")]
         public Input<Inputs.ModelCardModelOverviewArgs>? ModelOverview { get; set; }
 
+        [Input("modelPackageDetails")]
+        public Input<Inputs.ModelCardModelPackageDetailsArgs>? ModelPackageDetails { get; set; }
+
         [Input("trainingDetails")]
         public Input<Inputs.ModelCardTrainingDetailsArgs>? TrainingDetails { get; set; }
 

@@ -11,14 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::SubnetCidrBlock
-//
-// Deprecated: SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
 type SubnetCidrBlock struct {
 	pulumi.CustomResourceState
 
+	// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
 	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
-	SubnetId      pulumi.StringOutput `pulumi:"subnetId"`
+	// The ID of the subnet
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
 
 // NewSubnetCidrBlock registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,18 @@ func (SubnetCidrBlockState) ElementType() reflect.Type {
 }
 
 type subnetCidrBlockArgs struct {
+	// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
 	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
-	SubnetId      string `pulumi:"subnetId"`
+	// The ID of the subnet
+	SubnetId string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a SubnetCidrBlock resource.
 type SubnetCidrBlockArgs struct {
+	// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
 	Ipv6CidrBlock pulumi.StringInput
-	SubnetId      pulumi.StringInput
+	// The ID of the subnet
+	SubnetId pulumi.StringInput
 }
 
 func (SubnetCidrBlockArgs) ElementType() reflect.Type {
@@ -113,10 +117,12 @@ func (o SubnetCidrBlockOutput) ToSubnetCidrBlockOutputWithContext(ctx context.Co
 	return o
 }
 
+// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
 func (o SubnetCidrBlockOutput) Ipv6CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetCidrBlock) pulumi.StringOutput { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
 }
 
+// The ID of the subnet
 func (o SubnetCidrBlockOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetCidrBlock) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

@@ -22,10 +22,10 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// An optional string, which you can use to describe or define the tag.
+        /// String which you can use to describe or define the tag.
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        [Input("value", required: true)]
+        public Input<string> Value { get; set; } = null!;
 
         public MetricStreamTagArgs()
         {

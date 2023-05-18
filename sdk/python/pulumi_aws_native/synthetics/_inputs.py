@@ -90,7 +90,8 @@ class CanaryCodeArgs:
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_object_version: Optional[pulumi.Input[str]] = None,
-                 script: Optional[pulumi.Input[str]] = None):
+                 script: Optional[pulumi.Input[str]] = None,
+                 source_location_arn: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "handler", handler)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -100,6 +101,8 @@ class CanaryCodeArgs:
             pulumi.set(__self__, "s3_object_version", s3_object_version)
         if script is not None:
             pulumi.set(__self__, "script", script)
+        if source_location_arn is not None:
+            pulumi.set(__self__, "source_location_arn", source_location_arn)
 
     @property
     @pulumi.getter
@@ -145,6 +148,15 @@ class CanaryCodeArgs:
     @script.setter
     def script(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script", value)
+
+    @property
+    @pulumi.getter(name="sourceLocationArn")
+    def source_location_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_location_arn")
+
+    @source_location_arn.setter
+    def source_location_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_location_arn", value)
 
 
 @pulumi.input_type

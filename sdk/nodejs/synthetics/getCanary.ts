@@ -39,10 +39,6 @@ export interface GetCanaryResult {
      */
     readonly code?: outputs.synthetics.CanaryCode;
     /**
-     * Deletes associated lambda resources created by Synthetics if set to True. Default is False
-     */
-    readonly deleteLambdaResourcesOnCanaryDeletion?: boolean;
-    /**
      * Lambda Execution role used to run your canaries
      */
     readonly executionRoleArn?: string;
@@ -67,10 +63,6 @@ export interface GetCanaryResult {
      */
     readonly schedule?: outputs.synthetics.CanarySchedule;
     /**
-     * Runs canary if set to True. Default is False
-     */
-    readonly startCanaryAfterCreation?: boolean;
-    /**
      * State of the canary
      */
     readonly state?: string;
@@ -83,10 +75,6 @@ export interface GetCanaryResult {
      * Provide VPC Configuration if enabled.
      */
     readonly vPCConfig?: outputs.synthetics.CanaryVPCConfig;
-    /**
-     * Visual reference configuration for visual testing
-     */
-    readonly visualReference?: outputs.synthetics.CanaryVisualReference;
 }
 /**
  * Resource Type definition for AWS::Synthetics::Canary

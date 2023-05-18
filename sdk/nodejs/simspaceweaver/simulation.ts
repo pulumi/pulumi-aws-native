@@ -42,14 +42,19 @@ export class Simulation extends pulumi.CustomResource {
      */
     public /*out*/ readonly describePayload!: pulumi.Output<string>;
     /**
+     * The maximum running time of the simulation.
+     */
+    public readonly maximumDuration!: pulumi.Output<string | undefined>;
+    /**
      * The name of the simulation.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Role ARN.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string>;
     public readonly schemaS3Location!: pulumi.Output<outputs.simspaceweaver.SimulationS3Location | undefined>;
+    public readonly snapshotS3Location!: pulumi.Output<outputs.simspaceweaver.SimulationS3Location | undefined>;
 
     /**
      * Create a Simulation resource with the given unique name, arguments, and options.
@@ -58,19 +63,26 @@ export class Simulation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SimulationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SimulationArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'roleArn'");
+            }
+            resourceInputs["maximumDuration"] = args ? args.maximumDuration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["schemaS3Location"] = args ? args.schemaS3Location : undefined;
+            resourceInputs["snapshotS3Location"] = args ? args.snapshotS3Location : undefined;
             resourceInputs["describePayload"] = undefined /*out*/;
         } else {
             resourceInputs["describePayload"] = undefined /*out*/;
+            resourceInputs["maximumDuration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["schemaS3Location"] = undefined /*out*/;
+            resourceInputs["snapshotS3Location"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Simulation.__pulumiType, name, resourceInputs, opts);
@@ -82,12 +94,17 @@ export class Simulation extends pulumi.CustomResource {
  */
 export interface SimulationArgs {
     /**
+     * The maximum running time of the simulation.
+     */
+    maximumDuration?: pulumi.Input<string>;
+    /**
      * The name of the simulation.
      */
     name?: pulumi.Input<string>;
     /**
      * Role ARN.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     schemaS3Location?: pulumi.Input<inputs.simspaceweaver.SimulationS3LocationArgs>;
+    snapshotS3Location?: pulumi.Input<inputs.simspaceweaver.SimulationS3LocationArgs>;
 }

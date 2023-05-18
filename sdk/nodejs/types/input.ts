@@ -2257,6 +2257,14 @@ export namespace appflow {
          */
         connectorOAuthRequest?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorOAuthRequestArgs>;
         /**
+         * The credentials used to access your Salesforce records
+         */
+        jwtToken?: pulumi.Input<string>;
+        /**
+         * The grant types to fetch an access token
+         */
+        oAuth2GrantType?: pulumi.Input<enums.appflow.ConnectorProfileOAuth2GrantType>;
+        /**
          * The credentials used to acquire new access tokens.
          */
         refreshToken?: pulumi.Input<string>;
@@ -2819,10 +2827,6 @@ export namespace appflow {
      * Trigger settings of the flow.
      */
     export interface FlowTriggerConfigArgs {
-        /**
-         * Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
-         */
-        activateFlowOnCreate?: pulumi.Input<boolean>;
         /**
          * Details required based on the type of trigger
          */
@@ -6827,9 +6831,9 @@ export namespace cloudwatch {
          */
         key: pulumi.Input<string>;
         /**
-         * An optional string, which you can use to describe or define the tag.
+         * String which you can use to describe or define the tag.
          */
-        value?: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 }
 
@@ -8253,6 +8257,20 @@ export namespace connect {
         key: pulumi.Input<string>;
         /**
          * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PromptTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
     }
@@ -25763,7 +25781,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: pulumi.Input<enums.mediaconnect.FlowSourceEncryptionAlgorithm>;
+        algorithm?: pulumi.Input<enums.mediaconnect.FlowSourceEncryptionAlgorithm>;
         /**
          * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
          */
@@ -28081,6 +28099,20 @@ export namespace neptune {
          * The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
          */
         roleArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Contains the scaling configuration of an Neptune Serverless DB cluster.
+     */
+    export interface DBClusterServerlessScalingConfigurationArgs {
+        /**
+         * The maximum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on. The smallest value you can use is 2.5, whereas the largest is 128.
+         */
+        maxCapacity: pulumi.Input<number>;
+        /**
+         * The minimum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value you can use is 1, whereas the largest is 128.
+         */
+        minCapacity: pulumi.Input<number>;
     }
 
     /**
@@ -39774,6 +39806,205 @@ export namespace quicksight {
         warningForeground?: pulumi.Input<string>;
     }
 
+    export interface TopicAggregationFunctionParametersArgs {
+    }
+
+    export interface TopicCalculatedFieldArgs {
+        aggregation?: pulumi.Input<enums.quicksight.TopicDefaultAggregation>;
+        allowedAggregations?: pulumi.Input<pulumi.Input<enums.quicksight.TopicAuthorSpecifiedAggregation>[]>;
+        calculatedFieldDescription?: pulumi.Input<string>;
+        calculatedFieldName: pulumi.Input<string>;
+        calculatedFieldSynonyms?: pulumi.Input<pulumi.Input<string>[]>;
+        cellValueSynonyms?: pulumi.Input<pulumi.Input<inputs.quicksight.TopicCellValueSynonymArgs>[]>;
+        columnDataRole?: pulumi.Input<enums.quicksight.TopicColumnDataRole>;
+        comparativeOrder?: pulumi.Input<inputs.quicksight.TopicComparativeOrderArgs>;
+        defaultFormatting?: pulumi.Input<inputs.quicksight.TopicDefaultFormattingArgs>;
+        expression: pulumi.Input<string>;
+        isIncludedInTopic?: pulumi.Input<boolean>;
+        neverAggregateInFilter?: pulumi.Input<boolean>;
+        notAllowedAggregations?: pulumi.Input<pulumi.Input<enums.quicksight.TopicAuthorSpecifiedAggregation>[]>;
+        semanticType?: pulumi.Input<inputs.quicksight.TopicSemanticTypeArgs>;
+        timeGranularity?: pulumi.Input<enums.quicksight.TopicTimeGranularity>;
+    }
+
+    export interface TopicCategoryFilterArgs {
+        categoryFilterFunction?: pulumi.Input<enums.quicksight.TopicCategoryFilterFunction>;
+        categoryFilterType?: pulumi.Input<enums.quicksight.TopicCategoryFilterType>;
+        constant?: pulumi.Input<inputs.quicksight.TopicCategoryFilterConstantArgs>;
+        inverse?: pulumi.Input<boolean>;
+    }
+
+    export interface TopicCategoryFilterConstantArgs {
+        collectiveConstant?: pulumi.Input<inputs.quicksight.TopicCollectiveConstantArgs>;
+        constantType?: pulumi.Input<enums.quicksight.TopicConstantType>;
+        singularConstant?: pulumi.Input<string>;
+    }
+
+    export interface TopicCellValueSynonymArgs {
+        cellValue?: pulumi.Input<string>;
+        synonyms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TopicCollectiveConstantArgs {
+        valueList?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TopicColumnArgs {
+        aggregation?: pulumi.Input<enums.quicksight.TopicDefaultAggregation>;
+        allowedAggregations?: pulumi.Input<pulumi.Input<enums.quicksight.TopicAuthorSpecifiedAggregation>[]>;
+        cellValueSynonyms?: pulumi.Input<pulumi.Input<inputs.quicksight.TopicCellValueSynonymArgs>[]>;
+        columnDataRole?: pulumi.Input<enums.quicksight.TopicColumnDataRole>;
+        columnDescription?: pulumi.Input<string>;
+        columnFriendlyName?: pulumi.Input<string>;
+        columnName: pulumi.Input<string>;
+        columnSynonyms?: pulumi.Input<pulumi.Input<string>[]>;
+        comparativeOrder?: pulumi.Input<inputs.quicksight.TopicComparativeOrderArgs>;
+        defaultFormatting?: pulumi.Input<inputs.quicksight.TopicDefaultFormattingArgs>;
+        isIncludedInTopic?: pulumi.Input<boolean>;
+        neverAggregateInFilter?: pulumi.Input<boolean>;
+        notAllowedAggregations?: pulumi.Input<pulumi.Input<enums.quicksight.TopicAuthorSpecifiedAggregation>[]>;
+        semanticType?: pulumi.Input<inputs.quicksight.TopicSemanticTypeArgs>;
+        timeGranularity?: pulumi.Input<enums.quicksight.TopicTimeGranularity>;
+    }
+
+    export interface TopicComparativeOrderArgs {
+        specifedOrder?: pulumi.Input<pulumi.Input<string>[]>;
+        treatUndefinedSpecifiedValues?: pulumi.Input<enums.quicksight.TopicUndefinedSpecifiedValueType>;
+        useOrdering?: pulumi.Input<enums.quicksight.TopicColumnOrderingType>;
+    }
+
+    export interface TopicDataAggregationArgs {
+        datasetRowDateGranularity?: pulumi.Input<enums.quicksight.TopicTimeGranularity>;
+        defaultDateColumnName?: pulumi.Input<string>;
+    }
+
+    export interface TopicDatasetMetadataArgs {
+        calculatedFields?: pulumi.Input<pulumi.Input<inputs.quicksight.TopicCalculatedFieldArgs>[]>;
+        columns?: pulumi.Input<pulumi.Input<inputs.quicksight.TopicColumnArgs>[]>;
+        dataAggregation?: pulumi.Input<inputs.quicksight.TopicDataAggregationArgs>;
+        datasetArn: pulumi.Input<string>;
+        datasetDescription?: pulumi.Input<string>;
+        datasetName?: pulumi.Input<string>;
+        filters?: pulumi.Input<pulumi.Input<inputs.quicksight.TopicFilterArgs>[]>;
+        namedEntities?: pulumi.Input<pulumi.Input<inputs.quicksight.TopicNamedEntityArgs>[]>;
+    }
+
+    export interface TopicDateRangeFilterArgs {
+        constant?: pulumi.Input<inputs.quicksight.TopicRangeFilterConstantArgs>;
+        inclusive?: pulumi.Input<boolean>;
+    }
+
+    export interface TopicDefaultFormattingArgs {
+        displayFormat?: pulumi.Input<enums.quicksight.TopicDisplayFormat>;
+        displayFormatOptions?: pulumi.Input<inputs.quicksight.TopicDisplayFormatOptionsArgs>;
+    }
+
+    export interface TopicDisplayFormatOptionsArgs {
+        blankCellFormat?: pulumi.Input<string>;
+        currencySymbol?: pulumi.Input<string>;
+        dateFormat?: pulumi.Input<string>;
+        decimalSeparator?: pulumi.Input<enums.quicksight.TopicNumericSeparatorSymbol>;
+        fractionDigits?: pulumi.Input<number>;
+        groupingSeparator?: pulumi.Input<string>;
+        negativeFormat?: pulumi.Input<inputs.quicksight.TopicNegativeFormatArgs>;
+        prefix?: pulumi.Input<string>;
+        suffix?: pulumi.Input<string>;
+        unitScaler?: pulumi.Input<enums.quicksight.TopicNumberScale>;
+        useBlankCellFormat?: pulumi.Input<boolean>;
+        useGrouping?: pulumi.Input<boolean>;
+    }
+
+    export interface TopicFilterArgs {
+        categoryFilter?: pulumi.Input<inputs.quicksight.TopicCategoryFilterArgs>;
+        dateRangeFilter?: pulumi.Input<inputs.quicksight.TopicDateRangeFilterArgs>;
+        filterClass?: pulumi.Input<enums.quicksight.TopicFilterClass>;
+        filterDescription?: pulumi.Input<string>;
+        filterName: pulumi.Input<string>;
+        filterSynonyms?: pulumi.Input<pulumi.Input<string>[]>;
+        filterType?: pulumi.Input<enums.quicksight.TopicNamedFilterType>;
+        numericEqualityFilter?: pulumi.Input<inputs.quicksight.TopicNumericEqualityFilterArgs>;
+        numericRangeFilter?: pulumi.Input<inputs.quicksight.TopicNumericRangeFilterArgs>;
+        operandFieldName: pulumi.Input<string>;
+        relativeDateFilter?: pulumi.Input<inputs.quicksight.TopicRelativeDateFilterArgs>;
+    }
+
+    export interface TopicNamedEntityArgs {
+        definition?: pulumi.Input<pulumi.Input<inputs.quicksight.TopicNamedEntityDefinitionArgs>[]>;
+        entityDescription?: pulumi.Input<string>;
+        entityName: pulumi.Input<string>;
+        entitySynonyms?: pulumi.Input<pulumi.Input<string>[]>;
+        semanticEntityType?: pulumi.Input<inputs.quicksight.TopicSemanticEntityTypeArgs>;
+    }
+
+    export interface TopicNamedEntityDefinitionArgs {
+        fieldName?: pulumi.Input<string>;
+        metric?: pulumi.Input<inputs.quicksight.TopicNamedEntityDefinitionMetricArgs>;
+        propertyName?: pulumi.Input<string>;
+        propertyRole?: pulumi.Input<enums.quicksight.TopicPropertyRole>;
+        propertyUsage?: pulumi.Input<enums.quicksight.TopicPropertyUsage>;
+    }
+
+    export interface TopicNamedEntityDefinitionMetricArgs {
+        aggregation?: pulumi.Input<enums.quicksight.TopicNamedEntityAggType>;
+        aggregationFunctionParameters?: pulumi.Input<inputs.quicksight.TopicAggregationFunctionParametersArgs>;
+    }
+
+    export interface TopicNegativeFormatArgs {
+        prefix?: pulumi.Input<string>;
+        suffix?: pulumi.Input<string>;
+    }
+
+    export interface TopicNumericEqualityFilterArgs {
+        aggregation?: pulumi.Input<enums.quicksight.TopicNamedFilterAggType>;
+        constant?: pulumi.Input<inputs.quicksight.TopicSingularFilterConstantArgs>;
+    }
+
+    export interface TopicNumericRangeFilterArgs {
+        aggregation?: pulumi.Input<enums.quicksight.TopicNamedFilterAggType>;
+        constant?: pulumi.Input<inputs.quicksight.TopicRangeFilterConstantArgs>;
+        inclusive?: pulumi.Input<boolean>;
+    }
+
+    export interface TopicRangeConstantArgs {
+        maximum?: pulumi.Input<string>;
+        minimum?: pulumi.Input<string>;
+    }
+
+    export interface TopicRangeFilterConstantArgs {
+        constantType?: pulumi.Input<enums.quicksight.TopicConstantType>;
+        rangeConstant?: pulumi.Input<inputs.quicksight.TopicRangeConstantArgs>;
+    }
+
+    export interface TopicRelativeDateFilterArgs {
+        constant?: pulumi.Input<inputs.quicksight.TopicSingularFilterConstantArgs>;
+        relativeDateFilterFunction?: pulumi.Input<enums.quicksight.TopicRelativeDateFilterFunction>;
+        timeGranularity?: pulumi.Input<enums.quicksight.TopicTimeGranularity>;
+    }
+
+    export interface TopicSemanticEntityTypeArgs {
+        subTypeName?: pulumi.Input<string>;
+        typeName?: pulumi.Input<string>;
+        typeParameters?: pulumi.Input<inputs.quicksight.TopicTypeParametersArgs>;
+    }
+
+    export interface TopicSemanticTypeArgs {
+        falseyCellValue?: pulumi.Input<string>;
+        falseyCellValueSynonyms?: pulumi.Input<pulumi.Input<string>[]>;
+        subTypeName?: pulumi.Input<string>;
+        truthyCellValue?: pulumi.Input<string>;
+        truthyCellValueSynonyms?: pulumi.Input<pulumi.Input<string>[]>;
+        typeName?: pulumi.Input<string>;
+        typeParameters?: pulumi.Input<inputs.quicksight.TopicTypeParametersArgs>;
+    }
+
+    export interface TopicSingularFilterConstantArgs {
+        constantType?: pulumi.Input<enums.quicksight.TopicConstantType>;
+        singularConstant?: pulumi.Input<string>;
+    }
+
+    export interface TopicTypeParametersArgs {
+    }
+
     export interface VPCConnectionTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -43066,6 +43297,7 @@ export namespace sagemaker {
     export interface EndpointConfigServerlessConfigArgs {
         maxConcurrency: pulumi.Input<number>;
         memorySizeInMB: pulumi.Input<number>;
+        provisionedConcurrency?: pulumi.Input<number>;
     }
 
     export interface EndpointConfigTagArgs {
@@ -43592,6 +43824,21 @@ export namespace sagemaker {
         lineOfBusiness?: pulumi.Input<string>;
     }
 
+    export interface ModelCardContainerArgs {
+        /**
+         * Inference environment path. The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+         */
+        image: pulumi.Input<string>;
+        /**
+         * The Amazon S3 path where the model artifacts, which result from model training, are stored.
+         */
+        modelDataUrl?: pulumi.Input<string>;
+        /**
+         * The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+         */
+        nearestModelName?: pulumi.Input<string>;
+    }
+
     /**
      * The content of the model card.
      */
@@ -43601,6 +43848,7 @@ export namespace sagemaker {
         evaluationDetails?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardEvaluationDetailArgs>[]>;
         intendedUses?: pulumi.Input<inputs.sagemaker.ModelCardIntendedUsesArgs>;
         modelOverview?: pulumi.Input<inputs.sagemaker.ModelCardModelOverviewArgs>;
+        modelPackageDetails?: pulumi.Input<inputs.sagemaker.ModelCardModelPackageDetailsArgs>;
         trainingDetails?: pulumi.Input<inputs.sagemaker.ModelCardTrainingDetailsArgs>;
     }
 
@@ -43617,6 +43865,13 @@ export namespace sagemaker {
         metadata?: any;
         metricGroups?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardMetricGroupArgs>[]>;
         name: pulumi.Input<string>;
+    }
+
+    export interface ModelCardInferenceSpecificationArgs {
+        /**
+         * Contains inference related information which were used to create model package.
+         */
+        containers: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardContainerArgs>[]>;
     }
 
     /**
@@ -43721,6 +43976,71 @@ export namespace sagemaker {
         containerImage?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface ModelCardModelPackageCreatorArgs {
+        /**
+         * The name of the user's profile in Studio
+         */
+        userProfileName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Metadata information related to model package version
+     */
+    export interface ModelCardModelPackageDetailsArgs {
+        /**
+         * A description provided for the model approval
+         */
+        approvalDescription?: pulumi.Input<string>;
+        /**
+         * Information about the user who created model package.
+         */
+        createdBy?: pulumi.Input<inputs.sagemaker.ModelCardModelPackageCreatorArgs>;
+        /**
+         * The machine learning domain of the model package you specified. Common machine learning domains include computer vision and natural language processing.
+         */
+        domain?: pulumi.Input<string>;
+        /**
+         * Details about inference jobs that can be run with models based on this model package.
+         */
+        inferenceSpecification?: pulumi.Input<inputs.sagemaker.ModelCardInferenceSpecificationArgs>;
+        /**
+         * Current approval status of model package
+         */
+        modelApprovalStatus?: pulumi.Input<enums.sagemaker.ModelCardModelPackageDetailsModelApprovalStatus>;
+        /**
+         * The Amazon Resource Name (ARN) of the model package
+         */
+        modelPackageArn?: pulumi.Input<string>;
+        /**
+         * A brief summary of the model package
+         */
+        modelPackageDescription?: pulumi.Input<string>;
+        /**
+         * If the model is a versioned model, the name of the model group that the versioned model belongs to.
+         */
+        modelPackageGroupName?: pulumi.Input<string>;
+        /**
+         * Name of the model package
+         */
+        modelPackageName?: pulumi.Input<string>;
+        /**
+         * Current status of model package
+         */
+        modelPackageStatus?: pulumi.Input<enums.sagemaker.ModelCardModelPackageDetailsModelPackageStatus>;
+        /**
+         * Version of the model package
+         */
+        modelPackageVersion?: pulumi.Input<number>;
+        /**
+         * A list of algorithms that were used to create a model package.
+         */
+        sourceAlgorithms?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardSourceAlgorithmArgs>[]>;
+        /**
+         * The machine learning task you specified that your model package accomplishes. Common machine learning tasks include object detection and image classification.
+         */
+        task?: pulumi.Input<string>;
+    }
+
     /**
      * the objective function the model will optimize for.
      */
@@ -43761,6 +44081,17 @@ export namespace sagemaker {
         value: pulumi.Input<number | string | boolean>;
         xAxisName?: pulumi.Input<string>;
         yAxisName?: pulumi.Input<string>;
+    }
+
+    export interface ModelCardSourceAlgorithmArgs {
+        /**
+         * The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+         */
+        algorithmName: pulumi.Input<string>;
+        /**
+         * The Amazon S3 path where the model artifacts, which result from model training, are stored.
+         */
+        modelDataUrl?: pulumi.Input<string>;
     }
 
     /**
@@ -47085,6 +47416,7 @@ export namespace synthetics {
         s3Key?: pulumi.Input<string>;
         s3ObjectVersion?: pulumi.Input<string>;
         script?: pulumi.Input<string>;
+        sourceLocationArn?: pulumi.Input<string>;
     }
 
     export interface CanaryRunConfigArgs {

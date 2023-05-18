@@ -1257,6 +1257,7 @@ _utilities.register(
    "aws-native:connect:InstanceStorageConfig": "InstanceStorageConfig",
    "aws-native:connect:IntegrationAssociation": "IntegrationAssociation",
    "aws-native:connect:PhoneNumber": "PhoneNumber",
+   "aws-native:connect:Prompt": "Prompt",
    "aws-native:connect:QuickConnect": "QuickConnect",
    "aws-native:connect:Rule": "Rule",
    "aws-native:connect:SecurityKey": "SecurityKey",
@@ -2702,6 +2703,7 @@ _utilities.register(
    "aws-native:quicksight:RefreshSchedule": "RefreshSchedule",
    "aws-native:quicksight:Template": "Template",
    "aws-native:quicksight:Theme": "Theme",
+   "aws-native:quicksight:Topic": "Topic",
    "aws-native:quicksight:VPCConnection": "VPCConnection"
   }
  },

@@ -124,6 +124,7 @@ namespace Pulumi.AwsNative.AppFlow
 
         public static ConnectorProfileOAuth2GrantType ClientCredentials { get; } = new ConnectorProfileOAuth2GrantType("CLIENT_CREDENTIALS");
         public static ConnectorProfileOAuth2GrantType AuthorizationCode { get; } = new ConnectorProfileOAuth2GrantType("AUTHORIZATION_CODE");
+        public static ConnectorProfileOAuth2GrantType JwtBearer { get; } = new ConnectorProfileOAuth2GrantType("JWT_BEARER");
 
         public static bool operator ==(ConnectorProfileOAuth2GrantType left, ConnectorProfileOAuth2GrantType right) => left.Equals(right);
         public static bool operator !=(ConnectorProfileOAuth2GrantType left, ConnectorProfileOAuth2GrantType right) => !left.Equals(right);
@@ -1029,6 +1030,37 @@ namespace Pulumi.AwsNative.AppFlow
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowSlackConnectorOperator other && Equals(other);
         public bool Equals(FlowSlackConnectorOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Flow activation status for Scheduled- and Event-triggered flows
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowStatus : IEquatable<FlowStatus>
+    {
+        private readonly string _value;
+
+        private FlowStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowStatus Active { get; } = new FlowStatus("Active");
+        public static FlowStatus Suspended { get; } = new FlowStatus("Suspended");
+
+        public static bool operator ==(FlowStatus left, FlowStatus right) => left.Equals(right);
+        public static bool operator !=(FlowStatus left, FlowStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FlowStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowStatus other && Equals(other);
+        public bool Equals(FlowStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

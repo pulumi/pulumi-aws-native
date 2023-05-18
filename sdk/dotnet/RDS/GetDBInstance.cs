@@ -254,10 +254,6 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly string? TdeCredentialArn;
         /// <summary>
-        /// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
-        /// </summary>
-        public readonly bool? UseDefaultProcessorFeatures;
-        /// <summary>
         /// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         /// </summary>
         public readonly ImmutableArray<string> VPCSecurityGroups;
@@ -358,8 +354,6 @@ namespace Pulumi.AwsNative.RDS
 
             string? tdeCredentialArn,
 
-            bool? useDefaultProcessorFeatures,
-
             ImmutableArray<string> vPCSecurityGroups)
         {
             AllocatedStorage = allocatedStorage;
@@ -409,7 +403,6 @@ namespace Pulumi.AwsNative.RDS
             StorageType = storageType;
             Tags = tags;
             TdeCredentialArn = tdeCredentialArn;
-            UseDefaultProcessorFeatures = useDefaultProcessorFeatures;
             VPCSecurityGroups = vPCSecurityGroups;
         }
     }

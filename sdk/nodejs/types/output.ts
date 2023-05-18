@@ -1562,6 +1562,14 @@ export namespace appflow {
          */
         connectorOAuthRequest?: outputs.appflow.ConnectorProfileConnectorOAuthRequest;
         /**
+         * The credentials used to access your Salesforce records
+         */
+        jwtToken?: string;
+        /**
+         * The grant types to fetch an access token
+         */
+        oAuth2GrantType?: enums.appflow.ConnectorProfileOAuth2GrantType;
+        /**
          * The credentials used to acquire new access tokens.
          */
         refreshToken?: string;
@@ -2124,10 +2132,6 @@ export namespace appflow {
      * Trigger settings of the flow.
      */
     export interface FlowTriggerConfig {
-        /**
-         * Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
-         */
-        activateFlowOnCreate?: boolean;
         /**
          * Details required based on the type of trigger
          */
@@ -6158,9 +6162,9 @@ export namespace cloudwatch {
          */
         key: string;
         /**
-         * An optional string, which you can use to describe or define the tag.
+         * String which you can use to describe or define the tag.
          */
-        value?: string;
+        value: string;
     }
 
 }
@@ -8302,6 +8306,20 @@ export namespace connect {
         key: string;
         /**
          * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PromptTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: string;
     }
@@ -26128,7 +26146,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: enums.mediaconnect.FlowSourceEncryptionAlgorithm;
+        algorithm?: enums.mediaconnect.FlowSourceEncryptionAlgorithm;
         /**
          * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
          */
@@ -28455,6 +28473,20 @@ export namespace neptune {
          * The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
          */
         roleArn: string;
+    }
+
+    /**
+     * Contains the scaling configuration of an Neptune Serverless DB cluster.
+     */
+    export interface DBClusterServerlessScalingConfiguration {
+        /**
+         * The maximum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on. The smallest value you can use is 2.5, whereas the largest is 128.
+         */
+        maxCapacity: number;
+        /**
+         * The minimum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value you can use is 1, whereas the largest is 128.
+         */
+        minCapacity: number;
     }
 
     /**
@@ -40425,6 +40457,205 @@ export namespace quicksight {
         versionNumber?: number;
     }
 
+    export interface TopicAggregationFunctionParameters {
+    }
+
+    export interface TopicCalculatedField {
+        aggregation?: enums.quicksight.TopicDefaultAggregation;
+        allowedAggregations?: enums.quicksight.TopicAuthorSpecifiedAggregation[];
+        calculatedFieldDescription?: string;
+        calculatedFieldName: string;
+        calculatedFieldSynonyms?: string[];
+        cellValueSynonyms?: outputs.quicksight.TopicCellValueSynonym[];
+        columnDataRole?: enums.quicksight.TopicColumnDataRole;
+        comparativeOrder?: outputs.quicksight.TopicComparativeOrder;
+        defaultFormatting?: outputs.quicksight.TopicDefaultFormatting;
+        expression: string;
+        isIncludedInTopic?: boolean;
+        neverAggregateInFilter?: boolean;
+        notAllowedAggregations?: enums.quicksight.TopicAuthorSpecifiedAggregation[];
+        semanticType?: outputs.quicksight.TopicSemanticType;
+        timeGranularity?: enums.quicksight.TopicTimeGranularity;
+    }
+
+    export interface TopicCategoryFilter {
+        categoryFilterFunction?: enums.quicksight.TopicCategoryFilterFunction;
+        categoryFilterType?: enums.quicksight.TopicCategoryFilterType;
+        constant?: outputs.quicksight.TopicCategoryFilterConstant;
+        inverse?: boolean;
+    }
+
+    export interface TopicCategoryFilterConstant {
+        collectiveConstant?: outputs.quicksight.TopicCollectiveConstant;
+        constantType?: enums.quicksight.TopicConstantType;
+        singularConstant?: string;
+    }
+
+    export interface TopicCellValueSynonym {
+        cellValue?: string;
+        synonyms?: string[];
+    }
+
+    export interface TopicCollectiveConstant {
+        valueList?: string[];
+    }
+
+    export interface TopicColumn {
+        aggregation?: enums.quicksight.TopicDefaultAggregation;
+        allowedAggregations?: enums.quicksight.TopicAuthorSpecifiedAggregation[];
+        cellValueSynonyms?: outputs.quicksight.TopicCellValueSynonym[];
+        columnDataRole?: enums.quicksight.TopicColumnDataRole;
+        columnDescription?: string;
+        columnFriendlyName?: string;
+        columnName: string;
+        columnSynonyms?: string[];
+        comparativeOrder?: outputs.quicksight.TopicComparativeOrder;
+        defaultFormatting?: outputs.quicksight.TopicDefaultFormatting;
+        isIncludedInTopic?: boolean;
+        neverAggregateInFilter?: boolean;
+        notAllowedAggregations?: enums.quicksight.TopicAuthorSpecifiedAggregation[];
+        semanticType?: outputs.quicksight.TopicSemanticType;
+        timeGranularity?: enums.quicksight.TopicTimeGranularity;
+    }
+
+    export interface TopicComparativeOrder {
+        specifedOrder?: string[];
+        treatUndefinedSpecifiedValues?: enums.quicksight.TopicUndefinedSpecifiedValueType;
+        useOrdering?: enums.quicksight.TopicColumnOrderingType;
+    }
+
+    export interface TopicDataAggregation {
+        datasetRowDateGranularity?: enums.quicksight.TopicTimeGranularity;
+        defaultDateColumnName?: string;
+    }
+
+    export interface TopicDatasetMetadata {
+        calculatedFields?: outputs.quicksight.TopicCalculatedField[];
+        columns?: outputs.quicksight.TopicColumn[];
+        dataAggregation?: outputs.quicksight.TopicDataAggregation;
+        datasetArn: string;
+        datasetDescription?: string;
+        datasetName?: string;
+        filters?: outputs.quicksight.TopicFilter[];
+        namedEntities?: outputs.quicksight.TopicNamedEntity[];
+    }
+
+    export interface TopicDateRangeFilter {
+        constant?: outputs.quicksight.TopicRangeFilterConstant;
+        inclusive?: boolean;
+    }
+
+    export interface TopicDefaultFormatting {
+        displayFormat?: enums.quicksight.TopicDisplayFormat;
+        displayFormatOptions?: outputs.quicksight.TopicDisplayFormatOptions;
+    }
+
+    export interface TopicDisplayFormatOptions {
+        blankCellFormat?: string;
+        currencySymbol?: string;
+        dateFormat?: string;
+        decimalSeparator?: enums.quicksight.TopicNumericSeparatorSymbol;
+        fractionDigits?: number;
+        groupingSeparator?: string;
+        negativeFormat?: outputs.quicksight.TopicNegativeFormat;
+        prefix?: string;
+        suffix?: string;
+        unitScaler?: enums.quicksight.TopicNumberScale;
+        useBlankCellFormat?: boolean;
+        useGrouping?: boolean;
+    }
+
+    export interface TopicFilter {
+        categoryFilter?: outputs.quicksight.TopicCategoryFilter;
+        dateRangeFilter?: outputs.quicksight.TopicDateRangeFilter;
+        filterClass?: enums.quicksight.TopicFilterClass;
+        filterDescription?: string;
+        filterName: string;
+        filterSynonyms?: string[];
+        filterType?: enums.quicksight.TopicNamedFilterType;
+        numericEqualityFilter?: outputs.quicksight.TopicNumericEqualityFilter;
+        numericRangeFilter?: outputs.quicksight.TopicNumericRangeFilter;
+        operandFieldName: string;
+        relativeDateFilter?: outputs.quicksight.TopicRelativeDateFilter;
+    }
+
+    export interface TopicNamedEntity {
+        definition?: outputs.quicksight.TopicNamedEntityDefinition[];
+        entityDescription?: string;
+        entityName: string;
+        entitySynonyms?: string[];
+        semanticEntityType?: outputs.quicksight.TopicSemanticEntityType;
+    }
+
+    export interface TopicNamedEntityDefinition {
+        fieldName?: string;
+        metric?: outputs.quicksight.TopicNamedEntityDefinitionMetric;
+        propertyName?: string;
+        propertyRole?: enums.quicksight.TopicPropertyRole;
+        propertyUsage?: enums.quicksight.TopicPropertyUsage;
+    }
+
+    export interface TopicNamedEntityDefinitionMetric {
+        aggregation?: enums.quicksight.TopicNamedEntityAggType;
+        aggregationFunctionParameters?: outputs.quicksight.TopicAggregationFunctionParameters;
+    }
+
+    export interface TopicNegativeFormat {
+        prefix?: string;
+        suffix?: string;
+    }
+
+    export interface TopicNumericEqualityFilter {
+        aggregation?: enums.quicksight.TopicNamedFilterAggType;
+        constant?: outputs.quicksight.TopicSingularFilterConstant;
+    }
+
+    export interface TopicNumericRangeFilter {
+        aggregation?: enums.quicksight.TopicNamedFilterAggType;
+        constant?: outputs.quicksight.TopicRangeFilterConstant;
+        inclusive?: boolean;
+    }
+
+    export interface TopicRangeConstant {
+        maximum?: string;
+        minimum?: string;
+    }
+
+    export interface TopicRangeFilterConstant {
+        constantType?: enums.quicksight.TopicConstantType;
+        rangeConstant?: outputs.quicksight.TopicRangeConstant;
+    }
+
+    export interface TopicRelativeDateFilter {
+        constant?: outputs.quicksight.TopicSingularFilterConstant;
+        relativeDateFilterFunction?: enums.quicksight.TopicRelativeDateFilterFunction;
+        timeGranularity?: enums.quicksight.TopicTimeGranularity;
+    }
+
+    export interface TopicSemanticEntityType {
+        subTypeName?: string;
+        typeName?: string;
+        typeParameters?: outputs.quicksight.TopicTypeParameters;
+    }
+
+    export interface TopicSemanticType {
+        falseyCellValue?: string;
+        falseyCellValueSynonyms?: string[];
+        subTypeName?: string;
+        truthyCellValue?: string;
+        truthyCellValueSynonyms?: string[];
+        typeName?: string;
+        typeParameters?: outputs.quicksight.TopicTypeParameters;
+    }
+
+    export interface TopicSingularFilterConstant {
+        constantType?: enums.quicksight.TopicConstantType;
+        singularConstant?: string;
+    }
+
+    export interface TopicTypeParameters {
+    }
+
     export interface VPCConnectionNetworkInterface {
         availabilityZone?: string;
         errorMessage?: string;
@@ -43923,6 +44154,7 @@ export namespace sagemaker {
     export interface EndpointConfigServerlessConfig {
         maxConcurrency: number;
         memorySizeInMB: number;
+        provisionedConcurrency?: number;
     }
 
     export interface EndpointConfigTag {
@@ -44464,6 +44696,21 @@ export namespace sagemaker {
         lineOfBusiness?: string;
     }
 
+    export interface ModelCardContainer {
+        /**
+         * Inference environment path. The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+         */
+        image: string;
+        /**
+         * The Amazon S3 path where the model artifacts, which result from model training, are stored.
+         */
+        modelDataUrl?: string;
+        /**
+         * The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+         */
+        nearestModelName?: string;
+    }
+
     /**
      * The content of the model card.
      */
@@ -44473,6 +44720,7 @@ export namespace sagemaker {
         evaluationDetails?: outputs.sagemaker.ModelCardEvaluationDetail[];
         intendedUses?: outputs.sagemaker.ModelCardIntendedUses;
         modelOverview?: outputs.sagemaker.ModelCardModelOverview;
+        modelPackageDetails?: outputs.sagemaker.ModelCardModelPackageDetails;
         trainingDetails?: outputs.sagemaker.ModelCardTrainingDetails;
     }
 
@@ -44489,6 +44737,13 @@ export namespace sagemaker {
         metadata?: any;
         metricGroups?: outputs.sagemaker.ModelCardMetricGroup[];
         name: string;
+    }
+
+    export interface ModelCardInferenceSpecification {
+        /**
+         * Contains inference related information which were used to create model package.
+         */
+        containers: outputs.sagemaker.ModelCardContainer[];
     }
 
     /**
@@ -44593,6 +44848,71 @@ export namespace sagemaker {
         containerImage?: string[];
     }
 
+    export interface ModelCardModelPackageCreator {
+        /**
+         * The name of the user's profile in Studio
+         */
+        userProfileName?: string;
+    }
+
+    /**
+     * Metadata information related to model package version
+     */
+    export interface ModelCardModelPackageDetails {
+        /**
+         * A description provided for the model approval
+         */
+        approvalDescription?: string;
+        /**
+         * Information about the user who created model package.
+         */
+        createdBy?: outputs.sagemaker.ModelCardModelPackageCreator;
+        /**
+         * The machine learning domain of the model package you specified. Common machine learning domains include computer vision and natural language processing.
+         */
+        domain?: string;
+        /**
+         * Details about inference jobs that can be run with models based on this model package.
+         */
+        inferenceSpecification?: outputs.sagemaker.ModelCardInferenceSpecification;
+        /**
+         * Current approval status of model package
+         */
+        modelApprovalStatus?: enums.sagemaker.ModelCardModelPackageDetailsModelApprovalStatus;
+        /**
+         * The Amazon Resource Name (ARN) of the model package
+         */
+        modelPackageArn?: string;
+        /**
+         * A brief summary of the model package
+         */
+        modelPackageDescription?: string;
+        /**
+         * If the model is a versioned model, the name of the model group that the versioned model belongs to.
+         */
+        modelPackageGroupName?: string;
+        /**
+         * Name of the model package
+         */
+        modelPackageName?: string;
+        /**
+         * Current status of model package
+         */
+        modelPackageStatus?: enums.sagemaker.ModelCardModelPackageDetailsModelPackageStatus;
+        /**
+         * Version of the model package
+         */
+        modelPackageVersion?: number;
+        /**
+         * A list of algorithms that were used to create a model package.
+         */
+        sourceAlgorithms?: outputs.sagemaker.ModelCardSourceAlgorithm[];
+        /**
+         * The machine learning task you specified that your model package accomplishes. Common machine learning tasks include object detection and image classification.
+         */
+        task?: string;
+    }
+
     /**
      * the objective function the model will optimize for.
      */
@@ -44633,6 +44953,17 @@ export namespace sagemaker {
         value: number | string | boolean;
         xAxisName?: string;
         yAxisName?: string;
+    }
+
+    export interface ModelCardSourceAlgorithm {
+        /**
+         * The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+         */
+        algorithmName: string;
+        /**
+         * The Amazon S3 path where the model artifacts, which result from model training, are stored.
+         */
+        modelDataUrl?: string;
     }
 
     /**
@@ -47981,6 +48312,7 @@ export namespace synthetics {
         s3Key?: string;
         s3ObjectVersion?: string;
         script?: string;
+        sourceLocationArn?: string;
     }
 
     export interface CanaryRunConfig {

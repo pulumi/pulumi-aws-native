@@ -23,6 +23,7 @@ class FlowArgs:
                  trigger_config: pulumi.Input['FlowTriggerConfigArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  flow_name: Optional[pulumi.Input[str]] = None,
+                 flow_status: Optional[pulumi.Input['FlowStatus']] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None,
                  metadata_catalog_config: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]] = None):
@@ -34,6 +35,7 @@ class FlowArgs:
         :param pulumi.Input['FlowTriggerConfigArgs'] trigger_config: Trigger settings of the flow.
         :param pulumi.Input[str] description: Description of the flow.
         :param pulumi.Input[str] flow_name: Name of the flow.
+        :param pulumi.Input['FlowStatus'] flow_status: Flow activation status for Scheduled- and Event-triggered flows
         :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         :param pulumi.Input['FlowMetadataCatalogConfigArgs'] metadata_catalog_config: Configurations of metadata catalog of the flow.
         :param pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]] tags: List of Tags.
@@ -46,6 +48,8 @@ class FlowArgs:
             pulumi.set(__self__, "description", description)
         if flow_name is not None:
             pulumi.set(__self__, "flow_name", flow_name)
+        if flow_status is not None:
+            pulumi.set(__self__, "flow_status", flow_status)
         if k_ms_arn is not None:
             pulumi.set(__self__, "k_ms_arn", k_ms_arn)
         if metadata_catalog_config is not None:
@@ -126,6 +130,18 @@ class FlowArgs:
         pulumi.set(self, "flow_name", value)
 
     @property
+    @pulumi.getter(name="flowStatus")
+    def flow_status(self) -> Optional[pulumi.Input['FlowStatus']]:
+        """
+        Flow activation status for Scheduled- and Event-triggered flows
+        """
+        return pulumi.get(self, "flow_status")
+
+    @flow_status.setter
+    def flow_status(self, value: Optional[pulumi.Input['FlowStatus']]):
+        pulumi.set(self, "flow_status", value)
+
+    @property
     @pulumi.getter(name="kMSArn")
     def k_ms_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -170,6 +186,7 @@ class Flow(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  destination_flow_config_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]]] = None,
                  flow_name: Optional[pulumi.Input[str]] = None,
+                 flow_status: Optional[pulumi.Input['FlowStatus']] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None,
                  metadata_catalog_config: Optional[pulumi.Input[pulumi.InputType['FlowMetadataCatalogConfigArgs']]] = None,
                  source_flow_config: Optional[pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']]] = None,
@@ -185,6 +202,7 @@ class Flow(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the flow.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]] destination_flow_config_list: List of Destination connectors of the flow.
         :param pulumi.Input[str] flow_name: Name of the flow.
+        :param pulumi.Input['FlowStatus'] flow_status: Flow activation status for Scheduled- and Event-triggered flows
         :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         :param pulumi.Input[pulumi.InputType['FlowMetadataCatalogConfigArgs']] metadata_catalog_config: Configurations of metadata catalog of the flow.
         :param pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']] source_flow_config: Configurations of Source connector of the flow.
@@ -219,6 +237,7 @@ class Flow(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  destination_flow_config_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]]] = None,
                  flow_name: Optional[pulumi.Input[str]] = None,
+                 flow_status: Optional[pulumi.Input['FlowStatus']] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None,
                  metadata_catalog_config: Optional[pulumi.Input[pulumi.InputType['FlowMetadataCatalogConfigArgs']]] = None,
                  source_flow_config: Optional[pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']]] = None,
@@ -239,6 +258,7 @@ class Flow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'destination_flow_config_list'")
             __props__.__dict__["destination_flow_config_list"] = destination_flow_config_list
             __props__.__dict__["flow_name"] = flow_name
+            __props__.__dict__["flow_status"] = flow_status
             __props__.__dict__["k_ms_arn"] = k_ms_arn
             __props__.__dict__["metadata_catalog_config"] = metadata_catalog_config
             if source_flow_config is None and not opts.urn:
@@ -278,6 +298,7 @@ class Flow(pulumi.CustomResource):
         __props__.__dict__["destination_flow_config_list"] = None
         __props__.__dict__["flow_arn"] = None
         __props__.__dict__["flow_name"] = None
+        __props__.__dict__["flow_status"] = None
         __props__.__dict__["k_ms_arn"] = None
         __props__.__dict__["metadata_catalog_config"] = None
         __props__.__dict__["source_flow_config"] = None
@@ -317,6 +338,14 @@ class Flow(pulumi.CustomResource):
         Name of the flow.
         """
         return pulumi.get(self, "flow_name")
+
+    @property
+    @pulumi.getter(name="flowStatus")
+    def flow_status(self) -> pulumi.Output[Optional['FlowStatus']]:
+        """
+        Flow activation status for Scheduled- and Event-triggered flows
+        """
+        return pulumi.get(self, "flow_status")
 
     @property
     @pulumi.getter(name="kMSArn")

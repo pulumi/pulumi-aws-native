@@ -55,6 +55,11 @@ export const getTheme: typeof import("./getTheme").getTheme = null as any;
 export const getThemeOutput: typeof import("./getTheme").getThemeOutput = null as any;
 utilities.lazyLoad(exports, ["getTheme","getThemeOutput"], () => require("./getTheme"));
 
+export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
+export const getTopic: typeof import("./getTopic").getTopic = null as any;
+export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
+
 export { GetVPCConnectionArgs, GetVPCConnectionResult, GetVPCConnectionOutputArgs } from "./getVPCConnection";
 export const getVPCConnection: typeof import("./getVPCConnection").getVPCConnection = null as any;
 export const getVPCConnectionOutput: typeof import("./getVPCConnection").getVPCConnectionOutput = null as any;
@@ -74,6 +79,11 @@ export { ThemeArgs } from "./theme";
 export type Theme = import("./theme").Theme;
 export const Theme: typeof import("./theme").Theme = null as any;
 utilities.lazyLoad(exports, ["Theme"], () => require("./theme"));
+
+export { TopicArgs } from "./topic";
+export type Topic = import("./topic").Topic;
+export const Topic: typeof import("./topic").Topic = null as any;
+utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
 
 export { VPCConnectionArgs } from "./vpcconnection";
 export type VPCConnection = import("./vpcconnection").VPCConnection;
@@ -102,6 +112,8 @@ const _module = {
                 return new Template(name, <any>undefined, { urn })
             case "aws-native:quicksight:Theme":
                 return new Theme(name, <any>undefined, { urn })
+            case "aws-native:quicksight:Topic":
+                return new Topic(name, <any>undefined, { urn })
             case "aws-native:quicksight:VPCConnection":
                 return new VPCConnection(name, <any>undefined, { urn })
             default:

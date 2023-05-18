@@ -8958,8 +8958,9 @@ func (o EndpointConfigProductionVariantArrayOutput) Index(i pulumi.IntInput) End
 }
 
 type EndpointConfigServerlessConfig struct {
-	MaxConcurrency int `pulumi:"maxConcurrency"`
-	MemorySizeInMB int `pulumi:"memorySizeInMB"`
+	MaxConcurrency         int  `pulumi:"maxConcurrency"`
+	MemorySizeInMB         int  `pulumi:"memorySizeInMB"`
+	ProvisionedConcurrency *int `pulumi:"provisionedConcurrency"`
 }
 
 // EndpointConfigServerlessConfigInput is an input type that accepts EndpointConfigServerlessConfigArgs and EndpointConfigServerlessConfigOutput values.
@@ -8974,8 +8975,9 @@ type EndpointConfigServerlessConfigInput interface {
 }
 
 type EndpointConfigServerlessConfigArgs struct {
-	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
-	MemorySizeInMB pulumi.IntInput `pulumi:"memorySizeInMB"`
+	MaxConcurrency         pulumi.IntInput    `pulumi:"maxConcurrency"`
+	MemorySizeInMB         pulumi.IntInput    `pulumi:"memorySizeInMB"`
+	ProvisionedConcurrency pulumi.IntPtrInput `pulumi:"provisionedConcurrency"`
 }
 
 func (EndpointConfigServerlessConfigArgs) ElementType() reflect.Type {
@@ -9063,6 +9065,10 @@ func (o EndpointConfigServerlessConfigOutput) MemorySizeInMB() pulumi.IntOutput 
 	return o.ApplyT(func(v EndpointConfigServerlessConfig) int { return v.MemorySizeInMB }).(pulumi.IntOutput)
 }
 
+func (o EndpointConfigServerlessConfigOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigServerlessConfig) *int { return v.ProvisionedConcurrency }).(pulumi.IntPtrOutput)
+}
+
 type EndpointConfigServerlessConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointConfigServerlessConfigPtrOutput) ElementType() reflect.Type {
@@ -9102,6 +9108,15 @@ func (o EndpointConfigServerlessConfigPtrOutput) MemorySizeInMB() pulumi.IntPtrO
 			return nil
 		}
 		return &v.MemorySizeInMB
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigServerlessConfigPtrOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigServerlessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedConcurrency
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -14583,6 +14598,121 @@ func (o ModelCardBusinessDetailsPtrOutput) LineOfBusiness() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type ModelCardContainer struct {
+	// Inference environment path. The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+	Image string `pulumi:"image"`
+	// The Amazon S3 path where the model artifacts, which result from model training, are stored.
+	ModelDataUrl *string `pulumi:"modelDataUrl"`
+	// The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+	NearestModelName *string `pulumi:"nearestModelName"`
+}
+
+// ModelCardContainerInput is an input type that accepts ModelCardContainerArgs and ModelCardContainerOutput values.
+// You can construct a concrete instance of `ModelCardContainerInput` via:
+//
+//	ModelCardContainerArgs{...}
+type ModelCardContainerInput interface {
+	pulumi.Input
+
+	ToModelCardContainerOutput() ModelCardContainerOutput
+	ToModelCardContainerOutputWithContext(context.Context) ModelCardContainerOutput
+}
+
+type ModelCardContainerArgs struct {
+	// Inference environment path. The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The Amazon S3 path where the model artifacts, which result from model training, are stored.
+	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
+	// The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+	NearestModelName pulumi.StringPtrInput `pulumi:"nearestModelName"`
+}
+
+func (ModelCardContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardContainer)(nil)).Elem()
+}
+
+func (i ModelCardContainerArgs) ToModelCardContainerOutput() ModelCardContainerOutput {
+	return i.ToModelCardContainerOutputWithContext(context.Background())
+}
+
+func (i ModelCardContainerArgs) ToModelCardContainerOutputWithContext(ctx context.Context) ModelCardContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardContainerOutput)
+}
+
+// ModelCardContainerArrayInput is an input type that accepts ModelCardContainerArray and ModelCardContainerArrayOutput values.
+// You can construct a concrete instance of `ModelCardContainerArrayInput` via:
+//
+//	ModelCardContainerArray{ ModelCardContainerArgs{...} }
+type ModelCardContainerArrayInput interface {
+	pulumi.Input
+
+	ToModelCardContainerArrayOutput() ModelCardContainerArrayOutput
+	ToModelCardContainerArrayOutputWithContext(context.Context) ModelCardContainerArrayOutput
+}
+
+type ModelCardContainerArray []ModelCardContainerInput
+
+func (ModelCardContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardContainer)(nil)).Elem()
+}
+
+func (i ModelCardContainerArray) ToModelCardContainerArrayOutput() ModelCardContainerArrayOutput {
+	return i.ToModelCardContainerArrayOutputWithContext(context.Background())
+}
+
+func (i ModelCardContainerArray) ToModelCardContainerArrayOutputWithContext(ctx context.Context) ModelCardContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardContainerArrayOutput)
+}
+
+type ModelCardContainerOutput struct{ *pulumi.OutputState }
+
+func (ModelCardContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardContainer)(nil)).Elem()
+}
+
+func (o ModelCardContainerOutput) ToModelCardContainerOutput() ModelCardContainerOutput {
+	return o
+}
+
+func (o ModelCardContainerOutput) ToModelCardContainerOutputWithContext(ctx context.Context) ModelCardContainerOutput {
+	return o
+}
+
+// Inference environment path. The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
+func (o ModelCardContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The Amazon S3 path where the model artifacts, which result from model training, are stored.
+func (o ModelCardContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+}
+
+// The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
+func (o ModelCardContainerOutput) NearestModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardContainer) *string { return v.NearestModelName }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelCardContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardContainer)(nil)).Elem()
+}
+
+func (o ModelCardContainerArrayOutput) ToModelCardContainerArrayOutput() ModelCardContainerArrayOutput {
+	return o
+}
+
+func (o ModelCardContainerArrayOutput) ToModelCardContainerArrayOutputWithContext(ctx context.Context) ModelCardContainerArrayOutput {
+	return o
+}
+
+func (o ModelCardContainerArrayOutput) Index(i pulumi.IntInput) ModelCardContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelCardContainer {
+		return vs[0].([]ModelCardContainer)[vs[1].(int)]
+	}).(ModelCardContainerOutput)
+}
+
 // The content of the model card.
 type ModelCardContent struct {
 	AdditionalInformation *ModelCardAdditionalInformation `pulumi:"additionalInformation"`
@@ -14590,6 +14720,7 @@ type ModelCardContent struct {
 	EvaluationDetails     []ModelCardEvaluationDetail     `pulumi:"evaluationDetails"`
 	IntendedUses          *ModelCardIntendedUses          `pulumi:"intendedUses"`
 	ModelOverview         *ModelCardModelOverview         `pulumi:"modelOverview"`
+	ModelPackageDetails   *ModelCardModelPackageDetails   `pulumi:"modelPackageDetails"`
 	TrainingDetails       *ModelCardTrainingDetails       `pulumi:"trainingDetails"`
 }
 
@@ -14611,6 +14742,7 @@ type ModelCardContentArgs struct {
 	EvaluationDetails     ModelCardEvaluationDetailArrayInput    `pulumi:"evaluationDetails"`
 	IntendedUses          ModelCardIntendedUsesPtrInput          `pulumi:"intendedUses"`
 	ModelOverview         ModelCardModelOverviewPtrInput         `pulumi:"modelOverview"`
+	ModelPackageDetails   ModelCardModelPackageDetailsPtrInput   `pulumi:"modelPackageDetails"`
 	TrainingDetails       ModelCardTrainingDetailsPtrInput       `pulumi:"trainingDetails"`
 }
 
@@ -14659,6 +14791,10 @@ func (o ModelCardContentOutput) IntendedUses() ModelCardIntendedUsesPtrOutput {
 
 func (o ModelCardContentOutput) ModelOverview() ModelCardModelOverviewPtrOutput {
 	return o.ApplyT(func(v ModelCardContent) *ModelCardModelOverview { return v.ModelOverview }).(ModelCardModelOverviewPtrOutput)
+}
+
+func (o ModelCardContentOutput) ModelPackageDetails() ModelCardModelPackageDetailsPtrOutput {
+	return o.ApplyT(func(v ModelCardContent) *ModelCardModelPackageDetails { return v.ModelPackageDetails }).(ModelCardModelPackageDetailsPtrOutput)
 }
 
 func (o ModelCardContentOutput) TrainingDetails() ModelCardTrainingDetailsPtrOutput {
@@ -14732,6 +14868,15 @@ func (o ModelCardContentPtrOutput) ModelOverview() ModelCardModelOverviewPtrOutp
 		}
 		return v.ModelOverview
 	}).(ModelCardModelOverviewPtrOutput)
+}
+
+func (o ModelCardContentPtrOutput) ModelPackageDetails() ModelCardModelPackageDetailsPtrOutput {
+	return o.ApplyT(func(v *ModelCardContent) *ModelCardModelPackageDetails {
+		if v == nil {
+			return nil
+		}
+		return v.ModelPackageDetails
+	}).(ModelCardModelPackageDetailsPtrOutput)
 }
 
 func (o ModelCardContentPtrOutput) TrainingDetails() ModelCardTrainingDetailsPtrOutput {
@@ -14871,6 +15016,143 @@ func (o ModelCardEvaluationDetailArrayOutput) Index(i pulumi.IntInput) ModelCard
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelCardEvaluationDetail {
 		return vs[0].([]ModelCardEvaluationDetail)[vs[1].(int)]
 	}).(ModelCardEvaluationDetailOutput)
+}
+
+type ModelCardInferenceSpecification struct {
+	// Contains inference related information which were used to create model package.
+	Containers []ModelCardContainer `pulumi:"containers"`
+}
+
+// ModelCardInferenceSpecificationInput is an input type that accepts ModelCardInferenceSpecificationArgs and ModelCardInferenceSpecificationOutput values.
+// You can construct a concrete instance of `ModelCardInferenceSpecificationInput` via:
+//
+//	ModelCardInferenceSpecificationArgs{...}
+type ModelCardInferenceSpecificationInput interface {
+	pulumi.Input
+
+	ToModelCardInferenceSpecificationOutput() ModelCardInferenceSpecificationOutput
+	ToModelCardInferenceSpecificationOutputWithContext(context.Context) ModelCardInferenceSpecificationOutput
+}
+
+type ModelCardInferenceSpecificationArgs struct {
+	// Contains inference related information which were used to create model package.
+	Containers ModelCardContainerArrayInput `pulumi:"containers"`
+}
+
+func (ModelCardInferenceSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardInferenceSpecification)(nil)).Elem()
+}
+
+func (i ModelCardInferenceSpecificationArgs) ToModelCardInferenceSpecificationOutput() ModelCardInferenceSpecificationOutput {
+	return i.ToModelCardInferenceSpecificationOutputWithContext(context.Background())
+}
+
+func (i ModelCardInferenceSpecificationArgs) ToModelCardInferenceSpecificationOutputWithContext(ctx context.Context) ModelCardInferenceSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardInferenceSpecificationOutput)
+}
+
+func (i ModelCardInferenceSpecificationArgs) ToModelCardInferenceSpecificationPtrOutput() ModelCardInferenceSpecificationPtrOutput {
+	return i.ToModelCardInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardInferenceSpecificationArgs) ToModelCardInferenceSpecificationPtrOutputWithContext(ctx context.Context) ModelCardInferenceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardInferenceSpecificationOutput).ToModelCardInferenceSpecificationPtrOutputWithContext(ctx)
+}
+
+// ModelCardInferenceSpecificationPtrInput is an input type that accepts ModelCardInferenceSpecificationArgs, ModelCardInferenceSpecificationPtr and ModelCardInferenceSpecificationPtrOutput values.
+// You can construct a concrete instance of `ModelCardInferenceSpecificationPtrInput` via:
+//
+//	        ModelCardInferenceSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardInferenceSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToModelCardInferenceSpecificationPtrOutput() ModelCardInferenceSpecificationPtrOutput
+	ToModelCardInferenceSpecificationPtrOutputWithContext(context.Context) ModelCardInferenceSpecificationPtrOutput
+}
+
+type modelCardInferenceSpecificationPtrType ModelCardInferenceSpecificationArgs
+
+func ModelCardInferenceSpecificationPtr(v *ModelCardInferenceSpecificationArgs) ModelCardInferenceSpecificationPtrInput {
+	return (*modelCardInferenceSpecificationPtrType)(v)
+}
+
+func (*modelCardInferenceSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardInferenceSpecification)(nil)).Elem()
+}
+
+func (i *modelCardInferenceSpecificationPtrType) ToModelCardInferenceSpecificationPtrOutput() ModelCardInferenceSpecificationPtrOutput {
+	return i.ToModelCardInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardInferenceSpecificationPtrType) ToModelCardInferenceSpecificationPtrOutputWithContext(ctx context.Context) ModelCardInferenceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardInferenceSpecificationPtrOutput)
+}
+
+type ModelCardInferenceSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ModelCardInferenceSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardInferenceSpecification)(nil)).Elem()
+}
+
+func (o ModelCardInferenceSpecificationOutput) ToModelCardInferenceSpecificationOutput() ModelCardInferenceSpecificationOutput {
+	return o
+}
+
+func (o ModelCardInferenceSpecificationOutput) ToModelCardInferenceSpecificationOutputWithContext(ctx context.Context) ModelCardInferenceSpecificationOutput {
+	return o
+}
+
+func (o ModelCardInferenceSpecificationOutput) ToModelCardInferenceSpecificationPtrOutput() ModelCardInferenceSpecificationPtrOutput {
+	return o.ToModelCardInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardInferenceSpecificationOutput) ToModelCardInferenceSpecificationPtrOutputWithContext(ctx context.Context) ModelCardInferenceSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardInferenceSpecification) *ModelCardInferenceSpecification {
+		return &v
+	}).(ModelCardInferenceSpecificationPtrOutput)
+}
+
+// Contains inference related information which were used to create model package.
+func (o ModelCardInferenceSpecificationOutput) Containers() ModelCardContainerArrayOutput {
+	return o.ApplyT(func(v ModelCardInferenceSpecification) []ModelCardContainer { return v.Containers }).(ModelCardContainerArrayOutput)
+}
+
+type ModelCardInferenceSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardInferenceSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardInferenceSpecification)(nil)).Elem()
+}
+
+func (o ModelCardInferenceSpecificationPtrOutput) ToModelCardInferenceSpecificationPtrOutput() ModelCardInferenceSpecificationPtrOutput {
+	return o
+}
+
+func (o ModelCardInferenceSpecificationPtrOutput) ToModelCardInferenceSpecificationPtrOutputWithContext(ctx context.Context) ModelCardInferenceSpecificationPtrOutput {
+	return o
+}
+
+func (o ModelCardInferenceSpecificationPtrOutput) Elem() ModelCardInferenceSpecificationOutput {
+	return o.ApplyT(func(v *ModelCardInferenceSpecification) ModelCardInferenceSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardInferenceSpecification
+		return ret
+	}).(ModelCardInferenceSpecificationOutput)
+}
+
+// Contains inference related information which were used to create model package.
+func (o ModelCardInferenceSpecificationPtrOutput) Containers() ModelCardContainerArrayOutput {
+	return o.ApplyT(func(v *ModelCardInferenceSpecification) []ModelCardContainer {
+		if v == nil {
+			return nil
+		}
+		return v.Containers
+	}).(ModelCardContainerArrayOutput)
 }
 
 // Intended usage of model.
@@ -15652,6 +15934,515 @@ func (o ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput) Container
 	}).(pulumi.StringArrayOutput)
 }
 
+type ModelCardModelPackageCreator struct {
+	// The name of the user's profile in Studio
+	UserProfileName *string `pulumi:"userProfileName"`
+}
+
+// ModelCardModelPackageCreatorInput is an input type that accepts ModelCardModelPackageCreatorArgs and ModelCardModelPackageCreatorOutput values.
+// You can construct a concrete instance of `ModelCardModelPackageCreatorInput` via:
+//
+//	ModelCardModelPackageCreatorArgs{...}
+type ModelCardModelPackageCreatorInput interface {
+	pulumi.Input
+
+	ToModelCardModelPackageCreatorOutput() ModelCardModelPackageCreatorOutput
+	ToModelCardModelPackageCreatorOutputWithContext(context.Context) ModelCardModelPackageCreatorOutput
+}
+
+type ModelCardModelPackageCreatorArgs struct {
+	// The name of the user's profile in Studio
+	UserProfileName pulumi.StringPtrInput `pulumi:"userProfileName"`
+}
+
+func (ModelCardModelPackageCreatorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelPackageCreator)(nil)).Elem()
+}
+
+func (i ModelCardModelPackageCreatorArgs) ToModelCardModelPackageCreatorOutput() ModelCardModelPackageCreatorOutput {
+	return i.ToModelCardModelPackageCreatorOutputWithContext(context.Background())
+}
+
+func (i ModelCardModelPackageCreatorArgs) ToModelCardModelPackageCreatorOutputWithContext(ctx context.Context) ModelCardModelPackageCreatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelPackageCreatorOutput)
+}
+
+func (i ModelCardModelPackageCreatorArgs) ToModelCardModelPackageCreatorPtrOutput() ModelCardModelPackageCreatorPtrOutput {
+	return i.ToModelCardModelPackageCreatorPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardModelPackageCreatorArgs) ToModelCardModelPackageCreatorPtrOutputWithContext(ctx context.Context) ModelCardModelPackageCreatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelPackageCreatorOutput).ToModelCardModelPackageCreatorPtrOutputWithContext(ctx)
+}
+
+// ModelCardModelPackageCreatorPtrInput is an input type that accepts ModelCardModelPackageCreatorArgs, ModelCardModelPackageCreatorPtr and ModelCardModelPackageCreatorPtrOutput values.
+// You can construct a concrete instance of `ModelCardModelPackageCreatorPtrInput` via:
+//
+//	        ModelCardModelPackageCreatorArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardModelPackageCreatorPtrInput interface {
+	pulumi.Input
+
+	ToModelCardModelPackageCreatorPtrOutput() ModelCardModelPackageCreatorPtrOutput
+	ToModelCardModelPackageCreatorPtrOutputWithContext(context.Context) ModelCardModelPackageCreatorPtrOutput
+}
+
+type modelCardModelPackageCreatorPtrType ModelCardModelPackageCreatorArgs
+
+func ModelCardModelPackageCreatorPtr(v *ModelCardModelPackageCreatorArgs) ModelCardModelPackageCreatorPtrInput {
+	return (*modelCardModelPackageCreatorPtrType)(v)
+}
+
+func (*modelCardModelPackageCreatorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardModelPackageCreator)(nil)).Elem()
+}
+
+func (i *modelCardModelPackageCreatorPtrType) ToModelCardModelPackageCreatorPtrOutput() ModelCardModelPackageCreatorPtrOutput {
+	return i.ToModelCardModelPackageCreatorPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardModelPackageCreatorPtrType) ToModelCardModelPackageCreatorPtrOutputWithContext(ctx context.Context) ModelCardModelPackageCreatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelPackageCreatorPtrOutput)
+}
+
+type ModelCardModelPackageCreatorOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelPackageCreatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelPackageCreator)(nil)).Elem()
+}
+
+func (o ModelCardModelPackageCreatorOutput) ToModelCardModelPackageCreatorOutput() ModelCardModelPackageCreatorOutput {
+	return o
+}
+
+func (o ModelCardModelPackageCreatorOutput) ToModelCardModelPackageCreatorOutputWithContext(ctx context.Context) ModelCardModelPackageCreatorOutput {
+	return o
+}
+
+func (o ModelCardModelPackageCreatorOutput) ToModelCardModelPackageCreatorPtrOutput() ModelCardModelPackageCreatorPtrOutput {
+	return o.ToModelCardModelPackageCreatorPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelPackageCreatorOutput) ToModelCardModelPackageCreatorPtrOutputWithContext(ctx context.Context) ModelCardModelPackageCreatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardModelPackageCreator) *ModelCardModelPackageCreator {
+		return &v
+	}).(ModelCardModelPackageCreatorPtrOutput)
+}
+
+// The name of the user's profile in Studio
+func (o ModelCardModelPackageCreatorOutput) UserProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageCreator) *string { return v.UserProfileName }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardModelPackageCreatorPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelPackageCreatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardModelPackageCreator)(nil)).Elem()
+}
+
+func (o ModelCardModelPackageCreatorPtrOutput) ToModelCardModelPackageCreatorPtrOutput() ModelCardModelPackageCreatorPtrOutput {
+	return o
+}
+
+func (o ModelCardModelPackageCreatorPtrOutput) ToModelCardModelPackageCreatorPtrOutputWithContext(ctx context.Context) ModelCardModelPackageCreatorPtrOutput {
+	return o
+}
+
+func (o ModelCardModelPackageCreatorPtrOutput) Elem() ModelCardModelPackageCreatorOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageCreator) ModelCardModelPackageCreator {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardModelPackageCreator
+		return ret
+	}).(ModelCardModelPackageCreatorOutput)
+}
+
+// The name of the user's profile in Studio
+func (o ModelCardModelPackageCreatorPtrOutput) UserProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageCreator) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserProfileName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata information related to model package version
+type ModelCardModelPackageDetails struct {
+	// A description provided for the model approval
+	ApprovalDescription *string `pulumi:"approvalDescription"`
+	// Information about the user who created model package.
+	CreatedBy *ModelCardModelPackageCreator `pulumi:"createdBy"`
+	// The machine learning domain of the model package you specified. Common machine learning domains include computer vision and natural language processing.
+	Domain *string `pulumi:"domain"`
+	// Details about inference jobs that can be run with models based on this model package.
+	InferenceSpecification *ModelCardInferenceSpecification `pulumi:"inferenceSpecification"`
+	// Current approval status of model package
+	ModelApprovalStatus *ModelCardModelPackageDetailsModelApprovalStatus `pulumi:"modelApprovalStatus"`
+	// The Amazon Resource Name (ARN) of the model package
+	ModelPackageArn *string `pulumi:"modelPackageArn"`
+	// A brief summary of the model package
+	ModelPackageDescription *string `pulumi:"modelPackageDescription"`
+	// If the model is a versioned model, the name of the model group that the versioned model belongs to.
+	ModelPackageGroupName *string `pulumi:"modelPackageGroupName"`
+	// Name of the model package
+	ModelPackageName *string `pulumi:"modelPackageName"`
+	// Current status of model package
+	ModelPackageStatus *ModelCardModelPackageDetailsModelPackageStatus `pulumi:"modelPackageStatus"`
+	// Version of the model package
+	ModelPackageVersion *float64 `pulumi:"modelPackageVersion"`
+	// A list of algorithms that were used to create a model package.
+	SourceAlgorithms []ModelCardSourceAlgorithm `pulumi:"sourceAlgorithms"`
+	// The machine learning task you specified that your model package accomplishes. Common machine learning tasks include object detection and image classification.
+	Task *string `pulumi:"task"`
+}
+
+// ModelCardModelPackageDetailsInput is an input type that accepts ModelCardModelPackageDetailsArgs and ModelCardModelPackageDetailsOutput values.
+// You can construct a concrete instance of `ModelCardModelPackageDetailsInput` via:
+//
+//	ModelCardModelPackageDetailsArgs{...}
+type ModelCardModelPackageDetailsInput interface {
+	pulumi.Input
+
+	ToModelCardModelPackageDetailsOutput() ModelCardModelPackageDetailsOutput
+	ToModelCardModelPackageDetailsOutputWithContext(context.Context) ModelCardModelPackageDetailsOutput
+}
+
+// Metadata information related to model package version
+type ModelCardModelPackageDetailsArgs struct {
+	// A description provided for the model approval
+	ApprovalDescription pulumi.StringPtrInput `pulumi:"approvalDescription"`
+	// Information about the user who created model package.
+	CreatedBy ModelCardModelPackageCreatorPtrInput `pulumi:"createdBy"`
+	// The machine learning domain of the model package you specified. Common machine learning domains include computer vision and natural language processing.
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// Details about inference jobs that can be run with models based on this model package.
+	InferenceSpecification ModelCardInferenceSpecificationPtrInput `pulumi:"inferenceSpecification"`
+	// Current approval status of model package
+	ModelApprovalStatus ModelCardModelPackageDetailsModelApprovalStatusPtrInput `pulumi:"modelApprovalStatus"`
+	// The Amazon Resource Name (ARN) of the model package
+	ModelPackageArn pulumi.StringPtrInput `pulumi:"modelPackageArn"`
+	// A brief summary of the model package
+	ModelPackageDescription pulumi.StringPtrInput `pulumi:"modelPackageDescription"`
+	// If the model is a versioned model, the name of the model group that the versioned model belongs to.
+	ModelPackageGroupName pulumi.StringPtrInput `pulumi:"modelPackageGroupName"`
+	// Name of the model package
+	ModelPackageName pulumi.StringPtrInput `pulumi:"modelPackageName"`
+	// Current status of model package
+	ModelPackageStatus ModelCardModelPackageDetailsModelPackageStatusPtrInput `pulumi:"modelPackageStatus"`
+	// Version of the model package
+	ModelPackageVersion pulumi.Float64PtrInput `pulumi:"modelPackageVersion"`
+	// A list of algorithms that were used to create a model package.
+	SourceAlgorithms ModelCardSourceAlgorithmArrayInput `pulumi:"sourceAlgorithms"`
+	// The machine learning task you specified that your model package accomplishes. Common machine learning tasks include object detection and image classification.
+	Task pulumi.StringPtrInput `pulumi:"task"`
+}
+
+func (ModelCardModelPackageDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelPackageDetails)(nil)).Elem()
+}
+
+func (i ModelCardModelPackageDetailsArgs) ToModelCardModelPackageDetailsOutput() ModelCardModelPackageDetailsOutput {
+	return i.ToModelCardModelPackageDetailsOutputWithContext(context.Background())
+}
+
+func (i ModelCardModelPackageDetailsArgs) ToModelCardModelPackageDetailsOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelPackageDetailsOutput)
+}
+
+func (i ModelCardModelPackageDetailsArgs) ToModelCardModelPackageDetailsPtrOutput() ModelCardModelPackageDetailsPtrOutput {
+	return i.ToModelCardModelPackageDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardModelPackageDetailsArgs) ToModelCardModelPackageDetailsPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelPackageDetailsOutput).ToModelCardModelPackageDetailsPtrOutputWithContext(ctx)
+}
+
+// ModelCardModelPackageDetailsPtrInput is an input type that accepts ModelCardModelPackageDetailsArgs, ModelCardModelPackageDetailsPtr and ModelCardModelPackageDetailsPtrOutput values.
+// You can construct a concrete instance of `ModelCardModelPackageDetailsPtrInput` via:
+//
+//	        ModelCardModelPackageDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardModelPackageDetailsPtrInput interface {
+	pulumi.Input
+
+	ToModelCardModelPackageDetailsPtrOutput() ModelCardModelPackageDetailsPtrOutput
+	ToModelCardModelPackageDetailsPtrOutputWithContext(context.Context) ModelCardModelPackageDetailsPtrOutput
+}
+
+type modelCardModelPackageDetailsPtrType ModelCardModelPackageDetailsArgs
+
+func ModelCardModelPackageDetailsPtr(v *ModelCardModelPackageDetailsArgs) ModelCardModelPackageDetailsPtrInput {
+	return (*modelCardModelPackageDetailsPtrType)(v)
+}
+
+func (*modelCardModelPackageDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardModelPackageDetails)(nil)).Elem()
+}
+
+func (i *modelCardModelPackageDetailsPtrType) ToModelCardModelPackageDetailsPtrOutput() ModelCardModelPackageDetailsPtrOutput {
+	return i.ToModelCardModelPackageDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardModelPackageDetailsPtrType) ToModelCardModelPackageDetailsPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardModelPackageDetailsPtrOutput)
+}
+
+// Metadata information related to model package version
+type ModelCardModelPackageDetailsOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelPackageDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardModelPackageDetails)(nil)).Elem()
+}
+
+func (o ModelCardModelPackageDetailsOutput) ToModelCardModelPackageDetailsOutput() ModelCardModelPackageDetailsOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsOutput) ToModelCardModelPackageDetailsOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsOutput) ToModelCardModelPackageDetailsPtrOutput() ModelCardModelPackageDetailsPtrOutput {
+	return o.ToModelCardModelPackageDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardModelPackageDetailsOutput) ToModelCardModelPackageDetailsPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardModelPackageDetails) *ModelCardModelPackageDetails {
+		return &v
+	}).(ModelCardModelPackageDetailsPtrOutput)
+}
+
+// A description provided for the model approval
+func (o ModelCardModelPackageDetailsOutput) ApprovalDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *string { return v.ApprovalDescription }).(pulumi.StringPtrOutput)
+}
+
+// Information about the user who created model package.
+func (o ModelCardModelPackageDetailsOutput) CreatedBy() ModelCardModelPackageCreatorPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *ModelCardModelPackageCreator { return v.CreatedBy }).(ModelCardModelPackageCreatorPtrOutput)
+}
+
+// The machine learning domain of the model package you specified. Common machine learning domains include computer vision and natural language processing.
+func (o ModelCardModelPackageDetailsOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// Details about inference jobs that can be run with models based on this model package.
+func (o ModelCardModelPackageDetailsOutput) InferenceSpecification() ModelCardInferenceSpecificationPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *ModelCardInferenceSpecification { return v.InferenceSpecification }).(ModelCardInferenceSpecificationPtrOutput)
+}
+
+// Current approval status of model package
+func (o ModelCardModelPackageDetailsOutput) ModelApprovalStatus() ModelCardModelPackageDetailsModelApprovalStatusPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *ModelCardModelPackageDetailsModelApprovalStatus {
+		return v.ModelApprovalStatus
+	}).(ModelCardModelPackageDetailsModelApprovalStatusPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model package
+func (o ModelCardModelPackageDetailsOutput) ModelPackageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *string { return v.ModelPackageArn }).(pulumi.StringPtrOutput)
+}
+
+// A brief summary of the model package
+func (o ModelCardModelPackageDetailsOutput) ModelPackageDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *string { return v.ModelPackageDescription }).(pulumi.StringPtrOutput)
+}
+
+// If the model is a versioned model, the name of the model group that the versioned model belongs to.
+func (o ModelCardModelPackageDetailsOutput) ModelPackageGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *string { return v.ModelPackageGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the model package
+func (o ModelCardModelPackageDetailsOutput) ModelPackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
+}
+
+// Current status of model package
+func (o ModelCardModelPackageDetailsOutput) ModelPackageStatus() ModelCardModelPackageDetailsModelPackageStatusPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *ModelCardModelPackageDetailsModelPackageStatus {
+		return v.ModelPackageStatus
+	}).(ModelCardModelPackageDetailsModelPackageStatusPtrOutput)
+}
+
+// Version of the model package
+func (o ModelCardModelPackageDetailsOutput) ModelPackageVersion() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *float64 { return v.ModelPackageVersion }).(pulumi.Float64PtrOutput)
+}
+
+// A list of algorithms that were used to create a model package.
+func (o ModelCardModelPackageDetailsOutput) SourceAlgorithms() ModelCardSourceAlgorithmArrayOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) []ModelCardSourceAlgorithm { return v.SourceAlgorithms }).(ModelCardSourceAlgorithmArrayOutput)
+}
+
+// The machine learning task you specified that your model package accomplishes. Common machine learning tasks include object detection and image classification.
+func (o ModelCardModelPackageDetailsOutput) Task() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardModelPackageDetails) *string { return v.Task }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardModelPackageDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardModelPackageDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardModelPackageDetails)(nil)).Elem()
+}
+
+func (o ModelCardModelPackageDetailsPtrOutput) ToModelCardModelPackageDetailsPtrOutput() ModelCardModelPackageDetailsPtrOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsPtrOutput) ToModelCardModelPackageDetailsPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsPtrOutput {
+	return o
+}
+
+func (o ModelCardModelPackageDetailsPtrOutput) Elem() ModelCardModelPackageDetailsOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) ModelCardModelPackageDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardModelPackageDetails
+		return ret
+	}).(ModelCardModelPackageDetailsOutput)
+}
+
+// A description provided for the model approval
+func (o ModelCardModelPackageDetailsPtrOutput) ApprovalDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApprovalDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the user who created model package.
+func (o ModelCardModelPackageDetailsPtrOutput) CreatedBy() ModelCardModelPackageCreatorPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *ModelCardModelPackageCreator {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(ModelCardModelPackageCreatorPtrOutput)
+}
+
+// The machine learning domain of the model package you specified. Common machine learning domains include computer vision and natural language processing.
+func (o ModelCardModelPackageDetailsPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details about inference jobs that can be run with models based on this model package.
+func (o ModelCardModelPackageDetailsPtrOutput) InferenceSpecification() ModelCardInferenceSpecificationPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *ModelCardInferenceSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceSpecification
+	}).(ModelCardInferenceSpecificationPtrOutput)
+}
+
+// Current approval status of model package
+func (o ModelCardModelPackageDetailsPtrOutput) ModelApprovalStatus() ModelCardModelPackageDetailsModelApprovalStatusPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *ModelCardModelPackageDetailsModelApprovalStatus {
+		if v == nil {
+			return nil
+		}
+		return v.ModelApprovalStatus
+	}).(ModelCardModelPackageDetailsModelApprovalStatusPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model package
+func (o ModelCardModelPackageDetailsPtrOutput) ModelPackageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelPackageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A brief summary of the model package
+func (o ModelCardModelPackageDetailsPtrOutput) ModelPackageDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelPackageDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// If the model is a versioned model, the name of the model group that the versioned model belongs to.
+func (o ModelCardModelPackageDetailsPtrOutput) ModelPackageGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelPackageGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the model package
+func (o ModelCardModelPackageDetailsPtrOutput) ModelPackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelPackageName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Current status of model package
+func (o ModelCardModelPackageDetailsPtrOutput) ModelPackageStatus() ModelCardModelPackageDetailsModelPackageStatusPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *ModelCardModelPackageDetailsModelPackageStatus {
+		if v == nil {
+			return nil
+		}
+		return v.ModelPackageStatus
+	}).(ModelCardModelPackageDetailsModelPackageStatusPtrOutput)
+}
+
+// Version of the model package
+func (o ModelCardModelPackageDetailsPtrOutput) ModelPackageVersion() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ModelPackageVersion
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A list of algorithms that were used to create a model package.
+func (o ModelCardModelPackageDetailsPtrOutput) SourceAlgorithms() ModelCardSourceAlgorithmArrayOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) []ModelCardSourceAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return v.SourceAlgorithms
+	}).(ModelCardSourceAlgorithmArrayOutput)
+}
+
+// The machine learning task you specified that your model package accomplishes. Common machine learning tasks include object detection and image classification.
+func (o ModelCardModelPackageDetailsPtrOutput) Task() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardModelPackageDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Task
+	}).(pulumi.StringPtrOutput)
+}
+
 // the objective function the model will optimize for.
 type ModelCardObjectiveFunction struct {
 	// objective function that training job is optimized for.
@@ -16123,6 +16914,112 @@ type ModelCardSimpleMetric struct {
 	Value     interface{}               `pulumi:"value"`
 	XAxisName *string                   `pulumi:"xAxisName"`
 	YAxisName *string                   `pulumi:"yAxisName"`
+}
+
+type ModelCardSourceAlgorithm struct {
+	// The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+	AlgorithmName string `pulumi:"algorithmName"`
+	// The Amazon S3 path where the model artifacts, which result from model training, are stored.
+	ModelDataUrl *string `pulumi:"modelDataUrl"`
+}
+
+// ModelCardSourceAlgorithmInput is an input type that accepts ModelCardSourceAlgorithmArgs and ModelCardSourceAlgorithmOutput values.
+// You can construct a concrete instance of `ModelCardSourceAlgorithmInput` via:
+//
+//	ModelCardSourceAlgorithmArgs{...}
+type ModelCardSourceAlgorithmInput interface {
+	pulumi.Input
+
+	ToModelCardSourceAlgorithmOutput() ModelCardSourceAlgorithmOutput
+	ToModelCardSourceAlgorithmOutputWithContext(context.Context) ModelCardSourceAlgorithmOutput
+}
+
+type ModelCardSourceAlgorithmArgs struct {
+	// The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+	AlgorithmName pulumi.StringInput `pulumi:"algorithmName"`
+	// The Amazon S3 path where the model artifacts, which result from model training, are stored.
+	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
+}
+
+func (ModelCardSourceAlgorithmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardSourceAlgorithm)(nil)).Elem()
+}
+
+func (i ModelCardSourceAlgorithmArgs) ToModelCardSourceAlgorithmOutput() ModelCardSourceAlgorithmOutput {
+	return i.ToModelCardSourceAlgorithmOutputWithContext(context.Background())
+}
+
+func (i ModelCardSourceAlgorithmArgs) ToModelCardSourceAlgorithmOutputWithContext(ctx context.Context) ModelCardSourceAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardSourceAlgorithmOutput)
+}
+
+// ModelCardSourceAlgorithmArrayInput is an input type that accepts ModelCardSourceAlgorithmArray and ModelCardSourceAlgorithmArrayOutput values.
+// You can construct a concrete instance of `ModelCardSourceAlgorithmArrayInput` via:
+//
+//	ModelCardSourceAlgorithmArray{ ModelCardSourceAlgorithmArgs{...} }
+type ModelCardSourceAlgorithmArrayInput interface {
+	pulumi.Input
+
+	ToModelCardSourceAlgorithmArrayOutput() ModelCardSourceAlgorithmArrayOutput
+	ToModelCardSourceAlgorithmArrayOutputWithContext(context.Context) ModelCardSourceAlgorithmArrayOutput
+}
+
+type ModelCardSourceAlgorithmArray []ModelCardSourceAlgorithmInput
+
+func (ModelCardSourceAlgorithmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardSourceAlgorithm)(nil)).Elem()
+}
+
+func (i ModelCardSourceAlgorithmArray) ToModelCardSourceAlgorithmArrayOutput() ModelCardSourceAlgorithmArrayOutput {
+	return i.ToModelCardSourceAlgorithmArrayOutputWithContext(context.Background())
+}
+
+func (i ModelCardSourceAlgorithmArray) ToModelCardSourceAlgorithmArrayOutputWithContext(ctx context.Context) ModelCardSourceAlgorithmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardSourceAlgorithmArrayOutput)
+}
+
+type ModelCardSourceAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (ModelCardSourceAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardSourceAlgorithm)(nil)).Elem()
+}
+
+func (o ModelCardSourceAlgorithmOutput) ToModelCardSourceAlgorithmOutput() ModelCardSourceAlgorithmOutput {
+	return o
+}
+
+func (o ModelCardSourceAlgorithmOutput) ToModelCardSourceAlgorithmOutputWithContext(ctx context.Context) ModelCardSourceAlgorithmOutput {
+	return o
+}
+
+// The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+func (o ModelCardSourceAlgorithmOutput) AlgorithmName() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardSourceAlgorithm) string { return v.AlgorithmName }).(pulumi.StringOutput)
+}
+
+// The Amazon S3 path where the model artifacts, which result from model training, are stored.
+func (o ModelCardSourceAlgorithmOutput) ModelDataUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardSourceAlgorithm) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardSourceAlgorithmArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelCardSourceAlgorithmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardSourceAlgorithm)(nil)).Elem()
+}
+
+func (o ModelCardSourceAlgorithmArrayOutput) ToModelCardSourceAlgorithmArrayOutput() ModelCardSourceAlgorithmArrayOutput {
+	return o
+}
+
+func (o ModelCardSourceAlgorithmArrayOutput) ToModelCardSourceAlgorithmArrayOutputWithContext(ctx context.Context) ModelCardSourceAlgorithmArrayOutput {
+	return o
+}
+
+func (o ModelCardSourceAlgorithmArrayOutput) Index(i pulumi.IntInput) ModelCardSourceAlgorithmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelCardSourceAlgorithm {
+		return vs[0].([]ModelCardSourceAlgorithm)[vs[1].(int)]
+	}).(ModelCardSourceAlgorithmOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -36082,9 +36979,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardAdditionalInformationPtrInput)(nil)).Elem(), ModelCardAdditionalInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardBusinessDetailsInput)(nil)).Elem(), ModelCardBusinessDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardBusinessDetailsPtrInput)(nil)).Elem(), ModelCardBusinessDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardContainerInput)(nil)).Elem(), ModelCardContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardContainerArrayInput)(nil)).Elem(), ModelCardContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardContentInput)(nil)).Elem(), ModelCardContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardEvaluationDetailInput)(nil)).Elem(), ModelCardEvaluationDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardEvaluationDetailArrayInput)(nil)).Elem(), ModelCardEvaluationDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardInferenceSpecificationInput)(nil)).Elem(), ModelCardInferenceSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardInferenceSpecificationPtrInput)(nil)).Elem(), ModelCardInferenceSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardIntendedUsesInput)(nil)).Elem(), ModelCardIntendedUsesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardIntendedUsesPtrInput)(nil)).Elem(), ModelCardIntendedUsesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardMetricGroupInput)(nil)).Elem(), ModelCardMetricGroupArgs{})
@@ -36093,12 +36994,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelOverviewPtrInput)(nil)).Elem(), ModelCardModelOverviewArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelOverviewInferenceEnvironmentPropertiesInput)(nil)).Elem(), ModelCardModelOverviewInferenceEnvironmentPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelOverviewInferenceEnvironmentPropertiesPtrInput)(nil)).Elem(), ModelCardModelOverviewInferenceEnvironmentPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelPackageCreatorInput)(nil)).Elem(), ModelCardModelPackageCreatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelPackageCreatorPtrInput)(nil)).Elem(), ModelCardModelPackageCreatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelPackageDetailsInput)(nil)).Elem(), ModelCardModelPackageDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardModelPackageDetailsPtrInput)(nil)).Elem(), ModelCardModelPackageDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionInput)(nil)).Elem(), ModelCardObjectiveFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionPtrInput)(nil)).Elem(), ModelCardObjectiveFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionFunctionPropertiesInput)(nil)).Elem(), ModelCardObjectiveFunctionFunctionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardObjectiveFunctionFunctionPropertiesPtrInput)(nil)).Elem(), ModelCardObjectiveFunctionFunctionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardSecurityConfigInput)(nil)).Elem(), ModelCardSecurityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardSecurityConfigPtrInput)(nil)).Elem(), ModelCardSecurityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardSourceAlgorithmInput)(nil)).Elem(), ModelCardSourceAlgorithmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardSourceAlgorithmArrayInput)(nil)).Elem(), ModelCardSourceAlgorithmArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTagInput)(nil)).Elem(), ModelCardTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTagArrayInput)(nil)).Elem(), ModelCardTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingDetailsInput)(nil)).Elem(), ModelCardTrainingDetailsArgs{})
@@ -36553,10 +37460,14 @@ func init() {
 	pulumi.RegisterOutputType(ModelCardAdditionalInformationPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardBusinessDetailsOutput{})
 	pulumi.RegisterOutputType(ModelCardBusinessDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardContainerOutput{})
+	pulumi.RegisterOutputType(ModelCardContainerArrayOutput{})
 	pulumi.RegisterOutputType(ModelCardContentOutput{})
 	pulumi.RegisterOutputType(ModelCardContentPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardEvaluationDetailOutput{})
 	pulumi.RegisterOutputType(ModelCardEvaluationDetailArrayOutput{})
+	pulumi.RegisterOutputType(ModelCardInferenceSpecificationOutput{})
+	pulumi.RegisterOutputType(ModelCardInferenceSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardIntendedUsesOutput{})
 	pulumi.RegisterOutputType(ModelCardIntendedUsesPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardMetricGroupOutput{})
@@ -36565,12 +37476,18 @@ func init() {
 	pulumi.RegisterOutputType(ModelCardModelOverviewPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardModelOverviewInferenceEnvironmentPropertiesOutput{})
 	pulumi.RegisterOutputType(ModelCardModelOverviewInferenceEnvironmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardModelPackageCreatorOutput{})
+	pulumi.RegisterOutputType(ModelCardModelPackageCreatorPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardModelPackageDetailsOutput{})
+	pulumi.RegisterOutputType(ModelCardModelPackageDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardObjectiveFunctionOutput{})
 	pulumi.RegisterOutputType(ModelCardObjectiveFunctionPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardObjectiveFunctionFunctionPropertiesOutput{})
 	pulumi.RegisterOutputType(ModelCardObjectiveFunctionFunctionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardSecurityConfigOutput{})
 	pulumi.RegisterOutputType(ModelCardSecurityConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardSourceAlgorithmOutput{})
+	pulumi.RegisterOutputType(ModelCardSourceAlgorithmArrayOutput{})
 	pulumi.RegisterOutputType(ModelCardTagOutput{})
 	pulumi.RegisterOutputType(ModelCardTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelCardTrainingDetailsOutput{})

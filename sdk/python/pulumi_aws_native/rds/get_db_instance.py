@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, d_b_system_id=None, dbi_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, d_b_system_id=None, dbi_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, v_pc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -162,9 +162,6 @@ class GetDBInstanceResult:
         if tde_credential_arn and not isinstance(tde_credential_arn, str):
             raise TypeError("Expected argument 'tde_credential_arn' to be a str")
         pulumi.set(__self__, "tde_credential_arn", tde_credential_arn)
-        if use_default_processor_features and not isinstance(use_default_processor_features, bool):
-            raise TypeError("Expected argument 'use_default_processor_features' to be a bool")
-        pulumi.set(__self__, "use_default_processor_features", use_default_processor_features)
         if v_pc_security_groups and not isinstance(v_pc_security_groups, list):
             raise TypeError("Expected argument 'v_pc_security_groups' to be a list")
         pulumi.set(__self__, "v_pc_security_groups", v_pc_security_groups)
@@ -554,14 +551,6 @@ class GetDBInstanceResult:
         return pulumi.get(self, "tde_credential_arn")
 
     @property
-    @pulumi.getter(name="useDefaultProcessorFeatures")
-    def use_default_processor_features(self) -> Optional[bool]:
-        """
-        A value that indicates whether the DB instance class of the DB instance uses its default processor features.
-        """
-        return pulumi.get(self, "use_default_processor_features")
-
-    @property
     @pulumi.getter(name="vPCSecurityGroups")
     def v_pc_security_groups(self) -> Optional[Sequence[str]]:
         """
@@ -623,7 +612,6 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             storage_type=self.storage_type,
             tags=self.tags,
             tde_credential_arn=self.tde_credential_arn,
-            use_default_processor_features=self.use_default_processor_features,
             v_pc_security_groups=self.v_pc_security_groups)
 
 
@@ -688,7 +676,6 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         storage_type=__ret__.storage_type,
         tags=__ret__.tags,
         tde_credential_arn=__ret__.tde_credential_arn,
-        use_default_processor_features=__ret__.use_default_processor_features,
         v_pc_security_groups=__ret__.v_pc_security_groups)
 
 

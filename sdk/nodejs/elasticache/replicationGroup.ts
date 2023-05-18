@@ -48,6 +48,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly cacheParameterGroupName!: pulumi.Output<string | undefined>;
     public readonly cacheSecurityGroupNames!: pulumi.Output<string[] | undefined>;
     public readonly cacheSubnetGroupName!: pulumi.Output<string | undefined>;
+    public readonly clusterMode!: pulumi.Output<string | undefined>;
     public readonly configurationEndPointAddress!: pulumi.Output<string | undefined>;
     public readonly configurationEndPointPort!: pulumi.Output<string | undefined>;
     public readonly dataTieringEnabled!: pulumi.Output<boolean | undefined>;
@@ -113,6 +114,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["cacheParameterGroupName"] = args ? args.cacheParameterGroupName : undefined;
             resourceInputs["cacheSecurityGroupNames"] = args ? args.cacheSecurityGroupNames : undefined;
             resourceInputs["cacheSubnetGroupName"] = args ? args.cacheSubnetGroupName : undefined;
+            resourceInputs["clusterMode"] = args ? args.clusterMode : undefined;
             resourceInputs["configurationEndPointAddress"] = args ? args.configurationEndPointAddress : undefined;
             resourceInputs["configurationEndPointPort"] = args ? args.configurationEndPointPort : undefined;
             resourceInputs["dataTieringEnabled"] = args ? args.dataTieringEnabled : undefined;
@@ -162,6 +164,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["cacheParameterGroupName"] = undefined /*out*/;
             resourceInputs["cacheSecurityGroupNames"] = undefined /*out*/;
             resourceInputs["cacheSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["clusterMode"] = undefined /*out*/;
             resourceInputs["configurationEndPointAddress"] = undefined /*out*/;
             resourceInputs["configurationEndPointPort"] = undefined /*out*/;
             resourceInputs["dataTieringEnabled"] = undefined /*out*/;
@@ -220,6 +223,7 @@ export interface ReplicationGroupArgs {
     cacheParameterGroupName?: pulumi.Input<string>;
     cacheSecurityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     cacheSubnetGroupName?: pulumi.Input<string>;
+    clusterMode?: pulumi.Input<string>;
     configurationEndPointAddress?: pulumi.Input<string>;
     configurationEndPointPort?: pulumi.Input<string>;
     dataTieringEnabled?: pulumi.Input<boolean>;

@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         public readonly string? S3Key;
         public readonly string? S3ObjectVersion;
         public readonly string? Script;
+        public readonly string? SourceLocationArn;
 
         [OutputConstructor]
         private CanaryCode(
@@ -29,13 +30,16 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
             string? s3ObjectVersion,
 
-            string? script)
+            string? script,
+
+            string? sourceLocationArn)
         {
             Handler = handler;
             S3Bucket = s3Bucket;
             S3Key = s3Key;
             S3ObjectVersion = s3ObjectVersion;
             Script = script;
+            SourceLocationArn = sourceLocationArn;
         }
     }
 }

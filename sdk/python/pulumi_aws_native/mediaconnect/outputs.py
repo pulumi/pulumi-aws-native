@@ -861,8 +861,8 @@ class FlowSourceEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 algorithm: 'FlowSourceEncryptionAlgorithm',
                  role_arn: str,
+                 algorithm: Optional['FlowSourceEncryptionAlgorithm'] = None,
                  constant_initialization_vector: Optional[str] = None,
                  device_id: Optional[str] = None,
                  key_type: Optional['FlowSourceEncryptionKeyType'] = None,
@@ -872,8 +872,8 @@ class FlowSourceEncryption(dict):
                  url: Optional[str] = None):
         """
         Information about the encryption of the flow.
-        :param 'FlowSourceEncryptionAlgorithm' algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param str role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        :param 'FlowSourceEncryptionAlgorithm' algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param str constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
         :param str device_id: The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         :param 'FlowSourceEncryptionKeyType' key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -882,8 +882,9 @@ class FlowSourceEncryption(dict):
         :param str secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         :param str url: The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
-        pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "role_arn", role_arn)
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
         if constant_initialization_vector is not None:
             pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if device_id is not None:
@@ -900,20 +901,20 @@ class FlowSourceEncryption(dict):
             pulumi.set(__self__, "url", url)
 
     @property
-    @pulumi.getter
-    def algorithm(self) -> 'FlowSourceEncryptionAlgorithm':
-        """
-        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-        """
-        return pulumi.get(self, "algorithm")
-
-    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
         The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional['FlowSourceEncryptionAlgorithm']:
+        """
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        """
+        return pulumi.get(self, "algorithm")
 
     @property
     @pulumi.getter(name="constantInitializationVector")

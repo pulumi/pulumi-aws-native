@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Synthetics
         /// Runs canary if set to True. Default is False
         /// </summary>
         [Output("startCanaryAfterCreation")]
-        public Output<bool> StartCanaryAfterCreation { get; private set; } = null!;
+        public Output<bool?> StartCanaryAfterCreation { get; private set; } = null!;
 
         /// <summary>
         /// State of the canary
@@ -216,8 +216,8 @@ namespace Pulumi.AwsNative.Synthetics
         /// <summary>
         /// Runs canary if set to True. Default is False
         /// </summary>
-        [Input("startCanaryAfterCreation", required: true)]
-        public Input<bool> StartCanaryAfterCreation { get; set; } = null!;
+        [Input("startCanaryAfterCreation")]
+        public Input<bool>? StartCanaryAfterCreation { get; set; }
 
         /// <summary>
         /// Retention period of successful canary runs represented in number of days

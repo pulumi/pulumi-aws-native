@@ -22,10 +22,14 @@ type DBCluster struct {
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
 	// The resource id for the DB cluster. For example: `cluster-ABCD1234EFGH5678IJKL90MNOP`. The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
 	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
+	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
 	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
 	DBClusterIdentifier pulumi.StringPtrOutput `pulumi:"dBClusterIdentifier"`
 	// Provides the name of the DB cluster parameter group.
 	DBClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"dBClusterParameterGroupName"`
+	// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+	DBInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"dBInstanceParameterGroupName"`
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 	DBSubnetGroupName pulumi.StringPtrOutput `pulumi:"dBSubnetGroupName"`
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
@@ -60,6 +64,8 @@ type DBCluster struct {
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 	RestoreType pulumi.StringPtrOutput `pulumi:"restoreType"`
+	// Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+	ServerlessScalingConfiguration DBClusterServerlessScalingConfigurationPtrOutput `pulumi:"serverlessScalingConfiguration"`
 	// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
 	//
 	// After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
@@ -135,10 +141,14 @@ type dbclusterArgs struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Specifies the number of days for which automatic DB snapshots are retained.
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
+	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
 	DBClusterIdentifier *string `pulumi:"dBClusterIdentifier"`
 	// Provides the name of the DB cluster parameter group.
 	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
+	// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+	DBInstanceParameterGroupName *string `pulumi:"dBInstanceParameterGroupName"`
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 	DBSubnetGroupName *string `pulumi:"dBSubnetGroupName"`
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
@@ -167,6 +177,8 @@ type dbclusterArgs struct {
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 	RestoreType *string `pulumi:"restoreType"`
+	// Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+	ServerlessScalingConfiguration *DBClusterServerlessScalingConfiguration `pulumi:"serverlessScalingConfiguration"`
 	// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
 	//
 	// After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
@@ -205,10 +217,14 @@ type DBClusterArgs struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Specifies the number of days for which automatic DB snapshots are retained.
 	BackupRetentionPeriod pulumi.IntPtrInput
+	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
 	DBClusterIdentifier pulumi.StringPtrInput
 	// Provides the name of the DB cluster parameter group.
 	DBClusterParameterGroupName pulumi.StringPtrInput
+	// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+	DBInstanceParameterGroupName pulumi.StringPtrInput
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 	DBSubnetGroupName pulumi.StringPtrInput
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
@@ -237,6 +253,8 @@ type DBClusterArgs struct {
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 	RestoreType pulumi.StringPtrInput
+	// Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+	ServerlessScalingConfiguration DBClusterServerlessScalingConfigurationPtrInput
 	// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
 	//
 	// After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
@@ -324,6 +342,11 @@ func (o DBClusterOutput) ClusterResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.ClusterResourceId }).(pulumi.StringOutput)
 }
 
+// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
+func (o DBClusterOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
+}
+
 // The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
 func (o DBClusterOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterIdentifier }).(pulumi.StringPtrOutput)
@@ -332,6 +355,11 @@ func (o DBClusterOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
 // Provides the name of the DB cluster parameter group.
 func (o DBClusterOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+func (o DBClusterOutput) DBInstanceParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBInstanceParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
@@ -405,6 +433,13 @@ func (o DBClusterOutput) RestoreToTime() pulumi.StringPtrOutput {
 // If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 func (o DBClusterOutput) RestoreType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.RestoreType }).(pulumi.StringPtrOutput)
+}
+
+// Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+func (o DBClusterOutput) ServerlessScalingConfiguration() DBClusterServerlessScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DBCluster) DBClusterServerlessScalingConfigurationPtrOutput {
+		return v.ServerlessScalingConfiguration
+	}).(DBClusterServerlessScalingConfigurationPtrOutput)
 }
 
 // Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.

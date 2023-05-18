@@ -31,6 +31,18 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<Inputs.ConnectorProfileConnectorOAuthRequestArgs>? ConnectorOAuthRequest { get; set; }
 
         /// <summary>
+        /// The credentials used to access your Salesforce records
+        /// </summary>
+        [Input("jwtToken")]
+        public Input<string>? JwtToken { get; set; }
+
+        /// <summary>
+        /// The grant types to fetch an access token
+        /// </summary>
+        [Input("oAuth2GrantType")]
+        public Input<Pulumi.AwsNative.AppFlow.ConnectorProfileOAuth2GrantType>? OAuth2GrantType { get; set; }
+
+        /// <summary>
         /// The credentials used to acquire new access tokens.
         /// </summary>
         [Input("refreshToken")]

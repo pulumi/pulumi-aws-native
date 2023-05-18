@@ -17,10 +17,6 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class FlowTriggerConfig
     {
         /// <summary>
-        /// Active 'Scheduled' or 'Event' flow after creation. Without activation the default state of such flows upon creation is DRAFT.
-        /// </summary>
-        public readonly bool? ActivateFlowOnCreate;
-        /// <summary>
         /// Details required based on the type of trigger
         /// </summary>
         public readonly Outputs.FlowScheduledTriggerProperties? TriggerProperties;
@@ -31,13 +27,10 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowTriggerConfig(
-            bool? activateFlowOnCreate,
-
             Outputs.FlowScheduledTriggerProperties? triggerProperties,
 
             Pulumi.AwsNative.AppFlow.FlowTriggerType triggerType)
         {
-            ActivateFlowOnCreate = activateFlowOnCreate;
             TriggerProperties = triggerProperties;
             TriggerType = triggerType;
         }

@@ -39,6 +39,10 @@ export interface GetFlowResult {
      */
     readonly flowArn?: string;
     /**
+     * Flow activation status for Scheduled- and Event-triggered flows
+     */
+    readonly flowStatus?: enums.appflow.FlowStatus;
+    /**
      * Configurations of metadata catalog of the flow.
      */
     readonly metadataCatalogConfig?: outputs.appflow.FlowMetadataCatalogConfig;

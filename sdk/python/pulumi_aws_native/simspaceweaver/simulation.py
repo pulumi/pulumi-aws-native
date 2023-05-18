@@ -16,20 +16,50 @@ __all__ = ['SimulationArgs', 'Simulation']
 @pulumi.input_type
 class SimulationArgs:
     def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 maximum_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 role_arn: Optional[pulumi.Input[str]] = None,
-                 schema_s3_location: Optional[pulumi.Input['SimulationS3LocationArgs']] = None):
+                 schema_s3_location: Optional[pulumi.Input['SimulationS3LocationArgs']] = None,
+                 snapshot_s3_location: Optional[pulumi.Input['SimulationS3LocationArgs']] = None):
         """
         The set of arguments for constructing a Simulation resource.
-        :param pulumi.Input[str] name: The name of the simulation.
         :param pulumi.Input[str] role_arn: Role ARN.
+        :param pulumi.Input[str] maximum_duration: The maximum running time of the simulation.
+        :param pulumi.Input[str] name: The name of the simulation.
         """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if maximum_duration is not None:
+            pulumi.set(__self__, "maximum_duration", maximum_duration)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
         if schema_s3_location is not None:
             pulumi.set(__self__, "schema_s3_location", schema_s3_location)
+        if snapshot_s3_location is not None:
+            pulumi.set(__self__, "snapshot_s3_location", snapshot_s3_location)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        Role ARN.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="maximumDuration")
+    def maximum_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum running time of the simulation.
+        """
+        return pulumi.get(self, "maximum_duration")
+
+    @maximum_duration.setter
+    def maximum_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maximum_duration", value)
 
     @property
     @pulumi.getter
@@ -44,18 +74,6 @@ class SimulationArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Role ARN.
-        """
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "role_arn", value)
-
-    @property
     @pulumi.getter(name="schemaS3Location")
     def schema_s3_location(self) -> Optional[pulumi.Input['SimulationS3LocationArgs']]:
         return pulumi.get(self, "schema_s3_location")
@@ -64,21 +82,33 @@ class SimulationArgs:
     def schema_s3_location(self, value: Optional[pulumi.Input['SimulationS3LocationArgs']]):
         pulumi.set(self, "schema_s3_location", value)
 
+    @property
+    @pulumi.getter(name="snapshotS3Location")
+    def snapshot_s3_location(self) -> Optional[pulumi.Input['SimulationS3LocationArgs']]:
+        return pulumi.get(self, "snapshot_s3_location")
+
+    @snapshot_s3_location.setter
+    def snapshot_s3_location(self, value: Optional[pulumi.Input['SimulationS3LocationArgs']]):
+        pulumi.set(self, "snapshot_s3_location", value)
+
 
 class Simulation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 maximum_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schema_s3_location: Optional[pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']]] = None,
+                 snapshot_s3_location: Optional[pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']]] = None,
                  __props__=None):
         """
         AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] maximum_duration: The maximum running time of the simulation.
         :param pulumi.Input[str] name: The name of the simulation.
         :param pulumi.Input[str] role_arn: Role ARN.
         """
@@ -86,7 +116,7 @@ class Simulation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[SimulationArgs] = None,
+                 args: SimulationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
@@ -106,9 +136,11 @@ class Simulation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 maximum_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schema_s3_location: Optional[pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']]] = None,
+                 snapshot_s3_location: Optional[pulumi.Input[pulumi.InputType['SimulationS3LocationArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -118,9 +150,13 @@ class Simulation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SimulationArgs.__new__(SimulationArgs)
 
+            __props__.__dict__["maximum_duration"] = maximum_duration
             __props__.__dict__["name"] = name
+            if role_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["schema_s3_location"] = schema_s3_location
+            __props__.__dict__["snapshot_s3_location"] = snapshot_s3_location
             __props__.__dict__["describe_payload"] = None
         super(Simulation, __self__).__init__(
             'aws-native:simspaceweaver:Simulation',
@@ -145,9 +181,11 @@ class Simulation(pulumi.CustomResource):
         __props__ = SimulationArgs.__new__(SimulationArgs)
 
         __props__.__dict__["describe_payload"] = None
+        __props__.__dict__["maximum_duration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["schema_s3_location"] = None
+        __props__.__dict__["snapshot_s3_location"] = None
         return Simulation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -159,8 +197,16 @@ class Simulation(pulumi.CustomResource):
         return pulumi.get(self, "describe_payload")
 
     @property
+    @pulumi.getter(name="maximumDuration")
+    def maximum_duration(self) -> pulumi.Output[Optional[str]]:
+        """
+        The maximum running time of the simulation.
+        """
+        return pulumi.get(self, "maximum_duration")
+
+    @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the simulation.
         """
@@ -168,7 +214,7 @@ class Simulation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Output[Optional[str]]:
+    def role_arn(self) -> pulumi.Output[str]:
         """
         Role ARN.
         """
@@ -178,4 +224,9 @@ class Simulation(pulumi.CustomResource):
     @pulumi.getter(name="schemaS3Location")
     def schema_s3_location(self) -> pulumi.Output[Optional['outputs.SimulationS3Location']]:
         return pulumi.get(self, "schema_s3_location")
+
+    @property
+    @pulumi.getter(name="snapshotS3Location")
+    def snapshot_s3_location(self) -> pulumi.Output[Optional['outputs.SimulationS3Location']]:
+        return pulumi.get(self, "snapshot_s3_location")
 

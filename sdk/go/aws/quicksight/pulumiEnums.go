@@ -51998,6 +51998,3227 @@ func (o ThemeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
+type TopicAuthorSpecifiedAggregation string
+
+const (
+	TopicAuthorSpecifiedAggregationCount         = TopicAuthorSpecifiedAggregation("COUNT")
+	TopicAuthorSpecifiedAggregationDistinctCount = TopicAuthorSpecifiedAggregation("DISTINCT_COUNT")
+	TopicAuthorSpecifiedAggregationMin           = TopicAuthorSpecifiedAggregation("MIN")
+	TopicAuthorSpecifiedAggregationMax           = TopicAuthorSpecifiedAggregation("MAX")
+	TopicAuthorSpecifiedAggregationMedian        = TopicAuthorSpecifiedAggregation("MEDIAN")
+	TopicAuthorSpecifiedAggregationSum           = TopicAuthorSpecifiedAggregation("SUM")
+	TopicAuthorSpecifiedAggregationAverage       = TopicAuthorSpecifiedAggregation("AVERAGE")
+	TopicAuthorSpecifiedAggregationStdev         = TopicAuthorSpecifiedAggregation("STDEV")
+	TopicAuthorSpecifiedAggregationStdevp        = TopicAuthorSpecifiedAggregation("STDEVP")
+	TopicAuthorSpecifiedAggregationVar           = TopicAuthorSpecifiedAggregation("VAR")
+	TopicAuthorSpecifiedAggregationVarp          = TopicAuthorSpecifiedAggregation("VARP")
+	TopicAuthorSpecifiedAggregationPercentile    = TopicAuthorSpecifiedAggregation("PERCENTILE")
+)
+
+func (TopicAuthorSpecifiedAggregation) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAuthorSpecifiedAggregation)(nil)).Elem()
+}
+
+func (e TopicAuthorSpecifiedAggregation) ToTopicAuthorSpecifiedAggregationOutput() TopicAuthorSpecifiedAggregationOutput {
+	return pulumi.ToOutput(e).(TopicAuthorSpecifiedAggregationOutput)
+}
+
+func (e TopicAuthorSpecifiedAggregation) ToTopicAuthorSpecifiedAggregationOutputWithContext(ctx context.Context) TopicAuthorSpecifiedAggregationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicAuthorSpecifiedAggregationOutput)
+}
+
+func (e TopicAuthorSpecifiedAggregation) ToTopicAuthorSpecifiedAggregationPtrOutput() TopicAuthorSpecifiedAggregationPtrOutput {
+	return e.ToTopicAuthorSpecifiedAggregationPtrOutputWithContext(context.Background())
+}
+
+func (e TopicAuthorSpecifiedAggregation) ToTopicAuthorSpecifiedAggregationPtrOutputWithContext(ctx context.Context) TopicAuthorSpecifiedAggregationPtrOutput {
+	return TopicAuthorSpecifiedAggregation(e).ToTopicAuthorSpecifiedAggregationOutputWithContext(ctx).ToTopicAuthorSpecifiedAggregationPtrOutputWithContext(ctx)
+}
+
+func (e TopicAuthorSpecifiedAggregation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicAuthorSpecifiedAggregation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicAuthorSpecifiedAggregation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicAuthorSpecifiedAggregation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicAuthorSpecifiedAggregationOutput struct{ *pulumi.OutputState }
+
+func (TopicAuthorSpecifiedAggregationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAuthorSpecifiedAggregation)(nil)).Elem()
+}
+
+func (o TopicAuthorSpecifiedAggregationOutput) ToTopicAuthorSpecifiedAggregationOutput() TopicAuthorSpecifiedAggregationOutput {
+	return o
+}
+
+func (o TopicAuthorSpecifiedAggregationOutput) ToTopicAuthorSpecifiedAggregationOutputWithContext(ctx context.Context) TopicAuthorSpecifiedAggregationOutput {
+	return o
+}
+
+func (o TopicAuthorSpecifiedAggregationOutput) ToTopicAuthorSpecifiedAggregationPtrOutput() TopicAuthorSpecifiedAggregationPtrOutput {
+	return o.ToTopicAuthorSpecifiedAggregationPtrOutputWithContext(context.Background())
+}
+
+func (o TopicAuthorSpecifiedAggregationOutput) ToTopicAuthorSpecifiedAggregationPtrOutputWithContext(ctx context.Context) TopicAuthorSpecifiedAggregationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicAuthorSpecifiedAggregation) *TopicAuthorSpecifiedAggregation {
+		return &v
+	}).(TopicAuthorSpecifiedAggregationPtrOutput)
+}
+
+func (o TopicAuthorSpecifiedAggregationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicAuthorSpecifiedAggregationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicAuthorSpecifiedAggregation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicAuthorSpecifiedAggregationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicAuthorSpecifiedAggregationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicAuthorSpecifiedAggregation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicAuthorSpecifiedAggregationPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicAuthorSpecifiedAggregationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicAuthorSpecifiedAggregation)(nil)).Elem()
+}
+
+func (o TopicAuthorSpecifiedAggregationPtrOutput) ToTopicAuthorSpecifiedAggregationPtrOutput() TopicAuthorSpecifiedAggregationPtrOutput {
+	return o
+}
+
+func (o TopicAuthorSpecifiedAggregationPtrOutput) ToTopicAuthorSpecifiedAggregationPtrOutputWithContext(ctx context.Context) TopicAuthorSpecifiedAggregationPtrOutput {
+	return o
+}
+
+func (o TopicAuthorSpecifiedAggregationPtrOutput) Elem() TopicAuthorSpecifiedAggregationOutput {
+	return o.ApplyT(func(v *TopicAuthorSpecifiedAggregation) TopicAuthorSpecifiedAggregation {
+		if v != nil {
+			return *v
+		}
+		var ret TopicAuthorSpecifiedAggregation
+		return ret
+	}).(TopicAuthorSpecifiedAggregationOutput)
+}
+
+func (o TopicAuthorSpecifiedAggregationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicAuthorSpecifiedAggregationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicAuthorSpecifiedAggregation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicAuthorSpecifiedAggregationInput is an input type that accepts TopicAuthorSpecifiedAggregationArgs and TopicAuthorSpecifiedAggregationOutput values.
+// You can construct a concrete instance of `TopicAuthorSpecifiedAggregationInput` via:
+//
+//	TopicAuthorSpecifiedAggregationArgs{...}
+type TopicAuthorSpecifiedAggregationInput interface {
+	pulumi.Input
+
+	ToTopicAuthorSpecifiedAggregationOutput() TopicAuthorSpecifiedAggregationOutput
+	ToTopicAuthorSpecifiedAggregationOutputWithContext(context.Context) TopicAuthorSpecifiedAggregationOutput
+}
+
+var topicAuthorSpecifiedAggregationPtrType = reflect.TypeOf((**TopicAuthorSpecifiedAggregation)(nil)).Elem()
+
+type TopicAuthorSpecifiedAggregationPtrInput interface {
+	pulumi.Input
+
+	ToTopicAuthorSpecifiedAggregationPtrOutput() TopicAuthorSpecifiedAggregationPtrOutput
+	ToTopicAuthorSpecifiedAggregationPtrOutputWithContext(context.Context) TopicAuthorSpecifiedAggregationPtrOutput
+}
+
+type topicAuthorSpecifiedAggregationPtr string
+
+func TopicAuthorSpecifiedAggregationPtr(v string) TopicAuthorSpecifiedAggregationPtrInput {
+	return (*topicAuthorSpecifiedAggregationPtr)(&v)
+}
+
+func (*topicAuthorSpecifiedAggregationPtr) ElementType() reflect.Type {
+	return topicAuthorSpecifiedAggregationPtrType
+}
+
+func (in *topicAuthorSpecifiedAggregationPtr) ToTopicAuthorSpecifiedAggregationPtrOutput() TopicAuthorSpecifiedAggregationPtrOutput {
+	return pulumi.ToOutput(in).(TopicAuthorSpecifiedAggregationPtrOutput)
+}
+
+func (in *topicAuthorSpecifiedAggregationPtr) ToTopicAuthorSpecifiedAggregationPtrOutputWithContext(ctx context.Context) TopicAuthorSpecifiedAggregationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicAuthorSpecifiedAggregationPtrOutput)
+}
+
+// TopicAuthorSpecifiedAggregationArrayInput is an input type that accepts TopicAuthorSpecifiedAggregationArray and TopicAuthorSpecifiedAggregationArrayOutput values.
+// You can construct a concrete instance of `TopicAuthorSpecifiedAggregationArrayInput` via:
+//
+//	TopicAuthorSpecifiedAggregationArray{ TopicAuthorSpecifiedAggregationArgs{...} }
+type TopicAuthorSpecifiedAggregationArrayInput interface {
+	pulumi.Input
+
+	ToTopicAuthorSpecifiedAggregationArrayOutput() TopicAuthorSpecifiedAggregationArrayOutput
+	ToTopicAuthorSpecifiedAggregationArrayOutputWithContext(context.Context) TopicAuthorSpecifiedAggregationArrayOutput
+}
+
+type TopicAuthorSpecifiedAggregationArray []TopicAuthorSpecifiedAggregation
+
+func (TopicAuthorSpecifiedAggregationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicAuthorSpecifiedAggregation)(nil)).Elem()
+}
+
+func (i TopicAuthorSpecifiedAggregationArray) ToTopicAuthorSpecifiedAggregationArrayOutput() TopicAuthorSpecifiedAggregationArrayOutput {
+	return i.ToTopicAuthorSpecifiedAggregationArrayOutputWithContext(context.Background())
+}
+
+func (i TopicAuthorSpecifiedAggregationArray) ToTopicAuthorSpecifiedAggregationArrayOutputWithContext(ctx context.Context) TopicAuthorSpecifiedAggregationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicAuthorSpecifiedAggregationArrayOutput)
+}
+
+type TopicAuthorSpecifiedAggregationArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicAuthorSpecifiedAggregationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicAuthorSpecifiedAggregation)(nil)).Elem()
+}
+
+func (o TopicAuthorSpecifiedAggregationArrayOutput) ToTopicAuthorSpecifiedAggregationArrayOutput() TopicAuthorSpecifiedAggregationArrayOutput {
+	return o
+}
+
+func (o TopicAuthorSpecifiedAggregationArrayOutput) ToTopicAuthorSpecifiedAggregationArrayOutputWithContext(ctx context.Context) TopicAuthorSpecifiedAggregationArrayOutput {
+	return o
+}
+
+func (o TopicAuthorSpecifiedAggregationArrayOutput) Index(i pulumi.IntInput) TopicAuthorSpecifiedAggregationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicAuthorSpecifiedAggregation {
+		return vs[0].([]TopicAuthorSpecifiedAggregation)[vs[1].(int)]
+	}).(TopicAuthorSpecifiedAggregationOutput)
+}
+
+type TopicCategoryFilterFunction string
+
+const (
+	TopicCategoryFilterFunctionExact    = TopicCategoryFilterFunction("EXACT")
+	TopicCategoryFilterFunctionContains = TopicCategoryFilterFunction("CONTAINS")
+)
+
+func (TopicCategoryFilterFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCategoryFilterFunction)(nil)).Elem()
+}
+
+func (e TopicCategoryFilterFunction) ToTopicCategoryFilterFunctionOutput() TopicCategoryFilterFunctionOutput {
+	return pulumi.ToOutput(e).(TopicCategoryFilterFunctionOutput)
+}
+
+func (e TopicCategoryFilterFunction) ToTopicCategoryFilterFunctionOutputWithContext(ctx context.Context) TopicCategoryFilterFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicCategoryFilterFunctionOutput)
+}
+
+func (e TopicCategoryFilterFunction) ToTopicCategoryFilterFunctionPtrOutput() TopicCategoryFilterFunctionPtrOutput {
+	return e.ToTopicCategoryFilterFunctionPtrOutputWithContext(context.Background())
+}
+
+func (e TopicCategoryFilterFunction) ToTopicCategoryFilterFunctionPtrOutputWithContext(ctx context.Context) TopicCategoryFilterFunctionPtrOutput {
+	return TopicCategoryFilterFunction(e).ToTopicCategoryFilterFunctionOutputWithContext(ctx).ToTopicCategoryFilterFunctionPtrOutputWithContext(ctx)
+}
+
+func (e TopicCategoryFilterFunction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicCategoryFilterFunction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicCategoryFilterFunction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicCategoryFilterFunction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicCategoryFilterFunctionOutput struct{ *pulumi.OutputState }
+
+func (TopicCategoryFilterFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCategoryFilterFunction)(nil)).Elem()
+}
+
+func (o TopicCategoryFilterFunctionOutput) ToTopicCategoryFilterFunctionOutput() TopicCategoryFilterFunctionOutput {
+	return o
+}
+
+func (o TopicCategoryFilterFunctionOutput) ToTopicCategoryFilterFunctionOutputWithContext(ctx context.Context) TopicCategoryFilterFunctionOutput {
+	return o
+}
+
+func (o TopicCategoryFilterFunctionOutput) ToTopicCategoryFilterFunctionPtrOutput() TopicCategoryFilterFunctionPtrOutput {
+	return o.ToTopicCategoryFilterFunctionPtrOutputWithContext(context.Background())
+}
+
+func (o TopicCategoryFilterFunctionOutput) ToTopicCategoryFilterFunctionPtrOutputWithContext(ctx context.Context) TopicCategoryFilterFunctionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicCategoryFilterFunction) *TopicCategoryFilterFunction {
+		return &v
+	}).(TopicCategoryFilterFunctionPtrOutput)
+}
+
+func (o TopicCategoryFilterFunctionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicCategoryFilterFunctionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicCategoryFilterFunction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicCategoryFilterFunctionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicCategoryFilterFunctionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicCategoryFilterFunction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicCategoryFilterFunctionPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicCategoryFilterFunctionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicCategoryFilterFunction)(nil)).Elem()
+}
+
+func (o TopicCategoryFilterFunctionPtrOutput) ToTopicCategoryFilterFunctionPtrOutput() TopicCategoryFilterFunctionPtrOutput {
+	return o
+}
+
+func (o TopicCategoryFilterFunctionPtrOutput) ToTopicCategoryFilterFunctionPtrOutputWithContext(ctx context.Context) TopicCategoryFilterFunctionPtrOutput {
+	return o
+}
+
+func (o TopicCategoryFilterFunctionPtrOutput) Elem() TopicCategoryFilterFunctionOutput {
+	return o.ApplyT(func(v *TopicCategoryFilterFunction) TopicCategoryFilterFunction {
+		if v != nil {
+			return *v
+		}
+		var ret TopicCategoryFilterFunction
+		return ret
+	}).(TopicCategoryFilterFunctionOutput)
+}
+
+func (o TopicCategoryFilterFunctionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicCategoryFilterFunctionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicCategoryFilterFunction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicCategoryFilterFunctionInput is an input type that accepts TopicCategoryFilterFunctionArgs and TopicCategoryFilterFunctionOutput values.
+// You can construct a concrete instance of `TopicCategoryFilterFunctionInput` via:
+//
+//	TopicCategoryFilterFunctionArgs{...}
+type TopicCategoryFilterFunctionInput interface {
+	pulumi.Input
+
+	ToTopicCategoryFilterFunctionOutput() TopicCategoryFilterFunctionOutput
+	ToTopicCategoryFilterFunctionOutputWithContext(context.Context) TopicCategoryFilterFunctionOutput
+}
+
+var topicCategoryFilterFunctionPtrType = reflect.TypeOf((**TopicCategoryFilterFunction)(nil)).Elem()
+
+type TopicCategoryFilterFunctionPtrInput interface {
+	pulumi.Input
+
+	ToTopicCategoryFilterFunctionPtrOutput() TopicCategoryFilterFunctionPtrOutput
+	ToTopicCategoryFilterFunctionPtrOutputWithContext(context.Context) TopicCategoryFilterFunctionPtrOutput
+}
+
+type topicCategoryFilterFunctionPtr string
+
+func TopicCategoryFilterFunctionPtr(v string) TopicCategoryFilterFunctionPtrInput {
+	return (*topicCategoryFilterFunctionPtr)(&v)
+}
+
+func (*topicCategoryFilterFunctionPtr) ElementType() reflect.Type {
+	return topicCategoryFilterFunctionPtrType
+}
+
+func (in *topicCategoryFilterFunctionPtr) ToTopicCategoryFilterFunctionPtrOutput() TopicCategoryFilterFunctionPtrOutput {
+	return pulumi.ToOutput(in).(TopicCategoryFilterFunctionPtrOutput)
+}
+
+func (in *topicCategoryFilterFunctionPtr) ToTopicCategoryFilterFunctionPtrOutputWithContext(ctx context.Context) TopicCategoryFilterFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicCategoryFilterFunctionPtrOutput)
+}
+
+type TopicCategoryFilterType string
+
+const (
+	TopicCategoryFilterTypeCustomFilter     = TopicCategoryFilterType("CUSTOM_FILTER")
+	TopicCategoryFilterTypeCustomFilterList = TopicCategoryFilterType("CUSTOM_FILTER_LIST")
+	TopicCategoryFilterTypeFilterList       = TopicCategoryFilterType("FILTER_LIST")
+)
+
+func (TopicCategoryFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCategoryFilterType)(nil)).Elem()
+}
+
+func (e TopicCategoryFilterType) ToTopicCategoryFilterTypeOutput() TopicCategoryFilterTypeOutput {
+	return pulumi.ToOutput(e).(TopicCategoryFilterTypeOutput)
+}
+
+func (e TopicCategoryFilterType) ToTopicCategoryFilterTypeOutputWithContext(ctx context.Context) TopicCategoryFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicCategoryFilterTypeOutput)
+}
+
+func (e TopicCategoryFilterType) ToTopicCategoryFilterTypePtrOutput() TopicCategoryFilterTypePtrOutput {
+	return e.ToTopicCategoryFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e TopicCategoryFilterType) ToTopicCategoryFilterTypePtrOutputWithContext(ctx context.Context) TopicCategoryFilterTypePtrOutput {
+	return TopicCategoryFilterType(e).ToTopicCategoryFilterTypeOutputWithContext(ctx).ToTopicCategoryFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e TopicCategoryFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicCategoryFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicCategoryFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicCategoryFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicCategoryFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (TopicCategoryFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCategoryFilterType)(nil)).Elem()
+}
+
+func (o TopicCategoryFilterTypeOutput) ToTopicCategoryFilterTypeOutput() TopicCategoryFilterTypeOutput {
+	return o
+}
+
+func (o TopicCategoryFilterTypeOutput) ToTopicCategoryFilterTypeOutputWithContext(ctx context.Context) TopicCategoryFilterTypeOutput {
+	return o
+}
+
+func (o TopicCategoryFilterTypeOutput) ToTopicCategoryFilterTypePtrOutput() TopicCategoryFilterTypePtrOutput {
+	return o.ToTopicCategoryFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o TopicCategoryFilterTypeOutput) ToTopicCategoryFilterTypePtrOutputWithContext(ctx context.Context) TopicCategoryFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicCategoryFilterType) *TopicCategoryFilterType {
+		return &v
+	}).(TopicCategoryFilterTypePtrOutput)
+}
+
+func (o TopicCategoryFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicCategoryFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicCategoryFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicCategoryFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicCategoryFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicCategoryFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicCategoryFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TopicCategoryFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicCategoryFilterType)(nil)).Elem()
+}
+
+func (o TopicCategoryFilterTypePtrOutput) ToTopicCategoryFilterTypePtrOutput() TopicCategoryFilterTypePtrOutput {
+	return o
+}
+
+func (o TopicCategoryFilterTypePtrOutput) ToTopicCategoryFilterTypePtrOutputWithContext(ctx context.Context) TopicCategoryFilterTypePtrOutput {
+	return o
+}
+
+func (o TopicCategoryFilterTypePtrOutput) Elem() TopicCategoryFilterTypeOutput {
+	return o.ApplyT(func(v *TopicCategoryFilterType) TopicCategoryFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret TopicCategoryFilterType
+		return ret
+	}).(TopicCategoryFilterTypeOutput)
+}
+
+func (o TopicCategoryFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicCategoryFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicCategoryFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicCategoryFilterTypeInput is an input type that accepts TopicCategoryFilterTypeArgs and TopicCategoryFilterTypeOutput values.
+// You can construct a concrete instance of `TopicCategoryFilterTypeInput` via:
+//
+//	TopicCategoryFilterTypeArgs{...}
+type TopicCategoryFilterTypeInput interface {
+	pulumi.Input
+
+	ToTopicCategoryFilterTypeOutput() TopicCategoryFilterTypeOutput
+	ToTopicCategoryFilterTypeOutputWithContext(context.Context) TopicCategoryFilterTypeOutput
+}
+
+var topicCategoryFilterTypePtrType = reflect.TypeOf((**TopicCategoryFilterType)(nil)).Elem()
+
+type TopicCategoryFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToTopicCategoryFilterTypePtrOutput() TopicCategoryFilterTypePtrOutput
+	ToTopicCategoryFilterTypePtrOutputWithContext(context.Context) TopicCategoryFilterTypePtrOutput
+}
+
+type topicCategoryFilterTypePtr string
+
+func TopicCategoryFilterTypePtr(v string) TopicCategoryFilterTypePtrInput {
+	return (*topicCategoryFilterTypePtr)(&v)
+}
+
+func (*topicCategoryFilterTypePtr) ElementType() reflect.Type {
+	return topicCategoryFilterTypePtrType
+}
+
+func (in *topicCategoryFilterTypePtr) ToTopicCategoryFilterTypePtrOutput() TopicCategoryFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(TopicCategoryFilterTypePtrOutput)
+}
+
+func (in *topicCategoryFilterTypePtr) ToTopicCategoryFilterTypePtrOutputWithContext(ctx context.Context) TopicCategoryFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicCategoryFilterTypePtrOutput)
+}
+
+type TopicColumnDataRole string
+
+const (
+	TopicColumnDataRoleDimension = TopicColumnDataRole("DIMENSION")
+	TopicColumnDataRoleMeasure   = TopicColumnDataRole("MEASURE")
+)
+
+func (TopicColumnDataRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicColumnDataRole)(nil)).Elem()
+}
+
+func (e TopicColumnDataRole) ToTopicColumnDataRoleOutput() TopicColumnDataRoleOutput {
+	return pulumi.ToOutput(e).(TopicColumnDataRoleOutput)
+}
+
+func (e TopicColumnDataRole) ToTopicColumnDataRoleOutputWithContext(ctx context.Context) TopicColumnDataRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicColumnDataRoleOutput)
+}
+
+func (e TopicColumnDataRole) ToTopicColumnDataRolePtrOutput() TopicColumnDataRolePtrOutput {
+	return e.ToTopicColumnDataRolePtrOutputWithContext(context.Background())
+}
+
+func (e TopicColumnDataRole) ToTopicColumnDataRolePtrOutputWithContext(ctx context.Context) TopicColumnDataRolePtrOutput {
+	return TopicColumnDataRole(e).ToTopicColumnDataRoleOutputWithContext(ctx).ToTopicColumnDataRolePtrOutputWithContext(ctx)
+}
+
+func (e TopicColumnDataRole) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicColumnDataRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicColumnDataRole) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicColumnDataRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicColumnDataRoleOutput struct{ *pulumi.OutputState }
+
+func (TopicColumnDataRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicColumnDataRole)(nil)).Elem()
+}
+
+func (o TopicColumnDataRoleOutput) ToTopicColumnDataRoleOutput() TopicColumnDataRoleOutput {
+	return o
+}
+
+func (o TopicColumnDataRoleOutput) ToTopicColumnDataRoleOutputWithContext(ctx context.Context) TopicColumnDataRoleOutput {
+	return o
+}
+
+func (o TopicColumnDataRoleOutput) ToTopicColumnDataRolePtrOutput() TopicColumnDataRolePtrOutput {
+	return o.ToTopicColumnDataRolePtrOutputWithContext(context.Background())
+}
+
+func (o TopicColumnDataRoleOutput) ToTopicColumnDataRolePtrOutputWithContext(ctx context.Context) TopicColumnDataRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicColumnDataRole) *TopicColumnDataRole {
+		return &v
+	}).(TopicColumnDataRolePtrOutput)
+}
+
+func (o TopicColumnDataRoleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicColumnDataRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicColumnDataRole) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicColumnDataRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicColumnDataRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicColumnDataRole) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicColumnDataRolePtrOutput struct{ *pulumi.OutputState }
+
+func (TopicColumnDataRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicColumnDataRole)(nil)).Elem()
+}
+
+func (o TopicColumnDataRolePtrOutput) ToTopicColumnDataRolePtrOutput() TopicColumnDataRolePtrOutput {
+	return o
+}
+
+func (o TopicColumnDataRolePtrOutput) ToTopicColumnDataRolePtrOutputWithContext(ctx context.Context) TopicColumnDataRolePtrOutput {
+	return o
+}
+
+func (o TopicColumnDataRolePtrOutput) Elem() TopicColumnDataRoleOutput {
+	return o.ApplyT(func(v *TopicColumnDataRole) TopicColumnDataRole {
+		if v != nil {
+			return *v
+		}
+		var ret TopicColumnDataRole
+		return ret
+	}).(TopicColumnDataRoleOutput)
+}
+
+func (o TopicColumnDataRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicColumnDataRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicColumnDataRole) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicColumnDataRoleInput is an input type that accepts TopicColumnDataRoleArgs and TopicColumnDataRoleOutput values.
+// You can construct a concrete instance of `TopicColumnDataRoleInput` via:
+//
+//	TopicColumnDataRoleArgs{...}
+type TopicColumnDataRoleInput interface {
+	pulumi.Input
+
+	ToTopicColumnDataRoleOutput() TopicColumnDataRoleOutput
+	ToTopicColumnDataRoleOutputWithContext(context.Context) TopicColumnDataRoleOutput
+}
+
+var topicColumnDataRolePtrType = reflect.TypeOf((**TopicColumnDataRole)(nil)).Elem()
+
+type TopicColumnDataRolePtrInput interface {
+	pulumi.Input
+
+	ToTopicColumnDataRolePtrOutput() TopicColumnDataRolePtrOutput
+	ToTopicColumnDataRolePtrOutputWithContext(context.Context) TopicColumnDataRolePtrOutput
+}
+
+type topicColumnDataRolePtr string
+
+func TopicColumnDataRolePtr(v string) TopicColumnDataRolePtrInput {
+	return (*topicColumnDataRolePtr)(&v)
+}
+
+func (*topicColumnDataRolePtr) ElementType() reflect.Type {
+	return topicColumnDataRolePtrType
+}
+
+func (in *topicColumnDataRolePtr) ToTopicColumnDataRolePtrOutput() TopicColumnDataRolePtrOutput {
+	return pulumi.ToOutput(in).(TopicColumnDataRolePtrOutput)
+}
+
+func (in *topicColumnDataRolePtr) ToTopicColumnDataRolePtrOutputWithContext(ctx context.Context) TopicColumnDataRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicColumnDataRolePtrOutput)
+}
+
+type TopicColumnOrderingType string
+
+const (
+	TopicColumnOrderingTypeGreaterIsBetter = TopicColumnOrderingType("GREATER_IS_BETTER")
+	TopicColumnOrderingTypeLesserIsBetter  = TopicColumnOrderingType("LESSER_IS_BETTER")
+	TopicColumnOrderingTypeSpecified       = TopicColumnOrderingType("SPECIFIED")
+)
+
+func (TopicColumnOrderingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicColumnOrderingType)(nil)).Elem()
+}
+
+func (e TopicColumnOrderingType) ToTopicColumnOrderingTypeOutput() TopicColumnOrderingTypeOutput {
+	return pulumi.ToOutput(e).(TopicColumnOrderingTypeOutput)
+}
+
+func (e TopicColumnOrderingType) ToTopicColumnOrderingTypeOutputWithContext(ctx context.Context) TopicColumnOrderingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicColumnOrderingTypeOutput)
+}
+
+func (e TopicColumnOrderingType) ToTopicColumnOrderingTypePtrOutput() TopicColumnOrderingTypePtrOutput {
+	return e.ToTopicColumnOrderingTypePtrOutputWithContext(context.Background())
+}
+
+func (e TopicColumnOrderingType) ToTopicColumnOrderingTypePtrOutputWithContext(ctx context.Context) TopicColumnOrderingTypePtrOutput {
+	return TopicColumnOrderingType(e).ToTopicColumnOrderingTypeOutputWithContext(ctx).ToTopicColumnOrderingTypePtrOutputWithContext(ctx)
+}
+
+func (e TopicColumnOrderingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicColumnOrderingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicColumnOrderingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicColumnOrderingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicColumnOrderingTypeOutput struct{ *pulumi.OutputState }
+
+func (TopicColumnOrderingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicColumnOrderingType)(nil)).Elem()
+}
+
+func (o TopicColumnOrderingTypeOutput) ToTopicColumnOrderingTypeOutput() TopicColumnOrderingTypeOutput {
+	return o
+}
+
+func (o TopicColumnOrderingTypeOutput) ToTopicColumnOrderingTypeOutputWithContext(ctx context.Context) TopicColumnOrderingTypeOutput {
+	return o
+}
+
+func (o TopicColumnOrderingTypeOutput) ToTopicColumnOrderingTypePtrOutput() TopicColumnOrderingTypePtrOutput {
+	return o.ToTopicColumnOrderingTypePtrOutputWithContext(context.Background())
+}
+
+func (o TopicColumnOrderingTypeOutput) ToTopicColumnOrderingTypePtrOutputWithContext(ctx context.Context) TopicColumnOrderingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicColumnOrderingType) *TopicColumnOrderingType {
+		return &v
+	}).(TopicColumnOrderingTypePtrOutput)
+}
+
+func (o TopicColumnOrderingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicColumnOrderingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicColumnOrderingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicColumnOrderingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicColumnOrderingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicColumnOrderingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicColumnOrderingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TopicColumnOrderingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicColumnOrderingType)(nil)).Elem()
+}
+
+func (o TopicColumnOrderingTypePtrOutput) ToTopicColumnOrderingTypePtrOutput() TopicColumnOrderingTypePtrOutput {
+	return o
+}
+
+func (o TopicColumnOrderingTypePtrOutput) ToTopicColumnOrderingTypePtrOutputWithContext(ctx context.Context) TopicColumnOrderingTypePtrOutput {
+	return o
+}
+
+func (o TopicColumnOrderingTypePtrOutput) Elem() TopicColumnOrderingTypeOutput {
+	return o.ApplyT(func(v *TopicColumnOrderingType) TopicColumnOrderingType {
+		if v != nil {
+			return *v
+		}
+		var ret TopicColumnOrderingType
+		return ret
+	}).(TopicColumnOrderingTypeOutput)
+}
+
+func (o TopicColumnOrderingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicColumnOrderingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicColumnOrderingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicColumnOrderingTypeInput is an input type that accepts TopicColumnOrderingTypeArgs and TopicColumnOrderingTypeOutput values.
+// You can construct a concrete instance of `TopicColumnOrderingTypeInput` via:
+//
+//	TopicColumnOrderingTypeArgs{...}
+type TopicColumnOrderingTypeInput interface {
+	pulumi.Input
+
+	ToTopicColumnOrderingTypeOutput() TopicColumnOrderingTypeOutput
+	ToTopicColumnOrderingTypeOutputWithContext(context.Context) TopicColumnOrderingTypeOutput
+}
+
+var topicColumnOrderingTypePtrType = reflect.TypeOf((**TopicColumnOrderingType)(nil)).Elem()
+
+type TopicColumnOrderingTypePtrInput interface {
+	pulumi.Input
+
+	ToTopicColumnOrderingTypePtrOutput() TopicColumnOrderingTypePtrOutput
+	ToTopicColumnOrderingTypePtrOutputWithContext(context.Context) TopicColumnOrderingTypePtrOutput
+}
+
+type topicColumnOrderingTypePtr string
+
+func TopicColumnOrderingTypePtr(v string) TopicColumnOrderingTypePtrInput {
+	return (*topicColumnOrderingTypePtr)(&v)
+}
+
+func (*topicColumnOrderingTypePtr) ElementType() reflect.Type {
+	return topicColumnOrderingTypePtrType
+}
+
+func (in *topicColumnOrderingTypePtr) ToTopicColumnOrderingTypePtrOutput() TopicColumnOrderingTypePtrOutput {
+	return pulumi.ToOutput(in).(TopicColumnOrderingTypePtrOutput)
+}
+
+func (in *topicColumnOrderingTypePtr) ToTopicColumnOrderingTypePtrOutputWithContext(ctx context.Context) TopicColumnOrderingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicColumnOrderingTypePtrOutput)
+}
+
+type TopicConstantType string
+
+const (
+	TopicConstantTypeSingular   = TopicConstantType("SINGULAR")
+	TopicConstantTypeRange      = TopicConstantType("RANGE")
+	TopicConstantTypeCollective = TopicConstantType("COLLECTIVE")
+)
+
+func (TopicConstantType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicConstantType)(nil)).Elem()
+}
+
+func (e TopicConstantType) ToTopicConstantTypeOutput() TopicConstantTypeOutput {
+	return pulumi.ToOutput(e).(TopicConstantTypeOutput)
+}
+
+func (e TopicConstantType) ToTopicConstantTypeOutputWithContext(ctx context.Context) TopicConstantTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicConstantTypeOutput)
+}
+
+func (e TopicConstantType) ToTopicConstantTypePtrOutput() TopicConstantTypePtrOutput {
+	return e.ToTopicConstantTypePtrOutputWithContext(context.Background())
+}
+
+func (e TopicConstantType) ToTopicConstantTypePtrOutputWithContext(ctx context.Context) TopicConstantTypePtrOutput {
+	return TopicConstantType(e).ToTopicConstantTypeOutputWithContext(ctx).ToTopicConstantTypePtrOutputWithContext(ctx)
+}
+
+func (e TopicConstantType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicConstantType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicConstantType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicConstantType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicConstantTypeOutput struct{ *pulumi.OutputState }
+
+func (TopicConstantTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicConstantType)(nil)).Elem()
+}
+
+func (o TopicConstantTypeOutput) ToTopicConstantTypeOutput() TopicConstantTypeOutput {
+	return o
+}
+
+func (o TopicConstantTypeOutput) ToTopicConstantTypeOutputWithContext(ctx context.Context) TopicConstantTypeOutput {
+	return o
+}
+
+func (o TopicConstantTypeOutput) ToTopicConstantTypePtrOutput() TopicConstantTypePtrOutput {
+	return o.ToTopicConstantTypePtrOutputWithContext(context.Background())
+}
+
+func (o TopicConstantTypeOutput) ToTopicConstantTypePtrOutputWithContext(ctx context.Context) TopicConstantTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicConstantType) *TopicConstantType {
+		return &v
+	}).(TopicConstantTypePtrOutput)
+}
+
+func (o TopicConstantTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicConstantTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicConstantType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicConstantTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicConstantTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicConstantType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicConstantTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TopicConstantTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicConstantType)(nil)).Elem()
+}
+
+func (o TopicConstantTypePtrOutput) ToTopicConstantTypePtrOutput() TopicConstantTypePtrOutput {
+	return o
+}
+
+func (o TopicConstantTypePtrOutput) ToTopicConstantTypePtrOutputWithContext(ctx context.Context) TopicConstantTypePtrOutput {
+	return o
+}
+
+func (o TopicConstantTypePtrOutput) Elem() TopicConstantTypeOutput {
+	return o.ApplyT(func(v *TopicConstantType) TopicConstantType {
+		if v != nil {
+			return *v
+		}
+		var ret TopicConstantType
+		return ret
+	}).(TopicConstantTypeOutput)
+}
+
+func (o TopicConstantTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicConstantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicConstantType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicConstantTypeInput is an input type that accepts TopicConstantTypeArgs and TopicConstantTypeOutput values.
+// You can construct a concrete instance of `TopicConstantTypeInput` via:
+//
+//	TopicConstantTypeArgs{...}
+type TopicConstantTypeInput interface {
+	pulumi.Input
+
+	ToTopicConstantTypeOutput() TopicConstantTypeOutput
+	ToTopicConstantTypeOutputWithContext(context.Context) TopicConstantTypeOutput
+}
+
+var topicConstantTypePtrType = reflect.TypeOf((**TopicConstantType)(nil)).Elem()
+
+type TopicConstantTypePtrInput interface {
+	pulumi.Input
+
+	ToTopicConstantTypePtrOutput() TopicConstantTypePtrOutput
+	ToTopicConstantTypePtrOutputWithContext(context.Context) TopicConstantTypePtrOutput
+}
+
+type topicConstantTypePtr string
+
+func TopicConstantTypePtr(v string) TopicConstantTypePtrInput {
+	return (*topicConstantTypePtr)(&v)
+}
+
+func (*topicConstantTypePtr) ElementType() reflect.Type {
+	return topicConstantTypePtrType
+}
+
+func (in *topicConstantTypePtr) ToTopicConstantTypePtrOutput() TopicConstantTypePtrOutput {
+	return pulumi.ToOutput(in).(TopicConstantTypePtrOutput)
+}
+
+func (in *topicConstantTypePtr) ToTopicConstantTypePtrOutputWithContext(ctx context.Context) TopicConstantTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicConstantTypePtrOutput)
+}
+
+type TopicDefaultAggregation string
+
+const (
+	TopicDefaultAggregationSum           = TopicDefaultAggregation("SUM")
+	TopicDefaultAggregationMax           = TopicDefaultAggregation("MAX")
+	TopicDefaultAggregationMin           = TopicDefaultAggregation("MIN")
+	TopicDefaultAggregationCount         = TopicDefaultAggregation("COUNT")
+	TopicDefaultAggregationDistinctCount = TopicDefaultAggregation("DISTINCT_COUNT")
+	TopicDefaultAggregationAverage       = TopicDefaultAggregation("AVERAGE")
+)
+
+func (TopicDefaultAggregation) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicDefaultAggregation)(nil)).Elem()
+}
+
+func (e TopicDefaultAggregation) ToTopicDefaultAggregationOutput() TopicDefaultAggregationOutput {
+	return pulumi.ToOutput(e).(TopicDefaultAggregationOutput)
+}
+
+func (e TopicDefaultAggregation) ToTopicDefaultAggregationOutputWithContext(ctx context.Context) TopicDefaultAggregationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicDefaultAggregationOutput)
+}
+
+func (e TopicDefaultAggregation) ToTopicDefaultAggregationPtrOutput() TopicDefaultAggregationPtrOutput {
+	return e.ToTopicDefaultAggregationPtrOutputWithContext(context.Background())
+}
+
+func (e TopicDefaultAggregation) ToTopicDefaultAggregationPtrOutputWithContext(ctx context.Context) TopicDefaultAggregationPtrOutput {
+	return TopicDefaultAggregation(e).ToTopicDefaultAggregationOutputWithContext(ctx).ToTopicDefaultAggregationPtrOutputWithContext(ctx)
+}
+
+func (e TopicDefaultAggregation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicDefaultAggregation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicDefaultAggregation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicDefaultAggregation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicDefaultAggregationOutput struct{ *pulumi.OutputState }
+
+func (TopicDefaultAggregationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicDefaultAggregation)(nil)).Elem()
+}
+
+func (o TopicDefaultAggregationOutput) ToTopicDefaultAggregationOutput() TopicDefaultAggregationOutput {
+	return o
+}
+
+func (o TopicDefaultAggregationOutput) ToTopicDefaultAggregationOutputWithContext(ctx context.Context) TopicDefaultAggregationOutput {
+	return o
+}
+
+func (o TopicDefaultAggregationOutput) ToTopicDefaultAggregationPtrOutput() TopicDefaultAggregationPtrOutput {
+	return o.ToTopicDefaultAggregationPtrOutputWithContext(context.Background())
+}
+
+func (o TopicDefaultAggregationOutput) ToTopicDefaultAggregationPtrOutputWithContext(ctx context.Context) TopicDefaultAggregationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicDefaultAggregation) *TopicDefaultAggregation {
+		return &v
+	}).(TopicDefaultAggregationPtrOutput)
+}
+
+func (o TopicDefaultAggregationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicDefaultAggregationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicDefaultAggregation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicDefaultAggregationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicDefaultAggregationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicDefaultAggregation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicDefaultAggregationPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicDefaultAggregationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicDefaultAggregation)(nil)).Elem()
+}
+
+func (o TopicDefaultAggregationPtrOutput) ToTopicDefaultAggregationPtrOutput() TopicDefaultAggregationPtrOutput {
+	return o
+}
+
+func (o TopicDefaultAggregationPtrOutput) ToTopicDefaultAggregationPtrOutputWithContext(ctx context.Context) TopicDefaultAggregationPtrOutput {
+	return o
+}
+
+func (o TopicDefaultAggregationPtrOutput) Elem() TopicDefaultAggregationOutput {
+	return o.ApplyT(func(v *TopicDefaultAggregation) TopicDefaultAggregation {
+		if v != nil {
+			return *v
+		}
+		var ret TopicDefaultAggregation
+		return ret
+	}).(TopicDefaultAggregationOutput)
+}
+
+func (o TopicDefaultAggregationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicDefaultAggregationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicDefaultAggregation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicDefaultAggregationInput is an input type that accepts TopicDefaultAggregationArgs and TopicDefaultAggregationOutput values.
+// You can construct a concrete instance of `TopicDefaultAggregationInput` via:
+//
+//	TopicDefaultAggregationArgs{...}
+type TopicDefaultAggregationInput interface {
+	pulumi.Input
+
+	ToTopicDefaultAggregationOutput() TopicDefaultAggregationOutput
+	ToTopicDefaultAggregationOutputWithContext(context.Context) TopicDefaultAggregationOutput
+}
+
+var topicDefaultAggregationPtrType = reflect.TypeOf((**TopicDefaultAggregation)(nil)).Elem()
+
+type TopicDefaultAggregationPtrInput interface {
+	pulumi.Input
+
+	ToTopicDefaultAggregationPtrOutput() TopicDefaultAggregationPtrOutput
+	ToTopicDefaultAggregationPtrOutputWithContext(context.Context) TopicDefaultAggregationPtrOutput
+}
+
+type topicDefaultAggregationPtr string
+
+func TopicDefaultAggregationPtr(v string) TopicDefaultAggregationPtrInput {
+	return (*topicDefaultAggregationPtr)(&v)
+}
+
+func (*topicDefaultAggregationPtr) ElementType() reflect.Type {
+	return topicDefaultAggregationPtrType
+}
+
+func (in *topicDefaultAggregationPtr) ToTopicDefaultAggregationPtrOutput() TopicDefaultAggregationPtrOutput {
+	return pulumi.ToOutput(in).(TopicDefaultAggregationPtrOutput)
+}
+
+func (in *topicDefaultAggregationPtr) ToTopicDefaultAggregationPtrOutputWithContext(ctx context.Context) TopicDefaultAggregationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicDefaultAggregationPtrOutput)
+}
+
+type TopicDisplayFormat string
+
+const (
+	TopicDisplayFormatAuto     = TopicDisplayFormat("AUTO")
+	TopicDisplayFormatPercent  = TopicDisplayFormat("PERCENT")
+	TopicDisplayFormatCurrency = TopicDisplayFormat("CURRENCY")
+	TopicDisplayFormatNumber   = TopicDisplayFormat("NUMBER")
+	TopicDisplayFormatDate     = TopicDisplayFormat("DATE")
+	TopicDisplayFormatString   = TopicDisplayFormat("STRING")
+)
+
+func (TopicDisplayFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicDisplayFormat)(nil)).Elem()
+}
+
+func (e TopicDisplayFormat) ToTopicDisplayFormatOutput() TopicDisplayFormatOutput {
+	return pulumi.ToOutput(e).(TopicDisplayFormatOutput)
+}
+
+func (e TopicDisplayFormat) ToTopicDisplayFormatOutputWithContext(ctx context.Context) TopicDisplayFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicDisplayFormatOutput)
+}
+
+func (e TopicDisplayFormat) ToTopicDisplayFormatPtrOutput() TopicDisplayFormatPtrOutput {
+	return e.ToTopicDisplayFormatPtrOutputWithContext(context.Background())
+}
+
+func (e TopicDisplayFormat) ToTopicDisplayFormatPtrOutputWithContext(ctx context.Context) TopicDisplayFormatPtrOutput {
+	return TopicDisplayFormat(e).ToTopicDisplayFormatOutputWithContext(ctx).ToTopicDisplayFormatPtrOutputWithContext(ctx)
+}
+
+func (e TopicDisplayFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicDisplayFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicDisplayFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicDisplayFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicDisplayFormatOutput struct{ *pulumi.OutputState }
+
+func (TopicDisplayFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicDisplayFormat)(nil)).Elem()
+}
+
+func (o TopicDisplayFormatOutput) ToTopicDisplayFormatOutput() TopicDisplayFormatOutput {
+	return o
+}
+
+func (o TopicDisplayFormatOutput) ToTopicDisplayFormatOutputWithContext(ctx context.Context) TopicDisplayFormatOutput {
+	return o
+}
+
+func (o TopicDisplayFormatOutput) ToTopicDisplayFormatPtrOutput() TopicDisplayFormatPtrOutput {
+	return o.ToTopicDisplayFormatPtrOutputWithContext(context.Background())
+}
+
+func (o TopicDisplayFormatOutput) ToTopicDisplayFormatPtrOutputWithContext(ctx context.Context) TopicDisplayFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicDisplayFormat) *TopicDisplayFormat {
+		return &v
+	}).(TopicDisplayFormatPtrOutput)
+}
+
+func (o TopicDisplayFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicDisplayFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicDisplayFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicDisplayFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicDisplayFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicDisplayFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicDisplayFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicDisplayFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicDisplayFormat)(nil)).Elem()
+}
+
+func (o TopicDisplayFormatPtrOutput) ToTopicDisplayFormatPtrOutput() TopicDisplayFormatPtrOutput {
+	return o
+}
+
+func (o TopicDisplayFormatPtrOutput) ToTopicDisplayFormatPtrOutputWithContext(ctx context.Context) TopicDisplayFormatPtrOutput {
+	return o
+}
+
+func (o TopicDisplayFormatPtrOutput) Elem() TopicDisplayFormatOutput {
+	return o.ApplyT(func(v *TopicDisplayFormat) TopicDisplayFormat {
+		if v != nil {
+			return *v
+		}
+		var ret TopicDisplayFormat
+		return ret
+	}).(TopicDisplayFormatOutput)
+}
+
+func (o TopicDisplayFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicDisplayFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicDisplayFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicDisplayFormatInput is an input type that accepts TopicDisplayFormatArgs and TopicDisplayFormatOutput values.
+// You can construct a concrete instance of `TopicDisplayFormatInput` via:
+//
+//	TopicDisplayFormatArgs{...}
+type TopicDisplayFormatInput interface {
+	pulumi.Input
+
+	ToTopicDisplayFormatOutput() TopicDisplayFormatOutput
+	ToTopicDisplayFormatOutputWithContext(context.Context) TopicDisplayFormatOutput
+}
+
+var topicDisplayFormatPtrType = reflect.TypeOf((**TopicDisplayFormat)(nil)).Elem()
+
+type TopicDisplayFormatPtrInput interface {
+	pulumi.Input
+
+	ToTopicDisplayFormatPtrOutput() TopicDisplayFormatPtrOutput
+	ToTopicDisplayFormatPtrOutputWithContext(context.Context) TopicDisplayFormatPtrOutput
+}
+
+type topicDisplayFormatPtr string
+
+func TopicDisplayFormatPtr(v string) TopicDisplayFormatPtrInput {
+	return (*topicDisplayFormatPtr)(&v)
+}
+
+func (*topicDisplayFormatPtr) ElementType() reflect.Type {
+	return topicDisplayFormatPtrType
+}
+
+func (in *topicDisplayFormatPtr) ToTopicDisplayFormatPtrOutput() TopicDisplayFormatPtrOutput {
+	return pulumi.ToOutput(in).(TopicDisplayFormatPtrOutput)
+}
+
+func (in *topicDisplayFormatPtr) ToTopicDisplayFormatPtrOutputWithContext(ctx context.Context) TopicDisplayFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicDisplayFormatPtrOutput)
+}
+
+type TopicFilterClass string
+
+const (
+	TopicFilterClassEnforcedValueFilter    = TopicFilterClass("ENFORCED_VALUE_FILTER")
+	TopicFilterClassConditionalValueFilter = TopicFilterClass("CONDITIONAL_VALUE_FILTER")
+	TopicFilterClassNamedValueFilter       = TopicFilterClass("NAMED_VALUE_FILTER")
+)
+
+func (TopicFilterClass) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicFilterClass)(nil)).Elem()
+}
+
+func (e TopicFilterClass) ToTopicFilterClassOutput() TopicFilterClassOutput {
+	return pulumi.ToOutput(e).(TopicFilterClassOutput)
+}
+
+func (e TopicFilterClass) ToTopicFilterClassOutputWithContext(ctx context.Context) TopicFilterClassOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicFilterClassOutput)
+}
+
+func (e TopicFilterClass) ToTopicFilterClassPtrOutput() TopicFilterClassPtrOutput {
+	return e.ToTopicFilterClassPtrOutputWithContext(context.Background())
+}
+
+func (e TopicFilterClass) ToTopicFilterClassPtrOutputWithContext(ctx context.Context) TopicFilterClassPtrOutput {
+	return TopicFilterClass(e).ToTopicFilterClassOutputWithContext(ctx).ToTopicFilterClassPtrOutputWithContext(ctx)
+}
+
+func (e TopicFilterClass) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicFilterClass) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicFilterClass) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicFilterClass) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicFilterClassOutput struct{ *pulumi.OutputState }
+
+func (TopicFilterClassOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicFilterClass)(nil)).Elem()
+}
+
+func (o TopicFilterClassOutput) ToTopicFilterClassOutput() TopicFilterClassOutput {
+	return o
+}
+
+func (o TopicFilterClassOutput) ToTopicFilterClassOutputWithContext(ctx context.Context) TopicFilterClassOutput {
+	return o
+}
+
+func (o TopicFilterClassOutput) ToTopicFilterClassPtrOutput() TopicFilterClassPtrOutput {
+	return o.ToTopicFilterClassPtrOutputWithContext(context.Background())
+}
+
+func (o TopicFilterClassOutput) ToTopicFilterClassPtrOutputWithContext(ctx context.Context) TopicFilterClassPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicFilterClass) *TopicFilterClass {
+		return &v
+	}).(TopicFilterClassPtrOutput)
+}
+
+func (o TopicFilterClassOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicFilterClassOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicFilterClass) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicFilterClassOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicFilterClassOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicFilterClass) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicFilterClassPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicFilterClassPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicFilterClass)(nil)).Elem()
+}
+
+func (o TopicFilterClassPtrOutput) ToTopicFilterClassPtrOutput() TopicFilterClassPtrOutput {
+	return o
+}
+
+func (o TopicFilterClassPtrOutput) ToTopicFilterClassPtrOutputWithContext(ctx context.Context) TopicFilterClassPtrOutput {
+	return o
+}
+
+func (o TopicFilterClassPtrOutput) Elem() TopicFilterClassOutput {
+	return o.ApplyT(func(v *TopicFilterClass) TopicFilterClass {
+		if v != nil {
+			return *v
+		}
+		var ret TopicFilterClass
+		return ret
+	}).(TopicFilterClassOutput)
+}
+
+func (o TopicFilterClassPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicFilterClassPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicFilterClass) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicFilterClassInput is an input type that accepts TopicFilterClassArgs and TopicFilterClassOutput values.
+// You can construct a concrete instance of `TopicFilterClassInput` via:
+//
+//	TopicFilterClassArgs{...}
+type TopicFilterClassInput interface {
+	pulumi.Input
+
+	ToTopicFilterClassOutput() TopicFilterClassOutput
+	ToTopicFilterClassOutputWithContext(context.Context) TopicFilterClassOutput
+}
+
+var topicFilterClassPtrType = reflect.TypeOf((**TopicFilterClass)(nil)).Elem()
+
+type TopicFilterClassPtrInput interface {
+	pulumi.Input
+
+	ToTopicFilterClassPtrOutput() TopicFilterClassPtrOutput
+	ToTopicFilterClassPtrOutputWithContext(context.Context) TopicFilterClassPtrOutput
+}
+
+type topicFilterClassPtr string
+
+func TopicFilterClassPtr(v string) TopicFilterClassPtrInput {
+	return (*topicFilterClassPtr)(&v)
+}
+
+func (*topicFilterClassPtr) ElementType() reflect.Type {
+	return topicFilterClassPtrType
+}
+
+func (in *topicFilterClassPtr) ToTopicFilterClassPtrOutput() TopicFilterClassPtrOutput {
+	return pulumi.ToOutput(in).(TopicFilterClassPtrOutput)
+}
+
+func (in *topicFilterClassPtr) ToTopicFilterClassPtrOutputWithContext(ctx context.Context) TopicFilterClassPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicFilterClassPtrOutput)
+}
+
+type TopicNamedEntityAggType string
+
+const (
+	TopicNamedEntityAggTypeSum           = TopicNamedEntityAggType("SUM")
+	TopicNamedEntityAggTypeMin           = TopicNamedEntityAggType("MIN")
+	TopicNamedEntityAggTypeMax           = TopicNamedEntityAggType("MAX")
+	TopicNamedEntityAggTypeCount         = TopicNamedEntityAggType("COUNT")
+	TopicNamedEntityAggTypeAverage       = TopicNamedEntityAggType("AVERAGE")
+	TopicNamedEntityAggTypeDistinctCount = TopicNamedEntityAggType("DISTINCT_COUNT")
+	TopicNamedEntityAggTypeStdev         = TopicNamedEntityAggType("STDEV")
+	TopicNamedEntityAggTypeStdevp        = TopicNamedEntityAggType("STDEVP")
+	TopicNamedEntityAggTypeVar           = TopicNamedEntityAggType("VAR")
+	TopicNamedEntityAggTypeVarp          = TopicNamedEntityAggType("VARP")
+	TopicNamedEntityAggTypePercentile    = TopicNamedEntityAggType("PERCENTILE")
+	TopicNamedEntityAggTypeMedian        = TopicNamedEntityAggType("MEDIAN")
+	TopicNamedEntityAggTypeCustom        = TopicNamedEntityAggType("CUSTOM")
+)
+
+func (TopicNamedEntityAggType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicNamedEntityAggType)(nil)).Elem()
+}
+
+func (e TopicNamedEntityAggType) ToTopicNamedEntityAggTypeOutput() TopicNamedEntityAggTypeOutput {
+	return pulumi.ToOutput(e).(TopicNamedEntityAggTypeOutput)
+}
+
+func (e TopicNamedEntityAggType) ToTopicNamedEntityAggTypeOutputWithContext(ctx context.Context) TopicNamedEntityAggTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicNamedEntityAggTypeOutput)
+}
+
+func (e TopicNamedEntityAggType) ToTopicNamedEntityAggTypePtrOutput() TopicNamedEntityAggTypePtrOutput {
+	return e.ToTopicNamedEntityAggTypePtrOutputWithContext(context.Background())
+}
+
+func (e TopicNamedEntityAggType) ToTopicNamedEntityAggTypePtrOutputWithContext(ctx context.Context) TopicNamedEntityAggTypePtrOutput {
+	return TopicNamedEntityAggType(e).ToTopicNamedEntityAggTypeOutputWithContext(ctx).ToTopicNamedEntityAggTypePtrOutputWithContext(ctx)
+}
+
+func (e TopicNamedEntityAggType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicNamedEntityAggType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicNamedEntityAggType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicNamedEntityAggType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicNamedEntityAggTypeOutput struct{ *pulumi.OutputState }
+
+func (TopicNamedEntityAggTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicNamedEntityAggType)(nil)).Elem()
+}
+
+func (o TopicNamedEntityAggTypeOutput) ToTopicNamedEntityAggTypeOutput() TopicNamedEntityAggTypeOutput {
+	return o
+}
+
+func (o TopicNamedEntityAggTypeOutput) ToTopicNamedEntityAggTypeOutputWithContext(ctx context.Context) TopicNamedEntityAggTypeOutput {
+	return o
+}
+
+func (o TopicNamedEntityAggTypeOutput) ToTopicNamedEntityAggTypePtrOutput() TopicNamedEntityAggTypePtrOutput {
+	return o.ToTopicNamedEntityAggTypePtrOutputWithContext(context.Background())
+}
+
+func (o TopicNamedEntityAggTypeOutput) ToTopicNamedEntityAggTypePtrOutputWithContext(ctx context.Context) TopicNamedEntityAggTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicNamedEntityAggType) *TopicNamedEntityAggType {
+		return &v
+	}).(TopicNamedEntityAggTypePtrOutput)
+}
+
+func (o TopicNamedEntityAggTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicNamedEntityAggTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicNamedEntityAggType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicNamedEntityAggTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicNamedEntityAggTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicNamedEntityAggType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicNamedEntityAggTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TopicNamedEntityAggTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicNamedEntityAggType)(nil)).Elem()
+}
+
+func (o TopicNamedEntityAggTypePtrOutput) ToTopicNamedEntityAggTypePtrOutput() TopicNamedEntityAggTypePtrOutput {
+	return o
+}
+
+func (o TopicNamedEntityAggTypePtrOutput) ToTopicNamedEntityAggTypePtrOutputWithContext(ctx context.Context) TopicNamedEntityAggTypePtrOutput {
+	return o
+}
+
+func (o TopicNamedEntityAggTypePtrOutput) Elem() TopicNamedEntityAggTypeOutput {
+	return o.ApplyT(func(v *TopicNamedEntityAggType) TopicNamedEntityAggType {
+		if v != nil {
+			return *v
+		}
+		var ret TopicNamedEntityAggType
+		return ret
+	}).(TopicNamedEntityAggTypeOutput)
+}
+
+func (o TopicNamedEntityAggTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicNamedEntityAggTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicNamedEntityAggType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicNamedEntityAggTypeInput is an input type that accepts TopicNamedEntityAggTypeArgs and TopicNamedEntityAggTypeOutput values.
+// You can construct a concrete instance of `TopicNamedEntityAggTypeInput` via:
+//
+//	TopicNamedEntityAggTypeArgs{...}
+type TopicNamedEntityAggTypeInput interface {
+	pulumi.Input
+
+	ToTopicNamedEntityAggTypeOutput() TopicNamedEntityAggTypeOutput
+	ToTopicNamedEntityAggTypeOutputWithContext(context.Context) TopicNamedEntityAggTypeOutput
+}
+
+var topicNamedEntityAggTypePtrType = reflect.TypeOf((**TopicNamedEntityAggType)(nil)).Elem()
+
+type TopicNamedEntityAggTypePtrInput interface {
+	pulumi.Input
+
+	ToTopicNamedEntityAggTypePtrOutput() TopicNamedEntityAggTypePtrOutput
+	ToTopicNamedEntityAggTypePtrOutputWithContext(context.Context) TopicNamedEntityAggTypePtrOutput
+}
+
+type topicNamedEntityAggTypePtr string
+
+func TopicNamedEntityAggTypePtr(v string) TopicNamedEntityAggTypePtrInput {
+	return (*topicNamedEntityAggTypePtr)(&v)
+}
+
+func (*topicNamedEntityAggTypePtr) ElementType() reflect.Type {
+	return topicNamedEntityAggTypePtrType
+}
+
+func (in *topicNamedEntityAggTypePtr) ToTopicNamedEntityAggTypePtrOutput() TopicNamedEntityAggTypePtrOutput {
+	return pulumi.ToOutput(in).(TopicNamedEntityAggTypePtrOutput)
+}
+
+func (in *topicNamedEntityAggTypePtr) ToTopicNamedEntityAggTypePtrOutputWithContext(ctx context.Context) TopicNamedEntityAggTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicNamedEntityAggTypePtrOutput)
+}
+
+type TopicNamedFilterAggType string
+
+const (
+	TopicNamedFilterAggTypeNoAggregation = TopicNamedFilterAggType("NO_AGGREGATION")
+	TopicNamedFilterAggTypeSum           = TopicNamedFilterAggType("SUM")
+	TopicNamedFilterAggTypeAverage       = TopicNamedFilterAggType("AVERAGE")
+	TopicNamedFilterAggTypeCount         = TopicNamedFilterAggType("COUNT")
+	TopicNamedFilterAggTypeDistinctCount = TopicNamedFilterAggType("DISTINCT_COUNT")
+	TopicNamedFilterAggTypeMax           = TopicNamedFilterAggType("MAX")
+	TopicNamedFilterAggTypeMedian        = TopicNamedFilterAggType("MEDIAN")
+	TopicNamedFilterAggTypeMin           = TopicNamedFilterAggType("MIN")
+	TopicNamedFilterAggTypeStdev         = TopicNamedFilterAggType("STDEV")
+	TopicNamedFilterAggTypeStdevp        = TopicNamedFilterAggType("STDEVP")
+	TopicNamedFilterAggTypeVar           = TopicNamedFilterAggType("VAR")
+	TopicNamedFilterAggTypeVarp          = TopicNamedFilterAggType("VARP")
+)
+
+func (TopicNamedFilterAggType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicNamedFilterAggType)(nil)).Elem()
+}
+
+func (e TopicNamedFilterAggType) ToTopicNamedFilterAggTypeOutput() TopicNamedFilterAggTypeOutput {
+	return pulumi.ToOutput(e).(TopicNamedFilterAggTypeOutput)
+}
+
+func (e TopicNamedFilterAggType) ToTopicNamedFilterAggTypeOutputWithContext(ctx context.Context) TopicNamedFilterAggTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicNamedFilterAggTypeOutput)
+}
+
+func (e TopicNamedFilterAggType) ToTopicNamedFilterAggTypePtrOutput() TopicNamedFilterAggTypePtrOutput {
+	return e.ToTopicNamedFilterAggTypePtrOutputWithContext(context.Background())
+}
+
+func (e TopicNamedFilterAggType) ToTopicNamedFilterAggTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterAggTypePtrOutput {
+	return TopicNamedFilterAggType(e).ToTopicNamedFilterAggTypeOutputWithContext(ctx).ToTopicNamedFilterAggTypePtrOutputWithContext(ctx)
+}
+
+func (e TopicNamedFilterAggType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicNamedFilterAggType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicNamedFilterAggType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicNamedFilterAggType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicNamedFilterAggTypeOutput struct{ *pulumi.OutputState }
+
+func (TopicNamedFilterAggTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicNamedFilterAggType)(nil)).Elem()
+}
+
+func (o TopicNamedFilterAggTypeOutput) ToTopicNamedFilterAggTypeOutput() TopicNamedFilterAggTypeOutput {
+	return o
+}
+
+func (o TopicNamedFilterAggTypeOutput) ToTopicNamedFilterAggTypeOutputWithContext(ctx context.Context) TopicNamedFilterAggTypeOutput {
+	return o
+}
+
+func (o TopicNamedFilterAggTypeOutput) ToTopicNamedFilterAggTypePtrOutput() TopicNamedFilterAggTypePtrOutput {
+	return o.ToTopicNamedFilterAggTypePtrOutputWithContext(context.Background())
+}
+
+func (o TopicNamedFilterAggTypeOutput) ToTopicNamedFilterAggTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterAggTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicNamedFilterAggType) *TopicNamedFilterAggType {
+		return &v
+	}).(TopicNamedFilterAggTypePtrOutput)
+}
+
+func (o TopicNamedFilterAggTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicNamedFilterAggTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicNamedFilterAggType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicNamedFilterAggTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicNamedFilterAggTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicNamedFilterAggType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicNamedFilterAggTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TopicNamedFilterAggTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicNamedFilterAggType)(nil)).Elem()
+}
+
+func (o TopicNamedFilterAggTypePtrOutput) ToTopicNamedFilterAggTypePtrOutput() TopicNamedFilterAggTypePtrOutput {
+	return o
+}
+
+func (o TopicNamedFilterAggTypePtrOutput) ToTopicNamedFilterAggTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterAggTypePtrOutput {
+	return o
+}
+
+func (o TopicNamedFilterAggTypePtrOutput) Elem() TopicNamedFilterAggTypeOutput {
+	return o.ApplyT(func(v *TopicNamedFilterAggType) TopicNamedFilterAggType {
+		if v != nil {
+			return *v
+		}
+		var ret TopicNamedFilterAggType
+		return ret
+	}).(TopicNamedFilterAggTypeOutput)
+}
+
+func (o TopicNamedFilterAggTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicNamedFilterAggTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicNamedFilterAggType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicNamedFilterAggTypeInput is an input type that accepts TopicNamedFilterAggTypeArgs and TopicNamedFilterAggTypeOutput values.
+// You can construct a concrete instance of `TopicNamedFilterAggTypeInput` via:
+//
+//	TopicNamedFilterAggTypeArgs{...}
+type TopicNamedFilterAggTypeInput interface {
+	pulumi.Input
+
+	ToTopicNamedFilterAggTypeOutput() TopicNamedFilterAggTypeOutput
+	ToTopicNamedFilterAggTypeOutputWithContext(context.Context) TopicNamedFilterAggTypeOutput
+}
+
+var topicNamedFilterAggTypePtrType = reflect.TypeOf((**TopicNamedFilterAggType)(nil)).Elem()
+
+type TopicNamedFilterAggTypePtrInput interface {
+	pulumi.Input
+
+	ToTopicNamedFilterAggTypePtrOutput() TopicNamedFilterAggTypePtrOutput
+	ToTopicNamedFilterAggTypePtrOutputWithContext(context.Context) TopicNamedFilterAggTypePtrOutput
+}
+
+type topicNamedFilterAggTypePtr string
+
+func TopicNamedFilterAggTypePtr(v string) TopicNamedFilterAggTypePtrInput {
+	return (*topicNamedFilterAggTypePtr)(&v)
+}
+
+func (*topicNamedFilterAggTypePtr) ElementType() reflect.Type {
+	return topicNamedFilterAggTypePtrType
+}
+
+func (in *topicNamedFilterAggTypePtr) ToTopicNamedFilterAggTypePtrOutput() TopicNamedFilterAggTypePtrOutput {
+	return pulumi.ToOutput(in).(TopicNamedFilterAggTypePtrOutput)
+}
+
+func (in *topicNamedFilterAggTypePtr) ToTopicNamedFilterAggTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterAggTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicNamedFilterAggTypePtrOutput)
+}
+
+type TopicNamedFilterType string
+
+const (
+	TopicNamedFilterTypeCategoryFilter        = TopicNamedFilterType("CATEGORY_FILTER")
+	TopicNamedFilterTypeNumericEqualityFilter = TopicNamedFilterType("NUMERIC_EQUALITY_FILTER")
+	TopicNamedFilterTypeNumericRangeFilter    = TopicNamedFilterType("NUMERIC_RANGE_FILTER")
+	TopicNamedFilterTypeDateRangeFilter       = TopicNamedFilterType("DATE_RANGE_FILTER")
+	TopicNamedFilterTypeRelativeDateFilter    = TopicNamedFilterType("RELATIVE_DATE_FILTER")
+)
+
+func (TopicNamedFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicNamedFilterType)(nil)).Elem()
+}
+
+func (e TopicNamedFilterType) ToTopicNamedFilterTypeOutput() TopicNamedFilterTypeOutput {
+	return pulumi.ToOutput(e).(TopicNamedFilterTypeOutput)
+}
+
+func (e TopicNamedFilterType) ToTopicNamedFilterTypeOutputWithContext(ctx context.Context) TopicNamedFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicNamedFilterTypeOutput)
+}
+
+func (e TopicNamedFilterType) ToTopicNamedFilterTypePtrOutput() TopicNamedFilterTypePtrOutput {
+	return e.ToTopicNamedFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e TopicNamedFilterType) ToTopicNamedFilterTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterTypePtrOutput {
+	return TopicNamedFilterType(e).ToTopicNamedFilterTypeOutputWithContext(ctx).ToTopicNamedFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e TopicNamedFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicNamedFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicNamedFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicNamedFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicNamedFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (TopicNamedFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicNamedFilterType)(nil)).Elem()
+}
+
+func (o TopicNamedFilterTypeOutput) ToTopicNamedFilterTypeOutput() TopicNamedFilterTypeOutput {
+	return o
+}
+
+func (o TopicNamedFilterTypeOutput) ToTopicNamedFilterTypeOutputWithContext(ctx context.Context) TopicNamedFilterTypeOutput {
+	return o
+}
+
+func (o TopicNamedFilterTypeOutput) ToTopicNamedFilterTypePtrOutput() TopicNamedFilterTypePtrOutput {
+	return o.ToTopicNamedFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o TopicNamedFilterTypeOutput) ToTopicNamedFilterTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicNamedFilterType) *TopicNamedFilterType {
+		return &v
+	}).(TopicNamedFilterTypePtrOutput)
+}
+
+func (o TopicNamedFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicNamedFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicNamedFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicNamedFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicNamedFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicNamedFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicNamedFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TopicNamedFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicNamedFilterType)(nil)).Elem()
+}
+
+func (o TopicNamedFilterTypePtrOutput) ToTopicNamedFilterTypePtrOutput() TopicNamedFilterTypePtrOutput {
+	return o
+}
+
+func (o TopicNamedFilterTypePtrOutput) ToTopicNamedFilterTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterTypePtrOutput {
+	return o
+}
+
+func (o TopicNamedFilterTypePtrOutput) Elem() TopicNamedFilterTypeOutput {
+	return o.ApplyT(func(v *TopicNamedFilterType) TopicNamedFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret TopicNamedFilterType
+		return ret
+	}).(TopicNamedFilterTypeOutput)
+}
+
+func (o TopicNamedFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicNamedFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicNamedFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicNamedFilterTypeInput is an input type that accepts TopicNamedFilterTypeArgs and TopicNamedFilterTypeOutput values.
+// You can construct a concrete instance of `TopicNamedFilterTypeInput` via:
+//
+//	TopicNamedFilterTypeArgs{...}
+type TopicNamedFilterTypeInput interface {
+	pulumi.Input
+
+	ToTopicNamedFilterTypeOutput() TopicNamedFilterTypeOutput
+	ToTopicNamedFilterTypeOutputWithContext(context.Context) TopicNamedFilterTypeOutput
+}
+
+var topicNamedFilterTypePtrType = reflect.TypeOf((**TopicNamedFilterType)(nil)).Elem()
+
+type TopicNamedFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToTopicNamedFilterTypePtrOutput() TopicNamedFilterTypePtrOutput
+	ToTopicNamedFilterTypePtrOutputWithContext(context.Context) TopicNamedFilterTypePtrOutput
+}
+
+type topicNamedFilterTypePtr string
+
+func TopicNamedFilterTypePtr(v string) TopicNamedFilterTypePtrInput {
+	return (*topicNamedFilterTypePtr)(&v)
+}
+
+func (*topicNamedFilterTypePtr) ElementType() reflect.Type {
+	return topicNamedFilterTypePtrType
+}
+
+func (in *topicNamedFilterTypePtr) ToTopicNamedFilterTypePtrOutput() TopicNamedFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(TopicNamedFilterTypePtrOutput)
+}
+
+func (in *topicNamedFilterTypePtr) ToTopicNamedFilterTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicNamedFilterTypePtrOutput)
+}
+
+type TopicNumberScale string
+
+const (
+	TopicNumberScaleNone      = TopicNumberScale("NONE")
+	TopicNumberScaleAuto      = TopicNumberScale("AUTO")
+	TopicNumberScaleThousands = TopicNumberScale("THOUSANDS")
+	TopicNumberScaleMillions  = TopicNumberScale("MILLIONS")
+	TopicNumberScaleBillions  = TopicNumberScale("BILLIONS")
+	TopicNumberScaleTrillions = TopicNumberScale("TRILLIONS")
+)
+
+func (TopicNumberScale) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicNumberScale)(nil)).Elem()
+}
+
+func (e TopicNumberScale) ToTopicNumberScaleOutput() TopicNumberScaleOutput {
+	return pulumi.ToOutput(e).(TopicNumberScaleOutput)
+}
+
+func (e TopicNumberScale) ToTopicNumberScaleOutputWithContext(ctx context.Context) TopicNumberScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicNumberScaleOutput)
+}
+
+func (e TopicNumberScale) ToTopicNumberScalePtrOutput() TopicNumberScalePtrOutput {
+	return e.ToTopicNumberScalePtrOutputWithContext(context.Background())
+}
+
+func (e TopicNumberScale) ToTopicNumberScalePtrOutputWithContext(ctx context.Context) TopicNumberScalePtrOutput {
+	return TopicNumberScale(e).ToTopicNumberScaleOutputWithContext(ctx).ToTopicNumberScalePtrOutputWithContext(ctx)
+}
+
+func (e TopicNumberScale) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicNumberScale) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicNumberScale) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicNumberScale) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicNumberScaleOutput struct{ *pulumi.OutputState }
+
+func (TopicNumberScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicNumberScale)(nil)).Elem()
+}
+
+func (o TopicNumberScaleOutput) ToTopicNumberScaleOutput() TopicNumberScaleOutput {
+	return o
+}
+
+func (o TopicNumberScaleOutput) ToTopicNumberScaleOutputWithContext(ctx context.Context) TopicNumberScaleOutput {
+	return o
+}
+
+func (o TopicNumberScaleOutput) ToTopicNumberScalePtrOutput() TopicNumberScalePtrOutput {
+	return o.ToTopicNumberScalePtrOutputWithContext(context.Background())
+}
+
+func (o TopicNumberScaleOutput) ToTopicNumberScalePtrOutputWithContext(ctx context.Context) TopicNumberScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicNumberScale) *TopicNumberScale {
+		return &v
+	}).(TopicNumberScalePtrOutput)
+}
+
+func (o TopicNumberScaleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicNumberScaleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicNumberScale) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicNumberScaleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicNumberScaleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicNumberScale) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicNumberScalePtrOutput struct{ *pulumi.OutputState }
+
+func (TopicNumberScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicNumberScale)(nil)).Elem()
+}
+
+func (o TopicNumberScalePtrOutput) ToTopicNumberScalePtrOutput() TopicNumberScalePtrOutput {
+	return o
+}
+
+func (o TopicNumberScalePtrOutput) ToTopicNumberScalePtrOutputWithContext(ctx context.Context) TopicNumberScalePtrOutput {
+	return o
+}
+
+func (o TopicNumberScalePtrOutput) Elem() TopicNumberScaleOutput {
+	return o.ApplyT(func(v *TopicNumberScale) TopicNumberScale {
+		if v != nil {
+			return *v
+		}
+		var ret TopicNumberScale
+		return ret
+	}).(TopicNumberScaleOutput)
+}
+
+func (o TopicNumberScalePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicNumberScalePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicNumberScale) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicNumberScaleInput is an input type that accepts TopicNumberScaleArgs and TopicNumberScaleOutput values.
+// You can construct a concrete instance of `TopicNumberScaleInput` via:
+//
+//	TopicNumberScaleArgs{...}
+type TopicNumberScaleInput interface {
+	pulumi.Input
+
+	ToTopicNumberScaleOutput() TopicNumberScaleOutput
+	ToTopicNumberScaleOutputWithContext(context.Context) TopicNumberScaleOutput
+}
+
+var topicNumberScalePtrType = reflect.TypeOf((**TopicNumberScale)(nil)).Elem()
+
+type TopicNumberScalePtrInput interface {
+	pulumi.Input
+
+	ToTopicNumberScalePtrOutput() TopicNumberScalePtrOutput
+	ToTopicNumberScalePtrOutputWithContext(context.Context) TopicNumberScalePtrOutput
+}
+
+type topicNumberScalePtr string
+
+func TopicNumberScalePtr(v string) TopicNumberScalePtrInput {
+	return (*topicNumberScalePtr)(&v)
+}
+
+func (*topicNumberScalePtr) ElementType() reflect.Type {
+	return topicNumberScalePtrType
+}
+
+func (in *topicNumberScalePtr) ToTopicNumberScalePtrOutput() TopicNumberScalePtrOutput {
+	return pulumi.ToOutput(in).(TopicNumberScalePtrOutput)
+}
+
+func (in *topicNumberScalePtr) ToTopicNumberScalePtrOutputWithContext(ctx context.Context) TopicNumberScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicNumberScalePtrOutput)
+}
+
+type TopicNumericSeparatorSymbol string
+
+const (
+	TopicNumericSeparatorSymbolComma = TopicNumericSeparatorSymbol("COMMA")
+	TopicNumericSeparatorSymbolDot   = TopicNumericSeparatorSymbol("DOT")
+)
+
+func (TopicNumericSeparatorSymbol) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicNumericSeparatorSymbol)(nil)).Elem()
+}
+
+func (e TopicNumericSeparatorSymbol) ToTopicNumericSeparatorSymbolOutput() TopicNumericSeparatorSymbolOutput {
+	return pulumi.ToOutput(e).(TopicNumericSeparatorSymbolOutput)
+}
+
+func (e TopicNumericSeparatorSymbol) ToTopicNumericSeparatorSymbolOutputWithContext(ctx context.Context) TopicNumericSeparatorSymbolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicNumericSeparatorSymbolOutput)
+}
+
+func (e TopicNumericSeparatorSymbol) ToTopicNumericSeparatorSymbolPtrOutput() TopicNumericSeparatorSymbolPtrOutput {
+	return e.ToTopicNumericSeparatorSymbolPtrOutputWithContext(context.Background())
+}
+
+func (e TopicNumericSeparatorSymbol) ToTopicNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) TopicNumericSeparatorSymbolPtrOutput {
+	return TopicNumericSeparatorSymbol(e).ToTopicNumericSeparatorSymbolOutputWithContext(ctx).ToTopicNumericSeparatorSymbolPtrOutputWithContext(ctx)
+}
+
+func (e TopicNumericSeparatorSymbol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicNumericSeparatorSymbol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicNumericSeparatorSymbol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicNumericSeparatorSymbol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicNumericSeparatorSymbolOutput struct{ *pulumi.OutputState }
+
+func (TopicNumericSeparatorSymbolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicNumericSeparatorSymbol)(nil)).Elem()
+}
+
+func (o TopicNumericSeparatorSymbolOutput) ToTopicNumericSeparatorSymbolOutput() TopicNumericSeparatorSymbolOutput {
+	return o
+}
+
+func (o TopicNumericSeparatorSymbolOutput) ToTopicNumericSeparatorSymbolOutputWithContext(ctx context.Context) TopicNumericSeparatorSymbolOutput {
+	return o
+}
+
+func (o TopicNumericSeparatorSymbolOutput) ToTopicNumericSeparatorSymbolPtrOutput() TopicNumericSeparatorSymbolPtrOutput {
+	return o.ToTopicNumericSeparatorSymbolPtrOutputWithContext(context.Background())
+}
+
+func (o TopicNumericSeparatorSymbolOutput) ToTopicNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) TopicNumericSeparatorSymbolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicNumericSeparatorSymbol) *TopicNumericSeparatorSymbol {
+		return &v
+	}).(TopicNumericSeparatorSymbolPtrOutput)
+}
+
+func (o TopicNumericSeparatorSymbolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicNumericSeparatorSymbolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicNumericSeparatorSymbol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicNumericSeparatorSymbolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicNumericSeparatorSymbolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicNumericSeparatorSymbol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicNumericSeparatorSymbolPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicNumericSeparatorSymbolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicNumericSeparatorSymbol)(nil)).Elem()
+}
+
+func (o TopicNumericSeparatorSymbolPtrOutput) ToTopicNumericSeparatorSymbolPtrOutput() TopicNumericSeparatorSymbolPtrOutput {
+	return o
+}
+
+func (o TopicNumericSeparatorSymbolPtrOutput) ToTopicNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) TopicNumericSeparatorSymbolPtrOutput {
+	return o
+}
+
+func (o TopicNumericSeparatorSymbolPtrOutput) Elem() TopicNumericSeparatorSymbolOutput {
+	return o.ApplyT(func(v *TopicNumericSeparatorSymbol) TopicNumericSeparatorSymbol {
+		if v != nil {
+			return *v
+		}
+		var ret TopicNumericSeparatorSymbol
+		return ret
+	}).(TopicNumericSeparatorSymbolOutput)
+}
+
+func (o TopicNumericSeparatorSymbolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicNumericSeparatorSymbolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicNumericSeparatorSymbol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicNumericSeparatorSymbolInput is an input type that accepts TopicNumericSeparatorSymbolArgs and TopicNumericSeparatorSymbolOutput values.
+// You can construct a concrete instance of `TopicNumericSeparatorSymbolInput` via:
+//
+//	TopicNumericSeparatorSymbolArgs{...}
+type TopicNumericSeparatorSymbolInput interface {
+	pulumi.Input
+
+	ToTopicNumericSeparatorSymbolOutput() TopicNumericSeparatorSymbolOutput
+	ToTopicNumericSeparatorSymbolOutputWithContext(context.Context) TopicNumericSeparatorSymbolOutput
+}
+
+var topicNumericSeparatorSymbolPtrType = reflect.TypeOf((**TopicNumericSeparatorSymbol)(nil)).Elem()
+
+type TopicNumericSeparatorSymbolPtrInput interface {
+	pulumi.Input
+
+	ToTopicNumericSeparatorSymbolPtrOutput() TopicNumericSeparatorSymbolPtrOutput
+	ToTopicNumericSeparatorSymbolPtrOutputWithContext(context.Context) TopicNumericSeparatorSymbolPtrOutput
+}
+
+type topicNumericSeparatorSymbolPtr string
+
+func TopicNumericSeparatorSymbolPtr(v string) TopicNumericSeparatorSymbolPtrInput {
+	return (*topicNumericSeparatorSymbolPtr)(&v)
+}
+
+func (*topicNumericSeparatorSymbolPtr) ElementType() reflect.Type {
+	return topicNumericSeparatorSymbolPtrType
+}
+
+func (in *topicNumericSeparatorSymbolPtr) ToTopicNumericSeparatorSymbolPtrOutput() TopicNumericSeparatorSymbolPtrOutput {
+	return pulumi.ToOutput(in).(TopicNumericSeparatorSymbolPtrOutput)
+}
+
+func (in *topicNumericSeparatorSymbolPtr) ToTopicNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) TopicNumericSeparatorSymbolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicNumericSeparatorSymbolPtrOutput)
+}
+
+type TopicPropertyRole string
+
+const (
+	TopicPropertyRolePrimary = TopicPropertyRole("PRIMARY")
+	TopicPropertyRoleId      = TopicPropertyRole("ID")
+)
+
+func (TopicPropertyRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicPropertyRole)(nil)).Elem()
+}
+
+func (e TopicPropertyRole) ToTopicPropertyRoleOutput() TopicPropertyRoleOutput {
+	return pulumi.ToOutput(e).(TopicPropertyRoleOutput)
+}
+
+func (e TopicPropertyRole) ToTopicPropertyRoleOutputWithContext(ctx context.Context) TopicPropertyRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicPropertyRoleOutput)
+}
+
+func (e TopicPropertyRole) ToTopicPropertyRolePtrOutput() TopicPropertyRolePtrOutput {
+	return e.ToTopicPropertyRolePtrOutputWithContext(context.Background())
+}
+
+func (e TopicPropertyRole) ToTopicPropertyRolePtrOutputWithContext(ctx context.Context) TopicPropertyRolePtrOutput {
+	return TopicPropertyRole(e).ToTopicPropertyRoleOutputWithContext(ctx).ToTopicPropertyRolePtrOutputWithContext(ctx)
+}
+
+func (e TopicPropertyRole) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicPropertyRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicPropertyRole) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicPropertyRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicPropertyRoleOutput struct{ *pulumi.OutputState }
+
+func (TopicPropertyRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicPropertyRole)(nil)).Elem()
+}
+
+func (o TopicPropertyRoleOutput) ToTopicPropertyRoleOutput() TopicPropertyRoleOutput {
+	return o
+}
+
+func (o TopicPropertyRoleOutput) ToTopicPropertyRoleOutputWithContext(ctx context.Context) TopicPropertyRoleOutput {
+	return o
+}
+
+func (o TopicPropertyRoleOutput) ToTopicPropertyRolePtrOutput() TopicPropertyRolePtrOutput {
+	return o.ToTopicPropertyRolePtrOutputWithContext(context.Background())
+}
+
+func (o TopicPropertyRoleOutput) ToTopicPropertyRolePtrOutputWithContext(ctx context.Context) TopicPropertyRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicPropertyRole) *TopicPropertyRole {
+		return &v
+	}).(TopicPropertyRolePtrOutput)
+}
+
+func (o TopicPropertyRoleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicPropertyRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicPropertyRole) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicPropertyRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicPropertyRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicPropertyRole) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicPropertyRolePtrOutput struct{ *pulumi.OutputState }
+
+func (TopicPropertyRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicPropertyRole)(nil)).Elem()
+}
+
+func (o TopicPropertyRolePtrOutput) ToTopicPropertyRolePtrOutput() TopicPropertyRolePtrOutput {
+	return o
+}
+
+func (o TopicPropertyRolePtrOutput) ToTopicPropertyRolePtrOutputWithContext(ctx context.Context) TopicPropertyRolePtrOutput {
+	return o
+}
+
+func (o TopicPropertyRolePtrOutput) Elem() TopicPropertyRoleOutput {
+	return o.ApplyT(func(v *TopicPropertyRole) TopicPropertyRole {
+		if v != nil {
+			return *v
+		}
+		var ret TopicPropertyRole
+		return ret
+	}).(TopicPropertyRoleOutput)
+}
+
+func (o TopicPropertyRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicPropertyRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicPropertyRole) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicPropertyRoleInput is an input type that accepts TopicPropertyRoleArgs and TopicPropertyRoleOutput values.
+// You can construct a concrete instance of `TopicPropertyRoleInput` via:
+//
+//	TopicPropertyRoleArgs{...}
+type TopicPropertyRoleInput interface {
+	pulumi.Input
+
+	ToTopicPropertyRoleOutput() TopicPropertyRoleOutput
+	ToTopicPropertyRoleOutputWithContext(context.Context) TopicPropertyRoleOutput
+}
+
+var topicPropertyRolePtrType = reflect.TypeOf((**TopicPropertyRole)(nil)).Elem()
+
+type TopicPropertyRolePtrInput interface {
+	pulumi.Input
+
+	ToTopicPropertyRolePtrOutput() TopicPropertyRolePtrOutput
+	ToTopicPropertyRolePtrOutputWithContext(context.Context) TopicPropertyRolePtrOutput
+}
+
+type topicPropertyRolePtr string
+
+func TopicPropertyRolePtr(v string) TopicPropertyRolePtrInput {
+	return (*topicPropertyRolePtr)(&v)
+}
+
+func (*topicPropertyRolePtr) ElementType() reflect.Type {
+	return topicPropertyRolePtrType
+}
+
+func (in *topicPropertyRolePtr) ToTopicPropertyRolePtrOutput() TopicPropertyRolePtrOutput {
+	return pulumi.ToOutput(in).(TopicPropertyRolePtrOutput)
+}
+
+func (in *topicPropertyRolePtr) ToTopicPropertyRolePtrOutputWithContext(ctx context.Context) TopicPropertyRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicPropertyRolePtrOutput)
+}
+
+type TopicPropertyUsage string
+
+const (
+	TopicPropertyUsageInherit   = TopicPropertyUsage("INHERIT")
+	TopicPropertyUsageDimension = TopicPropertyUsage("DIMENSION")
+	TopicPropertyUsageMeasure   = TopicPropertyUsage("MEASURE")
+)
+
+func (TopicPropertyUsage) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicPropertyUsage)(nil)).Elem()
+}
+
+func (e TopicPropertyUsage) ToTopicPropertyUsageOutput() TopicPropertyUsageOutput {
+	return pulumi.ToOutput(e).(TopicPropertyUsageOutput)
+}
+
+func (e TopicPropertyUsage) ToTopicPropertyUsageOutputWithContext(ctx context.Context) TopicPropertyUsageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicPropertyUsageOutput)
+}
+
+func (e TopicPropertyUsage) ToTopicPropertyUsagePtrOutput() TopicPropertyUsagePtrOutput {
+	return e.ToTopicPropertyUsagePtrOutputWithContext(context.Background())
+}
+
+func (e TopicPropertyUsage) ToTopicPropertyUsagePtrOutputWithContext(ctx context.Context) TopicPropertyUsagePtrOutput {
+	return TopicPropertyUsage(e).ToTopicPropertyUsageOutputWithContext(ctx).ToTopicPropertyUsagePtrOutputWithContext(ctx)
+}
+
+func (e TopicPropertyUsage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicPropertyUsage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicPropertyUsage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicPropertyUsage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicPropertyUsageOutput struct{ *pulumi.OutputState }
+
+func (TopicPropertyUsageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicPropertyUsage)(nil)).Elem()
+}
+
+func (o TopicPropertyUsageOutput) ToTopicPropertyUsageOutput() TopicPropertyUsageOutput {
+	return o
+}
+
+func (o TopicPropertyUsageOutput) ToTopicPropertyUsageOutputWithContext(ctx context.Context) TopicPropertyUsageOutput {
+	return o
+}
+
+func (o TopicPropertyUsageOutput) ToTopicPropertyUsagePtrOutput() TopicPropertyUsagePtrOutput {
+	return o.ToTopicPropertyUsagePtrOutputWithContext(context.Background())
+}
+
+func (o TopicPropertyUsageOutput) ToTopicPropertyUsagePtrOutputWithContext(ctx context.Context) TopicPropertyUsagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicPropertyUsage) *TopicPropertyUsage {
+		return &v
+	}).(TopicPropertyUsagePtrOutput)
+}
+
+func (o TopicPropertyUsageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicPropertyUsageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicPropertyUsage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicPropertyUsageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicPropertyUsageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicPropertyUsage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicPropertyUsagePtrOutput struct{ *pulumi.OutputState }
+
+func (TopicPropertyUsagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicPropertyUsage)(nil)).Elem()
+}
+
+func (o TopicPropertyUsagePtrOutput) ToTopicPropertyUsagePtrOutput() TopicPropertyUsagePtrOutput {
+	return o
+}
+
+func (o TopicPropertyUsagePtrOutput) ToTopicPropertyUsagePtrOutputWithContext(ctx context.Context) TopicPropertyUsagePtrOutput {
+	return o
+}
+
+func (o TopicPropertyUsagePtrOutput) Elem() TopicPropertyUsageOutput {
+	return o.ApplyT(func(v *TopicPropertyUsage) TopicPropertyUsage {
+		if v != nil {
+			return *v
+		}
+		var ret TopicPropertyUsage
+		return ret
+	}).(TopicPropertyUsageOutput)
+}
+
+func (o TopicPropertyUsagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicPropertyUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicPropertyUsage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicPropertyUsageInput is an input type that accepts TopicPropertyUsageArgs and TopicPropertyUsageOutput values.
+// You can construct a concrete instance of `TopicPropertyUsageInput` via:
+//
+//	TopicPropertyUsageArgs{...}
+type TopicPropertyUsageInput interface {
+	pulumi.Input
+
+	ToTopicPropertyUsageOutput() TopicPropertyUsageOutput
+	ToTopicPropertyUsageOutputWithContext(context.Context) TopicPropertyUsageOutput
+}
+
+var topicPropertyUsagePtrType = reflect.TypeOf((**TopicPropertyUsage)(nil)).Elem()
+
+type TopicPropertyUsagePtrInput interface {
+	pulumi.Input
+
+	ToTopicPropertyUsagePtrOutput() TopicPropertyUsagePtrOutput
+	ToTopicPropertyUsagePtrOutputWithContext(context.Context) TopicPropertyUsagePtrOutput
+}
+
+type topicPropertyUsagePtr string
+
+func TopicPropertyUsagePtr(v string) TopicPropertyUsagePtrInput {
+	return (*topicPropertyUsagePtr)(&v)
+}
+
+func (*topicPropertyUsagePtr) ElementType() reflect.Type {
+	return topicPropertyUsagePtrType
+}
+
+func (in *topicPropertyUsagePtr) ToTopicPropertyUsagePtrOutput() TopicPropertyUsagePtrOutput {
+	return pulumi.ToOutput(in).(TopicPropertyUsagePtrOutput)
+}
+
+func (in *topicPropertyUsagePtr) ToTopicPropertyUsagePtrOutputWithContext(ctx context.Context) TopicPropertyUsagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicPropertyUsagePtrOutput)
+}
+
+type TopicRelativeDateFilterFunction string
+
+const (
+	TopicRelativeDateFilterFunctionPrevious = TopicRelativeDateFilterFunction("PREVIOUS")
+	TopicRelativeDateFilterFunctionThis     = TopicRelativeDateFilterFunction("THIS")
+	TopicRelativeDateFilterFunctionLast     = TopicRelativeDateFilterFunction("LAST")
+	TopicRelativeDateFilterFunctionNext     = TopicRelativeDateFilterFunction("NEXT")
+	TopicRelativeDateFilterFunctionNow      = TopicRelativeDateFilterFunction("NOW")
+)
+
+func (TopicRelativeDateFilterFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRelativeDateFilterFunction)(nil)).Elem()
+}
+
+func (e TopicRelativeDateFilterFunction) ToTopicRelativeDateFilterFunctionOutput() TopicRelativeDateFilterFunctionOutput {
+	return pulumi.ToOutput(e).(TopicRelativeDateFilterFunctionOutput)
+}
+
+func (e TopicRelativeDateFilterFunction) ToTopicRelativeDateFilterFunctionOutputWithContext(ctx context.Context) TopicRelativeDateFilterFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicRelativeDateFilterFunctionOutput)
+}
+
+func (e TopicRelativeDateFilterFunction) ToTopicRelativeDateFilterFunctionPtrOutput() TopicRelativeDateFilterFunctionPtrOutput {
+	return e.ToTopicRelativeDateFilterFunctionPtrOutputWithContext(context.Background())
+}
+
+func (e TopicRelativeDateFilterFunction) ToTopicRelativeDateFilterFunctionPtrOutputWithContext(ctx context.Context) TopicRelativeDateFilterFunctionPtrOutput {
+	return TopicRelativeDateFilterFunction(e).ToTopicRelativeDateFilterFunctionOutputWithContext(ctx).ToTopicRelativeDateFilterFunctionPtrOutputWithContext(ctx)
+}
+
+func (e TopicRelativeDateFilterFunction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicRelativeDateFilterFunction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicRelativeDateFilterFunction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicRelativeDateFilterFunction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicRelativeDateFilterFunctionOutput struct{ *pulumi.OutputState }
+
+func (TopicRelativeDateFilterFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRelativeDateFilterFunction)(nil)).Elem()
+}
+
+func (o TopicRelativeDateFilterFunctionOutput) ToTopicRelativeDateFilterFunctionOutput() TopicRelativeDateFilterFunctionOutput {
+	return o
+}
+
+func (o TopicRelativeDateFilterFunctionOutput) ToTopicRelativeDateFilterFunctionOutputWithContext(ctx context.Context) TopicRelativeDateFilterFunctionOutput {
+	return o
+}
+
+func (o TopicRelativeDateFilterFunctionOutput) ToTopicRelativeDateFilterFunctionPtrOutput() TopicRelativeDateFilterFunctionPtrOutput {
+	return o.ToTopicRelativeDateFilterFunctionPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRelativeDateFilterFunctionOutput) ToTopicRelativeDateFilterFunctionPtrOutputWithContext(ctx context.Context) TopicRelativeDateFilterFunctionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRelativeDateFilterFunction) *TopicRelativeDateFilterFunction {
+		return &v
+	}).(TopicRelativeDateFilterFunctionPtrOutput)
+}
+
+func (o TopicRelativeDateFilterFunctionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicRelativeDateFilterFunctionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicRelativeDateFilterFunction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicRelativeDateFilterFunctionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRelativeDateFilterFunctionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicRelativeDateFilterFunction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRelativeDateFilterFunctionPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRelativeDateFilterFunctionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRelativeDateFilterFunction)(nil)).Elem()
+}
+
+func (o TopicRelativeDateFilterFunctionPtrOutput) ToTopicRelativeDateFilterFunctionPtrOutput() TopicRelativeDateFilterFunctionPtrOutput {
+	return o
+}
+
+func (o TopicRelativeDateFilterFunctionPtrOutput) ToTopicRelativeDateFilterFunctionPtrOutputWithContext(ctx context.Context) TopicRelativeDateFilterFunctionPtrOutput {
+	return o
+}
+
+func (o TopicRelativeDateFilterFunctionPtrOutput) Elem() TopicRelativeDateFilterFunctionOutput {
+	return o.ApplyT(func(v *TopicRelativeDateFilterFunction) TopicRelativeDateFilterFunction {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRelativeDateFilterFunction
+		return ret
+	}).(TopicRelativeDateFilterFunctionOutput)
+}
+
+func (o TopicRelativeDateFilterFunctionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRelativeDateFilterFunctionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicRelativeDateFilterFunction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicRelativeDateFilterFunctionInput is an input type that accepts TopicRelativeDateFilterFunctionArgs and TopicRelativeDateFilterFunctionOutput values.
+// You can construct a concrete instance of `TopicRelativeDateFilterFunctionInput` via:
+//
+//	TopicRelativeDateFilterFunctionArgs{...}
+type TopicRelativeDateFilterFunctionInput interface {
+	pulumi.Input
+
+	ToTopicRelativeDateFilterFunctionOutput() TopicRelativeDateFilterFunctionOutput
+	ToTopicRelativeDateFilterFunctionOutputWithContext(context.Context) TopicRelativeDateFilterFunctionOutput
+}
+
+var topicRelativeDateFilterFunctionPtrType = reflect.TypeOf((**TopicRelativeDateFilterFunction)(nil)).Elem()
+
+type TopicRelativeDateFilterFunctionPtrInput interface {
+	pulumi.Input
+
+	ToTopicRelativeDateFilterFunctionPtrOutput() TopicRelativeDateFilterFunctionPtrOutput
+	ToTopicRelativeDateFilterFunctionPtrOutputWithContext(context.Context) TopicRelativeDateFilterFunctionPtrOutput
+}
+
+type topicRelativeDateFilterFunctionPtr string
+
+func TopicRelativeDateFilterFunctionPtr(v string) TopicRelativeDateFilterFunctionPtrInput {
+	return (*topicRelativeDateFilterFunctionPtr)(&v)
+}
+
+func (*topicRelativeDateFilterFunctionPtr) ElementType() reflect.Type {
+	return topicRelativeDateFilterFunctionPtrType
+}
+
+func (in *topicRelativeDateFilterFunctionPtr) ToTopicRelativeDateFilterFunctionPtrOutput() TopicRelativeDateFilterFunctionPtrOutput {
+	return pulumi.ToOutput(in).(TopicRelativeDateFilterFunctionPtrOutput)
+}
+
+func (in *topicRelativeDateFilterFunctionPtr) ToTopicRelativeDateFilterFunctionPtrOutputWithContext(ctx context.Context) TopicRelativeDateFilterFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicRelativeDateFilterFunctionPtrOutput)
+}
+
+type TopicTimeGranularity string
+
+const (
+	TopicTimeGranularitySecond  = TopicTimeGranularity("SECOND")
+	TopicTimeGranularityMinute  = TopicTimeGranularity("MINUTE")
+	TopicTimeGranularityHour    = TopicTimeGranularity("HOUR")
+	TopicTimeGranularityDay     = TopicTimeGranularity("DAY")
+	TopicTimeGranularityWeek    = TopicTimeGranularity("WEEK")
+	TopicTimeGranularityMonth   = TopicTimeGranularity("MONTH")
+	TopicTimeGranularityQuarter = TopicTimeGranularity("QUARTER")
+	TopicTimeGranularityYear    = TopicTimeGranularity("YEAR")
+)
+
+func (TopicTimeGranularity) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicTimeGranularity)(nil)).Elem()
+}
+
+func (e TopicTimeGranularity) ToTopicTimeGranularityOutput() TopicTimeGranularityOutput {
+	return pulumi.ToOutput(e).(TopicTimeGranularityOutput)
+}
+
+func (e TopicTimeGranularity) ToTopicTimeGranularityOutputWithContext(ctx context.Context) TopicTimeGranularityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicTimeGranularityOutput)
+}
+
+func (e TopicTimeGranularity) ToTopicTimeGranularityPtrOutput() TopicTimeGranularityPtrOutput {
+	return e.ToTopicTimeGranularityPtrOutputWithContext(context.Background())
+}
+
+func (e TopicTimeGranularity) ToTopicTimeGranularityPtrOutputWithContext(ctx context.Context) TopicTimeGranularityPtrOutput {
+	return TopicTimeGranularity(e).ToTopicTimeGranularityOutputWithContext(ctx).ToTopicTimeGranularityPtrOutputWithContext(ctx)
+}
+
+func (e TopicTimeGranularity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicTimeGranularity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicTimeGranularity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicTimeGranularity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicTimeGranularityOutput struct{ *pulumi.OutputState }
+
+func (TopicTimeGranularityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicTimeGranularity)(nil)).Elem()
+}
+
+func (o TopicTimeGranularityOutput) ToTopicTimeGranularityOutput() TopicTimeGranularityOutput {
+	return o
+}
+
+func (o TopicTimeGranularityOutput) ToTopicTimeGranularityOutputWithContext(ctx context.Context) TopicTimeGranularityOutput {
+	return o
+}
+
+func (o TopicTimeGranularityOutput) ToTopicTimeGranularityPtrOutput() TopicTimeGranularityPtrOutput {
+	return o.ToTopicTimeGranularityPtrOutputWithContext(context.Background())
+}
+
+func (o TopicTimeGranularityOutput) ToTopicTimeGranularityPtrOutputWithContext(ctx context.Context) TopicTimeGranularityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicTimeGranularity) *TopicTimeGranularity {
+		return &v
+	}).(TopicTimeGranularityPtrOutput)
+}
+
+func (o TopicTimeGranularityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicTimeGranularityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicTimeGranularity) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicTimeGranularityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicTimeGranularityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicTimeGranularity) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicTimeGranularityPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicTimeGranularityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicTimeGranularity)(nil)).Elem()
+}
+
+func (o TopicTimeGranularityPtrOutput) ToTopicTimeGranularityPtrOutput() TopicTimeGranularityPtrOutput {
+	return o
+}
+
+func (o TopicTimeGranularityPtrOutput) ToTopicTimeGranularityPtrOutputWithContext(ctx context.Context) TopicTimeGranularityPtrOutput {
+	return o
+}
+
+func (o TopicTimeGranularityPtrOutput) Elem() TopicTimeGranularityOutput {
+	return o.ApplyT(func(v *TopicTimeGranularity) TopicTimeGranularity {
+		if v != nil {
+			return *v
+		}
+		var ret TopicTimeGranularity
+		return ret
+	}).(TopicTimeGranularityOutput)
+}
+
+func (o TopicTimeGranularityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicTimeGranularityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicTimeGranularity) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicTimeGranularityInput is an input type that accepts TopicTimeGranularityArgs and TopicTimeGranularityOutput values.
+// You can construct a concrete instance of `TopicTimeGranularityInput` via:
+//
+//	TopicTimeGranularityArgs{...}
+type TopicTimeGranularityInput interface {
+	pulumi.Input
+
+	ToTopicTimeGranularityOutput() TopicTimeGranularityOutput
+	ToTopicTimeGranularityOutputWithContext(context.Context) TopicTimeGranularityOutput
+}
+
+var topicTimeGranularityPtrType = reflect.TypeOf((**TopicTimeGranularity)(nil)).Elem()
+
+type TopicTimeGranularityPtrInput interface {
+	pulumi.Input
+
+	ToTopicTimeGranularityPtrOutput() TopicTimeGranularityPtrOutput
+	ToTopicTimeGranularityPtrOutputWithContext(context.Context) TopicTimeGranularityPtrOutput
+}
+
+type topicTimeGranularityPtr string
+
+func TopicTimeGranularityPtr(v string) TopicTimeGranularityPtrInput {
+	return (*topicTimeGranularityPtr)(&v)
+}
+
+func (*topicTimeGranularityPtr) ElementType() reflect.Type {
+	return topicTimeGranularityPtrType
+}
+
+func (in *topicTimeGranularityPtr) ToTopicTimeGranularityPtrOutput() TopicTimeGranularityPtrOutput {
+	return pulumi.ToOutput(in).(TopicTimeGranularityPtrOutput)
+}
+
+func (in *topicTimeGranularityPtr) ToTopicTimeGranularityPtrOutputWithContext(ctx context.Context) TopicTimeGranularityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicTimeGranularityPtrOutput)
+}
+
+type TopicUndefinedSpecifiedValueType string
+
+const (
+	TopicUndefinedSpecifiedValueTypeLeast = TopicUndefinedSpecifiedValueType("LEAST")
+	TopicUndefinedSpecifiedValueTypeMost  = TopicUndefinedSpecifiedValueType("MOST")
+)
+
+func (TopicUndefinedSpecifiedValueType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicUndefinedSpecifiedValueType)(nil)).Elem()
+}
+
+func (e TopicUndefinedSpecifiedValueType) ToTopicUndefinedSpecifiedValueTypeOutput() TopicUndefinedSpecifiedValueTypeOutput {
+	return pulumi.ToOutput(e).(TopicUndefinedSpecifiedValueTypeOutput)
+}
+
+func (e TopicUndefinedSpecifiedValueType) ToTopicUndefinedSpecifiedValueTypeOutputWithContext(ctx context.Context) TopicUndefinedSpecifiedValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicUndefinedSpecifiedValueTypeOutput)
+}
+
+func (e TopicUndefinedSpecifiedValueType) ToTopicUndefinedSpecifiedValueTypePtrOutput() TopicUndefinedSpecifiedValueTypePtrOutput {
+	return e.ToTopicUndefinedSpecifiedValueTypePtrOutputWithContext(context.Background())
+}
+
+func (e TopicUndefinedSpecifiedValueType) ToTopicUndefinedSpecifiedValueTypePtrOutputWithContext(ctx context.Context) TopicUndefinedSpecifiedValueTypePtrOutput {
+	return TopicUndefinedSpecifiedValueType(e).ToTopicUndefinedSpecifiedValueTypeOutputWithContext(ctx).ToTopicUndefinedSpecifiedValueTypePtrOutputWithContext(ctx)
+}
+
+func (e TopicUndefinedSpecifiedValueType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicUndefinedSpecifiedValueType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TopicUndefinedSpecifiedValueType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TopicUndefinedSpecifiedValueType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TopicUndefinedSpecifiedValueTypeOutput struct{ *pulumi.OutputState }
+
+func (TopicUndefinedSpecifiedValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicUndefinedSpecifiedValueType)(nil)).Elem()
+}
+
+func (o TopicUndefinedSpecifiedValueTypeOutput) ToTopicUndefinedSpecifiedValueTypeOutput() TopicUndefinedSpecifiedValueTypeOutput {
+	return o
+}
+
+func (o TopicUndefinedSpecifiedValueTypeOutput) ToTopicUndefinedSpecifiedValueTypeOutputWithContext(ctx context.Context) TopicUndefinedSpecifiedValueTypeOutput {
+	return o
+}
+
+func (o TopicUndefinedSpecifiedValueTypeOutput) ToTopicUndefinedSpecifiedValueTypePtrOutput() TopicUndefinedSpecifiedValueTypePtrOutput {
+	return o.ToTopicUndefinedSpecifiedValueTypePtrOutputWithContext(context.Background())
+}
+
+func (o TopicUndefinedSpecifiedValueTypeOutput) ToTopicUndefinedSpecifiedValueTypePtrOutputWithContext(ctx context.Context) TopicUndefinedSpecifiedValueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicUndefinedSpecifiedValueType) *TopicUndefinedSpecifiedValueType {
+		return &v
+	}).(TopicUndefinedSpecifiedValueTypePtrOutput)
+}
+
+func (o TopicUndefinedSpecifiedValueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TopicUndefinedSpecifiedValueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicUndefinedSpecifiedValueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TopicUndefinedSpecifiedValueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicUndefinedSpecifiedValueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicUndefinedSpecifiedValueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicUndefinedSpecifiedValueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TopicUndefinedSpecifiedValueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicUndefinedSpecifiedValueType)(nil)).Elem()
+}
+
+func (o TopicUndefinedSpecifiedValueTypePtrOutput) ToTopicUndefinedSpecifiedValueTypePtrOutput() TopicUndefinedSpecifiedValueTypePtrOutput {
+	return o
+}
+
+func (o TopicUndefinedSpecifiedValueTypePtrOutput) ToTopicUndefinedSpecifiedValueTypePtrOutputWithContext(ctx context.Context) TopicUndefinedSpecifiedValueTypePtrOutput {
+	return o
+}
+
+func (o TopicUndefinedSpecifiedValueTypePtrOutput) Elem() TopicUndefinedSpecifiedValueTypeOutput {
+	return o.ApplyT(func(v *TopicUndefinedSpecifiedValueType) TopicUndefinedSpecifiedValueType {
+		if v != nil {
+			return *v
+		}
+		var ret TopicUndefinedSpecifiedValueType
+		return ret
+	}).(TopicUndefinedSpecifiedValueTypeOutput)
+}
+
+func (o TopicUndefinedSpecifiedValueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TopicUndefinedSpecifiedValueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicUndefinedSpecifiedValueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TopicUndefinedSpecifiedValueTypeInput is an input type that accepts TopicUndefinedSpecifiedValueTypeArgs and TopicUndefinedSpecifiedValueTypeOutput values.
+// You can construct a concrete instance of `TopicUndefinedSpecifiedValueTypeInput` via:
+//
+//	TopicUndefinedSpecifiedValueTypeArgs{...}
+type TopicUndefinedSpecifiedValueTypeInput interface {
+	pulumi.Input
+
+	ToTopicUndefinedSpecifiedValueTypeOutput() TopicUndefinedSpecifiedValueTypeOutput
+	ToTopicUndefinedSpecifiedValueTypeOutputWithContext(context.Context) TopicUndefinedSpecifiedValueTypeOutput
+}
+
+var topicUndefinedSpecifiedValueTypePtrType = reflect.TypeOf((**TopicUndefinedSpecifiedValueType)(nil)).Elem()
+
+type TopicUndefinedSpecifiedValueTypePtrInput interface {
+	pulumi.Input
+
+	ToTopicUndefinedSpecifiedValueTypePtrOutput() TopicUndefinedSpecifiedValueTypePtrOutput
+	ToTopicUndefinedSpecifiedValueTypePtrOutputWithContext(context.Context) TopicUndefinedSpecifiedValueTypePtrOutput
+}
+
+type topicUndefinedSpecifiedValueTypePtr string
+
+func TopicUndefinedSpecifiedValueTypePtr(v string) TopicUndefinedSpecifiedValueTypePtrInput {
+	return (*topicUndefinedSpecifiedValueTypePtr)(&v)
+}
+
+func (*topicUndefinedSpecifiedValueTypePtr) ElementType() reflect.Type {
+	return topicUndefinedSpecifiedValueTypePtrType
+}
+
+func (in *topicUndefinedSpecifiedValueTypePtr) ToTopicUndefinedSpecifiedValueTypePtrOutput() TopicUndefinedSpecifiedValueTypePtrOutput {
+	return pulumi.ToOutput(in).(TopicUndefinedSpecifiedValueTypePtrOutput)
+}
+
+func (in *topicUndefinedSpecifiedValueTypePtr) ToTopicUndefinedSpecifiedValueTypePtrOutputWithContext(ctx context.Context) TopicUndefinedSpecifiedValueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicUndefinedSpecifiedValueTypePtrOutput)
+}
+
 type VPCConnectionAvailabilityStatus string
 
 const (
@@ -52977,6 +56198,45 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudWordPaddingPtrInput)(nil)).Elem(), TemplateWordCloudWordPadding("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudWordScalingInput)(nil)).Elem(), TemplateWordCloudWordScaling("EMPHASIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudWordScalingPtrInput)(nil)).Elem(), TemplateWordCloudWordScaling("EMPHASIZE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicAuthorSpecifiedAggregationInput)(nil)).Elem(), TopicAuthorSpecifiedAggregation("COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicAuthorSpecifiedAggregationPtrInput)(nil)).Elem(), TopicAuthorSpecifiedAggregation("COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicAuthorSpecifiedAggregationArrayInput)(nil)).Elem(), TopicAuthorSpecifiedAggregationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCategoryFilterFunctionInput)(nil)).Elem(), TopicCategoryFilterFunction("EXACT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCategoryFilterFunctionPtrInput)(nil)).Elem(), TopicCategoryFilterFunction("EXACT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCategoryFilterTypeInput)(nil)).Elem(), TopicCategoryFilterType("CUSTOM_FILTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCategoryFilterTypePtrInput)(nil)).Elem(), TopicCategoryFilterType("CUSTOM_FILTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicColumnDataRoleInput)(nil)).Elem(), TopicColumnDataRole("DIMENSION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicColumnDataRolePtrInput)(nil)).Elem(), TopicColumnDataRole("DIMENSION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicColumnOrderingTypeInput)(nil)).Elem(), TopicColumnOrderingType("GREATER_IS_BETTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicColumnOrderingTypePtrInput)(nil)).Elem(), TopicColumnOrderingType("GREATER_IS_BETTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicConstantTypeInput)(nil)).Elem(), TopicConstantType("SINGULAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicConstantTypePtrInput)(nil)).Elem(), TopicConstantType("SINGULAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicDefaultAggregationInput)(nil)).Elem(), TopicDefaultAggregation("SUM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicDefaultAggregationPtrInput)(nil)).Elem(), TopicDefaultAggregation("SUM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicDisplayFormatInput)(nil)).Elem(), TopicDisplayFormat("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicDisplayFormatPtrInput)(nil)).Elem(), TopicDisplayFormat("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicFilterClassInput)(nil)).Elem(), TopicFilterClass("ENFORCED_VALUE_FILTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicFilterClassPtrInput)(nil)).Elem(), TopicFilterClass("ENFORCED_VALUE_FILTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicNamedEntityAggTypeInput)(nil)).Elem(), TopicNamedEntityAggType("SUM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicNamedEntityAggTypePtrInput)(nil)).Elem(), TopicNamedEntityAggType("SUM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicNamedFilterAggTypeInput)(nil)).Elem(), TopicNamedFilterAggType("NO_AGGREGATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicNamedFilterAggTypePtrInput)(nil)).Elem(), TopicNamedFilterAggType("NO_AGGREGATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicNamedFilterTypeInput)(nil)).Elem(), TopicNamedFilterType("CATEGORY_FILTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicNamedFilterTypePtrInput)(nil)).Elem(), TopicNamedFilterType("CATEGORY_FILTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicNumberScaleInput)(nil)).Elem(), TopicNumberScale("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicNumberScalePtrInput)(nil)).Elem(), TopicNumberScale("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicNumericSeparatorSymbolInput)(nil)).Elem(), TopicNumericSeparatorSymbol("COMMA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicNumericSeparatorSymbolPtrInput)(nil)).Elem(), TopicNumericSeparatorSymbol("COMMA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicPropertyRoleInput)(nil)).Elem(), TopicPropertyRole("PRIMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicPropertyRolePtrInput)(nil)).Elem(), TopicPropertyRole("PRIMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicPropertyUsageInput)(nil)).Elem(), TopicPropertyUsage("INHERIT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicPropertyUsagePtrInput)(nil)).Elem(), TopicPropertyUsage("INHERIT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRelativeDateFilterFunctionInput)(nil)).Elem(), TopicRelativeDateFilterFunction("PREVIOUS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRelativeDateFilterFunctionPtrInput)(nil)).Elem(), TopicRelativeDateFilterFunction("PREVIOUS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicTimeGranularityInput)(nil)).Elem(), TopicTimeGranularity("SECOND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicTimeGranularityPtrInput)(nil)).Elem(), TopicTimeGranularity("SECOND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicUndefinedSpecifiedValueTypeInput)(nil)).Elem(), TopicUndefinedSpecifiedValueType("LEAST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicUndefinedSpecifiedValueTypePtrInput)(nil)).Elem(), TopicUndefinedSpecifiedValueType("LEAST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionAvailabilityStatusInput)(nil)).Elem(), VPCConnectionAvailabilityStatus("AVAILABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionAvailabilityStatusPtrInput)(nil)).Elem(), VPCConnectionAvailabilityStatus("AVAILABLE"))
 	pulumi.RegisterOutputType(AnalysisAnchorOptionOutput{})
@@ -53617,6 +56877,45 @@ func init() {
 	pulumi.RegisterOutputType(ThemeResourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(ThemeTypeOutput{})
 	pulumi.RegisterOutputType(ThemeTypePtrOutput{})
+	pulumi.RegisterOutputType(TopicAuthorSpecifiedAggregationOutput{})
+	pulumi.RegisterOutputType(TopicAuthorSpecifiedAggregationPtrOutput{})
+	pulumi.RegisterOutputType(TopicAuthorSpecifiedAggregationArrayOutput{})
+	pulumi.RegisterOutputType(TopicCategoryFilterFunctionOutput{})
+	pulumi.RegisterOutputType(TopicCategoryFilterFunctionPtrOutput{})
+	pulumi.RegisterOutputType(TopicCategoryFilterTypeOutput{})
+	pulumi.RegisterOutputType(TopicCategoryFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(TopicColumnDataRoleOutput{})
+	pulumi.RegisterOutputType(TopicColumnDataRolePtrOutput{})
+	pulumi.RegisterOutputType(TopicColumnOrderingTypeOutput{})
+	pulumi.RegisterOutputType(TopicColumnOrderingTypePtrOutput{})
+	pulumi.RegisterOutputType(TopicConstantTypeOutput{})
+	pulumi.RegisterOutputType(TopicConstantTypePtrOutput{})
+	pulumi.RegisterOutputType(TopicDefaultAggregationOutput{})
+	pulumi.RegisterOutputType(TopicDefaultAggregationPtrOutput{})
+	pulumi.RegisterOutputType(TopicDisplayFormatOutput{})
+	pulumi.RegisterOutputType(TopicDisplayFormatPtrOutput{})
+	pulumi.RegisterOutputType(TopicFilterClassOutput{})
+	pulumi.RegisterOutputType(TopicFilterClassPtrOutput{})
+	pulumi.RegisterOutputType(TopicNamedEntityAggTypeOutput{})
+	pulumi.RegisterOutputType(TopicNamedEntityAggTypePtrOutput{})
+	pulumi.RegisterOutputType(TopicNamedFilterAggTypeOutput{})
+	pulumi.RegisterOutputType(TopicNamedFilterAggTypePtrOutput{})
+	pulumi.RegisterOutputType(TopicNamedFilterTypeOutput{})
+	pulumi.RegisterOutputType(TopicNamedFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(TopicNumberScaleOutput{})
+	pulumi.RegisterOutputType(TopicNumberScalePtrOutput{})
+	pulumi.RegisterOutputType(TopicNumericSeparatorSymbolOutput{})
+	pulumi.RegisterOutputType(TopicNumericSeparatorSymbolPtrOutput{})
+	pulumi.RegisterOutputType(TopicPropertyRoleOutput{})
+	pulumi.RegisterOutputType(TopicPropertyRolePtrOutput{})
+	pulumi.RegisterOutputType(TopicPropertyUsageOutput{})
+	pulumi.RegisterOutputType(TopicPropertyUsagePtrOutput{})
+	pulumi.RegisterOutputType(TopicRelativeDateFilterFunctionOutput{})
+	pulumi.RegisterOutputType(TopicRelativeDateFilterFunctionPtrOutput{})
+	pulumi.RegisterOutputType(TopicTimeGranularityOutput{})
+	pulumi.RegisterOutputType(TopicTimeGranularityPtrOutput{})
+	pulumi.RegisterOutputType(TopicUndefinedSpecifiedValueTypeOutput{})
+	pulumi.RegisterOutputType(TopicUndefinedSpecifiedValueTypePtrOutput{})
 	pulumi.RegisterOutputType(VPCConnectionAvailabilityStatusOutput{})
 	pulumi.RegisterOutputType(VPCConnectionAvailabilityStatusPtrOutput{})
 	pulumi.RegisterOutputType(VPCConnectionNetworkInterfaceStatusOutput{})

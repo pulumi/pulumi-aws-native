@@ -510,8 +510,8 @@ class FlowOutputVpcInterfaceAttachmentArgs:
 @pulumi.input_type
 class FlowSourceEncryptionArgs:
     def __init__(__self__, *,
-                 algorithm: pulumi.Input['FlowSourceEncryptionAlgorithm'],
                  role_arn: pulumi.Input[str],
+                 algorithm: Optional[pulumi.Input['FlowSourceEncryptionAlgorithm']] = None,
                  constant_initialization_vector: Optional[pulumi.Input[str]] = None,
                  device_id: Optional[pulumi.Input[str]] = None,
                  key_type: Optional[pulumi.Input['FlowSourceEncryptionKeyType']] = None,
@@ -521,8 +521,8 @@ class FlowSourceEncryptionArgs:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Information about the encryption of the flow.
-        :param pulumi.Input['FlowSourceEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param pulumi.Input[str] role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        :param pulumi.Input['FlowSourceEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param pulumi.Input[str] constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
         :param pulumi.Input[str] device_id: The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         :param pulumi.Input['FlowSourceEncryptionKeyType'] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -531,8 +531,9 @@ class FlowSourceEncryptionArgs:
         :param pulumi.Input[str] secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         :param pulumi.Input[str] url: The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
-        pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "role_arn", role_arn)
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
         if constant_initialization_vector is not None:
             pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if device_id is not None:
@@ -549,18 +550,6 @@ class FlowSourceEncryptionArgs:
             pulumi.set(__self__, "url", url)
 
     @property
-    @pulumi.getter
-    def algorithm(self) -> pulumi.Input['FlowSourceEncryptionAlgorithm']:
-        """
-        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-        """
-        return pulumi.get(self, "algorithm")
-
-    @algorithm.setter
-    def algorithm(self, value: pulumi.Input['FlowSourceEncryptionAlgorithm']):
-        pulumi.set(self, "algorithm", value)
-
-    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
@@ -571,6 +560,18 @@ class FlowSourceEncryptionArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional[pulumi.Input['FlowSourceEncryptionAlgorithm']]:
+        """
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: Optional[pulumi.Input['FlowSourceEncryptionAlgorithm']]):
+        pulumi.set(self, "algorithm", value)
 
     @property
     @pulumi.getter(name="constantInitializationVector")

@@ -21,15 +21,15 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// An optional string, which you can use to describe or define the tag.
+        /// String which you can use to describe or define the tag.
         /// </summary>
-        public readonly string? Value;
+        public readonly string Value;
 
         [OutputConstructor]
         private MetricStreamTag(
             string key,
 
-            string? value)
+            string value)
         {
             Key = key;
             Value = value;

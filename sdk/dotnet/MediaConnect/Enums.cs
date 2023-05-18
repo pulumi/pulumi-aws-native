@@ -371,6 +371,7 @@ namespace Pulumi.AwsNative.MediaConnect
 
         public static FlowSourceEncryptionKeyType Speke { get; } = new FlowSourceEncryptionKeyType("speke");
         public static FlowSourceEncryptionKeyType StaticKey { get; } = new FlowSourceEncryptionKeyType("static-key");
+        public static FlowSourceEncryptionKeyType SrtPassword { get; } = new FlowSourceEncryptionKeyType("srt-password");
 
         public static bool operator ==(FlowSourceEncryptionKeyType left, FlowSourceEncryptionKeyType right) => left.Equals(right);
         public static bool operator !=(FlowSourceEncryptionKeyType left, FlowSourceEncryptionKeyType right) => !left.Equals(right);

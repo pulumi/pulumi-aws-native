@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly ImmutableArray<Outputs.ModelCardEvaluationDetail> EvaluationDetails;
         public readonly Outputs.ModelCardIntendedUses? IntendedUses;
         public readonly Outputs.ModelCardModelOverview? ModelOverview;
+        public readonly Outputs.ModelCardModelPackageDetails? ModelPackageDetails;
         public readonly Outputs.ModelCardTrainingDetails? TrainingDetails;
 
         [OutputConstructor]
@@ -35,6 +36,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.ModelCardModelOverview? modelOverview,
 
+            Outputs.ModelCardModelPackageDetails? modelPackageDetails,
+
             Outputs.ModelCardTrainingDetails? trainingDetails)
         {
             AdditionalInformation = additionalInformation;
@@ -42,6 +45,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             EvaluationDetails = evaluationDetails;
             IntendedUses = intendedUses;
             ModelOverview = modelOverview;
+            ModelPackageDetails = modelPackageDetails;
             TrainingDetails = trainingDetails;
         }
     }

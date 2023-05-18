@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.EC2
         /// The count of resource discoveries associated with this IPAM.
         /// </summary>
         [Output("resourceDiscoveryAssociationCount")]
-        public Output<int?> ResourceDiscoveryAssociationCount { get; private set; } = null!;
+        public Output<int> ResourceDiscoveryAssociationCount { get; private set; } = null!;
 
         /// <summary>
         /// The number of scopes that currently exist in this IPAM.
@@ -149,12 +149,6 @@ namespace Pulumi.AwsNative.EC2
             get => _operatingRegions ?? (_operatingRegions = new InputList<Inputs.IPAMIpamOperatingRegionArgs>());
             set => _operatingRegions = value;
         }
-
-        /// <summary>
-        /// The count of resource discoveries associated with this IPAM.
-        /// </summary>
-        [Input("resourceDiscoveryAssociationCount")]
-        public Input<int>? ResourceDiscoveryAssociationCount { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.IPAMTagArgs>? _tags;

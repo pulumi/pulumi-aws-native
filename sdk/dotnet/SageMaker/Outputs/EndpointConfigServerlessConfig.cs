@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     {
         public readonly int MaxConcurrency;
         public readonly int MemorySizeInMB;
+        public readonly int? ProvisionedConcurrency;
 
         [OutputConstructor]
         private EndpointConfigServerlessConfig(
             int maxConcurrency,
 
-            int memorySizeInMB)
+            int memorySizeInMB,
+
+            int? provisionedConcurrency)
         {
             MaxConcurrency = maxConcurrency;
             MemorySizeInMB = memorySizeInMB;
+            ProvisionedConcurrency = provisionedConcurrency;
         }
     }
 }

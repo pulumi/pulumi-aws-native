@@ -248,6 +248,7 @@ export const RuleSendNotificationActionDeliveryMethod = {
 export type RuleSendNotificationActionDeliveryMethod = (typeof RuleSendNotificationActionDeliveryMethod)[keyof typeof RuleSendNotificationActionDeliveryMethod];
 
 export const RuleTriggerEventSourceEventSourceName = {
+    OnContactEvaluationSubmit: "OnContactEvaluationSubmit",
     OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
     OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",
     OnPostChatAnalysisAvailable: "OnPostChatAnalysisAvailable",

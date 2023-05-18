@@ -119,6 +119,8 @@ class CanaryCode(dict):
             suggest = "s3_key"
         elif key == "s3ObjectVersion":
             suggest = "s3_object_version"
+        elif key == "sourceLocationArn":
+            suggest = "source_location_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CanaryCode. Access the value via the '{suggest}' property getter instead.")
@@ -136,7 +138,8 @@ class CanaryCode(dict):
                  s3_bucket: Optional[str] = None,
                  s3_key: Optional[str] = None,
                  s3_object_version: Optional[str] = None,
-                 script: Optional[str] = None):
+                 script: Optional[str] = None,
+                 source_location_arn: Optional[str] = None):
         pulumi.set(__self__, "handler", handler)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -146,6 +149,8 @@ class CanaryCode(dict):
             pulumi.set(__self__, "s3_object_version", s3_object_version)
         if script is not None:
             pulumi.set(__self__, "script", script)
+        if source_location_arn is not None:
+            pulumi.set(__self__, "source_location_arn", source_location_arn)
 
     @property
     @pulumi.getter
@@ -171,6 +176,11 @@ class CanaryCode(dict):
     @pulumi.getter
     def script(self) -> Optional[str]:
         return pulumi.get(self, "script")
+
+    @property
+    @pulumi.getter(name="sourceLocationArn")
+    def source_location_arn(self) -> Optional[str]:
+        return pulumi.get(self, "source_location_arn")
 
 
 @pulumi.output_type

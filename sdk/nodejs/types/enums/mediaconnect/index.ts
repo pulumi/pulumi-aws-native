@@ -123,6 +123,7 @@ export type FlowSourceEncryptionAlgorithm = (typeof FlowSourceEncryptionAlgorith
 export const FlowSourceEncryptionKeyType = {
     Speke: "speke",
     StaticKey: "static-key",
+    SrtPassword: "srt-password",
 } as const;
 
 /**

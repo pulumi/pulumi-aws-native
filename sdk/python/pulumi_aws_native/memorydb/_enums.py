@@ -20,3 +20,4 @@ class UserAuthenticationModePropertiesType(str, Enum):
     Type of authentication strategy for this user.
     """
     PASSWORD = "password"
+    IAM = "iam"

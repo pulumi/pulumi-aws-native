@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.AppFlow
         /// </summary>
         public readonly string? FlowArn;
         /// <summary>
+        /// Flow activation status for Scheduled- and Event-triggered flows
+        /// </summary>
+        public readonly Pulumi.AwsNative.AppFlow.FlowStatus? FlowStatus;
+        /// <summary>
         /// Configurations of metadata catalog of the flow.
         /// </summary>
         public readonly Outputs.FlowMetadataCatalogConfig? MetadataCatalogConfig;
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.AppFlow
 
             string? flowArn,
 
+            Pulumi.AwsNative.AppFlow.FlowStatus? flowStatus,
+
             Outputs.FlowMetadataCatalogConfig? metadataCatalogConfig,
 
             Outputs.FlowSourceFlowConfig? sourceFlowConfig,
@@ -111,6 +117,7 @@ namespace Pulumi.AwsNative.AppFlow
             Description = description;
             DestinationFlowConfigList = destinationFlowConfigList;
             FlowArn = flowArn;
+            FlowStatus = flowStatus;
             MetadataCatalogConfig = metadataCatalogConfig;
             SourceFlowConfig = sourceFlowConfig;
             Tags = tags;

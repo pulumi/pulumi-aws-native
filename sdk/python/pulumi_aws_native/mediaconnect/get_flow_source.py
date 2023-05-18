@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowSourceResult:
-    def __init__(__self__, decryption=None, description=None, entitlement_arn=None, flow_arn=None, ingest_ip=None, ingest_port=None, max_bitrate=None, max_latency=None, protocol=None, source_arn=None, source_ingest_port=None, stream_id=None, vpc_interface_name=None, whitelist_cidr=None):
+    def __init__(__self__, decryption=None, description=None, entitlement_arn=None, flow_arn=None, ingest_ip=None, ingest_port=None, max_bitrate=None, max_latency=None, min_latency=None, protocol=None, sender_control_port=None, sender_ip_address=None, source_arn=None, source_ingest_port=None, source_listener_address=None, source_listener_port=None, stream_id=None, vpc_interface_name=None, whitelist_cidr=None):
         if decryption and not isinstance(decryption, dict):
             raise TypeError("Expected argument 'decryption' to be a dict")
         pulumi.set(__self__, "decryption", decryption)
@@ -45,15 +45,30 @@ class GetFlowSourceResult:
         if max_latency and not isinstance(max_latency, int):
             raise TypeError("Expected argument 'max_latency' to be a int")
         pulumi.set(__self__, "max_latency", max_latency)
+        if min_latency and not isinstance(min_latency, int):
+            raise TypeError("Expected argument 'min_latency' to be a int")
+        pulumi.set(__self__, "min_latency", min_latency)
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
         pulumi.set(__self__, "protocol", protocol)
+        if sender_control_port and not isinstance(sender_control_port, int):
+            raise TypeError("Expected argument 'sender_control_port' to be a int")
+        pulumi.set(__self__, "sender_control_port", sender_control_port)
+        if sender_ip_address and not isinstance(sender_ip_address, str):
+            raise TypeError("Expected argument 'sender_ip_address' to be a str")
+        pulumi.set(__self__, "sender_ip_address", sender_ip_address)
         if source_arn and not isinstance(source_arn, str):
             raise TypeError("Expected argument 'source_arn' to be a str")
         pulumi.set(__self__, "source_arn", source_arn)
         if source_ingest_port and not isinstance(source_ingest_port, str):
             raise TypeError("Expected argument 'source_ingest_port' to be a str")
         pulumi.set(__self__, "source_ingest_port", source_ingest_port)
+        if source_listener_address and not isinstance(source_listener_address, str):
+            raise TypeError("Expected argument 'source_listener_address' to be a str")
+        pulumi.set(__self__, "source_listener_address", source_listener_address)
+        if source_listener_port and not isinstance(source_listener_port, int):
+            raise TypeError("Expected argument 'source_listener_port' to be a int")
+        pulumi.set(__self__, "source_listener_port", source_listener_port)
         if stream_id and not isinstance(stream_id, str):
             raise TypeError("Expected argument 'stream_id' to be a str")
         pulumi.set(__self__, "stream_id", stream_id)
@@ -129,12 +144,36 @@ class GetFlowSourceResult:
         return pulumi.get(self, "max_latency")
 
     @property
+    @pulumi.getter(name="minLatency")
+    def min_latency(self) -> Optional[int]:
+        """
+        The minimum latency in milliseconds.
+        """
+        return pulumi.get(self, "min_latency")
+
+    @property
     @pulumi.getter
     def protocol(self) -> Optional['FlowSourceProtocol']:
         """
         The protocol that is used by the source.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="senderControlPort")
+    def sender_control_port(self) -> Optional[int]:
+        """
+        The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        return pulumi.get(self, "sender_control_port")
+
+    @property
+    @pulumi.getter(name="senderIpAddress")
+    def sender_ip_address(self) -> Optional[str]:
+        """
+        The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        return pulumi.get(self, "sender_ip_address")
 
     @property
     @pulumi.getter(name="sourceArn")
@@ -151,6 +190,22 @@ class GetFlowSourceResult:
         The port that the flow will be listening on for incoming content.(ReadOnly)
         """
         return pulumi.get(self, "source_ingest_port")
+
+    @property
+    @pulumi.getter(name="sourceListenerAddress")
+    def source_listener_address(self) -> Optional[str]:
+        """
+        Source IP or domain name for SRT-caller protocol.
+        """
+        return pulumi.get(self, "source_listener_address")
+
+    @property
+    @pulumi.getter(name="sourceListenerPort")
+    def source_listener_port(self) -> Optional[int]:
+        """
+        Source port for SRT-caller protocol.
+        """
+        return pulumi.get(self, "source_listener_port")
 
     @property
     @pulumi.getter(name="streamId")
@@ -191,9 +246,14 @@ class AwaitableGetFlowSourceResult(GetFlowSourceResult):
             ingest_port=self.ingest_port,
             max_bitrate=self.max_bitrate,
             max_latency=self.max_latency,
+            min_latency=self.min_latency,
             protocol=self.protocol,
+            sender_control_port=self.sender_control_port,
+            sender_ip_address=self.sender_ip_address,
             source_arn=self.source_arn,
             source_ingest_port=self.source_ingest_port,
+            source_listener_address=self.source_listener_address,
+            source_listener_port=self.source_listener_port,
             stream_id=self.stream_id,
             vpc_interface_name=self.vpc_interface_name,
             whitelist_cidr=self.whitelist_cidr)
@@ -221,9 +281,14 @@ def get_flow_source(source_arn: Optional[str] = None,
         ingest_port=__ret__.ingest_port,
         max_bitrate=__ret__.max_bitrate,
         max_latency=__ret__.max_latency,
+        min_latency=__ret__.min_latency,
         protocol=__ret__.protocol,
+        sender_control_port=__ret__.sender_control_port,
+        sender_ip_address=__ret__.sender_ip_address,
         source_arn=__ret__.source_arn,
         source_ingest_port=__ret__.source_ingest_port,
+        source_listener_address=__ret__.source_listener_address,
+        source_listener_port=__ret__.source_listener_port,
         stream_id=__ret__.stream_id,
         vpc_interface_name=__ret__.vpc_interface_name,
         whitelist_cidr=__ret__.whitelist_cidr)

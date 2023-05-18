@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::SubnetCidrBlock
- *
- * @deprecated SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
  */
 export class SubnetCidrBlock extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SubnetCidrBlock {
-        pulumi.log.warn("SubnetCidrBlock is deprecated: SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new SubnetCidrBlock(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,7 +34,13 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetCidrBlock.__pulumiType;
     }
 
+    /**
+     * The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
+     */
     public readonly ipv6CidrBlock!: pulumi.Output<string>;
+    /**
+     * The ID of the subnet
+     */
     public readonly subnetId!: pulumi.Output<string>;
 
     /**
@@ -47,9 +50,7 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SubnetCidrBlockArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SubnetCidrBlock is deprecated: SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -74,6 +75,12 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
  * The set of arguments for constructing a SubnetCidrBlock resource.
  */
 export interface SubnetCidrBlockArgs {
+    /**
+     * The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
+     */
     ipv6CidrBlock: pulumi.Input<string>;
+    /**
+     * The ID of the subnet
+     */
     subnetId: pulumi.Input<string>;
 }

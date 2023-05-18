@@ -25,6 +25,7 @@ class ReplicationGroupArgs:
                  cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 cluster_mode: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_address: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_port: Optional[pulumi.Input[str]] = None,
                  data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
@@ -84,6 +85,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "cache_security_group_names", cache_security_group_names)
         if cache_subnet_group_name is not None:
             pulumi.set(__self__, "cache_subnet_group_name", cache_subnet_group_name)
+        if cluster_mode is not None:
+            pulumi.set(__self__, "cluster_mode", cluster_mode)
         if configuration_end_point_address is not None:
             pulumi.set(__self__, "configuration_end_point_address", configuration_end_point_address)
         if configuration_end_point_port is not None:
@@ -243,6 +246,15 @@ class ReplicationGroupArgs:
     @cache_subnet_group_name.setter
     def cache_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cache_subnet_group_name", value)
+
+    @property
+    @pulumi.getter(name="clusterMode")
+    def cluster_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cluster_mode")
+
+    @cluster_mode.setter
+    def cluster_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_mode", value)
 
     @property
     @pulumi.getter(name="configurationEndPointAddress")
@@ -614,6 +626,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 cluster_mode: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_address: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_port: Optional[pulumi.Input[str]] = None,
                  data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
@@ -693,6 +706,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 cluster_mode: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_address: Optional[pulumi.Input[str]] = None,
                  configuration_end_point_port: Optional[pulumi.Input[str]] = None,
                  data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
@@ -751,6 +765,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["cache_parameter_group_name"] = cache_parameter_group_name
             __props__.__dict__["cache_security_group_names"] = cache_security_group_names
             __props__.__dict__["cache_subnet_group_name"] = cache_subnet_group_name
+            __props__.__dict__["cluster_mode"] = cluster_mode
             __props__.__dict__["configuration_end_point_address"] = configuration_end_point_address
             __props__.__dict__["configuration_end_point_port"] = configuration_end_point_port
             __props__.__dict__["data_tiering_enabled"] = data_tiering_enabled
@@ -823,6 +838,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["cache_parameter_group_name"] = None
         __props__.__dict__["cache_security_group_names"] = None
         __props__.__dict__["cache_subnet_group_name"] = None
+        __props__.__dict__["cluster_mode"] = None
         __props__.__dict__["configuration_end_point_address"] = None
         __props__.__dict__["configuration_end_point_port"] = None
         __props__.__dict__["data_tiering_enabled"] = None
@@ -904,6 +920,11 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="cacheSubnetGroupName")
     def cache_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "cache_subnet_group_name")
+
+    @property
+    @pulumi.getter(name="clusterMode")
+    def cluster_mode(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "cluster_mode")
 
     @property
     @pulumi.getter(name="configurationEndPointAddress")

@@ -32,6 +32,8 @@ type LookupFlowResult struct {
 	DestinationFlowConfigList []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigList"`
 	// ARN identifier of the flow.
 	FlowArn *string `pulumi:"flowArn"`
+	// Flow activation status for Scheduled- and Event-triggered flows
+	FlowStatus *FlowStatus `pulumi:"flowStatus"`
 	// Configurations of metadata catalog of the flow.
 	MetadataCatalogConfig *FlowMetadataCatalogConfig `pulumi:"metadataCatalogConfig"`
 	// Configurations of Source connector of the flow.
@@ -93,6 +95,11 @@ func (o LookupFlowResultOutput) DestinationFlowConfigList() FlowDestinationFlowC
 // ARN identifier of the flow.
 func (o LookupFlowResultOutput) FlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *string { return v.FlowArn }).(pulumi.StringPtrOutput)
+}
+
+// Flow activation status for Scheduled- and Event-triggered flows
+func (o LookupFlowResultOutput) FlowStatus() FlowStatusPtrOutput {
+	return o.ApplyT(func(v LookupFlowResult) *FlowStatus { return v.FlowStatus }).(FlowStatusPtrOutput)
 }
 
 // Configurations of metadata catalog of the flow.

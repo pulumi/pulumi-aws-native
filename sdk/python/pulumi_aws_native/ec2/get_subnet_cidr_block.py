@@ -26,6 +26,9 @@ class GetSubnetCidrBlockResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        Information about the IPv6 association.
+        """
         return pulumi.get(self, "id")
 
 
@@ -41,7 +44,10 @@ class AwaitableGetSubnetCidrBlockResult(GetSubnetCidrBlockResult):
 def get_subnet_cidr_block(id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetCidrBlockResult:
     """
-    Resource Type definition for AWS::EC2::SubnetCidrBlock
+    The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
+
+
+    :param str id: Information about the IPv6 association.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -56,6 +62,9 @@ def get_subnet_cidr_block(id: Optional[str] = None,
 def get_subnet_cidr_block_output(id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetCidrBlockResult]:
     """
-    Resource Type definition for AWS::EC2::SubnetCidrBlock
+    The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
+
+
+    :param str id: Information about the IPv6 association.
     """
     ...

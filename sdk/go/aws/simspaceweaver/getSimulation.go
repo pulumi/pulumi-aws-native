@@ -28,9 +28,6 @@ type LookupSimulationArgs struct {
 type LookupSimulationResult struct {
 	// Json object with all simulation details
 	DescribePayload *string `pulumi:"describePayload"`
-	// Role ARN.
-	RoleArn          *string               `pulumi:"roleArn"`
-	SchemaS3Location *SimulationS3Location `pulumi:"schemaS3Location"`
 }
 
 func LookupSimulationOutput(ctx *pulumi.Context, args LookupSimulationOutputArgs, opts ...pulumi.InvokeOption) LookupSimulationResultOutput {
@@ -72,15 +69,6 @@ func (o LookupSimulationResultOutput) ToLookupSimulationResultOutputWithContext(
 // Json object with all simulation details
 func (o LookupSimulationResultOutput) DescribePayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSimulationResult) *string { return v.DescribePayload }).(pulumi.StringPtrOutput)
-}
-
-// Role ARN.
-func (o LookupSimulationResultOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSimulationResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupSimulationResultOutput) SchemaS3Location() SimulationS3LocationPtrOutput {
-	return o.ApplyT(func(v LookupSimulationResult) *SimulationS3Location { return v.SchemaS3Location }).(SimulationS3LocationPtrOutput)
 }
 
 func init() {

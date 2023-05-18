@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.EC2
     public static class GetSubnetCidrBlock
     {
         /// <summary>
-        /// Resource Type definition for AWS::EC2::SubnetCidrBlock
+        /// The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
         /// </summary>
         public static Task<GetSubnetCidrBlockResult> InvokeAsync(GetSubnetCidrBlockArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetCidrBlockResult>("aws-native:ec2:getSubnetCidrBlock", args ?? new GetSubnetCidrBlockArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EC2::SubnetCidrBlock
+        /// The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
         /// </summary>
         public static Output<GetSubnetCidrBlockResult> Invoke(GetSubnetCidrBlockInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetCidrBlockResult>("aws-native:ec2:getSubnetCidrBlock", args ?? new GetSubnetCidrBlockInvokeArgs(), options.WithDefaults());
@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetSubnetCidrBlockArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Information about the IPv6 association.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetSubnetCidrBlockInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Information about the IPv6 association.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.EC2
     [OutputType]
     public sealed class GetSubnetCidrBlockResult
     {
+        /// <summary>
+        /// Information about the IPv6 association.
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

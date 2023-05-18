@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::SubnetCidrBlock
+ * The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
  */
 export function getSubnetCidrBlock(args: GetSubnetCidrBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetCidrBlockResult> {
 
@@ -16,19 +16,28 @@ export function getSubnetCidrBlock(args: GetSubnetCidrBlockArgs, opts?: pulumi.I
 }
 
 export interface GetSubnetCidrBlockArgs {
+    /**
+     * Information about the IPv6 association.
+     */
     id: string;
 }
 
 export interface GetSubnetCidrBlockResult {
+    /**
+     * Information about the IPv6 association.
+     */
     readonly id?: string;
 }
 /**
- * Resource Type definition for AWS::EC2::SubnetCidrBlock
+ * The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
  */
 export function getSubnetCidrBlockOutput(args: GetSubnetCidrBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetCidrBlockResult> {
     return pulumi.output(args).apply((a: any) => getSubnetCidrBlock(a, opts))
 }
 
 export interface GetSubnetCidrBlockOutputArgs {
+    /**
+     * Information about the IPv6 association.
+     */
     id: pulumi.Input<string>;
 }

@@ -70,10 +70,6 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         public readonly Outputs.CanaryCode? Code;
         /// <summary>
-        /// Deletes associated lambda resources created by Synthetics if set to True. Default is False
-        /// </summary>
-        public readonly bool? DeleteLambdaResourcesOnCanaryDeletion;
-        /// <summary>
         /// Lambda Execution role used to run your canaries
         /// </summary>
         public readonly string? ExecutionRoleArn;
@@ -98,10 +94,6 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         public readonly Outputs.CanarySchedule? Schedule;
         /// <summary>
-        /// Runs canary if set to True. Default is False
-        /// </summary>
-        public readonly bool? StartCanaryAfterCreation;
-        /// <summary>
         /// State of the canary
         /// </summary>
         public readonly string? State;
@@ -114,10 +106,6 @@ namespace Pulumi.AwsNative.Synthetics
         /// Provide VPC Configuration if enabled.
         /// </summary>
         public readonly Outputs.CanaryVPCConfig? VPCConfig;
-        /// <summary>
-        /// Visual reference configuration for visual testing
-        /// </summary>
-        public readonly Outputs.CanaryVisualReference? VisualReference;
 
         [OutputConstructor]
         private GetCanaryResult(
@@ -126,8 +114,6 @@ namespace Pulumi.AwsNative.Synthetics
             string? artifactS3Location,
 
             Outputs.CanaryCode? code,
-
-            bool? deleteLambdaResourcesOnCanaryDeletion,
 
             string? executionRoleArn,
 
@@ -141,34 +127,27 @@ namespace Pulumi.AwsNative.Synthetics
 
             Outputs.CanarySchedule? schedule,
 
-            bool? startCanaryAfterCreation,
-
             string? state,
 
             int? successRetentionPeriod,
 
             ImmutableArray<Outputs.CanaryTag> tags,
 
-            Outputs.CanaryVPCConfig? vPCConfig,
-
-            Outputs.CanaryVisualReference? visualReference)
+            Outputs.CanaryVPCConfig? vPCConfig)
         {
             ArtifactConfig = artifactConfig;
             ArtifactS3Location = artifactS3Location;
             Code = code;
-            DeleteLambdaResourcesOnCanaryDeletion = deleteLambdaResourcesOnCanaryDeletion;
             ExecutionRoleArn = executionRoleArn;
             FailureRetentionPeriod = failureRetentionPeriod;
             Id = id;
             RunConfig = runConfig;
             RuntimeVersion = runtimeVersion;
             Schedule = schedule;
-            StartCanaryAfterCreation = startCanaryAfterCreation;
             State = state;
             SuccessRetentionPeriod = successRetentionPeriod;
             Tags = tags;
             VPCConfig = vPCConfig;
-            VisualReference = visualReference;
         }
     }
 }

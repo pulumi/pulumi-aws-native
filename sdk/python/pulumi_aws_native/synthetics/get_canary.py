@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCanaryResult:
-    def __init__(__self__, artifact_config=None, artifact_s3_location=None, code=None, delete_lambda_resources_on_canary_deletion=None, execution_role_arn=None, failure_retention_period=None, id=None, run_config=None, runtime_version=None, schedule=None, start_canary_after_creation=None, state=None, success_retention_period=None, tags=None, v_pc_config=None, visual_reference=None):
+    def __init__(__self__, artifact_config=None, artifact_s3_location=None, code=None, execution_role_arn=None, failure_retention_period=None, id=None, run_config=None, runtime_version=None, schedule=None, state=None, success_retention_period=None, tags=None, v_pc_config=None):
         if artifact_config and not isinstance(artifact_config, dict):
             raise TypeError("Expected argument 'artifact_config' to be a dict")
         pulumi.set(__self__, "artifact_config", artifact_config)
@@ -29,9 +29,6 @@ class GetCanaryResult:
         if code and not isinstance(code, dict):
             raise TypeError("Expected argument 'code' to be a dict")
         pulumi.set(__self__, "code", code)
-        if delete_lambda_resources_on_canary_deletion and not isinstance(delete_lambda_resources_on_canary_deletion, bool):
-            raise TypeError("Expected argument 'delete_lambda_resources_on_canary_deletion' to be a bool")
-        pulumi.set(__self__, "delete_lambda_resources_on_canary_deletion", delete_lambda_resources_on_canary_deletion)
         if execution_role_arn and not isinstance(execution_role_arn, str):
             raise TypeError("Expected argument 'execution_role_arn' to be a str")
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -50,9 +47,6 @@ class GetCanaryResult:
         if schedule and not isinstance(schedule, dict):
             raise TypeError("Expected argument 'schedule' to be a dict")
         pulumi.set(__self__, "schedule", schedule)
-        if start_canary_after_creation and not isinstance(start_canary_after_creation, bool):
-            raise TypeError("Expected argument 'start_canary_after_creation' to be a bool")
-        pulumi.set(__self__, "start_canary_after_creation", start_canary_after_creation)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -65,9 +59,6 @@ class GetCanaryResult:
         if v_pc_config and not isinstance(v_pc_config, dict):
             raise TypeError("Expected argument 'v_pc_config' to be a dict")
         pulumi.set(__self__, "v_pc_config", v_pc_config)
-        if visual_reference and not isinstance(visual_reference, dict):
-            raise TypeError("Expected argument 'visual_reference' to be a dict")
-        pulumi.set(__self__, "visual_reference", visual_reference)
 
     @property
     @pulumi.getter(name="artifactConfig")
@@ -92,14 +83,6 @@ class GetCanaryResult:
         Provide the canary script source
         """
         return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter(name="deleteLambdaResourcesOnCanaryDeletion")
-    def delete_lambda_resources_on_canary_deletion(self) -> Optional[bool]:
-        """
-        Deletes associated lambda resources created by Synthetics if set to True. Default is False
-        """
-        return pulumi.get(self, "delete_lambda_resources_on_canary_deletion")
 
     @property
     @pulumi.getter(name="executionRoleArn")
@@ -150,14 +133,6 @@ class GetCanaryResult:
         return pulumi.get(self, "schedule")
 
     @property
-    @pulumi.getter(name="startCanaryAfterCreation")
-    def start_canary_after_creation(self) -> Optional[bool]:
-        """
-        Runs canary if set to True. Default is False
-        """
-        return pulumi.get(self, "start_canary_after_creation")
-
-    @property
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
@@ -186,14 +161,6 @@ class GetCanaryResult:
         """
         return pulumi.get(self, "v_pc_config")
 
-    @property
-    @pulumi.getter(name="visualReference")
-    def visual_reference(self) -> Optional['outputs.CanaryVisualReference']:
-        """
-        Visual reference configuration for visual testing
-        """
-        return pulumi.get(self, "visual_reference")
-
 
 class AwaitableGetCanaryResult(GetCanaryResult):
     # pylint: disable=using-constant-test
@@ -204,19 +171,16 @@ class AwaitableGetCanaryResult(GetCanaryResult):
             artifact_config=self.artifact_config,
             artifact_s3_location=self.artifact_s3_location,
             code=self.code,
-            delete_lambda_resources_on_canary_deletion=self.delete_lambda_resources_on_canary_deletion,
             execution_role_arn=self.execution_role_arn,
             failure_retention_period=self.failure_retention_period,
             id=self.id,
             run_config=self.run_config,
             runtime_version=self.runtime_version,
             schedule=self.schedule,
-            start_canary_after_creation=self.start_canary_after_creation,
             state=self.state,
             success_retention_period=self.success_retention_period,
             tags=self.tags,
-            v_pc_config=self.v_pc_config,
-            visual_reference=self.visual_reference)
+            v_pc_config=self.v_pc_config)
 
 
 def get_canary(name: Optional[str] = None,
@@ -236,19 +200,16 @@ def get_canary(name: Optional[str] = None,
         artifact_config=__ret__.artifact_config,
         artifact_s3_location=__ret__.artifact_s3_location,
         code=__ret__.code,
-        delete_lambda_resources_on_canary_deletion=__ret__.delete_lambda_resources_on_canary_deletion,
         execution_role_arn=__ret__.execution_role_arn,
         failure_retention_period=__ret__.failure_retention_period,
         id=__ret__.id,
         run_config=__ret__.run_config,
         runtime_version=__ret__.runtime_version,
         schedule=__ret__.schedule,
-        start_canary_after_creation=__ret__.start_canary_after_creation,
         state=__ret__.state,
         success_retention_period=__ret__.success_retention_period,
         tags=__ret__.tags,
-        v_pc_config=__ret__.v_pc_config,
-        visual_reference=__ret__.visual_reference)
+        v_pc_config=__ret__.v_pc_config)
 
 
 @_utilities.lift_output_func(get_canary)
