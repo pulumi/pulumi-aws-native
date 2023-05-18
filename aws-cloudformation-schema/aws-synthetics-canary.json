@@ -109,6 +109,9 @@
         },
         "Handler" : {
           "type" : "string"
+        },
+        "SourceLocationArn" : {
+          "type" : "string"
         }
       },
       "required" : [ "Handler" ],
@@ -249,7 +252,7 @@
       }
     }
   },
-  "required" : [ "Name", "Code", "ArtifactS3Location", "ExecutionRoleArn", "Schedule", "RuntimeVersion", "StartCanaryAfterCreation" ],
+  "required" : [ "Name", "Code", "ArtifactS3Location", "ExecutionRoleArn", "Schedule", "RuntimeVersion" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "synthetics:CreateCanary", "synthetics:StartCanary", "s3:CreateBucket", "s3:GetObject", "s3:GetObjectVersion", "s3:PutBucketEncryption", "s3:PutEncryptionConfiguration", "lambda:CreateFunction", "lambda:AddPermission", "lambda:PublishVersion", "lambda:UpdateFunctionConfiguration", "lambda:GetFunctionConfiguration", "lambda:GetLayerVersionByArn", "lambda:GetLayerVersion", "lambda:PublishLayerVersion", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "iam:PassRole" ]
@@ -271,5 +274,6 @@
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/State", "/properties/Code/SourceLocationArn" ],
-  "writeOnlyProperties" : [ "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/Script" ]
+  "writeOnlyProperties" : [ "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/Script", "/properties/DeleteLambdaResourcesOnCanaryDeletion", "/properties/StartCanaryAfterCreation", "/properties/RunConfig/EnvironmentVariables", "/properties/VisualReference" ],
+  "deprecatedProperties" : [ "/properties/DeleteLambdaResourcesOnCanaryDeletion" ]
 }

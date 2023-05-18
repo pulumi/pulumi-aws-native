@@ -447,6 +447,14 @@
         "ClientCredentialsArn" : {
           "description" : "The client credentials to fetch access token and refresh token.",
           "$ref" : "#/definitions/ClientCredentialsArn"
+        },
+        "OAuth2GrantType" : {
+          "description" : "The grant types to fetch an access token",
+          "$ref" : "#/definitions/OAuth2GrantType"
+        },
+        "JwtToken" : {
+          "description" : "The credentials used to access your Salesforce records",
+          "$ref" : "#/definitions/JwtToken"
         }
       }
     },
@@ -834,7 +842,7 @@
     },
     "OAuth2GrantType" : {
       "type" : "string",
-      "enum" : [ "CLIENT_CREDENTIALS", "AUTHORIZATION_CODE" ]
+      "enum" : [ "CLIENT_CREDENTIALS", "AUTHORIZATION_CODE", "JWT_BEARER" ]
     },
     "TokenUrlCustomProperties" : {
       "description" : "A map for properties for custom connector Token Url.",
@@ -965,6 +973,11 @@
       "type" : "string",
       "pattern" : "\\S+",
       "maxLength" : 512
+    },
+    "JwtToken" : {
+      "type" : "string",
+      "pattern" : "^[A-Za-z0-9-_=]+\\.[A-Za-z0-9-_=]+\\.[A-Za-z0-9-_.+/=]*$",
+      "maxLength" : 8000
     },
     "RefreshToken" : {
       "type" : "string",
