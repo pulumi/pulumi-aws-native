@@ -687,6 +687,9 @@ AWS::ServiceCatalogAppRegistry::Application
 AWS::ServiceCatalogAppRegistry::AttributeGroup
 AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation
 AWS::ServiceCatalogAppRegistry::ResourceAssociation
+AWS::Shield::DRTAccess
+AWS::Shield::ProactiveEngagement
+AWS::Shield::ProtectionGroup
 AWS::Signer::ProfilePermission
 AWS::Signer::SigningProfile
 AWS::SimSpaceWeaver::Simulation
