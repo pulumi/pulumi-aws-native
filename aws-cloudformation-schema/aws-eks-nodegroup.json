@@ -208,7 +208,13 @@
     }
   },
   "additionalProperties" : false,
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "required" : [ "ClusterName", "NodeRole", "Subnets" ],
   "createOnlyProperties" : [ "/properties/CapacityType", "/properties/NodegroupName", "/properties/RemoteAccess", "/properties/NodeRole", "/properties/ClusterName", "/properties/InstanceTypes", "/properties/DiskSize", "/properties/AmiType", "/properties/Subnets" ],
   "writeOnlyProperties" : [ "/properties/ForceUpdateEnabled" ],

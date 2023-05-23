@@ -54,6 +54,7 @@
     "Tags" : {
       "description" : "Tags for the attachment.",
       "type" : "array",
+      "uniqueItems" : true,
       "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
@@ -101,7 +102,6 @@
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",
       "type" : "object",
-      "insertionOrder" : false,
       "properties" : {
         "Key" : {
           "type" : "string",
@@ -122,6 +122,7 @@
         "Tags" : {
           "description" : "The key-value tags that changed for the segment.",
           "type" : "array",
+          "uniqueItems" : true,
           "insertionOrder" : false,
           "items" : {
             "$ref" : "#/definitions/Tag"
@@ -143,16 +144,18 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
   },
   "additionalProperties" : false,
   "required" : [ "CoreNetworkId", "VpcArn", "SubnetArns" ],
   "createOnlyProperties" : [ "/properties/CoreNetworkId", "/properties/VpcArn" ],
-  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/ProposedSegmentChange", "/properties/SegmentName", "/properties/ResourceArn" ],
+  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/ResourceArn" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
+  "additionalIdentifiers" : [ [ "/properties/CoreNetworkId", "/properties/VpcArn" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "networkmanager:CreateVpcAttachment", "networkmanager:GetVpcAttachment", "networkmanager:TagResource", "ec2:DescribeRegions", "iam:CreateServiceLinkedRole" ],
+      "permissions" : [ "networkmanager:CreateVpcAttachment", "networkmanager:GetVpcAttachment", "ec2:DescribeRegions", "iam:CreateServiceLinkedRole" ],
       "timeoutInMinutes" : 60
     },
     "read" : {
