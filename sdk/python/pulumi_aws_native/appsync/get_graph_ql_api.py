@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGraphQLApiResult:
-    def __init__(__self__, additional_authentication_providers=None, api_id=None, arn=None, authentication_type=None, graph_ql_dns=None, graph_ql_url=None, id=None, lambda_authorizer_config=None, log_config=None, name=None, open_id_connect_config=None, realtime_dns=None, realtime_url=None, tags=None, user_pool_config=None, xray_enabled=None):
+    def __init__(__self__, additional_authentication_providers=None, api_id=None, arn=None, authentication_type=None, graph_ql_dns=None, graph_ql_url=None, id=None, lambda_authorizer_config=None, log_config=None, merged_api_execution_role_arn=None, name=None, open_id_connect_config=None, owner_contact=None, realtime_dns=None, realtime_url=None, tags=None, user_pool_config=None, xray_enabled=None):
         if additional_authentication_providers and not isinstance(additional_authentication_providers, list):
             raise TypeError("Expected argument 'additional_authentication_providers' to be a list")
         pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
@@ -47,12 +47,18 @@ class GetGraphQLApiResult:
         if log_config and not isinstance(log_config, dict):
             raise TypeError("Expected argument 'log_config' to be a dict")
         pulumi.set(__self__, "log_config", log_config)
+        if merged_api_execution_role_arn and not isinstance(merged_api_execution_role_arn, str):
+            raise TypeError("Expected argument 'merged_api_execution_role_arn' to be a str")
+        pulumi.set(__self__, "merged_api_execution_role_arn", merged_api_execution_role_arn)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if open_id_connect_config and not isinstance(open_id_connect_config, dict):
             raise TypeError("Expected argument 'open_id_connect_config' to be a dict")
         pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
+        if owner_contact and not isinstance(owner_contact, str):
+            raise TypeError("Expected argument 'owner_contact' to be a str")
+        pulumi.set(__self__, "owner_contact", owner_contact)
         if realtime_dns and not isinstance(realtime_dns, str):
             raise TypeError("Expected argument 'realtime_dns' to be a str")
         pulumi.set(__self__, "realtime_dns", realtime_dns)
@@ -115,6 +121,11 @@ class GetGraphQLApiResult:
         return pulumi.get(self, "log_config")
 
     @property
+    @pulumi.getter(name="mergedApiExecutionRoleArn")
+    def merged_api_execution_role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "merged_api_execution_role_arn")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
@@ -123,6 +134,11 @@ class GetGraphQLApiResult:
     @pulumi.getter(name="openIDConnectConfig")
     def open_id_connect_config(self) -> Optional['outputs.GraphQLApiOpenIDConnectConfig']:
         return pulumi.get(self, "open_id_connect_config")
+
+    @property
+    @pulumi.getter(name="ownerContact")
+    def owner_contact(self) -> Optional[str]:
+        return pulumi.get(self, "owner_contact")
 
     @property
     @pulumi.getter(name="realtimeDns")
@@ -165,8 +181,10 @@ class AwaitableGetGraphQLApiResult(GetGraphQLApiResult):
             id=self.id,
             lambda_authorizer_config=self.lambda_authorizer_config,
             log_config=self.log_config,
+            merged_api_execution_role_arn=self.merged_api_execution_role_arn,
             name=self.name,
             open_id_connect_config=self.open_id_connect_config,
+            owner_contact=self.owner_contact,
             realtime_dns=self.realtime_dns,
             realtime_url=self.realtime_url,
             tags=self.tags,
@@ -194,8 +212,10 @@ def get_graph_ql_api(id: Optional[str] = None,
         id=__ret__.id,
         lambda_authorizer_config=__ret__.lambda_authorizer_config,
         log_config=__ret__.log_config,
+        merged_api_execution_role_arn=__ret__.merged_api_execution_role_arn,
         name=__ret__.name,
         open_id_connect_config=__ret__.open_id_connect_config,
+        owner_contact=__ret__.owner_contact,
         realtime_dns=__ret__.realtime_dns,
         realtime_url=__ret__.realtime_url,
         tags=__ret__.tags,

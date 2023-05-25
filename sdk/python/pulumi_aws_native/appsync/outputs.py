@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'DataSourceAuthorizationConfig',
@@ -37,6 +38,7 @@ __all__ = [
     'ResolverLambdaConflictHandlerConfig',
     'ResolverPipelineConfig',
     'ResolverSyncConfig',
+    'SourceApiAssociationConfig',
 ]
 
 @pulumi.output_type
@@ -1126,5 +1128,41 @@ class ResolverSyncConfig(dict):
     @pulumi.getter(name="lambdaConflictHandlerConfig")
     def lambda_conflict_handler_config(self) -> Optional['outputs.ResolverLambdaConflictHandlerConfig']:
         return pulumi.get(self, "lambda_conflict_handler_config")
+
+
+@pulumi.output_type
+class SourceApiAssociationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mergeType":
+            suggest = "merge_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceApiAssociationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceApiAssociationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceApiAssociationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 merge_type: Optional['SourceApiAssociationConfigMergeType'] = None):
+        """
+        :param 'SourceApiAssociationConfigMergeType' merge_type: Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
+        """
+        if merge_type is not None:
+            pulumi.set(__self__, "merge_type", merge_type)
+
+    @property
+    @pulumi.getter(name="mergeType")
+    def merge_type(self) -> Optional['SourceApiAssociationConfigMergeType']:
+        """
+        Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
+        """
+        return pulumi.get(self, "merge_type")
 
 

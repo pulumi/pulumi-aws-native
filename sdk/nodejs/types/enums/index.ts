@@ -8,6 +8,7 @@ import * as apigateway from "./apigateway";
 import * as appflow from "./appflow";
 import * as applicationinsights from "./applicationinsights";
 import * as apprunner from "./apprunner";
+import * as appsync from "./appsync";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
 import * as batch from "./batch";
@@ -118,6 +119,7 @@ import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
 import * as servicecatalog from "./servicecatalog";
 import * as servicecatalogappregistry from "./servicecatalogappregistry";
+import * as shield from "./shield";
 import * as signer from "./signer";
 import * as ssm from "./ssm";
 import * as ssmcontacts from "./ssmcontacts";
@@ -140,6 +142,7 @@ export {
     appflow,
     applicationinsights,
     apprunner,
+    appsync,
     athena,
     auditmanager,
     batch,
@@ -250,6 +253,7 @@ export {
     scheduler,
     servicecatalog,
     servicecatalogappregistry,
+    shield,
     signer,
     ssm,
     ssmcontacts,

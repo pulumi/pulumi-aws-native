@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         public readonly string? DirectoryId;
         public readonly string? Function;
         public readonly string? InvocationRole;
+        public readonly string? SftpAuthenticationMethods;
         public readonly string? Url;
 
         [OutputConstructor]
@@ -26,11 +27,14 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
             string? invocationRole,
 
+            string? sftpAuthenticationMethods,
+
             string? url)
         {
             DirectoryId = directoryId;
             Function = function;
             InvocationRole = invocationRole;
+            SftpAuthenticationMethods = sftpAuthenticationMethods;
             Url = url;
         }
     }

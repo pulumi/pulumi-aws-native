@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.RefactorSpaces.Outputs
     public sealed class RouteUriPathRouteInput
     {
         public readonly Pulumi.AwsNative.RefactorSpaces.RouteActivationState ActivationState;
+        public readonly bool? AppendSourcePath;
         public readonly bool? IncludeChildPaths;
         public readonly ImmutableArray<Pulumi.AwsNative.RefactorSpaces.RouteMethod> Methods;
         public readonly string? SourcePath;
@@ -22,6 +23,8 @@ namespace Pulumi.AwsNative.RefactorSpaces.Outputs
         private RouteUriPathRouteInput(
             Pulumi.AwsNative.RefactorSpaces.RouteActivationState activationState,
 
+            bool? appendSourcePath,
+
             bool? includeChildPaths,
 
             ImmutableArray<Pulumi.AwsNative.RefactorSpaces.RouteMethod> methods,
@@ -29,6 +32,7 @@ namespace Pulumi.AwsNative.RefactorSpaces.Outputs
             string? sourcePath)
         {
             ActivationState = activationState;
+            AppendSourcePath = appendSourcePath;
             IncludeChildPaths = includeChildPaths;
             Methods = methods;
             SourcePath = sourcePath;

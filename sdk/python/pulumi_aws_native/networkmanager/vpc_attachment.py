@@ -20,6 +20,7 @@ class VpcAttachmentArgs:
                  subnet_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_arn: pulumi.Input[str],
                  options: Optional[pulumi.Input['VpcAttachmentVpcOptionsArgs']] = None,
+                 proposed_segment_change: Optional[pulumi.Input['VpcAttachmentProposedSegmentChangeArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcAttachment resource.
@@ -27,6 +28,7 @@ class VpcAttachmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: Subnet Arn list
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
         :param pulumi.Input['VpcAttachmentVpcOptionsArgs'] options: Vpc options of the attachment.
+        :param pulumi.Input['VpcAttachmentProposedSegmentChangeArgs'] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]] tags: Tags for the attachment.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
@@ -34,6 +36,8 @@ class VpcAttachmentArgs:
         pulumi.set(__self__, "vpc_arn", vpc_arn)
         if options is not None:
             pulumi.set(__self__, "options", options)
+        if proposed_segment_change is not None:
+            pulumi.set(__self__, "proposed_segment_change", proposed_segment_change)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -86,6 +90,18 @@ class VpcAttachmentArgs:
         pulumi.set(self, "options", value)
 
     @property
+    @pulumi.getter(name="proposedSegmentChange")
+    def proposed_segment_change(self) -> Optional[pulumi.Input['VpcAttachmentProposedSegmentChangeArgs']]:
+        """
+        The attachment to move from one segment to another.
+        """
+        return pulumi.get(self, "proposed_segment_change")
+
+    @proposed_segment_change.setter
+    def proposed_segment_change(self, value: Optional[pulumi.Input['VpcAttachmentProposedSegmentChangeArgs']]):
+        pulumi.set(self, "proposed_segment_change", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]]:
         """
@@ -105,6 +121,7 @@ class VpcAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentVpcOptionsArgs']]] = None,
+                 proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentProposedSegmentChangeArgs']]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcAttachmentTagArgs']]]]] = None,
                  vpc_arn: Optional[pulumi.Input[str]] = None,
@@ -116,6 +133,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network for the VPC attachment.
         :param pulumi.Input[pulumi.InputType['VpcAttachmentVpcOptionsArgs']] options: Vpc options of the attachment.
+        :param pulumi.Input[pulumi.InputType['VpcAttachmentProposedSegmentChangeArgs']] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: Subnet Arn list
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcAttachmentTagArgs']]]] tags: Tags for the attachment.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
@@ -146,6 +164,7 @@ class VpcAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentVpcOptionsArgs']]] = None,
+                 proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentProposedSegmentChangeArgs']]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcAttachmentTagArgs']]]]] = None,
                  vpc_arn: Optional[pulumi.Input[str]] = None,
@@ -162,6 +181,7 @@ class VpcAttachment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'core_network_id'")
             __props__.__dict__["core_network_id"] = core_network_id
             __props__.__dict__["options"] = options
+            __props__.__dict__["proposed_segment_change"] = proposed_segment_change
             if subnet_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_arns'")
             __props__.__dict__["subnet_arns"] = subnet_arns
@@ -176,7 +196,6 @@ class VpcAttachment(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["edge_location"] = None
             __props__.__dict__["owner_account_id"] = None
-            __props__.__dict__["proposed_segment_change"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
@@ -296,7 +315,7 @@ class VpcAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proposedSegmentChange")
-    def proposed_segment_change(self) -> pulumi.Output['outputs.VpcAttachmentProposedSegmentChange']:
+    def proposed_segment_change(self) -> pulumi.Output[Optional['outputs.VpcAttachmentProposedSegmentChange']]:
         """
         The attachment to move from one segment to another.
         """

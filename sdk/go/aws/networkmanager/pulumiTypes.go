@@ -65,17 +65,91 @@ func (o ConnectAttachmentOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectAttachmentOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair to associate with a resource.
+// The attachment to move from one segment to another.
 type ConnectAttachmentProposedSegmentChange struct {
-	// New policy rule number of the attachment
+	// The rule number in the policy document that applies to this change.
 	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
-	// Proposed segment name
+	// The name of the segment to change.
 	SegmentName *string `pulumi:"segmentName"`
-	// Proposed tags for the Segment.
+	// The list of key-value tags that changed for the segment.
 	Tags []ConnectAttachmentTag `pulumi:"tags"`
 }
 
-// A key-value pair to associate with a resource.
+// ConnectAttachmentProposedSegmentChangeInput is an input type that accepts ConnectAttachmentProposedSegmentChangeArgs and ConnectAttachmentProposedSegmentChangeOutput values.
+// You can construct a concrete instance of `ConnectAttachmentProposedSegmentChangeInput` via:
+//
+//	ConnectAttachmentProposedSegmentChangeArgs{...}
+type ConnectAttachmentProposedSegmentChangeInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentProposedSegmentChangeOutput() ConnectAttachmentProposedSegmentChangeOutput
+	ToConnectAttachmentProposedSegmentChangeOutputWithContext(context.Context) ConnectAttachmentProposedSegmentChangeOutput
+}
+
+// The attachment to move from one segment to another.
+type ConnectAttachmentProposedSegmentChangeArgs struct {
+	// The rule number in the policy document that applies to this change.
+	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
+	// The name of the segment to change.
+	SegmentName pulumi.StringPtrInput `pulumi:"segmentName"`
+	// The list of key-value tags that changed for the segment.
+	Tags ConnectAttachmentTagArrayInput `pulumi:"tags"`
+}
+
+func (ConnectAttachmentProposedSegmentChangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (i ConnectAttachmentProposedSegmentChangeArgs) ToConnectAttachmentProposedSegmentChangeOutput() ConnectAttachmentProposedSegmentChangeOutput {
+	return i.ToConnectAttachmentProposedSegmentChangeOutputWithContext(context.Background())
+}
+
+func (i ConnectAttachmentProposedSegmentChangeArgs) ToConnectAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentProposedSegmentChangeOutput)
+}
+
+func (i ConnectAttachmentProposedSegmentChangeArgs) ToConnectAttachmentProposedSegmentChangePtrOutput() ConnectAttachmentProposedSegmentChangePtrOutput {
+	return i.ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectAttachmentProposedSegmentChangeArgs) ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentProposedSegmentChangeOutput).ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(ctx)
+}
+
+// ConnectAttachmentProposedSegmentChangePtrInput is an input type that accepts ConnectAttachmentProposedSegmentChangeArgs, ConnectAttachmentProposedSegmentChangePtr and ConnectAttachmentProposedSegmentChangePtrOutput values.
+// You can construct a concrete instance of `ConnectAttachmentProposedSegmentChangePtrInput` via:
+//
+//	        ConnectAttachmentProposedSegmentChangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectAttachmentProposedSegmentChangePtrInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentProposedSegmentChangePtrOutput() ConnectAttachmentProposedSegmentChangePtrOutput
+	ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(context.Context) ConnectAttachmentProposedSegmentChangePtrOutput
+}
+
+type connectAttachmentProposedSegmentChangePtrType ConnectAttachmentProposedSegmentChangeArgs
+
+func ConnectAttachmentProposedSegmentChangePtr(v *ConnectAttachmentProposedSegmentChangeArgs) ConnectAttachmentProposedSegmentChangePtrInput {
+	return (*connectAttachmentProposedSegmentChangePtrType)(v)
+}
+
+func (*connectAttachmentProposedSegmentChangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (i *connectAttachmentProposedSegmentChangePtrType) ToConnectAttachmentProposedSegmentChangePtrOutput() ConnectAttachmentProposedSegmentChangePtrOutput {
+	return i.ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (i *connectAttachmentProposedSegmentChangePtrType) ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentProposedSegmentChangePtrOutput)
+}
+
+// The attachment to move from one segment to another.
 type ConnectAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
 func (ConnectAttachmentProposedSegmentChangeOutput) ElementType() reflect.Type {
@@ -90,17 +164,27 @@ func (o ConnectAttachmentProposedSegmentChangeOutput) ToConnectAttachmentPropose
 	return o
 }
 
-// New policy rule number of the attachment
+func (o ConnectAttachmentProposedSegmentChangeOutput) ToConnectAttachmentProposedSegmentChangePtrOutput() ConnectAttachmentProposedSegmentChangePtrOutput {
+	return o.ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectAttachmentProposedSegmentChangeOutput) ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectAttachmentProposedSegmentChange) *ConnectAttachmentProposedSegmentChange {
+		return &v
+	}).(ConnectAttachmentProposedSegmentChangePtrOutput)
+}
+
+// The rule number in the policy document that applies to this change.
 func (o ConnectAttachmentProposedSegmentChangeOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectAttachmentProposedSegmentChange) *int { return v.AttachmentPolicyRuleNumber }).(pulumi.IntPtrOutput)
 }
 
-// Proposed segment name
+// The name of the segment to change.
 func (o ConnectAttachmentProposedSegmentChangeOutput) SegmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectAttachmentProposedSegmentChange) *string { return v.SegmentName }).(pulumi.StringPtrOutput)
 }
 
-// Proposed tags for the Segment.
+// The list of key-value tags that changed for the segment.
 func (o ConnectAttachmentProposedSegmentChangeOutput) Tags() ConnectAttachmentTagArrayOutput {
 	return o.ApplyT(func(v ConnectAttachmentProposedSegmentChange) []ConnectAttachmentTag { return v.Tags }).(ConnectAttachmentTagArrayOutput)
 }
@@ -129,7 +213,7 @@ func (o ConnectAttachmentProposedSegmentChangePtrOutput) Elem() ConnectAttachmen
 	}).(ConnectAttachmentProposedSegmentChangeOutput)
 }
 
-// New policy rule number of the attachment
+// The rule number in the policy document that applies to this change.
 func (o ConnectAttachmentProposedSegmentChangePtrOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConnectAttachmentProposedSegmentChange) *int {
 		if v == nil {
@@ -139,7 +223,7 @@ func (o ConnectAttachmentProposedSegmentChangePtrOutput) AttachmentPolicyRuleNum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Proposed segment name
+// The name of the segment to change.
 func (o ConnectAttachmentProposedSegmentChangePtrOutput) SegmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectAttachmentProposedSegmentChange) *string {
 		if v == nil {
@@ -149,7 +233,7 @@ func (o ConnectAttachmentProposedSegmentChangePtrOutput) SegmentName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Proposed tags for the Segment.
+// The list of key-value tags that changed for the segment.
 func (o ConnectAttachmentProposedSegmentChangePtrOutput) Tags() ConnectAttachmentTagArrayOutput {
 	return o.ApplyT(func(v *ConnectAttachmentProposedSegmentChange) []ConnectAttachmentTag {
 		if v == nil {
@@ -270,10 +354,14 @@ func (o ConnectAttachmentTagArrayOutput) Index(i pulumi.IntInput) ConnectAttachm
 
 // Bgp configuration for connect peer
 type ConnectPeerBgpConfiguration struct {
-	CoreNetworkAddress *string  `pulumi:"coreNetworkAddress"`
-	CoreNetworkAsn     *float64 `pulumi:"coreNetworkAsn"`
-	PeerAddress        *string  `pulumi:"peerAddress"`
-	PeerAsn            *float64 `pulumi:"peerAsn"`
+	// The address of a core network.
+	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
+	// The ASN of the Coret Network.
+	CoreNetworkAsn *float64 `pulumi:"coreNetworkAsn"`
+	// The address of a core network Connect peer.
+	PeerAddress *string `pulumi:"peerAddress"`
+	// The ASN of the Connect peer.
+	PeerAsn *float64 `pulumi:"peerAsn"`
 }
 
 // Bgp configuration for connect peer
@@ -291,18 +379,22 @@ func (o ConnectPeerBgpConfigurationOutput) ToConnectPeerBgpConfigurationOutputWi
 	return o
 }
 
+// The address of a core network.
 func (o ConnectPeerBgpConfigurationOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerBgpConfiguration) *string { return v.CoreNetworkAddress }).(pulumi.StringPtrOutput)
 }
 
+// The ASN of the Coret Network.
 func (o ConnectPeerBgpConfigurationOutput) CoreNetworkAsn() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConnectPeerBgpConfiguration) *float64 { return v.CoreNetworkAsn }).(pulumi.Float64PtrOutput)
 }
 
+// The address of a core network Connect peer.
 func (o ConnectPeerBgpConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerBgpConfiguration) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
 }
 
+// The ASN of the Connect peer.
 func (o ConnectPeerBgpConfigurationOutput) PeerAsn() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConnectPeerBgpConfiguration) *float64 { return v.PeerAsn }).(pulumi.Float64PtrOutput)
 }
@@ -464,11 +556,14 @@ func (o ConnectPeerBgpOptionsPtrOutput) PeerAsn() pulumi.Float64PtrOutput {
 }
 
 type ConnectPeerConfiguration struct {
-	BgpConfigurations  []ConnectPeerBgpConfiguration `pulumi:"bgpConfigurations"`
-	CoreNetworkAddress *string                       `pulumi:"coreNetworkAddress"`
-	InsideCidrBlocks   []string                      `pulumi:"insideCidrBlocks"`
-	PeerAddress        *string                       `pulumi:"peerAddress"`
-	Protocol           *string                       `pulumi:"protocol"`
+	BgpConfigurations []ConnectPeerBgpConfiguration `pulumi:"bgpConfigurations"`
+	// The IP address of a core network.
+	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
+	// The inside IP addresses used for a Connect peer configuration.
+	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
+	// The IP address of the Connect peer.
+	PeerAddress *string `pulumi:"peerAddress"`
+	Protocol    *string `pulumi:"protocol"`
 }
 
 type ConnectPeerConfigurationOutput struct{ *pulumi.OutputState }
@@ -489,14 +584,17 @@ func (o ConnectPeerConfigurationOutput) BgpConfigurations() ConnectPeerBgpConfig
 	return o.ApplyT(func(v ConnectPeerConfiguration) []ConnectPeerBgpConfiguration { return v.BgpConfigurations }).(ConnectPeerBgpConfigurationArrayOutput)
 }
 
+// The IP address of a core network.
 func (o ConnectPeerConfigurationOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.CoreNetworkAddress }).(pulumi.StringPtrOutput)
 }
 
+// The inside IP addresses used for a Connect peer configuration.
 func (o ConnectPeerConfigurationOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
 }
 
+// The IP address of the Connect peer.
 func (o ConnectPeerConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
 }
@@ -538,6 +636,7 @@ func (o ConnectPeerConfigurationPtrOutput) BgpConfigurations() ConnectPeerBgpCon
 	}).(ConnectPeerBgpConfigurationArrayOutput)
 }
 
+// The IP address of a core network.
 func (o ConnectPeerConfigurationPtrOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectPeerConfiguration) *string {
 		if v == nil {
@@ -547,6 +646,7 @@ func (o ConnectPeerConfigurationPtrOutput) CoreNetworkAddress() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The inside IP addresses used for a Connect peer configuration.
 func (o ConnectPeerConfigurationPtrOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectPeerConfiguration) []string {
 		if v == nil {
@@ -556,6 +656,7 @@ func (o ConnectPeerConfigurationPtrOutput) InsideCidrBlocks() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// The IP address of the Connect peer.
 func (o ConnectPeerConfigurationPtrOutput) PeerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectPeerConfiguration) *string {
 		if v == nil {
@@ -1788,6 +1889,80 @@ type SiteToSiteVpnAttachmentProposedSegmentChange struct {
 	Tags []SiteToSiteVpnAttachmentTag `pulumi:"tags"`
 }
 
+// SiteToSiteVpnAttachmentProposedSegmentChangeInput is an input type that accepts SiteToSiteVpnAttachmentProposedSegmentChangeArgs and SiteToSiteVpnAttachmentProposedSegmentChangeOutput values.
+// You can construct a concrete instance of `SiteToSiteVpnAttachmentProposedSegmentChangeInput` via:
+//
+//	SiteToSiteVpnAttachmentProposedSegmentChangeArgs{...}
+type SiteToSiteVpnAttachmentProposedSegmentChangeInput interface {
+	pulumi.Input
+
+	ToSiteToSiteVpnAttachmentProposedSegmentChangeOutput() SiteToSiteVpnAttachmentProposedSegmentChangeOutput
+	ToSiteToSiteVpnAttachmentProposedSegmentChangeOutputWithContext(context.Context) SiteToSiteVpnAttachmentProposedSegmentChangeOutput
+}
+
+// The attachment to move from one segment to another.
+type SiteToSiteVpnAttachmentProposedSegmentChangeArgs struct {
+	// The rule number in the policy document that applies to this change.
+	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
+	// The name of the segment to change.
+	SegmentName pulumi.StringPtrInput `pulumi:"segmentName"`
+	// The key-value tags that changed for the segment.
+	Tags SiteToSiteVpnAttachmentTagArrayInput `pulumi:"tags"`
+}
+
+func (SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteToSiteVpnAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (i SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ToSiteToSiteVpnAttachmentProposedSegmentChangeOutput() SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
+	return i.ToSiteToSiteVpnAttachmentProposedSegmentChangeOutputWithContext(context.Background())
+}
+
+func (i SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ToSiteToSiteVpnAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentProposedSegmentChangeOutput)
+}
+
+func (i SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutput() SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
+	return i.ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (i SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentProposedSegmentChangeOutput).ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(ctx)
+}
+
+// SiteToSiteVpnAttachmentProposedSegmentChangePtrInput is an input type that accepts SiteToSiteVpnAttachmentProposedSegmentChangeArgs, SiteToSiteVpnAttachmentProposedSegmentChangePtr and SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput values.
+// You can construct a concrete instance of `SiteToSiteVpnAttachmentProposedSegmentChangePtrInput` via:
+//
+//	        SiteToSiteVpnAttachmentProposedSegmentChangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type SiteToSiteVpnAttachmentProposedSegmentChangePtrInput interface {
+	pulumi.Input
+
+	ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutput() SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput
+	ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(context.Context) SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput
+}
+
+type siteToSiteVpnAttachmentProposedSegmentChangePtrType SiteToSiteVpnAttachmentProposedSegmentChangeArgs
+
+func SiteToSiteVpnAttachmentProposedSegmentChangePtr(v *SiteToSiteVpnAttachmentProposedSegmentChangeArgs) SiteToSiteVpnAttachmentProposedSegmentChangePtrInput {
+	return (*siteToSiteVpnAttachmentProposedSegmentChangePtrType)(v)
+}
+
+func (*siteToSiteVpnAttachmentProposedSegmentChangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SiteToSiteVpnAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (i *siteToSiteVpnAttachmentProposedSegmentChangePtrType) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutput() SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
+	return i.ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (i *siteToSiteVpnAttachmentProposedSegmentChangePtrType) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput)
+}
+
 // The attachment to move from one segment to another.
 type SiteToSiteVpnAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
@@ -1801,6 +1976,16 @@ func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToSiteToSiteVpnAttac
 
 func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToSiteToSiteVpnAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
 	return o
+}
+
+func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutput() SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
+	return o.ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteToSiteVpnAttachmentProposedSegmentChange) *SiteToSiteVpnAttachmentProposedSegmentChange {
+		return &v
+	}).(SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -2391,6 +2576,80 @@ type VpcAttachmentProposedSegmentChange struct {
 	Tags []VpcAttachmentTag `pulumi:"tags"`
 }
 
+// VpcAttachmentProposedSegmentChangeInput is an input type that accepts VpcAttachmentProposedSegmentChangeArgs and VpcAttachmentProposedSegmentChangeOutput values.
+// You can construct a concrete instance of `VpcAttachmentProposedSegmentChangeInput` via:
+//
+//	VpcAttachmentProposedSegmentChangeArgs{...}
+type VpcAttachmentProposedSegmentChangeInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentProposedSegmentChangeOutput() VpcAttachmentProposedSegmentChangeOutput
+	ToVpcAttachmentProposedSegmentChangeOutputWithContext(context.Context) VpcAttachmentProposedSegmentChangeOutput
+}
+
+// The attachment to move from one segment to another.
+type VpcAttachmentProposedSegmentChangeArgs struct {
+	// The rule number in the policy document that applies to this change.
+	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
+	// The name of the segment to change.
+	SegmentName pulumi.StringPtrInput `pulumi:"segmentName"`
+	// The key-value tags that changed for the segment.
+	Tags VpcAttachmentTagArrayInput `pulumi:"tags"`
+}
+
+func (VpcAttachmentProposedSegmentChangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (i VpcAttachmentProposedSegmentChangeArgs) ToVpcAttachmentProposedSegmentChangeOutput() VpcAttachmentProposedSegmentChangeOutput {
+	return i.ToVpcAttachmentProposedSegmentChangeOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentProposedSegmentChangeArgs) ToVpcAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentProposedSegmentChangeOutput)
+}
+
+func (i VpcAttachmentProposedSegmentChangeArgs) ToVpcAttachmentProposedSegmentChangePtrOutput() VpcAttachmentProposedSegmentChangePtrOutput {
+	return i.ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (i VpcAttachmentProposedSegmentChangeArgs) ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentProposedSegmentChangeOutput).ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(ctx)
+}
+
+// VpcAttachmentProposedSegmentChangePtrInput is an input type that accepts VpcAttachmentProposedSegmentChangeArgs, VpcAttachmentProposedSegmentChangePtr and VpcAttachmentProposedSegmentChangePtrOutput values.
+// You can construct a concrete instance of `VpcAttachmentProposedSegmentChangePtrInput` via:
+//
+//	        VpcAttachmentProposedSegmentChangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcAttachmentProposedSegmentChangePtrInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentProposedSegmentChangePtrOutput() VpcAttachmentProposedSegmentChangePtrOutput
+	ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(context.Context) VpcAttachmentProposedSegmentChangePtrOutput
+}
+
+type vpcAttachmentProposedSegmentChangePtrType VpcAttachmentProposedSegmentChangeArgs
+
+func VpcAttachmentProposedSegmentChangePtr(v *VpcAttachmentProposedSegmentChangeArgs) VpcAttachmentProposedSegmentChangePtrInput {
+	return (*vpcAttachmentProposedSegmentChangePtrType)(v)
+}
+
+func (*vpcAttachmentProposedSegmentChangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (i *vpcAttachmentProposedSegmentChangePtrType) ToVpcAttachmentProposedSegmentChangePtrOutput() VpcAttachmentProposedSegmentChangePtrOutput {
+	return i.ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (i *vpcAttachmentProposedSegmentChangePtrType) ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentProposedSegmentChangePtrOutput)
+}
+
 // The attachment to move from one segment to another.
 type VpcAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
@@ -2404,6 +2663,16 @@ func (o VpcAttachmentProposedSegmentChangeOutput) ToVpcAttachmentProposedSegment
 
 func (o VpcAttachmentProposedSegmentChangeOutput) ToVpcAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangeOutput {
 	return o
+}
+
+func (o VpcAttachmentProposedSegmentChangeOutput) ToVpcAttachmentProposedSegmentChangePtrOutput() VpcAttachmentProposedSegmentChangePtrOutput {
+	return o.ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (o VpcAttachmentProposedSegmentChangeOutput) ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcAttachmentProposedSegmentChange) *VpcAttachmentProposedSegmentChange {
+		return &v
+	}).(VpcAttachmentProposedSegmentChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -2745,6 +3014,8 @@ func (o VpcAttachmentVpcOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentProposedSegmentChangeInput)(nil)).Elem(), ConnectAttachmentProposedSegmentChangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), ConnectAttachmentProposedSegmentChangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentTagInput)(nil)).Elem(), ConnectAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentTagArrayInput)(nil)).Elem(), ConnectAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
@@ -2766,6 +3037,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationPtrInput)(nil)).Elem(), SiteLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteTagInput)(nil)).Elem(), SiteTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteTagArrayInput)(nil)).Elem(), SiteTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentProposedSegmentChangeInput)(nil)).Elem(), SiteToSiteVpnAttachmentProposedSegmentChangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), SiteToSiteVpnAttachmentProposedSegmentChangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentTagInput)(nil)).Elem(), SiteToSiteVpnAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentTagArrayInput)(nil)).Elem(), SiteToSiteVpnAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringTagInput)(nil)).Elem(), TransitGatewayPeeringTagArgs{})
@@ -2774,6 +3047,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentTagInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentTagArrayInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentProposedSegmentChangeInput)(nil)).Elem(), VpcAttachmentProposedSegmentChangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), VpcAttachmentProposedSegmentChangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentTagInput)(nil)).Elem(), VpcAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentTagArrayInput)(nil)).Elem(), VpcAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentVpcOptionsInput)(nil)).Elem(), VpcAttachmentVpcOptionsArgs{})

@@ -19,14 +19,17 @@ type GraphQLApi struct {
 
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayOutput `pulumi:"additionalAuthenticationProviders"`
 	ApiId                             pulumi.StringOutput                                   `pulumi:"apiId"`
+	ApiType                           pulumi.StringPtrOutput                                `pulumi:"apiType"`
 	Arn                               pulumi.StringOutput                                   `pulumi:"arn"`
 	AuthenticationType                pulumi.StringOutput                                   `pulumi:"authenticationType"`
 	GraphQLDns                        pulumi.StringOutput                                   `pulumi:"graphQLDns"`
 	GraphQLUrl                        pulumi.StringOutput                                   `pulumi:"graphQLUrl"`
 	LambdaAuthorizerConfig            GraphQLApiLambdaAuthorizerConfigPtrOutput             `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         GraphQLApiLogConfigPtrOutput                          `pulumi:"logConfig"`
+	MergedApiExecutionRoleArn         pulumi.StringPtrOutput                                `pulumi:"mergedApiExecutionRoleArn"`
 	Name                              pulumi.StringOutput                                   `pulumi:"name"`
 	OpenIDConnectConfig               GraphQLApiOpenIDConnectConfigPtrOutput                `pulumi:"openIDConnectConfig"`
+	OwnerContact                      pulumi.StringPtrOutput                                `pulumi:"ownerContact"`
 	RealtimeDns                       pulumi.StringOutput                                   `pulumi:"realtimeDns"`
 	RealtimeUrl                       pulumi.StringOutput                                   `pulumi:"realtimeUrl"`
 	Tags                              GraphQLApiTagArrayOutput                              `pulumi:"tags"`
@@ -78,11 +81,14 @@ func (GraphQLApiState) ElementType() reflect.Type {
 
 type graphQLApiArgs struct {
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
+	ApiType                           *string                                      `pulumi:"apiType"`
 	AuthenticationType                string                                       `pulumi:"authenticationType"`
 	LambdaAuthorizerConfig            *GraphQLApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         *GraphQLApiLogConfig                         `pulumi:"logConfig"`
+	MergedApiExecutionRoleArn         *string                                      `pulumi:"mergedApiExecutionRoleArn"`
 	Name                              *string                                      `pulumi:"name"`
 	OpenIDConnectConfig               *GraphQLApiOpenIDConnectConfig               `pulumi:"openIDConnectConfig"`
+	OwnerContact                      *string                                      `pulumi:"ownerContact"`
 	Tags                              []GraphQLApiTag                              `pulumi:"tags"`
 	UserPoolConfig                    *GraphQLApiUserPoolConfig                    `pulumi:"userPoolConfig"`
 	Visibility                        *string                                      `pulumi:"visibility"`
@@ -92,11 +98,14 @@ type graphQLApiArgs struct {
 // The set of arguments for constructing a GraphQLApi resource.
 type GraphQLApiArgs struct {
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
+	ApiType                           pulumi.StringPtrInput
 	AuthenticationType                pulumi.StringInput
 	LambdaAuthorizerConfig            GraphQLApiLambdaAuthorizerConfigPtrInput
 	LogConfig                         GraphQLApiLogConfigPtrInput
+	MergedApiExecutionRoleArn         pulumi.StringPtrInput
 	Name                              pulumi.StringPtrInput
 	OpenIDConnectConfig               GraphQLApiOpenIDConnectConfigPtrInput
+	OwnerContact                      pulumi.StringPtrInput
 	Tags                              GraphQLApiTagArrayInput
 	UserPoolConfig                    GraphQLApiUserPoolConfigPtrInput
 	Visibility                        pulumi.StringPtrInput
@@ -150,6 +159,10 @@ func (o GraphQLApiOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
+func (o GraphQLApiOutput) ApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.ApiType }).(pulumi.StringPtrOutput)
+}
+
 func (o GraphQLApiOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -174,12 +187,20 @@ func (o GraphQLApiOutput) LogConfig() GraphQLApiLogConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiLogConfigPtrOutput { return v.LogConfig }).(GraphQLApiLogConfigPtrOutput)
 }
 
+func (o GraphQLApiOutput) MergedApiExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.MergedApiExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
 func (o GraphQLApiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o GraphQLApiOutput) OpenIDConnectConfig() GraphQLApiOpenIDConnectConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiOpenIDConnectConfigPtrOutput { return v.OpenIDConnectConfig }).(GraphQLApiOpenIDConnectConfigPtrOutput)
+}
+
+func (o GraphQLApiOutput) OwnerContact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.OwnerContact }).(pulumi.StringPtrOutput)
 }
 
 func (o GraphQLApiOutput) RealtimeDns() pulumi.StringOutput {

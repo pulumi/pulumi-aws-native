@@ -3901,6 +3901,13 @@ export namespace appsync {
         lambdaConflictHandlerConfig?: outputs.appsync.ResolverLambdaConflictHandlerConfig;
     }
 
+    export interface SourceApiAssociationConfig {
+        /**
+         * Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
+         */
+        mergeType?: enums.appsync.SourceApiAssociationConfigMergeType;
+    }
+
 }
 
 export namespace aps {
@@ -28737,19 +28744,19 @@ export namespace networkmanager {
     }
 
     /**
-     * A key-value pair to associate with a resource.
+     * The attachment to move from one segment to another.
      */
     export interface ConnectAttachmentProposedSegmentChange {
         /**
-         * New policy rule number of the attachment
+         * The rule number in the policy document that applies to this change.
          */
         attachmentPolicyRuleNumber?: number;
         /**
-         * Proposed segment name
+         * The name of the segment to change.
          */
         segmentName?: string;
         /**
-         * Proposed tags for the Segment.
+         * The list of key-value tags that changed for the segment.
          */
         tags?: outputs.networkmanager.ConnectAttachmentTag[];
     }
@@ -28772,9 +28779,21 @@ export namespace networkmanager {
      * Bgp configuration for connect peer
      */
     export interface ConnectPeerBgpConfiguration {
+        /**
+         * The address of a core network.
+         */
         coreNetworkAddress?: string;
+        /**
+         * The ASN of the Coret Network.
+         */
         coreNetworkAsn?: number;
+        /**
+         * The address of a core network Connect peer.
+         */
         peerAddress?: string;
+        /**
+         * The ASN of the Connect peer.
+         */
         peerAsn?: number;
     }
 
@@ -28787,8 +28806,17 @@ export namespace networkmanager {
 
     export interface ConnectPeerConfiguration {
         bgpConfigurations?: outputs.networkmanager.ConnectPeerBgpConfiguration[];
+        /**
+         * The IP address of a core network.
+         */
         coreNetworkAddress?: string;
+        /**
+         * The inside IP addresses used for a Connect peer configuration.
+         */
         insideCidrBlocks?: string[];
+        /**
+         * The IP address of the Connect peer.
+         */
         peerAddress?: string;
         protocol?: string;
     }
@@ -29364,6 +29392,7 @@ export namespace opensearchservice {
         dedicatedMasterType?: string;
         instanceCount?: number;
         instanceType?: string;
+        multiAZWithStandbyEnabled?: boolean;
         warmCount?: number;
         warmEnabled?: boolean;
         warmType?: string;
@@ -41323,6 +41352,7 @@ export namespace refactorspaces {
 
     export interface RouteUriPathRouteInput {
         activationState: enums.refactorspaces.RouteActivationState;
+        appendSourcePath?: boolean;
         includeChildPaths?: boolean;
         methods?: enums.refactorspaces.RouteMethod[];
         sourcePath?: string;
@@ -47612,6 +47642,85 @@ export namespace ses {
 
 }
 
+export namespace shield {
+    /**
+     * An emergency contact is used by Shield Response Team (SRT) to contact you for escalations to the SRT and to initiate proactive customer support. An emergency contact requires an email address.
+     */
+    export interface ProactiveEngagementEmergencyContact {
+        /**
+         * Additional notes regarding the contact.
+         */
+        contactNotes?: string;
+        /**
+         * The email address for the contact.
+         */
+        emailAddress: string;
+        /**
+         * The phone number for the contact
+         */
+        phoneNumber?: string;
+    }
+
+    /**
+     * The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+     */
+    export interface ProtectionApplicationLayerAutomaticResponseConfiguration {
+        /**
+         * Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+         */
+        action: outputs.shield.ProtectionApplicationLayerAutomaticResponseConfigurationAction0Properties | outputs.shield.ProtectionApplicationLayerAutomaticResponseConfigurationAction1Properties;
+        /**
+         * Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
+         */
+        status: enums.shield.ProtectionApplicationLayerAutomaticResponseConfigurationStatus;
+    }
+
+    export interface ProtectionApplicationLayerAutomaticResponseConfigurationAction0Properties {
+        /**
+         * Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Count` action.
+         * You must specify exactly one action, either `Block` or `Count`.
+         */
+        count?: any;
+    }
+
+    export interface ProtectionApplicationLayerAutomaticResponseConfigurationAction1Properties {
+        /**
+         * Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Block` action.
+         * You must specify exactly one action, either `Block` or `Count`.
+         */
+        block?: any;
+    }
+
+    /**
+     * A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+     */
+    export interface ProtectionGroupTag {
+        /**
+         * Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
+         */
+        key: string;
+        /**
+         * Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
+         */
+        value: string;
+    }
+
+    /**
+     * A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+     */
+    export interface ProtectionTag {
+        /**
+         * Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
+         */
+        key: string;
+        /**
+         * Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
+         */
+        value: string;
+    }
+
+}
+
 export namespace signer {
     export interface SigningProfileSignatureValidityPeriod {
         type?: enums.signer.SigningProfileSignatureValidityPeriodType;
@@ -48710,6 +48819,7 @@ export namespace transfer {
         directoryId?: string;
         function?: string;
         invocationRole?: string;
+        sftpAuthenticationMethods?: string;
         url?: string;
     }
 

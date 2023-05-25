@@ -34,8 +34,6 @@ type LookupAppArgs struct {
 type LookupAppResult struct {
 	// The Amazon Resource Name (ARN) of the app.
 	AppArn *string `pulumi:"appArn"`
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
@@ -83,11 +81,6 @@ func (o LookupAppResultOutput) ToLookupAppResultOutputWithContext(ctx context.Co
 // The Amazon Resource Name (ARN) of the app.
 func (o LookupAppResultOutput) AppArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.AppArn }).(pulumi.StringPtrOutput)
-}
-
-// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-func (o LookupAppResultOutput) ResourceSpec() AppResourceSpecPtrOutput {
-	return o.ApplyT(func(v LookupAppResult) *AppResourceSpec { return v.ResourceSpec }).(AppResourceSpecPtrOutput)
 }
 
 func init() {

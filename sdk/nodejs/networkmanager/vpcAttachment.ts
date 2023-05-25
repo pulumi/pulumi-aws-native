@@ -76,7 +76,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * The attachment to move from one segment to another.
      */
-    public /*out*/ readonly proposedSegmentChange!: pulumi.Output<outputs.networkmanager.VpcAttachmentProposedSegmentChange>;
+    public readonly proposedSegmentChange!: pulumi.Output<outputs.networkmanager.VpcAttachmentProposedSegmentChange | undefined>;
     /**
      * The ARN of the Resource.
      */
@@ -128,6 +128,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             }
             resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
             resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcArn"] = args ? args.vpcArn : undefined;
@@ -138,7 +139,6 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
-            resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -179,6 +179,10 @@ export interface VpcAttachmentArgs {
      * Vpc options of the attachment.
      */
     options?: pulumi.Input<inputs.networkmanager.VpcAttachmentVpcOptionsArgs>;
+    /**
+     * The attachment to move from one segment to another.
+     */
+    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.VpcAttachmentProposedSegmentChangeArgs>;
     /**
      * Subnet Arn list
      */

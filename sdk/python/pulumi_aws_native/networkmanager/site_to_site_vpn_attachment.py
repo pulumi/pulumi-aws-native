@@ -18,15 +18,19 @@ class SiteToSiteVpnAttachmentArgs:
     def __init__(__self__, *,
                  core_network_id: pulumi.Input[str],
                  vpn_connection_arn: pulumi.Input[str],
+                 proposed_segment_change: Optional[pulumi.Input['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a SiteToSiteVpnAttachment resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you're creating a site-to-site VPN attachment.
         :param pulumi.Input[str] vpn_connection_arn: The ARN of the site-to-site VPN attachment.
+        :param pulumi.Input['SiteToSiteVpnAttachmentProposedSegmentChangeArgs'] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]] tags: Tags for the attachment.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "vpn_connection_arn", vpn_connection_arn)
+        if proposed_segment_change is not None:
+            pulumi.set(__self__, "proposed_segment_change", proposed_segment_change)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -55,6 +59,18 @@ class SiteToSiteVpnAttachmentArgs:
         pulumi.set(self, "vpn_connection_arn", value)
 
     @property
+    @pulumi.getter(name="proposedSegmentChange")
+    def proposed_segment_change(self) -> Optional[pulumi.Input['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']]:
+        """
+        The attachment to move from one segment to another.
+        """
+        return pulumi.get(self, "proposed_segment_change")
+
+    @proposed_segment_change.setter
+    def proposed_segment_change(self, value: Optional[pulumi.Input['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']]):
+        pulumi.set(self, "proposed_segment_change", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]]:
         """
@@ -73,6 +89,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
+                 proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentTagArgs']]]]] = None,
                  vpn_connection_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -82,6 +99,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you're creating a site-to-site VPN attachment.
+        :param pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentTagArgs']]]] tags: Tags for the attachment.
         :param pulumi.Input[str] vpn_connection_arn: The ARN of the site-to-site VPN attachment.
         """
@@ -110,6 +128,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
+                 proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteToSiteVpnAttachmentTagArgs']]]]] = None,
                  vpn_connection_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -124,6 +143,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             if core_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'core_network_id'")
             __props__.__dict__["core_network_id"] = core_network_id
+            __props__.__dict__["proposed_segment_change"] = proposed_segment_change
             __props__.__dict__["tags"] = tags
             if vpn_connection_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_connection_arn'")
@@ -135,7 +155,6 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["edge_location"] = None
             __props__.__dict__["owner_account_id"] = None
-            __props__.__dict__["proposed_segment_change"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
@@ -245,7 +264,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proposedSegmentChange")
-    def proposed_segment_change(self) -> pulumi.Output['outputs.SiteToSiteVpnAttachmentProposedSegmentChange']:
+    def proposed_segment_change(self) -> pulumi.Output[Optional['outputs.SiteToSiteVpnAttachmentProposedSegmentChange']]:
         """
         The attachment to move from one segment to another.
         """

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.RefactorSpaces.Inputs
         [Input("activationState", required: true)]
         public Input<Pulumi.AwsNative.RefactorSpaces.RouteActivationState> ActivationState { get; set; } = null!;
 
+        [Input("appendSourcePath")]
+        public Input<bool>? AppendSourcePath { get; set; }
+
         [Input("includeChildPaths")]
         public Input<bool>? IncludeChildPaths { get; set; }
 

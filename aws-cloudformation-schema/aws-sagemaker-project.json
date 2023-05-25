@@ -163,7 +163,7 @@
   },
   "additionalProperties" : false,
   "required" : [ "ProjectName", "ServiceCatalogProvisioningDetails" ],
-  "readOnlyProperties" : [ "/properties/ProjectArn", "/properties/CreationTime", "/properties/ProjectId", "/properties/ServiceCatalogProvisionedProductDetails", "/properties/ProjectStatus" ],
+  "readOnlyProperties" : [ "/properties/ProjectArn", "/properties/CreationTime", "/properties/ProjectId", "/properties/ProjectStatus" ],
   "createOnlyProperties" : [ "/properties/ProjectName", "/properties/ProjectDescription", "/properties/ServiceCatalogProvisioningDetails", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/ProjectArn" ],
   "handlers" : {

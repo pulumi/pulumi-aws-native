@@ -255,6 +255,7 @@ __all__ = [
     'PipelineTagArgs',
     'ProjectProvisioningParameterArgs',
     'ProjectTagArgs',
+    'ServiceCatalogProvisionedProductDetailsPropertiesArgs',
     'ServiceCatalogProvisioningDetailsPropertiesArgs',
     'SpaceCustomImageArgs',
     'SpaceJupyterServerAppSettingsArgs',
@@ -11541,6 +11542,38 @@ class ProjectTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceCatalogProvisionedProductDetailsPropertiesArgs:
+    def __init__(__self__, *,
+                 provisioned_product_id: Optional[pulumi.Input[str]] = None,
+                 provisioned_product_status_message: Optional[pulumi.Input[str]] = None):
+        """
+        Provisioned ServiceCatalog  Details
+        """
+        if provisioned_product_id is not None:
+            pulumi.set(__self__, "provisioned_product_id", provisioned_product_id)
+        if provisioned_product_status_message is not None:
+            pulumi.set(__self__, "provisioned_product_status_message", provisioned_product_status_message)
+
+    @property
+    @pulumi.getter(name="provisionedProductId")
+    def provisioned_product_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "provisioned_product_id")
+
+    @provisioned_product_id.setter
+    def provisioned_product_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioned_product_id", value)
+
+    @property
+    @pulumi.getter(name="provisionedProductStatusMessage")
+    def provisioned_product_status_message(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "provisioned_product_status_message")
+
+    @provisioned_product_status_message.setter
+    def provisioned_product_status_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioned_product_status_message", value)
 
 
 @pulumi.input_type

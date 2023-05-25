@@ -64,7 +64,7 @@ class ConnectAttachmentOptions(dict):
 @pulumi.output_type
 class ConnectAttachmentProposedSegmentChange(dict):
     """
-    A key-value pair to associate with a resource.
+    The attachment to move from one segment to another.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -90,10 +90,10 @@ class ConnectAttachmentProposedSegmentChange(dict):
                  segment_name: Optional[str] = None,
                  tags: Optional[Sequence['outputs.ConnectAttachmentTag']] = None):
         """
-        A key-value pair to associate with a resource.
-        :param int attachment_policy_rule_number: New policy rule number of the attachment
-        :param str segment_name: Proposed segment name
-        :param Sequence['ConnectAttachmentTag'] tags: Proposed tags for the Segment.
+        The attachment to move from one segment to another.
+        :param int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param str segment_name: The name of the segment to change.
+        :param Sequence['ConnectAttachmentTag'] tags: The list of key-value tags that changed for the segment.
         """
         if attachment_policy_rule_number is not None:
             pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
@@ -106,7 +106,7 @@ class ConnectAttachmentProposedSegmentChange(dict):
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> Optional[int]:
         """
-        New policy rule number of the attachment
+        The rule number in the policy document that applies to this change.
         """
         return pulumi.get(self, "attachment_policy_rule_number")
 
@@ -114,7 +114,7 @@ class ConnectAttachmentProposedSegmentChange(dict):
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> Optional[str]:
         """
-        Proposed segment name
+        The name of the segment to change.
         """
         return pulumi.get(self, "segment_name")
 
@@ -122,7 +122,7 @@ class ConnectAttachmentProposedSegmentChange(dict):
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ConnectAttachmentTag']]:
         """
-        Proposed tags for the Segment.
+        The list of key-value tags that changed for the segment.
         """
         return pulumi.get(self, "tags")
 
@@ -195,6 +195,10 @@ class ConnectPeerBgpConfiguration(dict):
                  peer_asn: Optional[float] = None):
         """
         Bgp configuration for connect peer
+        :param str core_network_address: The address of a core network.
+        :param float core_network_asn: The ASN of the Coret Network.
+        :param str peer_address: The address of a core network Connect peer.
+        :param float peer_asn: The ASN of the Connect peer.
         """
         if core_network_address is not None:
             pulumi.set(__self__, "core_network_address", core_network_address)
@@ -208,21 +212,33 @@ class ConnectPeerBgpConfiguration(dict):
     @property
     @pulumi.getter(name="coreNetworkAddress")
     def core_network_address(self) -> Optional[str]:
+        """
+        The address of a core network.
+        """
         return pulumi.get(self, "core_network_address")
 
     @property
     @pulumi.getter(name="coreNetworkAsn")
     def core_network_asn(self) -> Optional[float]:
+        """
+        The ASN of the Coret Network.
+        """
         return pulumi.get(self, "core_network_asn")
 
     @property
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> Optional[str]:
+        """
+        The address of a core network Connect peer.
+        """
         return pulumi.get(self, "peer_address")
 
     @property
     @pulumi.getter(name="peerAsn")
     def peer_asn(self) -> Optional[float]:
+        """
+        The ASN of the Connect peer.
+        """
         return pulumi.get(self, "peer_asn")
 
 
@@ -293,6 +309,11 @@ class ConnectPeerConfiguration(dict):
                  inside_cidr_blocks: Optional[Sequence[str]] = None,
                  peer_address: Optional[str] = None,
                  protocol: Optional[str] = None):
+        """
+        :param str core_network_address: The IP address of a core network.
+        :param Sequence[str] inside_cidr_blocks: The inside IP addresses used for a Connect peer configuration.
+        :param str peer_address: The IP address of the Connect peer.
+        """
         if bgp_configurations is not None:
             pulumi.set(__self__, "bgp_configurations", bgp_configurations)
         if core_network_address is not None:
@@ -312,16 +333,25 @@ class ConnectPeerConfiguration(dict):
     @property
     @pulumi.getter(name="coreNetworkAddress")
     def core_network_address(self) -> Optional[str]:
+        """
+        The IP address of a core network.
+        """
         return pulumi.get(self, "core_network_address")
 
     @property
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Optional[Sequence[str]]:
+        """
+        The inside IP addresses used for a Connect peer configuration.
+        """
         return pulumi.get(self, "inside_cidr_blocks")
 
     @property
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> Optional[str]:
+        """
+        The IP address of the Connect peer.
+        """
         return pulumi.get(self, "peer_address")
 
     @property

@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
 {
 
     /// <summary>
-    /// A key-value pair to associate with a resource.
+    /// The attachment to move from one segment to another.
     /// </summary>
     [OutputType]
     public sealed class ConnectAttachmentProposedSegmentChange
     {
         /// <summary>
-        /// New policy rule number of the attachment
+        /// The rule number in the policy document that applies to this change.
         /// </summary>
         public readonly int? AttachmentPolicyRuleNumber;
         /// <summary>
-        /// Proposed segment name
+        /// The name of the segment to change.
         /// </summary>
         public readonly string? SegmentName;
         /// <summary>
-        /// Proposed tags for the Segment.
+        /// The list of key-value tags that changed for the segment.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConnectAttachmentTag> Tags;
 

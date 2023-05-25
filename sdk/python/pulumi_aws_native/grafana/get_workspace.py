@@ -137,7 +137,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> Optional[str]:
         """
-        Version of Grafana the workspace is currently using.
+        The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
         """
         return pulumi.get(self, "grafana_version")
 

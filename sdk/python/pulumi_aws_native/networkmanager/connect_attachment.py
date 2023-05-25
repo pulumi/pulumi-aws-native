@@ -20,6 +20,7 @@ class ConnectAttachmentArgs:
                  edge_location: pulumi.Input[str],
                  options: pulumi.Input['ConnectAttachmentOptionsArgs'],
                  transport_attachment_id: pulumi.Input[str],
+                 proposed_segment_change: Optional[pulumi.Input['ConnectAttachmentProposedSegmentChangeArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a ConnectAttachment resource.
@@ -27,12 +28,15 @@ class ConnectAttachmentArgs:
         :param pulumi.Input[str] edge_location: Edge location of the attachment.
         :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Protocol options for connect attachment
         :param pulumi.Input[str] transport_attachment_id: Id of transport attachment
+        :param pulumi.Input['ConnectAttachmentProposedSegmentChangeArgs'] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]] tags: Tags for the attachment.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "edge_location", edge_location)
         pulumi.set(__self__, "options", options)
         pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
+        if proposed_segment_change is not None:
+            pulumi.set(__self__, "proposed_segment_change", proposed_segment_change)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -85,6 +89,18 @@ class ConnectAttachmentArgs:
         pulumi.set(self, "transport_attachment_id", value)
 
     @property
+    @pulumi.getter(name="proposedSegmentChange")
+    def proposed_segment_change(self) -> Optional[pulumi.Input['ConnectAttachmentProposedSegmentChangeArgs']]:
+        """
+        The attachment to move from one segment to another.
+        """
+        return pulumi.get(self, "proposed_segment_change")
+
+    @proposed_segment_change.setter
+    def proposed_segment_change(self, value: Optional[pulumi.Input['ConnectAttachmentProposedSegmentChangeArgs']]):
+        pulumi.set(self, "proposed_segment_change", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]]:
         """
@@ -105,6 +121,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  edge_location: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']]] = None,
+                 proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentProposedSegmentChangeArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectAttachmentTagArgs']]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -116,6 +133,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] core_network_id: ID of the CoreNetwork that the attachment will be attached to.
         :param pulumi.Input[str] edge_location: Edge location of the attachment.
         :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Protocol options for connect attachment
+        :param pulumi.Input[pulumi.InputType['ConnectAttachmentProposedSegmentChangeArgs']] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectAttachmentTagArgs']]]] tags: Tags for the attachment.
         :param pulumi.Input[str] transport_attachment_id: Id of transport attachment
         """
@@ -146,6 +164,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  edge_location: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']]] = None,
+                 proposed_segment_change: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentProposedSegmentChangeArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectAttachmentTagArgs']]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -166,6 +185,7 @@ class ConnectAttachment(pulumi.CustomResource):
             if options is None and not opts.urn:
                 raise TypeError("Missing required property 'options'")
             __props__.__dict__["options"] = options
+            __props__.__dict__["proposed_segment_change"] = proposed_segment_change
             __props__.__dict__["tags"] = tags
             if transport_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transport_attachment_id'")
@@ -176,7 +196,6 @@ class ConnectAttachment(pulumi.CustomResource):
             __props__.__dict__["core_network_arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["owner_account_id"] = None
-            __props__.__dict__["proposed_segment_change"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
@@ -295,7 +314,7 @@ class ConnectAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proposedSegmentChange")
-    def proposed_segment_change(self) -> pulumi.Output['outputs.ConnectAttachmentProposedSegmentChange']:
+    def proposed_segment_change(self) -> pulumi.Output[Optional['outputs.ConnectAttachmentProposedSegmentChange']]:
         """
         The attachment to move from one segment to another.
         """

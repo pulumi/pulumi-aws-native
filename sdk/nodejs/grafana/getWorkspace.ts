@@ -48,7 +48,7 @@ export interface GetWorkspaceResult {
      */
     readonly endpoint?: string;
     /**
-     * Version of Grafana the workspace is currently using.
+     * The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
      */
     readonly grafanaVersion?: string;
     /**

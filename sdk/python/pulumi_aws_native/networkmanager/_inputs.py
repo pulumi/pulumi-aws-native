@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'ConnectAttachmentOptionsArgs',
+    'ConnectAttachmentProposedSegmentChangeArgs',
     'ConnectAttachmentTagArgs',
     'ConnectPeerBgpOptionsArgs',
     'ConnectPeerTagArgs',
@@ -22,10 +23,12 @@ __all__ = [
     'LinkTagArgs',
     'SiteLocationArgs',
     'SiteTagArgs',
+    'SiteToSiteVpnAttachmentProposedSegmentChangeArgs',
     'SiteToSiteVpnAttachmentTagArgs',
     'TransitGatewayPeeringTagArgs',
     'TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs',
     'TransitGatewayRouteTableAttachmentTagArgs',
+    'VpcAttachmentProposedSegmentChangeArgs',
     'VpcAttachmentTagArgs',
     'VpcAttachmentVpcOptionsArgs',
 ]
@@ -52,6 +55,62 @@ class ConnectAttachmentOptionsArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class ConnectAttachmentProposedSegmentChangeArgs:
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
+                 segment_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None):
+        """
+        The attachment to move from one segment to another.
+        :param pulumi.Input[int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param pulumi.Input[str] segment_name: The name of the segment to change.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]] tags: The list of key-value tags that changed for the segment.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if segment_name is not None:
+            pulumi.set(__self__, "segment_name", segment_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @attachment_policy_rule_number.setter
+    def attachment_policy_rule_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "attachment_policy_rule_number", value)
+
+    @property
+    @pulumi.getter(name="segmentName")
+    def segment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the segment to change.
+        """
+        return pulumi.get(self, "segment_name")
+
+    @segment_name.setter
+    def segment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "segment_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]]:
+        """
+        The list of key-value tags that changed for the segment.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -469,6 +528,62 @@ class SiteTagArgs:
 
 
 @pulumi.input_type
+class SiteToSiteVpnAttachmentProposedSegmentChangeArgs:
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
+                 segment_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]] = None):
+        """
+        The attachment to move from one segment to another.
+        :param pulumi.Input[int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param pulumi.Input[str] segment_name: The name of the segment to change.
+        :param pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]] tags: The key-value tags that changed for the segment.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if segment_name is not None:
+            pulumi.set(__self__, "segment_name", segment_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @attachment_policy_rule_number.setter
+    def attachment_policy_rule_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "attachment_policy_rule_number", value)
+
+    @property
+    @pulumi.getter(name="segmentName")
+    def segment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the segment to change.
+        """
+        return pulumi.get(self, "segment_name")
+
+    @segment_name.setter
+    def segment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "segment_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]]:
+        """
+        The key-value tags that changed for the segment.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
 class SiteToSiteVpnAttachmentTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -636,6 +751,62 @@ class TransitGatewayRouteTableAttachmentTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VpcAttachmentProposedSegmentChangeArgs:
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
+                 segment_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]] = None):
+        """
+        The attachment to move from one segment to another.
+        :param pulumi.Input[int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param pulumi.Input[str] segment_name: The name of the segment to change.
+        :param pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]] tags: The key-value tags that changed for the segment.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if segment_name is not None:
+            pulumi.set(__self__, "segment_name", segment_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @attachment_policy_rule_number.setter
+    def attachment_policy_rule_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "attachment_policy_rule_number", value)
+
+    @property
+    @pulumi.getter(name="segmentName")
+    def segment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the segment to change.
+        """
+        return pulumi.get(self, "segment_name")
+
+    @segment_name.setter
+    def segment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "segment_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]]:
+        """
+        The key-value tags that changed for the segment.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

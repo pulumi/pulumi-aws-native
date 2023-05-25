@@ -34,7 +34,7 @@ type VpcAttachment struct {
 	// Owner account of the attachment.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The attachment to move from one segment to another.
-	ProposedSegmentChange VpcAttachmentProposedSegmentChangeOutput `pulumi:"proposedSegmentChange"`
+	ProposedSegmentChange VpcAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The name of the segment attachment..
@@ -103,6 +103,8 @@ type vpcAttachmentArgs struct {
 	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// Vpc options of the attachment.
 	Options *VpcAttachmentVpcOptions `pulumi:"options"`
+	// The attachment to move from one segment to another.
+	ProposedSegmentChange *VpcAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Subnet Arn list
 	SubnetArns []string `pulumi:"subnetArns"`
 	// Tags for the attachment.
@@ -117,6 +119,8 @@ type VpcAttachmentArgs struct {
 	CoreNetworkId pulumi.StringInput
 	// Vpc options of the attachment.
 	Options VpcAttachmentVpcOptionsPtrInput
+	// The attachment to move from one segment to another.
+	ProposedSegmentChange VpcAttachmentProposedSegmentChangePtrInput
 	// Subnet Arn list
 	SubnetArns pulumi.StringArrayInput
 	// Tags for the attachment.
@@ -208,8 +212,8 @@ func (o VpcAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 }
 
 // The attachment to move from one segment to another.
-func (o VpcAttachmentOutput) ProposedSegmentChange() VpcAttachmentProposedSegmentChangeOutput {
-	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentProposedSegmentChangeOutput { return v.ProposedSegmentChange }).(VpcAttachmentProposedSegmentChangeOutput)
+func (o VpcAttachmentOutput) ProposedSegmentChange() VpcAttachmentProposedSegmentChangePtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentProposedSegmentChangePtrOutput { return v.ProposedSegmentChange }).(VpcAttachmentProposedSegmentChangePtrOutput)
 }
 
 // The ARN of the Resource.

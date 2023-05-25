@@ -219,16 +219,17 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) SAMLOptions() DomainSAMLOpt
 }
 
 type DomainClusterConfig struct {
-	DedicatedMasterCount   *int                       `pulumi:"dedicatedMasterCount"`
-	DedicatedMasterEnabled *bool                      `pulumi:"dedicatedMasterEnabled"`
-	DedicatedMasterType    *string                    `pulumi:"dedicatedMasterType"`
-	InstanceCount          *int                       `pulumi:"instanceCount"`
-	InstanceType           *string                    `pulumi:"instanceType"`
-	WarmCount              *int                       `pulumi:"warmCount"`
-	WarmEnabled            *bool                      `pulumi:"warmEnabled"`
-	WarmType               *string                    `pulumi:"warmType"`
-	ZoneAwarenessConfig    *DomainZoneAwarenessConfig `pulumi:"zoneAwarenessConfig"`
-	ZoneAwarenessEnabled   *bool                      `pulumi:"zoneAwarenessEnabled"`
+	DedicatedMasterCount      *int                       `pulumi:"dedicatedMasterCount"`
+	DedicatedMasterEnabled    *bool                      `pulumi:"dedicatedMasterEnabled"`
+	DedicatedMasterType       *string                    `pulumi:"dedicatedMasterType"`
+	InstanceCount             *int                       `pulumi:"instanceCount"`
+	InstanceType              *string                    `pulumi:"instanceType"`
+	MultiAZWithStandbyEnabled *bool                      `pulumi:"multiAZWithStandbyEnabled"`
+	WarmCount                 *int                       `pulumi:"warmCount"`
+	WarmEnabled               *bool                      `pulumi:"warmEnabled"`
+	WarmType                  *string                    `pulumi:"warmType"`
+	ZoneAwarenessConfig       *DomainZoneAwarenessConfig `pulumi:"zoneAwarenessConfig"`
+	ZoneAwarenessEnabled      *bool                      `pulumi:"zoneAwarenessEnabled"`
 }
 
 // DomainClusterConfigInput is an input type that accepts DomainClusterConfigArgs and DomainClusterConfigOutput values.
@@ -243,16 +244,17 @@ type DomainClusterConfigInput interface {
 }
 
 type DomainClusterConfigArgs struct {
-	DedicatedMasterCount   pulumi.IntPtrInput                `pulumi:"dedicatedMasterCount"`
-	DedicatedMasterEnabled pulumi.BoolPtrInput               `pulumi:"dedicatedMasterEnabled"`
-	DedicatedMasterType    pulumi.StringPtrInput             `pulumi:"dedicatedMasterType"`
-	InstanceCount          pulumi.IntPtrInput                `pulumi:"instanceCount"`
-	InstanceType           pulumi.StringPtrInput             `pulumi:"instanceType"`
-	WarmCount              pulumi.IntPtrInput                `pulumi:"warmCount"`
-	WarmEnabled            pulumi.BoolPtrInput               `pulumi:"warmEnabled"`
-	WarmType               pulumi.StringPtrInput             `pulumi:"warmType"`
-	ZoneAwarenessConfig    DomainZoneAwarenessConfigPtrInput `pulumi:"zoneAwarenessConfig"`
-	ZoneAwarenessEnabled   pulumi.BoolPtrInput               `pulumi:"zoneAwarenessEnabled"`
+	DedicatedMasterCount      pulumi.IntPtrInput                `pulumi:"dedicatedMasterCount"`
+	DedicatedMasterEnabled    pulumi.BoolPtrInput               `pulumi:"dedicatedMasterEnabled"`
+	DedicatedMasterType       pulumi.StringPtrInput             `pulumi:"dedicatedMasterType"`
+	InstanceCount             pulumi.IntPtrInput                `pulumi:"instanceCount"`
+	InstanceType              pulumi.StringPtrInput             `pulumi:"instanceType"`
+	MultiAZWithStandbyEnabled pulumi.BoolPtrInput               `pulumi:"multiAZWithStandbyEnabled"`
+	WarmCount                 pulumi.IntPtrInput                `pulumi:"warmCount"`
+	WarmEnabled               pulumi.BoolPtrInput               `pulumi:"warmEnabled"`
+	WarmType                  pulumi.StringPtrInput             `pulumi:"warmType"`
+	ZoneAwarenessConfig       DomainZoneAwarenessConfigPtrInput `pulumi:"zoneAwarenessConfig"`
+	ZoneAwarenessEnabled      pulumi.BoolPtrInput               `pulumi:"zoneAwarenessEnabled"`
 }
 
 func (DomainClusterConfigArgs) ElementType() reflect.Type {
@@ -352,6 +354,10 @@ func (o DomainClusterConfigOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+func (o DomainClusterConfigOutput) MultiAZWithStandbyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.MultiAZWithStandbyEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o DomainClusterConfigOutput) WarmCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *int { return v.WarmCount }).(pulumi.IntPtrOutput)
 }
@@ -439,6 +445,15 @@ func (o DomainClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 		}
 		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainClusterConfigPtrOutput) MultiAZWithStandbyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MultiAZWithStandbyEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o DomainClusterConfigPtrOutput) WarmCount() pulumi.IntPtrOutput {

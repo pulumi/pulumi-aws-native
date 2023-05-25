@@ -32,7 +32,7 @@ type SiteToSiteVpnAttachment struct {
 	// Owner account of the attachment.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The attachment to move from one segment to another.
-	ProposedSegmentChange SiteToSiteVpnAttachmentProposedSegmentChangeOutput `pulumi:"proposedSegmentChange"`
+	ProposedSegmentChange SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The name of the segment that attachment is in.
@@ -94,6 +94,8 @@ func (SiteToSiteVpnAttachmentState) ElementType() reflect.Type {
 type siteToSiteVpnAttachmentArgs struct {
 	// The ID of a core network where you're creating a site-to-site VPN attachment.
 	CoreNetworkId string `pulumi:"coreNetworkId"`
+	// The attachment to move from one segment to another.
+	ProposedSegmentChange *SiteToSiteVpnAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Tags for the attachment.
 	Tags []SiteToSiteVpnAttachmentTag `pulumi:"tags"`
 	// The ARN of the site-to-site VPN attachment.
@@ -104,6 +106,8 @@ type siteToSiteVpnAttachmentArgs struct {
 type SiteToSiteVpnAttachmentArgs struct {
 	// The ID of a core network where you're creating a site-to-site VPN attachment.
 	CoreNetworkId pulumi.StringInput
+	// The attachment to move from one segment to another.
+	ProposedSegmentChange SiteToSiteVpnAttachmentProposedSegmentChangePtrInput
 	// Tags for the attachment.
 	Tags SiteToSiteVpnAttachmentTagArrayInput
 	// The ARN of the site-to-site VPN attachment.
@@ -188,10 +192,10 @@ func (o SiteToSiteVpnAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 }
 
 // The attachment to move from one segment to another.
-func (o SiteToSiteVpnAttachmentOutput) ProposedSegmentChange() SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
-	return o.ApplyT(func(v *SiteToSiteVpnAttachment) SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
+func (o SiteToSiteVpnAttachmentOutput) ProposedSegmentChange() SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachment) SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
 		return v.ProposedSegmentChange
-	}).(SiteToSiteVpnAttachmentProposedSegmentChangeOutput)
+	}).(SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput)
 }
 
 // The ARN of the Resource.

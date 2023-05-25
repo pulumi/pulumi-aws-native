@@ -42,14 +42,17 @@ export class GraphQLApi extends pulumi.CustomResource {
 
     public readonly additionalAuthenticationProviders!: pulumi.Output<outputs.appsync.GraphQLApiAdditionalAuthenticationProvider[] | undefined>;
     public /*out*/ readonly apiId!: pulumi.Output<string>;
+    public readonly apiType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authenticationType!: pulumi.Output<string>;
     public /*out*/ readonly graphQLDns!: pulumi.Output<string>;
     public /*out*/ readonly graphQLUrl!: pulumi.Output<string>;
     public readonly lambdaAuthorizerConfig!: pulumi.Output<outputs.appsync.GraphQLApiLambdaAuthorizerConfig | undefined>;
     public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQLApiLogConfig | undefined>;
+    public readonly mergedApiExecutionRoleArn!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly openIDConnectConfig!: pulumi.Output<outputs.appsync.GraphQLApiOpenIDConnectConfig | undefined>;
+    public readonly ownerContact!: pulumi.Output<string | undefined>;
     public /*out*/ readonly realtimeDns!: pulumi.Output<string>;
     public /*out*/ readonly realtimeUrl!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.appsync.GraphQLApiTag[] | undefined>;
@@ -74,11 +77,14 @@ export class GraphQLApi extends pulumi.CustomResource {
                 throw new Error("Missing required property 'authenticationType'");
             }
             resourceInputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
+            resourceInputs["apiType"] = args ? args.apiType : undefined;
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
             resourceInputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
             resourceInputs["logConfig"] = args ? args.logConfig : undefined;
+            resourceInputs["mergedApiExecutionRoleArn"] = args ? args.mergedApiExecutionRoleArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["openIDConnectConfig"] = args ? args.openIDConnectConfig : undefined;
+            resourceInputs["ownerContact"] = args ? args.ownerContact : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
             resourceInputs["visibility"] = args ? args.visibility : undefined;
@@ -92,14 +98,17 @@ export class GraphQLApi extends pulumi.CustomResource {
         } else {
             resourceInputs["additionalAuthenticationProviders"] = undefined /*out*/;
             resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["apiType"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authenticationType"] = undefined /*out*/;
             resourceInputs["graphQLDns"] = undefined /*out*/;
             resourceInputs["graphQLUrl"] = undefined /*out*/;
             resourceInputs["lambdaAuthorizerConfig"] = undefined /*out*/;
             resourceInputs["logConfig"] = undefined /*out*/;
+            resourceInputs["mergedApiExecutionRoleArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["openIDConnectConfig"] = undefined /*out*/;
+            resourceInputs["ownerContact"] = undefined /*out*/;
             resourceInputs["realtimeDns"] = undefined /*out*/;
             resourceInputs["realtimeUrl"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -117,11 +126,14 @@ export class GraphQLApi extends pulumi.CustomResource {
  */
 export interface GraphQLApiArgs {
     additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProviderArgs>[]>;
+    apiType?: pulumi.Input<string>;
     authenticationType: pulumi.Input<string>;
     lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfigArgs>;
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfigArgs>;
+    mergedApiExecutionRoleArn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     openIDConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenIDConnectConfigArgs>;
+    ownerContact?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiTagArgs>[]>;
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfigArgs>;
     visibility?: pulumi.Input<string>;

@@ -407,6 +407,7 @@ class ServerIdentityProviderDetailsArgs:
                  directory_id: Optional[pulumi.Input[str]] = None,
                  function: Optional[pulumi.Input[str]] = None,
                  invocation_role: Optional[pulumi.Input[str]] = None,
+                 sftp_authentication_methods: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         if directory_id is not None:
             pulumi.set(__self__, "directory_id", directory_id)
@@ -414,6 +415,8 @@ class ServerIdentityProviderDetailsArgs:
             pulumi.set(__self__, "function", function)
         if invocation_role is not None:
             pulumi.set(__self__, "invocation_role", invocation_role)
+        if sftp_authentication_methods is not None:
+            pulumi.set(__self__, "sftp_authentication_methods", sftp_authentication_methods)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -443,6 +446,15 @@ class ServerIdentityProviderDetailsArgs:
     @invocation_role.setter
     def invocation_role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "invocation_role", value)
+
+    @property
+    @pulumi.getter(name="sftpAuthenticationMethods")
+    def sftp_authentication_methods(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sftp_authentication_methods")
+
+    @sftp_authentication_methods.setter
+    def sftp_authentication_methods(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sftp_authentication_methods", value)
 
     @property
     @pulumi.getter

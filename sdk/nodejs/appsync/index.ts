@@ -80,6 +80,11 @@ export const getResolver: typeof import("./getResolver").getResolver = null as a
 export const getResolverOutput: typeof import("./getResolver").getResolverOutput = null as any;
 utilities.lazyLoad(exports, ["getResolver","getResolverOutput"], () => require("./getResolver"));
 
+export { GetSourceApiAssociationArgs, GetSourceApiAssociationResult, GetSourceApiAssociationOutputArgs } from "./getSourceApiAssociation";
+export const getSourceApiAssociation: typeof import("./getSourceApiAssociation").getSourceApiAssociation = null as any;
+export const getSourceApiAssociationOutput: typeof import("./getSourceApiAssociation").getSourceApiAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getSourceApiAssociation","getSourceApiAssociationOutput"], () => require("./getSourceApiAssociation"));
+
 export { GraphQLApiArgs } from "./graphQLApi";
 export type GraphQLApi = import("./graphQLApi").GraphQLApi;
 export const GraphQLApi: typeof import("./graphQLApi").GraphQLApi = null as any;
@@ -95,6 +100,14 @@ export type Resolver = import("./resolver").Resolver;
 export const Resolver: typeof import("./resolver").Resolver = null as any;
 utilities.lazyLoad(exports, ["Resolver"], () => require("./resolver"));
 
+export { SourceApiAssociationArgs } from "./sourceApiAssociation";
+export type SourceApiAssociation = import("./sourceApiAssociation").SourceApiAssociation;
+export const SourceApiAssociation: typeof import("./sourceApiAssociation").SourceApiAssociation = null as any;
+utilities.lazyLoad(exports, ["SourceApiAssociation"], () => require("./sourceApiAssociation"));
+
+
+// Export enums:
+export * from "../types/enums/appsync";
 
 const _module = {
     version: utilities.getVersion(),
@@ -118,6 +131,8 @@ const _module = {
                 return new GraphQLSchema(name, <any>undefined, { urn })
             case "aws-native:appsync:Resolver":
                 return new Resolver(name, <any>undefined, { urn })
+            case "aws-native:appsync:SourceApiAssociation":
+                return new SourceApiAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

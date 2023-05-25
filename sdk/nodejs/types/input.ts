@@ -4588,6 +4588,13 @@ export namespace appsync {
         conflictHandler?: pulumi.Input<string>;
         lambdaConflictHandlerConfig?: pulumi.Input<inputs.appsync.ResolverLambdaConflictHandlerConfigArgs>;
     }
+
+    export interface SourceApiAssociationConfigArgs {
+        /**
+         * Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
+         */
+        mergeType?: pulumi.Input<enums.appsync.SourceApiAssociationConfigMergeType>;
+    }
 }
 
 export namespace aps {
@@ -28361,6 +28368,24 @@ export namespace networkmanager {
     }
 
     /**
+     * The attachment to move from one segment to another.
+     */
+    export interface ConnectAttachmentProposedSegmentChangeArgs {
+        /**
+         * The rule number in the policy document that applies to this change.
+         */
+        attachmentPolicyRuleNumber?: pulumi.Input<number>;
+        /**
+         * The name of the segment to change.
+         */
+        segmentName?: pulumi.Input<string>;
+        /**
+         * The list of key-value tags that changed for the segment.
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.ConnectAttachmentTagArgs>[]>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface ConnectAttachmentTagArgs {
@@ -28492,6 +28517,24 @@ export namespace networkmanager {
     }
 
     /**
+     * The attachment to move from one segment to another.
+     */
+    export interface SiteToSiteVpnAttachmentProposedSegmentChangeArgs {
+        /**
+         * The rule number in the policy document that applies to this change.
+         */
+        attachmentPolicyRuleNumber?: pulumi.Input<number>;
+        /**
+         * The name of the segment to change.
+         */
+        segmentName?: pulumi.Input<string>;
+        /**
+         * The key-value tags that changed for the segment.
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentTagArgs>[]>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface SiteToSiteVpnAttachmentTagArgs {
@@ -28549,6 +28592,24 @@ export namespace networkmanager {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * The attachment to move from one segment to another.
+     */
+    export interface VpcAttachmentProposedSegmentChangeArgs {
+        /**
+         * The rule number in the policy document that applies to this change.
+         */
+        attachmentPolicyRuleNumber?: pulumi.Input<number>;
+        /**
+         * The name of the segment to change.
+         */
+        segmentName?: pulumi.Input<string>;
+        /**
+         * The key-value tags that changed for the segment.
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.VpcAttachmentTagArgs>[]>;
     }
 
     /**
@@ -28880,6 +28941,7 @@ export namespace opensearchservice {
         dedicatedMasterType?: pulumi.Input<string>;
         instanceCount?: pulumi.Input<number>;
         instanceType?: pulumi.Input<string>;
+        multiAZWithStandbyEnabled?: pulumi.Input<boolean>;
         warmCount?: pulumi.Input<number>;
         warmEnabled?: pulumi.Input<boolean>;
         warmType?: pulumi.Input<string>;
@@ -40547,6 +40609,7 @@ export namespace refactorspaces {
 
     export interface RouteUriPathRouteInputArgs {
         activationState: pulumi.Input<enums.refactorspaces.RouteActivationState>;
+        appendSourcePath?: pulumi.Input<boolean>;
         includeChildPaths?: pulumi.Input<boolean>;
         methods?: pulumi.Input<pulumi.Input<enums.refactorspaces.RouteMethod>[]>;
         sourcePath?: pulumi.Input<string>;
@@ -45664,6 +45727,14 @@ export namespace sagemaker {
     }
 
     /**
+     * Provisioned ServiceCatalog  Details
+     */
+    export interface ServiceCatalogProvisionedProductDetailsPropertiesArgs {
+        provisionedProductId?: pulumi.Input<string>;
+        provisionedProductStatusMessage?: pulumi.Input<string>;
+    }
+
+    /**
      * Input ServiceCatalog Provisioning Details
      */
     export interface ServiceCatalogProvisioningDetailsPropertiesArgs {
@@ -46722,6 +46793,84 @@ export namespace ses {
          * Whether emails sent from this account have optimized delivery algorithm enabled.
          */
         optimizedSharedDelivery?: pulumi.Input<string>;
+    }
+}
+
+export namespace shield {
+    /**
+     * An emergency contact is used by Shield Response Team (SRT) to contact you for escalations to the SRT and to initiate proactive customer support. An emergency contact requires an email address.
+     */
+    export interface ProactiveEngagementEmergencyContactArgs {
+        /**
+         * Additional notes regarding the contact.
+         */
+        contactNotes?: pulumi.Input<string>;
+        /**
+         * The email address for the contact.
+         */
+        emailAddress: pulumi.Input<string>;
+        /**
+         * The phone number for the contact
+         */
+        phoneNumber?: pulumi.Input<string>;
+    }
+
+    /**
+     * The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+     */
+    export interface ProtectionApplicationLayerAutomaticResponseConfigurationArgs {
+        /**
+         * Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+         */
+        action: pulumi.Input<inputs.shield.ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs | inputs.shield.ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs>;
+        /**
+         * Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
+         */
+        status: pulumi.Input<enums.shield.ProtectionApplicationLayerAutomaticResponseConfigurationStatus>;
+    }
+
+    export interface ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs {
+        /**
+         * Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Count` action.
+         * You must specify exactly one action, either `Block` or `Count`.
+         */
+        count?: any;
+    }
+
+    export interface ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs {
+        /**
+         * Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Block` action.
+         * You must specify exactly one action, either `Block` or `Count`.
+         */
+        block?: any;
+    }
+
+    /**
+     * A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+     */
+    export interface ProtectionGroupTagArgs {
+        /**
+         * Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+     */
+    export interface ProtectionTagArgs {
+        /**
+         * Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -47811,6 +47960,7 @@ export namespace transfer {
         directoryId?: pulumi.Input<string>;
         function?: pulumi.Input<string>;
         invocationRole?: pulumi.Input<string>;
+        sftpAuthenticationMethods?: pulumi.Input<string>;
         url?: pulumi.Input<string>;
     }
 

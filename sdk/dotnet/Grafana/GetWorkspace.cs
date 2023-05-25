@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Grafana
         /// </summary>
         public readonly string? Endpoint;
         /// <summary>
-        /// Version of Grafana the workspace is currently using.
+        /// The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
         /// </summary>
         public readonly string? GrafanaVersion;
         /// <summary>

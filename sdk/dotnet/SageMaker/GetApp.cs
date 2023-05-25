@@ -97,19 +97,11 @@ namespace Pulumi.AwsNative.SageMaker
         /// The Amazon Resource Name (ARN) of the app.
         /// </summary>
         public readonly string? AppArn;
-        /// <summary>
-        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-        /// </summary>
-        public readonly Outputs.AppResourceSpec? ResourceSpec;
 
         [OutputConstructor]
-        private GetAppResult(
-            string? appArn,
-
-            Outputs.AppResourceSpec? resourceSpec)
+        private GetAppResult(string? appArn)
         {
             AppArn = appArn;
-            ResourceSpec = resourceSpec;
         }
     }
 }

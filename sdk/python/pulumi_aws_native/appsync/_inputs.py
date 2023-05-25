@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'DataSourceAuthorizationConfigArgs',
@@ -36,6 +37,7 @@ __all__ = [
     'ResolverLambdaConflictHandlerConfigArgs',
     'ResolverPipelineConfigArgs',
     'ResolverSyncConfigArgs',
+    'SourceApiAssociationConfigArgs',
 ]
 
 @pulumi.input_type
@@ -919,5 +921,28 @@ class ResolverSyncConfigArgs:
     @lambda_conflict_handler_config.setter
     def lambda_conflict_handler_config(self, value: Optional[pulumi.Input['ResolverLambdaConflictHandlerConfigArgs']]):
         pulumi.set(self, "lambda_conflict_handler_config", value)
+
+
+@pulumi.input_type
+class SourceApiAssociationConfigArgs:
+    def __init__(__self__, *,
+                 merge_type: Optional[pulumi.Input['SourceApiAssociationConfigMergeType']] = None):
+        """
+        :param pulumi.Input['SourceApiAssociationConfigMergeType'] merge_type: Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
+        """
+        if merge_type is not None:
+            pulumi.set(__self__, "merge_type", merge_type)
+
+    @property
+    @pulumi.getter(name="mergeType")
+    def merge_type(self) -> Optional[pulumi.Input['SourceApiAssociationConfigMergeType']]:
+        """
+        Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
+        """
+        return pulumi.get(self, "merge_type")
+
+    @merge_type.setter
+    def merge_type(self, value: Optional[pulumi.Input['SourceApiAssociationConfigMergeType']]):
+        pulumi.set(self, "merge_type", value)
 
 

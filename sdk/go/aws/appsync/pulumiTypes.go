@@ -3949,6 +3949,143 @@ func (o ResolverSyncConfigPtrOutput) LambdaConflictHandlerConfig() ResolverLambd
 	}).(ResolverLambdaConflictHandlerConfigPtrOutput)
 }
 
+type SourceApiAssociationConfig struct {
+	// Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
+	MergeType *SourceApiAssociationConfigMergeType `pulumi:"mergeType"`
+}
+
+// SourceApiAssociationConfigInput is an input type that accepts SourceApiAssociationConfigArgs and SourceApiAssociationConfigOutput values.
+// You can construct a concrete instance of `SourceApiAssociationConfigInput` via:
+//
+//	SourceApiAssociationConfigArgs{...}
+type SourceApiAssociationConfigInput interface {
+	pulumi.Input
+
+	ToSourceApiAssociationConfigOutput() SourceApiAssociationConfigOutput
+	ToSourceApiAssociationConfigOutputWithContext(context.Context) SourceApiAssociationConfigOutput
+}
+
+type SourceApiAssociationConfigArgs struct {
+	// Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
+	MergeType SourceApiAssociationConfigMergeTypePtrInput `pulumi:"mergeType"`
+}
+
+func (SourceApiAssociationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceApiAssociationConfig)(nil)).Elem()
+}
+
+func (i SourceApiAssociationConfigArgs) ToSourceApiAssociationConfigOutput() SourceApiAssociationConfigOutput {
+	return i.ToSourceApiAssociationConfigOutputWithContext(context.Background())
+}
+
+func (i SourceApiAssociationConfigArgs) ToSourceApiAssociationConfigOutputWithContext(ctx context.Context) SourceApiAssociationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceApiAssociationConfigOutput)
+}
+
+func (i SourceApiAssociationConfigArgs) ToSourceApiAssociationConfigPtrOutput() SourceApiAssociationConfigPtrOutput {
+	return i.ToSourceApiAssociationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i SourceApiAssociationConfigArgs) ToSourceApiAssociationConfigPtrOutputWithContext(ctx context.Context) SourceApiAssociationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceApiAssociationConfigOutput).ToSourceApiAssociationConfigPtrOutputWithContext(ctx)
+}
+
+// SourceApiAssociationConfigPtrInput is an input type that accepts SourceApiAssociationConfigArgs, SourceApiAssociationConfigPtr and SourceApiAssociationConfigPtrOutput values.
+// You can construct a concrete instance of `SourceApiAssociationConfigPtrInput` via:
+//
+//	        SourceApiAssociationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type SourceApiAssociationConfigPtrInput interface {
+	pulumi.Input
+
+	ToSourceApiAssociationConfigPtrOutput() SourceApiAssociationConfigPtrOutput
+	ToSourceApiAssociationConfigPtrOutputWithContext(context.Context) SourceApiAssociationConfigPtrOutput
+}
+
+type sourceApiAssociationConfigPtrType SourceApiAssociationConfigArgs
+
+func SourceApiAssociationConfigPtr(v *SourceApiAssociationConfigArgs) SourceApiAssociationConfigPtrInput {
+	return (*sourceApiAssociationConfigPtrType)(v)
+}
+
+func (*sourceApiAssociationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceApiAssociationConfig)(nil)).Elem()
+}
+
+func (i *sourceApiAssociationConfigPtrType) ToSourceApiAssociationConfigPtrOutput() SourceApiAssociationConfigPtrOutput {
+	return i.ToSourceApiAssociationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *sourceApiAssociationConfigPtrType) ToSourceApiAssociationConfigPtrOutputWithContext(ctx context.Context) SourceApiAssociationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceApiAssociationConfigPtrOutput)
+}
+
+type SourceApiAssociationConfigOutput struct{ *pulumi.OutputState }
+
+func (SourceApiAssociationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceApiAssociationConfig)(nil)).Elem()
+}
+
+func (o SourceApiAssociationConfigOutput) ToSourceApiAssociationConfigOutput() SourceApiAssociationConfigOutput {
+	return o
+}
+
+func (o SourceApiAssociationConfigOutput) ToSourceApiAssociationConfigOutputWithContext(ctx context.Context) SourceApiAssociationConfigOutput {
+	return o
+}
+
+func (o SourceApiAssociationConfigOutput) ToSourceApiAssociationConfigPtrOutput() SourceApiAssociationConfigPtrOutput {
+	return o.ToSourceApiAssociationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o SourceApiAssociationConfigOutput) ToSourceApiAssociationConfigPtrOutputWithContext(ctx context.Context) SourceApiAssociationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceApiAssociationConfig) *SourceApiAssociationConfig {
+		return &v
+	}).(SourceApiAssociationConfigPtrOutput)
+}
+
+// Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
+func (o SourceApiAssociationConfigOutput) MergeType() SourceApiAssociationConfigMergeTypePtrOutput {
+	return o.ApplyT(func(v SourceApiAssociationConfig) *SourceApiAssociationConfigMergeType { return v.MergeType }).(SourceApiAssociationConfigMergeTypePtrOutput)
+}
+
+type SourceApiAssociationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceApiAssociationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceApiAssociationConfig)(nil)).Elem()
+}
+
+func (o SourceApiAssociationConfigPtrOutput) ToSourceApiAssociationConfigPtrOutput() SourceApiAssociationConfigPtrOutput {
+	return o
+}
+
+func (o SourceApiAssociationConfigPtrOutput) ToSourceApiAssociationConfigPtrOutputWithContext(ctx context.Context) SourceApiAssociationConfigPtrOutput {
+	return o
+}
+
+func (o SourceApiAssociationConfigPtrOutput) Elem() SourceApiAssociationConfigOutput {
+	return o.ApplyT(func(v *SourceApiAssociationConfig) SourceApiAssociationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret SourceApiAssociationConfig
+		return ret
+	}).(SourceApiAssociationConfigOutput)
+}
+
+// Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
+func (o SourceApiAssociationConfigPtrOutput) MergeType() SourceApiAssociationConfigMergeTypePtrOutput {
+	return o.ApplyT(func(v *SourceApiAssociationConfig) *SourceApiAssociationConfigMergeType {
+		if v == nil {
+			return nil
+		}
+		return v.MergeType
+	}).(SourceApiAssociationConfigMergeTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthorizationConfigInput)(nil)).Elem(), DataSourceAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthorizationConfigPtrInput)(nil)).Elem(), DataSourceAuthorizationConfigArgs{})
@@ -4002,6 +4139,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverPipelineConfigPtrInput)(nil)).Elem(), ResolverPipelineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverSyncConfigInput)(nil)).Elem(), ResolverSyncConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverSyncConfigPtrInput)(nil)).Elem(), ResolverSyncConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigInput)(nil)).Elem(), SourceApiAssociationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigPtrInput)(nil)).Elem(), SourceApiAssociationConfigArgs{})
 	pulumi.RegisterOutputType(DataSourceAuthorizationConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAwsIamConfigOutput{})
@@ -4054,4 +4193,6 @@ func init() {
 	pulumi.RegisterOutputType(ResolverPipelineConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverSyncConfigOutput{})
 	pulumi.RegisterOutputType(ResolverSyncConfigPtrOutput{})
+	pulumi.RegisterOutputType(SourceApiAssociationConfigOutput{})
+	pulumi.RegisterOutputType(SourceApiAssociationConfigPtrOutput{})
 }

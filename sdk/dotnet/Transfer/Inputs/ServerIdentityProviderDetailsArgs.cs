@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         [Input("invocationRole")]
         public Input<string>? InvocationRole { get; set; }
 
+        [Input("sftpAuthenticationMethods")]
+        public Input<string>? SftpAuthenticationMethods { get; set; }
+
         [Input("url")]
         public Input<string>? Url { get; set; }
 

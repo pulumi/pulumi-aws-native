@@ -72,7 +72,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
     /**
      * The attachment to move from one segment to another.
      */
-    public /*out*/ readonly proposedSegmentChange!: pulumi.Output<outputs.networkmanager.SiteToSiteVpnAttachmentProposedSegmentChange>;
+    public readonly proposedSegmentChange!: pulumi.Output<outputs.networkmanager.SiteToSiteVpnAttachmentProposedSegmentChange | undefined>;
     /**
      * The ARN of the Resource.
      */
@@ -116,6 +116,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpnConnectionArn'");
             }
             resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
+            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpnConnectionArn"] = args ? args.vpnConnectionArn : undefined;
             resourceInputs["attachmentId"] = undefined /*out*/;
@@ -125,7 +126,6 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
-            resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -160,6 +160,10 @@ export interface SiteToSiteVpnAttachmentArgs {
      * The ID of a core network where you're creating a site-to-site VPN attachment.
      */
     coreNetworkId: pulumi.Input<string>;
+    /**
+     * The attachment to move from one segment to another.
+     */
+    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentProposedSegmentChangeArgs>;
     /**
      * Tags for the attachment.
      */

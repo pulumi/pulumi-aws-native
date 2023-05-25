@@ -24,7 +24,7 @@ type Project struct {
 	// The status of a project.
 	ProjectStatus ProjectStatusOutput `pulumi:"projectStatus"`
 	// Provisioned ServiceCatalog  Details
-	ServiceCatalogProvisionedProductDetails ServiceCatalogProvisionedProductDetailsPropertiesOutput `pulumi:"serviceCatalogProvisionedProductDetails"`
+	ServiceCatalogProvisionedProductDetails ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput `pulumi:"serviceCatalogProvisionedProductDetails"`
 	// Input ServiceCatalog Provisioning Details
 	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsPropertiesOutput `pulumi:"serviceCatalogProvisioningDetails"`
 	// An array of key-value pairs to apply to this resource.
@@ -75,6 +75,8 @@ func (ProjectState) ElementType() reflect.Type {
 type projectArgs struct {
 	ProjectDescription *string `pulumi:"projectDescription"`
 	ProjectName        *string `pulumi:"projectName"`
+	// Provisioned ServiceCatalog  Details
+	ServiceCatalogProvisionedProductDetails *ServiceCatalogProvisionedProductDetailsProperties `pulumi:"serviceCatalogProvisionedProductDetails"`
 	// Input ServiceCatalog Provisioning Details
 	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsProperties `pulumi:"serviceCatalogProvisioningDetails"`
 	// An array of key-value pairs to apply to this resource.
@@ -85,6 +87,8 @@ type projectArgs struct {
 type ProjectArgs struct {
 	ProjectDescription pulumi.StringPtrInput
 	ProjectName        pulumi.StringPtrInput
+	// Provisioned ServiceCatalog  Details
+	ServiceCatalogProvisionedProductDetails ServiceCatalogProvisionedProductDetailsPropertiesPtrInput
 	// Input ServiceCatalog Provisioning Details
 	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsPropertiesInput
 	// An array of key-value pairs to apply to this resource.
@@ -155,10 +159,10 @@ func (o ProjectOutput) ProjectStatus() ProjectStatusOutput {
 }
 
 // Provisioned ServiceCatalog  Details
-func (o ProjectOutput) ServiceCatalogProvisionedProductDetails() ServiceCatalogProvisionedProductDetailsPropertiesOutput {
-	return o.ApplyT(func(v *Project) ServiceCatalogProvisionedProductDetailsPropertiesOutput {
+func (o ProjectOutput) ServiceCatalogProvisionedProductDetails() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return o.ApplyT(func(v *Project) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
 		return v.ServiceCatalogProvisionedProductDetails
-	}).(ServiceCatalogProvisionedProductDetailsPropertiesOutput)
+	}).(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput)
 }
 
 // Input ServiceCatalog Provisioning Details

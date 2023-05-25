@@ -54,6 +54,7 @@
     "Tags" : {
       "description" : "The tags for the global network.",
       "type" : "array",
+      "uniqueItems" : true,
       "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
@@ -130,17 +131,18 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
   },
   "additionalProperties" : false,
   "required" : [ "GlobalNetworkId" ],
   "readOnlyProperties" : [ "/properties/OwnerAccount", "/properties/CoreNetworkId", "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/State", "/properties/Segments", "/properties/Edges" ],
   "createOnlyProperties" : [ "/properties/GlobalNetworkId" ],
   "primaryIdentifier" : [ "/properties/CoreNetworkId" ],
-  "additionalIdentifiers" : [ [ "/properties/CoreNetworkArn" ] ],
+  "additionalIdentifiers" : [ [ "/properties/CoreNetworkArn" ], [ "/properties/GlobalNetworkId" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "networkmanager:CreateCoreNetwork", "networkmanager:GetCoreNetwork", "networkmanager:GetCoreNetworkPolicy", "networkmanager:TagResource", "ec2:DescribeRegions" ],
+      "permissions" : [ "networkmanager:CreateCoreNetwork", "networkmanager:GetCoreNetwork", "networkmanager:GetCoreNetworkPolicy", "ec2:DescribeRegions" ],
       "timeoutInMinutes" : 720
     },
     "read" : {

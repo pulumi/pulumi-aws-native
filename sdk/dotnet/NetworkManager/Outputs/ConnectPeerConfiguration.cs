@@ -14,8 +14,17 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
     public sealed class ConnectPeerConfiguration
     {
         public readonly ImmutableArray<Outputs.ConnectPeerBgpConfiguration> BgpConfigurations;
+        /// <summary>
+        /// The IP address of a core network.
+        /// </summary>
         public readonly string? CoreNetworkAddress;
+        /// <summary>
+        /// The inside IP addresses used for a Connect peer configuration.
+        /// </summary>
         public readonly ImmutableArray<string> InsideCidrBlocks;
+        /// <summary>
+        /// The IP address of the Connect peer.
+        /// </summary>
         public readonly string? PeerAddress;
         public readonly string? Protocol;
 

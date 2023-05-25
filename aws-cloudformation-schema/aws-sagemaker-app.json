@@ -95,7 +95,7 @@
     }
   },
   "required" : [ "AppName", "AppType", "DomainId", "UserProfileName" ],
-  "createOnlyProperties" : [ "/properties/AppName", "/properties/AppType", "/properties/DomainId", "/properties/UserProfileName", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/AppName", "/properties/AppType", "/properties/DomainId", "/properties/UserProfileName", "/properties/Tags", "/properties/ResourceSpec" ],
   "writeOnlyProperties" : [ "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/AppName", "/properties/AppType", "/properties/DomainId", "/properties/UserProfileName" ],
   "readOnlyProperties" : [ "/properties/AppArn" ],

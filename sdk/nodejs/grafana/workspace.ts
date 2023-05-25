@@ -63,9 +63,9 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * Version of Grafana the workspace is currently using.
+     * The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
      */
-    public /*out*/ readonly grafanaVersion!: pulumi.Output<string>;
+    public readonly grafanaVersion!: pulumi.Output<string | undefined>;
     /**
      * Timestamp when the workspace was last modified
      */
@@ -130,6 +130,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["clientToken"] = args ? args.clientToken : undefined;
             resourceInputs["dataSources"] = args ? args.dataSources : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["grafanaVersion"] = args ? args.grafanaVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkAccessControl"] = args ? args.networkAccessControl : undefined;
             resourceInputs["notificationDestinations"] = args ? args.notificationDestinations : undefined;
@@ -142,7 +143,6 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
-            resourceInputs["grafanaVersion"] = undefined /*out*/;
             resourceInputs["modificationTimestamp"] = undefined /*out*/;
             resourceInputs["samlConfigurationStatus"] = undefined /*out*/;
             resourceInputs["ssoClientId"] = undefined /*out*/;
@@ -197,6 +197,10 @@ export interface WorkspaceArgs {
      * Description of a workspace.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+     */
+    grafanaVersion?: pulumi.Input<string>;
     /**
      * The user friendly name of a workspace.
      */

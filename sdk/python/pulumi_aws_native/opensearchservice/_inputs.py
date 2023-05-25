@@ -115,6 +115,7 @@ class DomainClusterConfigArgs:
                  dedicated_master_type: Optional[pulumi.Input[str]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 multi_az_with_standby_enabled: Optional[pulumi.Input[bool]] = None,
                  warm_count: Optional[pulumi.Input[int]] = None,
                  warm_enabled: Optional[pulumi.Input[bool]] = None,
                  warm_type: Optional[pulumi.Input[str]] = None,
@@ -130,6 +131,8 @@ class DomainClusterConfigArgs:
             pulumi.set(__self__, "instance_count", instance_count)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if multi_az_with_standby_enabled is not None:
+            pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
         if warm_count is not None:
             pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
@@ -185,6 +188,15 @@ class DomainClusterConfigArgs:
     @instance_type.setter
     def instance_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="multiAZWithStandbyEnabled")
+    def multi_az_with_standby_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "multi_az_with_standby_enabled")
+
+    @multi_az_with_standby_enabled.setter
+    def multi_az_with_standby_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_az_with_standby_enabled", value)
 
     @property
     @pulumi.getter(name="warmCount")

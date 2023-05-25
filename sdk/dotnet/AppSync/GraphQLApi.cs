@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
+        [Output("apiType")]
+        public Output<string?> ApiType { get; private set; } = null!;
+
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -40,11 +43,17 @@ namespace Pulumi.AwsNative.AppSync
         [Output("logConfig")]
         public Output<Outputs.GraphQLApiLogConfig?> LogConfig { get; private set; } = null!;
 
+        [Output("mergedApiExecutionRoleArn")]
+        public Output<string?> MergedApiExecutionRoleArn { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("openIDConnectConfig")]
         public Output<Outputs.GraphQLApiOpenIDConnectConfig?> OpenIDConnectConfig { get; private set; } = null!;
+
+        [Output("ownerContact")]
+        public Output<string?> OwnerContact { get; private set; } = null!;
 
         [Output("realtimeDns")]
         public Output<string> RealtimeDns { get; private set; } = null!;
@@ -117,6 +126,9 @@ namespace Pulumi.AwsNative.AppSync
             set => _additionalAuthenticationProviders = value;
         }
 
+        [Input("apiType")]
+        public Input<string>? ApiType { get; set; }
+
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
 
@@ -126,11 +138,17 @@ namespace Pulumi.AwsNative.AppSync
         [Input("logConfig")]
         public Input<Inputs.GraphQLApiLogConfigArgs>? LogConfig { get; set; }
 
+        [Input("mergedApiExecutionRoleArn")]
+        public Input<string>? MergedApiExecutionRoleArn { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("openIDConnectConfig")]
         public Input<Inputs.GraphQLApiOpenIDConnectConfigArgs>? OpenIDConnectConfig { get; set; }
+
+        [Input("ownerContact")]
+        public Input<string>? OwnerContact { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.GraphQLApiTagArgs>? _tags;

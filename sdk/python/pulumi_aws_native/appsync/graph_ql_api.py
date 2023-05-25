@@ -18,10 +18,13 @@ class GraphQLApiArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
+                 api_type: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
+                 merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_id_connect_config: Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']] = None,
+                 owner_contact: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiTagArgs']]]] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
@@ -32,14 +35,20 @@ class GraphQLApiArgs:
         pulumi.set(__self__, "authentication_type", authentication_type)
         if additional_authentication_providers is not None:
             pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
         if lambda_authorizer_config is not None:
             pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
             pulumi.set(__self__, "log_config", log_config)
+        if merged_api_execution_role_arn is not None:
+            pulumi.set(__self__, "merged_api_execution_role_arn", merged_api_execution_role_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if open_id_connect_config is not None:
             pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
+        if owner_contact is not None:
+            pulumi.set(__self__, "owner_contact", owner_contact)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if user_pool_config is not None:
@@ -68,6 +77,15 @@ class GraphQLApiArgs:
         pulumi.set(self, "additional_authentication_providers", value)
 
     @property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "api_type")
+
+    @api_type.setter
+    def api_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_type", value)
+
+    @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
     def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]:
         return pulumi.get(self, "lambda_authorizer_config")
@@ -86,6 +104,15 @@ class GraphQLApiArgs:
         pulumi.set(self, "log_config", value)
 
     @property
+    @pulumi.getter(name="mergedApiExecutionRoleArn")
+    def merged_api_execution_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "merged_api_execution_role_arn")
+
+    @merged_api_execution_role_arn.setter
+    def merged_api_execution_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "merged_api_execution_role_arn", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
@@ -102,6 +129,15 @@ class GraphQLApiArgs:
     @open_id_connect_config.setter
     def open_id_connect_config(self, value: Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']]):
         pulumi.set(self, "open_id_connect_config", value)
+
+    @property
+    @pulumi.getter(name="ownerContact")
+    def owner_contact(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner_contact")
+
+    @owner_contact.setter
+    def owner_contact(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_contact", value)
 
     @property
     @pulumi.getter
@@ -151,11 +187,14 @@ class GraphQLApi(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
+                 api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
+                 merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenIDConnectConfigArgs']]] = None,
+                 owner_contact: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiTagArgs']]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
@@ -192,11 +231,14 @@ class GraphQLApi(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
+                 api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
+                 merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenIDConnectConfigArgs']]] = None,
+                 owner_contact: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiTagArgs']]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
@@ -212,13 +254,16 @@ class GraphQLApi(pulumi.CustomResource):
             __props__ = GraphQLApiArgs.__new__(GraphQLApiArgs)
 
             __props__.__dict__["additional_authentication_providers"] = additional_authentication_providers
+            __props__.__dict__["api_type"] = api_type
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
             __props__.__dict__["log_config"] = log_config
+            __props__.__dict__["merged_api_execution_role_arn"] = merged_api_execution_role_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["open_id_connect_config"] = open_id_connect_config
+            __props__.__dict__["owner_contact"] = owner_contact
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_pool_config"] = user_pool_config
             __props__.__dict__["visibility"] = visibility
@@ -253,14 +298,17 @@ class GraphQLApi(pulumi.CustomResource):
 
         __props__.__dict__["additional_authentication_providers"] = None
         __props__.__dict__["api_id"] = None
+        __props__.__dict__["api_type"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["authentication_type"] = None
         __props__.__dict__["graph_ql_dns"] = None
         __props__.__dict__["graph_ql_url"] = None
         __props__.__dict__["lambda_authorizer_config"] = None
         __props__.__dict__["log_config"] = None
+        __props__.__dict__["merged_api_execution_role_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["open_id_connect_config"] = None
+        __props__.__dict__["owner_contact"] = None
         __props__.__dict__["realtime_dns"] = None
         __props__.__dict__["realtime_url"] = None
         __props__.__dict__["tags"] = None
@@ -278,6 +326,11 @@ class GraphQLApi(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "api_type")
 
     @property
     @pulumi.getter
@@ -310,6 +363,11 @@ class GraphQLApi(pulumi.CustomResource):
         return pulumi.get(self, "log_config")
 
     @property
+    @pulumi.getter(name="mergedApiExecutionRoleArn")
+    def merged_api_execution_role_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "merged_api_execution_role_arn")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
@@ -318,6 +376,11 @@ class GraphQLApi(pulumi.CustomResource):
     @pulumi.getter(name="openIDConnectConfig")
     def open_id_connect_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiOpenIDConnectConfig']]:
         return pulumi.get(self, "open_id_connect_config")
+
+    @property
+    @pulumi.getter(name="ownerContact")
+    def owner_contact(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "owner_contact")
 
     @property
     @pulumi.getter(name="realtimeDns")

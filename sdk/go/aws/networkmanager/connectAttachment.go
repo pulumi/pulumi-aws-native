@@ -34,7 +34,7 @@ type ConnectAttachment struct {
 	// The ID of the attachment account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The attachment to move from one segment to another.
-	ProposedSegmentChange ConnectAttachmentProposedSegmentChangeOutput `pulumi:"proposedSegmentChange"`
+	ProposedSegmentChange ConnectAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The attachment resource ARN.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The name of the segment attachment.
@@ -106,6 +106,8 @@ type connectAttachmentArgs struct {
 	EdgeLocation string `pulumi:"edgeLocation"`
 	// Protocol options for connect attachment
 	Options ConnectAttachmentOptions `pulumi:"options"`
+	// The attachment to move from one segment to another.
+	ProposedSegmentChange *ConnectAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Tags for the attachment.
 	Tags []ConnectAttachmentTag `pulumi:"tags"`
 	// Id of transport attachment
@@ -120,6 +122,8 @@ type ConnectAttachmentArgs struct {
 	EdgeLocation pulumi.StringInput
 	// Protocol options for connect attachment
 	Options ConnectAttachmentOptionsInput
+	// The attachment to move from one segment to another.
+	ProposedSegmentChange ConnectAttachmentProposedSegmentChangePtrInput
 	// Tags for the attachment.
 	Tags ConnectAttachmentTagArrayInput
 	// Id of transport attachment
@@ -209,10 +213,10 @@ func (o ConnectAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 }
 
 // The attachment to move from one segment to another.
-func (o ConnectAttachmentOutput) ProposedSegmentChange() ConnectAttachmentProposedSegmentChangeOutput {
-	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentProposedSegmentChangeOutput {
+func (o ConnectAttachmentOutput) ProposedSegmentChange() ConnectAttachmentProposedSegmentChangePtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentProposedSegmentChangePtrOutput {
 		return v.ProposedSegmentChange
-	}).(ConnectAttachmentProposedSegmentChangeOutput)
+	}).(ConnectAttachmentProposedSegmentChangePtrOutput)
 }
 
 // The attachment resource ARN.

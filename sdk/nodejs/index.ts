@@ -259,6 +259,7 @@ import * as servicecatalog from "./servicecatalog";
 import * as servicecatalogappregistry from "./servicecatalogappregistry";
 import * as servicediscovery from "./servicediscovery";
 import * as ses from "./ses";
+import * as shield from "./shield";
 import * as signer from "./signer";
 import * as simspaceweaver from "./simspaceweaver";
 import * as sns from "./sns";
@@ -482,6 +483,7 @@ export {
     servicecatalogappregistry,
     servicediscovery,
     ses,
+    shield,
     signer,
     simspaceweaver,
     sns,

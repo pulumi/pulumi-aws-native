@@ -23,6 +23,7 @@ class WorkspaceArgs:
                  client_token: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 grafana_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
@@ -38,6 +39,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] client_token: A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]] data_sources: List of data sources on the service managed IAM role.
         :param pulumi.Input[str] description: Description of a workspace.
+        :param pulumi.Input[str] grafana_version: The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
         :param pulumi.Input[str] name: The user friendly name of a workspace.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]] notification_destinations: List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
         :param pulumi.Input[str] organization_role_name: The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
@@ -54,6 +56,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "data_sources", data_sources)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if grafana_version is not None:
+            pulumi.set(__self__, "grafana_version", grafana_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_access_control is not None:
@@ -138,6 +142,18 @@ class WorkspaceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="grafanaVersion")
+    def grafana_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+        """
+        return pulumi.get(self, "grafana_version")
+
+    @grafana_version.setter
+    def grafana_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "grafana_version", value)
 
     @property
     @pulumi.getter
@@ -249,6 +265,7 @@ class Workspace(pulumi.CustomResource):
                  client_token: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 grafana_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
@@ -269,6 +286,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] client_token: A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]] data_sources: List of data sources on the service managed IAM role.
         :param pulumi.Input[str] description: Description of a workspace.
+        :param pulumi.Input[str] grafana_version: The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
         :param pulumi.Input[str] name: The user friendly name of a workspace.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]] notification_destinations: List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
         :param pulumi.Input[str] organization_role_name: The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
@@ -305,6 +323,7 @@ class Workspace(pulumi.CustomResource):
                  client_token: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 grafana_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
@@ -333,6 +352,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["client_token"] = client_token
             __props__.__dict__["data_sources"] = data_sources
             __props__.__dict__["description"] = description
+            __props__.__dict__["grafana_version"] = grafana_version
             __props__.__dict__["name"] = name
             __props__.__dict__["network_access_control"] = network_access_control
             __props__.__dict__["notification_destinations"] = notification_destinations
@@ -347,7 +367,6 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["creation_timestamp"] = None
             __props__.__dict__["endpoint"] = None
-            __props__.__dict__["grafana_version"] = None
             __props__.__dict__["modification_timestamp"] = None
             __props__.__dict__["saml_configuration_status"] = None
             __props__.__dict__["sso_client_id"] = None
@@ -453,9 +472,9 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="grafanaVersion")
-    def grafana_version(self) -> pulumi.Output[str]:
+    def grafana_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Version of Grafana the workspace is currently using.
+        The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
         """
         return pulumi.get(self, "grafana_version")
 

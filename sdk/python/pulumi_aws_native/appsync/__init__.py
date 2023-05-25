@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .api_cache import *
 from .api_key import *
 from .data_source import *
@@ -20,8 +21,10 @@ from .get_function_configuration import *
 from .get_graph_ql_api import *
 from .get_graph_ql_schema import *
 from .get_resolver import *
+from .get_source_api_association import *
 from .graph_ql_api import *
 from .graph_ql_schema import *
 from .resolver import *
+from .source_api_association import *
 from ._inputs import *
 from . import outputs

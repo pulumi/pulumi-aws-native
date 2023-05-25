@@ -32,8 +32,10 @@ export interface GetGraphQLApiResult {
     readonly id?: string;
     readonly lambdaAuthorizerConfig?: outputs.appsync.GraphQLApiLambdaAuthorizerConfig;
     readonly logConfig?: outputs.appsync.GraphQLApiLogConfig;
+    readonly mergedApiExecutionRoleArn?: string;
     readonly name?: string;
     readonly openIDConnectConfig?: outputs.appsync.GraphQLApiOpenIDConnectConfig;
+    readonly ownerContact?: string;
     readonly realtimeDns?: string;
     readonly realtimeUrl?: string;
     readonly tags?: outputs.appsync.GraphQLApiTag[];

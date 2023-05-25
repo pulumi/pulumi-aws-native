@@ -45,10 +45,6 @@ export interface GetAppResult {
      * The Amazon Resource Name (ARN) of the app.
      */
     readonly appArn?: string;
-    /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-     */
-    readonly resourceSpec?: outputs.sagemaker.AppResourceSpec;
 }
 /**
  * Resource Type definition for AWS::SageMaker::App

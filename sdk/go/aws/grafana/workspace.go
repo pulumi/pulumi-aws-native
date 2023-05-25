@@ -28,8 +28,8 @@ type Workspace struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Endpoint for the Grafana workspace.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Version of Grafana the workspace is currently using.
-	GrafanaVersion pulumi.StringOutput `pulumi:"grafanaVersion"`
+	// The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+	GrafanaVersion pulumi.StringPtrOutput `pulumi:"grafanaVersion"`
 	// Timestamp when the workspace was last modified
 	ModificationTimestamp pulumi.StringOutput `pulumi:"modificationTimestamp"`
 	// The user friendly name of a workspace.
@@ -111,6 +111,8 @@ type workspaceArgs struct {
 	DataSources []WorkspaceDataSourceType `pulumi:"dataSources"`
 	// Description of a workspace.
 	Description *string `pulumi:"description"`
+	// The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+	GrafanaVersion *string `pulumi:"grafanaVersion"`
 	// The user friendly name of a workspace.
 	Name                 *string                        `pulumi:"name"`
 	NetworkAccessControl *WorkspaceNetworkAccessControl `pulumi:"networkAccessControl"`
@@ -140,6 +142,8 @@ type WorkspaceArgs struct {
 	DataSources WorkspaceDataSourceTypeArrayInput
 	// Description of a workspace.
 	Description pulumi.StringPtrInput
+	// The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+	GrafanaVersion pulumi.StringPtrInput
 	// The user friendly name of a workspace.
 	Name                 pulumi.StringPtrInput
 	NetworkAccessControl WorkspaceNetworkAccessControlPtrInput
@@ -229,9 +233,9 @@ func (o WorkspaceOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Version of Grafana the workspace is currently using.
-func (o WorkspaceOutput) GrafanaVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.GrafanaVersion }).(pulumi.StringOutput)
+// The version of Grafana to support in your workspace. For region ap-northeast-2, only version 8.4 is supported.
+func (o WorkspaceOutput) GrafanaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.GrafanaVersion }).(pulumi.StringPtrOutput)
 }
 
 // Timestamp when the workspace was last modified

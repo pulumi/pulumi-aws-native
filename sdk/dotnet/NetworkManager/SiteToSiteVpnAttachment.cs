@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The attachment to move from one segment to another.
         /// </summary>
         [Output("proposedSegmentChange")]
-        public Output<Outputs.SiteToSiteVpnAttachmentProposedSegmentChange> ProposedSegmentChange { get; private set; } = null!;
+        public Output<Outputs.SiteToSiteVpnAttachmentProposedSegmentChange?> ProposedSegmentChange { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Resource.
@@ -155,6 +155,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("coreNetworkId", required: true)]
         public Input<string> CoreNetworkId { get; set; } = null!;
+
+        /// <summary>
+        /// The attachment to move from one segment to another.
+        /// </summary>
+        [Input("proposedSegmentChange")]
+        public Input<Inputs.SiteToSiteVpnAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.SiteToSiteVpnAttachmentTagArgs>? _tags;

@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GraphQLSchema{}
 	case "aws-native:appsync:Resolver":
 		r = &Resolver{}
+	case "aws-native:appsync:SourceApiAssociation":
+		r = &SourceApiAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

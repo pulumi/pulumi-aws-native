@@ -185,10 +185,13 @@ class RouteTagArgs:
 class RouteUriPathRouteInputArgs:
     def __init__(__self__, *,
                  activation_state: pulumi.Input['RouteActivationState'],
+                 append_source_path: Optional[pulumi.Input[bool]] = None,
                  include_child_paths: Optional[pulumi.Input[bool]] = None,
                  methods: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMethod']]]] = None,
                  source_path: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "activation_state", activation_state)
+        if append_source_path is not None:
+            pulumi.set(__self__, "append_source_path", append_source_path)
         if include_child_paths is not None:
             pulumi.set(__self__, "include_child_paths", include_child_paths)
         if methods is not None:
@@ -204,6 +207,15 @@ class RouteUriPathRouteInputArgs:
     @activation_state.setter
     def activation_state(self, value: pulumi.Input['RouteActivationState']):
         pulumi.set(self, "activation_state", value)
+
+    @property
+    @pulumi.getter(name="appendSourcePath")
+    def append_source_path(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "append_source_path")
+
+    @append_source_path.setter
+    def append_source_path(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "append_source_path", value)
 
     @property
     @pulumi.getter(name="includeChildPaths")

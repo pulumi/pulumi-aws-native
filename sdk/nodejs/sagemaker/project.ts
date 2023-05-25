@@ -52,7 +52,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Provisioned ServiceCatalog  Details
      */
-    public /*out*/ readonly serviceCatalogProvisionedProductDetails!: pulumi.Output<outputs.sagemaker.ServiceCatalogProvisionedProductDetailsProperties>;
+    public readonly serviceCatalogProvisionedProductDetails!: pulumi.Output<outputs.sagemaker.ServiceCatalogProvisionedProductDetailsProperties | undefined>;
     /**
      * Input ServiceCatalog Provisioning Details
      */
@@ -78,13 +78,13 @@ export class Project extends pulumi.CustomResource {
             }
             resourceInputs["projectDescription"] = args ? args.projectDescription : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["serviceCatalogProvisionedProductDetails"] = args ? args.serviceCatalogProvisionedProductDetails : undefined;
             resourceInputs["serviceCatalogProvisioningDetails"] = args ? args.serviceCatalogProvisioningDetails : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["projectArn"] = undefined /*out*/;
             resourceInputs["projectId"] = undefined /*out*/;
             resourceInputs["projectStatus"] = undefined /*out*/;
-            resourceInputs["serviceCatalogProvisionedProductDetails"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["projectArn"] = undefined /*out*/;
@@ -107,6 +107,10 @@ export class Project extends pulumi.CustomResource {
 export interface ProjectArgs {
     projectDescription?: pulumi.Input<string>;
     projectName?: pulumi.Input<string>;
+    /**
+     * Provisioned ServiceCatalog  Details
+     */
+    serviceCatalogProvisionedProductDetails?: pulumi.Input<inputs.sagemaker.ServiceCatalogProvisionedProductDetailsPropertiesArgs>;
     /**
      * Input ServiceCatalog Provisioning Details
      */

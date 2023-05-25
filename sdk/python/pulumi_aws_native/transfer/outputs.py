@@ -396,6 +396,8 @@ class ServerIdentityProviderDetails(dict):
             suggest = "directory_id"
         elif key == "invocationRole":
             suggest = "invocation_role"
+        elif key == "sftpAuthenticationMethods":
+            suggest = "sftp_authentication_methods"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServerIdentityProviderDetails. Access the value via the '{suggest}' property getter instead.")
@@ -412,6 +414,7 @@ class ServerIdentityProviderDetails(dict):
                  directory_id: Optional[str] = None,
                  function: Optional[str] = None,
                  invocation_role: Optional[str] = None,
+                 sftp_authentication_methods: Optional[str] = None,
                  url: Optional[str] = None):
         if directory_id is not None:
             pulumi.set(__self__, "directory_id", directory_id)
@@ -419,6 +422,8 @@ class ServerIdentityProviderDetails(dict):
             pulumi.set(__self__, "function", function)
         if invocation_role is not None:
             pulumi.set(__self__, "invocation_role", invocation_role)
+        if sftp_authentication_methods is not None:
+            pulumi.set(__self__, "sftp_authentication_methods", sftp_authentication_methods)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -436,6 +441,11 @@ class ServerIdentityProviderDetails(dict):
     @pulumi.getter(name="invocationRole")
     def invocation_role(self) -> Optional[str]:
         return pulumi.get(self, "invocation_role")
+
+    @property
+    @pulumi.getter(name="sftpAuthenticationMethods")
+    def sftp_authentication_methods(self) -> Optional[str]:
+        return pulumi.get(self, "sftp_authentication_methods")
 
     @property
     @pulumi.getter

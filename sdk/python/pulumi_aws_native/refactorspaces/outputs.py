@@ -197,6 +197,8 @@ class RouteUriPathRouteInput(dict):
         suggest = None
         if key == "activationState":
             suggest = "activation_state"
+        elif key == "appendSourcePath":
+            suggest = "append_source_path"
         elif key == "includeChildPaths":
             suggest = "include_child_paths"
         elif key == "sourcePath":
@@ -215,10 +217,13 @@ class RouteUriPathRouteInput(dict):
 
     def __init__(__self__, *,
                  activation_state: 'RouteActivationState',
+                 append_source_path: Optional[bool] = None,
                  include_child_paths: Optional[bool] = None,
                  methods: Optional[Sequence['RouteMethod']] = None,
                  source_path: Optional[str] = None):
         pulumi.set(__self__, "activation_state", activation_state)
+        if append_source_path is not None:
+            pulumi.set(__self__, "append_source_path", append_source_path)
         if include_child_paths is not None:
             pulumi.set(__self__, "include_child_paths", include_child_paths)
         if methods is not None:
@@ -230,6 +235,11 @@ class RouteUriPathRouteInput(dict):
     @pulumi.getter(name="activationState")
     def activation_state(self) -> 'RouteActivationState':
         return pulumi.get(self, "activation_state")
+
+    @property
+    @pulumi.getter(name="appendSourcePath")
+    def append_source_path(self) -> Optional[bool]:
+        return pulumi.get(self, "append_source_path")
 
     @property
     @pulumi.getter(name="includeChildPaths")

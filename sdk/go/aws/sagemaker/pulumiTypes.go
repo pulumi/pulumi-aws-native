@@ -33900,6 +33900,76 @@ type ServiceCatalogProvisionedProductDetailsProperties struct {
 	ProvisionedProductStatusMessage *string `pulumi:"provisionedProductStatusMessage"`
 }
 
+// ServiceCatalogProvisionedProductDetailsPropertiesInput is an input type that accepts ServiceCatalogProvisionedProductDetailsPropertiesArgs and ServiceCatalogProvisionedProductDetailsPropertiesOutput values.
+// You can construct a concrete instance of `ServiceCatalogProvisionedProductDetailsPropertiesInput` via:
+//
+//	ServiceCatalogProvisionedProductDetailsPropertiesArgs{...}
+type ServiceCatalogProvisionedProductDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToServiceCatalogProvisionedProductDetailsPropertiesOutput() ServiceCatalogProvisionedProductDetailsPropertiesOutput
+	ToServiceCatalogProvisionedProductDetailsPropertiesOutputWithContext(context.Context) ServiceCatalogProvisionedProductDetailsPropertiesOutput
+}
+
+// Provisioned ServiceCatalog  Details
+type ServiceCatalogProvisionedProductDetailsPropertiesArgs struct {
+	ProvisionedProductId            pulumi.StringPtrInput `pulumi:"provisionedProductId"`
+	ProvisionedProductStatusMessage pulumi.StringPtrInput `pulumi:"provisionedProductStatusMessage"`
+}
+
+func (ServiceCatalogProvisionedProductDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsProperties)(nil)).Elem()
+}
+
+func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesOutput() ServiceCatalogProvisionedProductDetailsPropertiesOutput {
+	return i.ToServiceCatalogProvisionedProductDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisionedProductDetailsPropertiesOutput)
+}
+
+func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return i.ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisionedProductDetailsPropertiesOutput).ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx)
+}
+
+// ServiceCatalogProvisionedProductDetailsPropertiesPtrInput is an input type that accepts ServiceCatalogProvisionedProductDetailsPropertiesArgs, ServiceCatalogProvisionedProductDetailsPropertiesPtr and ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput values.
+// You can construct a concrete instance of `ServiceCatalogProvisionedProductDetailsPropertiesPtrInput` via:
+//
+//	        ServiceCatalogProvisionedProductDetailsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceCatalogProvisionedProductDetailsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput
+	ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput
+}
+
+type serviceCatalogProvisionedProductDetailsPropertiesPtrType ServiceCatalogProvisionedProductDetailsPropertiesArgs
+
+func ServiceCatalogProvisionedProductDetailsPropertiesPtr(v *ServiceCatalogProvisionedProductDetailsPropertiesArgs) ServiceCatalogProvisionedProductDetailsPropertiesPtrInput {
+	return (*serviceCatalogProvisionedProductDetailsPropertiesPtrType)(v)
+}
+
+func (*serviceCatalogProvisionedProductDetailsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCatalogProvisionedProductDetailsProperties)(nil)).Elem()
+}
+
+func (i *serviceCatalogProvisionedProductDetailsPropertiesPtrType) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return i.ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceCatalogProvisionedProductDetailsPropertiesPtrType) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput)
+}
+
 // Provisioned ServiceCatalog  Details
 type ServiceCatalogProvisionedProductDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -33913,6 +33983,16 @@ func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ToServiceCatalo
 
 func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ToServiceCatalogProvisionedProductDetailsPropertiesOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesOutput {
 	return o
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return o.ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCatalogProvisionedProductDetailsProperties) *ServiceCatalogProvisionedProductDetailsProperties {
+		return &v
+	}).(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput)
 }
 
 func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ProvisionedProductId() pulumi.StringPtrOutput {
@@ -37224,6 +37304,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProvisioningParameterArrayInput)(nil)).Elem(), ProjectProvisioningParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagInput)(nil)).Elem(), ProjectTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagArrayInput)(nil)).Elem(), ProjectTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesPtrInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisioningDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisioningDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceCustomImageInput)(nil)).Elem(), SpaceCustomImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceCustomImageArrayInput)(nil)).Elem(), SpaceCustomImageArray{})

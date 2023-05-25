@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
         public readonly string? DedicatedMasterType;
         public readonly int? InstanceCount;
         public readonly string? InstanceType;
+        public readonly bool? MultiAZWithStandbyEnabled;
         public readonly int? WarmCount;
         public readonly bool? WarmEnabled;
         public readonly string? WarmType;
@@ -36,6 +37,8 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
             string? instanceType,
 
+            bool? multiAZWithStandbyEnabled,
+
             int? warmCount,
 
             bool? warmEnabled,
@@ -51,6 +54,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
             DedicatedMasterType = dedicatedMasterType;
             InstanceCount = instanceCount;
             InstanceType = instanceType;
+            MultiAZWithStandbyEnabled = multiAZWithStandbyEnabled;
             WarmCount = warmCount;
             WarmEnabled = warmEnabled;
             WarmType = warmType;

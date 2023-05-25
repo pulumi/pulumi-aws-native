@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
     [OutputType]
     public sealed class ConnectPeerBgpConfiguration
     {
+        /// <summary>
+        /// The address of a core network.
+        /// </summary>
         public readonly string? CoreNetworkAddress;
+        /// <summary>
+        /// The ASN of the Coret Network.
+        /// </summary>
         public readonly double? CoreNetworkAsn;
+        /// <summary>
+        /// The address of a core network Connect peer.
+        /// </summary>
         public readonly string? PeerAddress;
+        /// <summary>
+        /// The ASN of the Connect peer.
+        /// </summary>
         public readonly double? PeerAsn;
 
         [OutputConstructor]

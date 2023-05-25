@@ -620,6 +620,7 @@ func (o RouteTagArrayOutput) Index(i pulumi.IntInput) RouteTagOutput {
 
 type RouteUriPathRouteInput struct {
 	ActivationState   RouteActivationState `pulumi:"activationState"`
+	AppendSourcePath  *bool                `pulumi:"appendSourcePath"`
 	IncludeChildPaths *bool                `pulumi:"includeChildPaths"`
 	Methods           []RouteMethod        `pulumi:"methods"`
 	SourcePath        *string              `pulumi:"sourcePath"`
@@ -638,6 +639,7 @@ type RouteUriPathRouteInputInput interface {
 
 type RouteUriPathRouteInputArgs struct {
 	ActivationState   RouteActivationStateInput `pulumi:"activationState"`
+	AppendSourcePath  pulumi.BoolPtrInput       `pulumi:"appendSourcePath"`
 	IncludeChildPaths pulumi.BoolPtrInput       `pulumi:"includeChildPaths"`
 	Methods           RouteMethodArrayInput     `pulumi:"methods"`
 	SourcePath        pulumi.StringPtrInput     `pulumi:"sourcePath"`
@@ -724,6 +726,10 @@ func (o RouteUriPathRouteInputOutput) ActivationState() RouteActivationStateOutp
 	return o.ApplyT(func(v RouteUriPathRouteInput) RouteActivationState { return v.ActivationState }).(RouteActivationStateOutput)
 }
 
+func (o RouteUriPathRouteInputOutput) AppendSourcePath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RouteUriPathRouteInput) *bool { return v.AppendSourcePath }).(pulumi.BoolPtrOutput)
+}
+
 func (o RouteUriPathRouteInputOutput) IncludeChildPaths() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RouteUriPathRouteInput) *bool { return v.IncludeChildPaths }).(pulumi.BoolPtrOutput)
 }
@@ -767,6 +773,15 @@ func (o RouteUriPathRouteInputPtrOutput) ActivationState() RouteActivationStateP
 		}
 		return &v.ActivationState
 	}).(RouteActivationStatePtrOutput)
+}
+
+func (o RouteUriPathRouteInputPtrOutput) AppendSourcePath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RouteUriPathRouteInput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AppendSourcePath
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o RouteUriPathRouteInputPtrOutput) IncludeChildPaths() pulumi.BoolPtrOutput {

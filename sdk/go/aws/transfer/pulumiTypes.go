@@ -954,10 +954,11 @@ func (o ServerEndpointDetailsPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type ServerIdentityProviderDetails struct {
-	DirectoryId    *string `pulumi:"directoryId"`
-	Function       *string `pulumi:"function"`
-	InvocationRole *string `pulumi:"invocationRole"`
-	Url            *string `pulumi:"url"`
+	DirectoryId               *string `pulumi:"directoryId"`
+	Function                  *string `pulumi:"function"`
+	InvocationRole            *string `pulumi:"invocationRole"`
+	SftpAuthenticationMethods *string `pulumi:"sftpAuthenticationMethods"`
+	Url                       *string `pulumi:"url"`
 }
 
 // ServerIdentityProviderDetailsInput is an input type that accepts ServerIdentityProviderDetailsArgs and ServerIdentityProviderDetailsOutput values.
@@ -972,10 +973,11 @@ type ServerIdentityProviderDetailsInput interface {
 }
 
 type ServerIdentityProviderDetailsArgs struct {
-	DirectoryId    pulumi.StringPtrInput `pulumi:"directoryId"`
-	Function       pulumi.StringPtrInput `pulumi:"function"`
-	InvocationRole pulumi.StringPtrInput `pulumi:"invocationRole"`
-	Url            pulumi.StringPtrInput `pulumi:"url"`
+	DirectoryId               pulumi.StringPtrInput `pulumi:"directoryId"`
+	Function                  pulumi.StringPtrInput `pulumi:"function"`
+	InvocationRole            pulumi.StringPtrInput `pulumi:"invocationRole"`
+	SftpAuthenticationMethods pulumi.StringPtrInput `pulumi:"sftpAuthenticationMethods"`
+	Url                       pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (ServerIdentityProviderDetailsArgs) ElementType() reflect.Type {
@@ -1067,6 +1069,10 @@ func (o ServerIdentityProviderDetailsOutput) InvocationRole() pulumi.StringPtrOu
 	return o.ApplyT(func(v ServerIdentityProviderDetails) *string { return v.InvocationRole }).(pulumi.StringPtrOutput)
 }
 
+func (o ServerIdentityProviderDetailsOutput) SftpAuthenticationMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerIdentityProviderDetails) *string { return v.SftpAuthenticationMethods }).(pulumi.StringPtrOutput)
+}
+
 func (o ServerIdentityProviderDetailsOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentityProviderDetails) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -1119,6 +1125,15 @@ func (o ServerIdentityProviderDetailsPtrOutput) InvocationRole() pulumi.StringPt
 			return nil
 		}
 		return v.InvocationRole
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerIdentityProviderDetailsPtrOutput) SftpAuthenticationMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerIdentityProviderDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SftpAuthenticationMethods
 	}).(pulumi.StringPtrOutput)
 }
 

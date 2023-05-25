@@ -417,6 +417,8 @@ if typing.TYPE_CHECKING:
     servicediscovery = __servicediscovery
     import pulumi_aws_native.ses as __ses
     ses = __ses
+    import pulumi_aws_native.shield as __shield
+    shield = __shield
     import pulumi_aws_native.signer as __signer
     signer = __signer
     import pulumi_aws_native.simspaceweaver as __simspaceweaver
@@ -660,6 +662,7 @@ else:
     servicecatalogappregistry = _utilities.lazy_import('pulumi_aws_native.servicecatalogappregistry')
     servicediscovery = _utilities.lazy_import('pulumi_aws_native.servicediscovery')
     ses = _utilities.lazy_import('pulumi_aws_native.ses')
+    shield = _utilities.lazy_import('pulumi_aws_native.shield')
     signer = _utilities.lazy_import('pulumi_aws_native.signer')
     simspaceweaver = _utilities.lazy_import('pulumi_aws_native.simspaceweaver')
     sns = _utilities.lazy_import('pulumi_aws_native.sns')
@@ -889,7 +892,8 @@ _utilities.register(
    "aws-native:appsync:FunctionConfiguration": "FunctionConfiguration",
    "aws-native:appsync:GraphQLApi": "GraphQLApi",
    "aws-native:appsync:GraphQLSchema": "GraphQLSchema",
-   "aws-native:appsync:Resolver": "Resolver"
+   "aws-native:appsync:Resolver": "Resolver",
+   "aws-native:appsync:SourceApiAssociation": "SourceApiAssociation"
   }
  },
  {
@@ -3058,6 +3062,17 @@ _utilities.register(
    "aws-native:ses:ReceiptRuleSet": "ReceiptRuleSet",
    "aws-native:ses:Template": "Template",
    "aws-native:ses:VdmAttributes": "VdmAttributes"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "shield",
+  "fqn": "pulumi_aws_native.shield",
+  "classes": {
+   "aws-native:shield:DRTAccess": "DRTAccess",
+   "aws-native:shield:ProactiveEngagement": "ProactiveEngagement",
+   "aws-native:shield:Protection": "Protection",
+   "aws-native:shield:ProtectionGroup": "ProtectionGroup"
   }
  },
  {

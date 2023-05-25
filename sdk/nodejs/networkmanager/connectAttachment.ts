@@ -76,7 +76,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
     /**
      * The attachment to move from one segment to another.
      */
-    public /*out*/ readonly proposedSegmentChange!: pulumi.Output<outputs.networkmanager.ConnectAttachmentProposedSegmentChange>;
+    public readonly proposedSegmentChange!: pulumi.Output<outputs.networkmanager.ConnectAttachmentProposedSegmentChange | undefined>;
     /**
      * The attachment resource ARN.
      */
@@ -128,6 +128,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
             resourceInputs["edgeLocation"] = args ? args.edgeLocation : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transportAttachmentId"] = args ? args.transportAttachmentId : undefined;
             resourceInputs["attachmentId"] = undefined /*out*/;
@@ -136,7 +137,6 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
-            resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -180,6 +180,10 @@ export interface ConnectAttachmentArgs {
      * Protocol options for connect attachment
      */
     options: pulumi.Input<inputs.networkmanager.ConnectAttachmentOptionsArgs>;
+    /**
+     * The attachment to move from one segment to another.
+     */
+    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.ConnectAttachmentProposedSegmentChangeArgs>;
     /**
      * Tags for the attachment.
      */

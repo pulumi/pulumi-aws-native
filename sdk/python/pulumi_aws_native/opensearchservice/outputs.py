@@ -125,6 +125,8 @@ class DomainClusterConfig(dict):
             suggest = "instance_count"
         elif key == "instanceType":
             suggest = "instance_type"
+        elif key == "multiAZWithStandbyEnabled":
+            suggest = "multi_az_with_standby_enabled"
         elif key == "warmCount":
             suggest = "warm_count"
         elif key == "warmEnabled":
@@ -153,6 +155,7 @@ class DomainClusterConfig(dict):
                  dedicated_master_type: Optional[str] = None,
                  instance_count: Optional[int] = None,
                  instance_type: Optional[str] = None,
+                 multi_az_with_standby_enabled: Optional[bool] = None,
                  warm_count: Optional[int] = None,
                  warm_enabled: Optional[bool] = None,
                  warm_type: Optional[str] = None,
@@ -168,6 +171,8 @@ class DomainClusterConfig(dict):
             pulumi.set(__self__, "instance_count", instance_count)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if multi_az_with_standby_enabled is not None:
+            pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
         if warm_count is not None:
             pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
@@ -203,6 +208,11 @@ class DomainClusterConfig(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="multiAZWithStandbyEnabled")
+    def multi_az_with_standby_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "multi_az_with_standby_enabled")
 
     @property
     @pulumi.getter(name="warmCount")

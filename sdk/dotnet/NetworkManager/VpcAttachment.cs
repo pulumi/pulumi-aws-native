@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The attachment to move from one segment to another.
         /// </summary>
         [Output("proposedSegmentChange")]
-        public Output<Outputs.VpcAttachmentProposedSegmentChange> ProposedSegmentChange { get; private set; } = null!;
+        public Output<Outputs.VpcAttachmentProposedSegmentChange?> ProposedSegmentChange { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Resource.
@@ -173,6 +173,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("options")]
         public Input<Inputs.VpcAttachmentVpcOptionsArgs>? Options { get; set; }
+
+        /// <summary>
+        /// The attachment to move from one segment to another.
+        /// </summary>
+        [Input("proposedSegmentChange")]
+        public Input<Inputs.VpcAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
 
         [Input("subnetArns", required: true)]
         private InputList<string>? _subnetArns;

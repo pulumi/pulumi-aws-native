@@ -34,8 +34,10 @@ type LookupGraphQLApiResult struct {
 	Id                                *string                                      `pulumi:"id"`
 	LambdaAuthorizerConfig            *GraphQLApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         *GraphQLApiLogConfig                         `pulumi:"logConfig"`
+	MergedApiExecutionRoleArn         *string                                      `pulumi:"mergedApiExecutionRoleArn"`
 	Name                              *string                                      `pulumi:"name"`
 	OpenIDConnectConfig               *GraphQLApiOpenIDConnectConfig               `pulumi:"openIDConnectConfig"`
+	OwnerContact                      *string                                      `pulumi:"ownerContact"`
 	RealtimeDns                       *string                                      `pulumi:"realtimeDns"`
 	RealtimeUrl                       *string                                      `pulumi:"realtimeUrl"`
 	Tags                              []GraphQLApiTag                              `pulumi:"tags"`
@@ -116,12 +118,20 @@ func (o LookupGraphQLApiResultOutput) LogConfig() GraphQLApiLogConfigPtrOutput {
 	return o.ApplyT(func(v LookupGraphQLApiResult) *GraphQLApiLogConfig { return v.LogConfig }).(GraphQLApiLogConfigPtrOutput)
 }
 
+func (o LookupGraphQLApiResultOutput) MergedApiExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.MergedApiExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupGraphQLApiResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupGraphQLApiResultOutput) OpenIDConnectConfig() GraphQLApiOpenIDConnectConfigPtrOutput {
 	return o.ApplyT(func(v LookupGraphQLApiResult) *GraphQLApiOpenIDConnectConfig { return v.OpenIDConnectConfig }).(GraphQLApiOpenIDConnectConfigPtrOutput)
+}
+
+func (o LookupGraphQLApiResultOutput) OwnerContact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.OwnerContact }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupGraphQLApiResultOutput) RealtimeDns() pulumi.StringPtrOutput {

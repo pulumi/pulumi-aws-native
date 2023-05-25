@@ -60,8 +60,10 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? Id;
         public readonly Outputs.GraphQLApiLambdaAuthorizerConfig? LambdaAuthorizerConfig;
         public readonly Outputs.GraphQLApiLogConfig? LogConfig;
+        public readonly string? MergedApiExecutionRoleArn;
         public readonly string? Name;
         public readonly Outputs.GraphQLApiOpenIDConnectConfig? OpenIDConnectConfig;
+        public readonly string? OwnerContact;
         public readonly string? RealtimeDns;
         public readonly string? RealtimeUrl;
         public readonly ImmutableArray<Outputs.GraphQLApiTag> Tags;
@@ -88,9 +90,13 @@ namespace Pulumi.AwsNative.AppSync
 
             Outputs.GraphQLApiLogConfig? logConfig,
 
+            string? mergedApiExecutionRoleArn,
+
             string? name,
 
             Outputs.GraphQLApiOpenIDConnectConfig? openIDConnectConfig,
+
+            string? ownerContact,
 
             string? realtimeDns,
 
@@ -111,8 +117,10 @@ namespace Pulumi.AwsNative.AppSync
             Id = id;
             LambdaAuthorizerConfig = lambdaAuthorizerConfig;
             LogConfig = logConfig;
+            MergedApiExecutionRoleArn = mergedApiExecutionRoleArn;
             Name = name;
             OpenIDConnectConfig = openIDConnectConfig;
+            OwnerContact = ownerContact;
             RealtimeDns = realtimeDns;
             RealtimeUrl = realtimeUrl;
             Tags = tags;
