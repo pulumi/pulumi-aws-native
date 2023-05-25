@@ -1,5 +1,27 @@
 ## HEAD (Unreleased)
 
+## 0.63.0 (May 25, 2023)
+
+#### Upstream breaking changes:
+
+- Function `aws-native:sagemaker:getApp` removed output `resourceSpec`
+
+#### New resources:
+
+- `appsync.SourceApiAssociation`
+- `shield.DRTAccess`
+- `shield.ProactiveEngagement`
+- `shield.Protection`
+- `shield.ProtectionGroup`
+
+#### New functions:
+
+- `appsync.getSourceApiAssociation`
+- `shield.getDRTAccess`
+- `shield.getProactiveEngagement`
+- `shield.getProtection`
+- `shield.getProtectionGroup`
+
 ## 0.62.0 (May 18, 2023)
 
 Upstream breaking changes:
