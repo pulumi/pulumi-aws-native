@@ -15,7 +15,8 @@
     }
   },
   "additionalProperties" : false,
-  "createOnlyProperties" : [ "/properties/PoolName", "/properties/ScalingMode" ],
+  "createOnlyProperties" : [ "/properties/PoolName" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/ScalingMode" ],
   "primaryIdentifier" : [ "/properties/PoolName" ],
   "handlers" : {
     "create" : {
@@ -23,6 +24,9 @@
     },
     "read" : {
       "permissions" : [ "ses:GetDedicatedIpPool", "ses:GetDedicatedIps" ]
+    },
+    "update" : {
+      "permissions" : [ "ses:PutDedicatedIpPoolScalingAttributes", "ses:GetDedicatedIpPool" ]
     },
     "delete" : {
       "permissions" : [ "ses:DeleteDedicatedIpPool" ]
