@@ -50,13 +50,16 @@
         },
         "MappingType" : {
           "type" : "string",
-          "pattern" : "CfnStack|Resource|Terraform"
+          "pattern" : "CfnStack|Resource|Terraform|EKS"
         },
         "ResourceName" : {
           "type" : "string",
           "pattern" : "^[A-Za-z0-9][A-Za-z0-9_\\-]{1,59}$"
         },
         "TerraformSourceName" : {
+          "type" : "string"
+        },
+        "EksSourceName" : {
           "type" : "string"
         },
         "PhysicalResourceId" : {
@@ -96,7 +99,7 @@
       "type" : "string",
       "minLength" : 0,
       "maxLength" : 5000,
-      "pattern" : "^[\\w\\s:,-\\.'{}\\[\\]:\"]+$"
+      "pattern" : "^[\\w\\s:,-\\.'\\/{}\\[\\]:\"]+$"
     },
     "ResourceMappings" : {
       "description" : "An array of ResourceMapping objects.",
@@ -127,13 +130,13 @@
   "primaryIdentifier" : [ "/properties/AppArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "s3:GetBucketLocation", "s3:GetObject", "s3:ListAllMyBuckets", "autoscaling:DescribeAutoScalingGroups", "apigateway:GET", "ec2:Describe*", "ecs:DescribeServices", "elasticfilesystem:DescribeFileSystems", "elasticloadbalancing:DescribeLoadBalancers", "lambda:GetFunction", "rds:Describe*", "dynamodb:Describe*", "sqs:GetQueueAttributes", "sns:GetTopicAttributes", "route53:List*", "resiliencehub:*" ]
+      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "s3:GetBucketLocation", "s3:GetObject", "s3:ListAllMyBuckets", "autoscaling:DescribeAutoScalingGroups", "apigateway:GET", "ec2:Describe*", "ecs:DescribeServices", "eks:DescribeCluster", "elasticfilesystem:DescribeFileSystems", "elasticloadbalancing:DescribeLoadBalancers", "lambda:GetFunction", "rds:Describe*", "dynamodb:Describe*", "sqs:GetQueueAttributes", "sns:GetTopicAttributes", "route53:List*", "resiliencehub:*" ]
     },
     "read" : {
       "permissions" : [ "resiliencehub:DescribeApp", "resiliencehub:DescribeAppVersionTemplate", "resiliencehub:ListAppVersionResourceMappings", "resiliencehub:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "s3:GetBucketLocation", "s3:GetObject", "s3:ListAllMyBuckets", "autoscaling:DescribeAutoScalingGroups", "apigateway:GET", "ec2:Describe*", "ecs:DescribeServices", "elasticfilesystem:DescribeFileSystems", "elasticloadbalancing:DescribeLoadBalancers", "lambda:GetFunction", "rds:Describe*", "dynamodb:Describe*", "sqs:GetQueueAttributes", "sns:GetTopicAttributes", "route53:List*", "resiliencehub:*" ]
+      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "s3:GetBucketLocation", "s3:GetObject", "s3:ListAllMyBuckets", "autoscaling:DescribeAutoScalingGroups", "apigateway:GET", "ec2:Describe*", "ecs:DescribeServices", "eks:DescribeCluster", "elasticfilesystem:DescribeFileSystems", "elasticloadbalancing:DescribeLoadBalancers", "lambda:GetFunction", "rds:Describe*", "dynamodb:Describe*", "sqs:GetQueueAttributes", "sns:GetTopicAttributes", "route53:List*", "resiliencehub:*" ]
     },
     "delete" : {
       "permissions" : [ "resiliencehub:DeleteApp", "resiliencehub:UntagResource", "resiliencehub:ListApps" ]

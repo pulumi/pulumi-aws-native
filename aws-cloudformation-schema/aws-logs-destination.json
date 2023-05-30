@@ -34,13 +34,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "logs:PutDestination", "logs:PutDestinationPolicy", "iam:PassRole" ]
+      "permissions" : [ "logs:PutDestination", "logs:PutDestinationPolicy", "logs:DescribeDestinations", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "logs:DescribeDestinations" ]
     },
     "update" : {
-      "permissions" : [ "logs:PutDestination", "logs:PutDestinationPolicy" ]
+      "permissions" : [ "logs:PutDestination", "logs:PutDestinationPolicy", "logs:DescribeDestinations", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "logs:DeleteDestination" ]

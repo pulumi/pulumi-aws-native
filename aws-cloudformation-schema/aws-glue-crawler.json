@@ -223,7 +223,13 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "ConnectionName" : {
+          "type" : "string"
+        },
         "DatabaseName" : {
+          "type" : "string"
+        },
+        "DlqEventQueueArn" : {
           "type" : "string"
         },
         "Tables" : {
@@ -232,6 +238,9 @@
           "items" : {
             "type" : "string"
           }
+        },
+        "EventQueueArn" : {
+          "type" : "string"
         }
       }
     }
