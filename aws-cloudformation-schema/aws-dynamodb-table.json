@@ -165,7 +165,7 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "Enabled", "AttributeName" ]
+      "required" : [ "Enabled" ]
     },
     "LocalSecondaryIndex" : {
       "type" : "object",

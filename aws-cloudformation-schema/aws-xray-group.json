@@ -74,7 +74,7 @@
       "permissions" : [ "xray:GetGroup", "xray:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "xray:UpdateGroup" ]
+      "permissions" : [ "xray:UpdateGroup", "xray:TagResource", "xray:UntagResource", "xray:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "xray:DeleteGroup" ]
