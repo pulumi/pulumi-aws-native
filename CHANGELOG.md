@@ -1,5 +1,25 @@
 ## HEAD (Unreleased)
 
+## 0.64.0 (June 1, 2023)
+
+#### Upstream breaking changes:
+- Resource `aws-native:apigatewayv2:RouteResponse` input `responseParameters` type changed from `pulumi.json#/Any` to `#/types/aws-native:apigatewayv2:RouteResponseRouteParameters`
+- Resource `aws-native:apigatewayv2:RouteResponse` output `responseParameters` type changed from `pulumi.json#/Any` to `#/types/aws-native:apigatewayv2:RouteResponseRouteParameters`
+- Function `aws-native:apigatewayv2:getRouteResponse` removed input `id`
+- Function `aws-native:apigatewayv2:getRouteResponse` removed output `id`
+- Function `aws-native:apigatewayv2:getRouteResponse` output `responseParameters` type changed from `pulumi.json#/Any` to `#/types/aws-native:apigatewayv2:RouteResponseRouteParameters`
+
+#### New resources:
+
+- `cognito.IdentityPoolPrincipalTag`
+- `detective.OrganizationAdmin`
+
+#### New functions:
+
+- `cognito.getIdentityPoolPrincipalTag`
+- `detective.getOrganizationAdmin`
+- `ses.getDedicatedIpPool`
+
 ## 0.63.0 (May 25, 2023)
 
 #### Upstream breaking changes:
