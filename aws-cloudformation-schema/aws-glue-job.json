@@ -81,6 +81,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "Runtime" : {
+          "type" : "string"
+        },
         "ScriptLocation" : {
           "type" : "string"
         },

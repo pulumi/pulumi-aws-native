@@ -192,7 +192,8 @@
       "permissions" : [ "memorydb:DescribeClusters", "memorydb:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "memorydb:UpdateCluster", "memorydb:DescribeClusters", "memorydb:ListTags", "memorydb:TagResource", "memorydb:UntagResource" ]
+      "permissions" : [ "memorydb:UpdateCluster", "memorydb:DescribeClusters", "memorydb:ListTags", "memorydb:TagResource", "memorydb:UntagResource" ],
+      "timeoutInMinutes" : 2160
     },
     "delete" : {
       "permissions" : [ "memorydb:DeleteCluster", "memorydb:DescribeClusters" ]
