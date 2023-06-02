@@ -43,7 +43,12 @@ export interface GetDataSetResult {
      * <p>The time that this dataset was created.</p>
      */
     readonly createdTime?: string;
+    readonly dataSetRefreshProperties?: outputs.quicksight.DataSetRefreshProperties;
     readonly dataSetUsageConfiguration?: outputs.quicksight.DataSetUsageConfiguration;
+    /**
+     * <p>The parameters declared in the dataset.</p>
+     */
+    readonly datasetParameters?: outputs.quicksight.DataSetDatasetParameter[];
     readonly importMode?: enums.quicksight.DataSetImportMode;
     /**
      * <p>The last time that this dataset was updated.</p>
@@ -65,6 +70,7 @@ export interface GetDataSetResult {
     readonly permissions?: outputs.quicksight.DataSetResourcePermission[];
     readonly physicalTableMap?: outputs.quicksight.DataSetPhysicalTableMap;
     readonly rowLevelPermissionDataSet?: outputs.quicksight.DataSetRowLevelPermissionDataSet;
+    readonly rowLevelPermissionTagConfiguration?: outputs.quicksight.DataSetRowLevelPermissionTagConfiguration;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */

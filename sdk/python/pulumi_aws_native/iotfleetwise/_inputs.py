@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'CampaignCollectionSchemeArgs',
+    'CampaignDataDestinationConfigArgs',
     'CampaignSignalInformationArgs',
     'CampaignTagArgs',
     'DecoderManifestCanInterfaceArgs',
@@ -34,6 +35,12 @@ __all__ = [
 
 @pulumi.input_type
 class CampaignCollectionSchemeArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class CampaignDataDestinationConfigArgs:
     def __init__(__self__):
         pass
 

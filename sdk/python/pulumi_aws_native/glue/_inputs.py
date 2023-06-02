@@ -405,12 +405,30 @@ class ConnectionPhysicalConnectionRequirementsArgs:
 @pulumi.input_type
 class CrawlerCatalogTargetArgs:
     def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 dlq_event_queue_arn: Optional[pulumi.Input[str]] = None,
+                 event_queue_arn: Optional[pulumi.Input[str]] = None,
                  tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if dlq_event_queue_arn is not None:
+            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+        if event_queue_arn is not None:
+            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
         if tables is not None:
             pulumi.set(__self__, "tables", tables)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -420,6 +438,24 @@ class CrawlerCatalogTargetArgs:
     @database_name.setter
     def database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="dlqEventQueueArn")
+    def dlq_event_queue_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "dlq_event_queue_arn")
+
+    @dlq_event_queue_arn.setter
+    def dlq_event_queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dlq_event_queue_arn", value)
+
+    @property
+    @pulumi.getter(name="eventQueueArn")
+    def event_queue_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "event_queue_arn")
+
+    @event_queue_arn.setter
+    def event_queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_queue_arn", value)
 
     @property
     @pulumi.getter

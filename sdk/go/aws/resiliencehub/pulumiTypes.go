@@ -79,6 +79,7 @@ func (o AppPhysicalResourceIdOutput) Type() pulumi.StringOutput {
 
 // Resource mapping is used to map logical resources from template to physical resource
 type AppResourceMapping struct {
+	EksSourceName       *string               `pulumi:"eksSourceName"`
 	LogicalStackName    *string               `pulumi:"logicalStackName"`
 	MappingType         string                `pulumi:"mappingType"`
 	PhysicalResourceId  AppPhysicalResourceId `pulumi:"physicalResourceId"`
@@ -99,6 +100,7 @@ type AppResourceMappingInput interface {
 
 // Resource mapping is used to map logical resources from template to physical resource
 type AppResourceMappingArgs struct {
+	EksSourceName       pulumi.StringPtrInput      `pulumi:"eksSourceName"`
 	LogicalStackName    pulumi.StringPtrInput      `pulumi:"logicalStackName"`
 	MappingType         pulumi.StringInput         `pulumi:"mappingType"`
 	PhysicalResourceId  AppPhysicalResourceIdInput `pulumi:"physicalResourceId"`
@@ -156,6 +158,10 @@ func (o AppResourceMappingOutput) ToAppResourceMappingOutput() AppResourceMappin
 
 func (o AppResourceMappingOutput) ToAppResourceMappingOutputWithContext(ctx context.Context) AppResourceMappingOutput {
 	return o
+}
+
+func (o AppResourceMappingOutput) EksSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppResourceMapping) *string { return v.EksSourceName }).(pulumi.StringPtrOutput)
 }
 
 func (o AppResourceMappingOutput) LogicalStackName() pulumi.StringPtrOutput {

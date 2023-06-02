@@ -85,6 +85,8 @@ class AppResourceMapping(dict):
             suggest = "mapping_type"
         elif key == "physicalResourceId":
             suggest = "physical_resource_id"
+        elif key == "eksSourceName":
+            suggest = "eks_source_name"
         elif key == "logicalStackName":
             suggest = "logical_stack_name"
         elif key == "resourceName":
@@ -106,6 +108,7 @@ class AppResourceMapping(dict):
     def __init__(__self__, *,
                  mapping_type: str,
                  physical_resource_id: 'outputs.AppPhysicalResourceId',
+                 eks_source_name: Optional[str] = None,
                  logical_stack_name: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  terraform_source_name: Optional[str] = None):
@@ -114,6 +117,8 @@ class AppResourceMapping(dict):
         """
         pulumi.set(__self__, "mapping_type", mapping_type)
         pulumi.set(__self__, "physical_resource_id", physical_resource_id)
+        if eks_source_name is not None:
+            pulumi.set(__self__, "eks_source_name", eks_source_name)
         if logical_stack_name is not None:
             pulumi.set(__self__, "logical_stack_name", logical_stack_name)
         if resource_name is not None:
@@ -130,6 +135,11 @@ class AppResourceMapping(dict):
     @pulumi.getter(name="physicalResourceId")
     def physical_resource_id(self) -> 'outputs.AppPhysicalResourceId':
         return pulumi.get(self, "physical_resource_id")
+
+    @property
+    @pulumi.getter(name="eksSourceName")
+    def eks_source_name(self) -> Optional[str]:
+        return pulumi.get(self, "eks_source_name")
 
     @property
     @pulumi.getter(name="logicalStackName")

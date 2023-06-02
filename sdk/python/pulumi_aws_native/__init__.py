@@ -1209,6 +1209,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.cognito",
   "classes": {
    "aws-native:cognito:IdentityPool": "IdentityPool",
+   "aws-native:cognito:IdentityPoolPrincipalTag": "IdentityPoolPrincipalTag",
    "aws-native:cognito:IdentityPoolRoleAttachment": "IdentityPoolRoleAttachment",
    "aws-native:cognito:UserPool": "UserPool",
    "aws-native:cognito:UserPoolClient": "UserPoolClient",
@@ -1361,7 +1362,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.detective",
   "classes": {
    "aws-native:detective:Graph": "Graph",
-   "aws-native:detective:MemberInvitation": "MemberInvitation"
+   "aws-native:detective:MemberInvitation": "MemberInvitation",
+   "aws-native:detective:OrganizationAdmin": "OrganizationAdmin"
   }
  },
  {

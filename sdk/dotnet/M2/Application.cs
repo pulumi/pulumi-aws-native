@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.M2
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("roleArn")]
+        public Output<string?> RoleArn { get; private set; } = null!;
+
         [Output("tags")]
         public Output<Outputs.ApplicationTagMap?> Tags { get; private set; } = null!;
 
@@ -104,6 +107,9 @@ namespace Pulumi.AwsNative.M2
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
         public Input<Inputs.ApplicationTagMapArgs>? Tags { get; set; }

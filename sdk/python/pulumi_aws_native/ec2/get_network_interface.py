@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetNetworkInterfaceResult:
-    def __init__(__self__, description=None, group_set=None, id=None, ipv6_address_count=None, ipv6_addresses=None, primary_private_ip_address=None, private_ip_addresses=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, source_dest_check=None, tags=None):
+    def __init__(__self__, description=None, enable_primary_ipv6=None, group_set=None, id=None, ipv6_address_count=None, ipv6_addresses=None, primary_private_ip_address=None, private_ip_addresses=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, source_dest_check=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if enable_primary_ipv6 and not isinstance(enable_primary_ipv6, bool):
+            raise TypeError("Expected argument 'enable_primary_ipv6' to be a bool")
+        pulumi.set(__self__, "enable_primary_ipv6", enable_primary_ipv6)
         if group_set and not isinstance(group_set, list):
             raise TypeError("Expected argument 'group_set' to be a list")
         pulumi.set(__self__, "group_set", group_set)
@@ -61,6 +64,14 @@ class GetNetworkInterfaceResult:
         A description for the network interface.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enablePrimaryIpv6")
+    def enable_primary_ipv6(self) -> Optional[bool]:
+        """
+        If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+        """
+        return pulumi.get(self, "enable_primary_ipv6")
 
     @property
     @pulumi.getter(name="groupSet")
@@ -150,6 +161,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             yield self
         return GetNetworkInterfaceResult(
             description=self.description,
+            enable_primary_ipv6=self.enable_primary_ipv6,
             group_set=self.group_set,
             id=self.id,
             ipv6_address_count=self.ipv6_address_count,
@@ -177,6 +189,7 @@ def get_network_interface(id: Optional[str] = None,
 
     return AwaitableGetNetworkInterfaceResult(
         description=__ret__.description,
+        enable_primary_ipv6=__ret__.enable_primary_ipv6,
         group_set=__ret__.group_set,
         id=__ret__.id,
         ipv6_address_count=__ret__.ipv6_address_count,

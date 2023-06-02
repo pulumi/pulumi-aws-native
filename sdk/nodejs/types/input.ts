@@ -1807,6 +1807,9 @@ export namespace apigatewayv2 {
         serverNameToVerify?: pulumi.Input<string>;
     }
 
+    export interface RouteResponseRouteParametersArgs {
+    }
+
     export interface StageAccessLogSettingsArgs {
         destinationArn?: pulumi.Input<string>;
         format?: pulumi.Input<string>;
@@ -6649,6 +6652,54 @@ export namespace cloudtrail {
     }
 
     /**
+     * Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+     */
+    export interface TrailAdvancedEventSelectorArgs {
+        /**
+         * Contains all selector statements in an advanced event selector.
+         */
+        fieldSelectors: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailAdvancedFieldSelectorArgs>[]>;
+        /**
+         * An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    /**
+     * A single selector statement in an advanced event selector.
+     */
+    export interface TrailAdvancedFieldSelectorArgs {
+        /**
+         * An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+         */
+        endsWith?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields.
+         */
+        equals?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A field in an event record on which to filter events to be logged. Supported fields include readOnly, eventCategory, eventSource (for management events), eventName, resources.type, and resources.ARN.
+         */
+        field: pulumi.Input<string>;
+        /**
+         * An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+         */
+        notEndsWith?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+         */
+        notEquals?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+         */
+        notStartsWith?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+         */
+        startsWith?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
      */
     export interface TrailDataResourceArgs {
@@ -10740,7 +10791,7 @@ export namespace dynamodb {
     }
 
     export interface TableTimeToLiveSpecificationArgs {
-        attributeName: pulumi.Input<string>;
+        attributeName?: pulumi.Input<string>;
         enabled: pulumi.Input<boolean>;
     }
 }
@@ -16032,7 +16083,10 @@ export namespace glue {
     }
 
     export interface CrawlerCatalogTargetArgs {
+        connectionName?: pulumi.Input<string>;
         databaseName?: pulumi.Input<string>;
+        dlqEventQueueArn?: pulumi.Input<string>;
+        eventQueueArn?: pulumi.Input<string>;
         tables?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -20012,6 +20066,9 @@ export namespace iotfleethub {
 
 export namespace iotfleetwise {
     export interface CampaignCollectionSchemeArgs {
+    }
+
+    export interface CampaignDataDestinationConfigArgs {
     }
 
     export interface CampaignSignalInformationArgs {
@@ -36175,6 +36232,57 @@ export namespace quicksight {
         principals?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+     */
+    export interface DataSetDatasetParameterArgs {
+        dateTimeDatasetParameter?: pulumi.Input<inputs.quicksight.DataSetDateTimeDatasetParameterArgs>;
+        decimalDatasetParameter?: pulumi.Input<inputs.quicksight.DataSetDecimalDatasetParameterArgs>;
+        integerDatasetParameter?: pulumi.Input<inputs.quicksight.DataSetIntegerDatasetParameterArgs>;
+        stringDatasetParameter?: pulumi.Input<inputs.quicksight.DataSetStringDatasetParameterArgs>;
+    }
+
+    /**
+     * <p>A parameter created in the dataset of date time data type.</p>
+     */
+    export interface DataSetDateTimeDatasetParameterArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.DataSetDateTimeDatasetParameterDefaultValuesArgs>;
+        id: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        timeGranularity?: pulumi.Input<enums.quicksight.DataSetTimeGranularity>;
+        valueType: pulumi.Input<enums.quicksight.DataSetDatasetParameterValueType>;
+    }
+
+    /**
+     * <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+     */
+    export interface DataSetDateTimeDatasetParameterDefaultValuesArgs {
+        /**
+         * <p>List of static default values defined for a given string date time parameter type.</p>
+         */
+        staticValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * <p>A parameter created in the dataset of decimal data type.</p>
+     */
+    export interface DataSetDecimalDatasetParameterArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.DataSetDecimalDatasetParameterDefaultValuesArgs>;
+        id: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        valueType: pulumi.Input<enums.quicksight.DataSetDatasetParameterValueType>;
+    }
+
+    /**
+     * <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+     */
+    export interface DataSetDecimalDatasetParameterDefaultValuesArgs {
+        /**
+         * <p>List of static default values defined for a given decimal dataset parameter type.</p>
+         */
+        staticValues?: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
     export interface DataSetFieldFolderMapArgs {
     }
 
@@ -36194,6 +36302,13 @@ export namespace quicksight {
     }
 
     /**
+     * <p>Incremental Refresh</p>
+     */
+    export interface DataSetIncrementalRefreshArgs {
+        lookbackWindow?: pulumi.Input<inputs.quicksight.DataSetLookbackWindowArgs>;
+    }
+
+    /**
      * <p>Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.</p>
      */
     export interface DataSetIngestionWaitPolicyArgs {
@@ -36209,10 +36324,56 @@ export namespace quicksight {
         waitForSpiceIngestion?: pulumi.Input<boolean>;
     }
 
+    /**
+     * <p>A parameter created in the dataset of integer data type.</p>
+     */
+    export interface DataSetIntegerDatasetParameterArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.DataSetIntegerDatasetParameterDefaultValuesArgs>;
+        id: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        valueType: pulumi.Input<enums.quicksight.DataSetDatasetParameterValueType>;
+    }
+
+    /**
+     * <p>List of default values defined for a given integer dataset parameter type. Currently only static values are supported.</p>
+     */
+    export interface DataSetIntegerDatasetParameterDefaultValuesArgs {
+        /**
+         * <p>List of static default values defined for a given integer dataset parameter type.</p>
+         */
+        staticValues?: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
     export interface DataSetLogicalTableMapArgs {
     }
 
+    export interface DataSetLookbackWindowArgs {
+        /**
+         * <p>Column Name</p>
+         */
+        columnName?: pulumi.Input<string>;
+        /**
+         * <p>Size</p>
+         */
+        size?: pulumi.Input<number>;
+        sizeUnit?: pulumi.Input<enums.quicksight.DataSetSizeUnit>;
+    }
+
     export interface DataSetPhysicalTableMapArgs {
+    }
+
+    /**
+     * <p> Refresh Configuration.</p>
+     */
+    export interface DataSetRefreshConfigurationArgs {
+        incrementalRefresh?: pulumi.Input<inputs.quicksight.DataSetIncrementalRefreshArgs>;
+    }
+
+    /**
+     * <p>The dataset refresh properties for the dataset.</p>
+     */
+    export interface DataSetRefreshPropertiesArgs {
+        refreshConfiguration?: pulumi.Input<inputs.quicksight.DataSetRefreshConfigurationArgs>;
     }
 
     /**
@@ -36257,6 +36418,64 @@ export namespace quicksight {
          */
         namespace?: pulumi.Input<string>;
         permissionPolicy: pulumi.Input<enums.quicksight.DataSetRowLevelPermissionPolicy>;
+        status?: pulumi.Input<enums.quicksight.DataSetStatus>;
+    }
+
+    /**
+     * <p>The configuration of tags on a dataset to set row-level security.</p>
+     */
+    export interface DataSetRowLevelPermissionTagConfigurationArgs {
+        status?: pulumi.Input<enums.quicksight.DataSetStatus>;
+        /**
+         * <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
+         */
+        tagRuleConfigurations?: pulumi.Input<pulumi.Input<pulumi.Input<string>[]>[]>;
+        /**
+         * <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
+         */
+        tagRules: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionTagRuleArgs>[]>;
+    }
+
+    /**
+     * <p>Permission for the resource.</p>
+     */
+    export interface DataSetRowLevelPermissionTagRuleArgs {
+        /**
+         * <p>The column name that a tag key is assigned to.</p>
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
+         */
+        matchAllValue?: pulumi.Input<string>;
+        /**
+         * <p>The unique key for a tag.</p>
+         */
+        tagKey: pulumi.Input<string>;
+        /**
+         * <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
+         */
+        tagMultiValueDelimiter?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>A parameter created in the dataset of string data type.</p>
+     */
+    export interface DataSetStringDatasetParameterArgs {
+        defaultValues?: pulumi.Input<inputs.quicksight.DataSetStringDatasetParameterDefaultValuesArgs>;
+        id: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        valueType: pulumi.Input<enums.quicksight.DataSetDatasetParameterValueType>;
+    }
+
+    /**
+     * <p>List of default values defined for a given string dataset parameter type. Currently only static values are supported.</p>
+     */
+    export interface DataSetStringDatasetParameterDefaultValuesArgs {
+        /**
+         * <p>List of static default values defined for a given string dataset parameter type.</p>
+         */
+        staticValues?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -36306,6 +36525,10 @@ export namespace quicksight {
      * <p>Amazon Athena parameters.</p>
      */
     export interface DataSourceAthenaParametersArgs {
+        /**
+         * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
+         */
+        roleArn?: pulumi.Input<string>;
         /**
          * <p>The workgroup that Amazon Athena uses.</p>
          */
@@ -36612,6 +36835,10 @@ export namespace quicksight {
      */
     export interface DataSourceS3ParametersArgs {
         manifestFileLocation: pulumi.Input<inputs.quicksight.DataSourceManifestFileLocationArgs>;
+        /**
+         * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
+         */
+        roleArn?: pulumi.Input<string>;
     }
 
     /**
@@ -40784,6 +41011,7 @@ export namespace resiliencehub {
      * Resource mapping is used to map logical resources from template to physical resource
      */
     export interface AppResourceMappingArgs {
+        eksSourceName?: pulumi.Input<string>;
         logicalStackName?: pulumi.Input<string>;
         mappingType: pulumi.Input<string>;
         physicalResourceId: pulumi.Input<inputs.resiliencehub.AppPhysicalResourceIdArgs>;

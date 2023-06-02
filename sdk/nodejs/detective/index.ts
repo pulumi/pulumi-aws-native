@@ -15,6 +15,11 @@ export const getMemberInvitation: typeof import("./getMemberInvitation").getMemb
 export const getMemberInvitationOutput: typeof import("./getMemberInvitation").getMemberInvitationOutput = null as any;
 utilities.lazyLoad(exports, ["getMemberInvitation","getMemberInvitationOutput"], () => require("./getMemberInvitation"));
 
+export { GetOrganizationAdminArgs, GetOrganizationAdminResult, GetOrganizationAdminOutputArgs } from "./getOrganizationAdmin";
+export const getOrganizationAdmin: typeof import("./getOrganizationAdmin").getOrganizationAdmin = null as any;
+export const getOrganizationAdminOutput: typeof import("./getOrganizationAdmin").getOrganizationAdminOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationAdmin","getOrganizationAdminOutput"], () => require("./getOrganizationAdmin"));
+
 export { GraphArgs } from "./graph";
 export type Graph = import("./graph").Graph;
 export const Graph: typeof import("./graph").Graph = null as any;
@@ -25,6 +30,11 @@ export type MemberInvitation = import("./memberInvitation").MemberInvitation;
 export const MemberInvitation: typeof import("./memberInvitation").MemberInvitation = null as any;
 utilities.lazyLoad(exports, ["MemberInvitation"], () => require("./memberInvitation"));
 
+export { OrganizationAdminArgs } from "./organizationAdmin";
+export type OrganizationAdmin = import("./organizationAdmin").OrganizationAdmin;
+export const OrganizationAdmin: typeof import("./organizationAdmin").OrganizationAdmin = null as any;
+utilities.lazyLoad(exports, ["OrganizationAdmin"], () => require("./organizationAdmin"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -34,6 +44,8 @@ const _module = {
                 return new Graph(name, <any>undefined, { urn })
             case "aws-native:detective:MemberInvitation":
                 return new MemberInvitation(name, <any>undefined, { urn })
+            case "aws-native:detective:OrganizationAdmin":
+                return new OrganizationAdmin(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

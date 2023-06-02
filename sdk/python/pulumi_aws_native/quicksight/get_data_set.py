@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSetResult:
-    def __init__(__self__, arn=None, column_groups=None, column_level_permission_rules=None, consumed_spice_capacity_in_bytes=None, created_time=None, data_set_usage_configuration=None, import_mode=None, last_updated_time=None, logical_table_map=None, name=None, output_columns=None, permissions=None, physical_table_map=None, row_level_permission_data_set=None, tags=None):
+    def __init__(__self__, arn=None, column_groups=None, column_level_permission_rules=None, consumed_spice_capacity_in_bytes=None, created_time=None, data_set_refresh_properties=None, data_set_usage_configuration=None, dataset_parameters=None, import_mode=None, last_updated_time=None, logical_table_map=None, name=None, output_columns=None, permissions=None, physical_table_map=None, row_level_permission_data_set=None, row_level_permission_tag_configuration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,9 +36,15 @@ class GetDataSetResult:
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
+        if data_set_refresh_properties and not isinstance(data_set_refresh_properties, dict):
+            raise TypeError("Expected argument 'data_set_refresh_properties' to be a dict")
+        pulumi.set(__self__, "data_set_refresh_properties", data_set_refresh_properties)
         if data_set_usage_configuration and not isinstance(data_set_usage_configuration, dict):
             raise TypeError("Expected argument 'data_set_usage_configuration' to be a dict")
         pulumi.set(__self__, "data_set_usage_configuration", data_set_usage_configuration)
+        if dataset_parameters and not isinstance(dataset_parameters, list):
+            raise TypeError("Expected argument 'dataset_parameters' to be a list")
+        pulumi.set(__self__, "dataset_parameters", dataset_parameters)
         if import_mode and not isinstance(import_mode, str):
             raise TypeError("Expected argument 'import_mode' to be a str")
         pulumi.set(__self__, "import_mode", import_mode)
@@ -63,6 +69,9 @@ class GetDataSetResult:
         if row_level_permission_data_set and not isinstance(row_level_permission_data_set, dict):
             raise TypeError("Expected argument 'row_level_permission_data_set' to be a dict")
         pulumi.set(__self__, "row_level_permission_data_set", row_level_permission_data_set)
+        if row_level_permission_tag_configuration and not isinstance(row_level_permission_tag_configuration, dict):
+            raise TypeError("Expected argument 'row_level_permission_tag_configuration' to be a dict")
+        pulumi.set(__self__, "row_level_permission_tag_configuration", row_level_permission_tag_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -106,9 +115,22 @@ class GetDataSetResult:
         return pulumi.get(self, "created_time")
 
     @property
+    @pulumi.getter(name="dataSetRefreshProperties")
+    def data_set_refresh_properties(self) -> Optional['outputs.DataSetRefreshProperties']:
+        return pulumi.get(self, "data_set_refresh_properties")
+
+    @property
     @pulumi.getter(name="dataSetUsageConfiguration")
     def data_set_usage_configuration(self) -> Optional['outputs.DataSetUsageConfiguration']:
         return pulumi.get(self, "data_set_usage_configuration")
+
+    @property
+    @pulumi.getter(name="datasetParameters")
+    def dataset_parameters(self) -> Optional[Sequence['outputs.DataSetDatasetParameter']]:
+        """
+        <p>The parameters declared in the dataset.</p>
+        """
+        return pulumi.get(self, "dataset_parameters")
 
     @property
     @pulumi.getter(name="importMode")
@@ -164,6 +186,11 @@ class GetDataSetResult:
         return pulumi.get(self, "row_level_permission_data_set")
 
     @property
+    @pulumi.getter(name="rowLevelPermissionTagConfiguration")
+    def row_level_permission_tag_configuration(self) -> Optional['outputs.DataSetRowLevelPermissionTagConfiguration']:
+        return pulumi.get(self, "row_level_permission_tag_configuration")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DataSetTag']]:
         """
@@ -183,7 +210,9 @@ class AwaitableGetDataSetResult(GetDataSetResult):
             column_level_permission_rules=self.column_level_permission_rules,
             consumed_spice_capacity_in_bytes=self.consumed_spice_capacity_in_bytes,
             created_time=self.created_time,
+            data_set_refresh_properties=self.data_set_refresh_properties,
             data_set_usage_configuration=self.data_set_usage_configuration,
+            dataset_parameters=self.dataset_parameters,
             import_mode=self.import_mode,
             last_updated_time=self.last_updated_time,
             logical_table_map=self.logical_table_map,
@@ -192,6 +221,7 @@ class AwaitableGetDataSetResult(GetDataSetResult):
             permissions=self.permissions,
             physical_table_map=self.physical_table_map,
             row_level_permission_data_set=self.row_level_permission_data_set,
+            row_level_permission_tag_configuration=self.row_level_permission_tag_configuration,
             tags=self.tags)
 
 
@@ -213,7 +243,9 @@ def get_data_set(aws_account_id: Optional[str] = None,
         column_level_permission_rules=__ret__.column_level_permission_rules,
         consumed_spice_capacity_in_bytes=__ret__.consumed_spice_capacity_in_bytes,
         created_time=__ret__.created_time,
+        data_set_refresh_properties=__ret__.data_set_refresh_properties,
         data_set_usage_configuration=__ret__.data_set_usage_configuration,
+        dataset_parameters=__ret__.dataset_parameters,
         import_mode=__ret__.import_mode,
         last_updated_time=__ret__.last_updated_time,
         logical_table_map=__ret__.logical_table_map,
@@ -222,6 +254,7 @@ def get_data_set(aws_account_id: Optional[str] = None,
         permissions=__ret__.permissions,
         physical_table_map=__ret__.physical_table_map,
         row_level_permission_data_set=__ret__.row_level_permission_data_set,
+        row_level_permission_tag_configuration=__ret__.row_level_permission_tag_configuration,
         tags=__ret__.tags)
 
 

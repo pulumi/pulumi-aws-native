@@ -45,6 +45,11 @@ export const getContactList: typeof import("./getContactList").getContactList = 
 export const getContactListOutput: typeof import("./getContactList").getContactListOutput = null as any;
 utilities.lazyLoad(exports, ["getContactList","getContactListOutput"], () => require("./getContactList"));
 
+export { GetDedicatedIpPoolArgs, GetDedicatedIpPoolResult, GetDedicatedIpPoolOutputArgs } from "./getDedicatedIpPool";
+export const getDedicatedIpPool: typeof import("./getDedicatedIpPool").getDedicatedIpPool = null as any;
+export const getDedicatedIpPoolOutput: typeof import("./getDedicatedIpPool").getDedicatedIpPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getDedicatedIpPool","getDedicatedIpPoolOutput"], () => require("./getDedicatedIpPool"));
+
 export { GetEmailIdentityArgs, GetEmailIdentityResult, GetEmailIdentityOutputArgs } from "./getEmailIdentity";
 export const getEmailIdentity: typeof import("./getEmailIdentity").getEmailIdentity = null as any;
 export const getEmailIdentityOutput: typeof import("./getEmailIdentity").getEmailIdentityOutput = null as any;

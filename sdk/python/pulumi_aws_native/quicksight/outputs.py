@@ -932,14 +932,29 @@ __all__ = [
     'DashboardWordCloudVisual',
     'DataSetColumnGroup',
     'DataSetColumnLevelPermissionRule',
+    'DataSetDatasetParameter',
+    'DataSetDateTimeDatasetParameter',
+    'DataSetDateTimeDatasetParameterDefaultValues',
+    'DataSetDecimalDatasetParameter',
+    'DataSetDecimalDatasetParameterDefaultValues',
     'DataSetFieldFolderMap',
     'DataSetGeoSpatialColumnGroup',
+    'DataSetIncrementalRefresh',
     'DataSetIngestionWaitPolicy',
+    'DataSetIntegerDatasetParameter',
+    'DataSetIntegerDatasetParameterDefaultValues',
     'DataSetLogicalTableMap',
+    'DataSetLookbackWindow',
     'DataSetOutputColumn',
     'DataSetPhysicalTableMap',
+    'DataSetRefreshConfiguration',
+    'DataSetRefreshProperties',
     'DataSetResourcePermission',
     'DataSetRowLevelPermissionDataSet',
+    'DataSetRowLevelPermissionTagConfiguration',
+    'DataSetRowLevelPermissionTagRule',
+    'DataSetStringDatasetParameter',
+    'DataSetStringDatasetParameterDefaultValues',
     'DataSetTag',
     'DataSetUsageConfiguration',
     'DataSourceAmazonElasticsearchParameters',
@@ -45494,6 +45509,280 @@ class DataSetColumnLevelPermissionRule(dict):
 
 
 @pulumi.output_type
+class DataSetDatasetParameter(dict):
+    """
+    <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateTimeDatasetParameter":
+            suggest = "date_time_dataset_parameter"
+        elif key == "decimalDatasetParameter":
+            suggest = "decimal_dataset_parameter"
+        elif key == "integerDatasetParameter":
+            suggest = "integer_dataset_parameter"
+        elif key == "stringDatasetParameter":
+            suggest = "string_dataset_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetDatasetParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetDatasetParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetDatasetParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date_time_dataset_parameter: Optional['outputs.DataSetDateTimeDatasetParameter'] = None,
+                 decimal_dataset_parameter: Optional['outputs.DataSetDecimalDatasetParameter'] = None,
+                 integer_dataset_parameter: Optional['outputs.DataSetIntegerDatasetParameter'] = None,
+                 string_dataset_parameter: Optional['outputs.DataSetStringDatasetParameter'] = None):
+        """
+        <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+        """
+        if date_time_dataset_parameter is not None:
+            pulumi.set(__self__, "date_time_dataset_parameter", date_time_dataset_parameter)
+        if decimal_dataset_parameter is not None:
+            pulumi.set(__self__, "decimal_dataset_parameter", decimal_dataset_parameter)
+        if integer_dataset_parameter is not None:
+            pulumi.set(__self__, "integer_dataset_parameter", integer_dataset_parameter)
+        if string_dataset_parameter is not None:
+            pulumi.set(__self__, "string_dataset_parameter", string_dataset_parameter)
+
+    @property
+    @pulumi.getter(name="dateTimeDatasetParameter")
+    def date_time_dataset_parameter(self) -> Optional['outputs.DataSetDateTimeDatasetParameter']:
+        return pulumi.get(self, "date_time_dataset_parameter")
+
+    @property
+    @pulumi.getter(name="decimalDatasetParameter")
+    def decimal_dataset_parameter(self) -> Optional['outputs.DataSetDecimalDatasetParameter']:
+        return pulumi.get(self, "decimal_dataset_parameter")
+
+    @property
+    @pulumi.getter(name="integerDatasetParameter")
+    def integer_dataset_parameter(self) -> Optional['outputs.DataSetIntegerDatasetParameter']:
+        return pulumi.get(self, "integer_dataset_parameter")
+
+    @property
+    @pulumi.getter(name="stringDatasetParameter")
+    def string_dataset_parameter(self) -> Optional['outputs.DataSetStringDatasetParameter']:
+        return pulumi.get(self, "string_dataset_parameter")
+
+
+@pulumi.output_type
+class DataSetDateTimeDatasetParameter(dict):
+    """
+    <p>A parameter created in the dataset of date time data type.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueType":
+            suggest = "value_type"
+        elif key == "defaultValues":
+            suggest = "default_values"
+        elif key == "timeGranularity":
+            suggest = "time_granularity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetDateTimeDatasetParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetDateTimeDatasetParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetDateTimeDatasetParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 value_type: 'DataSetDatasetParameterValueType',
+                 default_values: Optional['outputs.DataSetDateTimeDatasetParameterDefaultValues'] = None,
+                 time_granularity: Optional['DataSetTimeGranularity'] = None):
+        """
+        <p>A parameter created in the dataset of date time data type.</p>
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_type", value_type)
+        if default_values is not None:
+            pulumi.set(__self__, "default_values", default_values)
+        if time_granularity is not None:
+            pulumi.set(__self__, "time_granularity", time_granularity)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> 'DataSetDatasetParameterValueType':
+        return pulumi.get(self, "value_type")
+
+    @property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Optional['outputs.DataSetDateTimeDatasetParameterDefaultValues']:
+        return pulumi.get(self, "default_values")
+
+    @property
+    @pulumi.getter(name="timeGranularity")
+    def time_granularity(self) -> Optional['DataSetTimeGranularity']:
+        return pulumi.get(self, "time_granularity")
+
+
+@pulumi.output_type
+class DataSetDateTimeDatasetParameterDefaultValues(dict):
+    """
+    <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticValues":
+            suggest = "static_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetDateTimeDatasetParameterDefaultValues. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetDateTimeDatasetParameterDefaultValues.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetDateTimeDatasetParameterDefaultValues.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_values: Optional[Sequence[str]] = None):
+        """
+        <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+        :param Sequence[str] static_values: <p>List of static default values defined for a given string date time parameter type.</p>
+        """
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[Sequence[str]]:
+        """
+        <p>List of static default values defined for a given string date time parameter type.</p>
+        """
+        return pulumi.get(self, "static_values")
+
+
+@pulumi.output_type
+class DataSetDecimalDatasetParameter(dict):
+    """
+    <p>A parameter created in the dataset of decimal data type.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueType":
+            suggest = "value_type"
+        elif key == "defaultValues":
+            suggest = "default_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetDecimalDatasetParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetDecimalDatasetParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetDecimalDatasetParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 value_type: 'DataSetDatasetParameterValueType',
+                 default_values: Optional['outputs.DataSetDecimalDatasetParameterDefaultValues'] = None):
+        """
+        <p>A parameter created in the dataset of decimal data type.</p>
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_type", value_type)
+        if default_values is not None:
+            pulumi.set(__self__, "default_values", default_values)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> 'DataSetDatasetParameterValueType':
+        return pulumi.get(self, "value_type")
+
+    @property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Optional['outputs.DataSetDecimalDatasetParameterDefaultValues']:
+        return pulumi.get(self, "default_values")
+
+
+@pulumi.output_type
+class DataSetDecimalDatasetParameterDefaultValues(dict):
+    """
+    <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticValues":
+            suggest = "static_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetDecimalDatasetParameterDefaultValues. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetDecimalDatasetParameterDefaultValues.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetDecimalDatasetParameterDefaultValues.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_values: Optional[Sequence[float]] = None):
+        """
+        <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+        :param Sequence[float] static_values: <p>List of static default values defined for a given decimal dataset parameter type.</p>
+        """
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[Sequence[float]]:
+        """
+        <p>List of static default values defined for a given decimal dataset parameter type.</p>
+        """
+        return pulumi.get(self, "static_values")
+
+
+@pulumi.output_type
 class DataSetFieldFolderMap(dict):
     def __init__(__self__):
         pass
@@ -45558,6 +45847,42 @@ class DataSetGeoSpatialColumnGroup(dict):
 
 
 @pulumi.output_type
+class DataSetIncrementalRefresh(dict):
+    """
+    <p>Incremental Refresh</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lookbackWindow":
+            suggest = "lookback_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetIncrementalRefresh. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetIncrementalRefresh.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetIncrementalRefresh.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lookback_window: Optional['outputs.DataSetLookbackWindow'] = None):
+        """
+        <p>Incremental Refresh</p>
+        """
+        if lookback_window is not None:
+            pulumi.set(__self__, "lookback_window", lookback_window)
+
+    @property
+    @pulumi.getter(name="lookbackWindow")
+    def lookback_window(self) -> Optional['outputs.DataSetLookbackWindow']:
+        return pulumi.get(self, "lookback_window")
+
+
+@pulumi.output_type
 class DataSetIngestionWaitPolicy(dict):
     """
     <p>Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.</p>
@@ -45616,9 +45941,166 @@ class DataSetIngestionWaitPolicy(dict):
 
 
 @pulumi.output_type
+class DataSetIntegerDatasetParameter(dict):
+    """
+    <p>A parameter created in the dataset of integer data type.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueType":
+            suggest = "value_type"
+        elif key == "defaultValues":
+            suggest = "default_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetIntegerDatasetParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetIntegerDatasetParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetIntegerDatasetParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 value_type: 'DataSetDatasetParameterValueType',
+                 default_values: Optional['outputs.DataSetIntegerDatasetParameterDefaultValues'] = None):
+        """
+        <p>A parameter created in the dataset of integer data type.</p>
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_type", value_type)
+        if default_values is not None:
+            pulumi.set(__self__, "default_values", default_values)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> 'DataSetDatasetParameterValueType':
+        return pulumi.get(self, "value_type")
+
+    @property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Optional['outputs.DataSetIntegerDatasetParameterDefaultValues']:
+        return pulumi.get(self, "default_values")
+
+
+@pulumi.output_type
+class DataSetIntegerDatasetParameterDefaultValues(dict):
+    """
+    <p>List of default values defined for a given integer dataset parameter type. Currently only static values are supported.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticValues":
+            suggest = "static_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetIntegerDatasetParameterDefaultValues. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetIntegerDatasetParameterDefaultValues.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetIntegerDatasetParameterDefaultValues.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_values: Optional[Sequence[float]] = None):
+        """
+        <p>List of default values defined for a given integer dataset parameter type. Currently only static values are supported.</p>
+        :param Sequence[float] static_values: <p>List of static default values defined for a given integer dataset parameter type.</p>
+        """
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[Sequence[float]]:
+        """
+        <p>List of static default values defined for a given integer dataset parameter type.</p>
+        """
+        return pulumi.get(self, "static_values")
+
+
+@pulumi.output_type
 class DataSetLogicalTableMap(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class DataSetLookbackWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "sizeUnit":
+            suggest = "size_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLookbackWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLookbackWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLookbackWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: Optional[str] = None,
+                 size: Optional[float] = None,
+                 size_unit: Optional['DataSetSizeUnit'] = None):
+        """
+        :param str column_name: <p>Column Name</p>
+        :param float size: <p>Size</p>
+        """
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if size_unit is not None:
+            pulumi.set(__self__, "size_unit", size_unit)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> Optional[str]:
+        """
+        <p>Column Name</p>
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[float]:
+        """
+        <p>Size</p>
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="sizeUnit")
+    def size_unit(self) -> Optional['DataSetSizeUnit']:
+        return pulumi.get(self, "size_unit")
 
 
 @pulumi.output_type
@@ -45668,6 +46150,78 @@ class DataSetOutputColumn(dict):
 class DataSetPhysicalTableMap(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class DataSetRefreshConfiguration(dict):
+    """
+    <p> Refresh Configuration.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incrementalRefresh":
+            suggest = "incremental_refresh"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRefreshConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRefreshConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRefreshConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 incremental_refresh: Optional['outputs.DataSetIncrementalRefresh'] = None):
+        """
+        <p> Refresh Configuration.</p>
+        """
+        if incremental_refresh is not None:
+            pulumi.set(__self__, "incremental_refresh", incremental_refresh)
+
+    @property
+    @pulumi.getter(name="incrementalRefresh")
+    def incremental_refresh(self) -> Optional['outputs.DataSetIncrementalRefresh']:
+        return pulumi.get(self, "incremental_refresh")
+
+
+@pulumi.output_type
+class DataSetRefreshProperties(dict):
+    """
+    <p>The dataset refresh properties for the dataset.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refreshConfiguration":
+            suggest = "refresh_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRefreshProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRefreshProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRefreshProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 refresh_configuration: Optional['outputs.DataSetRefreshConfiguration'] = None):
+        """
+        <p>The dataset refresh properties for the dataset.</p>
+        """
+        if refresh_configuration is not None:
+            pulumi.set(__self__, "refresh_configuration", refresh_configuration)
+
+    @property
+    @pulumi.getter(name="refreshConfiguration")
+    def refresh_configuration(self) -> Optional['outputs.DataSetRefreshConfiguration']:
+        return pulumi.get(self, "refresh_configuration")
 
 
 @pulumi.output_type
@@ -45759,7 +46313,8 @@ class DataSetRowLevelPermissionDataSet(dict):
                  arn: str,
                  permission_policy: 'DataSetRowLevelPermissionPolicy',
                  format_version: Optional['DataSetRowLevelPermissionFormatVersion'] = None,
-                 namespace: Optional[str] = None):
+                 namespace: Optional[str] = None,
+                 status: Optional['DataSetStatus'] = None):
         """
         <p>The row-level security configuration for the dataset.</p>
         :param str arn: <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
@@ -45771,6 +46326,8 @@ class DataSetRowLevelPermissionDataSet(dict):
             pulumi.set(__self__, "format_version", format_version)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -45797,6 +46354,251 @@ class DataSetRowLevelPermissionDataSet(dict):
         <p>The namespace associated with the row-level permissions dataset.</p>
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['DataSetStatus']:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DataSetRowLevelPermissionTagConfiguration(dict):
+    """
+    <p>The configuration of tags on a dataset to set row-level security.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagRules":
+            suggest = "tag_rules"
+        elif key == "tagRuleConfigurations":
+            suggest = "tag_rule_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRowLevelPermissionTagConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRowLevelPermissionTagConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRowLevelPermissionTagConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_rules: Sequence['outputs.DataSetRowLevelPermissionTagRule'],
+                 status: Optional['DataSetStatus'] = None,
+                 tag_rule_configurations: Optional[Sequence[Sequence[str]]] = None):
+        """
+        <p>The configuration of tags on a dataset to set row-level security.</p>
+        :param Sequence['DataSetRowLevelPermissionTagRule'] tag_rules: <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
+        :param Sequence[Sequence[str]] tag_rule_configurations: <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
+        """
+        pulumi.set(__self__, "tag_rules", tag_rules)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tag_rule_configurations is not None:
+            pulumi.set(__self__, "tag_rule_configurations", tag_rule_configurations)
+
+    @property
+    @pulumi.getter(name="tagRules")
+    def tag_rules(self) -> Sequence['outputs.DataSetRowLevelPermissionTagRule']:
+        """
+        <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
+        """
+        return pulumi.get(self, "tag_rules")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['DataSetStatus']:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="tagRuleConfigurations")
+    def tag_rule_configurations(self) -> Optional[Sequence[Sequence[str]]]:
+        """
+        <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
+        """
+        return pulumi.get(self, "tag_rule_configurations")
+
+
+@pulumi.output_type
+class DataSetRowLevelPermissionTagRule(dict):
+    """
+    <p>Permission for the resource.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "tagKey":
+            suggest = "tag_key"
+        elif key == "matchAllValue":
+            suggest = "match_all_value"
+        elif key == "tagMultiValueDelimiter":
+            suggest = "tag_multi_value_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRowLevelPermissionTagRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRowLevelPermissionTagRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRowLevelPermissionTagRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 tag_key: str,
+                 match_all_value: Optional[str] = None,
+                 tag_multi_value_delimiter: Optional[str] = None):
+        """
+        <p>Permission for the resource.</p>
+        :param str column_name: <p>The column name that a tag key is assigned to.</p>
+        :param str tag_key: <p>The unique key for a tag.</p>
+        :param str match_all_value: <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
+        :param str tag_multi_value_delimiter: <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "tag_key", tag_key)
+        if match_all_value is not None:
+            pulumi.set(__self__, "match_all_value", match_all_value)
+        if tag_multi_value_delimiter is not None:
+            pulumi.set(__self__, "tag_multi_value_delimiter", tag_multi_value_delimiter)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        <p>The column name that a tag key is assigned to.</p>
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> str:
+        """
+        <p>The unique key for a tag.</p>
+        """
+        return pulumi.get(self, "tag_key")
+
+    @property
+    @pulumi.getter(name="matchAllValue")
+    def match_all_value(self) -> Optional[str]:
+        """
+        <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
+        """
+        return pulumi.get(self, "match_all_value")
+
+    @property
+    @pulumi.getter(name="tagMultiValueDelimiter")
+    def tag_multi_value_delimiter(self) -> Optional[str]:
+        """
+        <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
+        """
+        return pulumi.get(self, "tag_multi_value_delimiter")
+
+
+@pulumi.output_type
+class DataSetStringDatasetParameter(dict):
+    """
+    <p>A parameter created in the dataset of string data type.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueType":
+            suggest = "value_type"
+        elif key == "defaultValues":
+            suggest = "default_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetStringDatasetParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetStringDatasetParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetStringDatasetParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 value_type: 'DataSetDatasetParameterValueType',
+                 default_values: Optional['outputs.DataSetStringDatasetParameterDefaultValues'] = None):
+        """
+        <p>A parameter created in the dataset of string data type.</p>
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_type", value_type)
+        if default_values is not None:
+            pulumi.set(__self__, "default_values", default_values)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> 'DataSetDatasetParameterValueType':
+        return pulumi.get(self, "value_type")
+
+    @property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Optional['outputs.DataSetStringDatasetParameterDefaultValues']:
+        return pulumi.get(self, "default_values")
+
+
+@pulumi.output_type
+class DataSetStringDatasetParameterDefaultValues(dict):
+    """
+    <p>List of default values defined for a given string dataset parameter type. Currently only static values are supported.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticValues":
+            suggest = "static_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetStringDatasetParameterDefaultValues. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetStringDatasetParameterDefaultValues.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetStringDatasetParameterDefaultValues.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_values: Optional[Sequence[str]] = None):
+        """
+        <p>List of default values defined for a given string dataset parameter type. Currently only static values are supported.</p>
+        :param Sequence[str] static_values: <p>List of static default values defined for a given string dataset parameter type.</p>
+        """
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[Sequence[str]]:
+        """
+        <p>List of static default values defined for a given string dataset parameter type.</p>
+        """
+        return pulumi.get(self, "static_values")
 
 
 @pulumi.output_type
@@ -45932,7 +46734,9 @@ class DataSourceAthenaParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "workGroup":
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "workGroup":
             suggest = "work_group"
 
         if suggest:
@@ -45947,13 +46751,25 @@ class DataSourceAthenaParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 role_arn: Optional[str] = None,
                  work_group: Optional[str] = None):
         """
         <p>Amazon Athena parameters.</p>
+        :param str role_arn: <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
         :param str work_group: <p>The workgroup that Amazon Athena uses.</p>
         """
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
         if work_group is not None:
             pulumi.set(__self__, "work_group", work_group)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        """
+        <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
+        """
+        return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="workGroup")
@@ -46941,6 +47757,8 @@ class DataSourceS3Parameters(dict):
         suggest = None
         if key == "manifestFileLocation":
             suggest = "manifest_file_location"
+        elif key == "roleArn":
+            suggest = "role_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataSourceS3Parameters. Access the value via the '{suggest}' property getter instead.")
@@ -46954,16 +47772,28 @@ class DataSourceS3Parameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 manifest_file_location: 'outputs.DataSourceManifestFileLocation'):
+                 manifest_file_location: 'outputs.DataSourceManifestFileLocation',
+                 role_arn: Optional[str] = None):
         """
         <p>S3 parameters.</p>
+        :param str role_arn: <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
         """
         pulumi.set(__self__, "manifest_file_location", manifest_file_location)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="manifestFileLocation")
     def manifest_file_location(self) -> 'outputs.DataSourceManifestFileLocation':
         return pulumi.get(self, "manifest_file_location")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        """
+        <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
+        """
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

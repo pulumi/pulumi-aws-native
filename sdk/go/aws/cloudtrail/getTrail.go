@@ -25,7 +25,9 @@ type LookupTrailArgs struct {
 }
 
 type LookupTrailResult struct {
-	Arn *string `pulumi:"arn"`
+	// The advanced event selectors that were used to select events for the data store.
+	AdvancedEventSelectors []TrailAdvancedEventSelector `pulumi:"advancedEventSelectors"`
+	Arn                    *string                      `pulumi:"arn"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
 	CloudWatchLogsLogGroupArn *string `pulumi:"cloudWatchLogsLogGroupArn"`
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
@@ -89,6 +91,11 @@ func (o LookupTrailResultOutput) ToLookupTrailResultOutput() LookupTrailResultOu
 
 func (o LookupTrailResultOutput) ToLookupTrailResultOutputWithContext(ctx context.Context) LookupTrailResultOutput {
 	return o
+}
+
+// The advanced event selectors that were used to select events for the data store.
+func (o LookupTrailResultOutput) AdvancedEventSelectors() TrailAdvancedEventSelectorArrayOutput {
+	return o.ApplyT(func(v LookupTrailResult) []TrailAdvancedEventSelector { return v.AdvancedEventSelectors }).(TrailAdvancedEventSelectorArrayOutput)
 }
 
 func (o LookupTrailResultOutput) Arn() pulumi.StringPtrOutput {

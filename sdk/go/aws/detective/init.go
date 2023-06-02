@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Graph{}
 	case "aws-native:detective:MemberInvitation":
 		r = &MemberInvitation{}
+	case "aws-native:detective:OrganizationAdmin":
+		r = &OrganizationAdmin{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

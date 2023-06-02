@@ -15,12 +15,13 @@ import (
 type RouteResponse struct {
 	pulumi.CustomResourceState
 
-	ApiId                    pulumi.StringOutput    `pulumi:"apiId"`
-	ModelSelectionExpression pulumi.StringPtrOutput `pulumi:"modelSelectionExpression"`
-	ResponseModels           pulumi.AnyOutput       `pulumi:"responseModels"`
-	ResponseParameters       pulumi.AnyOutput       `pulumi:"responseParameters"`
-	RouteId                  pulumi.StringOutput    `pulumi:"routeId"`
-	RouteResponseKey         pulumi.StringOutput    `pulumi:"routeResponseKey"`
+	ApiId                    pulumi.StringOutput                   `pulumi:"apiId"`
+	ModelSelectionExpression pulumi.StringPtrOutput                `pulumi:"modelSelectionExpression"`
+	ResponseModels           pulumi.AnyOutput                      `pulumi:"responseModels"`
+	ResponseParameters       RouteResponseRouteParametersPtrOutput `pulumi:"responseParameters"`
+	RouteId                  pulumi.StringOutput                   `pulumi:"routeId"`
+	RouteResponseId          pulumi.StringOutput                   `pulumi:"routeResponseId"`
+	RouteResponseKey         pulumi.StringOutput                   `pulumi:"routeResponseKey"`
 }
 
 // NewRouteResponse registers a new resource with the given unique name, arguments, and options.
@@ -71,12 +72,12 @@ func (RouteResponseState) ElementType() reflect.Type {
 }
 
 type routeResponseArgs struct {
-	ApiId                    string      `pulumi:"apiId"`
-	ModelSelectionExpression *string     `pulumi:"modelSelectionExpression"`
-	ResponseModels           interface{} `pulumi:"responseModels"`
-	ResponseParameters       interface{} `pulumi:"responseParameters"`
-	RouteId                  string      `pulumi:"routeId"`
-	RouteResponseKey         string      `pulumi:"routeResponseKey"`
+	ApiId                    string                        `pulumi:"apiId"`
+	ModelSelectionExpression *string                       `pulumi:"modelSelectionExpression"`
+	ResponseModels           interface{}                   `pulumi:"responseModels"`
+	ResponseParameters       *RouteResponseRouteParameters `pulumi:"responseParameters"`
+	RouteId                  string                        `pulumi:"routeId"`
+	RouteResponseKey         string                        `pulumi:"routeResponseKey"`
 }
 
 // The set of arguments for constructing a RouteResponse resource.
@@ -84,7 +85,7 @@ type RouteResponseArgs struct {
 	ApiId                    pulumi.StringInput
 	ModelSelectionExpression pulumi.StringPtrInput
 	ResponseModels           pulumi.Input
-	ResponseParameters       pulumi.Input
+	ResponseParameters       RouteResponseRouteParametersPtrInput
 	RouteId                  pulumi.StringInput
 	RouteResponseKey         pulumi.StringInput
 }
@@ -138,12 +139,16 @@ func (o RouteResponseOutput) ResponseModels() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.AnyOutput { return v.ResponseModels }).(pulumi.AnyOutput)
 }
 
-func (o RouteResponseOutput) ResponseParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RouteResponse) pulumi.AnyOutput { return v.ResponseParameters }).(pulumi.AnyOutput)
+func (o RouteResponseOutput) ResponseParameters() RouteResponseRouteParametersPtrOutput {
+	return o.ApplyT(func(v *RouteResponse) RouteResponseRouteParametersPtrOutput { return v.ResponseParameters }).(RouteResponseRouteParametersPtrOutput)
 }
 
 func (o RouteResponseOutput) RouteId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteId }).(pulumi.StringOutput)
+}
+
+func (o RouteResponseOutput) RouteResponseId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteResponseId }).(pulumi.StringOutput)
 }
 
 func (o RouteResponseOutput) RouteResponseKey() pulumi.StringOutput {

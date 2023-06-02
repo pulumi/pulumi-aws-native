@@ -49,8 +49,17 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("dataSetId")]
         public Output<string?> DataSetId { get; private set; } = null!;
 
+        [Output("dataSetRefreshProperties")]
+        public Output<Outputs.DataSetRefreshProperties?> DataSetRefreshProperties { get; private set; } = null!;
+
         [Output("dataSetUsageConfiguration")]
         public Output<Outputs.DataSetUsageConfiguration?> DataSetUsageConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;p&gt;The parameters declared in the dataset.&lt;/p&gt;
+        /// </summary>
+        [Output("datasetParameters")]
+        public Output<ImmutableArray<Outputs.DataSetDatasetParameter>> DatasetParameters { get; private set; } = null!;
 
         [Output("fieldFolders")]
         public Output<Outputs.DataSetFieldFolderMap?> FieldFolders { get; private set; } = null!;
@@ -94,6 +103,9 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Output("rowLevelPermissionDataSet")]
         public Output<Outputs.DataSetRowLevelPermissionDataSet?> RowLevelPermissionDataSet { get; private set; } = null!;
+
+        [Output("rowLevelPermissionTagConfiguration")]
+        public Output<Outputs.DataSetRowLevelPermissionTagConfiguration?> RowLevelPermissionTagConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
@@ -172,8 +184,23 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("dataSetId")]
         public Input<string>? DataSetId { get; set; }
 
+        [Input("dataSetRefreshProperties")]
+        public Input<Inputs.DataSetRefreshPropertiesArgs>? DataSetRefreshProperties { get; set; }
+
         [Input("dataSetUsageConfiguration")]
         public Input<Inputs.DataSetUsageConfigurationArgs>? DataSetUsageConfiguration { get; set; }
+
+        [Input("datasetParameters")]
+        private InputList<Inputs.DataSetDatasetParameterArgs>? _datasetParameters;
+
+        /// <summary>
+        /// &lt;p&gt;The parameters declared in the dataset.&lt;/p&gt;
+        /// </summary>
+        public InputList<Inputs.DataSetDatasetParameterArgs> DatasetParameters
+        {
+            get => _datasetParameters ?? (_datasetParameters = new InputList<Inputs.DataSetDatasetParameterArgs>());
+            set => _datasetParameters = value;
+        }
 
         [Input("fieldFolders")]
         public Input<Inputs.DataSetFieldFolderMapArgs>? FieldFolders { get; set; }
@@ -210,6 +237,9 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("rowLevelPermissionDataSet")]
         public Input<Inputs.DataSetRowLevelPermissionDataSetArgs>? RowLevelPermissionDataSet { get; set; }
+
+        [Input("rowLevelPermissionTagConfiguration")]
+        public Input<Inputs.DataSetRowLevelPermissionTagConfigurationArgs>? RowLevelPermissionTagConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DataSetTagArgs>? _tags;

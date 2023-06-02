@@ -20,13 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetCampaignResult:
-    def __init__(__self__, arn=None, creation_time=None, data_extra_dimensions=None, description=None, last_modification_time=None, signals_to_collect=None, status=None, tags=None):
+    def __init__(__self__, arn=None, creation_time=None, data_destination_configs=None, data_extra_dimensions=None, description=None, last_modification_time=None, signals_to_collect=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if data_destination_configs and not isinstance(data_destination_configs, list):
+            raise TypeError("Expected argument 'data_destination_configs' to be a list")
+        pulumi.set(__self__, "data_destination_configs", data_destination_configs)
         if data_extra_dimensions and not isinstance(data_extra_dimensions, list):
             raise TypeError("Expected argument 'data_extra_dimensions' to be a list")
         pulumi.set(__self__, "data_extra_dimensions", data_extra_dimensions)
@@ -55,6 +58,11 @@ class GetCampaignResult:
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[str]:
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="dataDestinationConfigs")
+    def data_destination_configs(self) -> Optional[Sequence['outputs.CampaignDataDestinationConfig']]:
+        return pulumi.get(self, "data_destination_configs")
 
     @property
     @pulumi.getter(name="dataExtraDimensions")
@@ -95,6 +103,7 @@ class AwaitableGetCampaignResult(GetCampaignResult):
         return GetCampaignResult(
             arn=self.arn,
             creation_time=self.creation_time,
+            data_destination_configs=self.data_destination_configs,
             data_extra_dimensions=self.data_extra_dimensions,
             description=self.description,
             last_modification_time=self.last_modification_time,
@@ -116,6 +125,7 @@ def get_campaign(name: Optional[str] = None,
     return AwaitableGetCampaignResult(
         arn=__ret__.arn,
         creation_time=__ret__.creation_time,
+        data_destination_configs=__ret__.data_destination_configs,
         data_extra_dimensions=__ret__.data_extra_dimensions,
         description=__ret__.description,
         last_modification_time=__ret__.last_modification_time,

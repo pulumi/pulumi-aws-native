@@ -5995,6 +5995,37 @@ namespace Pulumi.AwsNative.QuickSight
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// &lt;p&gt;Every parameter value could be either a single value or multi value which helps to validate before evaluation.&lt;/p&gt;
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSetDatasetParameterValueType : IEquatable<DataSetDatasetParameterValueType>
+    {
+        private readonly string _value;
+
+        private DataSetDatasetParameterValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetDatasetParameterValueType MultiValued { get; } = new DataSetDatasetParameterValueType("MULTI_VALUED");
+        public static DataSetDatasetParameterValueType SingleValued { get; } = new DataSetDatasetParameterValueType("SINGLE_VALUED");
+
+        public static bool operator ==(DataSetDatasetParameterValueType left, DataSetDatasetParameterValueType right) => left.Equals(right);
+        public static bool operator !=(DataSetDatasetParameterValueType left, DataSetDatasetParameterValueType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetDatasetParameterValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetDatasetParameterValueType other && Equals(other);
+        public bool Equals(DataSetDatasetParameterValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct DataSetGeoSpatialCountryCode : IEquatable<DataSetGeoSpatialCountryCode>
     {
@@ -6099,6 +6130,98 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSetRowLevelPermissionPolicy other && Equals(other);
         public bool Equals(DataSetRowLevelPermissionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetSizeUnit : IEquatable<DataSetSizeUnit>
+    {
+        private readonly string _value;
+
+        private DataSetSizeUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetSizeUnit Hour { get; } = new DataSetSizeUnit("HOUR");
+        public static DataSetSizeUnit Day { get; } = new DataSetSizeUnit("DAY");
+        public static DataSetSizeUnit Week { get; } = new DataSetSizeUnit("WEEK");
+
+        public static bool operator ==(DataSetSizeUnit left, DataSetSizeUnit right) => left.Equals(right);
+        public static bool operator !=(DataSetSizeUnit left, DataSetSizeUnit right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetSizeUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetSizeUnit other && Equals(other);
+        public bool Equals(DataSetSizeUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetStatus : IEquatable<DataSetStatus>
+    {
+        private readonly string _value;
+
+        private DataSetStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetStatus Enabled { get; } = new DataSetStatus("ENABLED");
+        public static DataSetStatus Disabled { get; } = new DataSetStatus("DISABLED");
+
+        public static bool operator ==(DataSetStatus left, DataSetStatus right) => left.Equals(right);
+        public static bool operator !=(DataSetStatus left, DataSetStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetStatus other && Equals(other);
+        public bool Equals(DataSetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetTimeGranularity : IEquatable<DataSetTimeGranularity>
+    {
+        private readonly string _value;
+
+        private DataSetTimeGranularity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetTimeGranularity Year { get; } = new DataSetTimeGranularity("YEAR");
+        public static DataSetTimeGranularity Quarter { get; } = new DataSetTimeGranularity("QUARTER");
+        public static DataSetTimeGranularity Month { get; } = new DataSetTimeGranularity("MONTH");
+        public static DataSetTimeGranularity Week { get; } = new DataSetTimeGranularity("WEEK");
+        public static DataSetTimeGranularity Day { get; } = new DataSetTimeGranularity("DAY");
+        public static DataSetTimeGranularity Hour { get; } = new DataSetTimeGranularity("HOUR");
+        public static DataSetTimeGranularity Minute { get; } = new DataSetTimeGranularity("MINUTE");
+        public static DataSetTimeGranularity Second { get; } = new DataSetTimeGranularity("SECOND");
+        public static DataSetTimeGranularity Millisecond { get; } = new DataSetTimeGranularity("MILLISECOND");
+
+        public static bool operator ==(DataSetTimeGranularity left, DataSetTimeGranularity right) => left.Equals(right);
+        public static bool operator !=(DataSetTimeGranularity left, DataSetTimeGranularity right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetTimeGranularity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetTimeGranularity other && Equals(other);
+        public bool Equals(DataSetTimeGranularity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

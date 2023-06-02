@@ -17,6 +17,7 @@ __all__ = ['EventDataStoreArgs', 'EventDataStore']
 class EventDataStoreArgs:
     def __init__(__self__, *,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
+                 ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_region_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -27,6 +28,7 @@ class EventDataStoreArgs:
         """
         The set of arguments for constructing a EventDataStore resource.
         :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
+        :param pulumi.Input[bool] ingestion_enabled: Indicates whether the event data store is ingesting events.
         :param pulumi.Input[str] kms_key_id: Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[bool] multi_region_enabled: Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
         :param pulumi.Input[str] name: The name of the event data store.
@@ -36,6 +38,8 @@ class EventDataStoreArgs:
         """
         if advanced_event_selectors is not None:
             pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+        if ingestion_enabled is not None:
+            pulumi.set(__self__, "ingestion_enabled", ingestion_enabled)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if multi_region_enabled is not None:
@@ -62,6 +66,18 @@ class EventDataStoreArgs:
     @advanced_event_selectors.setter
     def advanced_event_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]):
         pulumi.set(self, "advanced_event_selectors", value)
+
+    @property
+    @pulumi.getter(name="ingestionEnabled")
+    def ingestion_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the event data store is ingesting events.
+        """
+        return pulumi.get(self, "ingestion_enabled")
+
+    @ingestion_enabled.setter
+    def ingestion_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ingestion_enabled", value)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -151,6 +167,7 @@ class EventDataStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]]] = None,
+                 ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_region_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -165,6 +182,7 @@ class EventDataStore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
+        :param pulumi.Input[bool] ingestion_enabled: Indicates whether the event data store is ingesting events.
         :param pulumi.Input[str] kms_key_id: Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[bool] multi_region_enabled: Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
         :param pulumi.Input[str] name: The name of the event data store.
@@ -197,6 +215,7 @@ class EventDataStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]]] = None,
+                 ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_region_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -214,6 +233,7 @@ class EventDataStore(pulumi.CustomResource):
             __props__ = EventDataStoreArgs.__new__(EventDataStoreArgs)
 
             __props__.__dict__["advanced_event_selectors"] = advanced_event_selectors
+            __props__.__dict__["ingestion_enabled"] = ingestion_enabled
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["multi_region_enabled"] = multi_region_enabled
             __props__.__dict__["name"] = name
@@ -250,6 +270,7 @@ class EventDataStore(pulumi.CustomResource):
         __props__.__dict__["advanced_event_selectors"] = None
         __props__.__dict__["created_timestamp"] = None
         __props__.__dict__["event_data_store_arn"] = None
+        __props__.__dict__["ingestion_enabled"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["multi_region_enabled"] = None
         __props__.__dict__["name"] = None
@@ -284,6 +305,14 @@ class EventDataStore(pulumi.CustomResource):
         The ARN of the event data store.
         """
         return pulumi.get(self, "event_data_store_arn")
+
+    @property
+    @pulumi.getter(name="ingestionEnabled")
+    def ingestion_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the event data store is ingesting events.
+        """
+        return pulumi.get(self, "ingestion_enabled")
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -329,7 +358,7 @@ class EventDataStore(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The status of an event data store. Values are ENABLED and PENDING_DELETION.
+        The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
         """
         return pulumi.get(self, "status")
 

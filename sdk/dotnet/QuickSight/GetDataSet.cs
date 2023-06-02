@@ -75,7 +75,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The time that this dataset was created.&lt;/p&gt;
         /// </summary>
         public readonly string? CreatedTime;
+        public readonly Outputs.DataSetRefreshProperties? DataSetRefreshProperties;
         public readonly Outputs.DataSetUsageConfiguration? DataSetUsageConfiguration;
+        /// <summary>
+        /// &lt;p&gt;The parameters declared in the dataset.&lt;/p&gt;
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DataSetDatasetParameter> DatasetParameters;
         public readonly Pulumi.AwsNative.QuickSight.DataSetImportMode? ImportMode;
         /// <summary>
         /// &lt;p&gt;The last time that this dataset was updated.&lt;/p&gt;
@@ -97,6 +102,7 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly ImmutableArray<Outputs.DataSetResourcePermission> Permissions;
         public readonly Outputs.DataSetPhysicalTableMap? PhysicalTableMap;
         public readonly Outputs.DataSetRowLevelPermissionDataSet? RowLevelPermissionDataSet;
+        public readonly Outputs.DataSetRowLevelPermissionTagConfiguration? RowLevelPermissionTagConfiguration;
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
         /// </summary>
@@ -114,7 +120,11 @@ namespace Pulumi.AwsNative.QuickSight
 
             string? createdTime,
 
+            Outputs.DataSetRefreshProperties? dataSetRefreshProperties,
+
             Outputs.DataSetUsageConfiguration? dataSetUsageConfiguration,
+
+            ImmutableArray<Outputs.DataSetDatasetParameter> datasetParameters,
 
             Pulumi.AwsNative.QuickSight.DataSetImportMode? importMode,
 
@@ -132,6 +142,8 @@ namespace Pulumi.AwsNative.QuickSight
 
             Outputs.DataSetRowLevelPermissionDataSet? rowLevelPermissionDataSet,
 
+            Outputs.DataSetRowLevelPermissionTagConfiguration? rowLevelPermissionTagConfiguration,
+
             ImmutableArray<Outputs.DataSetTag> tags)
         {
             Arn = arn;
@@ -139,7 +151,9 @@ namespace Pulumi.AwsNative.QuickSight
             ColumnLevelPermissionRules = columnLevelPermissionRules;
             ConsumedSpiceCapacityInBytes = consumedSpiceCapacityInBytes;
             CreatedTime = createdTime;
+            DataSetRefreshProperties = dataSetRefreshProperties;
             DataSetUsageConfiguration = dataSetUsageConfiguration;
+            DatasetParameters = datasetParameters;
             ImportMode = importMode;
             LastUpdatedTime = lastUpdatedTime;
             LogicalTableMap = logicalTableMap;
@@ -148,6 +162,7 @@ namespace Pulumi.AwsNative.QuickSight
             Permissions = permissions;
             PhysicalTableMap = physicalTableMap;
             RowLevelPermissionDataSet = rowLevelPermissionDataSet;
+            RowLevelPermissionTagConfiguration = rowLevelPermissionTagConfiguration;
             Tags = tags;
         }
     }

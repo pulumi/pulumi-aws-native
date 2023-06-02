@@ -1867,6 +1867,124 @@ func (o IntegrationTlsConfigPtrOutput) ServerNameToVerify() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type RouteResponseRouteParameters struct {
+}
+
+// RouteResponseRouteParametersInput is an input type that accepts RouteResponseRouteParametersArgs and RouteResponseRouteParametersOutput values.
+// You can construct a concrete instance of `RouteResponseRouteParametersInput` via:
+//
+//	RouteResponseRouteParametersArgs{...}
+type RouteResponseRouteParametersInput interface {
+	pulumi.Input
+
+	ToRouteResponseRouteParametersOutput() RouteResponseRouteParametersOutput
+	ToRouteResponseRouteParametersOutputWithContext(context.Context) RouteResponseRouteParametersOutput
+}
+
+type RouteResponseRouteParametersArgs struct {
+}
+
+func (RouteResponseRouteParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteResponseRouteParameters)(nil)).Elem()
+}
+
+func (i RouteResponseRouteParametersArgs) ToRouteResponseRouteParametersOutput() RouteResponseRouteParametersOutput {
+	return i.ToRouteResponseRouteParametersOutputWithContext(context.Background())
+}
+
+func (i RouteResponseRouteParametersArgs) ToRouteResponseRouteParametersOutputWithContext(ctx context.Context) RouteResponseRouteParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseRouteParametersOutput)
+}
+
+func (i RouteResponseRouteParametersArgs) ToRouteResponseRouteParametersPtrOutput() RouteResponseRouteParametersPtrOutput {
+	return i.ToRouteResponseRouteParametersPtrOutputWithContext(context.Background())
+}
+
+func (i RouteResponseRouteParametersArgs) ToRouteResponseRouteParametersPtrOutputWithContext(ctx context.Context) RouteResponseRouteParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseRouteParametersOutput).ToRouteResponseRouteParametersPtrOutputWithContext(ctx)
+}
+
+// RouteResponseRouteParametersPtrInput is an input type that accepts RouteResponseRouteParametersArgs, RouteResponseRouteParametersPtr and RouteResponseRouteParametersPtrOutput values.
+// You can construct a concrete instance of `RouteResponseRouteParametersPtrInput` via:
+//
+//	        RouteResponseRouteParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouteResponseRouteParametersPtrInput interface {
+	pulumi.Input
+
+	ToRouteResponseRouteParametersPtrOutput() RouteResponseRouteParametersPtrOutput
+	ToRouteResponseRouteParametersPtrOutputWithContext(context.Context) RouteResponseRouteParametersPtrOutput
+}
+
+type routeResponseRouteParametersPtrType RouteResponseRouteParametersArgs
+
+func RouteResponseRouteParametersPtr(v *RouteResponseRouteParametersArgs) RouteResponseRouteParametersPtrInput {
+	return (*routeResponseRouteParametersPtrType)(v)
+}
+
+func (*routeResponseRouteParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteResponseRouteParameters)(nil)).Elem()
+}
+
+func (i *routeResponseRouteParametersPtrType) ToRouteResponseRouteParametersPtrOutput() RouteResponseRouteParametersPtrOutput {
+	return i.ToRouteResponseRouteParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *routeResponseRouteParametersPtrType) ToRouteResponseRouteParametersPtrOutputWithContext(ctx context.Context) RouteResponseRouteParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseRouteParametersPtrOutput)
+}
+
+type RouteResponseRouteParametersOutput struct{ *pulumi.OutputState }
+
+func (RouteResponseRouteParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteResponseRouteParameters)(nil)).Elem()
+}
+
+func (o RouteResponseRouteParametersOutput) ToRouteResponseRouteParametersOutput() RouteResponseRouteParametersOutput {
+	return o
+}
+
+func (o RouteResponseRouteParametersOutput) ToRouteResponseRouteParametersOutputWithContext(ctx context.Context) RouteResponseRouteParametersOutput {
+	return o
+}
+
+func (o RouteResponseRouteParametersOutput) ToRouteResponseRouteParametersPtrOutput() RouteResponseRouteParametersPtrOutput {
+	return o.ToRouteResponseRouteParametersPtrOutputWithContext(context.Background())
+}
+
+func (o RouteResponseRouteParametersOutput) ToRouteResponseRouteParametersPtrOutputWithContext(ctx context.Context) RouteResponseRouteParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteResponseRouteParameters) *RouteResponseRouteParameters {
+		return &v
+	}).(RouteResponseRouteParametersPtrOutput)
+}
+
+type RouteResponseRouteParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteResponseRouteParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteResponseRouteParameters)(nil)).Elem()
+}
+
+func (o RouteResponseRouteParametersPtrOutput) ToRouteResponseRouteParametersPtrOutput() RouteResponseRouteParametersPtrOutput {
+	return o
+}
+
+func (o RouteResponseRouteParametersPtrOutput) ToRouteResponseRouteParametersPtrOutputWithContext(ctx context.Context) RouteResponseRouteParametersPtrOutput {
+	return o
+}
+
+func (o RouteResponseRouteParametersPtrOutput) Elem() RouteResponseRouteParametersOutput {
+	return o.ApplyT(func(v *RouteResponseRouteParameters) RouteResponseRouteParameters {
+		if v != nil {
+			return *v
+		}
+		var ret RouteResponseRouteParameters
+		return ret
+	}).(RouteResponseRouteParametersOutput)
+}
+
 type StageAccessLogSettings struct {
 	DestinationArn *string `pulumi:"destinationArn"`
 	Format         *string `pulumi:"format"`
@@ -2231,6 +2349,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationPtrInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTlsConfigInput)(nil)).Elem(), IntegrationTlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTlsConfigPtrInput)(nil)).Elem(), IntegrationTlsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseRouteParametersInput)(nil)).Elem(), RouteResponseRouteParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseRouteParametersPtrInput)(nil)).Elem(), RouteResponseRouteParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsPtrInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageRouteSettingsInput)(nil)).Elem(), StageRouteSettingsArgs{})
@@ -2257,6 +2377,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigPtrOutput{})
+	pulumi.RegisterOutputType(RouteResponseRouteParametersOutput{})
+	pulumi.RegisterOutputType(RouteResponseRouteParametersPtrOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsPtrOutput{})
 	pulumi.RegisterOutputType(StageRouteSettingsOutput{})

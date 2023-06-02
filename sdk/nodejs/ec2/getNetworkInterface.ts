@@ -31,6 +31,10 @@ export interface GetNetworkInterfaceResult {
      */
     readonly description?: string;
     /**
+     * If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+     */
+    readonly enablePrimaryIpv6?: boolean;
+    /**
      * A list of security group IDs associated with this network interface.
      */
     readonly groupSet?: string[];

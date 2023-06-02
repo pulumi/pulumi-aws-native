@@ -23,6 +23,7 @@ type Application struct {
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
 	KmsKeyId pulumi.StringPtrOutput     `pulumi:"kmsKeyId"`
 	Name     pulumi.StringOutput        `pulumi:"name"`
+	RoleArn  pulumi.StringPtrOutput     `pulumi:"roleArn"`
 	Tags     ApplicationTagMapPtrOutput `pulumi:"tags"`
 }
 
@@ -77,6 +78,7 @@ type applicationArgs struct {
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
 	KmsKeyId *string            `pulumi:"kmsKeyId"`
 	Name     *string            `pulumi:"name"`
+	RoleArn  *string            `pulumi:"roleArn"`
 	Tags     *ApplicationTagMap `pulumi:"tags"`
 }
 
@@ -88,6 +90,7 @@ type ApplicationArgs struct {
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
 	KmsKeyId pulumi.StringPtrInput
 	Name     pulumi.StringPtrInput
+	RoleArn  pulumi.StringPtrInput
 	Tags     ApplicationTagMapPtrInput
 }
 
@@ -155,6 +158,10 @@ func (o ApplicationOutput) KmsKeyId() pulumi.StringPtrOutput {
 
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o ApplicationOutput) Tags() ApplicationTagMapPtrOutput {

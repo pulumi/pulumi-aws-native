@@ -53,6 +53,94 @@ func (o CampaignCollectionSchemeOutput) ToCampaignCollectionSchemeOutputWithCont
 	return o
 }
 
+type CampaignDataDestinationConfig struct {
+}
+
+// CampaignDataDestinationConfigInput is an input type that accepts CampaignDataDestinationConfigArgs and CampaignDataDestinationConfigOutput values.
+// You can construct a concrete instance of `CampaignDataDestinationConfigInput` via:
+//
+//	CampaignDataDestinationConfigArgs{...}
+type CampaignDataDestinationConfigInput interface {
+	pulumi.Input
+
+	ToCampaignDataDestinationConfigOutput() CampaignDataDestinationConfigOutput
+	ToCampaignDataDestinationConfigOutputWithContext(context.Context) CampaignDataDestinationConfigOutput
+}
+
+type CampaignDataDestinationConfigArgs struct {
+}
+
+func (CampaignDataDestinationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignDataDestinationConfig)(nil)).Elem()
+}
+
+func (i CampaignDataDestinationConfigArgs) ToCampaignDataDestinationConfigOutput() CampaignDataDestinationConfigOutput {
+	return i.ToCampaignDataDestinationConfigOutputWithContext(context.Background())
+}
+
+func (i CampaignDataDestinationConfigArgs) ToCampaignDataDestinationConfigOutputWithContext(ctx context.Context) CampaignDataDestinationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignDataDestinationConfigOutput)
+}
+
+// CampaignDataDestinationConfigArrayInput is an input type that accepts CampaignDataDestinationConfigArray and CampaignDataDestinationConfigArrayOutput values.
+// You can construct a concrete instance of `CampaignDataDestinationConfigArrayInput` via:
+//
+//	CampaignDataDestinationConfigArray{ CampaignDataDestinationConfigArgs{...} }
+type CampaignDataDestinationConfigArrayInput interface {
+	pulumi.Input
+
+	ToCampaignDataDestinationConfigArrayOutput() CampaignDataDestinationConfigArrayOutput
+	ToCampaignDataDestinationConfigArrayOutputWithContext(context.Context) CampaignDataDestinationConfigArrayOutput
+}
+
+type CampaignDataDestinationConfigArray []CampaignDataDestinationConfigInput
+
+func (CampaignDataDestinationConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignDataDestinationConfig)(nil)).Elem()
+}
+
+func (i CampaignDataDestinationConfigArray) ToCampaignDataDestinationConfigArrayOutput() CampaignDataDestinationConfigArrayOutput {
+	return i.ToCampaignDataDestinationConfigArrayOutputWithContext(context.Background())
+}
+
+func (i CampaignDataDestinationConfigArray) ToCampaignDataDestinationConfigArrayOutputWithContext(ctx context.Context) CampaignDataDestinationConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignDataDestinationConfigArrayOutput)
+}
+
+type CampaignDataDestinationConfigOutput struct{ *pulumi.OutputState }
+
+func (CampaignDataDestinationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignDataDestinationConfig)(nil)).Elem()
+}
+
+func (o CampaignDataDestinationConfigOutput) ToCampaignDataDestinationConfigOutput() CampaignDataDestinationConfigOutput {
+	return o
+}
+
+func (o CampaignDataDestinationConfigOutput) ToCampaignDataDestinationConfigOutputWithContext(ctx context.Context) CampaignDataDestinationConfigOutput {
+	return o
+}
+
+type CampaignDataDestinationConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (CampaignDataDestinationConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignDataDestinationConfig)(nil)).Elem()
+}
+
+func (o CampaignDataDestinationConfigArrayOutput) ToCampaignDataDestinationConfigArrayOutput() CampaignDataDestinationConfigArrayOutput {
+	return o
+}
+
+func (o CampaignDataDestinationConfigArrayOutput) ToCampaignDataDestinationConfigArrayOutputWithContext(ctx context.Context) CampaignDataDestinationConfigArrayOutput {
+	return o
+}
+
+func (o CampaignDataDestinationConfigArrayOutput) Index(i pulumi.IntInput) CampaignDataDestinationConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignDataDestinationConfig {
+		return vs[0].([]CampaignDataDestinationConfig)[vs[1].(int)]
+	}).(CampaignDataDestinationConfigOutput)
+}
+
 type CampaignSignalInformation struct {
 	MaxSampleCount            *float64 `pulumi:"maxSampleCount"`
 	MinimumSamplingIntervalMs *float64 `pulumi:"minimumSamplingIntervalMs"`
@@ -1225,6 +1313,8 @@ func (o VehicleattributesMapPtrOutput) Elem() VehicleattributesMapOutput {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCollectionSchemeInput)(nil)).Elem(), CampaignCollectionSchemeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDataDestinationConfigInput)(nil)).Elem(), CampaignDataDestinationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDataDestinationConfigArrayInput)(nil)).Elem(), CampaignDataDestinationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSignalInformationInput)(nil)).Elem(), CampaignSignalInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSignalInformationArrayInput)(nil)).Elem(), CampaignSignalInformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagInput)(nil)).Elem(), CampaignTagArgs{})
@@ -1246,6 +1336,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VehicleattributesMapInput)(nil)).Elem(), VehicleattributesMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VehicleattributesMapPtrInput)(nil)).Elem(), VehicleattributesMapArgs{})
 	pulumi.RegisterOutputType(CampaignCollectionSchemeOutput{})
+	pulumi.RegisterOutputType(CampaignDataDestinationConfigOutput{})
+	pulumi.RegisterOutputType(CampaignDataDestinationConfigArrayOutput{})
 	pulumi.RegisterOutputType(CampaignSignalInformationOutput{})
 	pulumi.RegisterOutputType(CampaignSignalInformationArrayOutput{})
 	pulumi.RegisterOutputType(CampaignTagOutput{})

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.ResilienceHub.Outputs
     [OutputType]
     public sealed class AppResourceMapping
     {
+        public readonly string? EksSourceName;
         public readonly string? LogicalStackName;
         public readonly string MappingType;
         public readonly Outputs.AppPhysicalResourceId PhysicalResourceId;
@@ -24,6 +25,8 @@ namespace Pulumi.AwsNative.ResilienceHub.Outputs
 
         [OutputConstructor]
         private AppResourceMapping(
+            string? eksSourceName,
+
             string? logicalStackName,
 
             string mappingType,
@@ -34,6 +37,7 @@ namespace Pulumi.AwsNative.ResilienceHub.Outputs
 
             string? terraformSourceName)
         {
+            EksSourceName = eksSourceName;
             LogicalStackName = logicalStackName;
             MappingType = mappingType;
             PhysicalResourceId = physicalResourceId;

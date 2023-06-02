@@ -50,6 +50,10 @@ export class EventDataStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly eventDataStoreArn!: pulumi.Output<string>;
     /**
+     * Indicates whether the event data store is ingesting events.
+     */
+    public readonly ingestionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
@@ -70,7 +74,7 @@ export class EventDataStore extends pulumi.CustomResource {
      */
     public readonly retentionPeriod!: pulumi.Output<number | undefined>;
     /**
-     * The status of an event data store. Values are ENABLED and PENDING_DELETION.
+     * The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.cloudtrail.EventDataStoreTag[] | undefined>;
@@ -95,6 +99,7 @@ export class EventDataStore extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
+            resourceInputs["ingestionEnabled"] = args ? args.ingestionEnabled : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["multiRegionEnabled"] = args ? args.multiRegionEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -110,6 +115,7 @@ export class EventDataStore extends pulumi.CustomResource {
             resourceInputs["advancedEventSelectors"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["eventDataStoreArn"] = undefined /*out*/;
+            resourceInputs["ingestionEnabled"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["multiRegionEnabled"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -133,6 +139,10 @@ export interface EventDataStoreArgs {
      * The advanced event selectors that were used to select events for the data store.
      */
     advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreAdvancedEventSelectorArgs>[]>;
+    /**
+     * Indicates whether the event data store is ingesting events.
+     */
+    ingestionEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */

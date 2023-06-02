@@ -22,6 +22,7 @@ class ApplicationArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['ApplicationTagMapArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
@@ -35,6 +36,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -87,6 +90,15 @@ class ApplicationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['ApplicationTagMapArgs']]:
         return pulumi.get(self, "tags")
@@ -106,6 +118,7 @@ class Application(pulumi.CustomResource):
                  engine_type: Optional[pulumi.Input['ApplicationEngineType']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['ApplicationTagMapArgs']]] = None,
                  __props__=None):
         """
@@ -144,6 +157,7 @@ class Application(pulumi.CustomResource):
                  engine_type: Optional[pulumi.Input['ApplicationEngineType']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['ApplicationTagMapArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -163,6 +177,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["engine_type"] = engine_type
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_arn"] = None
             __props__.__dict__["application_id"] = None
@@ -195,6 +210,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["engine_type"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
@@ -235,6 +251,11 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter

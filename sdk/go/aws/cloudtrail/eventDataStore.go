@@ -20,6 +20,8 @@ type EventDataStore struct {
 	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
 	// The ARN of the event data store.
 	EventDataStoreArn pulumi.StringOutput `pulumi:"eventDataStoreArn"`
+	// Indicates whether the event data store is ingesting events.
+	IngestionEnabled pulumi.BoolPtrOutput `pulumi:"ingestionEnabled"`
 	// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
@@ -30,7 +32,7 @@ type EventDataStore struct {
 	OrganizationEnabled pulumi.BoolPtrOutput `pulumi:"organizationEnabled"`
 	// The retention period, in days.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
-	// The status of an event data store. Values are ENABLED and PENDING_DELETION.
+	// The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
 	Status pulumi.StringOutput          `pulumi:"status"`
 	Tags   EventDataStoreTagArrayOutput `pulumi:"tags"`
 	// Indicates whether the event data store is protected from termination.
@@ -80,6 +82,8 @@ func (EventDataStoreState) ElementType() reflect.Type {
 type eventDataStoreArgs struct {
 	// The advanced event selectors that were used to select events for the data store.
 	AdvancedEventSelectors []EventDataStoreAdvancedEventSelector `pulumi:"advancedEventSelectors"`
+	// Indicates whether the event data store is ingesting events.
+	IngestionEnabled *bool `pulumi:"ingestionEnabled"`
 	// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
@@ -99,6 +103,8 @@ type eventDataStoreArgs struct {
 type EventDataStoreArgs struct {
 	// The advanced event selectors that were used to select events for the data store.
 	AdvancedEventSelectors EventDataStoreAdvancedEventSelectorArrayInput
+	// Indicates whether the event data store is ingesting events.
+	IngestionEnabled pulumi.BoolPtrInput
 	// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrInput
 	// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
@@ -168,6 +174,11 @@ func (o EventDataStoreOutput) EventDataStoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringOutput { return v.EventDataStoreArn }).(pulumi.StringOutput)
 }
 
+// Indicates whether the event data store is ingesting events.
+func (o EventDataStoreOutput) IngestionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventDataStore) pulumi.BoolPtrOutput { return v.IngestionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 func (o EventDataStoreOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -193,7 +204,7 @@ func (o EventDataStoreOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.IntPtrOutput { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
-// The status of an event data store. Values are ENABLED and PENDING_DELETION.
+// The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
 func (o EventDataStoreOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

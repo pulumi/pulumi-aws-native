@@ -74,6 +74,7 @@ class AppResourceMappingArgs:
     def __init__(__self__, *,
                  mapping_type: pulumi.Input[str],
                  physical_resource_id: pulumi.Input['AppPhysicalResourceIdArgs'],
+                 eks_source_name: Optional[pulumi.Input[str]] = None,
                  logical_stack_name: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  terraform_source_name: Optional[pulumi.Input[str]] = None):
@@ -82,6 +83,8 @@ class AppResourceMappingArgs:
         """
         pulumi.set(__self__, "mapping_type", mapping_type)
         pulumi.set(__self__, "physical_resource_id", physical_resource_id)
+        if eks_source_name is not None:
+            pulumi.set(__self__, "eks_source_name", eks_source_name)
         if logical_stack_name is not None:
             pulumi.set(__self__, "logical_stack_name", logical_stack_name)
         if resource_name is not None:
@@ -106,6 +109,15 @@ class AppResourceMappingArgs:
     @physical_resource_id.setter
     def physical_resource_id(self, value: pulumi.Input['AppPhysicalResourceIdArgs']):
         pulumi.set(self, "physical_resource_id", value)
+
+    @property
+    @pulumi.getter(name="eksSourceName")
+    def eks_source_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "eks_source_name")
+
+    @eks_source_name.setter
+    def eks_source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eks_source_name", value)
 
     @property
     @pulumi.getter(name="logicalStackName")

@@ -13,6 +13,7 @@ from .email_identity import *
 from .get_configuration_set import *
 from .get_configuration_set_event_destination import *
 from .get_contact_list import *
+from .get_dedicated_ip_pool import *
 from .get_email_identity import *
 from .get_receipt_filter import *
 from .get_receipt_rule import *

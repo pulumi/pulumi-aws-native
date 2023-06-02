@@ -17,6 +17,8 @@ type NetworkInterface struct {
 
 	// A description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+	EnablePrimaryIpv6 pulumi.BoolPtrOutput `pulumi:"enablePrimaryIpv6"`
 	// A list of security group IDs associated with this network interface.
 	GroupSet pulumi.StringArrayOutput `pulumi:"groupSet"`
 	// Indicates the type of network interface.
@@ -87,6 +89,8 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 type networkInterfaceArgs struct {
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
+	// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+	EnablePrimaryIpv6 *bool `pulumi:"enablePrimaryIpv6"`
 	// A list of security group IDs associated with this network interface.
 	GroupSet []string `pulumi:"groupSet"`
 	// Indicates the type of network interface.
@@ -113,6 +117,8 @@ type networkInterfaceArgs struct {
 type NetworkInterfaceArgs struct {
 	// A description for the network interface.
 	Description pulumi.StringPtrInput
+	// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+	EnablePrimaryIpv6 pulumi.BoolPtrInput
 	// A list of security group IDs associated with this network interface.
 	GroupSet pulumi.StringArrayInput
 	// Indicates the type of network interface.
@@ -175,6 +181,11 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.
 // A description for the network interface.
 func (o NetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+func (o NetworkInterfaceOutput) EnablePrimaryIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.EnablePrimaryIpv6 }).(pulumi.BoolPtrOutput)
 }
 
 // A list of security group IDs associated with this network interface.

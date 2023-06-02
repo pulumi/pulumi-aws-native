@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.IoTFleetWise
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        [Output("dataDestinationConfigs")]
+        public Output<ImmutableArray<Outputs.CampaignDataDestinationConfig>> DataDestinationConfigs { get; private set; } = null!;
+
         [Output("dataExtraDimensions")]
         public Output<ImmutableArray<string>> DataExtraDimensions { get; private set; } = null!;
 
@@ -129,6 +132,14 @@ namespace Pulumi.AwsNative.IoTFleetWise
 
         [Input("compression")]
         public Input<Pulumi.AwsNative.IoTFleetWise.CampaignCompression>? Compression { get; set; }
+
+        [Input("dataDestinationConfigs")]
+        private InputList<Inputs.CampaignDataDestinationConfigArgs>? _dataDestinationConfigs;
+        public InputList<Inputs.CampaignDataDestinationConfigArgs> DataDestinationConfigs
+        {
+            get => _dataDestinationConfigs ?? (_dataDestinationConfigs = new InputList<Inputs.CampaignDataDestinationConfigArgs>());
+            set => _dataDestinationConfigs = value;
+        }
 
         [Input("dataExtraDimensions")]
         private InputList<string>? _dataExtraDimensions;

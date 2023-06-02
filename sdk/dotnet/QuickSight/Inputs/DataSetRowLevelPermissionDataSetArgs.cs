@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("permissionPolicy", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionPolicy> PermissionPolicy { get; set; } = null!;
 
+        [Input("status")]
+        public Input<Pulumi.AwsNative.QuickSight.DataSetStatus>? Status { get; set; }
+
         public DataSetRowLevelPermissionDataSetArgs()
         {
         }

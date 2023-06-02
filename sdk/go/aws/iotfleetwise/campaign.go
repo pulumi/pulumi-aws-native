@@ -17,26 +17,27 @@ import (
 type Campaign struct {
 	pulumi.CustomResourceState
 
-	Action                        CampaignUpdateCampaignActionOutput   `pulumi:"action"`
-	Arn                           pulumi.StringOutput                  `pulumi:"arn"`
-	CollectionScheme              CampaignCollectionSchemeOutput       `pulumi:"collectionScheme"`
-	Compression                   CampaignCompressionPtrOutput         `pulumi:"compression"`
-	CreationTime                  pulumi.StringOutput                  `pulumi:"creationTime"`
-	DataExtraDimensions           pulumi.StringArrayOutput             `pulumi:"dataExtraDimensions"`
-	Description                   pulumi.StringPtrOutput               `pulumi:"description"`
-	DiagnosticsMode               CampaignDiagnosticsModePtrOutput     `pulumi:"diagnosticsMode"`
-	ExpiryTime                    pulumi.StringPtrOutput               `pulumi:"expiryTime"`
-	LastModificationTime          pulumi.StringOutput                  `pulumi:"lastModificationTime"`
-	Name                          pulumi.StringOutput                  `pulumi:"name"`
-	PostTriggerCollectionDuration pulumi.Float64PtrOutput              `pulumi:"postTriggerCollectionDuration"`
-	Priority                      pulumi.IntPtrOutput                  `pulumi:"priority"`
-	SignalCatalogArn              pulumi.StringOutput                  `pulumi:"signalCatalogArn"`
-	SignalsToCollect              CampaignSignalInformationArrayOutput `pulumi:"signalsToCollect"`
-	SpoolingMode                  CampaignSpoolingModePtrOutput        `pulumi:"spoolingMode"`
-	StartTime                     pulumi.StringPtrOutput               `pulumi:"startTime"`
-	Status                        CampaignStatusOutput                 `pulumi:"status"`
-	Tags                          CampaignTagArrayOutput               `pulumi:"tags"`
-	TargetArn                     pulumi.StringOutput                  `pulumi:"targetArn"`
+	Action                        CampaignUpdateCampaignActionOutput       `pulumi:"action"`
+	Arn                           pulumi.StringOutput                      `pulumi:"arn"`
+	CollectionScheme              CampaignCollectionSchemeOutput           `pulumi:"collectionScheme"`
+	Compression                   CampaignCompressionPtrOutput             `pulumi:"compression"`
+	CreationTime                  pulumi.StringOutput                      `pulumi:"creationTime"`
+	DataDestinationConfigs        CampaignDataDestinationConfigArrayOutput `pulumi:"dataDestinationConfigs"`
+	DataExtraDimensions           pulumi.StringArrayOutput                 `pulumi:"dataExtraDimensions"`
+	Description                   pulumi.StringPtrOutput                   `pulumi:"description"`
+	DiagnosticsMode               CampaignDiagnosticsModePtrOutput         `pulumi:"diagnosticsMode"`
+	ExpiryTime                    pulumi.StringPtrOutput                   `pulumi:"expiryTime"`
+	LastModificationTime          pulumi.StringOutput                      `pulumi:"lastModificationTime"`
+	Name                          pulumi.StringOutput                      `pulumi:"name"`
+	PostTriggerCollectionDuration pulumi.Float64PtrOutput                  `pulumi:"postTriggerCollectionDuration"`
+	Priority                      pulumi.IntPtrOutput                      `pulumi:"priority"`
+	SignalCatalogArn              pulumi.StringOutput                      `pulumi:"signalCatalogArn"`
+	SignalsToCollect              CampaignSignalInformationArrayOutput     `pulumi:"signalsToCollect"`
+	SpoolingMode                  CampaignSpoolingModePtrOutput            `pulumi:"spoolingMode"`
+	StartTime                     pulumi.StringPtrOutput                   `pulumi:"startTime"`
+	Status                        CampaignStatusOutput                     `pulumi:"status"`
+	Tags                          CampaignTagArrayOutput                   `pulumi:"tags"`
+	TargetArn                     pulumi.StringOutput                      `pulumi:"targetArn"`
 }
 
 // NewCampaign registers a new resource with the given unique name, arguments, and options.
@@ -90,22 +91,23 @@ func (CampaignState) ElementType() reflect.Type {
 }
 
 type campaignArgs struct {
-	Action                        CampaignUpdateCampaignAction `pulumi:"action"`
-	CollectionScheme              CampaignCollectionScheme     `pulumi:"collectionScheme"`
-	Compression                   *CampaignCompression         `pulumi:"compression"`
-	DataExtraDimensions           []string                     `pulumi:"dataExtraDimensions"`
-	Description                   *string                      `pulumi:"description"`
-	DiagnosticsMode               *CampaignDiagnosticsMode     `pulumi:"diagnosticsMode"`
-	ExpiryTime                    *string                      `pulumi:"expiryTime"`
-	Name                          *string                      `pulumi:"name"`
-	PostTriggerCollectionDuration *float64                     `pulumi:"postTriggerCollectionDuration"`
-	Priority                      *int                         `pulumi:"priority"`
-	SignalCatalogArn              string                       `pulumi:"signalCatalogArn"`
-	SignalsToCollect              []CampaignSignalInformation  `pulumi:"signalsToCollect"`
-	SpoolingMode                  *CampaignSpoolingMode        `pulumi:"spoolingMode"`
-	StartTime                     *string                      `pulumi:"startTime"`
-	Tags                          []CampaignTag                `pulumi:"tags"`
-	TargetArn                     string                       `pulumi:"targetArn"`
+	Action                        CampaignUpdateCampaignAction    `pulumi:"action"`
+	CollectionScheme              CampaignCollectionScheme        `pulumi:"collectionScheme"`
+	Compression                   *CampaignCompression            `pulumi:"compression"`
+	DataDestinationConfigs        []CampaignDataDestinationConfig `pulumi:"dataDestinationConfigs"`
+	DataExtraDimensions           []string                        `pulumi:"dataExtraDimensions"`
+	Description                   *string                         `pulumi:"description"`
+	DiagnosticsMode               *CampaignDiagnosticsMode        `pulumi:"diagnosticsMode"`
+	ExpiryTime                    *string                         `pulumi:"expiryTime"`
+	Name                          *string                         `pulumi:"name"`
+	PostTriggerCollectionDuration *float64                        `pulumi:"postTriggerCollectionDuration"`
+	Priority                      *int                            `pulumi:"priority"`
+	SignalCatalogArn              string                          `pulumi:"signalCatalogArn"`
+	SignalsToCollect              []CampaignSignalInformation     `pulumi:"signalsToCollect"`
+	SpoolingMode                  *CampaignSpoolingMode           `pulumi:"spoolingMode"`
+	StartTime                     *string                         `pulumi:"startTime"`
+	Tags                          []CampaignTag                   `pulumi:"tags"`
+	TargetArn                     string                          `pulumi:"targetArn"`
 }
 
 // The set of arguments for constructing a Campaign resource.
@@ -113,6 +115,7 @@ type CampaignArgs struct {
 	Action                        CampaignUpdateCampaignActionInput
 	CollectionScheme              CampaignCollectionSchemeInput
 	Compression                   CampaignCompressionPtrInput
+	DataDestinationConfigs        CampaignDataDestinationConfigArrayInput
 	DataExtraDimensions           pulumi.StringArrayInput
 	Description                   pulumi.StringPtrInput
 	DiagnosticsMode               CampaignDiagnosticsModePtrInput
@@ -183,6 +186,10 @@ func (o CampaignOutput) Compression() CampaignCompressionPtrOutput {
 
 func (o CampaignOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o CampaignOutput) DataDestinationConfigs() CampaignDataDestinationConfigArrayOutput {
+	return o.ApplyT(func(v *Campaign) CampaignDataDestinationConfigArrayOutput { return v.DataDestinationConfigs }).(CampaignDataDestinationConfigArrayOutput)
 }
 
 func (o CampaignOutput) DataExtraDimensions() pulumi.StringArrayOutput {

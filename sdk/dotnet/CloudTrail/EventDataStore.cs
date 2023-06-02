@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.CloudTrail
         public Output<string> EventDataStoreArn { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the event data store is ingesting events.
+        /// </summary>
+        [Output("ingestionEnabled")]
+        public Output<bool?> IngestionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         /// </summary>
         [Output("kmsKeyId")]
@@ -64,7 +70,7 @@ namespace Pulumi.AwsNative.CloudTrail
         public Output<int?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The status of an event data store. Values are ENABLED and PENDING_DELETION.
+        /// The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -140,6 +146,12 @@ namespace Pulumi.AwsNative.CloudTrail
             get => _advancedEventSelectors ?? (_advancedEventSelectors = new InputList<Inputs.EventDataStoreAdvancedEventSelectorArgs>());
             set => _advancedEventSelectors = value;
         }
+
+        /// <summary>
+        /// Indicates whether the event data store is ingesting events.
+        /// </summary>
+        [Input("ingestionEnabled")]
+        public Input<bool>? IngestionEnabled { get; set; }
 
         /// <summary>
         /// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.

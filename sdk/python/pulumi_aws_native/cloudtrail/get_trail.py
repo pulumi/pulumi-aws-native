@@ -20,7 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetTrailResult:
-    def __init__(__self__, arn=None, cloud_watch_logs_log_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, event_selectors=None, include_global_service_events=None, insight_selectors=None, is_logging=None, is_multi_region_trail=None, is_organization_trail=None, k_ms_key_id=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_arn=None, sns_topic_name=None, tags=None):
+    def __init__(__self__, advanced_event_selectors=None, arn=None, cloud_watch_logs_log_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, event_selectors=None, include_global_service_events=None, insight_selectors=None, is_logging=None, is_multi_region_trail=None, is_organization_trail=None, k_ms_key_id=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_arn=None, sns_topic_name=None, tags=None):
+        if advanced_event_selectors and not isinstance(advanced_event_selectors, list):
+            raise TypeError("Expected argument 'advanced_event_selectors' to be a list")
+        pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -69,6 +72,14 @@ class GetTrailResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="advancedEventSelectors")
+    def advanced_event_selectors(self) -> Optional[Sequence['outputs.TrailAdvancedEventSelector']]:
+        """
+        The advanced event selectors that were used to select events for the data store.
+        """
+        return pulumi.get(self, "advanced_event_selectors")
 
     @property
     @pulumi.getter
@@ -196,6 +207,7 @@ class AwaitableGetTrailResult(GetTrailResult):
         if False:
             yield self
         return GetTrailResult(
+            advanced_event_selectors=self.advanced_event_selectors,
             arn=self.arn,
             cloud_watch_logs_log_group_arn=self.cloud_watch_logs_log_group_arn,
             cloud_watch_logs_role_arn=self.cloud_watch_logs_role_arn,
@@ -225,6 +237,7 @@ def get_trail(trail_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudtrail:getTrail', __args__, opts=opts, typ=GetTrailResult).value
 
     return AwaitableGetTrailResult(
+        advanced_event_selectors=__ret__.advanced_event_selectors,
         arn=__ret__.arn,
         cloud_watch_logs_log_group_arn=__ret__.cloud_watch_logs_log_group_arn,
         cloud_watch_logs_role_arn=__ret__.cloud_watch_logs_role_arn,

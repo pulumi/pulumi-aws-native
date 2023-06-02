@@ -428,8 +428,14 @@ class CrawlerCatalogTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "databaseName":
+        if key == "connectionName":
+            suggest = "connection_name"
+        elif key == "databaseName":
             suggest = "database_name"
+        elif key == "dlqEventQueueArn":
+            suggest = "dlq_event_queue_arn"
+        elif key == "eventQueueArn":
+            suggest = "event_queue_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CrawlerCatalogTarget. Access the value via the '{suggest}' property getter instead.")
@@ -443,17 +449,41 @@ class CrawlerCatalogTarget(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 connection_name: Optional[str] = None,
                  database_name: Optional[str] = None,
+                 dlq_event_queue_arn: Optional[str] = None,
+                 event_queue_arn: Optional[str] = None,
                  tables: Optional[Sequence[str]] = None):
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if dlq_event_queue_arn is not None:
+            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+        if event_queue_arn is not None:
+            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
         if tables is not None:
             pulumi.set(__self__, "tables", tables)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        return pulumi.get(self, "connection_name")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[str]:
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="dlqEventQueueArn")
+    def dlq_event_queue_arn(self) -> Optional[str]:
+        return pulumi.get(self, "dlq_event_queue_arn")
+
+    @property
+    @pulumi.getter(name="eventQueueArn")
+    def event_queue_arn(self) -> Optional[str]:
+        return pulumi.get(self, "event_queue_arn")
 
     @property
     @pulumi.getter

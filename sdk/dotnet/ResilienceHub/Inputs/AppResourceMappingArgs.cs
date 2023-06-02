@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ResilienceHub.Inputs
     /// </summary>
     public sealed class AppResourceMappingArgs : global::Pulumi.ResourceArgs
     {
+        [Input("eksSourceName")]
+        public Input<string>? EksSourceName { get; set; }
+
         [Input("logicalStackName")]
         public Input<string>? LogicalStackName { get; set; }
 

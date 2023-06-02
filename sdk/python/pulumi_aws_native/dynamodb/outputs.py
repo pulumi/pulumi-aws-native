@@ -1449,19 +1449,20 @@ class TableTimeToLiveSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 attribute_name: str,
-                 enabled: bool):
-        pulumi.set(__self__, "attribute_name", attribute_name)
+                 enabled: bool,
+                 attribute_name: Optional[str] = None):
         pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter(name="attributeName")
-    def attribute_name(self) -> str:
-        return pulumi.get(self, "attribute_name")
+        if attribute_name is not None:
+            pulumi.set(__self__, "attribute_name", attribute_name)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> Optional[str]:
+        return pulumi.get(self, "attribute_name")
 
 

@@ -39,6 +39,10 @@ export interface GetEventDataStoreResult {
      */
     readonly eventDataStoreArn?: string;
     /**
+     * Indicates whether the event data store is ingesting events.
+     */
+    readonly ingestionEnabled?: boolean;
+    /**
      * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
     readonly kmsKeyId?: string;
@@ -59,7 +63,7 @@ export interface GetEventDataStoreResult {
      */
     readonly retentionPeriod?: number;
     /**
-     * The status of an event data store. Values are ENABLED and PENDING_DELETION.
+     * The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
      */
     readonly status?: string;
     readonly tags?: outputs.cloudtrail.EventDataStoreTag[];

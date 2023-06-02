@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetRouteResponseResult',
@@ -18,10 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRouteResponseResult:
-    def __init__(__self__, id=None, model_selection_expression=None, response_models=None, response_parameters=None, route_response_key=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, model_selection_expression=None, response_models=None, response_parameters=None, route_response_id=None, route_response_key=None):
         if model_selection_expression and not isinstance(model_selection_expression, str):
             raise TypeError("Expected argument 'model_selection_expression' to be a str")
         pulumi.set(__self__, "model_selection_expression", model_selection_expression)
@@ -31,14 +29,12 @@ class GetRouteResponseResult:
         if response_parameters and not isinstance(response_parameters, dict):
             raise TypeError("Expected argument 'response_parameters' to be a dict")
         pulumi.set(__self__, "response_parameters", response_parameters)
+        if route_response_id and not isinstance(route_response_id, str):
+            raise TypeError("Expected argument 'route_response_id' to be a str")
+        pulumi.set(__self__, "route_response_id", route_response_id)
         if route_response_key and not isinstance(route_response_key, str):
             raise TypeError("Expected argument 'route_response_key' to be a str")
         pulumi.set(__self__, "route_response_key", route_response_key)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="modelSelectionExpression")
@@ -52,8 +48,13 @@ class GetRouteResponseResult:
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[Any]:
+    def response_parameters(self) -> Optional['outputs.RouteResponseRouteParameters']:
         return pulumi.get(self, "response_parameters")
+
+    @property
+    @pulumi.getter(name="routeResponseId")
+    def route_response_id(self) -> Optional[str]:
+        return pulumi.get(self, "route_response_id")
 
     @property
     @pulumi.getter(name="routeResponseKey")
@@ -67,33 +68,39 @@ class AwaitableGetRouteResponseResult(GetRouteResponseResult):
         if False:
             yield self
         return GetRouteResponseResult(
-            id=self.id,
             model_selection_expression=self.model_selection_expression,
             response_models=self.response_models,
             response_parameters=self.response_parameters,
+            route_response_id=self.route_response_id,
             route_response_key=self.route_response_key)
 
 
-def get_route_response(id: Optional[str] = None,
+def get_route_response(api_id: Optional[str] = None,
+                       route_id: Optional[str] = None,
+                       route_response_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResponseResult:
     """
     Resource Type definition for AWS::ApiGatewayV2::RouteResponse
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['apiId'] = api_id
+    __args__['routeId'] = route_id
+    __args__['routeResponseId'] = route_response_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getRouteResponse', __args__, opts=opts, typ=GetRouteResponseResult).value
 
     return AwaitableGetRouteResponseResult(
-        id=__ret__.id,
         model_selection_expression=__ret__.model_selection_expression,
         response_models=__ret__.response_models,
         response_parameters=__ret__.response_parameters,
+        route_response_id=__ret__.route_response_id,
         route_response_key=__ret__.route_response_key)
 
 
 @_utilities.lift_output_func(get_route_response)
-def get_route_response_output(id: Optional[pulumi.Input[str]] = None,
+def get_route_response_output(api_id: Optional[pulumi.Input[str]] = None,
+                              route_id: Optional[pulumi.Input[str]] = None,
+                              route_response_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResponseResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::RouteResponse

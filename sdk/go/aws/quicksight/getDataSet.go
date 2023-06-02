@@ -36,8 +36,11 @@ type LookupDataSetResult struct {
 	ConsumedSpiceCapacityInBytes *float64 `pulumi:"consumedSpiceCapacityInBytes"`
 	// <p>The time that this dataset was created.</p>
 	CreatedTime               *string                    `pulumi:"createdTime"`
+	DataSetRefreshProperties  *DataSetRefreshProperties  `pulumi:"dataSetRefreshProperties"`
 	DataSetUsageConfiguration *DataSetUsageConfiguration `pulumi:"dataSetUsageConfiguration"`
-	ImportMode                *DataSetImportMode         `pulumi:"importMode"`
+	// <p>The parameters declared in the dataset.</p>
+	DatasetParameters []DataSetDatasetParameter `pulumi:"datasetParameters"`
+	ImportMode        *DataSetImportMode        `pulumi:"importMode"`
 	// <p>The last time that this dataset was updated.</p>
 	LastUpdatedTime *string                 `pulumi:"lastUpdatedTime"`
 	LogicalTableMap *DataSetLogicalTableMap `pulumi:"logicalTableMap"`
@@ -47,9 +50,10 @@ type LookupDataSetResult struct {
 	//             analyses, and dashboards.</p>
 	OutputColumns []DataSetOutputColumn `pulumi:"outputColumns"`
 	// <p>A list of resource permissions on the dataset.</p>
-	Permissions               []DataSetResourcePermission       `pulumi:"permissions"`
-	PhysicalTableMap          *DataSetPhysicalTableMap          `pulumi:"physicalTableMap"`
-	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
+	Permissions                        []DataSetResourcePermission                `pulumi:"permissions"`
+	PhysicalTableMap                   *DataSetPhysicalTableMap                   `pulumi:"physicalTableMap"`
+	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
+	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags []DataSetTag `pulumi:"tags"`
 }
@@ -116,8 +120,17 @@ func (o LookupDataSetResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupDataSetResultOutput) DataSetRefreshProperties() DataSetRefreshPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *DataSetRefreshProperties { return v.DataSetRefreshProperties }).(DataSetRefreshPropertiesPtrOutput)
+}
+
 func (o LookupDataSetResultOutput) DataSetUsageConfiguration() DataSetUsageConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetUsageConfiguration { return v.DataSetUsageConfiguration }).(DataSetUsageConfigurationPtrOutput)
+}
+
+// <p>The parameters declared in the dataset.</p>
+func (o LookupDataSetResultOutput) DatasetParameters() DataSetDatasetParameterArrayOutput {
+	return o.ApplyT(func(v LookupDataSetResult) []DataSetDatasetParameter { return v.DatasetParameters }).(DataSetDatasetParameterArrayOutput)
 }
 
 func (o LookupDataSetResultOutput) ImportMode() DataSetImportModePtrOutput {
@@ -156,6 +169,12 @@ func (o LookupDataSetResultOutput) PhysicalTableMap() DataSetPhysicalTableMapPtr
 
 func (o LookupDataSetResultOutput) RowLevelPermissionDataSet() DataSetRowLevelPermissionDataSetPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetRowLevelPermissionDataSet { return v.RowLevelPermissionDataSet }).(DataSetRowLevelPermissionDataSetPtrOutput)
+}
+
+func (o LookupDataSetResultOutput) RowLevelPermissionTagConfiguration() DataSetRowLevelPermissionTagConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *DataSetRowLevelPermissionTagConfiguration {
+		return v.RowLevelPermissionTagConfiguration
+	}).(DataSetRowLevelPermissionTagConfigurationPtrOutput)
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>

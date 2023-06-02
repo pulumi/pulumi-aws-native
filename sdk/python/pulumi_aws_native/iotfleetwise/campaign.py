@@ -22,6 +22,7 @@ class CampaignArgs:
                  signal_catalog_arn: pulumi.Input[str],
                  target_arn: pulumi.Input[str],
                  compression: Optional[pulumi.Input['CampaignCompression']] = None,
+                 data_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignDataDestinationConfigArgs']]]] = None,
                  data_extra_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  diagnostics_mode: Optional[pulumi.Input['CampaignDiagnosticsMode']] = None,
@@ -42,6 +43,8 @@ class CampaignArgs:
         pulumi.set(__self__, "target_arn", target_arn)
         if compression is not None:
             pulumi.set(__self__, "compression", compression)
+        if data_destination_configs is not None:
+            pulumi.set(__self__, "data_destination_configs", data_destination_configs)
         if data_extra_dimensions is not None:
             pulumi.set(__self__, "data_extra_dimensions", data_extra_dimensions)
         if description is not None:
@@ -109,6 +112,15 @@ class CampaignArgs:
     @compression.setter
     def compression(self, value: Optional[pulumi.Input['CampaignCompression']]):
         pulumi.set(self, "compression", value)
+
+    @property
+    @pulumi.getter(name="dataDestinationConfigs")
+    def data_destination_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CampaignDataDestinationConfigArgs']]]]:
+        return pulumi.get(self, "data_destination_configs")
+
+    @data_destination_configs.setter
+    def data_destination_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignDataDestinationConfigArgs']]]]):
+        pulumi.set(self, "data_destination_configs", value)
 
     @property
     @pulumi.getter(name="dataExtraDimensions")
@@ -223,6 +235,7 @@ class Campaign(pulumi.CustomResource):
                  action: Optional[pulumi.Input['CampaignUpdateCampaignAction']] = None,
                  collection_scheme: Optional[pulumi.Input[pulumi.InputType['CampaignCollectionSchemeArgs']]] = None,
                  compression: Optional[pulumi.Input['CampaignCompression']] = None,
+                 data_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignDataDestinationConfigArgs']]]]] = None,
                  data_extra_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  diagnostics_mode: Optional[pulumi.Input['CampaignDiagnosticsMode']] = None,
@@ -270,6 +283,7 @@ class Campaign(pulumi.CustomResource):
                  action: Optional[pulumi.Input['CampaignUpdateCampaignAction']] = None,
                  collection_scheme: Optional[pulumi.Input[pulumi.InputType['CampaignCollectionSchemeArgs']]] = None,
                  compression: Optional[pulumi.Input['CampaignCompression']] = None,
+                 data_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignDataDestinationConfigArgs']]]]] = None,
                  data_extra_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  diagnostics_mode: Optional[pulumi.Input['CampaignDiagnosticsMode']] = None,
@@ -300,6 +314,7 @@ class Campaign(pulumi.CustomResource):
                 raise TypeError("Missing required property 'collection_scheme'")
             __props__.__dict__["collection_scheme"] = collection_scheme
             __props__.__dict__["compression"] = compression
+            __props__.__dict__["data_destination_configs"] = data_destination_configs
             __props__.__dict__["data_extra_dimensions"] = data_extra_dimensions
             __props__.__dict__["description"] = description
             __props__.__dict__["diagnostics_mode"] = diagnostics_mode
@@ -348,6 +363,7 @@ class Campaign(pulumi.CustomResource):
         __props__.__dict__["collection_scheme"] = None
         __props__.__dict__["compression"] = None
         __props__.__dict__["creation_time"] = None
+        __props__.__dict__["data_destination_configs"] = None
         __props__.__dict__["data_extra_dimensions"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["diagnostics_mode"] = None
@@ -389,6 +405,11 @@ class Campaign(pulumi.CustomResource):
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="dataDestinationConfigs")
+    def data_destination_configs(self) -> pulumi.Output[Optional[Sequence['outputs.CampaignDataDestinationConfig']]]:
+        return pulumi.get(self, "data_destination_configs")
 
     @property
     @pulumi.getter(name="dataExtraDimensions")

@@ -10,6 +10,2214 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type TemplateBinWidthOptions struct {
+	BinCountLimit *float64 `pulumi:"binCountLimit"`
+	Value         *float64 `pulumi:"value"`
+}
+
+// TemplateBinWidthOptionsInput is an input type that accepts TemplateBinWidthOptionsArgs and TemplateBinWidthOptionsOutput values.
+// You can construct a concrete instance of `TemplateBinWidthOptionsInput` via:
+//
+//	TemplateBinWidthOptionsArgs{...}
+type TemplateBinWidthOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateBinWidthOptionsOutput() TemplateBinWidthOptionsOutput
+	ToTemplateBinWidthOptionsOutputWithContext(context.Context) TemplateBinWidthOptionsOutput
+}
+
+type TemplateBinWidthOptionsArgs struct {
+	BinCountLimit pulumi.Float64PtrInput `pulumi:"binCountLimit"`
+	Value         pulumi.Float64PtrInput `pulumi:"value"`
+}
+
+func (TemplateBinWidthOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBinWidthOptions)(nil)).Elem()
+}
+
+func (i TemplateBinWidthOptionsArgs) ToTemplateBinWidthOptionsOutput() TemplateBinWidthOptionsOutput {
+	return i.ToTemplateBinWidthOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateBinWidthOptionsArgs) ToTemplateBinWidthOptionsOutputWithContext(ctx context.Context) TemplateBinWidthOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBinWidthOptionsOutput)
+}
+
+func (i TemplateBinWidthOptionsArgs) ToTemplateBinWidthOptionsPtrOutput() TemplateBinWidthOptionsPtrOutput {
+	return i.ToTemplateBinWidthOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateBinWidthOptionsArgs) ToTemplateBinWidthOptionsPtrOutputWithContext(ctx context.Context) TemplateBinWidthOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBinWidthOptionsOutput).ToTemplateBinWidthOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateBinWidthOptionsPtrInput is an input type that accepts TemplateBinWidthOptionsArgs, TemplateBinWidthOptionsPtr and TemplateBinWidthOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateBinWidthOptionsPtrInput` via:
+//
+//	        TemplateBinWidthOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateBinWidthOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateBinWidthOptionsPtrOutput() TemplateBinWidthOptionsPtrOutput
+	ToTemplateBinWidthOptionsPtrOutputWithContext(context.Context) TemplateBinWidthOptionsPtrOutput
+}
+
+type templateBinWidthOptionsPtrType TemplateBinWidthOptionsArgs
+
+func TemplateBinWidthOptionsPtr(v *TemplateBinWidthOptionsArgs) TemplateBinWidthOptionsPtrInput {
+	return (*templateBinWidthOptionsPtrType)(v)
+}
+
+func (*templateBinWidthOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBinWidthOptions)(nil)).Elem()
+}
+
+func (i *templateBinWidthOptionsPtrType) ToTemplateBinWidthOptionsPtrOutput() TemplateBinWidthOptionsPtrOutput {
+	return i.ToTemplateBinWidthOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateBinWidthOptionsPtrType) ToTemplateBinWidthOptionsPtrOutputWithContext(ctx context.Context) TemplateBinWidthOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBinWidthOptionsPtrOutput)
+}
+
+type TemplateBinWidthOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateBinWidthOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBinWidthOptions)(nil)).Elem()
+}
+
+func (o TemplateBinWidthOptionsOutput) ToTemplateBinWidthOptionsOutput() TemplateBinWidthOptionsOutput {
+	return o
+}
+
+func (o TemplateBinWidthOptionsOutput) ToTemplateBinWidthOptionsOutputWithContext(ctx context.Context) TemplateBinWidthOptionsOutput {
+	return o
+}
+
+func (o TemplateBinWidthOptionsOutput) ToTemplateBinWidthOptionsPtrOutput() TemplateBinWidthOptionsPtrOutput {
+	return o.ToTemplateBinWidthOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateBinWidthOptionsOutput) ToTemplateBinWidthOptionsPtrOutputWithContext(ctx context.Context) TemplateBinWidthOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateBinWidthOptions) *TemplateBinWidthOptions {
+		return &v
+	}).(TemplateBinWidthOptionsPtrOutput)
+}
+
+func (o TemplateBinWidthOptionsOutput) BinCountLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateBinWidthOptions) *float64 { return v.BinCountLimit }).(pulumi.Float64PtrOutput)
+}
+
+func (o TemplateBinWidthOptionsOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateBinWidthOptions) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+}
+
+type TemplateBinWidthOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateBinWidthOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBinWidthOptions)(nil)).Elem()
+}
+
+func (o TemplateBinWidthOptionsPtrOutput) ToTemplateBinWidthOptionsPtrOutput() TemplateBinWidthOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateBinWidthOptionsPtrOutput) ToTemplateBinWidthOptionsPtrOutputWithContext(ctx context.Context) TemplateBinWidthOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateBinWidthOptionsPtrOutput) Elem() TemplateBinWidthOptionsOutput {
+	return o.ApplyT(func(v *TemplateBinWidthOptions) TemplateBinWidthOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateBinWidthOptions
+		return ret
+	}).(TemplateBinWidthOptionsOutput)
+}
+
+func (o TemplateBinWidthOptionsPtrOutput) BinCountLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateBinWidthOptions) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.BinCountLimit
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o TemplateBinWidthOptionsPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateBinWidthOptions) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TemplateBodySectionConfiguration struct {
+	Content                TemplateBodySectionContent             `pulumi:"content"`
+	PageBreakConfiguration *TemplateSectionPageBreakConfiguration `pulumi:"pageBreakConfiguration"`
+	SectionId              string                                 `pulumi:"sectionId"`
+	Style                  *TemplateSectionStyle                  `pulumi:"style"`
+}
+
+// TemplateBodySectionConfigurationInput is an input type that accepts TemplateBodySectionConfigurationArgs and TemplateBodySectionConfigurationOutput values.
+// You can construct a concrete instance of `TemplateBodySectionConfigurationInput` via:
+//
+//	TemplateBodySectionConfigurationArgs{...}
+type TemplateBodySectionConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateBodySectionConfigurationOutput() TemplateBodySectionConfigurationOutput
+	ToTemplateBodySectionConfigurationOutputWithContext(context.Context) TemplateBodySectionConfigurationOutput
+}
+
+type TemplateBodySectionConfigurationArgs struct {
+	Content                TemplateBodySectionContentInput               `pulumi:"content"`
+	PageBreakConfiguration TemplateSectionPageBreakConfigurationPtrInput `pulumi:"pageBreakConfiguration"`
+	SectionId              pulumi.StringInput                            `pulumi:"sectionId"`
+	Style                  TemplateSectionStylePtrInput                  `pulumi:"style"`
+}
+
+func (TemplateBodySectionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBodySectionConfiguration)(nil)).Elem()
+}
+
+func (i TemplateBodySectionConfigurationArgs) ToTemplateBodySectionConfigurationOutput() TemplateBodySectionConfigurationOutput {
+	return i.ToTemplateBodySectionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateBodySectionConfigurationArgs) ToTemplateBodySectionConfigurationOutputWithContext(ctx context.Context) TemplateBodySectionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBodySectionConfigurationOutput)
+}
+
+// TemplateBodySectionConfigurationArrayInput is an input type that accepts TemplateBodySectionConfigurationArray and TemplateBodySectionConfigurationArrayOutput values.
+// You can construct a concrete instance of `TemplateBodySectionConfigurationArrayInput` via:
+//
+//	TemplateBodySectionConfigurationArray{ TemplateBodySectionConfigurationArgs{...} }
+type TemplateBodySectionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToTemplateBodySectionConfigurationArrayOutput() TemplateBodySectionConfigurationArrayOutput
+	ToTemplateBodySectionConfigurationArrayOutputWithContext(context.Context) TemplateBodySectionConfigurationArrayOutput
+}
+
+type TemplateBodySectionConfigurationArray []TemplateBodySectionConfigurationInput
+
+func (TemplateBodySectionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateBodySectionConfiguration)(nil)).Elem()
+}
+
+func (i TemplateBodySectionConfigurationArray) ToTemplateBodySectionConfigurationArrayOutput() TemplateBodySectionConfigurationArrayOutput {
+	return i.ToTemplateBodySectionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateBodySectionConfigurationArray) ToTemplateBodySectionConfigurationArrayOutputWithContext(ctx context.Context) TemplateBodySectionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBodySectionConfigurationArrayOutput)
+}
+
+type TemplateBodySectionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateBodySectionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBodySectionConfiguration)(nil)).Elem()
+}
+
+func (o TemplateBodySectionConfigurationOutput) ToTemplateBodySectionConfigurationOutput() TemplateBodySectionConfigurationOutput {
+	return o
+}
+
+func (o TemplateBodySectionConfigurationOutput) ToTemplateBodySectionConfigurationOutputWithContext(ctx context.Context) TemplateBodySectionConfigurationOutput {
+	return o
+}
+
+func (o TemplateBodySectionConfigurationOutput) Content() TemplateBodySectionContentOutput {
+	return o.ApplyT(func(v TemplateBodySectionConfiguration) TemplateBodySectionContent { return v.Content }).(TemplateBodySectionContentOutput)
+}
+
+func (o TemplateBodySectionConfigurationOutput) PageBreakConfiguration() TemplateSectionPageBreakConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateBodySectionConfiguration) *TemplateSectionPageBreakConfiguration {
+		return v.PageBreakConfiguration
+	}).(TemplateSectionPageBreakConfigurationPtrOutput)
+}
+
+func (o TemplateBodySectionConfigurationOutput) SectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateBodySectionConfiguration) string { return v.SectionId }).(pulumi.StringOutput)
+}
+
+func (o TemplateBodySectionConfigurationOutput) Style() TemplateSectionStylePtrOutput {
+	return o.ApplyT(func(v TemplateBodySectionConfiguration) *TemplateSectionStyle { return v.Style }).(TemplateSectionStylePtrOutput)
+}
+
+type TemplateBodySectionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateBodySectionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateBodySectionConfiguration)(nil)).Elem()
+}
+
+func (o TemplateBodySectionConfigurationArrayOutput) ToTemplateBodySectionConfigurationArrayOutput() TemplateBodySectionConfigurationArrayOutput {
+	return o
+}
+
+func (o TemplateBodySectionConfigurationArrayOutput) ToTemplateBodySectionConfigurationArrayOutputWithContext(ctx context.Context) TemplateBodySectionConfigurationArrayOutput {
+	return o
+}
+
+func (o TemplateBodySectionConfigurationArrayOutput) Index(i pulumi.IntInput) TemplateBodySectionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateBodySectionConfiguration {
+		return vs[0].([]TemplateBodySectionConfiguration)[vs[1].(int)]
+	}).(TemplateBodySectionConfigurationOutput)
+}
+
+type TemplateBodySectionContent struct {
+	Layout *TemplateSectionLayoutConfiguration `pulumi:"layout"`
+}
+
+// TemplateBodySectionContentInput is an input type that accepts TemplateBodySectionContentArgs and TemplateBodySectionContentOutput values.
+// You can construct a concrete instance of `TemplateBodySectionContentInput` via:
+//
+//	TemplateBodySectionContentArgs{...}
+type TemplateBodySectionContentInput interface {
+	pulumi.Input
+
+	ToTemplateBodySectionContentOutput() TemplateBodySectionContentOutput
+	ToTemplateBodySectionContentOutputWithContext(context.Context) TemplateBodySectionContentOutput
+}
+
+type TemplateBodySectionContentArgs struct {
+	Layout TemplateSectionLayoutConfigurationPtrInput `pulumi:"layout"`
+}
+
+func (TemplateBodySectionContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBodySectionContent)(nil)).Elem()
+}
+
+func (i TemplateBodySectionContentArgs) ToTemplateBodySectionContentOutput() TemplateBodySectionContentOutput {
+	return i.ToTemplateBodySectionContentOutputWithContext(context.Background())
+}
+
+func (i TemplateBodySectionContentArgs) ToTemplateBodySectionContentOutputWithContext(ctx context.Context) TemplateBodySectionContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBodySectionContentOutput)
+}
+
+type TemplateBodySectionContentOutput struct{ *pulumi.OutputState }
+
+func (TemplateBodySectionContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBodySectionContent)(nil)).Elem()
+}
+
+func (o TemplateBodySectionContentOutput) ToTemplateBodySectionContentOutput() TemplateBodySectionContentOutput {
+	return o
+}
+
+func (o TemplateBodySectionContentOutput) ToTemplateBodySectionContentOutputWithContext(ctx context.Context) TemplateBodySectionContentOutput {
+	return o
+}
+
+func (o TemplateBodySectionContentOutput) Layout() TemplateSectionLayoutConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateBodySectionContent) *TemplateSectionLayoutConfiguration { return v.Layout }).(TemplateSectionLayoutConfigurationPtrOutput)
+}
+
+type TemplateBoxPlotAggregatedFieldWells struct {
+	GroupBy []TemplateDimensionField `pulumi:"groupBy"`
+	Values  []TemplateMeasureField   `pulumi:"values"`
+}
+
+// TemplateBoxPlotAggregatedFieldWellsInput is an input type that accepts TemplateBoxPlotAggregatedFieldWellsArgs and TemplateBoxPlotAggregatedFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotAggregatedFieldWellsInput` via:
+//
+//	TemplateBoxPlotAggregatedFieldWellsArgs{...}
+type TemplateBoxPlotAggregatedFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotAggregatedFieldWellsOutput() TemplateBoxPlotAggregatedFieldWellsOutput
+	ToTemplateBoxPlotAggregatedFieldWellsOutputWithContext(context.Context) TemplateBoxPlotAggregatedFieldWellsOutput
+}
+
+type TemplateBoxPlotAggregatedFieldWellsArgs struct {
+	GroupBy TemplateDimensionFieldArrayInput `pulumi:"groupBy"`
+	Values  TemplateMeasureFieldArrayInput   `pulumi:"values"`
+}
+
+func (TemplateBoxPlotAggregatedFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i TemplateBoxPlotAggregatedFieldWellsArgs) ToTemplateBoxPlotAggregatedFieldWellsOutput() TemplateBoxPlotAggregatedFieldWellsOutput {
+	return i.ToTemplateBoxPlotAggregatedFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotAggregatedFieldWellsArgs) ToTemplateBoxPlotAggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateBoxPlotAggregatedFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotAggregatedFieldWellsOutput)
+}
+
+func (i TemplateBoxPlotAggregatedFieldWellsArgs) ToTemplateBoxPlotAggregatedFieldWellsPtrOutput() TemplateBoxPlotAggregatedFieldWellsPtrOutput {
+	return i.ToTemplateBoxPlotAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotAggregatedFieldWellsArgs) ToTemplateBoxPlotAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotAggregatedFieldWellsOutput).ToTemplateBoxPlotAggregatedFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateBoxPlotAggregatedFieldWellsPtrInput is an input type that accepts TemplateBoxPlotAggregatedFieldWellsArgs, TemplateBoxPlotAggregatedFieldWellsPtr and TemplateBoxPlotAggregatedFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotAggregatedFieldWellsPtrInput` via:
+//
+//	        TemplateBoxPlotAggregatedFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateBoxPlotAggregatedFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotAggregatedFieldWellsPtrOutput() TemplateBoxPlotAggregatedFieldWellsPtrOutput
+	ToTemplateBoxPlotAggregatedFieldWellsPtrOutputWithContext(context.Context) TemplateBoxPlotAggregatedFieldWellsPtrOutput
+}
+
+type templateBoxPlotAggregatedFieldWellsPtrType TemplateBoxPlotAggregatedFieldWellsArgs
+
+func TemplateBoxPlotAggregatedFieldWellsPtr(v *TemplateBoxPlotAggregatedFieldWellsArgs) TemplateBoxPlotAggregatedFieldWellsPtrInput {
+	return (*templateBoxPlotAggregatedFieldWellsPtrType)(v)
+}
+
+func (*templateBoxPlotAggregatedFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i *templateBoxPlotAggregatedFieldWellsPtrType) ToTemplateBoxPlotAggregatedFieldWellsPtrOutput() TemplateBoxPlotAggregatedFieldWellsPtrOutput {
+	return i.ToTemplateBoxPlotAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateBoxPlotAggregatedFieldWellsPtrType) ToTemplateBoxPlotAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateBoxPlotAggregatedFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotAggregatedFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotAggregatedFieldWellsOutput) ToTemplateBoxPlotAggregatedFieldWellsOutput() TemplateBoxPlotAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateBoxPlotAggregatedFieldWellsOutput) ToTemplateBoxPlotAggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateBoxPlotAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateBoxPlotAggregatedFieldWellsOutput) ToTemplateBoxPlotAggregatedFieldWellsPtrOutput() TemplateBoxPlotAggregatedFieldWellsPtrOutput {
+	return o.ToTemplateBoxPlotAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateBoxPlotAggregatedFieldWellsOutput) ToTemplateBoxPlotAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotAggregatedFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateBoxPlotAggregatedFieldWells) *TemplateBoxPlotAggregatedFieldWells {
+		return &v
+	}).(TemplateBoxPlotAggregatedFieldWellsPtrOutput)
+}
+
+func (o TemplateBoxPlotAggregatedFieldWellsOutput) GroupBy() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v TemplateBoxPlotAggregatedFieldWells) []TemplateDimensionField { return v.GroupBy }).(TemplateDimensionFieldArrayOutput)
+}
+
+func (o TemplateBoxPlotAggregatedFieldWellsOutput) Values() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v TemplateBoxPlotAggregatedFieldWells) []TemplateMeasureField { return v.Values }).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateBoxPlotAggregatedFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotAggregatedFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotAggregatedFieldWellsPtrOutput) ToTemplateBoxPlotAggregatedFieldWellsPtrOutput() TemplateBoxPlotAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotAggregatedFieldWellsPtrOutput) ToTemplateBoxPlotAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotAggregatedFieldWellsPtrOutput) Elem() TemplateBoxPlotAggregatedFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotAggregatedFieldWells) TemplateBoxPlotAggregatedFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateBoxPlotAggregatedFieldWells
+		return ret
+	}).(TemplateBoxPlotAggregatedFieldWellsOutput)
+}
+
+func (o TemplateBoxPlotAggregatedFieldWellsPtrOutput) GroupBy() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotAggregatedFieldWells) []TemplateDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBy
+	}).(TemplateDimensionFieldArrayOutput)
+}
+
+func (o TemplateBoxPlotAggregatedFieldWellsPtrOutput) Values() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotAggregatedFieldWells) []TemplateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateBoxPlotChartConfiguration struct {
+	BoxPlotOptions             *TemplateBoxPlotOptions           `pulumi:"boxPlotOptions"`
+	CategoryAxis               *TemplateAxisDisplayOptions       `pulumi:"categoryAxis"`
+	CategoryLabelOptions       *TemplateChartAxisLabelOptions    `pulumi:"categoryLabelOptions"`
+	FieldWells                 *TemplateBoxPlotFieldWells        `pulumi:"fieldWells"`
+	Legend                     *TemplateLegendOptions            `pulumi:"legend"`
+	PrimaryYAxisDisplayOptions *TemplateAxisDisplayOptions       `pulumi:"primaryYAxisDisplayOptions"`
+	PrimaryYAxisLabelOptions   *TemplateChartAxisLabelOptions    `pulumi:"primaryYAxisLabelOptions"`
+	ReferenceLines             []TemplateReferenceLine           `pulumi:"referenceLines"`
+	SortConfiguration          *TemplateBoxPlotSortConfiguration `pulumi:"sortConfiguration"`
+	Tooltip                    *TemplateTooltipOptions           `pulumi:"tooltip"`
+	VisualPalette              *TemplateVisualPalette            `pulumi:"visualPalette"`
+}
+
+// TemplateBoxPlotChartConfigurationInput is an input type that accepts TemplateBoxPlotChartConfigurationArgs and TemplateBoxPlotChartConfigurationOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotChartConfigurationInput` via:
+//
+//	TemplateBoxPlotChartConfigurationArgs{...}
+type TemplateBoxPlotChartConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotChartConfigurationOutput() TemplateBoxPlotChartConfigurationOutput
+	ToTemplateBoxPlotChartConfigurationOutputWithContext(context.Context) TemplateBoxPlotChartConfigurationOutput
+}
+
+type TemplateBoxPlotChartConfigurationArgs struct {
+	BoxPlotOptions             TemplateBoxPlotOptionsPtrInput           `pulumi:"boxPlotOptions"`
+	CategoryAxis               TemplateAxisDisplayOptionsPtrInput       `pulumi:"categoryAxis"`
+	CategoryLabelOptions       TemplateChartAxisLabelOptionsPtrInput    `pulumi:"categoryLabelOptions"`
+	FieldWells                 TemplateBoxPlotFieldWellsPtrInput        `pulumi:"fieldWells"`
+	Legend                     TemplateLegendOptionsPtrInput            `pulumi:"legend"`
+	PrimaryYAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput       `pulumi:"primaryYAxisDisplayOptions"`
+	PrimaryYAxisLabelOptions   TemplateChartAxisLabelOptionsPtrInput    `pulumi:"primaryYAxisLabelOptions"`
+	ReferenceLines             TemplateReferenceLineArrayInput          `pulumi:"referenceLines"`
+	SortConfiguration          TemplateBoxPlotSortConfigurationPtrInput `pulumi:"sortConfiguration"`
+	Tooltip                    TemplateTooltipOptionsPtrInput           `pulumi:"tooltip"`
+	VisualPalette              TemplateVisualPalettePtrInput            `pulumi:"visualPalette"`
+}
+
+func (TemplateBoxPlotChartConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotChartConfiguration)(nil)).Elem()
+}
+
+func (i TemplateBoxPlotChartConfigurationArgs) ToTemplateBoxPlotChartConfigurationOutput() TemplateBoxPlotChartConfigurationOutput {
+	return i.ToTemplateBoxPlotChartConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotChartConfigurationArgs) ToTemplateBoxPlotChartConfigurationOutputWithContext(ctx context.Context) TemplateBoxPlotChartConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotChartConfigurationOutput)
+}
+
+func (i TemplateBoxPlotChartConfigurationArgs) ToTemplateBoxPlotChartConfigurationPtrOutput() TemplateBoxPlotChartConfigurationPtrOutput {
+	return i.ToTemplateBoxPlotChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotChartConfigurationArgs) ToTemplateBoxPlotChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateBoxPlotChartConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotChartConfigurationOutput).ToTemplateBoxPlotChartConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateBoxPlotChartConfigurationPtrInput is an input type that accepts TemplateBoxPlotChartConfigurationArgs, TemplateBoxPlotChartConfigurationPtr and TemplateBoxPlotChartConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotChartConfigurationPtrInput` via:
+//
+//	        TemplateBoxPlotChartConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateBoxPlotChartConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotChartConfigurationPtrOutput() TemplateBoxPlotChartConfigurationPtrOutput
+	ToTemplateBoxPlotChartConfigurationPtrOutputWithContext(context.Context) TemplateBoxPlotChartConfigurationPtrOutput
+}
+
+type templateBoxPlotChartConfigurationPtrType TemplateBoxPlotChartConfigurationArgs
+
+func TemplateBoxPlotChartConfigurationPtr(v *TemplateBoxPlotChartConfigurationArgs) TemplateBoxPlotChartConfigurationPtrInput {
+	return (*templateBoxPlotChartConfigurationPtrType)(v)
+}
+
+func (*templateBoxPlotChartConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotChartConfiguration)(nil)).Elem()
+}
+
+func (i *templateBoxPlotChartConfigurationPtrType) ToTemplateBoxPlotChartConfigurationPtrOutput() TemplateBoxPlotChartConfigurationPtrOutput {
+	return i.ToTemplateBoxPlotChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateBoxPlotChartConfigurationPtrType) ToTemplateBoxPlotChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateBoxPlotChartConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotChartConfigurationPtrOutput)
+}
+
+type TemplateBoxPlotChartConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotChartConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotChartConfiguration)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) ToTemplateBoxPlotChartConfigurationOutput() TemplateBoxPlotChartConfigurationOutput {
+	return o
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) ToTemplateBoxPlotChartConfigurationOutputWithContext(ctx context.Context) TemplateBoxPlotChartConfigurationOutput {
+	return o
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) ToTemplateBoxPlotChartConfigurationPtrOutput() TemplateBoxPlotChartConfigurationPtrOutput {
+	return o.ToTemplateBoxPlotChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) ToTemplateBoxPlotChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateBoxPlotChartConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateBoxPlotChartConfiguration) *TemplateBoxPlotChartConfiguration {
+		return &v
+	}).(TemplateBoxPlotChartConfigurationPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) BoxPlotOptions() TemplateBoxPlotOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateBoxPlotOptions { return v.BoxPlotOptions }).(TemplateBoxPlotOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) CategoryAxis() TemplateAxisDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateAxisDisplayOptions { return v.CategoryAxis }).(TemplateAxisDisplayOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateChartAxisLabelOptions {
+		return v.CategoryLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) FieldWells() TemplateBoxPlotFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateBoxPlotFieldWells { return v.FieldWells }).(TemplateBoxPlotFieldWellsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) PrimaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateAxisDisplayOptions {
+		return v.PrimaryYAxisDisplayOptions
+	}).(TemplateAxisDisplayOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateChartAxisLabelOptions {
+		return v.PrimaryYAxisLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) ReferenceLines() TemplateReferenceLineArrayOutput {
+	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) []TemplateReferenceLine { return v.ReferenceLines }).(TemplateReferenceLineArrayOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) SortConfiguration() TemplateBoxPlotSortConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateBoxPlotSortConfiguration {
+		return v.SortConfiguration
+	}).(TemplateBoxPlotSortConfigurationPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
+}
+
+type TemplateBoxPlotChartConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotChartConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotChartConfiguration)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) ToTemplateBoxPlotChartConfigurationPtrOutput() TemplateBoxPlotChartConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) ToTemplateBoxPlotChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateBoxPlotChartConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) Elem() TemplateBoxPlotChartConfigurationOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) TemplateBoxPlotChartConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateBoxPlotChartConfiguration
+		return ret
+	}).(TemplateBoxPlotChartConfigurationOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) BoxPlotOptions() TemplateBoxPlotOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateBoxPlotOptions {
+		if v == nil {
+			return nil
+		}
+		return v.BoxPlotOptions
+	}).(TemplateBoxPlotOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) CategoryAxis() TemplateAxisDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateAxisDisplayOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryAxis
+	}).(TemplateAxisDisplayOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateChartAxisLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) FieldWells() TemplateBoxPlotFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateBoxPlotFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.FieldWells
+	}).(TemplateBoxPlotFieldWellsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateLegendOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Legend
+	}).(TemplateLegendOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) PrimaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateAxisDisplayOptions {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryYAxisDisplayOptions
+	}).(TemplateAxisDisplayOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateChartAxisLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryYAxisLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) ReferenceLines() TemplateReferenceLineArrayOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) []TemplateReferenceLine {
+		if v == nil {
+			return nil
+		}
+		return v.ReferenceLines
+	}).(TemplateReferenceLineArrayOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) SortConfiguration() TemplateBoxPlotSortConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateBoxPlotSortConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SortConfiguration
+	}).(TemplateBoxPlotSortConfigurationPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateTooltipOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Tooltip
+	}).(TemplateTooltipOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateVisualPalette {
+		if v == nil {
+			return nil
+		}
+		return v.VisualPalette
+	}).(TemplateVisualPalettePtrOutput)
+}
+
+type TemplateBoxPlotFieldWells struct {
+	BoxPlotAggregatedFieldWells *TemplateBoxPlotAggregatedFieldWells `pulumi:"boxPlotAggregatedFieldWells"`
+}
+
+// TemplateBoxPlotFieldWellsInput is an input type that accepts TemplateBoxPlotFieldWellsArgs and TemplateBoxPlotFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotFieldWellsInput` via:
+//
+//	TemplateBoxPlotFieldWellsArgs{...}
+type TemplateBoxPlotFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotFieldWellsOutput() TemplateBoxPlotFieldWellsOutput
+	ToTemplateBoxPlotFieldWellsOutputWithContext(context.Context) TemplateBoxPlotFieldWellsOutput
+}
+
+type TemplateBoxPlotFieldWellsArgs struct {
+	BoxPlotAggregatedFieldWells TemplateBoxPlotAggregatedFieldWellsPtrInput `pulumi:"boxPlotAggregatedFieldWells"`
+}
+
+func (TemplateBoxPlotFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotFieldWells)(nil)).Elem()
+}
+
+func (i TemplateBoxPlotFieldWellsArgs) ToTemplateBoxPlotFieldWellsOutput() TemplateBoxPlotFieldWellsOutput {
+	return i.ToTemplateBoxPlotFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotFieldWellsArgs) ToTemplateBoxPlotFieldWellsOutputWithContext(ctx context.Context) TemplateBoxPlotFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotFieldWellsOutput)
+}
+
+func (i TemplateBoxPlotFieldWellsArgs) ToTemplateBoxPlotFieldWellsPtrOutput() TemplateBoxPlotFieldWellsPtrOutput {
+	return i.ToTemplateBoxPlotFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotFieldWellsArgs) ToTemplateBoxPlotFieldWellsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotFieldWellsOutput).ToTemplateBoxPlotFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateBoxPlotFieldWellsPtrInput is an input type that accepts TemplateBoxPlotFieldWellsArgs, TemplateBoxPlotFieldWellsPtr and TemplateBoxPlotFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotFieldWellsPtrInput` via:
+//
+//	        TemplateBoxPlotFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateBoxPlotFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotFieldWellsPtrOutput() TemplateBoxPlotFieldWellsPtrOutput
+	ToTemplateBoxPlotFieldWellsPtrOutputWithContext(context.Context) TemplateBoxPlotFieldWellsPtrOutput
+}
+
+type templateBoxPlotFieldWellsPtrType TemplateBoxPlotFieldWellsArgs
+
+func TemplateBoxPlotFieldWellsPtr(v *TemplateBoxPlotFieldWellsArgs) TemplateBoxPlotFieldWellsPtrInput {
+	return (*templateBoxPlotFieldWellsPtrType)(v)
+}
+
+func (*templateBoxPlotFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotFieldWells)(nil)).Elem()
+}
+
+func (i *templateBoxPlotFieldWellsPtrType) ToTemplateBoxPlotFieldWellsPtrOutput() TemplateBoxPlotFieldWellsPtrOutput {
+	return i.ToTemplateBoxPlotFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateBoxPlotFieldWellsPtrType) ToTemplateBoxPlotFieldWellsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotFieldWellsPtrOutput)
+}
+
+type TemplateBoxPlotFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotFieldWells)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotFieldWellsOutput) ToTemplateBoxPlotFieldWellsOutput() TemplateBoxPlotFieldWellsOutput {
+	return o
+}
+
+func (o TemplateBoxPlotFieldWellsOutput) ToTemplateBoxPlotFieldWellsOutputWithContext(ctx context.Context) TemplateBoxPlotFieldWellsOutput {
+	return o
+}
+
+func (o TemplateBoxPlotFieldWellsOutput) ToTemplateBoxPlotFieldWellsPtrOutput() TemplateBoxPlotFieldWellsPtrOutput {
+	return o.ToTemplateBoxPlotFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateBoxPlotFieldWellsOutput) ToTemplateBoxPlotFieldWellsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateBoxPlotFieldWells) *TemplateBoxPlotFieldWells {
+		return &v
+	}).(TemplateBoxPlotFieldWellsPtrOutput)
+}
+
+func (o TemplateBoxPlotFieldWellsOutput) BoxPlotAggregatedFieldWells() TemplateBoxPlotAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotFieldWells) *TemplateBoxPlotAggregatedFieldWells {
+		return v.BoxPlotAggregatedFieldWells
+	}).(TemplateBoxPlotAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateBoxPlotFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotFieldWells)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotFieldWellsPtrOutput) ToTemplateBoxPlotFieldWellsPtrOutput() TemplateBoxPlotFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotFieldWellsPtrOutput) ToTemplateBoxPlotFieldWellsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotFieldWellsPtrOutput) Elem() TemplateBoxPlotFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotFieldWells) TemplateBoxPlotFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateBoxPlotFieldWells
+		return ret
+	}).(TemplateBoxPlotFieldWellsOutput)
+}
+
+func (o TemplateBoxPlotFieldWellsPtrOutput) BoxPlotAggregatedFieldWells() TemplateBoxPlotAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotFieldWells) *TemplateBoxPlotAggregatedFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.BoxPlotAggregatedFieldWells
+	}).(TemplateBoxPlotAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateBoxPlotOptions struct {
+	AllDataPointsVisibility *TemplateVisibility          `pulumi:"allDataPointsVisibility"`
+	OutlierVisibility       *TemplateVisibility          `pulumi:"outlierVisibility"`
+	StyleOptions            *TemplateBoxPlotStyleOptions `pulumi:"styleOptions"`
+}
+
+// TemplateBoxPlotOptionsInput is an input type that accepts TemplateBoxPlotOptionsArgs and TemplateBoxPlotOptionsOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotOptionsInput` via:
+//
+//	TemplateBoxPlotOptionsArgs{...}
+type TemplateBoxPlotOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotOptionsOutput() TemplateBoxPlotOptionsOutput
+	ToTemplateBoxPlotOptionsOutputWithContext(context.Context) TemplateBoxPlotOptionsOutput
+}
+
+type TemplateBoxPlotOptionsArgs struct {
+	AllDataPointsVisibility TemplateVisibilityPtrInput          `pulumi:"allDataPointsVisibility"`
+	OutlierVisibility       TemplateVisibilityPtrInput          `pulumi:"outlierVisibility"`
+	StyleOptions            TemplateBoxPlotStyleOptionsPtrInput `pulumi:"styleOptions"`
+}
+
+func (TemplateBoxPlotOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotOptions)(nil)).Elem()
+}
+
+func (i TemplateBoxPlotOptionsArgs) ToTemplateBoxPlotOptionsOutput() TemplateBoxPlotOptionsOutput {
+	return i.ToTemplateBoxPlotOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotOptionsArgs) ToTemplateBoxPlotOptionsOutputWithContext(ctx context.Context) TemplateBoxPlotOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotOptionsOutput)
+}
+
+func (i TemplateBoxPlotOptionsArgs) ToTemplateBoxPlotOptionsPtrOutput() TemplateBoxPlotOptionsPtrOutput {
+	return i.ToTemplateBoxPlotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotOptionsArgs) ToTemplateBoxPlotOptionsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotOptionsOutput).ToTemplateBoxPlotOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateBoxPlotOptionsPtrInput is an input type that accepts TemplateBoxPlotOptionsArgs, TemplateBoxPlotOptionsPtr and TemplateBoxPlotOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotOptionsPtrInput` via:
+//
+//	        TemplateBoxPlotOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateBoxPlotOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotOptionsPtrOutput() TemplateBoxPlotOptionsPtrOutput
+	ToTemplateBoxPlotOptionsPtrOutputWithContext(context.Context) TemplateBoxPlotOptionsPtrOutput
+}
+
+type templateBoxPlotOptionsPtrType TemplateBoxPlotOptionsArgs
+
+func TemplateBoxPlotOptionsPtr(v *TemplateBoxPlotOptionsArgs) TemplateBoxPlotOptionsPtrInput {
+	return (*templateBoxPlotOptionsPtrType)(v)
+}
+
+func (*templateBoxPlotOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotOptions)(nil)).Elem()
+}
+
+func (i *templateBoxPlotOptionsPtrType) ToTemplateBoxPlotOptionsPtrOutput() TemplateBoxPlotOptionsPtrOutput {
+	return i.ToTemplateBoxPlotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateBoxPlotOptionsPtrType) ToTemplateBoxPlotOptionsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotOptionsPtrOutput)
+}
+
+type TemplateBoxPlotOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotOptions)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotOptionsOutput) ToTemplateBoxPlotOptionsOutput() TemplateBoxPlotOptionsOutput {
+	return o
+}
+
+func (o TemplateBoxPlotOptionsOutput) ToTemplateBoxPlotOptionsOutputWithContext(ctx context.Context) TemplateBoxPlotOptionsOutput {
+	return o
+}
+
+func (o TemplateBoxPlotOptionsOutput) ToTemplateBoxPlotOptionsPtrOutput() TemplateBoxPlotOptionsPtrOutput {
+	return o.ToTemplateBoxPlotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateBoxPlotOptionsOutput) ToTemplateBoxPlotOptionsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateBoxPlotOptions) *TemplateBoxPlotOptions {
+		return &v
+	}).(TemplateBoxPlotOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotOptionsOutput) AllDataPointsVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotOptions) *TemplateVisibility { return v.AllDataPointsVisibility }).(TemplateVisibilityPtrOutput)
+}
+
+func (o TemplateBoxPlotOptionsOutput) OutlierVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotOptions) *TemplateVisibility { return v.OutlierVisibility }).(TemplateVisibilityPtrOutput)
+}
+
+func (o TemplateBoxPlotOptionsOutput) StyleOptions() TemplateBoxPlotStyleOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotOptions) *TemplateBoxPlotStyleOptions { return v.StyleOptions }).(TemplateBoxPlotStyleOptionsPtrOutput)
+}
+
+type TemplateBoxPlotOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotOptions)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotOptionsPtrOutput) ToTemplateBoxPlotOptionsPtrOutput() TemplateBoxPlotOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotOptionsPtrOutput) ToTemplateBoxPlotOptionsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotOptionsPtrOutput) Elem() TemplateBoxPlotOptionsOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotOptions) TemplateBoxPlotOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateBoxPlotOptions
+		return ret
+	}).(TemplateBoxPlotOptionsOutput)
+}
+
+func (o TemplateBoxPlotOptionsPtrOutput) AllDataPointsVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotOptions) *TemplateVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.AllDataPointsVisibility
+	}).(TemplateVisibilityPtrOutput)
+}
+
+func (o TemplateBoxPlotOptionsPtrOutput) OutlierVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotOptions) *TemplateVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.OutlierVisibility
+	}).(TemplateVisibilityPtrOutput)
+}
+
+func (o TemplateBoxPlotOptionsPtrOutput) StyleOptions() TemplateBoxPlotStyleOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotOptions) *TemplateBoxPlotStyleOptions {
+		if v == nil {
+			return nil
+		}
+		return v.StyleOptions
+	}).(TemplateBoxPlotStyleOptionsPtrOutput)
+}
+
+type TemplateBoxPlotSortConfiguration struct {
+	CategorySort            []TemplateFieldSortOptions       `pulumi:"categorySort"`
+	PaginationConfiguration *TemplatePaginationConfiguration `pulumi:"paginationConfiguration"`
+}
+
+// TemplateBoxPlotSortConfigurationInput is an input type that accepts TemplateBoxPlotSortConfigurationArgs and TemplateBoxPlotSortConfigurationOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotSortConfigurationInput` via:
+//
+//	TemplateBoxPlotSortConfigurationArgs{...}
+type TemplateBoxPlotSortConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotSortConfigurationOutput() TemplateBoxPlotSortConfigurationOutput
+	ToTemplateBoxPlotSortConfigurationOutputWithContext(context.Context) TemplateBoxPlotSortConfigurationOutput
+}
+
+type TemplateBoxPlotSortConfigurationArgs struct {
+	CategorySort            TemplateFieldSortOptionsArrayInput      `pulumi:"categorySort"`
+	PaginationConfiguration TemplatePaginationConfigurationPtrInput `pulumi:"paginationConfiguration"`
+}
+
+func (TemplateBoxPlotSortConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotSortConfiguration)(nil)).Elem()
+}
+
+func (i TemplateBoxPlotSortConfigurationArgs) ToTemplateBoxPlotSortConfigurationOutput() TemplateBoxPlotSortConfigurationOutput {
+	return i.ToTemplateBoxPlotSortConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotSortConfigurationArgs) ToTemplateBoxPlotSortConfigurationOutputWithContext(ctx context.Context) TemplateBoxPlotSortConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotSortConfigurationOutput)
+}
+
+func (i TemplateBoxPlotSortConfigurationArgs) ToTemplateBoxPlotSortConfigurationPtrOutput() TemplateBoxPlotSortConfigurationPtrOutput {
+	return i.ToTemplateBoxPlotSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotSortConfigurationArgs) ToTemplateBoxPlotSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateBoxPlotSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotSortConfigurationOutput).ToTemplateBoxPlotSortConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateBoxPlotSortConfigurationPtrInput is an input type that accepts TemplateBoxPlotSortConfigurationArgs, TemplateBoxPlotSortConfigurationPtr and TemplateBoxPlotSortConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotSortConfigurationPtrInput` via:
+//
+//	        TemplateBoxPlotSortConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateBoxPlotSortConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotSortConfigurationPtrOutput() TemplateBoxPlotSortConfigurationPtrOutput
+	ToTemplateBoxPlotSortConfigurationPtrOutputWithContext(context.Context) TemplateBoxPlotSortConfigurationPtrOutput
+}
+
+type templateBoxPlotSortConfigurationPtrType TemplateBoxPlotSortConfigurationArgs
+
+func TemplateBoxPlotSortConfigurationPtr(v *TemplateBoxPlotSortConfigurationArgs) TemplateBoxPlotSortConfigurationPtrInput {
+	return (*templateBoxPlotSortConfigurationPtrType)(v)
+}
+
+func (*templateBoxPlotSortConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotSortConfiguration)(nil)).Elem()
+}
+
+func (i *templateBoxPlotSortConfigurationPtrType) ToTemplateBoxPlotSortConfigurationPtrOutput() TemplateBoxPlotSortConfigurationPtrOutput {
+	return i.ToTemplateBoxPlotSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateBoxPlotSortConfigurationPtrType) ToTemplateBoxPlotSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateBoxPlotSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotSortConfigurationPtrOutput)
+}
+
+type TemplateBoxPlotSortConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotSortConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotSortConfigurationOutput) ToTemplateBoxPlotSortConfigurationOutput() TemplateBoxPlotSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateBoxPlotSortConfigurationOutput) ToTemplateBoxPlotSortConfigurationOutputWithContext(ctx context.Context) TemplateBoxPlotSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateBoxPlotSortConfigurationOutput) ToTemplateBoxPlotSortConfigurationPtrOutput() TemplateBoxPlotSortConfigurationPtrOutput {
+	return o.ToTemplateBoxPlotSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateBoxPlotSortConfigurationOutput) ToTemplateBoxPlotSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateBoxPlotSortConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateBoxPlotSortConfiguration) *TemplateBoxPlotSortConfiguration {
+		return &v
+	}).(TemplateBoxPlotSortConfigurationPtrOutput)
+}
+
+func (o TemplateBoxPlotSortConfigurationOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v TemplateBoxPlotSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
+}
+
+func (o TemplateBoxPlotSortConfigurationOutput) PaginationConfiguration() TemplatePaginationConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotSortConfiguration) *TemplatePaginationConfiguration {
+		return v.PaginationConfiguration
+	}).(TemplatePaginationConfigurationPtrOutput)
+}
+
+type TemplateBoxPlotSortConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotSortConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotSortConfigurationPtrOutput) ToTemplateBoxPlotSortConfigurationPtrOutput() TemplateBoxPlotSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotSortConfigurationPtrOutput) ToTemplateBoxPlotSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateBoxPlotSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotSortConfigurationPtrOutput) Elem() TemplateBoxPlotSortConfigurationOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotSortConfiguration) TemplateBoxPlotSortConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateBoxPlotSortConfiguration
+		return ret
+	}).(TemplateBoxPlotSortConfigurationOutput)
+}
+
+func (o TemplateBoxPlotSortConfigurationPtrOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotSortConfiguration) []TemplateFieldSortOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CategorySort
+	}).(TemplateFieldSortOptionsArrayOutput)
+}
+
+func (o TemplateBoxPlotSortConfigurationPtrOutput) PaginationConfiguration() TemplatePaginationConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotSortConfiguration) *TemplatePaginationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PaginationConfiguration
+	}).(TemplatePaginationConfigurationPtrOutput)
+}
+
+type TemplateBoxPlotStyleOptions struct {
+	FillStyle *TemplateBoxPlotFillStyle `pulumi:"fillStyle"`
+}
+
+// TemplateBoxPlotStyleOptionsInput is an input type that accepts TemplateBoxPlotStyleOptionsArgs and TemplateBoxPlotStyleOptionsOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotStyleOptionsInput` via:
+//
+//	TemplateBoxPlotStyleOptionsArgs{...}
+type TemplateBoxPlotStyleOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotStyleOptionsOutput() TemplateBoxPlotStyleOptionsOutput
+	ToTemplateBoxPlotStyleOptionsOutputWithContext(context.Context) TemplateBoxPlotStyleOptionsOutput
+}
+
+type TemplateBoxPlotStyleOptionsArgs struct {
+	FillStyle TemplateBoxPlotFillStylePtrInput `pulumi:"fillStyle"`
+}
+
+func (TemplateBoxPlotStyleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotStyleOptions)(nil)).Elem()
+}
+
+func (i TemplateBoxPlotStyleOptionsArgs) ToTemplateBoxPlotStyleOptionsOutput() TemplateBoxPlotStyleOptionsOutput {
+	return i.ToTemplateBoxPlotStyleOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotStyleOptionsArgs) ToTemplateBoxPlotStyleOptionsOutputWithContext(ctx context.Context) TemplateBoxPlotStyleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotStyleOptionsOutput)
+}
+
+func (i TemplateBoxPlotStyleOptionsArgs) ToTemplateBoxPlotStyleOptionsPtrOutput() TemplateBoxPlotStyleOptionsPtrOutput {
+	return i.ToTemplateBoxPlotStyleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotStyleOptionsArgs) ToTemplateBoxPlotStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotStyleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotStyleOptionsOutput).ToTemplateBoxPlotStyleOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateBoxPlotStyleOptionsPtrInput is an input type that accepts TemplateBoxPlotStyleOptionsArgs, TemplateBoxPlotStyleOptionsPtr and TemplateBoxPlotStyleOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotStyleOptionsPtrInput` via:
+//
+//	        TemplateBoxPlotStyleOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateBoxPlotStyleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotStyleOptionsPtrOutput() TemplateBoxPlotStyleOptionsPtrOutput
+	ToTemplateBoxPlotStyleOptionsPtrOutputWithContext(context.Context) TemplateBoxPlotStyleOptionsPtrOutput
+}
+
+type templateBoxPlotStyleOptionsPtrType TemplateBoxPlotStyleOptionsArgs
+
+func TemplateBoxPlotStyleOptionsPtr(v *TemplateBoxPlotStyleOptionsArgs) TemplateBoxPlotStyleOptionsPtrInput {
+	return (*templateBoxPlotStyleOptionsPtrType)(v)
+}
+
+func (*templateBoxPlotStyleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotStyleOptions)(nil)).Elem()
+}
+
+func (i *templateBoxPlotStyleOptionsPtrType) ToTemplateBoxPlotStyleOptionsPtrOutput() TemplateBoxPlotStyleOptionsPtrOutput {
+	return i.ToTemplateBoxPlotStyleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateBoxPlotStyleOptionsPtrType) ToTemplateBoxPlotStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotStyleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotStyleOptionsPtrOutput)
+}
+
+type TemplateBoxPlotStyleOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotStyleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotStyleOptions)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotStyleOptionsOutput) ToTemplateBoxPlotStyleOptionsOutput() TemplateBoxPlotStyleOptionsOutput {
+	return o
+}
+
+func (o TemplateBoxPlotStyleOptionsOutput) ToTemplateBoxPlotStyleOptionsOutputWithContext(ctx context.Context) TemplateBoxPlotStyleOptionsOutput {
+	return o
+}
+
+func (o TemplateBoxPlotStyleOptionsOutput) ToTemplateBoxPlotStyleOptionsPtrOutput() TemplateBoxPlotStyleOptionsPtrOutput {
+	return o.ToTemplateBoxPlotStyleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateBoxPlotStyleOptionsOutput) ToTemplateBoxPlotStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotStyleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateBoxPlotStyleOptions) *TemplateBoxPlotStyleOptions {
+		return &v
+	}).(TemplateBoxPlotStyleOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotStyleOptionsOutput) FillStyle() TemplateBoxPlotFillStylePtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotStyleOptions) *TemplateBoxPlotFillStyle { return v.FillStyle }).(TemplateBoxPlotFillStylePtrOutput)
+}
+
+type TemplateBoxPlotStyleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotStyleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotStyleOptions)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotStyleOptionsPtrOutput) ToTemplateBoxPlotStyleOptionsPtrOutput() TemplateBoxPlotStyleOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotStyleOptionsPtrOutput) ToTemplateBoxPlotStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateBoxPlotStyleOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotStyleOptionsPtrOutput) Elem() TemplateBoxPlotStyleOptionsOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotStyleOptions) TemplateBoxPlotStyleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateBoxPlotStyleOptions
+		return ret
+	}).(TemplateBoxPlotStyleOptionsOutput)
+}
+
+func (o TemplateBoxPlotStyleOptionsPtrOutput) FillStyle() TemplateBoxPlotFillStylePtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotStyleOptions) *TemplateBoxPlotFillStyle {
+		if v == nil {
+			return nil
+		}
+		return v.FillStyle
+	}).(TemplateBoxPlotFillStylePtrOutput)
+}
+
+type TemplateBoxPlotVisual struct {
+	Actions            []TemplateVisualCustomAction        `pulumi:"actions"`
+	ChartConfiguration *TemplateBoxPlotChartConfiguration  `pulumi:"chartConfiguration"`
+	ColumnHierarchies  []TemplateColumnHierarchy           `pulumi:"columnHierarchies"`
+	Subtitle           *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	Title              *TemplateVisualTitleLabelOptions    `pulumi:"title"`
+	VisualId           string                              `pulumi:"visualId"`
+}
+
+// TemplateBoxPlotVisualInput is an input type that accepts TemplateBoxPlotVisualArgs and TemplateBoxPlotVisualOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotVisualInput` via:
+//
+//	TemplateBoxPlotVisualArgs{...}
+type TemplateBoxPlotVisualInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotVisualOutput() TemplateBoxPlotVisualOutput
+	ToTemplateBoxPlotVisualOutputWithContext(context.Context) TemplateBoxPlotVisualOutput
+}
+
+type TemplateBoxPlotVisualArgs struct {
+	Actions            TemplateVisualCustomActionArrayInput       `pulumi:"actions"`
+	ChartConfiguration TemplateBoxPlotChartConfigurationPtrInput  `pulumi:"chartConfiguration"`
+	ColumnHierarchies  TemplateColumnHierarchyArrayInput          `pulumi:"columnHierarchies"`
+	Subtitle           TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	Title              TemplateVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
+	VisualId           pulumi.StringInput                         `pulumi:"visualId"`
+}
+
+func (TemplateBoxPlotVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotVisual)(nil)).Elem()
+}
+
+func (i TemplateBoxPlotVisualArgs) ToTemplateBoxPlotVisualOutput() TemplateBoxPlotVisualOutput {
+	return i.ToTemplateBoxPlotVisualOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotVisualArgs) ToTemplateBoxPlotVisualOutputWithContext(ctx context.Context) TemplateBoxPlotVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotVisualOutput)
+}
+
+func (i TemplateBoxPlotVisualArgs) ToTemplateBoxPlotVisualPtrOutput() TemplateBoxPlotVisualPtrOutput {
+	return i.ToTemplateBoxPlotVisualPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateBoxPlotVisualArgs) ToTemplateBoxPlotVisualPtrOutputWithContext(ctx context.Context) TemplateBoxPlotVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotVisualOutput).ToTemplateBoxPlotVisualPtrOutputWithContext(ctx)
+}
+
+// TemplateBoxPlotVisualPtrInput is an input type that accepts TemplateBoxPlotVisualArgs, TemplateBoxPlotVisualPtr and TemplateBoxPlotVisualPtrOutput values.
+// You can construct a concrete instance of `TemplateBoxPlotVisualPtrInput` via:
+//
+//	        TemplateBoxPlotVisualArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateBoxPlotVisualPtrInput interface {
+	pulumi.Input
+
+	ToTemplateBoxPlotVisualPtrOutput() TemplateBoxPlotVisualPtrOutput
+	ToTemplateBoxPlotVisualPtrOutputWithContext(context.Context) TemplateBoxPlotVisualPtrOutput
+}
+
+type templateBoxPlotVisualPtrType TemplateBoxPlotVisualArgs
+
+func TemplateBoxPlotVisualPtr(v *TemplateBoxPlotVisualArgs) TemplateBoxPlotVisualPtrInput {
+	return (*templateBoxPlotVisualPtrType)(v)
+}
+
+func (*templateBoxPlotVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotVisual)(nil)).Elem()
+}
+
+func (i *templateBoxPlotVisualPtrType) ToTemplateBoxPlotVisualPtrOutput() TemplateBoxPlotVisualPtrOutput {
+	return i.ToTemplateBoxPlotVisualPtrOutputWithContext(context.Background())
+}
+
+func (i *templateBoxPlotVisualPtrType) ToTemplateBoxPlotVisualPtrOutputWithContext(ctx context.Context) TemplateBoxPlotVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateBoxPlotVisualPtrOutput)
+}
+
+type TemplateBoxPlotVisualOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateBoxPlotVisual)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotVisualOutput) ToTemplateBoxPlotVisualOutput() TemplateBoxPlotVisualOutput {
+	return o
+}
+
+func (o TemplateBoxPlotVisualOutput) ToTemplateBoxPlotVisualOutputWithContext(ctx context.Context) TemplateBoxPlotVisualOutput {
+	return o
+}
+
+func (o TemplateBoxPlotVisualOutput) ToTemplateBoxPlotVisualPtrOutput() TemplateBoxPlotVisualPtrOutput {
+	return o.ToTemplateBoxPlotVisualPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateBoxPlotVisualOutput) ToTemplateBoxPlotVisualPtrOutputWithContext(ctx context.Context) TemplateBoxPlotVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateBoxPlotVisual) *TemplateBoxPlotVisual {
+		return &v
+	}).(TemplateBoxPlotVisualPtrOutput)
+}
+
+func (o TemplateBoxPlotVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v TemplateBoxPlotVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
+}
+
+func (o TemplateBoxPlotVisualOutput) ChartConfiguration() TemplateBoxPlotChartConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotVisual) *TemplateBoxPlotChartConfiguration { return v.ChartConfiguration }).(TemplateBoxPlotChartConfigurationPtrOutput)
+}
+
+func (o TemplateBoxPlotVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v TemplateBoxPlotVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
+}
+
+func (o TemplateBoxPlotVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateBoxPlotVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateBoxPlotVisual) string { return v.VisualId }).(pulumi.StringOutput)
+}
+
+type TemplateBoxPlotVisualPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateBoxPlotVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateBoxPlotVisual)(nil)).Elem()
+}
+
+func (o TemplateBoxPlotVisualPtrOutput) ToTemplateBoxPlotVisualPtrOutput() TemplateBoxPlotVisualPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotVisualPtrOutput) ToTemplateBoxPlotVisualPtrOutputWithContext(ctx context.Context) TemplateBoxPlotVisualPtrOutput {
+	return o
+}
+
+func (o TemplateBoxPlotVisualPtrOutput) Elem() TemplateBoxPlotVisualOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotVisual) TemplateBoxPlotVisual {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateBoxPlotVisual
+		return ret
+	}).(TemplateBoxPlotVisualOutput)
+}
+
+func (o TemplateBoxPlotVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotVisual) []TemplateVisualCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(TemplateVisualCustomActionArrayOutput)
+}
+
+func (o TemplateBoxPlotVisualPtrOutput) ChartConfiguration() TemplateBoxPlotChartConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotVisual) *TemplateBoxPlotChartConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ChartConfiguration
+	}).(TemplateBoxPlotChartConfigurationPtrOutput)
+}
+
+func (o TemplateBoxPlotVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotVisual) []TemplateColumnHierarchy {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnHierarchies
+	}).(TemplateColumnHierarchyArrayOutput)
+}
+
+func (o TemplateBoxPlotVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotVisual) *TemplateVisualSubtitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Subtitle
+	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotVisual) *TemplateVisualTitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateBoxPlotVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateBoxPlotVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VisualId
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateCalculatedField struct {
+	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
+	Expression        string `pulumi:"expression"`
+	Name              string `pulumi:"name"`
+}
+
+// TemplateCalculatedFieldInput is an input type that accepts TemplateCalculatedFieldArgs and TemplateCalculatedFieldOutput values.
+// You can construct a concrete instance of `TemplateCalculatedFieldInput` via:
+//
+//	TemplateCalculatedFieldArgs{...}
+type TemplateCalculatedFieldInput interface {
+	pulumi.Input
+
+	ToTemplateCalculatedFieldOutput() TemplateCalculatedFieldOutput
+	ToTemplateCalculatedFieldOutputWithContext(context.Context) TemplateCalculatedFieldOutput
+}
+
+type TemplateCalculatedFieldArgs struct {
+	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
+	Expression        pulumi.StringInput `pulumi:"expression"`
+	Name              pulumi.StringInput `pulumi:"name"`
+}
+
+func (TemplateCalculatedFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCalculatedField)(nil)).Elem()
+}
+
+func (i TemplateCalculatedFieldArgs) ToTemplateCalculatedFieldOutput() TemplateCalculatedFieldOutput {
+	return i.ToTemplateCalculatedFieldOutputWithContext(context.Background())
+}
+
+func (i TemplateCalculatedFieldArgs) ToTemplateCalculatedFieldOutputWithContext(ctx context.Context) TemplateCalculatedFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCalculatedFieldOutput)
+}
+
+// TemplateCalculatedFieldArrayInput is an input type that accepts TemplateCalculatedFieldArray and TemplateCalculatedFieldArrayOutput values.
+// You can construct a concrete instance of `TemplateCalculatedFieldArrayInput` via:
+//
+//	TemplateCalculatedFieldArray{ TemplateCalculatedFieldArgs{...} }
+type TemplateCalculatedFieldArrayInput interface {
+	pulumi.Input
+
+	ToTemplateCalculatedFieldArrayOutput() TemplateCalculatedFieldArrayOutput
+	ToTemplateCalculatedFieldArrayOutputWithContext(context.Context) TemplateCalculatedFieldArrayOutput
+}
+
+type TemplateCalculatedFieldArray []TemplateCalculatedFieldInput
+
+func (TemplateCalculatedFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateCalculatedField)(nil)).Elem()
+}
+
+func (i TemplateCalculatedFieldArray) ToTemplateCalculatedFieldArrayOutput() TemplateCalculatedFieldArrayOutput {
+	return i.ToTemplateCalculatedFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateCalculatedFieldArray) ToTemplateCalculatedFieldArrayOutputWithContext(ctx context.Context) TemplateCalculatedFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCalculatedFieldArrayOutput)
+}
+
+type TemplateCalculatedFieldOutput struct{ *pulumi.OutputState }
+
+func (TemplateCalculatedFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCalculatedField)(nil)).Elem()
+}
+
+func (o TemplateCalculatedFieldOutput) ToTemplateCalculatedFieldOutput() TemplateCalculatedFieldOutput {
+	return o
+}
+
+func (o TemplateCalculatedFieldOutput) ToTemplateCalculatedFieldOutputWithContext(ctx context.Context) TemplateCalculatedFieldOutput {
+	return o
+}
+
+func (o TemplateCalculatedFieldOutput) DataSetIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateCalculatedField) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
+}
+
+func (o TemplateCalculatedFieldOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateCalculatedField) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o TemplateCalculatedFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateCalculatedField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type TemplateCalculatedFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateCalculatedFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateCalculatedField)(nil)).Elem()
+}
+
+func (o TemplateCalculatedFieldArrayOutput) ToTemplateCalculatedFieldArrayOutput() TemplateCalculatedFieldArrayOutput {
+	return o
+}
+
+func (o TemplateCalculatedFieldArrayOutput) ToTemplateCalculatedFieldArrayOutputWithContext(ctx context.Context) TemplateCalculatedFieldArrayOutput {
+	return o
+}
+
+func (o TemplateCalculatedFieldArrayOutput) Index(i pulumi.IntInput) TemplateCalculatedFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateCalculatedField {
+		return vs[0].([]TemplateCalculatedField)[vs[1].(int)]
+	}).(TemplateCalculatedFieldOutput)
+}
+
+type TemplateCalculatedMeasureField struct {
+	Expression string `pulumi:"expression"`
+	FieldId    string `pulumi:"fieldId"`
+}
+
+// TemplateCalculatedMeasureFieldInput is an input type that accepts TemplateCalculatedMeasureFieldArgs and TemplateCalculatedMeasureFieldOutput values.
+// You can construct a concrete instance of `TemplateCalculatedMeasureFieldInput` via:
+//
+//	TemplateCalculatedMeasureFieldArgs{...}
+type TemplateCalculatedMeasureFieldInput interface {
+	pulumi.Input
+
+	ToTemplateCalculatedMeasureFieldOutput() TemplateCalculatedMeasureFieldOutput
+	ToTemplateCalculatedMeasureFieldOutputWithContext(context.Context) TemplateCalculatedMeasureFieldOutput
+}
+
+type TemplateCalculatedMeasureFieldArgs struct {
+	Expression pulumi.StringInput `pulumi:"expression"`
+	FieldId    pulumi.StringInput `pulumi:"fieldId"`
+}
+
+func (TemplateCalculatedMeasureFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCalculatedMeasureField)(nil)).Elem()
+}
+
+func (i TemplateCalculatedMeasureFieldArgs) ToTemplateCalculatedMeasureFieldOutput() TemplateCalculatedMeasureFieldOutput {
+	return i.ToTemplateCalculatedMeasureFieldOutputWithContext(context.Background())
+}
+
+func (i TemplateCalculatedMeasureFieldArgs) ToTemplateCalculatedMeasureFieldOutputWithContext(ctx context.Context) TemplateCalculatedMeasureFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCalculatedMeasureFieldOutput)
+}
+
+func (i TemplateCalculatedMeasureFieldArgs) ToTemplateCalculatedMeasureFieldPtrOutput() TemplateCalculatedMeasureFieldPtrOutput {
+	return i.ToTemplateCalculatedMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateCalculatedMeasureFieldArgs) ToTemplateCalculatedMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCalculatedMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCalculatedMeasureFieldOutput).ToTemplateCalculatedMeasureFieldPtrOutputWithContext(ctx)
+}
+
+// TemplateCalculatedMeasureFieldPtrInput is an input type that accepts TemplateCalculatedMeasureFieldArgs, TemplateCalculatedMeasureFieldPtr and TemplateCalculatedMeasureFieldPtrOutput values.
+// You can construct a concrete instance of `TemplateCalculatedMeasureFieldPtrInput` via:
+//
+//	        TemplateCalculatedMeasureFieldArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateCalculatedMeasureFieldPtrInput interface {
+	pulumi.Input
+
+	ToTemplateCalculatedMeasureFieldPtrOutput() TemplateCalculatedMeasureFieldPtrOutput
+	ToTemplateCalculatedMeasureFieldPtrOutputWithContext(context.Context) TemplateCalculatedMeasureFieldPtrOutput
+}
+
+type templateCalculatedMeasureFieldPtrType TemplateCalculatedMeasureFieldArgs
+
+func TemplateCalculatedMeasureFieldPtr(v *TemplateCalculatedMeasureFieldArgs) TemplateCalculatedMeasureFieldPtrInput {
+	return (*templateCalculatedMeasureFieldPtrType)(v)
+}
+
+func (*templateCalculatedMeasureFieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCalculatedMeasureField)(nil)).Elem()
+}
+
+func (i *templateCalculatedMeasureFieldPtrType) ToTemplateCalculatedMeasureFieldPtrOutput() TemplateCalculatedMeasureFieldPtrOutput {
+	return i.ToTemplateCalculatedMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (i *templateCalculatedMeasureFieldPtrType) ToTemplateCalculatedMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCalculatedMeasureFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCalculatedMeasureFieldPtrOutput)
+}
+
+type TemplateCalculatedMeasureFieldOutput struct{ *pulumi.OutputState }
+
+func (TemplateCalculatedMeasureFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCalculatedMeasureField)(nil)).Elem()
+}
+
+func (o TemplateCalculatedMeasureFieldOutput) ToTemplateCalculatedMeasureFieldOutput() TemplateCalculatedMeasureFieldOutput {
+	return o
+}
+
+func (o TemplateCalculatedMeasureFieldOutput) ToTemplateCalculatedMeasureFieldOutputWithContext(ctx context.Context) TemplateCalculatedMeasureFieldOutput {
+	return o
+}
+
+func (o TemplateCalculatedMeasureFieldOutput) ToTemplateCalculatedMeasureFieldPtrOutput() TemplateCalculatedMeasureFieldPtrOutput {
+	return o.ToTemplateCalculatedMeasureFieldPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateCalculatedMeasureFieldOutput) ToTemplateCalculatedMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCalculatedMeasureFieldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateCalculatedMeasureField) *TemplateCalculatedMeasureField {
+		return &v
+	}).(TemplateCalculatedMeasureFieldPtrOutput)
+}
+
+func (o TemplateCalculatedMeasureFieldOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateCalculatedMeasureField) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o TemplateCalculatedMeasureFieldOutput) FieldId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateCalculatedMeasureField) string { return v.FieldId }).(pulumi.StringOutput)
+}
+
+type TemplateCalculatedMeasureFieldPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateCalculatedMeasureFieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCalculatedMeasureField)(nil)).Elem()
+}
+
+func (o TemplateCalculatedMeasureFieldPtrOutput) ToTemplateCalculatedMeasureFieldPtrOutput() TemplateCalculatedMeasureFieldPtrOutput {
+	return o
+}
+
+func (o TemplateCalculatedMeasureFieldPtrOutput) ToTemplateCalculatedMeasureFieldPtrOutputWithContext(ctx context.Context) TemplateCalculatedMeasureFieldPtrOutput {
+	return o
+}
+
+func (o TemplateCalculatedMeasureFieldPtrOutput) Elem() TemplateCalculatedMeasureFieldOutput {
+	return o.ApplyT(func(v *TemplateCalculatedMeasureField) TemplateCalculatedMeasureField {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateCalculatedMeasureField
+		return ret
+	}).(TemplateCalculatedMeasureFieldOutput)
+}
+
+func (o TemplateCalculatedMeasureFieldPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateCalculatedMeasureField) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateCalculatedMeasureFieldPtrOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateCalculatedMeasureField) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldId
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateCascadingControlConfiguration struct {
+	SourceControls []TemplateCascadingControlSource `pulumi:"sourceControls"`
+}
+
+// TemplateCascadingControlConfigurationInput is an input type that accepts TemplateCascadingControlConfigurationArgs and TemplateCascadingControlConfigurationOutput values.
+// You can construct a concrete instance of `TemplateCascadingControlConfigurationInput` via:
+//
+//	TemplateCascadingControlConfigurationArgs{...}
+type TemplateCascadingControlConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateCascadingControlConfigurationOutput() TemplateCascadingControlConfigurationOutput
+	ToTemplateCascadingControlConfigurationOutputWithContext(context.Context) TemplateCascadingControlConfigurationOutput
+}
+
+type TemplateCascadingControlConfigurationArgs struct {
+	SourceControls TemplateCascadingControlSourceArrayInput `pulumi:"sourceControls"`
+}
+
+func (TemplateCascadingControlConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCascadingControlConfiguration)(nil)).Elem()
+}
+
+func (i TemplateCascadingControlConfigurationArgs) ToTemplateCascadingControlConfigurationOutput() TemplateCascadingControlConfigurationOutput {
+	return i.ToTemplateCascadingControlConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateCascadingControlConfigurationArgs) ToTemplateCascadingControlConfigurationOutputWithContext(ctx context.Context) TemplateCascadingControlConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCascadingControlConfigurationOutput)
+}
+
+func (i TemplateCascadingControlConfigurationArgs) ToTemplateCascadingControlConfigurationPtrOutput() TemplateCascadingControlConfigurationPtrOutput {
+	return i.ToTemplateCascadingControlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateCascadingControlConfigurationArgs) ToTemplateCascadingControlConfigurationPtrOutputWithContext(ctx context.Context) TemplateCascadingControlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCascadingControlConfigurationOutput).ToTemplateCascadingControlConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateCascadingControlConfigurationPtrInput is an input type that accepts TemplateCascadingControlConfigurationArgs, TemplateCascadingControlConfigurationPtr and TemplateCascadingControlConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateCascadingControlConfigurationPtrInput` via:
+//
+//	        TemplateCascadingControlConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateCascadingControlConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateCascadingControlConfigurationPtrOutput() TemplateCascadingControlConfigurationPtrOutput
+	ToTemplateCascadingControlConfigurationPtrOutputWithContext(context.Context) TemplateCascadingControlConfigurationPtrOutput
+}
+
+type templateCascadingControlConfigurationPtrType TemplateCascadingControlConfigurationArgs
+
+func TemplateCascadingControlConfigurationPtr(v *TemplateCascadingControlConfigurationArgs) TemplateCascadingControlConfigurationPtrInput {
+	return (*templateCascadingControlConfigurationPtrType)(v)
+}
+
+func (*templateCascadingControlConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCascadingControlConfiguration)(nil)).Elem()
+}
+
+func (i *templateCascadingControlConfigurationPtrType) ToTemplateCascadingControlConfigurationPtrOutput() TemplateCascadingControlConfigurationPtrOutput {
+	return i.ToTemplateCascadingControlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateCascadingControlConfigurationPtrType) ToTemplateCascadingControlConfigurationPtrOutputWithContext(ctx context.Context) TemplateCascadingControlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCascadingControlConfigurationPtrOutput)
+}
+
+type TemplateCascadingControlConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateCascadingControlConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCascadingControlConfiguration)(nil)).Elem()
+}
+
+func (o TemplateCascadingControlConfigurationOutput) ToTemplateCascadingControlConfigurationOutput() TemplateCascadingControlConfigurationOutput {
+	return o
+}
+
+func (o TemplateCascadingControlConfigurationOutput) ToTemplateCascadingControlConfigurationOutputWithContext(ctx context.Context) TemplateCascadingControlConfigurationOutput {
+	return o
+}
+
+func (o TemplateCascadingControlConfigurationOutput) ToTemplateCascadingControlConfigurationPtrOutput() TemplateCascadingControlConfigurationPtrOutput {
+	return o.ToTemplateCascadingControlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateCascadingControlConfigurationOutput) ToTemplateCascadingControlConfigurationPtrOutputWithContext(ctx context.Context) TemplateCascadingControlConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateCascadingControlConfiguration) *TemplateCascadingControlConfiguration {
+		return &v
+	}).(TemplateCascadingControlConfigurationPtrOutput)
+}
+
+func (o TemplateCascadingControlConfigurationOutput) SourceControls() TemplateCascadingControlSourceArrayOutput {
+	return o.ApplyT(func(v TemplateCascadingControlConfiguration) []TemplateCascadingControlSource {
+		return v.SourceControls
+	}).(TemplateCascadingControlSourceArrayOutput)
+}
+
+type TemplateCascadingControlConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateCascadingControlConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCascadingControlConfiguration)(nil)).Elem()
+}
+
+func (o TemplateCascadingControlConfigurationPtrOutput) ToTemplateCascadingControlConfigurationPtrOutput() TemplateCascadingControlConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateCascadingControlConfigurationPtrOutput) ToTemplateCascadingControlConfigurationPtrOutputWithContext(ctx context.Context) TemplateCascadingControlConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateCascadingControlConfigurationPtrOutput) Elem() TemplateCascadingControlConfigurationOutput {
+	return o.ApplyT(func(v *TemplateCascadingControlConfiguration) TemplateCascadingControlConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateCascadingControlConfiguration
+		return ret
+	}).(TemplateCascadingControlConfigurationOutput)
+}
+
+func (o TemplateCascadingControlConfigurationPtrOutput) SourceControls() TemplateCascadingControlSourceArrayOutput {
+	return o.ApplyT(func(v *TemplateCascadingControlConfiguration) []TemplateCascadingControlSource {
+		if v == nil {
+			return nil
+		}
+		return v.SourceControls
+	}).(TemplateCascadingControlSourceArrayOutput)
+}
+
+type TemplateCascadingControlSource struct {
+	ColumnToMatch        *TemplateColumnIdentifier `pulumi:"columnToMatch"`
+	SourceSheetControlId *string                   `pulumi:"sourceSheetControlId"`
+}
+
+// TemplateCascadingControlSourceInput is an input type that accepts TemplateCascadingControlSourceArgs and TemplateCascadingControlSourceOutput values.
+// You can construct a concrete instance of `TemplateCascadingControlSourceInput` via:
+//
+//	TemplateCascadingControlSourceArgs{...}
+type TemplateCascadingControlSourceInput interface {
+	pulumi.Input
+
+	ToTemplateCascadingControlSourceOutput() TemplateCascadingControlSourceOutput
+	ToTemplateCascadingControlSourceOutputWithContext(context.Context) TemplateCascadingControlSourceOutput
+}
+
+type TemplateCascadingControlSourceArgs struct {
+	ColumnToMatch        TemplateColumnIdentifierPtrInput `pulumi:"columnToMatch"`
+	SourceSheetControlId pulumi.StringPtrInput            `pulumi:"sourceSheetControlId"`
+}
+
+func (TemplateCascadingControlSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCascadingControlSource)(nil)).Elem()
+}
+
+func (i TemplateCascadingControlSourceArgs) ToTemplateCascadingControlSourceOutput() TemplateCascadingControlSourceOutput {
+	return i.ToTemplateCascadingControlSourceOutputWithContext(context.Background())
+}
+
+func (i TemplateCascadingControlSourceArgs) ToTemplateCascadingControlSourceOutputWithContext(ctx context.Context) TemplateCascadingControlSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCascadingControlSourceOutput)
+}
+
+// TemplateCascadingControlSourceArrayInput is an input type that accepts TemplateCascadingControlSourceArray and TemplateCascadingControlSourceArrayOutput values.
+// You can construct a concrete instance of `TemplateCascadingControlSourceArrayInput` via:
+//
+//	TemplateCascadingControlSourceArray{ TemplateCascadingControlSourceArgs{...} }
+type TemplateCascadingControlSourceArrayInput interface {
+	pulumi.Input
+
+	ToTemplateCascadingControlSourceArrayOutput() TemplateCascadingControlSourceArrayOutput
+	ToTemplateCascadingControlSourceArrayOutputWithContext(context.Context) TemplateCascadingControlSourceArrayOutput
+}
+
+type TemplateCascadingControlSourceArray []TemplateCascadingControlSourceInput
+
+func (TemplateCascadingControlSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateCascadingControlSource)(nil)).Elem()
+}
+
+func (i TemplateCascadingControlSourceArray) ToTemplateCascadingControlSourceArrayOutput() TemplateCascadingControlSourceArrayOutput {
+	return i.ToTemplateCascadingControlSourceArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateCascadingControlSourceArray) ToTemplateCascadingControlSourceArrayOutputWithContext(ctx context.Context) TemplateCascadingControlSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCascadingControlSourceArrayOutput)
+}
+
+type TemplateCascadingControlSourceOutput struct{ *pulumi.OutputState }
+
+func (TemplateCascadingControlSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCascadingControlSource)(nil)).Elem()
+}
+
+func (o TemplateCascadingControlSourceOutput) ToTemplateCascadingControlSourceOutput() TemplateCascadingControlSourceOutput {
+	return o
+}
+
+func (o TemplateCascadingControlSourceOutput) ToTemplateCascadingControlSourceOutputWithContext(ctx context.Context) TemplateCascadingControlSourceOutput {
+	return o
+}
+
+func (o TemplateCascadingControlSourceOutput) ColumnToMatch() TemplateColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v TemplateCascadingControlSource) *TemplateColumnIdentifier { return v.ColumnToMatch }).(TemplateColumnIdentifierPtrOutput)
+}
+
+func (o TemplateCascadingControlSourceOutput) SourceSheetControlId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateCascadingControlSource) *string { return v.SourceSheetControlId }).(pulumi.StringPtrOutput)
+}
+
+type TemplateCascadingControlSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateCascadingControlSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateCascadingControlSource)(nil)).Elem()
+}
+
+func (o TemplateCascadingControlSourceArrayOutput) ToTemplateCascadingControlSourceArrayOutput() TemplateCascadingControlSourceArrayOutput {
+	return o
+}
+
+func (o TemplateCascadingControlSourceArrayOutput) ToTemplateCascadingControlSourceArrayOutputWithContext(ctx context.Context) TemplateCascadingControlSourceArrayOutput {
+	return o
+}
+
+func (o TemplateCascadingControlSourceArrayOutput) Index(i pulumi.IntInput) TemplateCascadingControlSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateCascadingControlSource {
+		return vs[0].([]TemplateCascadingControlSource)[vs[1].(int)]
+	}).(TemplateCascadingControlSourceOutput)
+}
+
+type TemplateCategoricalDimensionField struct {
+	Column              TemplateColumnIdentifier           `pulumi:"column"`
+	FieldId             string                             `pulumi:"fieldId"`
+	FormatConfiguration *TemplateStringFormatConfiguration `pulumi:"formatConfiguration"`
+	HierarchyId         *string                            `pulumi:"hierarchyId"`
+}
+
+// TemplateCategoricalDimensionFieldInput is an input type that accepts TemplateCategoricalDimensionFieldArgs and TemplateCategoricalDimensionFieldOutput values.
+// You can construct a concrete instance of `TemplateCategoricalDimensionFieldInput` via:
+//
+//	TemplateCategoricalDimensionFieldArgs{...}
+type TemplateCategoricalDimensionFieldInput interface {
+	pulumi.Input
+
+	ToTemplateCategoricalDimensionFieldOutput() TemplateCategoricalDimensionFieldOutput
+	ToTemplateCategoricalDimensionFieldOutputWithContext(context.Context) TemplateCategoricalDimensionFieldOutput
+}
+
+type TemplateCategoricalDimensionFieldArgs struct {
+	Column              TemplateColumnIdentifierInput             `pulumi:"column"`
+	FieldId             pulumi.StringInput                        `pulumi:"fieldId"`
+	FormatConfiguration TemplateStringFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
+	HierarchyId         pulumi.StringPtrInput                     `pulumi:"hierarchyId"`
+}
+
+func (TemplateCategoricalDimensionFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCategoricalDimensionField)(nil)).Elem()
+}
+
+func (i TemplateCategoricalDimensionFieldArgs) ToTemplateCategoricalDimensionFieldOutput() TemplateCategoricalDimensionFieldOutput {
+	return i.ToTemplateCategoricalDimensionFieldOutputWithContext(context.Background())
+}
+
+func (i TemplateCategoricalDimensionFieldArgs) ToTemplateCategoricalDimensionFieldOutputWithContext(ctx context.Context) TemplateCategoricalDimensionFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoricalDimensionFieldOutput)
+}
+
+func (i TemplateCategoricalDimensionFieldArgs) ToTemplateCategoricalDimensionFieldPtrOutput() TemplateCategoricalDimensionFieldPtrOutput {
+	return i.ToTemplateCategoricalDimensionFieldPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateCategoricalDimensionFieldArgs) ToTemplateCategoricalDimensionFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalDimensionFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoricalDimensionFieldOutput).ToTemplateCategoricalDimensionFieldPtrOutputWithContext(ctx)
+}
+
+// TemplateCategoricalDimensionFieldPtrInput is an input type that accepts TemplateCategoricalDimensionFieldArgs, TemplateCategoricalDimensionFieldPtr and TemplateCategoricalDimensionFieldPtrOutput values.
+// You can construct a concrete instance of `TemplateCategoricalDimensionFieldPtrInput` via:
+//
+//	        TemplateCategoricalDimensionFieldArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateCategoricalDimensionFieldPtrInput interface {
+	pulumi.Input
+
+	ToTemplateCategoricalDimensionFieldPtrOutput() TemplateCategoricalDimensionFieldPtrOutput
+	ToTemplateCategoricalDimensionFieldPtrOutputWithContext(context.Context) TemplateCategoricalDimensionFieldPtrOutput
+}
+
+type templateCategoricalDimensionFieldPtrType TemplateCategoricalDimensionFieldArgs
+
+func TemplateCategoricalDimensionFieldPtr(v *TemplateCategoricalDimensionFieldArgs) TemplateCategoricalDimensionFieldPtrInput {
+	return (*templateCategoricalDimensionFieldPtrType)(v)
+}
+
+func (*templateCategoricalDimensionFieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCategoricalDimensionField)(nil)).Elem()
+}
+
+func (i *templateCategoricalDimensionFieldPtrType) ToTemplateCategoricalDimensionFieldPtrOutput() TemplateCategoricalDimensionFieldPtrOutput {
+	return i.ToTemplateCategoricalDimensionFieldPtrOutputWithContext(context.Background())
+}
+
+func (i *templateCategoricalDimensionFieldPtrType) ToTemplateCategoricalDimensionFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalDimensionFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCategoricalDimensionFieldPtrOutput)
+}
+
+type TemplateCategoricalDimensionFieldOutput struct{ *pulumi.OutputState }
+
+func (TemplateCategoricalDimensionFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCategoricalDimensionField)(nil)).Elem()
+}
+
+func (o TemplateCategoricalDimensionFieldOutput) ToTemplateCategoricalDimensionFieldOutput() TemplateCategoricalDimensionFieldOutput {
+	return o
+}
+
+func (o TemplateCategoricalDimensionFieldOutput) ToTemplateCategoricalDimensionFieldOutputWithContext(ctx context.Context) TemplateCategoricalDimensionFieldOutput {
+	return o
+}
+
+func (o TemplateCategoricalDimensionFieldOutput) ToTemplateCategoricalDimensionFieldPtrOutput() TemplateCategoricalDimensionFieldPtrOutput {
+	return o.ToTemplateCategoricalDimensionFieldPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateCategoricalDimensionFieldOutput) ToTemplateCategoricalDimensionFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalDimensionFieldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateCategoricalDimensionField) *TemplateCategoricalDimensionField {
+		return &v
+	}).(TemplateCategoricalDimensionFieldPtrOutput)
+}
+
+func (o TemplateCategoricalDimensionFieldOutput) Column() TemplateColumnIdentifierOutput {
+	return o.ApplyT(func(v TemplateCategoricalDimensionField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
+}
+
+func (o TemplateCategoricalDimensionFieldOutput) FieldId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateCategoricalDimensionField) string { return v.FieldId }).(pulumi.StringOutput)
+}
+
+func (o TemplateCategoricalDimensionFieldOutput) FormatConfiguration() TemplateStringFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateCategoricalDimensionField) *TemplateStringFormatConfiguration {
+		return v.FormatConfiguration
+	}).(TemplateStringFormatConfigurationPtrOutput)
+}
+
+func (o TemplateCategoricalDimensionFieldOutput) HierarchyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateCategoricalDimensionField) *string { return v.HierarchyId }).(pulumi.StringPtrOutput)
+}
+
+type TemplateCategoricalDimensionFieldPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateCategoricalDimensionFieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCategoricalDimensionField)(nil)).Elem()
+}
+
+func (o TemplateCategoricalDimensionFieldPtrOutput) ToTemplateCategoricalDimensionFieldPtrOutput() TemplateCategoricalDimensionFieldPtrOutput {
+	return o
+}
+
+func (o TemplateCategoricalDimensionFieldPtrOutput) ToTemplateCategoricalDimensionFieldPtrOutputWithContext(ctx context.Context) TemplateCategoricalDimensionFieldPtrOutput {
+	return o
+}
+
+func (o TemplateCategoricalDimensionFieldPtrOutput) Elem() TemplateCategoricalDimensionFieldOutput {
+	return o.ApplyT(func(v *TemplateCategoricalDimensionField) TemplateCategoricalDimensionField {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateCategoricalDimensionField
+		return ret
+	}).(TemplateCategoricalDimensionFieldOutput)
+}
+
+func (o TemplateCategoricalDimensionFieldPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoricalDimensionField) *TemplateColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(TemplateColumnIdentifierPtrOutput)
+}
+
+func (o TemplateCategoricalDimensionFieldPtrOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoricalDimensionField) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateCategoricalDimensionFieldPtrOutput) FormatConfiguration() TemplateStringFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoricalDimensionField) *TemplateStringFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FormatConfiguration
+	}).(TemplateStringFormatConfigurationPtrOutput)
+}
+
+func (o TemplateCategoricalDimensionFieldPtrOutput) HierarchyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateCategoricalDimensionField) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type TemplateCategoricalMeasureField struct {
 	AggregationFunction *TemplateCategoricalAggregationFunction `pulumi:"aggregationFunction"`
 	Column              TemplateColumnIdentifier                `pulumi:"column"`
@@ -72193,6 +74401,35 @@ func (o VPCConnectionTagArrayOutput) Index(i pulumi.IntInput) VPCConnectionTagOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBinWidthOptionsInput)(nil)).Elem(), TemplateBinWidthOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBinWidthOptionsPtrInput)(nil)).Elem(), TemplateBinWidthOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBodySectionConfigurationInput)(nil)).Elem(), TemplateBodySectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBodySectionConfigurationArrayInput)(nil)).Elem(), TemplateBodySectionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBodySectionContentInput)(nil)).Elem(), TemplateBodySectionContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotAggregatedFieldWellsInput)(nil)).Elem(), TemplateBoxPlotAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotAggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateBoxPlotAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotChartConfigurationInput)(nil)).Elem(), TemplateBoxPlotChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotChartConfigurationPtrInput)(nil)).Elem(), TemplateBoxPlotChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotFieldWellsInput)(nil)).Elem(), TemplateBoxPlotFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotFieldWellsPtrInput)(nil)).Elem(), TemplateBoxPlotFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotOptionsInput)(nil)).Elem(), TemplateBoxPlotOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotOptionsPtrInput)(nil)).Elem(), TemplateBoxPlotOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotSortConfigurationInput)(nil)).Elem(), TemplateBoxPlotSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotSortConfigurationPtrInput)(nil)).Elem(), TemplateBoxPlotSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotStyleOptionsInput)(nil)).Elem(), TemplateBoxPlotStyleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotStyleOptionsPtrInput)(nil)).Elem(), TemplateBoxPlotStyleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotVisualInput)(nil)).Elem(), TemplateBoxPlotVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBoxPlotVisualPtrInput)(nil)).Elem(), TemplateBoxPlotVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCalculatedFieldInput)(nil)).Elem(), TemplateCalculatedFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCalculatedFieldArrayInput)(nil)).Elem(), TemplateCalculatedFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCalculatedMeasureFieldInput)(nil)).Elem(), TemplateCalculatedMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCalculatedMeasureFieldPtrInput)(nil)).Elem(), TemplateCalculatedMeasureFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCascadingControlConfigurationInput)(nil)).Elem(), TemplateCascadingControlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCascadingControlConfigurationPtrInput)(nil)).Elem(), TemplateCascadingControlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCascadingControlSourceInput)(nil)).Elem(), TemplateCascadingControlSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCascadingControlSourceArrayInput)(nil)).Elem(), TemplateCascadingControlSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalDimensionFieldInput)(nil)).Elem(), TemplateCategoricalDimensionFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalDimensionFieldPtrInput)(nil)).Elem(), TemplateCategoricalDimensionFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalMeasureFieldInput)(nil)).Elem(), TemplateCategoricalMeasureFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoricalMeasureFieldPtrInput)(nil)).Elem(), TemplateCategoricalMeasureFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCategoryDrillDownFilterInput)(nil)).Elem(), TemplateCategoryDrillDownFilterArgs{})
@@ -73089,6 +75326,35 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicTypeParametersPtrInput)(nil)).Elem(), TopicTypeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionTagInput)(nil)).Elem(), VPCConnectionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionTagArrayInput)(nil)).Elem(), VPCConnectionTagArray{})
+	pulumi.RegisterOutputType(TemplateBinWidthOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateBinWidthOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateBodySectionConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateBodySectionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(TemplateBodySectionContentOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotAggregatedFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotAggregatedFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotChartConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotChartConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotSortConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotSortConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotStyleOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotStyleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotVisualOutput{})
+	pulumi.RegisterOutputType(TemplateBoxPlotVisualPtrOutput{})
+	pulumi.RegisterOutputType(TemplateCalculatedFieldOutput{})
+	pulumi.RegisterOutputType(TemplateCalculatedFieldArrayOutput{})
+	pulumi.RegisterOutputType(TemplateCalculatedMeasureFieldOutput{})
+	pulumi.RegisterOutputType(TemplateCalculatedMeasureFieldPtrOutput{})
+	pulumi.RegisterOutputType(TemplateCascadingControlConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateCascadingControlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateCascadingControlSourceOutput{})
+	pulumi.RegisterOutputType(TemplateCascadingControlSourceArrayOutput{})
+	pulumi.RegisterOutputType(TemplateCategoricalDimensionFieldOutput{})
+	pulumi.RegisterOutputType(TemplateCategoricalDimensionFieldPtrOutput{})
 	pulumi.RegisterOutputType(TemplateCategoricalMeasureFieldOutput{})
 	pulumi.RegisterOutputType(TemplateCategoricalMeasureFieldPtrOutput{})
 	pulumi.RegisterOutputType(TemplateCategoryDrillDownFilterOutput{})

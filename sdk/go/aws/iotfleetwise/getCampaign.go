@@ -25,14 +25,15 @@ type LookupCampaignArgs struct {
 }
 
 type LookupCampaignResult struct {
-	Arn                  *string                     `pulumi:"arn"`
-	CreationTime         *string                     `pulumi:"creationTime"`
-	DataExtraDimensions  []string                    `pulumi:"dataExtraDimensions"`
-	Description          *string                     `pulumi:"description"`
-	LastModificationTime *string                     `pulumi:"lastModificationTime"`
-	SignalsToCollect     []CampaignSignalInformation `pulumi:"signalsToCollect"`
-	Status               *CampaignStatus             `pulumi:"status"`
-	Tags                 []CampaignTag               `pulumi:"tags"`
+	Arn                    *string                         `pulumi:"arn"`
+	CreationTime           *string                         `pulumi:"creationTime"`
+	DataDestinationConfigs []CampaignDataDestinationConfig `pulumi:"dataDestinationConfigs"`
+	DataExtraDimensions    []string                        `pulumi:"dataExtraDimensions"`
+	Description            *string                         `pulumi:"description"`
+	LastModificationTime   *string                         `pulumi:"lastModificationTime"`
+	SignalsToCollect       []CampaignSignalInformation     `pulumi:"signalsToCollect"`
+	Status                 *CampaignStatus                 `pulumi:"status"`
+	Tags                   []CampaignTag                   `pulumi:"tags"`
 }
 
 func LookupCampaignOutput(ctx *pulumi.Context, args LookupCampaignOutputArgs, opts ...pulumi.InvokeOption) LookupCampaignResultOutput {
@@ -76,6 +77,10 @@ func (o LookupCampaignResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupCampaignResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCampaignResultOutput) DataDestinationConfigs() CampaignDataDestinationConfigArrayOutput {
+	return o.ApplyT(func(v LookupCampaignResult) []CampaignDataDestinationConfig { return v.DataDestinationConfigs }).(CampaignDataDestinationConfigArrayOutput)
 }
 
 func (o LookupCampaignResultOutput) DataExtraDimensions() pulumi.StringArrayOutput {

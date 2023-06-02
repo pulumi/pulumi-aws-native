@@ -25,10 +25,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Output<object?> ResponseModels { get; private set; } = null!;
 
         [Output("responseParameters")]
-        public Output<object?> ResponseParameters { get; private set; } = null!;
+        public Output<Outputs.RouteResponseRouteParameters?> ResponseParameters { get; private set; } = null!;
 
         [Output("routeId")]
         public Output<string> RouteId { get; private set; } = null!;
+
+        [Output("routeResponseId")]
+        public Output<string> RouteResponseId { get; private set; } = null!;
 
         [Output("routeResponseKey")]
         public Output<string> RouteResponseKey { get; private set; } = null!;
@@ -88,7 +91,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Input<object>? ResponseModels { get; set; }
 
         [Input("responseParameters")]
-        public Input<object>? ResponseParameters { get; set; }
+        public Input<Inputs.RouteResponseRouteParametersArgs>? ResponseParameters { get; set; }
 
         [Input("routeId", required: true)]
         public Input<string> RouteId { get; set; } = null!;

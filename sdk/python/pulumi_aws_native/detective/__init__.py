@@ -7,7 +7,9 @@ import typing
 # Export this package's modules as members:
 from .get_graph import *
 from .get_member_invitation import *
+from .get_organization_admin import *
 from .graph import *
 from .member_invitation import *
+from .organization_admin import *
 from ._inputs import *
 from . import outputs

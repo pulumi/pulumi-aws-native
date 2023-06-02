@@ -1177,19 +1177,11 @@ class TableTagArgs:
 @pulumi.input_type
 class TableTimeToLiveSpecificationArgs:
     def __init__(__self__, *,
-                 attribute_name: pulumi.Input[str],
-                 enabled: pulumi.Input[bool]):
-        pulumi.set(__self__, "attribute_name", attribute_name)
+                 enabled: pulumi.Input[bool],
+                 attribute_name: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter(name="attributeName")
-    def attribute_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "attribute_name")
-
-    @attribute_name.setter
-    def attribute_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "attribute_name", value)
+        if attribute_name is not None:
+            pulumi.set(__self__, "attribute_name", attribute_name)
 
     @property
     @pulumi.getter
@@ -1199,5 +1191,14 @@ class TableTimeToLiveSpecificationArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "attribute_name", value)
 
 

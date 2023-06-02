@@ -42,6 +42,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+     */
+    public readonly enablePrimaryIpv6!: pulumi.Output<boolean | undefined>;
+    /**
      * A list of security group IDs associated with this network interface.
      */
     public readonly groupSet!: pulumi.Output<string[] | undefined>;
@@ -105,6 +109,7 @@ export class NetworkInterface extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enablePrimaryIpv6"] = args ? args.enablePrimaryIpv6 : undefined;
             resourceInputs["groupSet"] = args ? args.groupSet : undefined;
             resourceInputs["interfaceType"] = args ? args.interfaceType : undefined;
             resourceInputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
@@ -119,6 +124,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["secondaryPrivateIpAddresses"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enablePrimaryIpv6"] = undefined /*out*/;
             resourceInputs["groupSet"] = undefined /*out*/;
             resourceInputs["interfaceType"] = undefined /*out*/;
             resourceInputs["ipv6AddressCount"] = undefined /*out*/;
@@ -145,6 +151,10 @@ export interface NetworkInterfaceArgs {
      * A description for the network interface.
      */
     description?: pulumi.Input<string>;
+    /**
+     * If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+     */
+    enablePrimaryIpv6?: pulumi.Input<boolean>;
     /**
      * A list of security group IDs associated with this network interface.
      */

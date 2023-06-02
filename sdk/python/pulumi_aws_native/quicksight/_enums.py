@@ -210,10 +210,14 @@ __all__ = [
     'DashboardWordCloudWordPadding',
     'DashboardWordCloudWordScaling',
     'DataSetColumnDataType',
+    'DataSetDatasetParameterValueType',
     'DataSetGeoSpatialCountryCode',
     'DataSetImportMode',
     'DataSetRowLevelPermissionFormatVersion',
     'DataSetRowLevelPermissionPolicy',
+    'DataSetSizeUnit',
+    'DataSetStatus',
+    'DataSetTimeGranularity',
     'DataSourceErrorInfoType',
     'DataSourceResourceStatus',
     'DataSourceType',
@@ -1622,6 +1626,14 @@ class DataSetColumnDataType(str, Enum):
     DATETIME = "DATETIME"
 
 
+class DataSetDatasetParameterValueType(str, Enum):
+    """
+    <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
+    """
+    MULTI_VALUED = "MULTI_VALUED"
+    SINGLE_VALUED = "SINGLE_VALUED"
+
+
 class DataSetGeoSpatialCountryCode(str, Enum):
     US = "US"
 
@@ -1639,6 +1651,29 @@ class DataSetRowLevelPermissionFormatVersion(str, Enum):
 class DataSetRowLevelPermissionPolicy(str, Enum):
     GRANT_ACCESS = "GRANT_ACCESS"
     DENY_ACCESS = "DENY_ACCESS"
+
+
+class DataSetSizeUnit(str, Enum):
+    HOUR = "HOUR"
+    DAY = "DAY"
+    WEEK = "WEEK"
+
+
+class DataSetStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class DataSetTimeGranularity(str, Enum):
+    YEAR = "YEAR"
+    QUARTER = "QUARTER"
+    MONTH = "MONTH"
+    WEEK = "WEEK"
+    DAY = "DAY"
+    HOUR = "HOUR"
+    MINUTE = "MINUTE"
+    SECOND = "SECOND"
+    MILLISECOND = "MILLISECOND"
 
 
 class DataSourceErrorInfoType(str, Enum):

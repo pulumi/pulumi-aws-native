@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventDataStoreResult:
-    def __init__(__self__, advanced_event_selectors=None, created_timestamp=None, event_data_store_arn=None, kms_key_id=None, multi_region_enabled=None, name=None, organization_enabled=None, retention_period=None, status=None, tags=None, termination_protection_enabled=None, updated_timestamp=None):
+    def __init__(__self__, advanced_event_selectors=None, created_timestamp=None, event_data_store_arn=None, ingestion_enabled=None, kms_key_id=None, multi_region_enabled=None, name=None, organization_enabled=None, retention_period=None, status=None, tags=None, termination_protection_enabled=None, updated_timestamp=None):
         if advanced_event_selectors and not isinstance(advanced_event_selectors, list):
             raise TypeError("Expected argument 'advanced_event_selectors' to be a list")
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
@@ -29,6 +29,9 @@ class GetEventDataStoreResult:
         if event_data_store_arn and not isinstance(event_data_store_arn, str):
             raise TypeError("Expected argument 'event_data_store_arn' to be a str")
         pulumi.set(__self__, "event_data_store_arn", event_data_store_arn)
+        if ingestion_enabled and not isinstance(ingestion_enabled, bool):
+            raise TypeError("Expected argument 'ingestion_enabled' to be a bool")
+        pulumi.set(__self__, "ingestion_enabled", ingestion_enabled)
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -82,6 +85,14 @@ class GetEventDataStoreResult:
         return pulumi.get(self, "event_data_store_arn")
 
     @property
+    @pulumi.getter(name="ingestionEnabled")
+    def ingestion_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether the event data store is ingesting events.
+        """
+        return pulumi.get(self, "ingestion_enabled")
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
@@ -125,7 +136,7 @@ class GetEventDataStoreResult:
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        The status of an event data store. Values are ENABLED and PENDING_DELETION.
+        The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
         """
         return pulumi.get(self, "status")
 
@@ -160,6 +171,7 @@ class AwaitableGetEventDataStoreResult(GetEventDataStoreResult):
             advanced_event_selectors=self.advanced_event_selectors,
             created_timestamp=self.created_timestamp,
             event_data_store_arn=self.event_data_store_arn,
+            ingestion_enabled=self.ingestion_enabled,
             kms_key_id=self.kms_key_id,
             multi_region_enabled=self.multi_region_enabled,
             name=self.name,
@@ -188,6 +200,7 @@ def get_event_data_store(event_data_store_arn: Optional[str] = None,
         advanced_event_selectors=__ret__.advanced_event_selectors,
         created_timestamp=__ret__.created_timestamp,
         event_data_store_arn=__ret__.event_data_store_arn,
+        ingestion_enabled=__ret__.ingestion_enabled,
         kms_key_id=__ret__.kms_key_id,
         multi_region_enabled=__ret__.multi_region_enabled,
         name=__ret__.name,

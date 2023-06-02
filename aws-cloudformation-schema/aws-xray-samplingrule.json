@@ -228,7 +228,7 @@
       "permissions" : [ "xray:GetSamplingRules", "xray:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "xray:UpdateSamplingRule" ]
+      "permissions" : [ "xray:UpdateSamplingRule", "xray:TagResource", "xray:UntagResource", "xray:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "xray:DeleteSamplingRule" ]

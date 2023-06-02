@@ -19,6 +19,7 @@ class TrailArgs:
     def __init__(__self__, *,
                  is_logging: pulumi.Input[bool],
                  s3_bucket_name: pulumi.Input[str],
+                 advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorArgs']]]] = None,
                  cloud_watch_logs_log_group_arn: Optional[pulumi.Input[str]] = None,
                  cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
                  enable_log_file_validation: Optional[pulumi.Input[bool]] = None,
@@ -36,6 +37,7 @@ class TrailArgs:
         The set of arguments for constructing a Trail resource.
         :param pulumi.Input[bool] is_logging: Whether the CloudTrail is currently logging AWS API calls.
         :param pulumi.Input[str] s3_bucket_name: Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
+        :param pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorArgs']]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
         :param pulumi.Input[str] cloud_watch_logs_log_group_arn: Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
         :param pulumi.Input[str] cloud_watch_logs_role_arn: Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
         :param pulumi.Input[bool] enable_log_file_validation: Specifies whether log file validation is enabled. The default is false.
@@ -50,6 +52,8 @@ class TrailArgs:
         """
         pulumi.set(__self__, "is_logging", is_logging)
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        if advanced_event_selectors is not None:
+            pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
         if cloud_watch_logs_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
         if cloud_watch_logs_role_arn is not None:
@@ -100,6 +104,18 @@ class TrailArgs:
     @s3_bucket_name.setter
     def s3_bucket_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_bucket_name", value)
+
+    @property
+    @pulumi.getter(name="advancedEventSelectors")
+    def advanced_event_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorArgs']]]]:
+        """
+        The advanced event selectors that were used to select events for the data store.
+        """
+        return pulumi.get(self, "advanced_event_selectors")
+
+    @advanced_event_selectors.setter
+    def advanced_event_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorArgs']]]]):
+        pulumi.set(self, "advanced_event_selectors", value)
 
     @property
     @pulumi.getter(name="cloudWatchLogsLogGroupArn")
@@ -257,6 +273,7 @@ class Trail(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailAdvancedEventSelectorArgs']]]]] = None,
                  cloud_watch_logs_log_group_arn: Optional[pulumi.Input[str]] = None,
                  cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
                  enable_log_file_validation: Optional[pulumi.Input[bool]] = None,
@@ -278,6 +295,7 @@ class Trail(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailAdvancedEventSelectorArgs']]]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
         :param pulumi.Input[str] cloud_watch_logs_log_group_arn: Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
         :param pulumi.Input[str] cloud_watch_logs_role_arn: Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
         :param pulumi.Input[bool] enable_log_file_validation: Specifies whether log file validation is enabled. The default is false.
@@ -316,6 +334,7 @@ class Trail(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailAdvancedEventSelectorArgs']]]]] = None,
                  cloud_watch_logs_log_group_arn: Optional[pulumi.Input[str]] = None,
                  cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
                  enable_log_file_validation: Optional[pulumi.Input[bool]] = None,
@@ -340,6 +359,7 @@ class Trail(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TrailArgs.__new__(TrailArgs)
 
+            __props__.__dict__["advanced_event_selectors"] = advanced_event_selectors
             __props__.__dict__["cloud_watch_logs_log_group_arn"] = cloud_watch_logs_log_group_arn
             __props__.__dict__["cloud_watch_logs_role_arn"] = cloud_watch_logs_role_arn
             __props__.__dict__["enable_log_file_validation"] = enable_log_file_validation
@@ -383,6 +403,7 @@ class Trail(pulumi.CustomResource):
 
         __props__ = TrailArgs.__new__(TrailArgs)
 
+        __props__.__dict__["advanced_event_selectors"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["cloud_watch_logs_log_group_arn"] = None
         __props__.__dict__["cloud_watch_logs_role_arn"] = None
@@ -401,6 +422,14 @@ class Trail(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["trail_name"] = None
         return Trail(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="advancedEventSelectors")
+    def advanced_event_selectors(self) -> pulumi.Output[Optional[Sequence['outputs.TrailAdvancedEventSelector']]]:
+        """
+        The advanced event selectors that were used to select events for the data store.
+        """
+        return pulumi.get(self, "advanced_event_selectors")
 
     @property
     @pulumi.getter

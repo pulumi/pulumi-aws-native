@@ -175,7 +175,7 @@
       "type" : "integer"
     },
     "Status" : {
-      "description" : "The status of an event data store. Values are ENABLED and PENDING_DELETION.",
+      "description" : "The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.",
       "type" : "string"
     },
     "TerminationProtectionEnabled" : {
@@ -197,6 +197,10 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "IngestionEnabled" : {
+      "description" : "Indicates whether the event data store is ingesting events.",
+      "type" : "boolean"
     }
   },
   "required" : [ ],
@@ -213,7 +217,7 @@
       "permissions" : [ "CloudTrail:GetEventDataStore", "CloudTrail:ListEventDataStores", "CloudTrail:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "CloudTrail:UpdateEventDataStore", "CloudTrail:RestoreEventDataStore", "CloudTrail:AddTags", "CloudTrail:RemoveTags", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole", "organizations:DescribeOrganization", "organizations:ListAWSServiceAccessForOrganization" ]
+      "permissions" : [ "CloudTrail:UpdateEventDataStore", "CloudTrail:RestoreEventDataStore", "CloudTrail:AddTags", "CloudTrail:RemoveTags", "CloudTrail:StartEventDataStoreIngestion", "CloudTrail:StopEventDataStoreIngestion", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole", "organizations:DescribeOrganization", "organizations:ListAWSServiceAccessForOrganization" ]
     },
     "delete" : {
       "permissions" : [ "CloudTrail:DeleteEventDataStore" ]

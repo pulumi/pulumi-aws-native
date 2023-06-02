@@ -47,6 +47,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.m2.ApplicationTagMap | undefined>;
 
     /**
@@ -71,6 +72,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["engineType"] = args ? args.engineType : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;
@@ -82,6 +84,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["engineType"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -101,5 +104,6 @@ export interface ApplicationArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     tags?: pulumi.Input<inputs.m2.ApplicationTagMapArgs>;
 }

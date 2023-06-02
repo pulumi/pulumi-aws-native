@@ -10,6 +10,11 @@ export const getIdentityPool: typeof import("./getIdentityPool").getIdentityPool
 export const getIdentityPoolOutput: typeof import("./getIdentityPool").getIdentityPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getIdentityPool","getIdentityPoolOutput"], () => require("./getIdentityPool"));
 
+export { GetIdentityPoolPrincipalTagArgs, GetIdentityPoolPrincipalTagResult, GetIdentityPoolPrincipalTagOutputArgs } from "./getIdentityPoolPrincipalTag";
+export const getIdentityPoolPrincipalTag: typeof import("./getIdentityPoolPrincipalTag").getIdentityPoolPrincipalTag = null as any;
+export const getIdentityPoolPrincipalTagOutput: typeof import("./getIdentityPoolPrincipalTag").getIdentityPoolPrincipalTagOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityPoolPrincipalTag","getIdentityPoolPrincipalTagOutput"], () => require("./getIdentityPoolPrincipalTag"));
+
 export { GetIdentityPoolRoleAttachmentArgs, GetIdentityPoolRoleAttachmentResult, GetIdentityPoolRoleAttachmentOutputArgs } from "./getIdentityPoolRoleAttachment";
 export const getIdentityPoolRoleAttachment: typeof import("./getIdentityPoolRoleAttachment").getIdentityPoolRoleAttachment = null as any;
 export const getIdentityPoolRoleAttachmentOutput: typeof import("./getIdentityPoolRoleAttachment").getIdentityPoolRoleAttachmentOutput = null as any;
@@ -69,6 +74,11 @@ export { IdentityPoolArgs } from "./identityPool";
 export type IdentityPool = import("./identityPool").IdentityPool;
 export const IdentityPool: typeof import("./identityPool").IdentityPool = null as any;
 utilities.lazyLoad(exports, ["IdentityPool"], () => require("./identityPool"));
+
+export { IdentityPoolPrincipalTagArgs } from "./identityPoolPrincipalTag";
+export type IdentityPoolPrincipalTag = import("./identityPoolPrincipalTag").IdentityPoolPrincipalTag;
+export const IdentityPoolPrincipalTag: typeof import("./identityPoolPrincipalTag").IdentityPoolPrincipalTag = null as any;
+utilities.lazyLoad(exports, ["IdentityPoolPrincipalTag"], () => require("./identityPoolPrincipalTag"));
 
 export { IdentityPoolRoleAttachmentArgs } from "./identityPoolRoleAttachment";
 export type IdentityPoolRoleAttachment = import("./identityPoolRoleAttachment").IdentityPoolRoleAttachment;
@@ -132,6 +142,8 @@ const _module = {
         switch (type) {
             case "aws-native:cognito:IdentityPool":
                 return new IdentityPool(name, <any>undefined, { urn })
+            case "aws-native:cognito:IdentityPoolPrincipalTag":
+                return new IdentityPoolPrincipalTag(name, <any>undefined, { urn })
             case "aws-native:cognito:IdentityPoolRoleAttachment":
                 return new IdentityPoolRoleAttachment(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPool":

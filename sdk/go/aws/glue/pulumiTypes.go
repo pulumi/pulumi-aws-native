@@ -1045,8 +1045,11 @@ func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SubnetId() pulumi.Str
 }
 
 type CrawlerCatalogTarget struct {
-	DatabaseName *string  `pulumi:"databaseName"`
-	Tables       []string `pulumi:"tables"`
+	ConnectionName   *string  `pulumi:"connectionName"`
+	DatabaseName     *string  `pulumi:"databaseName"`
+	DlqEventQueueArn *string  `pulumi:"dlqEventQueueArn"`
+	EventQueueArn    *string  `pulumi:"eventQueueArn"`
+	Tables           []string `pulumi:"tables"`
 }
 
 // CrawlerCatalogTargetInput is an input type that accepts CrawlerCatalogTargetArgs and CrawlerCatalogTargetOutput values.
@@ -1061,8 +1064,11 @@ type CrawlerCatalogTargetInput interface {
 }
 
 type CrawlerCatalogTargetArgs struct {
-	DatabaseName pulumi.StringPtrInput   `pulumi:"databaseName"`
-	Tables       pulumi.StringArrayInput `pulumi:"tables"`
+	ConnectionName   pulumi.StringPtrInput   `pulumi:"connectionName"`
+	DatabaseName     pulumi.StringPtrInput   `pulumi:"databaseName"`
+	DlqEventQueueArn pulumi.StringPtrInput   `pulumi:"dlqEventQueueArn"`
+	EventQueueArn    pulumi.StringPtrInput   `pulumi:"eventQueueArn"`
+	Tables           pulumi.StringArrayInput `pulumi:"tables"`
 }
 
 func (CrawlerCatalogTargetArgs) ElementType() reflect.Type {
@@ -1116,8 +1122,20 @@ func (o CrawlerCatalogTargetOutput) ToCrawlerCatalogTargetOutputWithContext(ctx 
 	return o
 }
 
+func (o CrawlerCatalogTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
 func (o CrawlerCatalogTargetOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerCatalogTargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CrawlerCatalogTargetOutput) EventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
 }
 
 func (o CrawlerCatalogTargetOutput) Tables() pulumi.StringArrayOutput {

@@ -15,7 +15,9 @@ import (
 type Trail struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The advanced event selectors that were used to select events for the data store.
+	AdvancedEventSelectors TrailAdvancedEventSelectorArrayOutput `pulumi:"advancedEventSelectors"`
+	Arn                    pulumi.StringOutput                   `pulumi:"arn"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
 	CloudWatchLogsLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudWatchLogsLogGroupArn"`
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
@@ -92,6 +94,8 @@ func (TrailState) ElementType() reflect.Type {
 }
 
 type trailArgs struct {
+	// The advanced event selectors that were used to select events for the data store.
+	AdvancedEventSelectors []TrailAdvancedEventSelector `pulumi:"advancedEventSelectors"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
 	CloudWatchLogsLogGroupArn *string `pulumi:"cloudWatchLogsLogGroupArn"`
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
@@ -124,6 +128,8 @@ type trailArgs struct {
 
 // The set of arguments for constructing a Trail resource.
 type TrailArgs struct {
+	// The advanced event selectors that were used to select events for the data store.
+	AdvancedEventSelectors TrailAdvancedEventSelectorArrayInput
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
 	CloudWatchLogsLogGroupArn pulumi.StringPtrInput
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
@@ -189,6 +195,11 @@ func (o TrailOutput) ToTrailOutput() TrailOutput {
 
 func (o TrailOutput) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
 	return o
+}
+
+// The advanced event selectors that were used to select events for the data store.
+func (o TrailOutput) AdvancedEventSelectors() TrailAdvancedEventSelectorArrayOutput {
+	return o.ApplyT(func(v *Trail) TrailAdvancedEventSelectorArrayOutput { return v.AdvancedEventSelectors }).(TrailAdvancedEventSelectorArrayOutput)
 }
 
 func (o TrailOutput) Arn() pulumi.StringOutput {

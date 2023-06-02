@@ -1110,6 +1110,9 @@ export namespace apigatewayv2 {
         serverNameToVerify?: string;
     }
 
+    export interface RouteResponseRouteParameters {
+    }
+
     export interface StageAccessLogSettings {
         destinationArn?: string;
         format?: string;
@@ -5979,6 +5982,54 @@ export namespace cloudtrail {
     }
 
     /**
+     * Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+     */
+    export interface TrailAdvancedEventSelector {
+        /**
+         * Contains all selector statements in an advanced event selector.
+         */
+        fieldSelectors: outputs.cloudtrail.TrailAdvancedFieldSelector[];
+        /**
+         * An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
+         */
+        name?: string;
+    }
+
+    /**
+     * A single selector statement in an advanced event selector.
+     */
+    export interface TrailAdvancedFieldSelector {
+        /**
+         * An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+         */
+        endsWith?: string[];
+        /**
+         * An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields.
+         */
+        equals?: string[];
+        /**
+         * A field in an event record on which to filter events to be logged. Supported fields include readOnly, eventCategory, eventSource (for management events), eventName, resources.type, and resources.ARN.
+         */
+        field: string;
+        /**
+         * An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+         */
+        notEndsWith?: string[];
+        /**
+         * An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+         */
+        notEquals?: string[];
+        /**
+         * An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+         */
+        notStartsWith?: string[];
+        /**
+         * An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+         */
+        startsWith?: string[];
+    }
+
+    /**
      * CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
      */
     export interface TrailDataResource {
@@ -10804,7 +10855,7 @@ export namespace dynamodb {
     }
 
     export interface TableTimeToLiveSpecification {
-        attributeName: string;
+        attributeName?: string;
         enabled: boolean;
     }
 
@@ -16291,7 +16342,10 @@ export namespace glue {
     }
 
     export interface CrawlerCatalogTarget {
+        connectionName?: string;
         databaseName?: string;
+        dlqEventQueueArn?: string;
+        eventQueueArn?: string;
         tables?: string[];
     }
 
@@ -20310,6 +20364,9 @@ export namespace iotfleethub {
 
 export namespace iotfleetwise {
     export interface CampaignCollectionScheme {
+    }
+
+    export interface CampaignDataDestinationConfig {
     }
 
     export interface CampaignSignalInformation {
@@ -36707,6 +36764,57 @@ export namespace quicksight {
         principals?: string[];
     }
 
+    /**
+     * <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+     */
+    export interface DataSetDatasetParameter {
+        dateTimeDatasetParameter?: outputs.quicksight.DataSetDateTimeDatasetParameter;
+        decimalDatasetParameter?: outputs.quicksight.DataSetDecimalDatasetParameter;
+        integerDatasetParameter?: outputs.quicksight.DataSetIntegerDatasetParameter;
+        stringDatasetParameter?: outputs.quicksight.DataSetStringDatasetParameter;
+    }
+
+    /**
+     * <p>A parameter created in the dataset of date time data type.</p>
+     */
+    export interface DataSetDateTimeDatasetParameter {
+        defaultValues?: outputs.quicksight.DataSetDateTimeDatasetParameterDefaultValues;
+        id: string;
+        name: string;
+        timeGranularity?: enums.quicksight.DataSetTimeGranularity;
+        valueType: enums.quicksight.DataSetDatasetParameterValueType;
+    }
+
+    /**
+     * <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+     */
+    export interface DataSetDateTimeDatasetParameterDefaultValues {
+        /**
+         * <p>List of static default values defined for a given string date time parameter type.</p>
+         */
+        staticValues?: string[];
+    }
+
+    /**
+     * <p>A parameter created in the dataset of decimal data type.</p>
+     */
+    export interface DataSetDecimalDatasetParameter {
+        defaultValues?: outputs.quicksight.DataSetDecimalDatasetParameterDefaultValues;
+        id: string;
+        name: string;
+        valueType: enums.quicksight.DataSetDatasetParameterValueType;
+    }
+
+    /**
+     * <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+     */
+    export interface DataSetDecimalDatasetParameterDefaultValues {
+        /**
+         * <p>List of static default values defined for a given decimal dataset parameter type.</p>
+         */
+        staticValues?: number[];
+    }
+
     export interface DataSetFieldFolderMap {
     }
 
@@ -36726,6 +36834,13 @@ export namespace quicksight {
     }
 
     /**
+     * <p>Incremental Refresh</p>
+     */
+    export interface DataSetIncrementalRefresh {
+        lookbackWindow?: outputs.quicksight.DataSetLookbackWindow;
+    }
+
+    /**
      * <p>Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.</p>
      */
     export interface DataSetIngestionWaitPolicy {
@@ -36741,7 +36856,39 @@ export namespace quicksight {
         waitForSpiceIngestion?: boolean;
     }
 
+    /**
+     * <p>A parameter created in the dataset of integer data type.</p>
+     */
+    export interface DataSetIntegerDatasetParameter {
+        defaultValues?: outputs.quicksight.DataSetIntegerDatasetParameterDefaultValues;
+        id: string;
+        name: string;
+        valueType: enums.quicksight.DataSetDatasetParameterValueType;
+    }
+
+    /**
+     * <p>List of default values defined for a given integer dataset parameter type. Currently only static values are supported.</p>
+     */
+    export interface DataSetIntegerDatasetParameterDefaultValues {
+        /**
+         * <p>List of static default values defined for a given integer dataset parameter type.</p>
+         */
+        staticValues?: number[];
+    }
+
     export interface DataSetLogicalTableMap {
+    }
+
+    export interface DataSetLookbackWindow {
+        /**
+         * <p>Column Name</p>
+         */
+        columnName?: string;
+        /**
+         * <p>Size</p>
+         */
+        size?: number;
+        sizeUnit?: enums.quicksight.DataSetSizeUnit;
     }
 
     /**
@@ -36760,6 +36907,20 @@ export namespace quicksight {
     }
 
     export interface DataSetPhysicalTableMap {
+    }
+
+    /**
+     * <p> Refresh Configuration.</p>
+     */
+    export interface DataSetRefreshConfiguration {
+        incrementalRefresh?: outputs.quicksight.DataSetIncrementalRefresh;
+    }
+
+    /**
+     * <p>The dataset refresh properties for the dataset.</p>
+     */
+    export interface DataSetRefreshProperties {
+        refreshConfiguration?: outputs.quicksight.DataSetRefreshConfiguration;
     }
 
     /**
@@ -36804,6 +36965,64 @@ export namespace quicksight {
          */
         namespace?: string;
         permissionPolicy: enums.quicksight.DataSetRowLevelPermissionPolicy;
+        status?: enums.quicksight.DataSetStatus;
+    }
+
+    /**
+     * <p>The configuration of tags on a dataset to set row-level security.</p>
+     */
+    export interface DataSetRowLevelPermissionTagConfiguration {
+        status?: enums.quicksight.DataSetStatus;
+        /**
+         * <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
+         */
+        tagRuleConfigurations?: string[][];
+        /**
+         * <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
+         */
+        tagRules: outputs.quicksight.DataSetRowLevelPermissionTagRule[];
+    }
+
+    /**
+     * <p>Permission for the resource.</p>
+     */
+    export interface DataSetRowLevelPermissionTagRule {
+        /**
+         * <p>The column name that a tag key is assigned to.</p>
+         */
+        columnName: string;
+        /**
+         * <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
+         */
+        matchAllValue?: string;
+        /**
+         * <p>The unique key for a tag.</p>
+         */
+        tagKey: string;
+        /**
+         * <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
+         */
+        tagMultiValueDelimiter?: string;
+    }
+
+    /**
+     * <p>A parameter created in the dataset of string data type.</p>
+     */
+    export interface DataSetStringDatasetParameter {
+        defaultValues?: outputs.quicksight.DataSetStringDatasetParameterDefaultValues;
+        id: string;
+        name: string;
+        valueType: enums.quicksight.DataSetDatasetParameterValueType;
+    }
+
+    /**
+     * <p>List of default values defined for a given string dataset parameter type. Currently only static values are supported.</p>
+     */
+    export interface DataSetStringDatasetParameterDefaultValues {
+        /**
+         * <p>List of static default values defined for a given string dataset parameter type.</p>
+         */
+        staticValues?: string[];
     }
 
     /**
@@ -36853,6 +37072,10 @@ export namespace quicksight {
      * <p>Amazon Athena parameters.</p>
      */
     export interface DataSourceAthenaParameters {
+        /**
+         * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
+         */
+        roleArn?: string;
         /**
          * <p>The workgroup that Amazon Athena uses.</p>
          */
@@ -37159,6 +37382,10 @@ export namespace quicksight {
      */
     export interface DataSourceS3Parameters {
         manifestFileLocation: outputs.quicksight.DataSourceManifestFileLocation;
+        /**
+         * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
+         */
+        roleArn?: string;
     }
 
     /**
@@ -41529,6 +41756,7 @@ export namespace resiliencehub {
      * Resource mapping is used to map logical resources from template to physical resource
      */
     export interface AppResourceMapping {
+        eksSourceName?: string;
         logicalStackName?: string;
         mappingType: string;
         physicalResourceId: outputs.resiliencehub.AppPhysicalResourceId;

@@ -7,12 +7,9 @@
       "type" : "string"
     },
     "ResponseParameters" : {
-      "type" : "object"
+      "$ref" : "#/definitions/RouteParameters"
     },
     "RouteId" : {
-      "type" : "string"
-    },
-    "Id" : {
       "type" : "string"
     },
     "ModelSelectionExpression" : {
@@ -23,10 +20,56 @@
     },
     "ResponseModels" : {
       "type" : "object"
+    },
+    "RouteResponseId" : {
+      "type" : "string"
+    }
+  },
+  "definitions" : {
+    "ParameterConstraints" : {
+      "type" : "object",
+      "properties" : {
+        "Required" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Required" ],
+      "additionalProperties" : false
+    },
+    "RouteParameters" : {
+      "patternProperties" : {
+        "^.+$" : {
+          "$ref" : "#/definitions/ParameterConstraints"
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "required" : [ "RouteResponseKey", "RouteId", "ApiId" ],
   "createOnlyProperties" : [ "/properties/ApiId", "/properties/RouteId" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "readOnlyProperties" : [ "/properties/RouteResponseId" ],
+  "primaryIdentifier" : [ "/properties/ApiId", "/properties/RouteId", "/properties/RouteResponseId" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "apigateway:POST" ]
+    },
+    "update" : {
+      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT" ]
+    },
+    "read" : {
+      "permissions" : [ "apigateway:GET" ]
+    },
+    "delete" : {
+      "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]
+    },
+    "list" : {
+      "permissions" : [ "apigateway:GET" ]
+    }
+  }
 }

@@ -18,6 +18,7 @@ class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 enable_primary_ipv6: Optional[pulumi.Input[bool]] = None,
                  group_set: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  interface_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
@@ -31,6 +32,7 @@ class NetworkInterfaceArgs:
         The set of arguments for constructing a NetworkInterface resource.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the network interface.
         :param pulumi.Input[str] description: A description for the network interface.
+        :param pulumi.Input[bool] enable_primary_ipv6: If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_set: A list of security group IDs associated with this network interface.
         :param pulumi.Input[str] interface_type: Indicates the type of network interface.
         :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
@@ -44,6 +46,8 @@ class NetworkInterfaceArgs:
         pulumi.set(__self__, "subnet_id", subnet_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_primary_ipv6 is not None:
+            pulumi.set(__self__, "enable_primary_ipv6", enable_primary_ipv6)
         if group_set is not None:
             pulumi.set(__self__, "group_set", group_set)
         if interface_type is not None:
@@ -86,6 +90,18 @@ class NetworkInterfaceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="enablePrimaryIpv6")
+    def enable_primary_ipv6(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+        """
+        return pulumi.get(self, "enable_primary_ipv6")
+
+    @enable_primary_ipv6.setter
+    def enable_primary_ipv6(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_primary_ipv6", value)
 
     @property
     @pulumi.getter(name="groupSet")
@@ -202,6 +218,7 @@ class NetworkInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enable_primary_ipv6: Optional[pulumi.Input[bool]] = None,
                  group_set: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  interface_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
@@ -219,6 +236,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the network interface.
+        :param pulumi.Input[bool] enable_primary_ipv6: If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_set: A list of security group IDs associated with this network interface.
         :param pulumi.Input[str] interface_type: Indicates the type of network interface.
         :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
@@ -255,6 +273,7 @@ class NetworkInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enable_primary_ipv6: Optional[pulumi.Input[bool]] = None,
                  group_set: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  interface_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
@@ -275,6 +294,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["enable_primary_ipv6"] = enable_primary_ipv6
             __props__.__dict__["group_set"] = group_set
             __props__.__dict__["interface_type"] = interface_type
             __props__.__dict__["ipv6_address_count"] = ipv6_address_count
@@ -312,6 +332,7 @@ class NetworkInterface(pulumi.CustomResource):
         __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
         __props__.__dict__["description"] = None
+        __props__.__dict__["enable_primary_ipv6"] = None
         __props__.__dict__["group_set"] = None
         __props__.__dict__["interface_type"] = None
         __props__.__dict__["ipv6_address_count"] = None
@@ -333,6 +354,14 @@ class NetworkInterface(pulumi.CustomResource):
         A description for the network interface.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enablePrimaryIpv6")
+    def enable_primary_ipv6(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
+        """
+        return pulumi.get(self, "enable_primary_ipv6")
 
     @property
     @pulumi.getter(name="groupSet")

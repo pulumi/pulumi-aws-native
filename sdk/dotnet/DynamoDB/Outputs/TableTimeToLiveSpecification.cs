@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
     [OutputType]
     public sealed class TableTimeToLiveSpecification
     {
-        public readonly string AttributeName;
+        public readonly string? AttributeName;
         public readonly bool Enabled;
 
         [OutputConstructor]
         private TableTimeToLiveSpecification(
-            string attributeName,
+            string? attributeName,
 
             bool enabled)
         {

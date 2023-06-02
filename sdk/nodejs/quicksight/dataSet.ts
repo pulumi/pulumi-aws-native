@@ -57,7 +57,12 @@ export class DataSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public readonly dataSetId!: pulumi.Output<string | undefined>;
+    public readonly dataSetRefreshProperties!: pulumi.Output<outputs.quicksight.DataSetRefreshProperties | undefined>;
     public readonly dataSetUsageConfiguration!: pulumi.Output<outputs.quicksight.DataSetUsageConfiguration | undefined>;
+    /**
+     * <p>The parameters declared in the dataset.</p>
+     */
+    public readonly datasetParameters!: pulumi.Output<outputs.quicksight.DataSetDatasetParameter[] | undefined>;
     public readonly fieldFolders!: pulumi.Output<outputs.quicksight.DataSetFieldFolderMap | undefined>;
     public readonly importMode!: pulumi.Output<enums.quicksight.DataSetImportMode | undefined>;
     public readonly ingestionWaitPolicy!: pulumi.Output<outputs.quicksight.DataSetIngestionWaitPolicy | undefined>;
@@ -81,6 +86,7 @@ export class DataSet extends pulumi.CustomResource {
     public readonly permissions!: pulumi.Output<outputs.quicksight.DataSetResourcePermission[] | undefined>;
     public readonly physicalTableMap!: pulumi.Output<outputs.quicksight.DataSetPhysicalTableMap | undefined>;
     public readonly rowLevelPermissionDataSet!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionDataSet | undefined>;
+    public readonly rowLevelPermissionTagConfiguration!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionTagConfiguration | undefined>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
@@ -101,7 +107,9 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["columnGroups"] = args ? args.columnGroups : undefined;
             resourceInputs["columnLevelPermissionRules"] = args ? args.columnLevelPermissionRules : undefined;
             resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
+            resourceInputs["dataSetRefreshProperties"] = args ? args.dataSetRefreshProperties : undefined;
             resourceInputs["dataSetUsageConfiguration"] = args ? args.dataSetUsageConfiguration : undefined;
+            resourceInputs["datasetParameters"] = args ? args.datasetParameters : undefined;
             resourceInputs["fieldFolders"] = args ? args.fieldFolders : undefined;
             resourceInputs["importMode"] = args ? args.importMode : undefined;
             resourceInputs["ingestionWaitPolicy"] = args ? args.ingestionWaitPolicy : undefined;
@@ -110,6 +118,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["physicalTableMap"] = args ? args.physicalTableMap : undefined;
             resourceInputs["rowLevelPermissionDataSet"] = args ? args.rowLevelPermissionDataSet : undefined;
+            resourceInputs["rowLevelPermissionTagConfiguration"] = args ? args.rowLevelPermissionTagConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["consumedSpiceCapacityInBytes"] = undefined /*out*/;
@@ -124,7 +133,9 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["consumedSpiceCapacityInBytes"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["dataSetRefreshProperties"] = undefined /*out*/;
             resourceInputs["dataSetUsageConfiguration"] = undefined /*out*/;
+            resourceInputs["datasetParameters"] = undefined /*out*/;
             resourceInputs["fieldFolders"] = undefined /*out*/;
             resourceInputs["importMode"] = undefined /*out*/;
             resourceInputs["ingestionWaitPolicy"] = undefined /*out*/;
@@ -135,6 +146,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["permissions"] = undefined /*out*/;
             resourceInputs["physicalTableMap"] = undefined /*out*/;
             resourceInputs["rowLevelPermissionDataSet"] = undefined /*out*/;
+            resourceInputs["rowLevelPermissionTagConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -153,7 +165,12 @@ export interface DataSetArgs {
     columnGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnGroupArgs>[]>;
     columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRuleArgs>[]>;
     dataSetId?: pulumi.Input<string>;
+    dataSetRefreshProperties?: pulumi.Input<inputs.quicksight.DataSetRefreshPropertiesArgs>;
     dataSetUsageConfiguration?: pulumi.Input<inputs.quicksight.DataSetUsageConfigurationArgs>;
+    /**
+     * <p>The parameters declared in the dataset.</p>
+     */
+    datasetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetDatasetParameterArgs>[]>;
     fieldFolders?: pulumi.Input<inputs.quicksight.DataSetFieldFolderMapArgs>;
     importMode?: pulumi.Input<enums.quicksight.DataSetImportMode>;
     ingestionWaitPolicy?: pulumi.Input<inputs.quicksight.DataSetIngestionWaitPolicyArgs>;
@@ -168,6 +185,7 @@ export interface DataSetArgs {
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetResourcePermissionArgs>[]>;
     physicalTableMap?: pulumi.Input<inputs.quicksight.DataSetPhysicalTableMapArgs>;
     rowLevelPermissionDataSet?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionDataSetArgs>;
+    rowLevelPermissionTagConfiguration?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionTagConfigurationArgs>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */

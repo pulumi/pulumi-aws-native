@@ -26,6 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? Namespace;
         public readonly Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionPolicy PermissionPolicy;
+        public readonly Pulumi.AwsNative.QuickSight.DataSetStatus? Status;
 
         [OutputConstructor]
         private DataSetRowLevelPermissionDataSet(
@@ -35,12 +36,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? @namespace,
 
-            Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionPolicy permissionPolicy)
+            Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionPolicy permissionPolicy,
+
+            Pulumi.AwsNative.QuickSight.DataSetStatus? status)
         {
             Arn = arn;
             FormatVersion = formatVersion;
             Namespace = @namespace;
             PermissionPolicy = permissionPolicy;
+            Status = status;
         }
     }
 }

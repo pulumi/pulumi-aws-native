@@ -18,6 +18,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("manifestFileLocation", required: true)]
         public Input<Inputs.DataSourceManifestFileLocationArgs> ManifestFileLocation { get; set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;Use the &lt;code&gt;RoleArn&lt;/code&gt; structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use &lt;code&gt;RoleArn&lt;/code&gt; to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.&lt;/p&gt;
+        /// </summary>
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
+
         public DataSourceS3ParametersArgs()
         {
         }

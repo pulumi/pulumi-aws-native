@@ -23,6 +23,10 @@ export interface GetTrailArgs {
 }
 
 export interface GetTrailResult {
+    /**
+     * The advanced event selectors that were used to select events for the data store.
+     */
+    readonly advancedEventSelectors?: outputs.cloudtrail.TrailAdvancedEventSelector[];
     readonly arn?: string;
     /**
      * Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.

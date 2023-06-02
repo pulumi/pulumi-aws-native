@@ -1685,6 +1685,16 @@ export const DataSetColumnDataType = {
 
 export type DataSetColumnDataType = (typeof DataSetColumnDataType)[keyof typeof DataSetColumnDataType];
 
+export const DataSetDatasetParameterValueType = {
+    MultiValued: "MULTI_VALUED",
+    SingleValued: "SINGLE_VALUED",
+} as const;
+
+/**
+ * <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
+ */
+export type DataSetDatasetParameterValueType = (typeof DataSetDatasetParameterValueType)[keyof typeof DataSetDatasetParameterValueType];
+
 export const DataSetGeoSpatialCountryCode = {
     Us: "US",
 } as const;
@@ -1711,6 +1721,35 @@ export const DataSetRowLevelPermissionPolicy = {
 } as const;
 
 export type DataSetRowLevelPermissionPolicy = (typeof DataSetRowLevelPermissionPolicy)[keyof typeof DataSetRowLevelPermissionPolicy];
+
+export const DataSetSizeUnit = {
+    Hour: "HOUR",
+    Day: "DAY",
+    Week: "WEEK",
+} as const;
+
+export type DataSetSizeUnit = (typeof DataSetSizeUnit)[keyof typeof DataSetSizeUnit];
+
+export const DataSetStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type DataSetStatus = (typeof DataSetStatus)[keyof typeof DataSetStatus];
+
+export const DataSetTimeGranularity = {
+    Year: "YEAR",
+    Quarter: "QUARTER",
+    Month: "MONTH",
+    Week: "WEEK",
+    Day: "DAY",
+    Hour: "HOUR",
+    Minute: "MINUTE",
+    Second: "SECOND",
+    Millisecond: "MILLISECOND",
+} as const;
+
+export type DataSetTimeGranularity = (typeof DataSetTimeGranularity)[keyof typeof DataSetTimeGranularity];
 
 export const DataSourceErrorInfoType = {
     AccessDenied: "ACCESS_DENIED",

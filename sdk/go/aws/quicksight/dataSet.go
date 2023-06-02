@@ -24,12 +24,15 @@ type DataSet struct {
 	//             imported into SPICE.</p>
 	ConsumedSpiceCapacityInBytes pulumi.Float64Output `pulumi:"consumedSpiceCapacityInBytes"`
 	// <p>The time that this dataset was created.</p>
-	CreatedTime               pulumi.StringOutput                 `pulumi:"createdTime"`
-	DataSetId                 pulumi.StringPtrOutput              `pulumi:"dataSetId"`
-	DataSetUsageConfiguration DataSetUsageConfigurationPtrOutput  `pulumi:"dataSetUsageConfiguration"`
-	FieldFolders              DataSetFieldFolderMapPtrOutput      `pulumi:"fieldFolders"`
-	ImportMode                DataSetImportModePtrOutput          `pulumi:"importMode"`
-	IngestionWaitPolicy       DataSetIngestionWaitPolicyPtrOutput `pulumi:"ingestionWaitPolicy"`
+	CreatedTime               pulumi.StringOutput                `pulumi:"createdTime"`
+	DataSetId                 pulumi.StringPtrOutput             `pulumi:"dataSetId"`
+	DataSetRefreshProperties  DataSetRefreshPropertiesPtrOutput  `pulumi:"dataSetRefreshProperties"`
+	DataSetUsageConfiguration DataSetUsageConfigurationPtrOutput `pulumi:"dataSetUsageConfiguration"`
+	// <p>The parameters declared in the dataset.</p>
+	DatasetParameters   DataSetDatasetParameterArrayOutput  `pulumi:"datasetParameters"`
+	FieldFolders        DataSetFieldFolderMapPtrOutput      `pulumi:"fieldFolders"`
+	ImportMode          DataSetImportModePtrOutput          `pulumi:"importMode"`
+	IngestionWaitPolicy DataSetIngestionWaitPolicyPtrOutput `pulumi:"ingestionWaitPolicy"`
 	// <p>The last time that this dataset was updated.</p>
 	LastUpdatedTime pulumi.StringOutput             `pulumi:"lastUpdatedTime"`
 	LogicalTableMap DataSetLogicalTableMapPtrOutput `pulumi:"logicalTableMap"`
@@ -39,9 +42,10 @@ type DataSet struct {
 	//             analyses, and dashboards.</p>
 	OutputColumns DataSetOutputColumnArrayOutput `pulumi:"outputColumns"`
 	// <p>A list of resource permissions on the dataset.</p>
-	Permissions               DataSetResourcePermissionArrayOutput      `pulumi:"permissions"`
-	PhysicalTableMap          DataSetPhysicalTableMapPtrOutput          `pulumi:"physicalTableMap"`
-	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrOutput `pulumi:"rowLevelPermissionDataSet"`
+	Permissions                        DataSetResourcePermissionArrayOutput               `pulumi:"permissions"`
+	PhysicalTableMap                   DataSetPhysicalTableMapPtrOutput                   `pulumi:"physicalTableMap"`
+	RowLevelPermissionDataSet          DataSetRowLevelPermissionDataSetPtrOutput          `pulumi:"rowLevelPermissionDataSet"`
+	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrOutput `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags DataSetTagArrayOutput `pulumi:"tags"`
 }
@@ -90,17 +94,21 @@ type dataSetArgs struct {
 	ColumnGroups               []DataSetColumnGroup               `pulumi:"columnGroups"`
 	ColumnLevelPermissionRules []DataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
 	DataSetId                  *string                            `pulumi:"dataSetId"`
+	DataSetRefreshProperties   *DataSetRefreshProperties          `pulumi:"dataSetRefreshProperties"`
 	DataSetUsageConfiguration  *DataSetUsageConfiguration         `pulumi:"dataSetUsageConfiguration"`
-	FieldFolders               *DataSetFieldFolderMap             `pulumi:"fieldFolders"`
-	ImportMode                 *DataSetImportMode                 `pulumi:"importMode"`
-	IngestionWaitPolicy        *DataSetIngestionWaitPolicy        `pulumi:"ingestionWaitPolicy"`
-	LogicalTableMap            *DataSetLogicalTableMap            `pulumi:"logicalTableMap"`
+	// <p>The parameters declared in the dataset.</p>
+	DatasetParameters   []DataSetDatasetParameter   `pulumi:"datasetParameters"`
+	FieldFolders        *DataSetFieldFolderMap      `pulumi:"fieldFolders"`
+	ImportMode          *DataSetImportMode          `pulumi:"importMode"`
+	IngestionWaitPolicy *DataSetIngestionWaitPolicy `pulumi:"ingestionWaitPolicy"`
+	LogicalTableMap     *DataSetLogicalTableMap     `pulumi:"logicalTableMap"`
 	// <p>The display name for the dataset.</p>
 	Name *string `pulumi:"name"`
 	// <p>A list of resource permissions on the dataset.</p>
-	Permissions               []DataSetResourcePermission       `pulumi:"permissions"`
-	PhysicalTableMap          *DataSetPhysicalTableMap          `pulumi:"physicalTableMap"`
-	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
+	Permissions                        []DataSetResourcePermission                `pulumi:"permissions"`
+	PhysicalTableMap                   *DataSetPhysicalTableMap                   `pulumi:"physicalTableMap"`
+	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
+	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags []DataSetTag `pulumi:"tags"`
 }
@@ -112,17 +120,21 @@ type DataSetArgs struct {
 	ColumnGroups               DataSetColumnGroupArrayInput
 	ColumnLevelPermissionRules DataSetColumnLevelPermissionRuleArrayInput
 	DataSetId                  pulumi.StringPtrInput
+	DataSetRefreshProperties   DataSetRefreshPropertiesPtrInput
 	DataSetUsageConfiguration  DataSetUsageConfigurationPtrInput
-	FieldFolders               DataSetFieldFolderMapPtrInput
-	ImportMode                 DataSetImportModePtrInput
-	IngestionWaitPolicy        DataSetIngestionWaitPolicyPtrInput
-	LogicalTableMap            DataSetLogicalTableMapPtrInput
+	// <p>The parameters declared in the dataset.</p>
+	DatasetParameters   DataSetDatasetParameterArrayInput
+	FieldFolders        DataSetFieldFolderMapPtrInput
+	ImportMode          DataSetImportModePtrInput
+	IngestionWaitPolicy DataSetIngestionWaitPolicyPtrInput
+	LogicalTableMap     DataSetLogicalTableMapPtrInput
 	// <p>The display name for the dataset.</p>
 	Name pulumi.StringPtrInput
 	// <p>A list of resource permissions on the dataset.</p>
-	Permissions               DataSetResourcePermissionArrayInput
-	PhysicalTableMap          DataSetPhysicalTableMapPtrInput
-	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrInput
+	Permissions                        DataSetResourcePermissionArrayInput
+	PhysicalTableMap                   DataSetPhysicalTableMapPtrInput
+	RowLevelPermissionDataSet          DataSetRowLevelPermissionDataSetPtrInput
+	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags DataSetTagArrayInput
 }
@@ -198,8 +210,17 @@ func (o DataSetOutput) DataSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringPtrOutput { return v.DataSetId }).(pulumi.StringPtrOutput)
 }
 
+func (o DataSetOutput) DataSetRefreshProperties() DataSetRefreshPropertiesPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetRefreshPropertiesPtrOutput { return v.DataSetRefreshProperties }).(DataSetRefreshPropertiesPtrOutput)
+}
+
 func (o DataSetOutput) DataSetUsageConfiguration() DataSetUsageConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetUsageConfigurationPtrOutput { return v.DataSetUsageConfiguration }).(DataSetUsageConfigurationPtrOutput)
+}
+
+// <p>The parameters declared in the dataset.</p>
+func (o DataSetOutput) DatasetParameters() DataSetDatasetParameterArrayOutput {
+	return o.ApplyT(func(v *DataSet) DataSetDatasetParameterArrayOutput { return v.DatasetParameters }).(DataSetDatasetParameterArrayOutput)
 }
 
 func (o DataSetOutput) FieldFolders() DataSetFieldFolderMapPtrOutput {
@@ -246,6 +267,12 @@ func (o DataSetOutput) PhysicalTableMap() DataSetPhysicalTableMapPtrOutput {
 
 func (o DataSetOutput) RowLevelPermissionDataSet() DataSetRowLevelPermissionDataSetPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetRowLevelPermissionDataSetPtrOutput { return v.RowLevelPermissionDataSet }).(DataSetRowLevelPermissionDataSetPtrOutput)
+}
+
+func (o DataSetOutput) RowLevelPermissionTagConfiguration() DataSetRowLevelPermissionTagConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetRowLevelPermissionTagConfigurationPtrOutput {
+		return v.RowLevelPermissionTagConfiguration
+	}).(DataSetRowLevelPermissionTagConfigurationPtrOutput)
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>

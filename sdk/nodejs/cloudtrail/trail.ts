@@ -37,6 +37,10 @@ export class Trail extends pulumi.CustomResource {
         return obj['__pulumiType'] === Trail.__pulumiType;
     }
 
+    /**
+     * The advanced event selectors that were used to select events for the data store.
+     */
+    public readonly advancedEventSelectors!: pulumi.Output<outputs.cloudtrail.TrailAdvancedEventSelector[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
@@ -111,6 +115,7 @@ export class Trail extends pulumi.CustomResource {
             if ((!args || args.s3BucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3BucketName'");
             }
+            resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
             resourceInputs["cloudWatchLogsLogGroupArn"] = args ? args.cloudWatchLogsLogGroupArn : undefined;
             resourceInputs["cloudWatchLogsRoleArn"] = args ? args.cloudWatchLogsRoleArn : undefined;
             resourceInputs["enableLogFileValidation"] = args ? args.enableLogFileValidation : undefined;
@@ -129,6 +134,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;
         } else {
+            resourceInputs["advancedEventSelectors"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cloudWatchLogsLogGroupArn"] = undefined /*out*/;
             resourceInputs["cloudWatchLogsRoleArn"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export class Trail extends pulumi.CustomResource {
  * The set of arguments for constructing a Trail resource.
  */
 export interface TrailArgs {
+    /**
+     * The advanced event selectors that were used to select events for the data store.
+     */
+    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailAdvancedEventSelectorArgs>[]>;
     /**
      * Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
      */

@@ -12,8 +12,17 @@ namespace Pulumi.AwsNative.Glue.Inputs
 
     public sealed class CrawlerCatalogTargetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
+
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        [Input("dlqEventQueueArn")]
+        public Input<string>? DlqEventQueueArn { get; set; }
+
+        [Input("eventQueueArn")]
+        public Input<string>? EventQueueArn { get; set; }
 
         [Input("tables")]
         private InputList<string>? _tables;

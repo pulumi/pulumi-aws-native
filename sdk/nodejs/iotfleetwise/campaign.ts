@@ -45,6 +45,7 @@ export class Campaign extends pulumi.CustomResource {
     public readonly collectionScheme!: pulumi.Output<outputs.iotfleetwise.CampaignCollectionScheme>;
     public readonly compression!: pulumi.Output<enums.iotfleetwise.CampaignCompression | undefined>;
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public readonly dataDestinationConfigs!: pulumi.Output<outputs.iotfleetwise.CampaignDataDestinationConfig[] | undefined>;
     public readonly dataExtraDimensions!: pulumi.Output<string[] | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly diagnosticsMode!: pulumi.Output<enums.iotfleetwise.CampaignDiagnosticsMode | undefined>;
@@ -89,6 +90,7 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["action"] = args ? args.action : undefined;
             resourceInputs["collectionScheme"] = args ? args.collectionScheme : undefined;
             resourceInputs["compression"] = args ? args.compression : undefined;
+            resourceInputs["dataDestinationConfigs"] = args ? args.dataDestinationConfigs : undefined;
             resourceInputs["dataExtraDimensions"] = args ? args.dataExtraDimensions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["diagnosticsMode"] = args ? args.diagnosticsMode : undefined;
@@ -112,6 +114,7 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["collectionScheme"] = undefined /*out*/;
             resourceInputs["compression"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["dataDestinationConfigs"] = undefined /*out*/;
             resourceInputs["dataExtraDimensions"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["diagnosticsMode"] = undefined /*out*/;
@@ -140,6 +143,7 @@ export interface CampaignArgs {
     action: pulumi.Input<enums.iotfleetwise.CampaignUpdateCampaignAction>;
     collectionScheme: pulumi.Input<inputs.iotfleetwise.CampaignCollectionSchemeArgs>;
     compression?: pulumi.Input<enums.iotfleetwise.CampaignCompression>;
+    dataDestinationConfigs?: pulumi.Input<pulumi.Input<inputs.iotfleetwise.CampaignDataDestinationConfigArgs>[]>;
     dataExtraDimensions?: pulumi.Input<pulumi.Input<string>[]>;
     description?: pulumi.Input<string>;
     diagnosticsMode?: pulumi.Input<enums.iotfleetwise.CampaignDiagnosticsMode>;

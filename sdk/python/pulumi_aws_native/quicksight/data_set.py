@@ -21,7 +21,9 @@ class DataSetArgs:
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
+                 data_set_refresh_properties: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']] = None,
                  data_set_usage_configuration: Optional[pulumi.Input['DataSetUsageConfigurationArgs']] = None,
+                 dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]]] = None,
                  field_folders: Optional[pulumi.Input['DataSetFieldFolderMapArgs']] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input['DataSetIngestionWaitPolicyArgs']] = None,
@@ -30,10 +32,12 @@ class DataSetArgs:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]]] = None,
                  physical_table_map: Optional[pulumi.Input['DataSetPhysicalTableMapArgs']] = None,
                  row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
+                 row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]]] = None):
         """
         The set of arguments for constructing a DataSet resource.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]] dataset_parameters: <p>The parameters declared in the dataset.</p>
         :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
@@ -46,8 +50,12 @@ class DataSetArgs:
             pulumi.set(__self__, "column_level_permission_rules", column_level_permission_rules)
         if data_set_id is not None:
             pulumi.set(__self__, "data_set_id", data_set_id)
+        if data_set_refresh_properties is not None:
+            pulumi.set(__self__, "data_set_refresh_properties", data_set_refresh_properties)
         if data_set_usage_configuration is not None:
             pulumi.set(__self__, "data_set_usage_configuration", data_set_usage_configuration)
+        if dataset_parameters is not None:
+            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
         if field_folders is not None:
             pulumi.set(__self__, "field_folders", field_folders)
         if import_mode is not None:
@@ -64,6 +72,8 @@ class DataSetArgs:
             pulumi.set(__self__, "physical_table_map", physical_table_map)
         if row_level_permission_data_set is not None:
             pulumi.set(__self__, "row_level_permission_data_set", row_level_permission_data_set)
+        if row_level_permission_tag_configuration is not None:
+            pulumi.set(__self__, "row_level_permission_tag_configuration", row_level_permission_tag_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -107,6 +117,15 @@ class DataSetArgs:
         pulumi.set(self, "data_set_id", value)
 
     @property
+    @pulumi.getter(name="dataSetRefreshProperties")
+    def data_set_refresh_properties(self) -> Optional[pulumi.Input['DataSetRefreshPropertiesArgs']]:
+        return pulumi.get(self, "data_set_refresh_properties")
+
+    @data_set_refresh_properties.setter
+    def data_set_refresh_properties(self, value: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']]):
+        pulumi.set(self, "data_set_refresh_properties", value)
+
+    @property
     @pulumi.getter(name="dataSetUsageConfiguration")
     def data_set_usage_configuration(self) -> Optional[pulumi.Input['DataSetUsageConfigurationArgs']]:
         return pulumi.get(self, "data_set_usage_configuration")
@@ -114,6 +133,18 @@ class DataSetArgs:
     @data_set_usage_configuration.setter
     def data_set_usage_configuration(self, value: Optional[pulumi.Input['DataSetUsageConfigurationArgs']]):
         pulumi.set(self, "data_set_usage_configuration", value)
+
+    @property
+    @pulumi.getter(name="datasetParameters")
+    def dataset_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]]]:
+        """
+        <p>The parameters declared in the dataset.</p>
+        """
+        return pulumi.get(self, "dataset_parameters")
+
+    @dataset_parameters.setter
+    def dataset_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]]]):
+        pulumi.set(self, "dataset_parameters", value)
 
     @property
     @pulumi.getter(name="fieldFolders")
@@ -194,6 +225,15 @@ class DataSetArgs:
         pulumi.set(self, "row_level_permission_data_set", value)
 
     @property
+    @pulumi.getter(name="rowLevelPermissionTagConfiguration")
+    def row_level_permission_tag_configuration(self) -> Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']]:
+        return pulumi.get(self, "row_level_permission_tag_configuration")
+
+    @row_level_permission_tag_configuration.setter
+    def row_level_permission_tag_configuration(self, value: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']]):
+        pulumi.set(self, "row_level_permission_tag_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]]]:
         """
@@ -215,7 +255,9 @@ class DataSet(pulumi.CustomResource):
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
+                 data_set_refresh_properties: Optional[pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']]] = None,
                  data_set_usage_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetUsageConfigurationArgs']]] = None,
+                 dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]]] = None,
                  field_folders: Optional[pulumi.Input[pulumi.InputType['DataSetFieldFolderMapArgs']]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
@@ -224,6 +266,7 @@ class DataSet(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]]] = None,
                  physical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
+                 row_level_permission_tag_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -232,6 +275,7 @@ class DataSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]] column_groups: <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]] dataset_parameters: <p>The parameters declared in the dataset.</p>
         :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]] permissions: <p>A list of resource permissions on the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
@@ -264,7 +308,9 @@ class DataSet(pulumi.CustomResource):
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
+                 data_set_refresh_properties: Optional[pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']]] = None,
                  data_set_usage_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetUsageConfigurationArgs']]] = None,
+                 dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]]] = None,
                  field_folders: Optional[pulumi.Input[pulumi.InputType['DataSetFieldFolderMapArgs']]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
@@ -273,6 +319,7 @@ class DataSet(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]]] = None,
                  physical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
+                 row_level_permission_tag_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -287,7 +334,9 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["column_groups"] = column_groups
             __props__.__dict__["column_level_permission_rules"] = column_level_permission_rules
             __props__.__dict__["data_set_id"] = data_set_id
+            __props__.__dict__["data_set_refresh_properties"] = data_set_refresh_properties
             __props__.__dict__["data_set_usage_configuration"] = data_set_usage_configuration
+            __props__.__dict__["dataset_parameters"] = dataset_parameters
             __props__.__dict__["field_folders"] = field_folders
             __props__.__dict__["import_mode"] = import_mode
             __props__.__dict__["ingestion_wait_policy"] = ingestion_wait_policy
@@ -296,6 +345,7 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["physical_table_map"] = physical_table_map
             __props__.__dict__["row_level_permission_data_set"] = row_level_permission_data_set
+            __props__.__dict__["row_level_permission_tag_configuration"] = row_level_permission_tag_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["consumed_spice_capacity_in_bytes"] = None
@@ -331,7 +381,9 @@ class DataSet(pulumi.CustomResource):
         __props__.__dict__["consumed_spice_capacity_in_bytes"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["data_set_id"] = None
+        __props__.__dict__["data_set_refresh_properties"] = None
         __props__.__dict__["data_set_usage_configuration"] = None
+        __props__.__dict__["dataset_parameters"] = None
         __props__.__dict__["field_folders"] = None
         __props__.__dict__["import_mode"] = None
         __props__.__dict__["ingestion_wait_policy"] = None
@@ -342,6 +394,7 @@ class DataSet(pulumi.CustomResource):
         __props__.__dict__["permissions"] = None
         __props__.__dict__["physical_table_map"] = None
         __props__.__dict__["row_level_permission_data_set"] = None
+        __props__.__dict__["row_level_permission_tag_configuration"] = None
         __props__.__dict__["tags"] = None
         return DataSet(resource_name, opts=opts, __props__=__props__)
 
@@ -394,9 +447,22 @@ class DataSet(pulumi.CustomResource):
         return pulumi.get(self, "data_set_id")
 
     @property
+    @pulumi.getter(name="dataSetRefreshProperties")
+    def data_set_refresh_properties(self) -> pulumi.Output[Optional['outputs.DataSetRefreshProperties']]:
+        return pulumi.get(self, "data_set_refresh_properties")
+
+    @property
     @pulumi.getter(name="dataSetUsageConfiguration")
     def data_set_usage_configuration(self) -> pulumi.Output[Optional['outputs.DataSetUsageConfiguration']]:
         return pulumi.get(self, "data_set_usage_configuration")
+
+    @property
+    @pulumi.getter(name="datasetParameters")
+    def dataset_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetDatasetParameter']]]:
+        """
+        <p>The parameters declared in the dataset.</p>
+        """
+        return pulumi.get(self, "dataset_parameters")
 
     @property
     @pulumi.getter(name="fieldFolders")
@@ -460,6 +526,11 @@ class DataSet(pulumi.CustomResource):
     @pulumi.getter(name="rowLevelPermissionDataSet")
     def row_level_permission_data_set(self) -> pulumi.Output[Optional['outputs.DataSetRowLevelPermissionDataSet']]:
         return pulumi.get(self, "row_level_permission_data_set")
+
+    @property
+    @pulumi.getter(name="rowLevelPermissionTagConfiguration")
+    def row_level_permission_tag_configuration(self) -> pulumi.Output[Optional['outputs.DataSetRowLevelPermissionTagConfiguration']]:
+        return pulumi.get(self, "row_level_permission_tag_configuration")
 
     @property
     @pulumi.getter

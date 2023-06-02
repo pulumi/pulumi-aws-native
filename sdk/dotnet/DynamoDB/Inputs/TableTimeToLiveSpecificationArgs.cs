@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
 
     public sealed class TableTimeToLiveSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("attributeName", required: true)]
-        public Input<string> AttributeName { get; set; } = null!;
+        [Input("attributeName")]
+        public Input<string>? AttributeName { get; set; }
 
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

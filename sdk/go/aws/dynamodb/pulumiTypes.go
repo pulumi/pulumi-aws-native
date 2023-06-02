@@ -4504,8 +4504,8 @@ func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
 }
 
 type TableTimeToLiveSpecification struct {
-	AttributeName string `pulumi:"attributeName"`
-	Enabled       bool   `pulumi:"enabled"`
+	AttributeName *string `pulumi:"attributeName"`
+	Enabled       bool    `pulumi:"enabled"`
 }
 
 // TableTimeToLiveSpecificationInput is an input type that accepts TableTimeToLiveSpecificationArgs and TableTimeToLiveSpecificationOutput values.
@@ -4520,8 +4520,8 @@ type TableTimeToLiveSpecificationInput interface {
 }
 
 type TableTimeToLiveSpecificationArgs struct {
-	AttributeName pulumi.StringInput `pulumi:"attributeName"`
-	Enabled       pulumi.BoolInput   `pulumi:"enabled"`
+	AttributeName pulumi.StringPtrInput `pulumi:"attributeName"`
+	Enabled       pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (TableTimeToLiveSpecificationArgs) ElementType() reflect.Type {
@@ -4601,8 +4601,8 @@ func (o TableTimeToLiveSpecificationOutput) ToTableTimeToLiveSpecificationPtrOut
 	}).(TableTimeToLiveSpecificationPtrOutput)
 }
 
-func (o TableTimeToLiveSpecificationOutput) AttributeName() pulumi.StringOutput {
-	return o.ApplyT(func(v TableTimeToLiveSpecification) string { return v.AttributeName }).(pulumi.StringOutput)
+func (o TableTimeToLiveSpecificationOutput) AttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTimeToLiveSpecification) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
 }
 
 func (o TableTimeToLiveSpecificationOutput) Enabled() pulumi.BoolOutput {
@@ -4638,7 +4638,7 @@ func (o TableTimeToLiveSpecificationPtrOutput) AttributeName() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return &v.AttributeName
+		return v.AttributeName
 	}).(pulumi.StringPtrOutput)
 }
 

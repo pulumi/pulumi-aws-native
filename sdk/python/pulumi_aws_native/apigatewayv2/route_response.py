@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['RouteResponseArgs', 'RouteResponse']
 
@@ -19,7 +21,7 @@ class RouteResponseArgs:
                  route_response_key: pulumi.Input[str],
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
                  response_models: Optional[Any] = None,
-                 response_parameters: Optional[Any] = None):
+                 response_parameters: Optional[pulumi.Input['RouteResponseRouteParametersArgs']] = None):
         """
         The set of arguments for constructing a RouteResponse resource.
         """
@@ -80,11 +82,11 @@ class RouteResponseArgs:
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[Any]:
+    def response_parameters(self) -> Optional[pulumi.Input['RouteResponseRouteParametersArgs']]:
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[Any]):
+    def response_parameters(self, value: Optional[pulumi.Input['RouteResponseRouteParametersArgs']]):
         pulumi.set(self, "response_parameters", value)
 
 
@@ -96,7 +98,7 @@ class RouteResponse(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[str]] = None,
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
                  response_models: Optional[Any] = None,
-                 response_parameters: Optional[Any] = None,
+                 response_parameters: Optional[pulumi.Input[pulumi.InputType['RouteResponseRouteParametersArgs']]] = None,
                  route_id: Optional[pulumi.Input[str]] = None,
                  route_response_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -133,7 +135,7 @@ class RouteResponse(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[str]] = None,
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
                  response_models: Optional[Any] = None,
-                 response_parameters: Optional[Any] = None,
+                 response_parameters: Optional[pulumi.Input[pulumi.InputType['RouteResponseRouteParametersArgs']]] = None,
                  route_id: Optional[pulumi.Input[str]] = None,
                  route_response_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -157,6 +159,7 @@ class RouteResponse(pulumi.CustomResource):
             if route_response_key is None and not opts.urn:
                 raise TypeError("Missing required property 'route_response_key'")
             __props__.__dict__["route_response_key"] = route_response_key
+            __props__.__dict__["route_response_id"] = None
         super(RouteResponse, __self__).__init__(
             'aws-native:apigatewayv2:RouteResponse',
             resource_name,
@@ -184,6 +187,7 @@ class RouteResponse(pulumi.CustomResource):
         __props__.__dict__["response_models"] = None
         __props__.__dict__["response_parameters"] = None
         __props__.__dict__["route_id"] = None
+        __props__.__dict__["route_response_id"] = None
         __props__.__dict__["route_response_key"] = None
         return RouteResponse(resource_name, opts=opts, __props__=__props__)
 
@@ -204,13 +208,18 @@ class RouteResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> pulumi.Output[Optional[Any]]:
+    def response_parameters(self) -> pulumi.Output[Optional['outputs.RouteResponseRouteParameters']]:
         return pulumi.get(self, "response_parameters")
 
     @property
     @pulumi.getter(name="routeId")
     def route_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "route_id")
+
+    @property
+    @pulumi.getter(name="routeResponseId")
+    def route_response_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "route_response_id")
 
     @property
     @pulumi.getter(name="routeResponseKey")

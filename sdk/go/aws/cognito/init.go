@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:cognito:IdentityPool":
 		r = &IdentityPool{}
+	case "aws-native:cognito:IdentityPoolPrincipalTag":
+		r = &IdentityPoolPrincipalTag{}
 	case "aws-native:cognito:IdentityPoolRoleAttachment":
 		r = &IdentityPoolRoleAttachment{}
 	case "aws-native:cognito:UserPool":

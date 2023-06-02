@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.CloudTrail
     [AwsNativeResourceType("aws-native:cloudtrail:Trail")]
     public partial class Trail : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The advanced event selectors that were used to select events for the data store.
+        /// </summary>
+        [Output("advancedEventSelectors")]
+        public Output<ImmutableArray<Outputs.TrailAdvancedEventSelector>> AdvancedEventSelectors { get; private set; } = null!;
+
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -150,6 +156,18 @@ namespace Pulumi.AwsNative.CloudTrail
 
     public sealed class TrailArgs : global::Pulumi.ResourceArgs
     {
+        [Input("advancedEventSelectors")]
+        private InputList<Inputs.TrailAdvancedEventSelectorArgs>? _advancedEventSelectors;
+
+        /// <summary>
+        /// The advanced event selectors that were used to select events for the data store.
+        /// </summary>
+        public InputList<Inputs.TrailAdvancedEventSelectorArgs> AdvancedEventSelectors
+        {
+            get => _advancedEventSelectors ?? (_advancedEventSelectors = new InputList<Inputs.TrailAdvancedEventSelectorArgs>());
+            set => _advancedEventSelectors = value;
+        }
+
         /// <summary>
         /// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
         /// </summary>

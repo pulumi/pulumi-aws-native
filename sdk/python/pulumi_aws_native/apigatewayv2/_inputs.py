@@ -21,6 +21,7 @@ __all__ = [
     'DomainNameConfigurationArgs',
     'DomainNameMutualTlsAuthenticationArgs',
     'IntegrationTlsConfigArgs',
+    'RouteResponseRouteParametersArgs',
     'StageAccessLogSettingsArgs',
     'StageRouteSettingsArgs',
 ]
@@ -582,6 +583,12 @@ class IntegrationTlsConfigArgs:
     @server_name_to_verify.setter
     def server_name_to_verify(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "server_name_to_verify", value)
+
+
+@pulumi.input_type
+class RouteResponseRouteParametersArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type

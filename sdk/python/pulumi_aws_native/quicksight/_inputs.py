@@ -924,13 +924,28 @@ __all__ = [
     'DashboardWordCloudVisualArgs',
     'DataSetColumnGroupArgs',
     'DataSetColumnLevelPermissionRuleArgs',
+    'DataSetDatasetParameterArgs',
+    'DataSetDateTimeDatasetParameterDefaultValuesArgs',
+    'DataSetDateTimeDatasetParameterArgs',
+    'DataSetDecimalDatasetParameterDefaultValuesArgs',
+    'DataSetDecimalDatasetParameterArgs',
     'DataSetFieldFolderMapArgs',
     'DataSetGeoSpatialColumnGroupArgs',
+    'DataSetIncrementalRefreshArgs',
     'DataSetIngestionWaitPolicyArgs',
+    'DataSetIntegerDatasetParameterDefaultValuesArgs',
+    'DataSetIntegerDatasetParameterArgs',
     'DataSetLogicalTableMapArgs',
+    'DataSetLookbackWindowArgs',
     'DataSetPhysicalTableMapArgs',
+    'DataSetRefreshConfigurationArgs',
+    'DataSetRefreshPropertiesArgs',
     'DataSetResourcePermissionArgs',
     'DataSetRowLevelPermissionDataSetArgs',
+    'DataSetRowLevelPermissionTagConfigurationArgs',
+    'DataSetRowLevelPermissionTagRuleArgs',
+    'DataSetStringDatasetParameterDefaultValuesArgs',
+    'DataSetStringDatasetParameterArgs',
     'DataSetTagArgs',
     'DataSetUsageConfigurationArgs',
     'DataSourceAmazonElasticsearchParametersArgs',
@@ -41318,6 +41333,228 @@ class DataSetColumnLevelPermissionRuleArgs:
 
 
 @pulumi.input_type
+class DataSetDatasetParameterArgs:
+    def __init__(__self__, *,
+                 date_time_dataset_parameter: Optional[pulumi.Input['DataSetDateTimeDatasetParameterArgs']] = None,
+                 decimal_dataset_parameter: Optional[pulumi.Input['DataSetDecimalDatasetParameterArgs']] = None,
+                 integer_dataset_parameter: Optional[pulumi.Input['DataSetIntegerDatasetParameterArgs']] = None,
+                 string_dataset_parameter: Optional[pulumi.Input['DataSetStringDatasetParameterArgs']] = None):
+        """
+        <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+        """
+        if date_time_dataset_parameter is not None:
+            pulumi.set(__self__, "date_time_dataset_parameter", date_time_dataset_parameter)
+        if decimal_dataset_parameter is not None:
+            pulumi.set(__self__, "decimal_dataset_parameter", decimal_dataset_parameter)
+        if integer_dataset_parameter is not None:
+            pulumi.set(__self__, "integer_dataset_parameter", integer_dataset_parameter)
+        if string_dataset_parameter is not None:
+            pulumi.set(__self__, "string_dataset_parameter", string_dataset_parameter)
+
+    @property
+    @pulumi.getter(name="dateTimeDatasetParameter")
+    def date_time_dataset_parameter(self) -> Optional[pulumi.Input['DataSetDateTimeDatasetParameterArgs']]:
+        return pulumi.get(self, "date_time_dataset_parameter")
+
+    @date_time_dataset_parameter.setter
+    def date_time_dataset_parameter(self, value: Optional[pulumi.Input['DataSetDateTimeDatasetParameterArgs']]):
+        pulumi.set(self, "date_time_dataset_parameter", value)
+
+    @property
+    @pulumi.getter(name="decimalDatasetParameter")
+    def decimal_dataset_parameter(self) -> Optional[pulumi.Input['DataSetDecimalDatasetParameterArgs']]:
+        return pulumi.get(self, "decimal_dataset_parameter")
+
+    @decimal_dataset_parameter.setter
+    def decimal_dataset_parameter(self, value: Optional[pulumi.Input['DataSetDecimalDatasetParameterArgs']]):
+        pulumi.set(self, "decimal_dataset_parameter", value)
+
+    @property
+    @pulumi.getter(name="integerDatasetParameter")
+    def integer_dataset_parameter(self) -> Optional[pulumi.Input['DataSetIntegerDatasetParameterArgs']]:
+        return pulumi.get(self, "integer_dataset_parameter")
+
+    @integer_dataset_parameter.setter
+    def integer_dataset_parameter(self, value: Optional[pulumi.Input['DataSetIntegerDatasetParameterArgs']]):
+        pulumi.set(self, "integer_dataset_parameter", value)
+
+    @property
+    @pulumi.getter(name="stringDatasetParameter")
+    def string_dataset_parameter(self) -> Optional[pulumi.Input['DataSetStringDatasetParameterArgs']]:
+        return pulumi.get(self, "string_dataset_parameter")
+
+    @string_dataset_parameter.setter
+    def string_dataset_parameter(self, value: Optional[pulumi.Input['DataSetStringDatasetParameterArgs']]):
+        pulumi.set(self, "string_dataset_parameter", value)
+
+
+@pulumi.input_type
+class DataSetDateTimeDatasetParameterDefaultValuesArgs:
+    def __init__(__self__, *,
+                 static_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] static_values: <p>List of static default values defined for a given string date time parameter type.</p>
+        """
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>List of static default values defined for a given string date time parameter type.</p>
+        """
+        return pulumi.get(self, "static_values")
+
+    @static_values.setter
+    def static_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "static_values", value)
+
+
+@pulumi.input_type
+class DataSetDateTimeDatasetParameterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 value_type: pulumi.Input['DataSetDatasetParameterValueType'],
+                 default_values: Optional[pulumi.Input['DataSetDateTimeDatasetParameterDefaultValuesArgs']] = None,
+                 time_granularity: Optional[pulumi.Input['DataSetTimeGranularity']] = None):
+        """
+        <p>A parameter created in the dataset of date time data type.</p>
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_type", value_type)
+        if default_values is not None:
+            pulumi.set(__self__, "default_values", default_values)
+        if time_granularity is not None:
+            pulumi.set(__self__, "time_granularity", time_granularity)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> pulumi.Input['DataSetDatasetParameterValueType']:
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: pulumi.Input['DataSetDatasetParameterValueType']):
+        pulumi.set(self, "value_type", value)
+
+    @property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Optional[pulumi.Input['DataSetDateTimeDatasetParameterDefaultValuesArgs']]:
+        return pulumi.get(self, "default_values")
+
+    @default_values.setter
+    def default_values(self, value: Optional[pulumi.Input['DataSetDateTimeDatasetParameterDefaultValuesArgs']]):
+        pulumi.set(self, "default_values", value)
+
+    @property
+    @pulumi.getter(name="timeGranularity")
+    def time_granularity(self) -> Optional[pulumi.Input['DataSetTimeGranularity']]:
+        return pulumi.get(self, "time_granularity")
+
+    @time_granularity.setter
+    def time_granularity(self, value: Optional[pulumi.Input['DataSetTimeGranularity']]):
+        pulumi.set(self, "time_granularity", value)
+
+
+@pulumi.input_type
+class DataSetDecimalDatasetParameterDefaultValuesArgs:
+    def __init__(__self__, *,
+                 static_values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None):
+        """
+        <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] static_values: <p>List of static default values defined for a given decimal dataset parameter type.</p>
+        """
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]:
+        """
+        <p>List of static default values defined for a given decimal dataset parameter type.</p>
+        """
+        return pulumi.get(self, "static_values")
+
+    @static_values.setter
+    def static_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]):
+        pulumi.set(self, "static_values", value)
+
+
+@pulumi.input_type
+class DataSetDecimalDatasetParameterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 value_type: pulumi.Input['DataSetDatasetParameterValueType'],
+                 default_values: Optional[pulumi.Input['DataSetDecimalDatasetParameterDefaultValuesArgs']] = None):
+        """
+        <p>A parameter created in the dataset of decimal data type.</p>
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_type", value_type)
+        if default_values is not None:
+            pulumi.set(__self__, "default_values", default_values)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> pulumi.Input['DataSetDatasetParameterValueType']:
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: pulumi.Input['DataSetDatasetParameterValueType']):
+        pulumi.set(self, "value_type", value)
+
+    @property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Optional[pulumi.Input['DataSetDecimalDatasetParameterDefaultValuesArgs']]:
+        return pulumi.get(self, "default_values")
+
+    @default_values.setter
+    def default_values(self, value: Optional[pulumi.Input['DataSetDecimalDatasetParameterDefaultValuesArgs']]):
+        pulumi.set(self, "default_values", value)
+
+
+@pulumi.input_type
 class DataSetFieldFolderMapArgs:
     def __init__(__self__):
         pass
@@ -41374,6 +41611,26 @@ class DataSetGeoSpatialColumnGroupArgs:
 
 
 @pulumi.input_type
+class DataSetIncrementalRefreshArgs:
+    def __init__(__self__, *,
+                 lookback_window: Optional[pulumi.Input['DataSetLookbackWindowArgs']] = None):
+        """
+        <p>Incremental Refresh</p>
+        """
+        if lookback_window is not None:
+            pulumi.set(__self__, "lookback_window", lookback_window)
+
+    @property
+    @pulumi.getter(name="lookbackWindow")
+    def lookback_window(self) -> Optional[pulumi.Input['DataSetLookbackWindowArgs']]:
+        return pulumi.get(self, "lookback_window")
+
+    @lookback_window.setter
+    def lookback_window(self, value: Optional[pulumi.Input['DataSetLookbackWindowArgs']]):
+        pulumi.set(self, "lookback_window", value)
+
+
+@pulumi.input_type
 class DataSetIngestionWaitPolicyArgs:
     def __init__(__self__, *,
                  ingestion_wait_time_in_hours: Optional[pulumi.Input[float]] = None,
@@ -41418,15 +41675,183 @@ class DataSetIngestionWaitPolicyArgs:
 
 
 @pulumi.input_type
+class DataSetIntegerDatasetParameterDefaultValuesArgs:
+    def __init__(__self__, *,
+                 static_values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None):
+        """
+        <p>List of default values defined for a given integer dataset parameter type. Currently only static values are supported.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] static_values: <p>List of static default values defined for a given integer dataset parameter type.</p>
+        """
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]:
+        """
+        <p>List of static default values defined for a given integer dataset parameter type.</p>
+        """
+        return pulumi.get(self, "static_values")
+
+    @static_values.setter
+    def static_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]):
+        pulumi.set(self, "static_values", value)
+
+
+@pulumi.input_type
+class DataSetIntegerDatasetParameterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 value_type: pulumi.Input['DataSetDatasetParameterValueType'],
+                 default_values: Optional[pulumi.Input['DataSetIntegerDatasetParameterDefaultValuesArgs']] = None):
+        """
+        <p>A parameter created in the dataset of integer data type.</p>
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_type", value_type)
+        if default_values is not None:
+            pulumi.set(__self__, "default_values", default_values)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> pulumi.Input['DataSetDatasetParameterValueType']:
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: pulumi.Input['DataSetDatasetParameterValueType']):
+        pulumi.set(self, "value_type", value)
+
+    @property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Optional[pulumi.Input['DataSetIntegerDatasetParameterDefaultValuesArgs']]:
+        return pulumi.get(self, "default_values")
+
+    @default_values.setter
+    def default_values(self, value: Optional[pulumi.Input['DataSetIntegerDatasetParameterDefaultValuesArgs']]):
+        pulumi.set(self, "default_values", value)
+
+
+@pulumi.input_type
 class DataSetLogicalTableMapArgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
+class DataSetLookbackWindowArgs:
+    def __init__(__self__, *,
+                 column_name: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[float]] = None,
+                 size_unit: Optional[pulumi.Input['DataSetSizeUnit']] = None):
+        """
+        :param pulumi.Input[str] column_name: <p>Column Name</p>
+        :param pulumi.Input[float] size: <p>Size</p>
+        """
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if size_unit is not None:
+            pulumi.set(__self__, "size_unit", size_unit)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>Column Name</p>
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[float]]:
+        """
+        <p>Size</p>
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter(name="sizeUnit")
+    def size_unit(self) -> Optional[pulumi.Input['DataSetSizeUnit']]:
+        return pulumi.get(self, "size_unit")
+
+    @size_unit.setter
+    def size_unit(self, value: Optional[pulumi.Input['DataSetSizeUnit']]):
+        pulumi.set(self, "size_unit", value)
+
+
+@pulumi.input_type
 class DataSetPhysicalTableMapArgs:
     def __init__(__self__):
         pass
+
+
+@pulumi.input_type
+class DataSetRefreshConfigurationArgs:
+    def __init__(__self__, *,
+                 incremental_refresh: Optional[pulumi.Input['DataSetIncrementalRefreshArgs']] = None):
+        """
+        <p> Refresh Configuration.</p>
+        """
+        if incremental_refresh is not None:
+            pulumi.set(__self__, "incremental_refresh", incremental_refresh)
+
+    @property
+    @pulumi.getter(name="incrementalRefresh")
+    def incremental_refresh(self) -> Optional[pulumi.Input['DataSetIncrementalRefreshArgs']]:
+        return pulumi.get(self, "incremental_refresh")
+
+    @incremental_refresh.setter
+    def incremental_refresh(self, value: Optional[pulumi.Input['DataSetIncrementalRefreshArgs']]):
+        pulumi.set(self, "incremental_refresh", value)
+
+
+@pulumi.input_type
+class DataSetRefreshPropertiesArgs:
+    def __init__(__self__, *,
+                 refresh_configuration: Optional[pulumi.Input['DataSetRefreshConfigurationArgs']] = None):
+        """
+        <p>The dataset refresh properties for the dataset.</p>
+        """
+        if refresh_configuration is not None:
+            pulumi.set(__self__, "refresh_configuration", refresh_configuration)
+
+    @property
+    @pulumi.getter(name="refreshConfiguration")
+    def refresh_configuration(self) -> Optional[pulumi.Input['DataSetRefreshConfigurationArgs']]:
+        return pulumi.get(self, "refresh_configuration")
+
+    @refresh_configuration.setter
+    def refresh_configuration(self, value: Optional[pulumi.Input['DataSetRefreshConfigurationArgs']]):
+        pulumi.set(self, "refresh_configuration", value)
 
 
 @pulumi.input_type
@@ -41501,7 +41926,8 @@ class DataSetRowLevelPermissionDataSetArgs:
                  arn: pulumi.Input[str],
                  permission_policy: pulumi.Input['DataSetRowLevelPermissionPolicy'],
                  format_version: Optional[pulumi.Input['DataSetRowLevelPermissionFormatVersion']] = None,
-                 namespace: Optional[pulumi.Input[str]] = None):
+                 namespace: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['DataSetStatus']] = None):
         """
         <p>The row-level security configuration for the dataset.</p>
         :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
@@ -41513,6 +41939,8 @@ class DataSetRowLevelPermissionDataSetArgs:
             pulumi.set(__self__, "format_version", format_version)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -41555,6 +41983,213 @@ class DataSetRowLevelPermissionDataSetArgs:
     @namespace.setter
     def namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['DataSetStatus']]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['DataSetStatus']]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class DataSetRowLevelPermissionTagConfigurationArgs:
+    def __init__(__self__, *,
+                 tag_rules: pulumi.Input[Sequence[pulumi.Input['DataSetRowLevelPermissionTagRuleArgs']]],
+                 status: Optional[pulumi.Input['DataSetStatus']] = None,
+                 tag_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None):
+        """
+        <p>The configuration of tags on a dataset to set row-level security.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetRowLevelPermissionTagRuleArgs']]] tag_rules: <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]] tag_rule_configurations: <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
+        """
+        pulumi.set(__self__, "tag_rules", tag_rules)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tag_rule_configurations is not None:
+            pulumi.set(__self__, "tag_rule_configurations", tag_rule_configurations)
+
+    @property
+    @pulumi.getter(name="tagRules")
+    def tag_rules(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetRowLevelPermissionTagRuleArgs']]]:
+        """
+        <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
+        """
+        return pulumi.get(self, "tag_rules")
+
+    @tag_rules.setter
+    def tag_rules(self, value: pulumi.Input[Sequence[pulumi.Input['DataSetRowLevelPermissionTagRuleArgs']]]):
+        pulumi.set(self, "tag_rules", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['DataSetStatus']]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['DataSetStatus']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="tagRuleConfigurations")
+    def tag_rule_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]]:
+        """
+        <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
+        """
+        return pulumi.get(self, "tag_rule_configurations")
+
+    @tag_rule_configurations.setter
+    def tag_rule_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]]):
+        pulumi.set(self, "tag_rule_configurations", value)
+
+
+@pulumi.input_type
+class DataSetRowLevelPermissionTagRuleArgs:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[str],
+                 tag_key: pulumi.Input[str],
+                 match_all_value: Optional[pulumi.Input[str]] = None,
+                 tag_multi_value_delimiter: Optional[pulumi.Input[str]] = None):
+        """
+        <p>Permission for the resource.</p>
+        :param pulumi.Input[str] column_name: <p>The column name that a tag key is assigned to.</p>
+        :param pulumi.Input[str] tag_key: <p>The unique key for a tag.</p>
+        :param pulumi.Input[str] match_all_value: <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
+        :param pulumi.Input[str] tag_multi_value_delimiter: <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "tag_key", tag_key)
+        if match_all_value is not None:
+            pulumi.set(__self__, "match_all_value", match_all_value)
+        if tag_multi_value_delimiter is not None:
+            pulumi.set(__self__, "tag_multi_value_delimiter", tag_multi_value_delimiter)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[str]:
+        """
+        <p>The column name that a tag key is assigned to.</p>
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> pulumi.Input[str]:
+        """
+        <p>The unique key for a tag.</p>
+        """
+        return pulumi.get(self, "tag_key")
+
+    @tag_key.setter
+    def tag_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tag_key", value)
+
+    @property
+    @pulumi.getter(name="matchAllValue")
+    def match_all_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
+        """
+        return pulumi.get(self, "match_all_value")
+
+    @match_all_value.setter
+    def match_all_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_all_value", value)
+
+    @property
+    @pulumi.getter(name="tagMultiValueDelimiter")
+    def tag_multi_value_delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
+        """
+        return pulumi.get(self, "tag_multi_value_delimiter")
+
+    @tag_multi_value_delimiter.setter
+    def tag_multi_value_delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag_multi_value_delimiter", value)
+
+
+@pulumi.input_type
+class DataSetStringDatasetParameterDefaultValuesArgs:
+    def __init__(__self__, *,
+                 static_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        <p>List of default values defined for a given string dataset parameter type. Currently only static values are supported.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] static_values: <p>List of static default values defined for a given string dataset parameter type.</p>
+        """
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>List of static default values defined for a given string dataset parameter type.</p>
+        """
+        return pulumi.get(self, "static_values")
+
+    @static_values.setter
+    def static_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "static_values", value)
+
+
+@pulumi.input_type
+class DataSetStringDatasetParameterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 value_type: pulumi.Input['DataSetDatasetParameterValueType'],
+                 default_values: Optional[pulumi.Input['DataSetStringDatasetParameterDefaultValuesArgs']] = None):
+        """
+        <p>A parameter created in the dataset of string data type.</p>
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_type", value_type)
+        if default_values is not None:
+            pulumi.set(__self__, "default_values", default_values)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> pulumi.Input['DataSetDatasetParameterValueType']:
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: pulumi.Input['DataSetDatasetParameterValueType']):
+        pulumi.set(self, "value_type", value)
+
+    @property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Optional[pulumi.Input['DataSetStringDatasetParameterDefaultValuesArgs']]:
+        return pulumi.get(self, "default_values")
+
+    @default_values.setter
+    def default_values(self, value: Optional[pulumi.Input['DataSetStringDatasetParameterDefaultValuesArgs']]):
+        pulumi.set(self, "default_values", value)
 
 
 @pulumi.input_type
@@ -41677,13 +42312,29 @@ class DataSourceAmazonOpenSearchParametersArgs:
 @pulumi.input_type
 class DataSourceAthenaParametersArgs:
     def __init__(__self__, *,
+                 role_arn: Optional[pulumi.Input[str]] = None,
                  work_group: Optional[pulumi.Input[str]] = None):
         """
         <p>Amazon Athena parameters.</p>
+        :param pulumi.Input[str] role_arn: <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
         :param pulumi.Input[str] work_group: <p>The workgroup that Amazon Athena uses.</p>
         """
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
         if work_group is not None:
             pulumi.set(__self__, "work_group", work_group)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
 
     @property
     @pulumi.getter(name="workGroup")
@@ -42718,11 +43369,15 @@ class DataSourceResourcePermissionArgs:
 @pulumi.input_type
 class DataSourceS3ParametersArgs:
     def __init__(__self__, *,
-                 manifest_file_location: pulumi.Input['DataSourceManifestFileLocationArgs']):
+                 manifest_file_location: pulumi.Input['DataSourceManifestFileLocationArgs'],
+                 role_arn: Optional[pulumi.Input[str]] = None):
         """
         <p>S3 parameters.</p>
+        :param pulumi.Input[str] role_arn: <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
         """
         pulumi.set(__self__, "manifest_file_location", manifest_file_location)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="manifestFileLocation")
@@ -42732,6 +43387,18 @@ class DataSourceS3ParametersArgs:
     @manifest_file_location.setter
     def manifest_file_location(self, value: pulumi.Input['DataSourceManifestFileLocationArgs']):
         pulumi.set(self, "manifest_file_location", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
 
 
 @pulumi.input_type
