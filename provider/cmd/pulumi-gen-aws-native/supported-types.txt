@@ -60,6 +60,7 @@ AWS::AppSync::DomainNameApiAssociation
 AWS::AppSync::SourceApiAssociation
 AWS::ApplicationAutoScaling::ScalableTarget
 AWS::ApplicationInsights::Application
+AWS::Athena::CapacityReservation
 AWS::Athena::DataCatalog
 AWS::Athena::NamedQuery
 AWS::Athena::PreparedStatement
@@ -745,6 +746,7 @@ Atlassian::Opsgenie::Integration
 Atlassian::Opsgenie::Team
 Atlassian::Opsgenie::User
 AwsCommunity::Account::AlternateContact
+AwsCommunity::ApplicationAutoscaling::ScheduledAction
 AwsCommunity::DynamoDB::Item
 AwsCommunity::Resource::Lookup
 AwsCommunity::S3::DeleteBucketContents

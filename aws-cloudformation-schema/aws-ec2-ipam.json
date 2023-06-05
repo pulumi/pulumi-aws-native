@@ -96,7 +96,7 @@
   "additionalProperties" : false,
   "required" : [ ],
   "primaryIdentifier" : [ "/properties/IpamId" ],
-  "readOnlyProperties" : [ "/properties/IpamId", "/properties/Arn", "/properties/PublicDefaultScopeId", "/properties/PrivateDefaultScopeId", "/properties/ScopeCount", "/properties/ResourceDiscoveryAssociationCount" ],
+  "readOnlyProperties" : [ "/properties/IpamId", "/properties/Arn", "/properties/PublicDefaultScopeId", "/properties/PrivateDefaultScopeId", "/properties/ScopeCount", "/properties/ResourceDiscoveryAssociationCount", "/properties/DefaultResourceDiscoveryId", "/properties/DefaultResourceDiscoveryAssociationId" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateIpam", "iam:CreateServiceLinkedRole", "ec2:CreateTags" ]
