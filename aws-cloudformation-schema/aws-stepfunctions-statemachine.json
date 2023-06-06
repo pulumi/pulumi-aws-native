@@ -179,9 +179,10 @@
   "createOnlyProperties" : [ "/properties/StateMachineName", "/properties/StateMachineType" ],
   "writeOnlyProperties" : [ "/properties/Definition", "/properties/DefinitionS3Location", "/properties/DefinitionSubstitutions" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/StateMachineName" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "states:CreateStateMachine", "iam:PassRole", "s3:GetObject" ]
+      "permissions" : [ "states:CreateStateMachine", "states:DescribeStateMachine", "states:TagResource", "iam:PassRole", "s3:GetObject" ]
     },
     "read" : {
       "permissions" : [ "states:DescribeStateMachine", "states:ListTagsForResource" ]
