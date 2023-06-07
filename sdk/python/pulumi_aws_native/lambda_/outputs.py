@@ -1259,6 +1259,11 @@ class LayerVersionContent(dict):
                  s3_bucket: str,
                  s3_key: str,
                  s3_object_version: Optional[str] = None):
+        """
+        :param str s3_bucket: The Amazon S3 bucket of the layer archive.
+        :param str s3_key: The Amazon S3 key of the layer archive.
+        :param str s3_object_version: For versioned objects, the version of the layer archive object to use.
+        """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_key", s3_key)
         if s3_object_version is not None:
@@ -1267,16 +1272,25 @@ class LayerVersionContent(dict):
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> str:
+        """
+        The Amazon S3 bucket of the layer archive.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> str:
+        """
+        The Amazon S3 key of the layer archive.
+        """
         return pulumi.get(self, "s3_key")
 
     @property
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[str]:
+        """
+        For versioned objects, the version of the layer archive object to use.
+        """
         return pulumi.get(self, "s3_object_version")
 
 

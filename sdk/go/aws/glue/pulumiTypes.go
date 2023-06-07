@@ -3372,6 +3372,7 @@ func (o DatabasePrincipalPrivilegesArrayOutput) Index(i pulumi.IntInput) Databas
 type JobCommand struct {
 	Name           *string `pulumi:"name"`
 	PythonVersion  *string `pulumi:"pythonVersion"`
+	Runtime        *string `pulumi:"runtime"`
 	ScriptLocation *string `pulumi:"scriptLocation"`
 }
 
@@ -3389,6 +3390,7 @@ type JobCommandInput interface {
 type JobCommandArgs struct {
 	Name           pulumi.StringPtrInput `pulumi:"name"`
 	PythonVersion  pulumi.StringPtrInput `pulumi:"pythonVersion"`
+	Runtime        pulumi.StringPtrInput `pulumi:"runtime"`
 	ScriptLocation pulumi.StringPtrInput `pulumi:"scriptLocation"`
 }
 
@@ -3424,6 +3426,10 @@ func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
 
 func (o JobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o JobCommandOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCommand) *string { return v.Runtime }).(pulumi.StringPtrOutput)
 }
 
 func (o JobCommandOutput) ScriptLocation() pulumi.StringPtrOutput {
@@ -3469,6 +3475,15 @@ func (o JobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.PythonVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobCommandPtrOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Runtime
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
+    /// <summary>
+    /// specifies whether the scaling activities for a scalable target are in a suspended state
+    /// </summary>
     [OutputType]
     public sealed class ScalableTargetSuspendedState
     {

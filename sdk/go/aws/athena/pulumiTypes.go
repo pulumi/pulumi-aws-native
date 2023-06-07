@@ -10,6 +10,338 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CapacityReservationCapacityAssignment struct {
+	WorkgroupNames []string `pulumi:"workgroupNames"`
+}
+
+// CapacityReservationCapacityAssignmentInput is an input type that accepts CapacityReservationCapacityAssignmentArgs and CapacityReservationCapacityAssignmentOutput values.
+// You can construct a concrete instance of `CapacityReservationCapacityAssignmentInput` via:
+//
+//	CapacityReservationCapacityAssignmentArgs{...}
+type CapacityReservationCapacityAssignmentInput interface {
+	pulumi.Input
+
+	ToCapacityReservationCapacityAssignmentOutput() CapacityReservationCapacityAssignmentOutput
+	ToCapacityReservationCapacityAssignmentOutputWithContext(context.Context) CapacityReservationCapacityAssignmentOutput
+}
+
+type CapacityReservationCapacityAssignmentArgs struct {
+	WorkgroupNames pulumi.StringArrayInput `pulumi:"workgroupNames"`
+}
+
+func (CapacityReservationCapacityAssignmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationCapacityAssignment)(nil)).Elem()
+}
+
+func (i CapacityReservationCapacityAssignmentArgs) ToCapacityReservationCapacityAssignmentOutput() CapacityReservationCapacityAssignmentOutput {
+	return i.ToCapacityReservationCapacityAssignmentOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationCapacityAssignmentArgs) ToCapacityReservationCapacityAssignmentOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationCapacityAssignmentOutput)
+}
+
+// CapacityReservationCapacityAssignmentArrayInput is an input type that accepts CapacityReservationCapacityAssignmentArray and CapacityReservationCapacityAssignmentArrayOutput values.
+// You can construct a concrete instance of `CapacityReservationCapacityAssignmentArrayInput` via:
+//
+//	CapacityReservationCapacityAssignmentArray{ CapacityReservationCapacityAssignmentArgs{...} }
+type CapacityReservationCapacityAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToCapacityReservationCapacityAssignmentArrayOutput() CapacityReservationCapacityAssignmentArrayOutput
+	ToCapacityReservationCapacityAssignmentArrayOutputWithContext(context.Context) CapacityReservationCapacityAssignmentArrayOutput
+}
+
+type CapacityReservationCapacityAssignmentArray []CapacityReservationCapacityAssignmentInput
+
+func (CapacityReservationCapacityAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationCapacityAssignment)(nil)).Elem()
+}
+
+func (i CapacityReservationCapacityAssignmentArray) ToCapacityReservationCapacityAssignmentArrayOutput() CapacityReservationCapacityAssignmentArrayOutput {
+	return i.ToCapacityReservationCapacityAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationCapacityAssignmentArray) ToCapacityReservationCapacityAssignmentArrayOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationCapacityAssignmentArrayOutput)
+}
+
+type CapacityReservationCapacityAssignmentOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationCapacityAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationCapacityAssignment)(nil)).Elem()
+}
+
+func (o CapacityReservationCapacityAssignmentOutput) ToCapacityReservationCapacityAssignmentOutput() CapacityReservationCapacityAssignmentOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAssignmentOutput) ToCapacityReservationCapacityAssignmentOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAssignmentOutput) WorkgroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityReservationCapacityAssignment) []string { return v.WorkgroupNames }).(pulumi.StringArrayOutput)
+}
+
+type CapacityReservationCapacityAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationCapacityAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationCapacityAssignment)(nil)).Elem()
+}
+
+func (o CapacityReservationCapacityAssignmentArrayOutput) ToCapacityReservationCapacityAssignmentArrayOutput() CapacityReservationCapacityAssignmentArrayOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAssignmentArrayOutput) ToCapacityReservationCapacityAssignmentArrayOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentArrayOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAssignmentArrayOutput) Index(i pulumi.IntInput) CapacityReservationCapacityAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityReservationCapacityAssignment {
+		return vs[0].([]CapacityReservationCapacityAssignment)[vs[1].(int)]
+	}).(CapacityReservationCapacityAssignmentOutput)
+}
+
+// Assignment configuration to assign workgroups to a reservation
+type CapacityReservationCapacityAssignmentConfiguration struct {
+	CapacityAssignments []CapacityReservationCapacityAssignment `pulumi:"capacityAssignments"`
+}
+
+// CapacityReservationCapacityAssignmentConfigurationInput is an input type that accepts CapacityReservationCapacityAssignmentConfigurationArgs and CapacityReservationCapacityAssignmentConfigurationOutput values.
+// You can construct a concrete instance of `CapacityReservationCapacityAssignmentConfigurationInput` via:
+//
+//	CapacityReservationCapacityAssignmentConfigurationArgs{...}
+type CapacityReservationCapacityAssignmentConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityReservationCapacityAssignmentConfigurationOutput() CapacityReservationCapacityAssignmentConfigurationOutput
+	ToCapacityReservationCapacityAssignmentConfigurationOutputWithContext(context.Context) CapacityReservationCapacityAssignmentConfigurationOutput
+}
+
+// Assignment configuration to assign workgroups to a reservation
+type CapacityReservationCapacityAssignmentConfigurationArgs struct {
+	CapacityAssignments CapacityReservationCapacityAssignmentArrayInput `pulumi:"capacityAssignments"`
+}
+
+func (CapacityReservationCapacityAssignmentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationCapacityAssignmentConfiguration)(nil)).Elem()
+}
+
+func (i CapacityReservationCapacityAssignmentConfigurationArgs) ToCapacityReservationCapacityAssignmentConfigurationOutput() CapacityReservationCapacityAssignmentConfigurationOutput {
+	return i.ToCapacityReservationCapacityAssignmentConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationCapacityAssignmentConfigurationArgs) ToCapacityReservationCapacityAssignmentConfigurationOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationCapacityAssignmentConfigurationOutput)
+}
+
+func (i CapacityReservationCapacityAssignmentConfigurationArgs) ToCapacityReservationCapacityAssignmentConfigurationPtrOutput() CapacityReservationCapacityAssignmentConfigurationPtrOutput {
+	return i.ToCapacityReservationCapacityAssignmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationCapacityAssignmentConfigurationArgs) ToCapacityReservationCapacityAssignmentConfigurationPtrOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationCapacityAssignmentConfigurationOutput).ToCapacityReservationCapacityAssignmentConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapacityReservationCapacityAssignmentConfigurationPtrInput is an input type that accepts CapacityReservationCapacityAssignmentConfigurationArgs, CapacityReservationCapacityAssignmentConfigurationPtr and CapacityReservationCapacityAssignmentConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapacityReservationCapacityAssignmentConfigurationPtrInput` via:
+//
+//	        CapacityReservationCapacityAssignmentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityReservationCapacityAssignmentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityReservationCapacityAssignmentConfigurationPtrOutput() CapacityReservationCapacityAssignmentConfigurationPtrOutput
+	ToCapacityReservationCapacityAssignmentConfigurationPtrOutputWithContext(context.Context) CapacityReservationCapacityAssignmentConfigurationPtrOutput
+}
+
+type capacityReservationCapacityAssignmentConfigurationPtrType CapacityReservationCapacityAssignmentConfigurationArgs
+
+func CapacityReservationCapacityAssignmentConfigurationPtr(v *CapacityReservationCapacityAssignmentConfigurationArgs) CapacityReservationCapacityAssignmentConfigurationPtrInput {
+	return (*capacityReservationCapacityAssignmentConfigurationPtrType)(v)
+}
+
+func (*capacityReservationCapacityAssignmentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationCapacityAssignmentConfiguration)(nil)).Elem()
+}
+
+func (i *capacityReservationCapacityAssignmentConfigurationPtrType) ToCapacityReservationCapacityAssignmentConfigurationPtrOutput() CapacityReservationCapacityAssignmentConfigurationPtrOutput {
+	return i.ToCapacityReservationCapacityAssignmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityReservationCapacityAssignmentConfigurationPtrType) ToCapacityReservationCapacityAssignmentConfigurationPtrOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationCapacityAssignmentConfigurationPtrOutput)
+}
+
+// Assignment configuration to assign workgroups to a reservation
+type CapacityReservationCapacityAssignmentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationCapacityAssignmentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationCapacityAssignmentConfiguration)(nil)).Elem()
+}
+
+func (o CapacityReservationCapacityAssignmentConfigurationOutput) ToCapacityReservationCapacityAssignmentConfigurationOutput() CapacityReservationCapacityAssignmentConfigurationOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAssignmentConfigurationOutput) ToCapacityReservationCapacityAssignmentConfigurationOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentConfigurationOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAssignmentConfigurationOutput) ToCapacityReservationCapacityAssignmentConfigurationPtrOutput() CapacityReservationCapacityAssignmentConfigurationPtrOutput {
+	return o.ToCapacityReservationCapacityAssignmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationCapacityAssignmentConfigurationOutput) ToCapacityReservationCapacityAssignmentConfigurationPtrOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityReservationCapacityAssignmentConfiguration) *CapacityReservationCapacityAssignmentConfiguration {
+		return &v
+	}).(CapacityReservationCapacityAssignmentConfigurationPtrOutput)
+}
+
+func (o CapacityReservationCapacityAssignmentConfigurationOutput) CapacityAssignments() CapacityReservationCapacityAssignmentArrayOutput {
+	return o.ApplyT(func(v CapacityReservationCapacityAssignmentConfiguration) []CapacityReservationCapacityAssignment {
+		return v.CapacityAssignments
+	}).(CapacityReservationCapacityAssignmentArrayOutput)
+}
+
+type CapacityReservationCapacityAssignmentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationCapacityAssignmentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationCapacityAssignmentConfiguration)(nil)).Elem()
+}
+
+func (o CapacityReservationCapacityAssignmentConfigurationPtrOutput) ToCapacityReservationCapacityAssignmentConfigurationPtrOutput() CapacityReservationCapacityAssignmentConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAssignmentConfigurationPtrOutput) ToCapacityReservationCapacityAssignmentConfigurationPtrOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityReservationCapacityAssignmentConfigurationPtrOutput) Elem() CapacityReservationCapacityAssignmentConfigurationOutput {
+	return o.ApplyT(func(v *CapacityReservationCapacityAssignmentConfiguration) CapacityReservationCapacityAssignmentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityReservationCapacityAssignmentConfiguration
+		return ret
+	}).(CapacityReservationCapacityAssignmentConfigurationOutput)
+}
+
+func (o CapacityReservationCapacityAssignmentConfigurationPtrOutput) CapacityAssignments() CapacityReservationCapacityAssignmentArrayOutput {
+	return o.ApplyT(func(v *CapacityReservationCapacityAssignmentConfiguration) []CapacityReservationCapacityAssignment {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityAssignments
+	}).(CapacityReservationCapacityAssignmentArrayOutput)
+}
+
+type CapacityReservationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// CapacityReservationTagInput is an input type that accepts CapacityReservationTagArgs and CapacityReservationTagOutput values.
+// You can construct a concrete instance of `CapacityReservationTagInput` via:
+//
+//	CapacityReservationTagArgs{...}
+type CapacityReservationTagInput interface {
+	pulumi.Input
+
+	ToCapacityReservationTagOutput() CapacityReservationTagOutput
+	ToCapacityReservationTagOutputWithContext(context.Context) CapacityReservationTagOutput
+}
+
+type CapacityReservationTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CapacityReservationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationTag)(nil)).Elem()
+}
+
+func (i CapacityReservationTagArgs) ToCapacityReservationTagOutput() CapacityReservationTagOutput {
+	return i.ToCapacityReservationTagOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationTagArgs) ToCapacityReservationTagOutputWithContext(ctx context.Context) CapacityReservationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagOutput)
+}
+
+// CapacityReservationTagArrayInput is an input type that accepts CapacityReservationTagArray and CapacityReservationTagArrayOutput values.
+// You can construct a concrete instance of `CapacityReservationTagArrayInput` via:
+//
+//	CapacityReservationTagArray{ CapacityReservationTagArgs{...} }
+type CapacityReservationTagArrayInput interface {
+	pulumi.Input
+
+	ToCapacityReservationTagArrayOutput() CapacityReservationTagArrayOutput
+	ToCapacityReservationTagArrayOutputWithContext(context.Context) CapacityReservationTagArrayOutput
+}
+
+type CapacityReservationTagArray []CapacityReservationTagInput
+
+func (CapacityReservationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationTag)(nil)).Elem()
+}
+
+func (i CapacityReservationTagArray) ToCapacityReservationTagArrayOutput() CapacityReservationTagArrayOutput {
+	return i.ToCapacityReservationTagArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationTagArray) ToCapacityReservationTagArrayOutputWithContext(ctx context.Context) CapacityReservationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagArrayOutput)
+}
+
+type CapacityReservationTagOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationTag)(nil)).Elem()
+}
+
+func (o CapacityReservationTagOutput) ToCapacityReservationTagOutput() CapacityReservationTagOutput {
+	return o
+}
+
+func (o CapacityReservationTagOutput) ToCapacityReservationTagOutputWithContext(ctx context.Context) CapacityReservationTagOutput {
+	return o
+}
+
+func (o CapacityReservationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityReservationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityReservationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CapacityReservationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationTag)(nil)).Elem()
+}
+
+func (o CapacityReservationTagArrayOutput) ToCapacityReservationTagArrayOutput() CapacityReservationTagArrayOutput {
+	return o
+}
+
+func (o CapacityReservationTagArrayOutput) ToCapacityReservationTagArrayOutputWithContext(ctx context.Context) CapacityReservationTagArrayOutput {
+	return o
+}
+
+func (o CapacityReservationTagArrayOutput) Index(i pulumi.IntInput) CapacityReservationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityReservationTag {
+		return vs[0].([]CapacityReservationTag)[vs[1].(int)]
+	}).(CapacityReservationTagOutput)
+}
+
 type DataCatalogTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -1756,6 +2088,12 @@ func (o WorkGroupTagArrayOutput) Index(i pulumi.IntInput) WorkGroupTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationCapacityAssignmentInput)(nil)).Elem(), CapacityReservationCapacityAssignmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationCapacityAssignmentArrayInput)(nil)).Elem(), CapacityReservationCapacityAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationCapacityAssignmentConfigurationInput)(nil)).Elem(), CapacityReservationCapacityAssignmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationCapacityAssignmentConfigurationPtrInput)(nil)).Elem(), CapacityReservationCapacityAssignmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTagInput)(nil)).Elem(), CapacityReservationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTagArrayInput)(nil)).Elem(), CapacityReservationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTagInput)(nil)).Elem(), DataCatalogTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTagArrayInput)(nil)).Elem(), DataCatalogTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupAclConfigurationInput)(nil)).Elem(), WorkGroupAclConfigurationArgs{})
@@ -1776,6 +2114,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationUpdatesPtrInput)(nil)).Elem(), WorkGroupResultConfigurationUpdatesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupTagInput)(nil)).Elem(), WorkGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupTagArrayInput)(nil)).Elem(), WorkGroupTagArray{})
+	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentOutput{})
+	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentArrayOutput{})
+	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CapacityReservationTagOutput{})
+	pulumi.RegisterOutputType(CapacityReservationTagArrayOutput{})
 	pulumi.RegisterOutputType(DataCatalogTagOutput{})
 	pulumi.RegisterOutputType(DataCatalogTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkGroupAclConfigurationOutput{})

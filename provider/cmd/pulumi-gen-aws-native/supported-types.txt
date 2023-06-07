@@ -60,6 +60,7 @@ AWS::AppSync::DomainNameApiAssociation
 AWS::AppSync::SourceApiAssociation
 AWS::ApplicationAutoScaling::ScalableTarget
 AWS::ApplicationInsights::Application
+AWS::Athena::CapacityReservation
 AWS::Athena::DataCatalog
 AWS::Athena::NamedQuery
 AWS::Athena::PreparedStatement
@@ -149,6 +150,7 @@ AWS::Connect::User
 AWS::Connect::UserHierarchyGroup
 AWS::ConnectCampaigns::Campaign
 AWS::ControlTower::EnabledControl
+AWS::CustomerProfiles::CalculatedAttributeDefinition
 AWS::CustomerProfiles::Domain
 AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
@@ -338,6 +340,7 @@ AWS::IAM::OIDCProvider
 AWS::IAM::Role
 AWS::IAM::SAMLProvider
 AWS::IAM::ServerCertificate
+AWS::IAM::ServiceLinkedRole
 AWS::IAM::VirtualMFADevice
 AWS::IVS::Channel
 AWS::IVS::PlaybackKeyPair
@@ -433,6 +436,8 @@ AWS::Lambda::CodeSigningConfig
 AWS::Lambda::EventInvokeConfig
 AWS::Lambda::EventSourceMapping
 AWS::Lambda::Function
+AWS::Lambda::LayerVersion
+AWS::Lambda::LayerVersionPermission
 AWS::Lambda::Url
 AWS::Lex::Bot
 AWS::Lex::BotAlias
@@ -745,6 +750,7 @@ Atlassian::Opsgenie::Integration
 Atlassian::Opsgenie::Team
 Atlassian::Opsgenie::User
 AwsCommunity::Account::AlternateContact
+AwsCommunity::ApplicationAutoscaling::ScheduledAction
 AwsCommunity::DynamoDB::Item
 AwsCommunity::Resource::Lookup
 AwsCommunity::S3::DeleteBucketContents

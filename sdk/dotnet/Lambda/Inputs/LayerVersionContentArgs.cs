@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 
     public sealed class LayerVersionContentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 bucket of the layer archive.
+        /// </summary>
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 key of the layer archive.
+        /// </summary>
         [Input("s3Key", required: true)]
         public Input<string> S3Key { get; set; } = null!;
 
+        /// <summary>
+        /// For versioned objects, the version of the layer archive object to use.
+        /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
 

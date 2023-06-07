@@ -918,6 +918,7 @@ _utilities.register(
   "mod": "athena",
   "fqn": "pulumi_aws_native.athena",
   "classes": {
+   "aws-native:athena:CapacityReservation": "CapacityReservation",
    "aws-native:athena:DataCatalog": "DataCatalog",
    "aws-native:athena:NamedQuery": "NamedQuery",
    "aws-native:athena:PreparedStatement": "PreparedStatement",

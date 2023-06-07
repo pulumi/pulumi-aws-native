@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CapacityReservationStatus = {
+    Pending: "PENDING",
+    Active: "ACTIVE",
+    Cancelling: "CANCELLING",
+    Cancelled: "CANCELLED",
+    Failed: "FAILED",
+    UpdatePending: "UPDATE_PENDING",
+} as const;
+
+export type CapacityReservationStatus = (typeof CapacityReservationStatus)[keyof typeof CapacityReservationStatus];
+
 export const DataCatalogType = {
     Lambda: "LAMBDA",
     Glue: "GLUE",

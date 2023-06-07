@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
+    /// <summary>
+    /// specifies the minimum and maximum capacity
+    /// </summary>
     [OutputType]
     public sealed class ScalableTargetAction
     {

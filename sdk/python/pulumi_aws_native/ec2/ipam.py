@@ -16,52 +16,20 @@ __all__ = ['IPAMArgs', 'IPAM']
 @pulumi.input_type
 class IPAMArgs:
     def __init__(__self__, *,
-                 default_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
-                 default_resource_discovery_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMIpamOperatingRegionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPAMTagArgs']]]] = None):
         """
         The set of arguments for constructing a IPAM resource.
-        :param pulumi.Input[str] default_resource_discovery_association_id: The Id of the default association to the default resource discovery, created with this IPAM.
-        :param pulumi.Input[str] default_resource_discovery_id: The Id of the default resource discovery, created with this IPAM.
         :param pulumi.Input[Sequence[pulumi.Input['IPAMIpamOperatingRegionArgs']]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input['IPAMTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        if default_resource_discovery_association_id is not None:
-            pulumi.set(__self__, "default_resource_discovery_association_id", default_resource_discovery_association_id)
-        if default_resource_discovery_id is not None:
-            pulumi.set(__self__, "default_resource_discovery_id", default_resource_discovery_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if operating_regions is not None:
             pulumi.set(__self__, "operating_regions", operating_regions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="defaultResourceDiscoveryAssociationId")
-    def default_resource_discovery_association_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Id of the default association to the default resource discovery, created with this IPAM.
-        """
-        return pulumi.get(self, "default_resource_discovery_association_id")
-
-    @default_resource_discovery_association_id.setter
-    def default_resource_discovery_association_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "default_resource_discovery_association_id", value)
-
-    @property
-    @pulumi.getter(name="defaultResourceDiscoveryId")
-    def default_resource_discovery_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Id of the default resource discovery, created with this IPAM.
-        """
-        return pulumi.get(self, "default_resource_discovery_id")
-
-    @default_resource_discovery_id.setter
-    def default_resource_discovery_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "default_resource_discovery_id", value)
 
     @property
     @pulumi.getter
@@ -102,8 +70,6 @@ class IPAM(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
-                 default_resource_discovery_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMIpamOperatingRegionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMTagArgs']]]]] = None,
@@ -113,8 +79,6 @@ class IPAM(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] default_resource_discovery_association_id: The Id of the default association to the default resource discovery, created with this IPAM.
-        :param pulumi.Input[str] default_resource_discovery_id: The Id of the default resource discovery, created with this IPAM.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMIpamOperatingRegionArgs']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -142,8 +106,6 @@ class IPAM(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
-                 default_resource_discovery_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMIpamOperatingRegionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPAMTagArgs']]]]] = None,
@@ -156,12 +118,12 @@ class IPAM(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IPAMArgs.__new__(IPAMArgs)
 
-            __props__.__dict__["default_resource_discovery_association_id"] = default_resource_discovery_association_id
-            __props__.__dict__["default_resource_discovery_id"] = default_resource_discovery_id
             __props__.__dict__["description"] = description
             __props__.__dict__["operating_regions"] = operating_regions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["default_resource_discovery_association_id"] = None
+            __props__.__dict__["default_resource_discovery_id"] = None
             __props__.__dict__["ipam_id"] = None
             __props__.__dict__["private_default_scope_id"] = None
             __props__.__dict__["public_default_scope_id"] = None
@@ -212,7 +174,7 @@ class IPAM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultResourceDiscoveryAssociationId")
-    def default_resource_discovery_association_id(self) -> pulumi.Output[Optional[str]]:
+    def default_resource_discovery_association_id(self) -> pulumi.Output[str]:
         """
         The Id of the default association to the default resource discovery, created with this IPAM.
         """
@@ -220,7 +182,7 @@ class IPAM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultResourceDiscoveryId")
-    def default_resource_discovery_id(self) -> pulumi.Output[Optional[str]]:
+    def default_resource_discovery_id(self) -> pulumi.Output[str]:
         """
         The Id of the default resource discovery, created with this IPAM.
         """

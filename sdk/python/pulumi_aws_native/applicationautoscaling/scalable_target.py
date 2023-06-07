@@ -19,20 +19,29 @@ class ScalableTargetArgs:
                  max_capacity: pulumi.Input[int],
                  min_capacity: pulumi.Input[int],
                  resource_id: pulumi.Input[str],
-                 role_arn: pulumi.Input[str],
                  scalable_dimension: pulumi.Input[str],
                  service_namespace: pulumi.Input[str],
+                 role_arn: Optional[pulumi.Input[str]] = None,
                  scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]] = None,
                  suspended_state: Optional[pulumi.Input['ScalableTargetSuspendedStateArgs']] = None):
         """
         The set of arguments for constructing a ScalableTarget resource.
+        :param pulumi.Input[int] max_capacity: The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        :param pulumi.Input[int] min_capacity: The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        :param pulumi.Input[str] resource_id: The identifier of the resource associated with the scalable target
+        :param pulumi.Input[str] scalable_dimension: The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+        :param pulumi.Input[str] service_namespace: The namespace of the AWS service that provides the resource, or a custom-resource
+        :param pulumi.Input[str] role_arn: Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
+        :param pulumi.Input[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]] scheduled_actions: The scheduled actions for the scalable target. Duplicates aren't allowed.
+        :param pulumi.Input['ScalableTargetSuspendedStateArgs'] suspended_state: An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
         """
         pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
         pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "scalable_dimension", scalable_dimension)
         pulumi.set(__self__, "service_namespace", service_namespace)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
         if scheduled_actions is not None:
             pulumi.set(__self__, "scheduled_actions", scheduled_actions)
         if suspended_state is not None:
@@ -41,6 +50,9 @@ class ScalableTargetArgs:
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> pulumi.Input[int]:
+        """
+        The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -50,6 +62,9 @@ class ScalableTargetArgs:
     @property
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> pulumi.Input[int]:
+        """
+        The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
@@ -59,6 +74,9 @@ class ScalableTargetArgs:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the resource associated with the scalable target
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -66,17 +84,11 @@ class ScalableTargetArgs:
         pulumi.set(self, "resource_id", value)
 
     @property
-    @pulumi.getter(name="roleARN")
-    def role_arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_arn", value)
-
-    @property
     @pulumi.getter(name="scalableDimension")
     def scalable_dimension(self) -> pulumi.Input[str]:
+        """
+        The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+        """
         return pulumi.get(self, "scalable_dimension")
 
     @scalable_dimension.setter
@@ -86,6 +98,9 @@ class ScalableTargetArgs:
     @property
     @pulumi.getter(name="serviceNamespace")
     def service_namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace of the AWS service that provides the resource, or a custom-resource
+        """
         return pulumi.get(self, "service_namespace")
 
     @service_namespace.setter
@@ -93,8 +108,23 @@ class ScalableTargetArgs:
         pulumi.set(self, "service_namespace", value)
 
     @property
+    @pulumi.getter(name="roleARN")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
     @pulumi.getter(name="scheduledActions")
     def scheduled_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]]:
+        """
+        The scheduled actions for the scalable target. Duplicates aren't allowed.
+        """
         return pulumi.get(self, "scheduled_actions")
 
     @scheduled_actions.setter
@@ -104,6 +134,9 @@ class ScalableTargetArgs:
     @property
     @pulumi.getter(name="suspendedState")
     def suspended_state(self) -> Optional[pulumi.Input['ScalableTargetSuspendedStateArgs']]:
+        """
+        An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
+        """
         return pulumi.get(self, "suspended_state")
 
     @suspended_state.setter
@@ -130,6 +163,14 @@ class ScalableTarget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] max_capacity: The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        :param pulumi.Input[int] min_capacity: The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        :param pulumi.Input[str] resource_id: The identifier of the resource associated with the scalable target
+        :param pulumi.Input[str] role_arn: Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
+        :param pulumi.Input[str] scalable_dimension: The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalableTargetScheduledActionArgs']]]] scheduled_actions: The scheduled actions for the scalable target. Duplicates aren't allowed.
+        :param pulumi.Input[str] service_namespace: The namespace of the AWS service that provides the resource, or a custom-resource
+        :param pulumi.Input[pulumi.InputType['ScalableTargetSuspendedStateArgs']] suspended_state: An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
         """
         ...
     @overload
@@ -181,8 +222,6 @@ class ScalableTarget(pulumi.CustomResource):
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
-            if role_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             if scalable_dimension is None and not opts.urn:
                 raise TypeError("Missing required property 'scalable_dimension'")
@@ -227,40 +266,64 @@ class ScalableTarget(pulumi.CustomResource):
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> pulumi.Output[int]:
+        """
+        The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        """
         return pulumi.get(self, "max_capacity")
 
     @property
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> pulumi.Output[int]:
+        """
+        The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        """
         return pulumi.get(self, "min_capacity")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the resource associated with the scalable target
+        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="roleARN")
-    def role_arn(self) -> pulumi.Output[str]:
+    def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="scalableDimension")
     def scalable_dimension(self) -> pulumi.Output[str]:
+        """
+        The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+        """
         return pulumi.get(self, "scalable_dimension")
 
     @property
     @pulumi.getter(name="scheduledActions")
     def scheduled_actions(self) -> pulumi.Output[Optional[Sequence['outputs.ScalableTargetScheduledAction']]]:
+        """
+        The scheduled actions for the scalable target. Duplicates aren't allowed.
+        """
         return pulumi.get(self, "scheduled_actions")
 
     @property
     @pulumi.getter(name="serviceNamespace")
     def service_namespace(self) -> pulumi.Output[str]:
+        """
+        The namespace of the AWS service that provides the resource, or a custom-resource
+        """
         return pulumi.get(self, "service_namespace")
 
     @property
     @pulumi.getter(name="suspendedState")
     def suspended_state(self) -> pulumi.Output[Optional['outputs.ScalableTargetSuspendedState']]:
+        """
+        An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
+        """
         return pulumi.get(self, "suspended_state")
 

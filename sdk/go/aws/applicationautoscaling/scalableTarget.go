@@ -15,14 +15,22 @@ import (
 type ScalableTarget struct {
 	pulumi.CustomResourceState
 
-	MaxCapacity       pulumi.IntOutput                         `pulumi:"maxCapacity"`
-	MinCapacity       pulumi.IntOutput                         `pulumi:"minCapacity"`
-	ResourceId        pulumi.StringOutput                      `pulumi:"resourceId"`
-	RoleARN           pulumi.StringOutput                      `pulumi:"roleARN"`
-	ScalableDimension pulumi.StringOutput                      `pulumi:"scalableDimension"`
-	ScheduledActions  ScalableTargetScheduledActionArrayOutput `pulumi:"scheduledActions"`
-	ServiceNamespace  pulumi.StringOutput                      `pulumi:"serviceNamespace"`
-	SuspendedState    ScalableTargetSuspendedStatePtrOutput    `pulumi:"suspendedState"`
+	// The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+	MaxCapacity pulumi.IntOutput `pulumi:"maxCapacity"`
+	// The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+	MinCapacity pulumi.IntOutput `pulumi:"minCapacity"`
+	// The identifier of the resource associated with the scalable target
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
+	RoleARN pulumi.StringPtrOutput `pulumi:"roleARN"`
+	// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+	ScalableDimension pulumi.StringOutput `pulumi:"scalableDimension"`
+	// The scheduled actions for the scalable target. Duplicates aren't allowed.
+	ScheduledActions ScalableTargetScheduledActionArrayOutput `pulumi:"scheduledActions"`
+	// The namespace of the AWS service that provides the resource, or a custom-resource
+	ServiceNamespace pulumi.StringOutput `pulumi:"serviceNamespace"`
+	// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
+	SuspendedState ScalableTargetSuspendedStatePtrOutput `pulumi:"suspendedState"`
 }
 
 // NewScalableTarget registers a new resource with the given unique name, arguments, and options.
@@ -40,9 +48,6 @@ func NewScalableTarget(ctx *pulumi.Context,
 	}
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
-	}
-	if args.RoleARN == nil {
-		return nil, errors.New("invalid value for required argument 'RoleARN'")
 	}
 	if args.ScalableDimension == nil {
 		return nil, errors.New("invalid value for required argument 'ScalableDimension'")
@@ -82,26 +87,42 @@ func (ScalableTargetState) ElementType() reflect.Type {
 }
 
 type scalableTargetArgs struct {
-	MaxCapacity       int                             `pulumi:"maxCapacity"`
-	MinCapacity       int                             `pulumi:"minCapacity"`
-	ResourceId        string                          `pulumi:"resourceId"`
-	RoleARN           string                          `pulumi:"roleARN"`
-	ScalableDimension string                          `pulumi:"scalableDimension"`
-	ScheduledActions  []ScalableTargetScheduledAction `pulumi:"scheduledActions"`
-	ServiceNamespace  string                          `pulumi:"serviceNamespace"`
-	SuspendedState    *ScalableTargetSuspendedState   `pulumi:"suspendedState"`
+	// The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+	MaxCapacity int `pulumi:"maxCapacity"`
+	// The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+	MinCapacity int `pulumi:"minCapacity"`
+	// The identifier of the resource associated with the scalable target
+	ResourceId string `pulumi:"resourceId"`
+	// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
+	RoleARN *string `pulumi:"roleARN"`
+	// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+	ScalableDimension string `pulumi:"scalableDimension"`
+	// The scheduled actions for the scalable target. Duplicates aren't allowed.
+	ScheduledActions []ScalableTargetScheduledAction `pulumi:"scheduledActions"`
+	// The namespace of the AWS service that provides the resource, or a custom-resource
+	ServiceNamespace string `pulumi:"serviceNamespace"`
+	// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
+	SuspendedState *ScalableTargetSuspendedState `pulumi:"suspendedState"`
 }
 
 // The set of arguments for constructing a ScalableTarget resource.
 type ScalableTargetArgs struct {
-	MaxCapacity       pulumi.IntInput
-	MinCapacity       pulumi.IntInput
-	ResourceId        pulumi.StringInput
-	RoleARN           pulumi.StringInput
+	// The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+	MaxCapacity pulumi.IntInput
+	// The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+	MinCapacity pulumi.IntInput
+	// The identifier of the resource associated with the scalable target
+	ResourceId pulumi.StringInput
+	// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
+	RoleARN pulumi.StringPtrInput
+	// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
 	ScalableDimension pulumi.StringInput
-	ScheduledActions  ScalableTargetScheduledActionArrayInput
-	ServiceNamespace  pulumi.StringInput
-	SuspendedState    ScalableTargetSuspendedStatePtrInput
+	// The scheduled actions for the scalable target. Duplicates aren't allowed.
+	ScheduledActions ScalableTargetScheduledActionArrayInput
+	// The namespace of the AWS service that provides the resource, or a custom-resource
+	ServiceNamespace pulumi.StringInput
+	// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
+	SuspendedState ScalableTargetSuspendedStatePtrInput
 }
 
 func (ScalableTargetArgs) ElementType() reflect.Type {
@@ -141,34 +162,42 @@ func (o ScalableTargetOutput) ToScalableTargetOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
 func (o ScalableTargetOutput) MaxCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScalableTarget) pulumi.IntOutput { return v.MaxCapacity }).(pulumi.IntOutput)
 }
 
+// The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
 func (o ScalableTargetOutput) MinCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScalableTarget) pulumi.IntOutput { return v.MinCapacity }).(pulumi.IntOutput)
 }
 
+// The identifier of the resource associated with the scalable target
 func (o ScalableTargetOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalableTarget) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-func (o ScalableTargetOutput) RoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *ScalableTarget) pulumi.StringOutput { return v.RoleARN }).(pulumi.StringOutput)
+// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
+func (o ScalableTargetOutput) RoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalableTarget) pulumi.StringPtrOutput { return v.RoleARN }).(pulumi.StringPtrOutput)
 }
 
+// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
 func (o ScalableTargetOutput) ScalableDimension() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalableTarget) pulumi.StringOutput { return v.ScalableDimension }).(pulumi.StringOutput)
 }
 
+// The scheduled actions for the scalable target. Duplicates aren't allowed.
 func (o ScalableTargetOutput) ScheduledActions() ScalableTargetScheduledActionArrayOutput {
 	return o.ApplyT(func(v *ScalableTarget) ScalableTargetScheduledActionArrayOutput { return v.ScheduledActions }).(ScalableTargetScheduledActionArrayOutput)
 }
 
+// The namespace of the AWS service that provides the resource, or a custom-resource
 func (o ScalableTargetOutput) ServiceNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalableTarget) pulumi.StringOutput { return v.ServiceNamespace }).(pulumi.StringOutput)
 }
 
+// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
 func (o ScalableTargetOutput) SuspendedState() ScalableTargetSuspendedStatePtrOutput {
 	return o.ApplyT(func(v *ScalableTarget) ScalableTargetSuspendedStatePtrOutput { return v.SuspendedState }).(ScalableTargetSuspendedStatePtrOutput)
 }

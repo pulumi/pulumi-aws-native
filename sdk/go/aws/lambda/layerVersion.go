@@ -12,17 +12,19 @@ import (
 )
 
 // Resource Type definition for AWS::Lambda::LayerVersion
-//
-// Deprecated: LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type LayerVersion struct {
 	pulumi.CustomResourceState
 
-	CompatibleArchitectures pulumi.StringArrayOutput  `pulumi:"compatibleArchitectures"`
-	CompatibleRuntimes      pulumi.StringArrayOutput  `pulumi:"compatibleRuntimes"`
-	Content                 LayerVersionContentOutput `pulumi:"content"`
-	Description             pulumi.StringPtrOutput    `pulumi:"description"`
-	LayerName               pulumi.StringPtrOutput    `pulumi:"layerName"`
-	LicenseInfo             pulumi.StringPtrOutput    `pulumi:"licenseInfo"`
+	// A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
+	CompatibleRuntimes pulumi.StringArrayOutput `pulumi:"compatibleRuntimes"`
+	// The function layer archive.
+	Content LayerVersionContentOutput `pulumi:"content"`
+	// The description of the version.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name or Amazon Resource Name (ARN) of the layer.
+	LayerName pulumi.StringPtrOutput `pulumi:"layerName"`
+	// The layer's software license.
+	LicenseInfo pulumi.StringPtrOutput `pulumi:"licenseInfo"`
 }
 
 // NewLayerVersion registers a new resource with the given unique name, arguments, and options.
@@ -67,22 +69,30 @@ func (LayerVersionState) ElementType() reflect.Type {
 }
 
 type layerVersionArgs struct {
-	CompatibleArchitectures []string            `pulumi:"compatibleArchitectures"`
-	CompatibleRuntimes      []string            `pulumi:"compatibleRuntimes"`
-	Content                 LayerVersionContent `pulumi:"content"`
-	Description             *string             `pulumi:"description"`
-	LayerName               *string             `pulumi:"layerName"`
-	LicenseInfo             *string             `pulumi:"licenseInfo"`
+	// A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
+	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
+	// The function layer archive.
+	Content LayerVersionContent `pulumi:"content"`
+	// The description of the version.
+	Description *string `pulumi:"description"`
+	// The name or Amazon Resource Name (ARN) of the layer.
+	LayerName *string `pulumi:"layerName"`
+	// The layer's software license.
+	LicenseInfo *string `pulumi:"licenseInfo"`
 }
 
 // The set of arguments for constructing a LayerVersion resource.
 type LayerVersionArgs struct {
-	CompatibleArchitectures pulumi.StringArrayInput
-	CompatibleRuntimes      pulumi.StringArrayInput
-	Content                 LayerVersionContentInput
-	Description             pulumi.StringPtrInput
-	LayerName               pulumi.StringPtrInput
-	LicenseInfo             pulumi.StringPtrInput
+	// A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
+	CompatibleRuntimes pulumi.StringArrayInput
+	// The function layer archive.
+	Content LayerVersionContentInput
+	// The description of the version.
+	Description pulumi.StringPtrInput
+	// The name or Amazon Resource Name (ARN) of the layer.
+	LayerName pulumi.StringPtrInput
+	// The layer's software license.
+	LicenseInfo pulumi.StringPtrInput
 }
 
 func (LayerVersionArgs) ElementType() reflect.Type {
@@ -122,26 +132,27 @@ func (o LayerVersionOutput) ToLayerVersionOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o LayerVersionOutput) CompatibleArchitectures() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LayerVersion) pulumi.StringArrayOutput { return v.CompatibleArchitectures }).(pulumi.StringArrayOutput)
-}
-
+// A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
 func (o LayerVersionOutput) CompatibleRuntimes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringArrayOutput { return v.CompatibleRuntimes }).(pulumi.StringArrayOutput)
 }
 
+// The function layer archive.
 func (o LayerVersionOutput) Content() LayerVersionContentOutput {
 	return o.ApplyT(func(v *LayerVersion) LayerVersionContentOutput { return v.Content }).(LayerVersionContentOutput)
 }
 
+// The description of the version.
 func (o LayerVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name or Amazon Resource Name (ARN) of the layer.
 func (o LayerVersionOutput) LayerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.LayerName }).(pulumi.StringPtrOutput)
 }
 
+// The layer's software license.
 func (o LayerVersionOutput) LicenseInfo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.LicenseInfo }).(pulumi.StringPtrOutput)
 }

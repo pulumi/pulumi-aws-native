@@ -18,16 +18,20 @@ __all__ = ['SequenceStoreArgs', 'SequenceStore']
 class SequenceStoreArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 fallback_location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sse_config: Optional[pulumi.Input['SequenceStoreSseConfigArgs']] = None,
                  tags: Optional[pulumi.Input['SequenceStoreTagMapArgs']] = None):
         """
         The set of arguments for constructing a SequenceStore resource.
         :param pulumi.Input[str] description: A description for the store.
+        :param pulumi.Input[str] fallback_location: An S3 URI representing the bucket and folder to store failed read set uploads.
         :param pulumi.Input[str] name: A name for the store.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if fallback_location is not None:
+            pulumi.set(__self__, "fallback_location", fallback_location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if sse_config is not None:
@@ -46,6 +50,18 @@ class SequenceStoreArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="fallbackLocation")
+    def fallback_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        An S3 URI representing the bucket and folder to store failed read set uploads.
+        """
+        return pulumi.get(self, "fallback_location")
+
+    @fallback_location.setter
+    def fallback_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fallback_location", value)
 
     @property
     @pulumi.getter
@@ -84,6 +100,7 @@ class SequenceStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 fallback_location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sse_config: Optional[pulumi.Input[pulumi.InputType['SequenceStoreSseConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['SequenceStoreTagMapArgs']]] = None,
@@ -94,6 +111,7 @@ class SequenceStore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the store.
+        :param pulumi.Input[str] fallback_location: An S3 URI representing the bucket and folder to store failed read set uploads.
         :param pulumi.Input[str] name: A name for the store.
         """
         ...
@@ -121,6 +139,7 @@ class SequenceStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 fallback_location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sse_config: Optional[pulumi.Input[pulumi.InputType['SequenceStoreSseConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['SequenceStoreTagMapArgs']]] = None,
@@ -134,6 +153,7 @@ class SequenceStore(pulumi.CustomResource):
             __props__ = SequenceStoreArgs.__new__(SequenceStoreArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["fallback_location"] = fallback_location
             __props__.__dict__["name"] = name
             __props__.__dict__["sse_config"] = sse_config
             __props__.__dict__["tags"] = tags
@@ -165,6 +185,7 @@ class SequenceStore(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["fallback_location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sequence_store_id"] = None
         __props__.__dict__["sse_config"] = None
@@ -194,6 +215,14 @@ class SequenceStore(pulumi.CustomResource):
         A description for the store.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="fallbackLocation")
+    def fallback_location(self) -> pulumi.Output[Optional[str]]:
+        """
+        An S3 URI representing the bucket and folder to store failed read set uploads.
+        """
+        return pulumi.get(self, "fallback_location")
 
     @property
     @pulumi.getter

@@ -943,6 +943,11 @@ class LayerVersionContentArgs:
                  s3_bucket: pulumi.Input[str],
                  s3_key: pulumi.Input[str],
                  s3_object_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_bucket: The Amazon S3 bucket of the layer archive.
+        :param pulumi.Input[str] s3_key: The Amazon S3 key of the layer archive.
+        :param pulumi.Input[str] s3_object_version: For versioned objects, the version of the layer archive object to use.
+        """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_key", s3_key)
         if s3_object_version is not None:
@@ -951,6 +956,9 @@ class LayerVersionContentArgs:
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 bucket of the layer archive.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
@@ -960,6 +968,9 @@ class LayerVersionContentArgs:
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 key of the layer archive.
+        """
         return pulumi.get(self, "s3_key")
 
     @s3_key.setter
@@ -969,6 +980,9 @@ class LayerVersionContentArgs:
     @property
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        For versioned objects, the version of the layer archive object to use.
+        """
         return pulumi.get(self, "s3_object_version")
 
     @s3_object_version.setter

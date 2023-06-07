@@ -50,6 +50,10 @@ export class SequenceStore extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * An S3 URI representing the bucket and folder to store failed read set uploads.
+     */
+    public readonly fallbackLocation!: pulumi.Output<string | undefined>;
+    /**
      * A name for the store.
      */
     public readonly name!: pulumi.Output<string>;
@@ -69,6 +73,7 @@ export class SequenceStore extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["fallbackLocation"] = args ? args.fallbackLocation : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["sseConfig"] = args ? args.sseConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -79,6 +84,7 @@ export class SequenceStore extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["fallbackLocation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sequenceStoreId"] = undefined /*out*/;
             resourceInputs["sseConfig"] = undefined /*out*/;
@@ -97,6 +103,10 @@ export interface SequenceStoreArgs {
      * A description for the store.
      */
     description?: pulumi.Input<string>;
+    /**
+     * An S3 URI representing the bucket and folder to store failed read set uploads.
+     */
+    fallbackLocation?: pulumi.Input<string>;
     /**
      * A name for the store.
      */

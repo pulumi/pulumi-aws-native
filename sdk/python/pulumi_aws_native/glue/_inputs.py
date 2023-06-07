@@ -1109,11 +1109,14 @@ class JobCommandArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  python_version: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input[str]] = None,
                  script_location: Optional[pulumi.Input[str]] = None):
         if name is not None:
             pulumi.set(__self__, "name", name)
         if python_version is not None:
             pulumi.set(__self__, "python_version", python_version)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
         if script_location is not None:
             pulumi.set(__self__, "script_location", script_location)
 
@@ -1134,6 +1137,15 @@ class JobCommandArgs:
     @python_version.setter
     def python_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "python_version", value)
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime", value)
 
     @property
     @pulumi.getter(name="scriptLocation")

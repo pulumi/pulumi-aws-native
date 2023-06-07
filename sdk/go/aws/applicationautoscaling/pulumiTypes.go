@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// specifies the minimum and maximum capacity
 type ScalableTargetAction struct {
 	MaxCapacity *int `pulumi:"maxCapacity"`
 	MinCapacity *int `pulumi:"minCapacity"`
@@ -26,6 +27,7 @@ type ScalableTargetActionInput interface {
 	ToScalableTargetActionOutputWithContext(context.Context) ScalableTargetActionOutput
 }
 
+// specifies the minimum and maximum capacity
 type ScalableTargetActionArgs struct {
 	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
@@ -84,6 +86,7 @@ func (i *scalableTargetActionPtrType) ToScalableTargetActionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetActionPtrOutput)
 }
 
+// specifies the minimum and maximum capacity
 type ScalableTargetActionOutput struct{ *pulumi.OutputState }
 
 func (ScalableTargetActionOutput) ElementType() reflect.Type {
@@ -158,6 +161,7 @@ func (o ScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// specifies a scheduled action for a scalable target
 type ScalableTargetScheduledAction struct {
 	EndTime              *string               `pulumi:"endTime"`
 	ScalableTargetAction *ScalableTargetAction `pulumi:"scalableTargetAction"`
@@ -178,6 +182,7 @@ type ScalableTargetScheduledActionInput interface {
 	ToScalableTargetScheduledActionOutputWithContext(context.Context) ScalableTargetScheduledActionOutput
 }
 
+// specifies a scheduled action for a scalable target
 type ScalableTargetScheduledActionArgs struct {
 	EndTime              pulumi.StringPtrInput        `pulumi:"endTime"`
 	ScalableTargetAction ScalableTargetActionPtrInput `pulumi:"scalableTargetAction"`
@@ -224,6 +229,7 @@ func (i ScalableTargetScheduledActionArray) ToScalableTargetScheduledActionArray
 	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetScheduledActionArrayOutput)
 }
 
+// specifies a scheduled action for a scalable target
 type ScalableTargetScheduledActionOutput struct{ *pulumi.OutputState }
 
 func (ScalableTargetScheduledActionOutput) ElementType() reflect.Type {
@@ -282,6 +288,7 @@ func (o ScalableTargetScheduledActionArrayOutput) Index(i pulumi.IntInput) Scala
 	}).(ScalableTargetScheduledActionOutput)
 }
 
+// specifies whether the scaling activities for a scalable target are in a suspended state
 type ScalableTargetSuspendedState struct {
 	DynamicScalingInSuspended  *bool `pulumi:"dynamicScalingInSuspended"`
 	DynamicScalingOutSuspended *bool `pulumi:"dynamicScalingOutSuspended"`
@@ -299,6 +306,7 @@ type ScalableTargetSuspendedStateInput interface {
 	ToScalableTargetSuspendedStateOutputWithContext(context.Context) ScalableTargetSuspendedStateOutput
 }
 
+// specifies whether the scaling activities for a scalable target are in a suspended state
 type ScalableTargetSuspendedStateArgs struct {
 	DynamicScalingInSuspended  pulumi.BoolPtrInput `pulumi:"dynamicScalingInSuspended"`
 	DynamicScalingOutSuspended pulumi.BoolPtrInput `pulumi:"dynamicScalingOutSuspended"`
@@ -358,6 +366,7 @@ func (i *scalableTargetSuspendedStatePtrType) ToScalableTargetSuspendedStatePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetSuspendedStatePtrOutput)
 }
 
+// specifies whether the scaling activities for a scalable target are in a suspended state
 type ScalableTargetSuspendedStateOutput struct{ *pulumi.OutputState }
 
 func (ScalableTargetSuspendedStateOutput) ElementType() reflect.Type {

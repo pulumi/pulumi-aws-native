@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
     [AwsNativeResourceType("aws-native:applicationautoscaling:ScalableTarget")]
     public partial class ScalableTarget : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        /// </summary>
         [Output("maxCapacity")]
         public Output<int> MaxCapacity { get; private set; } = null!;
 
+        /// <summary>
+        /// The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        /// </summary>
         [Output("minCapacity")]
         public Output<int> MinCapacity { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the resource associated with the scalable target
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
+        /// </summary>
         [Output("roleARN")]
-        public Output<string> RoleARN { get; private set; } = null!;
+        public Output<string?> RoleARN { get; private set; } = null!;
 
+        /// <summary>
+        /// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+        /// </summary>
         [Output("scalableDimension")]
         public Output<string> ScalableDimension { get; private set; } = null!;
 
+        /// <summary>
+        /// The scheduled actions for the scalable target. Duplicates aren't allowed.
+        /// </summary>
         [Output("scheduledActions")]
         public Output<ImmutableArray<Outputs.ScalableTargetScheduledAction>> ScheduledActions { get; private set; } = null!;
 
+        /// <summary>
+        /// The namespace of the AWS service that provides the resource, or a custom-resource
+        /// </summary>
         [Output("serviceNamespace")]
         public Output<string> ServiceNamespace { get; private set; } = null!;
 
+        /// <summary>
+        /// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
+        /// </summary>
         [Output("suspendedState")]
         public Output<Outputs.ScalableTargetSuspendedState?> SuspendedState { get; private set; } = null!;
 
@@ -84,32 +108,57 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
 
     public sealed class ScalableTargetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        /// </summary>
         [Input("maxCapacity", required: true)]
         public Input<int> MaxCapacity { get; set; } = null!;
 
+        /// <summary>
+        /// The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        /// </summary>
         [Input("minCapacity", required: true)]
         public Input<int> MinCapacity { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the resource associated with the scalable target
+        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
-        [Input("roleARN", required: true)]
-        public Input<string> RoleARN { get; set; } = null!;
+        /// <summary>
+        /// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
+        /// </summary>
+        [Input("roleARN")]
+        public Input<string>? RoleARN { get; set; }
 
+        /// <summary>
+        /// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+        /// </summary>
         [Input("scalableDimension", required: true)]
         public Input<string> ScalableDimension { get; set; } = null!;
 
         [Input("scheduledActions")]
         private InputList<Inputs.ScalableTargetScheduledActionArgs>? _scheduledActions;
+
+        /// <summary>
+        /// The scheduled actions for the scalable target. Duplicates aren't allowed.
+        /// </summary>
         public InputList<Inputs.ScalableTargetScheduledActionArgs> ScheduledActions
         {
             get => _scheduledActions ?? (_scheduledActions = new InputList<Inputs.ScalableTargetScheduledActionArgs>());
             set => _scheduledActions = value;
         }
 
+        /// <summary>
+        /// The namespace of the AWS service that provides the resource, or a custom-resource
+        /// </summary>
         [Input("serviceNamespace", required: true)]
         public Input<string> ServiceNamespace { get; set; } = null!;
 
+        /// <summary>
+        /// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
+        /// </summary>
         [Input("suspendedState")]
         public Input<Inputs.ScalableTargetSuspendedStateArgs>? SuspendedState { get; set; }
 

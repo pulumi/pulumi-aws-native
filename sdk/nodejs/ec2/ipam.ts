@@ -44,11 +44,11 @@ export class IPAM extends pulumi.CustomResource {
     /**
      * The Id of the default association to the default resource discovery, created with this IPAM.
      */
-    public readonly defaultResourceDiscoveryAssociationId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly defaultResourceDiscoveryAssociationId!: pulumi.Output<string>;
     /**
      * The Id of the default resource discovery, created with this IPAM.
      */
-    public readonly defaultResourceDiscoveryId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly defaultResourceDiscoveryId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Id of the IPAM.
@@ -90,12 +90,12 @@ export class IPAM extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["defaultResourceDiscoveryAssociationId"] = args ? args.defaultResourceDiscoveryAssociationId : undefined;
-            resourceInputs["defaultResourceDiscoveryId"] = args ? args.defaultResourceDiscoveryId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultResourceDiscoveryAssociationId"] = undefined /*out*/;
+            resourceInputs["defaultResourceDiscoveryId"] = undefined /*out*/;
             resourceInputs["ipamId"] = undefined /*out*/;
             resourceInputs["privateDefaultScopeId"] = undefined /*out*/;
             resourceInputs["publicDefaultScopeId"] = undefined /*out*/;
@@ -123,14 +123,6 @@ export class IPAM extends pulumi.CustomResource {
  * The set of arguments for constructing a IPAM resource.
  */
 export interface IPAMArgs {
-    /**
-     * The Id of the default association to the default resource discovery, created with this IPAM.
-     */
-    defaultResourceDiscoveryAssociationId?: pulumi.Input<string>;
-    /**
-     * The Id of the default resource discovery, created with this IPAM.
-     */
-    defaultResourceDiscoveryId?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     /**
      * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring

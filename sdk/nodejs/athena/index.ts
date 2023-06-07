@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CapacityReservationArgs } from "./capacityReservation";
+export type CapacityReservation = import("./capacityReservation").CapacityReservation;
+export const CapacityReservation: typeof import("./capacityReservation").CapacityReservation = null as any;
+utilities.lazyLoad(exports, ["CapacityReservation"], () => require("./capacityReservation"));
+
 export { DataCatalogArgs } from "./dataCatalog";
 export type DataCatalog = import("./dataCatalog").DataCatalog;
 export const DataCatalog: typeof import("./dataCatalog").DataCatalog = null as any;
 utilities.lazyLoad(exports, ["DataCatalog"], () => require("./dataCatalog"));
+
+export { GetCapacityReservationArgs, GetCapacityReservationResult, GetCapacityReservationOutputArgs } from "./getCapacityReservation";
+export const getCapacityReservation: typeof import("./getCapacityReservation").getCapacityReservation = null as any;
+export const getCapacityReservationOutput: typeof import("./getCapacityReservation").getCapacityReservationOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityReservation","getCapacityReservationOutput"], () => require("./getCapacityReservation"));
 
 export { GetDataCatalogArgs, GetDataCatalogResult, GetDataCatalogOutputArgs } from "./getDataCatalog";
 export const getDataCatalog: typeof import("./getDataCatalog").getDataCatalog = null as any;
@@ -53,6 +63,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:athena:CapacityReservation":
+                return new CapacityReservation(name, <any>undefined, { urn })
             case "aws-native:athena:DataCatalog":
                 return new DataCatalog(name, <any>undefined, { urn })
             case "aws-native:athena:NamedQuery":

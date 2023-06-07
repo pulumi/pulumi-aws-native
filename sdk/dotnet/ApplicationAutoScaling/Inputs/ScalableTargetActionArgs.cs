@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
+    /// <summary>
+    /// specifies the minimum and maximum capacity
+    /// </summary>
     public sealed class ScalableTargetActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("maxCapacity")]

@@ -2252,11 +2252,17 @@ export namespace appintegrations {
 }
 
 export namespace applicationautoscaling {
+    /**
+     * specifies the minimum and maximum capacity
+     */
     export interface ScalableTargetAction {
         maxCapacity?: number;
         minCapacity?: number;
     }
 
+    /**
+     * specifies a scheduled action for a scalable target
+     */
     export interface ScalableTargetScheduledAction {
         endTime?: string;
         scalableTargetAction?: outputs.applicationautoscaling.ScalableTargetAction;
@@ -2266,6 +2272,9 @@ export namespace applicationautoscaling {
         timezone?: string;
     }
 
+    /**
+     * specifies whether the scaling activities for a scalable target are in a suspended state
+     */
     export interface ScalableTargetSuspendedState {
         dynamicScalingInSuspended?: boolean;
         dynamicScalingOutSuspended?: boolean;
@@ -3976,6 +3985,22 @@ export namespace ask {
 }
 
 export namespace athena {
+    export interface CapacityReservationCapacityAssignment {
+        workgroupNames: string[];
+    }
+
+    /**
+     * Assignment configuration to assign workgroups to a reservation
+     */
+    export interface CapacityReservationCapacityAssignmentConfiguration {
+        capacityAssignments: outputs.athena.CapacityReservationCapacityAssignment[];
+    }
+
+    export interface CapacityReservationTag {
+        key: string;
+        value: string;
+    }
+
     export interface DataCatalogTag {
         key: string;
         value: string;
@@ -16449,6 +16474,7 @@ export namespace glue {
     export interface JobCommand {
         name?: string;
         pythonVersion?: string;
+        runtime?: string;
         scriptLocation?: string;
     }
 
@@ -23641,8 +23667,17 @@ export namespace lambda {
     }
 
     export interface LayerVersionContent {
+        /**
+         * The Amazon S3 bucket of the layer archive.
+         */
         s3Bucket: string;
+        /**
+         * The Amazon S3 key of the layer archive.
+         */
         s3Key: string;
+        /**
+         * For versioned objects, the version of the layer archive object to use.
+         */
         s3ObjectVersion?: string;
     }
 

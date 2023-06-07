@@ -17,17 +17,19 @@ __all__ = ['LayerVersionArgs', 'LayerVersion']
 class LayerVersionArgs:
     def __init__(__self__, *,
                  content: pulumi.Input['LayerVersionContentArgs'],
-                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  layer_name: Optional[pulumi.Input[str]] = None,
                  license_info: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LayerVersion resource.
+        :param pulumi.Input['LayerVersionContentArgs'] content: The function layer archive.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
+        :param pulumi.Input[str] description: The description of the version.
+        :param pulumi.Input[str] layer_name: The name or Amazon Resource Name (ARN) of the layer.
+        :param pulumi.Input[str] license_info: The layer's software license.
         """
         pulumi.set(__self__, "content", content)
-        if compatible_architectures is not None:
-            pulumi.set(__self__, "compatible_architectures", compatible_architectures)
         if compatible_runtimes is not None:
             pulumi.set(__self__, "compatible_runtimes", compatible_runtimes)
         if description is not None:
@@ -40,6 +42,9 @@ class LayerVersionArgs:
     @property
     @pulumi.getter
     def content(self) -> pulumi.Input['LayerVersionContentArgs']:
+        """
+        The function layer archive.
+        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -47,17 +52,11 @@ class LayerVersionArgs:
         pulumi.set(self, "content", value)
 
     @property
-    @pulumi.getter(name="compatibleArchitectures")
-    def compatible_architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "compatible_architectures")
-
-    @compatible_architectures.setter
-    def compatible_architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "compatible_architectures", value)
-
-    @property
     @pulumi.getter(name="compatibleRuntimes")
     def compatible_runtimes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
+        """
         return pulumi.get(self, "compatible_runtimes")
 
     @compatible_runtimes.setter
@@ -67,6 +66,9 @@ class LayerVersionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the version.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -76,6 +78,9 @@ class LayerVersionArgs:
     @property
     @pulumi.getter(name="layerName")
     def layer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or Amazon Resource Name (ARN) of the layer.
+        """
         return pulumi.get(self, "layer_name")
 
     @layer_name.setter
@@ -85,6 +90,9 @@ class LayerVersionArgs:
     @property
     @pulumi.getter(name="licenseInfo")
     def license_info(self) -> Optional[pulumi.Input[str]]:
+        """
+        The layer's software license.
+        """
         return pulumi.get(self, "license_info")
 
     @license_info.setter
@@ -92,17 +100,11 @@ class LayerVersionArgs:
         pulumi.set(self, "license_info", value)
 
 
-warnings.warn("""LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class LayerVersion(pulumi.CustomResource):
-    warnings.warn("""LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  content: Optional[pulumi.Input[pulumi.InputType['LayerVersionContentArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -114,6 +116,11 @@ class LayerVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
+        :param pulumi.Input[pulumi.InputType['LayerVersionContentArgs']] content: The function layer archive.
+        :param pulumi.Input[str] description: The description of the version.
+        :param pulumi.Input[str] layer_name: The name or Amazon Resource Name (ARN) of the layer.
+        :param pulumi.Input[str] license_info: The layer's software license.
         """
         ...
     @overload
@@ -139,14 +146,12 @@ class LayerVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  content: Optional[pulumi.Input[pulumi.InputType['LayerVersionContentArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  layer_name: Optional[pulumi.Input[str]] = None,
                  license_info: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""LayerVersion is deprecated: LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -155,7 +160,6 @@ class LayerVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LayerVersionArgs.__new__(LayerVersionArgs)
 
-            __props__.__dict__["compatible_architectures"] = compatible_architectures
             __props__.__dict__["compatible_runtimes"] = compatible_runtimes
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
@@ -185,7 +189,6 @@ class LayerVersion(pulumi.CustomResource):
 
         __props__ = LayerVersionArgs.__new__(LayerVersionArgs)
 
-        __props__.__dict__["compatible_architectures"] = None
         __props__.__dict__["compatible_runtimes"] = None
         __props__.__dict__["content"] = None
         __props__.__dict__["description"] = None
@@ -194,32 +197,42 @@ class LayerVersion(pulumi.CustomResource):
         return LayerVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="compatibleArchitectures")
-    def compatible_architectures(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        return pulumi.get(self, "compatible_architectures")
-
-    @property
     @pulumi.getter(name="compatibleRuntimes")
     def compatible_runtimes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
+        """
         return pulumi.get(self, "compatible_runtimes")
 
     @property
     @pulumi.getter
     def content(self) -> pulumi.Output['outputs.LayerVersionContent']:
+        """
+        The function layer archive.
+        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the version.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="layerName")
     def layer_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name or Amazon Resource Name (ARN) of the layer.
+        """
         return pulumi.get(self, "layer_name")
 
     @property
     @pulumi.getter(name="licenseInfo")
     def license_info(self) -> pulumi.Output[Optional[str]]:
+        """
+        The layer's software license.
+        """
         return pulumi.get(self, "license_info")
 

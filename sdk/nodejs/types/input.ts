@@ -2945,11 +2945,17 @@ export namespace appintegrations {
 }
 
 export namespace applicationautoscaling {
+    /**
+     * specifies the minimum and maximum capacity
+     */
     export interface ScalableTargetActionArgs {
         maxCapacity?: pulumi.Input<number>;
         minCapacity?: pulumi.Input<number>;
     }
 
+    /**
+     * specifies a scheduled action for a scalable target
+     */
     export interface ScalableTargetScheduledActionArgs {
         endTime?: pulumi.Input<string>;
         scalableTargetAction?: pulumi.Input<inputs.applicationautoscaling.ScalableTargetActionArgs>;
@@ -2959,6 +2965,9 @@ export namespace applicationautoscaling {
         timezone?: pulumi.Input<string>;
     }
 
+    /**
+     * specifies whether the scaling activities for a scalable target are in a suspended state
+     */
     export interface ScalableTargetSuspendedStateArgs {
         dynamicScalingInSuspended?: pulumi.Input<boolean>;
         dynamicScalingOutSuspended?: pulumi.Input<boolean>;
@@ -4661,6 +4670,22 @@ export namespace ask {
 }
 
 export namespace athena {
+    export interface CapacityReservationCapacityAssignmentArgs {
+        workgroupNames: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Assignment configuration to assign workgroups to a reservation
+     */
+    export interface CapacityReservationCapacityAssignmentConfigurationArgs {
+        capacityAssignments: pulumi.Input<pulumi.Input<inputs.athena.CapacityReservationCapacityAssignmentArgs>[]>;
+    }
+
+    export interface CapacityReservationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface DataCatalogTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -16190,6 +16215,7 @@ export namespace glue {
     export interface JobCommandArgs {
         name?: pulumi.Input<string>;
         pythonVersion?: pulumi.Input<string>;
+        runtime?: pulumi.Input<string>;
         scriptLocation?: pulumi.Input<string>;
     }
 
@@ -23287,8 +23313,17 @@ export namespace lambda {
     }
 
     export interface LayerVersionContentArgs {
+        /**
+         * The Amazon S3 bucket of the layer archive.
+         */
         s3Bucket: pulumi.Input<string>;
+        /**
+         * The Amazon S3 key of the layer archive.
+         */
         s3Key: pulumi.Input<string>;
+        /**
+         * For versioned objects, the version of the layer archive object to use.
+         */
         s3ObjectVersion?: pulumi.Input<string>;
     }
 

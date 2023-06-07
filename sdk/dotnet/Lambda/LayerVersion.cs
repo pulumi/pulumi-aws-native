@@ -12,25 +12,36 @@ namespace Pulumi.AwsNative.Lambda
     /// <summary>
     /// Resource Type definition for AWS::Lambda::LayerVersion
     /// </summary>
-    [Obsolete(@"LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lambda:LayerVersion")]
     public partial class LayerVersion : global::Pulumi.CustomResource
     {
-        [Output("compatibleArchitectures")]
-        public Output<ImmutableArray<string>> CompatibleArchitectures { get; private set; } = null!;
-
+        /// <summary>
+        /// A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
+        /// </summary>
         [Output("compatibleRuntimes")]
         public Output<ImmutableArray<string>> CompatibleRuntimes { get; private set; } = null!;
 
+        /// <summary>
+        /// The function layer archive.
+        /// </summary>
         [Output("content")]
         public Output<Outputs.LayerVersionContent> Content { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the version.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name or Amazon Resource Name (ARN) of the layer.
+        /// </summary>
         [Output("layerName")]
         public Output<string?> LayerName { get; private set; } = null!;
 
+        /// <summary>
+        /// The layer's software license.
+        /// </summary>
         [Output("licenseInfo")]
         public Output<string?> LicenseInfo { get; private set; } = null!;
 
@@ -79,31 +90,39 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class LayerVersionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("compatibleArchitectures")]
-        private InputList<string>? _compatibleArchitectures;
-        public InputList<string> CompatibleArchitectures
-        {
-            get => _compatibleArchitectures ?? (_compatibleArchitectures = new InputList<string>());
-            set => _compatibleArchitectures = value;
-        }
-
         [Input("compatibleRuntimes")]
         private InputList<string>? _compatibleRuntimes;
+
+        /// <summary>
+        /// A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
+        /// </summary>
         public InputList<string> CompatibleRuntimes
         {
             get => _compatibleRuntimes ?? (_compatibleRuntimes = new InputList<string>());
             set => _compatibleRuntimes = value;
         }
 
+        /// <summary>
+        /// The function layer archive.
+        /// </summary>
         [Input("content", required: true)]
         public Input<Inputs.LayerVersionContentArgs> Content { get; set; } = null!;
 
+        /// <summary>
+        /// The description of the version.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name or Amazon Resource Name (ARN) of the layer.
+        /// </summary>
         [Input("layerName")]
         public Input<string>? LayerName { get; set; }
 
+        /// <summary>
+        /// The layer's software license.
+        /// </summary>
         [Input("licenseInfo")]
         public Input<string>? LicenseInfo { get; set; }
 

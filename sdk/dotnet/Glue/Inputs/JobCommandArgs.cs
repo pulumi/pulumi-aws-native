@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Glue.Inputs
         [Input("pythonVersion")]
         public Input<string>? PythonVersion { get; set; }
 
+        [Input("runtime")]
+        public Input<string>? Runtime { get; set; }
+
         [Input("scriptLocation")]
         public Input<string>? ScriptLocation { get; set; }
 

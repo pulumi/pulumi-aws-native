@@ -7,6 +7,38 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Athena
 {
+    [EnumType]
+    public readonly struct CapacityReservationStatus : IEquatable<CapacityReservationStatus>
+    {
+        private readonly string _value;
+
+        private CapacityReservationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityReservationStatus Pending { get; } = new CapacityReservationStatus("PENDING");
+        public static CapacityReservationStatus Active { get; } = new CapacityReservationStatus("ACTIVE");
+        public static CapacityReservationStatus Cancelling { get; } = new CapacityReservationStatus("CANCELLING");
+        public static CapacityReservationStatus Cancelled { get; } = new CapacityReservationStatus("CANCELLED");
+        public static CapacityReservationStatus Failed { get; } = new CapacityReservationStatus("FAILED");
+        public static CapacityReservationStatus UpdatePending { get; } = new CapacityReservationStatus("UPDATE_PENDING");
+
+        public static bool operator ==(CapacityReservationStatus left, CapacityReservationStatus right) => left.Equals(right);
+        public static bool operator !=(CapacityReservationStatus left, CapacityReservationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityReservationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityReservationStatus other && Equals(other);
+        public bool Equals(CapacityReservationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
     /// </summary>

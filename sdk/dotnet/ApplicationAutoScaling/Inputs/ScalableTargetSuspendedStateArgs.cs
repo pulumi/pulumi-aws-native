@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
+    /// <summary>
+    /// specifies whether the scaling activities for a scalable target are in a suspended state
+    /// </summary>
     public sealed class ScalableTargetSuspendedStateArgs : global::Pulumi.ResourceArgs
     {
         [Input("dynamicScalingInSuspended")]

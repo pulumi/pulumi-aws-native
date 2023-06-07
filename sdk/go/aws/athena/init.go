@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:athena:CapacityReservation":
+		r = &CapacityReservation{}
 	case "aws-native:athena:DataCatalog":
 		r = &DataCatalog{}
 	case "aws-native:athena:NamedQuery":

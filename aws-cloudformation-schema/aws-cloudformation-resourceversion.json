@@ -78,7 +78,8 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloudformation:DescribeTypeRegistration", "cloudformation:RegisterType", "iam:PassRole", "s3:GetObject", "s3:ListBucket", "kms:Decrypt" ]
+      "permissions" : [ "cloudformation:DescribeTypeRegistration", "cloudformation:RegisterType", "iam:PassRole", "s3:GetObject", "s3:ListBucket", "kms:Decrypt" ],
+      "timeoutInMinutes" : 2160
     },
     "read" : {
       "permissions" : [ "cloudformation:DescribeType" ]

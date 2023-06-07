@@ -20,6 +20,8 @@ type SequenceStore struct {
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A description for the store.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An S3 URI representing the bucket and folder to store failed read set uploads.
+	FallbackLocation pulumi.StringPtrOutput `pulumi:"fallbackLocation"`
 	// A name for the store.
 	Name            pulumi.StringOutput             `pulumi:"name"`
 	SequenceStoreId pulumi.StringOutput             `pulumi:"sequenceStoreId"`
@@ -68,6 +70,8 @@ func (SequenceStoreState) ElementType() reflect.Type {
 type sequenceStoreArgs struct {
 	// A description for the store.
 	Description *string `pulumi:"description"`
+	// An S3 URI representing the bucket and folder to store failed read set uploads.
+	FallbackLocation *string `pulumi:"fallbackLocation"`
 	// A name for the store.
 	Name      *string                 `pulumi:"name"`
 	SseConfig *SequenceStoreSseConfig `pulumi:"sseConfig"`
@@ -78,6 +82,8 @@ type sequenceStoreArgs struct {
 type SequenceStoreArgs struct {
 	// A description for the store.
 	Description pulumi.StringPtrInput
+	// An S3 URI representing the bucket and folder to store failed read set uploads.
+	FallbackLocation pulumi.StringPtrInput
 	// A name for the store.
 	Name      pulumi.StringPtrInput
 	SseConfig SequenceStoreSseConfigPtrInput
@@ -134,6 +140,11 @@ func (o SequenceStoreOutput) CreationTime() pulumi.StringOutput {
 // A description for the store.
 func (o SequenceStoreOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SequenceStore) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// An S3 URI representing the bucket and folder to store failed read set uploads.
+func (o SequenceStoreOutput) FallbackLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SequenceStore) pulumi.StringPtrOutput { return v.FallbackLocation }).(pulumi.StringPtrOutput)
 }
 
 // A name for the store.

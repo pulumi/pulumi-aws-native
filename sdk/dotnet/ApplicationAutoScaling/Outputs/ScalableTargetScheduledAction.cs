@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
+    /// <summary>
+    /// specifies a scheduled action for a scalable target
+    /// </summary>
     [OutputType]
     public sealed class ScalableTargetScheduledAction
     {

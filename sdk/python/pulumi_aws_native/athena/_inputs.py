@@ -11,6 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CapacityReservationCapacityAssignmentConfigurationArgs',
+    'CapacityReservationCapacityAssignmentArgs',
+    'CapacityReservationTagArgs',
     'DataCatalogTagArgs',
     'WorkGroupAclConfigurationArgs',
     'WorkGroupConfigurationUpdatesArgs',
@@ -22,6 +25,68 @@ __all__ = [
     'WorkGroupResultConfigurationArgs',
     'WorkGroupTagArgs',
 ]
+
+@pulumi.input_type
+class CapacityReservationCapacityAssignmentConfigurationArgs:
+    def __init__(__self__, *,
+                 capacity_assignments: pulumi.Input[Sequence[pulumi.Input['CapacityReservationCapacityAssignmentArgs']]]):
+        """
+        Assignment configuration to assign workgroups to a reservation
+        """
+        pulumi.set(__self__, "capacity_assignments", capacity_assignments)
+
+    @property
+    @pulumi.getter(name="capacityAssignments")
+    def capacity_assignments(self) -> pulumi.Input[Sequence[pulumi.Input['CapacityReservationCapacityAssignmentArgs']]]:
+        return pulumi.get(self, "capacity_assignments")
+
+    @capacity_assignments.setter
+    def capacity_assignments(self, value: pulumi.Input[Sequence[pulumi.Input['CapacityReservationCapacityAssignmentArgs']]]):
+        pulumi.set(self, "capacity_assignments", value)
+
+
+@pulumi.input_type
+class CapacityReservationCapacityAssignmentArgs:
+    def __init__(__self__, *,
+                 workgroup_names: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "workgroup_names", workgroup_names)
+
+    @property
+    @pulumi.getter(name="workgroupNames")
+    def workgroup_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "workgroup_names")
+
+    @workgroup_names.setter
+    def workgroup_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "workgroup_names", value)
+
+
+@pulumi.input_type
+class CapacityReservationTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class DataCatalogTagArgs:

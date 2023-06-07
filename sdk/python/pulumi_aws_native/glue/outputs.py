@@ -1261,11 +1261,14 @@ class JobCommand(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  python_version: Optional[str] = None,
+                 runtime: Optional[str] = None,
                  script_location: Optional[str] = None):
         if name is not None:
             pulumi.set(__self__, "name", name)
         if python_version is not None:
             pulumi.set(__self__, "python_version", python_version)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
         if script_location is not None:
             pulumi.set(__self__, "script_location", script_location)
 
@@ -1278,6 +1281,11 @@ class JobCommand(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
         return pulumi.get(self, "python_version")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[str]:
+        return pulumi.get(self, "runtime")
 
     @property
     @pulumi.getter(name="scriptLocation")

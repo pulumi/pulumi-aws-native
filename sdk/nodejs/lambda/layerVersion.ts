@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Lambda::LayerVersion
- *
- * @deprecated LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class LayerVersion extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class LayerVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LayerVersion {
-        pulumi.log.warn("LayerVersion is deprecated: LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new LayerVersion(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,11 +37,25 @@ export class LayerVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === LayerVersion.__pulumiType;
     }
 
-    public readonly compatibleArchitectures!: pulumi.Output<string[] | undefined>;
+    /**
+     * A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
+     */
     public readonly compatibleRuntimes!: pulumi.Output<string[] | undefined>;
+    /**
+     * The function layer archive.
+     */
     public readonly content!: pulumi.Output<outputs.lambda.LayerVersionContent>;
+    /**
+     * The description of the version.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name or Amazon Resource Name (ARN) of the layer.
+     */
     public readonly layerName!: pulumi.Output<string | undefined>;
+    /**
+     * The layer's software license.
+     */
     public readonly licenseInfo!: pulumi.Output<string | undefined>;
 
     /**
@@ -54,23 +65,19 @@ export class LayerVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: LayerVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("LayerVersion is deprecated: LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            resourceInputs["compatibleArchitectures"] = args ? args.compatibleArchitectures : undefined;
             resourceInputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
             resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["layerName"] = args ? args.layerName : undefined;
             resourceInputs["licenseInfo"] = args ? args.licenseInfo : undefined;
         } else {
-            resourceInputs["compatibleArchitectures"] = undefined /*out*/;
             resourceInputs["compatibleRuntimes"] = undefined /*out*/;
             resourceInputs["content"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -86,10 +93,24 @@ export class LayerVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a LayerVersion resource.
  */
 export interface LayerVersionArgs {
-    compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
+     */
     compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The function layer archive.
+     */
     content: pulumi.Input<inputs.lambda.LayerVersionContentArgs>;
+    /**
+     * The description of the version.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name or Amazon Resource Name (ARN) of the layer.
+     */
     layerName?: pulumi.Input<string>;
+    /**
+     * The layer's software license.
+     */
     licenseInfo?: pulumi.Input<string>;
 }

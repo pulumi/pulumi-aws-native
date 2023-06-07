@@ -12,6 +12,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CapacityReservationCapacityAssignment',
+    'CapacityReservationCapacityAssignmentConfiguration',
+    'CapacityReservationTag',
     'DataCatalogTag',
     'WorkGroupAclConfiguration',
     'WorkGroupConfiguration',
@@ -23,6 +26,89 @@ __all__ = [
     'WorkGroupResultConfigurationUpdates',
     'WorkGroupTag',
 ]
+
+@pulumi.output_type
+class CapacityReservationCapacityAssignment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workgroupNames":
+            suggest = "workgroup_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityReservationCapacityAssignment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityReservationCapacityAssignment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityReservationCapacityAssignment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 workgroup_names: Sequence[str]):
+        pulumi.set(__self__, "workgroup_names", workgroup_names)
+
+    @property
+    @pulumi.getter(name="workgroupNames")
+    def workgroup_names(self) -> Sequence[str]:
+        return pulumi.get(self, "workgroup_names")
+
+
+@pulumi.output_type
+class CapacityReservationCapacityAssignmentConfiguration(dict):
+    """
+    Assignment configuration to assign workgroups to a reservation
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityAssignments":
+            suggest = "capacity_assignments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityReservationCapacityAssignmentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityReservationCapacityAssignmentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityReservationCapacityAssignmentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_assignments: Sequence['outputs.CapacityReservationCapacityAssignment']):
+        """
+        Assignment configuration to assign workgroups to a reservation
+        """
+        pulumi.set(__self__, "capacity_assignments", capacity_assignments)
+
+    @property
+    @pulumi.getter(name="capacityAssignments")
+    def capacity_assignments(self) -> Sequence['outputs.CapacityReservationCapacityAssignment']:
+        return pulumi.get(self, "capacity_assignments")
+
+
+@pulumi.output_type
+class CapacityReservationTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class DataCatalogTag(dict):

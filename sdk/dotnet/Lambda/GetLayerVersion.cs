@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetLayerVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the version.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetLayerVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the version.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Lambda
     [OutputType]
     public sealed class GetLayerVersionResult
     {
+        /// <summary>
+        /// The ARN of the version.
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

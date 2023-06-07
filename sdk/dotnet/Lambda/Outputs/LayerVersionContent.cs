@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class LayerVersionContent
     {
+        /// <summary>
+        /// The Amazon S3 bucket of the layer archive.
+        /// </summary>
         public readonly string S3Bucket;
+        /// <summary>
+        /// The Amazon S3 key of the layer archive.
+        /// </summary>
         public readonly string S3Key;
+        /// <summary>
+        /// For versioned objects, the version of the layer archive object to use.
+        /// </summary>
         public readonly string? S3ObjectVersion;
 
         [OutputConstructor]

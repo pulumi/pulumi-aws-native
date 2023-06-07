@@ -24,6 +24,9 @@ __all__ = [
 
 @pulumi.output_type
 class ScalableTargetAction(dict):
+    """
+    specifies the minimum and maximum capacity
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -46,6 +49,9 @@ class ScalableTargetAction(dict):
     def __init__(__self__, *,
                  max_capacity: Optional[int] = None,
                  min_capacity: Optional[int] = None):
+        """
+        specifies the minimum and maximum capacity
+        """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
@@ -64,6 +70,9 @@ class ScalableTargetAction(dict):
 
 @pulumi.output_type
 class ScalableTargetScheduledAction(dict):
+    """
+    specifies a scheduled action for a scalable target
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -94,6 +103,9 @@ class ScalableTargetScheduledAction(dict):
                  scalable_target_action: Optional['outputs.ScalableTargetAction'] = None,
                  start_time: Optional[str] = None,
                  timezone: Optional[str] = None):
+        """
+        specifies a scheduled action for a scalable target
+        """
         pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "scheduled_action_name", scheduled_action_name)
         if end_time is not None:
@@ -138,6 +150,9 @@ class ScalableTargetScheduledAction(dict):
 
 @pulumi.output_type
 class ScalableTargetSuspendedState(dict):
+    """
+    specifies whether the scaling activities for a scalable target are in a suspended state
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -163,6 +178,9 @@ class ScalableTargetSuspendedState(dict):
                  dynamic_scaling_in_suspended: Optional[bool] = None,
                  dynamic_scaling_out_suspended: Optional[bool] = None,
                  scheduled_scaling_suspended: Optional[bool] = None):
+        """
+        specifies whether the scaling activities for a scalable target are in a suspended state
+        """
         if dynamic_scaling_in_suspended is not None:
             pulumi.set(__self__, "dynamic_scaling_in_suspended", dynamic_scaling_in_suspended)
         if dynamic_scaling_out_suspended is not None:

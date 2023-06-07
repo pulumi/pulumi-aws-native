@@ -26,6 +26,9 @@ class ScalableTargetActionArgs:
     def __init__(__self__, *,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[int]] = None):
+        """
+        specifies the minimum and maximum capacity
+        """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
@@ -59,6 +62,9 @@ class ScalableTargetScheduledActionArgs:
                  scalable_target_action: Optional[pulumi.Input['ScalableTargetActionArgs']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
+        """
+        specifies a scheduled action for a scalable target
+        """
         pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "scheduled_action_name", scheduled_action_name)
         if end_time is not None:
@@ -131,6 +137,9 @@ class ScalableTargetSuspendedStateArgs:
                  dynamic_scaling_in_suspended: Optional[pulumi.Input[bool]] = None,
                  dynamic_scaling_out_suspended: Optional[pulumi.Input[bool]] = None,
                  scheduled_scaling_suspended: Optional[pulumi.Input[bool]] = None):
+        """
+        specifies whether the scaling activities for a scalable target are in a suspended state
+        """
         if dynamic_scaling_in_suspended is not None:
             pulumi.set(__self__, "dynamic_scaling_in_suspended", dynamic_scaling_in_suspended)
         if dynamic_scaling_out_suspended is not None:

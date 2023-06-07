@@ -27,8 +27,23 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
 
     public sealed class GetScalableTargetArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The identifier of the resource associated with the scalable target
+        /// </summary>
+        [Input("resourceId", required: true)]
+        public string ResourceId { get; set; } = null!;
+
+        /// <summary>
+        /// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+        /// </summary>
+        [Input("scalableDimension", required: true)]
+        public string ScalableDimension { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of the AWS service that provides the resource, or a custom-resource
+        /// </summary>
+        [Input("serviceNamespace", required: true)]
+        public string ServiceNamespace { get; set; } = null!;
 
         public GetScalableTargetArgs()
         {
@@ -38,8 +53,23 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
 
     public sealed class GetScalableTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The identifier of the resource associated with the scalable target
+        /// </summary>
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
+
+        /// <summary>
+        /// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+        /// </summary>
+        [Input("scalableDimension", required: true)]
+        public Input<string> ScalableDimension { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of the AWS service that provides the resource, or a custom-resource
+        /// </summary>
+        [Input("serviceNamespace", required: true)]
+        public Input<string> ServiceNamespace { get; set; } = null!;
 
         public GetScalableTargetInvokeArgs()
         {
@@ -51,11 +81,25 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
     [OutputType]
     public sealed class GetScalableTargetResult
     {
+        /// <summary>
+        /// This value can be returned by using the Ref function. Ref returns the Cloudformation generated ID of the resource in format - ResourceId|ScalableDimension|ServiceNamespace
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        /// </summary>
         public readonly int? MaxCapacity;
+        /// <summary>
+        /// The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+        /// </summary>
         public readonly int? MinCapacity;
-        public readonly string? RoleARN;
+        /// <summary>
+        /// The scheduled actions for the scalable target. Duplicates aren't allowed.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ScalableTargetScheduledAction> ScheduledActions;
+        /// <summary>
+        /// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
+        /// </summary>
         public readonly Outputs.ScalableTargetSuspendedState? SuspendedState;
 
         [OutputConstructor]
@@ -66,8 +110,6 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
 
             int? minCapacity,
 
-            string? roleARN,
-
             ImmutableArray<Outputs.ScalableTargetScheduledAction> scheduledActions,
 
             Outputs.ScalableTargetSuspendedState? suspendedState)
@@ -75,7 +117,6 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
             Id = id;
             MaxCapacity = maxCapacity;
             MinCapacity = minCapacity;
-            RoleARN = roleARN;
             ScheduledActions = scheduledActions;
             SuspendedState = suspendedState;
         }

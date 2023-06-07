@@ -6,7 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .capacity_reservation import *
 from .data_catalog import *
+from .get_capacity_reservation import *
 from .get_data_catalog import *
 from .get_named_query import *
 from .get_prepared_statement import *

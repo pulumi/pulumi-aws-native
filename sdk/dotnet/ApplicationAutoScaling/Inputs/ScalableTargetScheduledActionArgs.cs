@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
+    /// <summary>
+    /// specifies a scheduled action for a scalable target
+    /// </summary>
     public sealed class ScalableTargetScheduledActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("endTime")]

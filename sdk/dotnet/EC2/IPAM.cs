@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.EC2
         /// The Id of the default association to the default resource discovery, created with this IPAM.
         /// </summary>
         [Output("defaultResourceDiscoveryAssociationId")]
-        public Output<string?> DefaultResourceDiscoveryAssociationId { get; private set; } = null!;
+        public Output<string> DefaultResourceDiscoveryAssociationId { get; private set; } = null!;
 
         /// <summary>
         /// The Id of the default resource discovery, created with this IPAM.
         /// </summary>
         [Output("defaultResourceDiscoveryId")]
-        public Output<string?> DefaultResourceDiscoveryId { get; private set; } = null!;
+        public Output<string> DefaultResourceDiscoveryId { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -123,18 +123,6 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class IPAMArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Id of the default association to the default resource discovery, created with this IPAM.
-        /// </summary>
-        [Input("defaultResourceDiscoveryAssociationId")]
-        public Input<string>? DefaultResourceDiscoveryAssociationId { get; set; }
-
-        /// <summary>
-        /// The Id of the default resource discovery, created with this IPAM.
-        /// </summary>
-        [Input("defaultResourceDiscoveryId")]
-        public Input<string>? DefaultResourceDiscoveryId { get; set; }
-
         [Input("description")]
         public Input<string>? Description { get; set; }
 

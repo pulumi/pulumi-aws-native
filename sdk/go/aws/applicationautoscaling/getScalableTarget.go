@@ -21,16 +21,25 @@ func LookupScalableTarget(ctx *pulumi.Context, args *LookupScalableTargetArgs, o
 }
 
 type LookupScalableTargetArgs struct {
-	Id string `pulumi:"id"`
+	// The identifier of the resource associated with the scalable target
+	ResourceId string `pulumi:"resourceId"`
+	// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+	ScalableDimension string `pulumi:"scalableDimension"`
+	// The namespace of the AWS service that provides the resource, or a custom-resource
+	ServiceNamespace string `pulumi:"serviceNamespace"`
 }
 
 type LookupScalableTargetResult struct {
-	Id               *string                         `pulumi:"id"`
-	MaxCapacity      *int                            `pulumi:"maxCapacity"`
-	MinCapacity      *int                            `pulumi:"minCapacity"`
-	RoleARN          *string                         `pulumi:"roleARN"`
+	// This value can be returned by using the Ref function. Ref returns the Cloudformation generated ID of the resource in format - ResourceId|ScalableDimension|ServiceNamespace
+	Id *string `pulumi:"id"`
+	// The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+	MaxCapacity *int `pulumi:"maxCapacity"`
+	// The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+	MinCapacity *int `pulumi:"minCapacity"`
+	// The scheduled actions for the scalable target. Duplicates aren't allowed.
 	ScheduledActions []ScalableTargetScheduledAction `pulumi:"scheduledActions"`
-	SuspendedState   *ScalableTargetSuspendedState   `pulumi:"suspendedState"`
+	// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
+	SuspendedState *ScalableTargetSuspendedState `pulumi:"suspendedState"`
 }
 
 func LookupScalableTargetOutput(ctx *pulumi.Context, args LookupScalableTargetOutputArgs, opts ...pulumi.InvokeOption) LookupScalableTargetResultOutput {
@@ -47,7 +56,12 @@ func LookupScalableTargetOutput(ctx *pulumi.Context, args LookupScalableTargetOu
 }
 
 type LookupScalableTargetOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The identifier of the resource associated with the scalable target
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+	ScalableDimension pulumi.StringInput `pulumi:"scalableDimension"`
+	// The namespace of the AWS service that provides the resource, or a custom-resource
+	ServiceNamespace pulumi.StringInput `pulumi:"serviceNamespace"`
 }
 
 func (LookupScalableTargetOutputArgs) ElementType() reflect.Type {
@@ -68,26 +82,27 @@ func (o LookupScalableTargetResultOutput) ToLookupScalableTargetResultOutputWith
 	return o
 }
 
+// This value can be returned by using the Ref function. Ref returns the Cloudformation generated ID of the resource in format - ResourceId|ScalableDimension|ServiceNamespace
 func (o LookupScalableTargetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScalableTargetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
 func (o LookupScalableTargetResultOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupScalableTargetResult) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
 func (o LookupScalableTargetResultOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupScalableTargetResult) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupScalableTargetResultOutput) RoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupScalableTargetResult) *string { return v.RoleARN }).(pulumi.StringPtrOutput)
-}
-
+// The scheduled actions for the scalable target. Duplicates aren't allowed.
 func (o LookupScalableTargetResultOutput) ScheduledActions() ScalableTargetScheduledActionArrayOutput {
 	return o.ApplyT(func(v LookupScalableTargetResult) []ScalableTargetScheduledAction { return v.ScheduledActions }).(ScalableTargetScheduledActionArrayOutput)
 }
 
+// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
 func (o LookupScalableTargetResultOutput) SuspendedState() ScalableTargetSuspendedStatePtrOutput {
 	return o.ApplyT(func(v LookupScalableTargetResult) *ScalableTargetSuspendedState { return v.SuspendedState }).(ScalableTargetSuspendedStatePtrOutput)
 }

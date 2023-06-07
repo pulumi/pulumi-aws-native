@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Omics
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// An S3 URI representing the bucket and folder to store failed read set uploads.
+        /// </summary>
+        [Output("fallbackLocation")]
+        public Output<string?> FallbackLocation { get; private set; } = null!;
+
+        /// <summary>
         /// A name for the store.
         /// </summary>
         [Output("name")]
@@ -98,6 +104,12 @@ namespace Pulumi.AwsNative.Omics
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// An S3 URI representing the bucket and folder to store failed read set uploads.
+        /// </summary>
+        [Input("fallbackLocation")]
+        public Input<string>? FallbackLocation { get; set; }
 
         /// <summary>
         /// A name for the store.

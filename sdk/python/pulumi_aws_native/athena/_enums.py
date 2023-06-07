@@ -5,11 +5,21 @@
 from enum import Enum
 
 __all__ = [
+    'CapacityReservationStatus',
     'DataCatalogType',
     'WorkGroupEncryptionOption',
     'WorkGroupS3AclOption',
     'WorkGroupState',
 ]
+
+
+class CapacityReservationStatus(str, Enum):
+    PENDING = "PENDING"
+    ACTIVE = "ACTIVE"
+    CANCELLING = "CANCELLING"
+    CANCELLED = "CANCELLED"
+    FAILED = "FAILED"
+    UPDATE_PENDING = "UPDATE_PENDING"
 
 
 class DataCatalogType(str, Enum):

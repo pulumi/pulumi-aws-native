@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.Glue.Outputs
     {
         public readonly string? Name;
         public readonly string? PythonVersion;
+        public readonly string? Runtime;
         public readonly string? ScriptLocation;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.Glue.Outputs
 
             string? pythonVersion,
 
+            string? runtime,
+
             string? scriptLocation)
         {
             Name = name;
             PythonVersion = pythonVersion;
+            Runtime = runtime;
             ScriptLocation = scriptLocation;
         }
     }

@@ -21,10 +21,12 @@ func LookupLayerVersion(ctx *pulumi.Context, args *LookupLayerVersionArgs, opts 
 }
 
 type LookupLayerVersionArgs struct {
+	// The ARN of the version.
 	Id string `pulumi:"id"`
 }
 
 type LookupLayerVersionResult struct {
+	// The ARN of the version.
 	Id *string `pulumi:"id"`
 }
 
@@ -42,6 +44,7 @@ func LookupLayerVersionOutput(ctx *pulumi.Context, args LookupLayerVersionOutput
 }
 
 type LookupLayerVersionOutputArgs struct {
+	// The ARN of the version.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -63,6 +66,7 @@ func (o LookupLayerVersionResultOutput) ToLookupLayerVersionResultOutputWithCont
 	return o
 }
 
+// The ARN of the version.
 func (o LookupLayerVersionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

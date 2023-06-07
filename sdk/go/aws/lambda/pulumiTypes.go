@@ -4104,8 +4104,11 @@ func (o FunctionVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type LayerVersionContent struct {
-	S3Bucket        string  `pulumi:"s3Bucket"`
-	S3Key           string  `pulumi:"s3Key"`
+	// The Amazon S3 bucket of the layer archive.
+	S3Bucket string `pulumi:"s3Bucket"`
+	// The Amazon S3 key of the layer archive.
+	S3Key string `pulumi:"s3Key"`
+	// For versioned objects, the version of the layer archive object to use.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
 }
 
@@ -4121,8 +4124,11 @@ type LayerVersionContentInput interface {
 }
 
 type LayerVersionContentArgs struct {
-	S3Bucket        pulumi.StringInput    `pulumi:"s3Bucket"`
-	S3Key           pulumi.StringInput    `pulumi:"s3Key"`
+	// The Amazon S3 bucket of the layer archive.
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	// The Amazon S3 key of the layer archive.
+	S3Key pulumi.StringInput `pulumi:"s3Key"`
+	// For versioned objects, the version of the layer archive object to use.
 	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
 }
 
@@ -4152,14 +4158,17 @@ func (o LayerVersionContentOutput) ToLayerVersionContentOutputWithContext(ctx co
 	return o
 }
 
+// The Amazon S3 bucket of the layer archive.
 func (o LayerVersionContentOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LayerVersionContent) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
+// The Amazon S3 key of the layer archive.
 func (o LayerVersionContentOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LayerVersionContent) string { return v.S3Key }).(pulumi.StringOutput)
 }
 
+// For versioned objects, the version of the layer archive object to use.
 func (o LayerVersionContentOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LayerVersionContent) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
 }

@@ -10,6 +10,100 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CapacityReservationStatus string
+
+const (
+	CapacityReservationStatusPending       = CapacityReservationStatus("PENDING")
+	CapacityReservationStatusActive        = CapacityReservationStatus("ACTIVE")
+	CapacityReservationStatusCancelling    = CapacityReservationStatus("CANCELLING")
+	CapacityReservationStatusCancelled     = CapacityReservationStatus("CANCELLED")
+	CapacityReservationStatusFailed        = CapacityReservationStatus("FAILED")
+	CapacityReservationStatusUpdatePending = CapacityReservationStatus("UPDATE_PENDING")
+)
+
+type CapacityReservationStatusOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationStatus)(nil)).Elem()
+}
+
+func (o CapacityReservationStatusOutput) ToCapacityReservationStatusOutput() CapacityReservationStatusOutput {
+	return o
+}
+
+func (o CapacityReservationStatusOutput) ToCapacityReservationStatusOutputWithContext(ctx context.Context) CapacityReservationStatusOutput {
+	return o
+}
+
+func (o CapacityReservationStatusOutput) ToCapacityReservationStatusPtrOutput() CapacityReservationStatusPtrOutput {
+	return o.ToCapacityReservationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationStatusOutput) ToCapacityReservationStatusPtrOutputWithContext(ctx context.Context) CapacityReservationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityReservationStatus) *CapacityReservationStatus {
+		return &v
+	}).(CapacityReservationStatusPtrOutput)
+}
+
+func (o CapacityReservationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityReservationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityReservationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityReservationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationStatus)(nil)).Elem()
+}
+
+func (o CapacityReservationStatusPtrOutput) ToCapacityReservationStatusPtrOutput() CapacityReservationStatusPtrOutput {
+	return o
+}
+
+func (o CapacityReservationStatusPtrOutput) ToCapacityReservationStatusPtrOutputWithContext(ctx context.Context) CapacityReservationStatusPtrOutput {
+	return o
+}
+
+func (o CapacityReservationStatusPtrOutput) Elem() CapacityReservationStatusOutput {
+	return o.ApplyT(func(v *CapacityReservationStatus) CapacityReservationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityReservationStatus
+		return ret
+	}).(CapacityReservationStatusOutput)
+}
+
+func (o CapacityReservationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityReservationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
 type DataCatalogType string
 
@@ -680,6 +774,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupS3AclOptionPtrInput)(nil)).Elem(), WorkGroupS3AclOption("BUCKET_OWNER_FULL_CONTROL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupStateEnumInput)(nil)).Elem(), WorkGroupStateEnum("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupStateEnumPtrInput)(nil)).Elem(), WorkGroupStateEnum("ENABLED"))
+	pulumi.RegisterOutputType(CapacityReservationStatusOutput{})
+	pulumi.RegisterOutputType(CapacityReservationStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogTypeOutput{})
 	pulumi.RegisterOutputType(DataCatalogTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionOptionOutput{})

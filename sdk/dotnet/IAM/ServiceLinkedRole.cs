@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.IAM
     /// <summary>
     /// Resource Type definition for AWS::IAM::ServiceLinkedRole
     /// </summary>
-    [Obsolete(@"ServiceLinkedRole is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iam:ServiceLinkedRole")]
     public partial class ServiceLinkedRole : global::Pulumi.CustomResource
     {

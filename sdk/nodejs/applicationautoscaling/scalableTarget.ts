@@ -37,13 +37,37 @@ export class ScalableTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScalableTarget.__pulumiType;
     }
 
+    /**
+     * The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+     */
     public readonly maxCapacity!: pulumi.Output<number>;
+    /**
+     * The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+     */
     public readonly minCapacity!: pulumi.Output<number>;
+    /**
+     * The identifier of the resource associated with the scalable target
+     */
     public readonly resourceId!: pulumi.Output<string>;
-    public readonly roleARN!: pulumi.Output<string>;
+    /**
+     * Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
+     */
+    public readonly roleARN!: pulumi.Output<string | undefined>;
+    /**
+     * The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+     */
     public readonly scalableDimension!: pulumi.Output<string>;
+    /**
+     * The scheduled actions for the scalable target. Duplicates aren't allowed.
+     */
     public readonly scheduledActions!: pulumi.Output<outputs.applicationautoscaling.ScalableTargetScheduledAction[] | undefined>;
+    /**
+     * The namespace of the AWS service that provides the resource, or a custom-resource
+     */
     public readonly serviceNamespace!: pulumi.Output<string>;
+    /**
+     * An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
+     */
     public readonly suspendedState!: pulumi.Output<outputs.applicationautoscaling.ScalableTargetSuspendedState | undefined>;
 
     /**
@@ -65,9 +89,6 @@ export class ScalableTarget extends pulumi.CustomResource {
             }
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
-            }
-            if ((!args || args.roleARN === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roleARN'");
             }
             if ((!args || args.scalableDimension === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalableDimension'");
@@ -102,12 +123,36 @@ export class ScalableTarget extends pulumi.CustomResource {
  * The set of arguments for constructing a ScalableTarget resource.
  */
 export interface ScalableTargetArgs {
+    /**
+     * The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+     */
     maxCapacity: pulumi.Input<number>;
+    /**
+     * The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
+     */
     minCapacity: pulumi.Input<number>;
+    /**
+     * The identifier of the resource associated with the scalable target
+     */
     resourceId: pulumi.Input<string>;
-    roleARN: pulumi.Input<string>;
+    /**
+     * Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
+     */
+    roleARN?: pulumi.Input<string>;
+    /**
+     * The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
+     */
     scalableDimension: pulumi.Input<string>;
+    /**
+     * The scheduled actions for the scalable target. Duplicates aren't allowed.
+     */
     scheduledActions?: pulumi.Input<pulumi.Input<inputs.applicationautoscaling.ScalableTargetScheduledActionArgs>[]>;
+    /**
+     * The namespace of the AWS service that provides the resource, or a custom-resource
+     */
     serviceNamespace: pulumi.Input<string>;
+    /**
+     * An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities.
+     */
     suspendedState?: pulumi.Input<inputs.applicationautoscaling.ScalableTargetSuspendedStateArgs>;
 }
