@@ -1,5 +1,25 @@
 ## HEAD (Unreleased)
 
+## 0.65.0 (June 7, 2023)
+
+#### Upstream breaking changes:
+- Resource "aws-native:ec2:IPAM" removed input `defaultResourceDiscoveryAssociationId`
+- Resource "aws-native:ec2:IPAM" removed input `defaultResourceDiscoveryId`
+- Function "aws-native:applicationautoscaling:getScalableTarget" removed input `id`
+- Function "aws-native:applicationautoscaling:getScalableTarget" removed output `roleARN`
+
+#### New resources:
+- `athena.CapacityReservation`
+- `iam.ServiceLinkedRole`
+- `lambda.LayerVersion`
+- `lambda.LayerVersionPermission`
+
+#### New functions:
+- `athena.getCapacityReservation`
+- `iam.getServiceLinkedRole`
+- `lambda.getLayerVersion`
+- `lambda.getLayerVersionPermission`
+
 ## 0.64.0 (June 1, 2023)
 
 #### Upstream breaking changes:
