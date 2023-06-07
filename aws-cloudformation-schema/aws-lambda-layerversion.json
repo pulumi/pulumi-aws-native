@@ -3,34 +3,40 @@
   "description" : "Resource Type definition for AWS::Lambda::LayerVersion",
   "additionalProperties" : false,
   "properties" : {
+    "Id" : {
+      "type" : "string",
+      "description" : "The ARN of the version."
+    },
     "CompatibleRuntimes" : {
       "type" : "array",
+      "description" : "A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.",
+      "maxItems" : 5,
       "uniqueItems" : false,
       "items" : {
         "type" : "string"
       }
     },
     "LicenseInfo" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The layer's software license.",
+      "maxLength" : 512
     },
     "Description" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The description of the version.",
+      "minLength" : 0,
+      "maxLength" : 256
     },
     "LayerName" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The name or Amazon Resource Name (ARN) of the layer.",
+      "pattern" : "^(arn:[a-zA-Z0-9-]+:lambda:[a-zA-Z0-9-]+:\\d{12}:layer:[a-zA-Z0-9-_]+)|[a-zA-Z0-9-_]+$",
+      "minLength" : 1,
+      "maxLength" : 140
     },
     "Content" : {
+      "description" : "The function layer archive.",
       "$ref" : "#/definitions/Content"
-    },
-    "Id" : {
-      "type" : "string"
-    },
-    "CompatibleArchitectures" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "type" : "string"
-      }
     }
   },
   "definitions" : {
@@ -39,20 +45,31 @@
       "additionalProperties" : false,
       "properties" : {
         "S3ObjectVersion" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "For versioned objects, the version of the layer archive object to use.",
+          "minLength" : 1,
+          "maxLength" : 1024
         },
         "S3Bucket" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The Amazon S3 bucket of the layer archive.",
+          "minLength" : 3,
+          "maxLength" : 63,
+          "pattern" : "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$"
         },
         "S3Key" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The Amazon S3 key of the layer archive.",
+          "minLength" : 1,
+          "maxLength" : 1024
         }
       },
       "required" : [ "S3Bucket", "S3Key" ]
     }
   },
   "required" : [ "Content" ],
-  "createOnlyProperties" : [ "/properties/CompatibleRuntimes", "/properties/LicenseInfo", "/properties/CompatibleArchitectures", "/properties/LayerName", "/properties/Description", "/properties/Content" ],
+  "createOnlyProperties" : [ "/properties/CompatibleRuntimes", "/properties/LicenseInfo", "/properties/Description", "/properties/LayerName", "/properties/Content" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "readOnlyProperties" : [ "/properties/Id" ],
+  "writeOnlyProperties" : [ "/properties/Content" ]
 }
