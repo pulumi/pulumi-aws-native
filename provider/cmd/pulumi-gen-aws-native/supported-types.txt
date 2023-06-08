@@ -688,6 +688,7 @@ AWS::SageMaker::UserProfile
 AWS::Scheduler::Schedule
 AWS::Scheduler::ScheduleGroup
 AWS::SecretsManager::Secret
+AWS::SecurityHub::Standard
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::ServiceAction
 AWS::ServiceCatalog::ServiceActionAssociation
@@ -704,6 +705,8 @@ AWS::Signer::SigningProfile
 AWS::SimSpaceWeaver::Simulation
 AWS::StepFunctions::Activity
 AWS::StepFunctions::StateMachine
+AWS::StepFunctions::StateMachineAlias
+AWS::StepFunctions::StateMachineVersion
 AWS::SupportApp::AccountAlias
 AWS::SupportApp::SlackChannelConfiguration
 AWS::SupportApp::SlackWorkspaceConfiguration

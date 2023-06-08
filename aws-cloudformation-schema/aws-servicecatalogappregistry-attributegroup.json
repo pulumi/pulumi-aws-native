@@ -58,7 +58,7 @@
       "permissions" : [ "servicecatalog:GetAttributeGroup" ]
     },
     "update" : {
-      "permissions" : [ "servicecatalog:UpdateAttributeGroup", "servicecatalog:ListTagsForResource", "servicecatalog:TagResource", "servicecatalog:UntagResource" ]
+      "permissions" : [ "servicecatalog:GetAttributeGroup", "servicecatalog:UpdateAttributeGroup", "servicecatalog:ListTagsForResource", "servicecatalog:TagResource", "servicecatalog:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "servicecatalog:DeleteAttributeGroup" ]
