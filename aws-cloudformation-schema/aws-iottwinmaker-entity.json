@@ -425,16 +425,16 @@
   "primaryIdentifier" : [ "/properties/WorkspaceId", "/properties/EntityId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:CreateEntity", "iottwinmaker:GetEntity", "iotsitewise:ListTagsForResource" ]
+      "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:CreateEntity", "iottwinmaker:GetEntity", "iottwinmaker:ListTagsForResource", "iottwinmaker:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:GetComponentType", "iottwinmaker:GetEntity", "iottwinmaker:ListEntities", "iottwinmaker:ListTagsForResource" ]
+      "permissions" : [ "iottwinmaker:GetComponentType", "iottwinmaker:GetEntity", "iottwinmaker:GetWorkspace", "iottwinmaker:ListEntities", "iottwinmaker:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:GetComponentType", "iottwinmaker:ListTagsForResource", "iottwinmaker:TagResource", "iottwinmaker:UntagResource", "iottwinmaker:UpdateEntity", "iottwinmaker:UpdateComponentType" ]
+      "permissions" : [ "iottwinmaker:GetComponentType", "iottwinmaker:GetEntity", "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource", "iottwinmaker:TagResource", "iottwinmaker:UntagResource", "iottwinmaker:UpdateEntity", "iottwinmaker:UpdateComponentType" ]
     },
     "delete" : {
-      "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:DeleteEntity" ]
+      "permissions" : [ "iottwinmaker:GetEntity", "iottwinmaker:GetWorkspace", "iottwinmaker:DeleteEntity" ]
     },
     "list" : {
       "handlerSchema" : {

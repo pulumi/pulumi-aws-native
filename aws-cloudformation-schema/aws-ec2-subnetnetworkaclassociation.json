@@ -21,7 +21,10 @@
   "primaryIdentifier" : [ "/properties/AssociationId" ],
   "readOnlyProperties" : [ "/properties/AssociationId" ],
   "tagging" : {
-    "taggable" : false
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
   },
   "handlers" : {
     "create" : {
