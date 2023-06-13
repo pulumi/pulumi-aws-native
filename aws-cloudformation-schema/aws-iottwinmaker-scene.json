@@ -120,16 +120,16 @@
   "primaryIdentifier" : [ "/properties/WorkspaceId", "/properties/SceneId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iottwinmaker:CreateScene", "iottwinmaker:GetWorkspace" ]
+      "permissions" : [ "iottwinmaker:CreateScene", "iottwinmaker:GetScene", "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource", "iottwinmaker:TagResource" ]
     },
     "read" : {
       "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:GetScene", "iottwinmaker:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource", "iottwinmaker:TagResource", "iottwinmaker:UntagResource", "iottwinmaker:UpdateScene" ]
+      "permissions" : [ "iottwinmaker:GetScene", "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource", "iottwinmaker:TagResource", "iottwinmaker:UntagResource", "iottwinmaker:UpdateScene" ]
     },
     "delete" : {
-      "permissions" : [ "iottwinmaker:DeleteScene", "iottwinmaker:GetWorkspace" ]
+      "permissions" : [ "iottwinmaker:DeleteScene", "iottwinmaker:GetScene", "iottwinmaker:GetWorkspace" ]
     },
     "list" : {
       "handlerSchema" : {

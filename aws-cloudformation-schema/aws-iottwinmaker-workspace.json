@@ -75,7 +75,7 @@
   "primaryIdentifier" : [ "/properties/WorkspaceId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:PassRole", "iottwinmaker:CreateWorkspace", "iottwinmaker:GetWorkspace" ]
+      "permissions" : [ "iam:PassRole", "iottwinmaker:CreateWorkspace", "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource", "iottwinmaker:TagResource" ]
     },
     "read" : {
       "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource" ]
