@@ -824,16 +824,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ecs:RegisterTaskDefinition", "iam:GetRole", "iam:PassRole" ]
+      "permissions" : [ "ecs:RegisterTaskDefinition", "ecs:DescribeTaskDefinition", "iam:GetRole", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "ecs:DescribeTaskDefinition" ]
     },
     "update" : {
-      "permissions" : [ "ecs:TagResource", "ecs:UntagResource", "ecs:ListTagsForResource", "iam:GetRole", "iam:PassRole" ]
+      "permissions" : [ "ecs:TagResource", "ecs:UntagResource", "ecs:ListTagsForResource", "ecs:DescribeTaskDefinition", "iam:GetRole", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "ecs:DeregisterTaskDefinition", "iam:GetRole", "iam:PassRole" ]
+      "permissions" : [ "ecs:DeregisterTaskDefinition", "ecs:DescribeTaskDefinition", "iam:GetRole", "iam:PassRole" ]
     },
     "list" : {
       "permissions" : [ "ecs:ListTaskDefinitions", "ecs:DescribeTaskDefinition" ]

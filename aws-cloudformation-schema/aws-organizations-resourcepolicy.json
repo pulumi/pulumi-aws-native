@@ -61,7 +61,7 @@
       "permissions" : [ "organizations:DescribeResourcePolicy", "organizations:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "organizations:PutResourcePolicy", "organizations:ListTagsForResource", "organizations:TagResource", "organizations:UntagResource" ]
+      "permissions" : [ "organizations:DescribeResourcePolicy", "organizations:PutResourcePolicy", "organizations:ListTagsForResource", "organizations:TagResource", "organizations:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "organizations:DeleteResourcePolicy" ]

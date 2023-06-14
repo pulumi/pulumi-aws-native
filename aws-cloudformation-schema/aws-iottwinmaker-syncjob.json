@@ -78,13 +78,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:CreateSyncJob", "iottwinmaker:TagResource", "iam:PassRole" ]
+      "permissions" : [ "iam:PassRole", "iottwinmaker:CreateSyncJob", "iottwinmaker:GetSyncJob", "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource", "iottwinmaker:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:GetSyncJob", "iottwinmaker:ListTagsForResource" ]
+      "permissions" : [ "iottwinmaker:GetSyncJob", "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:DeleteSyncJob" ]
+      "permissions" : [ "iottwinmaker:DeleteSyncJob", "iottwinmaker:GetSyncJob", "iottwinmaker:GetWorkspace" ]
     },
     "list" : {
       "handlerSchema" : {

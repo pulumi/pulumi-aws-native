@@ -355,7 +355,7 @@
       }
     },
     "IsSingleton" : {
-      "description" : "A Boolean value that specifies whether an entity can have more than one component of this type.\n\n",
+      "description" : "A Boolean value that specifies whether an entity can have more than one component of this type.",
       "type" : "boolean"
     },
     "PropertyDefinitions" : {
@@ -433,7 +433,7 @@
   "primaryIdentifier" : [ "/properties/WorkspaceId", "/properties/ComponentTypeId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iottwinmaker:CreateComponentType", "iottwinmaker:GetComponentType", "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource" ]
+      "permissions" : [ "iottwinmaker:CreateComponentType", "iottwinmaker:GetComponentType", "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource", "iottwinmaker:TagResource" ]
     },
     "read" : {
       "permissions" : [ "iottwinmaker:GetComponentType", "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource" ]
