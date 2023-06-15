@@ -165,10 +165,10 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "billingconductor:CreateCustomLineItem", "billingconductor:BatchAssociateResourcesToCustomLineItem", "billingconductor:ListCustomLineItems" ]
+      "permissions" : [ "billingconductor:CreateCustomLineItem", "billingconductor:BatchAssociateResourcesToCustomLineItem", "billingconductor:ListCustomLineItems", "billingconductor:TagResource", "billingconductor:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "billingconductor:ListCustomLineItems", "billingconductor:ListResourcesAssociatedToCustomLineItem", "billingconductor:ListTagsForResource" ]
+      "permissions" : [ "billingconductor:ListCustomLineItems", "billingconductor:ListCustomLineItemVersions", "billingconductor:ListResourcesAssociatedToCustomLineItem", "billingconductor:ListTagsForResource" ]
     },
     "list" : {
       "permissions" : [ "billingconductor:ListCustomLineItems", "billingconductor:ListResourcesAssociatedToCustomLineItem", "billingconductor:ListTagsForResource" ]
@@ -177,7 +177,7 @@
       "permissions" : [ "billingconductor:UpdateCustomLineItem", "billingconductor:ListCustomLineItems", "billingconductor:ListResourcesAssociatedToCustomLineItem", "billingconductor:BatchAssociateResourcesToCustomLineItem", "billingconductor:BatchDisassociateResourcesFromCustomLineItem", "billingconductor:TagResource", "billingconductor:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "billingconductor:DeleteCustomLineItem", "billingconductor:BatchDisassociateResourcesFromCustomLineItem", "billingconductor:ListResourcesAssociatedToCustomLineItem" ]
+      "permissions" : [ "billingconductor:DeleteCustomLineItem", "billingconductor:ListCustomLineItems", "billingconductor:BatchDisassociateResourcesFromCustomLineItem", "billingconductor:ListResourcesAssociatedToCustomLineItem", "billingconductor:UntagResource" ]
     }
   }
 }

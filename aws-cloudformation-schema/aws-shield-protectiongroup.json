@@ -85,10 +85,10 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "shield:CreateProtectionGroup" ]
+      "permissions" : [ "shield:CreateProtectionGroup", "shield:TagResource" ]
     },
     "delete" : {
-      "permissions" : [ "shield:DeleteProtectionGroup" ]
+      "permissions" : [ "shield:DeleteProtectionGroup", "shield:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "shield:DescribeProtectionGroup", "shield:ListTagsForResource" ]

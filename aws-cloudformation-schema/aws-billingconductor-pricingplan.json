@@ -83,7 +83,7 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "billingconductor:CreatePricingPlan", "billingconductor:AssociatePricingRules" ]
+      "permissions" : [ "billingconductor:CreatePricingPlan", "billingconductor:AssociatePricingRules", "billingconductor:ListPricingPlans", "billingconductor:TagResource", "billingconductor:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "billingconductor:ListPricingPlans", "billingconductor:ListPricingRulesAssociatedToPricingPlan", "billingconductor:ListTagsForResource" ]
@@ -95,7 +95,7 @@
       "permissions" : [ "billingconductor:ListPricingPlans", "billingconductor:UpdatePricingPlan", "billingconductor:ListPricingRulesAssociatedToPricingPlan", "billingconductor:AssociatePricingRules", "billingconductor:DisassociatePricingRules", "billingconductor:TagResource", "billingconductor:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "billingconductor:DeletePricingPlan" ]
+      "permissions" : [ "billingconductor:ListPricingPlans", "billingconductor:DeletePricingPlan", "billingconductor:UntagResource" ]
     }
   }
 }

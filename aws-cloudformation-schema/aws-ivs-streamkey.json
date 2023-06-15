@@ -57,19 +57,27 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ivs:CreateStreamKey" ]
+      "permissions" : [ "ivs:TagResource", "ivs:UntagResource", "ivs:CreateStreamKey" ]
     },
     "read" : {
-      "permissions" : [ "ivs:GetStreamKey" ]
+      "permissions" : [ "ivs:GetStreamKey", "ivs:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "ivs:TagResource", "ivs:UntagResource", "ivs:ListTagsForResource" ]
+      "permissions" : [ "ivs:GetStreamKey", "ivs:TagResource", "ivs:UntagResource", "ivs:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "ivs:DeleteStreamKey" ]
+      "permissions" : [ "ivs:DeleteStreamKey", "ivs:UntagResource" ]
     },
     "list" : {
-      "permissions" : [ "ivs:ListStreamKeys" ]
+      "handlerSchema" : {
+        "properties" : {
+          "ChannelArn" : {
+            "$ref" : "resource-schema.json#/properties/ChannelArn"
+          }
+        },
+        "required" : [ "ChannelArn" ]
+      },
+      "permissions" : [ "ivs:ListStreamKeys", "ivs:ListTagsForResource" ]
     }
   }
 }

@@ -87,6 +87,10 @@ AWS::Cassandra::Table
 AWS::CertificateManager::Account
 AWS::Chatbot::MicrosoftTeamsChannelConfiguration
 AWS::Chatbot::SlackChannelConfiguration
+AWS::CleanRooms::Collaboration
+AWS::CleanRooms::ConfiguredTable
+AWS::CleanRooms::ConfiguredTableAssociation
+AWS::CleanRooms::Membership
 AWS::CloudFormation::HookDefaultVersion
 AWS::CloudFormation::HookTypeConfig
 AWS::CloudFormation::HookVersion
@@ -152,6 +156,7 @@ AWS::ConnectCampaigns::Campaign
 AWS::ControlTower::EnabledControl
 AWS::CustomerProfiles::CalculatedAttributeDefinition
 AWS::CustomerProfiles::Domain
+AWS::CustomerProfiles::EventStream
 AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
 AWS::DataBrew::Dataset
@@ -566,6 +571,7 @@ AWS::QuickSight::Theme
 AWS::QuickSight::Topic
 AWS::QuickSight::VPCConnection
 AWS::RAM::Permission
+AWS::RDS::CustomDBEngineVersion
 AWS::RDS::DBCluster
 AWS::RDS::DBClusterParameterGroup
 AWS::RDS::DBInstance
@@ -688,6 +694,8 @@ AWS::SageMaker::UserProfile
 AWS::Scheduler::Schedule
 AWS::Scheduler::ScheduleGroup
 AWS::SecretsManager::Secret
+AWS::SecurityHub::AutomationRule
+AWS::SecurityHub::Standard
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::ServiceAction
 AWS::ServiceCatalog::ServiceActionAssociation
@@ -704,6 +712,8 @@ AWS::Signer::SigningProfile
 AWS::SimSpaceWeaver::Simulation
 AWS::StepFunctions::Activity
 AWS::StepFunctions::StateMachine
+AWS::StepFunctions::StateMachineAlias
+AWS::StepFunctions::StateMachineVersion
 AWS::SupportApp::AccountAlias
 AWS::SupportApp::SlackChannelConfiguration
 AWS::SupportApp::SlackWorkspaceConfiguration
