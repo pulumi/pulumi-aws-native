@@ -1156,6 +1156,10 @@ func typeName(typ string) string {
 	// Override name to avoid duplicate types due to "Output" suffix
 	// See https://github.com/pulumi/pulumi/issues/8018
 	if trimmed, hadSuffix := strings.CutSuffix(name, "Output"); hadSuffix {
+		// Skip renaming existing FlowOutput type.
+		if typ == "AWS::MediaConnect::FlowOutput" {
+			return name
+		}
 		name = trimmed + "OutputResource"
 	}
 	return name
