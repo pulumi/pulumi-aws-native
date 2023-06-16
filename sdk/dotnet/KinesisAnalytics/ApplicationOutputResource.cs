@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.KinesisAnalytics
     /// <summary>
     /// Resource Type definition for AWS::KinesisAnalytics::ApplicationOutput
     /// </summary>
-    [Obsolete(@"ApplicationOutput is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ApplicationOutputResource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:kinesisanalytics:ApplicationOutputResource")]
     public partial class ApplicationOutputResource : global::Pulumi.CustomResource
     {
