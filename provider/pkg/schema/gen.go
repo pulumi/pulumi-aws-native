@@ -1135,10 +1135,8 @@ func moduleName(resourceType string) string {
 }
 
 func typeToken(typ string) (string, string) {
-	resourceTypeComponents := strings.Split(typ, "::")
-	resourceName := resourceTypeComponents[2]
+	resourceName := typeName(typ)
 	module := strings.ToLower(moduleName(typ))
-	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
 
 	// Override name to avoid duplicate
 	// See https://github.com/pulumi/pulumi/issues/8018
@@ -1151,10 +1149,8 @@ func typeToken(typ string) (string, string) {
 }
 
 func getterToken(typ string) (string, string) {
-	resourceTypeComponents := strings.Split(typ, "::")
-	resourceName := resourceTypeComponents[2]
+	resourceName := typeName(typ)
 	module := strings.ToLower(moduleName(typ))
-	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
 
 	// Override name to avoid duplicate
 	// See https://github.com/pulumi/pulumi/issues/8018
