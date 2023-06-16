@@ -15,6 +15,8 @@ import (
 type LayerVersion struct {
 	pulumi.CustomResourceState
 
+	// A list of compatible instruction set architectures.
+	CompatibleArchitectures pulumi.StringArrayOutput `pulumi:"compatibleArchitectures"`
 	// A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
 	CompatibleRuntimes pulumi.StringArrayOutput `pulumi:"compatibleRuntimes"`
 	// The function layer archive.
@@ -22,7 +24,8 @@ type LayerVersion struct {
 	// The description of the version.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name or Amazon Resource Name (ARN) of the layer.
-	LayerName pulumi.StringPtrOutput `pulumi:"layerName"`
+	LayerName       pulumi.StringPtrOutput `pulumi:"layerName"`
+	LayerVersionArn pulumi.StringOutput    `pulumi:"layerVersionArn"`
 	// The layer's software license.
 	LicenseInfo pulumi.StringPtrOutput `pulumi:"licenseInfo"`
 }
@@ -69,6 +72,8 @@ func (LayerVersionState) ElementType() reflect.Type {
 }
 
 type layerVersionArgs struct {
+	// A list of compatible instruction set architectures.
+	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
 	// A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
 	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
 	// The function layer archive.
@@ -83,6 +88,8 @@ type layerVersionArgs struct {
 
 // The set of arguments for constructing a LayerVersion resource.
 type LayerVersionArgs struct {
+	// A list of compatible instruction set architectures.
+	CompatibleArchitectures pulumi.StringArrayInput
 	// A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
 	CompatibleRuntimes pulumi.StringArrayInput
 	// The function layer archive.
@@ -132,6 +139,11 @@ func (o LayerVersionOutput) ToLayerVersionOutputWithContext(ctx context.Context)
 	return o
 }
 
+// A list of compatible instruction set architectures.
+func (o LayerVersionOutput) CompatibleArchitectures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringArrayOutput { return v.CompatibleArchitectures }).(pulumi.StringArrayOutput)
+}
+
 // A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
 func (o LayerVersionOutput) CompatibleRuntimes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringArrayOutput { return v.CompatibleRuntimes }).(pulumi.StringArrayOutput)
@@ -150,6 +162,10 @@ func (o LayerVersionOutput) Description() pulumi.StringPtrOutput {
 // The name or Amazon Resource Name (ARN) of the layer.
 func (o LayerVersionOutput) LayerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.LayerName }).(pulumi.StringPtrOutput)
+}
+
+func (o LayerVersionOutput) LayerVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringOutput { return v.LayerVersionArn }).(pulumi.StringOutput)
 }
 
 // The layer's software license.

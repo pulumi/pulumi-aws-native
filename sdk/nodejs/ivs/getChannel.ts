@@ -55,6 +55,10 @@ export interface GetChannelResult {
      */
     readonly playbackUrl?: string;
     /**
+     * Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+     */
+    readonly preset?: enums.ivs.ChannelPreset;
+    /**
      * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
      */
     readonly recordingConfigurationArn?: string;

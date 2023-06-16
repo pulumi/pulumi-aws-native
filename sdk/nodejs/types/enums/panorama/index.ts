@@ -25,17 +25,6 @@ export const ApplicationInstanceStatus = {
 
 export type ApplicationInstanceStatus = (typeof ApplicationInstanceStatus)[keyof typeof ApplicationInstanceStatus];
 
-export const ApplicationInstanceStatusFilter = {
-    DeploymentSucceeded: "DEPLOYMENT_SUCCEEDED",
-    DeploymentError: "DEPLOYMENT_ERROR",
-    RemovalSucceeded: "REMOVAL_SUCCEEDED",
-    RemovalFailed: "REMOVAL_FAILED",
-    ProcessingDeployment: "PROCESSING_DEPLOYMENT",
-    ProcessingRemoval: "PROCESSING_REMOVAL",
-} as const;
-
-export type ApplicationInstanceStatusFilter = (typeof ApplicationInstanceStatusFilter)[keyof typeof ApplicationInstanceStatusFilter];
-
 export const PackageVersionStatus = {
     RegisterPending: "REGISTER_PENDING",
     RegisterCompleted: "REGISTER_COMPLETED",

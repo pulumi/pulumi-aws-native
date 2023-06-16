@@ -5299,6 +5299,63 @@ export namespace certificatemanager {
 
 }
 
+export namespace cleanrooms {
+    export interface CollaborationDataEncryptionMetadata {
+        allowCleartext: boolean;
+        allowDuplicates: boolean;
+        allowJoinsOnColumnsWithDifferentNames: boolean;
+        preserveNulls: boolean;
+    }
+
+    export interface CollaborationMemberSpecification {
+        accountId: string;
+        displayName: string;
+        memberAbilities: enums.cleanrooms.CollaborationMemberAbility[];
+    }
+
+    export interface CollaborationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ConfiguredTableAnalysisRule {
+        policy: outputs.cleanrooms.ConfiguredTableAnalysisRulePolicy;
+        type: enums.cleanrooms.ConfiguredTableAnalysisRuleType;
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicy {
+        v1: outputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV1;
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicyV1 {
+    }
+
+    export interface ConfiguredTableAssociationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ConfiguredTableGlueTableReference {
+        databaseName: string;
+        tableName: string;
+    }
+
+    export interface ConfiguredTableTableReference {
+        glue: outputs.cleanrooms.ConfiguredTableGlueTableReference;
+    }
+
+    export interface ConfiguredTableTag {
+        key: string;
+        value: string;
+    }
+
+    export interface MembershipTag {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace cloud9 {
     export interface EnvironmentEC2Repository {
         pathComponent: string;
@@ -8748,8 +8805,84 @@ export namespace connectcampaigns {
 }
 
 export namespace customerprofiles {
+    /**
+     * Mathematical expression and a list of attribute items specified in that expression.
+     */
+    export interface CalculatedAttributeDefinitionAttributeDetails {
+        attributes: outputs.customerprofiles.CalculatedAttributeDefinitionAttributeItem[];
+        expression: string;
+    }
+
+    /**
+     * The details of a single attribute item specified in the mathematical expression.
+     */
+    export interface CalculatedAttributeDefinitionAttributeItem {
+        name: string;
+    }
+
+    /**
+     * The conditions including range, object count, and threshold for the calculated attribute.
+     */
+    export interface CalculatedAttributeDefinitionConditions {
+        objectCount?: number;
+        range?: outputs.customerprofiles.CalculatedAttributeDefinitionRange;
+        threshold?: outputs.customerprofiles.CalculatedAttributeDefinitionThreshold;
+    }
+
+    /**
+     * The relative time period over which data is included in the aggregation.
+     */
+    export interface CalculatedAttributeDefinitionRange {
+        unit: enums.customerprofiles.CalculatedAttributeDefinitionRangeUnit;
+        value: number;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CalculatedAttributeDefinitionTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * The threshold for the calculated attribute.
+     */
+    export interface CalculatedAttributeDefinitionThreshold {
+        operator: enums.customerprofiles.CalculatedAttributeDefinitionThresholdOperator;
+        value: string;
+    }
+
+    /**
+     * Details regarding the Kinesis stream.
+     */
+    export interface DestinationDetailsProperties {
+        status: enums.customerprofiles.EventStreamStatus;
+        uri: string;
+    }
+
     export interface DomainTag {
         key: string;
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface EventStreamTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
@@ -26011,6 +26144,220 @@ export namespace managedblockchain {
 }
 
 export namespace mediaconnect {
+    export interface BridgeEgressGatewayBridge {
+        /**
+         * The maximum expected bitrate of the egress bridge.
+         */
+        maxBitrate: number;
+    }
+
+    /**
+     * The settings for source failover.
+     */
+    export interface BridgeFailoverConfig {
+        /**
+         * The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+         */
+        failoverMode: enums.mediaconnect.BridgeFailoverModeEnum;
+        /**
+         * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+         */
+        sourcePriority?: outputs.mediaconnect.BridgeSourcePriority;
+        state?: enums.mediaconnect.BridgeFailoverConfigStateEnum;
+    }
+
+    /**
+     * The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+     */
+    export interface BridgeFlowSource {
+        /**
+         * The ARN of the cloud flow used as a source of this bridge.
+         */
+        flowArn: string;
+        /**
+         * The name of the VPC interface attachment to use for this source.
+         */
+        flowVpcInterfaceAttachment?: outputs.mediaconnect.BridgeVpcInterfaceAttachment;
+        /**
+         * The name of the flow source.
+         */
+        name: string;
+    }
+
+    export interface BridgeIngressGatewayBridge {
+        /**
+         * The maximum expected bitrate of the ingress bridge.
+         */
+        maxBitrate: number;
+        /**
+         * The maximum number of outputs on the ingress bridge.
+         */
+        maxOutputs: number;
+    }
+
+    /**
+     * The output of the bridge. A network output is delivered to your premises.
+     */
+    export interface BridgeNetworkOutput {
+        /**
+         * The network output IP Address.
+         */
+        ipAddress: string;
+        /**
+         * The network output name.
+         */
+        name: string;
+        /**
+         * The network output's gateway network name.
+         */
+        networkName: string;
+        /**
+         * The network output port.
+         */
+        port: number;
+        /**
+         * The network output protocol.
+         */
+        protocol: enums.mediaconnect.BridgeProtocolEnum;
+        /**
+         * The network output TTL.
+         */
+        ttl: number;
+    }
+
+    /**
+     * The source of the bridge. A network source originates at your premises.
+     */
+    export interface BridgeNetworkSource {
+        /**
+         * The network source multicast IP.
+         */
+        multicastIp: string;
+        /**
+         * The name of the network source.
+         */
+        name: string;
+        /**
+         * The network source's gateway network name.
+         */
+        networkName: string;
+        /**
+         * The network source port.
+         */
+        port: number;
+        /**
+         * The network source protocol.
+         */
+        protocol: enums.mediaconnect.BridgeProtocolEnum;
+    }
+
+    /**
+     * The output of the bridge.
+     */
+    export interface BridgeOutput {
+        networkOutput?: outputs.mediaconnect.BridgeNetworkOutput;
+    }
+
+    /**
+     * The output of the bridge. A network output is delivered to your premises.
+     */
+    export interface BridgeOutputResourceBridgeNetworkOutput {
+        /**
+         * The network output IP Address.
+         */
+        ipAddress: string;
+        /**
+         * The network output's gateway network name.
+         */
+        networkName: string;
+        /**
+         * The network output port.
+         */
+        port: number;
+        /**
+         * The network output protocol.
+         */
+        protocol: enums.mediaconnect.BridgeOutputResourceBridgeNetworkOutputProtocol;
+        /**
+         * The network output TTL.
+         */
+        ttl: number;
+    }
+
+    /**
+     * The bridge's source.
+     */
+    export interface BridgeSource {
+        flowSource?: outputs.mediaconnect.BridgeFlowSource;
+        networkSource?: outputs.mediaconnect.BridgeNetworkSource;
+    }
+
+    /**
+     * The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+     */
+    export interface BridgeSourceBridgeFlowSource {
+        /**
+         * The ARN of the cloud flow used as a source of this bridge.
+         */
+        flowArn: string;
+        /**
+         * The name of the VPC interface attachment to use for this source.
+         */
+        flowVpcInterfaceAttachment?: outputs.mediaconnect.BridgeSourceVpcInterfaceAttachment;
+    }
+
+    /**
+     * The source of the bridge. A network source originates at your premises.
+     */
+    export interface BridgeSourceBridgeNetworkSource {
+        /**
+         * The network source multicast IP.
+         */
+        multicastIp: string;
+        /**
+         * The network source's gateway network name.
+         */
+        networkName: string;
+        /**
+         * The network source port.
+         */
+        port: number;
+        /**
+         * The network source protocol.
+         */
+        protocol: enums.mediaconnect.BridgeSourceProtocolEnum;
+    }
+
+    /**
+     * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+     */
+    export interface BridgeSourcePriority {
+        /**
+         * The name of the source you choose as the primary source for this flow.
+         */
+        primarySource?: string;
+    }
+
+    /**
+     * The settings for attaching a VPC interface to an resource.
+     */
+    export interface BridgeSourceVpcInterfaceAttachment {
+        /**
+         * The name of the VPC interface to use for this resource.
+         */
+        vpcInterfaceName?: string;
+    }
+
+    /**
+     * The settings for attaching a VPC interface to an resource.
+     */
+    export interface BridgeVpcInterfaceAttachment {
+        /**
+         * The name of the VPC interface to use for this resource.
+         */
+        vpcInterfaceName?: string;
+    }
+
     /**
      * Information about the encryption of the flow.
      */
@@ -26278,6 +26625,20 @@ export namespace mediaconnect {
          * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
          */
         url?: string;
+    }
+
+    /**
+     * The network settings for a gateway.
+     */
+    export interface GatewayNetwork {
+        /**
+         * A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+         */
+        cidrBlock: string;
+        /**
+         * The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+         */
+        name: string;
     }
 
 }
@@ -40982,6 +41343,20 @@ export namespace ram {
 }
 
 export namespace rds {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CustomDBEngineVersionTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
     export interface DBClusterEndpoint {
         /**
          * The connection endpoint for the DB cluster.
@@ -47413,6 +47788,147 @@ export namespace secretsmanager {
 
 }
 
+export namespace securityhub {
+    export interface AutomationRuleDateFilter {
+        dateRange?: outputs.securityhub.AutomationRuleDateRange;
+        end?: string;
+        start?: string;
+    }
+
+    export interface AutomationRuleDateRange {
+        unit: enums.securityhub.AutomationRuleDateRangeUnit;
+        value: number;
+    }
+
+    export interface AutomationRuleMapFilter {
+        comparison: enums.securityhub.AutomationRuleMapFilterComparison;
+        key: string;
+        value: string;
+    }
+
+    export interface AutomationRuleNoteUpdate {
+        text: string;
+        updatedBy: outputs.securityhub.AutomationRulearnOrId;
+    }
+
+    export interface AutomationRuleNumberFilter {
+        eq?: number;
+        gte?: number;
+        lte?: number;
+    }
+
+    export interface AutomationRuleRelatedFinding {
+        id: outputs.securityhub.AutomationRulearnOrId;
+        productArn: string;
+    }
+
+    export interface AutomationRuleSeverityUpdate {
+        label?: enums.securityhub.AutomationRuleSeverityUpdateLabel;
+        normalized?: number;
+        product?: number;
+    }
+
+    export interface AutomationRuleStringFilter {
+        comparison: enums.securityhub.AutomationRuleStringFilterComparison;
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AutomationRuleTags {
+    }
+
+    export interface AutomationRuleWorkflowUpdate {
+        status: enums.securityhub.AutomationRuleWorkflowUpdateStatus;
+    }
+
+    export interface AutomationRulearnOrId {
+    }
+
+    export interface AutomationRulemap {
+    }
+
+    export interface AutomationRulesAction {
+        findingFieldsUpdate: outputs.securityhub.AutomationRulesFindingFieldsUpdate;
+        type: enums.securityhub.AutomationRulesActionType;
+    }
+
+    export interface AutomationRulesFindingFieldsUpdate {
+        confidence?: number;
+        criticality?: number;
+        /**
+         * Note added to the finding
+         */
+        note?: outputs.securityhub.AutomationRuleNoteUpdate;
+        relatedFindings?: outputs.securityhub.AutomationRuleRelatedFinding[];
+        /**
+         * Severity of the finding
+         */
+        severity?: outputs.securityhub.AutomationRuleSeverityUpdate;
+        types?: string[];
+        userDefinedFields?: outputs.securityhub.AutomationRulemap;
+        verificationState?: enums.securityhub.AutomationRulesFindingFieldsUpdateVerificationState;
+        /**
+         * Workflow status set for the finding
+         */
+        workflow?: outputs.securityhub.AutomationRuleWorkflowUpdate;
+    }
+
+    export interface AutomationRulesFindingFilters {
+        awsAccountId?: outputs.securityhub.AutomationRuleStringFilter[];
+        companyName?: outputs.securityhub.AutomationRuleStringFilter[];
+        complianceAssociatedStandardsId?: outputs.securityhub.AutomationRuleStringFilter[];
+        complianceSecurityControlId?: outputs.securityhub.AutomationRuleStringFilter[];
+        complianceStatus?: outputs.securityhub.AutomationRuleStringFilter[];
+        confidence?: outputs.securityhub.AutomationRuleNumberFilter[];
+        createdAt?: outputs.securityhub.AutomationRuleDateFilter[];
+        criticality?: outputs.securityhub.AutomationRuleNumberFilter[];
+        description?: outputs.securityhub.AutomationRuleStringFilter[];
+        firstObservedAt?: outputs.securityhub.AutomationRuleDateFilter[];
+        generatorId?: outputs.securityhub.AutomationRuleStringFilter[];
+        id?: outputs.securityhub.AutomationRuleStringFilter[];
+        lastObservedAt?: outputs.securityhub.AutomationRuleDateFilter[];
+        noteText?: outputs.securityhub.AutomationRuleStringFilter[];
+        noteUpdatedAt?: outputs.securityhub.AutomationRuleDateFilter[];
+        noteUpdatedBy?: outputs.securityhub.AutomationRuleStringFilter[];
+        productArn?: outputs.securityhub.AutomationRuleStringFilter[];
+        productName?: outputs.securityhub.AutomationRuleStringFilter[];
+        recordState?: outputs.securityhub.AutomationRuleStringFilter[];
+        relatedFindingsId?: outputs.securityhub.AutomationRuleStringFilter[];
+        relatedFindingsProductArn?: outputs.securityhub.AutomationRuleStringFilter[];
+        resourceDetailsOther?: outputs.securityhub.AutomationRuleMapFilter[];
+        resourceId?: outputs.securityhub.AutomationRuleStringFilter[];
+        resourcePartition?: outputs.securityhub.AutomationRuleStringFilter[];
+        resourceRegion?: outputs.securityhub.AutomationRuleStringFilter[];
+        resourceTags?: outputs.securityhub.AutomationRuleMapFilter[];
+        resourceType?: outputs.securityhub.AutomationRuleStringFilter[];
+        severityLabel?: outputs.securityhub.AutomationRuleStringFilter[];
+        sourceUrl?: outputs.securityhub.AutomationRuleStringFilter[];
+        title?: outputs.securityhub.AutomationRuleStringFilter[];
+        type?: outputs.securityhub.AutomationRuleStringFilter[];
+        updatedAt?: outputs.securityhub.AutomationRuleDateFilter[];
+        userDefinedFields?: outputs.securityhub.AutomationRuleMapFilter[];
+        verificationState?: outputs.securityhub.AutomationRuleStringFilter[];
+        workflowStatus?: outputs.securityhub.AutomationRuleStringFilter[];
+    }
+
+    /**
+     * An individual StandardsControl within the Standard.
+     */
+    export interface StandardsControl {
+        /**
+         * the reason the standard control is disabled
+         */
+        reason?: string;
+        /**
+         * the Arn for the standard control.
+         */
+        standardsControlArn: string;
+    }
+
+}
+
 export namespace servicecatalog {
     export interface CloudFormationProductCodeStarParameters {
         artifactPath: string;
@@ -48620,6 +49136,40 @@ export namespace stepfunctions {
     export interface ActivityTagsEntry {
         key: string;
         value: string;
+    }
+
+    /**
+     * The settings to enable gradual state machine deployments.
+     */
+    export interface StateMachineAliasDeploymentPreference {
+        /**
+         * A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
+         */
+        alarms?: string[];
+        /**
+         * The time in minutes between each traffic shifting increment.
+         */
+        interval?: number;
+        /**
+         * The percentage of traffic to shift to the new version in each increment.
+         */
+        percentage?: number;
+        stateMachineVersionArn: string;
+        /**
+         * The type of deployment to perform.
+         */
+        type: enums.stepfunctions.StateMachineAliasDeploymentPreferenceType;
+    }
+
+    export interface StateMachineAliasRoutingConfigurationVersion {
+        /**
+         * The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
+         */
+        stateMachineVersionArn: string;
+        /**
+         * The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
+         */
+        weight: number;
     }
 
     export interface StateMachineCloudWatchLogsLogGroup {

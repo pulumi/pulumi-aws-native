@@ -7,6 +7,38 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.StepFunctions
 {
+    /// <summary>
+    /// The type of deployment to perform.
+    /// </summary>
+    [EnumType]
+    public readonly struct StateMachineAliasDeploymentPreferenceType : IEquatable<StateMachineAliasDeploymentPreferenceType>
+    {
+        private readonly string _value;
+
+        private StateMachineAliasDeploymentPreferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StateMachineAliasDeploymentPreferenceType Linear { get; } = new StateMachineAliasDeploymentPreferenceType("LINEAR");
+        public static StateMachineAliasDeploymentPreferenceType AllAtOnce { get; } = new StateMachineAliasDeploymentPreferenceType("ALL_AT_ONCE");
+        public static StateMachineAliasDeploymentPreferenceType Canary { get; } = new StateMachineAliasDeploymentPreferenceType("CANARY");
+
+        public static bool operator ==(StateMachineAliasDeploymentPreferenceType left, StateMachineAliasDeploymentPreferenceType right) => left.Equals(right);
+        public static bool operator !=(StateMachineAliasDeploymentPreferenceType left, StateMachineAliasDeploymentPreferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(StateMachineAliasDeploymentPreferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StateMachineAliasDeploymentPreferenceType other && Equals(other);
+        public bool Equals(StateMachineAliasDeploymentPreferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct StateMachineLoggingConfigurationLevel : IEquatable<StateMachineLoggingConfigurationLevel>
     {

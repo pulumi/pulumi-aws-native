@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Schema for Lambda LayerVersionPermission
+ * Resource Type definition for AWS::Lambda::LayerVersionPermission
  */
 export class LayerVersionPermission extends pulumi.CustomResource {
     /**
@@ -34,21 +34,9 @@ export class LayerVersionPermission extends pulumi.CustomResource {
         return obj['__pulumiType'] === LayerVersionPermission.__pulumiType;
     }
 
-    /**
-     * The API action that grants access to the layer.
-     */
     public readonly action!: pulumi.Output<string>;
-    /**
-     * The name or Amazon Resource Name (ARN) of the layer.
-     */
     public readonly layerVersionArn!: pulumi.Output<string>;
-    /**
-     * With the principal set to *, grant permission to all accounts in the specified organization.
-     */
     public readonly organizationId!: pulumi.Output<string | undefined>;
-    /**
-     * An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
-     */
     public readonly principal!: pulumi.Output<string>;
 
     /**
@@ -90,20 +78,8 @@ export class LayerVersionPermission extends pulumi.CustomResource {
  * The set of arguments for constructing a LayerVersionPermission resource.
  */
 export interface LayerVersionPermissionArgs {
-    /**
-     * The API action that grants access to the layer.
-     */
     action: pulumi.Input<string>;
-    /**
-     * The name or Amazon Resource Name (ARN) of the layer.
-     */
     layerVersionArn: pulumi.Input<string>;
-    /**
-     * With the principal set to *, grant permission to all accounts in the specified organization.
-     */
     organizationId?: pulumi.Input<string>;
-    /**
-     * An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
-     */
     principal: pulumi.Input<string>;
 }

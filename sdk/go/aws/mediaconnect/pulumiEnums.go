@@ -10,6 +10,928 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type BridgeFailoverConfigStateEnum string
+
+const (
+	BridgeFailoverConfigStateEnumEnabled  = BridgeFailoverConfigStateEnum("ENABLED")
+	BridgeFailoverConfigStateEnumDisabled = BridgeFailoverConfigStateEnum("DISABLED")
+)
+
+func (BridgeFailoverConfigStateEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeFailoverConfigStateEnum)(nil)).Elem()
+}
+
+func (e BridgeFailoverConfigStateEnum) ToBridgeFailoverConfigStateEnumOutput() BridgeFailoverConfigStateEnumOutput {
+	return pulumi.ToOutput(e).(BridgeFailoverConfigStateEnumOutput)
+}
+
+func (e BridgeFailoverConfigStateEnum) ToBridgeFailoverConfigStateEnumOutputWithContext(ctx context.Context) BridgeFailoverConfigStateEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BridgeFailoverConfigStateEnumOutput)
+}
+
+func (e BridgeFailoverConfigStateEnum) ToBridgeFailoverConfigStateEnumPtrOutput() BridgeFailoverConfigStateEnumPtrOutput {
+	return e.ToBridgeFailoverConfigStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (e BridgeFailoverConfigStateEnum) ToBridgeFailoverConfigStateEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverConfigStateEnumPtrOutput {
+	return BridgeFailoverConfigStateEnum(e).ToBridgeFailoverConfigStateEnumOutputWithContext(ctx).ToBridgeFailoverConfigStateEnumPtrOutputWithContext(ctx)
+}
+
+func (e BridgeFailoverConfigStateEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BridgeFailoverConfigStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BridgeFailoverConfigStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BridgeFailoverConfigStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BridgeFailoverConfigStateEnumOutput struct{ *pulumi.OutputState }
+
+func (BridgeFailoverConfigStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeFailoverConfigStateEnum)(nil)).Elem()
+}
+
+func (o BridgeFailoverConfigStateEnumOutput) ToBridgeFailoverConfigStateEnumOutput() BridgeFailoverConfigStateEnumOutput {
+	return o
+}
+
+func (o BridgeFailoverConfigStateEnumOutput) ToBridgeFailoverConfigStateEnumOutputWithContext(ctx context.Context) BridgeFailoverConfigStateEnumOutput {
+	return o
+}
+
+func (o BridgeFailoverConfigStateEnumOutput) ToBridgeFailoverConfigStateEnumPtrOutput() BridgeFailoverConfigStateEnumPtrOutput {
+	return o.ToBridgeFailoverConfigStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeFailoverConfigStateEnumOutput) ToBridgeFailoverConfigStateEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverConfigStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeFailoverConfigStateEnum) *BridgeFailoverConfigStateEnum {
+		return &v
+	}).(BridgeFailoverConfigStateEnumPtrOutput)
+}
+
+func (o BridgeFailoverConfigStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BridgeFailoverConfigStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeFailoverConfigStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BridgeFailoverConfigStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeFailoverConfigStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeFailoverConfigStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BridgeFailoverConfigStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeFailoverConfigStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeFailoverConfigStateEnum)(nil)).Elem()
+}
+
+func (o BridgeFailoverConfigStateEnumPtrOutput) ToBridgeFailoverConfigStateEnumPtrOutput() BridgeFailoverConfigStateEnumPtrOutput {
+	return o
+}
+
+func (o BridgeFailoverConfigStateEnumPtrOutput) ToBridgeFailoverConfigStateEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverConfigStateEnumPtrOutput {
+	return o
+}
+
+func (o BridgeFailoverConfigStateEnumPtrOutput) Elem() BridgeFailoverConfigStateEnumOutput {
+	return o.ApplyT(func(v *BridgeFailoverConfigStateEnum) BridgeFailoverConfigStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeFailoverConfigStateEnum
+		return ret
+	}).(BridgeFailoverConfigStateEnumOutput)
+}
+
+func (o BridgeFailoverConfigStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeFailoverConfigStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BridgeFailoverConfigStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BridgeFailoverConfigStateEnumInput is an input type that accepts BridgeFailoverConfigStateEnumArgs and BridgeFailoverConfigStateEnumOutput values.
+// You can construct a concrete instance of `BridgeFailoverConfigStateEnumInput` via:
+//
+//	BridgeFailoverConfigStateEnumArgs{...}
+type BridgeFailoverConfigStateEnumInput interface {
+	pulumi.Input
+
+	ToBridgeFailoverConfigStateEnumOutput() BridgeFailoverConfigStateEnumOutput
+	ToBridgeFailoverConfigStateEnumOutputWithContext(context.Context) BridgeFailoverConfigStateEnumOutput
+}
+
+var bridgeFailoverConfigStateEnumPtrType = reflect.TypeOf((**BridgeFailoverConfigStateEnum)(nil)).Elem()
+
+type BridgeFailoverConfigStateEnumPtrInput interface {
+	pulumi.Input
+
+	ToBridgeFailoverConfigStateEnumPtrOutput() BridgeFailoverConfigStateEnumPtrOutput
+	ToBridgeFailoverConfigStateEnumPtrOutputWithContext(context.Context) BridgeFailoverConfigStateEnumPtrOutput
+}
+
+type bridgeFailoverConfigStateEnumPtr string
+
+func BridgeFailoverConfigStateEnumPtr(v string) BridgeFailoverConfigStateEnumPtrInput {
+	return (*bridgeFailoverConfigStateEnumPtr)(&v)
+}
+
+func (*bridgeFailoverConfigStateEnumPtr) ElementType() reflect.Type {
+	return bridgeFailoverConfigStateEnumPtrType
+}
+
+func (in *bridgeFailoverConfigStateEnumPtr) ToBridgeFailoverConfigStateEnumPtrOutput() BridgeFailoverConfigStateEnumPtrOutput {
+	return pulumi.ToOutput(in).(BridgeFailoverConfigStateEnumPtrOutput)
+}
+
+func (in *bridgeFailoverConfigStateEnumPtr) ToBridgeFailoverConfigStateEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverConfigStateEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BridgeFailoverConfigStateEnumPtrOutput)
+}
+
+type BridgeFailoverModeEnum string
+
+const (
+	BridgeFailoverModeEnumFailover = BridgeFailoverModeEnum("FAILOVER")
+)
+
+func (BridgeFailoverModeEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeFailoverModeEnum)(nil)).Elem()
+}
+
+func (e BridgeFailoverModeEnum) ToBridgeFailoverModeEnumOutput() BridgeFailoverModeEnumOutput {
+	return pulumi.ToOutput(e).(BridgeFailoverModeEnumOutput)
+}
+
+func (e BridgeFailoverModeEnum) ToBridgeFailoverModeEnumOutputWithContext(ctx context.Context) BridgeFailoverModeEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BridgeFailoverModeEnumOutput)
+}
+
+func (e BridgeFailoverModeEnum) ToBridgeFailoverModeEnumPtrOutput() BridgeFailoverModeEnumPtrOutput {
+	return e.ToBridgeFailoverModeEnumPtrOutputWithContext(context.Background())
+}
+
+func (e BridgeFailoverModeEnum) ToBridgeFailoverModeEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverModeEnumPtrOutput {
+	return BridgeFailoverModeEnum(e).ToBridgeFailoverModeEnumOutputWithContext(ctx).ToBridgeFailoverModeEnumPtrOutputWithContext(ctx)
+}
+
+func (e BridgeFailoverModeEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BridgeFailoverModeEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BridgeFailoverModeEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BridgeFailoverModeEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BridgeFailoverModeEnumOutput struct{ *pulumi.OutputState }
+
+func (BridgeFailoverModeEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeFailoverModeEnum)(nil)).Elem()
+}
+
+func (o BridgeFailoverModeEnumOutput) ToBridgeFailoverModeEnumOutput() BridgeFailoverModeEnumOutput {
+	return o
+}
+
+func (o BridgeFailoverModeEnumOutput) ToBridgeFailoverModeEnumOutputWithContext(ctx context.Context) BridgeFailoverModeEnumOutput {
+	return o
+}
+
+func (o BridgeFailoverModeEnumOutput) ToBridgeFailoverModeEnumPtrOutput() BridgeFailoverModeEnumPtrOutput {
+	return o.ToBridgeFailoverModeEnumPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeFailoverModeEnumOutput) ToBridgeFailoverModeEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverModeEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeFailoverModeEnum) *BridgeFailoverModeEnum {
+		return &v
+	}).(BridgeFailoverModeEnumPtrOutput)
+}
+
+func (o BridgeFailoverModeEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BridgeFailoverModeEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeFailoverModeEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BridgeFailoverModeEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeFailoverModeEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeFailoverModeEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BridgeFailoverModeEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeFailoverModeEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeFailoverModeEnum)(nil)).Elem()
+}
+
+func (o BridgeFailoverModeEnumPtrOutput) ToBridgeFailoverModeEnumPtrOutput() BridgeFailoverModeEnumPtrOutput {
+	return o
+}
+
+func (o BridgeFailoverModeEnumPtrOutput) ToBridgeFailoverModeEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverModeEnumPtrOutput {
+	return o
+}
+
+func (o BridgeFailoverModeEnumPtrOutput) Elem() BridgeFailoverModeEnumOutput {
+	return o.ApplyT(func(v *BridgeFailoverModeEnum) BridgeFailoverModeEnum {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeFailoverModeEnum
+		return ret
+	}).(BridgeFailoverModeEnumOutput)
+}
+
+func (o BridgeFailoverModeEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeFailoverModeEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BridgeFailoverModeEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BridgeFailoverModeEnumInput is an input type that accepts BridgeFailoverModeEnumArgs and BridgeFailoverModeEnumOutput values.
+// You can construct a concrete instance of `BridgeFailoverModeEnumInput` via:
+//
+//	BridgeFailoverModeEnumArgs{...}
+type BridgeFailoverModeEnumInput interface {
+	pulumi.Input
+
+	ToBridgeFailoverModeEnumOutput() BridgeFailoverModeEnumOutput
+	ToBridgeFailoverModeEnumOutputWithContext(context.Context) BridgeFailoverModeEnumOutput
+}
+
+var bridgeFailoverModeEnumPtrType = reflect.TypeOf((**BridgeFailoverModeEnum)(nil)).Elem()
+
+type BridgeFailoverModeEnumPtrInput interface {
+	pulumi.Input
+
+	ToBridgeFailoverModeEnumPtrOutput() BridgeFailoverModeEnumPtrOutput
+	ToBridgeFailoverModeEnumPtrOutputWithContext(context.Context) BridgeFailoverModeEnumPtrOutput
+}
+
+type bridgeFailoverModeEnumPtr string
+
+func BridgeFailoverModeEnumPtr(v string) BridgeFailoverModeEnumPtrInput {
+	return (*bridgeFailoverModeEnumPtr)(&v)
+}
+
+func (*bridgeFailoverModeEnumPtr) ElementType() reflect.Type {
+	return bridgeFailoverModeEnumPtrType
+}
+
+func (in *bridgeFailoverModeEnumPtr) ToBridgeFailoverModeEnumPtrOutput() BridgeFailoverModeEnumPtrOutput {
+	return pulumi.ToOutput(in).(BridgeFailoverModeEnumPtrOutput)
+}
+
+func (in *bridgeFailoverModeEnumPtr) ToBridgeFailoverModeEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverModeEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BridgeFailoverModeEnumPtrOutput)
+}
+
+// The network output protocol.
+type BridgeOutputResourceBridgeNetworkOutputProtocol string
+
+const (
+	BridgeOutputResourceBridgeNetworkOutputProtocolRtpFec = BridgeOutputResourceBridgeNetworkOutputProtocol("rtp-fec")
+	BridgeOutputResourceBridgeNetworkOutputProtocolRtp    = BridgeOutputResourceBridgeNetworkOutputProtocol("rtp")
+	BridgeOutputResourceBridgeNetworkOutputProtocolUdp    = BridgeOutputResourceBridgeNetworkOutputProtocol("udp")
+)
+
+func (BridgeOutputResourceBridgeNetworkOutputProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeOutputResourceBridgeNetworkOutputProtocol)(nil)).Elem()
+}
+
+func (e BridgeOutputResourceBridgeNetworkOutputProtocol) ToBridgeOutputResourceBridgeNetworkOutputProtocolOutput() BridgeOutputResourceBridgeNetworkOutputProtocolOutput {
+	return pulumi.ToOutput(e).(BridgeOutputResourceBridgeNetworkOutputProtocolOutput)
+}
+
+func (e BridgeOutputResourceBridgeNetworkOutputProtocol) ToBridgeOutputResourceBridgeNetworkOutputProtocolOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BridgeOutputResourceBridgeNetworkOutputProtocolOutput)
+}
+
+func (e BridgeOutputResourceBridgeNetworkOutputProtocol) ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput() BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput {
+	return e.ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e BridgeOutputResourceBridgeNetworkOutputProtocol) ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput {
+	return BridgeOutputResourceBridgeNetworkOutputProtocol(e).ToBridgeOutputResourceBridgeNetworkOutputProtocolOutputWithContext(ctx).ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutputWithContext(ctx)
+}
+
+func (e BridgeOutputResourceBridgeNetworkOutputProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BridgeOutputResourceBridgeNetworkOutputProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BridgeOutputResourceBridgeNetworkOutputProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BridgeOutputResourceBridgeNetworkOutputProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BridgeOutputResourceBridgeNetworkOutputProtocolOutput struct{ *pulumi.OutputState }
+
+func (BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeOutputResourceBridgeNetworkOutputProtocol)(nil)).Elem()
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToBridgeOutputResourceBridgeNetworkOutputProtocolOutput() BridgeOutputResourceBridgeNetworkOutputProtocolOutput {
+	return o
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToBridgeOutputResourceBridgeNetworkOutputProtocolOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputProtocolOutput {
+	return o
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput() BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput {
+	return o.ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeOutputResourceBridgeNetworkOutputProtocol) *BridgeOutputResourceBridgeNetworkOutputProtocol {
+		return &v
+	}).(BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput)
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeOutputResourceBridgeNetworkOutputProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeOutputResourceBridgeNetworkOutputProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeOutputResourceBridgeNetworkOutputProtocol)(nil)).Elem()
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput() BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput {
+	return o
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput {
+	return o
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) Elem() BridgeOutputResourceBridgeNetworkOutputProtocolOutput {
+	return o.ApplyT(func(v *BridgeOutputResourceBridgeNetworkOutputProtocol) BridgeOutputResourceBridgeNetworkOutputProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeOutputResourceBridgeNetworkOutputProtocol
+		return ret
+	}).(BridgeOutputResourceBridgeNetworkOutputProtocolOutput)
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BridgeOutputResourceBridgeNetworkOutputProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BridgeOutputResourceBridgeNetworkOutputProtocolInput is an input type that accepts BridgeOutputResourceBridgeNetworkOutputProtocolArgs and BridgeOutputResourceBridgeNetworkOutputProtocolOutput values.
+// You can construct a concrete instance of `BridgeOutputResourceBridgeNetworkOutputProtocolInput` via:
+//
+//	BridgeOutputResourceBridgeNetworkOutputProtocolArgs{...}
+type BridgeOutputResourceBridgeNetworkOutputProtocolInput interface {
+	pulumi.Input
+
+	ToBridgeOutputResourceBridgeNetworkOutputProtocolOutput() BridgeOutputResourceBridgeNetworkOutputProtocolOutput
+	ToBridgeOutputResourceBridgeNetworkOutputProtocolOutputWithContext(context.Context) BridgeOutputResourceBridgeNetworkOutputProtocolOutput
+}
+
+var bridgeOutputResourceBridgeNetworkOutputProtocolPtrType = reflect.TypeOf((**BridgeOutputResourceBridgeNetworkOutputProtocol)(nil)).Elem()
+
+type BridgeOutputResourceBridgeNetworkOutputProtocolPtrInput interface {
+	pulumi.Input
+
+	ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput() BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput
+	ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutputWithContext(context.Context) BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput
+}
+
+type bridgeOutputResourceBridgeNetworkOutputProtocolPtr string
+
+func BridgeOutputResourceBridgeNetworkOutputProtocolPtr(v string) BridgeOutputResourceBridgeNetworkOutputProtocolPtrInput {
+	return (*bridgeOutputResourceBridgeNetworkOutputProtocolPtr)(&v)
+}
+
+func (*bridgeOutputResourceBridgeNetworkOutputProtocolPtr) ElementType() reflect.Type {
+	return bridgeOutputResourceBridgeNetworkOutputProtocolPtrType
+}
+
+func (in *bridgeOutputResourceBridgeNetworkOutputProtocolPtr) ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput() BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput {
+	return pulumi.ToOutput(in).(BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput)
+}
+
+func (in *bridgeOutputResourceBridgeNetworkOutputProtocolPtr) ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput)
+}
+
+type BridgeProtocolEnum string
+
+const (
+	BridgeProtocolEnumRtpFec = BridgeProtocolEnum("rtp-fec")
+	BridgeProtocolEnumRtp    = BridgeProtocolEnum("rtp")
+	BridgeProtocolEnumUdp    = BridgeProtocolEnum("udp")
+)
+
+func (BridgeProtocolEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeProtocolEnum)(nil)).Elem()
+}
+
+func (e BridgeProtocolEnum) ToBridgeProtocolEnumOutput() BridgeProtocolEnumOutput {
+	return pulumi.ToOutput(e).(BridgeProtocolEnumOutput)
+}
+
+func (e BridgeProtocolEnum) ToBridgeProtocolEnumOutputWithContext(ctx context.Context) BridgeProtocolEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BridgeProtocolEnumOutput)
+}
+
+func (e BridgeProtocolEnum) ToBridgeProtocolEnumPtrOutput() BridgeProtocolEnumPtrOutput {
+	return e.ToBridgeProtocolEnumPtrOutputWithContext(context.Background())
+}
+
+func (e BridgeProtocolEnum) ToBridgeProtocolEnumPtrOutputWithContext(ctx context.Context) BridgeProtocolEnumPtrOutput {
+	return BridgeProtocolEnum(e).ToBridgeProtocolEnumOutputWithContext(ctx).ToBridgeProtocolEnumPtrOutputWithContext(ctx)
+}
+
+func (e BridgeProtocolEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BridgeProtocolEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BridgeProtocolEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BridgeProtocolEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BridgeProtocolEnumOutput struct{ *pulumi.OutputState }
+
+func (BridgeProtocolEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeProtocolEnum)(nil)).Elem()
+}
+
+func (o BridgeProtocolEnumOutput) ToBridgeProtocolEnumOutput() BridgeProtocolEnumOutput {
+	return o
+}
+
+func (o BridgeProtocolEnumOutput) ToBridgeProtocolEnumOutputWithContext(ctx context.Context) BridgeProtocolEnumOutput {
+	return o
+}
+
+func (o BridgeProtocolEnumOutput) ToBridgeProtocolEnumPtrOutput() BridgeProtocolEnumPtrOutput {
+	return o.ToBridgeProtocolEnumPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeProtocolEnumOutput) ToBridgeProtocolEnumPtrOutputWithContext(ctx context.Context) BridgeProtocolEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeProtocolEnum) *BridgeProtocolEnum {
+		return &v
+	}).(BridgeProtocolEnumPtrOutput)
+}
+
+func (o BridgeProtocolEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BridgeProtocolEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeProtocolEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BridgeProtocolEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeProtocolEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeProtocolEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BridgeProtocolEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeProtocolEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeProtocolEnum)(nil)).Elem()
+}
+
+func (o BridgeProtocolEnumPtrOutput) ToBridgeProtocolEnumPtrOutput() BridgeProtocolEnumPtrOutput {
+	return o
+}
+
+func (o BridgeProtocolEnumPtrOutput) ToBridgeProtocolEnumPtrOutputWithContext(ctx context.Context) BridgeProtocolEnumPtrOutput {
+	return o
+}
+
+func (o BridgeProtocolEnumPtrOutput) Elem() BridgeProtocolEnumOutput {
+	return o.ApplyT(func(v *BridgeProtocolEnum) BridgeProtocolEnum {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeProtocolEnum
+		return ret
+	}).(BridgeProtocolEnumOutput)
+}
+
+func (o BridgeProtocolEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeProtocolEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BridgeProtocolEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BridgeProtocolEnumInput is an input type that accepts BridgeProtocolEnumArgs and BridgeProtocolEnumOutput values.
+// You can construct a concrete instance of `BridgeProtocolEnumInput` via:
+//
+//	BridgeProtocolEnumArgs{...}
+type BridgeProtocolEnumInput interface {
+	pulumi.Input
+
+	ToBridgeProtocolEnumOutput() BridgeProtocolEnumOutput
+	ToBridgeProtocolEnumOutputWithContext(context.Context) BridgeProtocolEnumOutput
+}
+
+var bridgeProtocolEnumPtrType = reflect.TypeOf((**BridgeProtocolEnum)(nil)).Elem()
+
+type BridgeProtocolEnumPtrInput interface {
+	pulumi.Input
+
+	ToBridgeProtocolEnumPtrOutput() BridgeProtocolEnumPtrOutput
+	ToBridgeProtocolEnumPtrOutputWithContext(context.Context) BridgeProtocolEnumPtrOutput
+}
+
+type bridgeProtocolEnumPtr string
+
+func BridgeProtocolEnumPtr(v string) BridgeProtocolEnumPtrInput {
+	return (*bridgeProtocolEnumPtr)(&v)
+}
+
+func (*bridgeProtocolEnumPtr) ElementType() reflect.Type {
+	return bridgeProtocolEnumPtrType
+}
+
+func (in *bridgeProtocolEnumPtr) ToBridgeProtocolEnumPtrOutput() BridgeProtocolEnumPtrOutput {
+	return pulumi.ToOutput(in).(BridgeProtocolEnumPtrOutput)
+}
+
+func (in *bridgeProtocolEnumPtr) ToBridgeProtocolEnumPtrOutputWithContext(ctx context.Context) BridgeProtocolEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BridgeProtocolEnumPtrOutput)
+}
+
+type BridgeSourceProtocolEnum string
+
+const (
+	BridgeSourceProtocolEnumRtpFec = BridgeSourceProtocolEnum("rtp-fec")
+	BridgeSourceProtocolEnumRtp    = BridgeSourceProtocolEnum("rtp")
+	BridgeSourceProtocolEnumUdp    = BridgeSourceProtocolEnum("udp")
+)
+
+func (BridgeSourceProtocolEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceProtocolEnum)(nil)).Elem()
+}
+
+func (e BridgeSourceProtocolEnum) ToBridgeSourceProtocolEnumOutput() BridgeSourceProtocolEnumOutput {
+	return pulumi.ToOutput(e).(BridgeSourceProtocolEnumOutput)
+}
+
+func (e BridgeSourceProtocolEnum) ToBridgeSourceProtocolEnumOutputWithContext(ctx context.Context) BridgeSourceProtocolEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BridgeSourceProtocolEnumOutput)
+}
+
+func (e BridgeSourceProtocolEnum) ToBridgeSourceProtocolEnumPtrOutput() BridgeSourceProtocolEnumPtrOutput {
+	return e.ToBridgeSourceProtocolEnumPtrOutputWithContext(context.Background())
+}
+
+func (e BridgeSourceProtocolEnum) ToBridgeSourceProtocolEnumPtrOutputWithContext(ctx context.Context) BridgeSourceProtocolEnumPtrOutput {
+	return BridgeSourceProtocolEnum(e).ToBridgeSourceProtocolEnumOutputWithContext(ctx).ToBridgeSourceProtocolEnumPtrOutputWithContext(ctx)
+}
+
+func (e BridgeSourceProtocolEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BridgeSourceProtocolEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BridgeSourceProtocolEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BridgeSourceProtocolEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BridgeSourceProtocolEnumOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceProtocolEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceProtocolEnum)(nil)).Elem()
+}
+
+func (o BridgeSourceProtocolEnumOutput) ToBridgeSourceProtocolEnumOutput() BridgeSourceProtocolEnumOutput {
+	return o
+}
+
+func (o BridgeSourceProtocolEnumOutput) ToBridgeSourceProtocolEnumOutputWithContext(ctx context.Context) BridgeSourceProtocolEnumOutput {
+	return o
+}
+
+func (o BridgeSourceProtocolEnumOutput) ToBridgeSourceProtocolEnumPtrOutput() BridgeSourceProtocolEnumPtrOutput {
+	return o.ToBridgeSourceProtocolEnumPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeSourceProtocolEnumOutput) ToBridgeSourceProtocolEnumPtrOutputWithContext(ctx context.Context) BridgeSourceProtocolEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeSourceProtocolEnum) *BridgeSourceProtocolEnum {
+		return &v
+	}).(BridgeSourceProtocolEnumPtrOutput)
+}
+
+func (o BridgeSourceProtocolEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BridgeSourceProtocolEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeSourceProtocolEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BridgeSourceProtocolEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeSourceProtocolEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeSourceProtocolEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BridgeSourceProtocolEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceProtocolEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeSourceProtocolEnum)(nil)).Elem()
+}
+
+func (o BridgeSourceProtocolEnumPtrOutput) ToBridgeSourceProtocolEnumPtrOutput() BridgeSourceProtocolEnumPtrOutput {
+	return o
+}
+
+func (o BridgeSourceProtocolEnumPtrOutput) ToBridgeSourceProtocolEnumPtrOutputWithContext(ctx context.Context) BridgeSourceProtocolEnumPtrOutput {
+	return o
+}
+
+func (o BridgeSourceProtocolEnumPtrOutput) Elem() BridgeSourceProtocolEnumOutput {
+	return o.ApplyT(func(v *BridgeSourceProtocolEnum) BridgeSourceProtocolEnum {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeSourceProtocolEnum
+		return ret
+	}).(BridgeSourceProtocolEnumOutput)
+}
+
+func (o BridgeSourceProtocolEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeSourceProtocolEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BridgeSourceProtocolEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BridgeSourceProtocolEnumInput is an input type that accepts BridgeSourceProtocolEnumArgs and BridgeSourceProtocolEnumOutput values.
+// You can construct a concrete instance of `BridgeSourceProtocolEnumInput` via:
+//
+//	BridgeSourceProtocolEnumArgs{...}
+type BridgeSourceProtocolEnumInput interface {
+	pulumi.Input
+
+	ToBridgeSourceProtocolEnumOutput() BridgeSourceProtocolEnumOutput
+	ToBridgeSourceProtocolEnumOutputWithContext(context.Context) BridgeSourceProtocolEnumOutput
+}
+
+var bridgeSourceProtocolEnumPtrType = reflect.TypeOf((**BridgeSourceProtocolEnum)(nil)).Elem()
+
+type BridgeSourceProtocolEnumPtrInput interface {
+	pulumi.Input
+
+	ToBridgeSourceProtocolEnumPtrOutput() BridgeSourceProtocolEnumPtrOutput
+	ToBridgeSourceProtocolEnumPtrOutputWithContext(context.Context) BridgeSourceProtocolEnumPtrOutput
+}
+
+type bridgeSourceProtocolEnumPtr string
+
+func BridgeSourceProtocolEnumPtr(v string) BridgeSourceProtocolEnumPtrInput {
+	return (*bridgeSourceProtocolEnumPtr)(&v)
+}
+
+func (*bridgeSourceProtocolEnumPtr) ElementType() reflect.Type {
+	return bridgeSourceProtocolEnumPtrType
+}
+
+func (in *bridgeSourceProtocolEnumPtr) ToBridgeSourceProtocolEnumPtrOutput() BridgeSourceProtocolEnumPtrOutput {
+	return pulumi.ToOutput(in).(BridgeSourceProtocolEnumPtrOutput)
+}
+
+func (in *bridgeSourceProtocolEnumPtr) ToBridgeSourceProtocolEnumPtrOutputWithContext(ctx context.Context) BridgeSourceProtocolEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BridgeSourceProtocolEnumPtrOutput)
+}
+
+type BridgeStateEnum string
+
+const (
+	BridgeStateEnumCreating     = BridgeStateEnum("CREATING")
+	BridgeStateEnumStandby      = BridgeStateEnum("STANDBY")
+	BridgeStateEnumStarting     = BridgeStateEnum("STARTING")
+	BridgeStateEnumDeploying    = BridgeStateEnum("DEPLOYING")
+	BridgeStateEnumActive       = BridgeStateEnum("ACTIVE")
+	BridgeStateEnumStopping     = BridgeStateEnum("STOPPING")
+	BridgeStateEnumDeleting     = BridgeStateEnum("DELETING")
+	BridgeStateEnumDeleted      = BridgeStateEnum("DELETED")
+	BridgeStateEnumStartFailed  = BridgeStateEnum("START_FAILED")
+	BridgeStateEnumStartPending = BridgeStateEnum("START_PENDING")
+	BridgeStateEnumUpdating     = BridgeStateEnum("UPDATING")
+)
+
+type BridgeStateEnumOutput struct{ *pulumi.OutputState }
+
+func (BridgeStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeStateEnum)(nil)).Elem()
+}
+
+func (o BridgeStateEnumOutput) ToBridgeStateEnumOutput() BridgeStateEnumOutput {
+	return o
+}
+
+func (o BridgeStateEnumOutput) ToBridgeStateEnumOutputWithContext(ctx context.Context) BridgeStateEnumOutput {
+	return o
+}
+
+func (o BridgeStateEnumOutput) ToBridgeStateEnumPtrOutput() BridgeStateEnumPtrOutput {
+	return o.ToBridgeStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeStateEnumOutput) ToBridgeStateEnumPtrOutputWithContext(ctx context.Context) BridgeStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeStateEnum) *BridgeStateEnum {
+		return &v
+	}).(BridgeStateEnumPtrOutput)
+}
+
+func (o BridgeStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BridgeStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BridgeStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BridgeStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BridgeStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeStateEnum)(nil)).Elem()
+}
+
+func (o BridgeStateEnumPtrOutput) ToBridgeStateEnumPtrOutput() BridgeStateEnumPtrOutput {
+	return o
+}
+
+func (o BridgeStateEnumPtrOutput) ToBridgeStateEnumPtrOutputWithContext(ctx context.Context) BridgeStateEnumPtrOutput {
+	return o
+}
+
+func (o BridgeStateEnumPtrOutput) Elem() BridgeStateEnumOutput {
+	return o.ApplyT(func(v *BridgeStateEnum) BridgeStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeStateEnum
+		return ret
+	}).(BridgeStateEnumOutput)
+}
+
+func (o BridgeStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BridgeStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
 type FlowEncryptionAlgorithm string
 
@@ -2171,7 +3093,112 @@ func (in *flowSourceProtocolPtr) ToFlowSourceProtocolPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSourceProtocolPtrOutput)
 }
 
+// The current status of the gateway.
+type GatewayStateEnum string
+
+const (
+	GatewayStateEnumCreating = GatewayStateEnum("CREATING")
+	GatewayStateEnumActive   = GatewayStateEnum("ACTIVE")
+	GatewayStateEnumUpdating = GatewayStateEnum("UPDATING")
+	GatewayStateEnumError    = GatewayStateEnum("ERROR")
+	GatewayStateEnumDeleting = GatewayStateEnum("DELETING")
+	GatewayStateEnumDeleted  = GatewayStateEnum("DELETED")
+)
+
+type GatewayStateEnumOutput struct{ *pulumi.OutputState }
+
+func (GatewayStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayStateEnum)(nil)).Elem()
+}
+
+func (o GatewayStateEnumOutput) ToGatewayStateEnumOutput() GatewayStateEnumOutput {
+	return o
+}
+
+func (o GatewayStateEnumOutput) ToGatewayStateEnumOutputWithContext(ctx context.Context) GatewayStateEnumOutput {
+	return o
+}
+
+func (o GatewayStateEnumOutput) ToGatewayStateEnumPtrOutput() GatewayStateEnumPtrOutput {
+	return o.ToGatewayStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayStateEnumOutput) ToGatewayStateEnumPtrOutputWithContext(ctx context.Context) GatewayStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayStateEnum) *GatewayStateEnum {
+		return &v
+	}).(GatewayStateEnumPtrOutput)
+}
+
+func (o GatewayStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayStateEnum)(nil)).Elem()
+}
+
+func (o GatewayStateEnumPtrOutput) ToGatewayStateEnumPtrOutput() GatewayStateEnumPtrOutput {
+	return o
+}
+
+func (o GatewayStateEnumPtrOutput) ToGatewayStateEnumPtrOutputWithContext(ctx context.Context) GatewayStateEnumPtrOutput {
+	return o
+}
+
+func (o GatewayStateEnumPtrOutput) Elem() GatewayStateEnumOutput {
+	return o.ApplyT(func(v *GatewayStateEnum) GatewayStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayStateEnum
+		return ret
+	}).(GatewayStateEnumOutput)
+}
+
+func (o GatewayStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeFailoverConfigStateEnumInput)(nil)).Elem(), BridgeFailoverConfigStateEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeFailoverConfigStateEnumPtrInput)(nil)).Elem(), BridgeFailoverConfigStateEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeFailoverModeEnumInput)(nil)).Elem(), BridgeFailoverModeEnum("FAILOVER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeFailoverModeEnumPtrInput)(nil)).Elem(), BridgeFailoverModeEnum("FAILOVER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeOutputResourceBridgeNetworkOutputProtocolInput)(nil)).Elem(), BridgeOutputResourceBridgeNetworkOutputProtocol("rtp-fec"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeOutputResourceBridgeNetworkOutputProtocolPtrInput)(nil)).Elem(), BridgeOutputResourceBridgeNetworkOutputProtocol("rtp-fec"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeProtocolEnumInput)(nil)).Elem(), BridgeProtocolEnum("rtp-fec"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeProtocolEnumPtrInput)(nil)).Elem(), BridgeProtocolEnum("rtp-fec"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceProtocolEnumInput)(nil)).Elem(), BridgeSourceProtocolEnum("rtp-fec"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceProtocolEnumPtrInput)(nil)).Elem(), BridgeSourceProtocolEnum("rtp-fec"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionAlgorithmInput)(nil)).Elem(), FlowEncryptionAlgorithm("aes128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionAlgorithmPtrInput)(nil)).Elem(), FlowEncryptionAlgorithm("aes128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionKeyTypeInput)(nil)).Elem(), FlowEncryptionKeyType("speke"))
@@ -2198,6 +3225,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionKeyTypePtrInput)(nil)).Elem(), FlowSourceEncryptionKeyType("speke"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceProtocolInput)(nil)).Elem(), FlowSourceProtocol("zixi-push"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceProtocolPtrInput)(nil)).Elem(), FlowSourceProtocol("zixi-push"))
+	pulumi.RegisterOutputType(BridgeFailoverConfigStateEnumOutput{})
+	pulumi.RegisterOutputType(BridgeFailoverConfigStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(BridgeFailoverModeEnumOutput{})
+	pulumi.RegisterOutputType(BridgeFailoverModeEnumPtrOutput{})
+	pulumi.RegisterOutputType(BridgeOutputResourceBridgeNetworkOutputProtocolOutput{})
+	pulumi.RegisterOutputType(BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput{})
+	pulumi.RegisterOutputType(BridgeProtocolEnumOutput{})
+	pulumi.RegisterOutputType(BridgeProtocolEnumPtrOutput{})
+	pulumi.RegisterOutputType(BridgeSourceProtocolEnumOutput{})
+	pulumi.RegisterOutputType(BridgeSourceProtocolEnumPtrOutput{})
+	pulumi.RegisterOutputType(BridgeStateEnumOutput{})
+	pulumi.RegisterOutputType(BridgeStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionAlgorithmOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionKeyTypeOutput{})
@@ -2224,4 +3263,6 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceEncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceProtocolOutput{})
 	pulumi.RegisterOutputType(FlowSourceProtocolPtrOutput{})
+	pulumi.RegisterOutputType(GatewayStateEnumOutput{})
+	pulumi.RegisterOutputType(GatewayStateEnumPtrOutput{})
 }

@@ -5,6 +5,11 @@
 from enum import Enum
 
 __all__ = [
+    'CalculatedAttributeDefinitionRangeUnit',
+    'CalculatedAttributeDefinitionStatistic',
+    'CalculatedAttributeDefinitionThresholdOperator',
+    'EventStreamState',
+    'EventStreamStatus',
     'IntegrationConnectorType',
     'IntegrationMarketoConnectorOperator',
     'IntegrationOperatorPropertiesKeys',
@@ -18,6 +23,53 @@ __all__ = [
     'ObjectTypeFieldContentType',
     'ObjectTypeKeyStandardIdentifiersItem',
 ]
+
+
+class CalculatedAttributeDefinitionRangeUnit(str, Enum):
+    """
+    The unit of time.
+    """
+    DAYS = "DAYS"
+
+
+class CalculatedAttributeDefinitionStatistic(str, Enum):
+    """
+    The aggregation operation to perform for the calculated attribute.
+    """
+    FIRST_OCCURRENCE = "FIRST_OCCURRENCE"
+    LAST_OCCURRENCE = "LAST_OCCURRENCE"
+    COUNT = "COUNT"
+    SUM = "SUM"
+    MINIMUM = "MINIMUM"
+    MAXIMUM = "MAXIMUM"
+    AVERAGE = "AVERAGE"
+    MAX_OCCURRENCE = "MAX_OCCURRENCE"
+
+
+class CalculatedAttributeDefinitionThresholdOperator(str, Enum):
+    """
+    The operator of the threshold.
+    """
+    EQUAL_TO = "EQUAL_TO"
+    GREATER_THAN = "GREATER_THAN"
+    LESS_THAN = "LESS_THAN"
+    NOT_EQUAL_TO = "NOT_EQUAL_TO"
+
+
+class EventStreamState(str, Enum):
+    """
+    The operational state of destination stream for export.
+    """
+    RUNNING = "RUNNING"
+    STOPPED = "STOPPED"
+
+
+class EventStreamStatus(str, Enum):
+    """
+    The status of enabling the Kinesis stream as a destination for export.
+    """
+    HEALTHY = "HEALTHY"
+    UNHEALTHY = "UNHEALTHY"
 
 
 class IntegrationConnectorType(str, Enum):

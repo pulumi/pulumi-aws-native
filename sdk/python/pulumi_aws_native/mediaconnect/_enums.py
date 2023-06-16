@@ -5,6 +5,12 @@
 from enum import Enum
 
 __all__ = [
+    'BridgeFailoverConfigStateEnum',
+    'BridgeFailoverModeEnum',
+    'BridgeOutputResourceBridgeNetworkOutputProtocol',
+    'BridgeProtocolEnum',
+    'BridgeSourceProtocolEnum',
+    'BridgeStateEnum',
     'FlowEncryptionAlgorithm',
     'FlowEncryptionKeyType',
     'FlowEntitlementEncryptionAlgorithm',
@@ -18,7 +24,52 @@ __all__ = [
     'FlowSourceEncryptionAlgorithm',
     'FlowSourceEncryptionKeyType',
     'FlowSourceProtocol',
+    'GatewayState',
 ]
+
+
+class BridgeFailoverConfigStateEnum(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class BridgeFailoverModeEnum(str, Enum):
+    FAILOVER = "FAILOVER"
+
+
+class BridgeOutputResourceBridgeNetworkOutputProtocol(str, Enum):
+    """
+    The network output protocol.
+    """
+    RTP_FEC = "rtp-fec"
+    RTP = "rtp"
+    UDP = "udp"
+
+
+class BridgeProtocolEnum(str, Enum):
+    RTP_FEC = "rtp-fec"
+    RTP = "rtp"
+    UDP = "udp"
+
+
+class BridgeSourceProtocolEnum(str, Enum):
+    RTP_FEC = "rtp-fec"
+    RTP = "rtp"
+    UDP = "udp"
+
+
+class BridgeStateEnum(str, Enum):
+    CREATING = "CREATING"
+    STANDBY = "STANDBY"
+    STARTING = "STARTING"
+    DEPLOYING = "DEPLOYING"
+    ACTIVE = "ACTIVE"
+    STOPPING = "STOPPING"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    START_FAILED = "START_FAILED"
+    START_PENDING = "START_PENDING"
+    UPDATING = "UPDATING"
 
 
 class FlowEncryptionAlgorithm(str, Enum):
@@ -137,3 +188,15 @@ class FlowSourceProtocol(str, Enum):
     FUJITSU_QOS = "fujitsu-qos"
     SRT_LISTENER = "srt-listener"
     SRT_CALLER = "srt-caller"
+
+
+class GatewayState(str, Enum):
+    """
+    The current status of the gateway.
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    ERROR = "ERROR"
+    DELETING = "DELETING"
+    DELETED = "DELETED"

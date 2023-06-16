@@ -21,11 +21,9 @@ class ApplicationInstanceArgs:
                  manifest_payload: pulumi.Input['ApplicationInstanceManifestPayloadArgs'],
                  application_instance_id_to_replace: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 device_id: Optional[pulumi.Input[str]] = None,
                  manifest_overrides_payload: Optional[pulumi.Input['ApplicationInstanceManifestOverridesPayloadArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  runtime_role_arn: Optional[pulumi.Input[str]] = None,
-                 status_filter: Optional[pulumi.Input['ApplicationInstanceStatusFilter']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInstanceTagArgs']]]] = None):
         """
         The set of arguments for constructing a ApplicationInstance resource.
@@ -36,16 +34,12 @@ class ApplicationInstanceArgs:
             pulumi.set(__self__, "application_instance_id_to_replace", application_instance_id_to_replace)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if device_id is not None:
-            pulumi.set(__self__, "device_id", device_id)
         if manifest_overrides_payload is not None:
             pulumi.set(__self__, "manifest_overrides_payload", manifest_overrides_payload)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if runtime_role_arn is not None:
             pulumi.set(__self__, "runtime_role_arn", runtime_role_arn)
-        if status_filter is not None:
-            pulumi.set(__self__, "status_filter", status_filter)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -86,15 +80,6 @@ class ApplicationInstanceArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter(name="deviceId")
-    def device_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "device_id")
-
-    @device_id.setter
-    def device_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "device_id", value)
-
-    @property
     @pulumi.getter(name="manifestOverridesPayload")
     def manifest_overrides_payload(self) -> Optional[pulumi.Input['ApplicationInstanceManifestOverridesPayloadArgs']]:
         return pulumi.get(self, "manifest_overrides_payload")
@@ -122,15 +107,6 @@ class ApplicationInstanceArgs:
         pulumi.set(self, "runtime_role_arn", value)
 
     @property
-    @pulumi.getter(name="statusFilter")
-    def status_filter(self) -> Optional[pulumi.Input['ApplicationInstanceStatusFilter']]:
-        return pulumi.get(self, "status_filter")
-
-    @status_filter.setter
-    def status_filter(self, value: Optional[pulumi.Input['ApplicationInstanceStatusFilter']]):
-        pulumi.set(self, "status_filter", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInstanceTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -148,12 +124,10 @@ class ApplicationInstance(pulumi.CustomResource):
                  application_instance_id_to_replace: Optional[pulumi.Input[str]] = None,
                  default_runtime_context_device: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 device_id: Optional[pulumi.Input[str]] = None,
                  manifest_overrides_payload: Optional[pulumi.Input[pulumi.InputType['ApplicationInstanceManifestOverridesPayloadArgs']]] = None,
                  manifest_payload: Optional[pulumi.Input[pulumi.InputType['ApplicationInstanceManifestPayloadArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  runtime_role_arn: Optional[pulumi.Input[str]] = None,
-                 status_filter: Optional[pulumi.Input['ApplicationInstanceStatusFilter']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInstanceTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -189,12 +163,10 @@ class ApplicationInstance(pulumi.CustomResource):
                  application_instance_id_to_replace: Optional[pulumi.Input[str]] = None,
                  default_runtime_context_device: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 device_id: Optional[pulumi.Input[str]] = None,
                  manifest_overrides_payload: Optional[pulumi.Input[pulumi.InputType['ApplicationInstanceManifestOverridesPayloadArgs']]] = None,
                  manifest_payload: Optional[pulumi.Input[pulumi.InputType['ApplicationInstanceManifestPayloadArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  runtime_role_arn: Optional[pulumi.Input[str]] = None,
-                 status_filter: Optional[pulumi.Input['ApplicationInstanceStatusFilter']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInstanceTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -210,14 +182,12 @@ class ApplicationInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_runtime_context_device'")
             __props__.__dict__["default_runtime_context_device"] = default_runtime_context_device
             __props__.__dict__["description"] = description
-            __props__.__dict__["device_id"] = device_id
             __props__.__dict__["manifest_overrides_payload"] = manifest_overrides_payload
             if manifest_payload is None and not opts.urn:
                 raise TypeError("Missing required property 'manifest_payload'")
             __props__.__dict__["manifest_payload"] = manifest_payload
             __props__.__dict__["name"] = name
             __props__.__dict__["runtime_role_arn"] = runtime_role_arn
-            __props__.__dict__["status_filter"] = status_filter
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_instance_id"] = None
             __props__.__dict__["arn"] = None
@@ -256,7 +226,6 @@ class ApplicationInstance(pulumi.CustomResource):
         __props__.__dict__["default_runtime_context_device"] = None
         __props__.__dict__["default_runtime_context_device_name"] = None
         __props__.__dict__["description"] = None
-        __props__.__dict__["device_id"] = None
         __props__.__dict__["health_status"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["manifest_overrides_payload"] = None
@@ -265,7 +234,6 @@ class ApplicationInstance(pulumi.CustomResource):
         __props__.__dict__["runtime_role_arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["status_description"] = None
-        __props__.__dict__["status_filter"] = None
         __props__.__dict__["tags"] = None
         return ApplicationInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -303,11 +271,6 @@ class ApplicationInstance(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="deviceId")
-    def device_id(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "device_id")
 
     @property
     @pulumi.getter(name="healthStatus")
@@ -348,11 +311,6 @@ class ApplicationInstance(pulumi.CustomResource):
     @pulumi.getter(name="statusDescription")
     def status_description(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status_description")
-
-    @property
-    @pulumi.getter(name="statusFilter")
-    def status_filter(self) -> pulumi.Output[Optional['ApplicationInstanceStatusFilter']]:
-        return pulumi.get(self, "status_filter")
 
     @property
     @pulumi.getter

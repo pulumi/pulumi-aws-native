@@ -110,6 +110,324 @@ func (o ActivityTagsEntryArrayOutput) Index(i pulumi.IntInput) ActivityTagsEntry
 	}).(ActivityTagsEntryOutput)
 }
 
+// The settings to enable gradual state machine deployments.
+type StateMachineAliasDeploymentPreference struct {
+	// A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
+	Alarms []string `pulumi:"alarms"`
+	// The time in minutes between each traffic shifting increment.
+	Interval *int `pulumi:"interval"`
+	// The percentage of traffic to shift to the new version in each increment.
+	Percentage             *int   `pulumi:"percentage"`
+	StateMachineVersionArn string `pulumi:"stateMachineVersionArn"`
+	// The type of deployment to perform.
+	Type StateMachineAliasDeploymentPreferenceType `pulumi:"type"`
+}
+
+// StateMachineAliasDeploymentPreferenceInput is an input type that accepts StateMachineAliasDeploymentPreferenceArgs and StateMachineAliasDeploymentPreferenceOutput values.
+// You can construct a concrete instance of `StateMachineAliasDeploymentPreferenceInput` via:
+//
+//	StateMachineAliasDeploymentPreferenceArgs{...}
+type StateMachineAliasDeploymentPreferenceInput interface {
+	pulumi.Input
+
+	ToStateMachineAliasDeploymentPreferenceOutput() StateMachineAliasDeploymentPreferenceOutput
+	ToStateMachineAliasDeploymentPreferenceOutputWithContext(context.Context) StateMachineAliasDeploymentPreferenceOutput
+}
+
+// The settings to enable gradual state machine deployments.
+type StateMachineAliasDeploymentPreferenceArgs struct {
+	// A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
+	Alarms pulumi.StringArrayInput `pulumi:"alarms"`
+	// The time in minutes between each traffic shifting increment.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The percentage of traffic to shift to the new version in each increment.
+	Percentage             pulumi.IntPtrInput `pulumi:"percentage"`
+	StateMachineVersionArn pulumi.StringInput `pulumi:"stateMachineVersionArn"`
+	// The type of deployment to perform.
+	Type StateMachineAliasDeploymentPreferenceTypeInput `pulumi:"type"`
+}
+
+func (StateMachineAliasDeploymentPreferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineAliasDeploymentPreference)(nil)).Elem()
+}
+
+func (i StateMachineAliasDeploymentPreferenceArgs) ToStateMachineAliasDeploymentPreferenceOutput() StateMachineAliasDeploymentPreferenceOutput {
+	return i.ToStateMachineAliasDeploymentPreferenceOutputWithContext(context.Background())
+}
+
+func (i StateMachineAliasDeploymentPreferenceArgs) ToStateMachineAliasDeploymentPreferenceOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineAliasDeploymentPreferenceOutput)
+}
+
+func (i StateMachineAliasDeploymentPreferenceArgs) ToStateMachineAliasDeploymentPreferencePtrOutput() StateMachineAliasDeploymentPreferencePtrOutput {
+	return i.ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(context.Background())
+}
+
+func (i StateMachineAliasDeploymentPreferenceArgs) ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineAliasDeploymentPreferenceOutput).ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(ctx)
+}
+
+// StateMachineAliasDeploymentPreferencePtrInput is an input type that accepts StateMachineAliasDeploymentPreferenceArgs, StateMachineAliasDeploymentPreferencePtr and StateMachineAliasDeploymentPreferencePtrOutput values.
+// You can construct a concrete instance of `StateMachineAliasDeploymentPreferencePtrInput` via:
+//
+//	        StateMachineAliasDeploymentPreferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type StateMachineAliasDeploymentPreferencePtrInput interface {
+	pulumi.Input
+
+	ToStateMachineAliasDeploymentPreferencePtrOutput() StateMachineAliasDeploymentPreferencePtrOutput
+	ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(context.Context) StateMachineAliasDeploymentPreferencePtrOutput
+}
+
+type stateMachineAliasDeploymentPreferencePtrType StateMachineAliasDeploymentPreferenceArgs
+
+func StateMachineAliasDeploymentPreferencePtr(v *StateMachineAliasDeploymentPreferenceArgs) StateMachineAliasDeploymentPreferencePtrInput {
+	return (*stateMachineAliasDeploymentPreferencePtrType)(v)
+}
+
+func (*stateMachineAliasDeploymentPreferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachineAliasDeploymentPreference)(nil)).Elem()
+}
+
+func (i *stateMachineAliasDeploymentPreferencePtrType) ToStateMachineAliasDeploymentPreferencePtrOutput() StateMachineAliasDeploymentPreferencePtrOutput {
+	return i.ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(context.Background())
+}
+
+func (i *stateMachineAliasDeploymentPreferencePtrType) ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineAliasDeploymentPreferencePtrOutput)
+}
+
+// The settings to enable gradual state machine deployments.
+type StateMachineAliasDeploymentPreferenceOutput struct{ *pulumi.OutputState }
+
+func (StateMachineAliasDeploymentPreferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineAliasDeploymentPreference)(nil)).Elem()
+}
+
+func (o StateMachineAliasDeploymentPreferenceOutput) ToStateMachineAliasDeploymentPreferenceOutput() StateMachineAliasDeploymentPreferenceOutput {
+	return o
+}
+
+func (o StateMachineAliasDeploymentPreferenceOutput) ToStateMachineAliasDeploymentPreferenceOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferenceOutput {
+	return o
+}
+
+func (o StateMachineAliasDeploymentPreferenceOutput) ToStateMachineAliasDeploymentPreferencePtrOutput() StateMachineAliasDeploymentPreferencePtrOutput {
+	return o.ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(context.Background())
+}
+
+func (o StateMachineAliasDeploymentPreferenceOutput) ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineAliasDeploymentPreference) *StateMachineAliasDeploymentPreference {
+		return &v
+	}).(StateMachineAliasDeploymentPreferencePtrOutput)
+}
+
+// A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
+func (o StateMachineAliasDeploymentPreferenceOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StateMachineAliasDeploymentPreference) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+// The time in minutes between each traffic shifting increment.
+func (o StateMachineAliasDeploymentPreferenceOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StateMachineAliasDeploymentPreference) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The percentage of traffic to shift to the new version in each increment.
+func (o StateMachineAliasDeploymentPreferenceOutput) Percentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StateMachineAliasDeploymentPreference) *int { return v.Percentage }).(pulumi.IntPtrOutput)
+}
+
+func (o StateMachineAliasDeploymentPreferenceOutput) StateMachineVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v StateMachineAliasDeploymentPreference) string { return v.StateMachineVersionArn }).(pulumi.StringOutput)
+}
+
+// The type of deployment to perform.
+func (o StateMachineAliasDeploymentPreferenceOutput) Type() StateMachineAliasDeploymentPreferenceTypeOutput {
+	return o.ApplyT(func(v StateMachineAliasDeploymentPreference) StateMachineAliasDeploymentPreferenceType { return v.Type }).(StateMachineAliasDeploymentPreferenceTypeOutput)
+}
+
+type StateMachineAliasDeploymentPreferencePtrOutput struct{ *pulumi.OutputState }
+
+func (StateMachineAliasDeploymentPreferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachineAliasDeploymentPreference)(nil)).Elem()
+}
+
+func (o StateMachineAliasDeploymentPreferencePtrOutput) ToStateMachineAliasDeploymentPreferencePtrOutput() StateMachineAliasDeploymentPreferencePtrOutput {
+	return o
+}
+
+func (o StateMachineAliasDeploymentPreferencePtrOutput) ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferencePtrOutput {
+	return o
+}
+
+func (o StateMachineAliasDeploymentPreferencePtrOutput) Elem() StateMachineAliasDeploymentPreferenceOutput {
+	return o.ApplyT(func(v *StateMachineAliasDeploymentPreference) StateMachineAliasDeploymentPreference {
+		if v != nil {
+			return *v
+		}
+		var ret StateMachineAliasDeploymentPreference
+		return ret
+	}).(StateMachineAliasDeploymentPreferenceOutput)
+}
+
+// A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
+func (o StateMachineAliasDeploymentPreferencePtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StateMachineAliasDeploymentPreference) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
+}
+
+// The time in minutes between each traffic shifting increment.
+func (o StateMachineAliasDeploymentPreferencePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StateMachineAliasDeploymentPreference) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The percentage of traffic to shift to the new version in each increment.
+func (o StateMachineAliasDeploymentPreferencePtrOutput) Percentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StateMachineAliasDeploymentPreference) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Percentage
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o StateMachineAliasDeploymentPreferencePtrOutput) StateMachineVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StateMachineAliasDeploymentPreference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StateMachineVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of deployment to perform.
+func (o StateMachineAliasDeploymentPreferencePtrOutput) Type() StateMachineAliasDeploymentPreferenceTypePtrOutput {
+	return o.ApplyT(func(v *StateMachineAliasDeploymentPreference) *StateMachineAliasDeploymentPreferenceType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(StateMachineAliasDeploymentPreferenceTypePtrOutput)
+}
+
+type StateMachineAliasRoutingConfigurationVersion struct {
+	// The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
+	StateMachineVersionArn string `pulumi:"stateMachineVersionArn"`
+	// The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
+	Weight int `pulumi:"weight"`
+}
+
+// StateMachineAliasRoutingConfigurationVersionInput is an input type that accepts StateMachineAliasRoutingConfigurationVersionArgs and StateMachineAliasRoutingConfigurationVersionOutput values.
+// You can construct a concrete instance of `StateMachineAliasRoutingConfigurationVersionInput` via:
+//
+//	StateMachineAliasRoutingConfigurationVersionArgs{...}
+type StateMachineAliasRoutingConfigurationVersionInput interface {
+	pulumi.Input
+
+	ToStateMachineAliasRoutingConfigurationVersionOutput() StateMachineAliasRoutingConfigurationVersionOutput
+	ToStateMachineAliasRoutingConfigurationVersionOutputWithContext(context.Context) StateMachineAliasRoutingConfigurationVersionOutput
+}
+
+type StateMachineAliasRoutingConfigurationVersionArgs struct {
+	// The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
+	StateMachineVersionArn pulumi.StringInput `pulumi:"stateMachineVersionArn"`
+	// The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (StateMachineAliasRoutingConfigurationVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineAliasRoutingConfigurationVersion)(nil)).Elem()
+}
+
+func (i StateMachineAliasRoutingConfigurationVersionArgs) ToStateMachineAliasRoutingConfigurationVersionOutput() StateMachineAliasRoutingConfigurationVersionOutput {
+	return i.ToStateMachineAliasRoutingConfigurationVersionOutputWithContext(context.Background())
+}
+
+func (i StateMachineAliasRoutingConfigurationVersionArgs) ToStateMachineAliasRoutingConfigurationVersionOutputWithContext(ctx context.Context) StateMachineAliasRoutingConfigurationVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineAliasRoutingConfigurationVersionOutput)
+}
+
+// StateMachineAliasRoutingConfigurationVersionArrayInput is an input type that accepts StateMachineAliasRoutingConfigurationVersionArray and StateMachineAliasRoutingConfigurationVersionArrayOutput values.
+// You can construct a concrete instance of `StateMachineAliasRoutingConfigurationVersionArrayInput` via:
+//
+//	StateMachineAliasRoutingConfigurationVersionArray{ StateMachineAliasRoutingConfigurationVersionArgs{...} }
+type StateMachineAliasRoutingConfigurationVersionArrayInput interface {
+	pulumi.Input
+
+	ToStateMachineAliasRoutingConfigurationVersionArrayOutput() StateMachineAliasRoutingConfigurationVersionArrayOutput
+	ToStateMachineAliasRoutingConfigurationVersionArrayOutputWithContext(context.Context) StateMachineAliasRoutingConfigurationVersionArrayOutput
+}
+
+type StateMachineAliasRoutingConfigurationVersionArray []StateMachineAliasRoutingConfigurationVersionInput
+
+func (StateMachineAliasRoutingConfigurationVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StateMachineAliasRoutingConfigurationVersion)(nil)).Elem()
+}
+
+func (i StateMachineAliasRoutingConfigurationVersionArray) ToStateMachineAliasRoutingConfigurationVersionArrayOutput() StateMachineAliasRoutingConfigurationVersionArrayOutput {
+	return i.ToStateMachineAliasRoutingConfigurationVersionArrayOutputWithContext(context.Background())
+}
+
+func (i StateMachineAliasRoutingConfigurationVersionArray) ToStateMachineAliasRoutingConfigurationVersionArrayOutputWithContext(ctx context.Context) StateMachineAliasRoutingConfigurationVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineAliasRoutingConfigurationVersionArrayOutput)
+}
+
+type StateMachineAliasRoutingConfigurationVersionOutput struct{ *pulumi.OutputState }
+
+func (StateMachineAliasRoutingConfigurationVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineAliasRoutingConfigurationVersion)(nil)).Elem()
+}
+
+func (o StateMachineAliasRoutingConfigurationVersionOutput) ToStateMachineAliasRoutingConfigurationVersionOutput() StateMachineAliasRoutingConfigurationVersionOutput {
+	return o
+}
+
+func (o StateMachineAliasRoutingConfigurationVersionOutput) ToStateMachineAliasRoutingConfigurationVersionOutputWithContext(ctx context.Context) StateMachineAliasRoutingConfigurationVersionOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
+func (o StateMachineAliasRoutingConfigurationVersionOutput) StateMachineVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v StateMachineAliasRoutingConfigurationVersion) string { return v.StateMachineVersionArn }).(pulumi.StringOutput)
+}
+
+// The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
+func (o StateMachineAliasRoutingConfigurationVersionOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v StateMachineAliasRoutingConfigurationVersion) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type StateMachineAliasRoutingConfigurationVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (StateMachineAliasRoutingConfigurationVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StateMachineAliasRoutingConfigurationVersion)(nil)).Elem()
+}
+
+func (o StateMachineAliasRoutingConfigurationVersionArrayOutput) ToStateMachineAliasRoutingConfigurationVersionArrayOutput() StateMachineAliasRoutingConfigurationVersionArrayOutput {
+	return o
+}
+
+func (o StateMachineAliasRoutingConfigurationVersionArrayOutput) ToStateMachineAliasRoutingConfigurationVersionArrayOutputWithContext(ctx context.Context) StateMachineAliasRoutingConfigurationVersionArrayOutput {
+	return o
+}
+
+func (o StateMachineAliasRoutingConfigurationVersionArrayOutput) Index(i pulumi.IntInput) StateMachineAliasRoutingConfigurationVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StateMachineAliasRoutingConfigurationVersion {
+		return vs[0].([]StateMachineAliasRoutingConfigurationVersion)[vs[1].(int)]
+	}).(StateMachineAliasRoutingConfigurationVersionOutput)
+}
+
 type StateMachineCloudWatchLogsLogGroup struct {
 	LogGroupArn *string `pulumi:"logGroupArn"`
 }
@@ -1137,6 +1455,10 @@ func (o StateMachineTracingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutpu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityTagsEntryInput)(nil)).Elem(), ActivityTagsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityTagsEntryArrayInput)(nil)).Elem(), ActivityTagsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasDeploymentPreferenceInput)(nil)).Elem(), StateMachineAliasDeploymentPreferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasDeploymentPreferencePtrInput)(nil)).Elem(), StateMachineAliasDeploymentPreferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasRoutingConfigurationVersionInput)(nil)).Elem(), StateMachineAliasRoutingConfigurationVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasRoutingConfigurationVersionArrayInput)(nil)).Elem(), StateMachineAliasRoutingConfigurationVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineCloudWatchLogsLogGroupInput)(nil)).Elem(), StateMachineCloudWatchLogsLogGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineCloudWatchLogsLogGroupPtrInput)(nil)).Elem(), StateMachineCloudWatchLogsLogGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineDefinitionInput)(nil)).Elem(), StateMachineDefinitionArgs{})
@@ -1155,6 +1477,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTracingConfigurationPtrInput)(nil)).Elem(), StateMachineTracingConfigurationArgs{})
 	pulumi.RegisterOutputType(ActivityTagsEntryOutput{})
 	pulumi.RegisterOutputType(ActivityTagsEntryArrayOutput{})
+	pulumi.RegisterOutputType(StateMachineAliasDeploymentPreferenceOutput{})
+	pulumi.RegisterOutputType(StateMachineAliasDeploymentPreferencePtrOutput{})
+	pulumi.RegisterOutputType(StateMachineAliasRoutingConfigurationVersionOutput{})
+	pulumi.RegisterOutputType(StateMachineAliasRoutingConfigurationVersionArrayOutput{})
 	pulumi.RegisterOutputType(StateMachineCloudWatchLogsLogGroupOutput{})
 	pulumi.RegisterOutputType(StateMachineCloudWatchLogsLogGroupPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineDefinitionOutput{})

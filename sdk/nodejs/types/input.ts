@@ -5972,6 +5972,62 @@ export namespace certificatemanager {
     }
 }
 
+export namespace cleanrooms {
+    export interface CollaborationDataEncryptionMetadataArgs {
+        allowCleartext: pulumi.Input<boolean>;
+        allowDuplicates: pulumi.Input<boolean>;
+        allowJoinsOnColumnsWithDifferentNames: pulumi.Input<boolean>;
+        preserveNulls: pulumi.Input<boolean>;
+    }
+
+    export interface CollaborationMemberSpecificationArgs {
+        accountId: pulumi.Input<string>;
+        displayName: pulumi.Input<string>;
+        memberAbilities: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationMemberAbility>[]>;
+    }
+
+    export interface CollaborationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ConfiguredTableAnalysisRuleArgs {
+        policy: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRulePolicyArgs>;
+        type: pulumi.Input<enums.cleanrooms.ConfiguredTableAnalysisRuleType>;
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicyArgs {
+        v1: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV1Args>;
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicyV1Args {
+    }
+
+    export interface ConfiguredTableAssociationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ConfiguredTableGlueTableReferenceArgs {
+        databaseName: pulumi.Input<string>;
+        tableName: pulumi.Input<string>;
+    }
+
+    export interface ConfiguredTableTableReferenceArgs {
+        glue: pulumi.Input<inputs.cleanrooms.ConfiguredTableGlueTableReferenceArgs>;
+    }
+
+    export interface ConfiguredTableTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface MembershipTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace cloud9 {
     export interface EnvironmentEC2RepositoryArgs {
         pathComponent: pulumi.Input<string>;
@@ -8697,8 +8753,76 @@ export namespace connectcampaigns {
 }
 
 export namespace customerprofiles {
+    /**
+     * Mathematical expression and a list of attribute items specified in that expression.
+     */
+    export interface CalculatedAttributeDefinitionAttributeDetailsArgs {
+        attributes: pulumi.Input<pulumi.Input<inputs.customerprofiles.CalculatedAttributeDefinitionAttributeItemArgs>[]>;
+        expression: pulumi.Input<string>;
+    }
+
+    /**
+     * The details of a single attribute item specified in the mathematical expression.
+     */
+    export interface CalculatedAttributeDefinitionAttributeItemArgs {
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * The conditions including range, object count, and threshold for the calculated attribute.
+     */
+    export interface CalculatedAttributeDefinitionConditionsArgs {
+        objectCount?: pulumi.Input<number>;
+        range?: pulumi.Input<inputs.customerprofiles.CalculatedAttributeDefinitionRangeArgs>;
+        threshold?: pulumi.Input<inputs.customerprofiles.CalculatedAttributeDefinitionThresholdArgs>;
+    }
+
+    /**
+     * The relative time period over which data is included in the aggregation.
+     */
+    export interface CalculatedAttributeDefinitionRangeArgs {
+        unit: pulumi.Input<enums.customerprofiles.CalculatedAttributeDefinitionRangeUnit>;
+        value: pulumi.Input<number>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CalculatedAttributeDefinitionTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * The threshold for the calculated attribute.
+     */
+    export interface CalculatedAttributeDefinitionThresholdArgs {
+        operator: pulumi.Input<enums.customerprofiles.CalculatedAttributeDefinitionThresholdOperator>;
+        value: pulumi.Input<string>;
+    }
+
     export interface DomainTagArgs {
         key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface EventStreamTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -25646,6 +25770,220 @@ export namespace managedblockchain {
 }
 
 export namespace mediaconnect {
+    export interface BridgeEgressGatewayBridgeArgs {
+        /**
+         * The maximum expected bitrate of the egress bridge.
+         */
+        maxBitrate: pulumi.Input<number>;
+    }
+
+    /**
+     * The settings for source failover.
+     */
+    export interface BridgeFailoverConfigArgs {
+        /**
+         * The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+         */
+        failoverMode: pulumi.Input<enums.mediaconnect.BridgeFailoverModeEnum>;
+        /**
+         * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+         */
+        sourcePriority?: pulumi.Input<inputs.mediaconnect.BridgeSourcePriorityArgs>;
+        state?: pulumi.Input<enums.mediaconnect.BridgeFailoverConfigStateEnum>;
+    }
+
+    /**
+     * The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+     */
+    export interface BridgeFlowSourceArgs {
+        /**
+         * The ARN of the cloud flow used as a source of this bridge.
+         */
+        flowArn: pulumi.Input<string>;
+        /**
+         * The name of the VPC interface attachment to use for this source.
+         */
+        flowVpcInterfaceAttachment?: pulumi.Input<inputs.mediaconnect.BridgeVpcInterfaceAttachmentArgs>;
+        /**
+         * The name of the flow source.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface BridgeIngressGatewayBridgeArgs {
+        /**
+         * The maximum expected bitrate of the ingress bridge.
+         */
+        maxBitrate: pulumi.Input<number>;
+        /**
+         * The maximum number of outputs on the ingress bridge.
+         */
+        maxOutputs: pulumi.Input<number>;
+    }
+
+    /**
+     * The output of the bridge. A network output is delivered to your premises.
+     */
+    export interface BridgeNetworkOutputArgs {
+        /**
+         * The network output IP Address.
+         */
+        ipAddress: pulumi.Input<string>;
+        /**
+         * The network output name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The network output's gateway network name.
+         */
+        networkName: pulumi.Input<string>;
+        /**
+         * The network output port.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The network output protocol.
+         */
+        protocol: pulumi.Input<enums.mediaconnect.BridgeProtocolEnum>;
+        /**
+         * The network output TTL.
+         */
+        ttl: pulumi.Input<number>;
+    }
+
+    /**
+     * The source of the bridge. A network source originates at your premises.
+     */
+    export interface BridgeNetworkSourceArgs {
+        /**
+         * The network source multicast IP.
+         */
+        multicastIp: pulumi.Input<string>;
+        /**
+         * The name of the network source.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The network source's gateway network name.
+         */
+        networkName: pulumi.Input<string>;
+        /**
+         * The network source port.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The network source protocol.
+         */
+        protocol: pulumi.Input<enums.mediaconnect.BridgeProtocolEnum>;
+    }
+
+    /**
+     * The output of the bridge.
+     */
+    export interface BridgeOutputArgs {
+        networkOutput?: pulumi.Input<inputs.mediaconnect.BridgeNetworkOutputArgs>;
+    }
+
+    /**
+     * The output of the bridge. A network output is delivered to your premises.
+     */
+    export interface BridgeOutputResourceBridgeNetworkOutputArgs {
+        /**
+         * The network output IP Address.
+         */
+        ipAddress: pulumi.Input<string>;
+        /**
+         * The network output's gateway network name.
+         */
+        networkName: pulumi.Input<string>;
+        /**
+         * The network output port.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The network output protocol.
+         */
+        protocol: pulumi.Input<enums.mediaconnect.BridgeOutputResourceBridgeNetworkOutputProtocol>;
+        /**
+         * The network output TTL.
+         */
+        ttl: pulumi.Input<number>;
+    }
+
+    /**
+     * The bridge's source.
+     */
+    export interface BridgeSourceArgs {
+        flowSource?: pulumi.Input<inputs.mediaconnect.BridgeFlowSourceArgs>;
+        networkSource?: pulumi.Input<inputs.mediaconnect.BridgeNetworkSourceArgs>;
+    }
+
+    /**
+     * The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+     */
+    export interface BridgeSourceBridgeFlowSourceArgs {
+        /**
+         * The ARN of the cloud flow used as a source of this bridge.
+         */
+        flowArn: pulumi.Input<string>;
+        /**
+         * The name of the VPC interface attachment to use for this source.
+         */
+        flowVpcInterfaceAttachment?: pulumi.Input<inputs.mediaconnect.BridgeSourceVpcInterfaceAttachmentArgs>;
+    }
+
+    /**
+     * The source of the bridge. A network source originates at your premises.
+     */
+    export interface BridgeSourceBridgeNetworkSourceArgs {
+        /**
+         * The network source multicast IP.
+         */
+        multicastIp: pulumi.Input<string>;
+        /**
+         * The network source's gateway network name.
+         */
+        networkName: pulumi.Input<string>;
+        /**
+         * The network source port.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The network source protocol.
+         */
+        protocol: pulumi.Input<enums.mediaconnect.BridgeSourceProtocolEnum>;
+    }
+
+    /**
+     * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+     */
+    export interface BridgeSourcePriorityArgs {
+        /**
+         * The name of the source you choose as the primary source for this flow.
+         */
+        primarySource?: pulumi.Input<string>;
+    }
+
+    /**
+     * The settings for attaching a VPC interface to an resource.
+     */
+    export interface BridgeSourceVpcInterfaceAttachmentArgs {
+        /**
+         * The name of the VPC interface to use for this resource.
+         */
+        vpcInterfaceName?: pulumi.Input<string>;
+    }
+
+    /**
+     * The settings for attaching a VPC interface to an resource.
+     */
+    export interface BridgeVpcInterfaceAttachmentArgs {
+        /**
+         * The name of the VPC interface to use for this resource.
+         */
+        vpcInterfaceName?: pulumi.Input<string>;
+    }
+
     /**
      * Information about the encryption of the flow.
      */
@@ -25913,6 +26251,20 @@ export namespace mediaconnect {
          * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
          */
         url?: pulumi.Input<string>;
+    }
+
+    /**
+     * The network settings for a gateway.
+     */
+    export interface GatewayNetworkArgs {
+        /**
+         * A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+         */
+        cidrBlock: pulumi.Input<string>;
+        /**
+         * The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+         */
+        name: pulumi.Input<string>;
     }
 }
 
@@ -40354,6 +40706,20 @@ export namespace ram {
 }
 
 export namespace rds {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CustomDBEngineVersionTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface DBClusterMasterUserSecretArgs {
         /**
          * The AWS KMS key identifier that is used to encrypt the secret.
@@ -46571,6 +46937,146 @@ export namespace secretsmanager {
     }
 }
 
+export namespace securityhub {
+    export interface AutomationRuleDateFilterArgs {
+        dateRange?: pulumi.Input<inputs.securityhub.AutomationRuleDateRangeArgs>;
+        end?: pulumi.Input<string>;
+        start?: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleDateRangeArgs {
+        unit: pulumi.Input<enums.securityhub.AutomationRuleDateRangeUnit>;
+        value: pulumi.Input<number>;
+    }
+
+    export interface AutomationRuleMapFilterArgs {
+        comparison: pulumi.Input<enums.securityhub.AutomationRuleMapFilterComparison>;
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleNoteUpdateArgs {
+        text: pulumi.Input<string>;
+        updatedBy: pulumi.Input<inputs.securityhub.AutomationRulearnOrIdArgs>;
+    }
+
+    export interface AutomationRuleNumberFilterArgs {
+        eq?: pulumi.Input<number>;
+        gte?: pulumi.Input<number>;
+        lte?: pulumi.Input<number>;
+    }
+
+    export interface AutomationRuleRelatedFindingArgs {
+        id: pulumi.Input<inputs.securityhub.AutomationRulearnOrIdArgs>;
+        productArn: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleSeverityUpdateArgs {
+        label?: pulumi.Input<enums.securityhub.AutomationRuleSeverityUpdateLabel>;
+        normalized?: pulumi.Input<number>;
+        product?: pulumi.Input<number>;
+    }
+
+    export interface AutomationRuleStringFilterArgs {
+        comparison: pulumi.Input<enums.securityhub.AutomationRuleStringFilterComparison>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AutomationRuleTagsArgs {
+    }
+
+    export interface AutomationRuleWorkflowUpdateArgs {
+        status: pulumi.Input<enums.securityhub.AutomationRuleWorkflowUpdateStatus>;
+    }
+
+    export interface AutomationRulearnOrIdArgs {
+    }
+
+    export interface AutomationRulemapArgs {
+    }
+
+    export interface AutomationRulesActionArgs {
+        findingFieldsUpdate: pulumi.Input<inputs.securityhub.AutomationRulesFindingFieldsUpdateArgs>;
+        type: pulumi.Input<enums.securityhub.AutomationRulesActionType>;
+    }
+
+    export interface AutomationRulesFindingFieldsUpdateArgs {
+        confidence?: pulumi.Input<number>;
+        criticality?: pulumi.Input<number>;
+        /**
+         * Note added to the finding
+         */
+        note?: pulumi.Input<inputs.securityhub.AutomationRuleNoteUpdateArgs>;
+        relatedFindings?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleRelatedFindingArgs>[]>;
+        /**
+         * Severity of the finding
+         */
+        severity?: pulumi.Input<inputs.securityhub.AutomationRuleSeverityUpdateArgs>;
+        types?: pulumi.Input<pulumi.Input<string>[]>;
+        userDefinedFields?: pulumi.Input<inputs.securityhub.AutomationRulemapArgs>;
+        verificationState?: pulumi.Input<enums.securityhub.AutomationRulesFindingFieldsUpdateVerificationState>;
+        /**
+         * Workflow status set for the finding
+         */
+        workflow?: pulumi.Input<inputs.securityhub.AutomationRuleWorkflowUpdateArgs>;
+    }
+
+    export interface AutomationRulesFindingFiltersArgs {
+        awsAccountId?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        companyName?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        complianceAssociatedStandardsId?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        complianceSecurityControlId?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        complianceStatus?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        confidence?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleNumberFilterArgs>[]>;
+        createdAt?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleDateFilterArgs>[]>;
+        criticality?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleNumberFilterArgs>[]>;
+        description?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        firstObservedAt?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleDateFilterArgs>[]>;
+        generatorId?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        id?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        lastObservedAt?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleDateFilterArgs>[]>;
+        noteText?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        noteUpdatedAt?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleDateFilterArgs>[]>;
+        noteUpdatedBy?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        productArn?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        productName?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        recordState?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        relatedFindingsId?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        relatedFindingsProductArn?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        resourceDetailsOther?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleMapFilterArgs>[]>;
+        resourceId?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        resourcePartition?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        resourceRegion?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        resourceTags?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleMapFilterArgs>[]>;
+        resourceType?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        severityLabel?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        sourceUrl?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        title?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        type?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        updatedAt?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleDateFilterArgs>[]>;
+        userDefinedFields?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleMapFilterArgs>[]>;
+        verificationState?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+        workflowStatus?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+    }
+
+    /**
+     * An individual StandardsControl within the Standard.
+     */
+    export interface StandardsControlArgs {
+        /**
+         * the reason the standard control is disabled
+         */
+        reason?: pulumi.Input<string>;
+        /**
+         * the Arn for the standard control.
+         */
+        standardsControlArn: pulumi.Input<string>;
+    }
+}
+
 export namespace servicecatalog {
     export interface CloudFormationProductCodeStarParametersArgs {
         artifactPath: pulumi.Input<string>;
@@ -47765,6 +48271,40 @@ export namespace stepfunctions {
     export interface ActivityTagsEntryArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * The settings to enable gradual state machine deployments.
+     */
+    export interface StateMachineAliasDeploymentPreferenceArgs {
+        /**
+         * A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
+         */
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The time in minutes between each traffic shifting increment.
+         */
+        interval?: pulumi.Input<number>;
+        /**
+         * The percentage of traffic to shift to the new version in each increment.
+         */
+        percentage?: pulumi.Input<number>;
+        stateMachineVersionArn: pulumi.Input<string>;
+        /**
+         * The type of deployment to perform.
+         */
+        type: pulumi.Input<enums.stepfunctions.StateMachineAliasDeploymentPreferenceType>;
+    }
+
+    export interface StateMachineAliasRoutingConfigurationVersionArgs {
+        /**
+         * The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
+         */
+        stateMachineVersionArn: pulumi.Input<string>;
+        /**
+         * The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
+         */
+        weight: pulumi.Input<number>;
     }
 
     export interface StateMachineCloudWatchLogsLogGroupArgs {

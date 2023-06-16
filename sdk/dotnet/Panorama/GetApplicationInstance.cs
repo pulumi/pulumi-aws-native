@@ -55,12 +55,10 @@ namespace Pulumi.AwsNative.Panorama
         public readonly string? Arn;
         public readonly int? CreatedTime;
         public readonly string? DefaultRuntimeContextDeviceName;
-        public readonly string? DeviceId;
         public readonly Pulumi.AwsNative.Panorama.ApplicationInstanceHealthStatus? HealthStatus;
         public readonly int? LastUpdatedTime;
         public readonly Pulumi.AwsNative.Panorama.ApplicationInstanceStatus? Status;
         public readonly string? StatusDescription;
-        public readonly Pulumi.AwsNative.Panorama.ApplicationInstanceStatusFilter? StatusFilter;
         public readonly ImmutableArray<Outputs.ApplicationInstanceTag> Tags;
 
         [OutputConstructor]
@@ -73,8 +71,6 @@ namespace Pulumi.AwsNative.Panorama
 
             string? defaultRuntimeContextDeviceName,
 
-            string? deviceId,
-
             Pulumi.AwsNative.Panorama.ApplicationInstanceHealthStatus? healthStatus,
 
             int? lastUpdatedTime,
@@ -83,20 +79,16 @@ namespace Pulumi.AwsNative.Panorama
 
             string? statusDescription,
 
-            Pulumi.AwsNative.Panorama.ApplicationInstanceStatusFilter? statusFilter,
-
             ImmutableArray<Outputs.ApplicationInstanceTag> tags)
         {
             ApplicationInstanceId = applicationInstanceId;
             Arn = arn;
             CreatedTime = createdTime;
             DefaultRuntimeContextDeviceName = defaultRuntimeContextDeviceName;
-            DeviceId = deviceId;
             HealthStatus = healthStatus;
             LastUpdatedTime = lastUpdatedTime;
             Status = status;
             StatusDescription = statusDescription;
-            StatusFilter = statusFilter;
             Tags = tags;
         }
     }

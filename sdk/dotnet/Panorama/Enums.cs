@@ -73,38 +73,6 @@ namespace Pulumi.AwsNative.Panorama
     }
 
     [EnumType]
-    public readonly struct ApplicationInstanceStatusFilter : IEquatable<ApplicationInstanceStatusFilter>
-    {
-        private readonly string _value;
-
-        private ApplicationInstanceStatusFilter(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ApplicationInstanceStatusFilter DeploymentSucceeded { get; } = new ApplicationInstanceStatusFilter("DEPLOYMENT_SUCCEEDED");
-        public static ApplicationInstanceStatusFilter DeploymentError { get; } = new ApplicationInstanceStatusFilter("DEPLOYMENT_ERROR");
-        public static ApplicationInstanceStatusFilter RemovalSucceeded { get; } = new ApplicationInstanceStatusFilter("REMOVAL_SUCCEEDED");
-        public static ApplicationInstanceStatusFilter RemovalFailed { get; } = new ApplicationInstanceStatusFilter("REMOVAL_FAILED");
-        public static ApplicationInstanceStatusFilter ProcessingDeployment { get; } = new ApplicationInstanceStatusFilter("PROCESSING_DEPLOYMENT");
-        public static ApplicationInstanceStatusFilter ProcessingRemoval { get; } = new ApplicationInstanceStatusFilter("PROCESSING_REMOVAL");
-
-        public static bool operator ==(ApplicationInstanceStatusFilter left, ApplicationInstanceStatusFilter right) => left.Equals(right);
-        public static bool operator !=(ApplicationInstanceStatusFilter left, ApplicationInstanceStatusFilter right) => !left.Equals(right);
-
-        public static explicit operator string(ApplicationInstanceStatusFilter value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ApplicationInstanceStatusFilter other && Equals(other);
-        public bool Equals(ApplicationInstanceStatusFilter other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct PackageVersionStatus : IEquatable<PackageVersionStatus>
     {
         private readonly string _value;

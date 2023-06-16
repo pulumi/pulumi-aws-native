@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Lambda
     public partial class LayerVersion : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// A list of compatible instruction set architectures.
+        /// </summary>
+        [Output("compatibleArchitectures")]
+        public Output<ImmutableArray<string>> CompatibleArchitectures { get; private set; } = null!;
+
+        /// <summary>
         /// A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
         /// </summary>
         [Output("compatibleRuntimes")]
@@ -38,6 +44,9 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Output("layerName")]
         public Output<string?> LayerName { get; private set; } = null!;
+
+        [Output("layerVersionArn")]
+        public Output<string> LayerVersionArn { get; private set; } = null!;
 
         /// <summary>
         /// The layer's software license.
@@ -90,6 +99,18 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class LayerVersionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("compatibleArchitectures")]
+        private InputList<string>? _compatibleArchitectures;
+
+        /// <summary>
+        /// A list of compatible instruction set architectures.
+        /// </summary>
+        public InputList<string> CompatibleArchitectures
+        {
+            get => _compatibleArchitectures ?? (_compatibleArchitectures = new InputList<string>());
+            set => _compatibleArchitectures = value;
+        }
+
         [Input("compatibleRuntimes")]
         private InputList<string>? _compatibleRuntimes;
 

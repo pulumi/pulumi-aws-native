@@ -10,6 +10,115 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// A key-value pair to associate with a resource.
+type CustomDBEngineVersionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// CustomDBEngineVersionTagInput is an input type that accepts CustomDBEngineVersionTagArgs and CustomDBEngineVersionTagOutput values.
+// You can construct a concrete instance of `CustomDBEngineVersionTagInput` via:
+//
+//	CustomDBEngineVersionTagArgs{...}
+type CustomDBEngineVersionTagInput interface {
+	pulumi.Input
+
+	ToCustomDBEngineVersionTagOutput() CustomDBEngineVersionTagOutput
+	ToCustomDBEngineVersionTagOutputWithContext(context.Context) CustomDBEngineVersionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type CustomDBEngineVersionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (CustomDBEngineVersionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDBEngineVersionTag)(nil)).Elem()
+}
+
+func (i CustomDBEngineVersionTagArgs) ToCustomDBEngineVersionTagOutput() CustomDBEngineVersionTagOutput {
+	return i.ToCustomDBEngineVersionTagOutputWithContext(context.Background())
+}
+
+func (i CustomDBEngineVersionTagArgs) ToCustomDBEngineVersionTagOutputWithContext(ctx context.Context) CustomDBEngineVersionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDBEngineVersionTagOutput)
+}
+
+// CustomDBEngineVersionTagArrayInput is an input type that accepts CustomDBEngineVersionTagArray and CustomDBEngineVersionTagArrayOutput values.
+// You can construct a concrete instance of `CustomDBEngineVersionTagArrayInput` via:
+//
+//	CustomDBEngineVersionTagArray{ CustomDBEngineVersionTagArgs{...} }
+type CustomDBEngineVersionTagArrayInput interface {
+	pulumi.Input
+
+	ToCustomDBEngineVersionTagArrayOutput() CustomDBEngineVersionTagArrayOutput
+	ToCustomDBEngineVersionTagArrayOutputWithContext(context.Context) CustomDBEngineVersionTagArrayOutput
+}
+
+type CustomDBEngineVersionTagArray []CustomDBEngineVersionTagInput
+
+func (CustomDBEngineVersionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDBEngineVersionTag)(nil)).Elem()
+}
+
+func (i CustomDBEngineVersionTagArray) ToCustomDBEngineVersionTagArrayOutput() CustomDBEngineVersionTagArrayOutput {
+	return i.ToCustomDBEngineVersionTagArrayOutputWithContext(context.Background())
+}
+
+func (i CustomDBEngineVersionTagArray) ToCustomDBEngineVersionTagArrayOutputWithContext(ctx context.Context) CustomDBEngineVersionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDBEngineVersionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CustomDBEngineVersionTagOutput struct{ *pulumi.OutputState }
+
+func (CustomDBEngineVersionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDBEngineVersionTag)(nil)).Elem()
+}
+
+func (o CustomDBEngineVersionTagOutput) ToCustomDBEngineVersionTagOutput() CustomDBEngineVersionTagOutput {
+	return o
+}
+
+func (o CustomDBEngineVersionTagOutput) ToCustomDBEngineVersionTagOutputWithContext(ctx context.Context) CustomDBEngineVersionTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CustomDBEngineVersionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDBEngineVersionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CustomDBEngineVersionTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDBEngineVersionTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type CustomDBEngineVersionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomDBEngineVersionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDBEngineVersionTag)(nil)).Elem()
+}
+
+func (o CustomDBEngineVersionTagArrayOutput) ToCustomDBEngineVersionTagArrayOutput() CustomDBEngineVersionTagArrayOutput {
+	return o
+}
+
+func (o CustomDBEngineVersionTagArrayOutput) ToCustomDBEngineVersionTagArrayOutputWithContext(ctx context.Context) CustomDBEngineVersionTagArrayOutput {
+	return o
+}
+
+func (o CustomDBEngineVersionTagArrayOutput) Index(i pulumi.IntInput) CustomDBEngineVersionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDBEngineVersionTag {
+		return vs[0].([]CustomDBEngineVersionTag)[vs[1].(int)]
+	}).(CustomDBEngineVersionTagOutput)
+}
+
 type DBClusterEndpoint struct {
 	// The connection endpoint for the DB cluster.
 	Address *string `pulumi:"address"`
@@ -3404,6 +3513,8 @@ func (o OptionGroupTagArrayOutput) Index(i pulumi.IntInput) OptionGroupTagOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDBEngineVersionTagInput)(nil)).Elem(), CustomDBEngineVersionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDBEngineVersionTagArrayInput)(nil)).Elem(), CustomDBEngineVersionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterMasterUserSecretInput)(nil)).Elem(), DBClusterMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterMasterUserSecretPtrInput)(nil)).Elem(), DBClusterMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterParameterGroupTagInput)(nil)).Elem(), DBClusterParameterGroupTagArgs{})
@@ -3454,6 +3565,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionSettingArrayInput)(nil)).Elem(), OptionGroupOptionSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupTagInput)(nil)).Elem(), OptionGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupTagArrayInput)(nil)).Elem(), OptionGroupTagArray{})
+	pulumi.RegisterOutputType(CustomDBEngineVersionTagOutput{})
+	pulumi.RegisterOutputType(CustomDBEngineVersionTagArrayOutput{})
 	pulumi.RegisterOutputType(DBClusterEndpointOutput{})
 	pulumi.RegisterOutputType(DBClusterEndpointPtrOutput{})
 	pulumi.RegisterOutputType(DBClusterMasterUserSecretOutput{})

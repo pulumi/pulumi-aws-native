@@ -92,6 +92,7 @@ import * as cassandra from "./cassandra";
 import * as ce from "./ce";
 import * as certificatemanager from "./certificatemanager";
 import * as chatbot from "./chatbot";
+import * as cleanrooms from "./cleanrooms";
 import * as cloud9 from "./cloud9";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
@@ -316,6 +317,7 @@ export {
     ce,
     certificatemanager,
     chatbot,
+    cleanrooms,
     cloud9,
     cloudformation,
     cloudfront,

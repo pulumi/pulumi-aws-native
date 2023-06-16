@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const StateMachineAliasDeploymentPreferenceType = {
+    Linear: "LINEAR",
+    AllAtOnce: "ALL_AT_ONCE",
+    Canary: "CANARY",
+} as const;
+
+/**
+ * The type of deployment to perform.
+ */
+export type StateMachineAliasDeploymentPreferenceType = (typeof StateMachineAliasDeploymentPreferenceType)[keyof typeof StateMachineAliasDeploymentPreferenceType];
+
 export const StateMachineLoggingConfigurationLevel = {
     All: "ALL",
     Error: "ERROR",

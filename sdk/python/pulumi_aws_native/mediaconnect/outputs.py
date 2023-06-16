@@ -12,6 +12,20 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BridgeEgressGatewayBridge',
+    'BridgeFailoverConfig',
+    'BridgeFlowSource',
+    'BridgeIngressGatewayBridge',
+    'BridgeNetworkOutput',
+    'BridgeNetworkSource',
+    'BridgeOutput',
+    'BridgeOutputResourceBridgeNetworkOutput',
+    'BridgeSource',
+    'BridgeSourceBridgeFlowSource',
+    'BridgeSourceBridgeNetworkSource',
+    'BridgeSourcePriority',
+    'BridgeSourceVpcInterfaceAttachment',
+    'BridgeVpcInterfaceAttachment',
     'FlowEncryption',
     'FlowEntitlementEncryption',
     'FlowFailoverConfig',
@@ -20,7 +34,811 @@ __all__ = [
     'FlowOutputVpcInterfaceAttachment',
     'FlowSource',
     'FlowSourceEncryption',
+    'GatewayNetwork',
 ]
+
+@pulumi.output_type
+class BridgeEgressGatewayBridge(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxBitrate":
+            suggest = "max_bitrate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeEgressGatewayBridge. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeEgressGatewayBridge.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeEgressGatewayBridge.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_bitrate: int):
+        """
+        :param int max_bitrate: The maximum expected bitrate of the egress bridge.
+        """
+        pulumi.set(__self__, "max_bitrate", max_bitrate)
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> int:
+        """
+        The maximum expected bitrate of the egress bridge.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+
+@pulumi.output_type
+class BridgeFailoverConfig(dict):
+    """
+    The settings for source failover.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failoverMode":
+            suggest = "failover_mode"
+        elif key == "sourcePriority":
+            suggest = "source_priority"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeFailoverConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeFailoverConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeFailoverConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failover_mode: 'BridgeFailoverModeEnum',
+                 source_priority: Optional['outputs.BridgeSourcePriority'] = None,
+                 state: Optional['BridgeFailoverConfigStateEnum'] = None):
+        """
+        The settings for source failover.
+        :param 'BridgeFailoverModeEnum' failover_mode: The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+        :param 'BridgeSourcePriority' source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        """
+        pulumi.set(__self__, "failover_mode", failover_mode)
+        if source_priority is not None:
+            pulumi.set(__self__, "source_priority", source_priority)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="failoverMode")
+    def failover_mode(self) -> 'BridgeFailoverModeEnum':
+        """
+        The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+        """
+        return pulumi.get(self, "failover_mode")
+
+    @property
+    @pulumi.getter(name="sourcePriority")
+    def source_priority(self) -> Optional['outputs.BridgeSourcePriority']:
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        """
+        return pulumi.get(self, "source_priority")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['BridgeFailoverConfigStateEnum']:
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class BridgeFlowSource(dict):
+    """
+    The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "flowArn":
+            suggest = "flow_arn"
+        elif key == "flowVpcInterfaceAttachment":
+            suggest = "flow_vpc_interface_attachment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeFlowSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeFlowSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeFlowSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 flow_arn: str,
+                 name: str,
+                 flow_vpc_interface_attachment: Optional['outputs.BridgeVpcInterfaceAttachment'] = None):
+        """
+        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        :param str flow_arn: The ARN of the cloud flow used as a source of this bridge.
+        :param str name: The name of the flow source.
+        :param 'BridgeVpcInterfaceAttachment' flow_vpc_interface_attachment: The name of the VPC interface attachment to use for this source.
+        """
+        pulumi.set(__self__, "flow_arn", flow_arn)
+        pulumi.set(__self__, "name", name)
+        if flow_vpc_interface_attachment is not None:
+            pulumi.set(__self__, "flow_vpc_interface_attachment", flow_vpc_interface_attachment)
+
+    @property
+    @pulumi.getter(name="flowArn")
+    def flow_arn(self) -> str:
+        """
+        The ARN of the cloud flow used as a source of this bridge.
+        """
+        return pulumi.get(self, "flow_arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the flow source.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="flowVpcInterfaceAttachment")
+    def flow_vpc_interface_attachment(self) -> Optional['outputs.BridgeVpcInterfaceAttachment']:
+        """
+        The name of the VPC interface attachment to use for this source.
+        """
+        return pulumi.get(self, "flow_vpc_interface_attachment")
+
+
+@pulumi.output_type
+class BridgeIngressGatewayBridge(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxBitrate":
+            suggest = "max_bitrate"
+        elif key == "maxOutputs":
+            suggest = "max_outputs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeIngressGatewayBridge. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeIngressGatewayBridge.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeIngressGatewayBridge.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_bitrate: int,
+                 max_outputs: int):
+        """
+        :param int max_bitrate: The maximum expected bitrate of the ingress bridge.
+        :param int max_outputs: The maximum number of outputs on the ingress bridge.
+        """
+        pulumi.set(__self__, "max_bitrate", max_bitrate)
+        pulumi.set(__self__, "max_outputs", max_outputs)
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> int:
+        """
+        The maximum expected bitrate of the ingress bridge.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+    @property
+    @pulumi.getter(name="maxOutputs")
+    def max_outputs(self) -> int:
+        """
+        The maximum number of outputs on the ingress bridge.
+        """
+        return pulumi.get(self, "max_outputs")
+
+
+@pulumi.output_type
+class BridgeNetworkOutput(dict):
+    """
+    The output of the bridge. A network output is delivered to your premises.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "networkName":
+            suggest = "network_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeNetworkOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeNetworkOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeNetworkOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: str,
+                 name: str,
+                 network_name: str,
+                 port: int,
+                 protocol: 'BridgeProtocolEnum',
+                 ttl: int):
+        """
+        The output of the bridge. A network output is delivered to your premises.
+        :param str ip_address: The network output IP Address.
+        :param str name: The network output name.
+        :param str network_name: The network output's gateway network name.
+        :param int port: The network output port.
+        :param 'BridgeProtocolEnum' protocol: The network output protocol.
+        :param int ttl: The network output TTL.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "ttl", ttl)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        The network output IP Address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The network output name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> str:
+        """
+        The network output's gateway network name.
+        """
+        return pulumi.get(self, "network_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The network output port.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> 'BridgeProtocolEnum':
+        """
+        The network output protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> int:
+        """
+        The network output TTL.
+        """
+        return pulumi.get(self, "ttl")
+
+
+@pulumi.output_type
+class BridgeNetworkSource(dict):
+    """
+    The source of the bridge. A network source originates at your premises.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "multicastIp":
+            suggest = "multicast_ip"
+        elif key == "networkName":
+            suggest = "network_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeNetworkSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeNetworkSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeNetworkSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 multicast_ip: str,
+                 name: str,
+                 network_name: str,
+                 port: int,
+                 protocol: 'BridgeProtocolEnum'):
+        """
+        The source of the bridge. A network source originates at your premises.
+        :param str multicast_ip: The network source multicast IP.
+        :param str name: The name of the network source.
+        :param str network_name: The network source's gateway network name.
+        :param int port: The network source port.
+        :param 'BridgeProtocolEnum' protocol: The network source protocol.
+        """
+        pulumi.set(__self__, "multicast_ip", multicast_ip)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="multicastIp")
+    def multicast_ip(self) -> str:
+        """
+        The network source multicast IP.
+        """
+        return pulumi.get(self, "multicast_ip")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the network source.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> str:
+        """
+        The network source's gateway network name.
+        """
+        return pulumi.get(self, "network_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The network source port.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> 'BridgeProtocolEnum':
+        """
+        The network source protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class BridgeOutput(dict):
+    """
+    The output of the bridge.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkOutput":
+            suggest = "network_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_output: Optional['outputs.BridgeNetworkOutput'] = None):
+        """
+        The output of the bridge.
+        """
+        if network_output is not None:
+            pulumi.set(__self__, "network_output", network_output)
+
+    @property
+    @pulumi.getter(name="networkOutput")
+    def network_output(self) -> Optional['outputs.BridgeNetworkOutput']:
+        return pulumi.get(self, "network_output")
+
+
+@pulumi.output_type
+class BridgeOutputResourceBridgeNetworkOutput(dict):
+    """
+    The output of the bridge. A network output is delivered to your premises.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "networkName":
+            suggest = "network_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeOutputResourceBridgeNetworkOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeOutputResourceBridgeNetworkOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeOutputResourceBridgeNetworkOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: str,
+                 network_name: str,
+                 port: int,
+                 protocol: 'BridgeOutputResourceBridgeNetworkOutputProtocol',
+                 ttl: int):
+        """
+        The output of the bridge. A network output is delivered to your premises.
+        :param str ip_address: The network output IP Address.
+        :param str network_name: The network output's gateway network name.
+        :param int port: The network output port.
+        :param 'BridgeOutputResourceBridgeNetworkOutputProtocol' protocol: The network output protocol.
+        :param int ttl: The network output TTL.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "ttl", ttl)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        The network output IP Address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> str:
+        """
+        The network output's gateway network name.
+        """
+        return pulumi.get(self, "network_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The network output port.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> 'BridgeOutputResourceBridgeNetworkOutputProtocol':
+        """
+        The network output protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> int:
+        """
+        The network output TTL.
+        """
+        return pulumi.get(self, "ttl")
+
+
+@pulumi.output_type
+class BridgeSource(dict):
+    """
+    The bridge's source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "flowSource":
+            suggest = "flow_source"
+        elif key == "networkSource":
+            suggest = "network_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 flow_source: Optional['outputs.BridgeFlowSource'] = None,
+                 network_source: Optional['outputs.BridgeNetworkSource'] = None):
+        """
+        The bridge's source.
+        """
+        if flow_source is not None:
+            pulumi.set(__self__, "flow_source", flow_source)
+        if network_source is not None:
+            pulumi.set(__self__, "network_source", network_source)
+
+    @property
+    @pulumi.getter(name="flowSource")
+    def flow_source(self) -> Optional['outputs.BridgeFlowSource']:
+        return pulumi.get(self, "flow_source")
+
+    @property
+    @pulumi.getter(name="networkSource")
+    def network_source(self) -> Optional['outputs.BridgeNetworkSource']:
+        return pulumi.get(self, "network_source")
+
+
+@pulumi.output_type
+class BridgeSourceBridgeFlowSource(dict):
+    """
+    The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "flowArn":
+            suggest = "flow_arn"
+        elif key == "flowVpcInterfaceAttachment":
+            suggest = "flow_vpc_interface_attachment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeSourceBridgeFlowSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeSourceBridgeFlowSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeSourceBridgeFlowSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 flow_arn: str,
+                 flow_vpc_interface_attachment: Optional['outputs.BridgeSourceVpcInterfaceAttachment'] = None):
+        """
+        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        :param str flow_arn: The ARN of the cloud flow used as a source of this bridge.
+        :param 'BridgeSourceVpcInterfaceAttachment' flow_vpc_interface_attachment: The name of the VPC interface attachment to use for this source.
+        """
+        pulumi.set(__self__, "flow_arn", flow_arn)
+        if flow_vpc_interface_attachment is not None:
+            pulumi.set(__self__, "flow_vpc_interface_attachment", flow_vpc_interface_attachment)
+
+    @property
+    @pulumi.getter(name="flowArn")
+    def flow_arn(self) -> str:
+        """
+        The ARN of the cloud flow used as a source of this bridge.
+        """
+        return pulumi.get(self, "flow_arn")
+
+    @property
+    @pulumi.getter(name="flowVpcInterfaceAttachment")
+    def flow_vpc_interface_attachment(self) -> Optional['outputs.BridgeSourceVpcInterfaceAttachment']:
+        """
+        The name of the VPC interface attachment to use for this source.
+        """
+        return pulumi.get(self, "flow_vpc_interface_attachment")
+
+
+@pulumi.output_type
+class BridgeSourceBridgeNetworkSource(dict):
+    """
+    The source of the bridge. A network source originates at your premises.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "multicastIp":
+            suggest = "multicast_ip"
+        elif key == "networkName":
+            suggest = "network_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeSourceBridgeNetworkSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeSourceBridgeNetworkSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeSourceBridgeNetworkSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 multicast_ip: str,
+                 network_name: str,
+                 port: int,
+                 protocol: 'BridgeSourceProtocolEnum'):
+        """
+        The source of the bridge. A network source originates at your premises.
+        :param str multicast_ip: The network source multicast IP.
+        :param str network_name: The network source's gateway network name.
+        :param int port: The network source port.
+        :param 'BridgeSourceProtocolEnum' protocol: The network source protocol.
+        """
+        pulumi.set(__self__, "multicast_ip", multicast_ip)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="multicastIp")
+    def multicast_ip(self) -> str:
+        """
+        The network source multicast IP.
+        """
+        return pulumi.get(self, "multicast_ip")
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> str:
+        """
+        The network source's gateway network name.
+        """
+        return pulumi.get(self, "network_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The network source port.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> 'BridgeSourceProtocolEnum':
+        """
+        The network source protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class BridgeSourcePriority(dict):
+    """
+    The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primarySource":
+            suggest = "primary_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeSourcePriority. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeSourcePriority.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeSourcePriority.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary_source: Optional[str] = None):
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        :param str primary_source: The name of the source you choose as the primary source for this flow.
+        """
+        if primary_source is not None:
+            pulumi.set(__self__, "primary_source", primary_source)
+
+    @property
+    @pulumi.getter(name="primarySource")
+    def primary_source(self) -> Optional[str]:
+        """
+        The name of the source you choose as the primary source for this flow.
+        """
+        return pulumi.get(self, "primary_source")
+
+
+@pulumi.output_type
+class BridgeSourceVpcInterfaceAttachment(dict):
+    """
+    The settings for attaching a VPC interface to an resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcInterfaceName":
+            suggest = "vpc_interface_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeSourceVpcInterfaceAttachment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeSourceVpcInterfaceAttachment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeSourceVpcInterfaceAttachment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_interface_name: Optional[str] = None):
+        """
+        The settings for attaching a VPC interface to an resource.
+        :param str vpc_interface_name: The name of the VPC interface to use for this resource.
+        """
+        if vpc_interface_name is not None:
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
+
+    @property
+    @pulumi.getter(name="vpcInterfaceName")
+    def vpc_interface_name(self) -> Optional[str]:
+        """
+        The name of the VPC interface to use for this resource.
+        """
+        return pulumi.get(self, "vpc_interface_name")
+
+
+@pulumi.output_type
+class BridgeVpcInterfaceAttachment(dict):
+    """
+    The settings for attaching a VPC interface to an resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcInterfaceName":
+            suggest = "vpc_interface_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeVpcInterfaceAttachment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeVpcInterfaceAttachment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeVpcInterfaceAttachment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_interface_name: Optional[str] = None):
+        """
+        The settings for attaching a VPC interface to an resource.
+        :param str vpc_interface_name: The name of the VPC interface to use for this resource.
+        """
+        if vpc_interface_name is not None:
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
+
+    @property
+    @pulumi.getter(name="vpcInterfaceName")
+    def vpc_interface_name(self) -> Optional[str]:
+        """
+        The name of the VPC interface to use for this resource.
+        """
+        return pulumi.get(self, "vpc_interface_name")
+
 
 @pulumi.output_type
 class FlowEncryption(dict):
@@ -971,5 +1789,55 @@ class FlowSourceEncryption(dict):
         The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GatewayNetwork(dict):
+    """
+    The network settings for a gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cidrBlock":
+            suggest = "cidr_block"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayNetwork.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr_block: str,
+                 name: str):
+        """
+        The network settings for a gateway.
+        :param str cidr_block: A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+        :param str name: The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+        """
+        pulumi.set(__self__, "cidr_block", cidr_block)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> str:
+        """
+        A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+        """
+        return pulumi.get(self, "name")
 
 

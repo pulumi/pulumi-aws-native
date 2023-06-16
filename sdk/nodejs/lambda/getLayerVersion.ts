@@ -11,22 +11,16 @@ export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getLayerVersion", {
-        "id": args.id,
+        "layerVersionArn": args.layerVersionArn,
     }, opts);
 }
 
 export interface GetLayerVersionArgs {
-    /**
-     * The ARN of the version.
-     */
-    id: string;
+    layerVersionArn: string;
 }
 
 export interface GetLayerVersionResult {
-    /**
-     * The ARN of the version.
-     */
-    readonly id?: string;
+    readonly layerVersionArn?: string;
 }
 /**
  * Resource Type definition for AWS::Lambda::LayerVersion
@@ -36,8 +30,5 @@ export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pu
 }
 
 export interface GetLayerVersionOutputArgs {
-    /**
-     * The ARN of the version.
-     */
-    id: pulumi.Input<string>;
+    layerVersionArn: pulumi.Input<string>;
 }

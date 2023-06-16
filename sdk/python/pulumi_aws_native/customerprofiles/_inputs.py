@@ -11,7 +11,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CalculatedAttributeDefinitionAttributeDetailsArgs',
+    'CalculatedAttributeDefinitionAttributeItemArgs',
+    'CalculatedAttributeDefinitionConditionsArgs',
+    'CalculatedAttributeDefinitionRangeArgs',
+    'CalculatedAttributeDefinitionTagArgs',
+    'CalculatedAttributeDefinitionThresholdArgs',
     'DomainTagArgs',
+    'EventStreamTagArgs',
     'IntegrationConnectorOperatorArgs',
     'IntegrationFlowDefinitionArgs',
     'IntegrationIncrementalPullConfigArgs',
@@ -37,6 +44,197 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class CalculatedAttributeDefinitionAttributeDetailsArgs:
+    def __init__(__self__, *,
+                 attributes: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionAttributeItemArgs']]],
+                 expression: pulumi.Input[str]):
+        """
+        Mathematical expression and a list of attribute items specified in that expression.
+        """
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionAttributeItemArgs']]]:
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionAttributeItemArgs']]]):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression", value)
+
+
+@pulumi.input_type
+class CalculatedAttributeDefinitionAttributeItemArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        The details of a single attribute item specified in the mathematical expression.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class CalculatedAttributeDefinitionConditionsArgs:
+    def __init__(__self__, *,
+                 object_count: Optional[pulumi.Input[int]] = None,
+                 range: Optional[pulumi.Input['CalculatedAttributeDefinitionRangeArgs']] = None,
+                 threshold: Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdArgs']] = None):
+        """
+        The conditions including range, object count, and threshold for the calculated attribute.
+        """
+        if object_count is not None:
+            pulumi.set(__self__, "object_count", object_count)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="objectCount")
+    def object_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "object_count")
+
+    @object_count.setter
+    def object_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "object_count", value)
+
+    @property
+    @pulumi.getter
+    def range(self) -> Optional[pulumi.Input['CalculatedAttributeDefinitionRangeArgs']]:
+        return pulumi.get(self, "range")
+
+    @range.setter
+    def range(self, value: Optional[pulumi.Input['CalculatedAttributeDefinitionRangeArgs']]):
+        pulumi.set(self, "range", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdArgs']]:
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdArgs']]):
+        pulumi.set(self, "threshold", value)
+
+
+@pulumi.input_type
+class CalculatedAttributeDefinitionRangeArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input['CalculatedAttributeDefinitionRangeUnit'],
+                 value: pulumi.Input[int]):
+        """
+        The relative time period over which data is included in the aggregation.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input['CalculatedAttributeDefinitionRangeUnit']:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input['CalculatedAttributeDefinitionRangeUnit']):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class CalculatedAttributeDefinitionTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class CalculatedAttributeDefinitionThresholdArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input['CalculatedAttributeDefinitionThresholdOperator'],
+                 value: pulumi.Input[str]):
+        """
+        The threshold for the calculated attribute.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input['CalculatedAttributeDefinitionThresholdOperator']:
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input['CalculatedAttributeDefinitionThresholdOperator']):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class DomainTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -56,6 +254,44 @@ class DomainTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EventStreamTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

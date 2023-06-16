@@ -27,10 +27,6 @@ export interface GetDocumentArgs {
 
 export interface GetDocumentResult {
     /**
-     * A list of key and value pairs that describe attachments to a version of a document.
-     */
-    readonly attachments?: outputs.ssm.DocumentAttachmentsSource[];
-    /**
      * The content for the Systems Manager document in JSON, YAML or String format.
      */
     readonly content?: any;
@@ -50,10 +46,6 @@ export interface GetDocumentResult {
      * Specify a target type to define the kinds of resources the document can run on.
      */
     readonly targetType?: string;
-    /**
-     * Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
-     */
-    readonly updateMethod?: enums.ssm.DocumentUpdateMethod;
     /**
      * An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
      */

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CustomDBEngineVersionArgs } from "./customDBEngineVersion";
+export type CustomDBEngineVersion = import("./customDBEngineVersion").CustomDBEngineVersion;
+export const CustomDBEngineVersion: typeof import("./customDBEngineVersion").CustomDBEngineVersion = null as any;
+utilities.lazyLoad(exports, ["CustomDBEngineVersion"], () => require("./customDBEngineVersion"));
+
 export { DBClusterArgs } from "./dbcluster";
 export type DBCluster = import("./dbcluster").DBCluster;
 export const DBCluster: typeof import("./dbcluster").DBCluster = null as any;
@@ -59,6 +64,11 @@ export { EventSubscriptionArgs } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
 utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
+
+export { GetCustomDBEngineVersionArgs, GetCustomDBEngineVersionResult, GetCustomDBEngineVersionOutputArgs } from "./getCustomDBEngineVersion";
+export const getCustomDBEngineVersion: typeof import("./getCustomDBEngineVersion").getCustomDBEngineVersion = null as any;
+export const getCustomDBEngineVersionOutput: typeof import("./getCustomDBEngineVersion").getCustomDBEngineVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomDBEngineVersion","getCustomDBEngineVersionOutput"], () => require("./getCustomDBEngineVersion"));
 
 export { GetDBClusterArgs, GetDBClusterResult, GetDBClusterOutputArgs } from "./getDBCluster";
 export const getDBCluster: typeof import("./getDBCluster").getDBCluster = null as any;
@@ -143,6 +153,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:rds:CustomDBEngineVersion":
+                return new CustomDBEngineVersion(name, <any>undefined, { urn })
             case "aws-native:rds:DBCluster":
                 return new DBCluster(name, <any>undefined, { urn })
             case "aws-native:rds:DBClusterParameterGroup":

@@ -11,18 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for Lambda LayerVersionPermission
+// Resource Type definition for AWS::Lambda::LayerVersionPermission
 type LayerVersionPermission struct {
 	pulumi.CustomResourceState
 
-	// The API action that grants access to the layer.
-	Action pulumi.StringOutput `pulumi:"action"`
-	// The name or Amazon Resource Name (ARN) of the layer.
-	LayerVersionArn pulumi.StringOutput `pulumi:"layerVersionArn"`
-	// With the principal set to *, grant permission to all accounts in the specified organization.
-	OrganizationId pulumi.StringPtrOutput `pulumi:"organizationId"`
-	// An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
-	Principal pulumi.StringOutput `pulumi:"principal"`
+	Action          pulumi.StringOutput    `pulumi:"action"`
+	LayerVersionArn pulumi.StringOutput    `pulumi:"layerVersionArn"`
+	OrganizationId  pulumi.StringPtrOutput `pulumi:"organizationId"`
+	Principal       pulumi.StringOutput    `pulumi:"principal"`
 }
 
 // NewLayerVersionPermission registers a new resource with the given unique name, arguments, and options.
@@ -73,26 +69,18 @@ func (LayerVersionPermissionState) ElementType() reflect.Type {
 }
 
 type layerVersionPermissionArgs struct {
-	// The API action that grants access to the layer.
-	Action string `pulumi:"action"`
-	// The name or Amazon Resource Name (ARN) of the layer.
-	LayerVersionArn string `pulumi:"layerVersionArn"`
-	// With the principal set to *, grant permission to all accounts in the specified organization.
-	OrganizationId *string `pulumi:"organizationId"`
-	// An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
-	Principal string `pulumi:"principal"`
+	Action          string  `pulumi:"action"`
+	LayerVersionArn string  `pulumi:"layerVersionArn"`
+	OrganizationId  *string `pulumi:"organizationId"`
+	Principal       string  `pulumi:"principal"`
 }
 
 // The set of arguments for constructing a LayerVersionPermission resource.
 type LayerVersionPermissionArgs struct {
-	// The API action that grants access to the layer.
-	Action pulumi.StringInput
-	// The name or Amazon Resource Name (ARN) of the layer.
+	Action          pulumi.StringInput
 	LayerVersionArn pulumi.StringInput
-	// With the principal set to *, grant permission to all accounts in the specified organization.
-	OrganizationId pulumi.StringPtrInput
-	// An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
-	Principal pulumi.StringInput
+	OrganizationId  pulumi.StringPtrInput
+	Principal       pulumi.StringInput
 }
 
 func (LayerVersionPermissionArgs) ElementType() reflect.Type {
@@ -132,22 +120,18 @@ func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutputWithContext(
 	return o
 }
 
-// The API action that grants access to the layer.
 func (o LayerVersionPermissionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// The name or Amazon Resource Name (ARN) of the layer.
 func (o LayerVersionPermissionOutput) LayerVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.LayerVersionArn }).(pulumi.StringOutput)
 }
 
-// With the principal set to *, grant permission to all accounts in the specified organization.
 func (o LayerVersionPermissionOutput) OrganizationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringPtrOutput { return v.OrganizationId }).(pulumi.StringPtrOutput)
 }
 
-// An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
 func (o LayerVersionPermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }

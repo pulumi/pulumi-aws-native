@@ -86,6 +86,10 @@ namespace Pulumi.AwsNative.IVS
         /// </summary>
         public readonly string? PlaybackUrl;
         /// <summary>
+        /// Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+        /// </summary>
+        public readonly Pulumi.AwsNative.IVS.ChannelPreset? Preset;
+        /// <summary>
         /// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
         /// </summary>
         public readonly string? RecordingConfigurationArn;
@@ -114,6 +118,8 @@ namespace Pulumi.AwsNative.IVS
 
             string? playbackUrl,
 
+            Pulumi.AwsNative.IVS.ChannelPreset? preset,
+
             string? recordingConfigurationArn,
 
             ImmutableArray<Outputs.ChannelTag> tags,
@@ -127,6 +133,7 @@ namespace Pulumi.AwsNative.IVS
             LatencyMode = latencyMode;
             Name = name;
             PlaybackUrl = playbackUrl;
+            Preset = preset;
             RecordingConfigurationArn = recordingConfigurationArn;
             Tags = tags;
             Type = type;

@@ -4,6 +4,7 @@
 
 export const SigningProfilePlatformId = {
     AWSLambdaSHA384ECDSA: "AWSLambda-SHA384-ECDSA",
+    NotationOCISHA384ECDSA: "Notation-OCI-SHA384-ECDSA",
 } as const;
 
 export type SigningProfilePlatformId = (typeof SigningProfilePlatformId)[keyof typeof SigningProfilePlatformId];

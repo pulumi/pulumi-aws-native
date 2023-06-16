@@ -44,7 +44,6 @@ export class ApplicationInstance extends pulumi.CustomResource {
     public readonly defaultRuntimeContextDevice!: pulumi.Output<string>;
     public /*out*/ readonly defaultRuntimeContextDeviceName!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly deviceId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly healthStatus!: pulumi.Output<enums.panorama.ApplicationInstanceHealthStatus>;
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<number>;
     public readonly manifestOverridesPayload!: pulumi.Output<outputs.panorama.ApplicationInstanceManifestOverridesPayload | undefined>;
@@ -53,7 +52,6 @@ export class ApplicationInstance extends pulumi.CustomResource {
     public readonly runtimeRoleArn!: pulumi.Output<string | undefined>;
     public /*out*/ readonly status!: pulumi.Output<enums.panorama.ApplicationInstanceStatus>;
     public /*out*/ readonly statusDescription!: pulumi.Output<string>;
-    public readonly statusFilter!: pulumi.Output<enums.panorama.ApplicationInstanceStatusFilter | undefined>;
     public readonly tags!: pulumi.Output<outputs.panorama.ApplicationInstanceTag[] | undefined>;
 
     /**
@@ -76,12 +74,10 @@ export class ApplicationInstance extends pulumi.CustomResource {
             resourceInputs["applicationInstanceIdToReplace"] = args ? args.applicationInstanceIdToReplace : undefined;
             resourceInputs["defaultRuntimeContextDevice"] = args ? args.defaultRuntimeContextDevice : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceId"] = args ? args.deviceId : undefined;
             resourceInputs["manifestOverridesPayload"] = args ? args.manifestOverridesPayload : undefined;
             resourceInputs["manifestPayload"] = args ? args.manifestPayload : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["runtimeRoleArn"] = args ? args.runtimeRoleArn : undefined;
-            resourceInputs["statusFilter"] = args ? args.statusFilter : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationInstanceId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -99,7 +95,6 @@ export class ApplicationInstance extends pulumi.CustomResource {
             resourceInputs["defaultRuntimeContextDevice"] = undefined /*out*/;
             resourceInputs["defaultRuntimeContextDeviceName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["deviceId"] = undefined /*out*/;
             resourceInputs["healthStatus"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["manifestOverridesPayload"] = undefined /*out*/;
@@ -108,7 +103,6 @@ export class ApplicationInstance extends pulumi.CustomResource {
             resourceInputs["runtimeRoleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusDescription"] = undefined /*out*/;
-            resourceInputs["statusFilter"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -123,11 +117,9 @@ export interface ApplicationInstanceArgs {
     applicationInstanceIdToReplace?: pulumi.Input<string>;
     defaultRuntimeContextDevice: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    deviceId?: pulumi.Input<string>;
     manifestOverridesPayload?: pulumi.Input<inputs.panorama.ApplicationInstanceManifestOverridesPayloadArgs>;
     manifestPayload: pulumi.Input<inputs.panorama.ApplicationInstanceManifestPayloadArgs>;
     name?: pulumi.Input<string>;
     runtimeRoleArn?: pulumi.Input<string>;
-    statusFilter?: pulumi.Input<enums.panorama.ApplicationInstanceStatusFilter>;
     tags?: pulumi.Input<pulumi.Input<inputs.panorama.ApplicationInstanceTagArgs>[]>;
 }

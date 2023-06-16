@@ -13,6 +13,8 @@ from ._enums import *
 
 __all__ = [
     'ActivityTagsEntry',
+    'StateMachineAliasDeploymentPreference',
+    'StateMachineAliasRoutingConfigurationVersion',
     'StateMachineCloudWatchLogsLogGroup',
     'StateMachineDefinition',
     'StateMachineDefinitionSubstitutions',
@@ -40,6 +42,134 @@ class ActivityTagsEntry(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class StateMachineAliasDeploymentPreference(dict):
+    """
+    The settings to enable gradual state machine deployments.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stateMachineVersionArn":
+            suggest = "state_machine_version_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StateMachineAliasDeploymentPreference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StateMachineAliasDeploymentPreference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StateMachineAliasDeploymentPreference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state_machine_version_arn: str,
+                 type: 'StateMachineAliasDeploymentPreferenceType',
+                 alarms: Optional[Sequence[str]] = None,
+                 interval: Optional[int] = None,
+                 percentage: Optional[int] = None):
+        """
+        The settings to enable gradual state machine deployments.
+        :param 'StateMachineAliasDeploymentPreferenceType' type: The type of deployment to perform.
+        :param Sequence[str] alarms: A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
+        :param int interval: The time in minutes between each traffic shifting increment.
+        :param int percentage: The percentage of traffic to shift to the new version in each increment.
+        """
+        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
+        pulumi.set(__self__, "type", type)
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if percentage is not None:
+            pulumi.set(__self__, "percentage", percentage)
+
+    @property
+    @pulumi.getter(name="stateMachineVersionArn")
+    def state_machine_version_arn(self) -> str:
+        return pulumi.get(self, "state_machine_version_arn")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'StateMachineAliasDeploymentPreferenceType':
+        """
+        The type of deployment to perform.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence[str]]:
+        """
+        A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
+        """
+        return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        The time in minutes between each traffic shifting increment.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def percentage(self) -> Optional[int]:
+        """
+        The percentage of traffic to shift to the new version in each increment.
+        """
+        return pulumi.get(self, "percentage")
+
+
+@pulumi.output_type
+class StateMachineAliasRoutingConfigurationVersion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stateMachineVersionArn":
+            suggest = "state_machine_version_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StateMachineAliasRoutingConfigurationVersion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StateMachineAliasRoutingConfigurationVersion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StateMachineAliasRoutingConfigurationVersion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state_machine_version_arn: str,
+                 weight: int):
+        """
+        :param str state_machine_version_arn: The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
+        :param int weight: The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
+        """
+        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="stateMachineVersionArn")
+    def state_machine_version_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
+        """
+        return pulumi.get(self, "state_machine_version_arn")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        """
+        The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
+        """
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type

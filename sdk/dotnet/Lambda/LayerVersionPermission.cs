@@ -10,32 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
-    /// Schema for Lambda LayerVersionPermission
+    /// Resource Type definition for AWS::Lambda::LayerVersionPermission
     /// </summary>
     [AwsNativeResourceType("aws-native:lambda:LayerVersionPermission")]
     public partial class LayerVersionPermission : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The API action that grants access to the layer.
-        /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
 
-        /// <summary>
-        /// The name or Amazon Resource Name (ARN) of the layer.
-        /// </summary>
         [Output("layerVersionArn")]
         public Output<string> LayerVersionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// With the principal set to *, grant permission to all accounts in the specified organization.
-        /// </summary>
         [Output("organizationId")]
         public Output<string?> OrganizationId { get; private set; } = null!;
 
-        /// <summary>
-        /// An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
-        /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
@@ -84,27 +72,15 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class LayerVersionPermissionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The API action that grants access to the layer.
-        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
-        /// <summary>
-        /// The name or Amazon Resource Name (ARN) of the layer.
-        /// </summary>
         [Input("layerVersionArn", required: true)]
         public Input<string> LayerVersionArn { get; set; } = null!;
 
-        /// <summary>
-        /// With the principal set to *, grant permission to all accounts in the specified organization.
-        /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
 
-        /// <summary>
-        /// An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
-        /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 

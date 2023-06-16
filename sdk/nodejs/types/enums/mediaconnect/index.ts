@@ -2,6 +2,62 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BridgeFailoverConfigStateEnum = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type BridgeFailoverConfigStateEnum = (typeof BridgeFailoverConfigStateEnum)[keyof typeof BridgeFailoverConfigStateEnum];
+
+export const BridgeFailoverModeEnum = {
+    Failover: "FAILOVER",
+} as const;
+
+export type BridgeFailoverModeEnum = (typeof BridgeFailoverModeEnum)[keyof typeof BridgeFailoverModeEnum];
+
+export const BridgeOutputResourceBridgeNetworkOutputProtocol = {
+    RtpFec: "rtp-fec",
+    Rtp: "rtp",
+    Udp: "udp",
+} as const;
+
+/**
+ * The network output protocol.
+ */
+export type BridgeOutputResourceBridgeNetworkOutputProtocol = (typeof BridgeOutputResourceBridgeNetworkOutputProtocol)[keyof typeof BridgeOutputResourceBridgeNetworkOutputProtocol];
+
+export const BridgeProtocolEnum = {
+    RtpFec: "rtp-fec",
+    Rtp: "rtp",
+    Udp: "udp",
+} as const;
+
+export type BridgeProtocolEnum = (typeof BridgeProtocolEnum)[keyof typeof BridgeProtocolEnum];
+
+export const BridgeSourceProtocolEnum = {
+    RtpFec: "rtp-fec",
+    Rtp: "rtp",
+    Udp: "udp",
+} as const;
+
+export type BridgeSourceProtocolEnum = (typeof BridgeSourceProtocolEnum)[keyof typeof BridgeSourceProtocolEnum];
+
+export const BridgeStateEnum = {
+    Creating: "CREATING",
+    Standby: "STANDBY",
+    Starting: "STARTING",
+    Deploying: "DEPLOYING",
+    Active: "ACTIVE",
+    Stopping: "STOPPING",
+    Deleting: "DELETING",
+    Deleted: "DELETED",
+    StartFailed: "START_FAILED",
+    StartPending: "START_PENDING",
+    Updating: "UPDATING",
+} as const;
+
+export type BridgeStateEnum = (typeof BridgeStateEnum)[keyof typeof BridgeStateEnum];
+
 export const FlowEncryptionAlgorithm = {
     Aes128: "aes128",
     Aes192: "aes192",
@@ -145,3 +201,17 @@ export const FlowSourceProtocol = {
  * The protocol that is used by the source.
  */
 export type FlowSourceProtocol = (typeof FlowSourceProtocol)[keyof typeof FlowSourceProtocol];
+
+export const GatewayState = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Error: "ERROR",
+    Deleting: "DELETING",
+    Deleted: "DELETED",
+} as const;
+
+/**
+ * The current status of the gateway.
+ */
+export type GatewayState = (typeof GatewayState)[keyof typeof GatewayState];

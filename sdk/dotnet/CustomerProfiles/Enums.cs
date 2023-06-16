@@ -7,6 +7,168 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.CustomerProfiles
 {
+    /// <summary>
+    /// The unit of time.
+    /// </summary>
+    [EnumType]
+    public readonly struct CalculatedAttributeDefinitionRangeUnit : IEquatable<CalculatedAttributeDefinitionRangeUnit>
+    {
+        private readonly string _value;
+
+        private CalculatedAttributeDefinitionRangeUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CalculatedAttributeDefinitionRangeUnit Days { get; } = new CalculatedAttributeDefinitionRangeUnit("DAYS");
+
+        public static bool operator ==(CalculatedAttributeDefinitionRangeUnit left, CalculatedAttributeDefinitionRangeUnit right) => left.Equals(right);
+        public static bool operator !=(CalculatedAttributeDefinitionRangeUnit left, CalculatedAttributeDefinitionRangeUnit right) => !left.Equals(right);
+
+        public static explicit operator string(CalculatedAttributeDefinitionRangeUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CalculatedAttributeDefinitionRangeUnit other && Equals(other);
+        public bool Equals(CalculatedAttributeDefinitionRangeUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The aggregation operation to perform for the calculated attribute.
+    /// </summary>
+    [EnumType]
+    public readonly struct CalculatedAttributeDefinitionStatistic : IEquatable<CalculatedAttributeDefinitionStatistic>
+    {
+        private readonly string _value;
+
+        private CalculatedAttributeDefinitionStatistic(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CalculatedAttributeDefinitionStatistic FirstOccurrence { get; } = new CalculatedAttributeDefinitionStatistic("FIRST_OCCURRENCE");
+        public static CalculatedAttributeDefinitionStatistic LastOccurrence { get; } = new CalculatedAttributeDefinitionStatistic("LAST_OCCURRENCE");
+        public static CalculatedAttributeDefinitionStatistic Count { get; } = new CalculatedAttributeDefinitionStatistic("COUNT");
+        public static CalculatedAttributeDefinitionStatistic Sum { get; } = new CalculatedAttributeDefinitionStatistic("SUM");
+        public static CalculatedAttributeDefinitionStatistic Minimum { get; } = new CalculatedAttributeDefinitionStatistic("MINIMUM");
+        public static CalculatedAttributeDefinitionStatistic Maximum { get; } = new CalculatedAttributeDefinitionStatistic("MAXIMUM");
+        public static CalculatedAttributeDefinitionStatistic Average { get; } = new CalculatedAttributeDefinitionStatistic("AVERAGE");
+        public static CalculatedAttributeDefinitionStatistic MaxOccurrence { get; } = new CalculatedAttributeDefinitionStatistic("MAX_OCCURRENCE");
+
+        public static bool operator ==(CalculatedAttributeDefinitionStatistic left, CalculatedAttributeDefinitionStatistic right) => left.Equals(right);
+        public static bool operator !=(CalculatedAttributeDefinitionStatistic left, CalculatedAttributeDefinitionStatistic right) => !left.Equals(right);
+
+        public static explicit operator string(CalculatedAttributeDefinitionStatistic value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CalculatedAttributeDefinitionStatistic other && Equals(other);
+        public bool Equals(CalculatedAttributeDefinitionStatistic other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operator of the threshold.
+    /// </summary>
+    [EnumType]
+    public readonly struct CalculatedAttributeDefinitionThresholdOperator : IEquatable<CalculatedAttributeDefinitionThresholdOperator>
+    {
+        private readonly string _value;
+
+        private CalculatedAttributeDefinitionThresholdOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CalculatedAttributeDefinitionThresholdOperator EqualTo { get; } = new CalculatedAttributeDefinitionThresholdOperator("EQUAL_TO");
+        public static CalculatedAttributeDefinitionThresholdOperator GreaterThan { get; } = new CalculatedAttributeDefinitionThresholdOperator("GREATER_THAN");
+        public static CalculatedAttributeDefinitionThresholdOperator LessThan { get; } = new CalculatedAttributeDefinitionThresholdOperator("LESS_THAN");
+        public static CalculatedAttributeDefinitionThresholdOperator NotEqualTo { get; } = new CalculatedAttributeDefinitionThresholdOperator("NOT_EQUAL_TO");
+
+        public static bool operator ==(CalculatedAttributeDefinitionThresholdOperator left, CalculatedAttributeDefinitionThresholdOperator right) => left.Equals(right);
+        public static bool operator !=(CalculatedAttributeDefinitionThresholdOperator left, CalculatedAttributeDefinitionThresholdOperator right) => !left.Equals(right);
+
+        public static explicit operator string(CalculatedAttributeDefinitionThresholdOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CalculatedAttributeDefinitionThresholdOperator other && Equals(other);
+        public bool Equals(CalculatedAttributeDefinitionThresholdOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operational state of destination stream for export.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventStreamState : IEquatable<EventStreamState>
+    {
+        private readonly string _value;
+
+        private EventStreamState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventStreamState Running { get; } = new EventStreamState("RUNNING");
+        public static EventStreamState Stopped { get; } = new EventStreamState("STOPPED");
+
+        public static bool operator ==(EventStreamState left, EventStreamState right) => left.Equals(right);
+        public static bool operator !=(EventStreamState left, EventStreamState right) => !left.Equals(right);
+
+        public static explicit operator string(EventStreamState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventStreamState other && Equals(other);
+        public bool Equals(EventStreamState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of enabling the Kinesis stream as a destination for export.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventStreamStatus : IEquatable<EventStreamStatus>
+    {
+        private readonly string _value;
+
+        private EventStreamStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventStreamStatus Healthy { get; } = new EventStreamStatus("HEALTHY");
+        public static EventStreamStatus Unhealthy { get; } = new EventStreamStatus("UNHEALTHY");
+
+        public static bool operator ==(EventStreamStatus left, EventStreamStatus right) => left.Equals(right);
+        public static bool operator !=(EventStreamStatus left, EventStreamStatus right) => !left.Equals(right);
+
+        public static explicit operator string(EventStreamStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventStreamStatus other && Equals(other);
+        public bool Equals(EventStreamStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct IntegrationConnectorType : IEquatable<IntegrationConnectorType>
     {

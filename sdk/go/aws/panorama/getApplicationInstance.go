@@ -29,12 +29,10 @@ type LookupApplicationInstanceResult struct {
 	Arn                             *string                          `pulumi:"arn"`
 	CreatedTime                     *int                             `pulumi:"createdTime"`
 	DefaultRuntimeContextDeviceName *string                          `pulumi:"defaultRuntimeContextDeviceName"`
-	DeviceId                        *string                          `pulumi:"deviceId"`
 	HealthStatus                    *ApplicationInstanceHealthStatus `pulumi:"healthStatus"`
 	LastUpdatedTime                 *int                             `pulumi:"lastUpdatedTime"`
 	Status                          *ApplicationInstanceStatus       `pulumi:"status"`
 	StatusDescription               *string                          `pulumi:"statusDescription"`
-	StatusFilter                    *ApplicationInstanceStatusFilter `pulumi:"statusFilter"`
 	Tags                            []ApplicationInstanceTag         `pulumi:"tags"`
 }
 
@@ -89,10 +87,6 @@ func (o LookupApplicationInstanceResultOutput) DefaultRuntimeContextDeviceName()
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *string { return v.DefaultRuntimeContextDeviceName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupApplicationInstanceResultOutput) DeviceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApplicationInstanceResult) *string { return v.DeviceId }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupApplicationInstanceResultOutput) HealthStatus() ApplicationInstanceHealthStatusPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *ApplicationInstanceHealthStatus { return v.HealthStatus }).(ApplicationInstanceHealthStatusPtrOutput)
 }
@@ -107,10 +101,6 @@ func (o LookupApplicationInstanceResultOutput) Status() ApplicationInstanceStatu
 
 func (o LookupApplicationInstanceResultOutput) StatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInstanceResult) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupApplicationInstanceResultOutput) StatusFilter() ApplicationInstanceStatusFilterPtrOutput {
-	return o.ApplyT(func(v LookupApplicationInstanceResult) *ApplicationInstanceStatusFilter { return v.StatusFilter }).(ApplicationInstanceStatusFilterPtrOutput)
 }
 
 func (o LookupApplicationInstanceResultOutput) Tags() ApplicationInstanceTagArrayOutput {

@@ -83,6 +83,8 @@ if typing.TYPE_CHECKING:
     certificatemanager = __certificatemanager
     import pulumi_aws_native.chatbot as __chatbot
     chatbot = __chatbot
+    import pulumi_aws_native.cleanrooms as __cleanrooms
+    cleanrooms = __cleanrooms
     import pulumi_aws_native.cloud9 as __cloud9
     cloud9 = __cloud9
     import pulumi_aws_native.cloudformation as __cloudformation
@@ -495,6 +497,7 @@ else:
     ce = _utilities.lazy_import('pulumi_aws_native.ce')
     certificatemanager = _utilities.lazy_import('pulumi_aws_native.certificatemanager')
     chatbot = _utilities.lazy_import('pulumi_aws_native.chatbot')
+    cleanrooms = _utilities.lazy_import('pulumi_aws_native.cleanrooms')
     cloud9 = _utilities.lazy_import('pulumi_aws_native.cloud9')
     cloudformation = _utilities.lazy_import('pulumi_aws_native.cloudformation')
     cloudfront = _utilities.lazy_import('pulumi_aws_native.cloudfront')
@@ -1044,6 +1047,17 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "cleanrooms",
+  "fqn": "pulumi_aws_native.cleanrooms",
+  "classes": {
+   "aws-native:cleanrooms:Collaboration": "Collaboration",
+   "aws-native:cleanrooms:ConfiguredTable": "ConfiguredTable",
+   "aws-native:cleanrooms:ConfiguredTableAssociation": "ConfiguredTableAssociation",
+   "aws-native:cleanrooms:Membership": "Membership"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "cloud9",
   "fqn": "pulumi_aws_native.cloud9",
   "classes": {
@@ -1301,7 +1315,9 @@ _utilities.register(
   "mod": "customerprofiles",
   "fqn": "pulumi_aws_native.customerprofiles",
   "classes": {
+   "aws-native:customerprofiles:CalculatedAttributeDefinition": "CalculatedAttributeDefinition",
    "aws-native:customerprofiles:Domain": "Domain",
+   "aws-native:customerprofiles:EventStream": "EventStream",
    "aws-native:customerprofiles:Integration": "Integration",
    "aws-native:customerprofiles:ObjectType": "ObjectType"
   }
@@ -2387,11 +2403,15 @@ _utilities.register(
   "mod": "mediaconnect",
   "fqn": "pulumi_aws_native.mediaconnect",
   "classes": {
+   "aws-native:mediaconnect:Bridge": "Bridge",
+   "aws-native:mediaconnect:BridgeOutputResource": "BridgeOutputResource",
+   "aws-native:mediaconnect:BridgeSource": "BridgeSource",
    "aws-native:mediaconnect:Flow": "Flow",
    "aws-native:mediaconnect:FlowEntitlement": "FlowEntitlement",
    "aws-native:mediaconnect:FlowOutput": "FlowOutput",
    "aws-native:mediaconnect:FlowSource": "FlowSource",
-   "aws-native:mediaconnect:FlowVpcInterface": "FlowVpcInterface"
+   "aws-native:mediaconnect:FlowVpcInterface": "FlowVpcInterface",
+   "aws-native:mediaconnect:Gateway": "Gateway"
   }
  },
  {
@@ -2728,6 +2748,7 @@ _utilities.register(
   "mod": "rds",
   "fqn": "pulumi_aws_native.rds",
   "classes": {
+   "aws-native:rds:CustomDBEngineVersion": "CustomDBEngineVersion",
    "aws-native:rds:DBCluster": "DBCluster",
    "aws-native:rds:DBClusterParameterGroup": "DBClusterParameterGroup",
    "aws-native:rds:DBInstance": "DBInstance",
@@ -3001,7 +3022,9 @@ _utilities.register(
   "mod": "securityhub",
   "fqn": "pulumi_aws_native.securityhub",
   "classes": {
-   "aws-native:securityhub:Hub": "Hub"
+   "aws-native:securityhub:AutomationRule": "AutomationRule",
+   "aws-native:securityhub:Hub": "Hub",
+   "aws-native:securityhub:Standard": "Standard"
   }
  },
  {
@@ -3166,7 +3189,9 @@ _utilities.register(
   "fqn": "pulumi_aws_native.stepfunctions",
   "classes": {
    "aws-native:stepfunctions:Activity": "Activity",
-   "aws-native:stepfunctions:StateMachine": "StateMachine"
+   "aws-native:stepfunctions:StateMachine": "StateMachine",
+   "aws-native:stepfunctions:StateMachineAlias": "StateMachineAlias",
+   "aws-native:stepfunctions:StateMachineVersion": "StateMachineVersion"
   }
  },
  {

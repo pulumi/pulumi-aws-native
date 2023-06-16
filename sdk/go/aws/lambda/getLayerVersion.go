@@ -21,13 +21,11 @@ func LookupLayerVersion(ctx *pulumi.Context, args *LookupLayerVersionArgs, opts 
 }
 
 type LookupLayerVersionArgs struct {
-	// The ARN of the version.
-	Id string `pulumi:"id"`
+	LayerVersionArn string `pulumi:"layerVersionArn"`
 }
 
 type LookupLayerVersionResult struct {
-	// The ARN of the version.
-	Id *string `pulumi:"id"`
+	LayerVersionArn *string `pulumi:"layerVersionArn"`
 }
 
 func LookupLayerVersionOutput(ctx *pulumi.Context, args LookupLayerVersionOutputArgs, opts ...pulumi.InvokeOption) LookupLayerVersionResultOutput {
@@ -44,8 +42,7 @@ func LookupLayerVersionOutput(ctx *pulumi.Context, args LookupLayerVersionOutput
 }
 
 type LookupLayerVersionOutputArgs struct {
-	// The ARN of the version.
-	Id pulumi.StringInput `pulumi:"id"`
+	LayerVersionArn pulumi.StringInput `pulumi:"layerVersionArn"`
 }
 
 func (LookupLayerVersionOutputArgs) ElementType() reflect.Type {
@@ -66,9 +63,8 @@ func (o LookupLayerVersionResultOutput) ToLookupLayerVersionResultOutputWithCont
 	return o
 }
 
-// The ARN of the version.
-func (o LookupLayerVersionResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLayerVersionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupLayerVersionResultOutput) LayerVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLayerVersionResult) *string { return v.LayerVersionArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

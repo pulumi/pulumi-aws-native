@@ -10,6 +10,690 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The unit of time.
+type CalculatedAttributeDefinitionRangeUnit string
+
+const (
+	CalculatedAttributeDefinitionRangeUnitDays = CalculatedAttributeDefinitionRangeUnit("DAYS")
+)
+
+func (CalculatedAttributeDefinitionRangeUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionRangeUnit)(nil)).Elem()
+}
+
+func (e CalculatedAttributeDefinitionRangeUnit) ToCalculatedAttributeDefinitionRangeUnitOutput() CalculatedAttributeDefinitionRangeUnitOutput {
+	return pulumi.ToOutput(e).(CalculatedAttributeDefinitionRangeUnitOutput)
+}
+
+func (e CalculatedAttributeDefinitionRangeUnit) ToCalculatedAttributeDefinitionRangeUnitOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangeUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CalculatedAttributeDefinitionRangeUnitOutput)
+}
+
+func (e CalculatedAttributeDefinitionRangeUnit) ToCalculatedAttributeDefinitionRangeUnitPtrOutput() CalculatedAttributeDefinitionRangeUnitPtrOutput {
+	return e.ToCalculatedAttributeDefinitionRangeUnitPtrOutputWithContext(context.Background())
+}
+
+func (e CalculatedAttributeDefinitionRangeUnit) ToCalculatedAttributeDefinitionRangeUnitPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangeUnitPtrOutput {
+	return CalculatedAttributeDefinitionRangeUnit(e).ToCalculatedAttributeDefinitionRangeUnitOutputWithContext(ctx).ToCalculatedAttributeDefinitionRangeUnitPtrOutputWithContext(ctx)
+}
+
+func (e CalculatedAttributeDefinitionRangeUnit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CalculatedAttributeDefinitionRangeUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CalculatedAttributeDefinitionRangeUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CalculatedAttributeDefinitionRangeUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CalculatedAttributeDefinitionRangeUnitOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionRangeUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionRangeUnit)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitOutput) ToCalculatedAttributeDefinitionRangeUnitOutput() CalculatedAttributeDefinitionRangeUnitOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitOutput) ToCalculatedAttributeDefinitionRangeUnitOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangeUnitOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitOutput) ToCalculatedAttributeDefinitionRangeUnitPtrOutput() CalculatedAttributeDefinitionRangeUnitPtrOutput {
+	return o.ToCalculatedAttributeDefinitionRangeUnitPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitOutput) ToCalculatedAttributeDefinitionRangeUnitPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangeUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CalculatedAttributeDefinitionRangeUnit) *CalculatedAttributeDefinitionRangeUnit {
+		return &v
+	}).(CalculatedAttributeDefinitionRangeUnitPtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CalculatedAttributeDefinitionRangeUnit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CalculatedAttributeDefinitionRangeUnit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CalculatedAttributeDefinitionRangeUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionRangeUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionRangeUnit)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) ToCalculatedAttributeDefinitionRangeUnitPtrOutput() CalculatedAttributeDefinitionRangeUnitPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) ToCalculatedAttributeDefinitionRangeUnitPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangeUnitPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) Elem() CalculatedAttributeDefinitionRangeUnitOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionRangeUnit) CalculatedAttributeDefinitionRangeUnit {
+		if v != nil {
+			return *v
+		}
+		var ret CalculatedAttributeDefinitionRangeUnit
+		return ret
+	}).(CalculatedAttributeDefinitionRangeUnitOutput)
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CalculatedAttributeDefinitionRangeUnit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CalculatedAttributeDefinitionRangeUnitInput is an input type that accepts CalculatedAttributeDefinitionRangeUnitArgs and CalculatedAttributeDefinitionRangeUnitOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionRangeUnitInput` via:
+//
+//	CalculatedAttributeDefinitionRangeUnitArgs{...}
+type CalculatedAttributeDefinitionRangeUnitInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionRangeUnitOutput() CalculatedAttributeDefinitionRangeUnitOutput
+	ToCalculatedAttributeDefinitionRangeUnitOutputWithContext(context.Context) CalculatedAttributeDefinitionRangeUnitOutput
+}
+
+var calculatedAttributeDefinitionRangeUnitPtrType = reflect.TypeOf((**CalculatedAttributeDefinitionRangeUnit)(nil)).Elem()
+
+type CalculatedAttributeDefinitionRangeUnitPtrInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionRangeUnitPtrOutput() CalculatedAttributeDefinitionRangeUnitPtrOutput
+	ToCalculatedAttributeDefinitionRangeUnitPtrOutputWithContext(context.Context) CalculatedAttributeDefinitionRangeUnitPtrOutput
+}
+
+type calculatedAttributeDefinitionRangeUnitPtr string
+
+func CalculatedAttributeDefinitionRangeUnitPtr(v string) CalculatedAttributeDefinitionRangeUnitPtrInput {
+	return (*calculatedAttributeDefinitionRangeUnitPtr)(&v)
+}
+
+func (*calculatedAttributeDefinitionRangeUnitPtr) ElementType() reflect.Type {
+	return calculatedAttributeDefinitionRangeUnitPtrType
+}
+
+func (in *calculatedAttributeDefinitionRangeUnitPtr) ToCalculatedAttributeDefinitionRangeUnitPtrOutput() CalculatedAttributeDefinitionRangeUnitPtrOutput {
+	return pulumi.ToOutput(in).(CalculatedAttributeDefinitionRangeUnitPtrOutput)
+}
+
+func (in *calculatedAttributeDefinitionRangeUnitPtr) ToCalculatedAttributeDefinitionRangeUnitPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangeUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CalculatedAttributeDefinitionRangeUnitPtrOutput)
+}
+
+// The aggregation operation to perform for the calculated attribute.
+type CalculatedAttributeDefinitionStatistic string
+
+const (
+	CalculatedAttributeDefinitionStatisticFirstOccurrence = CalculatedAttributeDefinitionStatistic("FIRST_OCCURRENCE")
+	CalculatedAttributeDefinitionStatisticLastOccurrence  = CalculatedAttributeDefinitionStatistic("LAST_OCCURRENCE")
+	CalculatedAttributeDefinitionStatisticCount           = CalculatedAttributeDefinitionStatistic("COUNT")
+	CalculatedAttributeDefinitionStatisticSum             = CalculatedAttributeDefinitionStatistic("SUM")
+	CalculatedAttributeDefinitionStatisticMinimum         = CalculatedAttributeDefinitionStatistic("MINIMUM")
+	CalculatedAttributeDefinitionStatisticMaximum         = CalculatedAttributeDefinitionStatistic("MAXIMUM")
+	CalculatedAttributeDefinitionStatisticAverage         = CalculatedAttributeDefinitionStatistic("AVERAGE")
+	CalculatedAttributeDefinitionStatisticMaxOccurrence   = CalculatedAttributeDefinitionStatistic("MAX_OCCURRENCE")
+)
+
+func (CalculatedAttributeDefinitionStatistic) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionStatistic)(nil)).Elem()
+}
+
+func (e CalculatedAttributeDefinitionStatistic) ToCalculatedAttributeDefinitionStatisticOutput() CalculatedAttributeDefinitionStatisticOutput {
+	return pulumi.ToOutput(e).(CalculatedAttributeDefinitionStatisticOutput)
+}
+
+func (e CalculatedAttributeDefinitionStatistic) ToCalculatedAttributeDefinitionStatisticOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionStatisticOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CalculatedAttributeDefinitionStatisticOutput)
+}
+
+func (e CalculatedAttributeDefinitionStatistic) ToCalculatedAttributeDefinitionStatisticPtrOutput() CalculatedAttributeDefinitionStatisticPtrOutput {
+	return e.ToCalculatedAttributeDefinitionStatisticPtrOutputWithContext(context.Background())
+}
+
+func (e CalculatedAttributeDefinitionStatistic) ToCalculatedAttributeDefinitionStatisticPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionStatisticPtrOutput {
+	return CalculatedAttributeDefinitionStatistic(e).ToCalculatedAttributeDefinitionStatisticOutputWithContext(ctx).ToCalculatedAttributeDefinitionStatisticPtrOutputWithContext(ctx)
+}
+
+func (e CalculatedAttributeDefinitionStatistic) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CalculatedAttributeDefinitionStatistic) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CalculatedAttributeDefinitionStatistic) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CalculatedAttributeDefinitionStatistic) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CalculatedAttributeDefinitionStatisticOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionStatisticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionStatistic)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionStatisticOutput) ToCalculatedAttributeDefinitionStatisticOutput() CalculatedAttributeDefinitionStatisticOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionStatisticOutput) ToCalculatedAttributeDefinitionStatisticOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionStatisticOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionStatisticOutput) ToCalculatedAttributeDefinitionStatisticPtrOutput() CalculatedAttributeDefinitionStatisticPtrOutput {
+	return o.ToCalculatedAttributeDefinitionStatisticPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionStatisticOutput) ToCalculatedAttributeDefinitionStatisticPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionStatisticPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CalculatedAttributeDefinitionStatistic) *CalculatedAttributeDefinitionStatistic {
+		return &v
+	}).(CalculatedAttributeDefinitionStatisticPtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionStatisticOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionStatisticOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CalculatedAttributeDefinitionStatistic) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CalculatedAttributeDefinitionStatisticOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionStatisticOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CalculatedAttributeDefinitionStatistic) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CalculatedAttributeDefinitionStatisticPtrOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionStatisticPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionStatistic)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionStatisticPtrOutput) ToCalculatedAttributeDefinitionStatisticPtrOutput() CalculatedAttributeDefinitionStatisticPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionStatisticPtrOutput) ToCalculatedAttributeDefinitionStatisticPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionStatisticPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionStatisticPtrOutput) Elem() CalculatedAttributeDefinitionStatisticOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionStatistic) CalculatedAttributeDefinitionStatistic {
+		if v != nil {
+			return *v
+		}
+		var ret CalculatedAttributeDefinitionStatistic
+		return ret
+	}).(CalculatedAttributeDefinitionStatisticOutput)
+}
+
+func (o CalculatedAttributeDefinitionStatisticPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionStatisticPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CalculatedAttributeDefinitionStatistic) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CalculatedAttributeDefinitionStatisticInput is an input type that accepts CalculatedAttributeDefinitionStatisticArgs and CalculatedAttributeDefinitionStatisticOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionStatisticInput` via:
+//
+//	CalculatedAttributeDefinitionStatisticArgs{...}
+type CalculatedAttributeDefinitionStatisticInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionStatisticOutput() CalculatedAttributeDefinitionStatisticOutput
+	ToCalculatedAttributeDefinitionStatisticOutputWithContext(context.Context) CalculatedAttributeDefinitionStatisticOutput
+}
+
+var calculatedAttributeDefinitionStatisticPtrType = reflect.TypeOf((**CalculatedAttributeDefinitionStatistic)(nil)).Elem()
+
+type CalculatedAttributeDefinitionStatisticPtrInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionStatisticPtrOutput() CalculatedAttributeDefinitionStatisticPtrOutput
+	ToCalculatedAttributeDefinitionStatisticPtrOutputWithContext(context.Context) CalculatedAttributeDefinitionStatisticPtrOutput
+}
+
+type calculatedAttributeDefinitionStatisticPtr string
+
+func CalculatedAttributeDefinitionStatisticPtr(v string) CalculatedAttributeDefinitionStatisticPtrInput {
+	return (*calculatedAttributeDefinitionStatisticPtr)(&v)
+}
+
+func (*calculatedAttributeDefinitionStatisticPtr) ElementType() reflect.Type {
+	return calculatedAttributeDefinitionStatisticPtrType
+}
+
+func (in *calculatedAttributeDefinitionStatisticPtr) ToCalculatedAttributeDefinitionStatisticPtrOutput() CalculatedAttributeDefinitionStatisticPtrOutput {
+	return pulumi.ToOutput(in).(CalculatedAttributeDefinitionStatisticPtrOutput)
+}
+
+func (in *calculatedAttributeDefinitionStatisticPtr) ToCalculatedAttributeDefinitionStatisticPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionStatisticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CalculatedAttributeDefinitionStatisticPtrOutput)
+}
+
+// The operator of the threshold.
+type CalculatedAttributeDefinitionThresholdOperator string
+
+const (
+	CalculatedAttributeDefinitionThresholdOperatorEqualTo     = CalculatedAttributeDefinitionThresholdOperator("EQUAL_TO")
+	CalculatedAttributeDefinitionThresholdOperatorGreaterThan = CalculatedAttributeDefinitionThresholdOperator("GREATER_THAN")
+	CalculatedAttributeDefinitionThresholdOperatorLessThan    = CalculatedAttributeDefinitionThresholdOperator("LESS_THAN")
+	CalculatedAttributeDefinitionThresholdOperatorNotEqualTo  = CalculatedAttributeDefinitionThresholdOperator("NOT_EQUAL_TO")
+)
+
+func (CalculatedAttributeDefinitionThresholdOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionThresholdOperator)(nil)).Elem()
+}
+
+func (e CalculatedAttributeDefinitionThresholdOperator) ToCalculatedAttributeDefinitionThresholdOperatorOutput() CalculatedAttributeDefinitionThresholdOperatorOutput {
+	return pulumi.ToOutput(e).(CalculatedAttributeDefinitionThresholdOperatorOutput)
+}
+
+func (e CalculatedAttributeDefinitionThresholdOperator) ToCalculatedAttributeDefinitionThresholdOperatorOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CalculatedAttributeDefinitionThresholdOperatorOutput)
+}
+
+func (e CalculatedAttributeDefinitionThresholdOperator) ToCalculatedAttributeDefinitionThresholdOperatorPtrOutput() CalculatedAttributeDefinitionThresholdOperatorPtrOutput {
+	return e.ToCalculatedAttributeDefinitionThresholdOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e CalculatedAttributeDefinitionThresholdOperator) ToCalculatedAttributeDefinitionThresholdOperatorPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdOperatorPtrOutput {
+	return CalculatedAttributeDefinitionThresholdOperator(e).ToCalculatedAttributeDefinitionThresholdOperatorOutputWithContext(ctx).ToCalculatedAttributeDefinitionThresholdOperatorPtrOutputWithContext(ctx)
+}
+
+func (e CalculatedAttributeDefinitionThresholdOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CalculatedAttributeDefinitionThresholdOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CalculatedAttributeDefinitionThresholdOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CalculatedAttributeDefinitionThresholdOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CalculatedAttributeDefinitionThresholdOperatorOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionThresholdOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionThresholdOperator)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToCalculatedAttributeDefinitionThresholdOperatorOutput() CalculatedAttributeDefinitionThresholdOperatorOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToCalculatedAttributeDefinitionThresholdOperatorOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdOperatorOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToCalculatedAttributeDefinitionThresholdOperatorPtrOutput() CalculatedAttributeDefinitionThresholdOperatorPtrOutput {
+	return o.ToCalculatedAttributeDefinitionThresholdOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToCalculatedAttributeDefinitionThresholdOperatorPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CalculatedAttributeDefinitionThresholdOperator) *CalculatedAttributeDefinitionThresholdOperator {
+		return &v
+	}).(CalculatedAttributeDefinitionThresholdOperatorPtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CalculatedAttributeDefinitionThresholdOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CalculatedAttributeDefinitionThresholdOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CalculatedAttributeDefinitionThresholdOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionThresholdOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionThresholdOperator)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) ToCalculatedAttributeDefinitionThresholdOperatorPtrOutput() CalculatedAttributeDefinitionThresholdOperatorPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) ToCalculatedAttributeDefinitionThresholdOperatorPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdOperatorPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) Elem() CalculatedAttributeDefinitionThresholdOperatorOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionThresholdOperator) CalculatedAttributeDefinitionThresholdOperator {
+		if v != nil {
+			return *v
+		}
+		var ret CalculatedAttributeDefinitionThresholdOperator
+		return ret
+	}).(CalculatedAttributeDefinitionThresholdOperatorOutput)
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CalculatedAttributeDefinitionThresholdOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CalculatedAttributeDefinitionThresholdOperatorInput is an input type that accepts CalculatedAttributeDefinitionThresholdOperatorArgs and CalculatedAttributeDefinitionThresholdOperatorOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionThresholdOperatorInput` via:
+//
+//	CalculatedAttributeDefinitionThresholdOperatorArgs{...}
+type CalculatedAttributeDefinitionThresholdOperatorInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionThresholdOperatorOutput() CalculatedAttributeDefinitionThresholdOperatorOutput
+	ToCalculatedAttributeDefinitionThresholdOperatorOutputWithContext(context.Context) CalculatedAttributeDefinitionThresholdOperatorOutput
+}
+
+var calculatedAttributeDefinitionThresholdOperatorPtrType = reflect.TypeOf((**CalculatedAttributeDefinitionThresholdOperator)(nil)).Elem()
+
+type CalculatedAttributeDefinitionThresholdOperatorPtrInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionThresholdOperatorPtrOutput() CalculatedAttributeDefinitionThresholdOperatorPtrOutput
+	ToCalculatedAttributeDefinitionThresholdOperatorPtrOutputWithContext(context.Context) CalculatedAttributeDefinitionThresholdOperatorPtrOutput
+}
+
+type calculatedAttributeDefinitionThresholdOperatorPtr string
+
+func CalculatedAttributeDefinitionThresholdOperatorPtr(v string) CalculatedAttributeDefinitionThresholdOperatorPtrInput {
+	return (*calculatedAttributeDefinitionThresholdOperatorPtr)(&v)
+}
+
+func (*calculatedAttributeDefinitionThresholdOperatorPtr) ElementType() reflect.Type {
+	return calculatedAttributeDefinitionThresholdOperatorPtrType
+}
+
+func (in *calculatedAttributeDefinitionThresholdOperatorPtr) ToCalculatedAttributeDefinitionThresholdOperatorPtrOutput() CalculatedAttributeDefinitionThresholdOperatorPtrOutput {
+	return pulumi.ToOutput(in).(CalculatedAttributeDefinitionThresholdOperatorPtrOutput)
+}
+
+func (in *calculatedAttributeDefinitionThresholdOperatorPtr) ToCalculatedAttributeDefinitionThresholdOperatorPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CalculatedAttributeDefinitionThresholdOperatorPtrOutput)
+}
+
+// The operational state of destination stream for export.
+type EventStreamStateEnum string
+
+const (
+	EventStreamStateEnumRunning = EventStreamStateEnum("RUNNING")
+	EventStreamStateEnumStopped = EventStreamStateEnum("STOPPED")
+)
+
+type EventStreamStateEnumOutput struct{ *pulumi.OutputState }
+
+func (EventStreamStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventStreamStateEnum)(nil)).Elem()
+}
+
+func (o EventStreamStateEnumOutput) ToEventStreamStateEnumOutput() EventStreamStateEnumOutput {
+	return o
+}
+
+func (o EventStreamStateEnumOutput) ToEventStreamStateEnumOutputWithContext(ctx context.Context) EventStreamStateEnumOutput {
+	return o
+}
+
+func (o EventStreamStateEnumOutput) ToEventStreamStateEnumPtrOutput() EventStreamStateEnumPtrOutput {
+	return o.ToEventStreamStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o EventStreamStateEnumOutput) ToEventStreamStateEnumPtrOutputWithContext(ctx context.Context) EventStreamStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventStreamStateEnum) *EventStreamStateEnum {
+		return &v
+	}).(EventStreamStateEnumPtrOutput)
+}
+
+func (o EventStreamStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventStreamStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventStreamStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventStreamStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventStreamStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventStreamStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventStreamStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (EventStreamStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventStreamStateEnum)(nil)).Elem()
+}
+
+func (o EventStreamStateEnumPtrOutput) ToEventStreamStateEnumPtrOutput() EventStreamStateEnumPtrOutput {
+	return o
+}
+
+func (o EventStreamStateEnumPtrOutput) ToEventStreamStateEnumPtrOutputWithContext(ctx context.Context) EventStreamStateEnumPtrOutput {
+	return o
+}
+
+func (o EventStreamStateEnumPtrOutput) Elem() EventStreamStateEnumOutput {
+	return o.ApplyT(func(v *EventStreamStateEnum) EventStreamStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret EventStreamStateEnum
+		return ret
+	}).(EventStreamStateEnumOutput)
+}
+
+func (o EventStreamStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventStreamStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventStreamStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of enabling the Kinesis stream as a destination for export.
+type EventStreamStatus string
+
+const (
+	EventStreamStatusHealthy   = EventStreamStatus("HEALTHY")
+	EventStreamStatusUnhealthy = EventStreamStatus("UNHEALTHY")
+)
+
+type EventStreamStatusOutput struct{ *pulumi.OutputState }
+
+func (EventStreamStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventStreamStatus)(nil)).Elem()
+}
+
+func (o EventStreamStatusOutput) ToEventStreamStatusOutput() EventStreamStatusOutput {
+	return o
+}
+
+func (o EventStreamStatusOutput) ToEventStreamStatusOutputWithContext(ctx context.Context) EventStreamStatusOutput {
+	return o
+}
+
+func (o EventStreamStatusOutput) ToEventStreamStatusPtrOutput() EventStreamStatusPtrOutput {
+	return o.ToEventStreamStatusPtrOutputWithContext(context.Background())
+}
+
+func (o EventStreamStatusOutput) ToEventStreamStatusPtrOutputWithContext(ctx context.Context) EventStreamStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventStreamStatus) *EventStreamStatus {
+		return &v
+	}).(EventStreamStatusPtrOutput)
+}
+
+func (o EventStreamStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventStreamStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventStreamStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventStreamStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventStreamStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventStreamStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventStreamStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (EventStreamStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventStreamStatus)(nil)).Elem()
+}
+
+func (o EventStreamStatusPtrOutput) ToEventStreamStatusPtrOutput() EventStreamStatusPtrOutput {
+	return o
+}
+
+func (o EventStreamStatusPtrOutput) ToEventStreamStatusPtrOutputWithContext(ctx context.Context) EventStreamStatusPtrOutput {
+	return o
+}
+
+func (o EventStreamStatusPtrOutput) Elem() EventStreamStatusOutput {
+	return o.ApplyT(func(v *EventStreamStatus) EventStreamStatus {
+		if v != nil {
+			return *v
+		}
+		var ret EventStreamStatus
+		return ret
+	}).(EventStreamStatusOutput)
+}
+
+func (o EventStreamStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventStreamStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventStreamStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type IntegrationConnectorType string
 
 const (
@@ -2134,6 +2818,12 @@ func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) Index(i pulumi.IntInput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionRangeUnitInput)(nil)).Elem(), CalculatedAttributeDefinitionRangeUnit("DAYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionRangeUnitPtrInput)(nil)).Elem(), CalculatedAttributeDefinitionRangeUnit("DAYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionStatisticInput)(nil)).Elem(), CalculatedAttributeDefinitionStatistic("FIRST_OCCURRENCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionStatisticPtrInput)(nil)).Elem(), CalculatedAttributeDefinitionStatistic("FIRST_OCCURRENCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionThresholdOperatorInput)(nil)).Elem(), CalculatedAttributeDefinitionThresholdOperator("EQUAL_TO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionThresholdOperatorPtrInput)(nil)).Elem(), CalculatedAttributeDefinitionThresholdOperator("EQUAL_TO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorTypeInput)(nil)).Elem(), IntegrationConnectorType("Salesforce"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorTypePtrInput)(nil)).Elem(), IntegrationConnectorType("Salesforce"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationMarketoConnectorOperatorInput)(nil)).Elem(), IntegrationMarketoConnectorOperator("PROJECTION"))
@@ -2159,6 +2849,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyStandardIdentifiersItemInput)(nil)).Elem(), ObjectTypeKeyStandardIdentifiersItem("PROFILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyStandardIdentifiersItemPtrInput)(nil)).Elem(), ObjectTypeKeyStandardIdentifiersItem("PROFILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyStandardIdentifiersItemArrayInput)(nil)).Elem(), ObjectTypeKeyStandardIdentifiersItemArray{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionRangeUnitOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionRangeUnitPtrOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionStatisticOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionStatisticPtrOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionThresholdOperatorOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionThresholdOperatorPtrOutput{})
+	pulumi.RegisterOutputType(EventStreamStateEnumOutput{})
+	pulumi.RegisterOutputType(EventStreamStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(EventStreamStatusOutput{})
+	pulumi.RegisterOutputType(EventStreamStatusPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationConnectorTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationConnectorTypePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationMarketoConnectorOperatorOutput{})

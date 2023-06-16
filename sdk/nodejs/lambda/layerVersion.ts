@@ -38,6 +38,10 @@ export class LayerVersion extends pulumi.CustomResource {
     }
 
     /**
+     * A list of compatible instruction set architectures.
+     */
+    public readonly compatibleArchitectures!: pulumi.Output<string[] | undefined>;
+    /**
      * A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
      */
     public readonly compatibleRuntimes!: pulumi.Output<string[] | undefined>;
@@ -53,6 +57,7 @@ export class LayerVersion extends pulumi.CustomResource {
      * The name or Amazon Resource Name (ARN) of the layer.
      */
     public readonly layerName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly layerVersionArn!: pulumi.Output<string>;
     /**
      * The layer's software license.
      */
@@ -72,16 +77,20 @@ export class LayerVersion extends pulumi.CustomResource {
             if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
+            resourceInputs["compatibleArchitectures"] = args ? args.compatibleArchitectures : undefined;
             resourceInputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
             resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["layerName"] = args ? args.layerName : undefined;
             resourceInputs["licenseInfo"] = args ? args.licenseInfo : undefined;
+            resourceInputs["layerVersionArn"] = undefined /*out*/;
         } else {
+            resourceInputs["compatibleArchitectures"] = undefined /*out*/;
             resourceInputs["compatibleRuntimes"] = undefined /*out*/;
             resourceInputs["content"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["layerName"] = undefined /*out*/;
+            resourceInputs["layerVersionArn"] = undefined /*out*/;
             resourceInputs["licenseInfo"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -93,6 +102,10 @@ export class LayerVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a LayerVersion resource.
  */
 export interface LayerVersionArgs {
+    /**
+     * A list of compatible instruction set architectures.
+     */
+    compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
      */

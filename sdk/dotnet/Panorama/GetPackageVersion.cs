@@ -70,7 +70,6 @@ namespace Pulumi.AwsNative.Panorama
         public readonly int? RegisteredTime;
         public readonly Pulumi.AwsNative.Panorama.PackageVersionStatus? Status;
         public readonly string? StatusDescription;
-        public readonly string? UpdatedLatestPatchVersion;
 
         [OutputConstructor]
         private GetPackageVersionResult(
@@ -86,9 +85,7 @@ namespace Pulumi.AwsNative.Panorama
 
             Pulumi.AwsNative.Panorama.PackageVersionStatus? status,
 
-            string? statusDescription,
-
-            string? updatedLatestPatchVersion)
+            string? statusDescription)
         {
             IsLatestPatch = isLatestPatch;
             MarkLatest = markLatest;
@@ -97,7 +94,6 @@ namespace Pulumi.AwsNative.Panorama
             RegisteredTime = registeredTime;
             Status = status;
             StatusDescription = statusDescription;
-            UpdatedLatestPatchVersion = updatedLatestPatchVersion;
         }
     }
 }

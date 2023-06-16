@@ -39,6 +39,37 @@ namespace Pulumi.AwsNative.IVS
     }
 
     /// <summary>
+    /// Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelPreset : IEquatable<ChannelPreset>
+    {
+        private readonly string _value;
+
+        private ChannelPreset(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelPreset HigherBandwidthDelivery { get; } = new ChannelPreset("HIGHER_BANDWIDTH_DELIVERY");
+        public static ChannelPreset ConstrainedBandwidthDelivery { get; } = new ChannelPreset("CONSTRAINED_BANDWIDTH_DELIVERY");
+
+        public static bool operator ==(ChannelPreset left, ChannelPreset right) => left.Equals(right);
+        public static bool operator !=(ChannelPreset left, ChannelPreset right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelPreset value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelPreset other && Equals(other);
+        public bool Equals(ChannelPreset other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
     /// </summary>
     [EnumType]
@@ -53,6 +84,8 @@ namespace Pulumi.AwsNative.IVS
 
         public static ChannelType Standard { get; } = new ChannelType("STANDARD");
         public static ChannelType Basic { get; } = new ChannelType("BASIC");
+        public static ChannelType AdvancedSd { get; } = new ChannelType("ADVANCED_SD");
+        public static ChannelType AdvancedHd { get; } = new ChannelType("ADVANCED_HD");
 
         public static bool operator ==(ChannelType left, ChannelType right) => left.Equals(right);
         public static bool operator !=(ChannelType left, ChannelType right) => !left.Equals(right);

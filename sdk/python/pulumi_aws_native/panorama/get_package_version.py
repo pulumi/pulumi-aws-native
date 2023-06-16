@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPackageVersionResult:
-    def __init__(__self__, is_latest_patch=None, mark_latest=None, package_arn=None, package_name=None, registered_time=None, status=None, status_description=None, updated_latest_patch_version=None):
+    def __init__(__self__, is_latest_patch=None, mark_latest=None, package_arn=None, package_name=None, registered_time=None, status=None, status_description=None):
         if is_latest_patch and not isinstance(is_latest_patch, bool):
             raise TypeError("Expected argument 'is_latest_patch' to be a bool")
         pulumi.set(__self__, "is_latest_patch", is_latest_patch)
@@ -41,9 +41,6 @@ class GetPackageVersionResult:
         if status_description and not isinstance(status_description, str):
             raise TypeError("Expected argument 'status_description' to be a str")
         pulumi.set(__self__, "status_description", status_description)
-        if updated_latest_patch_version and not isinstance(updated_latest_patch_version, str):
-            raise TypeError("Expected argument 'updated_latest_patch_version' to be a str")
-        pulumi.set(__self__, "updated_latest_patch_version", updated_latest_patch_version)
 
     @property
     @pulumi.getter(name="isLatestPatch")
@@ -80,11 +77,6 @@ class GetPackageVersionResult:
     def status_description(self) -> Optional[str]:
         return pulumi.get(self, "status_description")
 
-    @property
-    @pulumi.getter(name="updatedLatestPatchVersion")
-    def updated_latest_patch_version(self) -> Optional[str]:
-        return pulumi.get(self, "updated_latest_patch_version")
-
 
 class AwaitableGetPackageVersionResult(GetPackageVersionResult):
     # pylint: disable=using-constant-test
@@ -98,8 +90,7 @@ class AwaitableGetPackageVersionResult(GetPackageVersionResult):
             package_name=self.package_name,
             registered_time=self.registered_time,
             status=self.status,
-            status_description=self.status_description,
-            updated_latest_patch_version=self.updated_latest_patch_version)
+            status_description=self.status_description)
 
 
 def get_package_version(package_id: Optional[str] = None,
@@ -123,8 +114,7 @@ def get_package_version(package_id: Optional[str] = None,
         package_name=__ret__.package_name,
         registered_time=__ret__.registered_time,
         status=__ret__.status,
-        status_description=__ret__.status_description,
-        updated_latest_patch_version=__ret__.updated_latest_patch_version)
+        status_description=__ret__.status_description)
 
 
 @_utilities.lift_output_func(get_package_version)

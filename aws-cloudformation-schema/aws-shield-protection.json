@@ -121,16 +121,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "shield:CreateProtection", "shield:DescribeProtection", "shield:ListProtections", "shield:EnableApplicationLayerAutomaticResponse", "shield:AssociateHealthCheck", "ec2:DescribeAddresses", "elasticloadbalancing:DescribeLoadBalancers" ]
+      "permissions" : [ "shield:CreateProtection", "shield:DeleteProtection", "shield:DescribeProtection", "shield:ListProtections", "shield:EnableApplicationLayerAutomaticResponse", "shield:AssociateHealthCheck", "shield:TagResource", "ec2:DescribeAddresses", "elasticloadbalancing:DescribeLoadBalancers", "route53:GetHealthCheck", "iam:GetRole", "iam:CreateServiceLinkedRole", "wafv2:GetWebACLForResource", "wafv2:GetWebACL" ]
     },
     "delete" : {
-      "permissions" : [ "shield:DeleteProtection" ]
+      "permissions" : [ "shield:DeleteProtection", "shield:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "shield:DescribeProtection", "shield:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "shield:DescribeProtection", "shield:AssociateHealthCheck", "shield:DisassociateHealthCheck", "shield:EnableApplicationLayerAutomaticResponse", "shield:UpdateApplicationLayerAutomaticResponse", "shield:DisableApplicationLayerAutomaticResponse", "shield:ListTagsForResource", "shield:TagResource", "shield:UntagResource" ]
+      "permissions" : [ "shield:DescribeProtection", "shield:AssociateHealthCheck", "shield:DisassociateHealthCheck", "shield:EnableApplicationLayerAutomaticResponse", "shield:UpdateApplicationLayerAutomaticResponse", "shield:DisableApplicationLayerAutomaticResponse", "shield:ListTagsForResource", "shield:TagResource", "shield:UntagResource", "route53:GetHealthCheck", "iam:GetRole", "iam:CreateServiceLinkedRole", "wafv2:GetWebACLForResource", "wafv2:GetWebACL" ]
     },
     "list" : {
       "permissions" : [ "shield:ListProtections" ]

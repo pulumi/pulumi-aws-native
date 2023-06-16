@@ -22,7 +22,6 @@ type ApplicationInstance struct {
 	DefaultRuntimeContextDevice     pulumi.StringOutput                                  `pulumi:"defaultRuntimeContextDevice"`
 	DefaultRuntimeContextDeviceName pulumi.StringOutput                                  `pulumi:"defaultRuntimeContextDeviceName"`
 	Description                     pulumi.StringPtrOutput                               `pulumi:"description"`
-	DeviceId                        pulumi.StringPtrOutput                               `pulumi:"deviceId"`
 	HealthStatus                    ApplicationInstanceHealthStatusOutput                `pulumi:"healthStatus"`
 	LastUpdatedTime                 pulumi.IntOutput                                     `pulumi:"lastUpdatedTime"`
 	ManifestOverridesPayload        ApplicationInstanceManifestOverridesPayloadPtrOutput `pulumi:"manifestOverridesPayload"`
@@ -31,7 +30,6 @@ type ApplicationInstance struct {
 	RuntimeRoleArn                  pulumi.StringPtrOutput                               `pulumi:"runtimeRoleArn"`
 	Status                          ApplicationInstanceStatusOutput                      `pulumi:"status"`
 	StatusDescription               pulumi.StringOutput                                  `pulumi:"statusDescription"`
-	StatusFilter                    ApplicationInstanceStatusFilterPtrOutput             `pulumi:"statusFilter"`
 	Tags                            ApplicationInstanceTagArrayOutput                    `pulumi:"tags"`
 }
 
@@ -83,12 +81,10 @@ type applicationInstanceArgs struct {
 	ApplicationInstanceIdToReplace *string                                      `pulumi:"applicationInstanceIdToReplace"`
 	DefaultRuntimeContextDevice    string                                       `pulumi:"defaultRuntimeContextDevice"`
 	Description                    *string                                      `pulumi:"description"`
-	DeviceId                       *string                                      `pulumi:"deviceId"`
 	ManifestOverridesPayload       *ApplicationInstanceManifestOverridesPayload `pulumi:"manifestOverridesPayload"`
 	ManifestPayload                ApplicationInstanceManifestPayload           `pulumi:"manifestPayload"`
 	Name                           *string                                      `pulumi:"name"`
 	RuntimeRoleArn                 *string                                      `pulumi:"runtimeRoleArn"`
-	StatusFilter                   *ApplicationInstanceStatusFilter             `pulumi:"statusFilter"`
 	Tags                           []ApplicationInstanceTag                     `pulumi:"tags"`
 }
 
@@ -97,12 +93,10 @@ type ApplicationInstanceArgs struct {
 	ApplicationInstanceIdToReplace pulumi.StringPtrInput
 	DefaultRuntimeContextDevice    pulumi.StringInput
 	Description                    pulumi.StringPtrInput
-	DeviceId                       pulumi.StringPtrInput
 	ManifestOverridesPayload       ApplicationInstanceManifestOverridesPayloadPtrInput
 	ManifestPayload                ApplicationInstanceManifestPayloadInput
 	Name                           pulumi.StringPtrInput
 	RuntimeRoleArn                 pulumi.StringPtrInput
-	StatusFilter                   ApplicationInstanceStatusFilterPtrInput
 	Tags                           ApplicationInstanceTagArrayInput
 }
 
@@ -171,10 +165,6 @@ func (o ApplicationInstanceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationInstanceOutput) DeviceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringPtrOutput { return v.DeviceId }).(pulumi.StringPtrOutput)
-}
-
 func (o ApplicationInstanceOutput) HealthStatus() ApplicationInstanceHealthStatusOutput {
 	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceHealthStatusOutput { return v.HealthStatus }).(ApplicationInstanceHealthStatusOutput)
 }
@@ -207,10 +197,6 @@ func (o ApplicationInstanceOutput) Status() ApplicationInstanceStatusOutput {
 
 func (o ApplicationInstanceOutput) StatusDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.StatusDescription }).(pulumi.StringOutput)
-}
-
-func (o ApplicationInstanceOutput) StatusFilter() ApplicationInstanceStatusFilterPtrOutput {
-	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceStatusFilterPtrOutput { return v.StatusFilter }).(ApplicationInstanceStatusFilterPtrOutput)
 }
 
 func (o ApplicationInstanceOutput) Tags() ApplicationInstanceTagArrayOutput {

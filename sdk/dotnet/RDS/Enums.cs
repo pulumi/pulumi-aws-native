@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AwsNative.RDS
 {
     /// <summary>
+    /// The availability status to be assigned to the CEV.
+    /// </summary>
+    [EnumType]
+    public readonly struct CustomDBEngineVersionStatus : IEquatable<CustomDBEngineVersionStatus>
+    {
+        private readonly string _value;
+
+        private CustomDBEngineVersionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomDBEngineVersionStatus Available { get; } = new CustomDBEngineVersionStatus("available");
+        public static CustomDBEngineVersionStatus Inactive { get; } = new CustomDBEngineVersionStatus("inactive");
+        public static CustomDBEngineVersionStatus InactiveExceptRestore { get; } = new CustomDBEngineVersionStatus("inactive-except-restore");
+
+        public static bool operator ==(CustomDBEngineVersionStatus left, CustomDBEngineVersionStatus right) => left.Equals(right);
+        public static bool operator !=(CustomDBEngineVersionStatus left, CustomDBEngineVersionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CustomDBEngineVersionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomDBEngineVersionStatus other && Equals(other);
+        public bool Equals(CustomDBEngineVersionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The name of the processor feature. Valid names are coreCount and threadsPerCore.
     /// </summary>
     [EnumType]

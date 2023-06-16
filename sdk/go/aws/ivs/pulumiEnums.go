@@ -175,12 +175,179 @@ func (in *channelLatencyModePtr) ToChannelLatencyModePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelLatencyModePtrOutput)
 }
 
+// Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+type ChannelPreset string
+
+const (
+	ChannelPresetHigherBandwidthDelivery      = ChannelPreset("HIGHER_BANDWIDTH_DELIVERY")
+	ChannelPresetConstrainedBandwidthDelivery = ChannelPreset("CONSTRAINED_BANDWIDTH_DELIVERY")
+)
+
+func (ChannelPreset) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPreset)(nil)).Elem()
+}
+
+func (e ChannelPreset) ToChannelPresetOutput() ChannelPresetOutput {
+	return pulumi.ToOutput(e).(ChannelPresetOutput)
+}
+
+func (e ChannelPreset) ToChannelPresetOutputWithContext(ctx context.Context) ChannelPresetOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelPresetOutput)
+}
+
+func (e ChannelPreset) ToChannelPresetPtrOutput() ChannelPresetPtrOutput {
+	return e.ToChannelPresetPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelPreset) ToChannelPresetPtrOutputWithContext(ctx context.Context) ChannelPresetPtrOutput {
+	return ChannelPreset(e).ToChannelPresetOutputWithContext(ctx).ToChannelPresetPtrOutputWithContext(ctx)
+}
+
+func (e ChannelPreset) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelPreset) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelPreset) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelPreset) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelPresetOutput struct{ *pulumi.OutputState }
+
+func (ChannelPresetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPreset)(nil)).Elem()
+}
+
+func (o ChannelPresetOutput) ToChannelPresetOutput() ChannelPresetOutput {
+	return o
+}
+
+func (o ChannelPresetOutput) ToChannelPresetOutputWithContext(ctx context.Context) ChannelPresetOutput {
+	return o
+}
+
+func (o ChannelPresetOutput) ToChannelPresetPtrOutput() ChannelPresetPtrOutput {
+	return o.ToChannelPresetPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelPresetOutput) ToChannelPresetPtrOutputWithContext(ctx context.Context) ChannelPresetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelPreset) *ChannelPreset {
+		return &v
+	}).(ChannelPresetPtrOutput)
+}
+
+func (o ChannelPresetOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelPresetOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelPreset) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelPresetOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelPresetOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelPreset) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelPresetPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelPresetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelPreset)(nil)).Elem()
+}
+
+func (o ChannelPresetPtrOutput) ToChannelPresetPtrOutput() ChannelPresetPtrOutput {
+	return o
+}
+
+func (o ChannelPresetPtrOutput) ToChannelPresetPtrOutputWithContext(ctx context.Context) ChannelPresetPtrOutput {
+	return o
+}
+
+func (o ChannelPresetPtrOutput) Elem() ChannelPresetOutput {
+	return o.ApplyT(func(v *ChannelPreset) ChannelPreset {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelPreset
+		return ret
+	}).(ChannelPresetOutput)
+}
+
+func (o ChannelPresetPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelPresetPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelPreset) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelPresetInput is an input type that accepts ChannelPresetArgs and ChannelPresetOutput values.
+// You can construct a concrete instance of `ChannelPresetInput` via:
+//
+//	ChannelPresetArgs{...}
+type ChannelPresetInput interface {
+	pulumi.Input
+
+	ToChannelPresetOutput() ChannelPresetOutput
+	ToChannelPresetOutputWithContext(context.Context) ChannelPresetOutput
+}
+
+var channelPresetPtrType = reflect.TypeOf((**ChannelPreset)(nil)).Elem()
+
+type ChannelPresetPtrInput interface {
+	pulumi.Input
+
+	ToChannelPresetPtrOutput() ChannelPresetPtrOutput
+	ToChannelPresetPtrOutputWithContext(context.Context) ChannelPresetPtrOutput
+}
+
+type channelPresetPtr string
+
+func ChannelPresetPtr(v string) ChannelPresetPtrInput {
+	return (*channelPresetPtr)(&v)
+}
+
+func (*channelPresetPtr) ElementType() reflect.Type {
+	return channelPresetPtrType
+}
+
+func (in *channelPresetPtr) ToChannelPresetPtrOutput() ChannelPresetPtrOutput {
+	return pulumi.ToOutput(in).(ChannelPresetPtrOutput)
+}
+
+func (in *channelPresetPtr) ToChannelPresetPtrOutputWithContext(ctx context.Context) ChannelPresetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelPresetPtrOutput)
+}
+
 // Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
 type ChannelType string
 
 const (
-	ChannelTypeStandard = ChannelType("STANDARD")
-	ChannelTypeBasic    = ChannelType("BASIC")
+	ChannelTypeStandard   = ChannelType("STANDARD")
+	ChannelTypeBasic      = ChannelType("BASIC")
+	ChannelTypeAdvancedSd = ChannelType("ADVANCED_SD")
+	ChannelTypeAdvancedHd = ChannelType("ADVANCED_HD")
 )
 
 func (ChannelType) ElementType() reflect.Type {
@@ -600,12 +767,16 @@ func (in *recordingConfigurationThumbnailConfigurationRecordingModePtr) ToRecord
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModeInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModePtrInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPresetInput)(nil)).Elem(), ChannelPreset("HIGHER_BANDWIDTH_DELIVERY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPresetPtrInput)(nil)).Elem(), ChannelPreset("HIGHER_BANDWIDTH_DELIVERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypeInput)(nil)).Elem(), ChannelType("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypePtrInput)(nil)).Elem(), ChannelType("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationRecordingModeInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationRecordingMode("INTERVAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationRecordingModePtrInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationRecordingMode("INTERVAL"))
 	pulumi.RegisterOutputType(ChannelLatencyModeOutput{})
 	pulumi.RegisterOutputType(ChannelLatencyModePtrOutput{})
+	pulumi.RegisterOutputType(ChannelPresetOutput{})
+	pulumi.RegisterOutputType(ChannelPresetPtrOutput{})
 	pulumi.RegisterOutputType(ChannelTypeOutput{})
 	pulumi.RegisterOutputType(ChannelTypePtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationStateEnumOutput{})

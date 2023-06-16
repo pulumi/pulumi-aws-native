@@ -36,9 +36,6 @@ namespace Pulumi.AwsNative.Panorama
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("deviceId")]
-        public Output<string?> DeviceId { get; private set; } = null!;
-
         [Output("healthStatus")]
         public Output<Pulumi.AwsNative.Panorama.ApplicationInstanceHealthStatus> HealthStatus { get; private set; } = null!;
 
@@ -62,9 +59,6 @@ namespace Pulumi.AwsNative.Panorama
 
         [Output("statusDescription")]
         public Output<string> StatusDescription { get; private set; } = null!;
-
-        [Output("statusFilter")]
-        public Output<Pulumi.AwsNative.Panorama.ApplicationInstanceStatusFilter?> StatusFilter { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ApplicationInstanceTag>> Tags { get; private set; } = null!;
@@ -123,9 +117,6 @@ namespace Pulumi.AwsNative.Panorama
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("deviceId")]
-        public Input<string>? DeviceId { get; set; }
-
         [Input("manifestOverridesPayload")]
         public Input<Inputs.ApplicationInstanceManifestOverridesPayloadArgs>? ManifestOverridesPayload { get; set; }
 
@@ -137,9 +128,6 @@ namespace Pulumi.AwsNative.Panorama
 
         [Input("runtimeRoleArn")]
         public Input<string>? RuntimeRoleArn { get; set; }
-
-        [Input("statusFilter")]
-        public Input<Pulumi.AwsNative.Panorama.ApplicationInstanceStatusFilter>? StatusFilter { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ApplicationInstanceTagArgs>? _tags;

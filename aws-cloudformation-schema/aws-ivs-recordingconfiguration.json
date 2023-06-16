@@ -116,19 +116,19 @@
   "createOnlyProperties" : [ "/properties/Name", "/properties/DestinationConfiguration", "/properties/DestinationConfiguration/S3", "/properties/DestinationConfiguration/S3/BucketName", "/properties/RecordingReconnectWindowSeconds", "/properties/ThumbnailConfiguration", "/properties/ThumbnailConfiguration/RecordingMode", "/properties/ThumbnailConfiguration/TargetIntervalSeconds" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ivs:CreateRecordingConfiguration", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy", "iam:AttachRolePolicy", "s3:ListBucket", "s3:GetBucketLocation", "cloudformation:ListExports" ]
+      "permissions" : [ "ivs:CreateRecordingConfiguration", "ivs:GetRecordingConfiguration", "ivs:TagResource", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy", "iam:AttachRolePolicy", "s3:ListBucket", "s3:GetBucketLocation", "cloudformation:ListExports" ]
     },
     "read" : {
-      "permissions" : [ "ivs:GetRecordingConfiguration" ]
+      "permissions" : [ "ivs:GetRecordingConfiguration", "s3:GetBucketLocation", "ivs:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "sts:AssumeRole", "iam:CreateServiceLinkedRole", "ivs:TagResource", "ivs:UntagResource", "ivs:ListTagsForResource" ]
+      "permissions" : [ "ivs:GetRecordingConfiguration", "sts:AssumeRole", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy", "iam:AttachRolePolicy", "s3:ListBucket", "ivs:TagResource", "ivs:UntagResource", "ivs:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "ivs:DeleteRecordingConfiguration", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "ivs:DeleteRecordingConfiguration", "ivs:UntagResource", "iam:CreateServiceLinkedRole" ]
     },
     "list" : {
-      "permissions" : [ "ivs:ListRecordingConfigurations" ]
+      "permissions" : [ "ivs:ListRecordingConfigurations", "s3:GetBucketLocation", "ivs:ListTagsForResource" ]
     }
   }
 }

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationInstanceResult:
-    def __init__(__self__, application_instance_id=None, arn=None, created_time=None, default_runtime_context_device_name=None, device_id=None, health_status=None, last_updated_time=None, status=None, status_description=None, status_filter=None, tags=None):
+    def __init__(__self__, application_instance_id=None, arn=None, created_time=None, default_runtime_context_device_name=None, health_status=None, last_updated_time=None, status=None, status_description=None, tags=None):
         if application_instance_id and not isinstance(application_instance_id, str):
             raise TypeError("Expected argument 'application_instance_id' to be a str")
         pulumi.set(__self__, "application_instance_id", application_instance_id)
@@ -33,9 +33,6 @@ class GetApplicationInstanceResult:
         if default_runtime_context_device_name and not isinstance(default_runtime_context_device_name, str):
             raise TypeError("Expected argument 'default_runtime_context_device_name' to be a str")
         pulumi.set(__self__, "default_runtime_context_device_name", default_runtime_context_device_name)
-        if device_id and not isinstance(device_id, str):
-            raise TypeError("Expected argument 'device_id' to be a str")
-        pulumi.set(__self__, "device_id", device_id)
         if health_status and not isinstance(health_status, str):
             raise TypeError("Expected argument 'health_status' to be a str")
         pulumi.set(__self__, "health_status", health_status)
@@ -48,9 +45,6 @@ class GetApplicationInstanceResult:
         if status_description and not isinstance(status_description, str):
             raise TypeError("Expected argument 'status_description' to be a str")
         pulumi.set(__self__, "status_description", status_description)
-        if status_filter and not isinstance(status_filter, str):
-            raise TypeError("Expected argument 'status_filter' to be a str")
-        pulumi.set(__self__, "status_filter", status_filter)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -76,11 +70,6 @@ class GetApplicationInstanceResult:
         return pulumi.get(self, "default_runtime_context_device_name")
 
     @property
-    @pulumi.getter(name="deviceId")
-    def device_id(self) -> Optional[str]:
-        return pulumi.get(self, "device_id")
-
-    @property
     @pulumi.getter(name="healthStatus")
     def health_status(self) -> Optional['ApplicationInstanceHealthStatus']:
         return pulumi.get(self, "health_status")
@@ -101,11 +90,6 @@ class GetApplicationInstanceResult:
         return pulumi.get(self, "status_description")
 
     @property
-    @pulumi.getter(name="statusFilter")
-    def status_filter(self) -> Optional['ApplicationInstanceStatusFilter']:
-        return pulumi.get(self, "status_filter")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ApplicationInstanceTag']]:
         return pulumi.get(self, "tags")
@@ -121,12 +105,10 @@ class AwaitableGetApplicationInstanceResult(GetApplicationInstanceResult):
             arn=self.arn,
             created_time=self.created_time,
             default_runtime_context_device_name=self.default_runtime_context_device_name,
-            device_id=self.device_id,
             health_status=self.health_status,
             last_updated_time=self.last_updated_time,
             status=self.status,
             status_description=self.status_description,
-            status_filter=self.status_filter,
             tags=self.tags)
 
 
@@ -145,12 +127,10 @@ def get_application_instance(application_instance_id: Optional[str] = None,
         arn=__ret__.arn,
         created_time=__ret__.created_time,
         default_runtime_context_device_name=__ret__.default_runtime_context_device_name,
-        device_id=__ret__.device_id,
         health_status=__ret__.health_status,
         last_updated_time=__ret__.last_updated_time,
         status=__ret__.status,
         status_description=__ret__.status_description,
-        status_filter=__ret__.status_filter,
         tags=__ret__.tags)
 
 

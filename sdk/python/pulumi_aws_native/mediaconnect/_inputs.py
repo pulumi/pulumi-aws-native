@@ -11,6 +11,20 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'BridgeEgressGatewayBridgeArgs',
+    'BridgeFailoverConfigArgs',
+    'BridgeFlowSourceArgs',
+    'BridgeIngressGatewayBridgeArgs',
+    'BridgeNetworkOutputArgs',
+    'BridgeNetworkSourceArgs',
+    'BridgeOutputResourceBridgeNetworkOutputArgs',
+    'BridgeOutputArgs',
+    'BridgeSourceBridgeFlowSourceArgs',
+    'BridgeSourceBridgeNetworkSourceArgs',
+    'BridgeSourcePriorityArgs',
+    'BridgeSourceVpcInterfaceAttachmentArgs',
+    'BridgeSourceArgs',
+    'BridgeVpcInterfaceAttachmentArgs',
     'FlowEncryptionArgs',
     'FlowEntitlementEncryptionArgs',
     'FlowFailoverConfigSourcePriorityPropertiesArgs',
@@ -19,7 +33,667 @@ __all__ = [
     'FlowOutputVpcInterfaceAttachmentArgs',
     'FlowSourceEncryptionArgs',
     'FlowSourceArgs',
+    'GatewayNetworkArgs',
 ]
+
+@pulumi.input_type
+class BridgeEgressGatewayBridgeArgs:
+    def __init__(__self__, *,
+                 max_bitrate: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_bitrate: The maximum expected bitrate of the egress bridge.
+        """
+        pulumi.set(__self__, "max_bitrate", max_bitrate)
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> pulumi.Input[int]:
+        """
+        The maximum expected bitrate of the egress bridge.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+    @max_bitrate.setter
+    def max_bitrate(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_bitrate", value)
+
+
+@pulumi.input_type
+class BridgeFailoverConfigArgs:
+    def __init__(__self__, *,
+                 failover_mode: pulumi.Input['BridgeFailoverModeEnum'],
+                 source_priority: Optional[pulumi.Input['BridgeSourcePriorityArgs']] = None,
+                 state: Optional[pulumi.Input['BridgeFailoverConfigStateEnum']] = None):
+        """
+        The settings for source failover.
+        :param pulumi.Input['BridgeFailoverModeEnum'] failover_mode: The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+        :param pulumi.Input['BridgeSourcePriorityArgs'] source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        """
+        pulumi.set(__self__, "failover_mode", failover_mode)
+        if source_priority is not None:
+            pulumi.set(__self__, "source_priority", source_priority)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="failoverMode")
+    def failover_mode(self) -> pulumi.Input['BridgeFailoverModeEnum']:
+        """
+        The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+        """
+        return pulumi.get(self, "failover_mode")
+
+    @failover_mode.setter
+    def failover_mode(self, value: pulumi.Input['BridgeFailoverModeEnum']):
+        pulumi.set(self, "failover_mode", value)
+
+    @property
+    @pulumi.getter(name="sourcePriority")
+    def source_priority(self) -> Optional[pulumi.Input['BridgeSourcePriorityArgs']]:
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        """
+        return pulumi.get(self, "source_priority")
+
+    @source_priority.setter
+    def source_priority(self, value: Optional[pulumi.Input['BridgeSourcePriorityArgs']]):
+        pulumi.set(self, "source_priority", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['BridgeFailoverConfigStateEnum']]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['BridgeFailoverConfigStateEnum']]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class BridgeFlowSourceArgs:
+    def __init__(__self__, *,
+                 flow_arn: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 flow_vpc_interface_attachment: Optional[pulumi.Input['BridgeVpcInterfaceAttachmentArgs']] = None):
+        """
+        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        :param pulumi.Input[str] flow_arn: The ARN of the cloud flow used as a source of this bridge.
+        :param pulumi.Input[str] name: The name of the flow source.
+        :param pulumi.Input['BridgeVpcInterfaceAttachmentArgs'] flow_vpc_interface_attachment: The name of the VPC interface attachment to use for this source.
+        """
+        pulumi.set(__self__, "flow_arn", flow_arn)
+        pulumi.set(__self__, "name", name)
+        if flow_vpc_interface_attachment is not None:
+            pulumi.set(__self__, "flow_vpc_interface_attachment", flow_vpc_interface_attachment)
+
+    @property
+    @pulumi.getter(name="flowArn")
+    def flow_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the cloud flow used as a source of this bridge.
+        """
+        return pulumi.get(self, "flow_arn")
+
+    @flow_arn.setter
+    def flow_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "flow_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the flow source.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="flowVpcInterfaceAttachment")
+    def flow_vpc_interface_attachment(self) -> Optional[pulumi.Input['BridgeVpcInterfaceAttachmentArgs']]:
+        """
+        The name of the VPC interface attachment to use for this source.
+        """
+        return pulumi.get(self, "flow_vpc_interface_attachment")
+
+    @flow_vpc_interface_attachment.setter
+    def flow_vpc_interface_attachment(self, value: Optional[pulumi.Input['BridgeVpcInterfaceAttachmentArgs']]):
+        pulumi.set(self, "flow_vpc_interface_attachment", value)
+
+
+@pulumi.input_type
+class BridgeIngressGatewayBridgeArgs:
+    def __init__(__self__, *,
+                 max_bitrate: pulumi.Input[int],
+                 max_outputs: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_bitrate: The maximum expected bitrate of the ingress bridge.
+        :param pulumi.Input[int] max_outputs: The maximum number of outputs on the ingress bridge.
+        """
+        pulumi.set(__self__, "max_bitrate", max_bitrate)
+        pulumi.set(__self__, "max_outputs", max_outputs)
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> pulumi.Input[int]:
+        """
+        The maximum expected bitrate of the ingress bridge.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+    @max_bitrate.setter
+    def max_bitrate(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_bitrate", value)
+
+    @property
+    @pulumi.getter(name="maxOutputs")
+    def max_outputs(self) -> pulumi.Input[int]:
+        """
+        The maximum number of outputs on the ingress bridge.
+        """
+        return pulumi.get(self, "max_outputs")
+
+    @max_outputs.setter
+    def max_outputs(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_outputs", value)
+
+
+@pulumi.input_type
+class BridgeNetworkOutputArgs:
+    def __init__(__self__, *,
+                 ip_address: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 network_name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 protocol: pulumi.Input['BridgeProtocolEnum'],
+                 ttl: pulumi.Input[int]):
+        """
+        The output of the bridge. A network output is delivered to your premises.
+        :param pulumi.Input[str] ip_address: The network output IP Address.
+        :param pulumi.Input[str] name: The network output name.
+        :param pulumi.Input[str] network_name: The network output's gateway network name.
+        :param pulumi.Input[int] port: The network output port.
+        :param pulumi.Input['BridgeProtocolEnum'] protocol: The network output protocol.
+        :param pulumi.Input[int] ttl: The network output TTL.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "ttl", ttl)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Input[str]:
+        """
+        The network output IP Address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The network output name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> pulumi.Input[str]:
+        """
+        The network output's gateway network name.
+        """
+        return pulumi.get(self, "network_name")
+
+    @network_name.setter
+    def network_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The network output port.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input['BridgeProtocolEnum']:
+        """
+        The network output protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input['BridgeProtocolEnum']):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> pulumi.Input[int]:
+        """
+        The network output TTL.
+        """
+        return pulumi.get(self, "ttl")
+
+    @ttl.setter
+    def ttl(self, value: pulumi.Input[int]):
+        pulumi.set(self, "ttl", value)
+
+
+@pulumi.input_type
+class BridgeNetworkSourceArgs:
+    def __init__(__self__, *,
+                 multicast_ip: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 network_name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 protocol: pulumi.Input['BridgeProtocolEnum']):
+        """
+        The source of the bridge. A network source originates at your premises.
+        :param pulumi.Input[str] multicast_ip: The network source multicast IP.
+        :param pulumi.Input[str] name: The name of the network source.
+        :param pulumi.Input[str] network_name: The network source's gateway network name.
+        :param pulumi.Input[int] port: The network source port.
+        :param pulumi.Input['BridgeProtocolEnum'] protocol: The network source protocol.
+        """
+        pulumi.set(__self__, "multicast_ip", multicast_ip)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="multicastIp")
+    def multicast_ip(self) -> pulumi.Input[str]:
+        """
+        The network source multicast IP.
+        """
+        return pulumi.get(self, "multicast_ip")
+
+    @multicast_ip.setter
+    def multicast_ip(self, value: pulumi.Input[str]):
+        pulumi.set(self, "multicast_ip", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the network source.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> pulumi.Input[str]:
+        """
+        The network source's gateway network name.
+        """
+        return pulumi.get(self, "network_name")
+
+    @network_name.setter
+    def network_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The network source port.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input['BridgeProtocolEnum']:
+        """
+        The network source protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input['BridgeProtocolEnum']):
+        pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class BridgeOutputResourceBridgeNetworkOutputArgs:
+    def __init__(__self__, *,
+                 ip_address: pulumi.Input[str],
+                 network_name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 protocol: pulumi.Input['BridgeOutputResourceBridgeNetworkOutputProtocol'],
+                 ttl: pulumi.Input[int]):
+        """
+        The output of the bridge. A network output is delivered to your premises.
+        :param pulumi.Input[str] ip_address: The network output IP Address.
+        :param pulumi.Input[str] network_name: The network output's gateway network name.
+        :param pulumi.Input[int] port: The network output port.
+        :param pulumi.Input['BridgeOutputResourceBridgeNetworkOutputProtocol'] protocol: The network output protocol.
+        :param pulumi.Input[int] ttl: The network output TTL.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "ttl", ttl)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Input[str]:
+        """
+        The network output IP Address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> pulumi.Input[str]:
+        """
+        The network output's gateway network name.
+        """
+        return pulumi.get(self, "network_name")
+
+    @network_name.setter
+    def network_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The network output port.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input['BridgeOutputResourceBridgeNetworkOutputProtocol']:
+        """
+        The network output protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input['BridgeOutputResourceBridgeNetworkOutputProtocol']):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> pulumi.Input[int]:
+        """
+        The network output TTL.
+        """
+        return pulumi.get(self, "ttl")
+
+    @ttl.setter
+    def ttl(self, value: pulumi.Input[int]):
+        pulumi.set(self, "ttl", value)
+
+
+@pulumi.input_type
+class BridgeOutputArgs:
+    def __init__(__self__, *,
+                 network_output: Optional[pulumi.Input['BridgeNetworkOutputArgs']] = None):
+        """
+        The output of the bridge.
+        """
+        if network_output is not None:
+            pulumi.set(__self__, "network_output", network_output)
+
+    @property
+    @pulumi.getter(name="networkOutput")
+    def network_output(self) -> Optional[pulumi.Input['BridgeNetworkOutputArgs']]:
+        return pulumi.get(self, "network_output")
+
+    @network_output.setter
+    def network_output(self, value: Optional[pulumi.Input['BridgeNetworkOutputArgs']]):
+        pulumi.set(self, "network_output", value)
+
+
+@pulumi.input_type
+class BridgeSourceBridgeFlowSourceArgs:
+    def __init__(__self__, *,
+                 flow_arn: pulumi.Input[str],
+                 flow_vpc_interface_attachment: Optional[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs']] = None):
+        """
+        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        :param pulumi.Input[str] flow_arn: The ARN of the cloud flow used as a source of this bridge.
+        :param pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs'] flow_vpc_interface_attachment: The name of the VPC interface attachment to use for this source.
+        """
+        pulumi.set(__self__, "flow_arn", flow_arn)
+        if flow_vpc_interface_attachment is not None:
+            pulumi.set(__self__, "flow_vpc_interface_attachment", flow_vpc_interface_attachment)
+
+    @property
+    @pulumi.getter(name="flowArn")
+    def flow_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the cloud flow used as a source of this bridge.
+        """
+        return pulumi.get(self, "flow_arn")
+
+    @flow_arn.setter
+    def flow_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "flow_arn", value)
+
+    @property
+    @pulumi.getter(name="flowVpcInterfaceAttachment")
+    def flow_vpc_interface_attachment(self) -> Optional[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs']]:
+        """
+        The name of the VPC interface attachment to use for this source.
+        """
+        return pulumi.get(self, "flow_vpc_interface_attachment")
+
+    @flow_vpc_interface_attachment.setter
+    def flow_vpc_interface_attachment(self, value: Optional[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs']]):
+        pulumi.set(self, "flow_vpc_interface_attachment", value)
+
+
+@pulumi.input_type
+class BridgeSourceBridgeNetworkSourceArgs:
+    def __init__(__self__, *,
+                 multicast_ip: pulumi.Input[str],
+                 network_name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 protocol: pulumi.Input['BridgeSourceProtocolEnum']):
+        """
+        The source of the bridge. A network source originates at your premises.
+        :param pulumi.Input[str] multicast_ip: The network source multicast IP.
+        :param pulumi.Input[str] network_name: The network source's gateway network name.
+        :param pulumi.Input[int] port: The network source port.
+        :param pulumi.Input['BridgeSourceProtocolEnum'] protocol: The network source protocol.
+        """
+        pulumi.set(__self__, "multicast_ip", multicast_ip)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="multicastIp")
+    def multicast_ip(self) -> pulumi.Input[str]:
+        """
+        The network source multicast IP.
+        """
+        return pulumi.get(self, "multicast_ip")
+
+    @multicast_ip.setter
+    def multicast_ip(self, value: pulumi.Input[str]):
+        pulumi.set(self, "multicast_ip", value)
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> pulumi.Input[str]:
+        """
+        The network source's gateway network name.
+        """
+        return pulumi.get(self, "network_name")
+
+    @network_name.setter
+    def network_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The network source port.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input['BridgeSourceProtocolEnum']:
+        """
+        The network source protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input['BridgeSourceProtocolEnum']):
+        pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class BridgeSourcePriorityArgs:
+    def __init__(__self__, *,
+                 primary_source: Optional[pulumi.Input[str]] = None):
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        :param pulumi.Input[str] primary_source: The name of the source you choose as the primary source for this flow.
+        """
+        if primary_source is not None:
+            pulumi.set(__self__, "primary_source", primary_source)
+
+    @property
+    @pulumi.getter(name="primarySource")
+    def primary_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the source you choose as the primary source for this flow.
+        """
+        return pulumi.get(self, "primary_source")
+
+    @primary_source.setter
+    def primary_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_source", value)
+
+
+@pulumi.input_type
+class BridgeSourceVpcInterfaceAttachmentArgs:
+    def __init__(__self__, *,
+                 vpc_interface_name: Optional[pulumi.Input[str]] = None):
+        """
+        The settings for attaching a VPC interface to an resource.
+        :param pulumi.Input[str] vpc_interface_name: The name of the VPC interface to use for this resource.
+        """
+        if vpc_interface_name is not None:
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
+
+    @property
+    @pulumi.getter(name="vpcInterfaceName")
+    def vpc_interface_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VPC interface to use for this resource.
+        """
+        return pulumi.get(self, "vpc_interface_name")
+
+    @vpc_interface_name.setter
+    def vpc_interface_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_interface_name", value)
+
+
+@pulumi.input_type
+class BridgeSourceArgs:
+    def __init__(__self__, *,
+                 flow_source: Optional[pulumi.Input['BridgeFlowSourceArgs']] = None,
+                 network_source: Optional[pulumi.Input['BridgeNetworkSourceArgs']] = None):
+        """
+        The bridge's source.
+        """
+        if flow_source is not None:
+            pulumi.set(__self__, "flow_source", flow_source)
+        if network_source is not None:
+            pulumi.set(__self__, "network_source", network_source)
+
+    @property
+    @pulumi.getter(name="flowSource")
+    def flow_source(self) -> Optional[pulumi.Input['BridgeFlowSourceArgs']]:
+        return pulumi.get(self, "flow_source")
+
+    @flow_source.setter
+    def flow_source(self, value: Optional[pulumi.Input['BridgeFlowSourceArgs']]):
+        pulumi.set(self, "flow_source", value)
+
+    @property
+    @pulumi.getter(name="networkSource")
+    def network_source(self) -> Optional[pulumi.Input['BridgeNetworkSourceArgs']]:
+        return pulumi.get(self, "network_source")
+
+    @network_source.setter
+    def network_source(self, value: Optional[pulumi.Input['BridgeNetworkSourceArgs']]):
+        pulumi.set(self, "network_source", value)
+
+
+@pulumi.input_type
+class BridgeVpcInterfaceAttachmentArgs:
+    def __init__(__self__, *,
+                 vpc_interface_name: Optional[pulumi.Input[str]] = None):
+        """
+        The settings for attaching a VPC interface to an resource.
+        :param pulumi.Input[str] vpc_interface_name: The name of the VPC interface to use for this resource.
+        """
+        if vpc_interface_name is not None:
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
+
+    @property
+    @pulumi.getter(name="vpcInterfaceName")
+    def vpc_interface_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VPC interface to use for this resource.
+        """
+        return pulumi.get(self, "vpc_interface_name")
+
+    @vpc_interface_name.setter
+    def vpc_interface_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_interface_name", value)
+
 
 @pulumi.input_type
 class FlowEncryptionArgs:
@@ -968,5 +1642,43 @@ class FlowSourceArgs:
     @whitelist_cidr.setter
     def whitelist_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "whitelist_cidr", value)
+
+
+@pulumi.input_type
+class GatewayNetworkArgs:
+    def __init__(__self__, *,
+                 cidr_block: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        """
+        The network settings for a gateway.
+        :param pulumi.Input[str] cidr_block: A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+        :param pulumi.Input[str] name: The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+        """
+        pulumi.set(__self__, "cidr_block", cidr_block)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> pulumi.Input[str]:
+        """
+        A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 

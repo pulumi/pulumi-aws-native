@@ -40,6 +40,8 @@ type LookupChannelResult struct {
 	Name *string `pulumi:"name"`
 	// Channel Playback URL.
 	PlaybackUrl *string `pulumi:"playbackUrl"`
+	// Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+	Preset *ChannelPreset `pulumi:"preset"`
 	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
 	RecordingConfigurationArn *string `pulumi:"recordingConfigurationArn"`
 	// A list of key-value pairs that contain metadata for the asset model.
@@ -117,6 +119,11 @@ func (o LookupChannelResultOutput) Name() pulumi.StringPtrOutput {
 // Channel Playback URL.
 func (o LookupChannelResultOutput) PlaybackUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.PlaybackUrl }).(pulumi.StringPtrOutput)
+}
+
+// Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+func (o LookupChannelResultOutput) Preset() ChannelPresetPtrOutput {
+	return o.ApplyT(func(v LookupChannelResult) *ChannelPreset { return v.Preset }).(ChannelPresetPtrOutput)
 }
 
 // Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).

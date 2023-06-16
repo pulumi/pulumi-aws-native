@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .custom_db_engine_version import *
 from .db_cluster import *
 from .db_cluster_parameter_group import *
 from .db_instance import *
@@ -17,6 +18,7 @@ from .db_security_group import *
 from .db_security_group_ingress import *
 from .db_subnet_group import *
 from .event_subscription import *
+from .get_custom_db_engine_version import *
 from .get_db_cluster import *
 from .get_db_cluster_parameter_group import *
 from .get_db_instance import *

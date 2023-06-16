@@ -7,6 +7,188 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.MediaConnect
 {
+    [EnumType]
+    public readonly struct BridgeFailoverConfigStateEnum : IEquatable<BridgeFailoverConfigStateEnum>
+    {
+        private readonly string _value;
+
+        private BridgeFailoverConfigStateEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BridgeFailoverConfigStateEnum Enabled { get; } = new BridgeFailoverConfigStateEnum("ENABLED");
+        public static BridgeFailoverConfigStateEnum Disabled { get; } = new BridgeFailoverConfigStateEnum("DISABLED");
+
+        public static bool operator ==(BridgeFailoverConfigStateEnum left, BridgeFailoverConfigStateEnum right) => left.Equals(right);
+        public static bool operator !=(BridgeFailoverConfigStateEnum left, BridgeFailoverConfigStateEnum right) => !left.Equals(right);
+
+        public static explicit operator string(BridgeFailoverConfigStateEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BridgeFailoverConfigStateEnum other && Equals(other);
+        public bool Equals(BridgeFailoverConfigStateEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct BridgeFailoverModeEnum : IEquatable<BridgeFailoverModeEnum>
+    {
+        private readonly string _value;
+
+        private BridgeFailoverModeEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BridgeFailoverModeEnum Failover { get; } = new BridgeFailoverModeEnum("FAILOVER");
+
+        public static bool operator ==(BridgeFailoverModeEnum left, BridgeFailoverModeEnum right) => left.Equals(right);
+        public static bool operator !=(BridgeFailoverModeEnum left, BridgeFailoverModeEnum right) => !left.Equals(right);
+
+        public static explicit operator string(BridgeFailoverModeEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BridgeFailoverModeEnum other && Equals(other);
+        public bool Equals(BridgeFailoverModeEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network output protocol.
+    /// </summary>
+    [EnumType]
+    public readonly struct BridgeOutputResourceBridgeNetworkOutputProtocol : IEquatable<BridgeOutputResourceBridgeNetworkOutputProtocol>
+    {
+        private readonly string _value;
+
+        private BridgeOutputResourceBridgeNetworkOutputProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BridgeOutputResourceBridgeNetworkOutputProtocol RtpFec { get; } = new BridgeOutputResourceBridgeNetworkOutputProtocol("rtp-fec");
+        public static BridgeOutputResourceBridgeNetworkOutputProtocol Rtp { get; } = new BridgeOutputResourceBridgeNetworkOutputProtocol("rtp");
+        public static BridgeOutputResourceBridgeNetworkOutputProtocol Udp { get; } = new BridgeOutputResourceBridgeNetworkOutputProtocol("udp");
+
+        public static bool operator ==(BridgeOutputResourceBridgeNetworkOutputProtocol left, BridgeOutputResourceBridgeNetworkOutputProtocol right) => left.Equals(right);
+        public static bool operator !=(BridgeOutputResourceBridgeNetworkOutputProtocol left, BridgeOutputResourceBridgeNetworkOutputProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(BridgeOutputResourceBridgeNetworkOutputProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BridgeOutputResourceBridgeNetworkOutputProtocol other && Equals(other);
+        public bool Equals(BridgeOutputResourceBridgeNetworkOutputProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct BridgeProtocolEnum : IEquatable<BridgeProtocolEnum>
+    {
+        private readonly string _value;
+
+        private BridgeProtocolEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BridgeProtocolEnum RtpFec { get; } = new BridgeProtocolEnum("rtp-fec");
+        public static BridgeProtocolEnum Rtp { get; } = new BridgeProtocolEnum("rtp");
+        public static BridgeProtocolEnum Udp { get; } = new BridgeProtocolEnum("udp");
+
+        public static bool operator ==(BridgeProtocolEnum left, BridgeProtocolEnum right) => left.Equals(right);
+        public static bool operator !=(BridgeProtocolEnum left, BridgeProtocolEnum right) => !left.Equals(right);
+
+        public static explicit operator string(BridgeProtocolEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BridgeProtocolEnum other && Equals(other);
+        public bool Equals(BridgeProtocolEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct BridgeSourceProtocolEnum : IEquatable<BridgeSourceProtocolEnum>
+    {
+        private readonly string _value;
+
+        private BridgeSourceProtocolEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BridgeSourceProtocolEnum RtpFec { get; } = new BridgeSourceProtocolEnum("rtp-fec");
+        public static BridgeSourceProtocolEnum Rtp { get; } = new BridgeSourceProtocolEnum("rtp");
+        public static BridgeSourceProtocolEnum Udp { get; } = new BridgeSourceProtocolEnum("udp");
+
+        public static bool operator ==(BridgeSourceProtocolEnum left, BridgeSourceProtocolEnum right) => left.Equals(right);
+        public static bool operator !=(BridgeSourceProtocolEnum left, BridgeSourceProtocolEnum right) => !left.Equals(right);
+
+        public static explicit operator string(BridgeSourceProtocolEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BridgeSourceProtocolEnum other && Equals(other);
+        public bool Equals(BridgeSourceProtocolEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct BridgeStateEnum : IEquatable<BridgeStateEnum>
+    {
+        private readonly string _value;
+
+        private BridgeStateEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BridgeStateEnum Creating { get; } = new BridgeStateEnum("CREATING");
+        public static BridgeStateEnum Standby { get; } = new BridgeStateEnum("STANDBY");
+        public static BridgeStateEnum Starting { get; } = new BridgeStateEnum("STARTING");
+        public static BridgeStateEnum Deploying { get; } = new BridgeStateEnum("DEPLOYING");
+        public static BridgeStateEnum Active { get; } = new BridgeStateEnum("ACTIVE");
+        public static BridgeStateEnum Stopping { get; } = new BridgeStateEnum("STOPPING");
+        public static BridgeStateEnum Deleting { get; } = new BridgeStateEnum("DELETING");
+        public static BridgeStateEnum Deleted { get; } = new BridgeStateEnum("DELETED");
+        public static BridgeStateEnum StartFailed { get; } = new BridgeStateEnum("START_FAILED");
+        public static BridgeStateEnum StartPending { get; } = new BridgeStateEnum("START_PENDING");
+        public static BridgeStateEnum Updating { get; } = new BridgeStateEnum("UPDATING");
+
+        public static bool operator ==(BridgeStateEnum left, BridgeStateEnum right) => left.Equals(right);
+        public static bool operator !=(BridgeStateEnum left, BridgeStateEnum right) => !left.Equals(right);
+
+        public static explicit operator string(BridgeStateEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BridgeStateEnum other && Equals(other);
+        public bool Equals(BridgeStateEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
     /// </summary>
@@ -417,6 +599,41 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowSourceProtocol other && Equals(other);
         public bool Equals(FlowSourceProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayState : IEquatable<GatewayState>
+    {
+        private readonly string _value;
+
+        private GatewayState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayState Creating { get; } = new GatewayState("CREATING");
+        public static GatewayState Active { get; } = new GatewayState("ACTIVE");
+        public static GatewayState Updating { get; } = new GatewayState("UPDATING");
+        public static GatewayState Error { get; } = new GatewayState("ERROR");
+        public static GatewayState Deleting { get; } = new GatewayState("DELETING");
+        public static GatewayState Deleted { get; } = new GatewayState("DELETED");
+
+        public static bool operator ==(GatewayState left, GatewayState right) => left.Equals(right);
+        public static bool operator !=(GatewayState left, GatewayState right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayState other && Equals(other);
+        public bool Equals(GatewayState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

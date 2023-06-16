@@ -12,9 +12,21 @@ export const ChannelLatencyMode = {
  */
 export type ChannelLatencyMode = (typeof ChannelLatencyMode)[keyof typeof ChannelLatencyMode];
 
+export const ChannelPreset = {
+    HigherBandwidthDelivery: "HIGHER_BANDWIDTH_DELIVERY",
+    ConstrainedBandwidthDelivery: "CONSTRAINED_BANDWIDTH_DELIVERY",
+} as const;
+
+/**
+ * Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+ */
+export type ChannelPreset = (typeof ChannelPreset)[keyof typeof ChannelPreset];
+
 export const ChannelType = {
     Standard: "STANDARD",
     Basic: "BASIC",
+    AdvancedSd: "ADVANCED_SD",
+    AdvancedHd: "ADVANCED_HD",
 } as const;
 
 /**

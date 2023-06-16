@@ -16,6 +16,7 @@ import * as billingconductor from "./billingconductor";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
+import * as cleanrooms from "./cleanrooms";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
 import * as cloudtrail from "./cloudtrail";
@@ -117,6 +118,7 @@ import * as s3 from "./s3";
 import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
+import * as securityhub from "./securityhub";
 import * as servicecatalog from "./servicecatalog";
 import * as servicecatalogappregistry from "./servicecatalogappregistry";
 import * as shield from "./shield";
@@ -150,6 +152,7 @@ export {
     budgets,
     cassandra,
     ce,
+    cleanrooms,
     cloudformation,
     cloudfront,
     cloudtrail,
@@ -251,6 +254,7 @@ export {
     s3outposts,
     sagemaker,
     scheduler,
+    securityhub,
     servicecatalog,
     servicecatalogappregistry,
     shield,

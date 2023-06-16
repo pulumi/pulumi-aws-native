@@ -6,8 +6,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .calculated_attribute_definition import *
 from .domain import *
+from .event_stream import *
+from .get_calculated_attribute_definition import *
 from .get_domain import *
+from .get_event_stream import *
 from .get_integration import *
 from .get_object_type import *
 from .integration import *

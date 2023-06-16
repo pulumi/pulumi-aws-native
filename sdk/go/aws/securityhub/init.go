@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:securityhub:AutomationRule":
+		r = &AutomationRule{}
 	case "aws-native:securityhub:Hub":
 		r = &Hub{}
+	case "aws-native:securityhub:Standard":
+		r = &Standard{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

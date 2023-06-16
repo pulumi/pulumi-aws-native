@@ -21,6 +21,7 @@ class ChannelArgs:
                  insecure_ingest: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 preset: Optional[pulumi.Input['ChannelPreset']] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
                  type: Optional[pulumi.Input['ChannelType']] = None):
@@ -30,6 +31,7 @@ class ChannelArgs:
         :param pulumi.Input[bool] insecure_ingest: Whether the channel allows insecure ingest.
         :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
         :param pulumi.Input[str] name: Channel
+        :param pulumi.Input['ChannelPreset'] preset: Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
         :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
         :param pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         :param pulumi.Input['ChannelType'] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
@@ -42,6 +44,8 @@ class ChannelArgs:
             pulumi.set(__self__, "latency_mode", latency_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if preset is not None:
+            pulumi.set(__self__, "preset", preset)
         if recording_configuration_arn is not None:
             pulumi.set(__self__, "recording_configuration_arn", recording_configuration_arn)
         if tags is not None:
@@ -98,6 +102,18 @@ class ChannelArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def preset(self) -> Optional[pulumi.Input['ChannelPreset']]:
+        """
+        Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+        """
+        return pulumi.get(self, "preset")
+
+    @preset.setter
+    def preset(self, value: Optional[pulumi.Input['ChannelPreset']]):
+        pulumi.set(self, "preset", value)
+
+    @property
     @pulumi.getter(name="recordingConfigurationArn")
     def recording_configuration_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -143,6 +159,7 @@ class Channel(pulumi.CustomResource):
                  insecure_ingest: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 preset: Optional[pulumi.Input['ChannelPreset']] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
                  type: Optional[pulumi.Input['ChannelType']] = None,
@@ -156,6 +173,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[bool] insecure_ingest: Whether the channel allows insecure ingest.
         :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
         :param pulumi.Input[str] name: Channel
+        :param pulumi.Input['ChannelPreset'] preset: Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
         :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         :param pulumi.Input['ChannelType'] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
@@ -188,6 +206,7 @@ class Channel(pulumi.CustomResource):
                  insecure_ingest: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 preset: Optional[pulumi.Input['ChannelPreset']] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
                  type: Optional[pulumi.Input['ChannelType']] = None,
@@ -204,6 +223,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["insecure_ingest"] = insecure_ingest
             __props__.__dict__["latency_mode"] = latency_mode
             __props__.__dict__["name"] = name
+            __props__.__dict__["preset"] = preset
             __props__.__dict__["recording_configuration_arn"] = recording_configuration_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
@@ -239,6 +259,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["latency_mode"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["playback_url"] = None
+        __props__.__dict__["preset"] = None
         __props__.__dict__["recording_configuration_arn"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -299,6 +320,14 @@ class Channel(pulumi.CustomResource):
         Channel Playback URL.
         """
         return pulumi.get(self, "playback_url")
+
+    @property
+    @pulumi.getter
+    def preset(self) -> pulumi.Output[Optional['ChannelPreset']]:
+        """
+        Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+        """
+        return pulumi.get(self, "preset")
 
     @property
     @pulumi.getter(name="recordingConfigurationArn")

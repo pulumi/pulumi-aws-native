@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The availability status to be assigned to the CEV.
+type CustomDBEngineVersionStatus string
+
+const (
+	CustomDBEngineVersionStatusAvailable             = CustomDBEngineVersionStatus("available")
+	CustomDBEngineVersionStatusInactive              = CustomDBEngineVersionStatus("inactive")
+	CustomDBEngineVersionStatusInactiveExceptRestore = CustomDBEngineVersionStatus("inactive-except-restore")
+)
+
+func (CustomDBEngineVersionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDBEngineVersionStatus)(nil)).Elem()
+}
+
+func (e CustomDBEngineVersionStatus) ToCustomDBEngineVersionStatusOutput() CustomDBEngineVersionStatusOutput {
+	return pulumi.ToOutput(e).(CustomDBEngineVersionStatusOutput)
+}
+
+func (e CustomDBEngineVersionStatus) ToCustomDBEngineVersionStatusOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CustomDBEngineVersionStatusOutput)
+}
+
+func (e CustomDBEngineVersionStatus) ToCustomDBEngineVersionStatusPtrOutput() CustomDBEngineVersionStatusPtrOutput {
+	return e.ToCustomDBEngineVersionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e CustomDBEngineVersionStatus) ToCustomDBEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusPtrOutput {
+	return CustomDBEngineVersionStatus(e).ToCustomDBEngineVersionStatusOutputWithContext(ctx).ToCustomDBEngineVersionStatusPtrOutputWithContext(ctx)
+}
+
+func (e CustomDBEngineVersionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomDBEngineVersionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomDBEngineVersionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CustomDBEngineVersionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CustomDBEngineVersionStatusOutput struct{ *pulumi.OutputState }
+
+func (CustomDBEngineVersionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDBEngineVersionStatus)(nil)).Elem()
+}
+
+func (o CustomDBEngineVersionStatusOutput) ToCustomDBEngineVersionStatusOutput() CustomDBEngineVersionStatusOutput {
+	return o
+}
+
+func (o CustomDBEngineVersionStatusOutput) ToCustomDBEngineVersionStatusOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusOutput {
+	return o
+}
+
+func (o CustomDBEngineVersionStatusOutput) ToCustomDBEngineVersionStatusPtrOutput() CustomDBEngineVersionStatusPtrOutput {
+	return o.ToCustomDBEngineVersionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o CustomDBEngineVersionStatusOutput) ToCustomDBEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDBEngineVersionStatus) *CustomDBEngineVersionStatus {
+		return &v
+	}).(CustomDBEngineVersionStatusPtrOutput)
+}
+
+func (o CustomDBEngineVersionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CustomDBEngineVersionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomDBEngineVersionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CustomDBEngineVersionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomDBEngineVersionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomDBEngineVersionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CustomDBEngineVersionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomDBEngineVersionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomDBEngineVersionStatus)(nil)).Elem()
+}
+
+func (o CustomDBEngineVersionStatusPtrOutput) ToCustomDBEngineVersionStatusPtrOutput() CustomDBEngineVersionStatusPtrOutput {
+	return o
+}
+
+func (o CustomDBEngineVersionStatusPtrOutput) ToCustomDBEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusPtrOutput {
+	return o
+}
+
+func (o CustomDBEngineVersionStatusPtrOutput) Elem() CustomDBEngineVersionStatusOutput {
+	return o.ApplyT(func(v *CustomDBEngineVersionStatus) CustomDBEngineVersionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDBEngineVersionStatus
+		return ret
+	}).(CustomDBEngineVersionStatusOutput)
+}
+
+func (o CustomDBEngineVersionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomDBEngineVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CustomDBEngineVersionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CustomDBEngineVersionStatusInput is an input type that accepts CustomDBEngineVersionStatusArgs and CustomDBEngineVersionStatusOutput values.
+// You can construct a concrete instance of `CustomDBEngineVersionStatusInput` via:
+//
+//	CustomDBEngineVersionStatusArgs{...}
+type CustomDBEngineVersionStatusInput interface {
+	pulumi.Input
+
+	ToCustomDBEngineVersionStatusOutput() CustomDBEngineVersionStatusOutput
+	ToCustomDBEngineVersionStatusOutputWithContext(context.Context) CustomDBEngineVersionStatusOutput
+}
+
+var customDBEngineVersionStatusPtrType = reflect.TypeOf((**CustomDBEngineVersionStatus)(nil)).Elem()
+
+type CustomDBEngineVersionStatusPtrInput interface {
+	pulumi.Input
+
+	ToCustomDBEngineVersionStatusPtrOutput() CustomDBEngineVersionStatusPtrOutput
+	ToCustomDBEngineVersionStatusPtrOutputWithContext(context.Context) CustomDBEngineVersionStatusPtrOutput
+}
+
+type customDBEngineVersionStatusPtr string
+
+func CustomDBEngineVersionStatusPtr(v string) CustomDBEngineVersionStatusPtrInput {
+	return (*customDBEngineVersionStatusPtr)(&v)
+}
+
+func (*customDBEngineVersionStatusPtr) ElementType() reflect.Type {
+	return customDBEngineVersionStatusPtrType
+}
+
+func (in *customDBEngineVersionStatusPtr) ToCustomDBEngineVersionStatusPtrOutput() CustomDBEngineVersionStatusPtrOutput {
+	return pulumi.ToOutput(in).(CustomDBEngineVersionStatusPtrOutput)
+}
+
+func (in *customDBEngineVersionStatusPtr) ToCustomDBEngineVersionStatusPtrOutputWithContext(ctx context.Context) CustomDBEngineVersionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CustomDBEngineVersionStatusPtrOutput)
+}
+
 // The name of the processor feature. Valid names are coreCount and threadsPerCore.
 type DBInstanceProcessorFeatureName string
 
@@ -1335,6 +1501,8 @@ func (in *globalClusterEnginePtr) ToGlobalClusterEnginePtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDBEngineVersionStatusInput)(nil)).Elem(), CustomDBEngineVersionStatus("available"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDBEngineVersionStatusPtrInput)(nil)).Elem(), CustomDBEngineVersionStatus("available"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureNameInput)(nil)).Elem(), DBInstanceProcessorFeatureName("coreCount"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureNamePtrInput)(nil)).Elem(), DBInstanceProcessorFeatureName("coreCount"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatAuthSchemeInput)(nil)).Elem(), DBProxyAuthFormatAuthScheme("SECRETS"))
@@ -1351,6 +1519,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTargetGroupTargetGroupNamePtrInput)(nil)).Elem(), DBProxyTargetGroupTargetGroupName("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEngineInput)(nil)).Elem(), GlobalClusterEngine("aurora"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEnginePtrInput)(nil)).Elem(), GlobalClusterEngine("aurora"))
+	pulumi.RegisterOutputType(CustomDBEngineVersionStatusOutput{})
+	pulumi.RegisterOutputType(CustomDBEngineVersionStatusPtrOutput{})
 	pulumi.RegisterOutputType(DBInstanceProcessorFeatureNameOutput{})
 	pulumi.RegisterOutputType(DBInstanceProcessorFeatureNamePtrOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatAuthSchemeOutput{})

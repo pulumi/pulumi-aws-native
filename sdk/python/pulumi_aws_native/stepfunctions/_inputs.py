@@ -12,6 +12,8 @@ from ._enums import *
 
 __all__ = [
     'ActivityTagsEntryArgs',
+    'StateMachineAliasDeploymentPreferenceArgs',
+    'StateMachineAliasRoutingConfigurationVersionArgs',
     'StateMachineCloudWatchLogsLogGroupArgs',
     'StateMachineDefinitionSubstitutionsArgs',
     'StateMachineDefinitionArgs',
@@ -47,6 +49,125 @@ class ActivityTagsEntryArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class StateMachineAliasDeploymentPreferenceArgs:
+    def __init__(__self__, *,
+                 state_machine_version_arn: pulumi.Input[str],
+                 type: pulumi.Input['StateMachineAliasDeploymentPreferenceType'],
+                 alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 percentage: Optional[pulumi.Input[int]] = None):
+        """
+        The settings to enable gradual state machine deployments.
+        :param pulumi.Input['StateMachineAliasDeploymentPreferenceType'] type: The type of deployment to perform.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarms: A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
+        :param pulumi.Input[int] interval: The time in minutes between each traffic shifting increment.
+        :param pulumi.Input[int] percentage: The percentage of traffic to shift to the new version in each increment.
+        """
+        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
+        pulumi.set(__self__, "type", type)
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if percentage is not None:
+            pulumi.set(__self__, "percentage", percentage)
+
+    @property
+    @pulumi.getter(name="stateMachineVersionArn")
+    def state_machine_version_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "state_machine_version_arn")
+
+    @state_machine_version_arn.setter
+    def state_machine_version_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "state_machine_version_arn", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['StateMachineAliasDeploymentPreferenceType']:
+        """
+        The type of deployment to perform.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['StateMachineAliasDeploymentPreferenceType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
+        """
+        return pulumi.get(self, "alarms")
+
+    @alarms.setter
+    def alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "alarms", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time in minutes between each traffic shifting increment.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter
+    def percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percentage of traffic to shift to the new version in each increment.
+        """
+        return pulumi.get(self, "percentage")
+
+    @percentage.setter
+    def percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "percentage", value)
+
+
+@pulumi.input_type
+class StateMachineAliasRoutingConfigurationVersionArgs:
+    def __init__(__self__, *,
+                 state_machine_version_arn: pulumi.Input[str],
+                 weight: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] state_machine_version_arn: The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
+        :param pulumi.Input[int] weight: The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
+        """
+        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="stateMachineVersionArn")
+    def state_machine_version_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
+        """
+        return pulumi.get(self, "state_machine_version_arn")
+
+    @state_machine_version_arn.setter
+    def state_machine_version_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "state_machine_version_arn", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[int]:
+        """
+        The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[int]):
+        pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type

@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of deployment to perform.
+type StateMachineAliasDeploymentPreferenceType string
+
+const (
+	StateMachineAliasDeploymentPreferenceTypeLinear    = StateMachineAliasDeploymentPreferenceType("LINEAR")
+	StateMachineAliasDeploymentPreferenceTypeAllAtOnce = StateMachineAliasDeploymentPreferenceType("ALL_AT_ONCE")
+	StateMachineAliasDeploymentPreferenceTypeCanary    = StateMachineAliasDeploymentPreferenceType("CANARY")
+)
+
+func (StateMachineAliasDeploymentPreferenceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineAliasDeploymentPreferenceType)(nil)).Elem()
+}
+
+func (e StateMachineAliasDeploymentPreferenceType) ToStateMachineAliasDeploymentPreferenceTypeOutput() StateMachineAliasDeploymentPreferenceTypeOutput {
+	return pulumi.ToOutput(e).(StateMachineAliasDeploymentPreferenceTypeOutput)
+}
+
+func (e StateMachineAliasDeploymentPreferenceType) ToStateMachineAliasDeploymentPreferenceTypeOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferenceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StateMachineAliasDeploymentPreferenceTypeOutput)
+}
+
+func (e StateMachineAliasDeploymentPreferenceType) ToStateMachineAliasDeploymentPreferenceTypePtrOutput() StateMachineAliasDeploymentPreferenceTypePtrOutput {
+	return e.ToStateMachineAliasDeploymentPreferenceTypePtrOutputWithContext(context.Background())
+}
+
+func (e StateMachineAliasDeploymentPreferenceType) ToStateMachineAliasDeploymentPreferenceTypePtrOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferenceTypePtrOutput {
+	return StateMachineAliasDeploymentPreferenceType(e).ToStateMachineAliasDeploymentPreferenceTypeOutputWithContext(ctx).ToStateMachineAliasDeploymentPreferenceTypePtrOutputWithContext(ctx)
+}
+
+func (e StateMachineAliasDeploymentPreferenceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StateMachineAliasDeploymentPreferenceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StateMachineAliasDeploymentPreferenceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StateMachineAliasDeploymentPreferenceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StateMachineAliasDeploymentPreferenceTypeOutput struct{ *pulumi.OutputState }
+
+func (StateMachineAliasDeploymentPreferenceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineAliasDeploymentPreferenceType)(nil)).Elem()
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStateMachineAliasDeploymentPreferenceTypeOutput() StateMachineAliasDeploymentPreferenceTypeOutput {
+	return o
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStateMachineAliasDeploymentPreferenceTypeOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferenceTypeOutput {
+	return o
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStateMachineAliasDeploymentPreferenceTypePtrOutput() StateMachineAliasDeploymentPreferenceTypePtrOutput {
+	return o.ToStateMachineAliasDeploymentPreferenceTypePtrOutputWithContext(context.Background())
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStateMachineAliasDeploymentPreferenceTypePtrOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferenceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineAliasDeploymentPreferenceType) *StateMachineAliasDeploymentPreferenceType {
+		return &v
+	}).(StateMachineAliasDeploymentPreferenceTypePtrOutput)
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StateMachineAliasDeploymentPreferenceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StateMachineAliasDeploymentPreferenceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StateMachineAliasDeploymentPreferenceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (StateMachineAliasDeploymentPreferenceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachineAliasDeploymentPreferenceType)(nil)).Elem()
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) ToStateMachineAliasDeploymentPreferenceTypePtrOutput() StateMachineAliasDeploymentPreferenceTypePtrOutput {
+	return o
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) ToStateMachineAliasDeploymentPreferenceTypePtrOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferenceTypePtrOutput {
+	return o
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) Elem() StateMachineAliasDeploymentPreferenceTypeOutput {
+	return o.ApplyT(func(v *StateMachineAliasDeploymentPreferenceType) StateMachineAliasDeploymentPreferenceType {
+		if v != nil {
+			return *v
+		}
+		var ret StateMachineAliasDeploymentPreferenceType
+		return ret
+	}).(StateMachineAliasDeploymentPreferenceTypeOutput)
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StateMachineAliasDeploymentPreferenceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StateMachineAliasDeploymentPreferenceTypeInput is an input type that accepts StateMachineAliasDeploymentPreferenceTypeArgs and StateMachineAliasDeploymentPreferenceTypeOutput values.
+// You can construct a concrete instance of `StateMachineAliasDeploymentPreferenceTypeInput` via:
+//
+//	StateMachineAliasDeploymentPreferenceTypeArgs{...}
+type StateMachineAliasDeploymentPreferenceTypeInput interface {
+	pulumi.Input
+
+	ToStateMachineAliasDeploymentPreferenceTypeOutput() StateMachineAliasDeploymentPreferenceTypeOutput
+	ToStateMachineAliasDeploymentPreferenceTypeOutputWithContext(context.Context) StateMachineAliasDeploymentPreferenceTypeOutput
+}
+
+var stateMachineAliasDeploymentPreferenceTypePtrType = reflect.TypeOf((**StateMachineAliasDeploymentPreferenceType)(nil)).Elem()
+
+type StateMachineAliasDeploymentPreferenceTypePtrInput interface {
+	pulumi.Input
+
+	ToStateMachineAliasDeploymentPreferenceTypePtrOutput() StateMachineAliasDeploymentPreferenceTypePtrOutput
+	ToStateMachineAliasDeploymentPreferenceTypePtrOutputWithContext(context.Context) StateMachineAliasDeploymentPreferenceTypePtrOutput
+}
+
+type stateMachineAliasDeploymentPreferenceTypePtr string
+
+func StateMachineAliasDeploymentPreferenceTypePtr(v string) StateMachineAliasDeploymentPreferenceTypePtrInput {
+	return (*stateMachineAliasDeploymentPreferenceTypePtr)(&v)
+}
+
+func (*stateMachineAliasDeploymentPreferenceTypePtr) ElementType() reflect.Type {
+	return stateMachineAliasDeploymentPreferenceTypePtrType
+}
+
+func (in *stateMachineAliasDeploymentPreferenceTypePtr) ToStateMachineAliasDeploymentPreferenceTypePtrOutput() StateMachineAliasDeploymentPreferenceTypePtrOutput {
+	return pulumi.ToOutput(in).(StateMachineAliasDeploymentPreferenceTypePtrOutput)
+}
+
+func (in *stateMachineAliasDeploymentPreferenceTypePtr) ToStateMachineAliasDeploymentPreferenceTypePtrOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferenceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StateMachineAliasDeploymentPreferenceTypePtrOutput)
+}
+
 type StateMachineLoggingConfigurationLevel string
 
 const (
@@ -341,10 +507,14 @@ func (in *stateMachineTypePtr) ToStateMachineTypePtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasDeploymentPreferenceTypeInput)(nil)).Elem(), StateMachineAliasDeploymentPreferenceType("LINEAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineAliasDeploymentPreferenceTypePtrInput)(nil)).Elem(), StateMachineAliasDeploymentPreferenceType("LINEAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLoggingConfigurationLevelInput)(nil)).Elem(), StateMachineLoggingConfigurationLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLoggingConfigurationLevelPtrInput)(nil)).Elem(), StateMachineLoggingConfigurationLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTypeInput)(nil)).Elem(), StateMachineType("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTypePtrInput)(nil)).Elem(), StateMachineType("STANDARD"))
+	pulumi.RegisterOutputType(StateMachineAliasDeploymentPreferenceTypeOutput{})
+	pulumi.RegisterOutputType(StateMachineAliasDeploymentPreferenceTypePtrOutput{})
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationLevelOutput{})
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationLevelPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineTypeOutput{})

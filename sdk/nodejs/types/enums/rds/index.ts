@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CustomDBEngineVersionStatus = {
+    Available: "available",
+    Inactive: "inactive",
+    InactiveExceptRestore: "inactive-except-restore",
+} as const;
+
+/**
+ * The availability status to be assigned to the CEV.
+ */
+export type CustomDBEngineVersionStatus = (typeof CustomDBEngineVersionStatus)[keyof typeof CustomDBEngineVersionStatus];
+
 export const DBInstanceProcessorFeatureName = {
     CoreCount: "coreCount",
     ThreadsPerCore: "threadsPerCore",

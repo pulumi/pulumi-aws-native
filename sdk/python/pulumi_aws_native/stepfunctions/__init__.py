@@ -9,6 +9,10 @@ from ._enums import *
 from .activity import *
 from .get_activity import *
 from .get_state_machine import *
+from .get_state_machine_alias import *
+from .get_state_machine_version import *
 from .state_machine import *
+from .state_machine_alias import *
+from .state_machine_version import *
 from ._inputs import *
 from . import outputs

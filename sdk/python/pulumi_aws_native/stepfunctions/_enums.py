@@ -5,9 +5,19 @@
 from enum import Enum
 
 __all__ = [
+    'StateMachineAliasDeploymentPreferenceType',
     'StateMachineLoggingConfigurationLevel',
     'StateMachineType',
 ]
+
+
+class StateMachineAliasDeploymentPreferenceType(str, Enum):
+    """
+    The type of deployment to perform.
+    """
+    LINEAR = "LINEAR"
+    ALL_AT_ONCE = "ALL_AT_ONCE"
+    CANARY = "CANARY"
 
 
 class StateMachineLoggingConfigurationLevel(str, Enum):

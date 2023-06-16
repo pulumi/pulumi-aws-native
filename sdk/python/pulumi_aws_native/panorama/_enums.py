@@ -7,7 +7,6 @@ from enum import Enum
 __all__ = [
     'ApplicationInstanceHealthStatus',
     'ApplicationInstanceStatus',
-    'ApplicationInstanceStatusFilter',
     'PackageVersionStatus',
 ]
 
@@ -29,15 +28,6 @@ class ApplicationInstanceStatus(str, Enum):
     REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS"
     REMOVAL_FAILED = "REMOVAL_FAILED"
     REMOVAL_SUCCEEDED = "REMOVAL_SUCCEEDED"
-
-
-class ApplicationInstanceStatusFilter(str, Enum):
-    DEPLOYMENT_SUCCEEDED = "DEPLOYMENT_SUCCEEDED"
-    DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR"
-    REMOVAL_SUCCEEDED = "REMOVAL_SUCCEEDED"
-    REMOVAL_FAILED = "REMOVAL_FAILED"
-    PROCESSING_DEPLOYMENT = "PROCESSING_DEPLOYMENT"
-    PROCESSING_REMOVAL = "PROCESSING_REMOVAL"
 
 
 class PackageVersionStatus(str, Enum):

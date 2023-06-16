@@ -10,6 +10,2247 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type BridgeEgressGatewayBridge struct {
+	// The maximum expected bitrate of the egress bridge.
+	MaxBitrate int `pulumi:"maxBitrate"`
+}
+
+// BridgeEgressGatewayBridgeInput is an input type that accepts BridgeEgressGatewayBridgeArgs and BridgeEgressGatewayBridgeOutput values.
+// You can construct a concrete instance of `BridgeEgressGatewayBridgeInput` via:
+//
+//	BridgeEgressGatewayBridgeArgs{...}
+type BridgeEgressGatewayBridgeInput interface {
+	pulumi.Input
+
+	ToBridgeEgressGatewayBridgeOutput() BridgeEgressGatewayBridgeOutput
+	ToBridgeEgressGatewayBridgeOutputWithContext(context.Context) BridgeEgressGatewayBridgeOutput
+}
+
+type BridgeEgressGatewayBridgeArgs struct {
+	// The maximum expected bitrate of the egress bridge.
+	MaxBitrate pulumi.IntInput `pulumi:"maxBitrate"`
+}
+
+func (BridgeEgressGatewayBridgeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeEgressGatewayBridge)(nil)).Elem()
+}
+
+func (i BridgeEgressGatewayBridgeArgs) ToBridgeEgressGatewayBridgeOutput() BridgeEgressGatewayBridgeOutput {
+	return i.ToBridgeEgressGatewayBridgeOutputWithContext(context.Background())
+}
+
+func (i BridgeEgressGatewayBridgeArgs) ToBridgeEgressGatewayBridgeOutputWithContext(ctx context.Context) BridgeEgressGatewayBridgeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeEgressGatewayBridgeOutput)
+}
+
+func (i BridgeEgressGatewayBridgeArgs) ToBridgeEgressGatewayBridgePtrOutput() BridgeEgressGatewayBridgePtrOutput {
+	return i.ToBridgeEgressGatewayBridgePtrOutputWithContext(context.Background())
+}
+
+func (i BridgeEgressGatewayBridgeArgs) ToBridgeEgressGatewayBridgePtrOutputWithContext(ctx context.Context) BridgeEgressGatewayBridgePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeEgressGatewayBridgeOutput).ToBridgeEgressGatewayBridgePtrOutputWithContext(ctx)
+}
+
+// BridgeEgressGatewayBridgePtrInput is an input type that accepts BridgeEgressGatewayBridgeArgs, BridgeEgressGatewayBridgePtr and BridgeEgressGatewayBridgePtrOutput values.
+// You can construct a concrete instance of `BridgeEgressGatewayBridgePtrInput` via:
+//
+//	        BridgeEgressGatewayBridgeArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeEgressGatewayBridgePtrInput interface {
+	pulumi.Input
+
+	ToBridgeEgressGatewayBridgePtrOutput() BridgeEgressGatewayBridgePtrOutput
+	ToBridgeEgressGatewayBridgePtrOutputWithContext(context.Context) BridgeEgressGatewayBridgePtrOutput
+}
+
+type bridgeEgressGatewayBridgePtrType BridgeEgressGatewayBridgeArgs
+
+func BridgeEgressGatewayBridgePtr(v *BridgeEgressGatewayBridgeArgs) BridgeEgressGatewayBridgePtrInput {
+	return (*bridgeEgressGatewayBridgePtrType)(v)
+}
+
+func (*bridgeEgressGatewayBridgePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeEgressGatewayBridge)(nil)).Elem()
+}
+
+func (i *bridgeEgressGatewayBridgePtrType) ToBridgeEgressGatewayBridgePtrOutput() BridgeEgressGatewayBridgePtrOutput {
+	return i.ToBridgeEgressGatewayBridgePtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeEgressGatewayBridgePtrType) ToBridgeEgressGatewayBridgePtrOutputWithContext(ctx context.Context) BridgeEgressGatewayBridgePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeEgressGatewayBridgePtrOutput)
+}
+
+type BridgeEgressGatewayBridgeOutput struct{ *pulumi.OutputState }
+
+func (BridgeEgressGatewayBridgeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeEgressGatewayBridge)(nil)).Elem()
+}
+
+func (o BridgeEgressGatewayBridgeOutput) ToBridgeEgressGatewayBridgeOutput() BridgeEgressGatewayBridgeOutput {
+	return o
+}
+
+func (o BridgeEgressGatewayBridgeOutput) ToBridgeEgressGatewayBridgeOutputWithContext(ctx context.Context) BridgeEgressGatewayBridgeOutput {
+	return o
+}
+
+func (o BridgeEgressGatewayBridgeOutput) ToBridgeEgressGatewayBridgePtrOutput() BridgeEgressGatewayBridgePtrOutput {
+	return o.ToBridgeEgressGatewayBridgePtrOutputWithContext(context.Background())
+}
+
+func (o BridgeEgressGatewayBridgeOutput) ToBridgeEgressGatewayBridgePtrOutputWithContext(ctx context.Context) BridgeEgressGatewayBridgePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeEgressGatewayBridge) *BridgeEgressGatewayBridge {
+		return &v
+	}).(BridgeEgressGatewayBridgePtrOutput)
+}
+
+// The maximum expected bitrate of the egress bridge.
+func (o BridgeEgressGatewayBridgeOutput) MaxBitrate() pulumi.IntOutput {
+	return o.ApplyT(func(v BridgeEgressGatewayBridge) int { return v.MaxBitrate }).(pulumi.IntOutput)
+}
+
+type BridgeEgressGatewayBridgePtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeEgressGatewayBridgePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeEgressGatewayBridge)(nil)).Elem()
+}
+
+func (o BridgeEgressGatewayBridgePtrOutput) ToBridgeEgressGatewayBridgePtrOutput() BridgeEgressGatewayBridgePtrOutput {
+	return o
+}
+
+func (o BridgeEgressGatewayBridgePtrOutput) ToBridgeEgressGatewayBridgePtrOutputWithContext(ctx context.Context) BridgeEgressGatewayBridgePtrOutput {
+	return o
+}
+
+func (o BridgeEgressGatewayBridgePtrOutput) Elem() BridgeEgressGatewayBridgeOutput {
+	return o.ApplyT(func(v *BridgeEgressGatewayBridge) BridgeEgressGatewayBridge {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeEgressGatewayBridge
+		return ret
+	}).(BridgeEgressGatewayBridgeOutput)
+}
+
+// The maximum expected bitrate of the egress bridge.
+func (o BridgeEgressGatewayBridgePtrOutput) MaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BridgeEgressGatewayBridge) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// The settings for source failover.
+type BridgeFailoverConfig struct {
+	// The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+	FailoverMode BridgeFailoverModeEnum `pulumi:"failoverMode"`
+	// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+	SourcePriority *BridgeSourcePriority          `pulumi:"sourcePriority"`
+	State          *BridgeFailoverConfigStateEnum `pulumi:"state"`
+}
+
+// BridgeFailoverConfigInput is an input type that accepts BridgeFailoverConfigArgs and BridgeFailoverConfigOutput values.
+// You can construct a concrete instance of `BridgeFailoverConfigInput` via:
+//
+//	BridgeFailoverConfigArgs{...}
+type BridgeFailoverConfigInput interface {
+	pulumi.Input
+
+	ToBridgeFailoverConfigOutput() BridgeFailoverConfigOutput
+	ToBridgeFailoverConfigOutputWithContext(context.Context) BridgeFailoverConfigOutput
+}
+
+// The settings for source failover.
+type BridgeFailoverConfigArgs struct {
+	// The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+	FailoverMode BridgeFailoverModeEnumInput `pulumi:"failoverMode"`
+	// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+	SourcePriority BridgeSourcePriorityPtrInput          `pulumi:"sourcePriority"`
+	State          BridgeFailoverConfigStateEnumPtrInput `pulumi:"state"`
+}
+
+func (BridgeFailoverConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeFailoverConfig)(nil)).Elem()
+}
+
+func (i BridgeFailoverConfigArgs) ToBridgeFailoverConfigOutput() BridgeFailoverConfigOutput {
+	return i.ToBridgeFailoverConfigOutputWithContext(context.Background())
+}
+
+func (i BridgeFailoverConfigArgs) ToBridgeFailoverConfigOutputWithContext(ctx context.Context) BridgeFailoverConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeFailoverConfigOutput)
+}
+
+func (i BridgeFailoverConfigArgs) ToBridgeFailoverConfigPtrOutput() BridgeFailoverConfigPtrOutput {
+	return i.ToBridgeFailoverConfigPtrOutputWithContext(context.Background())
+}
+
+func (i BridgeFailoverConfigArgs) ToBridgeFailoverConfigPtrOutputWithContext(ctx context.Context) BridgeFailoverConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeFailoverConfigOutput).ToBridgeFailoverConfigPtrOutputWithContext(ctx)
+}
+
+// BridgeFailoverConfigPtrInput is an input type that accepts BridgeFailoverConfigArgs, BridgeFailoverConfigPtr and BridgeFailoverConfigPtrOutput values.
+// You can construct a concrete instance of `BridgeFailoverConfigPtrInput` via:
+//
+//	        BridgeFailoverConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeFailoverConfigPtrInput interface {
+	pulumi.Input
+
+	ToBridgeFailoverConfigPtrOutput() BridgeFailoverConfigPtrOutput
+	ToBridgeFailoverConfigPtrOutputWithContext(context.Context) BridgeFailoverConfigPtrOutput
+}
+
+type bridgeFailoverConfigPtrType BridgeFailoverConfigArgs
+
+func BridgeFailoverConfigPtr(v *BridgeFailoverConfigArgs) BridgeFailoverConfigPtrInput {
+	return (*bridgeFailoverConfigPtrType)(v)
+}
+
+func (*bridgeFailoverConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeFailoverConfig)(nil)).Elem()
+}
+
+func (i *bridgeFailoverConfigPtrType) ToBridgeFailoverConfigPtrOutput() BridgeFailoverConfigPtrOutput {
+	return i.ToBridgeFailoverConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeFailoverConfigPtrType) ToBridgeFailoverConfigPtrOutputWithContext(ctx context.Context) BridgeFailoverConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeFailoverConfigPtrOutput)
+}
+
+// The settings for source failover.
+type BridgeFailoverConfigOutput struct{ *pulumi.OutputState }
+
+func (BridgeFailoverConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeFailoverConfig)(nil)).Elem()
+}
+
+func (o BridgeFailoverConfigOutput) ToBridgeFailoverConfigOutput() BridgeFailoverConfigOutput {
+	return o
+}
+
+func (o BridgeFailoverConfigOutput) ToBridgeFailoverConfigOutputWithContext(ctx context.Context) BridgeFailoverConfigOutput {
+	return o
+}
+
+func (o BridgeFailoverConfigOutput) ToBridgeFailoverConfigPtrOutput() BridgeFailoverConfigPtrOutput {
+	return o.ToBridgeFailoverConfigPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeFailoverConfigOutput) ToBridgeFailoverConfigPtrOutputWithContext(ctx context.Context) BridgeFailoverConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeFailoverConfig) *BridgeFailoverConfig {
+		return &v
+	}).(BridgeFailoverConfigPtrOutput)
+}
+
+// The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+func (o BridgeFailoverConfigOutput) FailoverMode() BridgeFailoverModeEnumOutput {
+	return o.ApplyT(func(v BridgeFailoverConfig) BridgeFailoverModeEnum { return v.FailoverMode }).(BridgeFailoverModeEnumOutput)
+}
+
+// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+func (o BridgeFailoverConfigOutput) SourcePriority() BridgeSourcePriorityPtrOutput {
+	return o.ApplyT(func(v BridgeFailoverConfig) *BridgeSourcePriority { return v.SourcePriority }).(BridgeSourcePriorityPtrOutput)
+}
+
+func (o BridgeFailoverConfigOutput) State() BridgeFailoverConfigStateEnumPtrOutput {
+	return o.ApplyT(func(v BridgeFailoverConfig) *BridgeFailoverConfigStateEnum { return v.State }).(BridgeFailoverConfigStateEnumPtrOutput)
+}
+
+type BridgeFailoverConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeFailoverConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeFailoverConfig)(nil)).Elem()
+}
+
+func (o BridgeFailoverConfigPtrOutput) ToBridgeFailoverConfigPtrOutput() BridgeFailoverConfigPtrOutput {
+	return o
+}
+
+func (o BridgeFailoverConfigPtrOutput) ToBridgeFailoverConfigPtrOutputWithContext(ctx context.Context) BridgeFailoverConfigPtrOutput {
+	return o
+}
+
+func (o BridgeFailoverConfigPtrOutput) Elem() BridgeFailoverConfigOutput {
+	return o.ApplyT(func(v *BridgeFailoverConfig) BridgeFailoverConfig {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeFailoverConfig
+		return ret
+	}).(BridgeFailoverConfigOutput)
+}
+
+// The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+func (o BridgeFailoverConfigPtrOutput) FailoverMode() BridgeFailoverModeEnumPtrOutput {
+	return o.ApplyT(func(v *BridgeFailoverConfig) *BridgeFailoverModeEnum {
+		if v == nil {
+			return nil
+		}
+		return &v.FailoverMode
+	}).(BridgeFailoverModeEnumPtrOutput)
+}
+
+// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+func (o BridgeFailoverConfigPtrOutput) SourcePriority() BridgeSourcePriorityPtrOutput {
+	return o.ApplyT(func(v *BridgeFailoverConfig) *BridgeSourcePriority {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePriority
+	}).(BridgeSourcePriorityPtrOutput)
+}
+
+func (o BridgeFailoverConfigPtrOutput) State() BridgeFailoverConfigStateEnumPtrOutput {
+	return o.ApplyT(func(v *BridgeFailoverConfig) *BridgeFailoverConfigStateEnum {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(BridgeFailoverConfigStateEnumPtrOutput)
+}
+
+// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+type BridgeFlowSource struct {
+	// The ARN of the cloud flow used as a source of this bridge.
+	FlowArn string `pulumi:"flowArn"`
+	// The name of the VPC interface attachment to use for this source.
+	FlowVpcInterfaceAttachment *BridgeVpcInterfaceAttachment `pulumi:"flowVpcInterfaceAttachment"`
+	// The name of the flow source.
+	Name string `pulumi:"name"`
+}
+
+// BridgeFlowSourceInput is an input type that accepts BridgeFlowSourceArgs and BridgeFlowSourceOutput values.
+// You can construct a concrete instance of `BridgeFlowSourceInput` via:
+//
+//	BridgeFlowSourceArgs{...}
+type BridgeFlowSourceInput interface {
+	pulumi.Input
+
+	ToBridgeFlowSourceOutput() BridgeFlowSourceOutput
+	ToBridgeFlowSourceOutputWithContext(context.Context) BridgeFlowSourceOutput
+}
+
+// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+type BridgeFlowSourceArgs struct {
+	// The ARN of the cloud flow used as a source of this bridge.
+	FlowArn pulumi.StringInput `pulumi:"flowArn"`
+	// The name of the VPC interface attachment to use for this source.
+	FlowVpcInterfaceAttachment BridgeVpcInterfaceAttachmentPtrInput `pulumi:"flowVpcInterfaceAttachment"`
+	// The name of the flow source.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (BridgeFlowSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeFlowSource)(nil)).Elem()
+}
+
+func (i BridgeFlowSourceArgs) ToBridgeFlowSourceOutput() BridgeFlowSourceOutput {
+	return i.ToBridgeFlowSourceOutputWithContext(context.Background())
+}
+
+func (i BridgeFlowSourceArgs) ToBridgeFlowSourceOutputWithContext(ctx context.Context) BridgeFlowSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeFlowSourceOutput)
+}
+
+func (i BridgeFlowSourceArgs) ToBridgeFlowSourcePtrOutput() BridgeFlowSourcePtrOutput {
+	return i.ToBridgeFlowSourcePtrOutputWithContext(context.Background())
+}
+
+func (i BridgeFlowSourceArgs) ToBridgeFlowSourcePtrOutputWithContext(ctx context.Context) BridgeFlowSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeFlowSourceOutput).ToBridgeFlowSourcePtrOutputWithContext(ctx)
+}
+
+// BridgeFlowSourcePtrInput is an input type that accepts BridgeFlowSourceArgs, BridgeFlowSourcePtr and BridgeFlowSourcePtrOutput values.
+// You can construct a concrete instance of `BridgeFlowSourcePtrInput` via:
+//
+//	        BridgeFlowSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeFlowSourcePtrInput interface {
+	pulumi.Input
+
+	ToBridgeFlowSourcePtrOutput() BridgeFlowSourcePtrOutput
+	ToBridgeFlowSourcePtrOutputWithContext(context.Context) BridgeFlowSourcePtrOutput
+}
+
+type bridgeFlowSourcePtrType BridgeFlowSourceArgs
+
+func BridgeFlowSourcePtr(v *BridgeFlowSourceArgs) BridgeFlowSourcePtrInput {
+	return (*bridgeFlowSourcePtrType)(v)
+}
+
+func (*bridgeFlowSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeFlowSource)(nil)).Elem()
+}
+
+func (i *bridgeFlowSourcePtrType) ToBridgeFlowSourcePtrOutput() BridgeFlowSourcePtrOutput {
+	return i.ToBridgeFlowSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeFlowSourcePtrType) ToBridgeFlowSourcePtrOutputWithContext(ctx context.Context) BridgeFlowSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeFlowSourcePtrOutput)
+}
+
+// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+type BridgeFlowSourceOutput struct{ *pulumi.OutputState }
+
+func (BridgeFlowSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeFlowSource)(nil)).Elem()
+}
+
+func (o BridgeFlowSourceOutput) ToBridgeFlowSourceOutput() BridgeFlowSourceOutput {
+	return o
+}
+
+func (o BridgeFlowSourceOutput) ToBridgeFlowSourceOutputWithContext(ctx context.Context) BridgeFlowSourceOutput {
+	return o
+}
+
+func (o BridgeFlowSourceOutput) ToBridgeFlowSourcePtrOutput() BridgeFlowSourcePtrOutput {
+	return o.ToBridgeFlowSourcePtrOutputWithContext(context.Background())
+}
+
+func (o BridgeFlowSourceOutput) ToBridgeFlowSourcePtrOutputWithContext(ctx context.Context) BridgeFlowSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeFlowSource) *BridgeFlowSource {
+		return &v
+	}).(BridgeFlowSourcePtrOutput)
+}
+
+// The ARN of the cloud flow used as a source of this bridge.
+func (o BridgeFlowSourceOutput) FlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeFlowSource) string { return v.FlowArn }).(pulumi.StringOutput)
+}
+
+// The name of the VPC interface attachment to use for this source.
+func (o BridgeFlowSourceOutput) FlowVpcInterfaceAttachment() BridgeVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyT(func(v BridgeFlowSource) *BridgeVpcInterfaceAttachment { return v.FlowVpcInterfaceAttachment }).(BridgeVpcInterfaceAttachmentPtrOutput)
+}
+
+// The name of the flow source.
+func (o BridgeFlowSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeFlowSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type BridgeFlowSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeFlowSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeFlowSource)(nil)).Elem()
+}
+
+func (o BridgeFlowSourcePtrOutput) ToBridgeFlowSourcePtrOutput() BridgeFlowSourcePtrOutput {
+	return o
+}
+
+func (o BridgeFlowSourcePtrOutput) ToBridgeFlowSourcePtrOutputWithContext(ctx context.Context) BridgeFlowSourcePtrOutput {
+	return o
+}
+
+func (o BridgeFlowSourcePtrOutput) Elem() BridgeFlowSourceOutput {
+	return o.ApplyT(func(v *BridgeFlowSource) BridgeFlowSource {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeFlowSource
+		return ret
+	}).(BridgeFlowSourceOutput)
+}
+
+// The ARN of the cloud flow used as a source of this bridge.
+func (o BridgeFlowSourcePtrOutput) FlowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeFlowSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FlowArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the VPC interface attachment to use for this source.
+func (o BridgeFlowSourcePtrOutput) FlowVpcInterfaceAttachment() BridgeVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyT(func(v *BridgeFlowSource) *BridgeVpcInterfaceAttachment {
+		if v == nil {
+			return nil
+		}
+		return v.FlowVpcInterfaceAttachment
+	}).(BridgeVpcInterfaceAttachmentPtrOutput)
+}
+
+// The name of the flow source.
+func (o BridgeFlowSourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeFlowSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type BridgeIngressGatewayBridge struct {
+	// The maximum expected bitrate of the ingress bridge.
+	MaxBitrate int `pulumi:"maxBitrate"`
+	// The maximum number of outputs on the ingress bridge.
+	MaxOutputs int `pulumi:"maxOutputs"`
+}
+
+// BridgeIngressGatewayBridgeInput is an input type that accepts BridgeIngressGatewayBridgeArgs and BridgeIngressGatewayBridgeOutput values.
+// You can construct a concrete instance of `BridgeIngressGatewayBridgeInput` via:
+//
+//	BridgeIngressGatewayBridgeArgs{...}
+type BridgeIngressGatewayBridgeInput interface {
+	pulumi.Input
+
+	ToBridgeIngressGatewayBridgeOutput() BridgeIngressGatewayBridgeOutput
+	ToBridgeIngressGatewayBridgeOutputWithContext(context.Context) BridgeIngressGatewayBridgeOutput
+}
+
+type BridgeIngressGatewayBridgeArgs struct {
+	// The maximum expected bitrate of the ingress bridge.
+	MaxBitrate pulumi.IntInput `pulumi:"maxBitrate"`
+	// The maximum number of outputs on the ingress bridge.
+	MaxOutputs pulumi.IntInput `pulumi:"maxOutputs"`
+}
+
+func (BridgeIngressGatewayBridgeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeIngressGatewayBridge)(nil)).Elem()
+}
+
+func (i BridgeIngressGatewayBridgeArgs) ToBridgeIngressGatewayBridgeOutput() BridgeIngressGatewayBridgeOutput {
+	return i.ToBridgeIngressGatewayBridgeOutputWithContext(context.Background())
+}
+
+func (i BridgeIngressGatewayBridgeArgs) ToBridgeIngressGatewayBridgeOutputWithContext(ctx context.Context) BridgeIngressGatewayBridgeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeIngressGatewayBridgeOutput)
+}
+
+func (i BridgeIngressGatewayBridgeArgs) ToBridgeIngressGatewayBridgePtrOutput() BridgeIngressGatewayBridgePtrOutput {
+	return i.ToBridgeIngressGatewayBridgePtrOutputWithContext(context.Background())
+}
+
+func (i BridgeIngressGatewayBridgeArgs) ToBridgeIngressGatewayBridgePtrOutputWithContext(ctx context.Context) BridgeIngressGatewayBridgePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeIngressGatewayBridgeOutput).ToBridgeIngressGatewayBridgePtrOutputWithContext(ctx)
+}
+
+// BridgeIngressGatewayBridgePtrInput is an input type that accepts BridgeIngressGatewayBridgeArgs, BridgeIngressGatewayBridgePtr and BridgeIngressGatewayBridgePtrOutput values.
+// You can construct a concrete instance of `BridgeIngressGatewayBridgePtrInput` via:
+//
+//	        BridgeIngressGatewayBridgeArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeIngressGatewayBridgePtrInput interface {
+	pulumi.Input
+
+	ToBridgeIngressGatewayBridgePtrOutput() BridgeIngressGatewayBridgePtrOutput
+	ToBridgeIngressGatewayBridgePtrOutputWithContext(context.Context) BridgeIngressGatewayBridgePtrOutput
+}
+
+type bridgeIngressGatewayBridgePtrType BridgeIngressGatewayBridgeArgs
+
+func BridgeIngressGatewayBridgePtr(v *BridgeIngressGatewayBridgeArgs) BridgeIngressGatewayBridgePtrInput {
+	return (*bridgeIngressGatewayBridgePtrType)(v)
+}
+
+func (*bridgeIngressGatewayBridgePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeIngressGatewayBridge)(nil)).Elem()
+}
+
+func (i *bridgeIngressGatewayBridgePtrType) ToBridgeIngressGatewayBridgePtrOutput() BridgeIngressGatewayBridgePtrOutput {
+	return i.ToBridgeIngressGatewayBridgePtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeIngressGatewayBridgePtrType) ToBridgeIngressGatewayBridgePtrOutputWithContext(ctx context.Context) BridgeIngressGatewayBridgePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeIngressGatewayBridgePtrOutput)
+}
+
+type BridgeIngressGatewayBridgeOutput struct{ *pulumi.OutputState }
+
+func (BridgeIngressGatewayBridgeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeIngressGatewayBridge)(nil)).Elem()
+}
+
+func (o BridgeIngressGatewayBridgeOutput) ToBridgeIngressGatewayBridgeOutput() BridgeIngressGatewayBridgeOutput {
+	return o
+}
+
+func (o BridgeIngressGatewayBridgeOutput) ToBridgeIngressGatewayBridgeOutputWithContext(ctx context.Context) BridgeIngressGatewayBridgeOutput {
+	return o
+}
+
+func (o BridgeIngressGatewayBridgeOutput) ToBridgeIngressGatewayBridgePtrOutput() BridgeIngressGatewayBridgePtrOutput {
+	return o.ToBridgeIngressGatewayBridgePtrOutputWithContext(context.Background())
+}
+
+func (o BridgeIngressGatewayBridgeOutput) ToBridgeIngressGatewayBridgePtrOutputWithContext(ctx context.Context) BridgeIngressGatewayBridgePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeIngressGatewayBridge) *BridgeIngressGatewayBridge {
+		return &v
+	}).(BridgeIngressGatewayBridgePtrOutput)
+}
+
+// The maximum expected bitrate of the ingress bridge.
+func (o BridgeIngressGatewayBridgeOutput) MaxBitrate() pulumi.IntOutput {
+	return o.ApplyT(func(v BridgeIngressGatewayBridge) int { return v.MaxBitrate }).(pulumi.IntOutput)
+}
+
+// The maximum number of outputs on the ingress bridge.
+func (o BridgeIngressGatewayBridgeOutput) MaxOutputs() pulumi.IntOutput {
+	return o.ApplyT(func(v BridgeIngressGatewayBridge) int { return v.MaxOutputs }).(pulumi.IntOutput)
+}
+
+type BridgeIngressGatewayBridgePtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeIngressGatewayBridgePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeIngressGatewayBridge)(nil)).Elem()
+}
+
+func (o BridgeIngressGatewayBridgePtrOutput) ToBridgeIngressGatewayBridgePtrOutput() BridgeIngressGatewayBridgePtrOutput {
+	return o
+}
+
+func (o BridgeIngressGatewayBridgePtrOutput) ToBridgeIngressGatewayBridgePtrOutputWithContext(ctx context.Context) BridgeIngressGatewayBridgePtrOutput {
+	return o
+}
+
+func (o BridgeIngressGatewayBridgePtrOutput) Elem() BridgeIngressGatewayBridgeOutput {
+	return o.ApplyT(func(v *BridgeIngressGatewayBridge) BridgeIngressGatewayBridge {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeIngressGatewayBridge
+		return ret
+	}).(BridgeIngressGatewayBridgeOutput)
+}
+
+// The maximum expected bitrate of the ingress bridge.
+func (o BridgeIngressGatewayBridgePtrOutput) MaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BridgeIngressGatewayBridge) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of outputs on the ingress bridge.
+func (o BridgeIngressGatewayBridgePtrOutput) MaxOutputs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BridgeIngressGatewayBridge) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxOutputs
+	}).(pulumi.IntPtrOutput)
+}
+
+// The output of the bridge. A network output is delivered to your premises.
+type BridgeNetworkOutput struct {
+	// The network output IP Address.
+	IpAddress string `pulumi:"ipAddress"`
+	// The network output name.
+	Name string `pulumi:"name"`
+	// The network output's gateway network name.
+	NetworkName string `pulumi:"networkName"`
+	// The network output port.
+	Port int `pulumi:"port"`
+	// The network output protocol.
+	Protocol BridgeProtocolEnum `pulumi:"protocol"`
+	// The network output TTL.
+	Ttl int `pulumi:"ttl"`
+}
+
+// BridgeNetworkOutputInput is an input type that accepts BridgeNetworkOutputArgs and BridgeNetworkOutputOutput values.
+// You can construct a concrete instance of `BridgeNetworkOutputInput` via:
+//
+//	BridgeNetworkOutputArgs{...}
+type BridgeNetworkOutputInput interface {
+	pulumi.Input
+
+	ToBridgeNetworkOutputOutput() BridgeNetworkOutputOutput
+	ToBridgeNetworkOutputOutputWithContext(context.Context) BridgeNetworkOutputOutput
+}
+
+// The output of the bridge. A network output is delivered to your premises.
+type BridgeNetworkOutputArgs struct {
+	// The network output IP Address.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The network output name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The network output's gateway network name.
+	NetworkName pulumi.StringInput `pulumi:"networkName"`
+	// The network output port.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The network output protocol.
+	Protocol BridgeProtocolEnumInput `pulumi:"protocol"`
+	// The network output TTL.
+	Ttl pulumi.IntInput `pulumi:"ttl"`
+}
+
+func (BridgeNetworkOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeNetworkOutput)(nil)).Elem()
+}
+
+func (i BridgeNetworkOutputArgs) ToBridgeNetworkOutputOutput() BridgeNetworkOutputOutput {
+	return i.ToBridgeNetworkOutputOutputWithContext(context.Background())
+}
+
+func (i BridgeNetworkOutputArgs) ToBridgeNetworkOutputOutputWithContext(ctx context.Context) BridgeNetworkOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeNetworkOutputOutput)
+}
+
+func (i BridgeNetworkOutputArgs) ToBridgeNetworkOutputPtrOutput() BridgeNetworkOutputPtrOutput {
+	return i.ToBridgeNetworkOutputPtrOutputWithContext(context.Background())
+}
+
+func (i BridgeNetworkOutputArgs) ToBridgeNetworkOutputPtrOutputWithContext(ctx context.Context) BridgeNetworkOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeNetworkOutputOutput).ToBridgeNetworkOutputPtrOutputWithContext(ctx)
+}
+
+// BridgeNetworkOutputPtrInput is an input type that accepts BridgeNetworkOutputArgs, BridgeNetworkOutputPtr and BridgeNetworkOutputPtrOutput values.
+// You can construct a concrete instance of `BridgeNetworkOutputPtrInput` via:
+//
+//	        BridgeNetworkOutputArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeNetworkOutputPtrInput interface {
+	pulumi.Input
+
+	ToBridgeNetworkOutputPtrOutput() BridgeNetworkOutputPtrOutput
+	ToBridgeNetworkOutputPtrOutputWithContext(context.Context) BridgeNetworkOutputPtrOutput
+}
+
+type bridgeNetworkOutputPtrType BridgeNetworkOutputArgs
+
+func BridgeNetworkOutputPtr(v *BridgeNetworkOutputArgs) BridgeNetworkOutputPtrInput {
+	return (*bridgeNetworkOutputPtrType)(v)
+}
+
+func (*bridgeNetworkOutputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeNetworkOutput)(nil)).Elem()
+}
+
+func (i *bridgeNetworkOutputPtrType) ToBridgeNetworkOutputPtrOutput() BridgeNetworkOutputPtrOutput {
+	return i.ToBridgeNetworkOutputPtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeNetworkOutputPtrType) ToBridgeNetworkOutputPtrOutputWithContext(ctx context.Context) BridgeNetworkOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeNetworkOutputPtrOutput)
+}
+
+// The output of the bridge. A network output is delivered to your premises.
+type BridgeNetworkOutputOutput struct{ *pulumi.OutputState }
+
+func (BridgeNetworkOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeNetworkOutput)(nil)).Elem()
+}
+
+func (o BridgeNetworkOutputOutput) ToBridgeNetworkOutputOutput() BridgeNetworkOutputOutput {
+	return o
+}
+
+func (o BridgeNetworkOutputOutput) ToBridgeNetworkOutputOutputWithContext(ctx context.Context) BridgeNetworkOutputOutput {
+	return o
+}
+
+func (o BridgeNetworkOutputOutput) ToBridgeNetworkOutputPtrOutput() BridgeNetworkOutputPtrOutput {
+	return o.ToBridgeNetworkOutputPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeNetworkOutputOutput) ToBridgeNetworkOutputPtrOutputWithContext(ctx context.Context) BridgeNetworkOutputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeNetworkOutput) *BridgeNetworkOutput {
+		return &v
+	}).(BridgeNetworkOutputPtrOutput)
+}
+
+// The network output IP Address.
+func (o BridgeNetworkOutputOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeNetworkOutput) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The network output name.
+func (o BridgeNetworkOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeNetworkOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The network output's gateway network name.
+func (o BridgeNetworkOutputOutput) NetworkName() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeNetworkOutput) string { return v.NetworkName }).(pulumi.StringOutput)
+}
+
+// The network output port.
+func (o BridgeNetworkOutputOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v BridgeNetworkOutput) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The network output protocol.
+func (o BridgeNetworkOutputOutput) Protocol() BridgeProtocolEnumOutput {
+	return o.ApplyT(func(v BridgeNetworkOutput) BridgeProtocolEnum { return v.Protocol }).(BridgeProtocolEnumOutput)
+}
+
+// The network output TTL.
+func (o BridgeNetworkOutputOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v BridgeNetworkOutput) int { return v.Ttl }).(pulumi.IntOutput)
+}
+
+type BridgeNetworkOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeNetworkOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeNetworkOutput)(nil)).Elem()
+}
+
+func (o BridgeNetworkOutputPtrOutput) ToBridgeNetworkOutputPtrOutput() BridgeNetworkOutputPtrOutput {
+	return o
+}
+
+func (o BridgeNetworkOutputPtrOutput) ToBridgeNetworkOutputPtrOutputWithContext(ctx context.Context) BridgeNetworkOutputPtrOutput {
+	return o
+}
+
+func (o BridgeNetworkOutputPtrOutput) Elem() BridgeNetworkOutputOutput {
+	return o.ApplyT(func(v *BridgeNetworkOutput) BridgeNetworkOutput {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeNetworkOutput
+		return ret
+	}).(BridgeNetworkOutputOutput)
+}
+
+// The network output IP Address.
+func (o BridgeNetworkOutputPtrOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network output name.
+func (o BridgeNetworkOutputPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network output's gateway network name.
+func (o BridgeNetworkOutputPtrOutput) NetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network output port.
+func (o BridgeNetworkOutputPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkOutput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The network output protocol.
+func (o BridgeNetworkOutputPtrOutput) Protocol() BridgeProtocolEnumPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkOutput) *BridgeProtocolEnum {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(BridgeProtocolEnumPtrOutput)
+}
+
+// The network output TTL.
+func (o BridgeNetworkOutputPtrOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkOutput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Ttl
+	}).(pulumi.IntPtrOutput)
+}
+
+// The source of the bridge. A network source originates at your premises.
+type BridgeNetworkSource struct {
+	// The network source multicast IP.
+	MulticastIp string `pulumi:"multicastIp"`
+	// The name of the network source.
+	Name string `pulumi:"name"`
+	// The network source's gateway network name.
+	NetworkName string `pulumi:"networkName"`
+	// The network source port.
+	Port int `pulumi:"port"`
+	// The network source protocol.
+	Protocol BridgeProtocolEnum `pulumi:"protocol"`
+}
+
+// BridgeNetworkSourceInput is an input type that accepts BridgeNetworkSourceArgs and BridgeNetworkSourceOutput values.
+// You can construct a concrete instance of `BridgeNetworkSourceInput` via:
+//
+//	BridgeNetworkSourceArgs{...}
+type BridgeNetworkSourceInput interface {
+	pulumi.Input
+
+	ToBridgeNetworkSourceOutput() BridgeNetworkSourceOutput
+	ToBridgeNetworkSourceOutputWithContext(context.Context) BridgeNetworkSourceOutput
+}
+
+// The source of the bridge. A network source originates at your premises.
+type BridgeNetworkSourceArgs struct {
+	// The network source multicast IP.
+	MulticastIp pulumi.StringInput `pulumi:"multicastIp"`
+	// The name of the network source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The network source's gateway network name.
+	NetworkName pulumi.StringInput `pulumi:"networkName"`
+	// The network source port.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The network source protocol.
+	Protocol BridgeProtocolEnumInput `pulumi:"protocol"`
+}
+
+func (BridgeNetworkSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeNetworkSource)(nil)).Elem()
+}
+
+func (i BridgeNetworkSourceArgs) ToBridgeNetworkSourceOutput() BridgeNetworkSourceOutput {
+	return i.ToBridgeNetworkSourceOutputWithContext(context.Background())
+}
+
+func (i BridgeNetworkSourceArgs) ToBridgeNetworkSourceOutputWithContext(ctx context.Context) BridgeNetworkSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeNetworkSourceOutput)
+}
+
+func (i BridgeNetworkSourceArgs) ToBridgeNetworkSourcePtrOutput() BridgeNetworkSourcePtrOutput {
+	return i.ToBridgeNetworkSourcePtrOutputWithContext(context.Background())
+}
+
+func (i BridgeNetworkSourceArgs) ToBridgeNetworkSourcePtrOutputWithContext(ctx context.Context) BridgeNetworkSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeNetworkSourceOutput).ToBridgeNetworkSourcePtrOutputWithContext(ctx)
+}
+
+// BridgeNetworkSourcePtrInput is an input type that accepts BridgeNetworkSourceArgs, BridgeNetworkSourcePtr and BridgeNetworkSourcePtrOutput values.
+// You can construct a concrete instance of `BridgeNetworkSourcePtrInput` via:
+//
+//	        BridgeNetworkSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeNetworkSourcePtrInput interface {
+	pulumi.Input
+
+	ToBridgeNetworkSourcePtrOutput() BridgeNetworkSourcePtrOutput
+	ToBridgeNetworkSourcePtrOutputWithContext(context.Context) BridgeNetworkSourcePtrOutput
+}
+
+type bridgeNetworkSourcePtrType BridgeNetworkSourceArgs
+
+func BridgeNetworkSourcePtr(v *BridgeNetworkSourceArgs) BridgeNetworkSourcePtrInput {
+	return (*bridgeNetworkSourcePtrType)(v)
+}
+
+func (*bridgeNetworkSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeNetworkSource)(nil)).Elem()
+}
+
+func (i *bridgeNetworkSourcePtrType) ToBridgeNetworkSourcePtrOutput() BridgeNetworkSourcePtrOutput {
+	return i.ToBridgeNetworkSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeNetworkSourcePtrType) ToBridgeNetworkSourcePtrOutputWithContext(ctx context.Context) BridgeNetworkSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeNetworkSourcePtrOutput)
+}
+
+// The source of the bridge. A network source originates at your premises.
+type BridgeNetworkSourceOutput struct{ *pulumi.OutputState }
+
+func (BridgeNetworkSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeNetworkSource)(nil)).Elem()
+}
+
+func (o BridgeNetworkSourceOutput) ToBridgeNetworkSourceOutput() BridgeNetworkSourceOutput {
+	return o
+}
+
+func (o BridgeNetworkSourceOutput) ToBridgeNetworkSourceOutputWithContext(ctx context.Context) BridgeNetworkSourceOutput {
+	return o
+}
+
+func (o BridgeNetworkSourceOutput) ToBridgeNetworkSourcePtrOutput() BridgeNetworkSourcePtrOutput {
+	return o.ToBridgeNetworkSourcePtrOutputWithContext(context.Background())
+}
+
+func (o BridgeNetworkSourceOutput) ToBridgeNetworkSourcePtrOutputWithContext(ctx context.Context) BridgeNetworkSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeNetworkSource) *BridgeNetworkSource {
+		return &v
+	}).(BridgeNetworkSourcePtrOutput)
+}
+
+// The network source multicast IP.
+func (o BridgeNetworkSourceOutput) MulticastIp() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeNetworkSource) string { return v.MulticastIp }).(pulumi.StringOutput)
+}
+
+// The name of the network source.
+func (o BridgeNetworkSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeNetworkSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The network source's gateway network name.
+func (o BridgeNetworkSourceOutput) NetworkName() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeNetworkSource) string { return v.NetworkName }).(pulumi.StringOutput)
+}
+
+// The network source port.
+func (o BridgeNetworkSourceOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v BridgeNetworkSource) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The network source protocol.
+func (o BridgeNetworkSourceOutput) Protocol() BridgeProtocolEnumOutput {
+	return o.ApplyT(func(v BridgeNetworkSource) BridgeProtocolEnum { return v.Protocol }).(BridgeProtocolEnumOutput)
+}
+
+type BridgeNetworkSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeNetworkSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeNetworkSource)(nil)).Elem()
+}
+
+func (o BridgeNetworkSourcePtrOutput) ToBridgeNetworkSourcePtrOutput() BridgeNetworkSourcePtrOutput {
+	return o
+}
+
+func (o BridgeNetworkSourcePtrOutput) ToBridgeNetworkSourcePtrOutputWithContext(ctx context.Context) BridgeNetworkSourcePtrOutput {
+	return o
+}
+
+func (o BridgeNetworkSourcePtrOutput) Elem() BridgeNetworkSourceOutput {
+	return o.ApplyT(func(v *BridgeNetworkSource) BridgeNetworkSource {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeNetworkSource
+		return ret
+	}).(BridgeNetworkSourceOutput)
+}
+
+// The network source multicast IP.
+func (o BridgeNetworkSourcePtrOutput) MulticastIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MulticastIp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the network source.
+func (o BridgeNetworkSourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network source's gateway network name.
+func (o BridgeNetworkSourcePtrOutput) NetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network source port.
+func (o BridgeNetworkSourcePtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkSource) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The network source protocol.
+func (o BridgeNetworkSourcePtrOutput) Protocol() BridgeProtocolEnumPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkSource) *BridgeProtocolEnum {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(BridgeProtocolEnumPtrOutput)
+}
+
+// The output of the bridge.
+type BridgeOutputType struct {
+	NetworkOutput *BridgeNetworkOutput `pulumi:"networkOutput"`
+}
+
+// BridgeOutputTypeInput is an input type that accepts BridgeOutputTypeArgs and BridgeOutputTypeOutput values.
+// You can construct a concrete instance of `BridgeOutputTypeInput` via:
+//
+//	BridgeOutputTypeArgs{...}
+type BridgeOutputTypeInput interface {
+	pulumi.Input
+
+	ToBridgeOutputTypeOutput() BridgeOutputTypeOutput
+	ToBridgeOutputTypeOutputWithContext(context.Context) BridgeOutputTypeOutput
+}
+
+// The output of the bridge.
+type BridgeOutputTypeArgs struct {
+	NetworkOutput BridgeNetworkOutputPtrInput `pulumi:"networkOutput"`
+}
+
+func (BridgeOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeOutputType)(nil)).Elem()
+}
+
+func (i BridgeOutputTypeArgs) ToBridgeOutputTypeOutput() BridgeOutputTypeOutput {
+	return i.ToBridgeOutputTypeOutputWithContext(context.Background())
+}
+
+func (i BridgeOutputTypeArgs) ToBridgeOutputTypeOutputWithContext(ctx context.Context) BridgeOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeOutputTypeOutput)
+}
+
+// BridgeOutputTypeArrayInput is an input type that accepts BridgeOutputTypeArray and BridgeOutputTypeArrayOutput values.
+// You can construct a concrete instance of `BridgeOutputTypeArrayInput` via:
+//
+//	BridgeOutputTypeArray{ BridgeOutputTypeArgs{...} }
+type BridgeOutputTypeArrayInput interface {
+	pulumi.Input
+
+	ToBridgeOutputTypeArrayOutput() BridgeOutputTypeArrayOutput
+	ToBridgeOutputTypeArrayOutputWithContext(context.Context) BridgeOutputTypeArrayOutput
+}
+
+type BridgeOutputTypeArray []BridgeOutputTypeInput
+
+func (BridgeOutputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BridgeOutputType)(nil)).Elem()
+}
+
+func (i BridgeOutputTypeArray) ToBridgeOutputTypeArrayOutput() BridgeOutputTypeArrayOutput {
+	return i.ToBridgeOutputTypeArrayOutputWithContext(context.Background())
+}
+
+func (i BridgeOutputTypeArray) ToBridgeOutputTypeArrayOutputWithContext(ctx context.Context) BridgeOutputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeOutputTypeArrayOutput)
+}
+
+// The output of the bridge.
+type BridgeOutputTypeOutput struct{ *pulumi.OutputState }
+
+func (BridgeOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeOutputType)(nil)).Elem()
+}
+
+func (o BridgeOutputTypeOutput) ToBridgeOutputTypeOutput() BridgeOutputTypeOutput {
+	return o
+}
+
+func (o BridgeOutputTypeOutput) ToBridgeOutputTypeOutputWithContext(ctx context.Context) BridgeOutputTypeOutput {
+	return o
+}
+
+func (o BridgeOutputTypeOutput) NetworkOutput() BridgeNetworkOutputPtrOutput {
+	return o.ApplyT(func(v BridgeOutputType) *BridgeNetworkOutput { return v.NetworkOutput }).(BridgeNetworkOutputPtrOutput)
+}
+
+type BridgeOutputTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (BridgeOutputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BridgeOutputType)(nil)).Elem()
+}
+
+func (o BridgeOutputTypeArrayOutput) ToBridgeOutputTypeArrayOutput() BridgeOutputTypeArrayOutput {
+	return o
+}
+
+func (o BridgeOutputTypeArrayOutput) ToBridgeOutputTypeArrayOutputWithContext(ctx context.Context) BridgeOutputTypeArrayOutput {
+	return o
+}
+
+func (o BridgeOutputTypeArrayOutput) Index(i pulumi.IntInput) BridgeOutputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BridgeOutputType {
+		return vs[0].([]BridgeOutputType)[vs[1].(int)]
+	}).(BridgeOutputTypeOutput)
+}
+
+// The output of the bridge. A network output is delivered to your premises.
+type BridgeOutputResourceBridgeNetworkOutput struct {
+	// The network output IP Address.
+	IpAddress string `pulumi:"ipAddress"`
+	// The network output's gateway network name.
+	NetworkName string `pulumi:"networkName"`
+	// The network output port.
+	Port int `pulumi:"port"`
+	// The network output protocol.
+	Protocol BridgeOutputResourceBridgeNetworkOutputProtocol `pulumi:"protocol"`
+	// The network output TTL.
+	Ttl int `pulumi:"ttl"`
+}
+
+// BridgeOutputResourceBridgeNetworkOutputInput is an input type that accepts BridgeOutputResourceBridgeNetworkOutputArgs and BridgeOutputResourceBridgeNetworkOutputOutput values.
+// You can construct a concrete instance of `BridgeOutputResourceBridgeNetworkOutputInput` via:
+//
+//	BridgeOutputResourceBridgeNetworkOutputArgs{...}
+type BridgeOutputResourceBridgeNetworkOutputInput interface {
+	pulumi.Input
+
+	ToBridgeOutputResourceBridgeNetworkOutputOutput() BridgeOutputResourceBridgeNetworkOutputOutput
+	ToBridgeOutputResourceBridgeNetworkOutputOutputWithContext(context.Context) BridgeOutputResourceBridgeNetworkOutputOutput
+}
+
+// The output of the bridge. A network output is delivered to your premises.
+type BridgeOutputResourceBridgeNetworkOutputArgs struct {
+	// The network output IP Address.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The network output's gateway network name.
+	NetworkName pulumi.StringInput `pulumi:"networkName"`
+	// The network output port.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The network output protocol.
+	Protocol BridgeOutputResourceBridgeNetworkOutputProtocolInput `pulumi:"protocol"`
+	// The network output TTL.
+	Ttl pulumi.IntInput `pulumi:"ttl"`
+}
+
+func (BridgeOutputResourceBridgeNetworkOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeOutputResourceBridgeNetworkOutput)(nil)).Elem()
+}
+
+func (i BridgeOutputResourceBridgeNetworkOutputArgs) ToBridgeOutputResourceBridgeNetworkOutputOutput() BridgeOutputResourceBridgeNetworkOutputOutput {
+	return i.ToBridgeOutputResourceBridgeNetworkOutputOutputWithContext(context.Background())
+}
+
+func (i BridgeOutputResourceBridgeNetworkOutputArgs) ToBridgeOutputResourceBridgeNetworkOutputOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeOutputResourceBridgeNetworkOutputOutput)
+}
+
+// The output of the bridge. A network output is delivered to your premises.
+type BridgeOutputResourceBridgeNetworkOutputOutput struct{ *pulumi.OutputState }
+
+func (BridgeOutputResourceBridgeNetworkOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeOutputResourceBridgeNetworkOutput)(nil)).Elem()
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputOutput) ToBridgeOutputResourceBridgeNetworkOutputOutput() BridgeOutputResourceBridgeNetworkOutputOutput {
+	return o
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputOutput) ToBridgeOutputResourceBridgeNetworkOutputOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputOutput {
+	return o
+}
+
+// The network output IP Address.
+func (o BridgeOutputResourceBridgeNetworkOutputOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeOutputResourceBridgeNetworkOutput) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The network output's gateway network name.
+func (o BridgeOutputResourceBridgeNetworkOutputOutput) NetworkName() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeOutputResourceBridgeNetworkOutput) string { return v.NetworkName }).(pulumi.StringOutput)
+}
+
+// The network output port.
+func (o BridgeOutputResourceBridgeNetworkOutputOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v BridgeOutputResourceBridgeNetworkOutput) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The network output protocol.
+func (o BridgeOutputResourceBridgeNetworkOutputOutput) Protocol() BridgeOutputResourceBridgeNetworkOutputProtocolOutput {
+	return o.ApplyT(func(v BridgeOutputResourceBridgeNetworkOutput) BridgeOutputResourceBridgeNetworkOutputProtocol {
+		return v.Protocol
+	}).(BridgeOutputResourceBridgeNetworkOutputProtocolOutput)
+}
+
+// The network output TTL.
+func (o BridgeOutputResourceBridgeNetworkOutputOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v BridgeOutputResourceBridgeNetworkOutput) int { return v.Ttl }).(pulumi.IntOutput)
+}
+
+type BridgeOutputResourceBridgeNetworkOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeOutputResourceBridgeNetworkOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeOutputResourceBridgeNetworkOutput)(nil)).Elem()
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) ToBridgeOutputResourceBridgeNetworkOutputPtrOutput() BridgeOutputResourceBridgeNetworkOutputPtrOutput {
+	return o
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) ToBridgeOutputResourceBridgeNetworkOutputPtrOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputPtrOutput {
+	return o
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) Elem() BridgeOutputResourceBridgeNetworkOutputOutput {
+	return o.ApplyT(func(v *BridgeOutputResourceBridgeNetworkOutput) BridgeOutputResourceBridgeNetworkOutput {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeOutputResourceBridgeNetworkOutput
+		return ret
+	}).(BridgeOutputResourceBridgeNetworkOutputOutput)
+}
+
+// The network output IP Address.
+func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeOutputResourceBridgeNetworkOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network output's gateway network name.
+func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) NetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeOutputResourceBridgeNetworkOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network output port.
+func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BridgeOutputResourceBridgeNetworkOutput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The network output protocol.
+func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) Protocol() BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput {
+	return o.ApplyT(func(v *BridgeOutputResourceBridgeNetworkOutput) *BridgeOutputResourceBridgeNetworkOutputProtocol {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput)
+}
+
+// The network output TTL.
+func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BridgeOutputResourceBridgeNetworkOutput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Ttl
+	}).(pulumi.IntPtrOutput)
+}
+
+// The bridge's source.
+type BridgeSourceType struct {
+	FlowSource    *BridgeFlowSource    `pulumi:"flowSource"`
+	NetworkSource *BridgeNetworkSource `pulumi:"networkSource"`
+}
+
+// BridgeSourceTypeInput is an input type that accepts BridgeSourceTypeArgs and BridgeSourceTypeOutput values.
+// You can construct a concrete instance of `BridgeSourceTypeInput` via:
+//
+//	BridgeSourceTypeArgs{...}
+type BridgeSourceTypeInput interface {
+	pulumi.Input
+
+	ToBridgeSourceTypeOutput() BridgeSourceTypeOutput
+	ToBridgeSourceTypeOutputWithContext(context.Context) BridgeSourceTypeOutput
+}
+
+// The bridge's source.
+type BridgeSourceTypeArgs struct {
+	FlowSource    BridgeFlowSourcePtrInput    `pulumi:"flowSource"`
+	NetworkSource BridgeNetworkSourcePtrInput `pulumi:"networkSource"`
+}
+
+func (BridgeSourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceType)(nil)).Elem()
+}
+
+func (i BridgeSourceTypeArgs) ToBridgeSourceTypeOutput() BridgeSourceTypeOutput {
+	return i.ToBridgeSourceTypeOutputWithContext(context.Background())
+}
+
+func (i BridgeSourceTypeArgs) ToBridgeSourceTypeOutputWithContext(ctx context.Context) BridgeSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceTypeOutput)
+}
+
+// BridgeSourceTypeArrayInput is an input type that accepts BridgeSourceTypeArray and BridgeSourceTypeArrayOutput values.
+// You can construct a concrete instance of `BridgeSourceTypeArrayInput` via:
+//
+//	BridgeSourceTypeArray{ BridgeSourceTypeArgs{...} }
+type BridgeSourceTypeArrayInput interface {
+	pulumi.Input
+
+	ToBridgeSourceTypeArrayOutput() BridgeSourceTypeArrayOutput
+	ToBridgeSourceTypeArrayOutputWithContext(context.Context) BridgeSourceTypeArrayOutput
+}
+
+type BridgeSourceTypeArray []BridgeSourceTypeInput
+
+func (BridgeSourceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BridgeSourceType)(nil)).Elem()
+}
+
+func (i BridgeSourceTypeArray) ToBridgeSourceTypeArrayOutput() BridgeSourceTypeArrayOutput {
+	return i.ToBridgeSourceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i BridgeSourceTypeArray) ToBridgeSourceTypeArrayOutputWithContext(ctx context.Context) BridgeSourceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceTypeArrayOutput)
+}
+
+// The bridge's source.
+type BridgeSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceType)(nil)).Elem()
+}
+
+func (o BridgeSourceTypeOutput) ToBridgeSourceTypeOutput() BridgeSourceTypeOutput {
+	return o
+}
+
+func (o BridgeSourceTypeOutput) ToBridgeSourceTypeOutputWithContext(ctx context.Context) BridgeSourceTypeOutput {
+	return o
+}
+
+func (o BridgeSourceTypeOutput) FlowSource() BridgeFlowSourcePtrOutput {
+	return o.ApplyT(func(v BridgeSourceType) *BridgeFlowSource { return v.FlowSource }).(BridgeFlowSourcePtrOutput)
+}
+
+func (o BridgeSourceTypeOutput) NetworkSource() BridgeNetworkSourcePtrOutput {
+	return o.ApplyT(func(v BridgeSourceType) *BridgeNetworkSource { return v.NetworkSource }).(BridgeNetworkSourcePtrOutput)
+}
+
+type BridgeSourceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BridgeSourceType)(nil)).Elem()
+}
+
+func (o BridgeSourceTypeArrayOutput) ToBridgeSourceTypeArrayOutput() BridgeSourceTypeArrayOutput {
+	return o
+}
+
+func (o BridgeSourceTypeArrayOutput) ToBridgeSourceTypeArrayOutputWithContext(ctx context.Context) BridgeSourceTypeArrayOutput {
+	return o
+}
+
+func (o BridgeSourceTypeArrayOutput) Index(i pulumi.IntInput) BridgeSourceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BridgeSourceType {
+		return vs[0].([]BridgeSourceType)[vs[1].(int)]
+	}).(BridgeSourceTypeOutput)
+}
+
+// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+type BridgeSourceBridgeFlowSource struct {
+	// The ARN of the cloud flow used as a source of this bridge.
+	FlowArn string `pulumi:"flowArn"`
+	// The name of the VPC interface attachment to use for this source.
+	FlowVpcInterfaceAttachment *BridgeSourceVpcInterfaceAttachment `pulumi:"flowVpcInterfaceAttachment"`
+}
+
+// BridgeSourceBridgeFlowSourceInput is an input type that accepts BridgeSourceBridgeFlowSourceArgs and BridgeSourceBridgeFlowSourceOutput values.
+// You can construct a concrete instance of `BridgeSourceBridgeFlowSourceInput` via:
+//
+//	BridgeSourceBridgeFlowSourceArgs{...}
+type BridgeSourceBridgeFlowSourceInput interface {
+	pulumi.Input
+
+	ToBridgeSourceBridgeFlowSourceOutput() BridgeSourceBridgeFlowSourceOutput
+	ToBridgeSourceBridgeFlowSourceOutputWithContext(context.Context) BridgeSourceBridgeFlowSourceOutput
+}
+
+// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+type BridgeSourceBridgeFlowSourceArgs struct {
+	// The ARN of the cloud flow used as a source of this bridge.
+	FlowArn pulumi.StringInput `pulumi:"flowArn"`
+	// The name of the VPC interface attachment to use for this source.
+	FlowVpcInterfaceAttachment BridgeSourceVpcInterfaceAttachmentPtrInput `pulumi:"flowVpcInterfaceAttachment"`
+}
+
+func (BridgeSourceBridgeFlowSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceBridgeFlowSource)(nil)).Elem()
+}
+
+func (i BridgeSourceBridgeFlowSourceArgs) ToBridgeSourceBridgeFlowSourceOutput() BridgeSourceBridgeFlowSourceOutput {
+	return i.ToBridgeSourceBridgeFlowSourceOutputWithContext(context.Background())
+}
+
+func (i BridgeSourceBridgeFlowSourceArgs) ToBridgeSourceBridgeFlowSourceOutputWithContext(ctx context.Context) BridgeSourceBridgeFlowSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceBridgeFlowSourceOutput)
+}
+
+func (i BridgeSourceBridgeFlowSourceArgs) ToBridgeSourceBridgeFlowSourcePtrOutput() BridgeSourceBridgeFlowSourcePtrOutput {
+	return i.ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(context.Background())
+}
+
+func (i BridgeSourceBridgeFlowSourceArgs) ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(ctx context.Context) BridgeSourceBridgeFlowSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceBridgeFlowSourceOutput).ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(ctx)
+}
+
+// BridgeSourceBridgeFlowSourcePtrInput is an input type that accepts BridgeSourceBridgeFlowSourceArgs, BridgeSourceBridgeFlowSourcePtr and BridgeSourceBridgeFlowSourcePtrOutput values.
+// You can construct a concrete instance of `BridgeSourceBridgeFlowSourcePtrInput` via:
+//
+//	        BridgeSourceBridgeFlowSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeSourceBridgeFlowSourcePtrInput interface {
+	pulumi.Input
+
+	ToBridgeSourceBridgeFlowSourcePtrOutput() BridgeSourceBridgeFlowSourcePtrOutput
+	ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(context.Context) BridgeSourceBridgeFlowSourcePtrOutput
+}
+
+type bridgeSourceBridgeFlowSourcePtrType BridgeSourceBridgeFlowSourceArgs
+
+func BridgeSourceBridgeFlowSourcePtr(v *BridgeSourceBridgeFlowSourceArgs) BridgeSourceBridgeFlowSourcePtrInput {
+	return (*bridgeSourceBridgeFlowSourcePtrType)(v)
+}
+
+func (*bridgeSourceBridgeFlowSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeSourceBridgeFlowSource)(nil)).Elem()
+}
+
+func (i *bridgeSourceBridgeFlowSourcePtrType) ToBridgeSourceBridgeFlowSourcePtrOutput() BridgeSourceBridgeFlowSourcePtrOutput {
+	return i.ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeSourceBridgeFlowSourcePtrType) ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(ctx context.Context) BridgeSourceBridgeFlowSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceBridgeFlowSourcePtrOutput)
+}
+
+// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+type BridgeSourceBridgeFlowSourceOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceBridgeFlowSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceBridgeFlowSource)(nil)).Elem()
+}
+
+func (o BridgeSourceBridgeFlowSourceOutput) ToBridgeSourceBridgeFlowSourceOutput() BridgeSourceBridgeFlowSourceOutput {
+	return o
+}
+
+func (o BridgeSourceBridgeFlowSourceOutput) ToBridgeSourceBridgeFlowSourceOutputWithContext(ctx context.Context) BridgeSourceBridgeFlowSourceOutput {
+	return o
+}
+
+func (o BridgeSourceBridgeFlowSourceOutput) ToBridgeSourceBridgeFlowSourcePtrOutput() BridgeSourceBridgeFlowSourcePtrOutput {
+	return o.ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(context.Background())
+}
+
+func (o BridgeSourceBridgeFlowSourceOutput) ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(ctx context.Context) BridgeSourceBridgeFlowSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeSourceBridgeFlowSource) *BridgeSourceBridgeFlowSource {
+		return &v
+	}).(BridgeSourceBridgeFlowSourcePtrOutput)
+}
+
+// The ARN of the cloud flow used as a source of this bridge.
+func (o BridgeSourceBridgeFlowSourceOutput) FlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeSourceBridgeFlowSource) string { return v.FlowArn }).(pulumi.StringOutput)
+}
+
+// The name of the VPC interface attachment to use for this source.
+func (o BridgeSourceBridgeFlowSourceOutput) FlowVpcInterfaceAttachment() BridgeSourceVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyT(func(v BridgeSourceBridgeFlowSource) *BridgeSourceVpcInterfaceAttachment {
+		return v.FlowVpcInterfaceAttachment
+	}).(BridgeSourceVpcInterfaceAttachmentPtrOutput)
+}
+
+type BridgeSourceBridgeFlowSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceBridgeFlowSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeSourceBridgeFlowSource)(nil)).Elem()
+}
+
+func (o BridgeSourceBridgeFlowSourcePtrOutput) ToBridgeSourceBridgeFlowSourcePtrOutput() BridgeSourceBridgeFlowSourcePtrOutput {
+	return o
+}
+
+func (o BridgeSourceBridgeFlowSourcePtrOutput) ToBridgeSourceBridgeFlowSourcePtrOutputWithContext(ctx context.Context) BridgeSourceBridgeFlowSourcePtrOutput {
+	return o
+}
+
+func (o BridgeSourceBridgeFlowSourcePtrOutput) Elem() BridgeSourceBridgeFlowSourceOutput {
+	return o.ApplyT(func(v *BridgeSourceBridgeFlowSource) BridgeSourceBridgeFlowSource {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeSourceBridgeFlowSource
+		return ret
+	}).(BridgeSourceBridgeFlowSourceOutput)
+}
+
+// The ARN of the cloud flow used as a source of this bridge.
+func (o BridgeSourceBridgeFlowSourcePtrOutput) FlowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeSourceBridgeFlowSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FlowArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the VPC interface attachment to use for this source.
+func (o BridgeSourceBridgeFlowSourcePtrOutput) FlowVpcInterfaceAttachment() BridgeSourceVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyT(func(v *BridgeSourceBridgeFlowSource) *BridgeSourceVpcInterfaceAttachment {
+		if v == nil {
+			return nil
+		}
+		return v.FlowVpcInterfaceAttachment
+	}).(BridgeSourceVpcInterfaceAttachmentPtrOutput)
+}
+
+// The source of the bridge. A network source originates at your premises.
+type BridgeSourceBridgeNetworkSource struct {
+	// The network source multicast IP.
+	MulticastIp string `pulumi:"multicastIp"`
+	// The network source's gateway network name.
+	NetworkName string `pulumi:"networkName"`
+	// The network source port.
+	Port int `pulumi:"port"`
+	// The network source protocol.
+	Protocol BridgeSourceProtocolEnum `pulumi:"protocol"`
+}
+
+// BridgeSourceBridgeNetworkSourceInput is an input type that accepts BridgeSourceBridgeNetworkSourceArgs and BridgeSourceBridgeNetworkSourceOutput values.
+// You can construct a concrete instance of `BridgeSourceBridgeNetworkSourceInput` via:
+//
+//	BridgeSourceBridgeNetworkSourceArgs{...}
+type BridgeSourceBridgeNetworkSourceInput interface {
+	pulumi.Input
+
+	ToBridgeSourceBridgeNetworkSourceOutput() BridgeSourceBridgeNetworkSourceOutput
+	ToBridgeSourceBridgeNetworkSourceOutputWithContext(context.Context) BridgeSourceBridgeNetworkSourceOutput
+}
+
+// The source of the bridge. A network source originates at your premises.
+type BridgeSourceBridgeNetworkSourceArgs struct {
+	// The network source multicast IP.
+	MulticastIp pulumi.StringInput `pulumi:"multicastIp"`
+	// The network source's gateway network name.
+	NetworkName pulumi.StringInput `pulumi:"networkName"`
+	// The network source port.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The network source protocol.
+	Protocol BridgeSourceProtocolEnumInput `pulumi:"protocol"`
+}
+
+func (BridgeSourceBridgeNetworkSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceBridgeNetworkSource)(nil)).Elem()
+}
+
+func (i BridgeSourceBridgeNetworkSourceArgs) ToBridgeSourceBridgeNetworkSourceOutput() BridgeSourceBridgeNetworkSourceOutput {
+	return i.ToBridgeSourceBridgeNetworkSourceOutputWithContext(context.Background())
+}
+
+func (i BridgeSourceBridgeNetworkSourceArgs) ToBridgeSourceBridgeNetworkSourceOutputWithContext(ctx context.Context) BridgeSourceBridgeNetworkSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceBridgeNetworkSourceOutput)
+}
+
+func (i BridgeSourceBridgeNetworkSourceArgs) ToBridgeSourceBridgeNetworkSourcePtrOutput() BridgeSourceBridgeNetworkSourcePtrOutput {
+	return i.ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(context.Background())
+}
+
+func (i BridgeSourceBridgeNetworkSourceArgs) ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(ctx context.Context) BridgeSourceBridgeNetworkSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceBridgeNetworkSourceOutput).ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(ctx)
+}
+
+// BridgeSourceBridgeNetworkSourcePtrInput is an input type that accepts BridgeSourceBridgeNetworkSourceArgs, BridgeSourceBridgeNetworkSourcePtr and BridgeSourceBridgeNetworkSourcePtrOutput values.
+// You can construct a concrete instance of `BridgeSourceBridgeNetworkSourcePtrInput` via:
+//
+//	        BridgeSourceBridgeNetworkSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeSourceBridgeNetworkSourcePtrInput interface {
+	pulumi.Input
+
+	ToBridgeSourceBridgeNetworkSourcePtrOutput() BridgeSourceBridgeNetworkSourcePtrOutput
+	ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(context.Context) BridgeSourceBridgeNetworkSourcePtrOutput
+}
+
+type bridgeSourceBridgeNetworkSourcePtrType BridgeSourceBridgeNetworkSourceArgs
+
+func BridgeSourceBridgeNetworkSourcePtr(v *BridgeSourceBridgeNetworkSourceArgs) BridgeSourceBridgeNetworkSourcePtrInput {
+	return (*bridgeSourceBridgeNetworkSourcePtrType)(v)
+}
+
+func (*bridgeSourceBridgeNetworkSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeSourceBridgeNetworkSource)(nil)).Elem()
+}
+
+func (i *bridgeSourceBridgeNetworkSourcePtrType) ToBridgeSourceBridgeNetworkSourcePtrOutput() BridgeSourceBridgeNetworkSourcePtrOutput {
+	return i.ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeSourceBridgeNetworkSourcePtrType) ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(ctx context.Context) BridgeSourceBridgeNetworkSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceBridgeNetworkSourcePtrOutput)
+}
+
+// The source of the bridge. A network source originates at your premises.
+type BridgeSourceBridgeNetworkSourceOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceBridgeNetworkSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceBridgeNetworkSource)(nil)).Elem()
+}
+
+func (o BridgeSourceBridgeNetworkSourceOutput) ToBridgeSourceBridgeNetworkSourceOutput() BridgeSourceBridgeNetworkSourceOutput {
+	return o
+}
+
+func (o BridgeSourceBridgeNetworkSourceOutput) ToBridgeSourceBridgeNetworkSourceOutputWithContext(ctx context.Context) BridgeSourceBridgeNetworkSourceOutput {
+	return o
+}
+
+func (o BridgeSourceBridgeNetworkSourceOutput) ToBridgeSourceBridgeNetworkSourcePtrOutput() BridgeSourceBridgeNetworkSourcePtrOutput {
+	return o.ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(context.Background())
+}
+
+func (o BridgeSourceBridgeNetworkSourceOutput) ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(ctx context.Context) BridgeSourceBridgeNetworkSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeSourceBridgeNetworkSource) *BridgeSourceBridgeNetworkSource {
+		return &v
+	}).(BridgeSourceBridgeNetworkSourcePtrOutput)
+}
+
+// The network source multicast IP.
+func (o BridgeSourceBridgeNetworkSourceOutput) MulticastIp() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeSourceBridgeNetworkSource) string { return v.MulticastIp }).(pulumi.StringOutput)
+}
+
+// The network source's gateway network name.
+func (o BridgeSourceBridgeNetworkSourceOutput) NetworkName() pulumi.StringOutput {
+	return o.ApplyT(func(v BridgeSourceBridgeNetworkSource) string { return v.NetworkName }).(pulumi.StringOutput)
+}
+
+// The network source port.
+func (o BridgeSourceBridgeNetworkSourceOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v BridgeSourceBridgeNetworkSource) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The network source protocol.
+func (o BridgeSourceBridgeNetworkSourceOutput) Protocol() BridgeSourceProtocolEnumOutput {
+	return o.ApplyT(func(v BridgeSourceBridgeNetworkSource) BridgeSourceProtocolEnum { return v.Protocol }).(BridgeSourceProtocolEnumOutput)
+}
+
+type BridgeSourceBridgeNetworkSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceBridgeNetworkSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeSourceBridgeNetworkSource)(nil)).Elem()
+}
+
+func (o BridgeSourceBridgeNetworkSourcePtrOutput) ToBridgeSourceBridgeNetworkSourcePtrOutput() BridgeSourceBridgeNetworkSourcePtrOutput {
+	return o
+}
+
+func (o BridgeSourceBridgeNetworkSourcePtrOutput) ToBridgeSourceBridgeNetworkSourcePtrOutputWithContext(ctx context.Context) BridgeSourceBridgeNetworkSourcePtrOutput {
+	return o
+}
+
+func (o BridgeSourceBridgeNetworkSourcePtrOutput) Elem() BridgeSourceBridgeNetworkSourceOutput {
+	return o.ApplyT(func(v *BridgeSourceBridgeNetworkSource) BridgeSourceBridgeNetworkSource {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeSourceBridgeNetworkSource
+		return ret
+	}).(BridgeSourceBridgeNetworkSourceOutput)
+}
+
+// The network source multicast IP.
+func (o BridgeSourceBridgeNetworkSourcePtrOutput) MulticastIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeSourceBridgeNetworkSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MulticastIp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network source's gateway network name.
+func (o BridgeSourceBridgeNetworkSourcePtrOutput) NetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeSourceBridgeNetworkSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network source port.
+func (o BridgeSourceBridgeNetworkSourcePtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BridgeSourceBridgeNetworkSource) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The network source protocol.
+func (o BridgeSourceBridgeNetworkSourcePtrOutput) Protocol() BridgeSourceProtocolEnumPtrOutput {
+	return o.ApplyT(func(v *BridgeSourceBridgeNetworkSource) *BridgeSourceProtocolEnum {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(BridgeSourceProtocolEnumPtrOutput)
+}
+
+// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+type BridgeSourcePriority struct {
+	// The name of the source you choose as the primary source for this flow.
+	PrimarySource *string `pulumi:"primarySource"`
+}
+
+// BridgeSourcePriorityInput is an input type that accepts BridgeSourcePriorityArgs and BridgeSourcePriorityOutput values.
+// You can construct a concrete instance of `BridgeSourcePriorityInput` via:
+//
+//	BridgeSourcePriorityArgs{...}
+type BridgeSourcePriorityInput interface {
+	pulumi.Input
+
+	ToBridgeSourcePriorityOutput() BridgeSourcePriorityOutput
+	ToBridgeSourcePriorityOutputWithContext(context.Context) BridgeSourcePriorityOutput
+}
+
+// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+type BridgeSourcePriorityArgs struct {
+	// The name of the source you choose as the primary source for this flow.
+	PrimarySource pulumi.StringPtrInput `pulumi:"primarySource"`
+}
+
+func (BridgeSourcePriorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourcePriority)(nil)).Elem()
+}
+
+func (i BridgeSourcePriorityArgs) ToBridgeSourcePriorityOutput() BridgeSourcePriorityOutput {
+	return i.ToBridgeSourcePriorityOutputWithContext(context.Background())
+}
+
+func (i BridgeSourcePriorityArgs) ToBridgeSourcePriorityOutputWithContext(ctx context.Context) BridgeSourcePriorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourcePriorityOutput)
+}
+
+func (i BridgeSourcePriorityArgs) ToBridgeSourcePriorityPtrOutput() BridgeSourcePriorityPtrOutput {
+	return i.ToBridgeSourcePriorityPtrOutputWithContext(context.Background())
+}
+
+func (i BridgeSourcePriorityArgs) ToBridgeSourcePriorityPtrOutputWithContext(ctx context.Context) BridgeSourcePriorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourcePriorityOutput).ToBridgeSourcePriorityPtrOutputWithContext(ctx)
+}
+
+// BridgeSourcePriorityPtrInput is an input type that accepts BridgeSourcePriorityArgs, BridgeSourcePriorityPtr and BridgeSourcePriorityPtrOutput values.
+// You can construct a concrete instance of `BridgeSourcePriorityPtrInput` via:
+//
+//	        BridgeSourcePriorityArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeSourcePriorityPtrInput interface {
+	pulumi.Input
+
+	ToBridgeSourcePriorityPtrOutput() BridgeSourcePriorityPtrOutput
+	ToBridgeSourcePriorityPtrOutputWithContext(context.Context) BridgeSourcePriorityPtrOutput
+}
+
+type bridgeSourcePriorityPtrType BridgeSourcePriorityArgs
+
+func BridgeSourcePriorityPtr(v *BridgeSourcePriorityArgs) BridgeSourcePriorityPtrInput {
+	return (*bridgeSourcePriorityPtrType)(v)
+}
+
+func (*bridgeSourcePriorityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeSourcePriority)(nil)).Elem()
+}
+
+func (i *bridgeSourcePriorityPtrType) ToBridgeSourcePriorityPtrOutput() BridgeSourcePriorityPtrOutput {
+	return i.ToBridgeSourcePriorityPtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeSourcePriorityPtrType) ToBridgeSourcePriorityPtrOutputWithContext(ctx context.Context) BridgeSourcePriorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourcePriorityPtrOutput)
+}
+
+// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+type BridgeSourcePriorityOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourcePriorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourcePriority)(nil)).Elem()
+}
+
+func (o BridgeSourcePriorityOutput) ToBridgeSourcePriorityOutput() BridgeSourcePriorityOutput {
+	return o
+}
+
+func (o BridgeSourcePriorityOutput) ToBridgeSourcePriorityOutputWithContext(ctx context.Context) BridgeSourcePriorityOutput {
+	return o
+}
+
+func (o BridgeSourcePriorityOutput) ToBridgeSourcePriorityPtrOutput() BridgeSourcePriorityPtrOutput {
+	return o.ToBridgeSourcePriorityPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeSourcePriorityOutput) ToBridgeSourcePriorityPtrOutputWithContext(ctx context.Context) BridgeSourcePriorityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeSourcePriority) *BridgeSourcePriority {
+		return &v
+	}).(BridgeSourcePriorityPtrOutput)
+}
+
+// The name of the source you choose as the primary source for this flow.
+func (o BridgeSourcePriorityOutput) PrimarySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BridgeSourcePriority) *string { return v.PrimarySource }).(pulumi.StringPtrOutput)
+}
+
+type BridgeSourcePriorityPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourcePriorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeSourcePriority)(nil)).Elem()
+}
+
+func (o BridgeSourcePriorityPtrOutput) ToBridgeSourcePriorityPtrOutput() BridgeSourcePriorityPtrOutput {
+	return o
+}
+
+func (o BridgeSourcePriorityPtrOutput) ToBridgeSourcePriorityPtrOutputWithContext(ctx context.Context) BridgeSourcePriorityPtrOutput {
+	return o
+}
+
+func (o BridgeSourcePriorityPtrOutput) Elem() BridgeSourcePriorityOutput {
+	return o.ApplyT(func(v *BridgeSourcePriority) BridgeSourcePriority {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeSourcePriority
+		return ret
+	}).(BridgeSourcePriorityOutput)
+}
+
+// The name of the source you choose as the primary source for this flow.
+func (o BridgeSourcePriorityPtrOutput) PrimarySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeSourcePriority) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimarySource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The settings for attaching a VPC interface to an resource.
+type BridgeSourceVpcInterfaceAttachment struct {
+	// The name of the VPC interface to use for this resource.
+	VpcInterfaceName *string `pulumi:"vpcInterfaceName"`
+}
+
+// BridgeSourceVpcInterfaceAttachmentInput is an input type that accepts BridgeSourceVpcInterfaceAttachmentArgs and BridgeSourceVpcInterfaceAttachmentOutput values.
+// You can construct a concrete instance of `BridgeSourceVpcInterfaceAttachmentInput` via:
+//
+//	BridgeSourceVpcInterfaceAttachmentArgs{...}
+type BridgeSourceVpcInterfaceAttachmentInput interface {
+	pulumi.Input
+
+	ToBridgeSourceVpcInterfaceAttachmentOutput() BridgeSourceVpcInterfaceAttachmentOutput
+	ToBridgeSourceVpcInterfaceAttachmentOutputWithContext(context.Context) BridgeSourceVpcInterfaceAttachmentOutput
+}
+
+// The settings for attaching a VPC interface to an resource.
+type BridgeSourceVpcInterfaceAttachmentArgs struct {
+	// The name of the VPC interface to use for this resource.
+	VpcInterfaceName pulumi.StringPtrInput `pulumi:"vpcInterfaceName"`
+}
+
+func (BridgeSourceVpcInterfaceAttachmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (i BridgeSourceVpcInterfaceAttachmentArgs) ToBridgeSourceVpcInterfaceAttachmentOutput() BridgeSourceVpcInterfaceAttachmentOutput {
+	return i.ToBridgeSourceVpcInterfaceAttachmentOutputWithContext(context.Background())
+}
+
+func (i BridgeSourceVpcInterfaceAttachmentArgs) ToBridgeSourceVpcInterfaceAttachmentOutputWithContext(ctx context.Context) BridgeSourceVpcInterfaceAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceVpcInterfaceAttachmentOutput)
+}
+
+func (i BridgeSourceVpcInterfaceAttachmentArgs) ToBridgeSourceVpcInterfaceAttachmentPtrOutput() BridgeSourceVpcInterfaceAttachmentPtrOutput {
+	return i.ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i BridgeSourceVpcInterfaceAttachmentArgs) ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) BridgeSourceVpcInterfaceAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceVpcInterfaceAttachmentOutput).ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx)
+}
+
+// BridgeSourceVpcInterfaceAttachmentPtrInput is an input type that accepts BridgeSourceVpcInterfaceAttachmentArgs, BridgeSourceVpcInterfaceAttachmentPtr and BridgeSourceVpcInterfaceAttachmentPtrOutput values.
+// You can construct a concrete instance of `BridgeSourceVpcInterfaceAttachmentPtrInput` via:
+//
+//	        BridgeSourceVpcInterfaceAttachmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeSourceVpcInterfaceAttachmentPtrInput interface {
+	pulumi.Input
+
+	ToBridgeSourceVpcInterfaceAttachmentPtrOutput() BridgeSourceVpcInterfaceAttachmentPtrOutput
+	ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(context.Context) BridgeSourceVpcInterfaceAttachmentPtrOutput
+}
+
+type bridgeSourceVpcInterfaceAttachmentPtrType BridgeSourceVpcInterfaceAttachmentArgs
+
+func BridgeSourceVpcInterfaceAttachmentPtr(v *BridgeSourceVpcInterfaceAttachmentArgs) BridgeSourceVpcInterfaceAttachmentPtrInput {
+	return (*bridgeSourceVpcInterfaceAttachmentPtrType)(v)
+}
+
+func (*bridgeSourceVpcInterfaceAttachmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeSourceVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (i *bridgeSourceVpcInterfaceAttachmentPtrType) ToBridgeSourceVpcInterfaceAttachmentPtrOutput() BridgeSourceVpcInterfaceAttachmentPtrOutput {
+	return i.ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeSourceVpcInterfaceAttachmentPtrType) ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) BridgeSourceVpcInterfaceAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceVpcInterfaceAttachmentPtrOutput)
+}
+
+// The settings for attaching a VPC interface to an resource.
+type BridgeSourceVpcInterfaceAttachmentOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceVpcInterfaceAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (o BridgeSourceVpcInterfaceAttachmentOutput) ToBridgeSourceVpcInterfaceAttachmentOutput() BridgeSourceVpcInterfaceAttachmentOutput {
+	return o
+}
+
+func (o BridgeSourceVpcInterfaceAttachmentOutput) ToBridgeSourceVpcInterfaceAttachmentOutputWithContext(ctx context.Context) BridgeSourceVpcInterfaceAttachmentOutput {
+	return o
+}
+
+func (o BridgeSourceVpcInterfaceAttachmentOutput) ToBridgeSourceVpcInterfaceAttachmentPtrOutput() BridgeSourceVpcInterfaceAttachmentPtrOutput {
+	return o.ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeSourceVpcInterfaceAttachmentOutput) ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) BridgeSourceVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeSourceVpcInterfaceAttachment) *BridgeSourceVpcInterfaceAttachment {
+		return &v
+	}).(BridgeSourceVpcInterfaceAttachmentPtrOutput)
+}
+
+// The name of the VPC interface to use for this resource.
+func (o BridgeSourceVpcInterfaceAttachmentOutput) VpcInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BridgeSourceVpcInterfaceAttachment) *string { return v.VpcInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+type BridgeSourceVpcInterfaceAttachmentPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceVpcInterfaceAttachmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeSourceVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (o BridgeSourceVpcInterfaceAttachmentPtrOutput) ToBridgeSourceVpcInterfaceAttachmentPtrOutput() BridgeSourceVpcInterfaceAttachmentPtrOutput {
+	return o
+}
+
+func (o BridgeSourceVpcInterfaceAttachmentPtrOutput) ToBridgeSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) BridgeSourceVpcInterfaceAttachmentPtrOutput {
+	return o
+}
+
+func (o BridgeSourceVpcInterfaceAttachmentPtrOutput) Elem() BridgeSourceVpcInterfaceAttachmentOutput {
+	return o.ApplyT(func(v *BridgeSourceVpcInterfaceAttachment) BridgeSourceVpcInterfaceAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeSourceVpcInterfaceAttachment
+		return ret
+	}).(BridgeSourceVpcInterfaceAttachmentOutput)
+}
+
+// The name of the VPC interface to use for this resource.
+func (o BridgeSourceVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeSourceVpcInterfaceAttachment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The settings for attaching a VPC interface to an resource.
+type BridgeVpcInterfaceAttachment struct {
+	// The name of the VPC interface to use for this resource.
+	VpcInterfaceName *string `pulumi:"vpcInterfaceName"`
+}
+
+// BridgeVpcInterfaceAttachmentInput is an input type that accepts BridgeVpcInterfaceAttachmentArgs and BridgeVpcInterfaceAttachmentOutput values.
+// You can construct a concrete instance of `BridgeVpcInterfaceAttachmentInput` via:
+//
+//	BridgeVpcInterfaceAttachmentArgs{...}
+type BridgeVpcInterfaceAttachmentInput interface {
+	pulumi.Input
+
+	ToBridgeVpcInterfaceAttachmentOutput() BridgeVpcInterfaceAttachmentOutput
+	ToBridgeVpcInterfaceAttachmentOutputWithContext(context.Context) BridgeVpcInterfaceAttachmentOutput
+}
+
+// The settings for attaching a VPC interface to an resource.
+type BridgeVpcInterfaceAttachmentArgs struct {
+	// The name of the VPC interface to use for this resource.
+	VpcInterfaceName pulumi.StringPtrInput `pulumi:"vpcInterfaceName"`
+}
+
+func (BridgeVpcInterfaceAttachmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (i BridgeVpcInterfaceAttachmentArgs) ToBridgeVpcInterfaceAttachmentOutput() BridgeVpcInterfaceAttachmentOutput {
+	return i.ToBridgeVpcInterfaceAttachmentOutputWithContext(context.Background())
+}
+
+func (i BridgeVpcInterfaceAttachmentArgs) ToBridgeVpcInterfaceAttachmentOutputWithContext(ctx context.Context) BridgeVpcInterfaceAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeVpcInterfaceAttachmentOutput)
+}
+
+func (i BridgeVpcInterfaceAttachmentArgs) ToBridgeVpcInterfaceAttachmentPtrOutput() BridgeVpcInterfaceAttachmentPtrOutput {
+	return i.ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i BridgeVpcInterfaceAttachmentArgs) ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) BridgeVpcInterfaceAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeVpcInterfaceAttachmentOutput).ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(ctx)
+}
+
+// BridgeVpcInterfaceAttachmentPtrInput is an input type that accepts BridgeVpcInterfaceAttachmentArgs, BridgeVpcInterfaceAttachmentPtr and BridgeVpcInterfaceAttachmentPtrOutput values.
+// You can construct a concrete instance of `BridgeVpcInterfaceAttachmentPtrInput` via:
+//
+//	        BridgeVpcInterfaceAttachmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeVpcInterfaceAttachmentPtrInput interface {
+	pulumi.Input
+
+	ToBridgeVpcInterfaceAttachmentPtrOutput() BridgeVpcInterfaceAttachmentPtrOutput
+	ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(context.Context) BridgeVpcInterfaceAttachmentPtrOutput
+}
+
+type bridgeVpcInterfaceAttachmentPtrType BridgeVpcInterfaceAttachmentArgs
+
+func BridgeVpcInterfaceAttachmentPtr(v *BridgeVpcInterfaceAttachmentArgs) BridgeVpcInterfaceAttachmentPtrInput {
+	return (*bridgeVpcInterfaceAttachmentPtrType)(v)
+}
+
+func (*bridgeVpcInterfaceAttachmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (i *bridgeVpcInterfaceAttachmentPtrType) ToBridgeVpcInterfaceAttachmentPtrOutput() BridgeVpcInterfaceAttachmentPtrOutput {
+	return i.ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeVpcInterfaceAttachmentPtrType) ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) BridgeVpcInterfaceAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeVpcInterfaceAttachmentPtrOutput)
+}
+
+// The settings for attaching a VPC interface to an resource.
+type BridgeVpcInterfaceAttachmentOutput struct{ *pulumi.OutputState }
+
+func (BridgeVpcInterfaceAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (o BridgeVpcInterfaceAttachmentOutput) ToBridgeVpcInterfaceAttachmentOutput() BridgeVpcInterfaceAttachmentOutput {
+	return o
+}
+
+func (o BridgeVpcInterfaceAttachmentOutput) ToBridgeVpcInterfaceAttachmentOutputWithContext(ctx context.Context) BridgeVpcInterfaceAttachmentOutput {
+	return o
+}
+
+func (o BridgeVpcInterfaceAttachmentOutput) ToBridgeVpcInterfaceAttachmentPtrOutput() BridgeVpcInterfaceAttachmentPtrOutput {
+	return o.ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeVpcInterfaceAttachmentOutput) ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) BridgeVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeVpcInterfaceAttachment) *BridgeVpcInterfaceAttachment {
+		return &v
+	}).(BridgeVpcInterfaceAttachmentPtrOutput)
+}
+
+// The name of the VPC interface to use for this resource.
+func (o BridgeVpcInterfaceAttachmentOutput) VpcInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BridgeVpcInterfaceAttachment) *string { return v.VpcInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+type BridgeVpcInterfaceAttachmentPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeVpcInterfaceAttachmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (o BridgeVpcInterfaceAttachmentPtrOutput) ToBridgeVpcInterfaceAttachmentPtrOutput() BridgeVpcInterfaceAttachmentPtrOutput {
+	return o
+}
+
+func (o BridgeVpcInterfaceAttachmentPtrOutput) ToBridgeVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) BridgeVpcInterfaceAttachmentPtrOutput {
+	return o
+}
+
+func (o BridgeVpcInterfaceAttachmentPtrOutput) Elem() BridgeVpcInterfaceAttachmentOutput {
+	return o.ApplyT(func(v *BridgeVpcInterfaceAttachment) BridgeVpcInterfaceAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeVpcInterfaceAttachment
+		return ret
+	}).(BridgeVpcInterfaceAttachmentOutput)
+}
+
+// The name of the VPC interface to use for this resource.
+func (o BridgeVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeVpcInterfaceAttachment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Information about the encryption of the flow.
 type FlowEncryption struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -1987,7 +4228,143 @@ func (o FlowSourceEncryptionPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The network settings for a gateway.
+type GatewayNetwork struct {
+	// A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+	CidrBlock string `pulumi:"cidrBlock"`
+	// The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+	Name string `pulumi:"name"`
+}
+
+// GatewayNetworkInput is an input type that accepts GatewayNetworkArgs and GatewayNetworkOutput values.
+// You can construct a concrete instance of `GatewayNetworkInput` via:
+//
+//	GatewayNetworkArgs{...}
+type GatewayNetworkInput interface {
+	pulumi.Input
+
+	ToGatewayNetworkOutput() GatewayNetworkOutput
+	ToGatewayNetworkOutputWithContext(context.Context) GatewayNetworkOutput
+}
+
+// The network settings for a gateway.
+type GatewayNetworkArgs struct {
+	// A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+	// The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GatewayNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayNetwork)(nil)).Elem()
+}
+
+func (i GatewayNetworkArgs) ToGatewayNetworkOutput() GatewayNetworkOutput {
+	return i.ToGatewayNetworkOutputWithContext(context.Background())
+}
+
+func (i GatewayNetworkArgs) ToGatewayNetworkOutputWithContext(ctx context.Context) GatewayNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayNetworkOutput)
+}
+
+// GatewayNetworkArrayInput is an input type that accepts GatewayNetworkArray and GatewayNetworkArrayOutput values.
+// You can construct a concrete instance of `GatewayNetworkArrayInput` via:
+//
+//	GatewayNetworkArray{ GatewayNetworkArgs{...} }
+type GatewayNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGatewayNetworkArrayOutput() GatewayNetworkArrayOutput
+	ToGatewayNetworkArrayOutputWithContext(context.Context) GatewayNetworkArrayOutput
+}
+
+type GatewayNetworkArray []GatewayNetworkInput
+
+func (GatewayNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayNetwork)(nil)).Elem()
+}
+
+func (i GatewayNetworkArray) ToGatewayNetworkArrayOutput() GatewayNetworkArrayOutput {
+	return i.ToGatewayNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayNetworkArray) ToGatewayNetworkArrayOutputWithContext(ctx context.Context) GatewayNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayNetworkArrayOutput)
+}
+
+// The network settings for a gateway.
+type GatewayNetworkOutput struct{ *pulumi.OutputState }
+
+func (GatewayNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayNetwork)(nil)).Elem()
+}
+
+func (o GatewayNetworkOutput) ToGatewayNetworkOutput() GatewayNetworkOutput {
+	return o
+}
+
+func (o GatewayNetworkOutput) ToGatewayNetworkOutputWithContext(ctx context.Context) GatewayNetworkOutput {
+	return o
+}
+
+// A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+func (o GatewayNetworkOutput) CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayNetwork) string { return v.CidrBlock }).(pulumi.StringOutput)
+}
+
+// The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+func (o GatewayNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayNetwork) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GatewayNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayNetwork)(nil)).Elem()
+}
+
+func (o GatewayNetworkArrayOutput) ToGatewayNetworkArrayOutput() GatewayNetworkArrayOutput {
+	return o
+}
+
+func (o GatewayNetworkArrayOutput) ToGatewayNetworkArrayOutputWithContext(ctx context.Context) GatewayNetworkArrayOutput {
+	return o
+}
+
+func (o GatewayNetworkArrayOutput) Index(i pulumi.IntInput) GatewayNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayNetwork {
+		return vs[0].([]GatewayNetwork)[vs[1].(int)]
+	}).(GatewayNetworkOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeEgressGatewayBridgeInput)(nil)).Elem(), BridgeEgressGatewayBridgeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeEgressGatewayBridgePtrInput)(nil)).Elem(), BridgeEgressGatewayBridgeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeFailoverConfigInput)(nil)).Elem(), BridgeFailoverConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeFailoverConfigPtrInput)(nil)).Elem(), BridgeFailoverConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeFlowSourceInput)(nil)).Elem(), BridgeFlowSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeFlowSourcePtrInput)(nil)).Elem(), BridgeFlowSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeIngressGatewayBridgeInput)(nil)).Elem(), BridgeIngressGatewayBridgeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeIngressGatewayBridgePtrInput)(nil)).Elem(), BridgeIngressGatewayBridgeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeNetworkOutputInput)(nil)).Elem(), BridgeNetworkOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeNetworkOutputPtrInput)(nil)).Elem(), BridgeNetworkOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeNetworkSourceInput)(nil)).Elem(), BridgeNetworkSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeNetworkSourcePtrInput)(nil)).Elem(), BridgeNetworkSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeOutputTypeInput)(nil)).Elem(), BridgeOutputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeOutputTypeArrayInput)(nil)).Elem(), BridgeOutputTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeOutputResourceBridgeNetworkOutputInput)(nil)).Elem(), BridgeOutputResourceBridgeNetworkOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceTypeInput)(nil)).Elem(), BridgeSourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceTypeArrayInput)(nil)).Elem(), BridgeSourceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceBridgeFlowSourceInput)(nil)).Elem(), BridgeSourceBridgeFlowSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceBridgeFlowSourcePtrInput)(nil)).Elem(), BridgeSourceBridgeFlowSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceBridgeNetworkSourceInput)(nil)).Elem(), BridgeSourceBridgeNetworkSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceBridgeNetworkSourcePtrInput)(nil)).Elem(), BridgeSourceBridgeNetworkSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourcePriorityInput)(nil)).Elem(), BridgeSourcePriorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourcePriorityPtrInput)(nil)).Elem(), BridgeSourcePriorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceVpcInterfaceAttachmentInput)(nil)).Elem(), BridgeSourceVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceVpcInterfaceAttachmentPtrInput)(nil)).Elem(), BridgeSourceVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeVpcInterfaceAttachmentInput)(nil)).Elem(), BridgeVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeVpcInterfaceAttachmentPtrInput)(nil)).Elem(), BridgeVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionInput)(nil)).Elem(), FlowEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionPtrInput)(nil)).Elem(), FlowEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEntitlementEncryptionInput)(nil)).Elem(), FlowEntitlementEncryptionArgs{})
@@ -2003,6 +4380,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceTypeInput)(nil)).Elem(), FlowSourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionInput)(nil)).Elem(), FlowSourceEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionPtrInput)(nil)).Elem(), FlowSourceEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayNetworkInput)(nil)).Elem(), GatewayNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayNetworkArrayInput)(nil)).Elem(), GatewayNetworkArray{})
+	pulumi.RegisterOutputType(BridgeEgressGatewayBridgeOutput{})
+	pulumi.RegisterOutputType(BridgeEgressGatewayBridgePtrOutput{})
+	pulumi.RegisterOutputType(BridgeFailoverConfigOutput{})
+	pulumi.RegisterOutputType(BridgeFailoverConfigPtrOutput{})
+	pulumi.RegisterOutputType(BridgeFlowSourceOutput{})
+	pulumi.RegisterOutputType(BridgeFlowSourcePtrOutput{})
+	pulumi.RegisterOutputType(BridgeIngressGatewayBridgeOutput{})
+	pulumi.RegisterOutputType(BridgeIngressGatewayBridgePtrOutput{})
+	pulumi.RegisterOutputType(BridgeNetworkOutputOutput{})
+	pulumi.RegisterOutputType(BridgeNetworkOutputPtrOutput{})
+	pulumi.RegisterOutputType(BridgeNetworkSourceOutput{})
+	pulumi.RegisterOutputType(BridgeNetworkSourcePtrOutput{})
+	pulumi.RegisterOutputType(BridgeOutputTypeOutput{})
+	pulumi.RegisterOutputType(BridgeOutputTypeArrayOutput{})
+	pulumi.RegisterOutputType(BridgeOutputResourceBridgeNetworkOutputOutput{})
+	pulumi.RegisterOutputType(BridgeOutputResourceBridgeNetworkOutputPtrOutput{})
+	pulumi.RegisterOutputType(BridgeSourceTypeOutput{})
+	pulumi.RegisterOutputType(BridgeSourceTypeArrayOutput{})
+	pulumi.RegisterOutputType(BridgeSourceBridgeFlowSourceOutput{})
+	pulumi.RegisterOutputType(BridgeSourceBridgeFlowSourcePtrOutput{})
+	pulumi.RegisterOutputType(BridgeSourceBridgeNetworkSourceOutput{})
+	pulumi.RegisterOutputType(BridgeSourceBridgeNetworkSourcePtrOutput{})
+	pulumi.RegisterOutputType(BridgeSourcePriorityOutput{})
+	pulumi.RegisterOutputType(BridgeSourcePriorityPtrOutput{})
+	pulumi.RegisterOutputType(BridgeSourceVpcInterfaceAttachmentOutput{})
+	pulumi.RegisterOutputType(BridgeSourceVpcInterfaceAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(BridgeVpcInterfaceAttachmentOutput{})
+	pulumi.RegisterOutputType(BridgeVpcInterfaceAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(FlowEntitlementEncryptionOutput{})
@@ -2019,4 +4426,6 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(GatewayNetworkOutput{})
+	pulumi.RegisterOutputType(GatewayNetworkArrayOutput{})
 }

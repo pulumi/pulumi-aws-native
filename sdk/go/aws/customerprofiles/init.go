@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:customerprofiles:CalculatedAttributeDefinition":
+		r = &CalculatedAttributeDefinition{}
 	case "aws-native:customerprofiles:Domain":
 		r = &Domain{}
+	case "aws-native:customerprofiles:EventStream":
+		r = &EventStream{}
 	case "aws-native:customerprofiles:Integration":
 		r = &Integration{}
 	case "aws-native:customerprofiles:ObjectType":

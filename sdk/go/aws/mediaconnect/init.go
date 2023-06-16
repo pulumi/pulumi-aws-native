@@ -21,6 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:mediaconnect:Bridge":
+		r = &Bridge{}
+	case "aws-native:mediaconnect:BridgeOutputResource":
+		r = &BridgeOutputResource{}
+	case "aws-native:mediaconnect:BridgeSource":
+		r = &BridgeSource{}
 	case "aws-native:mediaconnect:Flow":
 		r = &Flow{}
 	case "aws-native:mediaconnect:FlowEntitlement":
@@ -31,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FlowSource{}
 	case "aws-native:mediaconnect:FlowVpcInterface":
 		r = &FlowVpcInterface{}
+	case "aws-native:mediaconnect:Gateway":
+		r = &Gateway{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

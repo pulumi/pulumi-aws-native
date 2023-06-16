@@ -66,6 +66,10 @@ export class Channel extends pulumi.CustomResource {
      */
     public /*out*/ readonly playbackUrl!: pulumi.Output<string>;
     /**
+     * Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+     */
+    public readonly preset!: pulumi.Output<enums.ivs.ChannelPreset | undefined>;
+    /**
      * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
      */
     public readonly recordingConfigurationArn!: pulumi.Output<string | undefined>;
@@ -93,6 +97,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["insecureIngest"] = args ? args.insecureIngest : undefined;
             resourceInputs["latencyMode"] = args ? args.latencyMode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["preset"] = args ? args.preset : undefined;
             resourceInputs["recordingConfigurationArn"] = args ? args.recordingConfigurationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -107,6 +112,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["latencyMode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["playbackUrl"] = undefined /*out*/;
+            resourceInputs["preset"] = undefined /*out*/;
             resourceInputs["recordingConfigurationArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -136,6 +142,10 @@ export interface ChannelArgs {
      * Channel
      */
     name?: pulumi.Input<string>;
+    /**
+     * Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+     */
+    preset?: pulumi.Input<enums.ivs.ChannelPreset>;
     /**
      * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
      */

@@ -34,7 +34,6 @@ export interface GetPackageVersionResult {
     readonly registeredTime?: number;
     readonly status?: enums.panorama.PackageVersionStatus;
     readonly statusDescription?: string;
-    readonly updatedLatestPatchVersion?: string;
 }
 /**
  * Schema for PackageVersion Resource Type

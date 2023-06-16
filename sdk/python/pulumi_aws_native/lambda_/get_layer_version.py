@@ -18,18 +18,15 @@ __all__ = [
 
 @pulumi.output_type
 class GetLayerVersionResult:
-    def __init__(__self__, id=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, layer_version_arn=None):
+        if layer_version_arn and not isinstance(layer_version_arn, str):
+            raise TypeError("Expected argument 'layer_version_arn' to be a str")
+        pulumi.set(__self__, "layer_version_arn", layer_version_arn)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The ARN of the version.
-        """
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="layerVersionArn")
+    def layer_version_arn(self) -> Optional[str]:
+        return pulumi.get(self, "layer_version_arn")
 
 
 class AwaitableGetLayerVersionResult(GetLayerVersionResult):
@@ -38,33 +35,27 @@ class AwaitableGetLayerVersionResult(GetLayerVersionResult):
         if False:
             yield self
         return GetLayerVersionResult(
-            id=self.id)
+            layer_version_arn=self.layer_version_arn)
 
 
-def get_layer_version(id: Optional[str] = None,
+def get_layer_version(layer_version_arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLayerVersionResult:
     """
     Resource Type definition for AWS::Lambda::LayerVersion
-
-
-    :param str id: The ARN of the version.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['layerVersionArn'] = layer_version_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getLayerVersion', __args__, opts=opts, typ=GetLayerVersionResult).value
 
     return AwaitableGetLayerVersionResult(
-        id=__ret__.id)
+        layer_version_arn=__ret__.layer_version_arn)
 
 
 @_utilities.lift_output_func(get_layer_version)
-def get_layer_version_output(id: Optional[pulumi.Input[str]] = None,
+def get_layer_version_output(layer_version_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLayerVersionResult]:
     """
     Resource Type definition for AWS::Lambda::LayerVersion
-
-
-    :param str id: The ARN of the version.
     """
     ...

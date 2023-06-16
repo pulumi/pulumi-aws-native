@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ChannelLatencyMode',
+    'ChannelPreset',
     'ChannelType',
     'RecordingConfigurationState',
     'RecordingConfigurationThumbnailConfigurationRecordingMode',
@@ -20,12 +21,22 @@ class ChannelLatencyMode(str, Enum):
     LOW = "LOW"
 
 
+class ChannelPreset(str, Enum):
+    """
+    Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+    """
+    HIGHER_BANDWIDTH_DELIVERY = "HIGHER_BANDWIDTH_DELIVERY"
+    CONSTRAINED_BANDWIDTH_DELIVERY = "CONSTRAINED_BANDWIDTH_DELIVERY"
+
+
 class ChannelType(str, Enum):
     """
     Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
     """
     STANDARD = "STANDARD"
     BASIC = "BASIC"
+    ADVANCED_SD = "ADVANCED_SD"
+    ADVANCED_HD = "ADVANCED_HD"
 
 
 class RecordingConfigurationState(str, Enum):

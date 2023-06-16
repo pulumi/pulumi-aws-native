@@ -10,6 +10,857 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Mathematical expression and a list of attribute items specified in that expression.
+type CalculatedAttributeDefinitionAttributeDetails struct {
+	Attributes []CalculatedAttributeDefinitionAttributeItem `pulumi:"attributes"`
+	Expression string                                       `pulumi:"expression"`
+}
+
+// CalculatedAttributeDefinitionAttributeDetailsInput is an input type that accepts CalculatedAttributeDefinitionAttributeDetailsArgs and CalculatedAttributeDefinitionAttributeDetailsOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionAttributeDetailsInput` via:
+//
+//	CalculatedAttributeDefinitionAttributeDetailsArgs{...}
+type CalculatedAttributeDefinitionAttributeDetailsInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionAttributeDetailsOutput() CalculatedAttributeDefinitionAttributeDetailsOutput
+	ToCalculatedAttributeDefinitionAttributeDetailsOutputWithContext(context.Context) CalculatedAttributeDefinitionAttributeDetailsOutput
+}
+
+// Mathematical expression and a list of attribute items specified in that expression.
+type CalculatedAttributeDefinitionAttributeDetailsArgs struct {
+	Attributes CalculatedAttributeDefinitionAttributeItemArrayInput `pulumi:"attributes"`
+	Expression pulumi.StringInput                                   `pulumi:"expression"`
+}
+
+func (CalculatedAttributeDefinitionAttributeDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionAttributeDetails)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionAttributeDetailsArgs) ToCalculatedAttributeDefinitionAttributeDetailsOutput() CalculatedAttributeDefinitionAttributeDetailsOutput {
+	return i.ToCalculatedAttributeDefinitionAttributeDetailsOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionAttributeDetailsArgs) ToCalculatedAttributeDefinitionAttributeDetailsOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionAttributeDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionAttributeDetailsOutput)
+}
+
+// Mathematical expression and a list of attribute items specified in that expression.
+type CalculatedAttributeDefinitionAttributeDetailsOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionAttributeDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionAttributeDetails)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionAttributeDetailsOutput) ToCalculatedAttributeDefinitionAttributeDetailsOutput() CalculatedAttributeDefinitionAttributeDetailsOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionAttributeDetailsOutput) ToCalculatedAttributeDefinitionAttributeDetailsOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionAttributeDetailsOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionAttributeDetailsOutput) Attributes() CalculatedAttributeDefinitionAttributeItemArrayOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionAttributeDetails) []CalculatedAttributeDefinitionAttributeItem {
+		return v.Attributes
+	}).(CalculatedAttributeDefinitionAttributeItemArrayOutput)
+}
+
+func (o CalculatedAttributeDefinitionAttributeDetailsOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionAttributeDetails) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type CalculatedAttributeDefinitionAttributeDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionAttributeDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionAttributeDetails)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) ToCalculatedAttributeDefinitionAttributeDetailsPtrOutput() CalculatedAttributeDefinitionAttributeDetailsPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) ToCalculatedAttributeDefinitionAttributeDetailsPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionAttributeDetailsPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) Elem() CalculatedAttributeDefinitionAttributeDetailsOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionAttributeDetails) CalculatedAttributeDefinitionAttributeDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CalculatedAttributeDefinitionAttributeDetails
+		return ret
+	}).(CalculatedAttributeDefinitionAttributeDetailsOutput)
+}
+
+func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) Attributes() CalculatedAttributeDefinitionAttributeItemArrayOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionAttributeDetails) []CalculatedAttributeDefinitionAttributeItem {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(CalculatedAttributeDefinitionAttributeItemArrayOutput)
+}
+
+func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionAttributeDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The details of a single attribute item specified in the mathematical expression.
+type CalculatedAttributeDefinitionAttributeItem struct {
+	Name string `pulumi:"name"`
+}
+
+// CalculatedAttributeDefinitionAttributeItemInput is an input type that accepts CalculatedAttributeDefinitionAttributeItemArgs and CalculatedAttributeDefinitionAttributeItemOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionAttributeItemInput` via:
+//
+//	CalculatedAttributeDefinitionAttributeItemArgs{...}
+type CalculatedAttributeDefinitionAttributeItemInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionAttributeItemOutput() CalculatedAttributeDefinitionAttributeItemOutput
+	ToCalculatedAttributeDefinitionAttributeItemOutputWithContext(context.Context) CalculatedAttributeDefinitionAttributeItemOutput
+}
+
+// The details of a single attribute item specified in the mathematical expression.
+type CalculatedAttributeDefinitionAttributeItemArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (CalculatedAttributeDefinitionAttributeItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionAttributeItem)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionAttributeItemArgs) ToCalculatedAttributeDefinitionAttributeItemOutput() CalculatedAttributeDefinitionAttributeItemOutput {
+	return i.ToCalculatedAttributeDefinitionAttributeItemOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionAttributeItemArgs) ToCalculatedAttributeDefinitionAttributeItemOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionAttributeItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionAttributeItemOutput)
+}
+
+// CalculatedAttributeDefinitionAttributeItemArrayInput is an input type that accepts CalculatedAttributeDefinitionAttributeItemArray and CalculatedAttributeDefinitionAttributeItemArrayOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionAttributeItemArrayInput` via:
+//
+//	CalculatedAttributeDefinitionAttributeItemArray{ CalculatedAttributeDefinitionAttributeItemArgs{...} }
+type CalculatedAttributeDefinitionAttributeItemArrayInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionAttributeItemArrayOutput() CalculatedAttributeDefinitionAttributeItemArrayOutput
+	ToCalculatedAttributeDefinitionAttributeItemArrayOutputWithContext(context.Context) CalculatedAttributeDefinitionAttributeItemArrayOutput
+}
+
+type CalculatedAttributeDefinitionAttributeItemArray []CalculatedAttributeDefinitionAttributeItemInput
+
+func (CalculatedAttributeDefinitionAttributeItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CalculatedAttributeDefinitionAttributeItem)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionAttributeItemArray) ToCalculatedAttributeDefinitionAttributeItemArrayOutput() CalculatedAttributeDefinitionAttributeItemArrayOutput {
+	return i.ToCalculatedAttributeDefinitionAttributeItemArrayOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionAttributeItemArray) ToCalculatedAttributeDefinitionAttributeItemArrayOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionAttributeItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionAttributeItemArrayOutput)
+}
+
+// The details of a single attribute item specified in the mathematical expression.
+type CalculatedAttributeDefinitionAttributeItemOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionAttributeItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionAttributeItem)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionAttributeItemOutput) ToCalculatedAttributeDefinitionAttributeItemOutput() CalculatedAttributeDefinitionAttributeItemOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionAttributeItemOutput) ToCalculatedAttributeDefinitionAttributeItemOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionAttributeItemOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionAttributeItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionAttributeItem) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type CalculatedAttributeDefinitionAttributeItemArrayOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionAttributeItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CalculatedAttributeDefinitionAttributeItem)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionAttributeItemArrayOutput) ToCalculatedAttributeDefinitionAttributeItemArrayOutput() CalculatedAttributeDefinitionAttributeItemArrayOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionAttributeItemArrayOutput) ToCalculatedAttributeDefinitionAttributeItemArrayOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionAttributeItemArrayOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionAttributeItemArrayOutput) Index(i pulumi.IntInput) CalculatedAttributeDefinitionAttributeItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CalculatedAttributeDefinitionAttributeItem {
+		return vs[0].([]CalculatedAttributeDefinitionAttributeItem)[vs[1].(int)]
+	}).(CalculatedAttributeDefinitionAttributeItemOutput)
+}
+
+// The conditions including range, object count, and threshold for the calculated attribute.
+type CalculatedAttributeDefinitionConditions struct {
+	ObjectCount *int                                    `pulumi:"objectCount"`
+	Range       *CalculatedAttributeDefinitionRange     `pulumi:"range"`
+	Threshold   *CalculatedAttributeDefinitionThreshold `pulumi:"threshold"`
+}
+
+// CalculatedAttributeDefinitionConditionsInput is an input type that accepts CalculatedAttributeDefinitionConditionsArgs and CalculatedAttributeDefinitionConditionsOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionConditionsInput` via:
+//
+//	CalculatedAttributeDefinitionConditionsArgs{...}
+type CalculatedAttributeDefinitionConditionsInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionConditionsOutput() CalculatedAttributeDefinitionConditionsOutput
+	ToCalculatedAttributeDefinitionConditionsOutputWithContext(context.Context) CalculatedAttributeDefinitionConditionsOutput
+}
+
+// The conditions including range, object count, and threshold for the calculated attribute.
+type CalculatedAttributeDefinitionConditionsArgs struct {
+	ObjectCount pulumi.IntPtrInput                             `pulumi:"objectCount"`
+	Range       CalculatedAttributeDefinitionRangePtrInput     `pulumi:"range"`
+	Threshold   CalculatedAttributeDefinitionThresholdPtrInput `pulumi:"threshold"`
+}
+
+func (CalculatedAttributeDefinitionConditionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionConditions)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionConditionsArgs) ToCalculatedAttributeDefinitionConditionsOutput() CalculatedAttributeDefinitionConditionsOutput {
+	return i.ToCalculatedAttributeDefinitionConditionsOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionConditionsArgs) ToCalculatedAttributeDefinitionConditionsOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionConditionsOutput)
+}
+
+func (i CalculatedAttributeDefinitionConditionsArgs) ToCalculatedAttributeDefinitionConditionsPtrOutput() CalculatedAttributeDefinitionConditionsPtrOutput {
+	return i.ToCalculatedAttributeDefinitionConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionConditionsArgs) ToCalculatedAttributeDefinitionConditionsPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionConditionsOutput).ToCalculatedAttributeDefinitionConditionsPtrOutputWithContext(ctx)
+}
+
+// CalculatedAttributeDefinitionConditionsPtrInput is an input type that accepts CalculatedAttributeDefinitionConditionsArgs, CalculatedAttributeDefinitionConditionsPtr and CalculatedAttributeDefinitionConditionsPtrOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionConditionsPtrInput` via:
+//
+//	        CalculatedAttributeDefinitionConditionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CalculatedAttributeDefinitionConditionsPtrInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionConditionsPtrOutput() CalculatedAttributeDefinitionConditionsPtrOutput
+	ToCalculatedAttributeDefinitionConditionsPtrOutputWithContext(context.Context) CalculatedAttributeDefinitionConditionsPtrOutput
+}
+
+type calculatedAttributeDefinitionConditionsPtrType CalculatedAttributeDefinitionConditionsArgs
+
+func CalculatedAttributeDefinitionConditionsPtr(v *CalculatedAttributeDefinitionConditionsArgs) CalculatedAttributeDefinitionConditionsPtrInput {
+	return (*calculatedAttributeDefinitionConditionsPtrType)(v)
+}
+
+func (*calculatedAttributeDefinitionConditionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionConditions)(nil)).Elem()
+}
+
+func (i *calculatedAttributeDefinitionConditionsPtrType) ToCalculatedAttributeDefinitionConditionsPtrOutput() CalculatedAttributeDefinitionConditionsPtrOutput {
+	return i.ToCalculatedAttributeDefinitionConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i *calculatedAttributeDefinitionConditionsPtrType) ToCalculatedAttributeDefinitionConditionsPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionConditionsPtrOutput)
+}
+
+// The conditions including range, object count, and threshold for the calculated attribute.
+type CalculatedAttributeDefinitionConditionsOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionConditionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionConditions)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionConditionsOutput) ToCalculatedAttributeDefinitionConditionsOutput() CalculatedAttributeDefinitionConditionsOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionConditionsOutput) ToCalculatedAttributeDefinitionConditionsOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionConditionsOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionConditionsOutput) ToCalculatedAttributeDefinitionConditionsPtrOutput() CalculatedAttributeDefinitionConditionsPtrOutput {
+	return o.ToCalculatedAttributeDefinitionConditionsPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionConditionsOutput) ToCalculatedAttributeDefinitionConditionsPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionConditionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CalculatedAttributeDefinitionConditions) *CalculatedAttributeDefinitionConditions {
+		return &v
+	}).(CalculatedAttributeDefinitionConditionsPtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionConditionsOutput) ObjectCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionConditions) *int { return v.ObjectCount }).(pulumi.IntPtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionConditionsOutput) Range() CalculatedAttributeDefinitionRangePtrOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionConditions) *CalculatedAttributeDefinitionRange { return v.Range }).(CalculatedAttributeDefinitionRangePtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionConditionsOutput) Threshold() CalculatedAttributeDefinitionThresholdPtrOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionConditions) *CalculatedAttributeDefinitionThreshold {
+		return v.Threshold
+	}).(CalculatedAttributeDefinitionThresholdPtrOutput)
+}
+
+type CalculatedAttributeDefinitionConditionsPtrOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionConditionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionConditions)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionConditionsPtrOutput) ToCalculatedAttributeDefinitionConditionsPtrOutput() CalculatedAttributeDefinitionConditionsPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionConditionsPtrOutput) ToCalculatedAttributeDefinitionConditionsPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionConditionsPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionConditionsPtrOutput) Elem() CalculatedAttributeDefinitionConditionsOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionConditions) CalculatedAttributeDefinitionConditions {
+		if v != nil {
+			return *v
+		}
+		var ret CalculatedAttributeDefinitionConditions
+		return ret
+	}).(CalculatedAttributeDefinitionConditionsOutput)
+}
+
+func (o CalculatedAttributeDefinitionConditionsPtrOutput) ObjectCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionConditions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionConditionsPtrOutput) Range() CalculatedAttributeDefinitionRangePtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionConditions) *CalculatedAttributeDefinitionRange {
+		if v == nil {
+			return nil
+		}
+		return v.Range
+	}).(CalculatedAttributeDefinitionRangePtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionConditionsPtrOutput) Threshold() CalculatedAttributeDefinitionThresholdPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionConditions) *CalculatedAttributeDefinitionThreshold {
+		if v == nil {
+			return nil
+		}
+		return v.Threshold
+	}).(CalculatedAttributeDefinitionThresholdPtrOutput)
+}
+
+// The relative time period over which data is included in the aggregation.
+type CalculatedAttributeDefinitionRange struct {
+	Unit  CalculatedAttributeDefinitionRangeUnit `pulumi:"unit"`
+	Value int                                    `pulumi:"value"`
+}
+
+// CalculatedAttributeDefinitionRangeInput is an input type that accepts CalculatedAttributeDefinitionRangeArgs and CalculatedAttributeDefinitionRangeOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionRangeInput` via:
+//
+//	CalculatedAttributeDefinitionRangeArgs{...}
+type CalculatedAttributeDefinitionRangeInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionRangeOutput() CalculatedAttributeDefinitionRangeOutput
+	ToCalculatedAttributeDefinitionRangeOutputWithContext(context.Context) CalculatedAttributeDefinitionRangeOutput
+}
+
+// The relative time period over which data is included in the aggregation.
+type CalculatedAttributeDefinitionRangeArgs struct {
+	Unit  CalculatedAttributeDefinitionRangeUnitInput `pulumi:"unit"`
+	Value pulumi.IntInput                             `pulumi:"value"`
+}
+
+func (CalculatedAttributeDefinitionRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionRange)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionRangeArgs) ToCalculatedAttributeDefinitionRangeOutput() CalculatedAttributeDefinitionRangeOutput {
+	return i.ToCalculatedAttributeDefinitionRangeOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionRangeArgs) ToCalculatedAttributeDefinitionRangeOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionRangeOutput)
+}
+
+func (i CalculatedAttributeDefinitionRangeArgs) ToCalculatedAttributeDefinitionRangePtrOutput() CalculatedAttributeDefinitionRangePtrOutput {
+	return i.ToCalculatedAttributeDefinitionRangePtrOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionRangeArgs) ToCalculatedAttributeDefinitionRangePtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionRangeOutput).ToCalculatedAttributeDefinitionRangePtrOutputWithContext(ctx)
+}
+
+// CalculatedAttributeDefinitionRangePtrInput is an input type that accepts CalculatedAttributeDefinitionRangeArgs, CalculatedAttributeDefinitionRangePtr and CalculatedAttributeDefinitionRangePtrOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionRangePtrInput` via:
+//
+//	        CalculatedAttributeDefinitionRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type CalculatedAttributeDefinitionRangePtrInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionRangePtrOutput() CalculatedAttributeDefinitionRangePtrOutput
+	ToCalculatedAttributeDefinitionRangePtrOutputWithContext(context.Context) CalculatedAttributeDefinitionRangePtrOutput
+}
+
+type calculatedAttributeDefinitionRangePtrType CalculatedAttributeDefinitionRangeArgs
+
+func CalculatedAttributeDefinitionRangePtr(v *CalculatedAttributeDefinitionRangeArgs) CalculatedAttributeDefinitionRangePtrInput {
+	return (*calculatedAttributeDefinitionRangePtrType)(v)
+}
+
+func (*calculatedAttributeDefinitionRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionRange)(nil)).Elem()
+}
+
+func (i *calculatedAttributeDefinitionRangePtrType) ToCalculatedAttributeDefinitionRangePtrOutput() CalculatedAttributeDefinitionRangePtrOutput {
+	return i.ToCalculatedAttributeDefinitionRangePtrOutputWithContext(context.Background())
+}
+
+func (i *calculatedAttributeDefinitionRangePtrType) ToCalculatedAttributeDefinitionRangePtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionRangePtrOutput)
+}
+
+// The relative time period over which data is included in the aggregation.
+type CalculatedAttributeDefinitionRangeOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionRange)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionRangeOutput) ToCalculatedAttributeDefinitionRangeOutput() CalculatedAttributeDefinitionRangeOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionRangeOutput) ToCalculatedAttributeDefinitionRangeOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangeOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionRangeOutput) ToCalculatedAttributeDefinitionRangePtrOutput() CalculatedAttributeDefinitionRangePtrOutput {
+	return o.ToCalculatedAttributeDefinitionRangePtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionRangeOutput) ToCalculatedAttributeDefinitionRangePtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CalculatedAttributeDefinitionRange) *CalculatedAttributeDefinitionRange {
+		return &v
+	}).(CalculatedAttributeDefinitionRangePtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionRangeOutput) Unit() CalculatedAttributeDefinitionRangeUnitOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) CalculatedAttributeDefinitionRangeUnit { return v.Unit }).(CalculatedAttributeDefinitionRangeUnitOutput)
+}
+
+func (o CalculatedAttributeDefinitionRangeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type CalculatedAttributeDefinitionRangePtrOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionRange)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionRangePtrOutput) ToCalculatedAttributeDefinitionRangePtrOutput() CalculatedAttributeDefinitionRangePtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionRangePtrOutput) ToCalculatedAttributeDefinitionRangePtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangePtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionRangePtrOutput) Elem() CalculatedAttributeDefinitionRangeOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionRange) CalculatedAttributeDefinitionRange {
+		if v != nil {
+			return *v
+		}
+		var ret CalculatedAttributeDefinitionRange
+		return ret
+	}).(CalculatedAttributeDefinitionRangeOutput)
+}
+
+func (o CalculatedAttributeDefinitionRangePtrOutput) Unit() CalculatedAttributeDefinitionRangeUnitPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionRange) *CalculatedAttributeDefinitionRangeUnit {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(CalculatedAttributeDefinitionRangeUnitPtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionRangePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CalculatedAttributeDefinitionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// CalculatedAttributeDefinitionTagInput is an input type that accepts CalculatedAttributeDefinitionTagArgs and CalculatedAttributeDefinitionTagOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionTagInput` via:
+//
+//	CalculatedAttributeDefinitionTagArgs{...}
+type CalculatedAttributeDefinitionTagInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionTagOutput() CalculatedAttributeDefinitionTagOutput
+	ToCalculatedAttributeDefinitionTagOutputWithContext(context.Context) CalculatedAttributeDefinitionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type CalculatedAttributeDefinitionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CalculatedAttributeDefinitionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionTag)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionTagArgs) ToCalculatedAttributeDefinitionTagOutput() CalculatedAttributeDefinitionTagOutput {
+	return i.ToCalculatedAttributeDefinitionTagOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionTagArgs) ToCalculatedAttributeDefinitionTagOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionTagOutput)
+}
+
+// CalculatedAttributeDefinitionTagArrayInput is an input type that accepts CalculatedAttributeDefinitionTagArray and CalculatedAttributeDefinitionTagArrayOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionTagArrayInput` via:
+//
+//	CalculatedAttributeDefinitionTagArray{ CalculatedAttributeDefinitionTagArgs{...} }
+type CalculatedAttributeDefinitionTagArrayInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionTagArrayOutput() CalculatedAttributeDefinitionTagArrayOutput
+	ToCalculatedAttributeDefinitionTagArrayOutputWithContext(context.Context) CalculatedAttributeDefinitionTagArrayOutput
+}
+
+type CalculatedAttributeDefinitionTagArray []CalculatedAttributeDefinitionTagInput
+
+func (CalculatedAttributeDefinitionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CalculatedAttributeDefinitionTag)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionTagArray) ToCalculatedAttributeDefinitionTagArrayOutput() CalculatedAttributeDefinitionTagArrayOutput {
+	return i.ToCalculatedAttributeDefinitionTagArrayOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionTagArray) ToCalculatedAttributeDefinitionTagArrayOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CalculatedAttributeDefinitionTagOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionTag)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionTagOutput) ToCalculatedAttributeDefinitionTagOutput() CalculatedAttributeDefinitionTagOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionTagOutput) ToCalculatedAttributeDefinitionTagOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CalculatedAttributeDefinitionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CalculatedAttributeDefinitionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CalculatedAttributeDefinitionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CalculatedAttributeDefinitionTag)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionTagArrayOutput) ToCalculatedAttributeDefinitionTagArrayOutput() CalculatedAttributeDefinitionTagArrayOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionTagArrayOutput) ToCalculatedAttributeDefinitionTagArrayOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionTagArrayOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionTagArrayOutput) Index(i pulumi.IntInput) CalculatedAttributeDefinitionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CalculatedAttributeDefinitionTag {
+		return vs[0].([]CalculatedAttributeDefinitionTag)[vs[1].(int)]
+	}).(CalculatedAttributeDefinitionTagOutput)
+}
+
+// The threshold for the calculated attribute.
+type CalculatedAttributeDefinitionThreshold struct {
+	Operator CalculatedAttributeDefinitionThresholdOperator `pulumi:"operator"`
+	Value    string                                         `pulumi:"value"`
+}
+
+// CalculatedAttributeDefinitionThresholdInput is an input type that accepts CalculatedAttributeDefinitionThresholdArgs and CalculatedAttributeDefinitionThresholdOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionThresholdInput` via:
+//
+//	CalculatedAttributeDefinitionThresholdArgs{...}
+type CalculatedAttributeDefinitionThresholdInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionThresholdOutput() CalculatedAttributeDefinitionThresholdOutput
+	ToCalculatedAttributeDefinitionThresholdOutputWithContext(context.Context) CalculatedAttributeDefinitionThresholdOutput
+}
+
+// The threshold for the calculated attribute.
+type CalculatedAttributeDefinitionThresholdArgs struct {
+	Operator CalculatedAttributeDefinitionThresholdOperatorInput `pulumi:"operator"`
+	Value    pulumi.StringInput                                  `pulumi:"value"`
+}
+
+func (CalculatedAttributeDefinitionThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionThreshold)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionThresholdArgs) ToCalculatedAttributeDefinitionThresholdOutput() CalculatedAttributeDefinitionThresholdOutput {
+	return i.ToCalculatedAttributeDefinitionThresholdOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionThresholdArgs) ToCalculatedAttributeDefinitionThresholdOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionThresholdOutput)
+}
+
+func (i CalculatedAttributeDefinitionThresholdArgs) ToCalculatedAttributeDefinitionThresholdPtrOutput() CalculatedAttributeDefinitionThresholdPtrOutput {
+	return i.ToCalculatedAttributeDefinitionThresholdPtrOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionThresholdArgs) ToCalculatedAttributeDefinitionThresholdPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionThresholdOutput).ToCalculatedAttributeDefinitionThresholdPtrOutputWithContext(ctx)
+}
+
+// CalculatedAttributeDefinitionThresholdPtrInput is an input type that accepts CalculatedAttributeDefinitionThresholdArgs, CalculatedAttributeDefinitionThresholdPtr and CalculatedAttributeDefinitionThresholdPtrOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionThresholdPtrInput` via:
+//
+//	        CalculatedAttributeDefinitionThresholdArgs{...}
+//
+//	or:
+//
+//	        nil
+type CalculatedAttributeDefinitionThresholdPtrInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionThresholdPtrOutput() CalculatedAttributeDefinitionThresholdPtrOutput
+	ToCalculatedAttributeDefinitionThresholdPtrOutputWithContext(context.Context) CalculatedAttributeDefinitionThresholdPtrOutput
+}
+
+type calculatedAttributeDefinitionThresholdPtrType CalculatedAttributeDefinitionThresholdArgs
+
+func CalculatedAttributeDefinitionThresholdPtr(v *CalculatedAttributeDefinitionThresholdArgs) CalculatedAttributeDefinitionThresholdPtrInput {
+	return (*calculatedAttributeDefinitionThresholdPtrType)(v)
+}
+
+func (*calculatedAttributeDefinitionThresholdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionThreshold)(nil)).Elem()
+}
+
+func (i *calculatedAttributeDefinitionThresholdPtrType) ToCalculatedAttributeDefinitionThresholdPtrOutput() CalculatedAttributeDefinitionThresholdPtrOutput {
+	return i.ToCalculatedAttributeDefinitionThresholdPtrOutputWithContext(context.Background())
+}
+
+func (i *calculatedAttributeDefinitionThresholdPtrType) ToCalculatedAttributeDefinitionThresholdPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionThresholdPtrOutput)
+}
+
+// The threshold for the calculated attribute.
+type CalculatedAttributeDefinitionThresholdOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionThreshold)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionThresholdOutput) ToCalculatedAttributeDefinitionThresholdOutput() CalculatedAttributeDefinitionThresholdOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionThresholdOutput) ToCalculatedAttributeDefinitionThresholdOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionThresholdOutput) ToCalculatedAttributeDefinitionThresholdPtrOutput() CalculatedAttributeDefinitionThresholdPtrOutput {
+	return o.ToCalculatedAttributeDefinitionThresholdPtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionThresholdOutput) ToCalculatedAttributeDefinitionThresholdPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CalculatedAttributeDefinitionThreshold) *CalculatedAttributeDefinitionThreshold {
+		return &v
+	}).(CalculatedAttributeDefinitionThresholdPtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionThresholdOutput) Operator() CalculatedAttributeDefinitionThresholdOperatorOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionThreshold) CalculatedAttributeDefinitionThresholdOperator {
+		return v.Operator
+	}).(CalculatedAttributeDefinitionThresholdOperatorOutput)
+}
+
+func (o CalculatedAttributeDefinitionThresholdOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionThreshold) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CalculatedAttributeDefinitionThresholdPtrOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionThresholdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionThreshold)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionThresholdPtrOutput) ToCalculatedAttributeDefinitionThresholdPtrOutput() CalculatedAttributeDefinitionThresholdPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionThresholdPtrOutput) ToCalculatedAttributeDefinitionThresholdPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionThresholdPtrOutput) Elem() CalculatedAttributeDefinitionThresholdOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionThreshold) CalculatedAttributeDefinitionThreshold {
+		if v != nil {
+			return *v
+		}
+		var ret CalculatedAttributeDefinitionThreshold
+		return ret
+	}).(CalculatedAttributeDefinitionThresholdOutput)
+}
+
+func (o CalculatedAttributeDefinitionThresholdPtrOutput) Operator() CalculatedAttributeDefinitionThresholdOperatorPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionThreshold) *CalculatedAttributeDefinitionThresholdOperator {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(CalculatedAttributeDefinitionThresholdOperatorPtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionThresholdPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionThreshold) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details regarding the Kinesis stream.
+type DestinationDetailsProperties struct {
+	Status EventStreamStatus `pulumi:"status"`
+	Uri    string            `pulumi:"uri"`
+}
+
+// Details regarding the Kinesis stream.
+type DestinationDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DestinationDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationDetailsProperties)(nil)).Elem()
+}
+
+func (o DestinationDetailsPropertiesOutput) ToDestinationDetailsPropertiesOutput() DestinationDetailsPropertiesOutput {
+	return o
+}
+
+func (o DestinationDetailsPropertiesOutput) ToDestinationDetailsPropertiesOutputWithContext(ctx context.Context) DestinationDetailsPropertiesOutput {
+	return o
+}
+
+func (o DestinationDetailsPropertiesOutput) Status() EventStreamStatusOutput {
+	return o.ApplyT(func(v DestinationDetailsProperties) EventStreamStatus { return v.Status }).(EventStreamStatusOutput)
+}
+
+func (o DestinationDetailsPropertiesOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationDetailsProperties) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type DestinationDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationDetailsProperties)(nil)).Elem()
+}
+
+func (o DestinationDetailsPropertiesPtrOutput) ToDestinationDetailsPropertiesPtrOutput() DestinationDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationDetailsPropertiesPtrOutput) ToDestinationDetailsPropertiesPtrOutputWithContext(ctx context.Context) DestinationDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o DestinationDetailsPropertiesPtrOutput) Elem() DestinationDetailsPropertiesOutput {
+	return o.ApplyT(func(v *DestinationDetailsProperties) DestinationDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationDetailsProperties
+		return ret
+	}).(DestinationDetailsPropertiesOutput)
+}
+
+func (o DestinationDetailsPropertiesPtrOutput) Status() EventStreamStatusPtrOutput {
+	return o.ApplyT(func(v *DestinationDetailsProperties) *EventStreamStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(EventStreamStatusPtrOutput)
+}
+
+func (o DestinationDetailsPropertiesPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -108,6 +959,115 @@ func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainTag {
 		return vs[0].([]DomainTag)[vs[1].(int)]
 	}).(DomainTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type EventStreamTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// EventStreamTagInput is an input type that accepts EventStreamTagArgs and EventStreamTagOutput values.
+// You can construct a concrete instance of `EventStreamTagInput` via:
+//
+//	EventStreamTagArgs{...}
+type EventStreamTagInput interface {
+	pulumi.Input
+
+	ToEventStreamTagOutput() EventStreamTagOutput
+	ToEventStreamTagOutputWithContext(context.Context) EventStreamTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type EventStreamTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventStreamTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventStreamTag)(nil)).Elem()
+}
+
+func (i EventStreamTagArgs) ToEventStreamTagOutput() EventStreamTagOutput {
+	return i.ToEventStreamTagOutputWithContext(context.Background())
+}
+
+func (i EventStreamTagArgs) ToEventStreamTagOutputWithContext(ctx context.Context) EventStreamTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventStreamTagOutput)
+}
+
+// EventStreamTagArrayInput is an input type that accepts EventStreamTagArray and EventStreamTagArrayOutput values.
+// You can construct a concrete instance of `EventStreamTagArrayInput` via:
+//
+//	EventStreamTagArray{ EventStreamTagArgs{...} }
+type EventStreamTagArrayInput interface {
+	pulumi.Input
+
+	ToEventStreamTagArrayOutput() EventStreamTagArrayOutput
+	ToEventStreamTagArrayOutputWithContext(context.Context) EventStreamTagArrayOutput
+}
+
+type EventStreamTagArray []EventStreamTagInput
+
+func (EventStreamTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventStreamTag)(nil)).Elem()
+}
+
+func (i EventStreamTagArray) ToEventStreamTagArrayOutput() EventStreamTagArrayOutput {
+	return i.ToEventStreamTagArrayOutputWithContext(context.Background())
+}
+
+func (i EventStreamTagArray) ToEventStreamTagArrayOutputWithContext(ctx context.Context) EventStreamTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventStreamTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type EventStreamTagOutput struct{ *pulumi.OutputState }
+
+func (EventStreamTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventStreamTag)(nil)).Elem()
+}
+
+func (o EventStreamTagOutput) ToEventStreamTagOutput() EventStreamTagOutput {
+	return o
+}
+
+func (o EventStreamTagOutput) ToEventStreamTagOutputWithContext(ctx context.Context) EventStreamTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o EventStreamTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventStreamTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o EventStreamTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventStreamTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventStreamTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EventStreamTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventStreamTag)(nil)).Elem()
+}
+
+func (o EventStreamTagArrayOutput) ToEventStreamTagArrayOutput() EventStreamTagArrayOutput {
+	return o
+}
+
+func (o EventStreamTagArrayOutput) ToEventStreamTagArrayOutputWithContext(ctx context.Context) EventStreamTagArrayOutput {
+	return o
+}
+
+func (o EventStreamTagArrayOutput) Index(i pulumi.IntInput) EventStreamTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventStreamTag {
+		return vs[0].([]EventStreamTag)[vs[1].(int)]
+	}).(EventStreamTagOutput)
 }
 
 type IntegrationConnectorOperator struct {
@@ -3243,8 +4203,21 @@ func (o ObjectTypeTagArrayOutput) Index(i pulumi.IntInput) ObjectTypeTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionAttributeDetailsInput)(nil)).Elem(), CalculatedAttributeDefinitionAttributeDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionAttributeItemInput)(nil)).Elem(), CalculatedAttributeDefinitionAttributeItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionAttributeItemArrayInput)(nil)).Elem(), CalculatedAttributeDefinitionAttributeItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionConditionsInput)(nil)).Elem(), CalculatedAttributeDefinitionConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionConditionsPtrInput)(nil)).Elem(), CalculatedAttributeDefinitionConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionRangeInput)(nil)).Elem(), CalculatedAttributeDefinitionRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionRangePtrInput)(nil)).Elem(), CalculatedAttributeDefinitionRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionTagInput)(nil)).Elem(), CalculatedAttributeDefinitionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionTagArrayInput)(nil)).Elem(), CalculatedAttributeDefinitionTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionThresholdInput)(nil)).Elem(), CalculatedAttributeDefinitionThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionThresholdPtrInput)(nil)).Elem(), CalculatedAttributeDefinitionThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagInput)(nil)).Elem(), DomainTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagArrayInput)(nil)).Elem(), DomainTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventStreamTagInput)(nil)).Elem(), EventStreamTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventStreamTagArrayInput)(nil)).Elem(), EventStreamTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorOperatorInput)(nil)).Elem(), IntegrationConnectorOperatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorOperatorPtrInput)(nil)).Elem(), IntegrationConnectorOperatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationFlowDefinitionInput)(nil)).Elem(), IntegrationFlowDefinitionArgs{})
@@ -3289,8 +4262,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyMapArrayInput)(nil)).Elem(), ObjectTypeKeyMapArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeTagInput)(nil)).Elem(), ObjectTypeTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeTagArrayInput)(nil)).Elem(), ObjectTypeTagArray{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeDetailsOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeItemOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeItemArrayOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionConditionsOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionConditionsPtrOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionRangeOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionRangePtrOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionTagOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionTagArrayOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionThresholdOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionThresholdPtrOutput{})
+	pulumi.RegisterOutputType(DestinationDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(DestinationDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DomainTagOutput{})
 	pulumi.RegisterOutputType(DomainTagArrayOutput{})
+	pulumi.RegisterOutputType(EventStreamTagOutput{})
+	pulumi.RegisterOutputType(EventStreamTagArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationConnectorOperatorOutput{})
 	pulumi.RegisterOutputType(IntegrationConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationFlowDefinitionOutput{})

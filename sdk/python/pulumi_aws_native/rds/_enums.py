@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'CustomDBEngineVersionStatus',
     'DBInstanceProcessorFeatureName',
     'DBProxyAuthFormatAuthScheme',
     'DBProxyAuthFormatClientPasswordAuthType',
@@ -14,6 +15,15 @@ __all__ = [
     'DBProxyTargetGroupTargetGroupName',
     'GlobalClusterEngine',
 ]
+
+
+class CustomDBEngineVersionStatus(str, Enum):
+    """
+    The availability status to be assigned to the CEV.
+    """
+    AVAILABLE = "available"
+    INACTIVE = "inactive"
+    INACTIVE_EXCEPT_RESTORE = "inactive-except-restore"
 
 
 class DBInstanceProcessorFeatureName(str, Enum):

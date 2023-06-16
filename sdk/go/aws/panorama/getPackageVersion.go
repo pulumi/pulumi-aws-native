@@ -27,14 +27,13 @@ type LookupPackageVersionArgs struct {
 }
 
 type LookupPackageVersionResult struct {
-	IsLatestPatch             *bool                 `pulumi:"isLatestPatch"`
-	MarkLatest                *bool                 `pulumi:"markLatest"`
-	PackageArn                *string               `pulumi:"packageArn"`
-	PackageName               *string               `pulumi:"packageName"`
-	RegisteredTime            *int                  `pulumi:"registeredTime"`
-	Status                    *PackageVersionStatus `pulumi:"status"`
-	StatusDescription         *string               `pulumi:"statusDescription"`
-	UpdatedLatestPatchVersion *string               `pulumi:"updatedLatestPatchVersion"`
+	IsLatestPatch     *bool                 `pulumi:"isLatestPatch"`
+	MarkLatest        *bool                 `pulumi:"markLatest"`
+	PackageArn        *string               `pulumi:"packageArn"`
+	PackageName       *string               `pulumi:"packageName"`
+	RegisteredTime    *int                  `pulumi:"registeredTime"`
+	Status            *PackageVersionStatus `pulumi:"status"`
+	StatusDescription *string               `pulumi:"statusDescription"`
 }
 
 func LookupPackageVersionOutput(ctx *pulumi.Context, args LookupPackageVersionOutputArgs, opts ...pulumi.InvokeOption) LookupPackageVersionResultOutput {
@@ -100,10 +99,6 @@ func (o LookupPackageVersionResultOutput) Status() PackageVersionStatusPtrOutput
 
 func (o LookupPackageVersionResultOutput) StatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPackageVersionResult) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupPackageVersionResultOutput) UpdatedLatestPatchVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPackageVersionResult) *string { return v.UpdatedLatestPatchVersion }).(pulumi.StringPtrOutput)
 }
 
 func init() {

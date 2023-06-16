@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BridgeArgs } from "./bridge";
+export type Bridge = import("./bridge").Bridge;
+export const Bridge: typeof import("./bridge").Bridge = null as any;
+utilities.lazyLoad(exports, ["Bridge"], () => require("./bridge"));
+
+export { BridgeOutputResourceArgs } from "./bridgeOutputResource";
+export type BridgeOutputResource = import("./bridgeOutputResource").BridgeOutputResource;
+export const BridgeOutputResource: typeof import("./bridgeOutputResource").BridgeOutputResource = null as any;
+utilities.lazyLoad(exports, ["BridgeOutputResource"], () => require("./bridgeOutputResource"));
+
+export { BridgeSourceArgs } from "./bridgeSource";
+export type BridgeSource = import("./bridgeSource").BridgeSource;
+export const BridgeSource: typeof import("./bridgeSource").BridgeSource = null as any;
+utilities.lazyLoad(exports, ["BridgeSource"], () => require("./bridgeSource"));
+
 export { FlowArgs } from "./flow";
 export type Flow = import("./flow").Flow;
 export const Flow: typeof import("./flow").Flow = null as any;
@@ -30,6 +45,26 @@ export type FlowVpcInterface = import("./flowVpcInterface").FlowVpcInterface;
 export const FlowVpcInterface: typeof import("./flowVpcInterface").FlowVpcInterface = null as any;
 utilities.lazyLoad(exports, ["FlowVpcInterface"], () => require("./flowVpcInterface"));
 
+export { GatewayArgs } from "./gateway";
+export type Gateway = import("./gateway").Gateway;
+export const Gateway: typeof import("./gateway").Gateway = null as any;
+utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
+
+export { GetBridgeArgs, GetBridgeResult, GetBridgeOutputArgs } from "./getBridge";
+export const getBridge: typeof import("./getBridge").getBridge = null as any;
+export const getBridgeOutput: typeof import("./getBridge").getBridgeOutput = null as any;
+utilities.lazyLoad(exports, ["getBridge","getBridgeOutput"], () => require("./getBridge"));
+
+export { GetBridgeOutputResourceArgs, GetBridgeOutputResourceResult, GetBridgeOutputResourceOutputArgs } from "./getBridgeOutputResource";
+export const getBridgeOutputResource: typeof import("./getBridgeOutputResource").getBridgeOutputResource = null as any;
+export const getBridgeOutputResourceOutput: typeof import("./getBridgeOutputResource").getBridgeOutputResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getBridgeOutputResource","getBridgeOutputResourceOutput"], () => require("./getBridgeOutputResource"));
+
+export { GetBridgeSourceArgs, GetBridgeSourceResult, GetBridgeSourceOutputArgs } from "./getBridgeSource";
+export const getBridgeSource: typeof import("./getBridgeSource").getBridgeSource = null as any;
+export const getBridgeSourceOutput: typeof import("./getBridgeSource").getBridgeSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getBridgeSource","getBridgeSourceOutput"], () => require("./getBridgeSource"));
+
 export { GetFlowArgs, GetFlowResult, GetFlowOutputArgs } from "./getFlow";
 export const getFlow: typeof import("./getFlow").getFlow = null as any;
 export const getFlowOutput: typeof import("./getFlow").getFlowOutput = null as any;
@@ -50,6 +85,11 @@ export const getFlowVpcInterface: typeof import("./getFlowVpcInterface").getFlow
 export const getFlowVpcInterfaceOutput: typeof import("./getFlowVpcInterface").getFlowVpcInterfaceOutput = null as any;
 utilities.lazyLoad(exports, ["getFlowVpcInterface","getFlowVpcInterfaceOutput"], () => require("./getFlowVpcInterface"));
 
+export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
+export const getGateway: typeof import("./getGateway").getGateway = null as any;
+export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
+
 
 // Export enums:
 export * from "../types/enums/mediaconnect";
@@ -58,6 +98,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:mediaconnect:Bridge":
+                return new Bridge(name, <any>undefined, { urn })
+            case "aws-native:mediaconnect:BridgeOutputResource":
+                return new BridgeOutputResource(name, <any>undefined, { urn })
+            case "aws-native:mediaconnect:BridgeSource":
+                return new BridgeSource(name, <any>undefined, { urn })
             case "aws-native:mediaconnect:Flow":
                 return new Flow(name, <any>undefined, { urn })
             case "aws-native:mediaconnect:FlowEntitlement":
@@ -68,6 +114,8 @@ const _module = {
                 return new FlowSource(name, <any>undefined, { urn })
             case "aws-native:mediaconnect:FlowVpcInterface":
                 return new FlowVpcInterface(name, <any>undefined, { urn })
+            case "aws-native:mediaconnect:Gateway":
+                return new Gateway(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

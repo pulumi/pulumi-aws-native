@@ -27,12 +27,10 @@ export interface GetApplicationInstanceResult {
     readonly arn?: string;
     readonly createdTime?: number;
     readonly defaultRuntimeContextDeviceName?: string;
-    readonly deviceId?: string;
     readonly healthStatus?: enums.panorama.ApplicationInstanceHealthStatus;
     readonly lastUpdatedTime?: number;
     readonly status?: enums.panorama.ApplicationInstanceStatus;
     readonly statusDescription?: string;
-    readonly statusFilter?: enums.panorama.ApplicationInstanceStatusFilter;
     readonly tags?: outputs.panorama.ApplicationInstanceTag[];
 }
 /**

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetChannelResult:
-    def __init__(__self__, arn=None, authorized=None, ingest_endpoint=None, insecure_ingest=None, latency_mode=None, name=None, playback_url=None, recording_configuration_arn=None, tags=None, type=None):
+    def __init__(__self__, arn=None, authorized=None, ingest_endpoint=None, insecure_ingest=None, latency_mode=None, name=None, playback_url=None, preset=None, recording_configuration_arn=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetChannelResult:
         if playback_url and not isinstance(playback_url, str):
             raise TypeError("Expected argument 'playback_url' to be a str")
         pulumi.set(__self__, "playback_url", playback_url)
+        if preset and not isinstance(preset, str):
+            raise TypeError("Expected argument 'preset' to be a str")
+        pulumi.set(__self__, "preset", preset)
         if recording_configuration_arn and not isinstance(recording_configuration_arn, str):
             raise TypeError("Expected argument 'recording_configuration_arn' to be a str")
         pulumi.set(__self__, "recording_configuration_arn", recording_configuration_arn)
@@ -109,6 +112,14 @@ class GetChannelResult:
         return pulumi.get(self, "playback_url")
 
     @property
+    @pulumi.getter
+    def preset(self) -> Optional['ChannelPreset']:
+        """
+        Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
+        """
+        return pulumi.get(self, "preset")
+
+    @property
     @pulumi.getter(name="recordingConfigurationArn")
     def recording_configuration_arn(self) -> Optional[str]:
         """
@@ -146,6 +157,7 @@ class AwaitableGetChannelResult(GetChannelResult):
             latency_mode=self.latency_mode,
             name=self.name,
             playback_url=self.playback_url,
+            preset=self.preset,
             recording_configuration_arn=self.recording_configuration_arn,
             tags=self.tags,
             type=self.type)
@@ -172,6 +184,7 @@ def get_channel(arn: Optional[str] = None,
         latency_mode=__ret__.latency_mode,
         name=__ret__.name,
         playback_url=__ret__.playback_url,
+        preset=__ret__.preset,
         recording_configuration_arn=__ret__.recording_configuration_arn,
         tags=__ret__.tags,
         type=__ret__.type)

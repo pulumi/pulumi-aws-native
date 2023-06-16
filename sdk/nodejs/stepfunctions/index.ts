@@ -20,10 +20,30 @@ export const getStateMachine: typeof import("./getStateMachine").getStateMachine
 export const getStateMachineOutput: typeof import("./getStateMachine").getStateMachineOutput = null as any;
 utilities.lazyLoad(exports, ["getStateMachine","getStateMachineOutput"], () => require("./getStateMachine"));
 
+export { GetStateMachineAliasArgs, GetStateMachineAliasResult, GetStateMachineAliasOutputArgs } from "./getStateMachineAlias";
+export const getStateMachineAlias: typeof import("./getStateMachineAlias").getStateMachineAlias = null as any;
+export const getStateMachineAliasOutput: typeof import("./getStateMachineAlias").getStateMachineAliasOutput = null as any;
+utilities.lazyLoad(exports, ["getStateMachineAlias","getStateMachineAliasOutput"], () => require("./getStateMachineAlias"));
+
+export { GetStateMachineVersionArgs, GetStateMachineVersionResult, GetStateMachineVersionOutputArgs } from "./getStateMachineVersion";
+export const getStateMachineVersion: typeof import("./getStateMachineVersion").getStateMachineVersion = null as any;
+export const getStateMachineVersionOutput: typeof import("./getStateMachineVersion").getStateMachineVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getStateMachineVersion","getStateMachineVersionOutput"], () => require("./getStateMachineVersion"));
+
 export { StateMachineArgs } from "./stateMachine";
 export type StateMachine = import("./stateMachine").StateMachine;
 export const StateMachine: typeof import("./stateMachine").StateMachine = null as any;
 utilities.lazyLoad(exports, ["StateMachine"], () => require("./stateMachine"));
+
+export { StateMachineAliasArgs } from "./stateMachineAlias";
+export type StateMachineAlias = import("./stateMachineAlias").StateMachineAlias;
+export const StateMachineAlias: typeof import("./stateMachineAlias").StateMachineAlias = null as any;
+utilities.lazyLoad(exports, ["StateMachineAlias"], () => require("./stateMachineAlias"));
+
+export { StateMachineVersionArgs } from "./stateMachineVersion";
+export type StateMachineVersion = import("./stateMachineVersion").StateMachineVersion;
+export const StateMachineVersion: typeof import("./stateMachineVersion").StateMachineVersion = null as any;
+utilities.lazyLoad(exports, ["StateMachineVersion"], () => require("./stateMachineVersion"));
 
 
 // Export enums:
@@ -37,6 +57,10 @@ const _module = {
                 return new Activity(name, <any>undefined, { urn })
             case "aws-native:stepfunctions:StateMachine":
                 return new StateMachine(name, <any>undefined, { urn })
+            case "aws-native:stepfunctions:StateMachineAlias":
+                return new StateMachineAlias(name, <any>undefined, { urn })
+            case "aws-native:stepfunctions:StateMachineVersion":
+                return new StateMachineVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

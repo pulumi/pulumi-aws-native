@@ -2,6 +2,63 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CalculatedAttributeDefinitionRangeUnit = {
+    Days: "DAYS",
+} as const;
+
+/**
+ * The unit of time.
+ */
+export type CalculatedAttributeDefinitionRangeUnit = (typeof CalculatedAttributeDefinitionRangeUnit)[keyof typeof CalculatedAttributeDefinitionRangeUnit];
+
+export const CalculatedAttributeDefinitionStatistic = {
+    FirstOccurrence: "FIRST_OCCURRENCE",
+    LastOccurrence: "LAST_OCCURRENCE",
+    Count: "COUNT",
+    Sum: "SUM",
+    Minimum: "MINIMUM",
+    Maximum: "MAXIMUM",
+    Average: "AVERAGE",
+    MaxOccurrence: "MAX_OCCURRENCE",
+} as const;
+
+/**
+ * The aggregation operation to perform for the calculated attribute.
+ */
+export type CalculatedAttributeDefinitionStatistic = (typeof CalculatedAttributeDefinitionStatistic)[keyof typeof CalculatedAttributeDefinitionStatistic];
+
+export const CalculatedAttributeDefinitionThresholdOperator = {
+    EqualTo: "EQUAL_TO",
+    GreaterThan: "GREATER_THAN",
+    LessThan: "LESS_THAN",
+    NotEqualTo: "NOT_EQUAL_TO",
+} as const;
+
+/**
+ * The operator of the threshold.
+ */
+export type CalculatedAttributeDefinitionThresholdOperator = (typeof CalculatedAttributeDefinitionThresholdOperator)[keyof typeof CalculatedAttributeDefinitionThresholdOperator];
+
+export const EventStreamState = {
+    Running: "RUNNING",
+    Stopped: "STOPPED",
+} as const;
+
+/**
+ * The operational state of destination stream for export.
+ */
+export type EventStreamState = (typeof EventStreamState)[keyof typeof EventStreamState];
+
+export const EventStreamStatus = {
+    Healthy: "HEALTHY",
+    Unhealthy: "UNHEALTHY",
+} as const;
+
+/**
+ * The status of enabling the Kinesis stream as a destination for export.
+ */
+export type EventStreamStatus = (typeof EventStreamStatus)[keyof typeof EventStreamStatus];
+
 export const IntegrationConnectorType = {
     Salesforce: "Salesforce",
     Marketo: "Marketo",

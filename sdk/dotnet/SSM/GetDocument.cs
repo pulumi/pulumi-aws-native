@@ -58,10 +58,6 @@ namespace Pulumi.AwsNative.SSM
     public sealed class GetDocumentResult
     {
         /// <summary>
-        /// A list of key and value pairs that describe attachments to a version of a document.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.DocumentAttachmentsSource> Attachments;
-        /// <summary>
         /// The content for the Systems Manager document in JSON, YAML or String format.
         /// </summary>
         public readonly object? Content;
@@ -82,18 +78,12 @@ namespace Pulumi.AwsNative.SSM
         /// </summary>
         public readonly string? TargetType;
         /// <summary>
-        /// Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
-        /// </summary>
-        public readonly Pulumi.AwsNative.SSM.DocumentUpdateMethod? UpdateMethod;
-        /// <summary>
         /// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         /// </summary>
         public readonly string? VersionName;
 
         [OutputConstructor]
         private GetDocumentResult(
-            ImmutableArray<Outputs.DocumentAttachmentsSource> attachments,
-
             object? content,
 
             Pulumi.AwsNative.SSM.DocumentFormat? documentFormat,
@@ -104,17 +94,13 @@ namespace Pulumi.AwsNative.SSM
 
             string? targetType,
 
-            Pulumi.AwsNative.SSM.DocumentUpdateMethod? updateMethod,
-
             string? versionName)
         {
-            Attachments = attachments;
             Content = content;
             DocumentFormat = documentFormat;
             Requires = requires;
             Tags = tags;
             TargetType = targetType;
-            UpdateMethod = updateMethod;
             VersionName = versionName;
         }
     }
