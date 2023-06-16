@@ -1169,7 +1169,13 @@ func getterToken(typ string) (string, string) {
 func typeName(typ string) string {
 	resourceTypeComponents := strings.Split(typ, "::")
 	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
-	return resourceTypeComponents[2]
+	name := resourceTypeComponents[2]
+	// Override name to avoid duplicate types due to "Output" suffix
+	// See https://github.com/pulumi/pulumi/issues/8018
+	if trimmed, hadSuffix := strings.CutSuffix(name, "Output"); hadSuffix {
+		name = trimmed + "OutputResource"
+	}
+	return name
 }
 
 func primitiveTypeSpec(primitiveType string) pschema.TypeSpec {
