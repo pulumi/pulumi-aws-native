@@ -1124,6 +1124,7 @@ func rawMessage(v interface{}) pschema.RawMessage {
 
 func moduleName(resourceType string) string {
 	resourceTypeComponents := strings.Split(resourceType, "::")
+	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
 	module := resourceTypeComponents[1]
 
 	// Override the name of the Config module.
