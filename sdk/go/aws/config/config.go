@@ -89,7 +89,9 @@ func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return true
+	var value bool
+	value = true
+	return value
 }
 
 // Skip getting the supported EC2 platforms. Used by users that don't have `ec2:DescribeAccountAttributes` permissions.
@@ -98,7 +100,9 @@ func GetSkipGetEc2Platforms(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return true
+	var value bool
+	value = true
+	return value
 }
 
 // Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. Setting to true prevents Pulumi from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables.
@@ -107,7 +111,9 @@ func GetSkipMetadataApiCheck(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return true
+	var value bool
+	value = true
+	return value
 }
 
 // Skip static validation of region name. Used by users of alternative AWS-like APIs or users with access to regions that are not public.
@@ -116,7 +122,9 @@ func GetSkipRegionValidation(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return true
+	var value bool
+	value = true
+	return value
 }
 
 // Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
