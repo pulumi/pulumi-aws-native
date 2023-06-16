@@ -56,7 +56,7 @@
     "Type" : {
       "description" : "Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.",
       "type" : "string",
-      "enum" : [ "STANDARD", "BASIC" ],
+      "enum" : [ "STANDARD", "BASIC", "ADVANCED_SD", "ADVANCED_HD" ],
       "default" : "STANDARD"
     },
     "Tags" : {
@@ -84,6 +84,11 @@
       "pattern" : "^$|arn:aws:ivs:[a-z0-9-]+:[0-9]+:recording-configuration/[a-zA-Z0-9-]+$",
       "minLength" : 0,
       "maxLength" : 128
+    },
+    "Preset" : {
+      "description" : "Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string (\"\").",
+      "type" : "string",
+      "enum" : [ "HIGHER_BANDWIDTH_DELIVERY", "CONSTRAINED_BANDWIDTH_DELIVERY" ]
     }
   },
   "additionalProperties" : false,
@@ -92,19 +97,19 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ivs:CreateChannel" ]
+      "permissions" : [ "ivs:CreateChannel", "ivs:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "ivs:GetChannel" ]
+      "permissions" : [ "ivs:GetChannel", "ivs:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "ivs:UpdateChannel", "ivs:TagResource", "ivs:UnTagResource", "ivs:ListTagsForResource" ]
+      "permissions" : [ "ivs:GetChannel", "ivs:UpdateChannel", "ivs:TagResource", "ivs:UnTagResource", "ivs:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "ivs:DeleteChannel" ]
+      "permissions" : [ "ivs:DeleteChannel", "ivs:UnTagResource" ]
     },
     "list" : {
-      "permissions" : [ "ivs:ListChannels" ]
+      "permissions" : [ "ivs:ListChannels", "ivs:ListTagsForResource" ]
     }
   }
 }

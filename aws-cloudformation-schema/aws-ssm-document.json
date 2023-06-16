@@ -141,19 +141,23 @@
   "additionalProperties" : false,
   "required" : [ "Content" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/DocumentType" ],
+  "writeOnlyProperties" : [ "/properties/UpdateMethod", "/properties/Attachments" ],
   "primaryIdentifier" : [ "/properties/Name" ],
+  "tagging" : {
+    "taggable" : true
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ssm:CreateDocument", "s3:GetObject", "iam:PassRole" ]
+      "permissions" : [ "ssm:CreateDocument", "ssm:GetDocument", "ssm:AddTagsToResource", "ssm:ListTagsForResource", "s3:GetObject", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "ssm:GetDocument" ]
+      "permissions" : [ "ssm:GetDocument", "ssm:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "ssm:UpdateDocument", "s3:GetObject", "ssm:AddTagsToResource", "ssm:RemoveTagsFromResource", "ssm:ListTagsForResource", "iam:PassRole", "ssm:UpdateDocumentDefaultVersion", "ssm:DescribeDocument" ]
     },
     "delete" : {
-      "permissions" : [ "ssm:DeleteDocument" ]
+      "permissions" : [ "ssm:DeleteDocument", "ssm:GetDocument" ]
     },
     "list" : {
       "permissions" : [ "ssm:ListDocuments" ]

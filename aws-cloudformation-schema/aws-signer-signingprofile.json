@@ -5,7 +5,7 @@
   "definitions" : {
     "PlatformId" : {
       "type" : "string",
-      "enum" : [ "AWSLambda-SHA384-ECDSA" ]
+      "enum" : [ "AWSLambda-SHA384-ECDSA", "Notation-OCI-SHA384-ECDSA" ]
     },
     "Arn" : {
       "type" : "string",
@@ -87,7 +87,7 @@
   "additionalIdentifiers" : [ [ "/properties/ProfileName" ], [ "/properties/ProfileVersionArn" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "signer:PutSigningProfile" ]
+      "permissions" : [ "signer:PutSigningProfile", "signer:TagResource" ]
     },
     "read" : {
       "permissions" : [ "signer:GetSigningProfile" ]

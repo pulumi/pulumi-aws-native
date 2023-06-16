@@ -55,7 +55,7 @@
       "permissions" : [ "servicecatalog:GetApplication" ]
     },
     "update" : {
-      "permissions" : [ "servicecatalog:ListTagsForResource", "servicecatalog:TagResource", "servicecatalog:UntagResource", "servicecatalog:UpdateApplication" ]
+      "permissions" : [ "servicecatalog:GetApplication", "servicecatalog:ListTagsForResource", "servicecatalog:TagResource", "servicecatalog:UntagResource", "servicecatalog:UpdateApplication" ]
     },
     "delete" : {
       "permissions" : [ "servicecatalog:DeleteApplication" ]

@@ -76,7 +76,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation", "ec2:DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations" ]
+      "permissions" : [ "ec2:CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation", "ec2:DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations", "ec2:CreateTags" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations" ]
@@ -85,7 +85,7 @@
       "permissions" : [ "ec2:DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations", "ec2:CreateTags", "ec2:DeleteTags" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation", "ec2:DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations" ]
+      "permissions" : [ "ec2:DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation", "ec2:DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations", "ec2:DeleteTags" ]
     },
     "list" : {
       "permissions" : [ "ec2:DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations" ]
