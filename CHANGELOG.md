@@ -1,5 +1,14 @@
 ## HEAD (Unreleased)
 
+## 0.66.0 (June 16, 2023)
+
+- Panorama ApplicationInstance `deviceId` and `statusFilter` fields removed in upstream spec (type definitions are still there but unused)
+- Panorama PackageVersion `updatedLatestPatchVersion` is now a write-only property so not outputted
+- Lambda LayerVersion `id` replaced with `layerVersionArn`
+- SSM Document `updateMethod` and `attachments` now write-only
+- go to uses `errors` rather than `github.com/pkg/errors`
+- python requires `>=3.7`
+
 ## 0.65.0 (June 7, 2023)
 
 #### Upstream breaking changes:
