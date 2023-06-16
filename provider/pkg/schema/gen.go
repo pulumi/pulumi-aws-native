@@ -1124,6 +1124,7 @@ func rawMessage(v interface{}) pschema.RawMessage {
 
 func moduleName(resourceType string) string {
 	resourceTypeComponents := strings.Split(resourceType, "::")
+	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
 	module := resourceTypeComponents[1]
 
 	// Override the name of the Config module.
@@ -1135,33 +1136,15 @@ func moduleName(resourceType string) string {
 }
 
 func typeToken(typ string) (string, string) {
-	resourceTypeComponents := strings.Split(typ, "::")
-	resourceName := resourceTypeComponents[2]
+	resourceName := typeName(typ)
 	module := strings.ToLower(moduleName(typ))
-	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
-
-	// Override name to avoid duplicate
-	// See https://github.com/pulumi/pulumi/issues/8018
-	switch typ {
-	case "AWS::KinesisAnalytics::ApplicationOutput", "AWS::KinesisAnalyticsV2::ApplicationOutput":
-		resourceName = strings.Replace(resourceName, "ApplicationOutput", "ApplicationOutputResource", 1)
-	}
 
 	return resourceName, fmt.Sprintf("%s:%s:%s", packageName, module, resourceName)
 }
 
 func getterToken(typ string) (string, string) {
-	resourceTypeComponents := strings.Split(typ, "::")
-	resourceName := resourceTypeComponents[2]
+	resourceName := typeName(typ)
 	module := strings.ToLower(moduleName(typ))
-	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
-
-	// Override name to avoid duplicate
-	// See https://github.com/pulumi/pulumi/issues/8018
-	switch typ {
-	case "AWS::KinesisAnalytics::ApplicationOutput", "AWS::KinesisAnalyticsV2::ApplicationOutput":
-		resourceName = strings.Replace(resourceName, "ApplicationOutput", "ApplicationOutputResource", 1)
-	}
 
 	return resourceName, fmt.Sprintf("%s:%s:get%s", packageName, module, resourceName)
 }
@@ -1169,7 +1152,17 @@ func getterToken(typ string) (string, string) {
 func typeName(typ string) string {
 	resourceTypeComponents := strings.Split(typ, "::")
 	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
-	return resourceTypeComponents[2]
+	name := resourceTypeComponents[2]
+	// Override name to avoid duplicate types due to "Output" suffix
+	// See https://github.com/pulumi/pulumi/issues/8018
+	if trimmed, hadSuffix := strings.CutSuffix(name, "Output"); hadSuffix {
+		// Skip renaming existing FlowOutput type.
+		if typ == "AWS::MediaConnect::FlowOutput" {
+			return name
+		}
+		name = trimmed + "OutputResource"
+	}
+	return name
 }
 
 func primitiveTypeSpec(primitiveType string) pschema.TypeSpec {

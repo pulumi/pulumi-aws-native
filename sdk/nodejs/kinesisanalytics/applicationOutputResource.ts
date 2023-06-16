@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::KinesisAnalytics::ApplicationOutput
  *
- * @deprecated ApplicationOutput is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated ApplicationOutputResource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class ApplicationOutputResource extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class ApplicationOutputResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationOutputResource {
-        pulumi.log.warn("ApplicationOutputResource is deprecated: ApplicationOutput is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("ApplicationOutputResource is deprecated: ApplicationOutputResource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ApplicationOutputResource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -50,9 +50,9 @@ export class ApplicationOutputResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ApplicationOutput is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated ApplicationOutputResource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ApplicationOutputResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApplicationOutputResource is deprecated: ApplicationOutput is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("ApplicationOutputResource is deprecated: ApplicationOutputResource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
