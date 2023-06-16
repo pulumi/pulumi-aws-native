@@ -310,19 +310,19 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "fis:CreateExperimentTemplate" ]
+      "permissions" : [ "fis:CreateExperimentTemplate", "fis:TagResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "fis:GetExperimentTemplate" ]
+      "permissions" : [ "fis:GetExperimentTemplate", "fis:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "fis:UpdateExperimentTemplate" ]
+      "permissions" : [ "fis:UpdateExperimentTemplate", "fis:TagResource", "fis:UntagResource", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "fis:DeleteExperimentTemplate" ]
     },
     "list" : {
-      "permissions" : [ "fis:ListExperimentTemplates" ]
+      "permissions" : [ "fis:ListExperimentTemplates", "fis:ListTagsForResource" ]
     }
   }
 }

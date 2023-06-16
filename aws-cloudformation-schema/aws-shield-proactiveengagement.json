@@ -62,7 +62,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "shield:DescribeSubscription", "shield:DescribeEmergencyContactSettings", "shield:AssociateProactiveEngagementDetails" ]
+      "permissions" : [ "shield:DescribeSubscription", "shield:DescribeEmergencyContactSettings", "shield:AssociateProactiveEngagementDetails", "shield:UpdateEmergencyContactSettings", "shield:EnableProactiveEngagement" ]
     },
     "delete" : {
       "permissions" : [ "shield:DescribeSubscription", "shield:DescribeEmergencyContactSettings", "shield:UpdateEmergencyContactSettings", "shield:DisableProactiveEngagement" ]
