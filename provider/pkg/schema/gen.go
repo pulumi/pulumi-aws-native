@@ -1138,26 +1138,12 @@ func typeToken(typ string) (string, string) {
 	resourceName := typeName(typ)
 	module := strings.ToLower(moduleName(typ))
 
-	// Override name to avoid duplicate
-	// See https://github.com/pulumi/pulumi/issues/8018
-	switch typ {
-	case "AWS::KinesisAnalytics::ApplicationOutput", "AWS::KinesisAnalyticsV2::ApplicationOutput":
-		resourceName = strings.Replace(resourceName, "ApplicationOutput", "ApplicationOutputResource", 1)
-	}
-
 	return resourceName, fmt.Sprintf("%s:%s:%s", packageName, module, resourceName)
 }
 
 func getterToken(typ string) (string, string) {
 	resourceName := typeName(typ)
 	module := strings.ToLower(moduleName(typ))
-
-	// Override name to avoid duplicate
-	// See https://github.com/pulumi/pulumi/issues/8018
-	switch typ {
-	case "AWS::KinesisAnalytics::ApplicationOutput", "AWS::KinesisAnalyticsV2::ApplicationOutput":
-		resourceName = strings.Replace(resourceName, "ApplicationOutput", "ApplicationOutputResource", 1)
-	}
 
 	return resourceName, fmt.Sprintf("%s:%s:get%s", packageName, module, resourceName)
 }
