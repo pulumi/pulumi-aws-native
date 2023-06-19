@@ -75,7 +75,7 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "codeartifact:CreateDomain", "codeartifact:PutDomainPermissionsPolicy", "codeartifact:GetDomainPermissionsPolicy", "codeartifact:TagResource" ]
+      "permissions" : [ "codeartifact:CreateDomain", "codeartifact:DescribeDomain", "codeartifact:PutDomainPermissionsPolicy", "codeartifact:GetDomainPermissionsPolicy", "codeartifact:TagResource" ]
     },
     "read" : {
       "permissions" : [ "codeartifact:DescribeDomain", "codeartifact:GetDomainPermissionsPolicy", "codeartifact:ListTagsForResource" ]
