@@ -661,6 +661,7 @@ AWS::SES::EmailIdentity
 AWS::SES::Template
 AWS::SES::VdmAttributes
 AWS::SNS::Topic
+AWS::SNS::TopicPolicy
 AWS::SQS::Queue
 AWS::SSM::Association
 AWS::SSM::Document
