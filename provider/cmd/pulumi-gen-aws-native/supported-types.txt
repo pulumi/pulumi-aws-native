@@ -550,6 +550,7 @@ AWS::OpenSearchServerless::VpcEndpoint
 AWS::OpenSearchService::Domain
 AWS::OpsWorksCM::Server
 AWS::Organizations::Account
+AWS::Organizations::Organization
 AWS::Organizations::OrganizationalUnit
 AWS::Organizations::Policy
 AWS::Organizations::ResourcePolicy

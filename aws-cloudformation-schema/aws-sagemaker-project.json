@@ -168,7 +168,7 @@
   "primaryIdentifier" : [ "/properties/ProjectArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateProject", "sagemaker:DescribeProject", "servicecatalog:DescribeProduct", "servicecatalog:DescribeProvisioningArtifact", "servicecatalog:ProvisionProduct", "servicecatalog:DescribeProvisionedProduct", "servicecatalog:TerminateProvisionedProduct" ]
+      "permissions" : [ "sagemaker:AddTags", "sagemaker:CreateProject", "sagemaker:DescribeProject", "sagemaker:ListTags", "servicecatalog:DescribeProduct", "servicecatalog:DescribeProvisioningArtifact", "servicecatalog:ProvisionProduct", "servicecatalog:DescribeProvisionedProduct", "servicecatalog:TerminateProvisionedProduct" ]
     },
     "read" : {
       "permissions" : [ "sagemaker:DescribeProject", "sagemaker:ListTags" ]
@@ -177,7 +177,7 @@
       "permissions" : [ "sagemaker:DescribeProject", "sagemaker:ListTags", "sagemaker:AddTags", "sagemaker:DeleteTags" ]
     },
     "delete" : {
-      "permissions" : [ "sagemaker:DeleteProject" ]
+      "permissions" : [ "sagemaker:DeleteProject", "sagemaker:DescribeProject", "servicecatalog:TerminateProvisionedProduct", "servicecatalog:DescribeRecord" ]
     },
     "list" : {
       "permissions" : [ "sagemaker:ListProjects" ]

@@ -245,16 +245,16 @@
   "primaryIdentifier" : [ "/properties/LaunchProfileId", "/properties/StudioId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "nimble:CreateLaunchProfile", "nimble:TagResource", "ec2:CreateNetworkInterface", "ec2:CreateNetworkInterfacePermission", "ec2:RunInstances", "ec2:DescribeSubnets" ]
+      "permissions" : [ "nimble:CreateLaunchProfile", "nimble:GetLaunchProfile", "nimble:TagResource", "ec2:CreateNetworkInterface", "ec2:CreateNetworkInterfacePermission", "ec2:RunInstances", "ec2:DescribeSubnets" ]
     },
     "read" : {
       "permissions" : [ "nimble:GetLaunchProfile" ]
     },
     "update" : {
-      "permissions" : [ "nimble:UpdateLaunchProfile" ]
+      "permissions" : [ "nimble:UpdateLaunchProfile", "nimble:GetLaunchProfile", "ec2:CreateNetworkInterface", "ec2:CreateNetworkInterfacePermission", "ec2:DescribeSubnets", "ec2:RunInstances" ]
     },
     "delete" : {
-      "permissions" : [ "nimble:DeleteLaunchProfile", "nimble:UntagResource" ]
+      "permissions" : [ "nimble:DeleteLaunchProfile", "nimble:GetLaunchProfile", "nimble:UntagResource" ]
     },
     "list" : {
       "handlerSchema" : {

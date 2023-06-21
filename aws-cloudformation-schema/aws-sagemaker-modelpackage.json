@@ -1,6 +1,7 @@
 {
   "typeName" : "AWS::SageMaker::ModelPackage",
   "description" : "Resource Type definition for AWS::SageMaker::ModelPackage",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sagemaker",
   "definitions" : {
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",
@@ -392,12 +393,6 @@
           "pattern" : "^(https|s3)://([^/]+)/?(.*)$",
           "maxLength" : 1024
         },
-        "ProductId" : {
-          "type" : "string",
-          "description" : "The AWS Marketplace product ID of the model package.",
-          "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
-          "maxLength" : 256
-        },
         "Framework" : {
           "type" : "string",
           "description" : "The machine learning framework of the model package container image."
@@ -788,34 +783,9 @@
       "maxLength" : 1024,
       "pattern" : ".*"
     },
-    "CreatedBy" : {
-      "$ref" : "#/definitions/UserContext"
-    },
     "CreationTime" : {
       "description" : "The time at which the model package was created.",
       "type" : "string"
-    },
-    "UserContext" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "description" : "Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.",
-      "properties" : {
-        "DomainId" : {
-          "type" : "string",
-          "description" : "The domain associated with the user."
-        },
-        "UserProfileArn" : {
-          "type" : "string",
-          "description" : "The Amazon Resource Name (ARN) of the user's profile."
-        },
-        "UserProfileName" : {
-          "type" : "string",
-          "description" : "The name of the user's profile."
-        }
-      }
-    },
-    "LastModifiedBy" : {
-      "$ref" : "#/definitions/UserContext"
     },
     "LastModifiedTime" : {
       "description" : "The time at which the model package was last modified.",
@@ -845,7 +815,6 @@
           "insertionOrder" : true
         }
       },
-      "required" : [ "ValidationStatuses" ],
       "additionalProperties" : false
     },
     "ModelPackageStatusItem" : {
@@ -893,9 +862,6 @@
     },
     "AdditionalInferenceSpecifications" : {
       "$ref" : "#/definitions/AdditionalInferenceSpecifications"
-    },
-    "AdditionalInferenceSpecificationDefinition" : {
-      "$ref" : "#/definitions/AdditionalInferenceSpecificationDefinition"
     },
     "CertifyForMarketplace" : {
       "$ref" : "#/definitions/CertifyForMarketplace"
@@ -954,9 +920,6 @@
     "CreationTime" : {
       "$ref" : "#/definitions/CreationTime"
     },
-    "LastModifiedBy" : {
-      "$ref" : "#/definitions/LastModifiedBy"
-    },
     "LastModifiedTime" : {
       "$ref" : "#/definitions/LastModifiedTime"
     },
@@ -971,15 +934,6 @@
     },
     "ModelPackageStatusDetails" : {
       "$ref" : "#/definitions/ModelPackageStatusDetails"
-    },
-    "ModelPackageStatusItem" : {
-      "$ref" : "#/definitions/ModelPackageStatusItem"
-    },
-    "CreatedBy" : {
-      "$ref" : "#/definitions/CreatedBy"
-    },
-    "Environment" : {
-      "$ref" : "#/definitions/Environment"
     }
   },
   "additionalProperties" : false,
@@ -992,10 +946,11 @@
   },
   "readOnlyProperties" : [ "/properties/ModelPackageArn", "/properties/CreationTime", "/properties/ModelPackageStatus" ],
   "createOnlyProperties" : [ "/properties/ModelPackageGroupName", "/properties/ModelPackageDescription", "/properties/InferenceSpecification", "/properties/ValidationSpecification", "/properties/SourceAlgorithmSpecification", "/properties/MetadataProperties", "/properties/ModelMetrics", "/properties/ClientToken", "/properties/DriftCheckBaselines", "/properties/Domain", "/properties/Task", "/properties/SamplePayloadUrl" ],
+  "writeOnlyProperties" : [ "/properties/ClientToken", "/properties/AdditionalInferenceSpecificationsToAdd" ],
   "primaryIdentifier" : [ "/properties/ModelPackageArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ecr:BatchGetImage", "ecr:DescribeImages", "ecr:StartImageScan", "ecr:DescribeImageScanFindings", "sagemaker:AddTags", "sagemaker:CreateModel", "sagemaker:CreateModelPackage", "sagemaker:CreateTrainingJob", "sagemaker:CreateTransformJob", "sagemaker:DescribeTransformJob", "iam:PassRole", "s3:GetObject" ]
+      "permissions" : [ "ecr:BatchGetImage", "ecr:DescribeImages", "ecr:StartImageScan", "ecr:DescribeImageScanFindings", "sagemaker:AddTags", "sagemaker:CreateModel", "sagemaker:CreateModelPackage", "sagemaker:CreateTrainingJob", "sagemaker:CreateTransformJob", "sagemaker:DescribeTransformJob", "sagemaker:DescribeModelPackage", "sagemaker:ListTags", "iam:PassRole", "s3:GetObject" ]
     },
     "read" : {
       "permissions" : [ "sagemaker:DescribeModelPackage", "sagemaker:ListTags" ]
@@ -1007,6 +962,13 @@
       "permissions" : [ "sagemaker:DeleteModelPackage", "sagemaker:DescribeModelPackage" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "ModelPackageGroupName" : {
+            "$ref" : "resource-schema.json#/properties/ModelPackageGroupName"
+          }
+        }
+      },
       "permissions" : [ "sagemaker:ListModelPackages" ]
     }
   }
