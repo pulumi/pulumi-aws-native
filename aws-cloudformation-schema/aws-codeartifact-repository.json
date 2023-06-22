@@ -103,10 +103,10 @@
       "permissions" : [ "codeartifact:DescribeRepository", "codeartifact:GetRepositoryPermissionsPolicy", "codeartifact:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "codeartifact:PutRepositoryPermissionsPolicy", "codeartifact:DeleteRepositoryPermissionsPolicy", "codeartifact:AssociateExternalConnection", "codeartifact:DisassociateExternalConnection", "codeartifact:UpdateRepository", "codeartifact:AssociateWithDownstreamRepository", "codeartifact:TagResource", "codeartifact:UntagResource" ]
+      "permissions" : [ "codeartifact:PutRepositoryPermissionsPolicy", "codeartifact:DeleteRepositoryPermissionsPolicy", "codeartifact:AssociateExternalConnection", "codeartifact:DisassociateExternalConnection", "codeartifact:UpdateRepository", "codeartifact:DescribeRepository", "codeartifact:AssociateWithDownstreamRepository", "codeartifact:TagResource", "codeartifact:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "codeartifact:DeleteRepository" ]
+      "permissions" : [ "codeartifact:DeleteRepository", "codeartifact:DescribeRepository" ]
     },
     "list" : {
       "permissions" : [ "codeartifact:ListRepositories" ]
