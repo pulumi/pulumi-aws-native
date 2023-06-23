@@ -86,7 +86,7 @@
       "required" : [ "BootstrapServers", "Vpc" ]
     },
     "AutoScaling" : {
-      "description" : "Details about auto scaling of a connector. ",
+      "description" : "Details about auto scaling of a connector.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
@@ -377,6 +377,7 @@
   "required" : [ "Capacity", "ConnectorConfiguration", "ConnectorName", "KafkaConnectVersion", "KafkaCluster", "KafkaClusterClientAuthentication", "KafkaClusterEncryptionInTransit", "Plugins", "ServiceExecutionRoleArn" ],
   "primaryIdentifier" : [ "/properties/ConnectorArn" ],
   "readOnlyProperties" : [ "/properties/ConnectorArn" ],
+  "replacementStrategy" : "delete_then_create",
   "createOnlyProperties" : [ "/properties/ConnectorConfiguration", "/properties/ConnectorDescription", "/properties/ConnectorName", "/properties/KafkaCluster", "/properties/KafkaClusterClientAuthentication", "/properties/KafkaClusterEncryptionInTransit", "/properties/KafkaConnectVersion", "/properties/LogDelivery", "/properties/Plugins", "/properties/ServiceExecutionRoleArn", "/properties/WorkerConfiguration" ],
   "handlers" : {
     "create" : {

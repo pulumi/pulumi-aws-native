@@ -23,17 +23,31 @@
       "type" : "string"
     },
     "Tag" : {
-      "type" : "object",
-      "properties" : {
-        "TagKey" : {
-          "type" : "string"
+      "oneOf" : [ {
+        "type" : "object",
+        "properties" : {
+          "Key" : {
+            "type" : "string"
+          },
+          "Value" : {
+            "type" : "string"
+          }
         },
-        "TagValue" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "TagKey", "TagValue" ],
-      "additionalProperties" : false
+        "required" : [ "Key", "Value" ],
+        "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "properties" : {
+          "TagKey" : {
+            "type" : "string"
+          },
+          "TagValue" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "TagKey", "TagValue" ],
+        "additionalProperties" : false
+      } ]
     },
     "ApplicationAttribute" : {
       "type" : "string"
@@ -107,17 +121,18 @@
   "required" : [ "Name", "IconS3Location", "LaunchPath", "Platforms", "InstanceFamilies", "AppBlockArn" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/InstanceFamilies", "/properties/Platforms" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
+  "writeOnlyProperties" : [ "/properties/Tags", "/properties/AttributesToDelete" ],
+  "deprecatedProperties" : [ "/properties/Tags/TagKey", "/properties/Tags/TagValue" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "s3:GetObject", "appstream:CreateApplication" ]
+      "permissions" : [ "s3:GetObject", "appstream:CreateApplication", "appstream:TagResource" ]
     },
     "read" : {
       "permissions" : [ "appstream:DescribeApplications" ]
     },
     "update" : {
-      "permissions" : [ "appstream:UpdateApplication" ]
+      "permissions" : [ "appstream:UpdateApplication", "s3:GetObject" ]
     },
     "delete" : {
       "permissions" : [ "appstream:DeleteApplication" ]

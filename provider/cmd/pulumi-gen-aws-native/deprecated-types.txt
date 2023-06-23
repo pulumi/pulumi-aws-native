@@ -1,6 +1,5 @@
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
-AWS::IAM::ServiceLinkedRole
 AWS::Lambda::EventInvokeConfig
 AWS::Lambda::LayerVersionPermission
 AWSQS::EKS::Cluster
