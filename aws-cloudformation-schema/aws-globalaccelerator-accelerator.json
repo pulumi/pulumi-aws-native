@@ -99,10 +99,10 @@
       "permissions" : [ "globalaccelerator:DescribeAccelerator" ]
     },
     "update" : {
-      "permissions" : [ "globalaccelerator:UpdateAccelerator", "globalaccelerator:TagResource", "globalaccelerator:UntagResource" ]
+      "permissions" : [ "globalaccelerator:UpdateAccelerator", "globalaccelerator:TagResource", "globalaccelerator:UntagResource", "globalaccelerator:DescribeAccelerator" ]
     },
     "delete" : {
-      "permissions" : [ "globalaccelerator:UpdateAccelerator", "globalaccelerator:DeleteAccelerator" ]
+      "permissions" : [ "globalaccelerator:UpdateAccelerator", "globalaccelerator:DeleteAccelerator", "globalaccelerator:DescribeAccelerator" ]
     },
     "list" : {
       "permissions" : [ "globalaccelerator:ListAccelerators" ]

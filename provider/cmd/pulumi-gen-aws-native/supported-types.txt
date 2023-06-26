@@ -44,11 +44,13 @@ AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
 AWS::AppIntegrations::DataIntegration
 AWS::AppIntegrations::EventIntegration
+AWS::AppRunner::AutoScalingConfiguration
 AWS::AppRunner::ObservabilityConfiguration
 AWS::AppRunner::Service
 AWS::AppRunner::VpcConnector
 AWS::AppRunner::VpcIngressConnection
 AWS::AppStream::AppBlock
+AWS::AppStream::AppBlockBuilder
 AWS::AppStream::Application
 AWS::AppStream::ApplicationEntitlementAssociation
 AWS::AppStream::ApplicationFleetAssociation
@@ -550,6 +552,7 @@ AWS::OpenSearchServerless::VpcEndpoint
 AWS::OpenSearchService::Domain
 AWS::OpsWorksCM::Server
 AWS::Organizations::Account
+AWS::Organizations::Organization
 AWS::Organizations::OrganizationalUnit
 AWS::Organizations::Policy
 AWS::Organizations::ResourcePolicy
@@ -733,6 +736,10 @@ AWS::Transfer::Certificate
 AWS::Transfer::Connector
 AWS::Transfer::Profile
 AWS::Transfer::Workflow
+AWS::VerifiedPermissions::IdentitySource
+AWS::VerifiedPermissions::Policy
+AWS::VerifiedPermissions::PolicyStore
+AWS::VerifiedPermissions::PolicyTemplate
 AWS::VoiceID::Domain
 AWS::VpcLattice::AccessLogSubscription
 AWS::VpcLattice::AuthPolicy

@@ -81,7 +81,7 @@
   "createOnlyProperties" : [ "/properties/ModelPackageGroupName", "/properties/ModelPackageGroupDescription" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateModelPackageGroup", "sagemaker:DescribeModelPackageGroup", "sagemaker:GetModelPackageGroupPolicy", "sagemaker:PutModelPackageGroupPolicy" ]
+      "permissions" : [ "sagemaker:CreateModelPackageGroup", "sagemaker:DescribeModelPackageGroup", "sagemaker:GetModelPackageGroupPolicy", "sagemaker:PutModelPackageGroupPolicy", "sagemaker:ListTags", "sagemaker:AddTags" ]
     },
     "delete" : {
       "permissions" : [ "sagemaker:DeleteModelPackageGroup", "sagemaker:DescribeModelPackageGroup", "sagemaker:GetModelPackageGroupPolicy", "sagemaker:DeleteModelPackageGroupPolicy" ]

@@ -74,7 +74,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "simspaceweaver:StartSimulation", "simspaceweaver:DescribeSimulation" ]
+      "permissions" : [ "simspaceweaver:StartSimulation", "simspaceweaver:DescribeSimulation", "iam:GetRole", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "simspaceweaver:DescribeSimulation" ]

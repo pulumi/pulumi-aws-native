@@ -76,13 +76,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "lambda:PublishLayerVersion" ]
+      "permissions" : [ "lambda:PublishLayerVersion", "s3:GetObject", "s3:GetObjectVersion" ]
     },
     "read" : {
       "permissions" : [ "lambda:GetLayerVersion" ]
     },
     "delete" : {
-      "permissions" : [ "lambda:DeleteLayerVersion" ]
+      "permissions" : [ "lambda:GetLayerVersion", "lambda:DeleteLayerVersion" ]
     },
     "list" : {
       "permissions" : [ "lambda:ListLayerVersions" ]

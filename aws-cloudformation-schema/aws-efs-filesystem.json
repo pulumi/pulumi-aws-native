@@ -99,13 +99,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticfilesystem:CreateFileSystem", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration" ]
+      "permissions" : [ "elasticfilesystem:CreateFileSystem", "elasticfilesystem:TagResource", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
     },
     "read" : {
       "permissions" : [ "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration" ]
     },
     "update" : {
-      "permissions" : [ "elasticfilesystem:DeleteFileSystemPolicy", "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration", "elasticfilesystem:DeleteTags", "elasticfilesystem:ListTagsForResource", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration", "elasticfilesystem:TagResource", "elasticfilesystem:UntagResource", "elasticfilesystem:UpdateFileSystem" ]
+      "permissions" : [ "elasticfilesystem:DeleteFileSystemPolicy", "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration", "elasticfilesystem:DeleteTags", "elasticfilesystem:ListTagsForResource", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration", "elasticfilesystem:TagResource", "elasticfilesystem:UntagResource", "elasticfilesystem:UpdateFileSystem", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
     },
     "delete" : {
       "permissions" : [ "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DeleteFileSystem" ]

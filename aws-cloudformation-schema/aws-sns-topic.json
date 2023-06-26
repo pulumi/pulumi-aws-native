@@ -108,7 +108,7 @@
       "permissions" : [ "sns:SetTopicAttributes", "sns:TagResource", "sns:UntagResource", "sns:Subscribe", "sns:Unsubscribe", "sns:GetTopicAttributes", "sns:ListTagsForResource", "sns:ListSubscriptionsByTopic", "sns:GetDataProtectionPolicy", "sns:PutDataProtectionPolicy" ]
     },
     "delete" : {
-      "permissions" : [ "sns:DeleteTopic" ]
+      "permissions" : [ "sns:GetTopicAttributes", "sns:DeleteTopic" ]
     },
     "list" : {
       "permissions" : [ "sns:ListTopics" ]

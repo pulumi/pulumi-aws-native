@@ -14,7 +14,7 @@
         }
       },
       "additionalProperties" : false,
-      "required" : [ "S3Bucket", "S3Key" ]
+      "required" : [ "S3Bucket" ]
     },
     "ScriptDetails" : {
       "type" : "object",
@@ -39,17 +39,34 @@
       "type" : "string"
     },
     "Tag" : {
-      "type" : "object",
-      "properties" : {
-        "TagKey" : {
-          "type" : "string"
+      "oneOf" : [ {
+        "type" : "object",
+        "properties" : {
+          "Key" : {
+            "type" : "string"
+          },
+          "Value" : {
+            "type" : "string"
+          }
         },
-        "TagValue" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "TagKey", "TagValue" ],
-      "additionalProperties" : false
+        "required" : [ "Key", "Value" ],
+        "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "properties" : {
+          "TagKey" : {
+            "type" : "string"
+          },
+          "TagValue" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "TagKey", "TagValue" ],
+        "additionalProperties" : false
+      } ]
+    },
+    "PackagingType" : {
+      "type" : "string"
     }
   },
   "properties" : {
@@ -81,17 +98,24 @@
     },
     "CreatedTime" : {
       "type" : "string"
+    },
+    "PackagingType" : {
+      "$ref" : "#/definitions/PackagingType"
+    },
+    "PostSetupScriptDetails" : {
+      "$ref" : "#/definitions/ScriptDetails"
     }
   },
-  "required" : [ "Name", "SourceS3Location", "SetupScriptDetails" ],
+  "required" : [ "Name", "SourceS3Location" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/DisplayName", "/properties/Description", "/properties/SourceS3Location", "/properties/SetupScriptDetails" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/DisplayName", "/properties/Description", "/properties/SourceS3Location", "/properties/SetupScriptDetails", "/properties/PackagingType", "/properties/PostSetupScriptDetails" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime" ],
   "writeOnlyProperties" : [ "/properties/Tags" ],
+  "deprecatedProperties" : [ "/properties/Tags/TagKey", "/properties/Tags/TagValue" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "appstream:CreateAppBlock", "s3:GetObject" ]
+      "permissions" : [ "appstream:CreateAppBlock", "appstream:TagResource", "s3:GetObject", "s3:ListBucket", "s3:GetBucketOwnershipControls" ]
     },
     "read" : {
       "permissions" : [ "appstream:DescribeAppBlocks" ]

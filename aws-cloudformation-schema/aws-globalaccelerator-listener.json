@@ -67,7 +67,7 @@
       "permissions" : [ "globalaccelerator:UpdateListener", "globalaccelerator:DescribeListener", "globalaccelerator:DescribeAccelerator" ]
     },
     "delete" : {
-      "permissions" : [ "globalaccelerator:DescribeListener", "globalaccelerator:DeleteListener" ]
+      "permissions" : [ "globalaccelerator:DescribeListener", "globalaccelerator:DeleteListener", "globalaccelerator:DescribeAccelerator" ]
     },
     "list" : {
       "permissions" : [ "globalaccelerator:ListListeners" ]

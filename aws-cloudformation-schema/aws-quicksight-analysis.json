@@ -30,7 +30,7 @@
           "$ref" : "#/definitions/AggregationFunction"
         }
       },
-      "required" : [ "AggregationFunction", "Column", "SortDirection" ],
+      "required" : [ "Column", "SortDirection" ],
       "additionalProperties" : false
     },
     "AnalysisDefaults" : {
@@ -67,7 +67,7 @@
           "items" : {
             "$ref" : "#/definitions/CalculatedField"
           },
-          "maxItems" : 100,
+          "maxItems" : 500,
           "minItems" : 0
         },
         "ParameterDeclarations" : {
@@ -807,7 +807,7 @@
         },
         "Expression" : {
           "type" : "string",
-          "maxLength" : 4096,
+          "maxLength" : 32000,
           "minLength" : 1
         }
       },
@@ -1030,20 +1030,6 @@
       "required" : [ "ColorFillType", "Colors" ],
       "additionalProperties" : false
     },
-    "ColorsConfiguration" : {
-      "type" : "object",
-      "properties" : {
-        "CustomColors" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/CustomColor"
-          },
-          "maxItems" : 50,
-          "minItems" : 0
-        }
-      },
-      "additionalProperties" : false
-    },
     "ColumnConfiguration" : {
       "type" : "object",
       "properties" : {
@@ -1055,9 +1041,6 @@
         },
         "Role" : {
           "$ref" : "#/definitions/ColumnRole"
-        },
-        "ColorsConfiguration" : {
-          "$ref" : "#/definitions/ColorsConfiguration"
         }
       },
       "required" : [ "Column" ],
@@ -1603,25 +1586,6 @@
       "required" : [ "URLTarget", "URLTemplate" ],
       "additionalProperties" : false
     },
-    "CustomColor" : {
-      "type" : "object",
-      "properties" : {
-        "FieldValue" : {
-          "type" : "string",
-          "maxLength" : 2048,
-          "minLength" : 0
-        },
-        "Color" : {
-          "type" : "string",
-          "pattern" : "^#[A-F0-9]{6}$"
-        },
-        "SpecialValue" : {
-          "$ref" : "#/definitions/SpecialValue"
-        }
-      },
-      "required" : [ "Color" ],
-      "additionalProperties" : false
-    },
     "CustomContentConfiguration" : {
       "type" : "object",
       "properties" : {
@@ -1893,6 +1857,9 @@
         },
         "Overlap" : {
           "$ref" : "#/definitions/DataLabelOverlap"
+        },
+        "TotalsVisibility" : {
+          "$ref" : "#/definitions/Visibility"
         }
       },
       "additionalProperties" : false
@@ -2390,6 +2357,9 @@
           "type" : "string",
           "maxLength" : 512,
           "minLength" : 1
+        },
+        "SourceColumn" : {
+          "$ref" : "#/definitions/ColumnIdentifier"
         }
       },
       "additionalProperties" : false
@@ -3029,6 +2999,14 @@
         },
         "SelectedFieldOptions" : {
           "$ref" : "#/definitions/SelectedFieldOptions"
+        },
+        "SelectedColumns" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ColumnIdentifier"
+          },
+          "maxItems" : 10,
+          "minItems" : 0
         }
       },
       "additionalProperties" : false
@@ -3796,6 +3774,40 @@
       "required" : [ "East", "North", "South", "West" ],
       "additionalProperties" : false
     },
+    "GeospatialHeatmapColorScale" : {
+      "type" : "object",
+      "properties" : {
+        "Colors" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/GeospatialHeatmapDataColor"
+          },
+          "maxItems" : 2,
+          "minItems" : 2
+        }
+      },
+      "additionalProperties" : false
+    },
+    "GeospatialHeatmapConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "HeatmapColor" : {
+          "$ref" : "#/definitions/GeospatialHeatmapColorScale"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "GeospatialHeatmapDataColor" : {
+      "type" : "object",
+      "properties" : {
+        "Color" : {
+          "type" : "string",
+          "pattern" : "^#[A-F0-9]{6}$"
+        }
+      },
+      "required" : [ "Color" ],
+      "additionalProperties" : false
+    },
     "GeospatialMapAggregatedFieldWells" : {
       "type" : "object",
       "properties" : {
@@ -3917,13 +3929,16 @@
         },
         "ClusterMarkerConfiguration" : {
           "$ref" : "#/definitions/ClusterMarkerConfiguration"
+        },
+        "HeatmapConfiguration" : {
+          "$ref" : "#/definitions/GeospatialHeatmapConfiguration"
         }
       },
       "additionalProperties" : false
     },
     "GeospatialSelectedPointStyle" : {
       "type" : "string",
-      "enum" : [ "POINT", "CLUSTER" ]
+      "enum" : [ "POINT", "CLUSTER", "HEATMAP" ]
     },
     "GeospatialWindowOptions" : {
       "type" : "object",
@@ -6213,6 +6228,14 @@
         },
         "Scope" : {
           "$ref" : "#/definitions/PivotTableConditionalFormattingScope"
+        },
+        "Scopes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PivotTableConditionalFormattingScope"
+          },
+          "maxItems" : 3,
+          "minItems" : 0
         }
       },
       "required" : [ "FieldId" ],
@@ -6297,6 +6320,40 @@
       "required" : [ "DataPathList" ],
       "additionalProperties" : false
     },
+    "PivotTableFieldCollapseState" : {
+      "type" : "string",
+      "enum" : [ "COLLAPSED", "EXPANDED" ]
+    },
+    "PivotTableFieldCollapseStateOption" : {
+      "type" : "object",
+      "properties" : {
+        "Target" : {
+          "$ref" : "#/definitions/PivotTableFieldCollapseStateTarget"
+        },
+        "State" : {
+          "$ref" : "#/definitions/PivotTableFieldCollapseState"
+        }
+      },
+      "required" : [ "Target" ],
+      "additionalProperties" : false
+    },
+    "PivotTableFieldCollapseStateTarget" : {
+      "type" : "object",
+      "properties" : {
+        "FieldId" : {
+          "type" : "string"
+        },
+        "FieldDataPathValues" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/DataPathValue"
+          },
+          "maxItems" : 20,
+          "minItems" : 0
+        }
+      },
+      "additionalProperties" : false
+    },
     "PivotTableFieldOption" : {
       "type" : "object",
       "properties" : {
@@ -6335,6 +6392,12 @@
           },
           "maxItems" : 100,
           "minItems" : 0
+        },
+        "CollapseStateOptions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PivotTableFieldCollapseStateOption"
+          }
         }
       },
       "additionalProperties" : false
@@ -6392,6 +6455,9 @@
         },
         "RowAlternateColorOptions" : {
           "$ref" : "#/definitions/RowAlternateColorOptions"
+        },
+        "CollapsedRowDimensionsVisibility" : {
+          "$ref" : "#/definitions/Visibility"
         }
       },
       "additionalProperties" : false
@@ -6599,6 +6665,10 @@
       },
       "additionalProperties" : false
     },
+    "RadarChartAxesRangeScale" : {
+      "type" : "string",
+      "enum" : [ "AUTO", "INDEPENDENT", "SHARED" ]
+    },
     "RadarChartConfiguration" : {
       "type" : "object",
       "properties" : {
@@ -6647,6 +6717,9 @@
         },
         "Legend" : {
           "$ref" : "#/definitions/LegendOptions"
+        },
+        "AxesRangeScale" : {
+          "$ref" : "#/definitions/RadarChartAxesRangeScale"
         }
       },
       "additionalProperties" : false
@@ -6806,7 +6879,7 @@
           "$ref" : "#/definitions/NumericalAggregationFunction"
         }
       },
-      "required" : [ "Calculation", "Column", "MeasureAggregationFunction" ],
+      "required" : [ "Calculation", "Column" ],
       "additionalProperties" : false
     },
     "ReferenceLineLabelConfiguration" : {
@@ -6972,7 +7045,7 @@
           "items" : {
             "type" : "string"
           },
-          "maxItems" : 16,
+          "maxItems" : 20,
           "minItems" : 1
         }
       },
@@ -7176,6 +7249,14 @@
           },
           "maxItems" : 200,
           "minItems" : 0
+        },
+        "Label" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/DimensionField"
+          },
+          "maxItems" : 200,
+          "minItems" : 0
         }
       },
       "additionalProperties" : false
@@ -7248,6 +7329,22 @@
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/MeasureField"
+          },
+          "maxItems" : 200,
+          "minItems" : 0
+        },
+        "Category" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/DimensionField"
+          },
+          "maxItems" : 200,
+          "minItems" : 0
+        },
+        "Label" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/DimensionField"
           },
           "maxItems" : 200,
           "minItems" : 0
@@ -7764,10 +7861,6 @@
         }
       },
       "additionalProperties" : false
-    },
-    "SpecialValue" : {
-      "type" : "string",
-      "enum" : [ "EMPTY", "NULL", "OTHER" ]
     },
     "StringDefaultValues" : {
       "type" : "object",

@@ -114,13 +114,13 @@
   "primaryIdentifier" : [ "/properties/PipelineName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:PassRole", "s3:GetObject", "sagemaker:CreatePipeline", "sagemaker:DescribePipeline" ]
+      "permissions" : [ "iam:PassRole", "s3:GetObject", "sagemaker:CreatePipeline", "sagemaker:DescribePipeline", "sagemaker:AddTags", "sagemaker:ListTags" ]
     },
     "read" : {
-      "permissions" : [ "sagemaker:DescribePipeline" ]
+      "permissions" : [ "sagemaker:DescribePipeline", "sagemaker:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "s3:GetObject", "sagemaker:UpdatePipeline", "sagemaker:DescribePipeline" ]
+      "permissions" : [ "iam:PassRole", "s3:GetObject", "sagemaker:UpdatePipeline", "sagemaker:DescribePipeline", "sagemaker:AddTags", "sagemaker:DeleteTags", "sagemaker:ListTags" ]
     },
     "delete" : {
       "permissions" : [ "sagemaker:DeletePipeline" ]
