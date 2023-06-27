@@ -5609,7 +5609,7 @@ class LaunchTemplateTag(dict):
 @pulumi.output_type
 class LaunchTemplateTagSpecification(dict):
     """
-    Specifies the tags to apply to the launch template during creation.
+    Specifies the tags to apply to a resource when the resource is created for the launch template.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5632,7 +5632,7 @@ class LaunchTemplateTagSpecification(dict):
                  resource_type: Optional[str] = None,
                  tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None):
         """
-        Specifies the tags to apply to the launch template during creation.
+        Specifies the tags to apply to a resource when the resource is created for the launch template.
         :param str resource_type: The type of resource to tag.
         :param Sequence['LaunchTemplateTag'] tags: The tags for the resource.
         """
