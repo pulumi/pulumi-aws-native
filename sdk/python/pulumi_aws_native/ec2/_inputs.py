@@ -5506,7 +5506,7 @@ class LaunchTemplateTagSpecificationArgs:
                  resource_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]] = None):
         """
-        Specifies the tags to apply to the launch template during creation.
+        Specifies the tags to apply to a resource when the resource is created for the launch template.
         :param pulumi.Input[str] resource_type: The type of resource to tag.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]] tags: The tags for the resource.
         """
