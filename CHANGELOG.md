@@ -4,7 +4,7 @@
 ### Does the PR have any schema changes?
 
 Found 40 breaking changes:
-- aws-native:sagemaker:ModelPackage removed input "createdBy"
+- Resource aws-native:sagemaker:ModelPackage removed input "createdBy"
 - Resource "aws-native:sagemaker:ModelPackage" removed input "modelPackageStatusItem"
 - Resource "aws-native:sagemaker:ModelPackage" removed input "lastModifiedBy"
 - Resource "aws-native:sagemaker:ModelPackage" removed input "additionalInferenceSpecificationDefinition"
