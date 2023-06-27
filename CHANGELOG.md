@@ -1,5 +1,72 @@
 ## HEAD (Unreleased)
 
+## 0.67.0 (June 27, 2023)
+### Does the PR have any schema changes?
+
+Found 40 breaking changes:
+- aws-native:sagemaker:ModelPackage removed input "createdBy"
+- Resource "aws-native:sagemaker:ModelPackage" removed input "modelPackageStatusItem"
+- Resource "aws-native:sagemaker:ModelPackage" removed input "lastModifiedBy"
+- Resource "aws-native:sagemaker:ModelPackage" removed input "additionalInferenceSpecificationDefinition"
+- Resource "aws-native:sagemaker:ModelPackage" removed input "environment"
+- Resource "aws-native:sagemaker:ModelPackage" removed output "createdBy"
+- Resource "aws-native:sagemaker:ModelPackage" removed output "modelPackageStatusItem"
+- Resource "aws-native:sagemaker:ModelPackage" removed output "additionalInferenceSpecificationDefinition"
+- Resource "aws-native:sagemaker:ModelPackage" removed output "environment"
+- Resource "aws-native:sagemaker:ModelPackage" removed output "lastModifiedBy"
+- Function "aws-native:iam:getServiceLinkedRole" removed input "id"
+- Function "aws-native:iam:getServiceLinkedRole" removed output "id"
+- Function "aws-native:ec2:getVolumeAttachment" removed
+- Function "aws-native:appstream:getApplication" removed output "attributesToDelete"
+- Function "aws-native:sagemaker:getModelPackage" removed output "modelPackageStatusItem"
+- Function "aws-native:sagemaker:getModelPackage" removed output "additionalInferenceSpecificationDefinition"
+- Function "aws-native:sagemaker:getModelPackage" removed output "environment"
+- Function "aws-native:sagemaker:getModelPackage" removed output "lastModifiedBy"
+- Function "aws-native:sagemaker:getModelPackage" removed output "additionalInferenceSpecificationsToAdd"
+- Function "aws-native:sagemaker:getModelPackage" removed output "createdBy"
+- Type "aws-native:sagemaker:ModelPackageStatusDetails" removed property "imageScanStatuses"
+- Type "aws-native:sagemaker:ModelPackageContainerDefinition" removed property "productId"
+- Type "aws-native:sagemaker:ModelPackageCreatedBy" removed
+- Type "aws-native:quicksight:DashboardColumnConfiguration" removed property "colorsConfiguration"
+- Type "aws-native:appstream:AppBlockTag" removed property "tagValue"
+- Type "aws-native:appstream:AppBlockTag" removed property "tagKey"
+- Type "aws-native:quicksight:DashboardSpecialValue" removed
+- Type "aws-native:sagemaker:ModelPackageLastModifiedBy" removed
+- Type "aws-native:quicksight:TemplateSpecialValue" removed
+- Type "aws-native:appstream:ApplicationTag" removed property "tagKey"
+- Type "aws-native:appstream:ApplicationTag" removed property "tagValue"
+- Type "aws-native:quicksight:AnalysisColumnConfiguration" removed property "colorsConfiguration"
+- Type "aws-native:quicksight:TemplateColumnConfiguration" removed property "colorsConfiguration"
+- Type "aws-native:quicksight:DashboardCustomColor" removed
+- Type "aws-native:quicksight:TemplateCustomColor" removed
+- Type "aws-native:quicksight:AnalysisSpecialValue" removed
+- Type "aws-native:quicksight:AnalysisColorsConfiguration" removed
+- Type "aws-native:quicksight:DashboardColorsConfiguration" removed
+- Type "aws-native:quicksight:AnalysisCustomColor" removed
+- Type "aws-native:quicksight:TemplateColorsConfiguration" removed
+
+#### New resources:
+
+- `apprunner.AutoScalingConfiguration`
+- `appstream.AppBlockBuilder`
+- `ec2.LaunchTemplate`
+- `organizations.Organization`
+- `verifiedpermissions.IdentitySource`
+- `verifiedpermissions.Policy`
+- `verifiedpermissions.PolicyStore`
+- `verifiedpermissions.PolicyTemplate`
+
+#### New functions:
+
+- `apprunner.getAutoScalingConfiguration`
+- `appstream.getAppBlockBuilder`
+- `ec2.getLaunchTemplate`
+- `organizations.getOrganization`
+- `verifiedpermissions.getIdentitySource`
+- `verifiedpermissions.getPolicy`
+- `verifiedpermissions.getPolicyStore`
+- `verifiedpermissions.getPolicyTemplate`
+
 ## 0.66.0 (June 16, 2023)
 
 - Panorama ApplicationInstance `deviceId` and `statusFilter` fields removed in upstream spec (type definitions are still there but unused)
