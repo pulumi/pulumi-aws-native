@@ -20,6 +20,9 @@ export interface GetHubArgs {
 }
 
 export interface GetHubResult {
+    readonly autoEnableControls?: boolean;
+    readonly controlFindingGenerator?: string;
+    readonly enableDefaultStandards?: boolean;
     readonly id?: string;
     readonly tags?: any;
 }

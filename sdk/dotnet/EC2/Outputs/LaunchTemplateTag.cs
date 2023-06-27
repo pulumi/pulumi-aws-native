@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// The user data to make available to the instance.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateTag
     {

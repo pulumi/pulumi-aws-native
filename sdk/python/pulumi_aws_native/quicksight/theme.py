@@ -18,35 +18,20 @@ __all__ = ['ThemeArgs', 'Theme']
 class ThemeArgs:
     def __init__(__self__, *,
                  aws_account_id: pulumi.Input[str],
+                 base_theme_id: pulumi.Input[str],
+                 configuration: pulumi.Input['ThemeConfigurationArgs'],
                  theme_id: pulumi.Input[str],
-                 base_theme_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input['ThemeConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeResourcePermissionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeTagArgs']]]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Theme resource.
-        :param pulumi.Input[str] base_theme_id: <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
-               			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
-               				<code>ListThemes</code> or choose <b>Themes</b> from
-               			within a QuickSight analysis. </p>
-        :param pulumi.Input[str] name: <p>A display name for the theme.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['ThemeResourcePermissionArgs']]] permissions: <p>A valid grouping of resource permissions to apply to the new theme.
-               			</p>
-        :param pulumi.Input[Sequence[pulumi.Input['ThemeTagArgs']]] tags: <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-               			resource.</p>
-        :param pulumi.Input[str] version_description: <p>A description of the first version of the theme that you're creating. Every time
-               				<code>UpdateTheme</code> is called, a new version is created. Each version of the
-               			theme has a description of the version in the <code>VersionDescription</code>
-               			field.</p>
         """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
+        pulumi.set(__self__, "base_theme_id", base_theme_id)
+        pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "theme_id", theme_id)
-        if base_theme_id is not None:
-            pulumi.set(__self__, "base_theme_id", base_theme_id)
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
@@ -66,6 +51,24 @@ class ThemeArgs:
         pulumi.set(self, "aws_account_id", value)
 
     @property
+    @pulumi.getter(name="baseThemeId")
+    def base_theme_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "base_theme_id")
+
+    @base_theme_id.setter
+    def base_theme_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "base_theme_id", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input['ThemeConfigurationArgs']:
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input['ThemeConfigurationArgs']):
+        pulumi.set(self, "configuration", value)
+
+    @property
     @pulumi.getter(name="themeId")
     def theme_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "theme_id")
@@ -75,35 +78,8 @@ class ThemeArgs:
         pulumi.set(self, "theme_id", value)
 
     @property
-    @pulumi.getter(name="baseThemeId")
-    def base_theme_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
-        			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
-        				<code>ListThemes</code> or choose <b>Themes</b> from
-        			within a QuickSight analysis. </p>
-        """
-        return pulumi.get(self, "base_theme_id")
-
-    @base_theme_id.setter
-    def base_theme_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "base_theme_id", value)
-
-    @property
-    @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ThemeConfigurationArgs']]:
-        return pulumi.get(self, "configuration")
-
-    @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ThemeConfigurationArgs']]):
-        pulumi.set(self, "configuration", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>A display name for the theme.</p>
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -113,10 +89,6 @@ class ThemeArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemeResourcePermissionArgs']]]]:
-        """
-        <p>A valid grouping of resource permissions to apply to the new theme.
-        			</p>
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -126,10 +98,6 @@ class ThemeArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemeTagArgs']]]]:
-        """
-        <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-        			resource.</p>
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -139,12 +107,6 @@ class ThemeArgs:
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>A description of the first version of the theme that you're creating. Every time
-        				<code>UpdateTheme</code> is called, a new version is created. Each version of the
-        			theme has a description of the version in the <code>VersionDescription</code>
-        			field.</p>
-        """
         return pulumi.get(self, "version_description")
 
     @version_description.setter
@@ -171,19 +133,6 @@ class Theme(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] base_theme_id: <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
-               			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
-               				<code>ListThemes</code> or choose <b>Themes</b> from
-               			within a QuickSight analysis. </p>
-        :param pulumi.Input[str] name: <p>A display name for the theme.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeResourcePermissionArgs']]]] permissions: <p>A valid grouping of resource permissions to apply to the new theme.
-               			</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeTagArgs']]]] tags: <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-               			resource.</p>
-        :param pulumi.Input[str] version_description: <p>A description of the first version of the theme that you're creating. Every time
-               				<code>UpdateTheme</code> is called, a new version is created. Each version of the
-               			theme has a description of the version in the <code>VersionDescription</code>
-               			field.</p>
         """
         ...
     @overload
@@ -229,7 +178,11 @@ class Theme(pulumi.CustomResource):
             if aws_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_account_id'")
             __props__.__dict__["aws_account_id"] = aws_account_id
+            if base_theme_id is None and not opts.urn:
+                raise TypeError("Missing required property 'base_theme_id'")
             __props__.__dict__["base_theme_id"] = base_theme_id
+            if configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
@@ -283,9 +236,6 @@ class Theme(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the theme.</p>
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -295,60 +245,37 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="baseThemeId")
-    def base_theme_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
-        			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
-        				<code>ListThemes</code> or choose <b>Themes</b> from
-        			within a QuickSight analysis. </p>
-        """
+    def base_theme_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "base_theme_id")
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Optional['outputs.ThemeConfiguration']]:
+    def configuration(self) -> pulumi.Output['outputs.ThemeConfiguration']:
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
-        """
-        <p>The date and time that the theme was created.</p>
-        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
-        """
-        <p>The date and time that the theme was last updated.</p>
-        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
-        """
-        <p>A display name for the theme.</p>
-        """
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.ThemeResourcePermission']]]:
-        """
-        <p>A valid grouping of resource permissions to apply to the new theme.
-        			</p>
-        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ThemeTag']]]:
-        """
-        <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-        			resource.</p>
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -369,11 +296,5 @@ class Theme(pulumi.CustomResource):
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[Optional[str]]:
-        """
-        <p>A description of the first version of the theme that you're creating. Every time
-        				<code>UpdateTheme</code> is called, a new version is created. Each version of the
-        			theme has a description of the version in the <code>VersionDescription</code>
-        			field.</p>
-        """
         return pulumi.get(self, "version_description")
 

@@ -5063,6 +5063,7 @@ type AnalysisGeospatialSelectedPointStyle string
 const (
 	AnalysisGeospatialSelectedPointStylePoint   = AnalysisGeospatialSelectedPointStyle("POINT")
 	AnalysisGeospatialSelectedPointStyleCluster = AnalysisGeospatialSelectedPointStyle("CLUSTER")
+	AnalysisGeospatialSelectedPointStyleHeatmap = AnalysisGeospatialSelectedPointStyle("HEATMAP")
 )
 
 func (AnalysisGeospatialSelectedPointStyle) ElementType() reflect.Type {
@@ -9046,6 +9047,170 @@ func (in *analysisPivotTableConditionalFormattingScopeRolePtr) ToAnalysisPivotTa
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPivotTableConditionalFormattingScopeRolePtrOutput)
 }
 
+type AnalysisPivotTableFieldCollapseState string
+
+const (
+	AnalysisPivotTableFieldCollapseStateCollapsed = AnalysisPivotTableFieldCollapseState("COLLAPSED")
+	AnalysisPivotTableFieldCollapseStateExpanded  = AnalysisPivotTableFieldCollapseState("EXPANDED")
+)
+
+func (AnalysisPivotTableFieldCollapseState) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisPivotTableFieldCollapseState)(nil)).Elem()
+}
+
+func (e AnalysisPivotTableFieldCollapseState) ToAnalysisPivotTableFieldCollapseStateOutput() AnalysisPivotTableFieldCollapseStateOutput {
+	return pulumi.ToOutput(e).(AnalysisPivotTableFieldCollapseStateOutput)
+}
+
+func (e AnalysisPivotTableFieldCollapseState) ToAnalysisPivotTableFieldCollapseStateOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisPivotTableFieldCollapseStateOutput)
+}
+
+func (e AnalysisPivotTableFieldCollapseState) ToAnalysisPivotTableFieldCollapseStatePtrOutput() AnalysisPivotTableFieldCollapseStatePtrOutput {
+	return e.ToAnalysisPivotTableFieldCollapseStatePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisPivotTableFieldCollapseState) ToAnalysisPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStatePtrOutput {
+	return AnalysisPivotTableFieldCollapseState(e).ToAnalysisPivotTableFieldCollapseStateOutputWithContext(ctx).ToAnalysisPivotTableFieldCollapseStatePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisPivotTableFieldCollapseState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisPivotTableFieldCollapseState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisPivotTableFieldCollapseState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisPivotTableFieldCollapseState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisPivotTableFieldCollapseStateOutput struct{ *pulumi.OutputState }
+
+func (AnalysisPivotTableFieldCollapseStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisPivotTableFieldCollapseState)(nil)).Elem()
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOutput) ToAnalysisPivotTableFieldCollapseStateOutput() AnalysisPivotTableFieldCollapseStateOutput {
+	return o
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOutput) ToAnalysisPivotTableFieldCollapseStateOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStateOutput {
+	return o
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOutput) ToAnalysisPivotTableFieldCollapseStatePtrOutput() AnalysisPivotTableFieldCollapseStatePtrOutput {
+	return o.ToAnalysisPivotTableFieldCollapseStatePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOutput) ToAnalysisPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisPivotTableFieldCollapseState) *AnalysisPivotTableFieldCollapseState {
+		return &v
+	}).(AnalysisPivotTableFieldCollapseStatePtrOutput)
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisPivotTableFieldCollapseState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisPivotTableFieldCollapseState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisPivotTableFieldCollapseStatePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisPivotTableFieldCollapseStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisPivotTableFieldCollapseState)(nil)).Elem()
+}
+
+func (o AnalysisPivotTableFieldCollapseStatePtrOutput) ToAnalysisPivotTableFieldCollapseStatePtrOutput() AnalysisPivotTableFieldCollapseStatePtrOutput {
+	return o
+}
+
+func (o AnalysisPivotTableFieldCollapseStatePtrOutput) ToAnalysisPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStatePtrOutput {
+	return o
+}
+
+func (o AnalysisPivotTableFieldCollapseStatePtrOutput) Elem() AnalysisPivotTableFieldCollapseStateOutput {
+	return o.ApplyT(func(v *AnalysisPivotTableFieldCollapseState) AnalysisPivotTableFieldCollapseState {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisPivotTableFieldCollapseState
+		return ret
+	}).(AnalysisPivotTableFieldCollapseStateOutput)
+}
+
+func (o AnalysisPivotTableFieldCollapseStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisPivotTableFieldCollapseStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisPivotTableFieldCollapseState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisPivotTableFieldCollapseStateInput is an input type that accepts AnalysisPivotTableFieldCollapseStateArgs and AnalysisPivotTableFieldCollapseStateOutput values.
+// You can construct a concrete instance of `AnalysisPivotTableFieldCollapseStateInput` via:
+//
+//	AnalysisPivotTableFieldCollapseStateArgs{...}
+type AnalysisPivotTableFieldCollapseStateInput interface {
+	pulumi.Input
+
+	ToAnalysisPivotTableFieldCollapseStateOutput() AnalysisPivotTableFieldCollapseStateOutput
+	ToAnalysisPivotTableFieldCollapseStateOutputWithContext(context.Context) AnalysisPivotTableFieldCollapseStateOutput
+}
+
+var analysisPivotTableFieldCollapseStatePtrType = reflect.TypeOf((**AnalysisPivotTableFieldCollapseState)(nil)).Elem()
+
+type AnalysisPivotTableFieldCollapseStatePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisPivotTableFieldCollapseStatePtrOutput() AnalysisPivotTableFieldCollapseStatePtrOutput
+	ToAnalysisPivotTableFieldCollapseStatePtrOutputWithContext(context.Context) AnalysisPivotTableFieldCollapseStatePtrOutput
+}
+
+type analysisPivotTableFieldCollapseStatePtr string
+
+func AnalysisPivotTableFieldCollapseStatePtr(v string) AnalysisPivotTableFieldCollapseStatePtrInput {
+	return (*analysisPivotTableFieldCollapseStatePtr)(&v)
+}
+
+func (*analysisPivotTableFieldCollapseStatePtr) ElementType() reflect.Type {
+	return analysisPivotTableFieldCollapseStatePtrType
+}
+
+func (in *analysisPivotTableFieldCollapseStatePtr) ToAnalysisPivotTableFieldCollapseStatePtrOutput() AnalysisPivotTableFieldCollapseStatePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisPivotTableFieldCollapseStatePtrOutput)
+}
+
+func (in *analysisPivotTableFieldCollapseStatePtr) ToAnalysisPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPivotTableFieldCollapseStatePtrOutput)
+}
+
 type AnalysisPivotTableMetricPlacement string
 
 const (
@@ -9538,6 +9703,171 @@ func (in *analysisPrimaryValueDisplayTypePtr) ToAnalysisPrimaryValueDisplayTypeP
 
 func (in *analysisPrimaryValueDisplayTypePtr) ToAnalysisPrimaryValueDisplayTypePtrOutputWithContext(ctx context.Context) AnalysisPrimaryValueDisplayTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPrimaryValueDisplayTypePtrOutput)
+}
+
+type AnalysisRadarChartAxesRangeScale string
+
+const (
+	AnalysisRadarChartAxesRangeScaleAuto        = AnalysisRadarChartAxesRangeScale("AUTO")
+	AnalysisRadarChartAxesRangeScaleIndependent = AnalysisRadarChartAxesRangeScale("INDEPENDENT")
+	AnalysisRadarChartAxesRangeScaleShared      = AnalysisRadarChartAxesRangeScale("SHARED")
+)
+
+func (AnalysisRadarChartAxesRangeScale) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisRadarChartAxesRangeScale)(nil)).Elem()
+}
+
+func (e AnalysisRadarChartAxesRangeScale) ToAnalysisRadarChartAxesRangeScaleOutput() AnalysisRadarChartAxesRangeScaleOutput {
+	return pulumi.ToOutput(e).(AnalysisRadarChartAxesRangeScaleOutput)
+}
+
+func (e AnalysisRadarChartAxesRangeScale) ToAnalysisRadarChartAxesRangeScaleOutputWithContext(ctx context.Context) AnalysisRadarChartAxesRangeScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisRadarChartAxesRangeScaleOutput)
+}
+
+func (e AnalysisRadarChartAxesRangeScale) ToAnalysisRadarChartAxesRangeScalePtrOutput() AnalysisRadarChartAxesRangeScalePtrOutput {
+	return e.ToAnalysisRadarChartAxesRangeScalePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisRadarChartAxesRangeScale) ToAnalysisRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) AnalysisRadarChartAxesRangeScalePtrOutput {
+	return AnalysisRadarChartAxesRangeScale(e).ToAnalysisRadarChartAxesRangeScaleOutputWithContext(ctx).ToAnalysisRadarChartAxesRangeScalePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisRadarChartAxesRangeScale) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisRadarChartAxesRangeScale) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisRadarChartAxesRangeScale) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisRadarChartAxesRangeScale) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisRadarChartAxesRangeScaleOutput struct{ *pulumi.OutputState }
+
+func (AnalysisRadarChartAxesRangeScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisRadarChartAxesRangeScale)(nil)).Elem()
+}
+
+func (o AnalysisRadarChartAxesRangeScaleOutput) ToAnalysisRadarChartAxesRangeScaleOutput() AnalysisRadarChartAxesRangeScaleOutput {
+	return o
+}
+
+func (o AnalysisRadarChartAxesRangeScaleOutput) ToAnalysisRadarChartAxesRangeScaleOutputWithContext(ctx context.Context) AnalysisRadarChartAxesRangeScaleOutput {
+	return o
+}
+
+func (o AnalysisRadarChartAxesRangeScaleOutput) ToAnalysisRadarChartAxesRangeScalePtrOutput() AnalysisRadarChartAxesRangeScalePtrOutput {
+	return o.ToAnalysisRadarChartAxesRangeScalePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisRadarChartAxesRangeScaleOutput) ToAnalysisRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) AnalysisRadarChartAxesRangeScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisRadarChartAxesRangeScale) *AnalysisRadarChartAxesRangeScale {
+		return &v
+	}).(AnalysisRadarChartAxesRangeScalePtrOutput)
+}
+
+func (o AnalysisRadarChartAxesRangeScaleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisRadarChartAxesRangeScaleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisRadarChartAxesRangeScale) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisRadarChartAxesRangeScaleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisRadarChartAxesRangeScaleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisRadarChartAxesRangeScale) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisRadarChartAxesRangeScalePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisRadarChartAxesRangeScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisRadarChartAxesRangeScale)(nil)).Elem()
+}
+
+func (o AnalysisRadarChartAxesRangeScalePtrOutput) ToAnalysisRadarChartAxesRangeScalePtrOutput() AnalysisRadarChartAxesRangeScalePtrOutput {
+	return o
+}
+
+func (o AnalysisRadarChartAxesRangeScalePtrOutput) ToAnalysisRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) AnalysisRadarChartAxesRangeScalePtrOutput {
+	return o
+}
+
+func (o AnalysisRadarChartAxesRangeScalePtrOutput) Elem() AnalysisRadarChartAxesRangeScaleOutput {
+	return o.ApplyT(func(v *AnalysisRadarChartAxesRangeScale) AnalysisRadarChartAxesRangeScale {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisRadarChartAxesRangeScale
+		return ret
+	}).(AnalysisRadarChartAxesRangeScaleOutput)
+}
+
+func (o AnalysisRadarChartAxesRangeScalePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisRadarChartAxesRangeScalePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisRadarChartAxesRangeScale) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisRadarChartAxesRangeScaleInput is an input type that accepts AnalysisRadarChartAxesRangeScaleArgs and AnalysisRadarChartAxesRangeScaleOutput values.
+// You can construct a concrete instance of `AnalysisRadarChartAxesRangeScaleInput` via:
+//
+//	AnalysisRadarChartAxesRangeScaleArgs{...}
+type AnalysisRadarChartAxesRangeScaleInput interface {
+	pulumi.Input
+
+	ToAnalysisRadarChartAxesRangeScaleOutput() AnalysisRadarChartAxesRangeScaleOutput
+	ToAnalysisRadarChartAxesRangeScaleOutputWithContext(context.Context) AnalysisRadarChartAxesRangeScaleOutput
+}
+
+var analysisRadarChartAxesRangeScalePtrType = reflect.TypeOf((**AnalysisRadarChartAxesRangeScale)(nil)).Elem()
+
+type AnalysisRadarChartAxesRangeScalePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisRadarChartAxesRangeScalePtrOutput() AnalysisRadarChartAxesRangeScalePtrOutput
+	ToAnalysisRadarChartAxesRangeScalePtrOutputWithContext(context.Context) AnalysisRadarChartAxesRangeScalePtrOutput
+}
+
+type analysisRadarChartAxesRangeScalePtr string
+
+func AnalysisRadarChartAxesRangeScalePtr(v string) AnalysisRadarChartAxesRangeScalePtrInput {
+	return (*analysisRadarChartAxesRangeScalePtr)(&v)
+}
+
+func (*analysisRadarChartAxesRangeScalePtr) ElementType() reflect.Type {
+	return analysisRadarChartAxesRangeScalePtrType
+}
+
+func (in *analysisRadarChartAxesRangeScalePtr) ToAnalysisRadarChartAxesRangeScalePtrOutput() AnalysisRadarChartAxesRangeScalePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisRadarChartAxesRangeScalePtrOutput)
+}
+
+func (in *analysisRadarChartAxesRangeScalePtr) ToAnalysisRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) AnalysisRadarChartAxesRangeScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisRadarChartAxesRangeScalePtrOutput)
 }
 
 type AnalysisRadarChartShape string
@@ -12674,171 +13004,6 @@ func (in *analysisSortDirectionPtr) ToAnalysisSortDirectionPtrOutput() AnalysisS
 
 func (in *analysisSortDirectionPtr) ToAnalysisSortDirectionPtrOutputWithContext(ctx context.Context) AnalysisSortDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSortDirectionPtrOutput)
-}
-
-type AnalysisSpecialValue string
-
-const (
-	AnalysisSpecialValueEmpty = AnalysisSpecialValue("EMPTY")
-	AnalysisSpecialValueNull  = AnalysisSpecialValue("NULL")
-	AnalysisSpecialValueOther = AnalysisSpecialValue("OTHER")
-)
-
-func (AnalysisSpecialValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisSpecialValue)(nil)).Elem()
-}
-
-func (e AnalysisSpecialValue) ToAnalysisSpecialValueOutput() AnalysisSpecialValueOutput {
-	return pulumi.ToOutput(e).(AnalysisSpecialValueOutput)
-}
-
-func (e AnalysisSpecialValue) ToAnalysisSpecialValueOutputWithContext(ctx context.Context) AnalysisSpecialValueOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AnalysisSpecialValueOutput)
-}
-
-func (e AnalysisSpecialValue) ToAnalysisSpecialValuePtrOutput() AnalysisSpecialValuePtrOutput {
-	return e.ToAnalysisSpecialValuePtrOutputWithContext(context.Background())
-}
-
-func (e AnalysisSpecialValue) ToAnalysisSpecialValuePtrOutputWithContext(ctx context.Context) AnalysisSpecialValuePtrOutput {
-	return AnalysisSpecialValue(e).ToAnalysisSpecialValueOutputWithContext(ctx).ToAnalysisSpecialValuePtrOutputWithContext(ctx)
-}
-
-func (e AnalysisSpecialValue) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AnalysisSpecialValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AnalysisSpecialValue) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AnalysisSpecialValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AnalysisSpecialValueOutput struct{ *pulumi.OutputState }
-
-func (AnalysisSpecialValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisSpecialValue)(nil)).Elem()
-}
-
-func (o AnalysisSpecialValueOutput) ToAnalysisSpecialValueOutput() AnalysisSpecialValueOutput {
-	return o
-}
-
-func (o AnalysisSpecialValueOutput) ToAnalysisSpecialValueOutputWithContext(ctx context.Context) AnalysisSpecialValueOutput {
-	return o
-}
-
-func (o AnalysisSpecialValueOutput) ToAnalysisSpecialValuePtrOutput() AnalysisSpecialValuePtrOutput {
-	return o.ToAnalysisSpecialValuePtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisSpecialValueOutput) ToAnalysisSpecialValuePtrOutputWithContext(ctx context.Context) AnalysisSpecialValuePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSpecialValue) *AnalysisSpecialValue {
-		return &v
-	}).(AnalysisSpecialValuePtrOutput)
-}
-
-func (o AnalysisSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AnalysisSpecialValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSpecialValue) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AnalysisSpecialValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisSpecialValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSpecialValue) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AnalysisSpecialValuePtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisSpecialValuePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisSpecialValue)(nil)).Elem()
-}
-
-func (o AnalysisSpecialValuePtrOutput) ToAnalysisSpecialValuePtrOutput() AnalysisSpecialValuePtrOutput {
-	return o
-}
-
-func (o AnalysisSpecialValuePtrOutput) ToAnalysisSpecialValuePtrOutputWithContext(ctx context.Context) AnalysisSpecialValuePtrOutput {
-	return o
-}
-
-func (o AnalysisSpecialValuePtrOutput) Elem() AnalysisSpecialValueOutput {
-	return o.ApplyT(func(v *AnalysisSpecialValue) AnalysisSpecialValue {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisSpecialValue
-		return ret
-	}).(AnalysisSpecialValueOutput)
-}
-
-func (o AnalysisSpecialValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisSpecialValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisSpecialValue) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AnalysisSpecialValueInput is an input type that accepts AnalysisSpecialValueArgs and AnalysisSpecialValueOutput values.
-// You can construct a concrete instance of `AnalysisSpecialValueInput` via:
-//
-//	AnalysisSpecialValueArgs{...}
-type AnalysisSpecialValueInput interface {
-	pulumi.Input
-
-	ToAnalysisSpecialValueOutput() AnalysisSpecialValueOutput
-	ToAnalysisSpecialValueOutputWithContext(context.Context) AnalysisSpecialValueOutput
-}
-
-var analysisSpecialValuePtrType = reflect.TypeOf((**AnalysisSpecialValue)(nil)).Elem()
-
-type AnalysisSpecialValuePtrInput interface {
-	pulumi.Input
-
-	ToAnalysisSpecialValuePtrOutput() AnalysisSpecialValuePtrOutput
-	ToAnalysisSpecialValuePtrOutputWithContext(context.Context) AnalysisSpecialValuePtrOutput
-}
-
-type analysisSpecialValuePtr string
-
-func AnalysisSpecialValuePtr(v string) AnalysisSpecialValuePtrInput {
-	return (*analysisSpecialValuePtr)(&v)
-}
-
-func (*analysisSpecialValuePtr) ElementType() reflect.Type {
-	return analysisSpecialValuePtrType
-}
-
-func (in *analysisSpecialValuePtr) ToAnalysisSpecialValuePtrOutput() AnalysisSpecialValuePtrOutput {
-	return pulumi.ToOutput(in).(AnalysisSpecialValuePtrOutput)
-}
-
-func (in *analysisSpecialValuePtr) ToAnalysisSpecialValuePtrOutputWithContext(ctx context.Context) AnalysisSpecialValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSpecialValuePtrOutput)
 }
 
 type AnalysisTableBorderStyle string
@@ -21840,6 +22005,7 @@ type DashboardGeospatialSelectedPointStyle string
 const (
 	DashboardGeospatialSelectedPointStylePoint   = DashboardGeospatialSelectedPointStyle("POINT")
 	DashboardGeospatialSelectedPointStyleCluster = DashboardGeospatialSelectedPointStyle("CLUSTER")
+	DashboardGeospatialSelectedPointStyleHeatmap = DashboardGeospatialSelectedPointStyle("HEATMAP")
 )
 
 func (DashboardGeospatialSelectedPointStyle) ElementType() reflect.Type {
@@ -25823,6 +25989,170 @@ func (in *dashboardPivotTableConditionalFormattingScopeRolePtr) ToDashboardPivot
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPivotTableConditionalFormattingScopeRolePtrOutput)
 }
 
+type DashboardPivotTableFieldCollapseState string
+
+const (
+	DashboardPivotTableFieldCollapseStateCollapsed = DashboardPivotTableFieldCollapseState("COLLAPSED")
+	DashboardPivotTableFieldCollapseStateExpanded  = DashboardPivotTableFieldCollapseState("EXPANDED")
+)
+
+func (DashboardPivotTableFieldCollapseState) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPivotTableFieldCollapseState)(nil)).Elem()
+}
+
+func (e DashboardPivotTableFieldCollapseState) ToDashboardPivotTableFieldCollapseStateOutput() DashboardPivotTableFieldCollapseStateOutput {
+	return pulumi.ToOutput(e).(DashboardPivotTableFieldCollapseStateOutput)
+}
+
+func (e DashboardPivotTableFieldCollapseState) ToDashboardPivotTableFieldCollapseStateOutputWithContext(ctx context.Context) DashboardPivotTableFieldCollapseStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardPivotTableFieldCollapseStateOutput)
+}
+
+func (e DashboardPivotTableFieldCollapseState) ToDashboardPivotTableFieldCollapseStatePtrOutput() DashboardPivotTableFieldCollapseStatePtrOutput {
+	return e.ToDashboardPivotTableFieldCollapseStatePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardPivotTableFieldCollapseState) ToDashboardPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) DashboardPivotTableFieldCollapseStatePtrOutput {
+	return DashboardPivotTableFieldCollapseState(e).ToDashboardPivotTableFieldCollapseStateOutputWithContext(ctx).ToDashboardPivotTableFieldCollapseStatePtrOutputWithContext(ctx)
+}
+
+func (e DashboardPivotTableFieldCollapseState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardPivotTableFieldCollapseState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardPivotTableFieldCollapseState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardPivotTableFieldCollapseState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardPivotTableFieldCollapseStateOutput struct{ *pulumi.OutputState }
+
+func (DashboardPivotTableFieldCollapseStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPivotTableFieldCollapseState)(nil)).Elem()
+}
+
+func (o DashboardPivotTableFieldCollapseStateOutput) ToDashboardPivotTableFieldCollapseStateOutput() DashboardPivotTableFieldCollapseStateOutput {
+	return o
+}
+
+func (o DashboardPivotTableFieldCollapseStateOutput) ToDashboardPivotTableFieldCollapseStateOutputWithContext(ctx context.Context) DashboardPivotTableFieldCollapseStateOutput {
+	return o
+}
+
+func (o DashboardPivotTableFieldCollapseStateOutput) ToDashboardPivotTableFieldCollapseStatePtrOutput() DashboardPivotTableFieldCollapseStatePtrOutput {
+	return o.ToDashboardPivotTableFieldCollapseStatePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardPivotTableFieldCollapseStateOutput) ToDashboardPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) DashboardPivotTableFieldCollapseStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPivotTableFieldCollapseState) *DashboardPivotTableFieldCollapseState {
+		return &v
+	}).(DashboardPivotTableFieldCollapseStatePtrOutput)
+}
+
+func (o DashboardPivotTableFieldCollapseStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardPivotTableFieldCollapseStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardPivotTableFieldCollapseState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardPivotTableFieldCollapseStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardPivotTableFieldCollapseStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardPivotTableFieldCollapseState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardPivotTableFieldCollapseStatePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardPivotTableFieldCollapseStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardPivotTableFieldCollapseState)(nil)).Elem()
+}
+
+func (o DashboardPivotTableFieldCollapseStatePtrOutput) ToDashboardPivotTableFieldCollapseStatePtrOutput() DashboardPivotTableFieldCollapseStatePtrOutput {
+	return o
+}
+
+func (o DashboardPivotTableFieldCollapseStatePtrOutput) ToDashboardPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) DashboardPivotTableFieldCollapseStatePtrOutput {
+	return o
+}
+
+func (o DashboardPivotTableFieldCollapseStatePtrOutput) Elem() DashboardPivotTableFieldCollapseStateOutput {
+	return o.ApplyT(func(v *DashboardPivotTableFieldCollapseState) DashboardPivotTableFieldCollapseState {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardPivotTableFieldCollapseState
+		return ret
+	}).(DashboardPivotTableFieldCollapseStateOutput)
+}
+
+func (o DashboardPivotTableFieldCollapseStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardPivotTableFieldCollapseStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardPivotTableFieldCollapseState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardPivotTableFieldCollapseStateInput is an input type that accepts DashboardPivotTableFieldCollapseStateArgs and DashboardPivotTableFieldCollapseStateOutput values.
+// You can construct a concrete instance of `DashboardPivotTableFieldCollapseStateInput` via:
+//
+//	DashboardPivotTableFieldCollapseStateArgs{...}
+type DashboardPivotTableFieldCollapseStateInput interface {
+	pulumi.Input
+
+	ToDashboardPivotTableFieldCollapseStateOutput() DashboardPivotTableFieldCollapseStateOutput
+	ToDashboardPivotTableFieldCollapseStateOutputWithContext(context.Context) DashboardPivotTableFieldCollapseStateOutput
+}
+
+var dashboardPivotTableFieldCollapseStatePtrType = reflect.TypeOf((**DashboardPivotTableFieldCollapseState)(nil)).Elem()
+
+type DashboardPivotTableFieldCollapseStatePtrInput interface {
+	pulumi.Input
+
+	ToDashboardPivotTableFieldCollapseStatePtrOutput() DashboardPivotTableFieldCollapseStatePtrOutput
+	ToDashboardPivotTableFieldCollapseStatePtrOutputWithContext(context.Context) DashboardPivotTableFieldCollapseStatePtrOutput
+}
+
+type dashboardPivotTableFieldCollapseStatePtr string
+
+func DashboardPivotTableFieldCollapseStatePtr(v string) DashboardPivotTableFieldCollapseStatePtrInput {
+	return (*dashboardPivotTableFieldCollapseStatePtr)(&v)
+}
+
+func (*dashboardPivotTableFieldCollapseStatePtr) ElementType() reflect.Type {
+	return dashboardPivotTableFieldCollapseStatePtrType
+}
+
+func (in *dashboardPivotTableFieldCollapseStatePtr) ToDashboardPivotTableFieldCollapseStatePtrOutput() DashboardPivotTableFieldCollapseStatePtrOutput {
+	return pulumi.ToOutput(in).(DashboardPivotTableFieldCollapseStatePtrOutput)
+}
+
+func (in *dashboardPivotTableFieldCollapseStatePtr) ToDashboardPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) DashboardPivotTableFieldCollapseStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardPivotTableFieldCollapseStatePtrOutput)
+}
+
 type DashboardPivotTableMetricPlacement string
 
 const (
@@ -26315,6 +26645,171 @@ func (in *dashboardPrimaryValueDisplayTypePtr) ToDashboardPrimaryValueDisplayTyp
 
 func (in *dashboardPrimaryValueDisplayTypePtr) ToDashboardPrimaryValueDisplayTypePtrOutputWithContext(ctx context.Context) DashboardPrimaryValueDisplayTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPrimaryValueDisplayTypePtrOutput)
+}
+
+type DashboardRadarChartAxesRangeScale string
+
+const (
+	DashboardRadarChartAxesRangeScaleAuto        = DashboardRadarChartAxesRangeScale("AUTO")
+	DashboardRadarChartAxesRangeScaleIndependent = DashboardRadarChartAxesRangeScale("INDEPENDENT")
+	DashboardRadarChartAxesRangeScaleShared      = DashboardRadarChartAxesRangeScale("SHARED")
+)
+
+func (DashboardRadarChartAxesRangeScale) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardRadarChartAxesRangeScale)(nil)).Elem()
+}
+
+func (e DashboardRadarChartAxesRangeScale) ToDashboardRadarChartAxesRangeScaleOutput() DashboardRadarChartAxesRangeScaleOutput {
+	return pulumi.ToOutput(e).(DashboardRadarChartAxesRangeScaleOutput)
+}
+
+func (e DashboardRadarChartAxesRangeScale) ToDashboardRadarChartAxesRangeScaleOutputWithContext(ctx context.Context) DashboardRadarChartAxesRangeScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardRadarChartAxesRangeScaleOutput)
+}
+
+func (e DashboardRadarChartAxesRangeScale) ToDashboardRadarChartAxesRangeScalePtrOutput() DashboardRadarChartAxesRangeScalePtrOutput {
+	return e.ToDashboardRadarChartAxesRangeScalePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardRadarChartAxesRangeScale) ToDashboardRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) DashboardRadarChartAxesRangeScalePtrOutput {
+	return DashboardRadarChartAxesRangeScale(e).ToDashboardRadarChartAxesRangeScaleOutputWithContext(ctx).ToDashboardRadarChartAxesRangeScalePtrOutputWithContext(ctx)
+}
+
+func (e DashboardRadarChartAxesRangeScale) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardRadarChartAxesRangeScale) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardRadarChartAxesRangeScale) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardRadarChartAxesRangeScale) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardRadarChartAxesRangeScaleOutput struct{ *pulumi.OutputState }
+
+func (DashboardRadarChartAxesRangeScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardRadarChartAxesRangeScale)(nil)).Elem()
+}
+
+func (o DashboardRadarChartAxesRangeScaleOutput) ToDashboardRadarChartAxesRangeScaleOutput() DashboardRadarChartAxesRangeScaleOutput {
+	return o
+}
+
+func (o DashboardRadarChartAxesRangeScaleOutput) ToDashboardRadarChartAxesRangeScaleOutputWithContext(ctx context.Context) DashboardRadarChartAxesRangeScaleOutput {
+	return o
+}
+
+func (o DashboardRadarChartAxesRangeScaleOutput) ToDashboardRadarChartAxesRangeScalePtrOutput() DashboardRadarChartAxesRangeScalePtrOutput {
+	return o.ToDashboardRadarChartAxesRangeScalePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardRadarChartAxesRangeScaleOutput) ToDashboardRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) DashboardRadarChartAxesRangeScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRadarChartAxesRangeScale) *DashboardRadarChartAxesRangeScale {
+		return &v
+	}).(DashboardRadarChartAxesRangeScalePtrOutput)
+}
+
+func (o DashboardRadarChartAxesRangeScaleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardRadarChartAxesRangeScaleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardRadarChartAxesRangeScale) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardRadarChartAxesRangeScaleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardRadarChartAxesRangeScaleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardRadarChartAxesRangeScale) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardRadarChartAxesRangeScalePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardRadarChartAxesRangeScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardRadarChartAxesRangeScale)(nil)).Elem()
+}
+
+func (o DashboardRadarChartAxesRangeScalePtrOutput) ToDashboardRadarChartAxesRangeScalePtrOutput() DashboardRadarChartAxesRangeScalePtrOutput {
+	return o
+}
+
+func (o DashboardRadarChartAxesRangeScalePtrOutput) ToDashboardRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) DashboardRadarChartAxesRangeScalePtrOutput {
+	return o
+}
+
+func (o DashboardRadarChartAxesRangeScalePtrOutput) Elem() DashboardRadarChartAxesRangeScaleOutput {
+	return o.ApplyT(func(v *DashboardRadarChartAxesRangeScale) DashboardRadarChartAxesRangeScale {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardRadarChartAxesRangeScale
+		return ret
+	}).(DashboardRadarChartAxesRangeScaleOutput)
+}
+
+func (o DashboardRadarChartAxesRangeScalePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardRadarChartAxesRangeScalePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardRadarChartAxesRangeScale) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardRadarChartAxesRangeScaleInput is an input type that accepts DashboardRadarChartAxesRangeScaleArgs and DashboardRadarChartAxesRangeScaleOutput values.
+// You can construct a concrete instance of `DashboardRadarChartAxesRangeScaleInput` via:
+//
+//	DashboardRadarChartAxesRangeScaleArgs{...}
+type DashboardRadarChartAxesRangeScaleInput interface {
+	pulumi.Input
+
+	ToDashboardRadarChartAxesRangeScaleOutput() DashboardRadarChartAxesRangeScaleOutput
+	ToDashboardRadarChartAxesRangeScaleOutputWithContext(context.Context) DashboardRadarChartAxesRangeScaleOutput
+}
+
+var dashboardRadarChartAxesRangeScalePtrType = reflect.TypeOf((**DashboardRadarChartAxesRangeScale)(nil)).Elem()
+
+type DashboardRadarChartAxesRangeScalePtrInput interface {
+	pulumi.Input
+
+	ToDashboardRadarChartAxesRangeScalePtrOutput() DashboardRadarChartAxesRangeScalePtrOutput
+	ToDashboardRadarChartAxesRangeScalePtrOutputWithContext(context.Context) DashboardRadarChartAxesRangeScalePtrOutput
+}
+
+type dashboardRadarChartAxesRangeScalePtr string
+
+func DashboardRadarChartAxesRangeScalePtr(v string) DashboardRadarChartAxesRangeScalePtrInput {
+	return (*dashboardRadarChartAxesRangeScalePtr)(&v)
+}
+
+func (*dashboardRadarChartAxesRangeScalePtr) ElementType() reflect.Type {
+	return dashboardRadarChartAxesRangeScalePtrType
+}
+
+func (in *dashboardRadarChartAxesRangeScalePtr) ToDashboardRadarChartAxesRangeScalePtrOutput() DashboardRadarChartAxesRangeScalePtrOutput {
+	return pulumi.ToOutput(in).(DashboardRadarChartAxesRangeScalePtrOutput)
+}
+
+func (in *dashboardRadarChartAxesRangeScalePtr) ToDashboardRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) DashboardRadarChartAxesRangeScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardRadarChartAxesRangeScalePtrOutput)
 }
 
 type DashboardRadarChartShape string
@@ -29377,171 +29872,6 @@ func (in *dashboardSortDirectionPtr) ToDashboardSortDirectionPtrOutput() Dashboa
 
 func (in *dashboardSortDirectionPtr) ToDashboardSortDirectionPtrOutputWithContext(ctx context.Context) DashboardSortDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSortDirectionPtrOutput)
-}
-
-type DashboardSpecialValue string
-
-const (
-	DashboardSpecialValueEmpty = DashboardSpecialValue("EMPTY")
-	DashboardSpecialValueNull  = DashboardSpecialValue("NULL")
-	DashboardSpecialValueOther = DashboardSpecialValue("OTHER")
-)
-
-func (DashboardSpecialValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardSpecialValue)(nil)).Elem()
-}
-
-func (e DashboardSpecialValue) ToDashboardSpecialValueOutput() DashboardSpecialValueOutput {
-	return pulumi.ToOutput(e).(DashboardSpecialValueOutput)
-}
-
-func (e DashboardSpecialValue) ToDashboardSpecialValueOutputWithContext(ctx context.Context) DashboardSpecialValueOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DashboardSpecialValueOutput)
-}
-
-func (e DashboardSpecialValue) ToDashboardSpecialValuePtrOutput() DashboardSpecialValuePtrOutput {
-	return e.ToDashboardSpecialValuePtrOutputWithContext(context.Background())
-}
-
-func (e DashboardSpecialValue) ToDashboardSpecialValuePtrOutputWithContext(ctx context.Context) DashboardSpecialValuePtrOutput {
-	return DashboardSpecialValue(e).ToDashboardSpecialValueOutputWithContext(ctx).ToDashboardSpecialValuePtrOutputWithContext(ctx)
-}
-
-func (e DashboardSpecialValue) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DashboardSpecialValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DashboardSpecialValue) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DashboardSpecialValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DashboardSpecialValueOutput struct{ *pulumi.OutputState }
-
-func (DashboardSpecialValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardSpecialValue)(nil)).Elem()
-}
-
-func (o DashboardSpecialValueOutput) ToDashboardSpecialValueOutput() DashboardSpecialValueOutput {
-	return o
-}
-
-func (o DashboardSpecialValueOutput) ToDashboardSpecialValueOutputWithContext(ctx context.Context) DashboardSpecialValueOutput {
-	return o
-}
-
-func (o DashboardSpecialValueOutput) ToDashboardSpecialValuePtrOutput() DashboardSpecialValuePtrOutput {
-	return o.ToDashboardSpecialValuePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardSpecialValueOutput) ToDashboardSpecialValuePtrOutputWithContext(ctx context.Context) DashboardSpecialValuePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSpecialValue) *DashboardSpecialValue {
-		return &v
-	}).(DashboardSpecialValuePtrOutput)
-}
-
-func (o DashboardSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DashboardSpecialValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSpecialValue) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DashboardSpecialValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardSpecialValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSpecialValue) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardSpecialValuePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardSpecialValuePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardSpecialValue)(nil)).Elem()
-}
-
-func (o DashboardSpecialValuePtrOutput) ToDashboardSpecialValuePtrOutput() DashboardSpecialValuePtrOutput {
-	return o
-}
-
-func (o DashboardSpecialValuePtrOutput) ToDashboardSpecialValuePtrOutputWithContext(ctx context.Context) DashboardSpecialValuePtrOutput {
-	return o
-}
-
-func (o DashboardSpecialValuePtrOutput) Elem() DashboardSpecialValueOutput {
-	return o.ApplyT(func(v *DashboardSpecialValue) DashboardSpecialValue {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardSpecialValue
-		return ret
-	}).(DashboardSpecialValueOutput)
-}
-
-func (o DashboardSpecialValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardSpecialValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardSpecialValue) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DashboardSpecialValueInput is an input type that accepts DashboardSpecialValueArgs and DashboardSpecialValueOutput values.
-// You can construct a concrete instance of `DashboardSpecialValueInput` via:
-//
-//	DashboardSpecialValueArgs{...}
-type DashboardSpecialValueInput interface {
-	pulumi.Input
-
-	ToDashboardSpecialValueOutput() DashboardSpecialValueOutput
-	ToDashboardSpecialValueOutputWithContext(context.Context) DashboardSpecialValueOutput
-}
-
-var dashboardSpecialValuePtrType = reflect.TypeOf((**DashboardSpecialValue)(nil)).Elem()
-
-type DashboardSpecialValuePtrInput interface {
-	pulumi.Input
-
-	ToDashboardSpecialValuePtrOutput() DashboardSpecialValuePtrOutput
-	ToDashboardSpecialValuePtrOutputWithContext(context.Context) DashboardSpecialValuePtrOutput
-}
-
-type dashboardSpecialValuePtr string
-
-func DashboardSpecialValuePtr(v string) DashboardSpecialValuePtrInput {
-	return (*dashboardSpecialValuePtr)(&v)
-}
-
-func (*dashboardSpecialValuePtr) ElementType() reflect.Type {
-	return dashboardSpecialValuePtrType
-}
-
-func (in *dashboardSpecialValuePtr) ToDashboardSpecialValuePtrOutput() DashboardSpecialValuePtrOutput {
-	return pulumi.ToOutput(in).(DashboardSpecialValuePtrOutput)
-}
-
-func (in *dashboardSpecialValuePtr) ToDashboardSpecialValuePtrOutputWithContext(ctx context.Context) DashboardSpecialValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DashboardSpecialValuePtrOutput)
 }
 
 type DashboardTableBorderStyle string
@@ -40902,6 +41232,7 @@ type TemplateGeospatialSelectedPointStyle string
 const (
 	TemplateGeospatialSelectedPointStylePoint   = TemplateGeospatialSelectedPointStyle("POINT")
 	TemplateGeospatialSelectedPointStyleCluster = TemplateGeospatialSelectedPointStyle("CLUSTER")
+	TemplateGeospatialSelectedPointStyleHeatmap = TemplateGeospatialSelectedPointStyle("HEATMAP")
 )
 
 func (TemplateGeospatialSelectedPointStyle) ElementType() reflect.Type {
@@ -44885,6 +45216,170 @@ func (in *templatePivotTableConditionalFormattingScopeRolePtr) ToTemplatePivotTa
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePivotTableConditionalFormattingScopeRolePtrOutput)
 }
 
+type TemplatePivotTableFieldCollapseState string
+
+const (
+	TemplatePivotTableFieldCollapseStateCollapsed = TemplatePivotTableFieldCollapseState("COLLAPSED")
+	TemplatePivotTableFieldCollapseStateExpanded  = TemplatePivotTableFieldCollapseState("EXPANDED")
+)
+
+func (TemplatePivotTableFieldCollapseState) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplatePivotTableFieldCollapseState)(nil)).Elem()
+}
+
+func (e TemplatePivotTableFieldCollapseState) ToTemplatePivotTableFieldCollapseStateOutput() TemplatePivotTableFieldCollapseStateOutput {
+	return pulumi.ToOutput(e).(TemplatePivotTableFieldCollapseStateOutput)
+}
+
+func (e TemplatePivotTableFieldCollapseState) ToTemplatePivotTableFieldCollapseStateOutputWithContext(ctx context.Context) TemplatePivotTableFieldCollapseStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplatePivotTableFieldCollapseStateOutput)
+}
+
+func (e TemplatePivotTableFieldCollapseState) ToTemplatePivotTableFieldCollapseStatePtrOutput() TemplatePivotTableFieldCollapseStatePtrOutput {
+	return e.ToTemplatePivotTableFieldCollapseStatePtrOutputWithContext(context.Background())
+}
+
+func (e TemplatePivotTableFieldCollapseState) ToTemplatePivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) TemplatePivotTableFieldCollapseStatePtrOutput {
+	return TemplatePivotTableFieldCollapseState(e).ToTemplatePivotTableFieldCollapseStateOutputWithContext(ctx).ToTemplatePivotTableFieldCollapseStatePtrOutputWithContext(ctx)
+}
+
+func (e TemplatePivotTableFieldCollapseState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplatePivotTableFieldCollapseState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplatePivotTableFieldCollapseState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplatePivotTableFieldCollapseState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplatePivotTableFieldCollapseStateOutput struct{ *pulumi.OutputState }
+
+func (TemplatePivotTableFieldCollapseStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplatePivotTableFieldCollapseState)(nil)).Elem()
+}
+
+func (o TemplatePivotTableFieldCollapseStateOutput) ToTemplatePivotTableFieldCollapseStateOutput() TemplatePivotTableFieldCollapseStateOutput {
+	return o
+}
+
+func (o TemplatePivotTableFieldCollapseStateOutput) ToTemplatePivotTableFieldCollapseStateOutputWithContext(ctx context.Context) TemplatePivotTableFieldCollapseStateOutput {
+	return o
+}
+
+func (o TemplatePivotTableFieldCollapseStateOutput) ToTemplatePivotTableFieldCollapseStatePtrOutput() TemplatePivotTableFieldCollapseStatePtrOutput {
+	return o.ToTemplatePivotTableFieldCollapseStatePtrOutputWithContext(context.Background())
+}
+
+func (o TemplatePivotTableFieldCollapseStateOutput) ToTemplatePivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) TemplatePivotTableFieldCollapseStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplatePivotTableFieldCollapseState) *TemplatePivotTableFieldCollapseState {
+		return &v
+	}).(TemplatePivotTableFieldCollapseStatePtrOutput)
+}
+
+func (o TemplatePivotTableFieldCollapseStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplatePivotTableFieldCollapseStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplatePivotTableFieldCollapseState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplatePivotTableFieldCollapseStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplatePivotTableFieldCollapseStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplatePivotTableFieldCollapseState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplatePivotTableFieldCollapseStatePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplatePivotTableFieldCollapseStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePivotTableFieldCollapseState)(nil)).Elem()
+}
+
+func (o TemplatePivotTableFieldCollapseStatePtrOutput) ToTemplatePivotTableFieldCollapseStatePtrOutput() TemplatePivotTableFieldCollapseStatePtrOutput {
+	return o
+}
+
+func (o TemplatePivotTableFieldCollapseStatePtrOutput) ToTemplatePivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) TemplatePivotTableFieldCollapseStatePtrOutput {
+	return o
+}
+
+func (o TemplatePivotTableFieldCollapseStatePtrOutput) Elem() TemplatePivotTableFieldCollapseStateOutput {
+	return o.ApplyT(func(v *TemplatePivotTableFieldCollapseState) TemplatePivotTableFieldCollapseState {
+		if v != nil {
+			return *v
+		}
+		var ret TemplatePivotTableFieldCollapseState
+		return ret
+	}).(TemplatePivotTableFieldCollapseStateOutput)
+}
+
+func (o TemplatePivotTableFieldCollapseStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplatePivotTableFieldCollapseStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplatePivotTableFieldCollapseState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplatePivotTableFieldCollapseStateInput is an input type that accepts TemplatePivotTableFieldCollapseStateArgs and TemplatePivotTableFieldCollapseStateOutput values.
+// You can construct a concrete instance of `TemplatePivotTableFieldCollapseStateInput` via:
+//
+//	TemplatePivotTableFieldCollapseStateArgs{...}
+type TemplatePivotTableFieldCollapseStateInput interface {
+	pulumi.Input
+
+	ToTemplatePivotTableFieldCollapseStateOutput() TemplatePivotTableFieldCollapseStateOutput
+	ToTemplatePivotTableFieldCollapseStateOutputWithContext(context.Context) TemplatePivotTableFieldCollapseStateOutput
+}
+
+var templatePivotTableFieldCollapseStatePtrType = reflect.TypeOf((**TemplatePivotTableFieldCollapseState)(nil)).Elem()
+
+type TemplatePivotTableFieldCollapseStatePtrInput interface {
+	pulumi.Input
+
+	ToTemplatePivotTableFieldCollapseStatePtrOutput() TemplatePivotTableFieldCollapseStatePtrOutput
+	ToTemplatePivotTableFieldCollapseStatePtrOutputWithContext(context.Context) TemplatePivotTableFieldCollapseStatePtrOutput
+}
+
+type templatePivotTableFieldCollapseStatePtr string
+
+func TemplatePivotTableFieldCollapseStatePtr(v string) TemplatePivotTableFieldCollapseStatePtrInput {
+	return (*templatePivotTableFieldCollapseStatePtr)(&v)
+}
+
+func (*templatePivotTableFieldCollapseStatePtr) ElementType() reflect.Type {
+	return templatePivotTableFieldCollapseStatePtrType
+}
+
+func (in *templatePivotTableFieldCollapseStatePtr) ToTemplatePivotTableFieldCollapseStatePtrOutput() TemplatePivotTableFieldCollapseStatePtrOutput {
+	return pulumi.ToOutput(in).(TemplatePivotTableFieldCollapseStatePtrOutput)
+}
+
+func (in *templatePivotTableFieldCollapseStatePtr) ToTemplatePivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) TemplatePivotTableFieldCollapseStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplatePivotTableFieldCollapseStatePtrOutput)
+}
+
 type TemplatePivotTableMetricPlacement string
 
 const (
@@ -45377,6 +45872,171 @@ func (in *templatePrimaryValueDisplayTypePtr) ToTemplatePrimaryValueDisplayTypeP
 
 func (in *templatePrimaryValueDisplayTypePtr) ToTemplatePrimaryValueDisplayTypePtrOutputWithContext(ctx context.Context) TemplatePrimaryValueDisplayTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePrimaryValueDisplayTypePtrOutput)
+}
+
+type TemplateRadarChartAxesRangeScale string
+
+const (
+	TemplateRadarChartAxesRangeScaleAuto        = TemplateRadarChartAxesRangeScale("AUTO")
+	TemplateRadarChartAxesRangeScaleIndependent = TemplateRadarChartAxesRangeScale("INDEPENDENT")
+	TemplateRadarChartAxesRangeScaleShared      = TemplateRadarChartAxesRangeScale("SHARED")
+)
+
+func (TemplateRadarChartAxesRangeScale) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateRadarChartAxesRangeScale)(nil)).Elem()
+}
+
+func (e TemplateRadarChartAxesRangeScale) ToTemplateRadarChartAxesRangeScaleOutput() TemplateRadarChartAxesRangeScaleOutput {
+	return pulumi.ToOutput(e).(TemplateRadarChartAxesRangeScaleOutput)
+}
+
+func (e TemplateRadarChartAxesRangeScale) ToTemplateRadarChartAxesRangeScaleOutputWithContext(ctx context.Context) TemplateRadarChartAxesRangeScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateRadarChartAxesRangeScaleOutput)
+}
+
+func (e TemplateRadarChartAxesRangeScale) ToTemplateRadarChartAxesRangeScalePtrOutput() TemplateRadarChartAxesRangeScalePtrOutput {
+	return e.ToTemplateRadarChartAxesRangeScalePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateRadarChartAxesRangeScale) ToTemplateRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) TemplateRadarChartAxesRangeScalePtrOutput {
+	return TemplateRadarChartAxesRangeScale(e).ToTemplateRadarChartAxesRangeScaleOutputWithContext(ctx).ToTemplateRadarChartAxesRangeScalePtrOutputWithContext(ctx)
+}
+
+func (e TemplateRadarChartAxesRangeScale) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateRadarChartAxesRangeScale) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateRadarChartAxesRangeScale) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateRadarChartAxesRangeScale) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateRadarChartAxesRangeScaleOutput struct{ *pulumi.OutputState }
+
+func (TemplateRadarChartAxesRangeScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateRadarChartAxesRangeScale)(nil)).Elem()
+}
+
+func (o TemplateRadarChartAxesRangeScaleOutput) ToTemplateRadarChartAxesRangeScaleOutput() TemplateRadarChartAxesRangeScaleOutput {
+	return o
+}
+
+func (o TemplateRadarChartAxesRangeScaleOutput) ToTemplateRadarChartAxesRangeScaleOutputWithContext(ctx context.Context) TemplateRadarChartAxesRangeScaleOutput {
+	return o
+}
+
+func (o TemplateRadarChartAxesRangeScaleOutput) ToTemplateRadarChartAxesRangeScalePtrOutput() TemplateRadarChartAxesRangeScalePtrOutput {
+	return o.ToTemplateRadarChartAxesRangeScalePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateRadarChartAxesRangeScaleOutput) ToTemplateRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) TemplateRadarChartAxesRangeScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateRadarChartAxesRangeScale) *TemplateRadarChartAxesRangeScale {
+		return &v
+	}).(TemplateRadarChartAxesRangeScalePtrOutput)
+}
+
+func (o TemplateRadarChartAxesRangeScaleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateRadarChartAxesRangeScaleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateRadarChartAxesRangeScale) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateRadarChartAxesRangeScaleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateRadarChartAxesRangeScaleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateRadarChartAxesRangeScale) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateRadarChartAxesRangeScalePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateRadarChartAxesRangeScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateRadarChartAxesRangeScale)(nil)).Elem()
+}
+
+func (o TemplateRadarChartAxesRangeScalePtrOutput) ToTemplateRadarChartAxesRangeScalePtrOutput() TemplateRadarChartAxesRangeScalePtrOutput {
+	return o
+}
+
+func (o TemplateRadarChartAxesRangeScalePtrOutput) ToTemplateRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) TemplateRadarChartAxesRangeScalePtrOutput {
+	return o
+}
+
+func (o TemplateRadarChartAxesRangeScalePtrOutput) Elem() TemplateRadarChartAxesRangeScaleOutput {
+	return o.ApplyT(func(v *TemplateRadarChartAxesRangeScale) TemplateRadarChartAxesRangeScale {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateRadarChartAxesRangeScale
+		return ret
+	}).(TemplateRadarChartAxesRangeScaleOutput)
+}
+
+func (o TemplateRadarChartAxesRangeScalePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateRadarChartAxesRangeScalePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateRadarChartAxesRangeScale) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateRadarChartAxesRangeScaleInput is an input type that accepts TemplateRadarChartAxesRangeScaleArgs and TemplateRadarChartAxesRangeScaleOutput values.
+// You can construct a concrete instance of `TemplateRadarChartAxesRangeScaleInput` via:
+//
+//	TemplateRadarChartAxesRangeScaleArgs{...}
+type TemplateRadarChartAxesRangeScaleInput interface {
+	pulumi.Input
+
+	ToTemplateRadarChartAxesRangeScaleOutput() TemplateRadarChartAxesRangeScaleOutput
+	ToTemplateRadarChartAxesRangeScaleOutputWithContext(context.Context) TemplateRadarChartAxesRangeScaleOutput
+}
+
+var templateRadarChartAxesRangeScalePtrType = reflect.TypeOf((**TemplateRadarChartAxesRangeScale)(nil)).Elem()
+
+type TemplateRadarChartAxesRangeScalePtrInput interface {
+	pulumi.Input
+
+	ToTemplateRadarChartAxesRangeScalePtrOutput() TemplateRadarChartAxesRangeScalePtrOutput
+	ToTemplateRadarChartAxesRangeScalePtrOutputWithContext(context.Context) TemplateRadarChartAxesRangeScalePtrOutput
+}
+
+type templateRadarChartAxesRangeScalePtr string
+
+func TemplateRadarChartAxesRangeScalePtr(v string) TemplateRadarChartAxesRangeScalePtrInput {
+	return (*templateRadarChartAxesRangeScalePtr)(&v)
+}
+
+func (*templateRadarChartAxesRangeScalePtr) ElementType() reflect.Type {
+	return templateRadarChartAxesRangeScalePtrType
+}
+
+func (in *templateRadarChartAxesRangeScalePtr) ToTemplateRadarChartAxesRangeScalePtrOutput() TemplateRadarChartAxesRangeScalePtrOutput {
+	return pulumi.ToOutput(in).(TemplateRadarChartAxesRangeScalePtrOutput)
+}
+
+func (in *templateRadarChartAxesRangeScalePtr) ToTemplateRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) TemplateRadarChartAxesRangeScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateRadarChartAxesRangeScalePtrOutput)
 }
 
 type TemplateRadarChartShape string
@@ -48439,171 +49099,6 @@ func (in *templateSortDirectionPtr) ToTemplateSortDirectionPtrOutput() TemplateS
 
 func (in *templateSortDirectionPtr) ToTemplateSortDirectionPtrOutputWithContext(ctx context.Context) TemplateSortDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSortDirectionPtrOutput)
-}
-
-type TemplateSpecialValue string
-
-const (
-	TemplateSpecialValueEmpty = TemplateSpecialValue("EMPTY")
-	TemplateSpecialValueNull  = TemplateSpecialValue("NULL")
-	TemplateSpecialValueOther = TemplateSpecialValue("OTHER")
-)
-
-func (TemplateSpecialValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecialValue)(nil)).Elem()
-}
-
-func (e TemplateSpecialValue) ToTemplateSpecialValueOutput() TemplateSpecialValueOutput {
-	return pulumi.ToOutput(e).(TemplateSpecialValueOutput)
-}
-
-func (e TemplateSpecialValue) ToTemplateSpecialValueOutputWithContext(ctx context.Context) TemplateSpecialValueOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TemplateSpecialValueOutput)
-}
-
-func (e TemplateSpecialValue) ToTemplateSpecialValuePtrOutput() TemplateSpecialValuePtrOutput {
-	return e.ToTemplateSpecialValuePtrOutputWithContext(context.Background())
-}
-
-func (e TemplateSpecialValue) ToTemplateSpecialValuePtrOutputWithContext(ctx context.Context) TemplateSpecialValuePtrOutput {
-	return TemplateSpecialValue(e).ToTemplateSpecialValueOutputWithContext(ctx).ToTemplateSpecialValuePtrOutputWithContext(ctx)
-}
-
-func (e TemplateSpecialValue) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TemplateSpecialValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TemplateSpecialValue) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e TemplateSpecialValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type TemplateSpecialValueOutput struct{ *pulumi.OutputState }
-
-func (TemplateSpecialValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecialValue)(nil)).Elem()
-}
-
-func (o TemplateSpecialValueOutput) ToTemplateSpecialValueOutput() TemplateSpecialValueOutput {
-	return o
-}
-
-func (o TemplateSpecialValueOutput) ToTemplateSpecialValueOutputWithContext(ctx context.Context) TemplateSpecialValueOutput {
-	return o
-}
-
-func (o TemplateSpecialValueOutput) ToTemplateSpecialValuePtrOutput() TemplateSpecialValuePtrOutput {
-	return o.ToTemplateSpecialValuePtrOutputWithContext(context.Background())
-}
-
-func (o TemplateSpecialValueOutput) ToTemplateSpecialValuePtrOutputWithContext(ctx context.Context) TemplateSpecialValuePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSpecialValue) *TemplateSpecialValue {
-		return &v
-	}).(TemplateSpecialValuePtrOutput)
-}
-
-func (o TemplateSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o TemplateSpecialValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSpecialValue) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o TemplateSpecialValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateSpecialValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSpecialValue) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type TemplateSpecialValuePtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateSpecialValuePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateSpecialValue)(nil)).Elem()
-}
-
-func (o TemplateSpecialValuePtrOutput) ToTemplateSpecialValuePtrOutput() TemplateSpecialValuePtrOutput {
-	return o
-}
-
-func (o TemplateSpecialValuePtrOutput) ToTemplateSpecialValuePtrOutputWithContext(ctx context.Context) TemplateSpecialValuePtrOutput {
-	return o
-}
-
-func (o TemplateSpecialValuePtrOutput) Elem() TemplateSpecialValueOutput {
-	return o.ApplyT(func(v *TemplateSpecialValue) TemplateSpecialValue {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateSpecialValue
-		return ret
-	}).(TemplateSpecialValueOutput)
-}
-
-func (o TemplateSpecialValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateSpecialValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateSpecialValue) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// TemplateSpecialValueInput is an input type that accepts TemplateSpecialValueArgs and TemplateSpecialValueOutput values.
-// You can construct a concrete instance of `TemplateSpecialValueInput` via:
-//
-//	TemplateSpecialValueArgs{...}
-type TemplateSpecialValueInput interface {
-	pulumi.Input
-
-	ToTemplateSpecialValueOutput() TemplateSpecialValueOutput
-	ToTemplateSpecialValueOutputWithContext(context.Context) TemplateSpecialValueOutput
-}
-
-var templateSpecialValuePtrType = reflect.TypeOf((**TemplateSpecialValue)(nil)).Elem()
-
-type TemplateSpecialValuePtrInput interface {
-	pulumi.Input
-
-	ToTemplateSpecialValuePtrOutput() TemplateSpecialValuePtrOutput
-	ToTemplateSpecialValuePtrOutputWithContext(context.Context) TemplateSpecialValuePtrOutput
-}
-
-type templateSpecialValuePtr string
-
-func TemplateSpecialValuePtr(v string) TemplateSpecialValuePtrInput {
-	return (*templateSpecialValuePtr)(&v)
-}
-
-func (*templateSpecialValuePtr) ElementType() reflect.Type {
-	return templateSpecialValuePtrType
-}
-
-func (in *templateSpecialValuePtr) ToTemplateSpecialValuePtrOutput() TemplateSpecialValuePtrOutput {
-	return pulumi.ToOutput(in).(TemplateSpecialValuePtrOutput)
-}
-
-func (in *templateSpecialValuePtr) ToTemplateSpecialValuePtrOutputWithContext(ctx context.Context) TemplateSpecialValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TemplateSpecialValuePtrOutput)
 }
 
 type TemplateTableBorderStyle string
@@ -56353,12 +56848,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisParameterValueTypePtrInput)(nil)).Elem(), AnalysisParameterValueType("MULTI_VALUED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableConditionalFormattingScopeRoleInput)(nil)).Elem(), AnalysisPivotTableConditionalFormattingScopeRole("FIELD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableConditionalFormattingScopeRolePtrInput)(nil)).Elem(), AnalysisPivotTableConditionalFormattingScopeRole("FIELD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableFieldCollapseStateInput)(nil)).Elem(), AnalysisPivotTableFieldCollapseState("COLLAPSED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableFieldCollapseStatePtrInput)(nil)).Elem(), AnalysisPivotTableFieldCollapseState("COLLAPSED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableMetricPlacementInput)(nil)).Elem(), AnalysisPivotTableMetricPlacement("ROW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableMetricPlacementPtrInput)(nil)).Elem(), AnalysisPivotTableMetricPlacement("ROW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableSubtotalLevelInput)(nil)).Elem(), AnalysisPivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableSubtotalLevelPtrInput)(nil)).Elem(), AnalysisPivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPrimaryValueDisplayTypeInput)(nil)).Elem(), AnalysisPrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPrimaryValueDisplayTypePtrInput)(nil)).Elem(), AnalysisPrimaryValueDisplayType("HIDDEN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisRadarChartAxesRangeScaleInput)(nil)).Elem(), AnalysisRadarChartAxesRangeScale("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisRadarChartAxesRangeScalePtrInput)(nil)).Elem(), AnalysisRadarChartAxesRangeScale("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisRadarChartShapeInput)(nil)).Elem(), AnalysisRadarChartShape("CIRCLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisRadarChartShapePtrInput)(nil)).Elem(), AnalysisRadarChartShape("CIRCLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisReferenceLineLabelHorizontalPositionInput)(nil)).Elem(), AnalysisReferenceLineLabelHorizontalPosition("LEFT"))
@@ -56397,8 +56896,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleNumericalAggregationFunctionPtrInput)(nil)).Elem(), AnalysisSimpleNumericalAggregationFunction("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSortDirectionInput)(nil)).Elem(), AnalysisSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSortDirectionPtrInput)(nil)).Elem(), AnalysisSortDirection("ASC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpecialValueInput)(nil)).Elem(), AnalysisSpecialValue("EMPTY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpecialValuePtrInput)(nil)).Elem(), AnalysisSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableBorderStyleInput)(nil)).Elem(), AnalysisTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableBorderStylePtrInput)(nil)).Elem(), AnalysisTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellImageScalingConfigurationInput)(nil)).Elem(), AnalysisTableCellImageScalingConfiguration("FIT_TO_CELL_HEIGHT"))
@@ -56555,12 +57052,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardParameterValueTypePtrInput)(nil)).Elem(), DashboardParameterValueType("MULTI_VALUED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableConditionalFormattingScopeRoleInput)(nil)).Elem(), DashboardPivotTableConditionalFormattingScopeRole("FIELD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableConditionalFormattingScopeRolePtrInput)(nil)).Elem(), DashboardPivotTableConditionalFormattingScopeRole("FIELD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableFieldCollapseStateInput)(nil)).Elem(), DashboardPivotTableFieldCollapseState("COLLAPSED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableFieldCollapseStatePtrInput)(nil)).Elem(), DashboardPivotTableFieldCollapseState("COLLAPSED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableMetricPlacementInput)(nil)).Elem(), DashboardPivotTableMetricPlacement("ROW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableMetricPlacementPtrInput)(nil)).Elem(), DashboardPivotTableMetricPlacement("ROW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableSubtotalLevelInput)(nil)).Elem(), DashboardPivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableSubtotalLevelPtrInput)(nil)).Elem(), DashboardPivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPrimaryValueDisplayTypeInput)(nil)).Elem(), DashboardPrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPrimaryValueDisplayTypePtrInput)(nil)).Elem(), DashboardPrimaryValueDisplayType("HIDDEN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartAxesRangeScaleInput)(nil)).Elem(), DashboardRadarChartAxesRangeScale("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartAxesRangeScalePtrInput)(nil)).Elem(), DashboardRadarChartAxesRangeScale("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartShapeInput)(nil)).Elem(), DashboardRadarChartShape("CIRCLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartShapePtrInput)(nil)).Elem(), DashboardRadarChartShape("CIRCLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineLabelHorizontalPositionInput)(nil)).Elem(), DashboardReferenceLineLabelHorizontalPosition("LEFT"))
@@ -56597,8 +57098,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSimpleNumericalAggregationFunctionPtrInput)(nil)).Elem(), DashboardSimpleNumericalAggregationFunction("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSortDirectionInput)(nil)).Elem(), DashboardSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSortDirectionPtrInput)(nil)).Elem(), DashboardSortDirection("ASC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSpecialValueInput)(nil)).Elem(), DashboardSpecialValue("EMPTY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSpecialValuePtrInput)(nil)).Elem(), DashboardSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableBorderStyleInput)(nil)).Elem(), DashboardTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableBorderStylePtrInput)(nil)).Elem(), DashboardTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableCellImageScalingConfigurationInput)(nil)).Elem(), DashboardTableCellImageScalingConfiguration("FIT_TO_CELL_HEIGHT"))
@@ -56781,12 +57280,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterValueTypePtrInput)(nil)).Elem(), TemplateParameterValueType("MULTI_VALUED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableConditionalFormattingScopeRoleInput)(nil)).Elem(), TemplatePivotTableConditionalFormattingScopeRole("FIELD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableConditionalFormattingScopeRolePtrInput)(nil)).Elem(), TemplatePivotTableConditionalFormattingScopeRole("FIELD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableFieldCollapseStateInput)(nil)).Elem(), TemplatePivotTableFieldCollapseState("COLLAPSED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableFieldCollapseStatePtrInput)(nil)).Elem(), TemplatePivotTableFieldCollapseState("COLLAPSED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableMetricPlacementInput)(nil)).Elem(), TemplatePivotTableMetricPlacement("ROW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableMetricPlacementPtrInput)(nil)).Elem(), TemplatePivotTableMetricPlacement("ROW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableSubtotalLevelInput)(nil)).Elem(), TemplatePivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableSubtotalLevelPtrInput)(nil)).Elem(), TemplatePivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePrimaryValueDisplayTypeInput)(nil)).Elem(), TemplatePrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePrimaryValueDisplayTypePtrInput)(nil)).Elem(), TemplatePrimaryValueDisplayType("HIDDEN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateRadarChartAxesRangeScaleInput)(nil)).Elem(), TemplateRadarChartAxesRangeScale("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateRadarChartAxesRangeScalePtrInput)(nil)).Elem(), TemplateRadarChartAxesRangeScale("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateRadarChartShapeInput)(nil)).Elem(), TemplateRadarChartShape("CIRCLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateRadarChartShapePtrInput)(nil)).Elem(), TemplateRadarChartShape("CIRCLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateReferenceLineLabelHorizontalPositionInput)(nil)).Elem(), TemplateReferenceLineLabelHorizontalPosition("LEFT"))
@@ -56823,8 +57326,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSimpleNumericalAggregationFunctionPtrInput)(nil)).Elem(), TemplateSimpleNumericalAggregationFunction("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSortDirectionInput)(nil)).Elem(), TemplateSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSortDirectionPtrInput)(nil)).Elem(), TemplateSortDirection("ASC"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSpecialValueInput)(nil)).Elem(), TemplateSpecialValue("EMPTY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSpecialValuePtrInput)(nil)).Elem(), TemplateSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableBorderStyleInput)(nil)).Elem(), TemplateTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableBorderStylePtrInput)(nil)).Elem(), TemplateTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableCellImageScalingConfigurationInput)(nil)).Elem(), TemplateTableCellImageScalingConfiguration("FIT_TO_CELL_HEIGHT"))
@@ -57022,12 +57523,16 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisParameterValueTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableConditionalFormattingScopeRoleOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableConditionalFormattingScopeRolePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisPivotTableFieldCollapseStateOutput{})
+	pulumi.RegisterOutputType(AnalysisPivotTableFieldCollapseStatePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableMetricPlacementOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableMetricPlacementPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableSubtotalLevelOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableSubtotalLevelPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisPrimaryValueDisplayTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisPrimaryValueDisplayTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisRadarChartAxesRangeScaleOutput{})
+	pulumi.RegisterOutputType(AnalysisRadarChartAxesRangeScalePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisRadarChartShapeOutput{})
 	pulumi.RegisterOutputType(AnalysisRadarChartShapePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisReferenceLineLabelHorizontalPositionOutput{})
@@ -57066,8 +57571,6 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisSimpleNumericalAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSortDirectionOutput{})
 	pulumi.RegisterOutputType(AnalysisSortDirectionPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisSpecialValueOutput{})
-	pulumi.RegisterOutputType(AnalysisSpecialValuePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableBorderStyleOutput{})
 	pulumi.RegisterOutputType(AnalysisTableBorderStylePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableCellImageScalingConfigurationOutput{})
@@ -57226,12 +57729,16 @@ func init() {
 	pulumi.RegisterOutputType(DashboardParameterValueTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableConditionalFormattingScopeRoleOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableConditionalFormattingScopeRolePtrOutput{})
+	pulumi.RegisterOutputType(DashboardPivotTableFieldCollapseStateOutput{})
+	pulumi.RegisterOutputType(DashboardPivotTableFieldCollapseStatePtrOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableMetricPlacementOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableMetricPlacementPtrOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableSubtotalLevelOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableSubtotalLevelPtrOutput{})
 	pulumi.RegisterOutputType(DashboardPrimaryValueDisplayTypeOutput{})
 	pulumi.RegisterOutputType(DashboardPrimaryValueDisplayTypePtrOutput{})
+	pulumi.RegisterOutputType(DashboardRadarChartAxesRangeScaleOutput{})
+	pulumi.RegisterOutputType(DashboardRadarChartAxesRangeScalePtrOutput{})
 	pulumi.RegisterOutputType(DashboardRadarChartShapeOutput{})
 	pulumi.RegisterOutputType(DashboardRadarChartShapePtrOutput{})
 	pulumi.RegisterOutputType(DashboardReferenceLineLabelHorizontalPositionOutput{})
@@ -57270,8 +57777,6 @@ func init() {
 	pulumi.RegisterOutputType(DashboardSimpleNumericalAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSortDirectionOutput{})
 	pulumi.RegisterOutputType(DashboardSortDirectionPtrOutput{})
-	pulumi.RegisterOutputType(DashboardSpecialValueOutput{})
-	pulumi.RegisterOutputType(DashboardSpecialValuePtrOutput{})
 	pulumi.RegisterOutputType(DashboardTableBorderStyleOutput{})
 	pulumi.RegisterOutputType(DashboardTableBorderStylePtrOutput{})
 	pulumi.RegisterOutputType(DashboardTableCellImageScalingConfigurationOutput{})
@@ -57460,12 +57965,16 @@ func init() {
 	pulumi.RegisterOutputType(TemplateParameterValueTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplatePivotTableConditionalFormattingScopeRoleOutput{})
 	pulumi.RegisterOutputType(TemplatePivotTableConditionalFormattingScopeRolePtrOutput{})
+	pulumi.RegisterOutputType(TemplatePivotTableFieldCollapseStateOutput{})
+	pulumi.RegisterOutputType(TemplatePivotTableFieldCollapseStatePtrOutput{})
 	pulumi.RegisterOutputType(TemplatePivotTableMetricPlacementOutput{})
 	pulumi.RegisterOutputType(TemplatePivotTableMetricPlacementPtrOutput{})
 	pulumi.RegisterOutputType(TemplatePivotTableSubtotalLevelOutput{})
 	pulumi.RegisterOutputType(TemplatePivotTableSubtotalLevelPtrOutput{})
 	pulumi.RegisterOutputType(TemplatePrimaryValueDisplayTypeOutput{})
 	pulumi.RegisterOutputType(TemplatePrimaryValueDisplayTypePtrOutput{})
+	pulumi.RegisterOutputType(TemplateRadarChartAxesRangeScaleOutput{})
+	pulumi.RegisterOutputType(TemplateRadarChartAxesRangeScalePtrOutput{})
 	pulumi.RegisterOutputType(TemplateRadarChartShapeOutput{})
 	pulumi.RegisterOutputType(TemplateRadarChartShapePtrOutput{})
 	pulumi.RegisterOutputType(TemplateReferenceLineLabelHorizontalPositionOutput{})
@@ -57504,8 +58013,6 @@ func init() {
 	pulumi.RegisterOutputType(TemplateSimpleNumericalAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSortDirectionOutput{})
 	pulumi.RegisterOutputType(TemplateSortDirectionPtrOutput{})
-	pulumi.RegisterOutputType(TemplateSpecialValueOutput{})
-	pulumi.RegisterOutputType(TemplateSpecialValuePtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableBorderStyleOutput{})
 	pulumi.RegisterOutputType(TemplateTableBorderStylePtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableCellImageScalingConfigurationOutput{})

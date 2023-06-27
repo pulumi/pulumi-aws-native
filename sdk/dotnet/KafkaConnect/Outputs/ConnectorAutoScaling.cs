@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
 {
 
     /// <summary>
-    /// Details about auto scaling of a connector. 
+    /// Details about auto scaling of a connector.
     /// </summary>
     [OutputType]
     public sealed class ConnectorAutoScaling

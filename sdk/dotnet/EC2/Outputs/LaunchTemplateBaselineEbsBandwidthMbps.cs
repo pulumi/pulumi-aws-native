@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateBaselineEbsBandwidthMbps
     {
+        /// <summary>
+        /// The maximum baseline bandwidth, in Mbps.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum baseline bandwidth, in Mbps.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

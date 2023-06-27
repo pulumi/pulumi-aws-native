@@ -132,6 +132,7 @@ import * as supportapp from "./supportapp";
 import * as systemsmanagersap from "./systemsmanagersap";
 import * as timestream from "./timestream";
 import * as transfer from "./transfer";
+import * as verifiedpermissions from "./verifiedpermissions";
 import * as vpclattice from "./vpclattice";
 import * as wafv2 from "./wafv2";
 import * as wisdom from "./wisdom";
@@ -268,6 +269,7 @@ export {
     systemsmanagersap,
     timestream,
     transfer,
+    verifiedpermissions,
     vpclattice,
     wafv2,
     wisdom,

@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// Specifies a secondary private IPv4 address for a network interface.
+    /// </summary>
     public sealed class LaunchTemplatePrivateIpAddArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
+        /// <summary>
+        /// The private IPv4 address.
+        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 

@@ -28,6 +28,7 @@ type LookupWebACLArgs struct {
 
 type LookupWebACLResult struct {
 	Arn                  *string                     `pulumi:"arn"`
+	AssociationConfig    *WebACLAssociationConfig    `pulumi:"associationConfig"`
 	Capacity             *int                        `pulumi:"capacity"`
 	CaptchaConfig        *WebACLCaptchaConfig        `pulumi:"captchaConfig"`
 	ChallengeConfig      *WebACLChallengeConfig      `pulumi:"challengeConfig"`
@@ -82,6 +83,10 @@ func (o LookupWebACLResultOutput) ToLookupWebACLResultOutputWithContext(ctx cont
 
 func (o LookupWebACLResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWebACLResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupWebACLResultOutput) AssociationConfig() WebACLAssociationConfigPtrOutput {
+	return o.ApplyT(func(v LookupWebACLResult) *WebACLAssociationConfig { return v.AssociationConfig }).(WebACLAssociationConfigPtrOutput)
 }
 
 func (o LookupWebACLResultOutput) Capacity() pulumi.IntPtrOutput {

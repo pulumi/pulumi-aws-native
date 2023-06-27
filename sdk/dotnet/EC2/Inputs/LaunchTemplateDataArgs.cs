@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// The information for the launch template.
+    /// </summary>
     public sealed class LaunchTemplateDataArgs : global::Pulumi.ResourceArgs
     {
         [Input("blockDeviceMappings")]
         private InputList<Inputs.LaunchTemplateBlockDeviceMappingArgs>? _blockDeviceMappings;
+
+        /// <summary>
+        /// The block device mapping.
+        /// </summary>
         public InputList<Inputs.LaunchTemplateBlockDeviceMappingArgs> BlockDeviceMappings
         {
             get => _blockDeviceMappings ?? (_blockDeviceMappings = new InputList<Inputs.LaunchTemplateBlockDeviceMappingArgs>());
@@ -29,17 +36,30 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("creditSpecification")]
         public Input<Inputs.LaunchTemplateCreditSpecificationArgs>? CreditSpecification { get; set; }
 
+        /// <summary>
+        /// Indicates whether to enable the instance for stop protection.
+        /// </summary>
         [Input("disableApiStop")]
         public Input<bool>? DisableApiStop { get; set; }
 
+        /// <summary>
+        /// If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API.
+        /// </summary>
         [Input("disableApiTermination")]
         public Input<bool>? DisableApiTermination { get; set; }
 
+        /// <summary>
+        /// Indicates whether the instance is optimized for Amazon EBS I/O.
+        /// </summary>
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
 
         [Input("elasticGpuSpecifications")]
         private InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs>? _elasticGpuSpecifications;
+
+        /// <summary>
+        /// An elastic GPU to associate with the instance.
+        /// </summary>
         public InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs> ElasticGpuSpecifications
         {
             get => _elasticGpuSpecifications ?? (_elasticGpuSpecifications = new InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs>());
@@ -48,6 +68,10 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
         [Input("elasticInferenceAccelerators")]
         private InputList<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs>? _elasticInferenceAccelerators;
+
+        /// <summary>
+        /// The elastic inference accelerator for the instance.
+        /// </summary>
         public InputList<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs> ElasticInferenceAccelerators
         {
             get => _elasticInferenceAccelerators ?? (_elasticInferenceAccelerators = new InputList<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs>());
@@ -63,9 +87,15 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("iamInstanceProfile")]
         public Input<Inputs.LaunchTemplateIamInstanceProfileArgs>? IamInstanceProfile { get; set; }
 
+        /// <summary>
+        /// The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
+        /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
 
+        /// <summary>
+        /// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+        /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
 
@@ -78,14 +108,24 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        /// <summary>
+        /// The ID of the kernel.
+        /// </summary>
         [Input("kernelId")]
         public Input<string>? KernelId { get; set; }
 
+        /// <summary>
+        /// The name of the EC2 key pair
+        /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
         [Input("licenseSpecifications")]
         private InputList<Inputs.LaunchTemplateLicenseSpecificationArgs>? _licenseSpecifications;
+
+        /// <summary>
+        /// The license configurations.
+        /// </summary>
         public InputList<Inputs.LaunchTemplateLicenseSpecificationArgs> LicenseSpecifications
         {
             get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.LaunchTemplateLicenseSpecificationArgs>());
@@ -103,6 +143,10 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
         [Input("networkInterfaces")]
         private InputList<Inputs.LaunchTemplateNetworkInterfaceArgs>? _networkInterfaces;
+
+        /// <summary>
+        /// If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+        /// </summary>
         public InputList<Inputs.LaunchTemplateNetworkInterfaceArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.LaunchTemplateNetworkInterfaceArgs>());
@@ -120,6 +164,10 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// One or more security group IDs. 
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -128,6 +176,10 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// One or more security group names.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -136,12 +188,19 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
         [Input("tagSpecifications")]
         private InputList<Inputs.LaunchTemplateTagSpecificationArgs>? _tagSpecifications;
+
+        /// <summary>
+        /// The tags to apply to the resources that are created during instance launch.
+        /// </summary>
         public InputList<Inputs.LaunchTemplateTagSpecificationArgs> TagSpecifications
         {
             get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.LaunchTemplateTagSpecificationArgs>());
             set => _tagSpecifications = value;
         }
 
+        /// <summary>
+        /// The user data to make available to the instance.
+        /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
 

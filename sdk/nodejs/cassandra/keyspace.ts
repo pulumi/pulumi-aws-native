@@ -41,6 +41,7 @@ export class Keyspace extends pulumi.CustomResource {
      * Name for Cassandra keyspace
      */
     public readonly keyspaceName!: pulumi.Output<string | undefined>;
+    public readonly replicationSpecification!: pulumi.Output<outputs.cassandra.KeyspaceReplicationSpecification | undefined>;
     public readonly tags!: pulumi.Output<outputs.cassandra.KeyspaceTag[] | undefined>;
 
     /**
@@ -55,9 +56,11 @@ export class Keyspace extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
+            resourceInputs["replicationSpecification"] = args ? args.replicationSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["keyspaceName"] = undefined /*out*/;
+            resourceInputs["replicationSpecification"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -73,5 +76,6 @@ export interface KeyspaceArgs {
      * Name for Cassandra keyspace
      */
     keyspaceName?: pulumi.Input<string>;
+    replicationSpecification?: pulumi.Input<inputs.cassandra.KeyspaceReplicationSpecificationArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.cassandra.KeyspaceTagArgs>[]>;
 }

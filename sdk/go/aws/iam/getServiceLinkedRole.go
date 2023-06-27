@@ -21,12 +21,15 @@ func LookupServiceLinkedRole(ctx *pulumi.Context, args *LookupServiceLinkedRoleA
 }
 
 type LookupServiceLinkedRoleArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the role.
+	RoleName string `pulumi:"roleName"`
 }
 
 type LookupServiceLinkedRoleResult struct {
+	// The description of the role.
 	Description *string `pulumi:"description"`
-	Id          *string `pulumi:"id"`
+	// The name of the role.
+	RoleName *string `pulumi:"roleName"`
 }
 
 func LookupServiceLinkedRoleOutput(ctx *pulumi.Context, args LookupServiceLinkedRoleOutputArgs, opts ...pulumi.InvokeOption) LookupServiceLinkedRoleResultOutput {
@@ -43,7 +46,8 @@ func LookupServiceLinkedRoleOutput(ctx *pulumi.Context, args LookupServiceLinked
 }
 
 type LookupServiceLinkedRoleOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the role.
+	RoleName pulumi.StringInput `pulumi:"roleName"`
 }
 
 func (LookupServiceLinkedRoleOutputArgs) ElementType() reflect.Type {
@@ -64,12 +68,14 @@ func (o LookupServiceLinkedRoleResultOutput) ToLookupServiceLinkedRoleResultOutp
 	return o
 }
 
+// The description of the role.
 func (o LookupServiceLinkedRoleResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceLinkedRoleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupServiceLinkedRoleResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupServiceLinkedRoleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// The name of the role.
+func (o LookupServiceLinkedRoleResultOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceLinkedRoleResult) *string { return v.RoleName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

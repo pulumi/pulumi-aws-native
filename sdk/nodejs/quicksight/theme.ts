@@ -37,50 +37,18 @@ export class Theme extends pulumi.CustomResource {
         return obj['__pulumiType'] === Theme.__pulumiType;
     }
 
-    /**
-     * <p>The Amazon Resource Name (ARN) of the theme.</p>
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly awsAccountId!: pulumi.Output<string>;
-    /**
-     * <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
-     * 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
-     * 				<code>ListThemes</code> or choose <b>Themes</b> from
-     * 			within a QuickSight analysis. </p>
-     */
-    public readonly baseThemeId!: pulumi.Output<string | undefined>;
-    public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeConfiguration | undefined>;
-    /**
-     * <p>The date and time that the theme was created.</p>
-     */
+    public readonly baseThemeId!: pulumi.Output<string>;
+    public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeConfiguration>;
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * <p>The date and time that the theme was last updated.</p>
-     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
-    /**
-     * <p>A display name for the theme.</p>
-     */
-    public readonly name!: pulumi.Output<string | undefined>;
-    /**
-     * <p>A valid grouping of resource permissions to apply to the new theme.
-     * 			</p>
-     */
+    public readonly name!: pulumi.Output<string>;
     public readonly permissions!: pulumi.Output<outputs.quicksight.ThemeResourcePermission[] | undefined>;
-    /**
-     * <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-     * 			resource.</p>
-     */
     public readonly tags!: pulumi.Output<outputs.quicksight.ThemeTag[] | undefined>;
     public readonly themeId!: pulumi.Output<string>;
     public /*out*/ readonly type!: pulumi.Output<enums.quicksight.ThemeType>;
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.ThemeVersion>;
-    /**
-     * <p>A description of the first version of the theme that you're creating. Every time
-     * 				<code>UpdateTheme</code> is called, a new version is created. Each version of the
-     * 			theme has a description of the version in the <code>VersionDescription</code>
-     * 			field.</p>
-     */
     public readonly versionDescription!: pulumi.Output<string | undefined>;
 
     /**
@@ -96,6 +64,12 @@ export class Theme extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.awsAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
+            }
+            if ((!args || args.baseThemeId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'baseThemeId'");
+            }
+            if ((!args || args.configuration === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'configuration'");
             }
             if ((!args || args.themeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'themeId'");
@@ -138,34 +112,11 @@ export class Theme extends pulumi.CustomResource {
  */
 export interface ThemeArgs {
     awsAccountId: pulumi.Input<string>;
-    /**
-     * <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
-     * 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
-     * 				<code>ListThemes</code> or choose <b>Themes</b> from
-     * 			within a QuickSight analysis. </p>
-     */
-    baseThemeId?: pulumi.Input<string>;
-    configuration?: pulumi.Input<inputs.quicksight.ThemeConfigurationArgs>;
-    /**
-     * <p>A display name for the theme.</p>
-     */
+    baseThemeId: pulumi.Input<string>;
+    configuration: pulumi.Input<inputs.quicksight.ThemeConfigurationArgs>;
     name?: pulumi.Input<string>;
-    /**
-     * <p>A valid grouping of resource permissions to apply to the new theme.
-     * 			</p>
-     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeResourcePermissionArgs>[]>;
-    /**
-     * <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-     * 			resource.</p>
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeTagArgs>[]>;
     themeId: pulumi.Input<string>;
-    /**
-     * <p>A description of the first version of the theme that you're creating. Every time
-     * 				<code>UpdateTheme</code> is called, a new version is created. Each version of the
-     * 			theme has a description of the version in the <code>VersionDescription</code>
-     * 			field.</p>
-     */
     versionDescription?: pulumi.Input<string>;
 }

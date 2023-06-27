@@ -34,6 +34,8 @@ type LookupFlowSourceResult struct {
 	EntitlementArn *string `pulumi:"entitlementArn"`
 	// The ARN of the flow.
 	FlowArn *string `pulumi:"flowArn"`
+	// The source configuration for cloud flows receiving a stream from a bridge.
+	GatewayBridgeSource *FlowSourceGatewayBridgeSource `pulumi:"gatewayBridgeSource"`
 	// The IP address that the flow will be listening on for incoming content.
 	IngestIp *string `pulumi:"ingestIp"`
 	// The port that the flow will be listening on for incoming content.
@@ -120,6 +122,11 @@ func (o LookupFlowSourceResultOutput) EntitlementArn() pulumi.StringPtrOutput {
 // The ARN of the flow.
 func (o LookupFlowSourceResultOutput) FlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowSourceResult) *string { return v.FlowArn }).(pulumi.StringPtrOutput)
+}
+
+// The source configuration for cloud flows receiving a stream from a bridge.
+func (o LookupFlowSourceResultOutput) GatewayBridgeSource() FlowSourceGatewayBridgeSourcePtrOutput {
+	return o.ApplyT(func(v LookupFlowSourceResult) *FlowSourceGatewayBridgeSource { return v.GatewayBridgeSource }).(FlowSourceGatewayBridgeSourcePtrOutput)
 }
 
 // The IP address that the flow will be listening on for incoming content.

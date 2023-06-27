@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies an elastic inference accelerator.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateElasticInferenceAccelerator
     {
+        /// <summary>
+        /// The number of elastic inference accelerators to attach to the instance.
+        /// </summary>
         public readonly int? Count;
+        /// <summary>
+        /// The type of elastic inference accelerator.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

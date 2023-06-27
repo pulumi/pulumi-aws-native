@@ -59,7 +59,6 @@ __all__ = [
     'AnalysisClusterMarker',
     'AnalysisClusterMarkerConfiguration',
     'AnalysisColorScale',
-    'AnalysisColorsConfiguration',
     'AnalysisColumnConfiguration',
     'AnalysisColumnHierarchy',
     'AnalysisColumnIdentifier',
@@ -87,7 +86,6 @@ __all__ = [
     'AnalysisCustomActionNavigationOperation',
     'AnalysisCustomActionSetParametersOperation',
     'AnalysisCustomActionURLOperation',
-    'AnalysisCustomColor',
     'AnalysisCustomContentConfiguration',
     'AnalysisCustomContentVisual',
     'AnalysisCustomFilterConfiguration',
@@ -199,6 +197,9 @@ __all__ = [
     'AnalysisGaugeChartPrimaryValueConditionalFormatting',
     'AnalysisGaugeChartVisual',
     'AnalysisGeospatialCoordinateBounds',
+    'AnalysisGeospatialHeatmapColorScale',
+    'AnalysisGeospatialHeatmapConfiguration',
+    'AnalysisGeospatialHeatmapDataColor',
     'AnalysisGeospatialMapAggregatedFieldWells',
     'AnalysisGeospatialMapConfiguration',
     'AnalysisGeospatialMapFieldWells',
@@ -313,6 +314,8 @@ __all__ = [
     'AnalysisPivotTableConditionalFormattingScope',
     'AnalysisPivotTableConfiguration',
     'AnalysisPivotTableDataPathOption',
+    'AnalysisPivotTableFieldCollapseStateOption',
+    'AnalysisPivotTableFieldCollapseStateTarget',
     'AnalysisPivotTableFieldOption',
     'AnalysisPivotTableFieldOptions',
     'AnalysisPivotTableFieldSubtotalOptions',
@@ -513,7 +516,6 @@ __all__ = [
     'DashboardClusterMarker',
     'DashboardClusterMarkerConfiguration',
     'DashboardColorScale',
-    'DashboardColorsConfiguration',
     'DashboardColumnConfiguration',
     'DashboardColumnHierarchy',
     'DashboardColumnIdentifier',
@@ -541,7 +543,6 @@ __all__ = [
     'DashboardCustomActionNavigationOperation',
     'DashboardCustomActionSetParametersOperation',
     'DashboardCustomActionURLOperation',
-    'DashboardCustomColor',
     'DashboardCustomContentConfiguration',
     'DashboardCustomContentVisual',
     'DashboardCustomFilterConfiguration',
@@ -657,6 +658,9 @@ __all__ = [
     'DashboardGaugeChartPrimaryValueConditionalFormatting',
     'DashboardGaugeChartVisual',
     'DashboardGeospatialCoordinateBounds',
+    'DashboardGeospatialHeatmapColorScale',
+    'DashboardGeospatialHeatmapConfiguration',
+    'DashboardGeospatialHeatmapDataColor',
     'DashboardGeospatialMapAggregatedFieldWells',
     'DashboardGeospatialMapConfiguration',
     'DashboardGeospatialMapFieldWells',
@@ -771,6 +775,8 @@ __all__ = [
     'DashboardPivotTableConditionalFormattingScope',
     'DashboardPivotTableConfiguration',
     'DashboardPivotTableDataPathOption',
+    'DashboardPivotTableFieldCollapseStateOption',
+    'DashboardPivotTableFieldCollapseStateTarget',
     'DashboardPivotTableFieldOption',
     'DashboardPivotTableFieldOptions',
     'DashboardPivotTableFieldSubtotalOptions',
@@ -1035,7 +1041,6 @@ __all__ = [
     'TemplateClusterMarker',
     'TemplateClusterMarkerConfiguration',
     'TemplateColorScale',
-    'TemplateColorsConfiguration',
     'TemplateColumnConfiguration',
     'TemplateColumnGroupColumnSchema',
     'TemplateColumnGroupSchema',
@@ -1066,7 +1071,6 @@ __all__ = [
     'TemplateCustomActionNavigationOperation',
     'TemplateCustomActionSetParametersOperation',
     'TemplateCustomActionURLOperation',
-    'TemplateCustomColor',
     'TemplateCustomContentConfiguration',
     'TemplateCustomContentVisual',
     'TemplateCustomFilterConfiguration',
@@ -1175,6 +1179,9 @@ __all__ = [
     'TemplateGaugeChartPrimaryValueConditionalFormatting',
     'TemplateGaugeChartVisual',
     'TemplateGeospatialCoordinateBounds',
+    'TemplateGeospatialHeatmapColorScale',
+    'TemplateGeospatialHeatmapConfiguration',
+    'TemplateGeospatialHeatmapDataColor',
     'TemplateGeospatialMapAggregatedFieldWells',
     'TemplateGeospatialMapConfiguration',
     'TemplateGeospatialMapFieldWells',
@@ -1287,6 +1294,8 @@ __all__ = [
     'TemplatePivotTableConditionalFormattingScope',
     'TemplatePivotTableConfiguration',
     'TemplatePivotTableDataPathOption',
+    'TemplatePivotTableFieldCollapseStateOption',
+    'TemplatePivotTableFieldCollapseStateTarget',
     'TemplatePivotTableFieldOption',
     'TemplatePivotTableFieldOptions',
     'TemplatePivotTableFieldSubtotalOptions',
@@ -1541,10 +1550,10 @@ class AnalysisAggregationSortConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aggregationFunction":
-            suggest = "aggregation_function"
-        elif key == "sortDirection":
+        if key == "sortDirection":
             suggest = "sort_direction"
+        elif key == "aggregationFunction":
+            suggest = "aggregation_function"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisAggregationSortConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1558,17 +1567,13 @@ class AnalysisAggregationSortConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aggregation_function: 'outputs.AnalysisAggregationFunction',
                  column: 'outputs.AnalysisColumnIdentifier',
-                 sort_direction: 'AnalysisSortDirection'):
-        pulumi.set(__self__, "aggregation_function", aggregation_function)
+                 sort_direction: 'AnalysisSortDirection',
+                 aggregation_function: Optional['outputs.AnalysisAggregationFunction'] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "sort_direction", sort_direction)
-
-    @property
-    @pulumi.getter(name="aggregationFunction")
-    def aggregation_function(self) -> 'outputs.AnalysisAggregationFunction':
-        return pulumi.get(self, "aggregation_function")
+        if aggregation_function is not None:
+            pulumi.set(__self__, "aggregation_function", aggregation_function)
 
     @property
     @pulumi.getter
@@ -1579,6 +1584,11 @@ class AnalysisAggregationSortConfiguration(dict):
     @pulumi.getter(name="sortDirection")
     def sort_direction(self) -> 'AnalysisSortDirection':
         return pulumi.get(self, "sort_direction")
+
+    @property
+    @pulumi.getter(name="aggregationFunction")
+    def aggregation_function(self) -> Optional['outputs.AnalysisAggregationFunction']:
+        return pulumi.get(self, "aggregation_function")
 
 
 @pulumi.output_type
@@ -3604,43 +3614,11 @@ class AnalysisColorScale(dict):
 
 
 @pulumi.output_type
-class AnalysisColorsConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customColors":
-            suggest = "custom_colors"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AnalysisColorsConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AnalysisColorsConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AnalysisColorsConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 custom_colors: Optional[Sequence['outputs.AnalysisCustomColor']] = None):
-        if custom_colors is not None:
-            pulumi.set(__self__, "custom_colors", custom_colors)
-
-    @property
-    @pulumi.getter(name="customColors")
-    def custom_colors(self) -> Optional[Sequence['outputs.AnalysisCustomColor']]:
-        return pulumi.get(self, "custom_colors")
-
-
-@pulumi.output_type
 class AnalysisColumnConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "colorsConfiguration":
-            suggest = "colors_configuration"
-        elif key == "formatConfiguration":
+        if key == "formatConfiguration":
             suggest = "format_configuration"
 
         if suggest:
@@ -3656,12 +3634,9 @@ class AnalysisColumnConfiguration(dict):
 
     def __init__(__self__, *,
                  column: 'outputs.AnalysisColumnIdentifier',
-                 colors_configuration: Optional['outputs.AnalysisColorsConfiguration'] = None,
                  format_configuration: Optional['outputs.AnalysisFormatConfiguration'] = None,
                  role: Optional['AnalysisColumnRole'] = None):
         pulumi.set(__self__, "column", column)
-        if colors_configuration is not None:
-            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -3671,11 +3646,6 @@ class AnalysisColumnConfiguration(dict):
     @pulumi.getter
     def column(self) -> 'outputs.AnalysisColumnIdentifier':
         return pulumi.get(self, "column")
-
-    @property
-    @pulumi.getter(name="colorsConfiguration")
-    def colors_configuration(self) -> Optional['outputs.AnalysisColorsConfiguration']:
-        return pulumi.get(self, "colors_configuration")
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -4978,53 +4948,6 @@ class AnalysisCustomActionURLOperation(dict):
 
 
 @pulumi.output_type
-class AnalysisCustomColor(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "fieldValue":
-            suggest = "field_value"
-        elif key == "specialValue":
-            suggest = "special_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AnalysisCustomColor. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AnalysisCustomColor.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AnalysisCustomColor.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 color: str,
-                 field_value: Optional[str] = None,
-                 special_value: Optional['AnalysisSpecialValue'] = None):
-        pulumi.set(__self__, "color", color)
-        if field_value is not None:
-            pulumi.set(__self__, "field_value", field_value)
-        if special_value is not None:
-            pulumi.set(__self__, "special_value", special_value)
-
-    @property
-    @pulumi.getter
-    def color(self) -> str:
-        return pulumi.get(self, "color")
-
-    @property
-    @pulumi.getter(name="fieldValue")
-    def field_value(self) -> Optional[str]:
-        return pulumi.get(self, "field_value")
-
-    @property
-    @pulumi.getter(name="specialValue")
-    def special_value(self) -> Optional['AnalysisSpecialValue']:
-        return pulumi.get(self, "special_value")
-
-
-@pulumi.output_type
 class AnalysisCustomContentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5543,6 +5466,8 @@ class AnalysisDataLabelOptions(dict):
             suggest = "label_font_configuration"
         elif key == "measureLabelVisibility":
             suggest = "measure_label_visibility"
+        elif key == "totalsVisibility":
+            suggest = "totals_visibility"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisDataLabelOptions. Access the value via the '{suggest}' property getter instead.")
@@ -5564,6 +5489,7 @@ class AnalysisDataLabelOptions(dict):
                  measure_label_visibility: Optional['AnalysisVisibility'] = None,
                  overlap: Optional['AnalysisDataLabelOverlap'] = None,
                  position: Optional['AnalysisDataLabelPosition'] = None,
+                 totals_visibility: Optional['AnalysisVisibility'] = None,
                  visibility: Optional['AnalysisVisibility'] = None):
         if category_label_visibility is not None:
             pulumi.set(__self__, "category_label_visibility", category_label_visibility)
@@ -5581,6 +5507,8 @@ class AnalysisDataLabelOptions(dict):
             pulumi.set(__self__, "overlap", overlap)
         if position is not None:
             pulumi.set(__self__, "position", position)
+        if totals_visibility is not None:
+            pulumi.set(__self__, "totals_visibility", totals_visibility)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
 
@@ -5623,6 +5551,11 @@ class AnalysisDataLabelOptions(dict):
     @pulumi.getter
     def position(self) -> Optional['AnalysisDataLabelPosition']:
         return pulumi.get(self, "position")
+
+    @property
+    @pulumi.getter(name="totalsVisibility")
+    def totals_visibility(self) -> Optional['AnalysisVisibility']:
+        return pulumi.get(self, "totals_visibility")
 
     @property
     @pulumi.getter
@@ -6921,6 +6854,8 @@ class AnalysisDestinationParameterValueConfiguration(dict):
             suggest = "custom_values_configuration"
         elif key == "selectAllValueOptions":
             suggest = "select_all_value_options"
+        elif key == "sourceColumn":
+            suggest = "source_column"
         elif key == "sourceField":
             suggest = "source_field"
         elif key == "sourceParameterName":
@@ -6940,12 +6875,15 @@ class AnalysisDestinationParameterValueConfiguration(dict):
     def __init__(__self__, *,
                  custom_values_configuration: Optional['outputs.AnalysisCustomValuesConfiguration'] = None,
                  select_all_value_options: Optional['AnalysisSelectAllValueOptions'] = None,
+                 source_column: Optional['outputs.AnalysisColumnIdentifier'] = None,
                  source_field: Optional[str] = None,
                  source_parameter_name: Optional[str] = None):
         if custom_values_configuration is not None:
             pulumi.set(__self__, "custom_values_configuration", custom_values_configuration)
         if select_all_value_options is not None:
             pulumi.set(__self__, "select_all_value_options", select_all_value_options)
+        if source_column is not None:
+            pulumi.set(__self__, "source_column", source_column)
         if source_field is not None:
             pulumi.set(__self__, "source_field", source_field)
         if source_parameter_name is not None:
@@ -6960,6 +6898,11 @@ class AnalysisDestinationParameterValueConfiguration(dict):
     @pulumi.getter(name="selectAllValueOptions")
     def select_all_value_options(self) -> Optional['AnalysisSelectAllValueOptions']:
         return pulumi.get(self, "select_all_value_options")
+
+    @property
+    @pulumi.getter(name="sourceColumn")
+    def source_column(self) -> Optional['outputs.AnalysisColumnIdentifier']:
+        return pulumi.get(self, "source_column")
 
     @property
     @pulumi.getter(name="sourceField")
@@ -8501,7 +8444,9 @@ class AnalysisFilterOperationSelectedFieldsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "selectedFieldOptions":
+        if key == "selectedColumns":
+            suggest = "selected_columns"
+        elif key == "selectedFieldOptions":
             suggest = "selected_field_options"
         elif key == "selectedFields":
             suggest = "selected_fields"
@@ -8518,12 +8463,20 @@ class AnalysisFilterOperationSelectedFieldsConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 selected_columns: Optional[Sequence['outputs.AnalysisColumnIdentifier']] = None,
                  selected_field_options: Optional['AnalysisSelectedFieldOptions'] = None,
                  selected_fields: Optional[Sequence[str]] = None):
+        if selected_columns is not None:
+            pulumi.set(__self__, "selected_columns", selected_columns)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
         if selected_fields is not None:
             pulumi.set(__self__, "selected_fields", selected_fields)
+
+    @property
+    @pulumi.getter(name="selectedColumns")
+    def selected_columns(self) -> Optional[Sequence['outputs.AnalysisColumnIdentifier']]:
+        return pulumi.get(self, "selected_columns")
 
     @property
     @pulumi.getter(name="selectedFieldOptions")
@@ -10273,6 +10226,61 @@ class AnalysisGeospatialCoordinateBounds(dict):
 
 
 @pulumi.output_type
+class AnalysisGeospatialHeatmapColorScale(dict):
+    def __init__(__self__, *,
+                 colors: Optional[Sequence['outputs.AnalysisGeospatialHeatmapDataColor']] = None):
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+
+    @property
+    @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.AnalysisGeospatialHeatmapDataColor']]:
+        return pulumi.get(self, "colors")
+
+
+@pulumi.output_type
+class AnalysisGeospatialHeatmapConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "heatmapColor":
+            suggest = "heatmap_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisGeospatialHeatmapConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisGeospatialHeatmapConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisGeospatialHeatmapConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 heatmap_color: Optional['outputs.AnalysisGeospatialHeatmapColorScale'] = None):
+        if heatmap_color is not None:
+            pulumi.set(__self__, "heatmap_color", heatmap_color)
+
+    @property
+    @pulumi.getter(name="heatmapColor")
+    def heatmap_color(self) -> Optional['outputs.AnalysisGeospatialHeatmapColorScale']:
+        return pulumi.get(self, "heatmap_color")
+
+
+@pulumi.output_type
+class AnalysisGeospatialHeatmapDataColor(dict):
+    def __init__(__self__, *,
+                 color: str):
+        pulumi.set(__self__, "color", color)
+
+    @property
+    @pulumi.getter
+    def color(self) -> str:
+        return pulumi.get(self, "color")
+
+
+@pulumi.output_type
 class AnalysisGeospatialMapAggregatedFieldWells(dict):
     def __init__(__self__, *,
                  colors: Optional[Sequence['outputs.AnalysisDimensionField']] = None,
@@ -10527,6 +10535,8 @@ class AnalysisGeospatialPointStyleOptions(dict):
         suggest = None
         if key == "clusterMarkerConfiguration":
             suggest = "cluster_marker_configuration"
+        elif key == "heatmapConfiguration":
+            suggest = "heatmap_configuration"
         elif key == "selectedPointStyle":
             suggest = "selected_point_style"
 
@@ -10543,9 +10553,12 @@ class AnalysisGeospatialPointStyleOptions(dict):
 
     def __init__(__self__, *,
                  cluster_marker_configuration: Optional['outputs.AnalysisClusterMarkerConfiguration'] = None,
+                 heatmap_configuration: Optional['outputs.AnalysisGeospatialHeatmapConfiguration'] = None,
                  selected_point_style: Optional['AnalysisGeospatialSelectedPointStyle'] = None):
         if cluster_marker_configuration is not None:
             pulumi.set(__self__, "cluster_marker_configuration", cluster_marker_configuration)
+        if heatmap_configuration is not None:
+            pulumi.set(__self__, "heatmap_configuration", heatmap_configuration)
         if selected_point_style is not None:
             pulumi.set(__self__, "selected_point_style", selected_point_style)
 
@@ -10553,6 +10566,11 @@ class AnalysisGeospatialPointStyleOptions(dict):
     @pulumi.getter(name="clusterMarkerConfiguration")
     def cluster_marker_configuration(self) -> Optional['outputs.AnalysisClusterMarkerConfiguration']:
         return pulumi.get(self, "cluster_marker_configuration")
+
+    @property
+    @pulumi.getter(name="heatmapConfiguration")
+    def heatmap_configuration(self) -> Optional['outputs.AnalysisGeospatialHeatmapConfiguration']:
+        return pulumi.get(self, "heatmap_configuration")
 
     @property
     @pulumi.getter(name="selectedPointStyle")
@@ -15817,10 +15835,13 @@ class AnalysisPivotTableCellConditionalFormatting(dict):
     def __init__(__self__, *,
                  field_id: str,
                  scope: Optional['outputs.AnalysisPivotTableConditionalFormattingScope'] = None,
+                 scopes: Optional[Sequence['outputs.AnalysisPivotTableConditionalFormattingScope']] = None,
                  text_format: Optional['outputs.AnalysisTextConditionalFormat'] = None):
         pulumi.set(__self__, "field_id", field_id)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
         if text_format is not None:
             pulumi.set(__self__, "text_format", text_format)
 
@@ -15833,6 +15854,11 @@ class AnalysisPivotTableCellConditionalFormatting(dict):
     @pulumi.getter
     def scope(self) -> Optional['outputs.AnalysisPivotTableConditionalFormattingScope']:
         return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence['outputs.AnalysisPivotTableConditionalFormattingScope']]:
+        return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter(name="textFormat")
@@ -16020,6 +16046,66 @@ class AnalysisPivotTableDataPathOption(dict):
 
 
 @pulumi.output_type
+class AnalysisPivotTableFieldCollapseStateOption(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.AnalysisPivotTableFieldCollapseStateTarget',
+                 state: Optional['AnalysisPivotTableFieldCollapseState'] = None):
+        pulumi.set(__self__, "target", target)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.AnalysisPivotTableFieldCollapseStateTarget':
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['AnalysisPivotTableFieldCollapseState']:
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class AnalysisPivotTableFieldCollapseStateTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDataPathValues":
+            suggest = "field_data_path_values"
+        elif key == "fieldId":
+            suggest = "field_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisPivotTableFieldCollapseStateTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisPivotTableFieldCollapseStateTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisPivotTableFieldCollapseStateTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_data_path_values: Optional[Sequence['outputs.AnalysisDataPathValue']] = None,
+                 field_id: Optional[str] = None):
+        if field_data_path_values is not None:
+            pulumi.set(__self__, "field_data_path_values", field_data_path_values)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+
+    @property
+    @pulumi.getter(name="fieldDataPathValues")
+    def field_data_path_values(self) -> Optional[Sequence['outputs.AnalysisDataPathValue']]:
+        return pulumi.get(self, "field_data_path_values")
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[str]:
+        return pulumi.get(self, "field_id")
+
+
+@pulumi.output_type
 class AnalysisPivotTableFieldOption(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -16071,7 +16157,9 @@ class AnalysisPivotTableFieldOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataPathOptions":
+        if key == "collapseStateOptions":
+            suggest = "collapse_state_options"
+        elif key == "dataPathOptions":
             suggest = "data_path_options"
         elif key == "selectedFieldOptions":
             suggest = "selected_field_options"
@@ -16088,12 +16176,20 @@ class AnalysisPivotTableFieldOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 collapse_state_options: Optional[Sequence['outputs.AnalysisPivotTableFieldCollapseStateOption']] = None,
                  data_path_options: Optional[Sequence['outputs.AnalysisPivotTableDataPathOption']] = None,
                  selected_field_options: Optional[Sequence['outputs.AnalysisPivotTableFieldOption']] = None):
+        if collapse_state_options is not None:
+            pulumi.set(__self__, "collapse_state_options", collapse_state_options)
         if data_path_options is not None:
             pulumi.set(__self__, "data_path_options", data_path_options)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
+
+    @property
+    @pulumi.getter(name="collapseStateOptions")
+    def collapse_state_options(self) -> Optional[Sequence['outputs.AnalysisPivotTableFieldCollapseStateOption']]:
+        return pulumi.get(self, "collapse_state_options")
 
     @property
     @pulumi.getter(name="dataPathOptions")
@@ -16173,6 +16269,8 @@ class AnalysisPivotTableOptions(dict):
         suggest = None
         if key == "cellStyle":
             suggest = "cell_style"
+        elif key == "collapsedRowDimensionsVisibility":
+            suggest = "collapsed_row_dimensions_visibility"
         elif key == "columnHeaderStyle":
             suggest = "column_header_style"
         elif key == "columnNamesVisibility":
@@ -16203,6 +16301,7 @@ class AnalysisPivotTableOptions(dict):
 
     def __init__(__self__, *,
                  cell_style: Optional['outputs.AnalysisTableCellStyle'] = None,
+                 collapsed_row_dimensions_visibility: Optional['AnalysisVisibility'] = None,
                  column_header_style: Optional['outputs.AnalysisTableCellStyle'] = None,
                  column_names_visibility: Optional['AnalysisVisibility'] = None,
                  metric_placement: Optional['AnalysisPivotTableMetricPlacement'] = None,
@@ -16213,6 +16312,8 @@ class AnalysisPivotTableOptions(dict):
                  toggle_buttons_visibility: Optional['AnalysisVisibility'] = None):
         if cell_style is not None:
             pulumi.set(__self__, "cell_style", cell_style)
+        if collapsed_row_dimensions_visibility is not None:
+            pulumi.set(__self__, "collapsed_row_dimensions_visibility", collapsed_row_dimensions_visibility)
         if column_header_style is not None:
             pulumi.set(__self__, "column_header_style", column_header_style)
         if column_names_visibility is not None:
@@ -16234,6 +16335,11 @@ class AnalysisPivotTableOptions(dict):
     @pulumi.getter(name="cellStyle")
     def cell_style(self) -> Optional['outputs.AnalysisTableCellStyle']:
         return pulumi.get(self, "cell_style")
+
+    @property
+    @pulumi.getter(name="collapsedRowDimensionsVisibility")
+    def collapsed_row_dimensions_visibility(self) -> Optional['AnalysisVisibility']:
+        return pulumi.get(self, "collapsed_row_dimensions_visibility")
 
     @property
     @pulumi.getter(name="columnHeaderStyle")
@@ -16725,6 +16831,8 @@ class AnalysisRadarChartConfiguration(dict):
             suggest = "alternate_band_even_color"
         elif key == "alternateBandOddColor":
             suggest = "alternate_band_odd_color"
+        elif key == "axesRangeScale":
+            suggest = "axes_range_scale"
         elif key == "baseSeriesSettings":
             suggest = "base_series_settings"
         elif key == "categoryAxis":
@@ -16759,6 +16867,7 @@ class AnalysisRadarChartConfiguration(dict):
                  alternate_band_colors_visibility: Optional['AnalysisVisibility'] = None,
                  alternate_band_even_color: Optional[str] = None,
                  alternate_band_odd_color: Optional[str] = None,
+                 axes_range_scale: Optional['AnalysisRadarChartAxesRangeScale'] = None,
                  base_series_settings: Optional['outputs.AnalysisRadarChartSeriesSettings'] = None,
                  category_axis: Optional['outputs.AnalysisAxisDisplayOptions'] = None,
                  category_label_options: Optional['outputs.AnalysisChartAxisLabelOptions'] = None,
@@ -16776,6 +16885,8 @@ class AnalysisRadarChartConfiguration(dict):
             pulumi.set(__self__, "alternate_band_even_color", alternate_band_even_color)
         if alternate_band_odd_color is not None:
             pulumi.set(__self__, "alternate_band_odd_color", alternate_band_odd_color)
+        if axes_range_scale is not None:
+            pulumi.set(__self__, "axes_range_scale", axes_range_scale)
         if base_series_settings is not None:
             pulumi.set(__self__, "base_series_settings", base_series_settings)
         if category_axis is not None:
@@ -16813,6 +16924,11 @@ class AnalysisRadarChartConfiguration(dict):
     @pulumi.getter(name="alternateBandOddColor")
     def alternate_band_odd_color(self) -> Optional[str]:
         return pulumi.get(self, "alternate_band_odd_color")
+
+    @property
+    @pulumi.getter(name="axesRangeScale")
+    def axes_range_scale(self) -> Optional['AnalysisRadarChartAxesRangeScale']:
+        return pulumi.get(self, "axes_range_scale")
 
     @property
     @pulumi.getter(name="baseSeriesSettings")
@@ -17234,10 +17350,11 @@ class AnalysisReferenceLineDynamicDataConfiguration(dict):
     def __init__(__self__, *,
                  calculation: 'outputs.AnalysisNumericalAggregationFunction',
                  column: 'outputs.AnalysisColumnIdentifier',
-                 measure_aggregation_function: 'outputs.AnalysisAggregationFunction'):
+                 measure_aggregation_function: Optional['outputs.AnalysisAggregationFunction'] = None):
         pulumi.set(__self__, "calculation", calculation)
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
+        if measure_aggregation_function is not None:
+            pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
 
     @property
     @pulumi.getter
@@ -17251,7 +17368,7 @@ class AnalysisReferenceLineDynamicDataConfiguration(dict):
 
     @property
     @pulumi.getter(name="measureAggregationFunction")
-    def measure_aggregation_function(self) -> 'outputs.AnalysisAggregationFunction':
+    def measure_aggregation_function(self) -> Optional['outputs.AnalysisAggregationFunction']:
         return pulumi.get(self, "measure_aggregation_function")
 
 
@@ -17947,11 +18064,14 @@ class AnalysisScatterPlotCategoricallyAggregatedFieldWells(dict):
 
     def __init__(__self__, *,
                  category: Optional[Sequence['outputs.AnalysisDimensionField']] = None,
+                 label: Optional[Sequence['outputs.AnalysisDimensionField']] = None,
                  size: Optional[Sequence['outputs.AnalysisMeasureField']] = None,
                  x_axis: Optional[Sequence['outputs.AnalysisMeasureField']] = None,
                  y_axis: Optional[Sequence['outputs.AnalysisMeasureField']] = None):
         if category is not None:
             pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
@@ -17963,6 +18083,11 @@ class AnalysisScatterPlotCategoricallyAggregatedFieldWells(dict):
     @pulumi.getter
     def category(self) -> Optional[Sequence['outputs.AnalysisDimensionField']]:
         return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[Sequence['outputs.AnalysisDimensionField']]:
+        return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
@@ -18148,15 +18273,31 @@ class AnalysisScatterPlotUnaggregatedFieldWells(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 category: Optional[Sequence['outputs.AnalysisDimensionField']] = None,
+                 label: Optional[Sequence['outputs.AnalysisDimensionField']] = None,
                  size: Optional[Sequence['outputs.AnalysisMeasureField']] = None,
                  x_axis: Optional[Sequence['outputs.AnalysisDimensionField']] = None,
                  y_axis: Optional[Sequence['outputs.AnalysisDimensionField']] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
             pulumi.set(__self__, "x_axis", x_axis)
         if y_axis is not None:
             pulumi.set(__self__, "y_axis", y_axis)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[Sequence['outputs.AnalysisDimensionField']]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[Sequence['outputs.AnalysisDimensionField']]:
+        return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
@@ -23243,10 +23384,10 @@ class DashboardAggregationSortConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aggregationFunction":
-            suggest = "aggregation_function"
-        elif key == "sortDirection":
+        if key == "sortDirection":
             suggest = "sort_direction"
+        elif key == "aggregationFunction":
+            suggest = "aggregation_function"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardAggregationSortConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -23260,17 +23401,13 @@ class DashboardAggregationSortConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aggregation_function: 'outputs.DashboardAggregationFunction',
                  column: 'outputs.DashboardColumnIdentifier',
-                 sort_direction: 'DashboardSortDirection'):
-        pulumi.set(__self__, "aggregation_function", aggregation_function)
+                 sort_direction: 'DashboardSortDirection',
+                 aggregation_function: Optional['outputs.DashboardAggregationFunction'] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "sort_direction", sort_direction)
-
-    @property
-    @pulumi.getter(name="aggregationFunction")
-    def aggregation_function(self) -> 'outputs.DashboardAggregationFunction':
-        return pulumi.get(self, "aggregation_function")
+        if aggregation_function is not None:
+            pulumi.set(__self__, "aggregation_function", aggregation_function)
 
     @property
     @pulumi.getter
@@ -23281,6 +23418,11 @@ class DashboardAggregationSortConfiguration(dict):
     @pulumi.getter(name="sortDirection")
     def sort_direction(self) -> 'DashboardSortDirection':
         return pulumi.get(self, "sort_direction")
+
+    @property
+    @pulumi.getter(name="aggregationFunction")
+    def aggregation_function(self) -> Optional['outputs.DashboardAggregationFunction']:
+        return pulumi.get(self, "aggregation_function")
 
 
 @pulumi.output_type
@@ -25335,43 +25477,11 @@ class DashboardColorScale(dict):
 
 
 @pulumi.output_type
-class DashboardColorsConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customColors":
-            suggest = "custom_colors"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardColorsConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardColorsConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardColorsConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 custom_colors: Optional[Sequence['outputs.DashboardCustomColor']] = None):
-        if custom_colors is not None:
-            pulumi.set(__self__, "custom_colors", custom_colors)
-
-    @property
-    @pulumi.getter(name="customColors")
-    def custom_colors(self) -> Optional[Sequence['outputs.DashboardCustomColor']]:
-        return pulumi.get(self, "custom_colors")
-
-
-@pulumi.output_type
 class DashboardColumnConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "colorsConfiguration":
-            suggest = "colors_configuration"
-        elif key == "formatConfiguration":
+        if key == "formatConfiguration":
             suggest = "format_configuration"
 
         if suggest:
@@ -25387,12 +25497,9 @@ class DashboardColumnConfiguration(dict):
 
     def __init__(__self__, *,
                  column: 'outputs.DashboardColumnIdentifier',
-                 colors_configuration: Optional['outputs.DashboardColorsConfiguration'] = None,
                  format_configuration: Optional['outputs.DashboardFormatConfiguration'] = None,
                  role: Optional['DashboardColumnRole'] = None):
         pulumi.set(__self__, "column", column)
-        if colors_configuration is not None:
-            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -25402,11 +25509,6 @@ class DashboardColumnConfiguration(dict):
     @pulumi.getter
     def column(self) -> 'outputs.DashboardColumnIdentifier':
         return pulumi.get(self, "column")
-
-    @property
-    @pulumi.getter(name="colorsConfiguration")
-    def colors_configuration(self) -> Optional['outputs.DashboardColorsConfiguration']:
-        return pulumi.get(self, "colors_configuration")
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -26709,53 +26811,6 @@ class DashboardCustomActionURLOperation(dict):
 
 
 @pulumi.output_type
-class DashboardCustomColor(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "fieldValue":
-            suggest = "field_value"
-        elif key == "specialValue":
-            suggest = "special_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardCustomColor. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardCustomColor.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardCustomColor.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 color: str,
-                 field_value: Optional[str] = None,
-                 special_value: Optional['DashboardSpecialValue'] = None):
-        pulumi.set(__self__, "color", color)
-        if field_value is not None:
-            pulumi.set(__self__, "field_value", field_value)
-        if special_value is not None:
-            pulumi.set(__self__, "special_value", special_value)
-
-    @property
-    @pulumi.getter
-    def color(self) -> str:
-        return pulumi.get(self, "color")
-
-    @property
-    @pulumi.getter(name="fieldValue")
-    def field_value(self) -> Optional[str]:
-        return pulumi.get(self, "field_value")
-
-    @property
-    @pulumi.getter(name="specialValue")
-    def special_value(self) -> Optional['DashboardSpecialValue']:
-        return pulumi.get(self, "special_value")
-
-
-@pulumi.output_type
 class DashboardCustomContentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -27274,6 +27329,8 @@ class DashboardDataLabelOptions(dict):
             suggest = "label_font_configuration"
         elif key == "measureLabelVisibility":
             suggest = "measure_label_visibility"
+        elif key == "totalsVisibility":
+            suggest = "totals_visibility"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardDataLabelOptions. Access the value via the '{suggest}' property getter instead.")
@@ -27295,6 +27352,7 @@ class DashboardDataLabelOptions(dict):
                  measure_label_visibility: Optional['DashboardVisibility'] = None,
                  overlap: Optional['DashboardDataLabelOverlap'] = None,
                  position: Optional['DashboardDataLabelPosition'] = None,
+                 totals_visibility: Optional['DashboardVisibility'] = None,
                  visibility: Optional['DashboardVisibility'] = None):
         if category_label_visibility is not None:
             pulumi.set(__self__, "category_label_visibility", category_label_visibility)
@@ -27312,6 +27370,8 @@ class DashboardDataLabelOptions(dict):
             pulumi.set(__self__, "overlap", overlap)
         if position is not None:
             pulumi.set(__self__, "position", position)
+        if totals_visibility is not None:
+            pulumi.set(__self__, "totals_visibility", totals_visibility)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
 
@@ -27354,6 +27414,11 @@ class DashboardDataLabelOptions(dict):
     @pulumi.getter
     def position(self) -> Optional['DashboardDataLabelPosition']:
         return pulumi.get(self, "position")
+
+    @property
+    @pulumi.getter(name="totalsVisibility")
+    def totals_visibility(self) -> Optional['DashboardVisibility']:
+        return pulumi.get(self, "totals_visibility")
 
     @property
     @pulumi.getter
@@ -28626,6 +28691,8 @@ class DashboardDestinationParameterValueConfiguration(dict):
             suggest = "custom_values_configuration"
         elif key == "selectAllValueOptions":
             suggest = "select_all_value_options"
+        elif key == "sourceColumn":
+            suggest = "source_column"
         elif key == "sourceField":
             suggest = "source_field"
         elif key == "sourceParameterName":
@@ -28645,12 +28712,15 @@ class DashboardDestinationParameterValueConfiguration(dict):
     def __init__(__self__, *,
                  custom_values_configuration: Optional['outputs.DashboardCustomValuesConfiguration'] = None,
                  select_all_value_options: Optional['DashboardSelectAllValueOptions'] = None,
+                 source_column: Optional['outputs.DashboardColumnIdentifier'] = None,
                  source_field: Optional[str] = None,
                  source_parameter_name: Optional[str] = None):
         if custom_values_configuration is not None:
             pulumi.set(__self__, "custom_values_configuration", custom_values_configuration)
         if select_all_value_options is not None:
             pulumi.set(__self__, "select_all_value_options", select_all_value_options)
+        if source_column is not None:
+            pulumi.set(__self__, "source_column", source_column)
         if source_field is not None:
             pulumi.set(__self__, "source_field", source_field)
         if source_parameter_name is not None:
@@ -28665,6 +28735,11 @@ class DashboardDestinationParameterValueConfiguration(dict):
     @pulumi.getter(name="selectAllValueOptions")
     def select_all_value_options(self) -> Optional['DashboardSelectAllValueOptions']:
         return pulumi.get(self, "select_all_value_options")
+
+    @property
+    @pulumi.getter(name="sourceColumn")
+    def source_column(self) -> Optional['outputs.DashboardColumnIdentifier']:
+        return pulumi.get(self, "source_column")
 
     @property
     @pulumi.getter(name="sourceField")
@@ -30296,7 +30371,9 @@ class DashboardFilterOperationSelectedFieldsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "selectedFieldOptions":
+        if key == "selectedColumns":
+            suggest = "selected_columns"
+        elif key == "selectedFieldOptions":
             suggest = "selected_field_options"
         elif key == "selectedFields":
             suggest = "selected_fields"
@@ -30313,12 +30390,20 @@ class DashboardFilterOperationSelectedFieldsConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 selected_columns: Optional[Sequence['outputs.DashboardColumnIdentifier']] = None,
                  selected_field_options: Optional['DashboardSelectedFieldOptions'] = None,
                  selected_fields: Optional[Sequence[str]] = None):
+        if selected_columns is not None:
+            pulumi.set(__self__, "selected_columns", selected_columns)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
         if selected_fields is not None:
             pulumi.set(__self__, "selected_fields", selected_fields)
+
+    @property
+    @pulumi.getter(name="selectedColumns")
+    def selected_columns(self) -> Optional[Sequence['outputs.DashboardColumnIdentifier']]:
+        return pulumi.get(self, "selected_columns")
 
     @property
     @pulumi.getter(name="selectedFieldOptions")
@@ -32068,6 +32153,61 @@ class DashboardGeospatialCoordinateBounds(dict):
 
 
 @pulumi.output_type
+class DashboardGeospatialHeatmapColorScale(dict):
+    def __init__(__self__, *,
+                 colors: Optional[Sequence['outputs.DashboardGeospatialHeatmapDataColor']] = None):
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+
+    @property
+    @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.DashboardGeospatialHeatmapDataColor']]:
+        return pulumi.get(self, "colors")
+
+
+@pulumi.output_type
+class DashboardGeospatialHeatmapConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "heatmapColor":
+            suggest = "heatmap_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardGeospatialHeatmapConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardGeospatialHeatmapConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardGeospatialHeatmapConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 heatmap_color: Optional['outputs.DashboardGeospatialHeatmapColorScale'] = None):
+        if heatmap_color is not None:
+            pulumi.set(__self__, "heatmap_color", heatmap_color)
+
+    @property
+    @pulumi.getter(name="heatmapColor")
+    def heatmap_color(self) -> Optional['outputs.DashboardGeospatialHeatmapColorScale']:
+        return pulumi.get(self, "heatmap_color")
+
+
+@pulumi.output_type
+class DashboardGeospatialHeatmapDataColor(dict):
+    def __init__(__self__, *,
+                 color: str):
+        pulumi.set(__self__, "color", color)
+
+    @property
+    @pulumi.getter
+    def color(self) -> str:
+        return pulumi.get(self, "color")
+
+
+@pulumi.output_type
 class DashboardGeospatialMapAggregatedFieldWells(dict):
     def __init__(__self__, *,
                  colors: Optional[Sequence['outputs.DashboardDimensionField']] = None,
@@ -32322,6 +32462,8 @@ class DashboardGeospatialPointStyleOptions(dict):
         suggest = None
         if key == "clusterMarkerConfiguration":
             suggest = "cluster_marker_configuration"
+        elif key == "heatmapConfiguration":
+            suggest = "heatmap_configuration"
         elif key == "selectedPointStyle":
             suggest = "selected_point_style"
 
@@ -32338,9 +32480,12 @@ class DashboardGeospatialPointStyleOptions(dict):
 
     def __init__(__self__, *,
                  cluster_marker_configuration: Optional['outputs.DashboardClusterMarkerConfiguration'] = None,
+                 heatmap_configuration: Optional['outputs.DashboardGeospatialHeatmapConfiguration'] = None,
                  selected_point_style: Optional['DashboardGeospatialSelectedPointStyle'] = None):
         if cluster_marker_configuration is not None:
             pulumi.set(__self__, "cluster_marker_configuration", cluster_marker_configuration)
+        if heatmap_configuration is not None:
+            pulumi.set(__self__, "heatmap_configuration", heatmap_configuration)
         if selected_point_style is not None:
             pulumi.set(__self__, "selected_point_style", selected_point_style)
 
@@ -32348,6 +32493,11 @@ class DashboardGeospatialPointStyleOptions(dict):
     @pulumi.getter(name="clusterMarkerConfiguration")
     def cluster_marker_configuration(self) -> Optional['outputs.DashboardClusterMarkerConfiguration']:
         return pulumi.get(self, "cluster_marker_configuration")
+
+    @property
+    @pulumi.getter(name="heatmapConfiguration")
+    def heatmap_configuration(self) -> Optional['outputs.DashboardGeospatialHeatmapConfiguration']:
+        return pulumi.get(self, "heatmap_configuration")
 
     @property
     @pulumi.getter(name="selectedPointStyle")
@@ -37612,10 +37762,13 @@ class DashboardPivotTableCellConditionalFormatting(dict):
     def __init__(__self__, *,
                  field_id: str,
                  scope: Optional['outputs.DashboardPivotTableConditionalFormattingScope'] = None,
+                 scopes: Optional[Sequence['outputs.DashboardPivotTableConditionalFormattingScope']] = None,
                  text_format: Optional['outputs.DashboardTextConditionalFormat'] = None):
         pulumi.set(__self__, "field_id", field_id)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
         if text_format is not None:
             pulumi.set(__self__, "text_format", text_format)
 
@@ -37628,6 +37781,11 @@ class DashboardPivotTableCellConditionalFormatting(dict):
     @pulumi.getter
     def scope(self) -> Optional['outputs.DashboardPivotTableConditionalFormattingScope']:
         return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence['outputs.DashboardPivotTableConditionalFormattingScope']]:
+        return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter(name="textFormat")
@@ -37815,6 +37973,66 @@ class DashboardPivotTableDataPathOption(dict):
 
 
 @pulumi.output_type
+class DashboardPivotTableFieldCollapseStateOption(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.DashboardPivotTableFieldCollapseStateTarget',
+                 state: Optional['DashboardPivotTableFieldCollapseState'] = None):
+        pulumi.set(__self__, "target", target)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.DashboardPivotTableFieldCollapseStateTarget':
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['DashboardPivotTableFieldCollapseState']:
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DashboardPivotTableFieldCollapseStateTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDataPathValues":
+            suggest = "field_data_path_values"
+        elif key == "fieldId":
+            suggest = "field_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardPivotTableFieldCollapseStateTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardPivotTableFieldCollapseStateTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardPivotTableFieldCollapseStateTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_data_path_values: Optional[Sequence['outputs.DashboardDataPathValue']] = None,
+                 field_id: Optional[str] = None):
+        if field_data_path_values is not None:
+            pulumi.set(__self__, "field_data_path_values", field_data_path_values)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+
+    @property
+    @pulumi.getter(name="fieldDataPathValues")
+    def field_data_path_values(self) -> Optional[Sequence['outputs.DashboardDataPathValue']]:
+        return pulumi.get(self, "field_data_path_values")
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[str]:
+        return pulumi.get(self, "field_id")
+
+
+@pulumi.output_type
 class DashboardPivotTableFieldOption(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -37866,7 +38084,9 @@ class DashboardPivotTableFieldOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataPathOptions":
+        if key == "collapseStateOptions":
+            suggest = "collapse_state_options"
+        elif key == "dataPathOptions":
             suggest = "data_path_options"
         elif key == "selectedFieldOptions":
             suggest = "selected_field_options"
@@ -37883,12 +38103,20 @@ class DashboardPivotTableFieldOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 collapse_state_options: Optional[Sequence['outputs.DashboardPivotTableFieldCollapseStateOption']] = None,
                  data_path_options: Optional[Sequence['outputs.DashboardPivotTableDataPathOption']] = None,
                  selected_field_options: Optional[Sequence['outputs.DashboardPivotTableFieldOption']] = None):
+        if collapse_state_options is not None:
+            pulumi.set(__self__, "collapse_state_options", collapse_state_options)
         if data_path_options is not None:
             pulumi.set(__self__, "data_path_options", data_path_options)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
+
+    @property
+    @pulumi.getter(name="collapseStateOptions")
+    def collapse_state_options(self) -> Optional[Sequence['outputs.DashboardPivotTableFieldCollapseStateOption']]:
+        return pulumi.get(self, "collapse_state_options")
 
     @property
     @pulumi.getter(name="dataPathOptions")
@@ -37968,6 +38196,8 @@ class DashboardPivotTableOptions(dict):
         suggest = None
         if key == "cellStyle":
             suggest = "cell_style"
+        elif key == "collapsedRowDimensionsVisibility":
+            suggest = "collapsed_row_dimensions_visibility"
         elif key == "columnHeaderStyle":
             suggest = "column_header_style"
         elif key == "columnNamesVisibility":
@@ -37998,6 +38228,7 @@ class DashboardPivotTableOptions(dict):
 
     def __init__(__self__, *,
                  cell_style: Optional['outputs.DashboardTableCellStyle'] = None,
+                 collapsed_row_dimensions_visibility: Optional['DashboardVisibility'] = None,
                  column_header_style: Optional['outputs.DashboardTableCellStyle'] = None,
                  column_names_visibility: Optional['DashboardVisibility'] = None,
                  metric_placement: Optional['DashboardPivotTableMetricPlacement'] = None,
@@ -38008,6 +38239,8 @@ class DashboardPivotTableOptions(dict):
                  toggle_buttons_visibility: Optional['DashboardVisibility'] = None):
         if cell_style is not None:
             pulumi.set(__self__, "cell_style", cell_style)
+        if collapsed_row_dimensions_visibility is not None:
+            pulumi.set(__self__, "collapsed_row_dimensions_visibility", collapsed_row_dimensions_visibility)
         if column_header_style is not None:
             pulumi.set(__self__, "column_header_style", column_header_style)
         if column_names_visibility is not None:
@@ -38029,6 +38262,11 @@ class DashboardPivotTableOptions(dict):
     @pulumi.getter(name="cellStyle")
     def cell_style(self) -> Optional['outputs.DashboardTableCellStyle']:
         return pulumi.get(self, "cell_style")
+
+    @property
+    @pulumi.getter(name="collapsedRowDimensionsVisibility")
+    def collapsed_row_dimensions_visibility(self) -> Optional['DashboardVisibility']:
+        return pulumi.get(self, "collapsed_row_dimensions_visibility")
 
     @property
     @pulumi.getter(name="columnHeaderStyle")
@@ -38650,6 +38888,8 @@ class DashboardRadarChartConfiguration(dict):
             suggest = "alternate_band_even_color"
         elif key == "alternateBandOddColor":
             suggest = "alternate_band_odd_color"
+        elif key == "axesRangeScale":
+            suggest = "axes_range_scale"
         elif key == "baseSeriesSettings":
             suggest = "base_series_settings"
         elif key == "categoryAxis":
@@ -38684,6 +38924,7 @@ class DashboardRadarChartConfiguration(dict):
                  alternate_band_colors_visibility: Optional['DashboardVisibility'] = None,
                  alternate_band_even_color: Optional[str] = None,
                  alternate_band_odd_color: Optional[str] = None,
+                 axes_range_scale: Optional['DashboardRadarChartAxesRangeScale'] = None,
                  base_series_settings: Optional['outputs.DashboardRadarChartSeriesSettings'] = None,
                  category_axis: Optional['outputs.DashboardAxisDisplayOptions'] = None,
                  category_label_options: Optional['outputs.DashboardChartAxisLabelOptions'] = None,
@@ -38701,6 +38942,8 @@ class DashboardRadarChartConfiguration(dict):
             pulumi.set(__self__, "alternate_band_even_color", alternate_band_even_color)
         if alternate_band_odd_color is not None:
             pulumi.set(__self__, "alternate_band_odd_color", alternate_band_odd_color)
+        if axes_range_scale is not None:
+            pulumi.set(__self__, "axes_range_scale", axes_range_scale)
         if base_series_settings is not None:
             pulumi.set(__self__, "base_series_settings", base_series_settings)
         if category_axis is not None:
@@ -38738,6 +38981,11 @@ class DashboardRadarChartConfiguration(dict):
     @pulumi.getter(name="alternateBandOddColor")
     def alternate_band_odd_color(self) -> Optional[str]:
         return pulumi.get(self, "alternate_band_odd_color")
+
+    @property
+    @pulumi.getter(name="axesRangeScale")
+    def axes_range_scale(self) -> Optional['DashboardRadarChartAxesRangeScale']:
+        return pulumi.get(self, "axes_range_scale")
 
     @property
     @pulumi.getter(name="baseSeriesSettings")
@@ -39159,10 +39407,11 @@ class DashboardReferenceLineDynamicDataConfiguration(dict):
     def __init__(__self__, *,
                  calculation: 'outputs.DashboardNumericalAggregationFunction',
                  column: 'outputs.DashboardColumnIdentifier',
-                 measure_aggregation_function: 'outputs.DashboardAggregationFunction'):
+                 measure_aggregation_function: Optional['outputs.DashboardAggregationFunction'] = None):
         pulumi.set(__self__, "calculation", calculation)
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
+        if measure_aggregation_function is not None:
+            pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
 
     @property
     @pulumi.getter
@@ -39176,7 +39425,7 @@ class DashboardReferenceLineDynamicDataConfiguration(dict):
 
     @property
     @pulumi.getter(name="measureAggregationFunction")
-    def measure_aggregation_function(self) -> 'outputs.DashboardAggregationFunction':
+    def measure_aggregation_function(self) -> Optional['outputs.DashboardAggregationFunction']:
         return pulumi.get(self, "measure_aggregation_function")
 
 
@@ -39872,11 +40121,14 @@ class DashboardScatterPlotCategoricallyAggregatedFieldWells(dict):
 
     def __init__(__self__, *,
                  category: Optional[Sequence['outputs.DashboardDimensionField']] = None,
+                 label: Optional[Sequence['outputs.DashboardDimensionField']] = None,
                  size: Optional[Sequence['outputs.DashboardMeasureField']] = None,
                  x_axis: Optional[Sequence['outputs.DashboardMeasureField']] = None,
                  y_axis: Optional[Sequence['outputs.DashboardMeasureField']] = None):
         if category is not None:
             pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
@@ -39888,6 +40140,11 @@ class DashboardScatterPlotCategoricallyAggregatedFieldWells(dict):
     @pulumi.getter
     def category(self) -> Optional[Sequence['outputs.DashboardDimensionField']]:
         return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[Sequence['outputs.DashboardDimensionField']]:
+        return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
@@ -40073,15 +40330,31 @@ class DashboardScatterPlotUnaggregatedFieldWells(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 category: Optional[Sequence['outputs.DashboardDimensionField']] = None,
+                 label: Optional[Sequence['outputs.DashboardDimensionField']] = None,
                  size: Optional[Sequence['outputs.DashboardMeasureField']] = None,
                  x_axis: Optional[Sequence['outputs.DashboardDimensionField']] = None,
                  y_axis: Optional[Sequence['outputs.DashboardDimensionField']] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
             pulumi.set(__self__, "x_axis", x_axis)
         if y_axis is not None:
             pulumi.set(__self__, "y_axis", y_axis)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[Sequence['outputs.DashboardDimensionField']]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[Sequence['outputs.DashboardDimensionField']]:
+        return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
@@ -48332,10 +48605,10 @@ class TemplateAggregationSortConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aggregationFunction":
-            suggest = "aggregation_function"
-        elif key == "sortDirection":
+        if key == "sortDirection":
             suggest = "sort_direction"
+        elif key == "aggregationFunction":
+            suggest = "aggregation_function"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateAggregationSortConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -48349,17 +48622,13 @@ class TemplateAggregationSortConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aggregation_function: 'outputs.TemplateAggregationFunction',
                  column: 'outputs.TemplateColumnIdentifier',
-                 sort_direction: 'TemplateSortDirection'):
-        pulumi.set(__self__, "aggregation_function", aggregation_function)
+                 sort_direction: 'TemplateSortDirection',
+                 aggregation_function: Optional['outputs.TemplateAggregationFunction'] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "sort_direction", sort_direction)
-
-    @property
-    @pulumi.getter(name="aggregationFunction")
-    def aggregation_function(self) -> 'outputs.TemplateAggregationFunction':
-        return pulumi.get(self, "aggregation_function")
+        if aggregation_function is not None:
+            pulumi.set(__self__, "aggregation_function", aggregation_function)
 
     @property
     @pulumi.getter
@@ -48370,6 +48639,11 @@ class TemplateAggregationSortConfiguration(dict):
     @pulumi.getter(name="sortDirection")
     def sort_direction(self) -> 'TemplateSortDirection':
         return pulumi.get(self, "sort_direction")
+
+    @property
+    @pulumi.getter(name="aggregationFunction")
+    def aggregation_function(self) -> Optional['outputs.TemplateAggregationFunction']:
+        return pulumi.get(self, "aggregation_function")
 
 
 @pulumi.output_type
@@ -50424,43 +50698,11 @@ class TemplateColorScale(dict):
 
 
 @pulumi.output_type
-class TemplateColorsConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customColors":
-            suggest = "custom_colors"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TemplateColorsConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TemplateColorsConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TemplateColorsConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 custom_colors: Optional[Sequence['outputs.TemplateCustomColor']] = None):
-        if custom_colors is not None:
-            pulumi.set(__self__, "custom_colors", custom_colors)
-
-    @property
-    @pulumi.getter(name="customColors")
-    def custom_colors(self) -> Optional[Sequence['outputs.TemplateCustomColor']]:
-        return pulumi.get(self, "custom_colors")
-
-
-@pulumi.output_type
 class TemplateColumnConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "colorsConfiguration":
-            suggest = "colors_configuration"
-        elif key == "formatConfiguration":
+        if key == "formatConfiguration":
             suggest = "format_configuration"
 
         if suggest:
@@ -50476,12 +50718,9 @@ class TemplateColumnConfiguration(dict):
 
     def __init__(__self__, *,
                  column: 'outputs.TemplateColumnIdentifier',
-                 colors_configuration: Optional['outputs.TemplateColorsConfiguration'] = None,
                  format_configuration: Optional['outputs.TemplateFormatConfiguration'] = None,
                  role: Optional['TemplateColumnRole'] = None):
         pulumi.set(__self__, "column", column)
-        if colors_configuration is not None:
-            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -50491,11 +50730,6 @@ class TemplateColumnConfiguration(dict):
     @pulumi.getter
     def column(self) -> 'outputs.TemplateColumnIdentifier':
         return pulumi.get(self, "column")
-
-    @property
-    @pulumi.getter(name="colorsConfiguration")
-    def colors_configuration(self) -> Optional['outputs.TemplateColorsConfiguration']:
-        return pulumi.get(self, "colors_configuration")
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -51897,53 +52131,6 @@ class TemplateCustomActionURLOperation(dict):
 
 
 @pulumi.output_type
-class TemplateCustomColor(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "fieldValue":
-            suggest = "field_value"
-        elif key == "specialValue":
-            suggest = "special_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TemplateCustomColor. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TemplateCustomColor.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TemplateCustomColor.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 color: str,
-                 field_value: Optional[str] = None,
-                 special_value: Optional['TemplateSpecialValue'] = None):
-        pulumi.set(__self__, "color", color)
-        if field_value is not None:
-            pulumi.set(__self__, "field_value", field_value)
-        if special_value is not None:
-            pulumi.set(__self__, "special_value", special_value)
-
-    @property
-    @pulumi.getter
-    def color(self) -> str:
-        return pulumi.get(self, "color")
-
-    @property
-    @pulumi.getter(name="fieldValue")
-    def field_value(self) -> Optional[str]:
-        return pulumi.get(self, "field_value")
-
-    @property
-    @pulumi.getter(name="specialValue")
-    def special_value(self) -> Optional['TemplateSpecialValue']:
-        return pulumi.get(self, "special_value")
-
-
-@pulumi.output_type
 class TemplateCustomContentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -52462,6 +52649,8 @@ class TemplateDataLabelOptions(dict):
             suggest = "label_font_configuration"
         elif key == "measureLabelVisibility":
             suggest = "measure_label_visibility"
+        elif key == "totalsVisibility":
+            suggest = "totals_visibility"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateDataLabelOptions. Access the value via the '{suggest}' property getter instead.")
@@ -52483,6 +52672,7 @@ class TemplateDataLabelOptions(dict):
                  measure_label_visibility: Optional['TemplateVisibility'] = None,
                  overlap: Optional['TemplateDataLabelOverlap'] = None,
                  position: Optional['TemplateDataLabelPosition'] = None,
+                 totals_visibility: Optional['TemplateVisibility'] = None,
                  visibility: Optional['TemplateVisibility'] = None):
         if category_label_visibility is not None:
             pulumi.set(__self__, "category_label_visibility", category_label_visibility)
@@ -52500,6 +52690,8 @@ class TemplateDataLabelOptions(dict):
             pulumi.set(__self__, "overlap", overlap)
         if position is not None:
             pulumi.set(__self__, "position", position)
+        if totals_visibility is not None:
+            pulumi.set(__self__, "totals_visibility", totals_visibility)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
 
@@ -52542,6 +52734,11 @@ class TemplateDataLabelOptions(dict):
     @pulumi.getter
     def position(self) -> Optional['TemplateDataLabelPosition']:
         return pulumi.get(self, "position")
+
+    @property
+    @pulumi.getter(name="totalsVisibility")
+    def totals_visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "totals_visibility")
 
     @property
     @pulumi.getter
@@ -53728,6 +53925,8 @@ class TemplateDestinationParameterValueConfiguration(dict):
             suggest = "custom_values_configuration"
         elif key == "selectAllValueOptions":
             suggest = "select_all_value_options"
+        elif key == "sourceColumn":
+            suggest = "source_column"
         elif key == "sourceField":
             suggest = "source_field"
         elif key == "sourceParameterName":
@@ -53747,12 +53946,15 @@ class TemplateDestinationParameterValueConfiguration(dict):
     def __init__(__self__, *,
                  custom_values_configuration: Optional['outputs.TemplateCustomValuesConfiguration'] = None,
                  select_all_value_options: Optional['TemplateSelectAllValueOptions'] = None,
+                 source_column: Optional['outputs.TemplateColumnIdentifier'] = None,
                  source_field: Optional[str] = None,
                  source_parameter_name: Optional[str] = None):
         if custom_values_configuration is not None:
             pulumi.set(__self__, "custom_values_configuration", custom_values_configuration)
         if select_all_value_options is not None:
             pulumi.set(__self__, "select_all_value_options", select_all_value_options)
+        if source_column is not None:
+            pulumi.set(__self__, "source_column", source_column)
         if source_field is not None:
             pulumi.set(__self__, "source_field", source_field)
         if source_parameter_name is not None:
@@ -53767,6 +53969,11 @@ class TemplateDestinationParameterValueConfiguration(dict):
     @pulumi.getter(name="selectAllValueOptions")
     def select_all_value_options(self) -> Optional['TemplateSelectAllValueOptions']:
         return pulumi.get(self, "select_all_value_options")
+
+    @property
+    @pulumi.getter(name="sourceColumn")
+    def source_column(self) -> Optional['outputs.TemplateColumnIdentifier']:
+        return pulumi.get(self, "source_column")
 
     @property
     @pulumi.getter(name="sourceField")
@@ -55308,7 +55515,9 @@ class TemplateFilterOperationSelectedFieldsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "selectedFieldOptions":
+        if key == "selectedColumns":
+            suggest = "selected_columns"
+        elif key == "selectedFieldOptions":
             suggest = "selected_field_options"
         elif key == "selectedFields":
             suggest = "selected_fields"
@@ -55325,12 +55534,20 @@ class TemplateFilterOperationSelectedFieldsConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 selected_columns: Optional[Sequence['outputs.TemplateColumnIdentifier']] = None,
                  selected_field_options: Optional['TemplateSelectedFieldOptions'] = None,
                  selected_fields: Optional[Sequence[str]] = None):
+        if selected_columns is not None:
+            pulumi.set(__self__, "selected_columns", selected_columns)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
         if selected_fields is not None:
             pulumi.set(__self__, "selected_fields", selected_fields)
+
+    @property
+    @pulumi.getter(name="selectedColumns")
+    def selected_columns(self) -> Optional[Sequence['outputs.TemplateColumnIdentifier']]:
+        return pulumi.get(self, "selected_columns")
 
     @property
     @pulumi.getter(name="selectedFieldOptions")
@@ -57080,6 +57297,61 @@ class TemplateGeospatialCoordinateBounds(dict):
 
 
 @pulumi.output_type
+class TemplateGeospatialHeatmapColorScale(dict):
+    def __init__(__self__, *,
+                 colors: Optional[Sequence['outputs.TemplateGeospatialHeatmapDataColor']] = None):
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+
+    @property
+    @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.TemplateGeospatialHeatmapDataColor']]:
+        return pulumi.get(self, "colors")
+
+
+@pulumi.output_type
+class TemplateGeospatialHeatmapConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "heatmapColor":
+            suggest = "heatmap_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialHeatmapConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialHeatmapConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialHeatmapConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 heatmap_color: Optional['outputs.TemplateGeospatialHeatmapColorScale'] = None):
+        if heatmap_color is not None:
+            pulumi.set(__self__, "heatmap_color", heatmap_color)
+
+    @property
+    @pulumi.getter(name="heatmapColor")
+    def heatmap_color(self) -> Optional['outputs.TemplateGeospatialHeatmapColorScale']:
+        return pulumi.get(self, "heatmap_color")
+
+
+@pulumi.output_type
+class TemplateGeospatialHeatmapDataColor(dict):
+    def __init__(__self__, *,
+                 color: str):
+        pulumi.set(__self__, "color", color)
+
+    @property
+    @pulumi.getter
+    def color(self) -> str:
+        return pulumi.get(self, "color")
+
+
+@pulumi.output_type
 class TemplateGeospatialMapAggregatedFieldWells(dict):
     def __init__(__self__, *,
                  colors: Optional[Sequence['outputs.TemplateDimensionField']] = None,
@@ -57334,6 +57606,8 @@ class TemplateGeospatialPointStyleOptions(dict):
         suggest = None
         if key == "clusterMarkerConfiguration":
             suggest = "cluster_marker_configuration"
+        elif key == "heatmapConfiguration":
+            suggest = "heatmap_configuration"
         elif key == "selectedPointStyle":
             suggest = "selected_point_style"
 
@@ -57350,9 +57624,12 @@ class TemplateGeospatialPointStyleOptions(dict):
 
     def __init__(__self__, *,
                  cluster_marker_configuration: Optional['outputs.TemplateClusterMarkerConfiguration'] = None,
+                 heatmap_configuration: Optional['outputs.TemplateGeospatialHeatmapConfiguration'] = None,
                  selected_point_style: Optional['TemplateGeospatialSelectedPointStyle'] = None):
         if cluster_marker_configuration is not None:
             pulumi.set(__self__, "cluster_marker_configuration", cluster_marker_configuration)
+        if heatmap_configuration is not None:
+            pulumi.set(__self__, "heatmap_configuration", heatmap_configuration)
         if selected_point_style is not None:
             pulumi.set(__self__, "selected_point_style", selected_point_style)
 
@@ -57360,6 +57637,11 @@ class TemplateGeospatialPointStyleOptions(dict):
     @pulumi.getter(name="clusterMarkerConfiguration")
     def cluster_marker_configuration(self) -> Optional['outputs.TemplateClusterMarkerConfiguration']:
         return pulumi.get(self, "cluster_marker_configuration")
+
+    @property
+    @pulumi.getter(name="heatmapConfiguration")
+    def heatmap_configuration(self) -> Optional['outputs.TemplateGeospatialHeatmapConfiguration']:
+        return pulumi.get(self, "heatmap_configuration")
 
     @property
     @pulumi.getter(name="selectedPointStyle")
@@ -62545,10 +62827,13 @@ class TemplatePivotTableCellConditionalFormatting(dict):
     def __init__(__self__, *,
                  field_id: str,
                  scope: Optional['outputs.TemplatePivotTableConditionalFormattingScope'] = None,
+                 scopes: Optional[Sequence['outputs.TemplatePivotTableConditionalFormattingScope']] = None,
                  text_format: Optional['outputs.TemplateTextConditionalFormat'] = None):
         pulumi.set(__self__, "field_id", field_id)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
         if text_format is not None:
             pulumi.set(__self__, "text_format", text_format)
 
@@ -62561,6 +62846,11 @@ class TemplatePivotTableCellConditionalFormatting(dict):
     @pulumi.getter
     def scope(self) -> Optional['outputs.TemplatePivotTableConditionalFormattingScope']:
         return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence['outputs.TemplatePivotTableConditionalFormattingScope']]:
+        return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter(name="textFormat")
@@ -62748,6 +63038,66 @@ class TemplatePivotTableDataPathOption(dict):
 
 
 @pulumi.output_type
+class TemplatePivotTableFieldCollapseStateOption(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.TemplatePivotTableFieldCollapseStateTarget',
+                 state: Optional['TemplatePivotTableFieldCollapseState'] = None):
+        pulumi.set(__self__, "target", target)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.TemplatePivotTableFieldCollapseStateTarget':
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['TemplatePivotTableFieldCollapseState']:
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class TemplatePivotTableFieldCollapseStateTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDataPathValues":
+            suggest = "field_data_path_values"
+        elif key == "fieldId":
+            suggest = "field_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplatePivotTableFieldCollapseStateTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplatePivotTableFieldCollapseStateTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplatePivotTableFieldCollapseStateTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_data_path_values: Optional[Sequence['outputs.TemplateDataPathValue']] = None,
+                 field_id: Optional[str] = None):
+        if field_data_path_values is not None:
+            pulumi.set(__self__, "field_data_path_values", field_data_path_values)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+
+    @property
+    @pulumi.getter(name="fieldDataPathValues")
+    def field_data_path_values(self) -> Optional[Sequence['outputs.TemplateDataPathValue']]:
+        return pulumi.get(self, "field_data_path_values")
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[str]:
+        return pulumi.get(self, "field_id")
+
+
+@pulumi.output_type
 class TemplatePivotTableFieldOption(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -62799,7 +63149,9 @@ class TemplatePivotTableFieldOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataPathOptions":
+        if key == "collapseStateOptions":
+            suggest = "collapse_state_options"
+        elif key == "dataPathOptions":
             suggest = "data_path_options"
         elif key == "selectedFieldOptions":
             suggest = "selected_field_options"
@@ -62816,12 +63168,20 @@ class TemplatePivotTableFieldOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 collapse_state_options: Optional[Sequence['outputs.TemplatePivotTableFieldCollapseStateOption']] = None,
                  data_path_options: Optional[Sequence['outputs.TemplatePivotTableDataPathOption']] = None,
                  selected_field_options: Optional[Sequence['outputs.TemplatePivotTableFieldOption']] = None):
+        if collapse_state_options is not None:
+            pulumi.set(__self__, "collapse_state_options", collapse_state_options)
         if data_path_options is not None:
             pulumi.set(__self__, "data_path_options", data_path_options)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
+
+    @property
+    @pulumi.getter(name="collapseStateOptions")
+    def collapse_state_options(self) -> Optional[Sequence['outputs.TemplatePivotTableFieldCollapseStateOption']]:
+        return pulumi.get(self, "collapse_state_options")
 
     @property
     @pulumi.getter(name="dataPathOptions")
@@ -62901,6 +63261,8 @@ class TemplatePivotTableOptions(dict):
         suggest = None
         if key == "cellStyle":
             suggest = "cell_style"
+        elif key == "collapsedRowDimensionsVisibility":
+            suggest = "collapsed_row_dimensions_visibility"
         elif key == "columnHeaderStyle":
             suggest = "column_header_style"
         elif key == "columnNamesVisibility":
@@ -62931,6 +63293,7 @@ class TemplatePivotTableOptions(dict):
 
     def __init__(__self__, *,
                  cell_style: Optional['outputs.TemplateTableCellStyle'] = None,
+                 collapsed_row_dimensions_visibility: Optional['TemplateVisibility'] = None,
                  column_header_style: Optional['outputs.TemplateTableCellStyle'] = None,
                  column_names_visibility: Optional['TemplateVisibility'] = None,
                  metric_placement: Optional['TemplatePivotTableMetricPlacement'] = None,
@@ -62941,6 +63304,8 @@ class TemplatePivotTableOptions(dict):
                  toggle_buttons_visibility: Optional['TemplateVisibility'] = None):
         if cell_style is not None:
             pulumi.set(__self__, "cell_style", cell_style)
+        if collapsed_row_dimensions_visibility is not None:
+            pulumi.set(__self__, "collapsed_row_dimensions_visibility", collapsed_row_dimensions_visibility)
         if column_header_style is not None:
             pulumi.set(__self__, "column_header_style", column_header_style)
         if column_names_visibility is not None:
@@ -62962,6 +63327,11 @@ class TemplatePivotTableOptions(dict):
     @pulumi.getter(name="cellStyle")
     def cell_style(self) -> Optional['outputs.TemplateTableCellStyle']:
         return pulumi.get(self, "cell_style")
+
+    @property
+    @pulumi.getter(name="collapsedRowDimensionsVisibility")
+    def collapsed_row_dimensions_visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "collapsed_row_dimensions_visibility")
 
     @property
     @pulumi.getter(name="columnHeaderStyle")
@@ -63453,6 +63823,8 @@ class TemplateRadarChartConfiguration(dict):
             suggest = "alternate_band_even_color"
         elif key == "alternateBandOddColor":
             suggest = "alternate_band_odd_color"
+        elif key == "axesRangeScale":
+            suggest = "axes_range_scale"
         elif key == "baseSeriesSettings":
             suggest = "base_series_settings"
         elif key == "categoryAxis":
@@ -63487,6 +63859,7 @@ class TemplateRadarChartConfiguration(dict):
                  alternate_band_colors_visibility: Optional['TemplateVisibility'] = None,
                  alternate_band_even_color: Optional[str] = None,
                  alternate_band_odd_color: Optional[str] = None,
+                 axes_range_scale: Optional['TemplateRadarChartAxesRangeScale'] = None,
                  base_series_settings: Optional['outputs.TemplateRadarChartSeriesSettings'] = None,
                  category_axis: Optional['outputs.TemplateAxisDisplayOptions'] = None,
                  category_label_options: Optional['outputs.TemplateChartAxisLabelOptions'] = None,
@@ -63504,6 +63877,8 @@ class TemplateRadarChartConfiguration(dict):
             pulumi.set(__self__, "alternate_band_even_color", alternate_band_even_color)
         if alternate_band_odd_color is not None:
             pulumi.set(__self__, "alternate_band_odd_color", alternate_band_odd_color)
+        if axes_range_scale is not None:
+            pulumi.set(__self__, "axes_range_scale", axes_range_scale)
         if base_series_settings is not None:
             pulumi.set(__self__, "base_series_settings", base_series_settings)
         if category_axis is not None:
@@ -63541,6 +63916,11 @@ class TemplateRadarChartConfiguration(dict):
     @pulumi.getter(name="alternateBandOddColor")
     def alternate_band_odd_color(self) -> Optional[str]:
         return pulumi.get(self, "alternate_band_odd_color")
+
+    @property
+    @pulumi.getter(name="axesRangeScale")
+    def axes_range_scale(self) -> Optional['TemplateRadarChartAxesRangeScale']:
+        return pulumi.get(self, "axes_range_scale")
 
     @property
     @pulumi.getter(name="baseSeriesSettings")
@@ -63962,10 +64342,11 @@ class TemplateReferenceLineDynamicDataConfiguration(dict):
     def __init__(__self__, *,
                  calculation: 'outputs.TemplateNumericalAggregationFunction',
                  column: 'outputs.TemplateColumnIdentifier',
-                 measure_aggregation_function: 'outputs.TemplateAggregationFunction'):
+                 measure_aggregation_function: Optional['outputs.TemplateAggregationFunction'] = None):
         pulumi.set(__self__, "calculation", calculation)
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
+        if measure_aggregation_function is not None:
+            pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
 
     @property
     @pulumi.getter
@@ -63979,7 +64360,7 @@ class TemplateReferenceLineDynamicDataConfiguration(dict):
 
     @property
     @pulumi.getter(name="measureAggregationFunction")
-    def measure_aggregation_function(self) -> 'outputs.TemplateAggregationFunction':
+    def measure_aggregation_function(self) -> Optional['outputs.TemplateAggregationFunction']:
         return pulumi.get(self, "measure_aggregation_function")
 
 
@@ -64675,11 +65056,14 @@ class TemplateScatterPlotCategoricallyAggregatedFieldWells(dict):
 
     def __init__(__self__, *,
                  category: Optional[Sequence['outputs.TemplateDimensionField']] = None,
+                 label: Optional[Sequence['outputs.TemplateDimensionField']] = None,
                  size: Optional[Sequence['outputs.TemplateMeasureField']] = None,
                  x_axis: Optional[Sequence['outputs.TemplateMeasureField']] = None,
                  y_axis: Optional[Sequence['outputs.TemplateMeasureField']] = None):
         if category is not None:
             pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
@@ -64691,6 +65075,11 @@ class TemplateScatterPlotCategoricallyAggregatedFieldWells(dict):
     @pulumi.getter
     def category(self) -> Optional[Sequence['outputs.TemplateDimensionField']]:
         return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[Sequence['outputs.TemplateDimensionField']]:
+        return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
@@ -64876,15 +65265,31 @@ class TemplateScatterPlotUnaggregatedFieldWells(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 category: Optional[Sequence['outputs.TemplateDimensionField']] = None,
+                 label: Optional[Sequence['outputs.TemplateDimensionField']] = None,
                  size: Optional[Sequence['outputs.TemplateMeasureField']] = None,
                  x_axis: Optional[Sequence['outputs.TemplateDimensionField']] = None,
                  y_axis: Optional[Sequence['outputs.TemplateDimensionField']] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
             pulumi.set(__self__, "x_axis", x_axis)
         if y_axis is not None:
             pulumi.set(__self__, "y_axis", y_axis)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[Sequence['outputs.TemplateDimensionField']]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[Sequence['outputs.TemplateDimensionField']]:
+        return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
@@ -70080,33 +70485,19 @@ class TemplateWordCloudVisual(dict):
 
 @pulumi.output_type
 class ThemeBorderStyle(dict):
-    """
-    <p>The display options for tile borders for visuals.</p>
-    """
     def __init__(__self__, *,
                  show: Optional[bool] = None):
-        """
-        <p>The display options for tile borders for visuals.</p>
-        :param bool show: <p>The option to enable display of borders for visuals.</p>
-        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[bool]:
-        """
-        <p>The option to enable display of borders for visuals.</p>
-        """
         return pulumi.get(self, "show")
 
 
 @pulumi.output_type
 class ThemeConfiguration(dict):
-    """
-    <p>The theme configuration. This configuration contains all of the display properties for
-                a theme.</p>
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -70131,10 +70522,6 @@ class ThemeConfiguration(dict):
                  sheet: Optional['outputs.ThemeSheetStyle'] = None,
                  typography: Optional['outputs.ThemeTypography'] = None,
                  u_i_color_palette: Optional['outputs.ThemeUIColorPalette'] = None):
-        """
-        <p>The theme configuration. This configuration contains all of the display properties for
-                    a theme.</p>
-        """
         if data_color_palette is not None:
             pulumi.set(__self__, "data_color_palette", data_color_palette)
         if sheet is not None:
@@ -70167,11 +70554,6 @@ class ThemeConfiguration(dict):
 
 @pulumi.output_type
 class ThemeDataColorPalette(dict):
-    """
-    <p>The theme colors that are used for data colors in charts. The colors description is a
-                hexadecimal color code that consists of six alphanumerical characters, prefixed with
-                    <code>#</code>, for example #37BFF5. </p>
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -70195,15 +70577,6 @@ class ThemeDataColorPalette(dict):
                  colors: Optional[Sequence[str]] = None,
                  empty_fill_color: Optional[str] = None,
                  min_max_gradient: Optional[Sequence[str]] = None):
-        """
-        <p>The theme colors that are used for data colors in charts. The colors description is a
-                    hexadecimal color code that consists of six alphanumerical characters, prefixed with
-                        <code>#</code>, for example #37BFF5. </p>
-        :param Sequence[str] colors: <p>The hexadecimal codes for the colors.</p>
-        :param str empty_fill_color: <p>The hexadecimal code of a color that applies to charts where a lack of data is
-                           highlighted.</p>
-        :param Sequence[str] min_max_gradient: <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
-        """
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if empty_fill_color is not None:
@@ -70214,41 +70587,24 @@ class ThemeDataColorPalette(dict):
     @property
     @pulumi.getter
     def colors(self) -> Optional[Sequence[str]]:
-        """
-        <p>The hexadecimal codes for the colors.</p>
-        """
         return pulumi.get(self, "colors")
 
     @property
     @pulumi.getter(name="emptyFillColor")
     def empty_fill_color(self) -> Optional[str]:
-        """
-        <p>The hexadecimal code of a color that applies to charts where a lack of data is
-                    highlighted.</p>
-        """
         return pulumi.get(self, "empty_fill_color")
 
     @property
     @pulumi.getter(name="minMaxGradient")
     def min_max_gradient(self) -> Optional[Sequence[str]]:
-        """
-        <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
-        """
         return pulumi.get(self, "min_max_gradient")
 
 
 @pulumi.output_type
 class ThemeError(dict):
-    """
-    <p>Theme error.</p>
-    """
     def __init__(__self__, *,
                  message: Optional[str] = None,
                  type: Optional['ThemeErrorType'] = None):
-        """
-        <p>Theme error.</p>
-        :param str message: <p>The error message.</p>
-        """
         if message is not None:
             pulumi.set(__self__, "message", message)
         if type is not None:
@@ -70257,9 +70613,6 @@ class ThemeError(dict):
     @property
     @pulumi.getter
     def message(self) -> Optional[str]:
-        """
-        <p>The error message.</p>
-        """
         return pulumi.get(self, "message")
 
     @property
@@ -70300,118 +70653,59 @@ class ThemeFont(dict):
 
 @pulumi.output_type
 class ThemeGutterStyle(dict):
-    """
-    <p>The display options for gutter spacing between tiles on a sheet.</p>
-    """
     def __init__(__self__, *,
                  show: Optional[bool] = None):
-        """
-        <p>The display options for gutter spacing between tiles on a sheet.</p>
-        :param bool show: <p>This Boolean value controls whether to display a gutter space between sheet tiles.
-                       </p>
-        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[bool]:
-        """
-        <p>This Boolean value controls whether to display a gutter space between sheet tiles.
-                </p>
-        """
         return pulumi.get(self, "show")
 
 
 @pulumi.output_type
 class ThemeMarginStyle(dict):
-    """
-    <p>The display options for margins around the outside edge of sheets.</p>
-    """
     def __init__(__self__, *,
                  show: Optional[bool] = None):
-        """
-        <p>The display options for margins around the outside edge of sheets.</p>
-        :param bool show: <p>This Boolean value controls whether to display sheet margins.</p>
-        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[bool]:
-        """
-        <p>This Boolean value controls whether to display sheet margins.</p>
-        """
         return pulumi.get(self, "show")
 
 
 @pulumi.output_type
 class ThemeResourcePermission(dict):
-    """
-    <p>Permission for the resource.</p>
-    """
     def __init__(__self__, *,
                  actions: Sequence[str],
-                 principal: str):
-        """
-        <p>Permission for the resource.</p>
-        :param Sequence[str] actions: <p>The IAM action to grant or revoke permissions on.</p>
-        :param str principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-                           following:</p>
-                       <ul>
-                           <li>
-                               <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-                           </li>
-                           <li>
-                               <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-                           </li>
-                           <li>
-                               <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-                                   ARN. Use this option only to share resources (templates) across AWS accounts.
-                                   (This is less common.) </p>
-                           </li>
-                        </ul>
-        """
+                 principal: str,
+                 resource: Optional[str] = None):
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
     def actions(self) -> Sequence[str]:
-        """
-        <p>The IAM action to grant or revoke permissions on.</p>
-        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def principal(self) -> str:
-        """
-        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-                    following:</p>
-                <ul>
-                    <li>
-                        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-                    </li>
-                    <li>
-                        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-                    </li>
-                    <li>
-                        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-                            ARN. Use this option only to share resources (templates) across AWS accounts.
-                            (This is less common.) </p>
-                    </li>
-                 </ul>
-        """
         return pulumi.get(self, "principal")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[str]:
+        return pulumi.get(self, "resource")
 
 
 @pulumi.output_type
 class ThemeSheetStyle(dict):
-    """
-    <p>The theme display options for sheets. </p>
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -70432,9 +70726,6 @@ class ThemeSheetStyle(dict):
     def __init__(__self__, *,
                  tile: Optional['outputs.ThemeTileStyle'] = None,
                  tile_layout: Optional['outputs.ThemeTileLayoutStyle'] = None):
-        """
-        <p>The theme display options for sheets. </p>
-        """
         if tile is not None:
             pulumi.set(__self__, "tile", tile)
         if tile_layout is not None:
@@ -70453,50 +70744,28 @@ class ThemeSheetStyle(dict):
 
 @pulumi.output_type
 class ThemeTag(dict):
-    """
-    <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-                resource.</p>
-    """
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        """
-        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-                    resource.</p>
-        :param str key: <p>Tag key.</p>
-        :param str value: <p>Tag value.</p>
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        <p>Tag key.</p>
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        <p>Tag value.</p>
-        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class ThemeTileLayoutStyle(dict):
-    """
-    <p>The display options for the layout of tiles on a sheet.</p>
-    """
     def __init__(__self__, *,
                  gutter: Optional['outputs.ThemeGutterStyle'] = None,
                  margin: Optional['outputs.ThemeMarginStyle'] = None):
-        """
-        <p>The display options for the layout of tiles on a sheet.</p>
-        """
         if gutter is not None:
             pulumi.set(__self__, "gutter", gutter)
         if margin is not None:
@@ -70515,14 +70784,8 @@ class ThemeTileLayoutStyle(dict):
 
 @pulumi.output_type
 class ThemeTileStyle(dict):
-    """
-    <p>Display options related to tiles on a sheet.</p>
-    """
     def __init__(__self__, *,
                  border: Optional['outputs.ThemeBorderStyle'] = None):
-        """
-        <p>Display options related to tiles on a sheet.</p>
-        """
         if border is not None:
             pulumi.set(__self__, "border", border)
 
@@ -70534,9 +70797,6 @@ class ThemeTileStyle(dict):
 
 @pulumi.output_type
 class ThemeTypography(dict):
-    """
-    <p>The typeface for the theme.</p>
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -70556,9 +70816,6 @@ class ThemeTypography(dict):
 
     def __init__(__self__, *,
                  font_families: Optional[Sequence['outputs.ThemeFont']] = None):
-        """
-        <p>The typeface for the theme.</p>
-        """
         if font_families is not None:
             pulumi.set(__self__, "font_families", font_families)
 
@@ -70570,13 +70827,6 @@ class ThemeTypography(dict):
 
 @pulumi.output_type
 class ThemeUIColorPalette(dict):
-    """
-    <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
-                description is a hexadecimal color code that consists of six alphanumerical characters,
-                prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
-                    Guide.</i>
-            </p>
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -70629,39 +70879,6 @@ class ThemeUIColorPalette(dict):
                  success_foreground: Optional[str] = None,
                  warning: Optional[str] = None,
                  warning_foreground: Optional[str] = None):
-        """
-        <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
-                    description is a hexadecimal color code that consists of six alphanumerical characters,
-                    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
-                        Guide.</i>
-                </p>
-        :param str accent: <p>This color is that applies to selected states and buttons.</p>
-        :param str accent_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           accent color.</p>
-        :param str danger: <p>The color that applies to error messages.</p>
-        :param str danger_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           error color.</p>
-        :param str dimension: <p>The color that applies to the names of fields that are identified as
-                           dimensions.</p>
-        :param str dimension_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           dimension color.</p>
-        :param str measure: <p>The color that applies to the names of fields that are identified as measures.</p>
-        :param str measure_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           measure color.</p>
-        :param str primary_background: <p>The background color that applies to visuals and other high emphasis UI.</p>
-        :param str primary_foreground: <p>The color of text and other foreground elements that appear over the primary
-                           background regions, such as grid lines, borders, table banding, icons, and so on.</p>
-        :param str secondary_background: <p>The background color that applies to the sheet background and sheet controls.</p>
-        :param str secondary_foreground: <p>The foreground color that applies to any sheet title, sheet control text, or UI that
-                           appears over the secondary background.</p>
-        :param str success: <p>The color that applies to success messages, for example the check mark for a
-                           successful download.</p>
-        :param str success_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           success color.</p>
-        :param str warning: <p>This color that applies to warning and informational messages.</p>
-        :param str warning_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           warning color.</p>
-        """
         if accent is not None:
             pulumi.set(__self__, "accent", accent)
         if accent_foreground is not None:
@@ -70698,147 +70915,86 @@ class ThemeUIColorPalette(dict):
     @property
     @pulumi.getter
     def accent(self) -> Optional[str]:
-        """
-        <p>This color is that applies to selected states and buttons.</p>
-        """
         return pulumi.get(self, "accent")
 
     @property
     @pulumi.getter(name="accentForeground")
     def accent_foreground(self) -> Optional[str]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    accent color.</p>
-        """
         return pulumi.get(self, "accent_foreground")
 
     @property
     @pulumi.getter
     def danger(self) -> Optional[str]:
-        """
-        <p>The color that applies to error messages.</p>
-        """
         return pulumi.get(self, "danger")
 
     @property
     @pulumi.getter(name="dangerForeground")
     def danger_foreground(self) -> Optional[str]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    error color.</p>
-        """
         return pulumi.get(self, "danger_foreground")
 
     @property
     @pulumi.getter
     def dimension(self) -> Optional[str]:
-        """
-        <p>The color that applies to the names of fields that are identified as
-                    dimensions.</p>
-        """
         return pulumi.get(self, "dimension")
 
     @property
     @pulumi.getter(name="dimensionForeground")
     def dimension_foreground(self) -> Optional[str]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    dimension color.</p>
-        """
         return pulumi.get(self, "dimension_foreground")
 
     @property
     @pulumi.getter
     def measure(self) -> Optional[str]:
-        """
-        <p>The color that applies to the names of fields that are identified as measures.</p>
-        """
         return pulumi.get(self, "measure")
 
     @property
     @pulumi.getter(name="measureForeground")
     def measure_foreground(self) -> Optional[str]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    measure color.</p>
-        """
         return pulumi.get(self, "measure_foreground")
 
     @property
     @pulumi.getter(name="primaryBackground")
     def primary_background(self) -> Optional[str]:
-        """
-        <p>The background color that applies to visuals and other high emphasis UI.</p>
-        """
         return pulumi.get(self, "primary_background")
 
     @property
     @pulumi.getter(name="primaryForeground")
     def primary_foreground(self) -> Optional[str]:
-        """
-        <p>The color of text and other foreground elements that appear over the primary
-                    background regions, such as grid lines, borders, table banding, icons, and so on.</p>
-        """
         return pulumi.get(self, "primary_foreground")
 
     @property
     @pulumi.getter(name="secondaryBackground")
     def secondary_background(self) -> Optional[str]:
-        """
-        <p>The background color that applies to the sheet background and sheet controls.</p>
-        """
         return pulumi.get(self, "secondary_background")
 
     @property
     @pulumi.getter(name="secondaryForeground")
     def secondary_foreground(self) -> Optional[str]:
-        """
-        <p>The foreground color that applies to any sheet title, sheet control text, or UI that
-                    appears over the secondary background.</p>
-        """
         return pulumi.get(self, "secondary_foreground")
 
     @property
     @pulumi.getter
     def success(self) -> Optional[str]:
-        """
-        <p>The color that applies to success messages, for example the check mark for a
-                    successful download.</p>
-        """
         return pulumi.get(self, "success")
 
     @property
     @pulumi.getter(name="successForeground")
     def success_foreground(self) -> Optional[str]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    success color.</p>
-        """
         return pulumi.get(self, "success_foreground")
 
     @property
     @pulumi.getter
     def warning(self) -> Optional[str]:
-        """
-        <p>This color that applies to warning and informational messages.</p>
-        """
         return pulumi.get(self, "warning")
 
     @property
     @pulumi.getter(name="warningForeground")
     def warning_foreground(self) -> Optional[str]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    warning color.</p>
-        """
         return pulumi.get(self, "warning_foreground")
 
 
 @pulumi.output_type
 class ThemeVersion(dict):
-    """
-    <p>A version of a theme.</p>
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -70869,16 +71025,6 @@ class ThemeVersion(dict):
                  errors: Optional[Sequence['outputs.ThemeError']] = None,
                  status: Optional['ThemeResourceStatus'] = None,
                  version_number: Optional[float] = None):
-        """
-        <p>A version of a theme.</p>
-        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
-        :param str base_theme_id: <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-                           themes initially inherit from a default QuickSight theme.</p>
-        :param str created_time: <p>The date and time that this theme version was created.</p>
-        :param str description: <p>The description of the theme.</p>
-        :param Sequence['ThemeError'] errors: <p>Errors associated with the theme.</p>
-        :param float version_number: <p>The version number of the theme.</p>
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if base_theme_id is not None:
@@ -70899,18 +71045,11 @@ class ThemeVersion(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the resource.</p>
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="baseThemeId")
     def base_theme_id(self) -> Optional[str]:
-        """
-        <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-                    themes initially inherit from a default QuickSight theme.</p>
-        """
         return pulumi.get(self, "base_theme_id")
 
     @property
@@ -70921,25 +71060,16 @@ class ThemeVersion(dict):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
-        """
-        <p>The date and time that this theme version was created.</p>
-        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
-        """
-        <p>The description of the theme.</p>
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def errors(self) -> Optional[Sequence['outputs.ThemeError']]:
-        """
-        <p>Errors associated with the theme.</p>
-        """
         return pulumi.get(self, "errors")
 
     @property
@@ -70950,9 +71080,6 @@ class ThemeVersion(dict):
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[float]:
-        """
-        <p>The version number of the theme.</p>
-        """
         return pulumi.get(self, "version_number")
 
 

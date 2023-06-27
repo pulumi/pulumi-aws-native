@@ -17,7 +17,7 @@ export function getHost(args: GetHostArgs, opts?: pulumi.InvokeOptions): Promise
 
 export interface GetHostArgs {
     /**
-     * Id of the host created.
+     * ID of the host created.
      */
     hostId: string;
 }
@@ -28,7 +28,7 @@ export interface GetHostResult {
      */
     readonly autoPlacement?: string;
     /**
-     * Id of the host created.
+     * ID of the host created.
      */
     readonly hostId?: string;
     /**
@@ -49,7 +49,7 @@ export function getHostOutput(args: GetHostOutputArgs, opts?: pulumi.InvokeOptio
 
 export interface GetHostOutputArgs {
     /**
-     * Id of the host created.
+     * ID of the host created.
      */
     hostId: pulumi.Input<string>;
 }

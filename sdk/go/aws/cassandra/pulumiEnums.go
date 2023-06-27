@@ -10,6 +10,393 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type KeyspaceRegionListItem string
+
+const (
+	KeyspaceRegionListItemApNortheast1 = KeyspaceRegionListItem("ap-northeast-1")
+	KeyspaceRegionListItemApNortheast2 = KeyspaceRegionListItem("ap-northeast-2")
+	KeyspaceRegionListItemApSouth1     = KeyspaceRegionListItem("ap-south-1")
+	KeyspaceRegionListItemApSoutheast1 = KeyspaceRegionListItem("ap-southeast-1")
+	KeyspaceRegionListItemApSoutheast2 = KeyspaceRegionListItem("ap-southeast-2")
+	KeyspaceRegionListItemCaCentral1   = KeyspaceRegionListItem("ca-central-1")
+	KeyspaceRegionListItemEuCentral1   = KeyspaceRegionListItem("eu-central-1")
+	KeyspaceRegionListItemEuNorth1     = KeyspaceRegionListItem("eu-north-1")
+	KeyspaceRegionListItemEuWest1      = KeyspaceRegionListItem("eu-west-1")
+	KeyspaceRegionListItemEuWest2      = KeyspaceRegionListItem("eu-west-2")
+	KeyspaceRegionListItemEuWest3      = KeyspaceRegionListItem("eu-west-3")
+	KeyspaceRegionListItemSaEast1      = KeyspaceRegionListItem("sa-east-1")
+	KeyspaceRegionListItemUsEast1      = KeyspaceRegionListItem("us-east-1")
+	KeyspaceRegionListItemUsEast2      = KeyspaceRegionListItem("us-east-2")
+	KeyspaceRegionListItemUsWest1      = KeyspaceRegionListItem("us-west-1")
+	KeyspaceRegionListItemUsWest2      = KeyspaceRegionListItem("us-west-2")
+)
+
+func (KeyspaceRegionListItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyspaceRegionListItem)(nil)).Elem()
+}
+
+func (e KeyspaceRegionListItem) ToKeyspaceRegionListItemOutput() KeyspaceRegionListItemOutput {
+	return pulumi.ToOutput(e).(KeyspaceRegionListItemOutput)
+}
+
+func (e KeyspaceRegionListItem) ToKeyspaceRegionListItemOutputWithContext(ctx context.Context) KeyspaceRegionListItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KeyspaceRegionListItemOutput)
+}
+
+func (e KeyspaceRegionListItem) ToKeyspaceRegionListItemPtrOutput() KeyspaceRegionListItemPtrOutput {
+	return e.ToKeyspaceRegionListItemPtrOutputWithContext(context.Background())
+}
+
+func (e KeyspaceRegionListItem) ToKeyspaceRegionListItemPtrOutputWithContext(ctx context.Context) KeyspaceRegionListItemPtrOutput {
+	return KeyspaceRegionListItem(e).ToKeyspaceRegionListItemOutputWithContext(ctx).ToKeyspaceRegionListItemPtrOutputWithContext(ctx)
+}
+
+func (e KeyspaceRegionListItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyspaceRegionListItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyspaceRegionListItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KeyspaceRegionListItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KeyspaceRegionListItemOutput struct{ *pulumi.OutputState }
+
+func (KeyspaceRegionListItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyspaceRegionListItem)(nil)).Elem()
+}
+
+func (o KeyspaceRegionListItemOutput) ToKeyspaceRegionListItemOutput() KeyspaceRegionListItemOutput {
+	return o
+}
+
+func (o KeyspaceRegionListItemOutput) ToKeyspaceRegionListItemOutputWithContext(ctx context.Context) KeyspaceRegionListItemOutput {
+	return o
+}
+
+func (o KeyspaceRegionListItemOutput) ToKeyspaceRegionListItemPtrOutput() KeyspaceRegionListItemPtrOutput {
+	return o.ToKeyspaceRegionListItemPtrOutputWithContext(context.Background())
+}
+
+func (o KeyspaceRegionListItemOutput) ToKeyspaceRegionListItemPtrOutputWithContext(ctx context.Context) KeyspaceRegionListItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyspaceRegionListItem) *KeyspaceRegionListItem {
+		return &v
+	}).(KeyspaceRegionListItemPtrOutput)
+}
+
+func (o KeyspaceRegionListItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KeyspaceRegionListItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyspaceRegionListItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyspaceRegionListItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyspaceRegionListItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyspaceRegionListItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyspaceRegionListItemPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyspaceRegionListItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyspaceRegionListItem)(nil)).Elem()
+}
+
+func (o KeyspaceRegionListItemPtrOutput) ToKeyspaceRegionListItemPtrOutput() KeyspaceRegionListItemPtrOutput {
+	return o
+}
+
+func (o KeyspaceRegionListItemPtrOutput) ToKeyspaceRegionListItemPtrOutputWithContext(ctx context.Context) KeyspaceRegionListItemPtrOutput {
+	return o
+}
+
+func (o KeyspaceRegionListItemPtrOutput) Elem() KeyspaceRegionListItemOutput {
+	return o.ApplyT(func(v *KeyspaceRegionListItem) KeyspaceRegionListItem {
+		if v != nil {
+			return *v
+		}
+		var ret KeyspaceRegionListItem
+		return ret
+	}).(KeyspaceRegionListItemOutput)
+}
+
+func (o KeyspaceRegionListItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyspaceRegionListItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeyspaceRegionListItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KeyspaceRegionListItemInput is an input type that accepts KeyspaceRegionListItemArgs and KeyspaceRegionListItemOutput values.
+// You can construct a concrete instance of `KeyspaceRegionListItemInput` via:
+//
+//	KeyspaceRegionListItemArgs{...}
+type KeyspaceRegionListItemInput interface {
+	pulumi.Input
+
+	ToKeyspaceRegionListItemOutput() KeyspaceRegionListItemOutput
+	ToKeyspaceRegionListItemOutputWithContext(context.Context) KeyspaceRegionListItemOutput
+}
+
+var keyspaceRegionListItemPtrType = reflect.TypeOf((**KeyspaceRegionListItem)(nil)).Elem()
+
+type KeyspaceRegionListItemPtrInput interface {
+	pulumi.Input
+
+	ToKeyspaceRegionListItemPtrOutput() KeyspaceRegionListItemPtrOutput
+	ToKeyspaceRegionListItemPtrOutputWithContext(context.Context) KeyspaceRegionListItemPtrOutput
+}
+
+type keyspaceRegionListItemPtr string
+
+func KeyspaceRegionListItemPtr(v string) KeyspaceRegionListItemPtrInput {
+	return (*keyspaceRegionListItemPtr)(&v)
+}
+
+func (*keyspaceRegionListItemPtr) ElementType() reflect.Type {
+	return keyspaceRegionListItemPtrType
+}
+
+func (in *keyspaceRegionListItemPtr) ToKeyspaceRegionListItemPtrOutput() KeyspaceRegionListItemPtrOutput {
+	return pulumi.ToOutput(in).(KeyspaceRegionListItemPtrOutput)
+}
+
+func (in *keyspaceRegionListItemPtr) ToKeyspaceRegionListItemPtrOutputWithContext(ctx context.Context) KeyspaceRegionListItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KeyspaceRegionListItemPtrOutput)
+}
+
+// KeyspaceRegionListItemArrayInput is an input type that accepts KeyspaceRegionListItemArray and KeyspaceRegionListItemArrayOutput values.
+// You can construct a concrete instance of `KeyspaceRegionListItemArrayInput` via:
+//
+//	KeyspaceRegionListItemArray{ KeyspaceRegionListItemArgs{...} }
+type KeyspaceRegionListItemArrayInput interface {
+	pulumi.Input
+
+	ToKeyspaceRegionListItemArrayOutput() KeyspaceRegionListItemArrayOutput
+	ToKeyspaceRegionListItemArrayOutputWithContext(context.Context) KeyspaceRegionListItemArrayOutput
+}
+
+type KeyspaceRegionListItemArray []KeyspaceRegionListItem
+
+func (KeyspaceRegionListItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyspaceRegionListItem)(nil)).Elem()
+}
+
+func (i KeyspaceRegionListItemArray) ToKeyspaceRegionListItemArrayOutput() KeyspaceRegionListItemArrayOutput {
+	return i.ToKeyspaceRegionListItemArrayOutputWithContext(context.Background())
+}
+
+func (i KeyspaceRegionListItemArray) ToKeyspaceRegionListItemArrayOutputWithContext(ctx context.Context) KeyspaceRegionListItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceRegionListItemArrayOutput)
+}
+
+type KeyspaceRegionListItemArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyspaceRegionListItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyspaceRegionListItem)(nil)).Elem()
+}
+
+func (o KeyspaceRegionListItemArrayOutput) ToKeyspaceRegionListItemArrayOutput() KeyspaceRegionListItemArrayOutput {
+	return o
+}
+
+func (o KeyspaceRegionListItemArrayOutput) ToKeyspaceRegionListItemArrayOutputWithContext(ctx context.Context) KeyspaceRegionListItemArrayOutput {
+	return o
+}
+
+func (o KeyspaceRegionListItemArrayOutput) Index(i pulumi.IntInput) KeyspaceRegionListItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyspaceRegionListItem {
+		return vs[0].([]KeyspaceRegionListItem)[vs[1].(int)]
+	}).(KeyspaceRegionListItemOutput)
+}
+
+type KeyspaceReplicationSpecificationReplicationStrategy string
+
+const (
+	KeyspaceReplicationSpecificationReplicationStrategySingleRegion = KeyspaceReplicationSpecificationReplicationStrategy("SINGLE_REGION")
+	KeyspaceReplicationSpecificationReplicationStrategyMultiRegion  = KeyspaceReplicationSpecificationReplicationStrategy("MULTI_REGION")
+)
+
+func (KeyspaceReplicationSpecificationReplicationStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyspaceReplicationSpecificationReplicationStrategy)(nil)).Elem()
+}
+
+func (e KeyspaceReplicationSpecificationReplicationStrategy) ToKeyspaceReplicationSpecificationReplicationStrategyOutput() KeyspaceReplicationSpecificationReplicationStrategyOutput {
+	return pulumi.ToOutput(e).(KeyspaceReplicationSpecificationReplicationStrategyOutput)
+}
+
+func (e KeyspaceReplicationSpecificationReplicationStrategy) ToKeyspaceReplicationSpecificationReplicationStrategyOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationReplicationStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KeyspaceReplicationSpecificationReplicationStrategyOutput)
+}
+
+func (e KeyspaceReplicationSpecificationReplicationStrategy) ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutput() KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
+	return e.ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e KeyspaceReplicationSpecificationReplicationStrategy) ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
+	return KeyspaceReplicationSpecificationReplicationStrategy(e).ToKeyspaceReplicationSpecificationReplicationStrategyOutputWithContext(ctx).ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutputWithContext(ctx)
+}
+
+func (e KeyspaceReplicationSpecificationReplicationStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyspaceReplicationSpecificationReplicationStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyspaceReplicationSpecificationReplicationStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KeyspaceReplicationSpecificationReplicationStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KeyspaceReplicationSpecificationReplicationStrategyOutput struct{ *pulumi.OutputState }
+
+func (KeyspaceReplicationSpecificationReplicationStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyspaceReplicationSpecificationReplicationStrategy)(nil)).Elem()
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToKeyspaceReplicationSpecificationReplicationStrategyOutput() KeyspaceReplicationSpecificationReplicationStrategyOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToKeyspaceReplicationSpecificationReplicationStrategyOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationReplicationStrategyOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutput() KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
+	return o.ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyspaceReplicationSpecificationReplicationStrategy) *KeyspaceReplicationSpecificationReplicationStrategy {
+		return &v
+	}).(KeyspaceReplicationSpecificationReplicationStrategyPtrOutput)
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyspaceReplicationSpecificationReplicationStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyspaceReplicationSpecificationReplicationStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyspaceReplicationSpecificationReplicationStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyspaceReplicationSpecificationReplicationStrategy)(nil)).Elem()
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutput() KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) Elem() KeyspaceReplicationSpecificationReplicationStrategyOutput {
+	return o.ApplyT(func(v *KeyspaceReplicationSpecificationReplicationStrategy) KeyspaceReplicationSpecificationReplicationStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret KeyspaceReplicationSpecificationReplicationStrategy
+		return ret
+	}).(KeyspaceReplicationSpecificationReplicationStrategyOutput)
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeyspaceReplicationSpecificationReplicationStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KeyspaceReplicationSpecificationReplicationStrategyInput is an input type that accepts KeyspaceReplicationSpecificationReplicationStrategyArgs and KeyspaceReplicationSpecificationReplicationStrategyOutput values.
+// You can construct a concrete instance of `KeyspaceReplicationSpecificationReplicationStrategyInput` via:
+//
+//	KeyspaceReplicationSpecificationReplicationStrategyArgs{...}
+type KeyspaceReplicationSpecificationReplicationStrategyInput interface {
+	pulumi.Input
+
+	ToKeyspaceReplicationSpecificationReplicationStrategyOutput() KeyspaceReplicationSpecificationReplicationStrategyOutput
+	ToKeyspaceReplicationSpecificationReplicationStrategyOutputWithContext(context.Context) KeyspaceReplicationSpecificationReplicationStrategyOutput
+}
+
+var keyspaceReplicationSpecificationReplicationStrategyPtrType = reflect.TypeOf((**KeyspaceReplicationSpecificationReplicationStrategy)(nil)).Elem()
+
+type KeyspaceReplicationSpecificationReplicationStrategyPtrInput interface {
+	pulumi.Input
+
+	ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutput() KeyspaceReplicationSpecificationReplicationStrategyPtrOutput
+	ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutputWithContext(context.Context) KeyspaceReplicationSpecificationReplicationStrategyPtrOutput
+}
+
+type keyspaceReplicationSpecificationReplicationStrategyPtr string
+
+func KeyspaceReplicationSpecificationReplicationStrategyPtr(v string) KeyspaceReplicationSpecificationReplicationStrategyPtrInput {
+	return (*keyspaceReplicationSpecificationReplicationStrategyPtr)(&v)
+}
+
+func (*keyspaceReplicationSpecificationReplicationStrategyPtr) ElementType() reflect.Type {
+	return keyspaceReplicationSpecificationReplicationStrategyPtrType
+}
+
+func (in *keyspaceReplicationSpecificationReplicationStrategyPtr) ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutput() KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
+	return pulumi.ToOutput(in).(KeyspaceReplicationSpecificationReplicationStrategyPtrOutput)
+}
+
+func (in *keyspaceReplicationSpecificationReplicationStrategyPtr) ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KeyspaceReplicationSpecificationReplicationStrategyPtrOutput)
+}
+
 type TableClusteringKeyColumnOrderBy string
 
 const (
@@ -505,12 +892,22 @@ func (in *tableModePtr) ToTableModePtrOutputWithContext(ctx context.Context) Tab
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceRegionListItemInput)(nil)).Elem(), KeyspaceRegionListItem("ap-northeast-1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceRegionListItemPtrInput)(nil)).Elem(), KeyspaceRegionListItem("ap-northeast-1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceRegionListItemArrayInput)(nil)).Elem(), KeyspaceRegionListItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationReplicationStrategyInput)(nil)).Elem(), KeyspaceReplicationSpecificationReplicationStrategy("SINGLE_REGION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationReplicationStrategyPtrInput)(nil)).Elem(), KeyspaceReplicationSpecificationReplicationStrategy("SINGLE_REGION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnOrderByInput)(nil)).Elem(), TableClusteringKeyColumnOrderBy("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnOrderByPtrInput)(nil)).Elem(), TableClusteringKeyColumnOrderBy("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionTypeInput)(nil)).Elem(), TableEncryptionType("AWS_OWNED_KMS_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionTypePtrInput)(nil)).Elem(), TableEncryptionType("AWS_OWNED_KMS_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableModeInput)(nil)).Elem(), TableMode("PROVISIONED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableModePtrInput)(nil)).Elem(), TableMode("PROVISIONED"))
+	pulumi.RegisterOutputType(KeyspaceRegionListItemOutput{})
+	pulumi.RegisterOutputType(KeyspaceRegionListItemPtrOutput{})
+	pulumi.RegisterOutputType(KeyspaceRegionListItemArrayOutput{})
+	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationReplicationStrategyOutput{})
+	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationReplicationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(TableClusteringKeyColumnOrderByOutput{})
 	pulumi.RegisterOutputType(TableClusteringKeyColumnOrderByPtrOutput{})
 	pulumi.RegisterOutputType(TableEncryptionTypeOutput{})

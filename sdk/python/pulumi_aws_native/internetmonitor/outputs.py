@@ -12,10 +12,51 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'MonitorHealthEventsConfig',
     'MonitorInternetMeasurementsLogDelivery',
     'MonitorS3Config',
     'MonitorTag',
 ]
+
+@pulumi.output_type
+class MonitorHealthEventsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityScoreThreshold":
+            suggest = "availability_score_threshold"
+        elif key == "performanceScoreThreshold":
+            suggest = "performance_score_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorHealthEventsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorHealthEventsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorHealthEventsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_score_threshold: Optional[float] = None,
+                 performance_score_threshold: Optional[float] = None):
+        if availability_score_threshold is not None:
+            pulumi.set(__self__, "availability_score_threshold", availability_score_threshold)
+        if performance_score_threshold is not None:
+            pulumi.set(__self__, "performance_score_threshold", performance_score_threshold)
+
+    @property
+    @pulumi.getter(name="availabilityScoreThreshold")
+    def availability_score_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "availability_score_threshold")
+
+    @property
+    @pulumi.getter(name="performanceScoreThreshold")
+    def performance_score_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "performance_score_threshold")
+
 
 @pulumi.output_type
 class MonitorInternetMeasurementsLogDelivery(dict):

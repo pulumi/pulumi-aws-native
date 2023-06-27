@@ -10,16 +10,43 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateEbs
     {
+        /// <summary>
+        /// Indicates whether the EBS volume is deleted on instance termination.
+        /// </summary>
         public readonly bool? DeleteOnTermination;
+        /// <summary>
+        /// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+        /// </summary>
         public readonly bool? Encrypted;
+        /// <summary>
+        /// The number of I/O operations per second (IOPS).
+        /// </summary>
         public readonly int? Iops;
+        /// <summary>
+        /// The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
+        /// </summary>
         public readonly string? KmsKeyId;
+        /// <summary>
+        /// The ID of the snapshot.
+        /// </summary>
         public readonly string? SnapshotId;
+        /// <summary>
+        /// The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+        /// </summary>
         public readonly int? Throughput;
+        /// <summary>
+        /// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+        /// </summary>
         public readonly int? VolumeSize;
+        /// <summary>
+        /// The volume type.
+        /// </summary>
         public readonly string? VolumeType;
 
         [OutputConstructor]

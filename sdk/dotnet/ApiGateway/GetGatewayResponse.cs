@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetGatewayResponseArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A Cloudformation auto generated ID.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -41,9 +38,6 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetGatewayResponseInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A Cloudformation auto generated ID.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -57,21 +51,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetGatewayResponseResult
     {
-        /// <summary>
-        /// A Cloudformation auto generated ID.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The response parameters (paths, query strings, and headers) for the response.
-        /// </summary>
         public readonly object? ResponseParameters;
-        /// <summary>
-        /// The response templates for the response.
-        /// </summary>
         public readonly object? ResponseTemplates;
-        /// <summary>
-        /// The HTTP status code for the response.
-        /// </summary>
         public readonly string? StatusCode;
 
         [OutputConstructor]

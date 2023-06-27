@@ -42,7 +42,9 @@ export class AppBlock extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly displayName!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
-    public readonly setupScriptDetails!: pulumi.Output<outputs.appstream.AppBlockScriptDetails>;
+    public readonly packagingType!: pulumi.Output<string | undefined>;
+    public readonly postSetupScriptDetails!: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
+    public readonly setupScriptDetails!: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
     public readonly sourceS3Location!: pulumi.Output<outputs.appstream.AppBlockS3Location>;
     public readonly tags!: pulumi.Output<outputs.appstream.AppBlockTag[] | undefined>;
 
@@ -57,15 +59,14 @@ export class AppBlock extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.setupScriptDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'setupScriptDetails'");
-            }
             if ((!args || args.sourceS3Location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceS3Location'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["packagingType"] = args ? args.packagingType : undefined;
+            resourceInputs["postSetupScriptDetails"] = args ? args.postSetupScriptDetails : undefined;
             resourceInputs["setupScriptDetails"] = args ? args.setupScriptDetails : undefined;
             resourceInputs["sourceS3Location"] = args ? args.sourceS3Location : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -77,6 +78,8 @@ export class AppBlock extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packagingType"] = undefined /*out*/;
+            resourceInputs["postSetupScriptDetails"] = undefined /*out*/;
             resourceInputs["setupScriptDetails"] = undefined /*out*/;
             resourceInputs["sourceS3Location"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -93,7 +96,9 @@ export interface AppBlockArgs {
     description?: pulumi.Input<string>;
     displayName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    setupScriptDetails: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs>;
+    packagingType?: pulumi.Input<string>;
+    postSetupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs>;
+    setupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs>;
     sourceS3Location: pulumi.Input<inputs.appstream.AppBlockS3LocationArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.appstream.AppBlockTagArgs>[]>;
 }

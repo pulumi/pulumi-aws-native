@@ -116,13 +116,13 @@
   "primaryIdentifier" : [ "/properties/EndpointGroupArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "globalaccelerator:CreateEndpointGroup", "globalaccelerator:DescribeEndpointGroup", "globalaccelerator:DescribeListener", "globalaccelerator:ListAccelerators", "globalaccelerator:ListListeners" ]
+      "permissions" : [ "globalaccelerator:CreateEndpointGroup", "globalaccelerator:DescribeEndpointGroup", "globalaccelerator:DescribeAccelerator", "globalaccelerator:DescribeListener", "globalaccelerator:ListAccelerators", "globalaccelerator:ListListeners" ]
     },
     "read" : {
       "permissions" : [ "globalaccelerator:DescribeEndpointGroup" ]
     },
     "update" : {
-      "permissions" : [ "globalaccelerator:UpdateEndpointGroup", "globalaccelerator:DescribeEndpointGroup", "globalaccelerator:DescribeListener" ]
+      "permissions" : [ "globalaccelerator:UpdateEndpointGroup", "globalaccelerator:DescribeEndpointGroup", "globalaccelerator:DescribeListener", "globalaccelerator:DescribeAccelerator" ]
     },
     "delete" : {
       "permissions" : [ "globalaccelerator:DeleteEndpointGroup", "globalaccelerator:DescribeEndpointGroup", "globalaccelerator:DescribeAccelerator" ]

@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplatePivotTableOptions
     {
         public readonly Outputs.TemplateTableCellStyle? CellStyle;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? CollapsedRowDimensionsVisibility;
         public readonly Outputs.TemplateTableCellStyle? ColumnHeaderStyle;
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? ColumnNamesVisibility;
         public readonly Pulumi.AwsNative.QuickSight.TemplatePivotTableMetricPlacement? MetricPlacement;
@@ -26,6 +27,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         [OutputConstructor]
         private TemplatePivotTableOptions(
             Outputs.TemplateTableCellStyle? cellStyle,
+
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? collapsedRowDimensionsVisibility,
 
             Outputs.TemplateTableCellStyle? columnHeaderStyle,
 
@@ -44,6 +47,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.TemplateVisibility? toggleButtonsVisibility)
         {
             CellStyle = cellStyle;
+            CollapsedRowDimensionsVisibility = collapsedRowDimensionsVisibility;
             ColumnHeaderStyle = columnHeaderStyle;
             ColumnNamesVisibility = columnNamesVisibility;
             MetricPlacement = metricPlacement;

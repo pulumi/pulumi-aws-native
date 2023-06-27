@@ -9458,8 +9458,11 @@ func (o KeyPairTagArrayOutput) Index(i pulumi.IntInput) KeyPairTagOutput {
 	}).(KeyPairTagOutput)
 }
 
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
 type LaunchTemplateAcceleratorCount struct {
+	// The maximum number of accelerators.
 	Max *int `pulumi:"max"`
+	// The minimum number of accelerators.
 	Min *int `pulumi:"min"`
 }
 
@@ -9474,8 +9477,11 @@ type LaunchTemplateAcceleratorCountInput interface {
 	ToLaunchTemplateAcceleratorCountOutputWithContext(context.Context) LaunchTemplateAcceleratorCountOutput
 }
 
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
 type LaunchTemplateAcceleratorCountArgs struct {
+	// The maximum number of accelerators.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of accelerators.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -9532,6 +9538,7 @@ func (i *launchTemplateAcceleratorCountPtrType) ToLaunchTemplateAcceleratorCount
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateAcceleratorCountPtrOutput)
 }
 
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
 type LaunchTemplateAcceleratorCountOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateAcceleratorCountOutput) ElementType() reflect.Type {
@@ -9556,10 +9563,12 @@ func (o LaunchTemplateAcceleratorCountOutput) ToLaunchTemplateAcceleratorCountPt
 	}).(LaunchTemplateAcceleratorCountPtrOutput)
 }
 
+// The maximum number of accelerators.
 func (o LaunchTemplateAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateAcceleratorCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of accelerators.
 func (o LaunchTemplateAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateAcceleratorCount) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -9588,6 +9597,7 @@ func (o LaunchTemplateAcceleratorCountPtrOutput) Elem() LaunchTemplateAccelerato
 	}).(LaunchTemplateAcceleratorCountOutput)
 }
 
+// The maximum number of accelerators.
 func (o LaunchTemplateAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateAcceleratorCount) *int {
 		if v == nil {
@@ -9597,6 +9607,7 @@ func (o LaunchTemplateAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of accelerators.
 func (o LaunchTemplateAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateAcceleratorCount) *int {
 		if v == nil {
@@ -9606,8 +9617,11 @@ func (o LaunchTemplateAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of total accelerator memory, in MiB.
 type LaunchTemplateAcceleratorTotalMemoryMiB struct {
+	// The maximum amount of accelerator memory, in MiB.
 	Max *int `pulumi:"max"`
+	// The minimum amount of accelerator memory, in MiB.
 	Min *int `pulumi:"min"`
 }
 
@@ -9622,8 +9636,11 @@ type LaunchTemplateAcceleratorTotalMemoryMiBInput interface {
 	ToLaunchTemplateAcceleratorTotalMemoryMiBOutputWithContext(context.Context) LaunchTemplateAcceleratorTotalMemoryMiBOutput
 }
 
+// The minimum and maximum amount of total accelerator memory, in MiB.
 type LaunchTemplateAcceleratorTotalMemoryMiBArgs struct {
+	// The maximum amount of accelerator memory, in MiB.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum amount of accelerator memory, in MiB.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -9680,6 +9697,7 @@ func (i *launchTemplateAcceleratorTotalMemoryMiBPtrType) ToLaunchTemplateAcceler
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput)
 }
 
+// The minimum and maximum amount of total accelerator memory, in MiB.
 type LaunchTemplateAcceleratorTotalMemoryMiBOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateAcceleratorTotalMemoryMiBOutput) ElementType() reflect.Type {
@@ -9704,10 +9722,12 @@ func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) ToLaunchTemplateAccelerat
 	}).(LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput)
 }
 
+// The maximum amount of accelerator memory, in MiB.
 func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateAcceleratorTotalMemoryMiB) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of accelerator memory, in MiB.
 func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateAcceleratorTotalMemoryMiB) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -9736,6 +9756,7 @@ func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Elem() LaunchTemplateA
 	}).(LaunchTemplateAcceleratorTotalMemoryMiBOutput)
 }
 
+// The maximum amount of accelerator memory, in MiB.
 func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateAcceleratorTotalMemoryMiB) *int {
 		if v == nil {
@@ -9745,6 +9766,7 @@ func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Max() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of accelerator memory, in MiB.
 func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateAcceleratorTotalMemoryMiB) *int {
 		if v == nil {
@@ -9754,8 +9776,11 @@ func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Min() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
 type LaunchTemplateBaselineEbsBandwidthMbps struct {
+	// The maximum baseline bandwidth, in Mbps.
 	Max *int `pulumi:"max"`
+	// The minimum baseline bandwidth, in Mbps.
 	Min *int `pulumi:"min"`
 }
 
@@ -9770,8 +9795,11 @@ type LaunchTemplateBaselineEbsBandwidthMbpsInput interface {
 	ToLaunchTemplateBaselineEbsBandwidthMbpsOutputWithContext(context.Context) LaunchTemplateBaselineEbsBandwidthMbpsOutput
 }
 
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
 type LaunchTemplateBaselineEbsBandwidthMbpsArgs struct {
+	// The maximum baseline bandwidth, in Mbps.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum baseline bandwidth, in Mbps.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -9828,6 +9856,7 @@ func (i *launchTemplateBaselineEbsBandwidthMbpsPtrType) ToLaunchTemplateBaseline
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
 }
 
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
 type LaunchTemplateBaselineEbsBandwidthMbpsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateBaselineEbsBandwidthMbpsOutput) ElementType() reflect.Type {
@@ -9852,10 +9881,12 @@ func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) ToLaunchTemplateBaselineEb
 	}).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
 }
 
+// The maximum baseline bandwidth, in Mbps.
 func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBaselineEbsBandwidthMbps) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum baseline bandwidth, in Mbps.
 func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBaselineEbsBandwidthMbps) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -9884,6 +9915,7 @@ func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Elem() LaunchTemplateBa
 	}).(LaunchTemplateBaselineEbsBandwidthMbpsOutput)
 }
 
+// The maximum baseline bandwidth, in Mbps.
 func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -9893,6 +9925,7 @@ func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum baseline bandwidth, in Mbps.
 func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -9902,11 +9935,15 @@ func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// Information about a block device mapping for an Amazon EC2 launch template.
 type LaunchTemplateBlockDeviceMapping struct {
-	DeviceName  *string            `pulumi:"deviceName"`
-	Ebs         *LaunchTemplateEbs `pulumi:"ebs"`
-	NoDevice    *string            `pulumi:"noDevice"`
-	VirtualName *string            `pulumi:"virtualName"`
+	// The user data to make available to the instance.
+	DeviceName *string            `pulumi:"deviceName"`
+	Ebs        *LaunchTemplateEbs `pulumi:"ebs"`
+	// To omit the device from the block device mapping, specify an empty string.
+	NoDevice *string `pulumi:"noDevice"`
+	// The virtual device name (ephemeralN).
+	VirtualName *string `pulumi:"virtualName"`
 }
 
 // LaunchTemplateBlockDeviceMappingInput is an input type that accepts LaunchTemplateBlockDeviceMappingArgs and LaunchTemplateBlockDeviceMappingOutput values.
@@ -9920,11 +9957,15 @@ type LaunchTemplateBlockDeviceMappingInput interface {
 	ToLaunchTemplateBlockDeviceMappingOutputWithContext(context.Context) LaunchTemplateBlockDeviceMappingOutput
 }
 
+// Information about a block device mapping for an Amazon EC2 launch template.
 type LaunchTemplateBlockDeviceMappingArgs struct {
-	DeviceName  pulumi.StringPtrInput     `pulumi:"deviceName"`
-	Ebs         LaunchTemplateEbsPtrInput `pulumi:"ebs"`
-	NoDevice    pulumi.StringPtrInput     `pulumi:"noDevice"`
-	VirtualName pulumi.StringPtrInput     `pulumi:"virtualName"`
+	// The user data to make available to the instance.
+	DeviceName pulumi.StringPtrInput     `pulumi:"deviceName"`
+	Ebs        LaunchTemplateEbsPtrInput `pulumi:"ebs"`
+	// To omit the device from the block device mapping, specify an empty string.
+	NoDevice pulumi.StringPtrInput `pulumi:"noDevice"`
+	// The virtual device name (ephemeralN).
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
 func (LaunchTemplateBlockDeviceMappingArgs) ElementType() reflect.Type {
@@ -9964,6 +10005,7 @@ func (i LaunchTemplateBlockDeviceMappingArray) ToLaunchTemplateBlockDeviceMappin
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBlockDeviceMappingArrayOutput)
 }
 
+// Information about a block device mapping for an Amazon EC2 launch template.
 type LaunchTemplateBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -9978,6 +10020,7 @@ func (o LaunchTemplateBlockDeviceMappingOutput) ToLaunchTemplateBlockDeviceMappi
 	return o
 }
 
+// The user data to make available to the instance.
 func (o LaunchTemplateBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
@@ -9986,10 +10029,12 @@ func (o LaunchTemplateBlockDeviceMappingOutput) Ebs() LaunchTemplateEbsPtrOutput
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *LaunchTemplateEbs { return v.Ebs }).(LaunchTemplateEbsPtrOutput)
 }
 
+// To omit the device from the block device mapping, specify an empty string.
 func (o LaunchTemplateBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.NoDevice }).(pulumi.StringPtrOutput)
 }
 
+// The virtual device name (ephemeralN).
 func (o LaunchTemplateBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -10014,7 +10059,9 @@ func (o LaunchTemplateBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) La
 	}).(LaunchTemplateBlockDeviceMappingOutput)
 }
 
+// Specifies an instance's Capacity Reservation targeting option.
 type LaunchTemplateCapacityReservationSpecification struct {
+	// Indicates the instance's Capacity Reservation preferences.
 	CapacityReservationPreference *string                                  `pulumi:"capacityReservationPreference"`
 	CapacityReservationTarget     *LaunchTemplateCapacityReservationTarget `pulumi:"capacityReservationTarget"`
 }
@@ -10030,7 +10077,9 @@ type LaunchTemplateCapacityReservationSpecificationInput interface {
 	ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(context.Context) LaunchTemplateCapacityReservationSpecificationOutput
 }
 
+// Specifies an instance's Capacity Reservation targeting option.
 type LaunchTemplateCapacityReservationSpecificationArgs struct {
+	// Indicates the instance's Capacity Reservation preferences.
 	CapacityReservationPreference pulumi.StringPtrInput                           `pulumi:"capacityReservationPreference"`
 	CapacityReservationTarget     LaunchTemplateCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
 }
@@ -10088,6 +10137,7 @@ func (i *launchTemplateCapacityReservationSpecificationPtrType) ToLaunchTemplate
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
 }
 
+// Specifies an instance's Capacity Reservation targeting option.
 type LaunchTemplateCapacityReservationSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateCapacityReservationSpecificationOutput) ElementType() reflect.Type {
@@ -10112,6 +10162,7 @@ func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCa
 	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
 }
 
+// Indicates the instance's Capacity Reservation preferences.
 func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
 }
@@ -10146,6 +10197,7 @@ func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) Elem() LaunchTe
 	}).(LaunchTemplateCapacityReservationSpecificationOutput)
 }
 
+// Indicates the instance's Capacity Reservation preferences.
 func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) *string {
 		if v == nil {
@@ -10164,8 +10216,11 @@ func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReserva
 	}).(LaunchTemplateCapacityReservationTargetPtrOutput)
 }
 
+// Specifies a target Capacity Reservation.
 type LaunchTemplateCapacityReservationTarget struct {
-	CapacityReservationId               *string `pulumi:"capacityReservationId"`
+	// The ID of the Capacity Reservation in which to run the instance.
+	CapacityReservationId *string `pulumi:"capacityReservationId"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
 	CapacityReservationResourceGroupArn *string `pulumi:"capacityReservationResourceGroupArn"`
 }
 
@@ -10180,8 +10235,11 @@ type LaunchTemplateCapacityReservationTargetInput interface {
 	ToLaunchTemplateCapacityReservationTargetOutputWithContext(context.Context) LaunchTemplateCapacityReservationTargetOutput
 }
 
+// Specifies a target Capacity Reservation.
 type LaunchTemplateCapacityReservationTargetArgs struct {
-	CapacityReservationId               pulumi.StringPtrInput `pulumi:"capacityReservationId"`
+	// The ID of the Capacity Reservation in which to run the instance.
+	CapacityReservationId pulumi.StringPtrInput `pulumi:"capacityReservationId"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
 	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"capacityReservationResourceGroupArn"`
 }
 
@@ -10238,6 +10296,7 @@ func (i *launchTemplateCapacityReservationTargetPtrType) ToLaunchTemplateCapacit
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationTargetPtrOutput)
 }
 
+// Specifies a target Capacity Reservation.
 type LaunchTemplateCapacityReservationTargetOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateCapacityReservationTargetOutput) ElementType() reflect.Type {
@@ -10262,10 +10321,12 @@ func (o LaunchTemplateCapacityReservationTargetOutput) ToLaunchTemplateCapacityR
 	}).(LaunchTemplateCapacityReservationTargetPtrOutput)
 }
 
+// The ID of the Capacity Reservation in which to run the instance.
 func (o LaunchTemplateCapacityReservationTargetOutput) CapacityReservationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationTarget) *string { return v.CapacityReservationId }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Capacity Reservation resource group in which to run the instance.
 func (o LaunchTemplateCapacityReservationTargetOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationTarget) *string { return v.CapacityReservationResourceGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -10294,6 +10355,7 @@ func (o LaunchTemplateCapacityReservationTargetPtrOutput) Elem() LaunchTemplateC
 	}).(LaunchTemplateCapacityReservationTargetOutput)
 }
 
+// The ID of the Capacity Reservation in which to run the instance.
 func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCapacityReservationTarget) *string {
 		if v == nil {
@@ -10303,6 +10365,7 @@ func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationId(
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Capacity Reservation resource group in which to run the instance.
 func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCapacityReservationTarget) *string {
 		if v == nil {
@@ -10312,10 +10375,14 @@ func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationRes
 	}).(pulumi.StringPtrOutput)
 }
 
+// specifies the CPU options for an instance.
 type LaunchTemplateCpuOptions struct {
-	AmdSevSnp      *string `pulumi:"amdSevSnp"`
-	CoreCount      *int    `pulumi:"coreCount"`
-	ThreadsPerCore *int    `pulumi:"threadsPerCore"`
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+	AmdSevSnp *LaunchTemplateCpuOptionsAmdSevSnp `pulumi:"amdSevSnp"`
+	// The number of CPU cores for the instance.
+	CoreCount *int `pulumi:"coreCount"`
+	// The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+	ThreadsPerCore *int `pulumi:"threadsPerCore"`
 }
 
 // LaunchTemplateCpuOptionsInput is an input type that accepts LaunchTemplateCpuOptionsArgs and LaunchTemplateCpuOptionsOutput values.
@@ -10329,10 +10396,14 @@ type LaunchTemplateCpuOptionsInput interface {
 	ToLaunchTemplateCpuOptionsOutputWithContext(context.Context) LaunchTemplateCpuOptionsOutput
 }
 
+// specifies the CPU options for an instance.
 type LaunchTemplateCpuOptionsArgs struct {
-	AmdSevSnp      pulumi.StringPtrInput `pulumi:"amdSevSnp"`
-	CoreCount      pulumi.IntPtrInput    `pulumi:"coreCount"`
-	ThreadsPerCore pulumi.IntPtrInput    `pulumi:"threadsPerCore"`
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+	AmdSevSnp LaunchTemplateCpuOptionsAmdSevSnpPtrInput `pulumi:"amdSevSnp"`
+	// The number of CPU cores for the instance.
+	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	// The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
 }
 
 func (LaunchTemplateCpuOptionsArgs) ElementType() reflect.Type {
@@ -10388,6 +10459,7 @@ func (i *launchTemplateCpuOptionsPtrType) ToLaunchTemplateCpuOptionsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsPtrOutput)
 }
 
+// specifies the CPU options for an instance.
 type LaunchTemplateCpuOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateCpuOptionsOutput) ElementType() reflect.Type {
@@ -10412,14 +10484,17 @@ func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutputWithC
 	}).(LaunchTemplateCpuOptionsPtrOutput)
 }
 
-func (o LaunchTemplateCpuOptionsOutput) AmdSevSnp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCpuOptions) *string { return v.AmdSevSnp }).(pulumi.StringPtrOutput)
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+func (o LaunchTemplateCpuOptionsOutput) AmdSevSnp() LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCpuOptions) *LaunchTemplateCpuOptionsAmdSevSnp { return v.AmdSevSnp }).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
 }
 
+// The number of CPU cores for the instance.
 func (o LaunchTemplateCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
 
+// The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
 func (o LaunchTemplateCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
 }
@@ -10448,15 +10523,17 @@ func (o LaunchTemplateCpuOptionsPtrOutput) Elem() LaunchTemplateCpuOptionsOutput
 	}).(LaunchTemplateCpuOptionsOutput)
 }
 
-func (o LaunchTemplateCpuOptionsPtrOutput) AmdSevSnp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *string {
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+func (o LaunchTemplateCpuOptionsPtrOutput) AmdSevSnp() LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *LaunchTemplateCpuOptionsAmdSevSnp {
 		if v == nil {
 			return nil
 		}
 		return v.AmdSevSnp
-	}).(pulumi.StringPtrOutput)
+	}).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
 }
 
+// The number of CPU cores for the instance.
 func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *int {
 		if v == nil {
@@ -10466,6 +10543,7 @@ func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
 func (o LaunchTemplateCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *int {
 		if v == nil {
@@ -10475,7 +10553,9 @@ func (o LaunchTemplateCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// The user data to make available to the instance.
 type LaunchTemplateCreditSpecification struct {
+	// The user data to make available to the instance.
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
@@ -10490,7 +10570,9 @@ type LaunchTemplateCreditSpecificationInput interface {
 	ToLaunchTemplateCreditSpecificationOutputWithContext(context.Context) LaunchTemplateCreditSpecificationOutput
 }
 
+// The user data to make available to the instance.
 type LaunchTemplateCreditSpecificationArgs struct {
+	// The user data to make available to the instance.
 	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
 }
 
@@ -10547,6 +10629,7 @@ func (i *launchTemplateCreditSpecificationPtrType) ToLaunchTemplateCreditSpecifi
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCreditSpecificationPtrOutput)
 }
 
+// The user data to make available to the instance.
 type LaunchTemplateCreditSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateCreditSpecificationOutput) ElementType() reflect.Type {
@@ -10571,6 +10654,7 @@ func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecifica
 	}).(LaunchTemplateCreditSpecificationPtrOutput)
 }
 
+// The user data to make available to the instance.
 func (o LaunchTemplateCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
@@ -10599,6 +10683,7 @@ func (o LaunchTemplateCreditSpecificationPtrOutput) Elem() LaunchTemplateCreditS
 	}).(LaunchTemplateCreditSpecificationOutput)
 }
 
+// The user data to make available to the instance.
 func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCreditSpecification) *string {
 		if v == nil {
@@ -10608,38 +10693,55 @@ func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The information for the launch template.
 type LaunchTemplateData struct {
-	BlockDeviceMappings               []LaunchTemplateBlockDeviceMapping              `pulumi:"blockDeviceMappings"`
-	CapacityReservationSpecification  *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
-	CpuOptions                        *LaunchTemplateCpuOptions                       `pulumi:"cpuOptions"`
-	CreditSpecification               *LaunchTemplateCreditSpecification              `pulumi:"creditSpecification"`
-	DisableApiStop                    *bool                                           `pulumi:"disableApiStop"`
-	DisableApiTermination             *bool                                           `pulumi:"disableApiTermination"`
-	EbsOptimized                      *bool                                           `pulumi:"ebsOptimized"`
-	ElasticGpuSpecifications          []LaunchTemplateElasticGpuSpecification         `pulumi:"elasticGpuSpecifications"`
-	ElasticInferenceAccelerators      []LaunchTemplateElasticInferenceAccelerator     `pulumi:"elasticInferenceAccelerators"`
-	EnclaveOptions                    *LaunchTemplateEnclaveOptions                   `pulumi:"enclaveOptions"`
-	HibernationOptions                *LaunchTemplateHibernationOptions               `pulumi:"hibernationOptions"`
-	IamInstanceProfile                *LaunchTemplateIamInstanceProfile               `pulumi:"iamInstanceProfile"`
-	ImageId                           *string                                         `pulumi:"imageId"`
-	InstanceInitiatedShutdownBehavior *string                                         `pulumi:"instanceInitiatedShutdownBehavior"`
-	InstanceMarketOptions             *LaunchTemplateInstanceMarketOptions            `pulumi:"instanceMarketOptions"`
-	InstanceRequirements              *LaunchTemplateInstanceRequirements             `pulumi:"instanceRequirements"`
-	InstanceType                      *string                                         `pulumi:"instanceType"`
-	KernelId                          *string                                         `pulumi:"kernelId"`
-	KeyName                           *string                                         `pulumi:"keyName"`
-	LicenseSpecifications             []LaunchTemplateLicenseSpecification            `pulumi:"licenseSpecifications"`
-	MaintenanceOptions                *LaunchTemplateMaintenanceOptions               `pulumi:"maintenanceOptions"`
-	MetadataOptions                   *LaunchTemplateMetadataOptions                  `pulumi:"metadataOptions"`
-	Monitoring                        *LaunchTemplateMonitoring                       `pulumi:"monitoring"`
-	NetworkInterfaces                 []LaunchTemplateNetworkInterface                `pulumi:"networkInterfaces"`
-	Placement                         *LaunchTemplatePlacement                        `pulumi:"placement"`
-	PrivateDnsNameOptions             *LaunchTemplatePrivateDnsNameOptions            `pulumi:"privateDnsNameOptions"`
-	RamDiskId                         *string                                         `pulumi:"ramDiskId"`
-	SecurityGroupIds                  []string                                        `pulumi:"securityGroupIds"`
-	SecurityGroups                    []string                                        `pulumi:"securityGroups"`
-	TagSpecifications                 []LaunchTemplateTagSpecification                `pulumi:"tagSpecifications"`
-	UserData                          *string                                         `pulumi:"userData"`
+	// The block device mapping.
+	BlockDeviceMappings              []LaunchTemplateBlockDeviceMapping              `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
+	CpuOptions                       *LaunchTemplateCpuOptions                       `pulumi:"cpuOptions"`
+	CreditSpecification              *LaunchTemplateCreditSpecification              `pulumi:"creditSpecification"`
+	// Indicates whether to enable the instance for stop protection.
+	DisableApiStop *bool `pulumi:"disableApiStop"`
+	// If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API.
+	DisableApiTermination *bool `pulumi:"disableApiTermination"`
+	// Indicates whether the instance is optimized for Amazon EBS I/O.
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+	// An elastic GPU to associate with the instance.
+	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
+	// The elastic inference accelerator for the instance.
+	ElasticInferenceAccelerators []LaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerators"`
+	EnclaveOptions               *LaunchTemplateEnclaveOptions               `pulumi:"enclaveOptions"`
+	HibernationOptions           *LaunchTemplateHibernationOptions           `pulumi:"hibernationOptions"`
+	IamInstanceProfile           *LaunchTemplateIamInstanceProfile           `pulumi:"iamInstanceProfile"`
+	// The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
+	ImageId *string `pulumi:"imageId"`
+	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+	InstanceInitiatedShutdownBehavior *string                              `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             *LaunchTemplateInstanceMarketOptions `pulumi:"instanceMarketOptions"`
+	InstanceRequirements              *LaunchTemplateInstanceRequirements  `pulumi:"instanceRequirements"`
+	InstanceType                      *string                              `pulumi:"instanceType"`
+	// The ID of the kernel.
+	KernelId *string `pulumi:"kernelId"`
+	// The name of the EC2 key pair
+	KeyName *string `pulumi:"keyName"`
+	// The license configurations.
+	LicenseSpecifications []LaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
+	MaintenanceOptions    *LaunchTemplateMaintenanceOptions    `pulumi:"maintenanceOptions"`
+	MetadataOptions       *LaunchTemplateMetadataOptions       `pulumi:"metadataOptions"`
+	Monitoring            *LaunchTemplateMonitoring            `pulumi:"monitoring"`
+	// If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+	NetworkInterfaces     []LaunchTemplateNetworkInterface     `pulumi:"networkInterfaces"`
+	Placement             *LaunchTemplatePlacement             `pulumi:"placement"`
+	PrivateDnsNameOptions *LaunchTemplatePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
+	RamDiskId             *string                              `pulumi:"ramDiskId"`
+	// One or more security group IDs.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// One or more security group names.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The tags to apply to the resources that are created during instance launch.
+	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
+	// The user data to make available to the instance.
+	UserData *string `pulumi:"userData"`
 }
 
 // LaunchTemplateDataInput is an input type that accepts LaunchTemplateDataArgs and LaunchTemplateDataOutput values.
@@ -10653,38 +10755,55 @@ type LaunchTemplateDataInput interface {
 	ToLaunchTemplateDataOutputWithContext(context.Context) LaunchTemplateDataOutput
 }
 
+// The information for the launch template.
 type LaunchTemplateDataArgs struct {
-	BlockDeviceMappings               LaunchTemplateBlockDeviceMappingArrayInput             `pulumi:"blockDeviceMappings"`
-	CapacityReservationSpecification  LaunchTemplateCapacityReservationSpecificationPtrInput `pulumi:"capacityReservationSpecification"`
-	CpuOptions                        LaunchTemplateCpuOptionsPtrInput                       `pulumi:"cpuOptions"`
-	CreditSpecification               LaunchTemplateCreditSpecificationPtrInput              `pulumi:"creditSpecification"`
-	DisableApiStop                    pulumi.BoolPtrInput                                    `pulumi:"disableApiStop"`
-	DisableApiTermination             pulumi.BoolPtrInput                                    `pulumi:"disableApiTermination"`
-	EbsOptimized                      pulumi.BoolPtrInput                                    `pulumi:"ebsOptimized"`
-	ElasticGpuSpecifications          LaunchTemplateElasticGpuSpecificationArrayInput        `pulumi:"elasticGpuSpecifications"`
-	ElasticInferenceAccelerators      LaunchTemplateElasticInferenceAcceleratorArrayInput    `pulumi:"elasticInferenceAccelerators"`
-	EnclaveOptions                    LaunchTemplateEnclaveOptionsPtrInput                   `pulumi:"enclaveOptions"`
-	HibernationOptions                LaunchTemplateHibernationOptionsPtrInput               `pulumi:"hibernationOptions"`
-	IamInstanceProfile                LaunchTemplateIamInstanceProfilePtrInput               `pulumi:"iamInstanceProfile"`
-	ImageId                           pulumi.StringPtrInput                                  `pulumi:"imageId"`
-	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput                                  `pulumi:"instanceInitiatedShutdownBehavior"`
-	InstanceMarketOptions             LaunchTemplateInstanceMarketOptionsPtrInput            `pulumi:"instanceMarketOptions"`
-	InstanceRequirements              LaunchTemplateInstanceRequirementsPtrInput             `pulumi:"instanceRequirements"`
-	InstanceType                      pulumi.StringPtrInput                                  `pulumi:"instanceType"`
-	KernelId                          pulumi.StringPtrInput                                  `pulumi:"kernelId"`
-	KeyName                           pulumi.StringPtrInput                                  `pulumi:"keyName"`
-	LicenseSpecifications             LaunchTemplateLicenseSpecificationArrayInput           `pulumi:"licenseSpecifications"`
-	MaintenanceOptions                LaunchTemplateMaintenanceOptionsPtrInput               `pulumi:"maintenanceOptions"`
-	MetadataOptions                   LaunchTemplateMetadataOptionsPtrInput                  `pulumi:"metadataOptions"`
-	Monitoring                        LaunchTemplateMonitoringPtrInput                       `pulumi:"monitoring"`
-	NetworkInterfaces                 LaunchTemplateNetworkInterfaceArrayInput               `pulumi:"networkInterfaces"`
-	Placement                         LaunchTemplatePlacementPtrInput                        `pulumi:"placement"`
-	PrivateDnsNameOptions             LaunchTemplatePrivateDnsNameOptionsPtrInput            `pulumi:"privateDnsNameOptions"`
-	RamDiskId                         pulumi.StringPtrInput                                  `pulumi:"ramDiskId"`
-	SecurityGroupIds                  pulumi.StringArrayInput                                `pulumi:"securityGroupIds"`
-	SecurityGroups                    pulumi.StringArrayInput                                `pulumi:"securityGroups"`
-	TagSpecifications                 LaunchTemplateTagSpecificationArrayInput               `pulumi:"tagSpecifications"`
-	UserData                          pulumi.StringPtrInput                                  `pulumi:"userData"`
+	// The block device mapping.
+	BlockDeviceMappings              LaunchTemplateBlockDeviceMappingArrayInput             `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationPtrInput `pulumi:"capacityReservationSpecification"`
+	CpuOptions                       LaunchTemplateCpuOptionsPtrInput                       `pulumi:"cpuOptions"`
+	CreditSpecification              LaunchTemplateCreditSpecificationPtrInput              `pulumi:"creditSpecification"`
+	// Indicates whether to enable the instance for stop protection.
+	DisableApiStop pulumi.BoolPtrInput `pulumi:"disableApiStop"`
+	// If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API.
+	DisableApiTermination pulumi.BoolPtrInput `pulumi:"disableApiTermination"`
+	// Indicates whether the instance is optimized for Amazon EBS I/O.
+	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
+	// An elastic GPU to associate with the instance.
+	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput `pulumi:"elasticGpuSpecifications"`
+	// The elastic inference accelerator for the instance.
+	ElasticInferenceAccelerators LaunchTemplateElasticInferenceAcceleratorArrayInput `pulumi:"elasticInferenceAccelerators"`
+	EnclaveOptions               LaunchTemplateEnclaveOptionsPtrInput                `pulumi:"enclaveOptions"`
+	HibernationOptions           LaunchTemplateHibernationOptionsPtrInput            `pulumi:"hibernationOptions"`
+	IamInstanceProfile           LaunchTemplateIamInstanceProfilePtrInput            `pulumi:"iamInstanceProfile"`
+	// The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
+	ImageId pulumi.StringPtrInput `pulumi:"imageId"`
+	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput                       `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             LaunchTemplateInstanceMarketOptionsPtrInput `pulumi:"instanceMarketOptions"`
+	InstanceRequirements              LaunchTemplateInstanceRequirementsPtrInput  `pulumi:"instanceRequirements"`
+	InstanceType                      pulumi.StringPtrInput                       `pulumi:"instanceType"`
+	// The ID of the kernel.
+	KernelId pulumi.StringPtrInput `pulumi:"kernelId"`
+	// The name of the EC2 key pair
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// The license configurations.
+	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayInput `pulumi:"licenseSpecifications"`
+	MaintenanceOptions    LaunchTemplateMaintenanceOptionsPtrInput     `pulumi:"maintenanceOptions"`
+	MetadataOptions       LaunchTemplateMetadataOptionsPtrInput        `pulumi:"metadataOptions"`
+	Monitoring            LaunchTemplateMonitoringPtrInput             `pulumi:"monitoring"`
+	// If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+	NetworkInterfaces     LaunchTemplateNetworkInterfaceArrayInput    `pulumi:"networkInterfaces"`
+	Placement             LaunchTemplatePlacementPtrInput             `pulumi:"placement"`
+	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrInput `pulumi:"privateDnsNameOptions"`
+	RamDiskId             pulumi.StringPtrInput                       `pulumi:"ramDiskId"`
+	// One or more security group IDs.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// One or more security group names.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The tags to apply to the resources that are created during instance launch.
+	TagSpecifications LaunchTemplateTagSpecificationArrayInput `pulumi:"tagSpecifications"`
+	// The user data to make available to the instance.
+	UserData pulumi.StringPtrInput `pulumi:"userData"`
 }
 
 func (LaunchTemplateDataArgs) ElementType() reflect.Type {
@@ -10699,6 +10818,7 @@ func (i LaunchTemplateDataArgs) ToLaunchTemplateDataOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateDataOutput)
 }
 
+// The information for the launch template.
 type LaunchTemplateDataOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateDataOutput) ElementType() reflect.Type {
@@ -10713,6 +10833,7 @@ func (o LaunchTemplateDataOutput) ToLaunchTemplateDataOutputWithContext(ctx cont
 	return o
 }
 
+// The block device mapping.
 func (o LaunchTemplateDataOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateBlockDeviceMapping { return v.BlockDeviceMappings }).(LaunchTemplateBlockDeviceMappingArrayOutput)
 }
@@ -10731,22 +10852,27 @@ func (o LaunchTemplateDataOutput) CreditSpecification() LaunchTemplateCreditSpec
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCreditSpecification { return v.CreditSpecification }).(LaunchTemplateCreditSpecificationPtrOutput)
 }
 
+// Indicates whether to enable the instance for stop protection.
 func (o LaunchTemplateDataOutput) DisableApiStop() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.DisableApiStop }).(pulumi.BoolPtrOutput)
 }
 
+// If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API.
 func (o LaunchTemplateDataOutput) DisableApiTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the instance is optimized for Amazon EBS I/O.
 func (o LaunchTemplateDataOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
+// An elastic GPU to associate with the instance.
 func (o LaunchTemplateDataOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateElasticGpuSpecification { return v.ElasticGpuSpecifications }).(LaunchTemplateElasticGpuSpecificationArrayOutput)
 }
 
+// The elastic inference accelerator for the instance.
 func (o LaunchTemplateDataOutput) ElasticInferenceAccelerators() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateElasticInferenceAccelerator {
 		return v.ElasticInferenceAccelerators
@@ -10765,10 +10891,12 @@ func (o LaunchTemplateDataOutput) IamInstanceProfile() LaunchTemplateIamInstance
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateIamInstanceProfile { return v.IamInstanceProfile }).(LaunchTemplateIamInstanceProfilePtrOutput)
 }
 
+// The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
 func (o LaunchTemplateDataOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 func (o LaunchTemplateDataOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringPtrOutput)
 }
@@ -10785,14 +10913,17 @@ func (o LaunchTemplateDataOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the kernel.
 func (o LaunchTemplateDataOutput) KernelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.KernelId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the EC2 key pair
 func (o LaunchTemplateDataOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
+// The license configurations.
 func (o LaunchTemplateDataOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateLicenseSpecification { return v.LicenseSpecifications }).(LaunchTemplateLicenseSpecificationArrayOutput)
 }
@@ -10809,6 +10940,7 @@ func (o LaunchTemplateDataOutput) Monitoring() LaunchTemplateMonitoringPtrOutput
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMonitoring { return v.Monitoring }).(LaunchTemplateMonitoringPtrOutput)
 }
 
+// If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
 func (o LaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
 }
@@ -10825,334 +10957,44 @@ func (o LaunchTemplateDataOutput) RamDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.RamDiskId }).(pulumi.StringPtrOutput)
 }
 
+// One or more security group IDs.
 func (o LaunchTemplateDataOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// One or more security group names.
 func (o LaunchTemplateDataOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The tags to apply to the resources that are created during instance launch.
 func (o LaunchTemplateDataOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateTagSpecification { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
 }
 
+// The user data to make available to the instance.
 func (o LaunchTemplateDataOutput) UserData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
-type LaunchTemplateDataPtrOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LaunchTemplateData)(nil)).Elem()
-}
-
-func (o LaunchTemplateDataPtrOutput) ToLaunchTemplateDataPtrOutput() LaunchTemplateDataPtrOutput {
-	return o
-}
-
-func (o LaunchTemplateDataPtrOutput) ToLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateDataPtrOutput {
-	return o
-}
-
-func (o LaunchTemplateDataPtrOutput) Elem() LaunchTemplateDataOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) LaunchTemplateData {
-		if v != nil {
-			return *v
-		}
-		var ret LaunchTemplateData
-		return ret
-	}).(LaunchTemplateDataOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateBlockDeviceMapping {
-		if v == nil {
-			return nil
-		}
-		return v.BlockDeviceMappings
-	}).(LaunchTemplateBlockDeviceMappingArrayOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) CapacityReservationSpecification() LaunchTemplateCapacityReservationSpecificationPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateCapacityReservationSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.CapacityReservationSpecification
-	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateCpuOptions {
-		if v == nil {
-			return nil
-		}
-		return v.CpuOptions
-	}).(LaunchTemplateCpuOptionsPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateCreditSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.CreditSpecification
-	}).(LaunchTemplateCreditSpecificationPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) DisableApiStop() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DisableApiStop
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) DisableApiTermination() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DisableApiTermination
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) EbsOptimized() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EbsOptimized
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateElasticGpuSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.ElasticGpuSpecifications
-	}).(LaunchTemplateElasticGpuSpecificationArrayOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) ElasticInferenceAccelerators() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateElasticInferenceAccelerator {
-		if v == nil {
-			return nil
-		}
-		return v.ElasticInferenceAccelerators
-	}).(LaunchTemplateElasticInferenceAcceleratorArrayOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateEnclaveOptions {
-		if v == nil {
-			return nil
-		}
-		return v.EnclaveOptions
-	}).(LaunchTemplateEnclaveOptionsPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateHibernationOptions {
-		if v == nil {
-			return nil
-		}
-		return v.HibernationOptions
-	}).(LaunchTemplateHibernationOptionsPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) IamInstanceProfile() LaunchTemplateIamInstanceProfilePtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateIamInstanceProfile {
-		if v == nil {
-			return nil
-		}
-		return v.IamInstanceProfile
-	}).(LaunchTemplateIamInstanceProfilePtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) ImageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ImageId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceInitiatedShutdownBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateInstanceMarketOptions {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceMarketOptions
-	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) InstanceRequirements() LaunchTemplateInstanceRequirementsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateInstanceRequirements {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceRequirements
-	}).(LaunchTemplateInstanceRequirementsPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) KernelId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KernelId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateLicenseSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.LicenseSpecifications
-	}).(LaunchTemplateLicenseSpecificationArrayOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) MaintenanceOptions() LaunchTemplateMaintenanceOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateMaintenanceOptions {
-		if v == nil {
-			return nil
-		}
-		return v.MaintenanceOptions
-	}).(LaunchTemplateMaintenanceOptionsPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateMetadataOptions {
-		if v == nil {
-			return nil
-		}
-		return v.MetadataOptions
-	}).(LaunchTemplateMetadataOptionsPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateMonitoring {
-		if v == nil {
-			return nil
-		}
-		return v.Monitoring
-	}).(LaunchTemplateMonitoringPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateNetworkInterface {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkInterfaces
-	}).(LaunchTemplateNetworkInterfaceArrayOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) Placement() LaunchTemplatePlacementPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplatePlacement {
-		if v == nil {
-			return nil
-		}
-		return v.Placement
-	}).(LaunchTemplatePlacementPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) PrivateDnsNameOptions() LaunchTemplatePrivateDnsNameOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplatePrivateDnsNameOptions {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateDnsNameOptions
-	}).(LaunchTemplatePrivateDnsNameOptionsPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) RamDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RamDiskId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroups
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateTagSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.TagSpecifications
-	}).(LaunchTemplateTagSpecificationArrayOutput)
-}
-
-func (o LaunchTemplateDataPtrOutput) UserData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserData
-	}).(pulumi.StringPtrOutput)
-}
-
+// Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
 type LaunchTemplateEbs struct {
-	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
-	Encrypted           *bool   `pulumi:"encrypted"`
-	Iops                *int    `pulumi:"iops"`
-	KmsKeyId            *string `pulumi:"kmsKeyId"`
-	SnapshotId          *string `pulumi:"snapshotId"`
-	Throughput          *int    `pulumi:"throughput"`
-	VolumeSize          *int    `pulumi:"volumeSize"`
-	VolumeType          *string `pulumi:"volumeType"`
+	// Indicates whether the EBS volume is deleted on instance termination.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+	Encrypted *bool `pulumi:"encrypted"`
+	// The number of I/O operations per second (IOPS).
+	Iops *int `pulumi:"iops"`
+	// The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The ID of the snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+	Throughput *int `pulumi:"throughput"`
+	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The volume type.
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 // LaunchTemplateEbsInput is an input type that accepts LaunchTemplateEbsArgs and LaunchTemplateEbsOutput values.
@@ -11166,15 +11008,24 @@ type LaunchTemplateEbsInput interface {
 	ToLaunchTemplateEbsOutputWithContext(context.Context) LaunchTemplateEbsOutput
 }
 
+// Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
 type LaunchTemplateEbsArgs struct {
-	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.BoolPtrInput   `pulumi:"encrypted"`
-	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
-	KmsKeyId            pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
-	Throughput          pulumi.IntPtrInput    `pulumi:"throughput"`
-	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
+	// Indicates whether the EBS volume is deleted on instance termination.
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// The number of I/O operations per second (IOPS).
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The ID of the snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// The volume type.
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (LaunchTemplateEbsArgs) ElementType() reflect.Type {
@@ -11230,6 +11081,7 @@ func (i *launchTemplateEbsPtrType) ToLaunchTemplateEbsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEbsPtrOutput)
 }
 
+// Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
 type LaunchTemplateEbsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateEbsOutput) ElementType() reflect.Type {
@@ -11254,34 +11106,42 @@ func (o LaunchTemplateEbsOutput) ToLaunchTemplateEbsPtrOutputWithContext(ctx con
 	}).(LaunchTemplateEbsPtrOutput)
 }
 
+// Indicates whether the EBS volume is deleted on instance termination.
 func (o LaunchTemplateEbsOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
 func (o LaunchTemplateEbsOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS).
 func (o LaunchTemplateEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
 func (o LaunchTemplateEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the snapshot.
 func (o LaunchTemplateEbsOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
 func (o LaunchTemplateEbsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
 func (o LaunchTemplateEbsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// The volume type.
 func (o LaunchTemplateEbsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -11310,6 +11170,7 @@ func (o LaunchTemplateEbsPtrOutput) Elem() LaunchTemplateEbsOutput {
 	}).(LaunchTemplateEbsOutput)
 }
 
+// Indicates whether the EBS volume is deleted on instance termination.
 func (o LaunchTemplateEbsPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *bool {
 		if v == nil {
@@ -11319,6 +11180,7 @@ func (o LaunchTemplateEbsPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
 func (o LaunchTemplateEbsPtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *bool {
 		if v == nil {
@@ -11328,6 +11190,7 @@ func (o LaunchTemplateEbsPtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS).
 func (o LaunchTemplateEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
 		if v == nil {
@@ -11337,6 +11200,7 @@ func (o LaunchTemplateEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
 func (o LaunchTemplateEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
 		if v == nil {
@@ -11346,6 +11210,7 @@ func (o LaunchTemplateEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the snapshot.
 func (o LaunchTemplateEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
 		if v == nil {
@@ -11355,6 +11220,7 @@ func (o LaunchTemplateEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
 func (o LaunchTemplateEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
 		if v == nil {
@@ -11364,6 +11230,7 @@ func (o LaunchTemplateEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
 func (o LaunchTemplateEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
 		if v == nil {
@@ -11373,6 +11240,7 @@ func (o LaunchTemplateEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The volume type.
 func (o LaunchTemplateEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
 		if v == nil {
@@ -11382,7 +11250,9 @@ func (o LaunchTemplateEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies a specification for an Elastic GPU for launch template.
 type LaunchTemplateElasticGpuSpecification struct {
+	// The type of Elastic Graphics accelerator.
 	Type *string `pulumi:"type"`
 }
 
@@ -11397,7 +11267,9 @@ type LaunchTemplateElasticGpuSpecificationInput interface {
 	ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationOutput
 }
 
+// Specifies a specification for an Elastic GPU for launch template.
 type LaunchTemplateElasticGpuSpecificationArgs struct {
+	// The type of Elastic Graphics accelerator.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -11438,6 +11310,7 @@ func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSp
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationArrayOutput)
 }
 
+// Specifies a specification for an Elastic GPU for launch template.
 type LaunchTemplateElasticGpuSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateElasticGpuSpecificationOutput) ElementType() reflect.Type {
@@ -11452,6 +11325,7 @@ func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuS
 	return o
 }
 
+// The type of Elastic Graphics accelerator.
 func (o LaunchTemplateElasticGpuSpecificationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateElasticGpuSpecification) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -11476,9 +11350,12 @@ func (o LaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInpu
 	}).(LaunchTemplateElasticGpuSpecificationOutput)
 }
 
+// Specifies an elastic inference accelerator.
 type LaunchTemplateElasticInferenceAccelerator struct {
-	Count *int    `pulumi:"count"`
-	Type  *string `pulumi:"type"`
+	// The number of elastic inference accelerators to attach to the instance.
+	Count *int `pulumi:"count"`
+	// The type of elastic inference accelerator.
+	Type *string `pulumi:"type"`
 }
 
 // LaunchTemplateElasticInferenceAcceleratorInput is an input type that accepts LaunchTemplateElasticInferenceAcceleratorArgs and LaunchTemplateElasticInferenceAcceleratorOutput values.
@@ -11492,9 +11369,12 @@ type LaunchTemplateElasticInferenceAcceleratorInput interface {
 	ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Context) LaunchTemplateElasticInferenceAcceleratorOutput
 }
 
+// Specifies an elastic inference accelerator.
 type LaunchTemplateElasticInferenceAcceleratorArgs struct {
-	Count pulumi.IntPtrInput    `pulumi:"count"`
-	Type  pulumi.StringPtrInput `pulumi:"type"`
+	// The number of elastic inference accelerators to attach to the instance.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// The type of elastic inference accelerator.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (LaunchTemplateElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
@@ -11534,6 +11414,7 @@ func (i LaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateElasticI
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticInferenceAcceleratorArrayOutput)
 }
 
+// Specifies an elastic inference accelerator.
 type LaunchTemplateElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
@@ -11548,10 +11429,12 @@ func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElastic
 	return o
 }
 
+// The number of elastic inference accelerators to attach to the instance.
 func (o LaunchTemplateElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// The type of elastic inference accelerator.
 func (o LaunchTemplateElasticInferenceAcceleratorOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -11576,7 +11459,9 @@ func (o LaunchTemplateElasticInferenceAcceleratorArrayOutput) Index(i pulumi.Int
 	}).(LaunchTemplateElasticInferenceAcceleratorOutput)
 }
 
+// Indicates whether the instance is enabled for AWS Nitro Enclaves.
 type LaunchTemplateEnclaveOptions struct {
+	// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -11591,7 +11476,9 @@ type LaunchTemplateEnclaveOptionsInput interface {
 	ToLaunchTemplateEnclaveOptionsOutputWithContext(context.Context) LaunchTemplateEnclaveOptionsOutput
 }
 
+// Indicates whether the instance is enabled for AWS Nitro Enclaves.
 type LaunchTemplateEnclaveOptionsArgs struct {
+	// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -11648,6 +11535,7 @@ func (i *launchTemplateEnclaveOptionsPtrType) ToLaunchTemplateEnclaveOptionsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsPtrOutput)
 }
 
+// Indicates whether the instance is enabled for AWS Nitro Enclaves.
 type LaunchTemplateEnclaveOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateEnclaveOptionsOutput) ElementType() reflect.Type {
@@ -11672,6 +11560,7 @@ func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOut
 	}).(LaunchTemplateEnclaveOptionsPtrOutput)
 }
 
+// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
 func (o LaunchTemplateEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -11700,6 +11589,7 @@ func (o LaunchTemplateEnclaveOptionsPtrOutput) Elem() LaunchTemplateEnclaveOptio
 	}).(LaunchTemplateEnclaveOptionsOutput)
 }
 
+// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
 func (o LaunchTemplateEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) *bool {
 		if v == nil {
@@ -11709,7 +11599,9 @@ func (o LaunchTemplateEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether your instance is configured for hibernation.
 type LaunchTemplateHibernationOptions struct {
+	// TIf you set this parameter to true, the instance is enabled for hibernation.
 	Configured *bool `pulumi:"configured"`
 }
 
@@ -11724,7 +11616,9 @@ type LaunchTemplateHibernationOptionsInput interface {
 	ToLaunchTemplateHibernationOptionsOutputWithContext(context.Context) LaunchTemplateHibernationOptionsOutput
 }
 
+// Specifies whether your instance is configured for hibernation.
 type LaunchTemplateHibernationOptionsArgs struct {
+	// TIf you set this parameter to true, the instance is enabled for hibernation.
 	Configured pulumi.BoolPtrInput `pulumi:"configured"`
 }
 
@@ -11781,6 +11675,7 @@ func (i *launchTemplateHibernationOptionsPtrType) ToLaunchTemplateHibernationOpt
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsPtrOutput)
 }
 
+// Specifies whether your instance is configured for hibernation.
 type LaunchTemplateHibernationOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateHibernationOptionsOutput) ElementType() reflect.Type {
@@ -11805,6 +11700,7 @@ func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptio
 	}).(LaunchTemplateHibernationOptionsPtrOutput)
 }
 
+// TIf you set this parameter to true, the instance is enabled for hibernation.
 func (o LaunchTemplateHibernationOptionsOutput) Configured() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateHibernationOptions) *bool { return v.Configured }).(pulumi.BoolPtrOutput)
 }
@@ -11833,6 +11729,7 @@ func (o LaunchTemplateHibernationOptionsPtrOutput) Elem() LaunchTemplateHibernat
 	}).(LaunchTemplateHibernationOptionsOutput)
 }
 
+// TIf you set this parameter to true, the instance is enabled for hibernation.
 func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateHibernationOptions) *bool {
 		if v == nil {
@@ -11842,8 +11739,11 @@ func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies an IAM instance profile, which is a container for an IAM role for your instance.
 type LaunchTemplateIamInstanceProfile struct {
-	Arn  *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the instance profile.
+	Arn *string `pulumi:"arn"`
+	// The name of the instance profile.
 	Name *string `pulumi:"name"`
 }
 
@@ -11858,8 +11758,11 @@ type LaunchTemplateIamInstanceProfileInput interface {
 	ToLaunchTemplateIamInstanceProfileOutputWithContext(context.Context) LaunchTemplateIamInstanceProfileOutput
 }
 
+// Specifies an IAM instance profile, which is a container for an IAM role for your instance.
 type LaunchTemplateIamInstanceProfileArgs struct {
-	Arn  pulumi.StringPtrInput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the instance profile.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// The name of the instance profile.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -11916,6 +11819,7 @@ func (i *launchTemplateIamInstanceProfilePtrType) ToLaunchTemplateIamInstancePro
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIamInstanceProfilePtrOutput)
 }
 
+// Specifies an IAM instance profile, which is a container for an IAM role for your instance.
 type LaunchTemplateIamInstanceProfileOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateIamInstanceProfileOutput) ElementType() reflect.Type {
@@ -11940,10 +11844,12 @@ func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfi
 	}).(LaunchTemplateIamInstanceProfilePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the instance profile.
 func (o LaunchTemplateIamInstanceProfileOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the instance profile.
 func (o LaunchTemplateIamInstanceProfileOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -11972,6 +11878,7 @@ func (o LaunchTemplateIamInstanceProfilePtrOutput) Elem() LaunchTemplateIamInsta
 	}).(LaunchTemplateIamInstanceProfileOutput)
 }
 
+// The Amazon Resource Name (ARN) of the instance profile.
 func (o LaunchTemplateIamInstanceProfilePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) *string {
 		if v == nil {
@@ -11981,6 +11888,7 @@ func (o LaunchTemplateIamInstanceProfilePtrOutput) Arn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the instance profile.
 func (o LaunchTemplateIamInstanceProfilePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) *string {
 		if v == nil {
@@ -11990,7 +11898,9 @@ func (o LaunchTemplateIamInstanceProfilePtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The market (purchasing) option for the instances.
 type LaunchTemplateInstanceMarketOptions struct {
+	// The market type.
 	MarketType  *string                    `pulumi:"marketType"`
 	SpotOptions *LaunchTemplateSpotOptions `pulumi:"spotOptions"`
 }
@@ -12006,7 +11916,9 @@ type LaunchTemplateInstanceMarketOptionsInput interface {
 	ToLaunchTemplateInstanceMarketOptionsOutputWithContext(context.Context) LaunchTemplateInstanceMarketOptionsOutput
 }
 
+// The market (purchasing) option for the instances.
 type LaunchTemplateInstanceMarketOptionsArgs struct {
+	// The market type.
 	MarketType  pulumi.StringPtrInput             `pulumi:"marketType"`
 	SpotOptions LaunchTemplateSpotOptionsPtrInput `pulumi:"spotOptions"`
 }
@@ -12064,6 +11976,7 @@ func (i *launchTemplateInstanceMarketOptionsPtrType) ToLaunchTemplateInstanceMar
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceMarketOptionsPtrOutput)
 }
 
+// The market (purchasing) option for the instances.
 type LaunchTemplateInstanceMarketOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateInstanceMarketOptionsOutput) ElementType() reflect.Type {
@@ -12088,6 +12001,7 @@ func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarke
 	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
 }
 
+// The market type.
 func (o LaunchTemplateInstanceMarketOptionsOutput) MarketType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *string { return v.MarketType }).(pulumi.StringPtrOutput)
 }
@@ -12120,6 +12034,7 @@ func (o LaunchTemplateInstanceMarketOptionsPtrOutput) Elem() LaunchTemplateInsta
 	}).(LaunchTemplateInstanceMarketOptionsOutput)
 }
 
+// The market type.
 func (o LaunchTemplateInstanceMarketOptionsPtrOutput) MarketType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) *string {
 		if v == nil {
@@ -12138,30 +12053,44 @@ func (o LaunchTemplateInstanceMarketOptionsPtrOutput) SpotOptions() LaunchTempla
 	}).(LaunchTemplateSpotOptionsPtrOutput)
 }
 
+// The attributes for the instance types.
 type LaunchTemplateInstanceRequirements struct {
-	AcceleratorCount                          *LaunchTemplateAcceleratorCount          `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  []string                                 `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          []string                                 `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                 *LaunchTemplateAcceleratorTotalMemoryMiB `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                          []string                                 `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      []string                                 `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 *string                                  `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  *LaunchTemplateBaselineEbsBandwidthMbps  `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      *string                                  `pulumi:"burstablePerformance"`
-	CpuManufacturers                          []string                                 `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     []string                                 `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       []string                                 `pulumi:"instanceGenerations"`
-	LocalStorage                              *string                                  `pulumi:"localStorage"`
-	LocalStorageTypes                         []string                                 `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu                          *LaunchTemplateMemoryGiBPerVCpu          `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 *LaunchTemplateMemoryMiB                 `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                      *LaunchTemplateNetworkBandwidthGbps      `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     *LaunchTemplateNetworkInterfaceCount     `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice *int                                     `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   *bool                                    `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     *int                                     `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGB                       *LaunchTemplateTotalLocalStorageGB       `pulumi:"totalLocalStorageGB"`
-	VCpuCount                                 *LaunchTemplateVCpuCount                 `pulumi:"vCpuCount"`
+	AcceleratorCount *LaunchTemplateAcceleratorCount `pulumi:"acceleratorCount"`
+	// Indicates whether instance types must have accelerators by specific manufacturers.
+	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
+	// The accelerators that must be on the instance type.
+	AcceleratorNames          []string                                 `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB *LaunchTemplateAcceleratorTotalMemoryMiB `pulumi:"acceleratorTotalMemoryMiB"`
+	// The accelerator types that must be on the instance type.
+	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
+	// The instance types to apply your specified attributes against.
+	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
+	// Indicates whether bare metal instance types must be included, excluded, or required.
+	BareMetal                *string                                 `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps *LaunchTemplateBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance     *string                                 `pulumi:"burstablePerformance"`
+	// The CPU manufacturers to include.
+	CpuManufacturers []string `pulumi:"cpuManufacturers"`
+	// The instance types to exclude.
+	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
+	// Indicates whether current or previous generation instance types are included.
+	InstanceGenerations []string `pulumi:"instanceGenerations"`
+	// The user data to make available to the instance.
+	LocalStorage *string `pulumi:"localStorage"`
+	// The type of local storage that is required.
+	LocalStorageTypes     []string                             `pulumi:"localStorageTypes"`
+	MemoryGiBPerVCpu      *LaunchTemplateMemoryGiBPerVCpu      `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB             *LaunchTemplateMemoryMiB             `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps  *LaunchTemplateNetworkBandwidthGbps  `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount *LaunchTemplateNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances.
+	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicates whether instance types must support hibernation for On-Demand Instances.
+	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
+	// The price protection threshold for Spot Instances.
+	SpotMaxPricePercentageOverLowestPrice *int                               `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGB                   *LaunchTemplateTotalLocalStorageGB `pulumi:"totalLocalStorageGB"`
+	VCpuCount                             *LaunchTemplateVCpuCount           `pulumi:"vCpuCount"`
 }
 
 // LaunchTemplateInstanceRequirementsInput is an input type that accepts LaunchTemplateInstanceRequirementsArgs and LaunchTemplateInstanceRequirementsOutput values.
@@ -12175,30 +12104,44 @@ type LaunchTemplateInstanceRequirementsInput interface {
 	ToLaunchTemplateInstanceRequirementsOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsOutput
 }
 
+// The attributes for the instance types.
 type LaunchTemplateInstanceRequirementsArgs struct {
-	AcceleratorCount                          LaunchTemplateAcceleratorCountPtrInput          `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  pulumi.StringArrayInput                         `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          pulumi.StringArrayInput                         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                 LaunchTemplateAcceleratorTotalMemoryMiBPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                          pulumi.StringArrayInput                         `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      pulumi.StringArrayInput                         `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 pulumi.StringPtrInput                           `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  LaunchTemplateBaselineEbsBandwidthMbpsPtrInput  `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      pulumi.StringPtrInput                           `pulumi:"burstablePerformance"`
-	CpuManufacturers                          pulumi.StringArrayInput                         `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     pulumi.StringArrayInput                         `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       pulumi.StringArrayInput                         `pulumi:"instanceGenerations"`
-	LocalStorage                              pulumi.StringPtrInput                           `pulumi:"localStorage"`
-	LocalStorageTypes                         pulumi.StringArrayInput                         `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu                          LaunchTemplateMemoryGiBPerVCpuPtrInput          `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 LaunchTemplateMemoryMiBPtrInput                 `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                      LaunchTemplateNetworkBandwidthGbpsPtrInput      `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     LaunchTemplateNetworkInterfaceCountPtrInput     `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   pulumi.BoolPtrInput                             `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGB                       LaunchTemplateTotalLocalStorageGBPtrInput       `pulumi:"totalLocalStorageGB"`
-	VCpuCount                                 LaunchTemplateVCpuCountPtrInput                 `pulumi:"vCpuCount"`
+	AcceleratorCount LaunchTemplateAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
+	// Indicates whether instance types must have accelerators by specific manufacturers.
+	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
+	// The accelerators that must be on the instance type.
+	AcceleratorNames          pulumi.StringArrayInput                         `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB LaunchTemplateAcceleratorTotalMemoryMiBPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
+	// The accelerator types that must be on the instance type.
+	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
+	// The instance types to apply your specified attributes against.
+	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
+	// Indicates whether bare metal instance types must be included, excluded, or required.
+	BareMetal                pulumi.StringPtrInput                          `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps LaunchTemplateBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance     pulumi.StringPtrInput                          `pulumi:"burstablePerformance"`
+	// The CPU manufacturers to include.
+	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
+	// The instance types to exclude.
+	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
+	// Indicates whether current or previous generation instance types are included.
+	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
+	// The user data to make available to the instance.
+	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
+	// The type of local storage that is required.
+	LocalStorageTypes     pulumi.StringArrayInput                     `pulumi:"localStorageTypes"`
+	MemoryGiBPerVCpu      LaunchTemplateMemoryGiBPerVCpuPtrInput      `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB             LaunchTemplateMemoryMiBPtrInput             `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps  LaunchTemplateNetworkBandwidthGbpsPtrInput  `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount LaunchTemplateNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances.
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicates whether instance types must support hibernation for On-Demand Instances.
+	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
+	// The price protection threshold for Spot Instances.
+	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                        `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGB                   LaunchTemplateTotalLocalStorageGBPtrInput `pulumi:"totalLocalStorageGB"`
+	VCpuCount                             LaunchTemplateVCpuCountPtrInput           `pulumi:"vCpuCount"`
 }
 
 func (LaunchTemplateInstanceRequirementsArgs) ElementType() reflect.Type {
@@ -12254,6 +12197,7 @@ func (i *launchTemplateInstanceRequirementsPtrType) ToLaunchTemplateInstanceRequ
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsPtrOutput)
 }
 
+// The attributes for the instance types.
 type LaunchTemplateInstanceRequirementsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateInstanceRequirementsOutput) ElementType() reflect.Type {
@@ -12282,10 +12226,12 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorCount() LaunchTempl
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateAcceleratorCount { return v.AcceleratorCount }).(LaunchTemplateAcceleratorCountPtrOutput)
 }
 
+// Indicates whether instance types must have accelerators by specific manufacturers.
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorManufacturers }).(pulumi.StringArrayOutput)
 }
 
+// The accelerators that must be on the instance type.
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorNames }).(pulumi.StringArrayOutput)
 }
@@ -12296,14 +12242,17 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMiB() La
 	}).(LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput)
 }
 
+// The accelerator types that must be on the instance type.
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
 }
 
+// The instance types to apply your specified attributes against.
 func (o LaunchTemplateInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether bare metal instance types must be included, excluded, or required.
 func (o LaunchTemplateInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
 }
@@ -12318,22 +12267,27 @@ func (o LaunchTemplateInstanceRequirementsOutput) BurstablePerformance() pulumi.
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.BurstablePerformance }).(pulumi.StringPtrOutput)
 }
 
+// The CPU manufacturers to include.
 func (o LaunchTemplateInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
 }
 
+// The instance types to exclude.
 func (o LaunchTemplateInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether current or previous generation instance types are included.
 func (o LaunchTemplateInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.InstanceGenerations }).(pulumi.StringArrayOutput)
 }
 
+// The user data to make available to the instance.
 func (o LaunchTemplateInstanceRequirementsOutput) LocalStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.LocalStorage }).(pulumi.StringPtrOutput)
 }
 
+// The type of local storage that is required.
 func (o LaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
 }
@@ -12358,14 +12312,17 @@ func (o LaunchTemplateInstanceRequirementsOutput) NetworkInterfaceCount() Launch
 	}).(LaunchTemplateNetworkInterfaceCountPtrOutput)
 }
 
+// The price protection threshold for On-Demand Instances.
 func (o LaunchTemplateInstanceRequirementsOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether instance types must support hibernation for On-Demand Instances.
 func (o LaunchTemplateInstanceRequirementsOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
 }
 
+// The price protection threshold for Spot Instances.
 func (o LaunchTemplateInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
@@ -12413,6 +12370,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorCount() LaunchTe
 	}).(LaunchTemplateAcceleratorCountPtrOutput)
 }
 
+// Indicates whether instance types must have accelerators by specific manufacturers.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12422,6 +12380,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() 
 	}).(pulumi.StringArrayOutput)
 }
 
+// The accelerators that must be on the instance type.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12440,6 +12399,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMiB()
 	}).(LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput)
 }
 
+// The accelerator types that must be on the instance type.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12449,6 +12409,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// The instance types to apply your specified attributes against.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12458,6 +12419,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether bare metal instance types must be included, excluded, or required.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
 		if v == nil {
@@ -12485,6 +12447,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CPU manufacturers to include.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12494,6 +12457,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// The instance types to exclude.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12503,6 +12467,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pul
 	}).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether current or previous generation instance types are included.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12512,6 +12477,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) InstanceGenerations() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
+// The user data to make available to the instance.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
 		if v == nil {
@@ -12521,6 +12487,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorage() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of local storage that is required.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12566,6 +12533,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) NetworkInterfaceCount() Lau
 	}).(LaunchTemplateNetworkInterfaceCountPtrOutput)
 }
 
+// The price protection threshold for On-Demand Instances.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
 		if v == nil {
@@ -12575,6 +12543,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageO
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether instance types must support hibernation for On-Demand Instances.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *bool {
 		if v == nil {
@@ -12584,6 +12553,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) RequireHibernateSupport() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The price protection threshold for Spot Instances.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
 		if v == nil {
@@ -12611,7 +12581,9 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) VCpuCount() LaunchTemplateV
 	}).(LaunchTemplateVCpuCountPtrOutput)
 }
 
+// Specifies an IPv4 prefix for a network interface.
 type LaunchTemplateIpv4PrefixSpecification struct {
+	// The IPv4 prefix.
 	Ipv4Prefix *string `pulumi:"ipv4Prefix"`
 }
 
@@ -12626,7 +12598,9 @@ type LaunchTemplateIpv4PrefixSpecificationInput interface {
 	ToLaunchTemplateIpv4PrefixSpecificationOutputWithContext(context.Context) LaunchTemplateIpv4PrefixSpecificationOutput
 }
 
+// Specifies an IPv4 prefix for a network interface.
 type LaunchTemplateIpv4PrefixSpecificationArgs struct {
+	// The IPv4 prefix.
 	Ipv4Prefix pulumi.StringPtrInput `pulumi:"ipv4Prefix"`
 }
 
@@ -12667,6 +12641,7 @@ func (i LaunchTemplateIpv4PrefixSpecificationArray) ToLaunchTemplateIpv4PrefixSp
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv4PrefixSpecificationArrayOutput)
 }
 
+// Specifies an IPv4 prefix for a network interface.
 type LaunchTemplateIpv4PrefixSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateIpv4PrefixSpecificationOutput) ElementType() reflect.Type {
@@ -12681,6 +12656,7 @@ func (o LaunchTemplateIpv4PrefixSpecificationOutput) ToLaunchTemplateIpv4PrefixS
 	return o
 }
 
+// The IPv4 prefix.
 func (o LaunchTemplateIpv4PrefixSpecificationOutput) Ipv4Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIpv4PrefixSpecification) *string { return v.Ipv4Prefix }).(pulumi.StringPtrOutput)
 }
@@ -12705,6 +12681,7 @@ func (o LaunchTemplateIpv4PrefixSpecificationArrayOutput) Index(i pulumi.IntInpu
 	}).(LaunchTemplateIpv4PrefixSpecificationOutput)
 }
 
+// Specifies an IPv6 address.
 type LaunchTemplateIpv6Add struct {
 	Ipv6Address *string `pulumi:"ipv6Address"`
 }
@@ -12720,6 +12697,7 @@ type LaunchTemplateIpv6AddInput interface {
 	ToLaunchTemplateIpv6AddOutputWithContext(context.Context) LaunchTemplateIpv6AddOutput
 }
 
+// Specifies an IPv6 address.
 type LaunchTemplateIpv6AddArgs struct {
 	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
 }
@@ -12761,6 +12739,7 @@ func (i LaunchTemplateIpv6AddArray) ToLaunchTemplateIpv6AddArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv6AddArrayOutput)
 }
 
+// Specifies an IPv6 address.
 type LaunchTemplateIpv6AddOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateIpv6AddOutput) ElementType() reflect.Type {
@@ -12799,6 +12778,7 @@ func (o LaunchTemplateIpv6AddArrayOutput) Index(i pulumi.IntInput) LaunchTemplat
 	}).(LaunchTemplateIpv6AddOutput)
 }
 
+// Specifies an IPv6 prefix for a network interface.
 type LaunchTemplateIpv6PrefixSpecification struct {
 	Ipv6Prefix *string `pulumi:"ipv6Prefix"`
 }
@@ -12814,6 +12794,7 @@ type LaunchTemplateIpv6PrefixSpecificationInput interface {
 	ToLaunchTemplateIpv6PrefixSpecificationOutputWithContext(context.Context) LaunchTemplateIpv6PrefixSpecificationOutput
 }
 
+// Specifies an IPv6 prefix for a network interface.
 type LaunchTemplateIpv6PrefixSpecificationArgs struct {
 	Ipv6Prefix pulumi.StringPtrInput `pulumi:"ipv6Prefix"`
 }
@@ -12855,6 +12836,7 @@ func (i LaunchTemplateIpv6PrefixSpecificationArray) ToLaunchTemplateIpv6PrefixSp
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv6PrefixSpecificationArrayOutput)
 }
 
+// Specifies an IPv6 prefix for a network interface.
 type LaunchTemplateIpv6PrefixSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateIpv6PrefixSpecificationOutput) ElementType() reflect.Type {
@@ -12893,7 +12875,9 @@ func (o LaunchTemplateIpv6PrefixSpecificationArrayOutput) Index(i pulumi.IntInpu
 	}).(LaunchTemplateIpv6PrefixSpecificationOutput)
 }
 
+// Specifies a license configuration for an instance.
 type LaunchTemplateLicenseSpecification struct {
+	// The Amazon Resource Name (ARN) of the license configuration.
 	LicenseConfigurationArn *string `pulumi:"licenseConfigurationArn"`
 }
 
@@ -12908,7 +12892,9 @@ type LaunchTemplateLicenseSpecificationInput interface {
 	ToLaunchTemplateLicenseSpecificationOutputWithContext(context.Context) LaunchTemplateLicenseSpecificationOutput
 }
 
+// Specifies a license configuration for an instance.
 type LaunchTemplateLicenseSpecificationArgs struct {
+	// The Amazon Resource Name (ARN) of the license configuration.
 	LicenseConfigurationArn pulumi.StringPtrInput `pulumi:"licenseConfigurationArn"`
 }
 
@@ -12949,6 +12935,7 @@ func (i LaunchTemplateLicenseSpecificationArray) ToLaunchTemplateLicenseSpecific
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLicenseSpecificationArrayOutput)
 }
 
+// Specifies a license configuration for an instance.
 type LaunchTemplateLicenseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateLicenseSpecificationOutput) ElementType() reflect.Type {
@@ -12963,6 +12950,7 @@ func (o LaunchTemplateLicenseSpecificationOutput) ToLaunchTemplateLicenseSpecifi
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the license configuration.
 func (o LaunchTemplateLicenseSpecificationOutput) LicenseConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateLicenseSpecification) *string { return v.LicenseConfigurationArn }).(pulumi.StringPtrOutput)
 }
@@ -12987,7 +12975,9 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 	}).(LaunchTemplateLicenseSpecificationOutput)
 }
 
+// The maintenance options of your instance.
 type LaunchTemplateMaintenanceOptions struct {
+	// Disables the automatic recovery behavior of your instance or sets it to default.
 	AutoRecovery *string `pulumi:"autoRecovery"`
 }
 
@@ -13002,7 +12992,9 @@ type LaunchTemplateMaintenanceOptionsInput interface {
 	ToLaunchTemplateMaintenanceOptionsOutputWithContext(context.Context) LaunchTemplateMaintenanceOptionsOutput
 }
 
+// The maintenance options of your instance.
 type LaunchTemplateMaintenanceOptionsArgs struct {
+	// Disables the automatic recovery behavior of your instance or sets it to default.
 	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
 }
 
@@ -13059,6 +13051,7 @@ func (i *launchTemplateMaintenanceOptionsPtrType) ToLaunchTemplateMaintenanceOpt
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMaintenanceOptionsPtrOutput)
 }
 
+// The maintenance options of your instance.
 type LaunchTemplateMaintenanceOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateMaintenanceOptionsOutput) ElementType() reflect.Type {
@@ -13083,6 +13076,7 @@ func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptio
 	}).(LaunchTemplateMaintenanceOptionsPtrOutput)
 }
 
+// Disables the automatic recovery behavior of your instance or sets it to default.
 func (o LaunchTemplateMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
 }
@@ -13111,6 +13105,7 @@ func (o LaunchTemplateMaintenanceOptionsPtrOutput) Elem() LaunchTemplateMaintena
 	}).(LaunchTemplateMaintenanceOptionsOutput)
 }
 
+// Disables the automatic recovery behavior of your instance or sets it to default.
 func (o LaunchTemplateMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMaintenanceOptions) *string {
 		if v == nil {
@@ -13120,8 +13115,11 @@ func (o LaunchTemplateMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The minimum and maximum amount of memory per vCPU, in GiB.
 type LaunchTemplateMemoryGiBPerVCpu struct {
+	// The maximum amount of memory per vCPU, in GiB.
 	Max *float64 `pulumi:"max"`
+	// TThe minimum amount of memory per vCPU, in GiB.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -13136,8 +13134,11 @@ type LaunchTemplateMemoryGiBPerVCpuInput interface {
 	ToLaunchTemplateMemoryGiBPerVCpuOutputWithContext(context.Context) LaunchTemplateMemoryGiBPerVCpuOutput
 }
 
+// The minimum and maximum amount of memory per vCPU, in GiB.
 type LaunchTemplateMemoryGiBPerVCpuArgs struct {
+	// The maximum amount of memory per vCPU, in GiB.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// TThe minimum amount of memory per vCPU, in GiB.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -13194,6 +13195,7 @@ func (i *launchTemplateMemoryGiBPerVCpuPtrType) ToLaunchTemplateMemoryGiBPerVCpu
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMemoryGiBPerVCpuPtrOutput)
 }
 
+// The minimum and maximum amount of memory per vCPU, in GiB.
 type LaunchTemplateMemoryGiBPerVCpuOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateMemoryGiBPerVCpuOutput) ElementType() reflect.Type {
@@ -13218,10 +13220,12 @@ func (o LaunchTemplateMemoryGiBPerVCpuOutput) ToLaunchTemplateMemoryGiBPerVCpuPt
 	}).(LaunchTemplateMemoryGiBPerVCpuPtrOutput)
 }
 
+// The maximum amount of memory per vCPU, in GiB.
 func (o LaunchTemplateMemoryGiBPerVCpuOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMemoryGiBPerVCpu) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// TThe minimum amount of memory per vCPU, in GiB.
 func (o LaunchTemplateMemoryGiBPerVCpuOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMemoryGiBPerVCpu) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -13250,6 +13254,7 @@ func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Elem() LaunchTemplateMemoryGiBP
 	}).(LaunchTemplateMemoryGiBPerVCpuOutput)
 }
 
+// The maximum amount of memory per vCPU, in GiB.
 func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMemoryGiBPerVCpu) *float64 {
 		if v == nil {
@@ -13259,6 +13264,7 @@ func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// TThe minimum amount of memory per vCPU, in GiB.
 func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMemoryGiBPerVCpu) *float64 {
 		if v == nil {
@@ -13268,8 +13274,11 @@ func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Min() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum and maximum amount of memory, in MiB.
 type LaunchTemplateMemoryMiB struct {
+	// The maximum amount of memory, in MiB.
 	Max *int `pulumi:"max"`
+	// The minimum amount of memory, in MiB.
 	Min *int `pulumi:"min"`
 }
 
@@ -13284,8 +13293,11 @@ type LaunchTemplateMemoryMiBInput interface {
 	ToLaunchTemplateMemoryMiBOutputWithContext(context.Context) LaunchTemplateMemoryMiBOutput
 }
 
+// The minimum and maximum amount of memory, in MiB.
 type LaunchTemplateMemoryMiBArgs struct {
+	// The maximum amount of memory, in MiB.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum amount of memory, in MiB.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -13342,6 +13354,7 @@ func (i *launchTemplateMemoryMiBPtrType) ToLaunchTemplateMemoryMiBPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMemoryMiBPtrOutput)
 }
 
+// The minimum and maximum amount of memory, in MiB.
 type LaunchTemplateMemoryMiBOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateMemoryMiBOutput) ElementType() reflect.Type {
@@ -13366,10 +13379,12 @@ func (o LaunchTemplateMemoryMiBOutput) ToLaunchTemplateMemoryMiBPtrOutputWithCon
 	}).(LaunchTemplateMemoryMiBPtrOutput)
 }
 
+// The maximum amount of memory, in MiB.
 func (o LaunchTemplateMemoryMiBOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMemoryMiB) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of memory, in MiB.
 func (o LaunchTemplateMemoryMiBOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMemoryMiB) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -13398,6 +13413,7 @@ func (o LaunchTemplateMemoryMiBPtrOutput) Elem() LaunchTemplateMemoryMiBOutput {
 	}).(LaunchTemplateMemoryMiBOutput)
 }
 
+// The maximum amount of memory, in MiB.
 func (o LaunchTemplateMemoryMiBPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMemoryMiB) *int {
 		if v == nil {
@@ -13407,6 +13423,7 @@ func (o LaunchTemplateMemoryMiBPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of memory, in MiB.
 func (o LaunchTemplateMemoryMiBPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMemoryMiB) *int {
 		if v == nil {
@@ -13416,12 +13433,18 @@ func (o LaunchTemplateMemoryMiBPtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The metadata options for the instance.
 type LaunchTemplateMetadataOptions struct {
-	HttpEndpoint            *string `pulumi:"httpEndpoint"`
-	HttpProtocolIpv6        *string `pulumi:"httpProtocolIpv6"`
-	HttpPutResponseHopLimit *int    `pulumi:"httpPutResponseHopLimit"`
-	HttpTokens              *string `pulumi:"httpTokens"`
-	InstanceMetadataTags    *string `pulumi:"instanceMetadataTags"`
+	// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
+	HttpEndpoint *string `pulumi:"httpEndpoint"`
+	// Enables or disables the IPv6 endpoint for the instance metadata service.
+	HttpProtocolIpv6 *string `pulumi:"httpProtocolIpv6"`
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
+	// IMDSv2 uses token-backed sessions.
+	HttpTokens *string `pulumi:"httpTokens"`
+	// Set to enabled to allow access to instance tags from the instance metadata.
+	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
 }
 
 // LaunchTemplateMetadataOptionsInput is an input type that accepts LaunchTemplateMetadataOptionsArgs and LaunchTemplateMetadataOptionsOutput values.
@@ -13435,12 +13458,18 @@ type LaunchTemplateMetadataOptionsInput interface {
 	ToLaunchTemplateMetadataOptionsOutputWithContext(context.Context) LaunchTemplateMetadataOptionsOutput
 }
 
+// The metadata options for the instance.
 type LaunchTemplateMetadataOptionsArgs struct {
-	HttpEndpoint            pulumi.StringPtrInput `pulumi:"httpEndpoint"`
-	HttpProtocolIpv6        pulumi.StringPtrInput `pulumi:"httpProtocolIpv6"`
-	HttpPutResponseHopLimit pulumi.IntPtrInput    `pulumi:"httpPutResponseHopLimit"`
-	HttpTokens              pulumi.StringPtrInput `pulumi:"httpTokens"`
-	InstanceMetadataTags    pulumi.StringPtrInput `pulumi:"instanceMetadataTags"`
+	// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
+	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	// Enables or disables the IPv6 endpoint for the instance metadata service.
+	HttpProtocolIpv6 pulumi.StringPtrInput `pulumi:"httpProtocolIpv6"`
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
+	// IMDSv2 uses token-backed sessions.
+	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
+	// Set to enabled to allow access to instance tags from the instance metadata.
+	InstanceMetadataTags pulumi.StringPtrInput `pulumi:"instanceMetadataTags"`
 }
 
 func (LaunchTemplateMetadataOptionsArgs) ElementType() reflect.Type {
@@ -13496,6 +13525,7 @@ func (i *launchTemplateMetadataOptionsPtrType) ToLaunchTemplateMetadataOptionsPt
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsPtrOutput)
 }
 
+// The metadata options for the instance.
 type LaunchTemplateMetadataOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateMetadataOptionsOutput) ElementType() reflect.Type {
@@ -13520,22 +13550,27 @@ func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrO
 	}).(LaunchTemplateMetadataOptionsPtrOutput)
 }
 
+// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
 func (o LaunchTemplateMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// Enables or disables the IPv6 endpoint for the instance metadata service.
 func (o LaunchTemplateMetadataOptionsOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpProtocolIpv6 }).(pulumi.StringPtrOutput)
 }
 
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
 func (o LaunchTemplateMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
 
+// IMDSv2 uses token-backed sessions.
 func (o LaunchTemplateMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
 
+// Set to enabled to allow access to instance tags from the instance metadata.
 func (o LaunchTemplateMetadataOptionsOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.InstanceMetadataTags }).(pulumi.StringPtrOutput)
 }
@@ -13564,6 +13599,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) Elem() LaunchTemplateMetadataOpt
 	}).(LaunchTemplateMetadataOptionsOutput)
 }
 
+// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -13573,6 +13609,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Enables or disables the IPv6 endpoint for the instance metadata service.
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -13582,6 +13619,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpProtocolIpv6() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *int {
 		if v == nil {
@@ -13591,6 +13629,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// IMDSv2 uses token-backed sessions.
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -13600,6 +13639,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set to enabled to allow access to instance tags from the instance metadata.
 func (o LaunchTemplateMetadataOptionsPtrOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -13609,7 +13649,9 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) InstanceMetadataTags() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether detailed monitoring is enabled for an instance.
 type LaunchTemplateMonitoring struct {
+	// Specify true to enable detailed monitoring.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -13624,7 +13666,9 @@ type LaunchTemplateMonitoringInput interface {
 	ToLaunchTemplateMonitoringOutputWithContext(context.Context) LaunchTemplateMonitoringOutput
 }
 
+// Specifies whether detailed monitoring is enabled for an instance.
 type LaunchTemplateMonitoringArgs struct {
+	// Specify true to enable detailed monitoring.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -13681,6 +13725,7 @@ func (i *launchTemplateMonitoringPtrType) ToLaunchTemplateMonitoringPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMonitoringPtrOutput)
 }
 
+// Specifies whether detailed monitoring is enabled for an instance.
 type LaunchTemplateMonitoringOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateMonitoringOutput) ElementType() reflect.Type {
@@ -13705,6 +13750,7 @@ func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringPtrOutputWithC
 	}).(LaunchTemplateMonitoringPtrOutput)
 }
 
+// Specify true to enable detailed monitoring.
 func (o LaunchTemplateMonitoringOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMonitoring) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -13733,6 +13779,7 @@ func (o LaunchTemplateMonitoringPtrOutput) Elem() LaunchTemplateMonitoringOutput
 	}).(LaunchTemplateMonitoringOutput)
 }
 
+// Specify true to enable detailed monitoring.
 func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMonitoring) *bool {
 		if v == nil {
@@ -13742,8 +13789,11 @@ func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
 type LaunchTemplateNetworkBandwidthGbps struct {
+	// The maximum amount of network bandwidth, in Gbps.
 	Max *float64 `pulumi:"max"`
+	// The minimum amount of network bandwidth, in Gbps.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -13758,8 +13808,11 @@ type LaunchTemplateNetworkBandwidthGbpsInput interface {
 	ToLaunchTemplateNetworkBandwidthGbpsOutputWithContext(context.Context) LaunchTemplateNetworkBandwidthGbpsOutput
 }
 
+// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
 type LaunchTemplateNetworkBandwidthGbpsArgs struct {
+	// The maximum amount of network bandwidth, in Gbps.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum amount of network bandwidth, in Gbps.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -13816,6 +13869,7 @@ func (i *launchTemplateNetworkBandwidthGbpsPtrType) ToLaunchTemplateNetworkBandw
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkBandwidthGbpsPtrOutput)
 }
 
+// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
 type LaunchTemplateNetworkBandwidthGbpsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateNetworkBandwidthGbpsOutput) ElementType() reflect.Type {
@@ -13840,10 +13894,12 @@ func (o LaunchTemplateNetworkBandwidthGbpsOutput) ToLaunchTemplateNetworkBandwid
 	}).(LaunchTemplateNetworkBandwidthGbpsPtrOutput)
 }
 
+// The maximum amount of network bandwidth, in Gbps.
 func (o LaunchTemplateNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkBandwidthGbps) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of network bandwidth, in Gbps.
 func (o LaunchTemplateNetworkBandwidthGbpsOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkBandwidthGbps) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -13872,6 +13928,7 @@ func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Elem() LaunchTemplateNetwor
 	}).(LaunchTemplateNetworkBandwidthGbpsOutput)
 }
 
+// The maximum amount of network bandwidth, in Gbps.
 func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -13881,6 +13938,7 @@ func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of network bandwidth, in Gbps.
 func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -13890,26 +13948,46 @@ func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Specifies the parameters for a network interface.
 type LaunchTemplateNetworkInterface struct {
-	AssociateCarrierIpAddress      *bool                                   `pulumi:"associateCarrierIpAddress"`
-	AssociatePublicIpAddress       *bool                                   `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination            *bool                                   `pulumi:"deleteOnTermination"`
-	Description                    *string                                 `pulumi:"description"`
-	DeviceIndex                    *int                                    `pulumi:"deviceIndex"`
-	Groups                         []string                                `pulumi:"groups"`
-	InterfaceType                  *string                                 `pulumi:"interfaceType"`
-	Ipv4PrefixCount                *int                                    `pulumi:"ipv4PrefixCount"`
-	Ipv4Prefixes                   []LaunchTemplateIpv4PrefixSpecification `pulumi:"ipv4Prefixes"`
-	Ipv6AddressCount               *int                                    `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                  []LaunchTemplateIpv6Add                 `pulumi:"ipv6Addresses"`
-	Ipv6PrefixCount                *int                                    `pulumi:"ipv6PrefixCount"`
-	Ipv6Prefixes                   []LaunchTemplateIpv6PrefixSpecification `pulumi:"ipv6Prefixes"`
-	NetworkCardIndex               *int                                    `pulumi:"networkCardIndex"`
-	NetworkInterfaceId             *string                                 `pulumi:"networkInterfaceId"`
-	PrivateIpAddress               *string                                 `pulumi:"privateIpAddress"`
-	PrivateIpAddresses             []LaunchTemplatePrivateIpAdd            `pulumi:"privateIpAddresses"`
-	SecondaryPrivateIpAddressCount *int                                    `pulumi:"secondaryPrivateIpAddressCount"`
-	SubnetId                       *string                                 `pulumi:"subnetId"`
+	// Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+	AssociateCarrierIpAddress *bool `pulumi:"associateCarrierIpAddress"`
+	// Associates a public IPv4 address with eth0 for a new network interface.
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	// Indicates whether the network interface is deleted when the instance is terminated.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// A description for the network interface.
+	Description *string `pulumi:"description"`
+	// The device index for the network interface attachment.
+	DeviceIndex *int `pulumi:"deviceIndex"`
+	// The IDs of one or more security groups.
+	Groups []string `pulumi:"groups"`
+	// The type of network interface.
+	InterfaceType *string `pulumi:"interfaceType"`
+	// The number of IPv4 prefixes to be automatically assigned to the network interface.
+	Ipv4PrefixCount *int `pulumi:"ipv4PrefixCount"`
+	// One or more IPv4 prefixes to be assigned to the network interface.
+	Ipv4Prefixes []LaunchTemplateIpv4PrefixSpecification `pulumi:"ipv4Prefixes"`
+	// The number of IPv6 addresses to assign to a network interface.
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+	Ipv6Addresses []LaunchTemplateIpv6Add `pulumi:"ipv6Addresses"`
+	// The number of IPv6 prefixes to be automatically assigned to the network interface.
+	Ipv6PrefixCount *int `pulumi:"ipv6PrefixCount"`
+	// One or more IPv6 prefixes to be assigned to the network interface.
+	Ipv6Prefixes []LaunchTemplateIpv6PrefixSpecification `pulumi:"ipv6Prefixes"`
+	// The index of the network card.
+	NetworkCardIndex *int `pulumi:"networkCardIndex"`
+	// The ID of the network interface.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The primary private IPv4 address of the network interface.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// One or more private IPv4 addresses.
+	PrivateIpAddresses []LaunchTemplatePrivateIpAdd `pulumi:"privateIpAddresses"`
+	// The number of secondary private IPv4 addresses to assign to a network interface.
+	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
+	// The ID of the subnet for the network interface.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // LaunchTemplateNetworkInterfaceInput is an input type that accepts LaunchTemplateNetworkInterfaceArgs and LaunchTemplateNetworkInterfaceOutput values.
@@ -13923,26 +14001,46 @@ type LaunchTemplateNetworkInterfaceInput interface {
 	ToLaunchTemplateNetworkInterfaceOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceOutput
 }
 
+// Specifies the parameters for a network interface.
 type LaunchTemplateNetworkInterfaceArgs struct {
-	AssociateCarrierIpAddress      pulumi.BoolPtrInput                             `pulumi:"associateCarrierIpAddress"`
-	AssociatePublicIpAddress       pulumi.BoolPtrInput                             `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination            pulumi.BoolPtrInput                             `pulumi:"deleteOnTermination"`
-	Description                    pulumi.StringPtrInput                           `pulumi:"description"`
-	DeviceIndex                    pulumi.IntPtrInput                              `pulumi:"deviceIndex"`
-	Groups                         pulumi.StringArrayInput                         `pulumi:"groups"`
-	InterfaceType                  pulumi.StringPtrInput                           `pulumi:"interfaceType"`
-	Ipv4PrefixCount                pulumi.IntPtrInput                              `pulumi:"ipv4PrefixCount"`
-	Ipv4Prefixes                   LaunchTemplateIpv4PrefixSpecificationArrayInput `pulumi:"ipv4Prefixes"`
-	Ipv6AddressCount               pulumi.IntPtrInput                              `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                  LaunchTemplateIpv6AddArrayInput                 `pulumi:"ipv6Addresses"`
-	Ipv6PrefixCount                pulumi.IntPtrInput                              `pulumi:"ipv6PrefixCount"`
-	Ipv6Prefixes                   LaunchTemplateIpv6PrefixSpecificationArrayInput `pulumi:"ipv6Prefixes"`
-	NetworkCardIndex               pulumi.IntPtrInput                              `pulumi:"networkCardIndex"`
-	NetworkInterfaceId             pulumi.StringPtrInput                           `pulumi:"networkInterfaceId"`
-	PrivateIpAddress               pulumi.StringPtrInput                           `pulumi:"privateIpAddress"`
-	PrivateIpAddresses             LaunchTemplatePrivateIpAddArrayInput            `pulumi:"privateIpAddresses"`
-	SecondaryPrivateIpAddressCount pulumi.IntPtrInput                              `pulumi:"secondaryPrivateIpAddressCount"`
-	SubnetId                       pulumi.StringPtrInput                           `pulumi:"subnetId"`
+	// Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+	AssociateCarrierIpAddress pulumi.BoolPtrInput `pulumi:"associateCarrierIpAddress"`
+	// Associates a public IPv4 address with eth0 for a new network interface.
+	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	// Indicates whether the network interface is deleted when the instance is terminated.
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// A description for the network interface.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The device index for the network interface attachment.
+	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	// The IDs of one or more security groups.
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// The type of network interface.
+	InterfaceType pulumi.StringPtrInput `pulumi:"interfaceType"`
+	// The number of IPv4 prefixes to be automatically assigned to the network interface.
+	Ipv4PrefixCount pulumi.IntPtrInput `pulumi:"ipv4PrefixCount"`
+	// One or more IPv4 prefixes to be assigned to the network interface.
+	Ipv4Prefixes LaunchTemplateIpv4PrefixSpecificationArrayInput `pulumi:"ipv4Prefixes"`
+	// The number of IPv6 addresses to assign to a network interface.
+	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"ipv6AddressCount"`
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+	Ipv6Addresses LaunchTemplateIpv6AddArrayInput `pulumi:"ipv6Addresses"`
+	// The number of IPv6 prefixes to be automatically assigned to the network interface.
+	Ipv6PrefixCount pulumi.IntPtrInput `pulumi:"ipv6PrefixCount"`
+	// One or more IPv6 prefixes to be assigned to the network interface.
+	Ipv6Prefixes LaunchTemplateIpv6PrefixSpecificationArrayInput `pulumi:"ipv6Prefixes"`
+	// The index of the network card.
+	NetworkCardIndex pulumi.IntPtrInput `pulumi:"networkCardIndex"`
+	// The ID of the network interface.
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// The primary private IPv4 address of the network interface.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// One or more private IPv4 addresses.
+	PrivateIpAddresses LaunchTemplatePrivateIpAddArrayInput `pulumi:"privateIpAddresses"`
+	// The number of secondary private IPv4 addresses to assign to a network interface.
+	SecondaryPrivateIpAddressCount pulumi.IntPtrInput `pulumi:"secondaryPrivateIpAddressCount"`
+	// The ID of the subnet for the network interface.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (LaunchTemplateNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -13982,6 +14080,7 @@ func (i LaunchTemplateNetworkInterfaceArray) ToLaunchTemplateNetworkInterfaceArr
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceArrayOutput)
 }
 
+// Specifies the parameters for a network interface.
 type LaunchTemplateNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -13996,78 +14095,97 @@ func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOu
 	return o
 }
 
+// Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.AssociateCarrierIpAddress }).(pulumi.BoolPtrOutput)
 }
 
+// Associates a public IPv4 address with eth0 for a new network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the network interface is deleted when the instance is terminated.
 func (o LaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// A description for the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The device index for the network interface attachment.
 func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
 }
 
+// The IDs of one or more security groups.
 func (o LaunchTemplateNetworkInterfaceOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
+// The type of network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) InterfaceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.InterfaceType }).(pulumi.StringPtrOutput)
 }
 
+// The number of IPv4 prefixes to be automatically assigned to the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv4PrefixCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv4PrefixCount }).(pulumi.IntPtrOutput)
 }
 
+// One or more IPv4 prefixes to be assigned to the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv4Prefixes() LaunchTemplateIpv4PrefixSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv4PrefixSpecification { return v.Ipv4Prefixes }).(LaunchTemplateIpv4PrefixSpecificationArrayOutput)
 }
 
+// The number of IPv6 addresses to assign to a network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
 }
 
+// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6Addresses() LaunchTemplateIpv6AddArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv6Add { return v.Ipv6Addresses }).(LaunchTemplateIpv6AddArrayOutput)
 }
 
+// The number of IPv6 prefixes to be automatically assigned to the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6PrefixCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv6PrefixCount }).(pulumi.IntPtrOutput)
 }
 
+// One or more IPv6 prefixes to be assigned to the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6Prefixes() LaunchTemplateIpv6PrefixSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv6PrefixSpecification { return v.Ipv6Prefixes }).(LaunchTemplateIpv6PrefixSpecificationArrayOutput)
 }
 
+// The index of the network card.
 func (o LaunchTemplateNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
+// The primary private IPv4 address of the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// One or more private IPv4 addresses.
 func (o LaunchTemplateNetworkInterfaceOutput) PrivateIpAddresses() LaunchTemplatePrivateIpAddArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplatePrivateIpAdd { return v.PrivateIpAddresses }).(LaunchTemplatePrivateIpAddArrayOutput)
 }
 
+// The number of secondary private IPv4 addresses to assign to a network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the subnet for the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -14092,6 +14210,7 @@ func (o LaunchTemplateNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Laun
 	}).(LaunchTemplateNetworkInterfaceOutput)
 }
 
+// TThe minimum and maximum number of network interfaces.
 type LaunchTemplateNetworkInterfaceCount struct {
 	Max *int `pulumi:"max"`
 	Min *int `pulumi:"min"`
@@ -14108,6 +14227,7 @@ type LaunchTemplateNetworkInterfaceCountInput interface {
 	ToLaunchTemplateNetworkInterfaceCountOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceCountOutput
 }
 
+// TThe minimum and maximum number of network interfaces.
 type LaunchTemplateNetworkInterfaceCountArgs struct {
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -14166,6 +14286,7 @@ func (i *launchTemplateNetworkInterfaceCountPtrType) ToLaunchTemplateNetworkInte
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceCountPtrOutput)
 }
 
+// TThe minimum and maximum number of network interfaces.
 type LaunchTemplateNetworkInterfaceCountOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateNetworkInterfaceCountOutput) ElementType() reflect.Type {
@@ -14240,16 +14361,26 @@ func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the placement of an instance.
 type LaunchTemplatePlacement struct {
-	Affinity             *string `pulumi:"affinity"`
-	AvailabilityZone     *string `pulumi:"availabilityZone"`
-	GroupId              *string `pulumi:"groupId"`
-	GroupName            *string `pulumi:"groupName"`
-	HostId               *string `pulumi:"hostId"`
+	// The affinity setting for an instance on a Dedicated Host.
+	Affinity *string `pulumi:"affinity"`
+	// The Availability Zone for the instance.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
+	GroupId *string `pulumi:"groupId"`
+	// The name of the placement group for the instance.
+	GroupName *string `pulumi:"groupName"`
+	// The ID of the Dedicated Host for the instance.
+	HostId *string `pulumi:"hostId"`
+	// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
 	HostResourceGroupArn *string `pulumi:"hostResourceGroupArn"`
-	PartitionNumber      *int    `pulumi:"partitionNumber"`
-	SpreadDomain         *string `pulumi:"spreadDomain"`
-	Tenancy              *string `pulumi:"tenancy"`
+	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+	PartitionNumber *int `pulumi:"partitionNumber"`
+	// Reserved for future use.
+	SpreadDomain *string `pulumi:"spreadDomain"`
+	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+	Tenancy *string `pulumi:"tenancy"`
 }
 
 // LaunchTemplatePlacementInput is an input type that accepts LaunchTemplatePlacementArgs and LaunchTemplatePlacementOutput values.
@@ -14263,16 +14394,26 @@ type LaunchTemplatePlacementInput interface {
 	ToLaunchTemplatePlacementOutputWithContext(context.Context) LaunchTemplatePlacementOutput
 }
 
+// Specifies the placement of an instance.
 type LaunchTemplatePlacementArgs struct {
-	Affinity             pulumi.StringPtrInput `pulumi:"affinity"`
-	AvailabilityZone     pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	GroupId              pulumi.StringPtrInput `pulumi:"groupId"`
-	GroupName            pulumi.StringPtrInput `pulumi:"groupName"`
-	HostId               pulumi.StringPtrInput `pulumi:"hostId"`
+	// The affinity setting for an instance on a Dedicated Host.
+	Affinity pulumi.StringPtrInput `pulumi:"affinity"`
+	// The Availability Zone for the instance.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// The name of the placement group for the instance.
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	// The ID of the Dedicated Host for the instance.
+	HostId pulumi.StringPtrInput `pulumi:"hostId"`
+	// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
 	HostResourceGroupArn pulumi.StringPtrInput `pulumi:"hostResourceGroupArn"`
-	PartitionNumber      pulumi.IntPtrInput    `pulumi:"partitionNumber"`
-	SpreadDomain         pulumi.StringPtrInput `pulumi:"spreadDomain"`
-	Tenancy              pulumi.StringPtrInput `pulumi:"tenancy"`
+	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+	PartitionNumber pulumi.IntPtrInput `pulumi:"partitionNumber"`
+	// Reserved for future use.
+	SpreadDomain pulumi.StringPtrInput `pulumi:"spreadDomain"`
+	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+	Tenancy pulumi.StringPtrInput `pulumi:"tenancy"`
 }
 
 func (LaunchTemplatePlacementArgs) ElementType() reflect.Type {
@@ -14328,6 +14469,7 @@ func (i *launchTemplatePlacementPtrType) ToLaunchTemplatePlacementPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePlacementPtrOutput)
 }
 
+// Specifies the placement of an instance.
 type LaunchTemplatePlacementOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplatePlacementOutput) ElementType() reflect.Type {
@@ -14352,38 +14494,47 @@ func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementPtrOutputWithCon
 	}).(LaunchTemplatePlacementPtrOutput)
 }
 
+// The affinity setting for an instance on a Dedicated Host.
 func (o LaunchTemplatePlacementOutput) Affinity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Affinity }).(pulumi.StringPtrOutput)
 }
 
+// The Availability Zone for the instance.
 func (o LaunchTemplatePlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
 func (o LaunchTemplatePlacementOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the placement group for the instance.
 func (o LaunchTemplatePlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Dedicated Host for the instance.
 func (o LaunchTemplatePlacementOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
 func (o LaunchTemplatePlacementOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
 func (o LaunchTemplatePlacementOutput) PartitionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *int { return v.PartitionNumber }).(pulumi.IntPtrOutput)
 }
 
+// Reserved for future use.
 func (o LaunchTemplatePlacementOutput) SpreadDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
 }
 
+// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
 func (o LaunchTemplatePlacementOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
 }
@@ -14412,6 +14563,7 @@ func (o LaunchTemplatePlacementPtrOutput) Elem() LaunchTemplatePlacementOutput {
 	}).(LaunchTemplatePlacementOutput)
 }
 
+// The affinity setting for an instance on a Dedicated Host.
 func (o LaunchTemplatePlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -14421,6 +14573,7 @@ func (o LaunchTemplatePlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Availability Zone for the instance.
 func (o LaunchTemplatePlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -14430,6 +14583,7 @@ func (o LaunchTemplatePlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
 func (o LaunchTemplatePlacementPtrOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -14439,6 +14593,7 @@ func (o LaunchTemplatePlacementPtrOutput) GroupId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the placement group for the instance.
 func (o LaunchTemplatePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -14448,6 +14603,7 @@ func (o LaunchTemplatePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Dedicated Host for the instance.
 func (o LaunchTemplatePlacementPtrOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -14457,6 +14613,7 @@ func (o LaunchTemplatePlacementPtrOutput) HostId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
 func (o LaunchTemplatePlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -14466,6 +14623,7 @@ func (o LaunchTemplatePlacementPtrOutput) HostResourceGroupArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
 func (o LaunchTemplatePlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *int {
 		if v == nil {
@@ -14475,6 +14633,7 @@ func (o LaunchTemplatePlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// Reserved for future use.
 func (o LaunchTemplatePlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -14484,6 +14643,7 @@ func (o LaunchTemplatePlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
 func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -14493,10 +14653,14 @@ func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the options for instance hostnames.
 type LaunchTemplatePrivateDnsNameOptions struct {
-	EnableResourceNameDnsAAAARecord *bool   `pulumi:"enableResourceNameDnsAAAARecord"`
-	EnableResourceNameDnsARecord    *bool   `pulumi:"enableResourceNameDnsARecord"`
-	HostnameType                    *string `pulumi:"hostnameType"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	EnableResourceNameDnsAAAARecord *bool `pulumi:"enableResourceNameDnsAAAARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecord *bool `pulumi:"enableResourceNameDnsARecord"`
+	// The type of hostname for EC2 instances.
+	HostnameType *string `pulumi:"hostnameType"`
 }
 
 // LaunchTemplatePrivateDnsNameOptionsInput is an input type that accepts LaunchTemplatePrivateDnsNameOptionsArgs and LaunchTemplatePrivateDnsNameOptionsOutput values.
@@ -14510,10 +14674,14 @@ type LaunchTemplatePrivateDnsNameOptionsInput interface {
 	ToLaunchTemplatePrivateDnsNameOptionsOutputWithContext(context.Context) LaunchTemplatePrivateDnsNameOptionsOutput
 }
 
+// Describes the options for instance hostnames.
 type LaunchTemplatePrivateDnsNameOptionsArgs struct {
-	EnableResourceNameDnsAAAARecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAAAARecord"`
-	EnableResourceNameDnsARecord    pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsARecord"`
-	HostnameType                    pulumi.StringPtrInput `pulumi:"hostnameType"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	EnableResourceNameDnsAAAARecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsAAAARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsARecord"`
+	// The type of hostname for EC2 instances.
+	HostnameType pulumi.StringPtrInput `pulumi:"hostnameType"`
 }
 
 func (LaunchTemplatePrivateDnsNameOptionsArgs) ElementType() reflect.Type {
@@ -14569,6 +14737,7 @@ func (i *launchTemplatePrivateDnsNameOptionsPtrType) ToLaunchTemplatePrivateDnsN
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePrivateDnsNameOptionsPtrOutput)
 }
 
+// Describes the options for instance hostnames.
 type LaunchTemplatePrivateDnsNameOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplatePrivateDnsNameOptionsOutput) ElementType() reflect.Type {
@@ -14593,14 +14762,17 @@ func (o LaunchTemplatePrivateDnsNameOptionsOutput) ToLaunchTemplatePrivateDnsNam
 	}).(LaunchTemplatePrivateDnsNameOptionsPtrOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 func (o LaunchTemplatePrivateDnsNameOptionsOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAAAARecord }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 func (o LaunchTemplatePrivateDnsNameOptionsOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolPtrOutput)
 }
 
+// The type of hostname for EC2 instances.
 func (o LaunchTemplatePrivateDnsNameOptionsOutput) HostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePrivateDnsNameOptions) *string { return v.HostnameType }).(pulumi.StringPtrOutput)
 }
@@ -14629,6 +14801,7 @@ func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) Elem() LaunchTemplatePriva
 	}).(LaunchTemplatePrivateDnsNameOptionsOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePrivateDnsNameOptions) *bool {
 		if v == nil {
@@ -14638,6 +14811,7 @@ func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAAAAR
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePrivateDnsNameOptions) *bool {
 		if v == nil {
@@ -14647,6 +14821,7 @@ func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAReco
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The type of hostname for EC2 instances.
 func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePrivateDnsNameOptions) *string {
 		if v == nil {
@@ -14656,8 +14831,11 @@ func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies a secondary private IPv4 address for a network interface.
 type LaunchTemplatePrivateIpAdd struct {
-	Primary          *bool   `pulumi:"primary"`
+	// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+	Primary *bool `pulumi:"primary"`
+	// The private IPv4 address.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 }
 
@@ -14672,8 +14850,11 @@ type LaunchTemplatePrivateIpAddInput interface {
 	ToLaunchTemplatePrivateIpAddOutputWithContext(context.Context) LaunchTemplatePrivateIpAddOutput
 }
 
+// Specifies a secondary private IPv4 address for a network interface.
 type LaunchTemplatePrivateIpAddArgs struct {
-	Primary          pulumi.BoolPtrInput   `pulumi:"primary"`
+	// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private IPv4 address.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 }
 
@@ -14714,6 +14895,7 @@ func (i LaunchTemplatePrivateIpAddArray) ToLaunchTemplatePrivateIpAddArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePrivateIpAddArrayOutput)
 }
 
+// Specifies a secondary private IPv4 address for a network interface.
 type LaunchTemplatePrivateIpAddOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplatePrivateIpAddOutput) ElementType() reflect.Type {
@@ -14728,10 +14910,12 @@ func (o LaunchTemplatePrivateIpAddOutput) ToLaunchTemplatePrivateIpAddOutputWith
 	return o
 }
 
+// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
 func (o LaunchTemplatePrivateIpAddOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePrivateIpAdd) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
+// The private IPv4 address.
 func (o LaunchTemplatePrivateIpAddOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePrivateIpAdd) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -14756,12 +14940,18 @@ func (o LaunchTemplatePrivateIpAddArrayOutput) Index(i pulumi.IntInput) LaunchTe
 	}).(LaunchTemplatePrivateIpAddOutput)
 }
 
+// Specifies options for Spot Instances.
 type LaunchTemplateSpotOptions struct {
-	BlockDurationMinutes         *int    `pulumi:"blockDurationMinutes"`
+	// Deprecated
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	// The behavior when a Spot Instance is interrupted. The default is terminate.
 	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
-	MaxPrice                     *string `pulumi:"maxPrice"`
-	SpotInstanceType             *string `pulumi:"spotInstanceType"`
-	ValidUntil                   *string `pulumi:"validUntil"`
+	// The maximum hourly price you're willing to pay for the Spot Instances.
+	MaxPrice *string `pulumi:"maxPrice"`
+	// The Spot Instance request type.
+	SpotInstanceType *string `pulumi:"spotInstanceType"`
+	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+	ValidUntil *string `pulumi:"validUntil"`
 }
 
 // LaunchTemplateSpotOptionsInput is an input type that accepts LaunchTemplateSpotOptionsArgs and LaunchTemplateSpotOptionsOutput values.
@@ -14775,12 +14965,18 @@ type LaunchTemplateSpotOptionsInput interface {
 	ToLaunchTemplateSpotOptionsOutputWithContext(context.Context) LaunchTemplateSpotOptionsOutput
 }
 
+// Specifies options for Spot Instances.
 type LaunchTemplateSpotOptionsArgs struct {
-	BlockDurationMinutes         pulumi.IntPtrInput    `pulumi:"blockDurationMinutes"`
+	// Deprecated
+	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
+	// The behavior when a Spot Instance is interrupted. The default is terminate.
 	InstanceInterruptionBehavior pulumi.StringPtrInput `pulumi:"instanceInterruptionBehavior"`
-	MaxPrice                     pulumi.StringPtrInput `pulumi:"maxPrice"`
-	SpotInstanceType             pulumi.StringPtrInput `pulumi:"spotInstanceType"`
-	ValidUntil                   pulumi.StringPtrInput `pulumi:"validUntil"`
+	// The maximum hourly price you're willing to pay for the Spot Instances.
+	MaxPrice pulumi.StringPtrInput `pulumi:"maxPrice"`
+	// The Spot Instance request type.
+	SpotInstanceType pulumi.StringPtrInput `pulumi:"spotInstanceType"`
+	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+	ValidUntil pulumi.StringPtrInput `pulumi:"validUntil"`
 }
 
 func (LaunchTemplateSpotOptionsArgs) ElementType() reflect.Type {
@@ -14836,6 +15032,7 @@ func (i *launchTemplateSpotOptionsPtrType) ToLaunchTemplateSpotOptionsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateSpotOptionsPtrOutput)
 }
 
+// Specifies options for Spot Instances.
 type LaunchTemplateSpotOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateSpotOptionsOutput) ElementType() reflect.Type {
@@ -14860,22 +15057,27 @@ func (o LaunchTemplateSpotOptionsOutput) ToLaunchTemplateSpotOptionsPtrOutputWit
 	}).(LaunchTemplateSpotOptionsPtrOutput)
 }
 
+// Deprecated
 func (o LaunchTemplateSpotOptionsOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The behavior when a Spot Instance is interrupted. The default is terminate.
 func (o LaunchTemplateSpotOptionsOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
 }
 
+// The maximum hourly price you're willing to pay for the Spot Instances.
 func (o LaunchTemplateSpotOptionsOutput) MaxPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
 }
 
+// The Spot Instance request type.
 func (o LaunchTemplateSpotOptionsOutput) SpotInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.SpotInstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
 func (o LaunchTemplateSpotOptionsOutput) ValidUntil() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
 }
@@ -14904,6 +15106,7 @@ func (o LaunchTemplateSpotOptionsPtrOutput) Elem() LaunchTemplateSpotOptionsOutp
 	}).(LaunchTemplateSpotOptionsOutput)
 }
 
+// Deprecated
 func (o LaunchTemplateSpotOptionsPtrOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *int {
 		if v == nil {
@@ -14913,6 +15116,7 @@ func (o LaunchTemplateSpotOptionsPtrOutput) BlockDurationMinutes() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// The behavior when a Spot Instance is interrupted. The default is terminate.
 func (o LaunchTemplateSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
 		if v == nil {
@@ -14922,6 +15126,7 @@ func (o LaunchTemplateSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The maximum hourly price you're willing to pay for the Spot Instances.
 func (o LaunchTemplateSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
 		if v == nil {
@@ -14931,6 +15136,7 @@ func (o LaunchTemplateSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Spot Instance request type.
 func (o LaunchTemplateSpotOptionsPtrOutput) SpotInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
 		if v == nil {
@@ -14940,6 +15146,7 @@ func (o LaunchTemplateSpotOptionsPtrOutput) SpotInstanceType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
 func (o LaunchTemplateSpotOptionsPtrOutput) ValidUntil() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
 		if v == nil {
@@ -14949,6 +15156,7 @@ func (o LaunchTemplateSpotOptionsPtrOutput) ValidUntil() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user data to make available to the instance.
 type LaunchTemplateTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -14965,6 +15173,7 @@ type LaunchTemplateTagInput interface {
 	ToLaunchTemplateTagOutputWithContext(context.Context) LaunchTemplateTagOutput
 }
 
+// The user data to make available to the instance.
 type LaunchTemplateTagArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
@@ -15007,6 +15216,7 @@ func (i LaunchTemplateTagArray) ToLaunchTemplateTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagArrayOutput)
 }
 
+// The user data to make available to the instance.
 type LaunchTemplateTagOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateTagOutput) ElementType() reflect.Type {
@@ -15049,9 +15259,12 @@ func (o LaunchTemplateTagArrayOutput) Index(i pulumi.IntInput) LaunchTemplateTag
 	}).(LaunchTemplateTagOutput)
 }
 
+// Specifies the tags to apply to a resource when the resource is created for the launch template.
 type LaunchTemplateTagSpecification struct {
-	ResourceType *string             `pulumi:"resourceType"`
-	Tags         []LaunchTemplateTag `pulumi:"tags"`
+	// The type of resource to tag.
+	ResourceType *string `pulumi:"resourceType"`
+	// The tags for the resource.
+	Tags []LaunchTemplateTag `pulumi:"tags"`
 }
 
 // LaunchTemplateTagSpecificationInput is an input type that accepts LaunchTemplateTagSpecificationArgs and LaunchTemplateTagSpecificationOutput values.
@@ -15065,9 +15278,12 @@ type LaunchTemplateTagSpecificationInput interface {
 	ToLaunchTemplateTagSpecificationOutputWithContext(context.Context) LaunchTemplateTagSpecificationOutput
 }
 
+// Specifies the tags to apply to a resource when the resource is created for the launch template.
 type LaunchTemplateTagSpecificationArgs struct {
-	ResourceType pulumi.StringPtrInput       `pulumi:"resourceType"`
-	Tags         LaunchTemplateTagArrayInput `pulumi:"tags"`
+	// The type of resource to tag.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// The tags for the resource.
+	Tags LaunchTemplateTagArrayInput `pulumi:"tags"`
 }
 
 func (LaunchTemplateTagSpecificationArgs) ElementType() reflect.Type {
@@ -15107,6 +15323,7 @@ func (i LaunchTemplateTagSpecificationArray) ToLaunchTemplateTagSpecificationArr
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagSpecificationArrayOutput)
 }
 
+// Specifies the tags to apply to a resource when the resource is created for the launch template.
 type LaunchTemplateTagSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateTagSpecificationOutput) ElementType() reflect.Type {
@@ -15121,10 +15338,12 @@ func (o LaunchTemplateTagSpecificationOutput) ToLaunchTemplateTagSpecificationOu
 	return o
 }
 
+// The type of resource to tag.
 func (o LaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
+// The tags for the resource.
 func (o LaunchTemplateTagSpecificationOutput) Tags() LaunchTemplateTagArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateTagSpecification) []LaunchTemplateTag { return v.Tags }).(LaunchTemplateTagArrayOutput)
 }
@@ -15149,6 +15368,7 @@ func (o LaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) Laun
 	}).(LaunchTemplateTagSpecificationOutput)
 }
 
+// The minimum and maximum amount of total local storage, in GB.
 type LaunchTemplateTotalLocalStorageGB struct {
 	Max *float64 `pulumi:"max"`
 	Min *float64 `pulumi:"min"`
@@ -15165,6 +15385,7 @@ type LaunchTemplateTotalLocalStorageGBInput interface {
 	ToLaunchTemplateTotalLocalStorageGBOutputWithContext(context.Context) LaunchTemplateTotalLocalStorageGBOutput
 }
 
+// The minimum and maximum amount of total local storage, in GB.
 type LaunchTemplateTotalLocalStorageGBArgs struct {
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	Min pulumi.Float64PtrInput `pulumi:"min"`
@@ -15223,6 +15444,7 @@ func (i *launchTemplateTotalLocalStorageGBPtrType) ToLaunchTemplateTotalLocalSto
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTotalLocalStorageGBPtrOutput)
 }
 
+// The minimum and maximum amount of total local storage, in GB.
 type LaunchTemplateTotalLocalStorageGBOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateTotalLocalStorageGBOutput) ElementType() reflect.Type {
@@ -15297,8 +15519,11 @@ func (o LaunchTemplateTotalLocalStorageGBPtrOutput) Min() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum and maximum number of vCPUs.
 type LaunchTemplateVCpuCount struct {
+	// The maximum number of vCPUs.
 	Max *int `pulumi:"max"`
+	// The minimum number of vCPUs.
 	Min *int `pulumi:"min"`
 }
 
@@ -15313,8 +15538,11 @@ type LaunchTemplateVCpuCountInput interface {
 	ToLaunchTemplateVCpuCountOutputWithContext(context.Context) LaunchTemplateVCpuCountOutput
 }
 
+// The minimum and maximum number of vCPUs.
 type LaunchTemplateVCpuCountArgs struct {
+	// The maximum number of vCPUs.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of vCPUs.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -15371,6 +15599,7 @@ func (i *launchTemplateVCpuCountPtrType) ToLaunchTemplateVCpuCountPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateVCpuCountPtrOutput)
 }
 
+// The minimum and maximum number of vCPUs.
 type LaunchTemplateVCpuCountOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateVCpuCountOutput) ElementType() reflect.Type {
@@ -15395,10 +15624,12 @@ func (o LaunchTemplateVCpuCountOutput) ToLaunchTemplateVCpuCountPtrOutputWithCon
 	}).(LaunchTemplateVCpuCountPtrOutput)
 }
 
+// The maximum number of vCPUs.
 func (o LaunchTemplateVCpuCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateVCpuCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of vCPUs.
 func (o LaunchTemplateVCpuCountOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateVCpuCount) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -15427,6 +15658,7 @@ func (o LaunchTemplateVCpuCountPtrOutput) Elem() LaunchTemplateVCpuCountOutput {
 	}).(LaunchTemplateVCpuCountOutput)
 }
 
+// The maximum number of vCPUs.
 func (o LaunchTemplateVCpuCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateVCpuCount) *int {
 		if v == nil {
@@ -15436,6 +15668,7 @@ func (o LaunchTemplateVCpuCountPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of vCPUs.
 func (o LaunchTemplateVCpuCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateVCpuCount) *int {
 		if v == nil {
@@ -28527,8 +28760,12 @@ func (o VerifiedAccessInstanceTagArrayOutput) Index(i pulumi.IntInput) VerifiedA
 type VerifiedAccessInstanceVerifiedAccessLogs struct {
 	// Sends Verified Access logs to CloudWatch Logs.
 	CloudWatchLogs *VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties `pulumi:"cloudWatchLogs"`
+	// Include claims from trust providers in Verified Access logs.
+	IncludeTrustContext *bool `pulumi:"includeTrustContext"`
 	// Sends Verified Access logs to Kinesis.
 	KinesisDataFirehose *VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties `pulumi:"kinesisDataFirehose"`
+	// Select log version for Verified Access logs.
+	LogVersion *string `pulumi:"logVersion"`
 	// Sends Verified Access logs to Amazon S3.
 	S3 *VerifiedAccessInstanceVerifiedAccessLogsS3Properties `pulumi:"s3"`
 }
@@ -28548,8 +28785,12 @@ type VerifiedAccessInstanceVerifiedAccessLogsInput interface {
 type VerifiedAccessInstanceVerifiedAccessLogsArgs struct {
 	// Sends Verified Access logs to CloudWatch Logs.
 	CloudWatchLogs VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrInput `pulumi:"cloudWatchLogs"`
+	// Include claims from trust providers in Verified Access logs.
+	IncludeTrustContext pulumi.BoolPtrInput `pulumi:"includeTrustContext"`
 	// Sends Verified Access logs to Kinesis.
 	KinesisDataFirehose VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrInput `pulumi:"kinesisDataFirehose"`
+	// Select log version for Verified Access logs.
+	LogVersion pulumi.StringPtrInput `pulumi:"logVersion"`
 	// Sends Verified Access logs to Amazon S3.
 	S3 VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesPtrInput `pulumi:"s3"`
 }
@@ -28639,11 +28880,21 @@ func (o VerifiedAccessInstanceVerifiedAccessLogsOutput) CloudWatchLogs() Verifie
 	}).(VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput)
 }
 
+// Include claims from trust providers in Verified Access logs.
+func (o VerifiedAccessInstanceVerifiedAccessLogsOutput) IncludeTrustContext() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogs) *bool { return v.IncludeTrustContext }).(pulumi.BoolPtrOutput)
+}
+
 // Sends Verified Access logs to Kinesis.
 func (o VerifiedAccessInstanceVerifiedAccessLogsOutput) KinesisDataFirehose() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
 	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogs) *VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties {
 		return v.KinesisDataFirehose
 	}).(VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput)
+}
+
+// Select log version for Verified Access logs.
+func (o VerifiedAccessInstanceVerifiedAccessLogsOutput) LogVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessInstanceVerifiedAccessLogs) *string { return v.LogVersion }).(pulumi.StringPtrOutput)
 }
 
 // Sends Verified Access logs to Amazon S3.
@@ -28687,6 +28938,16 @@ func (o VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) CloudWatchLogs() Veri
 	}).(VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesPtrOutput)
 }
 
+// Include claims from trust providers in Verified Access logs.
+func (o VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) IncludeTrustContext() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTrustContext
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Sends Verified Access logs to Kinesis.
 func (o VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) KinesisDataFirehose() VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput {
 	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogs) *VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties {
@@ -28695,6 +28956,16 @@ func (o VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) KinesisDataFirehose()
 		}
 		return v.KinesisDataFirehose
 	}).(VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesPtrOutput)
+}
+
+// Select log version for Verified Access logs.
+func (o VerifiedAccessInstanceVerifiedAccessLogsPtrOutput) LogVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstanceVerifiedAccessLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // Sends Verified Access logs to Amazon S3.
@@ -30532,7 +30803,6 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateDataOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateDataPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEbsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEbsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationOutput{})

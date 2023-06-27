@@ -3,6 +3,15 @@
   "description" : "Resource Type definition for AWS::SecurityHub::Hub",
   "additionalProperties" : false,
   "properties" : {
+    "ControlFindingGenerator" : {
+      "type" : "string"
+    },
+    "EnableDefaultStandards" : {
+      "type" : "boolean"
+    },
+    "AutoEnableControls" : {
+      "type" : "boolean"
+    },
     "Id" : {
       "type" : "string"
     },

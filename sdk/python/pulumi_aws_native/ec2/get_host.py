@@ -44,7 +44,7 @@ class GetHostResult:
     @pulumi.getter(name="hostId")
     def host_id(self) -> Optional[str]:
         """
-        Id of the host created.
+        ID of the host created.
         """
         return pulumi.get(self, "host_id")
 
@@ -83,7 +83,7 @@ def get_host(host_id: Optional[str] = None,
     Resource Type definition for AWS::EC2::Host
 
 
-    :param str host_id: Id of the host created.
+    :param str host_id: ID of the host created.
     """
     __args__ = dict()
     __args__['hostId'] = host_id
@@ -104,6 +104,6 @@ def get_host_output(host_id: Optional[pulumi.Input[str]] = None,
     Resource Type definition for AWS::EC2::Host
 
 
-    :param str host_id: Id of the host created.
+    :param str host_id: ID of the host created.
     """
     ...

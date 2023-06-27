@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies a secondary private IPv4 address for a network interface.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplatePrivateIpAdd
     {
+        /// <summary>
+        /// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+        /// </summary>
         public readonly bool? Primary;
+        /// <summary>
+        /// The private IPv4 address.
+        /// </summary>
         public readonly string? PrivateIpAddress;
 
         [OutputConstructor]

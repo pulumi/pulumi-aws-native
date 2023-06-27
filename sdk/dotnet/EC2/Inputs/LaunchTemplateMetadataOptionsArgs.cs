@@ -10,20 +10,38 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// The metadata options for the instance.
+    /// </summary>
     public sealed class LaunchTemplateMetadataOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
+        /// </summary>
         [Input("httpEndpoint")]
         public Input<string>? HttpEndpoint { get; set; }
 
+        /// <summary>
+        /// Enables or disables the IPv6 endpoint for the instance metadata service.
+        /// </summary>
         [Input("httpProtocolIpv6")]
         public Input<string>? HttpProtocolIpv6 { get; set; }
 
+        /// <summary>
+        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+        /// </summary>
         [Input("httpPutResponseHopLimit")]
         public Input<int>? HttpPutResponseHopLimit { get; set; }
 
+        /// <summary>
+        /// IMDSv2 uses token-backed sessions.
+        /// </summary>
         [Input("httpTokens")]
         public Input<string>? HttpTokens { get; set; }
 
+        /// <summary>
+        /// Set to enabled to allow access to instance tags from the instance metadata.
+        /// </summary>
         [Input("instanceMetadataTags")]
         public Input<string>? InstanceMetadataTags { get; set; }
 

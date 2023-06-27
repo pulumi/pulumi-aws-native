@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string?> FlowArn { get; private set; } = null!;
 
         /// <summary>
+        /// The source configuration for cloud flows receiving a stream from a bridge.
+        /// </summary>
+        [Output("gatewayBridgeSource")]
+        public Output<Outputs.FlowSourceGatewayBridgeSource?> GatewayBridgeSource { get; private set; } = null!;
+
+        /// <summary>
         /// The IP address that the flow will be listening on for incoming content.
         /// </summary>
         [Output("ingestIp")]
@@ -203,6 +209,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("flowArn")]
         public Input<string>? FlowArn { get; set; }
+
+        /// <summary>
+        /// The source configuration for cloud flows receiving a stream from a bridge.
+        /// </summary>
+        [Input("gatewayBridgeSource")]
+        public Input<Inputs.FlowSourceGatewayBridgeSourceArgs>? GatewayBridgeSource { get; set; }
 
         /// <summary>
         /// The port that the flow will be listening on for incoming content.

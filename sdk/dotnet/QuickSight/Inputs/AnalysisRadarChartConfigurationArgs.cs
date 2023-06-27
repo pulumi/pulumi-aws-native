@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("alternateBandOddColor")]
         public Input<string>? AlternateBandOddColor { get; set; }
 
+        [Input("axesRangeScale")]
+        public Input<Pulumi.AwsNative.QuickSight.AnalysisRadarChartAxesRangeScale>? AxesRangeScale { get; set; }
+
         [Input("baseSeriesSettings")]
         public Input<Inputs.AnalysisRadarChartSeriesSettingsArgs>? BaseSeriesSettings { get; set; }
 

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetHostArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Id of the host created.
+        /// ID of the host created.
         /// </summary>
         [Input("hostId", required: true)]
         public string HostId { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetHostInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Id of the host created.
+        /// ID of the host created.
         /// </summary>
         [Input("hostId", required: true)]
         public Input<string> HostId { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         public readonly string? AutoPlacement;
         /// <summary>
-        /// Id of the host created.
+        /// ID of the host created.
         /// </summary>
         public readonly string? HostId;
         /// <summary>

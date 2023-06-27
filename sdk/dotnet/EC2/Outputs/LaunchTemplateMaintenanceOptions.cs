@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// The maintenance options of your instance.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateMaintenanceOptions
     {
+        /// <summary>
+        /// Disables the automatic recovery behavior of your instance or sets it to default.
+        /// </summary>
         public readonly string? AutoRecovery;
 
         [OutputConstructor]

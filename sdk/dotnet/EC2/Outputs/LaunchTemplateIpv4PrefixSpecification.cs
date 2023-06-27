@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies an IPv4 prefix for a network interface.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateIpv4PrefixSpecification
     {
+        /// <summary>
+        /// The IPv4 prefix.
+        /// </summary>
         public readonly string? Ipv4Prefix;
 
         [OutputConstructor]

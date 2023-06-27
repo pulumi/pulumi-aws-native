@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowSourceResult:
-    def __init__(__self__, decryption=None, description=None, entitlement_arn=None, flow_arn=None, ingest_ip=None, ingest_port=None, max_bitrate=None, max_latency=None, min_latency=None, protocol=None, sender_control_port=None, sender_ip_address=None, source_arn=None, source_ingest_port=None, source_listener_address=None, source_listener_port=None, stream_id=None, vpc_interface_name=None, whitelist_cidr=None):
+    def __init__(__self__, decryption=None, description=None, entitlement_arn=None, flow_arn=None, gateway_bridge_source=None, ingest_ip=None, ingest_port=None, max_bitrate=None, max_latency=None, min_latency=None, protocol=None, sender_control_port=None, sender_ip_address=None, source_arn=None, source_ingest_port=None, source_listener_address=None, source_listener_port=None, stream_id=None, vpc_interface_name=None, whitelist_cidr=None):
         if decryption and not isinstance(decryption, dict):
             raise TypeError("Expected argument 'decryption' to be a dict")
         pulumi.set(__self__, "decryption", decryption)
@@ -33,6 +33,9 @@ class GetFlowSourceResult:
         if flow_arn and not isinstance(flow_arn, str):
             raise TypeError("Expected argument 'flow_arn' to be a str")
         pulumi.set(__self__, "flow_arn", flow_arn)
+        if gateway_bridge_source and not isinstance(gateway_bridge_source, dict):
+            raise TypeError("Expected argument 'gateway_bridge_source' to be a dict")
+        pulumi.set(__self__, "gateway_bridge_source", gateway_bridge_source)
         if ingest_ip and not isinstance(ingest_ip, str):
             raise TypeError("Expected argument 'ingest_ip' to be a str")
         pulumi.set(__self__, "ingest_ip", ingest_ip)
@@ -110,6 +113,14 @@ class GetFlowSourceResult:
         The ARN of the flow.
         """
         return pulumi.get(self, "flow_arn")
+
+    @property
+    @pulumi.getter(name="gatewayBridgeSource")
+    def gateway_bridge_source(self) -> Optional['outputs.FlowSourceGatewayBridgeSource']:
+        """
+        The source configuration for cloud flows receiving a stream from a bridge.
+        """
+        return pulumi.get(self, "gateway_bridge_source")
 
     @property
     @pulumi.getter(name="ingestIp")
@@ -242,6 +253,7 @@ class AwaitableGetFlowSourceResult(GetFlowSourceResult):
             description=self.description,
             entitlement_arn=self.entitlement_arn,
             flow_arn=self.flow_arn,
+            gateway_bridge_source=self.gateway_bridge_source,
             ingest_ip=self.ingest_ip,
             ingest_port=self.ingest_port,
             max_bitrate=self.max_bitrate,
@@ -277,6 +289,7 @@ def get_flow_source(source_arn: Optional[str] = None,
         description=__ret__.description,
         entitlement_arn=__ret__.entitlement_arn,
         flow_arn=__ret__.flow_arn,
+        gateway_bridge_source=__ret__.gateway_bridge_source,
         ingest_ip=__ret__.ingest_ip,
         ingest_port=__ret__.ingest_port,
         max_bitrate=__ret__.max_bitrate,

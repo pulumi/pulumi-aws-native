@@ -15,11 +15,13 @@ import (
 type Host struct {
 	pulumi.CustomResourceState
 
+	// The ID of the Outpost hardware asset.
+	AssetId pulumi.StringPtrOutput `pulumi:"assetId"`
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
 	AutoPlacement pulumi.StringPtrOutput `pulumi:"autoPlacement"`
 	// The Availability Zone in which to allocate the Dedicated Host.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// Id of the host created.
+	// ID of the host created.
 	HostId pulumi.StringOutput `pulumi:"hostId"`
 	// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
 	HostMaintenance pulumi.StringPtrOutput `pulumi:"hostMaintenance"`
@@ -75,6 +77,8 @@ func (HostState) ElementType() reflect.Type {
 }
 
 type hostArgs struct {
+	// The ID of the Outpost hardware asset.
+	AssetId *string `pulumi:"assetId"`
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
 	AutoPlacement *string `pulumi:"autoPlacement"`
 	// The Availability Zone in which to allocate the Dedicated Host.
@@ -93,6 +97,8 @@ type hostArgs struct {
 
 // The set of arguments for constructing a Host resource.
 type HostArgs struct {
+	// The ID of the Outpost hardware asset.
+	AssetId pulumi.StringPtrInput
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
 	AutoPlacement pulumi.StringPtrInput
 	// The Availability Zone in which to allocate the Dedicated Host.
@@ -146,6 +152,11 @@ func (o HostOutput) ToHostOutputWithContext(ctx context.Context) HostOutput {
 	return o
 }
 
+// The ID of the Outpost hardware asset.
+func (o HostOutput) AssetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.AssetId }).(pulumi.StringPtrOutput)
+}
+
 // Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
 func (o HostOutput) AutoPlacement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.AutoPlacement }).(pulumi.StringPtrOutput)
@@ -156,7 +167,7 @@ func (o HostOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// Id of the host created.
+// ID of the host created.
 func (o HostOutput) HostId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.HostId }).(pulumi.StringOutput)
 }

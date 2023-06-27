@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateAggregationSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aggregationFunction", required: true)]
-        public Input<Inputs.TemplateAggregationFunctionArgs> AggregationFunction { get; set; } = null!;
+        [Input("aggregationFunction")]
+        public Input<Inputs.TemplateAggregationFunctionArgs>? AggregationFunction { get; set; }
 
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;

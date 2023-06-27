@@ -3168,6 +3168,165 @@ func (o FlowFailoverConfigSourcePriorityPropertiesPtrOutput) PrimarySource() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The source configuration for cloud flows receiving a stream from a bridge.
+type FlowGatewayBridgeSource struct {
+	// The ARN of the bridge feeding this flow.
+	BridgeArn string `pulumi:"bridgeArn"`
+	// The name of the VPC interface attachment to use for this bridge source.
+	VpcInterfaceAttachment *FlowVpcInterfaceAttachment `pulumi:"vpcInterfaceAttachment"`
+}
+
+// FlowGatewayBridgeSourceInput is an input type that accepts FlowGatewayBridgeSourceArgs and FlowGatewayBridgeSourceOutput values.
+// You can construct a concrete instance of `FlowGatewayBridgeSourceInput` via:
+//
+//	FlowGatewayBridgeSourceArgs{...}
+type FlowGatewayBridgeSourceInput interface {
+	pulumi.Input
+
+	ToFlowGatewayBridgeSourceOutput() FlowGatewayBridgeSourceOutput
+	ToFlowGatewayBridgeSourceOutputWithContext(context.Context) FlowGatewayBridgeSourceOutput
+}
+
+// The source configuration for cloud flows receiving a stream from a bridge.
+type FlowGatewayBridgeSourceArgs struct {
+	// The ARN of the bridge feeding this flow.
+	BridgeArn pulumi.StringInput `pulumi:"bridgeArn"`
+	// The name of the VPC interface attachment to use for this bridge source.
+	VpcInterfaceAttachment FlowVpcInterfaceAttachmentPtrInput `pulumi:"vpcInterfaceAttachment"`
+}
+
+func (FlowGatewayBridgeSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowGatewayBridgeSource)(nil)).Elem()
+}
+
+func (i FlowGatewayBridgeSourceArgs) ToFlowGatewayBridgeSourceOutput() FlowGatewayBridgeSourceOutput {
+	return i.ToFlowGatewayBridgeSourceOutputWithContext(context.Background())
+}
+
+func (i FlowGatewayBridgeSourceArgs) ToFlowGatewayBridgeSourceOutputWithContext(ctx context.Context) FlowGatewayBridgeSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowGatewayBridgeSourceOutput)
+}
+
+func (i FlowGatewayBridgeSourceArgs) ToFlowGatewayBridgeSourcePtrOutput() FlowGatewayBridgeSourcePtrOutput {
+	return i.ToFlowGatewayBridgeSourcePtrOutputWithContext(context.Background())
+}
+
+func (i FlowGatewayBridgeSourceArgs) ToFlowGatewayBridgeSourcePtrOutputWithContext(ctx context.Context) FlowGatewayBridgeSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowGatewayBridgeSourceOutput).ToFlowGatewayBridgeSourcePtrOutputWithContext(ctx)
+}
+
+// FlowGatewayBridgeSourcePtrInput is an input type that accepts FlowGatewayBridgeSourceArgs, FlowGatewayBridgeSourcePtr and FlowGatewayBridgeSourcePtrOutput values.
+// You can construct a concrete instance of `FlowGatewayBridgeSourcePtrInput` via:
+//
+//	        FlowGatewayBridgeSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowGatewayBridgeSourcePtrInput interface {
+	pulumi.Input
+
+	ToFlowGatewayBridgeSourcePtrOutput() FlowGatewayBridgeSourcePtrOutput
+	ToFlowGatewayBridgeSourcePtrOutputWithContext(context.Context) FlowGatewayBridgeSourcePtrOutput
+}
+
+type flowGatewayBridgeSourcePtrType FlowGatewayBridgeSourceArgs
+
+func FlowGatewayBridgeSourcePtr(v *FlowGatewayBridgeSourceArgs) FlowGatewayBridgeSourcePtrInput {
+	return (*flowGatewayBridgeSourcePtrType)(v)
+}
+
+func (*flowGatewayBridgeSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowGatewayBridgeSource)(nil)).Elem()
+}
+
+func (i *flowGatewayBridgeSourcePtrType) ToFlowGatewayBridgeSourcePtrOutput() FlowGatewayBridgeSourcePtrOutput {
+	return i.ToFlowGatewayBridgeSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *flowGatewayBridgeSourcePtrType) ToFlowGatewayBridgeSourcePtrOutputWithContext(ctx context.Context) FlowGatewayBridgeSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowGatewayBridgeSourcePtrOutput)
+}
+
+// The source configuration for cloud flows receiving a stream from a bridge.
+type FlowGatewayBridgeSourceOutput struct{ *pulumi.OutputState }
+
+func (FlowGatewayBridgeSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowGatewayBridgeSource)(nil)).Elem()
+}
+
+func (o FlowGatewayBridgeSourceOutput) ToFlowGatewayBridgeSourceOutput() FlowGatewayBridgeSourceOutput {
+	return o
+}
+
+func (o FlowGatewayBridgeSourceOutput) ToFlowGatewayBridgeSourceOutputWithContext(ctx context.Context) FlowGatewayBridgeSourceOutput {
+	return o
+}
+
+func (o FlowGatewayBridgeSourceOutput) ToFlowGatewayBridgeSourcePtrOutput() FlowGatewayBridgeSourcePtrOutput {
+	return o.ToFlowGatewayBridgeSourcePtrOutputWithContext(context.Background())
+}
+
+func (o FlowGatewayBridgeSourceOutput) ToFlowGatewayBridgeSourcePtrOutputWithContext(ctx context.Context) FlowGatewayBridgeSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowGatewayBridgeSource) *FlowGatewayBridgeSource {
+		return &v
+	}).(FlowGatewayBridgeSourcePtrOutput)
+}
+
+// The ARN of the bridge feeding this flow.
+func (o FlowGatewayBridgeSourceOutput) BridgeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowGatewayBridgeSource) string { return v.BridgeArn }).(pulumi.StringOutput)
+}
+
+// The name of the VPC interface attachment to use for this bridge source.
+func (o FlowGatewayBridgeSourceOutput) VpcInterfaceAttachment() FlowVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyT(func(v FlowGatewayBridgeSource) *FlowVpcInterfaceAttachment { return v.VpcInterfaceAttachment }).(FlowVpcInterfaceAttachmentPtrOutput)
+}
+
+type FlowGatewayBridgeSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowGatewayBridgeSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowGatewayBridgeSource)(nil)).Elem()
+}
+
+func (o FlowGatewayBridgeSourcePtrOutput) ToFlowGatewayBridgeSourcePtrOutput() FlowGatewayBridgeSourcePtrOutput {
+	return o
+}
+
+func (o FlowGatewayBridgeSourcePtrOutput) ToFlowGatewayBridgeSourcePtrOutputWithContext(ctx context.Context) FlowGatewayBridgeSourcePtrOutput {
+	return o
+}
+
+func (o FlowGatewayBridgeSourcePtrOutput) Elem() FlowGatewayBridgeSourceOutput {
+	return o.ApplyT(func(v *FlowGatewayBridgeSource) FlowGatewayBridgeSource {
+		if v != nil {
+			return *v
+		}
+		var ret FlowGatewayBridgeSource
+		return ret
+	}).(FlowGatewayBridgeSourceOutput)
+}
+
+// The ARN of the bridge feeding this flow.
+func (o FlowGatewayBridgeSourcePtrOutput) BridgeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowGatewayBridgeSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BridgeArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the VPC interface attachment to use for this bridge source.
+func (o FlowGatewayBridgeSourcePtrOutput) VpcInterfaceAttachment() FlowVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyT(func(v *FlowGatewayBridgeSource) *FlowVpcInterfaceAttachment {
+		if v == nil {
+			return nil
+		}
+		return v.VpcInterfaceAttachment
+	}).(FlowVpcInterfaceAttachmentPtrOutput)
+}
+
 // Information about the encryption of the flow.
 type FlowOutputEncryption struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -3513,6 +3672,8 @@ type FlowSourceType struct {
 	Description *string `pulumi:"description"`
 	// The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
 	EntitlementArn *string `pulumi:"entitlementArn"`
+	// The source configuration for cloud flows receiving a stream from a bridge.
+	GatewayBridgeSource *FlowGatewayBridgeSource `pulumi:"gatewayBridgeSource"`
 	// The IP address that the flow will be listening on for incoming content.
 	IngestIp *string `pulumi:"ingestIp"`
 	// The port that the flow will be listening on for incoming content.
@@ -3566,6 +3727,8 @@ type FlowSourceTypeArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
 	EntitlementArn pulumi.StringPtrInput `pulumi:"entitlementArn"`
+	// The source configuration for cloud flows receiving a stream from a bridge.
+	GatewayBridgeSource FlowGatewayBridgeSourcePtrInput `pulumi:"gatewayBridgeSource"`
 	// The IP address that the flow will be listening on for incoming content.
 	IngestIp pulumi.StringPtrInput `pulumi:"ingestIp"`
 	// The port that the flow will be listening on for incoming content.
@@ -3640,6 +3803,11 @@ func (o FlowSourceTypeOutput) Description() pulumi.StringPtrOutput {
 // The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
 func (o FlowSourceTypeOutput) EntitlementArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *string { return v.EntitlementArn }).(pulumi.StringPtrOutput)
+}
+
+// The source configuration for cloud flows receiving a stream from a bridge.
+func (o FlowSourceTypeOutput) GatewayBridgeSource() FlowGatewayBridgeSourcePtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *FlowGatewayBridgeSource { return v.GatewayBridgeSource }).(FlowGatewayBridgeSourcePtrOutput)
 }
 
 // The IP address that the flow will be listening on for incoming content.
@@ -3774,6 +3942,16 @@ func (o FlowSourceTypePtrOutput) EntitlementArn() pulumi.StringPtrOutput {
 		}
 		return v.EntitlementArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// The source configuration for cloud flows receiving a stream from a bridge.
+func (o FlowSourceTypePtrOutput) GatewayBridgeSource() FlowGatewayBridgeSourcePtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *FlowGatewayBridgeSource {
+		if v == nil {
+			return nil
+		}
+		return v.GatewayBridgeSource
+	}).(FlowGatewayBridgeSourcePtrOutput)
 }
 
 // The IP address that the flow will be listening on for incoming content.
@@ -4228,6 +4406,447 @@ func (o FlowSourceEncryptionPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The source configuration for cloud flows receiving a stream from a bridge.
+type FlowSourceGatewayBridgeSource struct {
+	// The ARN of the bridge feeding this flow.
+	BridgeArn string `pulumi:"bridgeArn"`
+	// The name of the VPC interface attachment to use for this bridge source.
+	VpcInterfaceAttachment *FlowSourceVpcInterfaceAttachment `pulumi:"vpcInterfaceAttachment"`
+}
+
+// FlowSourceGatewayBridgeSourceInput is an input type that accepts FlowSourceGatewayBridgeSourceArgs and FlowSourceGatewayBridgeSourceOutput values.
+// You can construct a concrete instance of `FlowSourceGatewayBridgeSourceInput` via:
+//
+//	FlowSourceGatewayBridgeSourceArgs{...}
+type FlowSourceGatewayBridgeSourceInput interface {
+	pulumi.Input
+
+	ToFlowSourceGatewayBridgeSourceOutput() FlowSourceGatewayBridgeSourceOutput
+	ToFlowSourceGatewayBridgeSourceOutputWithContext(context.Context) FlowSourceGatewayBridgeSourceOutput
+}
+
+// The source configuration for cloud flows receiving a stream from a bridge.
+type FlowSourceGatewayBridgeSourceArgs struct {
+	// The ARN of the bridge feeding this flow.
+	BridgeArn pulumi.StringInput `pulumi:"bridgeArn"`
+	// The name of the VPC interface attachment to use for this bridge source.
+	VpcInterfaceAttachment FlowSourceVpcInterfaceAttachmentPtrInput `pulumi:"vpcInterfaceAttachment"`
+}
+
+func (FlowSourceGatewayBridgeSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceGatewayBridgeSource)(nil)).Elem()
+}
+
+func (i FlowSourceGatewayBridgeSourceArgs) ToFlowSourceGatewayBridgeSourceOutput() FlowSourceGatewayBridgeSourceOutput {
+	return i.ToFlowSourceGatewayBridgeSourceOutputWithContext(context.Background())
+}
+
+func (i FlowSourceGatewayBridgeSourceArgs) ToFlowSourceGatewayBridgeSourceOutputWithContext(ctx context.Context) FlowSourceGatewayBridgeSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceGatewayBridgeSourceOutput)
+}
+
+func (i FlowSourceGatewayBridgeSourceArgs) ToFlowSourceGatewayBridgeSourcePtrOutput() FlowSourceGatewayBridgeSourcePtrOutput {
+	return i.ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(context.Background())
+}
+
+func (i FlowSourceGatewayBridgeSourceArgs) ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(ctx context.Context) FlowSourceGatewayBridgeSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceGatewayBridgeSourceOutput).ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(ctx)
+}
+
+// FlowSourceGatewayBridgeSourcePtrInput is an input type that accepts FlowSourceGatewayBridgeSourceArgs, FlowSourceGatewayBridgeSourcePtr and FlowSourceGatewayBridgeSourcePtrOutput values.
+// You can construct a concrete instance of `FlowSourceGatewayBridgeSourcePtrInput` via:
+//
+//	        FlowSourceGatewayBridgeSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSourceGatewayBridgeSourcePtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceGatewayBridgeSourcePtrOutput() FlowSourceGatewayBridgeSourcePtrOutput
+	ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(context.Context) FlowSourceGatewayBridgeSourcePtrOutput
+}
+
+type flowSourceGatewayBridgeSourcePtrType FlowSourceGatewayBridgeSourceArgs
+
+func FlowSourceGatewayBridgeSourcePtr(v *FlowSourceGatewayBridgeSourceArgs) FlowSourceGatewayBridgeSourcePtrInput {
+	return (*flowSourceGatewayBridgeSourcePtrType)(v)
+}
+
+func (*flowSourceGatewayBridgeSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceGatewayBridgeSource)(nil)).Elem()
+}
+
+func (i *flowSourceGatewayBridgeSourcePtrType) ToFlowSourceGatewayBridgeSourcePtrOutput() FlowSourceGatewayBridgeSourcePtrOutput {
+	return i.ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *flowSourceGatewayBridgeSourcePtrType) ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(ctx context.Context) FlowSourceGatewayBridgeSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceGatewayBridgeSourcePtrOutput)
+}
+
+// The source configuration for cloud flows receiving a stream from a bridge.
+type FlowSourceGatewayBridgeSourceOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceGatewayBridgeSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceGatewayBridgeSource)(nil)).Elem()
+}
+
+func (o FlowSourceGatewayBridgeSourceOutput) ToFlowSourceGatewayBridgeSourceOutput() FlowSourceGatewayBridgeSourceOutput {
+	return o
+}
+
+func (o FlowSourceGatewayBridgeSourceOutput) ToFlowSourceGatewayBridgeSourceOutputWithContext(ctx context.Context) FlowSourceGatewayBridgeSourceOutput {
+	return o
+}
+
+func (o FlowSourceGatewayBridgeSourceOutput) ToFlowSourceGatewayBridgeSourcePtrOutput() FlowSourceGatewayBridgeSourcePtrOutput {
+	return o.ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceGatewayBridgeSourceOutput) ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(ctx context.Context) FlowSourceGatewayBridgeSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceGatewayBridgeSource) *FlowSourceGatewayBridgeSource {
+		return &v
+	}).(FlowSourceGatewayBridgeSourcePtrOutput)
+}
+
+// The ARN of the bridge feeding this flow.
+func (o FlowSourceGatewayBridgeSourceOutput) BridgeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowSourceGatewayBridgeSource) string { return v.BridgeArn }).(pulumi.StringOutput)
+}
+
+// The name of the VPC interface attachment to use for this bridge source.
+func (o FlowSourceGatewayBridgeSourceOutput) VpcInterfaceAttachment() FlowSourceVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyT(func(v FlowSourceGatewayBridgeSource) *FlowSourceVpcInterfaceAttachment {
+		return v.VpcInterfaceAttachment
+	}).(FlowSourceVpcInterfaceAttachmentPtrOutput)
+}
+
+type FlowSourceGatewayBridgeSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceGatewayBridgeSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceGatewayBridgeSource)(nil)).Elem()
+}
+
+func (o FlowSourceGatewayBridgeSourcePtrOutput) ToFlowSourceGatewayBridgeSourcePtrOutput() FlowSourceGatewayBridgeSourcePtrOutput {
+	return o
+}
+
+func (o FlowSourceGatewayBridgeSourcePtrOutput) ToFlowSourceGatewayBridgeSourcePtrOutputWithContext(ctx context.Context) FlowSourceGatewayBridgeSourcePtrOutput {
+	return o
+}
+
+func (o FlowSourceGatewayBridgeSourcePtrOutput) Elem() FlowSourceGatewayBridgeSourceOutput {
+	return o.ApplyT(func(v *FlowSourceGatewayBridgeSource) FlowSourceGatewayBridgeSource {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceGatewayBridgeSource
+		return ret
+	}).(FlowSourceGatewayBridgeSourceOutput)
+}
+
+// The ARN of the bridge feeding this flow.
+func (o FlowSourceGatewayBridgeSourcePtrOutput) BridgeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSourceGatewayBridgeSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BridgeArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the VPC interface attachment to use for this bridge source.
+func (o FlowSourceGatewayBridgeSourcePtrOutput) VpcInterfaceAttachment() FlowSourceVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyT(func(v *FlowSourceGatewayBridgeSource) *FlowSourceVpcInterfaceAttachment {
+		if v == nil {
+			return nil
+		}
+		return v.VpcInterfaceAttachment
+	}).(FlowSourceVpcInterfaceAttachmentPtrOutput)
+}
+
+// The settings for attaching a VPC interface to an resource.
+type FlowSourceVpcInterfaceAttachment struct {
+	// The name of the VPC interface to use for this resource.
+	VpcInterfaceName *string `pulumi:"vpcInterfaceName"`
+}
+
+// FlowSourceVpcInterfaceAttachmentInput is an input type that accepts FlowSourceVpcInterfaceAttachmentArgs and FlowSourceVpcInterfaceAttachmentOutput values.
+// You can construct a concrete instance of `FlowSourceVpcInterfaceAttachmentInput` via:
+//
+//	FlowSourceVpcInterfaceAttachmentArgs{...}
+type FlowSourceVpcInterfaceAttachmentInput interface {
+	pulumi.Input
+
+	ToFlowSourceVpcInterfaceAttachmentOutput() FlowSourceVpcInterfaceAttachmentOutput
+	ToFlowSourceVpcInterfaceAttachmentOutputWithContext(context.Context) FlowSourceVpcInterfaceAttachmentOutput
+}
+
+// The settings for attaching a VPC interface to an resource.
+type FlowSourceVpcInterfaceAttachmentArgs struct {
+	// The name of the VPC interface to use for this resource.
+	VpcInterfaceName pulumi.StringPtrInput `pulumi:"vpcInterfaceName"`
+}
+
+func (FlowSourceVpcInterfaceAttachmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (i FlowSourceVpcInterfaceAttachmentArgs) ToFlowSourceVpcInterfaceAttachmentOutput() FlowSourceVpcInterfaceAttachmentOutput {
+	return i.ToFlowSourceVpcInterfaceAttachmentOutputWithContext(context.Background())
+}
+
+func (i FlowSourceVpcInterfaceAttachmentArgs) ToFlowSourceVpcInterfaceAttachmentOutputWithContext(ctx context.Context) FlowSourceVpcInterfaceAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceVpcInterfaceAttachmentOutput)
+}
+
+func (i FlowSourceVpcInterfaceAttachmentArgs) ToFlowSourceVpcInterfaceAttachmentPtrOutput() FlowSourceVpcInterfaceAttachmentPtrOutput {
+	return i.ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSourceVpcInterfaceAttachmentArgs) ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) FlowSourceVpcInterfaceAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceVpcInterfaceAttachmentOutput).ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx)
+}
+
+// FlowSourceVpcInterfaceAttachmentPtrInput is an input type that accepts FlowSourceVpcInterfaceAttachmentArgs, FlowSourceVpcInterfaceAttachmentPtr and FlowSourceVpcInterfaceAttachmentPtrOutput values.
+// You can construct a concrete instance of `FlowSourceVpcInterfaceAttachmentPtrInput` via:
+//
+//	        FlowSourceVpcInterfaceAttachmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSourceVpcInterfaceAttachmentPtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceVpcInterfaceAttachmentPtrOutput() FlowSourceVpcInterfaceAttachmentPtrOutput
+	ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(context.Context) FlowSourceVpcInterfaceAttachmentPtrOutput
+}
+
+type flowSourceVpcInterfaceAttachmentPtrType FlowSourceVpcInterfaceAttachmentArgs
+
+func FlowSourceVpcInterfaceAttachmentPtr(v *FlowSourceVpcInterfaceAttachmentArgs) FlowSourceVpcInterfaceAttachmentPtrInput {
+	return (*flowSourceVpcInterfaceAttachmentPtrType)(v)
+}
+
+func (*flowSourceVpcInterfaceAttachmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (i *flowSourceVpcInterfaceAttachmentPtrType) ToFlowSourceVpcInterfaceAttachmentPtrOutput() FlowSourceVpcInterfaceAttachmentPtrOutput {
+	return i.ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSourceVpcInterfaceAttachmentPtrType) ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) FlowSourceVpcInterfaceAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceVpcInterfaceAttachmentPtrOutput)
+}
+
+// The settings for attaching a VPC interface to an resource.
+type FlowSourceVpcInterfaceAttachmentOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceVpcInterfaceAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (o FlowSourceVpcInterfaceAttachmentOutput) ToFlowSourceVpcInterfaceAttachmentOutput() FlowSourceVpcInterfaceAttachmentOutput {
+	return o
+}
+
+func (o FlowSourceVpcInterfaceAttachmentOutput) ToFlowSourceVpcInterfaceAttachmentOutputWithContext(ctx context.Context) FlowSourceVpcInterfaceAttachmentOutput {
+	return o
+}
+
+func (o FlowSourceVpcInterfaceAttachmentOutput) ToFlowSourceVpcInterfaceAttachmentPtrOutput() FlowSourceVpcInterfaceAttachmentPtrOutput {
+	return o.ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceVpcInterfaceAttachmentOutput) ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) FlowSourceVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceVpcInterfaceAttachment) *FlowSourceVpcInterfaceAttachment {
+		return &v
+	}).(FlowSourceVpcInterfaceAttachmentPtrOutput)
+}
+
+// The name of the VPC interface to use for this resource.
+func (o FlowSourceVpcInterfaceAttachmentOutput) VpcInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowSourceVpcInterfaceAttachment) *string { return v.VpcInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+type FlowSourceVpcInterfaceAttachmentPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceVpcInterfaceAttachmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (o FlowSourceVpcInterfaceAttachmentPtrOutput) ToFlowSourceVpcInterfaceAttachmentPtrOutput() FlowSourceVpcInterfaceAttachmentPtrOutput {
+	return o
+}
+
+func (o FlowSourceVpcInterfaceAttachmentPtrOutput) ToFlowSourceVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) FlowSourceVpcInterfaceAttachmentPtrOutput {
+	return o
+}
+
+func (o FlowSourceVpcInterfaceAttachmentPtrOutput) Elem() FlowSourceVpcInterfaceAttachmentOutput {
+	return o.ApplyT(func(v *FlowSourceVpcInterfaceAttachment) FlowSourceVpcInterfaceAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceVpcInterfaceAttachment
+		return ret
+	}).(FlowSourceVpcInterfaceAttachmentOutput)
+}
+
+// The name of the VPC interface to use for this resource.
+func (o FlowSourceVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSourceVpcInterfaceAttachment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The settings for attaching a VPC interface to an resource.
+type FlowVpcInterfaceAttachment struct {
+	// The name of the VPC interface to use for this resource.
+	VpcInterfaceName *string `pulumi:"vpcInterfaceName"`
+}
+
+// FlowVpcInterfaceAttachmentInput is an input type that accepts FlowVpcInterfaceAttachmentArgs and FlowVpcInterfaceAttachmentOutput values.
+// You can construct a concrete instance of `FlowVpcInterfaceAttachmentInput` via:
+//
+//	FlowVpcInterfaceAttachmentArgs{...}
+type FlowVpcInterfaceAttachmentInput interface {
+	pulumi.Input
+
+	ToFlowVpcInterfaceAttachmentOutput() FlowVpcInterfaceAttachmentOutput
+	ToFlowVpcInterfaceAttachmentOutputWithContext(context.Context) FlowVpcInterfaceAttachmentOutput
+}
+
+// The settings for attaching a VPC interface to an resource.
+type FlowVpcInterfaceAttachmentArgs struct {
+	// The name of the VPC interface to use for this resource.
+	VpcInterfaceName pulumi.StringPtrInput `pulumi:"vpcInterfaceName"`
+}
+
+func (FlowVpcInterfaceAttachmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (i FlowVpcInterfaceAttachmentArgs) ToFlowVpcInterfaceAttachmentOutput() FlowVpcInterfaceAttachmentOutput {
+	return i.ToFlowVpcInterfaceAttachmentOutputWithContext(context.Background())
+}
+
+func (i FlowVpcInterfaceAttachmentArgs) ToFlowVpcInterfaceAttachmentOutputWithContext(ctx context.Context) FlowVpcInterfaceAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVpcInterfaceAttachmentOutput)
+}
+
+func (i FlowVpcInterfaceAttachmentArgs) ToFlowVpcInterfaceAttachmentPtrOutput() FlowVpcInterfaceAttachmentPtrOutput {
+	return i.ToFlowVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i FlowVpcInterfaceAttachmentArgs) ToFlowVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) FlowVpcInterfaceAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVpcInterfaceAttachmentOutput).ToFlowVpcInterfaceAttachmentPtrOutputWithContext(ctx)
+}
+
+// FlowVpcInterfaceAttachmentPtrInput is an input type that accepts FlowVpcInterfaceAttachmentArgs, FlowVpcInterfaceAttachmentPtr and FlowVpcInterfaceAttachmentPtrOutput values.
+// You can construct a concrete instance of `FlowVpcInterfaceAttachmentPtrInput` via:
+//
+//	        FlowVpcInterfaceAttachmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowVpcInterfaceAttachmentPtrInput interface {
+	pulumi.Input
+
+	ToFlowVpcInterfaceAttachmentPtrOutput() FlowVpcInterfaceAttachmentPtrOutput
+	ToFlowVpcInterfaceAttachmentPtrOutputWithContext(context.Context) FlowVpcInterfaceAttachmentPtrOutput
+}
+
+type flowVpcInterfaceAttachmentPtrType FlowVpcInterfaceAttachmentArgs
+
+func FlowVpcInterfaceAttachmentPtr(v *FlowVpcInterfaceAttachmentArgs) FlowVpcInterfaceAttachmentPtrInput {
+	return (*flowVpcInterfaceAttachmentPtrType)(v)
+}
+
+func (*flowVpcInterfaceAttachmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (i *flowVpcInterfaceAttachmentPtrType) ToFlowVpcInterfaceAttachmentPtrOutput() FlowVpcInterfaceAttachmentPtrOutput {
+	return i.ToFlowVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *flowVpcInterfaceAttachmentPtrType) ToFlowVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) FlowVpcInterfaceAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVpcInterfaceAttachmentPtrOutput)
+}
+
+// The settings for attaching a VPC interface to an resource.
+type FlowVpcInterfaceAttachmentOutput struct{ *pulumi.OutputState }
+
+func (FlowVpcInterfaceAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (o FlowVpcInterfaceAttachmentOutput) ToFlowVpcInterfaceAttachmentOutput() FlowVpcInterfaceAttachmentOutput {
+	return o
+}
+
+func (o FlowVpcInterfaceAttachmentOutput) ToFlowVpcInterfaceAttachmentOutputWithContext(ctx context.Context) FlowVpcInterfaceAttachmentOutput {
+	return o
+}
+
+func (o FlowVpcInterfaceAttachmentOutput) ToFlowVpcInterfaceAttachmentPtrOutput() FlowVpcInterfaceAttachmentPtrOutput {
+	return o.ToFlowVpcInterfaceAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVpcInterfaceAttachmentOutput) ToFlowVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) FlowVpcInterfaceAttachmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVpcInterfaceAttachment) *FlowVpcInterfaceAttachment {
+		return &v
+	}).(FlowVpcInterfaceAttachmentPtrOutput)
+}
+
+// The name of the VPC interface to use for this resource.
+func (o FlowVpcInterfaceAttachmentOutput) VpcInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowVpcInterfaceAttachment) *string { return v.VpcInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+type FlowVpcInterfaceAttachmentPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVpcInterfaceAttachmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVpcInterfaceAttachment)(nil)).Elem()
+}
+
+func (o FlowVpcInterfaceAttachmentPtrOutput) ToFlowVpcInterfaceAttachmentPtrOutput() FlowVpcInterfaceAttachmentPtrOutput {
+	return o
+}
+
+func (o FlowVpcInterfaceAttachmentPtrOutput) ToFlowVpcInterfaceAttachmentPtrOutputWithContext(ctx context.Context) FlowVpcInterfaceAttachmentPtrOutput {
+	return o
+}
+
+func (o FlowVpcInterfaceAttachmentPtrOutput) Elem() FlowVpcInterfaceAttachmentOutput {
+	return o.ApplyT(func(v *FlowVpcInterfaceAttachment) FlowVpcInterfaceAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVpcInterfaceAttachment
+		return ret
+	}).(FlowVpcInterfaceAttachmentOutput)
+}
+
+// The name of the VPC interface to use for this resource.
+func (o FlowVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVpcInterfaceAttachment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The network settings for a gateway.
 type GatewayNetwork struct {
 	// A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -4373,6 +4992,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigPtrInput)(nil)).Elem(), FlowFailoverConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigSourcePriorityPropertiesInput)(nil)).Elem(), FlowFailoverConfigSourcePriorityPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigSourcePriorityPropertiesPtrInput)(nil)).Elem(), FlowFailoverConfigSourcePriorityPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowGatewayBridgeSourceInput)(nil)).Elem(), FlowGatewayBridgeSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowGatewayBridgeSourcePtrInput)(nil)).Elem(), FlowGatewayBridgeSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionInput)(nil)).Elem(), FlowOutputEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionPtrInput)(nil)).Elem(), FlowOutputEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputVpcInterfaceAttachmentInput)(nil)).Elem(), FlowOutputVpcInterfaceAttachmentArgs{})
@@ -4380,6 +5001,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceTypeInput)(nil)).Elem(), FlowSourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionInput)(nil)).Elem(), FlowSourceEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionPtrInput)(nil)).Elem(), FlowSourceEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceGatewayBridgeSourceInput)(nil)).Elem(), FlowSourceGatewayBridgeSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceGatewayBridgeSourcePtrInput)(nil)).Elem(), FlowSourceGatewayBridgeSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceAttachmentInput)(nil)).Elem(), FlowVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayNetworkInput)(nil)).Elem(), GatewayNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayNetworkArrayInput)(nil)).Elem(), GatewayNetworkArray{})
 	pulumi.RegisterOutputType(BridgeEgressGatewayBridgeOutput{})
@@ -4418,6 +5045,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowFailoverConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowFailoverConfigSourcePriorityPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowFailoverConfigSourcePriorityPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowGatewayBridgeSourceOutput{})
+	pulumi.RegisterOutputType(FlowGatewayBridgeSourcePtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputVpcInterfaceAttachmentOutput{})
@@ -4426,6 +5055,12 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceGatewayBridgeSourceOutput{})
+	pulumi.RegisterOutputType(FlowSourceGatewayBridgeSourcePtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentOutput{})
+	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(FlowVpcInterfaceAttachmentOutput{})
+	pulumi.RegisterOutputType(FlowVpcInterfaceAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(GatewayNetworkOutput{})
 	pulumi.RegisterOutputType(GatewayNetworkArrayOutput{})
 }

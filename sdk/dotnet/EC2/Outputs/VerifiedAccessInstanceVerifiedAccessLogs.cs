@@ -21,9 +21,17 @@ namespace Pulumi.AwsNative.EC2.Outputs
         /// </summary>
         public readonly Outputs.VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties? CloudWatchLogs;
         /// <summary>
+        /// Include claims from trust providers in Verified Access logs.
+        /// </summary>
+        public readonly bool? IncludeTrustContext;
+        /// <summary>
         /// Sends Verified Access logs to Kinesis.
         /// </summary>
         public readonly Outputs.VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties? KinesisDataFirehose;
+        /// <summary>
+        /// Select log version for Verified Access logs.
+        /// </summary>
+        public readonly string? LogVersion;
         /// <summary>
         /// Sends Verified Access logs to Amazon S3.
         /// </summary>
@@ -33,12 +41,18 @@ namespace Pulumi.AwsNative.EC2.Outputs
         private VerifiedAccessInstanceVerifiedAccessLogs(
             Outputs.VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties? cloudWatchLogs,
 
+            bool? includeTrustContext,
+
             Outputs.VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties? kinesisDataFirehose,
+
+            string? logVersion,
 
             Outputs.VerifiedAccessInstanceVerifiedAccessLogsS3Properties? s3)
         {
             CloudWatchLogs = cloudWatchLogs;
+            IncludeTrustContext = includeTrustContext;
             KinesisDataFirehose = kinesisDataFirehose;
+            LogVersion = logVersion;
             S3 = s3;
         }
     }

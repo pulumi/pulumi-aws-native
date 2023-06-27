@@ -20,6 +20,7 @@ class WebACLArgs:
                  default_action: pulumi.Input['WebACLDefaultActionArgs'],
                  scope: pulumi.Input['WebACLScope'],
                  visibility_config: pulumi.Input['WebACLVisibilityConfigArgs'],
+                 association_config: Optional[pulumi.Input['WebACLAssociationConfigArgs']] = None,
                  captcha_config: Optional[pulumi.Input['WebACLCaptchaConfigArgs']] = None,
                  challenge_config: Optional[pulumi.Input['WebACLChallengeConfigArgs']] = None,
                  custom_response_bodies: Optional[pulumi.Input['WebACLCustomResponseBodiesArgs']] = None,
@@ -35,6 +36,8 @@ class WebACLArgs:
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "visibility_config", visibility_config)
+        if association_config is not None:
+            pulumi.set(__self__, "association_config", association_config)
         if captcha_config is not None:
             pulumi.set(__self__, "captcha_config", captcha_config)
         if challenge_config is not None:
@@ -78,6 +81,15 @@ class WebACLArgs:
     @visibility_config.setter
     def visibility_config(self, value: pulumi.Input['WebACLVisibilityConfigArgs']):
         pulumi.set(self, "visibility_config", value)
+
+    @property
+    @pulumi.getter(name="associationConfig")
+    def association_config(self) -> Optional[pulumi.Input['WebACLAssociationConfigArgs']]:
+        return pulumi.get(self, "association_config")
+
+    @association_config.setter
+    def association_config(self, value: Optional[pulumi.Input['WebACLAssociationConfigArgs']]):
+        pulumi.set(self, "association_config", value)
 
     @property
     @pulumi.getter(name="captchaConfig")
@@ -160,6 +172,7 @@ class WebACL(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 association_config: Optional[pulumi.Input[pulumi.InputType['WebACLAssociationConfigArgs']]] = None,
                  captcha_config: Optional[pulumi.Input[pulumi.InputType['WebACLCaptchaConfigArgs']]] = None,
                  challenge_config: Optional[pulumi.Input[pulumi.InputType['WebACLChallengeConfigArgs']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebACLCustomResponseBodiesArgs']]] = None,
@@ -203,6 +216,7 @@ class WebACL(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 association_config: Optional[pulumi.Input[pulumi.InputType['WebACLAssociationConfigArgs']]] = None,
                  captcha_config: Optional[pulumi.Input[pulumi.InputType['WebACLCaptchaConfigArgs']]] = None,
                  challenge_config: Optional[pulumi.Input[pulumi.InputType['WebACLChallengeConfigArgs']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebACLCustomResponseBodiesArgs']]] = None,
@@ -223,6 +237,7 @@ class WebACL(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebACLArgs.__new__(WebACLArgs)
 
+            __props__.__dict__["association_config"] = association_config
             __props__.__dict__["captcha_config"] = captcha_config
             __props__.__dict__["challenge_config"] = challenge_config
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
@@ -266,6 +281,7 @@ class WebACL(pulumi.CustomResource):
         __props__ = WebACLArgs.__new__(WebACLArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["association_config"] = None
         __props__.__dict__["capacity"] = None
         __props__.__dict__["captcha_config"] = None
         __props__.__dict__["challenge_config"] = None
@@ -285,6 +301,11 @@ class WebACL(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="associationConfig")
+    def association_config(self) -> pulumi.Output[Optional['outputs.WebACLAssociationConfig']]:
+        return pulumi.get(self, "association_config")
 
     @property
     @pulumi.getter

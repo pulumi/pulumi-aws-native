@@ -15,14 +15,29 @@ namespace Pulumi.AwsNative.IAM
     [AwsNativeResourceType("aws-native:iam:ServiceLinkedRole")]
     public partial class ServiceLinkedRole : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The service principal for the AWS service to which this role is attached.
+        /// </summary>
         [Output("aWSServiceName")]
-        public Output<string> AWSServiceName { get; private set; } = null!;
+        public Output<string?> AWSServiceName { get; private set; } = null!;
 
+        /// <summary>
+        /// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
+        /// </summary>
         [Output("customSuffix")]
         public Output<string?> CustomSuffix { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the role.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the role.
+        /// </summary>
+        [Output("roleName")]
+        public Output<string> RoleName { get; private set; } = null!;
 
 
         /// <summary>
@@ -32,7 +47,7 @@ namespace Pulumi.AwsNative.IAM
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ServiceLinkedRole(string name, ServiceLinkedRoleArgs args, CustomResourceOptions? options = null)
+        public ServiceLinkedRole(string name, ServiceLinkedRoleArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:iam:ServiceLinkedRole", name, args ?? new ServiceLinkedRoleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -69,12 +84,21 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class ServiceLinkedRoleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aWSServiceName", required: true)]
-        public Input<string> AWSServiceName { get; set; } = null!;
+        /// <summary>
+        /// The service principal for the AWS service to which this role is attached.
+        /// </summary>
+        [Input("aWSServiceName")]
+        public Input<string>? AWSServiceName { get; set; }
 
+        /// <summary>
+        /// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
+        /// </summary>
         [Input("customSuffix")]
         public Input<string>? CustomSuffix { get; set; }
 
+        /// <summary>
+        /// The description of the role.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

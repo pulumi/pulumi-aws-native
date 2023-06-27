@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetWebACLResult:
-    def __init__(__self__, arn=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, default_action=None, description=None, id=None, label_namespace=None, rules=None, tags=None, token_domains=None, visibility_config=None):
+    def __init__(__self__, arn=None, association_config=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, default_action=None, description=None, id=None, label_namespace=None, rules=None, tags=None, token_domains=None, visibility_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if association_config and not isinstance(association_config, dict):
+            raise TypeError("Expected argument 'association_config' to be a dict")
+        pulumi.set(__self__, "association_config", association_config)
         if capacity and not isinstance(capacity, int):
             raise TypeError("Expected argument 'capacity' to be a int")
         pulumi.set(__self__, "capacity", capacity)
@@ -65,6 +68,11 @@ class GetWebACLResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="associationConfig")
+    def association_config(self) -> Optional['outputs.WebACLAssociationConfig']:
+        return pulumi.get(self, "association_config")
 
     @property
     @pulumi.getter
@@ -137,6 +145,7 @@ class AwaitableGetWebACLResult(GetWebACLResult):
             yield self
         return GetWebACLResult(
             arn=self.arn,
+            association_config=self.association_config,
             capacity=self.capacity,
             captcha_config=self.captcha_config,
             challenge_config=self.challenge_config,
@@ -167,6 +176,7 @@ def get_web_acl(id: Optional[str] = None,
 
     return AwaitableGetWebACLResult(
         arn=__ret__.arn,
+        association_config=__ret__.association_config,
         capacity=__ret__.capacity,
         captcha_config=__ret__.captcha_config,
         challenge_config=__ret__.challenge_config,

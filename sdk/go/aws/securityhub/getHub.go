@@ -25,8 +25,11 @@ type LookupHubArgs struct {
 }
 
 type LookupHubResult struct {
-	Id   *string     `pulumi:"id"`
-	Tags interface{} `pulumi:"tags"`
+	AutoEnableControls      *bool       `pulumi:"autoEnableControls"`
+	ControlFindingGenerator *string     `pulumi:"controlFindingGenerator"`
+	EnableDefaultStandards  *bool       `pulumi:"enableDefaultStandards"`
+	Id                      *string     `pulumi:"id"`
+	Tags                    interface{} `pulumi:"tags"`
 }
 
 func LookupHubOutput(ctx *pulumi.Context, args LookupHubOutputArgs, opts ...pulumi.InvokeOption) LookupHubResultOutput {
@@ -62,6 +65,18 @@ func (o LookupHubResultOutput) ToLookupHubResultOutput() LookupHubResultOutput {
 
 func (o LookupHubResultOutput) ToLookupHubResultOutputWithContext(ctx context.Context) LookupHubResultOutput {
 	return o
+}
+
+func (o LookupHubResultOutput) AutoEnableControls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupHubResult) *bool { return v.AutoEnableControls }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupHubResultOutput) ControlFindingGenerator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHubResult) *string { return v.ControlFindingGenerator }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupHubResultOutput) EnableDefaultStandards() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupHubResult) *bool { return v.EnableDefaultStandards }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupHubResultOutput) Id() pulumi.StringPtrOutput {

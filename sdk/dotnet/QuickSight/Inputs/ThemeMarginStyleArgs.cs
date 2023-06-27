@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The display options for margins around the outside edge of sheets.&lt;/p&gt;
-    /// </summary>
     public sealed class ThemeMarginStyleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// &lt;p&gt;This Boolean value controls whether to display sheet margins.&lt;/p&gt;
-        /// </summary>
         [Input("show")]
         public Input<bool>? Show { get; set; }
 

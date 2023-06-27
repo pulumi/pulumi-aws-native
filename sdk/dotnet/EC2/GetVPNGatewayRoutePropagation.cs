@@ -52,13 +52,7 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetVPNGatewayRoutePropagationResult
     {
         public readonly string? Id;
-        /// <summary>
-        /// The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
-        /// </summary>
         public readonly ImmutableArray<string> RouteTableIds;
-        /// <summary>
-        /// The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
-        /// </summary>
         public readonly string? VpnGatewayId;
 
         [OutputConstructor]

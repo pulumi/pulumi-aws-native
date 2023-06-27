@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("clusterMarkerConfiguration")]
         public Input<Inputs.TemplateClusterMarkerConfigurationArgs>? ClusterMarkerConfiguration { get; set; }
 
+        [Input("heatmapConfiguration")]
+        public Input<Inputs.TemplateGeospatialHeatmapConfigurationArgs>? HeatmapConfiguration { get; set; }
+
         [Input("selectedPointStyle")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateGeospatialSelectedPointStyle>? SelectedPointStyle { get; set; }
 

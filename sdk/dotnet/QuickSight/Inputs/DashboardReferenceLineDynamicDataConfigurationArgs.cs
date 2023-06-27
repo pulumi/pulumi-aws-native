@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
-        [Input("measureAggregationFunction", required: true)]
-        public Input<Inputs.DashboardAggregationFunctionArgs> MeasureAggregationFunction { get; set; } = null!;
+        [Input("measureAggregationFunction")]
+        public Input<Inputs.DashboardAggregationFunctionArgs>? MeasureAggregationFunction { get; set; }
 
         public DashboardReferenceLineDynamicDataConfigurationArgs()
         {

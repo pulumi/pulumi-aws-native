@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateAcceleratorCount
     {
+        /// <summary>
+        /// The maximum number of accelerators.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum number of accelerators.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

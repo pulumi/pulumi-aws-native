@@ -21,13 +21,13 @@
   "primaryIdentifier" : [ "/properties/FleetName", "/properties/ApplicationArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "appstream:AssociateApplicationFleet" ]
+      "permissions" : [ "appstream:AssociateApplicationFleet", "appstream:DescribeApplicationFleetAssociations" ]
     },
     "read" : {
       "permissions" : [ "appstream:DescribeApplicationFleetAssociations" ]
     },
     "delete" : {
-      "permissions" : [ "appstream:DisassociateApplicationFleet" ]
+      "permissions" : [ "appstream:DisassociateApplicationFleet", "appstream:DescribeApplicationFleetAssociations" ]
     }
   }
 }

@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAggregationSortConfiguration
     {
-        public readonly Outputs.DashboardAggregationFunction AggregationFunction;
+        public readonly Outputs.DashboardAggregationFunction? AggregationFunction;
         public readonly Outputs.DashboardColumnIdentifier Column;
         public readonly Pulumi.AwsNative.QuickSight.DashboardSortDirection SortDirection;
 
         [OutputConstructor]
         private DashboardAggregationSortConfiguration(
-            Outputs.DashboardAggregationFunction aggregationFunction,
+            Outputs.DashboardAggregationFunction? aggregationFunction,
 
             Outputs.DashboardColumnIdentifier column,
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies an IPv6 prefix for a network interface.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateIpv6PrefixSpecification
     {

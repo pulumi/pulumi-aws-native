@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Describes the options for instance hostnames.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplatePrivateDnsNameOptions
     {
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        /// </summary>
         public readonly bool? EnableResourceNameDnsAAAARecord;
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        /// </summary>
         public readonly bool? EnableResourceNameDnsARecord;
+        /// <summary>
+        /// The type of hostname for EC2 instances.
+        /// </summary>
         public readonly string? HostnameType;
 
         [OutputConstructor]

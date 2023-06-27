@@ -15,9 +15,9 @@ import (
 type VolumeAttachment struct {
 	pulumi.CustomResourceState
 
-	Device     pulumi.StringOutput `pulumi:"device"`
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	VolumeId   pulumi.StringOutput `pulumi:"volumeId"`
+	Device     pulumi.StringPtrOutput `pulumi:"device"`
+	InstanceId pulumi.StringOutput    `pulumi:"instanceId"`
+	VolumeId   pulumi.StringOutput    `pulumi:"volumeId"`
 }
 
 // NewVolumeAttachment registers a new resource with the given unique name, arguments, and options.
@@ -27,9 +27,6 @@ func NewVolumeAttachment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Device == nil {
-		return nil, errors.New("invalid value for required argument 'Device'")
-	}
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
@@ -68,14 +65,14 @@ func (VolumeAttachmentState) ElementType() reflect.Type {
 }
 
 type volumeAttachmentArgs struct {
-	Device     string `pulumi:"device"`
-	InstanceId string `pulumi:"instanceId"`
-	VolumeId   string `pulumi:"volumeId"`
+	Device     *string `pulumi:"device"`
+	InstanceId string  `pulumi:"instanceId"`
+	VolumeId   string  `pulumi:"volumeId"`
 }
 
 // The set of arguments for constructing a VolumeAttachment resource.
 type VolumeAttachmentArgs struct {
-	Device     pulumi.StringInput
+	Device     pulumi.StringPtrInput
 	InstanceId pulumi.StringInput
 	VolumeId   pulumi.StringInput
 }
@@ -117,8 +114,8 @@ func (o VolumeAttachmentOutput) ToVolumeAttachmentOutputWithContext(ctx context.
 	return o
 }
 
-func (o VolumeAttachmentOutput) Device() pulumi.StringOutput {
-	return o.ApplyT(func(v *VolumeAttachment) pulumi.StringOutput { return v.Device }).(pulumi.StringOutput)
+func (o VolumeAttachmentOutput) Device() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeAttachment) pulumi.StringPtrOutput { return v.Device }).(pulumi.StringPtrOutput)
 }
 
 func (o VolumeAttachmentOutput) InstanceId() pulumi.StringOutput {

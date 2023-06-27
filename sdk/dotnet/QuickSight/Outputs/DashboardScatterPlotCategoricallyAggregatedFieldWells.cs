@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardScatterPlotCategoricallyAggregatedFieldWells
     {
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Category;
+        public readonly ImmutableArray<Outputs.DashboardDimensionField> Label;
         public readonly ImmutableArray<Outputs.DashboardMeasureField> Size;
         public readonly ImmutableArray<Outputs.DashboardMeasureField> XAxis;
         public readonly ImmutableArray<Outputs.DashboardMeasureField> YAxis;
@@ -22,6 +23,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private DashboardScatterPlotCategoricallyAggregatedFieldWells(
             ImmutableArray<Outputs.DashboardDimensionField> category,
 
+            ImmutableArray<Outputs.DashboardDimensionField> label,
+
             ImmutableArray<Outputs.DashboardMeasureField> size,
 
             ImmutableArray<Outputs.DashboardMeasureField> xAxis,
@@ -29,6 +32,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ImmutableArray<Outputs.DashboardMeasureField> yAxis)
         {
             Category = category;
+            Label = label;
             Size = size;
             XAxis = xAxis;
             YAxis = yAxis;

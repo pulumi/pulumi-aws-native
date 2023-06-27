@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// The minimum and maximum amount of total accelerator memory, in MiB.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateAcceleratorTotalMemoryMiB
     {
+        /// <summary>
+        /// The maximum amount of accelerator memory, in MiB.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum amount of accelerator memory, in MiB.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

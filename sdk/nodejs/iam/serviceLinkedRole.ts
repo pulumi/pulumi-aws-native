@@ -34,9 +34,22 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceLinkedRole.__pulumiType;
     }
 
-    public readonly aWSServiceName!: pulumi.Output<string>;
+    /**
+     * The service principal for the AWS service to which this role is attached.
+     */
+    public readonly aWSServiceName!: pulumi.Output<string | undefined>;
+    /**
+     * A string that you provide, which is combined with the service-provided prefix to form the complete role name.
+     */
     public readonly customSuffix!: pulumi.Output<string | undefined>;
+    /**
+     * The description of the role.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the role.
+     */
+    public /*out*/ readonly roleName!: pulumi.Output<string>;
 
     /**
      * Create a ServiceLinkedRole resource with the given unique name, arguments, and options.
@@ -45,20 +58,19 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceLinkedRoleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ServiceLinkedRoleArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aWSServiceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'aWSServiceName'");
-            }
             resourceInputs["aWSServiceName"] = args ? args.aWSServiceName : undefined;
             resourceInputs["customSuffix"] = args ? args.customSuffix : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["roleName"] = undefined /*out*/;
         } else {
             resourceInputs["aWSServiceName"] = undefined /*out*/;
             resourceInputs["customSuffix"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["roleName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceLinkedRole.__pulumiType, name, resourceInputs, opts);
@@ -69,7 +81,16 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceLinkedRole resource.
  */
 export interface ServiceLinkedRoleArgs {
-    aWSServiceName: pulumi.Input<string>;
+    /**
+     * The service principal for the AWS service to which this role is attached.
+     */
+    aWSServiceName?: pulumi.Input<string>;
+    /**
+     * A string that you provide, which is combined with the service-provided prefix to form the complete role name.
+     */
     customSuffix?: pulumi.Input<string>;
+    /**
+     * The description of the role.
+     */
     description?: pulumi.Input<string>;
 }

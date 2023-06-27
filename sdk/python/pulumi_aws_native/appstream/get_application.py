@@ -19,16 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, app_block_arn=None, arn=None, attributes_to_delete=None, created_time=None, description=None, display_name=None, icon_s3_location=None, launch_parameters=None, launch_path=None, working_directory=None):
+    def __init__(__self__, app_block_arn=None, arn=None, created_time=None, description=None, display_name=None, icon_s3_location=None, launch_parameters=None, launch_path=None, working_directory=None):
         if app_block_arn and not isinstance(app_block_arn, str):
             raise TypeError("Expected argument 'app_block_arn' to be a str")
         pulumi.set(__self__, "app_block_arn", app_block_arn)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if attributes_to_delete and not isinstance(attributes_to_delete, list):
-            raise TypeError("Expected argument 'attributes_to_delete' to be a list")
-        pulumi.set(__self__, "attributes_to_delete", attributes_to_delete)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -60,11 +57,6 @@ class GetApplicationResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="attributesToDelete")
-    def attributes_to_delete(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "attributes_to_delete")
 
     @property
     @pulumi.getter(name="createdTime")
@@ -110,7 +102,6 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         return GetApplicationResult(
             app_block_arn=self.app_block_arn,
             arn=self.arn,
-            attributes_to_delete=self.attributes_to_delete,
             created_time=self.created_time,
             description=self.description,
             display_name=self.display_name,
@@ -133,7 +124,6 @@ def get_application(arn: Optional[str] = None,
     return AwaitableGetApplicationResult(
         app_block_arn=__ret__.app_block_arn,
         arn=__ret__.arn,
-        attributes_to_delete=__ret__.attributes_to_delete,
         created_time=__ret__.created_time,
         description=__ret__.description,
         display_name=__ret__.display_name,

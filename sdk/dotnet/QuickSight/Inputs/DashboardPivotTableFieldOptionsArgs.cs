@@ -12,6 +12,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardPivotTableFieldOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("collapseStateOptions")]
+        private InputList<Inputs.DashboardPivotTableFieldCollapseStateOptionArgs>? _collapseStateOptions;
+        public InputList<Inputs.DashboardPivotTableFieldCollapseStateOptionArgs> CollapseStateOptions
+        {
+            get => _collapseStateOptions ?? (_collapseStateOptions = new InputList<Inputs.DashboardPivotTableFieldCollapseStateOptionArgs>());
+            set => _collapseStateOptions = value;
+        }
+
         [Input("dataPathOptions")]
         private InputList<Inputs.DashboardPivotTableDataPathOptionArgs>? _dataPathOptions;
         public InputList<Inputs.DashboardPivotTableDataPathOptionArgs> DataPathOptions

@@ -26,6 +26,7 @@ type LookupMonitorArgs struct {
 
 type LookupMonitorResult struct {
 	CreatedAt                       *string                                 `pulumi:"createdAt"`
+	HealthEventsConfig              *MonitorHealthEventsConfig              `pulumi:"healthEventsConfig"`
 	InternetMeasurementsLogDelivery *MonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
 	MaxCityNetworksToMonitor        *int                                    `pulumi:"maxCityNetworksToMonitor"`
 	ModifiedAt                      *string                                 `pulumi:"modifiedAt"`
@@ -75,6 +76,10 @@ func (o LookupMonitorResultOutput) ToLookupMonitorResultOutputWithContext(ctx co
 
 func (o LookupMonitorResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupMonitorResultOutput) HealthEventsConfig() MonitorHealthEventsConfigPtrOutput {
+	return o.ApplyT(func(v LookupMonitorResult) *MonitorHealthEventsConfig { return v.HealthEventsConfig }).(MonitorHealthEventsConfigPtrOutput)
 }
 
 func (o LookupMonitorResultOutput) InternetMeasurementsLogDelivery() MonitorInternetMeasurementsLogDeliveryPtrOutput {

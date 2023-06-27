@@ -34,7 +34,7 @@ export class VolumeAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === VolumeAttachment.__pulumiType;
     }
 
-    public readonly device!: pulumi.Output<string>;
+    public readonly device!: pulumi.Output<string | undefined>;
     public readonly instanceId!: pulumi.Output<string>;
     public readonly volumeId!: pulumi.Output<string>;
 
@@ -49,9 +49,6 @@ export class VolumeAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.device === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'device'");
-            }
             if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
@@ -75,7 +72,7 @@ export class VolumeAttachment extends pulumi.CustomResource {
  * The set of arguments for constructing a VolumeAttachment resource.
  */
 export interface VolumeAttachmentArgs {
-    device: pulumi.Input<string>;
+    device?: pulumi.Input<string>;
     instanceId: pulumi.Input<string>;
     volumeId: pulumi.Input<string>;
 }

@@ -2619,7 +2619,7 @@ func (o ImageEcrConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput 
 type ImagePipelineEcrConfiguration struct {
 	// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
 	ContainerTags []string `pulumi:"containerTags"`
-	// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+	// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
 	RepositoryName *string `pulumi:"repositoryName"`
 }
 
@@ -2638,7 +2638,7 @@ type ImagePipelineEcrConfigurationInput interface {
 type ImagePipelineEcrConfigurationArgs struct {
 	// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
 	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
-	// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+	// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
 	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
 }
 
@@ -2725,7 +2725,7 @@ func (o ImagePipelineEcrConfigurationOutput) ContainerTags() pulumi.StringArrayO
 	return o.ApplyT(func(v ImagePipelineEcrConfiguration) []string { return v.ContainerTags }).(pulumi.StringArrayOutput)
 }
 
-// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
 func (o ImagePipelineEcrConfigurationOutput) RepositoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePipelineEcrConfiguration) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
 }
@@ -2764,7 +2764,7 @@ func (o ImagePipelineEcrConfigurationPtrOutput) ContainerTags() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
 func (o ImagePipelineEcrConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineEcrConfiguration) *string {
 		if v == nil {

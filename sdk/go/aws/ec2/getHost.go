@@ -21,14 +21,14 @@ func LookupHost(ctx *pulumi.Context, args *LookupHostArgs, opts ...pulumi.Invoke
 }
 
 type LookupHostArgs struct {
-	// Id of the host created.
+	// ID of the host created.
 	HostId string `pulumi:"hostId"`
 }
 
 type LookupHostResult struct {
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
 	AutoPlacement *string `pulumi:"autoPlacement"`
-	// Id of the host created.
+	// ID of the host created.
 	HostId *string `pulumi:"hostId"`
 	// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
 	HostMaintenance *string `pulumi:"hostMaintenance"`
@@ -50,7 +50,7 @@ func LookupHostOutput(ctx *pulumi.Context, args LookupHostOutputArgs, opts ...pu
 }
 
 type LookupHostOutputArgs struct {
-	// Id of the host created.
+	// ID of the host created.
 	HostId pulumi.StringInput `pulumi:"hostId"`
 }
 
@@ -77,7 +77,7 @@ func (o LookupHostResultOutput) AutoPlacement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHostResult) *string { return v.AutoPlacement }).(pulumi.StringPtrOutput)
 }
 
-// Id of the host created.
+// ID of the host created.
 func (o LookupHostResultOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHostResult) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }

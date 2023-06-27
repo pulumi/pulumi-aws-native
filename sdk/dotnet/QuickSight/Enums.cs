@@ -925,6 +925,7 @@ namespace Pulumi.AwsNative.QuickSight
 
         public static AnalysisGeospatialSelectedPointStyle Point { get; } = new AnalysisGeospatialSelectedPointStyle("POINT");
         public static AnalysisGeospatialSelectedPointStyle Cluster { get; } = new AnalysisGeospatialSelectedPointStyle("CLUSTER");
+        public static AnalysisGeospatialSelectedPointStyle Heatmap { get; } = new AnalysisGeospatialSelectedPointStyle("HEATMAP");
 
         public static bool operator ==(AnalysisGeospatialSelectedPointStyle left, AnalysisGeospatialSelectedPointStyle right) => left.Equals(right);
         public static bool operator !=(AnalysisGeospatialSelectedPointStyle left, AnalysisGeospatialSelectedPointStyle right) => !left.Equals(right);
@@ -1638,6 +1639,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisPivotTableFieldCollapseState : IEquatable<AnalysisPivotTableFieldCollapseState>
+    {
+        private readonly string _value;
+
+        private AnalysisPivotTableFieldCollapseState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisPivotTableFieldCollapseState Collapsed { get; } = new AnalysisPivotTableFieldCollapseState("COLLAPSED");
+        public static AnalysisPivotTableFieldCollapseState Expanded { get; } = new AnalysisPivotTableFieldCollapseState("EXPANDED");
+
+        public static bool operator ==(AnalysisPivotTableFieldCollapseState left, AnalysisPivotTableFieldCollapseState right) => left.Equals(right);
+        public static bool operator !=(AnalysisPivotTableFieldCollapseState left, AnalysisPivotTableFieldCollapseState right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisPivotTableFieldCollapseState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisPivotTableFieldCollapseState other && Equals(other);
+        public bool Equals(AnalysisPivotTableFieldCollapseState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisPivotTableMetricPlacement : IEquatable<AnalysisPivotTableMetricPlacement>
     {
         private readonly string _value;
@@ -1716,6 +1745,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnalysisPrimaryValueDisplayType other && Equals(other);
         public bool Equals(AnalysisPrimaryValueDisplayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisRadarChartAxesRangeScale : IEquatable<AnalysisRadarChartAxesRangeScale>
+    {
+        private readonly string _value;
+
+        private AnalysisRadarChartAxesRangeScale(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisRadarChartAxesRangeScale Auto { get; } = new AnalysisRadarChartAxesRangeScale("AUTO");
+        public static AnalysisRadarChartAxesRangeScale Independent { get; } = new AnalysisRadarChartAxesRangeScale("INDEPENDENT");
+        public static AnalysisRadarChartAxesRangeScale Shared { get; } = new AnalysisRadarChartAxesRangeScale("SHARED");
+
+        public static bool operator ==(AnalysisRadarChartAxesRangeScale left, AnalysisRadarChartAxesRangeScale right) => left.Equals(right);
+        public static bool operator !=(AnalysisRadarChartAxesRangeScale left, AnalysisRadarChartAxesRangeScale right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisRadarChartAxesRangeScale value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisRadarChartAxesRangeScale other && Equals(other);
+        public bool Equals(AnalysisRadarChartAxesRangeScale other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2268,35 +2326,6 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnalysisSortDirection other && Equals(other);
         public bool Equals(AnalysisSortDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct AnalysisSpecialValue : IEquatable<AnalysisSpecialValue>
-    {
-        private readonly string _value;
-
-        private AnalysisSpecialValue(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AnalysisSpecialValue Empty { get; } = new AnalysisSpecialValue("EMPTY");
-        public static AnalysisSpecialValue Null { get; } = new AnalysisSpecialValue("NULL");
-        public static AnalysisSpecialValue Other { get; } = new AnalysisSpecialValue("OTHER");
-
-        public static bool operator ==(AnalysisSpecialValue left, AnalysisSpecialValue right) => left.Equals(right);
-        public static bool operator !=(AnalysisSpecialValue left, AnalysisSpecialValue right) => !left.Equals(right);
-
-        public static explicit operator string(AnalysisSpecialValue value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AnalysisSpecialValue other && Equals(other);
-        public bool Equals(AnalysisSpecialValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3904,6 +3933,7 @@ namespace Pulumi.AwsNative.QuickSight
 
         public static DashboardGeospatialSelectedPointStyle Point { get; } = new DashboardGeospatialSelectedPointStyle("POINT");
         public static DashboardGeospatialSelectedPointStyle Cluster { get; } = new DashboardGeospatialSelectedPointStyle("CLUSTER");
+        public static DashboardGeospatialSelectedPointStyle Heatmap { get; } = new DashboardGeospatialSelectedPointStyle("HEATMAP");
 
         public static bool operator ==(DashboardGeospatialSelectedPointStyle left, DashboardGeospatialSelectedPointStyle right) => left.Equals(right);
         public static bool operator !=(DashboardGeospatialSelectedPointStyle left, DashboardGeospatialSelectedPointStyle right) => !left.Equals(right);
@@ -4617,6 +4647,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DashboardPivotTableFieldCollapseState : IEquatable<DashboardPivotTableFieldCollapseState>
+    {
+        private readonly string _value;
+
+        private DashboardPivotTableFieldCollapseState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardPivotTableFieldCollapseState Collapsed { get; } = new DashboardPivotTableFieldCollapseState("COLLAPSED");
+        public static DashboardPivotTableFieldCollapseState Expanded { get; } = new DashboardPivotTableFieldCollapseState("EXPANDED");
+
+        public static bool operator ==(DashboardPivotTableFieldCollapseState left, DashboardPivotTableFieldCollapseState right) => left.Equals(right);
+        public static bool operator !=(DashboardPivotTableFieldCollapseState left, DashboardPivotTableFieldCollapseState right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardPivotTableFieldCollapseState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardPivotTableFieldCollapseState other && Equals(other);
+        public bool Equals(DashboardPivotTableFieldCollapseState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DashboardPivotTableMetricPlacement : IEquatable<DashboardPivotTableMetricPlacement>
     {
         private readonly string _value;
@@ -4695,6 +4753,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardPrimaryValueDisplayType other && Equals(other);
         public bool Equals(DashboardPrimaryValueDisplayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardRadarChartAxesRangeScale : IEquatable<DashboardRadarChartAxesRangeScale>
+    {
+        private readonly string _value;
+
+        private DashboardRadarChartAxesRangeScale(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardRadarChartAxesRangeScale Auto { get; } = new DashboardRadarChartAxesRangeScale("AUTO");
+        public static DashboardRadarChartAxesRangeScale Independent { get; } = new DashboardRadarChartAxesRangeScale("INDEPENDENT");
+        public static DashboardRadarChartAxesRangeScale Shared { get; } = new DashboardRadarChartAxesRangeScale("SHARED");
+
+        public static bool operator ==(DashboardRadarChartAxesRangeScale left, DashboardRadarChartAxesRangeScale right) => left.Equals(right);
+        public static bool operator !=(DashboardRadarChartAxesRangeScale left, DashboardRadarChartAxesRangeScale right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardRadarChartAxesRangeScale value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardRadarChartAxesRangeScale other && Equals(other);
+        public bool Equals(DashboardRadarChartAxesRangeScale other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -5247,35 +5334,6 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardSortDirection other && Equals(other);
         public bool Equals(DashboardSortDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct DashboardSpecialValue : IEquatable<DashboardSpecialValue>
-    {
-        private readonly string _value;
-
-        private DashboardSpecialValue(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DashboardSpecialValue Empty { get; } = new DashboardSpecialValue("EMPTY");
-        public static DashboardSpecialValue Null { get; } = new DashboardSpecialValue("NULL");
-        public static DashboardSpecialValue Other { get; } = new DashboardSpecialValue("OTHER");
-
-        public static bool operator ==(DashboardSpecialValue left, DashboardSpecialValue right) => left.Equals(right);
-        public static bool operator !=(DashboardSpecialValue left, DashboardSpecialValue right) => !left.Equals(right);
-
-        public static explicit operator string(DashboardSpecialValue value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DashboardSpecialValue other && Equals(other);
-        public bool Equals(DashboardSpecialValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -7352,6 +7410,7 @@ namespace Pulumi.AwsNative.QuickSight
 
         public static TemplateGeospatialSelectedPointStyle Point { get; } = new TemplateGeospatialSelectedPointStyle("POINT");
         public static TemplateGeospatialSelectedPointStyle Cluster { get; } = new TemplateGeospatialSelectedPointStyle("CLUSTER");
+        public static TemplateGeospatialSelectedPointStyle Heatmap { get; } = new TemplateGeospatialSelectedPointStyle("HEATMAP");
 
         public static bool operator ==(TemplateGeospatialSelectedPointStyle left, TemplateGeospatialSelectedPointStyle right) => left.Equals(right);
         public static bool operator !=(TemplateGeospatialSelectedPointStyle left, TemplateGeospatialSelectedPointStyle right) => !left.Equals(right);
@@ -8065,6 +8124,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct TemplatePivotTableFieldCollapseState : IEquatable<TemplatePivotTableFieldCollapseState>
+    {
+        private readonly string _value;
+
+        private TemplatePivotTableFieldCollapseState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplatePivotTableFieldCollapseState Collapsed { get; } = new TemplatePivotTableFieldCollapseState("COLLAPSED");
+        public static TemplatePivotTableFieldCollapseState Expanded { get; } = new TemplatePivotTableFieldCollapseState("EXPANDED");
+
+        public static bool operator ==(TemplatePivotTableFieldCollapseState left, TemplatePivotTableFieldCollapseState right) => left.Equals(right);
+        public static bool operator !=(TemplatePivotTableFieldCollapseState left, TemplatePivotTableFieldCollapseState right) => !left.Equals(right);
+
+        public static explicit operator string(TemplatePivotTableFieldCollapseState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplatePivotTableFieldCollapseState other && Equals(other);
+        public bool Equals(TemplatePivotTableFieldCollapseState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TemplatePivotTableMetricPlacement : IEquatable<TemplatePivotTableMetricPlacement>
     {
         private readonly string _value;
@@ -8143,6 +8230,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplatePrimaryValueDisplayType other && Equals(other);
         public bool Equals(TemplatePrimaryValueDisplayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateRadarChartAxesRangeScale : IEquatable<TemplateRadarChartAxesRangeScale>
+    {
+        private readonly string _value;
+
+        private TemplateRadarChartAxesRangeScale(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateRadarChartAxesRangeScale Auto { get; } = new TemplateRadarChartAxesRangeScale("AUTO");
+        public static TemplateRadarChartAxesRangeScale Independent { get; } = new TemplateRadarChartAxesRangeScale("INDEPENDENT");
+        public static TemplateRadarChartAxesRangeScale Shared { get; } = new TemplateRadarChartAxesRangeScale("SHARED");
+
+        public static bool operator ==(TemplateRadarChartAxesRangeScale left, TemplateRadarChartAxesRangeScale right) => left.Equals(right);
+        public static bool operator !=(TemplateRadarChartAxesRangeScale left, TemplateRadarChartAxesRangeScale right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateRadarChartAxesRangeScale value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateRadarChartAxesRangeScale other && Equals(other);
+        public bool Equals(TemplateRadarChartAxesRangeScale other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -8695,35 +8811,6 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateSortDirection other && Equals(other);
         public bool Equals(TemplateSortDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct TemplateSpecialValue : IEquatable<TemplateSpecialValue>
-    {
-        private readonly string _value;
-
-        private TemplateSpecialValue(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static TemplateSpecialValue Empty { get; } = new TemplateSpecialValue("EMPTY");
-        public static TemplateSpecialValue Null { get; } = new TemplateSpecialValue("NULL");
-        public static TemplateSpecialValue Other { get; } = new TemplateSpecialValue("OTHER");
-
-        public static bool operator ==(TemplateSpecialValue left, TemplateSpecialValue right) => left.Equals(right);
-        public static bool operator !=(TemplateSpecialValue left, TemplateSpecialValue right) => !left.Equals(right);
-
-        public static explicit operator string(TemplateSpecialValue value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TemplateSpecialValue other && Equals(other);
-        public bool Equals(TemplateSpecialValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// The minimum and maximum amount of memory per vCPU, in GiB.
+    /// </summary>
     public sealed class LaunchTemplateMemoryGiBPerVCpuArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum amount of memory per vCPU, in GiB.
+        /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
+        /// <summary>
+        /// TThe minimum amount of memory per vCPU, in GiB.
+        /// </summary>
         [Input("min")]
         public Input<double>? Min { get; set; }
 

@@ -25,11 +25,9 @@ type LookupVPNGatewayRoutePropagationArgs struct {
 }
 
 type LookupVPNGatewayRoutePropagationResult struct {
-	Id *string `pulumi:"id"`
-	// The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
+	Id            *string  `pulumi:"id"`
 	RouteTableIds []string `pulumi:"routeTableIds"`
-	// The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
-	VpnGatewayId *string `pulumi:"vpnGatewayId"`
+	VpnGatewayId  *string  `pulumi:"vpnGatewayId"`
 }
 
 func LookupVPNGatewayRoutePropagationOutput(ctx *pulumi.Context, args LookupVPNGatewayRoutePropagationOutputArgs, opts ...pulumi.InvokeOption) LookupVPNGatewayRoutePropagationResultOutput {
@@ -71,12 +69,10 @@ func (o LookupVPNGatewayRoutePropagationResultOutput) Id() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupVPNGatewayRoutePropagationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
 func (o LookupVPNGatewayRoutePropagationResultOutput) RouteTableIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVPNGatewayRoutePropagationResult) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
 func (o LookupVPNGatewayRoutePropagationResultOutput) VpnGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVPNGatewayRoutePropagationResult) *string { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
 }

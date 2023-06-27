@@ -23,6 +23,8 @@ type FlowSource struct {
 	EntitlementArn pulumi.StringPtrOutput `pulumi:"entitlementArn"`
 	// The ARN of the flow.
 	FlowArn pulumi.StringPtrOutput `pulumi:"flowArn"`
+	// The source configuration for cloud flows receiving a stream from a bridge.
+	GatewayBridgeSource FlowSourceGatewayBridgeSourcePtrOutput `pulumi:"gatewayBridgeSource"`
 	// The IP address that the flow will be listening on for incoming content.
 	IngestIp pulumi.StringOutput `pulumi:"ingestIp"`
 	// The port that the flow will be listening on for incoming content.
@@ -107,6 +109,8 @@ type flowSourceArgs struct {
 	EntitlementArn *string `pulumi:"entitlementArn"`
 	// The ARN of the flow.
 	FlowArn *string `pulumi:"flowArn"`
+	// The source configuration for cloud flows receiving a stream from a bridge.
+	GatewayBridgeSource *FlowSourceGatewayBridgeSource `pulumi:"gatewayBridgeSource"`
 	// The port that the flow will be listening on for incoming content.
 	IngestPort *int `pulumi:"ingestPort"`
 	// The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
@@ -145,6 +149,8 @@ type FlowSourceArgs struct {
 	EntitlementArn pulumi.StringPtrInput
 	// The ARN of the flow.
 	FlowArn pulumi.StringPtrInput
+	// The source configuration for cloud flows receiving a stream from a bridge.
+	GatewayBridgeSource FlowSourceGatewayBridgeSourcePtrInput
 	// The port that the flow will be listening on for incoming content.
 	IngestPort pulumi.IntPtrInput
 	// The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
@@ -228,6 +234,11 @@ func (o FlowSourceOutput) EntitlementArn() pulumi.StringPtrOutput {
 // The ARN of the flow.
 func (o FlowSourceOutput) FlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSource) pulumi.StringPtrOutput { return v.FlowArn }).(pulumi.StringPtrOutput)
+}
+
+// The source configuration for cloud flows receiving a stream from a bridge.
+func (o FlowSourceOutput) GatewayBridgeSource() FlowSourceGatewayBridgeSourcePtrOutput {
+	return o.ApplyT(func(v *FlowSource) FlowSourceGatewayBridgeSourcePtrOutput { return v.GatewayBridgeSource }).(FlowSourceGatewayBridgeSourcePtrOutput)
 }
 
 // The IP address that the flow will be listening on for incoming content.

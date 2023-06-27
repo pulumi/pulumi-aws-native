@@ -10,6 +10,9 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AppBlockBuilderAccessEndpointArgs',
+    'AppBlockBuilderTagArgs',
+    'AppBlockBuilderVpcConfigArgs',
     'AppBlockS3LocationArgs',
     'AppBlockScriptDetailsArgs',
     'AppBlockTagArgs',
@@ -36,12 +39,96 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class AppBlockBuilderAccessEndpointArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 vpce_id: pulumi.Input[str]):
+        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "vpce_id", vpce_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="vpceId")
+    def vpce_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "vpce_id")
+
+    @vpce_id.setter
+    def vpce_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpce_id", value)
+
+
+@pulumi.input_type
+class AppBlockBuilderTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class AppBlockBuilderVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+
+@pulumi.input_type
 class AppBlockS3LocationArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[str],
-                 s3_key: pulumi.Input[str]):
+                 s3_key: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "s3_bucket", s3_bucket)
-        pulumi.set(__self__, "s3_key", s3_key)
+        if s3_key is not None:
+            pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -54,11 +141,11 @@ class AppBlockS3LocationArgs:
 
     @property
     @pulumi.getter(name="s3Key")
-    def s3_key(self) -> pulumi.Input[str]:
+    def s3_key(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "s3_key")
 
     @s3_key.setter
-    def s3_key(self, value: pulumi.Input[str]):
+    def s3_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key", value)
 
 
@@ -114,29 +201,8 @@ class AppBlockScriptDetailsArgs:
 
 @pulumi.input_type
 class AppBlockTagArgs:
-    def __init__(__self__, *,
-                 tag_key: pulumi.Input[str],
-                 tag_value: pulumi.Input[str]):
-        pulumi.set(__self__, "tag_key", tag_key)
-        pulumi.set(__self__, "tag_value", tag_value)
-
-    @property
-    @pulumi.getter(name="tagKey")
-    def tag_key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "tag_key")
-
-    @tag_key.setter
-    def tag_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "tag_key", value)
-
-    @property
-    @pulumi.getter(name="tagValue")
-    def tag_value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "tag_value")
-
-    @tag_value.setter
-    def tag_value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "tag_value", value)
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type
@@ -168,29 +234,8 @@ class ApplicationS3LocationArgs:
 
 @pulumi.input_type
 class ApplicationTagArgs:
-    def __init__(__self__, *,
-                 tag_key: pulumi.Input[str],
-                 tag_value: pulumi.Input[str]):
-        pulumi.set(__self__, "tag_key", tag_key)
-        pulumi.set(__self__, "tag_value", tag_value)
-
-    @property
-    @pulumi.getter(name="tagKey")
-    def tag_key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "tag_key")
-
-    @tag_key.setter
-    def tag_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "tag_key", value)
-
-    @property
-    @pulumi.getter(name="tagValue")
-    def tag_value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "tag_value")
-
-    @tag_value.setter
-    def tag_value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "tag_value", value)
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type

@@ -54,6 +54,10 @@ export class FlowSource extends pulumi.CustomResource {
      */
     public readonly flowArn!: pulumi.Output<string | undefined>;
     /**
+     * The source configuration for cloud flows receiving a stream from a bridge.
+     */
+    public readonly gatewayBridgeSource!: pulumi.Output<outputs.mediaconnect.FlowSourceGatewayBridgeSource | undefined>;
+    /**
      * The IP address that the flow will be listening on for incoming content.
      */
     public /*out*/ readonly ingestIp!: pulumi.Output<string>;
@@ -136,6 +140,7 @@ export class FlowSource extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["entitlementArn"] = args ? args.entitlementArn : undefined;
             resourceInputs["flowArn"] = args ? args.flowArn : undefined;
+            resourceInputs["gatewayBridgeSource"] = args ? args.gatewayBridgeSource : undefined;
             resourceInputs["ingestPort"] = args ? args.ingestPort : undefined;
             resourceInputs["maxBitrate"] = args ? args.maxBitrate : undefined;
             resourceInputs["maxLatency"] = args ? args.maxLatency : undefined;
@@ -157,6 +162,7 @@ export class FlowSource extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["entitlementArn"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
+            resourceInputs["gatewayBridgeSource"] = undefined /*out*/;
             resourceInputs["ingestIp"] = undefined /*out*/;
             resourceInputs["ingestPort"] = undefined /*out*/;
             resourceInputs["maxBitrate"] = undefined /*out*/;
@@ -199,6 +205,10 @@ export interface FlowSourceArgs {
      * The ARN of the flow.
      */
     flowArn?: pulumi.Input<string>;
+    /**
+     * The source configuration for cloud flows receiving a stream from a bridge.
+     */
+    gatewayBridgeSource?: pulumi.Input<inputs.mediaconnect.FlowSourceGatewayBridgeSourceArgs>;
     /**
      * The port that the flow will be listening on for incoming content.
      */

@@ -46,10 +46,6 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
         /// </summary>
         public readonly string? NearestModelName;
-        /// <summary>
-        /// The AWS Marketplace product ID of the model package.
-        /// </summary>
-        public readonly string? ProductId;
 
         [OutputConstructor]
         private ModelPackageContainerDefinition(
@@ -69,9 +65,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.ModelPackageContainerDefinitionModelInputProperties? modelInput,
 
-            string? nearestModelName,
-
-            string? productId)
+            string? nearestModelName)
         {
             ContainerHostname = containerHostname;
             Environment = environment;
@@ -82,7 +76,6 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             ModelDataUrl = modelDataUrl;
             ModelInput = modelInput;
             NearestModelName = nearestModelName;
-            ProductId = productId;
         }
     }
 }

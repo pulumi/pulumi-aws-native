@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies an instance's Capacity Reservation targeting option.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateCapacityReservationSpecification
     {
+        /// <summary>
+        /// Indicates the instance's Capacity Reservation preferences.
+        /// </summary>
         public readonly string? CapacityReservationPreference;
         public readonly Outputs.LaunchTemplateCapacityReservationTarget? CapacityReservationTarget;
 

@@ -309,6 +309,16 @@ export const KeyPairKeyType = {
  */
 export type KeyPairKeyType = (typeof KeyPairKeyType)[keyof typeof KeyPairKeyType];
 
+export const LaunchTemplateCpuOptionsAmdSevSnp = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+ */
+export type LaunchTemplateCpuOptionsAmdSevSnp = (typeof LaunchTemplateCpuOptionsAmdSevSnp)[keyof typeof LaunchTemplateCpuOptionsAmdSevSnp];
+
 export const NetworkInsightsAccessScopeAnalysisFindingsFound = {
     True: "true",
     False: "false",

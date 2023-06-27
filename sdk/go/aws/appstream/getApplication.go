@@ -25,16 +25,15 @@ type LookupApplicationArgs struct {
 }
 
 type LookupApplicationResult struct {
-	AppBlockArn        *string                `pulumi:"appBlockArn"`
-	Arn                *string                `pulumi:"arn"`
-	AttributesToDelete []string               `pulumi:"attributesToDelete"`
-	CreatedTime        *string                `pulumi:"createdTime"`
-	Description        *string                `pulumi:"description"`
-	DisplayName        *string                `pulumi:"displayName"`
-	IconS3Location     *ApplicationS3Location `pulumi:"iconS3Location"`
-	LaunchParameters   *string                `pulumi:"launchParameters"`
-	LaunchPath         *string                `pulumi:"launchPath"`
-	WorkingDirectory   *string                `pulumi:"workingDirectory"`
+	AppBlockArn      *string                `pulumi:"appBlockArn"`
+	Arn              *string                `pulumi:"arn"`
+	CreatedTime      *string                `pulumi:"createdTime"`
+	Description      *string                `pulumi:"description"`
+	DisplayName      *string                `pulumi:"displayName"`
+	IconS3Location   *ApplicationS3Location `pulumi:"iconS3Location"`
+	LaunchParameters *string                `pulumi:"launchParameters"`
+	LaunchPath       *string                `pulumi:"launchPath"`
+	WorkingDirectory *string                `pulumi:"workingDirectory"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -78,10 +77,6 @@ func (o LookupApplicationResultOutput) AppBlockArn() pulumi.StringPtrOutput {
 
 func (o LookupApplicationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupApplicationResultOutput) AttributesToDelete() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupApplicationResult) []string { return v.AttributesToDelete }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupApplicationResultOutput) CreatedTime() pulumi.StringPtrOutput {

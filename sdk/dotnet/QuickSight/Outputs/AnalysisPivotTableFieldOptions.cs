@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPivotTableFieldOptions
     {
+        public readonly ImmutableArray<Outputs.AnalysisPivotTableFieldCollapseStateOption> CollapseStateOptions;
         public readonly ImmutableArray<Outputs.AnalysisPivotTableDataPathOption> DataPathOptions;
         public readonly ImmutableArray<Outputs.AnalysisPivotTableFieldOption> SelectedFieldOptions;
 
         [OutputConstructor]
         private AnalysisPivotTableFieldOptions(
+            ImmutableArray<Outputs.AnalysisPivotTableFieldCollapseStateOption> collapseStateOptions,
+
             ImmutableArray<Outputs.AnalysisPivotTableDataPathOption> dataPathOptions,
 
             ImmutableArray<Outputs.AnalysisPivotTableFieldOption> selectedFieldOptions)
         {
+            CollapseStateOptions = collapseStateOptions;
             DataPathOptions = dataPathOptions;
             SelectedFieldOptions = selectedFieldOptions;
         }

@@ -53,7 +53,6 @@ namespace Pulumi.AwsNative.AppStream
     {
         public readonly string? AppBlockArn;
         public readonly string? Arn;
-        public readonly ImmutableArray<string> AttributesToDelete;
         public readonly string? CreatedTime;
         public readonly string? Description;
         public readonly string? DisplayName;
@@ -67,8 +66,6 @@ namespace Pulumi.AwsNative.AppStream
             string? appBlockArn,
 
             string? arn,
-
-            ImmutableArray<string> attributesToDelete,
 
             string? createdTime,
 
@@ -86,7 +83,6 @@ namespace Pulumi.AwsNative.AppStream
         {
             AppBlockArn = appBlockArn;
             Arn = arn;
-            AttributesToDelete = attributesToDelete;
             CreatedTime = createdTime;
             Description = description;
             DisplayName = displayName;

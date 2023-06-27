@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Indicates whether the instance is enabled for AWS Nitro Enclaves.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateEnclaveOptions
     {
+        /// <summary>
+        /// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

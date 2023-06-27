@@ -25,6 +25,11 @@ export type DataCatalogEncryptionSettings = import("./dataCatalogEncryptionSetti
 export const DataCatalogEncryptionSettings: typeof import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings = null as any;
 utilities.lazyLoad(exports, ["DataCatalogEncryptionSettings"], () => require("./dataCatalogEncryptionSettings"));
 
+export { DataQualityRulesetArgs } from "./dataQualityRuleset";
+export type DataQualityRuleset = import("./dataQualityRuleset").DataQualityRuleset;
+export const DataQualityRuleset: typeof import("./dataQualityRuleset").DataQualityRuleset = null as any;
+utilities.lazyLoad(exports, ["DataQualityRuleset"], () => require("./dataQualityRuleset"));
+
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
@@ -54,6 +59,11 @@ export { GetDataCatalogEncryptionSettingsArgs, GetDataCatalogEncryptionSettingsR
 export const getDataCatalogEncryptionSettings: typeof import("./getDataCatalogEncryptionSettings").getDataCatalogEncryptionSettings = null as any;
 export const getDataCatalogEncryptionSettingsOutput: typeof import("./getDataCatalogEncryptionSettings").getDataCatalogEncryptionSettingsOutput = null as any;
 utilities.lazyLoad(exports, ["getDataCatalogEncryptionSettings","getDataCatalogEncryptionSettingsOutput"], () => require("./getDataCatalogEncryptionSettings"));
+
+export { GetDataQualityRulesetArgs, GetDataQualityRulesetResult, GetDataQualityRulesetOutputArgs } from "./getDataQualityRuleset";
+export const getDataQualityRuleset: typeof import("./getDataQualityRuleset").getDataQualityRuleset = null as any;
+export const getDataQualityRulesetOutput: typeof import("./getDataQualityRuleset").getDataQualityRulesetOutput = null as any;
+utilities.lazyLoad(exports, ["getDataQualityRuleset","getDataQualityRulesetOutput"], () => require("./getDataQualityRuleset"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
@@ -186,6 +196,8 @@ const _module = {
                 return new Crawler(name, <any>undefined, { urn })
             case "aws-native:glue:DataCatalogEncryptionSettings":
                 return new DataCatalogEncryptionSettings(name, <any>undefined, { urn })
+            case "aws-native:glue:DataQualityRuleset":
+                return new DataQualityRuleset(name, <any>undefined, { urn })
             case "aws-native:glue:Database":
                 return new Database(name, <any>undefined, { urn })
             case "aws-native:glue:DevEndpoint":

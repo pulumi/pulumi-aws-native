@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// specifies the CPU options for an instance.
+    /// </summary>
     public sealed class LaunchTemplateCpuOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+        /// </summary>
         [Input("amdSevSnp")]
-        public Input<string>? AmdSevSnp { get; set; }
+        public Input<Pulumi.AwsNative.EC2.LaunchTemplateCpuOptionsAmdSevSnp>? AmdSevSnp { get; set; }
 
+        /// <summary>
+        /// The number of CPU cores for the instance.
+        /// </summary>
         [Input("coreCount")]
         public Input<int>? CoreCount { get; set; }
 
+        /// <summary>
+        /// The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+        /// </summary>
         [Input("threadsPerCore")]
         public Input<int>? ThreadsPerCore { get; set; }
 

@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .app_block import *
+from .app_block_builder import *
 from .application import *
 from .application_entitlement_association import *
 from .application_fleet_association import *
@@ -13,6 +14,7 @@ from .directory_config import *
 from .entitlement import *
 from .fleet import *
 from .get_app_block import *
+from .get_app_block_builder import *
 from .get_application import *
 from .get_directory_config import *
 from .get_entitlement import *

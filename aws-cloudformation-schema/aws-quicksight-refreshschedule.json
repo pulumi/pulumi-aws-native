@@ -99,13 +99,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "quicksight:CreateRefreshSchedule" ]
+      "permissions" : [ "quicksight:CreateRefreshSchedule", "quicksight:DescribeRefreshSchedule" ]
     },
     "update" : {
-      "permissions" : [ "quicksight:UpdateRefreshSchedule" ]
+      "permissions" : [ "quicksight:UpdateRefreshSchedule", "quicksight:DescribeRefreshSchedule" ]
     },
     "delete" : {
-      "permissions" : [ "quicksight:DeleteRefreshSchedule" ]
+      "permissions" : [ "quicksight:DeleteRefreshSchedule", "quicksight:DescribeRefreshSchedule" ]
     },
     "list" : {
       "permissions" : [ "quicksight:ListRefreshSchedules" ]

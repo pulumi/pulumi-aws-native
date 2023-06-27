@@ -23,6 +23,16 @@ export const AccountStatus = {
  */
 export type AccountStatus = (typeof AccountStatus)[keyof typeof AccountStatus];
 
+export const OrganizationFeatureSet = {
+    All: "ALL",
+    ConsolidatedBilling: "CONSOLIDATED_BILLING",
+} as const;
+
+/**
+ * Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
+ */
+export type OrganizationFeatureSet = (typeof OrganizationFeatureSet)[keyof typeof OrganizationFeatureSet];
+
 export const PolicyType = {
     ServiceControlPolicy: "SERVICE_CONTROL_POLICY",
     AiservicesOptOutPolicy: "AISERVICES_OPT_OUT_POLICY",

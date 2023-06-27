@@ -2668,6 +2668,154 @@ func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) SseAwsKmsKeyId()
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataQualityRulesetDataQualityTargetTable struct {
+	DatabaseName *string `pulumi:"databaseName"`
+	TableName    *string `pulumi:"tableName"`
+}
+
+// DataQualityRulesetDataQualityTargetTableInput is an input type that accepts DataQualityRulesetDataQualityTargetTableArgs and DataQualityRulesetDataQualityTargetTableOutput values.
+// You can construct a concrete instance of `DataQualityRulesetDataQualityTargetTableInput` via:
+//
+//	DataQualityRulesetDataQualityTargetTableArgs{...}
+type DataQualityRulesetDataQualityTargetTableInput interface {
+	pulumi.Input
+
+	ToDataQualityRulesetDataQualityTargetTableOutput() DataQualityRulesetDataQualityTargetTableOutput
+	ToDataQualityRulesetDataQualityTargetTableOutputWithContext(context.Context) DataQualityRulesetDataQualityTargetTableOutput
+}
+
+type DataQualityRulesetDataQualityTargetTableArgs struct {
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	TableName    pulumi.StringPtrInput `pulumi:"tableName"`
+}
+
+func (DataQualityRulesetDataQualityTargetTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityRulesetDataQualityTargetTable)(nil)).Elem()
+}
+
+func (i DataQualityRulesetDataQualityTargetTableArgs) ToDataQualityRulesetDataQualityTargetTableOutput() DataQualityRulesetDataQualityTargetTableOutput {
+	return i.ToDataQualityRulesetDataQualityTargetTableOutputWithContext(context.Background())
+}
+
+func (i DataQualityRulesetDataQualityTargetTableArgs) ToDataQualityRulesetDataQualityTargetTableOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetDataQualityTargetTableOutput)
+}
+
+func (i DataQualityRulesetDataQualityTargetTableArgs) ToDataQualityRulesetDataQualityTargetTablePtrOutput() DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return i.ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (i DataQualityRulesetDataQualityTargetTableArgs) ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetDataQualityTargetTableOutput).ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(ctx)
+}
+
+// DataQualityRulesetDataQualityTargetTablePtrInput is an input type that accepts DataQualityRulesetDataQualityTargetTableArgs, DataQualityRulesetDataQualityTargetTablePtr and DataQualityRulesetDataQualityTargetTablePtrOutput values.
+// You can construct a concrete instance of `DataQualityRulesetDataQualityTargetTablePtrInput` via:
+//
+//	        DataQualityRulesetDataQualityTargetTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataQualityRulesetDataQualityTargetTablePtrInput interface {
+	pulumi.Input
+
+	ToDataQualityRulesetDataQualityTargetTablePtrOutput() DataQualityRulesetDataQualityTargetTablePtrOutput
+	ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(context.Context) DataQualityRulesetDataQualityTargetTablePtrOutput
+}
+
+type dataQualityRulesetDataQualityTargetTablePtrType DataQualityRulesetDataQualityTargetTableArgs
+
+func DataQualityRulesetDataQualityTargetTablePtr(v *DataQualityRulesetDataQualityTargetTableArgs) DataQualityRulesetDataQualityTargetTablePtrInput {
+	return (*dataQualityRulesetDataQualityTargetTablePtrType)(v)
+}
+
+func (*dataQualityRulesetDataQualityTargetTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityRulesetDataQualityTargetTable)(nil)).Elem()
+}
+
+func (i *dataQualityRulesetDataQualityTargetTablePtrType) ToDataQualityRulesetDataQualityTargetTablePtrOutput() DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return i.ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (i *dataQualityRulesetDataQualityTargetTablePtrType) ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetDataQualityTargetTablePtrOutput)
+}
+
+type DataQualityRulesetDataQualityTargetTableOutput struct{ *pulumi.OutputState }
+
+func (DataQualityRulesetDataQualityTargetTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityRulesetDataQualityTargetTable)(nil)).Elem()
+}
+
+func (o DataQualityRulesetDataQualityTargetTableOutput) ToDataQualityRulesetDataQualityTargetTableOutput() DataQualityRulesetDataQualityTargetTableOutput {
+	return o
+}
+
+func (o DataQualityRulesetDataQualityTargetTableOutput) ToDataQualityRulesetDataQualityTargetTableOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTableOutput {
+	return o
+}
+
+func (o DataQualityRulesetDataQualityTargetTableOutput) ToDataQualityRulesetDataQualityTargetTablePtrOutput() DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return o.ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityRulesetDataQualityTargetTableOutput) ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityRulesetDataQualityTargetTable) *DataQualityRulesetDataQualityTargetTable {
+		return &v
+	}).(DataQualityRulesetDataQualityTargetTablePtrOutput)
+}
+
+func (o DataQualityRulesetDataQualityTargetTableOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataQualityRulesetDataQualityTargetTable) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o DataQualityRulesetDataQualityTargetTableOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataQualityRulesetDataQualityTargetTable) *string { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+type DataQualityRulesetDataQualityTargetTablePtrOutput struct{ *pulumi.OutputState }
+
+func (DataQualityRulesetDataQualityTargetTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityRulesetDataQualityTargetTable)(nil)).Elem()
+}
+
+func (o DataQualityRulesetDataQualityTargetTablePtrOutput) ToDataQualityRulesetDataQualityTargetTablePtrOutput() DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return o
+}
+
+func (o DataQualityRulesetDataQualityTargetTablePtrOutput) ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return o
+}
+
+func (o DataQualityRulesetDataQualityTargetTablePtrOutput) Elem() DataQualityRulesetDataQualityTargetTableOutput {
+	return o.ApplyT(func(v *DataQualityRulesetDataQualityTargetTable) DataQualityRulesetDataQualityTargetTable {
+		if v != nil {
+			return *v
+		}
+		var ret DataQualityRulesetDataQualityTargetTable
+		return ret
+	}).(DataQualityRulesetDataQualityTargetTableOutput)
+}
+
+func (o DataQualityRulesetDataQualityTargetTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRulesetDataQualityTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataQualityRulesetDataQualityTargetTablePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRulesetDataQualityTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
 type DatabaseDataLakePrincipal struct {
 	DataLakePrincipalIdentifier *string `pulumi:"dataLakePrincipalIdentifier"`
 }
@@ -9320,6 +9468,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsEncryptionAtRestInput)(nil)).Elem(), DataCatalogEncryptionSettingsEncryptionAtRestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsEncryptionAtRestPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsEncryptionAtRestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityRulesetDataQualityTargetTableInput)(nil)).Elem(), DataQualityRulesetDataQualityTargetTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityRulesetDataQualityTargetTablePtrInput)(nil)).Elem(), DataQualityRulesetDataQualityTargetTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalPtrInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseFederatedDatabaseInput)(nil)).Elem(), DatabaseFederatedDatabaseArgs{})
@@ -9442,6 +9592,8 @@ func init() {
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput{})
+	pulumi.RegisterOutputType(DataQualityRulesetDataQualityTargetTableOutput{})
+	pulumi.RegisterOutputType(DataQualityRulesetDataQualityTargetTablePtrOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseFederatedDatabaseOutput{})

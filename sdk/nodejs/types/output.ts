@@ -3370,6 +3370,11 @@ export namespace appmesh {
 }
 
 export namespace apprunner {
+    export interface AutoScalingConfigurationTag {
+        key?: string;
+        value?: string;
+    }
+
     export interface ObservabilityConfigurationTag {
         key?: string;
         value?: string;
@@ -3651,9 +3656,24 @@ export namespace apprunner {
 }
 
 export namespace appstream {
+    export interface AppBlockBuilderAccessEndpoint {
+        endpointType: string;
+        vpceId: string;
+    }
+
+    export interface AppBlockBuilderTag {
+        key: string;
+        value: string;
+    }
+
+    export interface AppBlockBuilderVpcConfig {
+        securityGroupIds?: string[];
+        subnetIds?: string[];
+    }
+
     export interface AppBlockS3Location {
         s3Bucket: string;
-        s3Key: string;
+        s3Key?: string;
     }
 
     export interface AppBlockScriptDetails {
@@ -3664,8 +3684,6 @@ export namespace appstream {
     }
 
     export interface AppBlockTag {
-        tagKey: string;
-        tagValue: string;
     }
 
     export interface ApplicationS3Location {
@@ -3674,8 +3692,6 @@ export namespace appstream {
     }
 
     export interface ApplicationTag {
-        tagKey: string;
-        tagValue: string;
     }
 
     export interface DirectoryConfigCertificateBasedAuthProperties {
@@ -5198,6 +5214,11 @@ export namespace budgets {
 }
 
 export namespace cassandra {
+    export interface KeyspaceReplicationSpecification {
+        regionList?: enums.cassandra.KeyspaceRegionListItem[];
+        replicationStrategy?: enums.cassandra.KeyspaceReplicationSpecificationReplicationStrategy;
+    }
+
     export interface KeyspaceTag {
         key: string;
         value: string;
@@ -11505,268 +11526,733 @@ export namespace ec2 {
         value: string;
     }
 
+    /**
+     * The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
+     */
     export interface LaunchTemplateAcceleratorCount {
+        /**
+         * The maximum number of accelerators.
+         */
         max?: number;
+        /**
+         * The minimum number of accelerators.
+         */
         min?: number;
     }
 
+    /**
+     * The minimum and maximum amount of total accelerator memory, in MiB.
+     */
     export interface LaunchTemplateAcceleratorTotalMemoryMiB {
+        /**
+         * The maximum amount of accelerator memory, in MiB.
+         */
         max?: number;
+        /**
+         * The minimum amount of accelerator memory, in MiB.
+         */
         min?: number;
     }
 
+    /**
+     * The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
+     */
     export interface LaunchTemplateBaselineEbsBandwidthMbps {
+        /**
+         * The maximum baseline bandwidth, in Mbps.
+         */
         max?: number;
+        /**
+         * The minimum baseline bandwidth, in Mbps.
+         */
         min?: number;
     }
 
+    /**
+     * Information about a block device mapping for an Amazon EC2 launch template.
+     */
     export interface LaunchTemplateBlockDeviceMapping {
+        /**
+         * The user data to make available to the instance.
+         */
         deviceName?: string;
         ebs?: outputs.ec2.LaunchTemplateEbs;
+        /**
+         * To omit the device from the block device mapping, specify an empty string.
+         */
         noDevice?: string;
+        /**
+         * The virtual device name (ephemeralN).
+         */
         virtualName?: string;
     }
 
+    /**
+     * Specifies an instance's Capacity Reservation targeting option.
+     */
     export interface LaunchTemplateCapacityReservationSpecification {
+        /**
+         * Indicates the instance's Capacity Reservation preferences.
+         */
         capacityReservationPreference?: string;
         capacityReservationTarget?: outputs.ec2.LaunchTemplateCapacityReservationTarget;
     }
 
+    /**
+     * Specifies a target Capacity Reservation.
+     */
     export interface LaunchTemplateCapacityReservationTarget {
+        /**
+         * The ID of the Capacity Reservation in which to run the instance.
+         */
         capacityReservationId?: string;
+        /**
+         * The ARN of the Capacity Reservation resource group in which to run the instance.
+         */
         capacityReservationResourceGroupArn?: string;
     }
 
+    /**
+     * specifies the CPU options for an instance.
+     */
     export interface LaunchTemplateCpuOptions {
-        amdSevSnp?: string;
+        /**
+         * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+         */
+        amdSevSnp?: enums.ec2.LaunchTemplateCpuOptionsAmdSevSnp;
+        /**
+         * The number of CPU cores for the instance.
+         */
         coreCount?: number;
+        /**
+         * The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+         */
         threadsPerCore?: number;
     }
 
+    /**
+     * The user data to make available to the instance.
+     */
     export interface LaunchTemplateCreditSpecification {
+        /**
+         * The user data to make available to the instance.
+         */
         cpuCredits?: string;
     }
 
+    /**
+     * The information for the launch template.
+     */
     export interface LaunchTemplateData {
+        /**
+         * The block device mapping.
+         */
         blockDeviceMappings?: outputs.ec2.LaunchTemplateBlockDeviceMapping[];
         capacityReservationSpecification?: outputs.ec2.LaunchTemplateCapacityReservationSpecification;
         cpuOptions?: outputs.ec2.LaunchTemplateCpuOptions;
         creditSpecification?: outputs.ec2.LaunchTemplateCreditSpecification;
+        /**
+         * Indicates whether to enable the instance for stop protection.
+         */
         disableApiStop?: boolean;
+        /**
+         * If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API.
+         */
         disableApiTermination?: boolean;
+        /**
+         * Indicates whether the instance is optimized for Amazon EBS I/O.
+         */
         ebsOptimized?: boolean;
+        /**
+         * An elastic GPU to associate with the instance.
+         */
         elasticGpuSpecifications?: outputs.ec2.LaunchTemplateElasticGpuSpecification[];
+        /**
+         * The elastic inference accelerator for the instance.
+         */
         elasticInferenceAccelerators?: outputs.ec2.LaunchTemplateElasticInferenceAccelerator[];
         enclaveOptions?: outputs.ec2.LaunchTemplateEnclaveOptions;
         hibernationOptions?: outputs.ec2.LaunchTemplateHibernationOptions;
         iamInstanceProfile?: outputs.ec2.LaunchTemplateIamInstanceProfile;
+        /**
+         * The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
+         */
         imageId?: string;
+        /**
+         * Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+         */
         instanceInitiatedShutdownBehavior?: string;
         instanceMarketOptions?: outputs.ec2.LaunchTemplateInstanceMarketOptions;
         instanceRequirements?: outputs.ec2.LaunchTemplateInstanceRequirements;
         instanceType?: string;
+        /**
+         * The ID of the kernel.
+         */
         kernelId?: string;
+        /**
+         * The name of the EC2 key pair
+         */
         keyName?: string;
+        /**
+         * The license configurations.
+         */
         licenseSpecifications?: outputs.ec2.LaunchTemplateLicenseSpecification[];
         maintenanceOptions?: outputs.ec2.LaunchTemplateMaintenanceOptions;
         metadataOptions?: outputs.ec2.LaunchTemplateMetadataOptions;
         monitoring?: outputs.ec2.LaunchTemplateMonitoring;
+        /**
+         * If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+         */
         networkInterfaces?: outputs.ec2.LaunchTemplateNetworkInterface[];
         placement?: outputs.ec2.LaunchTemplatePlacement;
         privateDnsNameOptions?: outputs.ec2.LaunchTemplatePrivateDnsNameOptions;
         ramDiskId?: string;
+        /**
+         * One or more security group IDs. 
+         */
         securityGroupIds?: string[];
+        /**
+         * One or more security group names.
+         */
         securityGroups?: string[];
+        /**
+         * The tags to apply to the resources that are created during instance launch.
+         */
         tagSpecifications?: outputs.ec2.LaunchTemplateTagSpecification[];
+        /**
+         * The user data to make available to the instance.
+         */
         userData?: string;
     }
 
+    /**
+     * Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
+     */
     export interface LaunchTemplateEbs {
+        /**
+         * Indicates whether the EBS volume is deleted on instance termination.
+         */
         deleteOnTermination?: boolean;
+        /**
+         * Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+         */
         encrypted?: boolean;
+        /**
+         * The number of I/O operations per second (IOPS).
+         */
         iops?: number;
+        /**
+         * The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
+         */
         kmsKeyId?: string;
+        /**
+         * The ID of the snapshot.
+         */
         snapshotId?: string;
+        /**
+         * The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+         */
         throughput?: number;
+        /**
+         * The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+         */
         volumeSize?: number;
+        /**
+         * The volume type.
+         */
         volumeType?: string;
     }
 
+    /**
+     * Specifies a specification for an Elastic GPU for launch template.
+     */
     export interface LaunchTemplateElasticGpuSpecification {
+        /**
+         * The type of Elastic Graphics accelerator.
+         */
         type?: string;
     }
 
+    /**
+     * Specifies an elastic inference accelerator.
+     */
     export interface LaunchTemplateElasticInferenceAccelerator {
+        /**
+         * The number of elastic inference accelerators to attach to the instance.
+         */
         count?: number;
+        /**
+         * The type of elastic inference accelerator.
+         */
         type?: string;
     }
 
+    /**
+     * Indicates whether the instance is enabled for AWS Nitro Enclaves.
+     */
     export interface LaunchTemplateEnclaveOptions {
+        /**
+         * If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+         */
         enabled?: boolean;
     }
 
+    /**
+     * Specifies whether your instance is configured for hibernation.
+     */
     export interface LaunchTemplateHibernationOptions {
+        /**
+         * TIf you set this parameter to true, the instance is enabled for hibernation.
+         */
         configured?: boolean;
     }
 
+    /**
+     * Specifies an IAM instance profile, which is a container for an IAM role for your instance.
+     */
     export interface LaunchTemplateIamInstanceProfile {
+        /**
+         * The Amazon Resource Name (ARN) of the instance profile.
+         */
         arn?: string;
+        /**
+         * The name of the instance profile.
+         */
         name?: string;
     }
 
+    /**
+     * The market (purchasing) option for the instances.
+     */
     export interface LaunchTemplateInstanceMarketOptions {
+        /**
+         * The market type.
+         */
         marketType?: string;
         spotOptions?: outputs.ec2.LaunchTemplateSpotOptions;
     }
 
+    /**
+     * The attributes for the instance types.
+     */
     export interface LaunchTemplateInstanceRequirements {
         acceleratorCount?: outputs.ec2.LaunchTemplateAcceleratorCount;
+        /**
+         * Indicates whether instance types must have accelerators by specific manufacturers.
+         */
         acceleratorManufacturers?: string[];
+        /**
+         * The accelerators that must be on the instance type.
+         */
         acceleratorNames?: string[];
         acceleratorTotalMemoryMiB?: outputs.ec2.LaunchTemplateAcceleratorTotalMemoryMiB;
+        /**
+         * The accelerator types that must be on the instance type.
+         */
         acceleratorTypes?: string[];
+        /**
+         * The instance types to apply your specified attributes against.
+         */
         allowedInstanceTypes?: string[];
+        /**
+         * Indicates whether bare metal instance types must be included, excluded, or required.
+         */
         bareMetal?: string;
         baselineEbsBandwidthMbps?: outputs.ec2.LaunchTemplateBaselineEbsBandwidthMbps;
         burstablePerformance?: string;
+        /**
+         * The CPU manufacturers to include.
+         */
         cpuManufacturers?: string[];
+        /**
+         * The instance types to exclude.
+         */
         excludedInstanceTypes?: string[];
+        /**
+         * Indicates whether current or previous generation instance types are included.
+         */
         instanceGenerations?: string[];
+        /**
+         * The user data to make available to the instance.
+         */
         localStorage?: string;
+        /**
+         * The type of local storage that is required.
+         */
         localStorageTypes?: string[];
         memoryGiBPerVCpu?: outputs.ec2.LaunchTemplateMemoryGiBPerVCpu;
         memoryMiB?: outputs.ec2.LaunchTemplateMemoryMiB;
         networkBandwidthGbps?: outputs.ec2.LaunchTemplateNetworkBandwidthGbps;
         networkInterfaceCount?: outputs.ec2.LaunchTemplateNetworkInterfaceCount;
+        /**
+         * The price protection threshold for On-Demand Instances.
+         */
         onDemandMaxPricePercentageOverLowestPrice?: number;
+        /**
+         * Indicates whether instance types must support hibernation for On-Demand Instances.
+         */
         requireHibernateSupport?: boolean;
+        /**
+         * The price protection threshold for Spot Instances.
+         */
         spotMaxPricePercentageOverLowestPrice?: number;
         totalLocalStorageGB?: outputs.ec2.LaunchTemplateTotalLocalStorageGB;
         vCpuCount?: outputs.ec2.LaunchTemplateVCpuCount;
     }
 
+    /**
+     * Specifies an IPv4 prefix for a network interface.
+     */
     export interface LaunchTemplateIpv4PrefixSpecification {
+        /**
+         * The IPv4 prefix.
+         */
         ipv4Prefix?: string;
     }
 
+    /**
+     * Specifies an IPv6 address.
+     */
     export interface LaunchTemplateIpv6Add {
         ipv6Address?: string;
     }
 
+    /**
+     * Specifies an IPv6 prefix for a network interface.
+     */
     export interface LaunchTemplateIpv6PrefixSpecification {
         ipv6Prefix?: string;
     }
 
+    /**
+     * Specifies a license configuration for an instance.
+     */
     export interface LaunchTemplateLicenseSpecification {
+        /**
+         * The Amazon Resource Name (ARN) of the license configuration.
+         */
         licenseConfigurationArn?: string;
     }
 
+    /**
+     * The maintenance options of your instance.
+     */
     export interface LaunchTemplateMaintenanceOptions {
+        /**
+         * Disables the automatic recovery behavior of your instance or sets it to default.
+         */
         autoRecovery?: string;
     }
 
+    /**
+     * The minimum and maximum amount of memory per vCPU, in GiB.
+     */
     export interface LaunchTemplateMemoryGiBPerVCpu {
+        /**
+         * The maximum amount of memory per vCPU, in GiB.
+         */
         max?: number;
+        /**
+         * TThe minimum amount of memory per vCPU, in GiB.
+         */
         min?: number;
     }
 
+    /**
+     * The minimum and maximum amount of memory, in MiB.
+     */
     export interface LaunchTemplateMemoryMiB {
+        /**
+         * The maximum amount of memory, in MiB.
+         */
         max?: number;
+        /**
+         * The minimum amount of memory, in MiB.
+         */
         min?: number;
     }
 
+    /**
+     * The metadata options for the instance.
+     */
     export interface LaunchTemplateMetadataOptions {
+        /**
+         * Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
+         */
         httpEndpoint?: string;
+        /**
+         * Enables or disables the IPv6 endpoint for the instance metadata service.
+         */
         httpProtocolIpv6?: string;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+         */
         httpPutResponseHopLimit?: number;
+        /**
+         * IMDSv2 uses token-backed sessions.
+         */
         httpTokens?: string;
+        /**
+         * Set to enabled to allow access to instance tags from the instance metadata.
+         */
         instanceMetadataTags?: string;
     }
 
+    /**
+     * Specifies whether detailed monitoring is enabled for an instance.
+     */
     export interface LaunchTemplateMonitoring {
+        /**
+         * Specify true to enable detailed monitoring.
+         */
         enabled?: boolean;
     }
 
+    /**
+     * The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+     */
     export interface LaunchTemplateNetworkBandwidthGbps {
+        /**
+         * The maximum amount of network bandwidth, in Gbps.
+         */
         max?: number;
+        /**
+         * The minimum amount of network bandwidth, in Gbps.
+         */
         min?: number;
     }
 
+    /**
+     * Specifies the parameters for a network interface.
+     */
     export interface LaunchTemplateNetworkInterface {
+        /**
+         * Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+         */
         associateCarrierIpAddress?: boolean;
+        /**
+         * Associates a public IPv4 address with eth0 for a new network interface.
+         */
         associatePublicIpAddress?: boolean;
+        /**
+         * Indicates whether the network interface is deleted when the instance is terminated.
+         */
         deleteOnTermination?: boolean;
+        /**
+         * A description for the network interface.
+         */
         description?: string;
+        /**
+         * The device index for the network interface attachment.
+         */
         deviceIndex?: number;
+        /**
+         * The IDs of one or more security groups.
+         */
         groups?: string[];
+        /**
+         * The type of network interface.
+         */
         interfaceType?: string;
+        /**
+         * The number of IPv4 prefixes to be automatically assigned to the network interface.
+         */
         ipv4PrefixCount?: number;
+        /**
+         * One or more IPv4 prefixes to be assigned to the network interface.
+         */
         ipv4Prefixes?: outputs.ec2.LaunchTemplateIpv4PrefixSpecification[];
+        /**
+         * The number of IPv6 addresses to assign to a network interface.
+         */
         ipv6AddressCount?: number;
+        /**
+         * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+         */
         ipv6Addresses?: outputs.ec2.LaunchTemplateIpv6Add[];
+        /**
+         * The number of IPv6 prefixes to be automatically assigned to the network interface.
+         */
         ipv6PrefixCount?: number;
+        /**
+         * One or more IPv6 prefixes to be assigned to the network interface.
+         */
         ipv6Prefixes?: outputs.ec2.LaunchTemplateIpv6PrefixSpecification[];
+        /**
+         * The index of the network card.
+         */
         networkCardIndex?: number;
+        /**
+         * The ID of the network interface.
+         */
         networkInterfaceId?: string;
+        /**
+         * The primary private IPv4 address of the network interface.
+         */
         privateIpAddress?: string;
+        /**
+         * One or more private IPv4 addresses.
+         */
         privateIpAddresses?: outputs.ec2.LaunchTemplatePrivateIpAdd[];
+        /**
+         * The number of secondary private IPv4 addresses to assign to a network interface.
+         */
         secondaryPrivateIpAddressCount?: number;
+        /**
+         * The ID of the subnet for the network interface.
+         */
         subnetId?: string;
     }
 
+    /**
+     * TThe minimum and maximum number of network interfaces.
+     */
     export interface LaunchTemplateNetworkInterfaceCount {
         max?: number;
         min?: number;
     }
 
+    /**
+     * Specifies the placement of an instance.
+     */
     export interface LaunchTemplatePlacement {
+        /**
+         * The affinity setting for an instance on a Dedicated Host.
+         */
         affinity?: string;
+        /**
+         * The Availability Zone for the instance.
+         */
         availabilityZone?: string;
+        /**
+         * The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
+         */
         groupId?: string;
+        /**
+         * The name of the placement group for the instance.
+         */
         groupName?: string;
+        /**
+         * The ID of the Dedicated Host for the instance.
+         */
         hostId?: string;
+        /**
+         * The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+         */
         hostResourceGroupArn?: string;
+        /**
+         * The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+         */
         partitionNumber?: number;
+        /**
+         * Reserved for future use.
+         */
         spreadDomain?: string;
+        /**
+         * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+         */
         tenancy?: string;
     }
 
+    /**
+     * Describes the options for instance hostnames.
+     */
     export interface LaunchTemplatePrivateDnsNameOptions {
+        /**
+         * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+         */
         enableResourceNameDnsAAAARecord?: boolean;
+        /**
+         * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+         */
         enableResourceNameDnsARecord?: boolean;
+        /**
+         * The type of hostname for EC2 instances.
+         */
         hostnameType?: string;
     }
 
+    /**
+     * Specifies a secondary private IPv4 address for a network interface.
+     */
     export interface LaunchTemplatePrivateIpAdd {
+        /**
+         * Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+         */
         primary?: boolean;
+        /**
+         * The private IPv4 address.
+         */
         privateIpAddress?: string;
     }
 
+    /**
+     * Specifies options for Spot Instances.
+     */
     export interface LaunchTemplateSpotOptions {
+        /**
+         * Deprecated
+         */
         blockDurationMinutes?: number;
+        /**
+         * The behavior when a Spot Instance is interrupted. The default is terminate.
+         */
         instanceInterruptionBehavior?: string;
+        /**
+         * The maximum hourly price you're willing to pay for the Spot Instances.
+         */
         maxPrice?: string;
+        /**
+         * The Spot Instance request type.
+         */
         spotInstanceType?: string;
+        /**
+         * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+         */
         validUntil?: string;
     }
 
+    /**
+     * The user data to make available to the instance.
+     */
     export interface LaunchTemplateTag {
         key: string;
         value: string;
     }
 
+    /**
+     * Specifies the tags to apply to a resource when the resource is created for the launch template.
+     */
     export interface LaunchTemplateTagSpecification {
+        /**
+         * The type of resource to tag.
+         */
         resourceType?: string;
+        /**
+         * The tags for the resource.
+         */
         tags?: outputs.ec2.LaunchTemplateTag[];
     }
 
+    /**
+     * The minimum and maximum amount of total local storage, in GB.
+     */
     export interface LaunchTemplateTotalLocalStorageGB {
         max?: number;
         min?: number;
     }
 
+    /**
+     * The minimum and maximum number of vCPUs.
+     */
     export interface LaunchTemplateVCpuCount {
+        /**
+         * The maximum number of vCPUs.
+         */
         max?: number;
+        /**
+         * The minimum number of vCPUs.
+         */
         min?: number;
     }
 
@@ -12578,9 +13064,17 @@ export namespace ec2 {
          */
         cloudWatchLogs?: outputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties;
         /**
+         * Include claims from trust providers in Verified Access logs.
+         */
+        includeTrustContext?: boolean;
+        /**
          * Sends Verified Access logs to Kinesis.
          */
         kinesisDataFirehose?: outputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties;
+        /**
+         * Select log version for Verified Access logs.
+         */
+        logVersion?: string;
         /**
          * Sends Verified Access logs to Amazon S3.
          */
@@ -16575,6 +17069,11 @@ export namespace glue {
         sseAwsKmsKeyId?: string;
     }
 
+    export interface DataQualityRulesetDataQualityTargetTable {
+        databaseName?: string;
+        tableName?: string;
+    }
+
     export interface DatabaseDataLakePrincipal {
         dataLakePrincipalIdentifier?: string;
     }
@@ -18192,7 +18691,7 @@ export namespace imagebuilder {
          */
         containerTags?: string[];
         /**
-         * The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+         * The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
          */
         repositoryName?: string;
     }
@@ -18502,6 +19001,11 @@ export namespace inspectorv2 {
 }
 
 export namespace internetmonitor {
+    export interface MonitorHealthEventsConfig {
+        availabilityScoreThreshold?: number;
+        performanceScoreThreshold?: number;
+    }
+
     export interface MonitorInternetMeasurementsLogDelivery {
         s3Config?: outputs.internetmonitor.MonitorS3Config;
     }
@@ -21429,7 +21933,7 @@ export namespace kafkaconnect {
     }
 
     /**
-     * Details about auto scaling of a connector. 
+     * Details about auto scaling of a connector.
      */
     export interface ConnectorAutoScaling {
         /**
@@ -26472,6 +26976,20 @@ export namespace mediaconnect {
     }
 
     /**
+     * The source configuration for cloud flows receiving a stream from a bridge.
+     */
+    export interface FlowGatewayBridgeSource {
+        /**
+         * The ARN of the bridge feeding this flow.
+         */
+        bridgeArn: string;
+        /**
+         * The name of the VPC interface attachment to use for this bridge source.
+         */
+        vpcInterfaceAttachment?: outputs.mediaconnect.FlowVpcInterfaceAttachment;
+    }
+
+    /**
      * Information about the encryption of the flow.
      */
     export interface FlowOutputEncryption {
@@ -26519,6 +27037,10 @@ export namespace mediaconnect {
          * The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
          */
         entitlementArn?: string;
+        /**
+         * The source configuration for cloud flows receiving a stream from a bridge.
+         */
+        gatewayBridgeSource?: outputs.mediaconnect.FlowGatewayBridgeSource;
         /**
          * The IP address that the flow will be listening on for incoming content.
          */
@@ -26625,6 +27147,40 @@ export namespace mediaconnect {
          * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
          */
         url?: string;
+    }
+
+    /**
+     * The source configuration for cloud flows receiving a stream from a bridge.
+     */
+    export interface FlowSourceGatewayBridgeSource {
+        /**
+         * The ARN of the bridge feeding this flow.
+         */
+        bridgeArn: string;
+        /**
+         * The name of the VPC interface attachment to use for this bridge source.
+         */
+        vpcInterfaceAttachment?: outputs.mediaconnect.FlowSourceVpcInterfaceAttachment;
+    }
+
+    /**
+     * The settings for attaching a VPC interface to an resource.
+     */
+    export interface FlowSourceVpcInterfaceAttachment {
+        /**
+         * The name of the VPC interface to use for this resource.
+         */
+        vpcInterfaceName?: string;
+    }
+
+    /**
+     * The settings for attaching a VPC interface to an resource.
+     */
+    export interface FlowVpcInterfaceAttachment {
+        /**
+         * The name of the VPC interface to use for this resource.
+         */
+        vpcInterfaceName?: string;
     }
 
     /**
@@ -31284,7 +31840,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisAggregationSortConfiguration {
-        aggregationFunction: outputs.quicksight.AnalysisAggregationFunction;
+        aggregationFunction?: outputs.quicksight.AnalysisAggregationFunction;
         column: outputs.quicksight.AnalysisColumnIdentifier;
         sortDirection: enums.quicksight.AnalysisSortDirection;
     }
@@ -31559,12 +32115,7 @@ export namespace quicksight {
         nullValueColor?: outputs.quicksight.AnalysisDataColor;
     }
 
-    export interface AnalysisColorsConfiguration {
-        customColors?: outputs.quicksight.AnalysisCustomColor[];
-    }
-
     export interface AnalysisColumnConfiguration {
-        colorsConfiguration?: outputs.quicksight.AnalysisColorsConfiguration;
         column: outputs.quicksight.AnalysisColumnIdentifier;
         formatConfiguration?: outputs.quicksight.AnalysisFormatConfiguration;
         role?: enums.quicksight.AnalysisColumnRole;
@@ -31738,12 +32289,6 @@ export namespace quicksight {
         uRLTemplate: string;
     }
 
-    export interface AnalysisCustomColor {
-        color: string;
-        fieldValue?: string;
-        specialValue?: enums.quicksight.AnalysisSpecialValue;
-    }
-
     export interface AnalysisCustomContentConfiguration {
         contentType?: enums.quicksight.AnalysisCustomContentType;
         contentUrl?: string;
@@ -31817,6 +32362,7 @@ export namespace quicksight {
         measureLabelVisibility?: enums.quicksight.AnalysisVisibility;
         overlap?: enums.quicksight.AnalysisDataLabelOverlap;
         position?: enums.quicksight.AnalysisDataLabelPosition;
+        totalsVisibility?: enums.quicksight.AnalysisVisibility;
         visibility?: enums.quicksight.AnalysisVisibility;
     }
 
@@ -31990,6 +32536,7 @@ export namespace quicksight {
     export interface AnalysisDestinationParameterValueConfiguration {
         customValuesConfiguration?: outputs.quicksight.AnalysisCustomValuesConfiguration;
         selectAllValueOptions?: enums.quicksight.AnalysisSelectAllValueOptions;
+        sourceColumn?: outputs.quicksight.AnalysisColumnIdentifier;
         sourceField?: string;
         sourceParameterName?: string;
     }
@@ -32195,6 +32742,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisFilterOperationSelectedFieldsConfiguration {
+        selectedColumns?: outputs.quicksight.AnalysisColumnIdentifier[];
         selectedFieldOptions?: enums.quicksight.AnalysisSelectedFieldOptions;
         selectedFields?: string[];
     }
@@ -32445,6 +32993,18 @@ export namespace quicksight {
         west: number;
     }
 
+    export interface AnalysisGeospatialHeatmapColorScale {
+        colors?: outputs.quicksight.AnalysisGeospatialHeatmapDataColor[];
+    }
+
+    export interface AnalysisGeospatialHeatmapConfiguration {
+        heatmapColor?: outputs.quicksight.AnalysisGeospatialHeatmapColorScale;
+    }
+
+    export interface AnalysisGeospatialHeatmapDataColor {
+        color: string;
+    }
+
     export interface AnalysisGeospatialMapAggregatedFieldWells {
         colors?: outputs.quicksight.AnalysisDimensionField[];
         geospatial?: outputs.quicksight.AnalysisDimensionField[];
@@ -32480,6 +33040,7 @@ export namespace quicksight {
 
     export interface AnalysisGeospatialPointStyleOptions {
         clusterMarkerConfiguration?: outputs.quicksight.AnalysisClusterMarkerConfiguration;
+        heatmapConfiguration?: outputs.quicksight.AnalysisGeospatialHeatmapConfiguration;
         selectedPointStyle?: enums.quicksight.AnalysisGeospatialSelectedPointStyle;
     }
 
@@ -33179,6 +33740,7 @@ export namespace quicksight {
     export interface AnalysisPivotTableCellConditionalFormatting {
         fieldId: string;
         scope?: outputs.quicksight.AnalysisPivotTableConditionalFormattingScope;
+        scopes?: outputs.quicksight.AnalysisPivotTableConditionalFormattingScope[];
         textFormat?: outputs.quicksight.AnalysisTextConditionalFormat;
     }
 
@@ -33211,6 +33773,16 @@ export namespace quicksight {
         width?: string;
     }
 
+    export interface AnalysisPivotTableFieldCollapseStateOption {
+        state?: enums.quicksight.AnalysisPivotTableFieldCollapseState;
+        target: outputs.quicksight.AnalysisPivotTableFieldCollapseStateTarget;
+    }
+
+    export interface AnalysisPivotTableFieldCollapseStateTarget {
+        fieldDataPathValues?: outputs.quicksight.AnalysisDataPathValue[];
+        fieldId?: string;
+    }
+
     export interface AnalysisPivotTableFieldOption {
         customLabel?: string;
         fieldId: string;
@@ -33218,6 +33790,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisPivotTableFieldOptions {
+        collapseStateOptions?: outputs.quicksight.AnalysisPivotTableFieldCollapseStateOption[];
         dataPathOptions?: outputs.quicksight.AnalysisPivotTableDataPathOption[];
         selectedFieldOptions?: outputs.quicksight.AnalysisPivotTableFieldOption[];
     }
@@ -33232,6 +33805,7 @@ export namespace quicksight {
 
     export interface AnalysisPivotTableOptions {
         cellStyle?: outputs.quicksight.AnalysisTableCellStyle;
+        collapsedRowDimensionsVisibility?: enums.quicksight.AnalysisVisibility;
         columnHeaderStyle?: outputs.quicksight.AnalysisTableCellStyle;
         columnNamesVisibility?: enums.quicksight.AnalysisVisibility;
         metricPlacement?: enums.quicksight.AnalysisPivotTableMetricPlacement;
@@ -33307,6 +33881,7 @@ export namespace quicksight {
         alternateBandColorsVisibility?: enums.quicksight.AnalysisVisibility;
         alternateBandEvenColor?: string;
         alternateBandOddColor?: string;
+        axesRangeScale?: enums.quicksight.AnalysisRadarChartAxesRangeScale;
         baseSeriesSettings?: outputs.quicksight.AnalysisRadarChartSeriesSettings;
         categoryAxis?: outputs.quicksight.AnalysisAxisDisplayOptions;
         categoryLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
@@ -33368,7 +33943,7 @@ export namespace quicksight {
     export interface AnalysisReferenceLineDynamicDataConfiguration {
         calculation: outputs.quicksight.AnalysisNumericalAggregationFunction;
         column: outputs.quicksight.AnalysisColumnIdentifier;
-        measureAggregationFunction: outputs.quicksight.AnalysisAggregationFunction;
+        measureAggregationFunction?: outputs.quicksight.AnalysisAggregationFunction;
     }
 
     export interface AnalysisReferenceLineLabelConfiguration {
@@ -33465,6 +34040,7 @@ export namespace quicksight {
 
     export interface AnalysisScatterPlotCategoricallyAggregatedFieldWells {
         category?: outputs.quicksight.AnalysisDimensionField[];
+        label?: outputs.quicksight.AnalysisDimensionField[];
         size?: outputs.quicksight.AnalysisMeasureField[];
         xAxis?: outputs.quicksight.AnalysisMeasureField[];
         yAxis?: outputs.quicksight.AnalysisMeasureField[];
@@ -33488,6 +34064,8 @@ export namespace quicksight {
     }
 
     export interface AnalysisScatterPlotUnaggregatedFieldWells {
+        category?: outputs.quicksight.AnalysisDimensionField[];
+        label?: outputs.quicksight.AnalysisDimensionField[];
         size?: outputs.quicksight.AnalysisMeasureField[];
         xAxis?: outputs.quicksight.AnalysisDimensionField[];
         yAxis?: outputs.quicksight.AnalysisDimensionField[];
@@ -34185,7 +34763,7 @@ export namespace quicksight {
     }
 
     export interface DashboardAggregationSortConfiguration {
-        aggregationFunction: outputs.quicksight.DashboardAggregationFunction;
+        aggregationFunction?: outputs.quicksight.DashboardAggregationFunction;
         column: outputs.quicksight.DashboardColumnIdentifier;
         sortDirection: enums.quicksight.DashboardSortDirection;
     }
@@ -34464,12 +35042,7 @@ export namespace quicksight {
         nullValueColor?: outputs.quicksight.DashboardDataColor;
     }
 
-    export interface DashboardColorsConfiguration {
-        customColors?: outputs.quicksight.DashboardCustomColor[];
-    }
-
     export interface DashboardColumnConfiguration {
-        colorsConfiguration?: outputs.quicksight.DashboardColorsConfiguration;
         column: outputs.quicksight.DashboardColumnIdentifier;
         formatConfiguration?: outputs.quicksight.DashboardFormatConfiguration;
         role?: enums.quicksight.DashboardColumnRole;
@@ -34643,12 +35216,6 @@ export namespace quicksight {
         uRLTemplate: string;
     }
 
-    export interface DashboardCustomColor {
-        color: string;
-        fieldValue?: string;
-        specialValue?: enums.quicksight.DashboardSpecialValue;
-    }
-
     export interface DashboardCustomContentConfiguration {
         contentType?: enums.quicksight.DashboardCustomContentType;
         contentUrl?: string;
@@ -34722,6 +35289,7 @@ export namespace quicksight {
         measureLabelVisibility?: enums.quicksight.DashboardVisibility;
         overlap?: enums.quicksight.DashboardDataLabelOverlap;
         position?: enums.quicksight.DashboardDataLabelPosition;
+        totalsVisibility?: enums.quicksight.DashboardVisibility;
         visibility?: enums.quicksight.DashboardVisibility;
     }
 
@@ -34893,6 +35461,7 @@ export namespace quicksight {
     export interface DashboardDestinationParameterValueConfiguration {
         customValuesConfiguration?: outputs.quicksight.DashboardCustomValuesConfiguration;
         selectAllValueOptions?: enums.quicksight.DashboardSelectAllValueOptions;
+        sourceColumn?: outputs.quicksight.DashboardColumnIdentifier;
         sourceField?: string;
         sourceParameterName?: string;
     }
@@ -35110,6 +35679,7 @@ export namespace quicksight {
     }
 
     export interface DashboardFilterOperationSelectedFieldsConfiguration {
+        selectedColumns?: outputs.quicksight.DashboardColumnIdentifier[];
         selectedFieldOptions?: enums.quicksight.DashboardSelectedFieldOptions;
         selectedFields?: string[];
     }
@@ -35360,6 +35930,18 @@ export namespace quicksight {
         west: number;
     }
 
+    export interface DashboardGeospatialHeatmapColorScale {
+        colors?: outputs.quicksight.DashboardGeospatialHeatmapDataColor[];
+    }
+
+    export interface DashboardGeospatialHeatmapConfiguration {
+        heatmapColor?: outputs.quicksight.DashboardGeospatialHeatmapColorScale;
+    }
+
+    export interface DashboardGeospatialHeatmapDataColor {
+        color: string;
+    }
+
     export interface DashboardGeospatialMapAggregatedFieldWells {
         colors?: outputs.quicksight.DashboardDimensionField[];
         geospatial?: outputs.quicksight.DashboardDimensionField[];
@@ -35395,6 +35977,7 @@ export namespace quicksight {
 
     export interface DashboardGeospatialPointStyleOptions {
         clusterMarkerConfiguration?: outputs.quicksight.DashboardClusterMarkerConfiguration;
+        heatmapConfiguration?: outputs.quicksight.DashboardGeospatialHeatmapConfiguration;
         selectedPointStyle?: enums.quicksight.DashboardGeospatialSelectedPointStyle;
     }
 
@@ -36094,6 +36677,7 @@ export namespace quicksight {
     export interface DashboardPivotTableCellConditionalFormatting {
         fieldId: string;
         scope?: outputs.quicksight.DashboardPivotTableConditionalFormattingScope;
+        scopes?: outputs.quicksight.DashboardPivotTableConditionalFormattingScope[];
         textFormat?: outputs.quicksight.DashboardTextConditionalFormat;
     }
 
@@ -36126,6 +36710,16 @@ export namespace quicksight {
         width?: string;
     }
 
+    export interface DashboardPivotTableFieldCollapseStateOption {
+        state?: enums.quicksight.DashboardPivotTableFieldCollapseState;
+        target: outputs.quicksight.DashboardPivotTableFieldCollapseStateTarget;
+    }
+
+    export interface DashboardPivotTableFieldCollapseStateTarget {
+        fieldDataPathValues?: outputs.quicksight.DashboardDataPathValue[];
+        fieldId?: string;
+    }
+
     export interface DashboardPivotTableFieldOption {
         customLabel?: string;
         fieldId: string;
@@ -36133,6 +36727,7 @@ export namespace quicksight {
     }
 
     export interface DashboardPivotTableFieldOptions {
+        collapseStateOptions?: outputs.quicksight.DashboardPivotTableFieldCollapseStateOption[];
         dataPathOptions?: outputs.quicksight.DashboardPivotTableDataPathOption[];
         selectedFieldOptions?: outputs.quicksight.DashboardPivotTableFieldOption[];
     }
@@ -36147,6 +36742,7 @@ export namespace quicksight {
 
     export interface DashboardPivotTableOptions {
         cellStyle?: outputs.quicksight.DashboardTableCellStyle;
+        collapsedRowDimensionsVisibility?: enums.quicksight.DashboardVisibility;
         columnHeaderStyle?: outputs.quicksight.DashboardTableCellStyle;
         columnNamesVisibility?: enums.quicksight.DashboardVisibility;
         metricPlacement?: enums.quicksight.DashboardPivotTableMetricPlacement;
@@ -36236,6 +36832,7 @@ export namespace quicksight {
         alternateBandColorsVisibility?: enums.quicksight.DashboardVisibility;
         alternateBandEvenColor?: string;
         alternateBandOddColor?: string;
+        axesRangeScale?: enums.quicksight.DashboardRadarChartAxesRangeScale;
         baseSeriesSettings?: outputs.quicksight.DashboardRadarChartSeriesSettings;
         categoryAxis?: outputs.quicksight.DashboardAxisDisplayOptions;
         categoryLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
@@ -36297,7 +36894,7 @@ export namespace quicksight {
     export interface DashboardReferenceLineDynamicDataConfiguration {
         calculation: outputs.quicksight.DashboardNumericalAggregationFunction;
         column: outputs.quicksight.DashboardColumnIdentifier;
-        measureAggregationFunction: outputs.quicksight.DashboardAggregationFunction;
+        measureAggregationFunction?: outputs.quicksight.DashboardAggregationFunction;
     }
 
     export interface DashboardReferenceLineLabelConfiguration {
@@ -36394,6 +36991,7 @@ export namespace quicksight {
 
     export interface DashboardScatterPlotCategoricallyAggregatedFieldWells {
         category?: outputs.quicksight.DashboardDimensionField[];
+        label?: outputs.quicksight.DashboardDimensionField[];
         size?: outputs.quicksight.DashboardMeasureField[];
         xAxis?: outputs.quicksight.DashboardMeasureField[];
         yAxis?: outputs.quicksight.DashboardMeasureField[];
@@ -36417,6 +37015,8 @@ export namespace quicksight {
     }
 
     export interface DashboardScatterPlotUnaggregatedFieldWells {
+        category?: outputs.quicksight.DashboardDimensionField[];
+        label?: outputs.quicksight.DashboardDimensionField[];
         size?: outputs.quicksight.DashboardMeasureField[];
         xAxis?: outputs.quicksight.DashboardDimensionField[];
         yAxis?: outputs.quicksight.DashboardDimensionField[];
@@ -37941,7 +38541,7 @@ export namespace quicksight {
     }
 
     export interface TemplateAggregationSortConfiguration {
-        aggregationFunction: outputs.quicksight.TemplateAggregationFunction;
+        aggregationFunction?: outputs.quicksight.TemplateAggregationFunction;
         column: outputs.quicksight.TemplateColumnIdentifier;
         sortDirection: enums.quicksight.TemplateSortDirection;
     }
@@ -38220,12 +38820,7 @@ export namespace quicksight {
         nullValueColor?: outputs.quicksight.TemplateDataColor;
     }
 
-    export interface TemplateColorsConfiguration {
-        customColors?: outputs.quicksight.TemplateCustomColor[];
-    }
-
     export interface TemplateColumnConfiguration {
-        colorsConfiguration?: outputs.quicksight.TemplateColorsConfiguration;
         column: outputs.quicksight.TemplateColumnIdentifier;
         formatConfiguration?: outputs.quicksight.TemplateFormatConfiguration;
         role?: enums.quicksight.TemplateColumnRole;
@@ -38414,12 +39009,6 @@ export namespace quicksight {
         uRLTemplate: string;
     }
 
-    export interface TemplateCustomColor {
-        color: string;
-        fieldValue?: string;
-        specialValue?: enums.quicksight.TemplateSpecialValue;
-    }
-
     export interface TemplateCustomContentConfiguration {
         contentType?: enums.quicksight.TemplateCustomContentType;
         contentUrl?: string;
@@ -38493,6 +39082,7 @@ export namespace quicksight {
         measureLabelVisibility?: enums.quicksight.TemplateVisibility;
         overlap?: enums.quicksight.TemplateDataLabelOverlap;
         position?: enums.quicksight.TemplateDataLabelPosition;
+        totalsVisibility?: enums.quicksight.TemplateVisibility;
         visibility?: enums.quicksight.TemplateVisibility;
     }
 
@@ -38647,6 +39237,7 @@ export namespace quicksight {
     export interface TemplateDestinationParameterValueConfiguration {
         customValuesConfiguration?: outputs.quicksight.TemplateCustomValuesConfiguration;
         selectAllValueOptions?: enums.quicksight.TemplateSelectAllValueOptions;
+        sourceColumn?: outputs.quicksight.TemplateColumnIdentifier;
         sourceField?: string;
         sourceParameterName?: string;
     }
@@ -38852,6 +39443,7 @@ export namespace quicksight {
     }
 
     export interface TemplateFilterOperationSelectedFieldsConfiguration {
+        selectedColumns?: outputs.quicksight.TemplateColumnIdentifier[];
         selectedFieldOptions?: enums.quicksight.TemplateSelectedFieldOptions;
         selectedFields?: string[];
     }
@@ -39102,6 +39694,18 @@ export namespace quicksight {
         west: number;
     }
 
+    export interface TemplateGeospatialHeatmapColorScale {
+        colors?: outputs.quicksight.TemplateGeospatialHeatmapDataColor[];
+    }
+
+    export interface TemplateGeospatialHeatmapConfiguration {
+        heatmapColor?: outputs.quicksight.TemplateGeospatialHeatmapColorScale;
+    }
+
+    export interface TemplateGeospatialHeatmapDataColor {
+        color: string;
+    }
+
     export interface TemplateGeospatialMapAggregatedFieldWells {
         colors?: outputs.quicksight.TemplateDimensionField[];
         geospatial?: outputs.quicksight.TemplateDimensionField[];
@@ -39137,6 +39741,7 @@ export namespace quicksight {
 
     export interface TemplateGeospatialPointStyleOptions {
         clusterMarkerConfiguration?: outputs.quicksight.TemplateClusterMarkerConfiguration;
+        heatmapConfiguration?: outputs.quicksight.TemplateGeospatialHeatmapConfiguration;
         selectedPointStyle?: enums.quicksight.TemplateGeospatialSelectedPointStyle;
     }
 
@@ -39824,6 +40429,7 @@ export namespace quicksight {
     export interface TemplatePivotTableCellConditionalFormatting {
         fieldId: string;
         scope?: outputs.quicksight.TemplatePivotTableConditionalFormattingScope;
+        scopes?: outputs.quicksight.TemplatePivotTableConditionalFormattingScope[];
         textFormat?: outputs.quicksight.TemplateTextConditionalFormat;
     }
 
@@ -39856,6 +40462,16 @@ export namespace quicksight {
         width?: string;
     }
 
+    export interface TemplatePivotTableFieldCollapseStateOption {
+        state?: enums.quicksight.TemplatePivotTableFieldCollapseState;
+        target: outputs.quicksight.TemplatePivotTableFieldCollapseStateTarget;
+    }
+
+    export interface TemplatePivotTableFieldCollapseStateTarget {
+        fieldDataPathValues?: outputs.quicksight.TemplateDataPathValue[];
+        fieldId?: string;
+    }
+
     export interface TemplatePivotTableFieldOption {
         customLabel?: string;
         fieldId: string;
@@ -39863,6 +40479,7 @@ export namespace quicksight {
     }
 
     export interface TemplatePivotTableFieldOptions {
+        collapseStateOptions?: outputs.quicksight.TemplatePivotTableFieldCollapseStateOption[];
         dataPathOptions?: outputs.quicksight.TemplatePivotTableDataPathOption[];
         selectedFieldOptions?: outputs.quicksight.TemplatePivotTableFieldOption[];
     }
@@ -39877,6 +40494,7 @@ export namespace quicksight {
 
     export interface TemplatePivotTableOptions {
         cellStyle?: outputs.quicksight.TemplateTableCellStyle;
+        collapsedRowDimensionsVisibility?: enums.quicksight.TemplateVisibility;
         columnHeaderStyle?: outputs.quicksight.TemplateTableCellStyle;
         columnNamesVisibility?: enums.quicksight.TemplateVisibility;
         metricPlacement?: enums.quicksight.TemplatePivotTableMetricPlacement;
@@ -39952,6 +40570,7 @@ export namespace quicksight {
         alternateBandColorsVisibility?: enums.quicksight.TemplateVisibility;
         alternateBandEvenColor?: string;
         alternateBandOddColor?: string;
+        axesRangeScale?: enums.quicksight.TemplateRadarChartAxesRangeScale;
         baseSeriesSettings?: outputs.quicksight.TemplateRadarChartSeriesSettings;
         categoryAxis?: outputs.quicksight.TemplateAxisDisplayOptions;
         categoryLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
@@ -40013,7 +40632,7 @@ export namespace quicksight {
     export interface TemplateReferenceLineDynamicDataConfiguration {
         calculation: outputs.quicksight.TemplateNumericalAggregationFunction;
         column: outputs.quicksight.TemplateColumnIdentifier;
-        measureAggregationFunction: outputs.quicksight.TemplateAggregationFunction;
+        measureAggregationFunction?: outputs.quicksight.TemplateAggregationFunction;
     }
 
     export interface TemplateReferenceLineLabelConfiguration {
@@ -40110,6 +40729,7 @@ export namespace quicksight {
 
     export interface TemplateScatterPlotCategoricallyAggregatedFieldWells {
         category?: outputs.quicksight.TemplateDimensionField[];
+        label?: outputs.quicksight.TemplateDimensionField[];
         size?: outputs.quicksight.TemplateMeasureField[];
         xAxis?: outputs.quicksight.TemplateMeasureField[];
         yAxis?: outputs.quicksight.TemplateMeasureField[];
@@ -40133,6 +40753,8 @@ export namespace quicksight {
     }
 
     export interface TemplateScatterPlotUnaggregatedFieldWells {
+        category?: outputs.quicksight.TemplateDimensionField[];
+        label?: outputs.quicksight.TemplateDimensionField[];
         size?: outputs.quicksight.TemplateMeasureField[];
         xAxis?: outputs.quicksight.TemplateDimensionField[];
         yAxis?: outputs.quicksight.TemplateDimensionField[];
@@ -40841,20 +41463,10 @@ export namespace quicksight {
         visualId: string;
     }
 
-    /**
-     * <p>The display options for tile borders for visuals.</p>
-     */
     export interface ThemeBorderStyle {
-        /**
-         * <p>The option to enable display of borders for visuals.</p>
-         */
         show?: boolean;
     }
 
-    /**
-     * <p>The theme configuration. This configuration contains all of the display properties for
-     *             a theme.</p>
-     */
     export interface ThemeConfiguration {
         dataColorPalette?: outputs.quicksight.ThemeDataColorPalette;
         sheet?: outputs.quicksight.ThemeSheetStyle;
@@ -40862,34 +41474,13 @@ export namespace quicksight {
         uIColorPalette?: outputs.quicksight.ThemeUIColorPalette;
     }
 
-    /**
-     * <p>The theme colors that are used for data colors in charts. The colors description is a
-     *             hexadecimal color code that consists of six alphanumerical characters, prefixed with
-     *                 <code>#</code>, for example #37BFF5. </p>
-     */
     export interface ThemeDataColorPalette {
-        /**
-         * <p>The hexadecimal codes for the colors.</p>
-         */
         colors?: string[];
-        /**
-         * <p>The hexadecimal code of a color that applies to charts where a lack of data is
-         *             highlighted.</p>
-         */
         emptyFillColor?: string;
-        /**
-         * <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
-         */
         minMaxGradient?: string[];
     }
 
-    /**
-     * <p>Theme error.</p>
-     */
     export interface ThemeError {
-        /**
-         * <p>The error message.</p>
-         */
         message?: string;
         type?: enums.quicksight.ThemeErrorType;
     }
@@ -40898,214 +41489,70 @@ export namespace quicksight {
         fontFamily?: string;
     }
 
-    /**
-     * <p>The display options for gutter spacing between tiles on a sheet.</p>
-     */
     export interface ThemeGutterStyle {
-        /**
-         * <p>This Boolean value controls whether to display a gutter space between sheet tiles.
-         *         </p>
-         */
         show?: boolean;
     }
 
-    /**
-     * <p>The display options for margins around the outside edge of sheets.</p>
-     */
     export interface ThemeMarginStyle {
-        /**
-         * <p>This Boolean value controls whether to display sheet margins.</p>
-         */
         show?: boolean;
     }
 
-    /**
-     * <p>Permission for the resource.</p>
-     */
     export interface ThemeResourcePermission {
-        /**
-         * <p>The IAM action to grant or revoke permissions on.</p>
-         */
         actions: string[];
-        /**
-         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-         *             following:</p>
-         *         <ul>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
-         *                     (This is less common.) </p>
-         *             </li>
-         *          </ul>
-         */
         principal: string;
+        resource?: string;
     }
 
-    /**
-     * <p>The theme display options for sheets. </p>
-     */
     export interface ThemeSheetStyle {
         tile?: outputs.quicksight.ThemeTileStyle;
         tileLayout?: outputs.quicksight.ThemeTileLayoutStyle;
     }
 
-    /**
-     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-     *             resource.</p>
-     */
     export interface ThemeTag {
-        /**
-         * <p>Tag key.</p>
-         */
         key: string;
-        /**
-         * <p>Tag value.</p>
-         */
         value: string;
     }
 
-    /**
-     * <p>The display options for the layout of tiles on a sheet.</p>
-     */
     export interface ThemeTileLayoutStyle {
         gutter?: outputs.quicksight.ThemeGutterStyle;
         margin?: outputs.quicksight.ThemeMarginStyle;
     }
 
-    /**
-     * <p>Display options related to tiles on a sheet.</p>
-     */
     export interface ThemeTileStyle {
         border?: outputs.quicksight.ThemeBorderStyle;
     }
 
-    /**
-     * <p>The typeface for the theme.</p>
-     */
     export interface ThemeTypography {
         fontFamilies?: outputs.quicksight.ThemeFont[];
     }
 
-    /**
-     * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
-     *             description is a hexadecimal color code that consists of six alphanumerical characters,
-     *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
-     *                 Guide.</i>
-     *         </p>
-     */
     export interface ThemeUIColorPalette {
-        /**
-         * <p>This color is that applies to selected states and buttons.</p>
-         */
         accent?: string;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             accent color.</p>
-         */
         accentForeground?: string;
-        /**
-         * <p>The color that applies to error messages.</p>
-         */
         danger?: string;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             error color.</p>
-         */
         dangerForeground?: string;
-        /**
-         * <p>The color that applies to the names of fields that are identified as
-         *             dimensions.</p>
-         */
         dimension?: string;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             dimension color.</p>
-         */
         dimensionForeground?: string;
-        /**
-         * <p>The color that applies to the names of fields that are identified as measures.</p>
-         */
         measure?: string;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             measure color.</p>
-         */
         measureForeground?: string;
-        /**
-         * <p>The background color that applies to visuals and other high emphasis UI.</p>
-         */
         primaryBackground?: string;
-        /**
-         * <p>The color of text and other foreground elements that appear over the primary
-         *             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
-         */
         primaryForeground?: string;
-        /**
-         * <p>The background color that applies to the sheet background and sheet controls.</p>
-         */
         secondaryBackground?: string;
-        /**
-         * <p>The foreground color that applies to any sheet title, sheet control text, or UI that
-         *             appears over the secondary background.</p>
-         */
         secondaryForeground?: string;
-        /**
-         * <p>The color that applies to success messages, for example the check mark for a
-         *             successful download.</p>
-         */
         success?: string;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             success color.</p>
-         */
         successForeground?: string;
-        /**
-         * <p>This color that applies to warning and informational messages.</p>
-         */
         warning?: string;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             warning color.</p>
-         */
         warningForeground?: string;
     }
 
-    /**
-     * <p>A version of a theme.</p>
-     */
     export interface ThemeVersion {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
         arn?: string;
-        /**
-         * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-         *             themes initially inherit from a default QuickSight theme.</p>
-         */
         baseThemeId?: string;
         configuration?: outputs.quicksight.ThemeConfiguration;
-        /**
-         * <p>The date and time that this theme version was created.</p>
-         */
         createdTime?: string;
-        /**
-         * <p>The description of the theme.</p>
-         */
         description?: string;
-        /**
-         * <p>Errors associated with the theme.</p>
-         */
         errors?: outputs.quicksight.ThemeError[];
         status?: enums.quicksight.ThemeResourceStatus;
-        /**
-         * <p>The version number of the theme.</p>
-         */
         versionNumber?: number;
     }
 
@@ -46077,10 +46524,6 @@ export namespace sagemaker {
          * The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
          */
         nearestModelName?: string;
-        /**
-         * The AWS Marketplace product ID of the model package.
-         */
-        productId?: string;
     }
 
     export interface ModelPackageContainerDefinitionModelInputProperties {
@@ -46088,9 +46531,6 @@ export namespace sagemaker {
          * The input configuration object for the model.
          */
         dataInputConfig: string;
-    }
-
-    export interface ModelPackageCreatedBy {
     }
 
     /**
@@ -46220,9 +46660,6 @@ export namespace sagemaker {
         supportedTransformInstanceTypes?: string[];
     }
 
-    export interface ModelPackageLastModifiedBy {
-    }
-
     /**
      * Metadata properties of the tracking entity, trial, or trial component.
      */
@@ -46331,8 +46768,7 @@ export namespace sagemaker {
      * Details about the current status of the model package.
      */
     export interface ModelPackageStatusDetails {
-        imageScanStatuses?: outputs.sagemaker.ModelPackageStatusItem[];
-        validationStatuses: outputs.sagemaker.ModelPackageStatusItem[];
+        validationStatuses?: outputs.sagemaker.ModelPackageStatusItem[];
     }
 
     /**
@@ -49876,6 +50312,36 @@ export namespace transfer {
 
 }
 
+export namespace verifiedpermissions {
+    export interface IdentitySourceCognitoUserPoolConfiguration {
+        clientIds?: string[];
+        userPoolArn: string;
+    }
+
+    export interface IdentitySourceConfiguration {
+        cognitoUserPoolConfiguration: outputs.verifiedpermissions.IdentitySourceCognitoUserPoolConfiguration;
+    }
+
+    export interface IdentitySourceDetails {
+        clientIds?: string[];
+        discoveryUrl?: string;
+        openIdIssuer?: enums.verifiedpermissions.IdentitySourceOpenIdIssuer;
+        userPoolArn?: string;
+    }
+
+    export interface PolicyDefinition {
+    }
+
+    export interface PolicyStoreSchemaDefinition {
+        cedarJson?: string;
+    }
+
+    export interface PolicyStoreValidationSettings {
+        mode: enums.verifiedpermissions.PolicyStoreValidationMode;
+    }
+
+}
+
 export namespace voiceid {
     export interface DomainServerSideEncryptionConfiguration {
         kmsKeyId: string;
@@ -50726,6 +51192,13 @@ export namespace wafv2 {
     }
 
     /**
+     * AssociationConfig for body inspection
+     */
+    export interface WebACLAssociationConfig {
+        requestBody?: outputs.wafv2.WebACLRequestBody;
+    }
+
+    /**
      * Block traffic towards application.
      */
     export interface WebACLBlockAction {
@@ -51043,6 +51516,12 @@ export namespace wafv2 {
         arn: string;
         fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
         textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    }
+
+    /**
+     * Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+     */
+    export interface WebACLRequestBody {
     }
 
     /**

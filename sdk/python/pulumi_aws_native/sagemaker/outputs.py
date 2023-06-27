@@ -169,7 +169,6 @@ __all__ = [
     'ModelPackageBias',
     'ModelPackageContainerDefinition',
     'ModelPackageContainerDefinitionModelInputProperties',
-    'ModelPackageCreatedBy',
     'ModelPackageCustomerMetadataProperties',
     'ModelPackageDataSource',
     'ModelPackageDriftCheckBaselines',
@@ -182,7 +181,6 @@ __all__ = [
     'ModelPackageFileSource',
     'ModelPackageGroupTag',
     'ModelPackageInferenceSpecification',
-    'ModelPackageLastModifiedBy',
     'ModelPackageMetadataProperties',
     'ModelPackageMetricsSource',
     'ModelPackageModelDataQuality',
@@ -8614,8 +8612,6 @@ class ModelPackageContainerDefinition(dict):
             suggest = "model_input"
         elif key == "nearestModelName":
             suggest = "nearest_model_name"
-        elif key == "productId":
-            suggest = "product_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ModelPackageContainerDefinition. Access the value via the '{suggest}' property getter instead.")
@@ -8637,8 +8633,7 @@ class ModelPackageContainerDefinition(dict):
                  image_digest: Optional[str] = None,
                  model_data_url: Optional[str] = None,
                  model_input: Optional['outputs.ModelPackageContainerDefinitionModelInputProperties'] = None,
-                 nearest_model_name: Optional[str] = None,
-                 product_id: Optional[str] = None):
+                 nearest_model_name: Optional[str] = None):
         """
         Describes the Docker container for the model package.
         :param str image: The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
@@ -8648,7 +8643,6 @@ class ModelPackageContainerDefinition(dict):
         :param str image_digest: An MD5 hash of the training algorithm that identifies the Docker image used for training.
         :param str model_data_url: A structure with Model Input details.
         :param str nearest_model_name: The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
-        :param str product_id: The AWS Marketplace product ID of the model package.
         """
         pulumi.set(__self__, "image", image)
         if container_hostname is not None:
@@ -8667,8 +8661,6 @@ class ModelPackageContainerDefinition(dict):
             pulumi.set(__self__, "model_input", model_input)
         if nearest_model_name is not None:
             pulumi.set(__self__, "nearest_model_name", nearest_model_name)
-        if product_id is not None:
-            pulumi.set(__self__, "product_id", product_id)
 
     @property
     @pulumi.getter
@@ -8736,14 +8728,6 @@ class ModelPackageContainerDefinition(dict):
         """
         return pulumi.get(self, "nearest_model_name")
 
-    @property
-    @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[str]:
-        """
-        The AWS Marketplace product ID of the model package.
-        """
-        return pulumi.get(self, "product_id")
-
 
 @pulumi.output_type
 class ModelPackageContainerDefinitionModelInputProperties(dict):
@@ -8778,12 +8762,6 @@ class ModelPackageContainerDefinitionModelInputProperties(dict):
         The input configuration object for the model.
         """
         return pulumi.get(self, "data_input_config")
-
-
-@pulumi.output_type
-class ModelPackageCreatedBy(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -9272,12 +9250,6 @@ class ModelPackageInferenceSpecification(dict):
 
 
 @pulumi.output_type
-class ModelPackageLastModifiedBy(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class ModelPackageMetadataProperties(dict):
     """
     Metadata properties of the tracking entity, trial, or trial component.
@@ -9693,8 +9665,6 @@ class ModelPackageStatusDetails(dict):
         suggest = None
         if key == "validationStatuses":
             suggest = "validation_statuses"
-        elif key == "imageScanStatuses":
-            suggest = "image_scan_statuses"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ModelPackageStatusDetails. Access the value via the '{suggest}' property getter instead.")
@@ -9708,24 +9678,17 @@ class ModelPackageStatusDetails(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 validation_statuses: Sequence['outputs.ModelPackageStatusItem'],
-                 image_scan_statuses: Optional[Sequence['outputs.ModelPackageStatusItem']] = None):
+                 validation_statuses: Optional[Sequence['outputs.ModelPackageStatusItem']] = None):
         """
         Details about the current status of the model package.
         """
-        pulumi.set(__self__, "validation_statuses", validation_statuses)
-        if image_scan_statuses is not None:
-            pulumi.set(__self__, "image_scan_statuses", image_scan_statuses)
+        if validation_statuses is not None:
+            pulumi.set(__self__, "validation_statuses", validation_statuses)
 
     @property
     @pulumi.getter(name="validationStatuses")
-    def validation_statuses(self) -> Sequence['outputs.ModelPackageStatusItem']:
+    def validation_statuses(self) -> Optional[Sequence['outputs.ModelPackageStatusItem']]:
         return pulumi.get(self, "validation_statuses")
-
-    @property
-    @pulumi.getter(name="imageScanStatuses")
-    def image_scan_statuses(self) -> Optional[Sequence['outputs.ModelPackageStatusItem']]:
-        return pulumi.get(self, "image_scan_statuses")
 
 
 @pulumi.output_type

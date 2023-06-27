@@ -15,8 +15,9 @@ type Keyspace struct {
 	pulumi.CustomResourceState
 
 	// Name for Cassandra keyspace
-	KeyspaceName pulumi.StringPtrOutput `pulumi:"keyspaceName"`
-	Tags         KeyspaceTagArrayOutput `pulumi:"tags"`
+	KeyspaceName             pulumi.StringPtrOutput                    `pulumi:"keyspaceName"`
+	ReplicationSpecification KeyspaceReplicationSpecificationPtrOutput `pulumi:"replicationSpecification"`
+	Tags                     KeyspaceTagArrayOutput                    `pulumi:"tags"`
 }
 
 // NewKeyspace registers a new resource with the given unique name, arguments, and options.
@@ -59,15 +60,17 @@ func (KeyspaceState) ElementType() reflect.Type {
 
 type keyspaceArgs struct {
 	// Name for Cassandra keyspace
-	KeyspaceName *string       `pulumi:"keyspaceName"`
-	Tags         []KeyspaceTag `pulumi:"tags"`
+	KeyspaceName             *string                           `pulumi:"keyspaceName"`
+	ReplicationSpecification *KeyspaceReplicationSpecification `pulumi:"replicationSpecification"`
+	Tags                     []KeyspaceTag                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Keyspace resource.
 type KeyspaceArgs struct {
 	// Name for Cassandra keyspace
-	KeyspaceName pulumi.StringPtrInput
-	Tags         KeyspaceTagArrayInput
+	KeyspaceName             pulumi.StringPtrInput
+	ReplicationSpecification KeyspaceReplicationSpecificationPtrInput
+	Tags                     KeyspaceTagArrayInput
 }
 
 func (KeyspaceArgs) ElementType() reflect.Type {
@@ -110,6 +113,10 @@ func (o KeyspaceOutput) ToKeyspaceOutputWithContext(ctx context.Context) Keyspac
 // Name for Cassandra keyspace
 func (o KeyspaceOutput) KeyspaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringPtrOutput { return v.KeyspaceName }).(pulumi.StringPtrOutput)
+}
+
+func (o KeyspaceOutput) ReplicationSpecification() KeyspaceReplicationSpecificationPtrOutput {
+	return o.ApplyT(func(v *Keyspace) KeyspaceReplicationSpecificationPtrOutput { return v.ReplicationSpecification }).(KeyspaceReplicationSpecificationPtrOutput)
 }
 
 func (o KeyspaceOutput) Tags() KeyspaceTagArrayOutput {

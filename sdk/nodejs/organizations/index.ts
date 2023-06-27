@@ -15,6 +15,11 @@ export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
+export { GetOrganizationArgs, GetOrganizationResult, GetOrganizationOutputArgs } from "./getOrganization";
+export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
+export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganization","getOrganizationOutput"], () => require("./getOrganization"));
+
 export { GetOrganizationalUnitArgs, GetOrganizationalUnitResult, GetOrganizationalUnitOutputArgs } from "./getOrganizationalUnit";
 export const getOrganizationalUnit: typeof import("./getOrganizationalUnit").getOrganizationalUnit = null as any;
 export const getOrganizationalUnitOutput: typeof import("./getOrganizationalUnit").getOrganizationalUnitOutput = null as any;
@@ -29,6 +34,11 @@ export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutput
 export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
+export { OrganizationArgs } from "./organization";
+export type Organization = import("./organization").Organization;
+export const Organization: typeof import("./organization").Organization = null as any;
+utilities.lazyLoad(exports, ["Organization"], () => require("./organization"));
 
 export { OrganizationalUnitArgs } from "./organizationalUnit";
 export type OrganizationalUnit = import("./organizationalUnit").OrganizationalUnit;
@@ -55,6 +65,8 @@ const _module = {
         switch (type) {
             case "aws-native:organizations:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "aws-native:organizations:Organization":
+                return new Organization(name, <any>undefined, { urn })
             case "aws-native:organizations:OrganizationalUnit":
                 return new OrganizationalUnit(name, <any>undefined, { urn })
             case "aws-native:organizations:Policy":

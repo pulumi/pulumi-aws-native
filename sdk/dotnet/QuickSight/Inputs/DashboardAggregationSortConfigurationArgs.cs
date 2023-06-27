@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardAggregationSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aggregationFunction", required: true)]
-        public Input<Inputs.DashboardAggregationFunctionArgs> AggregationFunction { get; set; } = null!;
+        [Input("aggregationFunction")]
+        public Input<Inputs.DashboardAggregationFunctionArgs>? AggregationFunction { get; set; }
 
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;

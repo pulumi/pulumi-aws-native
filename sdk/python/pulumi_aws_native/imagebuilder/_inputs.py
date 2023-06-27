@@ -1045,7 +1045,7 @@ class ImagePipelineEcrConfigurationArgs:
         """
         Settings for Image Builder to configure the ECR repository and output container images that are scanned.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] container_tags: Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
-        :param pulumi.Input[str] repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+        :param pulumi.Input[str] repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
         """
         if container_tags is not None:
             pulumi.set(__self__, "container_tags", container_tags)
@@ -1068,7 +1068,7 @@ class ImagePipelineEcrConfigurationArgs:
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+        The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
         """
         return pulumi.get(self, "repository_name")
 

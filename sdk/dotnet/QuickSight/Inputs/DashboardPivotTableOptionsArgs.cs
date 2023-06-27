@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("cellStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? CellStyle { get; set; }
 
+        [Input("collapsedRowDimensionsVisibility")]
+        public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? CollapsedRowDimensionsVisibility { get; set; }
+
         [Input("columnHeaderStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? ColumnHeaderStyle { get; set; }
 

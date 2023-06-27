@@ -38,6 +38,7 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public readonly healthEventsConfig!: pulumi.Output<outputs.internetmonitor.MonitorHealthEventsConfig | undefined>;
     public readonly internetMeasurementsLogDelivery!: pulumi.Output<outputs.internetmonitor.MonitorInternetMeasurementsLogDelivery | undefined>;
     public readonly maxCityNetworksToMonitor!: pulumi.Output<number | undefined>;
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
@@ -63,6 +64,7 @@ export class Monitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["healthEventsConfig"] = args ? args.healthEventsConfig : undefined;
             resourceInputs["internetMeasurementsLogDelivery"] = args ? args.internetMeasurementsLogDelivery : undefined;
             resourceInputs["maxCityNetworksToMonitor"] = args ? args.maxCityNetworksToMonitor : undefined;
             resourceInputs["monitorName"] = args ? args.monitorName : undefined;
@@ -79,6 +81,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["processingStatusInfo"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["healthEventsConfig"] = undefined /*out*/;
             resourceInputs["internetMeasurementsLogDelivery"] = undefined /*out*/;
             resourceInputs["maxCityNetworksToMonitor"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
@@ -102,6 +105,7 @@ export class Monitor extends pulumi.CustomResource {
  * The set of arguments for constructing a Monitor resource.
  */
 export interface MonitorArgs {
+    healthEventsConfig?: pulumi.Input<inputs.internetmonitor.MonitorHealthEventsConfigArgs>;
     internetMeasurementsLogDelivery?: pulumi.Input<inputs.internetmonitor.MonitorInternetMeasurementsLogDeliveryArgs>;
     maxCityNetworksToMonitor?: pulumi.Input<number>;
     monitorName?: pulumi.Input<string>;

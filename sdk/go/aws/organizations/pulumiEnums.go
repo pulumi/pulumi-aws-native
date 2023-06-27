@@ -193,6 +193,171 @@ func (o AccountStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
+type OrganizationFeatureSet string
+
+const (
+	OrganizationFeatureSetAll                 = OrganizationFeatureSet("ALL")
+	OrganizationFeatureSetConsolidatedBilling = OrganizationFeatureSet("CONSOLIDATED_BILLING")
+)
+
+func (OrganizationFeatureSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationFeatureSet)(nil)).Elem()
+}
+
+func (e OrganizationFeatureSet) ToOrganizationFeatureSetOutput() OrganizationFeatureSetOutput {
+	return pulumi.ToOutput(e).(OrganizationFeatureSetOutput)
+}
+
+func (e OrganizationFeatureSet) ToOrganizationFeatureSetOutputWithContext(ctx context.Context) OrganizationFeatureSetOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OrganizationFeatureSetOutput)
+}
+
+func (e OrganizationFeatureSet) ToOrganizationFeatureSetPtrOutput() OrganizationFeatureSetPtrOutput {
+	return e.ToOrganizationFeatureSetPtrOutputWithContext(context.Background())
+}
+
+func (e OrganizationFeatureSet) ToOrganizationFeatureSetPtrOutputWithContext(ctx context.Context) OrganizationFeatureSetPtrOutput {
+	return OrganizationFeatureSet(e).ToOrganizationFeatureSetOutputWithContext(ctx).ToOrganizationFeatureSetPtrOutputWithContext(ctx)
+}
+
+func (e OrganizationFeatureSet) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OrganizationFeatureSet) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OrganizationFeatureSet) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OrganizationFeatureSet) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OrganizationFeatureSetOutput struct{ *pulumi.OutputState }
+
+func (OrganizationFeatureSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationFeatureSet)(nil)).Elem()
+}
+
+func (o OrganizationFeatureSetOutput) ToOrganizationFeatureSetOutput() OrganizationFeatureSetOutput {
+	return o
+}
+
+func (o OrganizationFeatureSetOutput) ToOrganizationFeatureSetOutputWithContext(ctx context.Context) OrganizationFeatureSetOutput {
+	return o
+}
+
+func (o OrganizationFeatureSetOutput) ToOrganizationFeatureSetPtrOutput() OrganizationFeatureSetPtrOutput {
+	return o.ToOrganizationFeatureSetPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationFeatureSetOutput) ToOrganizationFeatureSetPtrOutputWithContext(ctx context.Context) OrganizationFeatureSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationFeatureSet) *OrganizationFeatureSet {
+		return &v
+	}).(OrganizationFeatureSetPtrOutput)
+}
+
+func (o OrganizationFeatureSetOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OrganizationFeatureSetOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationFeatureSet) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OrganizationFeatureSetOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationFeatureSetOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationFeatureSet) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationFeatureSetPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationFeatureSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationFeatureSet)(nil)).Elem()
+}
+
+func (o OrganizationFeatureSetPtrOutput) ToOrganizationFeatureSetPtrOutput() OrganizationFeatureSetPtrOutput {
+	return o
+}
+
+func (o OrganizationFeatureSetPtrOutput) ToOrganizationFeatureSetPtrOutputWithContext(ctx context.Context) OrganizationFeatureSetPtrOutput {
+	return o
+}
+
+func (o OrganizationFeatureSetPtrOutput) Elem() OrganizationFeatureSetOutput {
+	return o.ApplyT(func(v *OrganizationFeatureSet) OrganizationFeatureSet {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationFeatureSet
+		return ret
+	}).(OrganizationFeatureSetOutput)
+}
+
+func (o OrganizationFeatureSetPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationFeatureSetPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OrganizationFeatureSet) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OrganizationFeatureSetInput is an input type that accepts OrganizationFeatureSetArgs and OrganizationFeatureSetOutput values.
+// You can construct a concrete instance of `OrganizationFeatureSetInput` via:
+//
+//	OrganizationFeatureSetArgs{...}
+type OrganizationFeatureSetInput interface {
+	pulumi.Input
+
+	ToOrganizationFeatureSetOutput() OrganizationFeatureSetOutput
+	ToOrganizationFeatureSetOutputWithContext(context.Context) OrganizationFeatureSetOutput
+}
+
+var organizationFeatureSetPtrType = reflect.TypeOf((**OrganizationFeatureSet)(nil)).Elem()
+
+type OrganizationFeatureSetPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationFeatureSetPtrOutput() OrganizationFeatureSetPtrOutput
+	ToOrganizationFeatureSetPtrOutputWithContext(context.Context) OrganizationFeatureSetPtrOutput
+}
+
+type organizationFeatureSetPtr string
+
+func OrganizationFeatureSetPtr(v string) OrganizationFeatureSetPtrInput {
+	return (*organizationFeatureSetPtr)(&v)
+}
+
+func (*organizationFeatureSetPtr) ElementType() reflect.Type {
+	return organizationFeatureSetPtrType
+}
+
+func (in *organizationFeatureSetPtr) ToOrganizationFeatureSetPtrOutput() OrganizationFeatureSetPtrOutput {
+	return pulumi.ToOutput(in).(OrganizationFeatureSetPtrOutput)
+}
+
+func (in *organizationFeatureSetPtr) ToOrganizationFeatureSetPtrOutputWithContext(ctx context.Context) OrganizationFeatureSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OrganizationFeatureSetPtrOutput)
+}
+
 // The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY
 type PolicyType string
 
@@ -361,12 +526,16 @@ func (in *policyTypePtr) ToPolicyTypePtrOutputWithContext(ctx context.Context) P
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationFeatureSetInput)(nil)).Elem(), OrganizationFeatureSet("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationFeatureSetPtrInput)(nil)).Elem(), OrganizationFeatureSet("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypeInput)(nil)).Elem(), PolicyType("SERVICE_CONTROL_POLICY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypePtrInput)(nil)).Elem(), PolicyType("SERVICE_CONTROL_POLICY"))
 	pulumi.RegisterOutputType(AccountJoinedMethodOutput{})
 	pulumi.RegisterOutputType(AccountJoinedMethodPtrOutput{})
 	pulumi.RegisterOutputType(AccountStatusOutput{})
 	pulumi.RegisterOutputType(AccountStatusPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationFeatureSetOutput{})
+	pulumi.RegisterOutputType(OrganizationFeatureSetPtrOutput{})
 	pulumi.RegisterOutputType(PolicyTypeOutput{})
 	pulumi.RegisterOutputType(PolicyTypePtrOutput{})
 }

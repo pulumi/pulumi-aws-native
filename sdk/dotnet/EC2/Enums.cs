@@ -944,6 +944,37 @@ namespace Pulumi.AwsNative.EC2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+    /// </summary>
+    [EnumType]
+    public readonly struct LaunchTemplateCpuOptionsAmdSevSnp : IEquatable<LaunchTemplateCpuOptionsAmdSevSnp>
+    {
+        private readonly string _value;
+
+        private LaunchTemplateCpuOptionsAmdSevSnp(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LaunchTemplateCpuOptionsAmdSevSnp Enabled { get; } = new LaunchTemplateCpuOptionsAmdSevSnp("enabled");
+        public static LaunchTemplateCpuOptionsAmdSevSnp Disabled { get; } = new LaunchTemplateCpuOptionsAmdSevSnp("disabled");
+
+        public static bool operator ==(LaunchTemplateCpuOptionsAmdSevSnp left, LaunchTemplateCpuOptionsAmdSevSnp right) => left.Equals(right);
+        public static bool operator !=(LaunchTemplateCpuOptionsAmdSevSnp left, LaunchTemplateCpuOptionsAmdSevSnp right) => !left.Equals(right);
+
+        public static explicit operator string(LaunchTemplateCpuOptionsAmdSevSnp value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LaunchTemplateCpuOptionsAmdSevSnp other && Equals(other);
+        public bool Equals(LaunchTemplateCpuOptionsAmdSevSnp other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct NetworkInsightsAccessScopeAnalysisFindingsFound : IEquatable<NetworkInsightsAccessScopeAnalysisFindingsFound>
     {

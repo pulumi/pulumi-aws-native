@@ -23,23 +23,17 @@ export interface GetModelPackageArgs {
 }
 
 export interface GetModelPackageResult {
-    readonly additionalInferenceSpecificationDefinition?: outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition;
     readonly additionalInferenceSpecifications?: outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition[];
-    readonly additionalInferenceSpecificationsToAdd?: outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition[];
     readonly approvalDescription?: string;
     readonly certifyForMarketplace?: boolean;
-    readonly createdBy?: outputs.sagemaker.ModelPackageCreatedBy;
     readonly creationTime?: string;
     readonly customerMetadataProperties?: outputs.sagemaker.ModelPackageCustomerMetadataProperties;
-    readonly environment?: outputs.sagemaker.ModelPackageEnvironment;
-    readonly lastModifiedBy?: outputs.sagemaker.ModelPackageLastModifiedBy;
     readonly lastModifiedTime?: string;
     readonly modelApprovalStatus?: enums.sagemaker.ModelPackageModelApprovalStatus;
     readonly modelPackageArn?: string;
     readonly modelPackageName?: string;
     readonly modelPackageStatus?: enums.sagemaker.ModelPackageStatus;
     readonly modelPackageStatusDetails?: outputs.sagemaker.ModelPackageStatusDetails;
-    readonly modelPackageStatusItem?: outputs.sagemaker.ModelPackageStatusItem;
     readonly modelPackageVersion?: number;
     /**
      * An array of key-value pairs to apply to this resource.

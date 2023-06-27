@@ -21,6 +21,7 @@ class FlowSourceInitArgs:
                  decryption: Optional[pulumi.Input['FlowSourceEncryptionArgs']] = None,
                  entitlement_arn: Optional[pulumi.Input[str]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
+                 gateway_bridge_source: Optional[pulumi.Input['FlowSourceGatewayBridgeSourceArgs']] = None,
                  ingest_port: Optional[pulumi.Input[int]] = None,
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
@@ -40,6 +41,7 @@ class FlowSourceInitArgs:
         :param pulumi.Input['FlowSourceEncryptionArgs'] decryption: The type of encryption that is used on the content ingested from this source.
         :param pulumi.Input[str] entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         :param pulumi.Input[str] flow_arn: The ARN of the flow.
+        :param pulumi.Input['FlowSourceGatewayBridgeSourceArgs'] gateway_bridge_source: The source configuration for cloud flows receiving a stream from a bridge.
         :param pulumi.Input[int] ingest_port: The port that the flow will be listening on for incoming content.
         :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
@@ -61,6 +63,8 @@ class FlowSourceInitArgs:
             pulumi.set(__self__, "entitlement_arn", entitlement_arn)
         if flow_arn is not None:
             pulumi.set(__self__, "flow_arn", flow_arn)
+        if gateway_bridge_source is not None:
+            pulumi.set(__self__, "gateway_bridge_source", gateway_bridge_source)
         if ingest_port is not None:
             pulumi.set(__self__, "ingest_port", ingest_port)
         if max_bitrate is not None:
@@ -135,6 +139,18 @@ class FlowSourceInitArgs:
     @flow_arn.setter
     def flow_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "flow_arn", value)
+
+    @property
+    @pulumi.getter(name="gatewayBridgeSource")
+    def gateway_bridge_source(self) -> Optional[pulumi.Input['FlowSourceGatewayBridgeSourceArgs']]:
+        """
+        The source configuration for cloud flows receiving a stream from a bridge.
+        """
+        return pulumi.get(self, "gateway_bridge_source")
+
+    @gateway_bridge_source.setter
+    def gateway_bridge_source(self, value: Optional[pulumi.Input['FlowSourceGatewayBridgeSourceArgs']]):
+        pulumi.set(self, "gateway_bridge_source", value)
 
     @property
     @pulumi.getter(name="ingestPort")
@@ -302,6 +318,7 @@ class FlowSource(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  entitlement_arn: Optional[pulumi.Input[str]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
+                 gateway_bridge_source: Optional[pulumi.Input[pulumi.InputType['FlowSourceGatewayBridgeSourceArgs']]] = None,
                  ingest_port: Optional[pulumi.Input[int]] = None,
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
@@ -325,6 +342,7 @@ class FlowSource(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         :param pulumi.Input[str] entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         :param pulumi.Input[str] flow_arn: The ARN of the flow.
+        :param pulumi.Input[pulumi.InputType['FlowSourceGatewayBridgeSourceArgs']] gateway_bridge_source: The source configuration for cloud flows receiving a stream from a bridge.
         :param pulumi.Input[int] ingest_port: The port that the flow will be listening on for incoming content.
         :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
@@ -367,6 +385,7 @@ class FlowSource(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  entitlement_arn: Optional[pulumi.Input[str]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
+                 gateway_bridge_source: Optional[pulumi.Input[pulumi.InputType['FlowSourceGatewayBridgeSourceArgs']]] = None,
                  ingest_port: Optional[pulumi.Input[int]] = None,
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
@@ -395,6 +414,7 @@ class FlowSource(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["entitlement_arn"] = entitlement_arn
             __props__.__dict__["flow_arn"] = flow_arn
+            __props__.__dict__["gateway_bridge_source"] = gateway_bridge_source
             __props__.__dict__["ingest_port"] = ingest_port
             __props__.__dict__["max_bitrate"] = max_bitrate
             __props__.__dict__["max_latency"] = max_latency
@@ -437,6 +457,7 @@ class FlowSource(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["entitlement_arn"] = None
         __props__.__dict__["flow_arn"] = None
+        __props__.__dict__["gateway_bridge_source"] = None
         __props__.__dict__["ingest_ip"] = None
         __props__.__dict__["ingest_port"] = None
         __props__.__dict__["max_bitrate"] = None
@@ -486,6 +507,14 @@ class FlowSource(pulumi.CustomResource):
         The ARN of the flow.
         """
         return pulumi.get(self, "flow_arn")
+
+    @property
+    @pulumi.getter(name="gatewayBridgeSource")
+    def gateway_bridge_source(self) -> pulumi.Output[Optional['outputs.FlowSourceGatewayBridgeSource']]:
+        """
+        The source configuration for cloud flows receiving a stream from a bridge.
+        """
+        return pulumi.get(self, "gateway_bridge_source")
 
     @property
     @pulumi.getter(name="ingestIp")

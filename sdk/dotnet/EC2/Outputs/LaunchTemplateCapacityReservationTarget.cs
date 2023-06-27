@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies a target Capacity Reservation.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateCapacityReservationTarget
     {
+        /// <summary>
+        /// The ID of the Capacity Reservation in which to run the instance.
+        /// </summary>
         public readonly string? CapacityReservationId;
+        /// <summary>
+        /// The ARN of the Capacity Reservation resource group in which to run the instance.
+        /// </summary>
         public readonly string? CapacityReservationResourceGroupArn;
 
         [OutputConstructor]

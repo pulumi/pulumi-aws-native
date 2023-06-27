@@ -10,6 +10,106 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AutoScalingConfigurationTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// AutoScalingConfigurationTagInput is an input type that accepts AutoScalingConfigurationTagArgs and AutoScalingConfigurationTagOutput values.
+// You can construct a concrete instance of `AutoScalingConfigurationTagInput` via:
+//
+//	AutoScalingConfigurationTagArgs{...}
+type AutoScalingConfigurationTagInput interface {
+	pulumi.Input
+
+	ToAutoScalingConfigurationTagOutput() AutoScalingConfigurationTagOutput
+	ToAutoScalingConfigurationTagOutputWithContext(context.Context) AutoScalingConfigurationTagOutput
+}
+
+type AutoScalingConfigurationTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (AutoScalingConfigurationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingConfigurationTag)(nil)).Elem()
+}
+
+func (i AutoScalingConfigurationTagArgs) ToAutoScalingConfigurationTagOutput() AutoScalingConfigurationTagOutput {
+	return i.ToAutoScalingConfigurationTagOutputWithContext(context.Background())
+}
+
+func (i AutoScalingConfigurationTagArgs) ToAutoScalingConfigurationTagOutputWithContext(ctx context.Context) AutoScalingConfigurationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingConfigurationTagOutput)
+}
+
+// AutoScalingConfigurationTagArrayInput is an input type that accepts AutoScalingConfigurationTagArray and AutoScalingConfigurationTagArrayOutput values.
+// You can construct a concrete instance of `AutoScalingConfigurationTagArrayInput` via:
+//
+//	AutoScalingConfigurationTagArray{ AutoScalingConfigurationTagArgs{...} }
+type AutoScalingConfigurationTagArrayInput interface {
+	pulumi.Input
+
+	ToAutoScalingConfigurationTagArrayOutput() AutoScalingConfigurationTagArrayOutput
+	ToAutoScalingConfigurationTagArrayOutputWithContext(context.Context) AutoScalingConfigurationTagArrayOutput
+}
+
+type AutoScalingConfigurationTagArray []AutoScalingConfigurationTagInput
+
+func (AutoScalingConfigurationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoScalingConfigurationTag)(nil)).Elem()
+}
+
+func (i AutoScalingConfigurationTagArray) ToAutoScalingConfigurationTagArrayOutput() AutoScalingConfigurationTagArrayOutput {
+	return i.ToAutoScalingConfigurationTagArrayOutputWithContext(context.Background())
+}
+
+func (i AutoScalingConfigurationTagArray) ToAutoScalingConfigurationTagArrayOutputWithContext(ctx context.Context) AutoScalingConfigurationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingConfigurationTagArrayOutput)
+}
+
+type AutoScalingConfigurationTagOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingConfigurationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingConfigurationTag)(nil)).Elem()
+}
+
+func (o AutoScalingConfigurationTagOutput) ToAutoScalingConfigurationTagOutput() AutoScalingConfigurationTagOutput {
+	return o
+}
+
+func (o AutoScalingConfigurationTagOutput) ToAutoScalingConfigurationTagOutputWithContext(ctx context.Context) AutoScalingConfigurationTagOutput {
+	return o
+}
+
+func (o AutoScalingConfigurationTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoScalingConfigurationTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingConfigurationTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoScalingConfigurationTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type AutoScalingConfigurationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingConfigurationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoScalingConfigurationTag)(nil)).Elem()
+}
+
+func (o AutoScalingConfigurationTagArrayOutput) ToAutoScalingConfigurationTagArrayOutput() AutoScalingConfigurationTagArrayOutput {
+	return o
+}
+
+func (o AutoScalingConfigurationTagArrayOutput) ToAutoScalingConfigurationTagArrayOutputWithContext(ctx context.Context) AutoScalingConfigurationTagArrayOutput {
+	return o
+}
+
+func (o AutoScalingConfigurationTagArrayOutput) Index(i pulumi.IntInput) AutoScalingConfigurationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoScalingConfigurationTag {
+		return vs[0].([]AutoScalingConfigurationTag)[vs[1].(int)]
+	}).(AutoScalingConfigurationTagOutput)
+}
+
 type ObservabilityConfigurationTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
@@ -3302,6 +3402,8 @@ func (o VpcIngressConnectionTagArrayOutput) Index(i pulumi.IntInput) VpcIngressC
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingConfigurationTagInput)(nil)).Elem(), AutoScalingConfigurationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingConfigurationTagArrayInput)(nil)).Elem(), AutoScalingConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationTagInput)(nil)).Elem(), ObservabilityConfigurationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationTagArrayInput)(nil)).Elem(), ObservabilityConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationTraceConfigurationInput)(nil)).Elem(), ObservabilityConfigurationTraceConfigurationArgs{})
@@ -3344,6 +3446,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIngressConnectionIngressVpcConfigurationInput)(nil)).Elem(), VpcIngressConnectionIngressVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIngressConnectionTagInput)(nil)).Elem(), VpcIngressConnectionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIngressConnectionTagArrayInput)(nil)).Elem(), VpcIngressConnectionTagArray{})
+	pulumi.RegisterOutputType(AutoScalingConfigurationTagOutput{})
+	pulumi.RegisterOutputType(AutoScalingConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityConfigurationTagOutput{})
 	pulumi.RegisterOutputType(ObservabilityConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityConfigurationTraceConfigurationOutput{})

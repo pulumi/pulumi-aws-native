@@ -8974,6 +8974,142 @@ func (o WebACLAndStatementPtrOutput) Statements() WebACLStatementArrayOutput {
 	}).(WebACLStatementArrayOutput)
 }
 
+// AssociationConfig for body inspection
+type WebACLAssociationConfig struct {
+	RequestBody *WebACLRequestBody `pulumi:"requestBody"`
+}
+
+// WebACLAssociationConfigInput is an input type that accepts WebACLAssociationConfigArgs and WebACLAssociationConfigOutput values.
+// You can construct a concrete instance of `WebACLAssociationConfigInput` via:
+//
+//	WebACLAssociationConfigArgs{...}
+type WebACLAssociationConfigInput interface {
+	pulumi.Input
+
+	ToWebACLAssociationConfigOutput() WebACLAssociationConfigOutput
+	ToWebACLAssociationConfigOutputWithContext(context.Context) WebACLAssociationConfigOutput
+}
+
+// AssociationConfig for body inspection
+type WebACLAssociationConfigArgs struct {
+	RequestBody WebACLRequestBodyPtrInput `pulumi:"requestBody"`
+}
+
+func (WebACLAssociationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAssociationConfig)(nil)).Elem()
+}
+
+func (i WebACLAssociationConfigArgs) ToWebACLAssociationConfigOutput() WebACLAssociationConfigOutput {
+	return i.ToWebACLAssociationConfigOutputWithContext(context.Background())
+}
+
+func (i WebACLAssociationConfigArgs) ToWebACLAssociationConfigOutputWithContext(ctx context.Context) WebACLAssociationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAssociationConfigOutput)
+}
+
+func (i WebACLAssociationConfigArgs) ToWebACLAssociationConfigPtrOutput() WebACLAssociationConfigPtrOutput {
+	return i.ToWebACLAssociationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLAssociationConfigArgs) ToWebACLAssociationConfigPtrOutputWithContext(ctx context.Context) WebACLAssociationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAssociationConfigOutput).ToWebACLAssociationConfigPtrOutputWithContext(ctx)
+}
+
+// WebACLAssociationConfigPtrInput is an input type that accepts WebACLAssociationConfigArgs, WebACLAssociationConfigPtr and WebACLAssociationConfigPtrOutput values.
+// You can construct a concrete instance of `WebACLAssociationConfigPtrInput` via:
+//
+//	        WebACLAssociationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLAssociationConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebACLAssociationConfigPtrOutput() WebACLAssociationConfigPtrOutput
+	ToWebACLAssociationConfigPtrOutputWithContext(context.Context) WebACLAssociationConfigPtrOutput
+}
+
+type webACLAssociationConfigPtrType WebACLAssociationConfigArgs
+
+func WebACLAssociationConfigPtr(v *WebACLAssociationConfigArgs) WebACLAssociationConfigPtrInput {
+	return (*webACLAssociationConfigPtrType)(v)
+}
+
+func (*webACLAssociationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAssociationConfig)(nil)).Elem()
+}
+
+func (i *webACLAssociationConfigPtrType) ToWebACLAssociationConfigPtrOutput() WebACLAssociationConfigPtrOutput {
+	return i.ToWebACLAssociationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLAssociationConfigPtrType) ToWebACLAssociationConfigPtrOutputWithContext(ctx context.Context) WebACLAssociationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAssociationConfigPtrOutput)
+}
+
+// AssociationConfig for body inspection
+type WebACLAssociationConfigOutput struct{ *pulumi.OutputState }
+
+func (WebACLAssociationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAssociationConfig)(nil)).Elem()
+}
+
+func (o WebACLAssociationConfigOutput) ToWebACLAssociationConfigOutput() WebACLAssociationConfigOutput {
+	return o
+}
+
+func (o WebACLAssociationConfigOutput) ToWebACLAssociationConfigOutputWithContext(ctx context.Context) WebACLAssociationConfigOutput {
+	return o
+}
+
+func (o WebACLAssociationConfigOutput) ToWebACLAssociationConfigPtrOutput() WebACLAssociationConfigPtrOutput {
+	return o.ToWebACLAssociationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLAssociationConfigOutput) ToWebACLAssociationConfigPtrOutputWithContext(ctx context.Context) WebACLAssociationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLAssociationConfig) *WebACLAssociationConfig {
+		return &v
+	}).(WebACLAssociationConfigPtrOutput)
+}
+
+func (o WebACLAssociationConfigOutput) RequestBody() WebACLRequestBodyPtrOutput {
+	return o.ApplyT(func(v WebACLAssociationConfig) *WebACLRequestBody { return v.RequestBody }).(WebACLRequestBodyPtrOutput)
+}
+
+type WebACLAssociationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLAssociationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAssociationConfig)(nil)).Elem()
+}
+
+func (o WebACLAssociationConfigPtrOutput) ToWebACLAssociationConfigPtrOutput() WebACLAssociationConfigPtrOutput {
+	return o
+}
+
+func (o WebACLAssociationConfigPtrOutput) ToWebACLAssociationConfigPtrOutputWithContext(ctx context.Context) WebACLAssociationConfigPtrOutput {
+	return o
+}
+
+func (o WebACLAssociationConfigPtrOutput) Elem() WebACLAssociationConfigOutput {
+	return o.ApplyT(func(v *WebACLAssociationConfig) WebACLAssociationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLAssociationConfig
+		return ret
+	}).(WebACLAssociationConfigOutput)
+}
+
+func (o WebACLAssociationConfigPtrOutput) RequestBody() WebACLRequestBodyPtrOutput {
+	return o.ApplyT(func(v *WebACLAssociationConfig) *WebACLRequestBody {
+		if v == nil {
+			return nil
+		}
+		return v.RequestBody
+	}).(WebACLRequestBodyPtrOutput)
+}
+
 // Block traffic towards application.
 type WebACLBlockAction struct {
 	CustomResponse *WebACLCustomResponse `pulumi:"customResponse"`
@@ -14839,6 +14975,127 @@ func (o WebACLRegexPatternSetReferenceStatementPtrOutput) TextTransformations() 
 	}).(WebACLTextTransformationArrayOutput)
 }
 
+// Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+type WebACLRequestBody struct {
+}
+
+// WebACLRequestBodyInput is an input type that accepts WebACLRequestBodyArgs and WebACLRequestBodyOutput values.
+// You can construct a concrete instance of `WebACLRequestBodyInput` via:
+//
+//	WebACLRequestBodyArgs{...}
+type WebACLRequestBodyInput interface {
+	pulumi.Input
+
+	ToWebACLRequestBodyOutput() WebACLRequestBodyOutput
+	ToWebACLRequestBodyOutputWithContext(context.Context) WebACLRequestBodyOutput
+}
+
+// Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+type WebACLRequestBodyArgs struct {
+}
+
+func (WebACLRequestBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRequestBody)(nil)).Elem()
+}
+
+func (i WebACLRequestBodyArgs) ToWebACLRequestBodyOutput() WebACLRequestBodyOutput {
+	return i.ToWebACLRequestBodyOutputWithContext(context.Background())
+}
+
+func (i WebACLRequestBodyArgs) ToWebACLRequestBodyOutputWithContext(ctx context.Context) WebACLRequestBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRequestBodyOutput)
+}
+
+func (i WebACLRequestBodyArgs) ToWebACLRequestBodyPtrOutput() WebACLRequestBodyPtrOutput {
+	return i.ToWebACLRequestBodyPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRequestBodyArgs) ToWebACLRequestBodyPtrOutputWithContext(ctx context.Context) WebACLRequestBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRequestBodyOutput).ToWebACLRequestBodyPtrOutputWithContext(ctx)
+}
+
+// WebACLRequestBodyPtrInput is an input type that accepts WebACLRequestBodyArgs, WebACLRequestBodyPtr and WebACLRequestBodyPtrOutput values.
+// You can construct a concrete instance of `WebACLRequestBodyPtrInput` via:
+//
+//	        WebACLRequestBodyArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRequestBodyPtrInput interface {
+	pulumi.Input
+
+	ToWebACLRequestBodyPtrOutput() WebACLRequestBodyPtrOutput
+	ToWebACLRequestBodyPtrOutputWithContext(context.Context) WebACLRequestBodyPtrOutput
+}
+
+type webACLRequestBodyPtrType WebACLRequestBodyArgs
+
+func WebACLRequestBodyPtr(v *WebACLRequestBodyArgs) WebACLRequestBodyPtrInput {
+	return (*webACLRequestBodyPtrType)(v)
+}
+
+func (*webACLRequestBodyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRequestBody)(nil)).Elem()
+}
+
+func (i *webACLRequestBodyPtrType) ToWebACLRequestBodyPtrOutput() WebACLRequestBodyPtrOutput {
+	return i.ToWebACLRequestBodyPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRequestBodyPtrType) ToWebACLRequestBodyPtrOutputWithContext(ctx context.Context) WebACLRequestBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRequestBodyPtrOutput)
+}
+
+// Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+type WebACLRequestBodyOutput struct{ *pulumi.OutputState }
+
+func (WebACLRequestBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRequestBody)(nil)).Elem()
+}
+
+func (o WebACLRequestBodyOutput) ToWebACLRequestBodyOutput() WebACLRequestBodyOutput {
+	return o
+}
+
+func (o WebACLRequestBodyOutput) ToWebACLRequestBodyOutputWithContext(ctx context.Context) WebACLRequestBodyOutput {
+	return o
+}
+
+func (o WebACLRequestBodyOutput) ToWebACLRequestBodyPtrOutput() WebACLRequestBodyPtrOutput {
+	return o.ToWebACLRequestBodyPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRequestBodyOutput) ToWebACLRequestBodyPtrOutputWithContext(ctx context.Context) WebACLRequestBodyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRequestBody) *WebACLRequestBody {
+		return &v
+	}).(WebACLRequestBodyPtrOutput)
+}
+
+type WebACLRequestBodyPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRequestBodyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRequestBody)(nil)).Elem()
+}
+
+func (o WebACLRequestBodyPtrOutput) ToWebACLRequestBodyPtrOutput() WebACLRequestBodyPtrOutput {
+	return o
+}
+
+func (o WebACLRequestBodyPtrOutput) ToWebACLRequestBodyPtrOutputWithContext(ctx context.Context) WebACLRequestBodyPtrOutput {
+	return o
+}
+
+func (o WebACLRequestBodyPtrOutput) Elem() WebACLRequestBodyOutput {
+	return o.ApplyT(func(v *WebACLRequestBody) WebACLRequestBody {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRequestBody
+		return ret
+	}).(WebACLRequestBodyOutput)
+}
+
 // Configures the inspection of login requests
 type WebACLRequestInspection struct {
 	PasswordField WebACLFieldIdentifier              `pulumi:"passwordField"`
@@ -17766,6 +18023,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAllowActionPtrInput)(nil)).Elem(), WebACLAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAndStatementInput)(nil)).Elem(), WebACLAndStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAndStatementPtrInput)(nil)).Elem(), WebACLAndStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAssociationConfigInput)(nil)).Elem(), WebACLAssociationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAssociationConfigPtrInput)(nil)).Elem(), WebACLAssociationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLBlockActionInput)(nil)).Elem(), WebACLBlockActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLBlockActionPtrInput)(nil)).Elem(), WebACLBlockActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLBodyInput)(nil)).Elem(), WebACLBodyArgs{})
@@ -17843,6 +18102,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRegexMatchStatementPtrInput)(nil)).Elem(), WebACLRegexMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRegexPatternSetReferenceStatementInput)(nil)).Elem(), WebACLRegexPatternSetReferenceStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRegexPatternSetReferenceStatementPtrInput)(nil)).Elem(), WebACLRegexPatternSetReferenceStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestBodyInput)(nil)).Elem(), WebACLRequestBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestBodyPtrInput)(nil)).Elem(), WebACLRequestBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionInput)(nil)).Elem(), WebACLRequestInspectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionPtrInput)(nil)).Elem(), WebACLRequestInspectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionInput)(nil)).Elem(), WebACLResponseInspectionArgs{})
@@ -17998,6 +18259,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLAllowActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLAndStatementOutput{})
 	pulumi.RegisterOutputType(WebACLAndStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLAssociationConfigOutput{})
+	pulumi.RegisterOutputType(WebACLAssociationConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebACLBlockActionOutput{})
 	pulumi.RegisterOutputType(WebACLBlockActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLBodyOutput{})
@@ -18076,6 +18339,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLRegexMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRegexPatternSetReferenceStatementOutput{})
 	pulumi.RegisterOutputType(WebACLRegexPatternSetReferenceStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRequestBodyOutput{})
+	pulumi.RegisterOutputType(WebACLRequestBodyPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRequestInspectionOutput{})
 	pulumi.RegisterOutputType(WebACLRequestInspectionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLResponseInspectionOutput{})

@@ -11,17 +11,26 @@ export function getServiceLinkedRole(args: GetServiceLinkedRoleArgs, opts?: pulu
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getServiceLinkedRole", {
-        "id": args.id,
+        "roleName": args.roleName,
     }, opts);
 }
 
 export interface GetServiceLinkedRoleArgs {
-    id: string;
+    /**
+     * The name of the role.
+     */
+    roleName: string;
 }
 
 export interface GetServiceLinkedRoleResult {
+    /**
+     * The description of the role.
+     */
     readonly description?: string;
-    readonly id?: string;
+    /**
+     * The name of the role.
+     */
+    readonly roleName?: string;
 }
 /**
  * Resource Type definition for AWS::IAM::ServiceLinkedRole
@@ -31,5 +40,8 @@ export function getServiceLinkedRoleOutput(args: GetServiceLinkedRoleOutputArgs,
 }
 
 export interface GetServiceLinkedRoleOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the role.
+     */
+    roleName: pulumi.Input<string>;
 }

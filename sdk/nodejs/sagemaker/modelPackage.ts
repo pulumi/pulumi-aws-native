@@ -37,20 +37,16 @@ export class ModelPackage extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModelPackage.__pulumiType;
     }
 
-    public readonly additionalInferenceSpecificationDefinition!: pulumi.Output<outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition | undefined>;
     public readonly additionalInferenceSpecifications!: pulumi.Output<outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition[] | undefined>;
     public readonly additionalInferenceSpecificationsToAdd!: pulumi.Output<outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition[] | undefined>;
     public readonly approvalDescription!: pulumi.Output<string | undefined>;
     public readonly certifyForMarketplace!: pulumi.Output<boolean | undefined>;
     public readonly clientToken!: pulumi.Output<string | undefined>;
-    public readonly createdBy!: pulumi.Output<outputs.sagemaker.ModelPackageCreatedBy | undefined>;
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public readonly customerMetadataProperties!: pulumi.Output<outputs.sagemaker.ModelPackageCustomerMetadataProperties | undefined>;
     public readonly domain!: pulumi.Output<string | undefined>;
     public readonly driftCheckBaselines!: pulumi.Output<outputs.sagemaker.ModelPackageDriftCheckBaselines | undefined>;
-    public readonly environment!: pulumi.Output<outputs.sagemaker.ModelPackageEnvironment | undefined>;
     public readonly inferenceSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageInferenceSpecification | undefined>;
-    public readonly lastModifiedBy!: pulumi.Output<outputs.sagemaker.ModelPackageLastModifiedBy | undefined>;
     public readonly lastModifiedTime!: pulumi.Output<string | undefined>;
     public readonly metadataProperties!: pulumi.Output<outputs.sagemaker.ModelPackageMetadataProperties | undefined>;
     public readonly modelApprovalStatus!: pulumi.Output<enums.sagemaker.ModelPackageModelApprovalStatus | undefined>;
@@ -61,7 +57,6 @@ export class ModelPackage extends pulumi.CustomResource {
     public readonly modelPackageName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly modelPackageStatus!: pulumi.Output<enums.sagemaker.ModelPackageStatus>;
     public readonly modelPackageStatusDetails!: pulumi.Output<outputs.sagemaker.ModelPackageStatusDetails | undefined>;
-    public readonly modelPackageStatusItem!: pulumi.Output<outputs.sagemaker.ModelPackageStatusItem | undefined>;
     public readonly modelPackageVersion!: pulumi.Output<number | undefined>;
     public readonly samplePayloadUrl!: pulumi.Output<string | undefined>;
     public readonly sourceAlgorithmSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageSourceAlgorithmSpecification | undefined>;
@@ -83,19 +78,15 @@ export class ModelPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["additionalInferenceSpecificationDefinition"] = args ? args.additionalInferenceSpecificationDefinition : undefined;
             resourceInputs["additionalInferenceSpecifications"] = args ? args.additionalInferenceSpecifications : undefined;
             resourceInputs["additionalInferenceSpecificationsToAdd"] = args ? args.additionalInferenceSpecificationsToAdd : undefined;
             resourceInputs["approvalDescription"] = args ? args.approvalDescription : undefined;
             resourceInputs["certifyForMarketplace"] = args ? args.certifyForMarketplace : undefined;
             resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
             resourceInputs["customerMetadataProperties"] = args ? args.customerMetadataProperties : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["driftCheckBaselines"] = args ? args.driftCheckBaselines : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["inferenceSpecification"] = args ? args.inferenceSpecification : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
             resourceInputs["lastModifiedTime"] = args ? args.lastModifiedTime : undefined;
             resourceInputs["metadataProperties"] = args ? args.metadataProperties : undefined;
             resourceInputs["modelApprovalStatus"] = args ? args.modelApprovalStatus : undefined;
@@ -104,7 +95,6 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
             resourceInputs["modelPackageName"] = args ? args.modelPackageName : undefined;
             resourceInputs["modelPackageStatusDetails"] = args ? args.modelPackageStatusDetails : undefined;
-            resourceInputs["modelPackageStatusItem"] = args ? args.modelPackageStatusItem : undefined;
             resourceInputs["modelPackageVersion"] = args ? args.modelPackageVersion : undefined;
             resourceInputs["samplePayloadUrl"] = args ? args.samplePayloadUrl : undefined;
             resourceInputs["sourceAlgorithmSpecification"] = args ? args.sourceAlgorithmSpecification : undefined;
@@ -115,20 +105,16 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["modelPackageArn"] = undefined /*out*/;
             resourceInputs["modelPackageStatus"] = undefined /*out*/;
         } else {
-            resourceInputs["additionalInferenceSpecificationDefinition"] = undefined /*out*/;
             resourceInputs["additionalInferenceSpecifications"] = undefined /*out*/;
             resourceInputs["additionalInferenceSpecificationsToAdd"] = undefined /*out*/;
             resourceInputs["approvalDescription"] = undefined /*out*/;
             resourceInputs["certifyForMarketplace"] = undefined /*out*/;
             resourceInputs["clientToken"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["customerMetadataProperties"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["driftCheckBaselines"] = undefined /*out*/;
-            resourceInputs["environment"] = undefined /*out*/;
             resourceInputs["inferenceSpecification"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["metadataProperties"] = undefined /*out*/;
             resourceInputs["modelApprovalStatus"] = undefined /*out*/;
@@ -139,7 +125,6 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["modelPackageName"] = undefined /*out*/;
             resourceInputs["modelPackageStatus"] = undefined /*out*/;
             resourceInputs["modelPackageStatusDetails"] = undefined /*out*/;
-            resourceInputs["modelPackageStatusItem"] = undefined /*out*/;
             resourceInputs["modelPackageVersion"] = undefined /*out*/;
             resourceInputs["samplePayloadUrl"] = undefined /*out*/;
             resourceInputs["sourceAlgorithmSpecification"] = undefined /*out*/;
@@ -156,19 +141,15 @@ export class ModelPackage extends pulumi.CustomResource {
  * The set of arguments for constructing a ModelPackage resource.
  */
 export interface ModelPackageArgs {
-    additionalInferenceSpecificationDefinition?: pulumi.Input<inputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinitionArgs>;
     additionalInferenceSpecifications?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinitionArgs>[]>;
     additionalInferenceSpecificationsToAdd?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinitionArgs>[]>;
     approvalDescription?: pulumi.Input<string>;
     certifyForMarketplace?: pulumi.Input<boolean>;
     clientToken?: pulumi.Input<string>;
-    createdBy?: pulumi.Input<inputs.sagemaker.ModelPackageCreatedByArgs>;
     customerMetadataProperties?: pulumi.Input<inputs.sagemaker.ModelPackageCustomerMetadataPropertiesArgs>;
     domain?: pulumi.Input<string>;
     driftCheckBaselines?: pulumi.Input<inputs.sagemaker.ModelPackageDriftCheckBaselinesArgs>;
-    environment?: pulumi.Input<inputs.sagemaker.ModelPackageEnvironmentArgs>;
     inferenceSpecification?: pulumi.Input<inputs.sagemaker.ModelPackageInferenceSpecificationArgs>;
-    lastModifiedBy?: pulumi.Input<inputs.sagemaker.ModelPackageLastModifiedByArgs>;
     lastModifiedTime?: pulumi.Input<string>;
     metadataProperties?: pulumi.Input<inputs.sagemaker.ModelPackageMetadataPropertiesArgs>;
     modelApprovalStatus?: pulumi.Input<enums.sagemaker.ModelPackageModelApprovalStatus>;
@@ -177,7 +158,6 @@ export interface ModelPackageArgs {
     modelPackageGroupName?: pulumi.Input<string>;
     modelPackageName?: pulumi.Input<string>;
     modelPackageStatusDetails?: pulumi.Input<inputs.sagemaker.ModelPackageStatusDetailsArgs>;
-    modelPackageStatusItem?: pulumi.Input<inputs.sagemaker.ModelPackageStatusItemArgs>;
     modelPackageVersion?: pulumi.Input<number>;
     samplePayloadUrl?: pulumi.Input<string>;
     sourceAlgorithmSpecification?: pulumi.Input<inputs.sagemaker.ModelPackageSourceAlgorithmSpecificationArgs>;

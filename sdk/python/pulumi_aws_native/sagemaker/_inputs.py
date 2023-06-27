@@ -167,7 +167,6 @@ __all__ = [
     'ModelPackageBiasArgs',
     'ModelPackageContainerDefinitionModelInputPropertiesArgs',
     'ModelPackageContainerDefinitionArgs',
-    'ModelPackageCreatedByArgs',
     'ModelPackageCustomerMetadataPropertiesArgs',
     'ModelPackageDataSourceArgs',
     'ModelPackageDriftCheckBaselinesArgs',
@@ -180,7 +179,6 @@ __all__ = [
     'ModelPackageFileSourceArgs',
     'ModelPackageGroupTagArgs',
     'ModelPackageInferenceSpecificationArgs',
-    'ModelPackageLastModifiedByArgs',
     'ModelPackageMetadataPropertiesArgs',
     'ModelPackageMetricsSourceArgs',
     'ModelPackageModelDataQualityArgs',
@@ -7588,8 +7586,7 @@ class ModelPackageContainerDefinitionArgs:
                  image_digest: Optional[pulumi.Input[str]] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None,
                  model_input: Optional[pulumi.Input['ModelPackageContainerDefinitionModelInputPropertiesArgs']] = None,
-                 nearest_model_name: Optional[pulumi.Input[str]] = None,
-                 product_id: Optional[pulumi.Input[str]] = None):
+                 nearest_model_name: Optional[pulumi.Input[str]] = None):
         """
         Describes the Docker container for the model package.
         :param pulumi.Input[str] image: The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
@@ -7599,7 +7596,6 @@ class ModelPackageContainerDefinitionArgs:
         :param pulumi.Input[str] image_digest: An MD5 hash of the training algorithm that identifies the Docker image used for training.
         :param pulumi.Input[str] model_data_url: A structure with Model Input details.
         :param pulumi.Input[str] nearest_model_name: The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
-        :param pulumi.Input[str] product_id: The AWS Marketplace product ID of the model package.
         """
         pulumi.set(__self__, "image", image)
         if container_hostname is not None:
@@ -7618,8 +7614,6 @@ class ModelPackageContainerDefinitionArgs:
             pulumi.set(__self__, "model_input", model_input)
         if nearest_model_name is not None:
             pulumi.set(__self__, "nearest_model_name", nearest_model_name)
-        if product_id is not None:
-            pulumi.set(__self__, "product_id", product_id)
 
     @property
     @pulumi.getter
@@ -7722,24 +7716,6 @@ class ModelPackageContainerDefinitionArgs:
     @nearest_model_name.setter
     def nearest_model_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "nearest_model_name", value)
-
-    @property
-    @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The AWS Marketplace product ID of the model package.
-        """
-        return pulumi.get(self, "product_id")
-
-    @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "product_id", value)
-
-
-@pulumi.input_type
-class ModelPackageCreatedByArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -8174,12 +8150,6 @@ class ModelPackageInferenceSpecificationArgs:
 
 
 @pulumi.input_type
-class ModelPackageLastModifiedByArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class ModelPackageMetadataPropertiesArgs:
     def __init__(__self__, *,
                  commit_id: Optional[pulumi.Input[str]] = None,
@@ -8528,32 +8498,21 @@ class ModelPackageSourceAlgorithmArgs:
 @pulumi.input_type
 class ModelPackageStatusDetailsArgs:
     def __init__(__self__, *,
-                 validation_statuses: pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]],
-                 image_scan_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]] = None):
+                 validation_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]] = None):
         """
         Details about the current status of the model package.
         """
-        pulumi.set(__self__, "validation_statuses", validation_statuses)
-        if image_scan_statuses is not None:
-            pulumi.set(__self__, "image_scan_statuses", image_scan_statuses)
+        if validation_statuses is not None:
+            pulumi.set(__self__, "validation_statuses", validation_statuses)
 
     @property
     @pulumi.getter(name="validationStatuses")
-    def validation_statuses(self) -> pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]:
+    def validation_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]]:
         return pulumi.get(self, "validation_statuses")
 
     @validation_statuses.setter
-    def validation_statuses(self, value: pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]):
+    def validation_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]]):
         pulumi.set(self, "validation_statuses", value)
-
-    @property
-    @pulumi.getter(name="imageScanStatuses")
-    def image_scan_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]]:
-        return pulumi.get(self, "image_scan_statuses")
-
-    @image_scan_statuses.setter
-    def image_scan_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]]):
-        pulumi.set(self, "image_scan_statuses", value)
 
 
 @pulumi.input_type

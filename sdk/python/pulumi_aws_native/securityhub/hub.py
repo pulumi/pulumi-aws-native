@@ -14,12 +14,48 @@ __all__ = ['HubArgs', 'Hub']
 @pulumi.input_type
 class HubArgs:
     def __init__(__self__, *,
+                 auto_enable_controls: Optional[pulumi.Input[bool]] = None,
+                 control_finding_generator: Optional[pulumi.Input[str]] = None,
+                 enable_default_standards: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Hub resource.
         """
+        if auto_enable_controls is not None:
+            pulumi.set(__self__, "auto_enable_controls", auto_enable_controls)
+        if control_finding_generator is not None:
+            pulumi.set(__self__, "control_finding_generator", control_finding_generator)
+        if enable_default_standards is not None:
+            pulumi.set(__self__, "enable_default_standards", enable_default_standards)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="autoEnableControls")
+    def auto_enable_controls(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "auto_enable_controls")
+
+    @auto_enable_controls.setter
+    def auto_enable_controls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_enable_controls", value)
+
+    @property
+    @pulumi.getter(name="controlFindingGenerator")
+    def control_finding_generator(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "control_finding_generator")
+
+    @control_finding_generator.setter
+    def control_finding_generator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "control_finding_generator", value)
+
+    @property
+    @pulumi.getter(name="enableDefaultStandards")
+    def enable_default_standards(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_default_standards")
+
+    @enable_default_standards.setter
+    def enable_default_standards(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_default_standards", value)
 
     @property
     @pulumi.getter
@@ -41,6 +77,9 @@ class Hub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_enable_controls: Optional[pulumi.Input[bool]] = None,
+                 control_finding_generator: Optional[pulumi.Input[str]] = None,
+                 enable_default_standards: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
         """
@@ -73,6 +112,9 @@ class Hub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_enable_controls: Optional[pulumi.Input[bool]] = None,
+                 control_finding_generator: Optional[pulumi.Input[str]] = None,
+                 enable_default_standards: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
         pulumi.log.warn("""Hub is deprecated: Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -84,6 +126,9 @@ class Hub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HubArgs.__new__(HubArgs)
 
+            __props__.__dict__["auto_enable_controls"] = auto_enable_controls
+            __props__.__dict__["control_finding_generator"] = control_finding_generator
+            __props__.__dict__["enable_default_standards"] = enable_default_standards
             __props__.__dict__["tags"] = tags
         super(Hub, __self__).__init__(
             'aws-native:securityhub:Hub',
@@ -107,8 +152,26 @@ class Hub(pulumi.CustomResource):
 
         __props__ = HubArgs.__new__(HubArgs)
 
+        __props__.__dict__["auto_enable_controls"] = None
+        __props__.__dict__["control_finding_generator"] = None
+        __props__.__dict__["enable_default_standards"] = None
         __props__.__dict__["tags"] = None
         return Hub(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoEnableControls")
+    def auto_enable_controls(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "auto_enable_controls")
+
+    @property
+    @pulumi.getter(name="controlFindingGenerator")
+    def control_finding_generator(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "control_finding_generator")
+
+    @property
+    @pulumi.getter(name="enableDefaultStandards")
+    def enable_default_standards(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_default_standards")
 
     @property
     @pulumi.getter

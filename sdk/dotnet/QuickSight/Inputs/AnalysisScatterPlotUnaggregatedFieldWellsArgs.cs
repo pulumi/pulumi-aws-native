@@ -12,6 +12,22 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisScatterPlotUnaggregatedFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("category")]
+        private InputList<Inputs.AnalysisDimensionFieldArgs>? _category;
+        public InputList<Inputs.AnalysisDimensionFieldArgs> Category
+        {
+            get => _category ?? (_category = new InputList<Inputs.AnalysisDimensionFieldArgs>());
+            set => _category = value;
+        }
+
+        [Input("label")]
+        private InputList<Inputs.AnalysisDimensionFieldArgs>? _label;
+        public InputList<Inputs.AnalysisDimensionFieldArgs> Label
+        {
+            get => _label ?? (_label = new InputList<Inputs.AnalysisDimensionFieldArgs>());
+            set => _label = value;
+        }
+
         [Input("size")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _size;
         public InputList<Inputs.AnalysisMeasureFieldArgs> Size

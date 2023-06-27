@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// The minimum and maximum amount of total local storage, in GB.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateTotalLocalStorageGB
     {

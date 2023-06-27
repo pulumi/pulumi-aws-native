@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// </summary>
         public readonly string? EntitlementArn;
         /// <summary>
+        /// The source configuration for cloud flows receiving a stream from a bridge.
+        /// </summary>
+        public readonly Outputs.FlowGatewayBridgeSource? GatewayBridgeSource;
+        /// <summary>
         /// The IP address that the flow will be listening on for incoming content.
         /// </summary>
         public readonly string? IngestIp;
@@ -101,6 +105,8 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             string? entitlementArn,
 
+            Outputs.FlowGatewayBridgeSource? gatewayBridgeSource,
+
             string? ingestIp,
 
             int? ingestPort,
@@ -136,6 +142,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
             Decryption = decryption;
             Description = description;
             EntitlementArn = entitlementArn;
+            GatewayBridgeSource = gatewayBridgeSource;
             IngestIp = ingestIp;
             IngestPort = ingestPort;
             MaxBitrate = maxBitrate;

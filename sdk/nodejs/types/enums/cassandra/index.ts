@@ -2,6 +2,34 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const KeyspaceRegionListItem = {
+    ApNortheast1: "ap-northeast-1",
+    ApNortheast2: "ap-northeast-2",
+    ApSouth1: "ap-south-1",
+    ApSoutheast1: "ap-southeast-1",
+    ApSoutheast2: "ap-southeast-2",
+    CaCentral1: "ca-central-1",
+    EuCentral1: "eu-central-1",
+    EuNorth1: "eu-north-1",
+    EuWest1: "eu-west-1",
+    EuWest2: "eu-west-2",
+    EuWest3: "eu-west-3",
+    SaEast1: "sa-east-1",
+    UsEast1: "us-east-1",
+    UsEast2: "us-east-2",
+    UsWest1: "us-west-1",
+    UsWest2: "us-west-2",
+} as const;
+
+export type KeyspaceRegionListItem = (typeof KeyspaceRegionListItem)[keyof typeof KeyspaceRegionListItem];
+
+export const KeyspaceReplicationSpecificationReplicationStrategy = {
+    SingleRegion: "SINGLE_REGION",
+    MultiRegion: "MULTI_REGION",
+} as const;
+
+export type KeyspaceReplicationSpecificationReplicationStrategy = (typeof KeyspaceReplicationSpecificationReplicationStrategy)[keyof typeof KeyspaceReplicationSpecificationReplicationStrategy];
+
 export const TableClusteringKeyColumnOrderBy = {
     Asc: "ASC",
     Desc: "DESC",

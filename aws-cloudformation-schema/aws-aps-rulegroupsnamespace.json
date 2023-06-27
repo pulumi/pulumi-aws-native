@@ -69,16 +69,16 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "aps:CreateRuleGroupsNamespace", "aps:TagResource" ]
+      "permissions" : [ "aps:CreateRuleGroupsNamespace", "aps:DescribeRuleGroupsNamespace", "aps:TagResource" ]
     },
     "read" : {
       "permissions" : [ "aps:DescribeRuleGroupsNamespace", "aps:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "aps:PutRuleGroupsNamespace", "aps:TagResource", "aps:UntagResource", "aps:ListTagsForResource" ]
+      "permissions" : [ "aps:PutRuleGroupsNamespace", "aps:DescribeRuleGroupsNamespace", "aps:TagResource", "aps:UntagResource", "aps:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "aps:DeleteRuleGroupsNamespace" ]
+      "permissions" : [ "aps:DeleteRuleGroupsNamespace", "aps:DescribeRuleGroupsNamespace" ]
     },
     "list" : {
       "permissions" : [ "aps:ListRuleGroupsNamespaces", "aps:ListTagsForResource" ]

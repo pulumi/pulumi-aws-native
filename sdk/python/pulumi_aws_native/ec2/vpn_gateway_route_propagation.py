@@ -18,8 +18,6 @@ class VPNGatewayRoutePropagationArgs:
                  vpn_gateway_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a VPNGatewayRoutePropagation resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
-        :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
         """
         pulumi.set(__self__, "route_table_ids", route_table_ids)
         pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
@@ -27,9 +25,6 @@ class VPNGatewayRoutePropagationArgs:
     @property
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
-        """
         return pulumi.get(self, "route_table_ids")
 
     @route_table_ids.setter
@@ -39,9 +34,6 @@ class VPNGatewayRoutePropagationArgs:
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
-        """
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -67,8 +59,6 @@ class VPNGatewayRoutePropagation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
-        :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
         """
         ...
     @overload
@@ -141,16 +131,10 @@ class VPNGatewayRoutePropagation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
-        """
         return pulumi.get(self, "route_table_ids")
 
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
-        """
         return pulumi.get(self, "vpn_gateway_id")
 

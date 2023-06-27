@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Cassandra
         [Output("keyspaceName")]
         public Output<string?> KeyspaceName { get; private set; } = null!;
 
+        [Output("replicationSpecification")]
+        public Output<Outputs.KeyspaceReplicationSpecification?> ReplicationSpecification { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.KeyspaceTag>> Tags { get; private set; } = null!;
 
@@ -74,6 +77,9 @@ namespace Pulumi.AwsNative.Cassandra
         /// </summary>
         [Input("keyspaceName")]
         public Input<string>? KeyspaceName { get; set; }
+
+        [Input("replicationSpecification")]
+        public Input<Inputs.KeyspaceReplicationSpecificationArgs>? ReplicationSpecification { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.KeyspaceTagArgs>? _tags;

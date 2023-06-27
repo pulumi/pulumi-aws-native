@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// TThe minimum and maximum number of network interfaces.
+    /// </summary>
     public sealed class LaunchTemplateNetworkInterfaceCountArgs : global::Pulumi.ResourceArgs
     {
         [Input("max")]

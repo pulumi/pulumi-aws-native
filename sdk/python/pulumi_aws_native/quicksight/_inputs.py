@@ -58,7 +58,6 @@ __all__ = [
     'AnalysisClusterMarkerConfigurationArgs',
     'AnalysisClusterMarkerArgs',
     'AnalysisColorScaleArgs',
-    'AnalysisColorsConfigurationArgs',
     'AnalysisColumnConfigurationArgs',
     'AnalysisColumnHierarchyArgs',
     'AnalysisColumnIdentifierArgs',
@@ -86,7 +85,6 @@ __all__ = [
     'AnalysisCustomActionNavigationOperationArgs',
     'AnalysisCustomActionSetParametersOperationArgs',
     'AnalysisCustomActionURLOperationArgs',
-    'AnalysisCustomColorArgs',
     'AnalysisCustomContentConfigurationArgs',
     'AnalysisCustomContentVisualArgs',
     'AnalysisCustomFilterConfigurationArgs',
@@ -196,6 +194,9 @@ __all__ = [
     'AnalysisGaugeChartPrimaryValueConditionalFormattingArgs',
     'AnalysisGaugeChartVisualArgs',
     'AnalysisGeospatialCoordinateBoundsArgs',
+    'AnalysisGeospatialHeatmapColorScaleArgs',
+    'AnalysisGeospatialHeatmapConfigurationArgs',
+    'AnalysisGeospatialHeatmapDataColorArgs',
     'AnalysisGeospatialMapAggregatedFieldWellsArgs',
     'AnalysisGeospatialMapConfigurationArgs',
     'AnalysisGeospatialMapFieldWellsArgs',
@@ -310,6 +311,8 @@ __all__ = [
     'AnalysisPivotTableConditionalFormattingArgs',
     'AnalysisPivotTableConfigurationArgs',
     'AnalysisPivotTableDataPathOptionArgs',
+    'AnalysisPivotTableFieldCollapseStateOptionArgs',
+    'AnalysisPivotTableFieldCollapseStateTargetArgs',
     'AnalysisPivotTableFieldOptionsArgs',
     'AnalysisPivotTableFieldOptionArgs',
     'AnalysisPivotTableFieldSubtotalOptionsArgs',
@@ -509,7 +512,6 @@ __all__ = [
     'DashboardClusterMarkerConfigurationArgs',
     'DashboardClusterMarkerArgs',
     'DashboardColorScaleArgs',
-    'DashboardColorsConfigurationArgs',
     'DashboardColumnConfigurationArgs',
     'DashboardColumnHierarchyArgs',
     'DashboardColumnIdentifierArgs',
@@ -537,7 +539,6 @@ __all__ = [
     'DashboardCustomActionNavigationOperationArgs',
     'DashboardCustomActionSetParametersOperationArgs',
     'DashboardCustomActionURLOperationArgs',
-    'DashboardCustomColorArgs',
     'DashboardCustomContentConfigurationArgs',
     'DashboardCustomContentVisualArgs',
     'DashboardCustomFilterConfigurationArgs',
@@ -651,6 +652,9 @@ __all__ = [
     'DashboardGaugeChartPrimaryValueConditionalFormattingArgs',
     'DashboardGaugeChartVisualArgs',
     'DashboardGeospatialCoordinateBoundsArgs',
+    'DashboardGeospatialHeatmapColorScaleArgs',
+    'DashboardGeospatialHeatmapConfigurationArgs',
+    'DashboardGeospatialHeatmapDataColorArgs',
     'DashboardGeospatialMapAggregatedFieldWellsArgs',
     'DashboardGeospatialMapConfigurationArgs',
     'DashboardGeospatialMapFieldWellsArgs',
@@ -765,6 +769,8 @@ __all__ = [
     'DashboardPivotTableConditionalFormattingArgs',
     'DashboardPivotTableConfigurationArgs',
     'DashboardPivotTableDataPathOptionArgs',
+    'DashboardPivotTableFieldCollapseStateOptionArgs',
+    'DashboardPivotTableFieldCollapseStateTargetArgs',
     'DashboardPivotTableFieldOptionsArgs',
     'DashboardPivotTableFieldOptionArgs',
     'DashboardPivotTableFieldSubtotalOptionsArgs',
@@ -1026,7 +1032,6 @@ __all__ = [
     'TemplateClusterMarkerConfigurationArgs',
     'TemplateClusterMarkerArgs',
     'TemplateColorScaleArgs',
-    'TemplateColorsConfigurationArgs',
     'TemplateColumnConfigurationArgs',
     'TemplateColumnGroupColumnSchemaArgs',
     'TemplateColumnGroupSchemaArgs',
@@ -1057,7 +1062,6 @@ __all__ = [
     'TemplateCustomActionNavigationOperationArgs',
     'TemplateCustomActionSetParametersOperationArgs',
     'TemplateCustomActionURLOperationArgs',
-    'TemplateCustomColorArgs',
     'TemplateCustomContentConfigurationArgs',
     'TemplateCustomContentVisualArgs',
     'TemplateCustomFilterConfigurationArgs',
@@ -1164,6 +1168,9 @@ __all__ = [
     'TemplateGaugeChartPrimaryValueConditionalFormattingArgs',
     'TemplateGaugeChartVisualArgs',
     'TemplateGeospatialCoordinateBoundsArgs',
+    'TemplateGeospatialHeatmapColorScaleArgs',
+    'TemplateGeospatialHeatmapConfigurationArgs',
+    'TemplateGeospatialHeatmapDataColorArgs',
     'TemplateGeospatialMapAggregatedFieldWellsArgs',
     'TemplateGeospatialMapConfigurationArgs',
     'TemplateGeospatialMapFieldWellsArgs',
@@ -1276,6 +1283,8 @@ __all__ = [
     'TemplatePivotTableConditionalFormattingArgs',
     'TemplatePivotTableConfigurationArgs',
     'TemplatePivotTableDataPathOptionArgs',
+    'TemplatePivotTableFieldCollapseStateOptionArgs',
+    'TemplatePivotTableFieldCollapseStateTargetArgs',
     'TemplatePivotTableFieldOptionsArgs',
     'TemplatePivotTableFieldOptionArgs',
     'TemplatePivotTableFieldSubtotalOptionsArgs',
@@ -1514,21 +1523,13 @@ class AnalysisAggregationFunctionArgs:
 @pulumi.input_type
 class AnalysisAggregationSortConfigurationArgs:
     def __init__(__self__, *,
-                 aggregation_function: pulumi.Input['AnalysisAggregationFunctionArgs'],
                  column: pulumi.Input['AnalysisColumnIdentifierArgs'],
-                 sort_direction: pulumi.Input['AnalysisSortDirection']):
-        pulumi.set(__self__, "aggregation_function", aggregation_function)
+                 sort_direction: pulumi.Input['AnalysisSortDirection'],
+                 aggregation_function: Optional[pulumi.Input['AnalysisAggregationFunctionArgs']] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "sort_direction", sort_direction)
-
-    @property
-    @pulumi.getter(name="aggregationFunction")
-    def aggregation_function(self) -> pulumi.Input['AnalysisAggregationFunctionArgs']:
-        return pulumi.get(self, "aggregation_function")
-
-    @aggregation_function.setter
-    def aggregation_function(self, value: pulumi.Input['AnalysisAggregationFunctionArgs']):
-        pulumi.set(self, "aggregation_function", value)
+        if aggregation_function is not None:
+            pulumi.set(__self__, "aggregation_function", aggregation_function)
 
     @property
     @pulumi.getter
@@ -1547,6 +1548,15 @@ class AnalysisAggregationSortConfigurationArgs:
     @sort_direction.setter
     def sort_direction(self, value: pulumi.Input['AnalysisSortDirection']):
         pulumi.set(self, "sort_direction", value)
+
+    @property
+    @pulumi.getter(name="aggregationFunction")
+    def aggregation_function(self) -> Optional[pulumi.Input['AnalysisAggregationFunctionArgs']]:
+        return pulumi.get(self, "aggregation_function")
+
+    @aggregation_function.setter
+    def aggregation_function(self, value: Optional[pulumi.Input['AnalysisAggregationFunctionArgs']]):
+        pulumi.set(self, "aggregation_function", value)
 
 
 @pulumi.input_type
@@ -3344,32 +3354,12 @@ class AnalysisColorScaleArgs:
 
 
 @pulumi.input_type
-class AnalysisColorsConfigurationArgs:
-    def __init__(__self__, *,
-                 custom_colors: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisCustomColorArgs']]]] = None):
-        if custom_colors is not None:
-            pulumi.set(__self__, "custom_colors", custom_colors)
-
-    @property
-    @pulumi.getter(name="customColors")
-    def custom_colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisCustomColorArgs']]]]:
-        return pulumi.get(self, "custom_colors")
-
-    @custom_colors.setter
-    def custom_colors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisCustomColorArgs']]]]):
-        pulumi.set(self, "custom_colors", value)
-
-
-@pulumi.input_type
 class AnalysisColumnConfigurationArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['AnalysisColumnIdentifierArgs'],
-                 colors_configuration: Optional[pulumi.Input['AnalysisColorsConfigurationArgs']] = None,
                  format_configuration: Optional[pulumi.Input['AnalysisFormatConfigurationArgs']] = None,
                  role: Optional[pulumi.Input['AnalysisColumnRole']] = None):
         pulumi.set(__self__, "column", column)
-        if colors_configuration is not None:
-            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -3383,15 +3373,6 @@ class AnalysisColumnConfigurationArgs:
     @column.setter
     def column(self, value: pulumi.Input['AnalysisColumnIdentifierArgs']):
         pulumi.set(self, "column", value)
-
-    @property
-    @pulumi.getter(name="colorsConfiguration")
-    def colors_configuration(self) -> Optional[pulumi.Input['AnalysisColorsConfigurationArgs']]:
-        return pulumi.get(self, "colors_configuration")
-
-    @colors_configuration.setter
-    def colors_configuration(self, value: Optional[pulumi.Input['AnalysisColorsConfigurationArgs']]):
-        pulumi.set(self, "colors_configuration", value)
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -4604,46 +4585,6 @@ class AnalysisCustomActionURLOperationArgs:
 
 
 @pulumi.input_type
-class AnalysisCustomColorArgs:
-    def __init__(__self__, *,
-                 color: pulumi.Input[str],
-                 field_value: Optional[pulumi.Input[str]] = None,
-                 special_value: Optional[pulumi.Input['AnalysisSpecialValue']] = None):
-        pulumi.set(__self__, "color", color)
-        if field_value is not None:
-            pulumi.set(__self__, "field_value", field_value)
-        if special_value is not None:
-            pulumi.set(__self__, "special_value", special_value)
-
-    @property
-    @pulumi.getter
-    def color(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "color")
-
-    @color.setter
-    def color(self, value: pulumi.Input[str]):
-        pulumi.set(self, "color", value)
-
-    @property
-    @pulumi.getter(name="fieldValue")
-    def field_value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "field_value")
-
-    @field_value.setter
-    def field_value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "field_value", value)
-
-    @property
-    @pulumi.getter(name="specialValue")
-    def special_value(self) -> Optional[pulumi.Input['AnalysisSpecialValue']]:
-        return pulumi.get(self, "special_value")
-
-    @special_value.setter
-    def special_value(self, value: Optional[pulumi.Input['AnalysisSpecialValue']]):
-        pulumi.set(self, "special_value", value)
-
-
-@pulumi.input_type
 class AnalysisCustomContentConfigurationArgs:
     def __init__(__self__, *,
                  content_type: Optional[pulumi.Input['AnalysisCustomContentType']] = None,
@@ -5101,6 +5042,7 @@ class AnalysisDataLabelOptionsArgs:
                  measure_label_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None,
                  overlap: Optional[pulumi.Input['AnalysisDataLabelOverlap']] = None,
                  position: Optional[pulumi.Input['AnalysisDataLabelPosition']] = None,
+                 totals_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None,
                  visibility: Optional[pulumi.Input['AnalysisVisibility']] = None):
         if category_label_visibility is not None:
             pulumi.set(__self__, "category_label_visibility", category_label_visibility)
@@ -5118,6 +5060,8 @@ class AnalysisDataLabelOptionsArgs:
             pulumi.set(__self__, "overlap", overlap)
         if position is not None:
             pulumi.set(__self__, "position", position)
+        if totals_visibility is not None:
+            pulumi.set(__self__, "totals_visibility", totals_visibility)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
 
@@ -5192,6 +5136,15 @@ class AnalysisDataLabelOptionsArgs:
     @position.setter
     def position(self, value: Optional[pulumi.Input['AnalysisDataLabelPosition']]):
         pulumi.set(self, "position", value)
+
+    @property
+    @pulumi.getter(name="totalsVisibility")
+    def totals_visibility(self) -> Optional[pulumi.Input['AnalysisVisibility']]:
+        return pulumi.get(self, "totals_visibility")
+
+    @totals_visibility.setter
+    def totals_visibility(self, value: Optional[pulumi.Input['AnalysisVisibility']]):
+        pulumi.set(self, "totals_visibility", value)
 
     @property
     @pulumi.getter
@@ -6254,12 +6207,15 @@ class AnalysisDestinationParameterValueConfigurationArgs:
     def __init__(__self__, *,
                  custom_values_configuration: Optional[pulumi.Input['AnalysisCustomValuesConfigurationArgs']] = None,
                  select_all_value_options: Optional[pulumi.Input['AnalysisSelectAllValueOptions']] = None,
+                 source_column: Optional[pulumi.Input['AnalysisColumnIdentifierArgs']] = None,
                  source_field: Optional[pulumi.Input[str]] = None,
                  source_parameter_name: Optional[pulumi.Input[str]] = None):
         if custom_values_configuration is not None:
             pulumi.set(__self__, "custom_values_configuration", custom_values_configuration)
         if select_all_value_options is not None:
             pulumi.set(__self__, "select_all_value_options", select_all_value_options)
+        if source_column is not None:
+            pulumi.set(__self__, "source_column", source_column)
         if source_field is not None:
             pulumi.set(__self__, "source_field", source_field)
         if source_parameter_name is not None:
@@ -6282,6 +6238,15 @@ class AnalysisDestinationParameterValueConfigurationArgs:
     @select_all_value_options.setter
     def select_all_value_options(self, value: Optional[pulumi.Input['AnalysisSelectAllValueOptions']]):
         pulumi.set(self, "select_all_value_options", value)
+
+    @property
+    @pulumi.getter(name="sourceColumn")
+    def source_column(self) -> Optional[pulumi.Input['AnalysisColumnIdentifierArgs']]:
+        return pulumi.get(self, "source_column")
+
+    @source_column.setter
+    def source_column(self, value: Optional[pulumi.Input['AnalysisColumnIdentifierArgs']]):
+        pulumi.set(self, "source_column", value)
 
     @property
     @pulumi.getter(name="sourceField")
@@ -7536,12 +7501,24 @@ class AnalysisFilterListControlArgs:
 @pulumi.input_type
 class AnalysisFilterOperationSelectedFieldsConfigurationArgs:
     def __init__(__self__, *,
+                 selected_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisColumnIdentifierArgs']]]] = None,
                  selected_field_options: Optional[pulumi.Input['AnalysisSelectedFieldOptions']] = None,
                  selected_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if selected_columns is not None:
+            pulumi.set(__self__, "selected_columns", selected_columns)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
         if selected_fields is not None:
             pulumi.set(__self__, "selected_fields", selected_fields)
+
+    @property
+    @pulumi.getter(name="selectedColumns")
+    def selected_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisColumnIdentifierArgs']]]]:
+        return pulumi.get(self, "selected_columns")
+
+    @selected_columns.setter
+    def selected_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisColumnIdentifierArgs']]]]):
+        pulumi.set(self, "selected_columns", value)
 
     @property
     @pulumi.getter(name="selectedFieldOptions")
@@ -9300,6 +9277,56 @@ class AnalysisGeospatialCoordinateBoundsArgs:
 
 
 @pulumi.input_type
+class AnalysisGeospatialHeatmapColorScaleArgs:
+    def __init__(__self__, *,
+                 colors: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisGeospatialHeatmapDataColorArgs']]]] = None):
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+
+    @property
+    @pulumi.getter
+    def colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisGeospatialHeatmapDataColorArgs']]]]:
+        return pulumi.get(self, "colors")
+
+    @colors.setter
+    def colors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisGeospatialHeatmapDataColorArgs']]]]):
+        pulumi.set(self, "colors", value)
+
+
+@pulumi.input_type
+class AnalysisGeospatialHeatmapConfigurationArgs:
+    def __init__(__self__, *,
+                 heatmap_color: Optional[pulumi.Input['AnalysisGeospatialHeatmapColorScaleArgs']] = None):
+        if heatmap_color is not None:
+            pulumi.set(__self__, "heatmap_color", heatmap_color)
+
+    @property
+    @pulumi.getter(name="heatmapColor")
+    def heatmap_color(self) -> Optional[pulumi.Input['AnalysisGeospatialHeatmapColorScaleArgs']]:
+        return pulumi.get(self, "heatmap_color")
+
+    @heatmap_color.setter
+    def heatmap_color(self, value: Optional[pulumi.Input['AnalysisGeospatialHeatmapColorScaleArgs']]):
+        pulumi.set(self, "heatmap_color", value)
+
+
+@pulumi.input_type
+class AnalysisGeospatialHeatmapDataColorArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[str]):
+        pulumi.set(__self__, "color", color)
+
+    @property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[str]):
+        pulumi.set(self, "color", value)
+
+
+@pulumi.input_type
 class AnalysisGeospatialMapAggregatedFieldWellsArgs:
     def __init__(__self__, *,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]] = None,
@@ -9543,9 +9570,12 @@ class AnalysisGeospatialMapVisualArgs:
 class AnalysisGeospatialPointStyleOptionsArgs:
     def __init__(__self__, *,
                  cluster_marker_configuration: Optional[pulumi.Input['AnalysisClusterMarkerConfigurationArgs']] = None,
+                 heatmap_configuration: Optional[pulumi.Input['AnalysisGeospatialHeatmapConfigurationArgs']] = None,
                  selected_point_style: Optional[pulumi.Input['AnalysisGeospatialSelectedPointStyle']] = None):
         if cluster_marker_configuration is not None:
             pulumi.set(__self__, "cluster_marker_configuration", cluster_marker_configuration)
+        if heatmap_configuration is not None:
+            pulumi.set(__self__, "heatmap_configuration", heatmap_configuration)
         if selected_point_style is not None:
             pulumi.set(__self__, "selected_point_style", selected_point_style)
 
@@ -9557,6 +9587,15 @@ class AnalysisGeospatialPointStyleOptionsArgs:
     @cluster_marker_configuration.setter
     def cluster_marker_configuration(self, value: Optional[pulumi.Input['AnalysisClusterMarkerConfigurationArgs']]):
         pulumi.set(self, "cluster_marker_configuration", value)
+
+    @property
+    @pulumi.getter(name="heatmapConfiguration")
+    def heatmap_configuration(self) -> Optional[pulumi.Input['AnalysisGeospatialHeatmapConfigurationArgs']]:
+        return pulumi.get(self, "heatmap_configuration")
+
+    @heatmap_configuration.setter
+    def heatmap_configuration(self, value: Optional[pulumi.Input['AnalysisGeospatialHeatmapConfigurationArgs']]):
+        pulumi.set(self, "heatmap_configuration", value)
 
     @property
     @pulumi.getter(name="selectedPointStyle")
@@ -14436,10 +14475,13 @@ class AnalysisPivotTableCellConditionalFormattingArgs:
     def __init__(__self__, *,
                  field_id: pulumi.Input[str],
                  scope: Optional[pulumi.Input['AnalysisPivotTableConditionalFormattingScopeArgs']] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPivotTableConditionalFormattingScopeArgs']]]] = None,
                  text_format: Optional[pulumi.Input['AnalysisTextConditionalFormatArgs']] = None):
         pulumi.set(__self__, "field_id", field_id)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
         if text_format is not None:
             pulumi.set(__self__, "text_format", text_format)
 
@@ -14460,6 +14502,15 @@ class AnalysisPivotTableCellConditionalFormattingArgs:
     @scope.setter
     def scope(self, value: Optional[pulumi.Input['AnalysisPivotTableConditionalFormattingScopeArgs']]):
         pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPivotTableConditionalFormattingScopeArgs']]]]:
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPivotTableConditionalFormattingScopeArgs']]]]):
+        pulumi.set(self, "scopes", value)
 
     @property
     @pulumi.getter(name="textFormat")
@@ -14634,14 +14685,83 @@ class AnalysisPivotTableDataPathOptionArgs:
 
 
 @pulumi.input_type
+class AnalysisPivotTableFieldCollapseStateOptionArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input['AnalysisPivotTableFieldCollapseStateTargetArgs'],
+                 state: Optional[pulumi.Input['AnalysisPivotTableFieldCollapseState']] = None):
+        pulumi.set(__self__, "target", target)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['AnalysisPivotTableFieldCollapseStateTargetArgs']:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['AnalysisPivotTableFieldCollapseStateTargetArgs']):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['AnalysisPivotTableFieldCollapseState']]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['AnalysisPivotTableFieldCollapseState']]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class AnalysisPivotTableFieldCollapseStateTargetArgs:
+    def __init__(__self__, *,
+                 field_data_path_values: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDataPathValueArgs']]]] = None,
+                 field_id: Optional[pulumi.Input[str]] = None):
+        if field_data_path_values is not None:
+            pulumi.set(__self__, "field_data_path_values", field_data_path_values)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+
+    @property
+    @pulumi.getter(name="fieldDataPathValues")
+    def field_data_path_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDataPathValueArgs']]]]:
+        return pulumi.get(self, "field_data_path_values")
+
+    @field_data_path_values.setter
+    def field_data_path_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDataPathValueArgs']]]]):
+        pulumi.set(self, "field_data_path_values", value)
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_id", value)
+
+
+@pulumi.input_type
 class AnalysisPivotTableFieldOptionsArgs:
     def __init__(__self__, *,
+                 collapse_state_options: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPivotTableFieldCollapseStateOptionArgs']]]] = None,
                  data_path_options: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPivotTableDataPathOptionArgs']]]] = None,
                  selected_field_options: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPivotTableFieldOptionArgs']]]] = None):
+        if collapse_state_options is not None:
+            pulumi.set(__self__, "collapse_state_options", collapse_state_options)
         if data_path_options is not None:
             pulumi.set(__self__, "data_path_options", data_path_options)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
+
+    @property
+    @pulumi.getter(name="collapseStateOptions")
+    def collapse_state_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPivotTableFieldCollapseStateOptionArgs']]]]:
+        return pulumi.get(self, "collapse_state_options")
+
+    @collapse_state_options.setter
+    def collapse_state_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPivotTableFieldCollapseStateOptionArgs']]]]):
+        pulumi.set(self, "collapse_state_options", value)
 
     @property
     @pulumi.getter(name="dataPathOptions")
@@ -14740,6 +14860,7 @@ class AnalysisPivotTableFieldWellsArgs:
 class AnalysisPivotTableOptionsArgs:
     def __init__(__self__, *,
                  cell_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None,
+                 collapsed_row_dimensions_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None,
                  column_header_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None,
                  column_names_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None,
                  metric_placement: Optional[pulumi.Input['AnalysisPivotTableMetricPlacement']] = None,
@@ -14750,6 +14871,8 @@ class AnalysisPivotTableOptionsArgs:
                  toggle_buttons_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None):
         if cell_style is not None:
             pulumi.set(__self__, "cell_style", cell_style)
+        if collapsed_row_dimensions_visibility is not None:
+            pulumi.set(__self__, "collapsed_row_dimensions_visibility", collapsed_row_dimensions_visibility)
         if column_header_style is not None:
             pulumi.set(__self__, "column_header_style", column_header_style)
         if column_names_visibility is not None:
@@ -14775,6 +14898,15 @@ class AnalysisPivotTableOptionsArgs:
     @cell_style.setter
     def cell_style(self, value: Optional[pulumi.Input['AnalysisTableCellStyleArgs']]):
         pulumi.set(self, "cell_style", value)
+
+    @property
+    @pulumi.getter(name="collapsedRowDimensionsVisibility")
+    def collapsed_row_dimensions_visibility(self) -> Optional[pulumi.Input['AnalysisVisibility']]:
+        return pulumi.get(self, "collapsed_row_dimensions_visibility")
+
+    @collapsed_row_dimensions_visibility.setter
+    def collapsed_row_dimensions_visibility(self, value: Optional[pulumi.Input['AnalysisVisibility']]):
+        pulumi.set(self, "collapsed_row_dimensions_visibility", value)
 
     @property
     @pulumi.getter(name="columnHeaderStyle")
@@ -15274,6 +15406,7 @@ class AnalysisRadarChartConfigurationArgs:
                  alternate_band_colors_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None,
                  alternate_band_even_color: Optional[pulumi.Input[str]] = None,
                  alternate_band_odd_color: Optional[pulumi.Input[str]] = None,
+                 axes_range_scale: Optional[pulumi.Input['AnalysisRadarChartAxesRangeScale']] = None,
                  base_series_settings: Optional[pulumi.Input['AnalysisRadarChartSeriesSettingsArgs']] = None,
                  category_axis: Optional[pulumi.Input['AnalysisAxisDisplayOptionsArgs']] = None,
                  category_label_options: Optional[pulumi.Input['AnalysisChartAxisLabelOptionsArgs']] = None,
@@ -15291,6 +15424,8 @@ class AnalysisRadarChartConfigurationArgs:
             pulumi.set(__self__, "alternate_band_even_color", alternate_band_even_color)
         if alternate_band_odd_color is not None:
             pulumi.set(__self__, "alternate_band_odd_color", alternate_band_odd_color)
+        if axes_range_scale is not None:
+            pulumi.set(__self__, "axes_range_scale", axes_range_scale)
         if base_series_settings is not None:
             pulumi.set(__self__, "base_series_settings", base_series_settings)
         if category_axis is not None:
@@ -15340,6 +15475,15 @@ class AnalysisRadarChartConfigurationArgs:
     @alternate_band_odd_color.setter
     def alternate_band_odd_color(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alternate_band_odd_color", value)
+
+    @property
+    @pulumi.getter(name="axesRangeScale")
+    def axes_range_scale(self) -> Optional[pulumi.Input['AnalysisRadarChartAxesRangeScale']]:
+        return pulumi.get(self, "axes_range_scale")
+
+    @axes_range_scale.setter
+    def axes_range_scale(self, value: Optional[pulumi.Input['AnalysisRadarChartAxesRangeScale']]):
+        pulumi.set(self, "axes_range_scale", value)
 
     @property
     @pulumi.getter(name="baseSeriesSettings")
@@ -15683,10 +15827,11 @@ class AnalysisReferenceLineDynamicDataConfigurationArgs:
     def __init__(__self__, *,
                  calculation: pulumi.Input['AnalysisNumericalAggregationFunctionArgs'],
                  column: pulumi.Input['AnalysisColumnIdentifierArgs'],
-                 measure_aggregation_function: pulumi.Input['AnalysisAggregationFunctionArgs']):
+                 measure_aggregation_function: Optional[pulumi.Input['AnalysisAggregationFunctionArgs']] = None):
         pulumi.set(__self__, "calculation", calculation)
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
+        if measure_aggregation_function is not None:
+            pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
 
     @property
     @pulumi.getter
@@ -15708,11 +15853,11 @@ class AnalysisReferenceLineDynamicDataConfigurationArgs:
 
     @property
     @pulumi.getter(name="measureAggregationFunction")
-    def measure_aggregation_function(self) -> pulumi.Input['AnalysisAggregationFunctionArgs']:
+    def measure_aggregation_function(self) -> Optional[pulumi.Input['AnalysisAggregationFunctionArgs']]:
         return pulumi.get(self, "measure_aggregation_function")
 
     @measure_aggregation_function.setter
-    def measure_aggregation_function(self, value: pulumi.Input['AnalysisAggregationFunctionArgs']):
+    def measure_aggregation_function(self, value: Optional[pulumi.Input['AnalysisAggregationFunctionArgs']]):
         pulumi.set(self, "measure_aggregation_function", value)
 
 
@@ -16400,11 +16545,14 @@ class AnalysisSankeyDiagramVisualArgs:
 class AnalysisScatterPlotCategoricallyAggregatedFieldWellsArgs:
     def __init__(__self__, *,
                  category: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]] = None,
+                 label: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]] = None,
                  size: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisMeasureFieldArgs']]]] = None,
                  x_axis: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisMeasureFieldArgs']]]] = None,
                  y_axis: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisMeasureFieldArgs']]]] = None):
         if category is not None:
             pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
@@ -16420,6 +16568,15 @@ class AnalysisScatterPlotCategoricallyAggregatedFieldWellsArgs:
     @category.setter
     def category(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]]):
         pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]]):
+        pulumi.set(self, "label", value)
 
     @property
     @pulumi.getter
@@ -16594,15 +16751,39 @@ class AnalysisScatterPlotFieldWellsArgs:
 @pulumi.input_type
 class AnalysisScatterPlotUnaggregatedFieldWellsArgs:
     def __init__(__self__, *,
+                 category: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]] = None,
+                 label: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]] = None,
                  size: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisMeasureFieldArgs']]]] = None,
                  x_axis: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]] = None,
                  y_axis: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
             pulumi.set(__self__, "x_axis", x_axis)
         if y_axis is not None:
             pulumi.set(__self__, "y_axis", y_axis)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDimensionFieldArgs']]]]):
+        pulumi.set(self, "label", value)
 
     @property
     @pulumi.getter
@@ -21266,21 +21447,13 @@ class DashboardAggregationFunctionArgs:
 @pulumi.input_type
 class DashboardAggregationSortConfigurationArgs:
     def __init__(__self__, *,
-                 aggregation_function: pulumi.Input['DashboardAggregationFunctionArgs'],
                  column: pulumi.Input['DashboardColumnIdentifierArgs'],
-                 sort_direction: pulumi.Input['DashboardSortDirection']):
-        pulumi.set(__self__, "aggregation_function", aggregation_function)
+                 sort_direction: pulumi.Input['DashboardSortDirection'],
+                 aggregation_function: Optional[pulumi.Input['DashboardAggregationFunctionArgs']] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "sort_direction", sort_direction)
-
-    @property
-    @pulumi.getter(name="aggregationFunction")
-    def aggregation_function(self) -> pulumi.Input['DashboardAggregationFunctionArgs']:
-        return pulumi.get(self, "aggregation_function")
-
-    @aggregation_function.setter
-    def aggregation_function(self, value: pulumi.Input['DashboardAggregationFunctionArgs']):
-        pulumi.set(self, "aggregation_function", value)
+        if aggregation_function is not None:
+            pulumi.set(__self__, "aggregation_function", aggregation_function)
 
     @property
     @pulumi.getter
@@ -21299,6 +21472,15 @@ class DashboardAggregationSortConfigurationArgs:
     @sort_direction.setter
     def sort_direction(self, value: pulumi.Input['DashboardSortDirection']):
         pulumi.set(self, "sort_direction", value)
+
+    @property
+    @pulumi.getter(name="aggregationFunction")
+    def aggregation_function(self) -> Optional[pulumi.Input['DashboardAggregationFunctionArgs']]:
+        return pulumi.get(self, "aggregation_function")
+
+    @aggregation_function.setter
+    def aggregation_function(self, value: Optional[pulumi.Input['DashboardAggregationFunctionArgs']]):
+        pulumi.set(self, "aggregation_function", value)
 
 
 @pulumi.input_type
@@ -23112,32 +23294,12 @@ class DashboardColorScaleArgs:
 
 
 @pulumi.input_type
-class DashboardColorsConfigurationArgs:
-    def __init__(__self__, *,
-                 custom_colors: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCustomColorArgs']]]] = None):
-        if custom_colors is not None:
-            pulumi.set(__self__, "custom_colors", custom_colors)
-
-    @property
-    @pulumi.getter(name="customColors")
-    def custom_colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCustomColorArgs']]]]:
-        return pulumi.get(self, "custom_colors")
-
-    @custom_colors.setter
-    def custom_colors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCustomColorArgs']]]]):
-        pulumi.set(self, "custom_colors", value)
-
-
-@pulumi.input_type
 class DashboardColumnConfigurationArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['DashboardColumnIdentifierArgs'],
-                 colors_configuration: Optional[pulumi.Input['DashboardColorsConfigurationArgs']] = None,
                  format_configuration: Optional[pulumi.Input['DashboardFormatConfigurationArgs']] = None,
                  role: Optional[pulumi.Input['DashboardColumnRole']] = None):
         pulumi.set(__self__, "column", column)
-        if colors_configuration is not None:
-            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -23151,15 +23313,6 @@ class DashboardColumnConfigurationArgs:
     @column.setter
     def column(self, value: pulumi.Input['DashboardColumnIdentifierArgs']):
         pulumi.set(self, "column", value)
-
-    @property
-    @pulumi.getter(name="colorsConfiguration")
-    def colors_configuration(self) -> Optional[pulumi.Input['DashboardColorsConfigurationArgs']]:
-        return pulumi.get(self, "colors_configuration")
-
-    @colors_configuration.setter
-    def colors_configuration(self, value: Optional[pulumi.Input['DashboardColorsConfigurationArgs']]):
-        pulumi.set(self, "colors_configuration", value)
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -24372,46 +24525,6 @@ class DashboardCustomActionURLOperationArgs:
 
 
 @pulumi.input_type
-class DashboardCustomColorArgs:
-    def __init__(__self__, *,
-                 color: pulumi.Input[str],
-                 field_value: Optional[pulumi.Input[str]] = None,
-                 special_value: Optional[pulumi.Input['DashboardSpecialValue']] = None):
-        pulumi.set(__self__, "color", color)
-        if field_value is not None:
-            pulumi.set(__self__, "field_value", field_value)
-        if special_value is not None:
-            pulumi.set(__self__, "special_value", special_value)
-
-    @property
-    @pulumi.getter
-    def color(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "color")
-
-    @color.setter
-    def color(self, value: pulumi.Input[str]):
-        pulumi.set(self, "color", value)
-
-    @property
-    @pulumi.getter(name="fieldValue")
-    def field_value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "field_value")
-
-    @field_value.setter
-    def field_value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "field_value", value)
-
-    @property
-    @pulumi.getter(name="specialValue")
-    def special_value(self) -> Optional[pulumi.Input['DashboardSpecialValue']]:
-        return pulumi.get(self, "special_value")
-
-    @special_value.setter
-    def special_value(self, value: Optional[pulumi.Input['DashboardSpecialValue']]):
-        pulumi.set(self, "special_value", value)
-
-
-@pulumi.input_type
 class DashboardCustomContentConfigurationArgs:
     def __init__(__self__, *,
                  content_type: Optional[pulumi.Input['DashboardCustomContentType']] = None,
@@ -24869,6 +24982,7 @@ class DashboardDataLabelOptionsArgs:
                  measure_label_visibility: Optional[pulumi.Input['DashboardVisibility']] = None,
                  overlap: Optional[pulumi.Input['DashboardDataLabelOverlap']] = None,
                  position: Optional[pulumi.Input['DashboardDataLabelPosition']] = None,
+                 totals_visibility: Optional[pulumi.Input['DashboardVisibility']] = None,
                  visibility: Optional[pulumi.Input['DashboardVisibility']] = None):
         if category_label_visibility is not None:
             pulumi.set(__self__, "category_label_visibility", category_label_visibility)
@@ -24886,6 +25000,8 @@ class DashboardDataLabelOptionsArgs:
             pulumi.set(__self__, "overlap", overlap)
         if position is not None:
             pulumi.set(__self__, "position", position)
+        if totals_visibility is not None:
+            pulumi.set(__self__, "totals_visibility", totals_visibility)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
 
@@ -24960,6 +25076,15 @@ class DashboardDataLabelOptionsArgs:
     @position.setter
     def position(self, value: Optional[pulumi.Input['DashboardDataLabelPosition']]):
         pulumi.set(self, "position", value)
+
+    @property
+    @pulumi.getter(name="totalsVisibility")
+    def totals_visibility(self) -> Optional[pulumi.Input['DashboardVisibility']]:
+        return pulumi.get(self, "totals_visibility")
+
+    @totals_visibility.setter
+    def totals_visibility(self, value: Optional[pulumi.Input['DashboardVisibility']]):
+        pulumi.set(self, "totals_visibility", value)
 
     @property
     @pulumi.getter
@@ -25969,12 +26094,15 @@ class DashboardDestinationParameterValueConfigurationArgs:
     def __init__(__self__, *,
                  custom_values_configuration: Optional[pulumi.Input['DashboardCustomValuesConfigurationArgs']] = None,
                  select_all_value_options: Optional[pulumi.Input['DashboardSelectAllValueOptions']] = None,
+                 source_column: Optional[pulumi.Input['DashboardColumnIdentifierArgs']] = None,
                  source_field: Optional[pulumi.Input[str]] = None,
                  source_parameter_name: Optional[pulumi.Input[str]] = None):
         if custom_values_configuration is not None:
             pulumi.set(__self__, "custom_values_configuration", custom_values_configuration)
         if select_all_value_options is not None:
             pulumi.set(__self__, "select_all_value_options", select_all_value_options)
+        if source_column is not None:
+            pulumi.set(__self__, "source_column", source_column)
         if source_field is not None:
             pulumi.set(__self__, "source_field", source_field)
         if source_parameter_name is not None:
@@ -25997,6 +26125,15 @@ class DashboardDestinationParameterValueConfigurationArgs:
     @select_all_value_options.setter
     def select_all_value_options(self, value: Optional[pulumi.Input['DashboardSelectAllValueOptions']]):
         pulumi.set(self, "select_all_value_options", value)
+
+    @property
+    @pulumi.getter(name="sourceColumn")
+    def source_column(self) -> Optional[pulumi.Input['DashboardColumnIdentifierArgs']]:
+        return pulumi.get(self, "source_column")
+
+    @source_column.setter
+    def source_column(self, value: Optional[pulumi.Input['DashboardColumnIdentifierArgs']]):
+        pulumi.set(self, "source_column", value)
 
     @property
     @pulumi.getter(name="sourceField")
@@ -27302,12 +27439,24 @@ class DashboardFilterListControlArgs:
 @pulumi.input_type
 class DashboardFilterOperationSelectedFieldsConfigurationArgs:
     def __init__(__self__, *,
+                 selected_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardColumnIdentifierArgs']]]] = None,
                  selected_field_options: Optional[pulumi.Input['DashboardSelectedFieldOptions']] = None,
                  selected_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if selected_columns is not None:
+            pulumi.set(__self__, "selected_columns", selected_columns)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
         if selected_fields is not None:
             pulumi.set(__self__, "selected_fields", selected_fields)
+
+    @property
+    @pulumi.getter(name="selectedColumns")
+    def selected_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardColumnIdentifierArgs']]]]:
+        return pulumi.get(self, "selected_columns")
+
+    @selected_columns.setter
+    def selected_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardColumnIdentifierArgs']]]]):
+        pulumi.set(self, "selected_columns", value)
 
     @property
     @pulumi.getter(name="selectedFieldOptions")
@@ -29066,6 +29215,56 @@ class DashboardGeospatialCoordinateBoundsArgs:
 
 
 @pulumi.input_type
+class DashboardGeospatialHeatmapColorScaleArgs:
+    def __init__(__self__, *,
+                 colors: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGeospatialHeatmapDataColorArgs']]]] = None):
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+
+    @property
+    @pulumi.getter
+    def colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGeospatialHeatmapDataColorArgs']]]]:
+        return pulumi.get(self, "colors")
+
+    @colors.setter
+    def colors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGeospatialHeatmapDataColorArgs']]]]):
+        pulumi.set(self, "colors", value)
+
+
+@pulumi.input_type
+class DashboardGeospatialHeatmapConfigurationArgs:
+    def __init__(__self__, *,
+                 heatmap_color: Optional[pulumi.Input['DashboardGeospatialHeatmapColorScaleArgs']] = None):
+        if heatmap_color is not None:
+            pulumi.set(__self__, "heatmap_color", heatmap_color)
+
+    @property
+    @pulumi.getter(name="heatmapColor")
+    def heatmap_color(self) -> Optional[pulumi.Input['DashboardGeospatialHeatmapColorScaleArgs']]:
+        return pulumi.get(self, "heatmap_color")
+
+    @heatmap_color.setter
+    def heatmap_color(self, value: Optional[pulumi.Input['DashboardGeospatialHeatmapColorScaleArgs']]):
+        pulumi.set(self, "heatmap_color", value)
+
+
+@pulumi.input_type
+class DashboardGeospatialHeatmapDataColorArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[str]):
+        pulumi.set(__self__, "color", color)
+
+    @property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[str]):
+        pulumi.set(self, "color", value)
+
+
+@pulumi.input_type
 class DashboardGeospatialMapAggregatedFieldWellsArgs:
     def __init__(__self__, *,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]] = None,
@@ -29309,9 +29508,12 @@ class DashboardGeospatialMapVisualArgs:
 class DashboardGeospatialPointStyleOptionsArgs:
     def __init__(__self__, *,
                  cluster_marker_configuration: Optional[pulumi.Input['DashboardClusterMarkerConfigurationArgs']] = None,
+                 heatmap_configuration: Optional[pulumi.Input['DashboardGeospatialHeatmapConfigurationArgs']] = None,
                  selected_point_style: Optional[pulumi.Input['DashboardGeospatialSelectedPointStyle']] = None):
         if cluster_marker_configuration is not None:
             pulumi.set(__self__, "cluster_marker_configuration", cluster_marker_configuration)
+        if heatmap_configuration is not None:
+            pulumi.set(__self__, "heatmap_configuration", heatmap_configuration)
         if selected_point_style is not None:
             pulumi.set(__self__, "selected_point_style", selected_point_style)
 
@@ -29323,6 +29525,15 @@ class DashboardGeospatialPointStyleOptionsArgs:
     @cluster_marker_configuration.setter
     def cluster_marker_configuration(self, value: Optional[pulumi.Input['DashboardClusterMarkerConfigurationArgs']]):
         pulumi.set(self, "cluster_marker_configuration", value)
+
+    @property
+    @pulumi.getter(name="heatmapConfiguration")
+    def heatmap_configuration(self) -> Optional[pulumi.Input['DashboardGeospatialHeatmapConfigurationArgs']]:
+        return pulumi.get(self, "heatmap_configuration")
+
+    @heatmap_configuration.setter
+    def heatmap_configuration(self, value: Optional[pulumi.Input['DashboardGeospatialHeatmapConfigurationArgs']]):
+        pulumi.set(self, "heatmap_configuration", value)
 
     @property
     @pulumi.getter(name="selectedPointStyle")
@@ -34202,10 +34413,13 @@ class DashboardPivotTableCellConditionalFormattingArgs:
     def __init__(__self__, *,
                  field_id: pulumi.Input[str],
                  scope: Optional[pulumi.Input['DashboardPivotTableConditionalFormattingScopeArgs']] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPivotTableConditionalFormattingScopeArgs']]]] = None,
                  text_format: Optional[pulumi.Input['DashboardTextConditionalFormatArgs']] = None):
         pulumi.set(__self__, "field_id", field_id)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
         if text_format is not None:
             pulumi.set(__self__, "text_format", text_format)
 
@@ -34226,6 +34440,15 @@ class DashboardPivotTableCellConditionalFormattingArgs:
     @scope.setter
     def scope(self, value: Optional[pulumi.Input['DashboardPivotTableConditionalFormattingScopeArgs']]):
         pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPivotTableConditionalFormattingScopeArgs']]]]:
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPivotTableConditionalFormattingScopeArgs']]]]):
+        pulumi.set(self, "scopes", value)
 
     @property
     @pulumi.getter(name="textFormat")
@@ -34400,14 +34623,83 @@ class DashboardPivotTableDataPathOptionArgs:
 
 
 @pulumi.input_type
+class DashboardPivotTableFieldCollapseStateOptionArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input['DashboardPivotTableFieldCollapseStateTargetArgs'],
+                 state: Optional[pulumi.Input['DashboardPivotTableFieldCollapseState']] = None):
+        pulumi.set(__self__, "target", target)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['DashboardPivotTableFieldCollapseStateTargetArgs']:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['DashboardPivotTableFieldCollapseStateTargetArgs']):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['DashboardPivotTableFieldCollapseState']]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['DashboardPivotTableFieldCollapseState']]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class DashboardPivotTableFieldCollapseStateTargetArgs:
+    def __init__(__self__, *,
+                 field_data_path_values: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDataPathValueArgs']]]] = None,
+                 field_id: Optional[pulumi.Input[str]] = None):
+        if field_data_path_values is not None:
+            pulumi.set(__self__, "field_data_path_values", field_data_path_values)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+
+    @property
+    @pulumi.getter(name="fieldDataPathValues")
+    def field_data_path_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDataPathValueArgs']]]]:
+        return pulumi.get(self, "field_data_path_values")
+
+    @field_data_path_values.setter
+    def field_data_path_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDataPathValueArgs']]]]):
+        pulumi.set(self, "field_data_path_values", value)
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_id", value)
+
+
+@pulumi.input_type
 class DashboardPivotTableFieldOptionsArgs:
     def __init__(__self__, *,
+                 collapse_state_options: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPivotTableFieldCollapseStateOptionArgs']]]] = None,
                  data_path_options: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPivotTableDataPathOptionArgs']]]] = None,
                  selected_field_options: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPivotTableFieldOptionArgs']]]] = None):
+        if collapse_state_options is not None:
+            pulumi.set(__self__, "collapse_state_options", collapse_state_options)
         if data_path_options is not None:
             pulumi.set(__self__, "data_path_options", data_path_options)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
+
+    @property
+    @pulumi.getter(name="collapseStateOptions")
+    def collapse_state_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPivotTableFieldCollapseStateOptionArgs']]]]:
+        return pulumi.get(self, "collapse_state_options")
+
+    @collapse_state_options.setter
+    def collapse_state_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPivotTableFieldCollapseStateOptionArgs']]]]):
+        pulumi.set(self, "collapse_state_options", value)
 
     @property
     @pulumi.getter(name="dataPathOptions")
@@ -34506,6 +34798,7 @@ class DashboardPivotTableFieldWellsArgs:
 class DashboardPivotTableOptionsArgs:
     def __init__(__self__, *,
                  cell_style: Optional[pulumi.Input['DashboardTableCellStyleArgs']] = None,
+                 collapsed_row_dimensions_visibility: Optional[pulumi.Input['DashboardVisibility']] = None,
                  column_header_style: Optional[pulumi.Input['DashboardTableCellStyleArgs']] = None,
                  column_names_visibility: Optional[pulumi.Input['DashboardVisibility']] = None,
                  metric_placement: Optional[pulumi.Input['DashboardPivotTableMetricPlacement']] = None,
@@ -34516,6 +34809,8 @@ class DashboardPivotTableOptionsArgs:
                  toggle_buttons_visibility: Optional[pulumi.Input['DashboardVisibility']] = None):
         if cell_style is not None:
             pulumi.set(__self__, "cell_style", cell_style)
+        if collapsed_row_dimensions_visibility is not None:
+            pulumi.set(__self__, "collapsed_row_dimensions_visibility", collapsed_row_dimensions_visibility)
         if column_header_style is not None:
             pulumi.set(__self__, "column_header_style", column_header_style)
         if column_names_visibility is not None:
@@ -34541,6 +34836,15 @@ class DashboardPivotTableOptionsArgs:
     @cell_style.setter
     def cell_style(self, value: Optional[pulumi.Input['DashboardTableCellStyleArgs']]):
         pulumi.set(self, "cell_style", value)
+
+    @property
+    @pulumi.getter(name="collapsedRowDimensionsVisibility")
+    def collapsed_row_dimensions_visibility(self) -> Optional[pulumi.Input['DashboardVisibility']]:
+        return pulumi.get(self, "collapsed_row_dimensions_visibility")
+
+    @collapsed_row_dimensions_visibility.setter
+    def collapsed_row_dimensions_visibility(self, value: Optional[pulumi.Input['DashboardVisibility']]):
+        pulumi.set(self, "collapsed_row_dimensions_visibility", value)
 
     @property
     @pulumi.getter(name="columnHeaderStyle")
@@ -35177,6 +35481,7 @@ class DashboardRadarChartConfigurationArgs:
                  alternate_band_colors_visibility: Optional[pulumi.Input['DashboardVisibility']] = None,
                  alternate_band_even_color: Optional[pulumi.Input[str]] = None,
                  alternate_band_odd_color: Optional[pulumi.Input[str]] = None,
+                 axes_range_scale: Optional[pulumi.Input['DashboardRadarChartAxesRangeScale']] = None,
                  base_series_settings: Optional[pulumi.Input['DashboardRadarChartSeriesSettingsArgs']] = None,
                  category_axis: Optional[pulumi.Input['DashboardAxisDisplayOptionsArgs']] = None,
                  category_label_options: Optional[pulumi.Input['DashboardChartAxisLabelOptionsArgs']] = None,
@@ -35194,6 +35499,8 @@ class DashboardRadarChartConfigurationArgs:
             pulumi.set(__self__, "alternate_band_even_color", alternate_band_even_color)
         if alternate_band_odd_color is not None:
             pulumi.set(__self__, "alternate_band_odd_color", alternate_band_odd_color)
+        if axes_range_scale is not None:
+            pulumi.set(__self__, "axes_range_scale", axes_range_scale)
         if base_series_settings is not None:
             pulumi.set(__self__, "base_series_settings", base_series_settings)
         if category_axis is not None:
@@ -35243,6 +35550,15 @@ class DashboardRadarChartConfigurationArgs:
     @alternate_band_odd_color.setter
     def alternate_band_odd_color(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alternate_band_odd_color", value)
+
+    @property
+    @pulumi.getter(name="axesRangeScale")
+    def axes_range_scale(self) -> Optional[pulumi.Input['DashboardRadarChartAxesRangeScale']]:
+        return pulumi.get(self, "axes_range_scale")
+
+    @axes_range_scale.setter
+    def axes_range_scale(self, value: Optional[pulumi.Input['DashboardRadarChartAxesRangeScale']]):
+        pulumi.set(self, "axes_range_scale", value)
 
     @property
     @pulumi.getter(name="baseSeriesSettings")
@@ -35586,10 +35902,11 @@ class DashboardReferenceLineDynamicDataConfigurationArgs:
     def __init__(__self__, *,
                  calculation: pulumi.Input['DashboardNumericalAggregationFunctionArgs'],
                  column: pulumi.Input['DashboardColumnIdentifierArgs'],
-                 measure_aggregation_function: pulumi.Input['DashboardAggregationFunctionArgs']):
+                 measure_aggregation_function: Optional[pulumi.Input['DashboardAggregationFunctionArgs']] = None):
         pulumi.set(__self__, "calculation", calculation)
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
+        if measure_aggregation_function is not None:
+            pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
 
     @property
     @pulumi.getter
@@ -35611,11 +35928,11 @@ class DashboardReferenceLineDynamicDataConfigurationArgs:
 
     @property
     @pulumi.getter(name="measureAggregationFunction")
-    def measure_aggregation_function(self) -> pulumi.Input['DashboardAggregationFunctionArgs']:
+    def measure_aggregation_function(self) -> Optional[pulumi.Input['DashboardAggregationFunctionArgs']]:
         return pulumi.get(self, "measure_aggregation_function")
 
     @measure_aggregation_function.setter
-    def measure_aggregation_function(self, value: pulumi.Input['DashboardAggregationFunctionArgs']):
+    def measure_aggregation_function(self, value: Optional[pulumi.Input['DashboardAggregationFunctionArgs']]):
         pulumi.set(self, "measure_aggregation_function", value)
 
 
@@ -36303,11 +36620,14 @@ class DashboardSankeyDiagramVisualArgs:
 class DashboardScatterPlotCategoricallyAggregatedFieldWellsArgs:
     def __init__(__self__, *,
                  category: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]] = None,
+                 label: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]] = None,
                  size: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMeasureFieldArgs']]]] = None,
                  x_axis: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMeasureFieldArgs']]]] = None,
                  y_axis: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMeasureFieldArgs']]]] = None):
         if category is not None:
             pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
@@ -36323,6 +36643,15 @@ class DashboardScatterPlotCategoricallyAggregatedFieldWellsArgs:
     @category.setter
     def category(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]]):
         pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]]):
+        pulumi.set(self, "label", value)
 
     @property
     @pulumi.getter
@@ -36497,15 +36826,39 @@ class DashboardScatterPlotFieldWellsArgs:
 @pulumi.input_type
 class DashboardScatterPlotUnaggregatedFieldWellsArgs:
     def __init__(__self__, *,
+                 category: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]] = None,
+                 label: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]] = None,
                  size: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMeasureFieldArgs']]]] = None,
                  x_axis: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]] = None,
                  y_axis: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
             pulumi.set(__self__, "x_axis", x_axis)
         if y_axis is not None:
             pulumi.set(__self__, "y_axis", y_axis)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDimensionFieldArgs']]]]):
+        pulumi.set(self, "label", value)
 
     @property
     @pulumi.getter
@@ -43900,21 +44253,13 @@ class TemplateAggregationFunctionArgs:
 @pulumi.input_type
 class TemplateAggregationSortConfigurationArgs:
     def __init__(__self__, *,
-                 aggregation_function: pulumi.Input['TemplateAggregationFunctionArgs'],
                  column: pulumi.Input['TemplateColumnIdentifierArgs'],
-                 sort_direction: pulumi.Input['TemplateSortDirection']):
-        pulumi.set(__self__, "aggregation_function", aggregation_function)
+                 sort_direction: pulumi.Input['TemplateSortDirection'],
+                 aggregation_function: Optional[pulumi.Input['TemplateAggregationFunctionArgs']] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "sort_direction", sort_direction)
-
-    @property
-    @pulumi.getter(name="aggregationFunction")
-    def aggregation_function(self) -> pulumi.Input['TemplateAggregationFunctionArgs']:
-        return pulumi.get(self, "aggregation_function")
-
-    @aggregation_function.setter
-    def aggregation_function(self, value: pulumi.Input['TemplateAggregationFunctionArgs']):
-        pulumi.set(self, "aggregation_function", value)
+        if aggregation_function is not None:
+            pulumi.set(__self__, "aggregation_function", aggregation_function)
 
     @property
     @pulumi.getter
@@ -43933,6 +44278,15 @@ class TemplateAggregationSortConfigurationArgs:
     @sort_direction.setter
     def sort_direction(self, value: pulumi.Input['TemplateSortDirection']):
         pulumi.set(self, "sort_direction", value)
+
+    @property
+    @pulumi.getter(name="aggregationFunction")
+    def aggregation_function(self) -> Optional[pulumi.Input['TemplateAggregationFunctionArgs']]:
+        return pulumi.get(self, "aggregation_function")
+
+    @aggregation_function.setter
+    def aggregation_function(self, value: Optional[pulumi.Input['TemplateAggregationFunctionArgs']]):
+        pulumi.set(self, "aggregation_function", value)
 
 
 @pulumi.input_type
@@ -45746,32 +46100,12 @@ class TemplateColorScaleArgs:
 
 
 @pulumi.input_type
-class TemplateColorsConfigurationArgs:
-    def __init__(__self__, *,
-                 custom_colors: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateCustomColorArgs']]]] = None):
-        if custom_colors is not None:
-            pulumi.set(__self__, "custom_colors", custom_colors)
-
-    @property
-    @pulumi.getter(name="customColors")
-    def custom_colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateCustomColorArgs']]]]:
-        return pulumi.get(self, "custom_colors")
-
-    @custom_colors.setter
-    def custom_colors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateCustomColorArgs']]]]):
-        pulumi.set(self, "custom_colors", value)
-
-
-@pulumi.input_type
 class TemplateColumnConfigurationArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['TemplateColumnIdentifierArgs'],
-                 colors_configuration: Optional[pulumi.Input['TemplateColorsConfigurationArgs']] = None,
                  format_configuration: Optional[pulumi.Input['TemplateFormatConfigurationArgs']] = None,
                  role: Optional[pulumi.Input['TemplateColumnRole']] = None):
         pulumi.set(__self__, "column", column)
-        if colors_configuration is not None:
-            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -45785,15 +46119,6 @@ class TemplateColumnConfigurationArgs:
     @column.setter
     def column(self, value: pulumi.Input['TemplateColumnIdentifierArgs']):
         pulumi.set(self, "column", value)
-
-    @property
-    @pulumi.getter(name="colorsConfiguration")
-    def colors_configuration(self) -> Optional[pulumi.Input['TemplateColorsConfigurationArgs']]:
-        return pulumi.get(self, "colors_configuration")
-
-    @colors_configuration.setter
-    def colors_configuration(self, value: Optional[pulumi.Input['TemplateColorsConfigurationArgs']]):
-        pulumi.set(self, "colors_configuration", value)
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -47093,46 +47418,6 @@ class TemplateCustomActionURLOperationArgs:
 
 
 @pulumi.input_type
-class TemplateCustomColorArgs:
-    def __init__(__self__, *,
-                 color: pulumi.Input[str],
-                 field_value: Optional[pulumi.Input[str]] = None,
-                 special_value: Optional[pulumi.Input['TemplateSpecialValue']] = None):
-        pulumi.set(__self__, "color", color)
-        if field_value is not None:
-            pulumi.set(__self__, "field_value", field_value)
-        if special_value is not None:
-            pulumi.set(__self__, "special_value", special_value)
-
-    @property
-    @pulumi.getter
-    def color(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "color")
-
-    @color.setter
-    def color(self, value: pulumi.Input[str]):
-        pulumi.set(self, "color", value)
-
-    @property
-    @pulumi.getter(name="fieldValue")
-    def field_value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "field_value")
-
-    @field_value.setter
-    def field_value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "field_value", value)
-
-    @property
-    @pulumi.getter(name="specialValue")
-    def special_value(self) -> Optional[pulumi.Input['TemplateSpecialValue']]:
-        return pulumi.get(self, "special_value")
-
-    @special_value.setter
-    def special_value(self, value: Optional[pulumi.Input['TemplateSpecialValue']]):
-        pulumi.set(self, "special_value", value)
-
-
-@pulumi.input_type
 class TemplateCustomContentConfigurationArgs:
     def __init__(__self__, *,
                  content_type: Optional[pulumi.Input['TemplateCustomContentType']] = None,
@@ -47590,6 +47875,7 @@ class TemplateDataLabelOptionsArgs:
                  measure_label_visibility: Optional[pulumi.Input['TemplateVisibility']] = None,
                  overlap: Optional[pulumi.Input['TemplateDataLabelOverlap']] = None,
                  position: Optional[pulumi.Input['TemplateDataLabelPosition']] = None,
+                 totals_visibility: Optional[pulumi.Input['TemplateVisibility']] = None,
                  visibility: Optional[pulumi.Input['TemplateVisibility']] = None):
         if category_label_visibility is not None:
             pulumi.set(__self__, "category_label_visibility", category_label_visibility)
@@ -47607,6 +47893,8 @@ class TemplateDataLabelOptionsArgs:
             pulumi.set(__self__, "overlap", overlap)
         if position is not None:
             pulumi.set(__self__, "position", position)
+        if totals_visibility is not None:
+            pulumi.set(__self__, "totals_visibility", totals_visibility)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
 
@@ -47681,6 +47969,15 @@ class TemplateDataLabelOptionsArgs:
     @position.setter
     def position(self, value: Optional[pulumi.Input['TemplateDataLabelPosition']]):
         pulumi.set(self, "position", value)
+
+    @property
+    @pulumi.getter(name="totalsVisibility")
+    def totals_visibility(self) -> Optional[pulumi.Input['TemplateVisibility']]:
+        return pulumi.get(self, "totals_visibility")
+
+    @totals_visibility.setter
+    def totals_visibility(self, value: Optional[pulumi.Input['TemplateVisibility']]):
+        pulumi.set(self, "totals_visibility", value)
 
     @property
     @pulumi.getter
@@ -48616,12 +48913,15 @@ class TemplateDestinationParameterValueConfigurationArgs:
     def __init__(__self__, *,
                  custom_values_configuration: Optional[pulumi.Input['TemplateCustomValuesConfigurationArgs']] = None,
                  select_all_value_options: Optional[pulumi.Input['TemplateSelectAllValueOptions']] = None,
+                 source_column: Optional[pulumi.Input['TemplateColumnIdentifierArgs']] = None,
                  source_field: Optional[pulumi.Input[str]] = None,
                  source_parameter_name: Optional[pulumi.Input[str]] = None):
         if custom_values_configuration is not None:
             pulumi.set(__self__, "custom_values_configuration", custom_values_configuration)
         if select_all_value_options is not None:
             pulumi.set(__self__, "select_all_value_options", select_all_value_options)
+        if source_column is not None:
+            pulumi.set(__self__, "source_column", source_column)
         if source_field is not None:
             pulumi.set(__self__, "source_field", source_field)
         if source_parameter_name is not None:
@@ -48644,6 +48944,15 @@ class TemplateDestinationParameterValueConfigurationArgs:
     @select_all_value_options.setter
     def select_all_value_options(self, value: Optional[pulumi.Input['TemplateSelectAllValueOptions']]):
         pulumi.set(self, "select_all_value_options", value)
+
+    @property
+    @pulumi.getter(name="sourceColumn")
+    def source_column(self) -> Optional[pulumi.Input['TemplateColumnIdentifierArgs']]:
+        return pulumi.get(self, "source_column")
+
+    @source_column.setter
+    def source_column(self, value: Optional[pulumi.Input['TemplateColumnIdentifierArgs']]):
+        pulumi.set(self, "source_column", value)
 
     @property
     @pulumi.getter(name="sourceField")
@@ -49898,12 +50207,24 @@ class TemplateFilterListControlArgs:
 @pulumi.input_type
 class TemplateFilterOperationSelectedFieldsConfigurationArgs:
     def __init__(__self__, *,
+                 selected_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateColumnIdentifierArgs']]]] = None,
                  selected_field_options: Optional[pulumi.Input['TemplateSelectedFieldOptions']] = None,
                  selected_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if selected_columns is not None:
+            pulumi.set(__self__, "selected_columns", selected_columns)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
         if selected_fields is not None:
             pulumi.set(__self__, "selected_fields", selected_fields)
+
+    @property
+    @pulumi.getter(name="selectedColumns")
+    def selected_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateColumnIdentifierArgs']]]]:
+        return pulumi.get(self, "selected_columns")
+
+    @selected_columns.setter
+    def selected_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateColumnIdentifierArgs']]]]):
+        pulumi.set(self, "selected_columns", value)
 
     @property
     @pulumi.getter(name="selectedFieldOptions")
@@ -51662,6 +51983,56 @@ class TemplateGeospatialCoordinateBoundsArgs:
 
 
 @pulumi.input_type
+class TemplateGeospatialHeatmapColorScaleArgs:
+    def __init__(__self__, *,
+                 colors: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateGeospatialHeatmapDataColorArgs']]]] = None):
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+
+    @property
+    @pulumi.getter
+    def colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateGeospatialHeatmapDataColorArgs']]]]:
+        return pulumi.get(self, "colors")
+
+    @colors.setter
+    def colors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateGeospatialHeatmapDataColorArgs']]]]):
+        pulumi.set(self, "colors", value)
+
+
+@pulumi.input_type
+class TemplateGeospatialHeatmapConfigurationArgs:
+    def __init__(__self__, *,
+                 heatmap_color: Optional[pulumi.Input['TemplateGeospatialHeatmapColorScaleArgs']] = None):
+        if heatmap_color is not None:
+            pulumi.set(__self__, "heatmap_color", heatmap_color)
+
+    @property
+    @pulumi.getter(name="heatmapColor")
+    def heatmap_color(self) -> Optional[pulumi.Input['TemplateGeospatialHeatmapColorScaleArgs']]:
+        return pulumi.get(self, "heatmap_color")
+
+    @heatmap_color.setter
+    def heatmap_color(self, value: Optional[pulumi.Input['TemplateGeospatialHeatmapColorScaleArgs']]):
+        pulumi.set(self, "heatmap_color", value)
+
+
+@pulumi.input_type
+class TemplateGeospatialHeatmapDataColorArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[str]):
+        pulumi.set(__self__, "color", color)
+
+    @property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[str]):
+        pulumi.set(self, "color", value)
+
+
+@pulumi.input_type
 class TemplateGeospatialMapAggregatedFieldWellsArgs:
     def __init__(__self__, *,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]] = None,
@@ -51905,9 +52276,12 @@ class TemplateGeospatialMapVisualArgs:
 class TemplateGeospatialPointStyleOptionsArgs:
     def __init__(__self__, *,
                  cluster_marker_configuration: Optional[pulumi.Input['TemplateClusterMarkerConfigurationArgs']] = None,
+                 heatmap_configuration: Optional[pulumi.Input['TemplateGeospatialHeatmapConfigurationArgs']] = None,
                  selected_point_style: Optional[pulumi.Input['TemplateGeospatialSelectedPointStyle']] = None):
         if cluster_marker_configuration is not None:
             pulumi.set(__self__, "cluster_marker_configuration", cluster_marker_configuration)
+        if heatmap_configuration is not None:
+            pulumi.set(__self__, "heatmap_configuration", heatmap_configuration)
         if selected_point_style is not None:
             pulumi.set(__self__, "selected_point_style", selected_point_style)
 
@@ -51919,6 +52293,15 @@ class TemplateGeospatialPointStyleOptionsArgs:
     @cluster_marker_configuration.setter
     def cluster_marker_configuration(self, value: Optional[pulumi.Input['TemplateClusterMarkerConfigurationArgs']]):
         pulumi.set(self, "cluster_marker_configuration", value)
+
+    @property
+    @pulumi.getter(name="heatmapConfiguration")
+    def heatmap_configuration(self) -> Optional[pulumi.Input['TemplateGeospatialHeatmapConfigurationArgs']]:
+        return pulumi.get(self, "heatmap_configuration")
+
+    @heatmap_configuration.setter
+    def heatmap_configuration(self, value: Optional[pulumi.Input['TemplateGeospatialHeatmapConfigurationArgs']]):
+        pulumi.set(self, "heatmap_configuration", value)
 
     @property
     @pulumi.getter(name="selectedPointStyle")
@@ -56718,10 +57101,13 @@ class TemplatePivotTableCellConditionalFormattingArgs:
     def __init__(__self__, *,
                  field_id: pulumi.Input[str],
                  scope: Optional[pulumi.Input['TemplatePivotTableConditionalFormattingScopeArgs']] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePivotTableConditionalFormattingScopeArgs']]]] = None,
                  text_format: Optional[pulumi.Input['TemplateTextConditionalFormatArgs']] = None):
         pulumi.set(__self__, "field_id", field_id)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
         if text_format is not None:
             pulumi.set(__self__, "text_format", text_format)
 
@@ -56742,6 +57128,15 @@ class TemplatePivotTableCellConditionalFormattingArgs:
     @scope.setter
     def scope(self, value: Optional[pulumi.Input['TemplatePivotTableConditionalFormattingScopeArgs']]):
         pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePivotTableConditionalFormattingScopeArgs']]]]:
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePivotTableConditionalFormattingScopeArgs']]]]):
+        pulumi.set(self, "scopes", value)
 
     @property
     @pulumi.getter(name="textFormat")
@@ -56916,14 +57311,83 @@ class TemplatePivotTableDataPathOptionArgs:
 
 
 @pulumi.input_type
+class TemplatePivotTableFieldCollapseStateOptionArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input['TemplatePivotTableFieldCollapseStateTargetArgs'],
+                 state: Optional[pulumi.Input['TemplatePivotTableFieldCollapseState']] = None):
+        pulumi.set(__self__, "target", target)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['TemplatePivotTableFieldCollapseStateTargetArgs']:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['TemplatePivotTableFieldCollapseStateTargetArgs']):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['TemplatePivotTableFieldCollapseState']]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['TemplatePivotTableFieldCollapseState']]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class TemplatePivotTableFieldCollapseStateTargetArgs:
+    def __init__(__self__, *,
+                 field_data_path_values: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDataPathValueArgs']]]] = None,
+                 field_id: Optional[pulumi.Input[str]] = None):
+        if field_data_path_values is not None:
+            pulumi.set(__self__, "field_data_path_values", field_data_path_values)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+
+    @property
+    @pulumi.getter(name="fieldDataPathValues")
+    def field_data_path_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDataPathValueArgs']]]]:
+        return pulumi.get(self, "field_data_path_values")
+
+    @field_data_path_values.setter
+    def field_data_path_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDataPathValueArgs']]]]):
+        pulumi.set(self, "field_data_path_values", value)
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_id", value)
+
+
+@pulumi.input_type
 class TemplatePivotTableFieldOptionsArgs:
     def __init__(__self__, *,
+                 collapse_state_options: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePivotTableFieldCollapseStateOptionArgs']]]] = None,
                  data_path_options: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePivotTableDataPathOptionArgs']]]] = None,
                  selected_field_options: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePivotTableFieldOptionArgs']]]] = None):
+        if collapse_state_options is not None:
+            pulumi.set(__self__, "collapse_state_options", collapse_state_options)
         if data_path_options is not None:
             pulumi.set(__self__, "data_path_options", data_path_options)
         if selected_field_options is not None:
             pulumi.set(__self__, "selected_field_options", selected_field_options)
+
+    @property
+    @pulumi.getter(name="collapseStateOptions")
+    def collapse_state_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePivotTableFieldCollapseStateOptionArgs']]]]:
+        return pulumi.get(self, "collapse_state_options")
+
+    @collapse_state_options.setter
+    def collapse_state_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePivotTableFieldCollapseStateOptionArgs']]]]):
+        pulumi.set(self, "collapse_state_options", value)
 
     @property
     @pulumi.getter(name="dataPathOptions")
@@ -57022,6 +57486,7 @@ class TemplatePivotTableFieldWellsArgs:
 class TemplatePivotTableOptionsArgs:
     def __init__(__self__, *,
                  cell_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None,
+                 collapsed_row_dimensions_visibility: Optional[pulumi.Input['TemplateVisibility']] = None,
                  column_header_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None,
                  column_names_visibility: Optional[pulumi.Input['TemplateVisibility']] = None,
                  metric_placement: Optional[pulumi.Input['TemplatePivotTableMetricPlacement']] = None,
@@ -57032,6 +57497,8 @@ class TemplatePivotTableOptionsArgs:
                  toggle_buttons_visibility: Optional[pulumi.Input['TemplateVisibility']] = None):
         if cell_style is not None:
             pulumi.set(__self__, "cell_style", cell_style)
+        if collapsed_row_dimensions_visibility is not None:
+            pulumi.set(__self__, "collapsed_row_dimensions_visibility", collapsed_row_dimensions_visibility)
         if column_header_style is not None:
             pulumi.set(__self__, "column_header_style", column_header_style)
         if column_names_visibility is not None:
@@ -57057,6 +57524,15 @@ class TemplatePivotTableOptionsArgs:
     @cell_style.setter
     def cell_style(self, value: Optional[pulumi.Input['TemplateTableCellStyleArgs']]):
         pulumi.set(self, "cell_style", value)
+
+    @property
+    @pulumi.getter(name="collapsedRowDimensionsVisibility")
+    def collapsed_row_dimensions_visibility(self) -> Optional[pulumi.Input['TemplateVisibility']]:
+        return pulumi.get(self, "collapsed_row_dimensions_visibility")
+
+    @collapsed_row_dimensions_visibility.setter
+    def collapsed_row_dimensions_visibility(self, value: Optional[pulumi.Input['TemplateVisibility']]):
+        pulumi.set(self, "collapsed_row_dimensions_visibility", value)
 
     @property
     @pulumi.getter(name="columnHeaderStyle")
@@ -57556,6 +58032,7 @@ class TemplateRadarChartConfigurationArgs:
                  alternate_band_colors_visibility: Optional[pulumi.Input['TemplateVisibility']] = None,
                  alternate_band_even_color: Optional[pulumi.Input[str]] = None,
                  alternate_band_odd_color: Optional[pulumi.Input[str]] = None,
+                 axes_range_scale: Optional[pulumi.Input['TemplateRadarChartAxesRangeScale']] = None,
                  base_series_settings: Optional[pulumi.Input['TemplateRadarChartSeriesSettingsArgs']] = None,
                  category_axis: Optional[pulumi.Input['TemplateAxisDisplayOptionsArgs']] = None,
                  category_label_options: Optional[pulumi.Input['TemplateChartAxisLabelOptionsArgs']] = None,
@@ -57573,6 +58050,8 @@ class TemplateRadarChartConfigurationArgs:
             pulumi.set(__self__, "alternate_band_even_color", alternate_band_even_color)
         if alternate_band_odd_color is not None:
             pulumi.set(__self__, "alternate_band_odd_color", alternate_band_odd_color)
+        if axes_range_scale is not None:
+            pulumi.set(__self__, "axes_range_scale", axes_range_scale)
         if base_series_settings is not None:
             pulumi.set(__self__, "base_series_settings", base_series_settings)
         if category_axis is not None:
@@ -57622,6 +58101,15 @@ class TemplateRadarChartConfigurationArgs:
     @alternate_band_odd_color.setter
     def alternate_band_odd_color(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alternate_band_odd_color", value)
+
+    @property
+    @pulumi.getter(name="axesRangeScale")
+    def axes_range_scale(self) -> Optional[pulumi.Input['TemplateRadarChartAxesRangeScale']]:
+        return pulumi.get(self, "axes_range_scale")
+
+    @axes_range_scale.setter
+    def axes_range_scale(self, value: Optional[pulumi.Input['TemplateRadarChartAxesRangeScale']]):
+        pulumi.set(self, "axes_range_scale", value)
 
     @property
     @pulumi.getter(name="baseSeriesSettings")
@@ -57965,10 +58453,11 @@ class TemplateReferenceLineDynamicDataConfigurationArgs:
     def __init__(__self__, *,
                  calculation: pulumi.Input['TemplateNumericalAggregationFunctionArgs'],
                  column: pulumi.Input['TemplateColumnIdentifierArgs'],
-                 measure_aggregation_function: pulumi.Input['TemplateAggregationFunctionArgs']):
+                 measure_aggregation_function: Optional[pulumi.Input['TemplateAggregationFunctionArgs']] = None):
         pulumi.set(__self__, "calculation", calculation)
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
+        if measure_aggregation_function is not None:
+            pulumi.set(__self__, "measure_aggregation_function", measure_aggregation_function)
 
     @property
     @pulumi.getter
@@ -57990,11 +58479,11 @@ class TemplateReferenceLineDynamicDataConfigurationArgs:
 
     @property
     @pulumi.getter(name="measureAggregationFunction")
-    def measure_aggregation_function(self) -> pulumi.Input['TemplateAggregationFunctionArgs']:
+    def measure_aggregation_function(self) -> Optional[pulumi.Input['TemplateAggregationFunctionArgs']]:
         return pulumi.get(self, "measure_aggregation_function")
 
     @measure_aggregation_function.setter
-    def measure_aggregation_function(self, value: pulumi.Input['TemplateAggregationFunctionArgs']):
+    def measure_aggregation_function(self, value: Optional[pulumi.Input['TemplateAggregationFunctionArgs']]):
         pulumi.set(self, "measure_aggregation_function", value)
 
 
@@ -58682,11 +59171,14 @@ class TemplateSankeyDiagramVisualArgs:
 class TemplateScatterPlotCategoricallyAggregatedFieldWellsArgs:
     def __init__(__self__, *,
                  category: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]] = None,
+                 label: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]] = None,
                  size: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateMeasureFieldArgs']]]] = None,
                  x_axis: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateMeasureFieldArgs']]]] = None,
                  y_axis: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateMeasureFieldArgs']]]] = None):
         if category is not None:
             pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
@@ -58702,6 +59194,15 @@ class TemplateScatterPlotCategoricallyAggregatedFieldWellsArgs:
     @category.setter
     def category(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]]):
         pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]]):
+        pulumi.set(self, "label", value)
 
     @property
     @pulumi.getter
@@ -58876,15 +59377,39 @@ class TemplateScatterPlotFieldWellsArgs:
 @pulumi.input_type
 class TemplateScatterPlotUnaggregatedFieldWellsArgs:
     def __init__(__self__, *,
+                 category: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]] = None,
+                 label: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]] = None,
                  size: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateMeasureFieldArgs']]]] = None,
                  x_axis: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]] = None,
                  y_axis: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if x_axis is not None:
             pulumi.set(__self__, "x_axis", x_axis)
         if y_axis is not None:
             pulumi.set(__self__, "y_axis", y_axis)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]]):
+        pulumi.set(self, "label", value)
 
     @property
     @pulumi.getter
@@ -63580,19 +64105,12 @@ class TemplateWordCloudVisualArgs:
 class ThemeBorderStyleArgs:
     def __init__(__self__, *,
                  show: Optional[pulumi.Input[bool]] = None):
-        """
-        <p>The display options for tile borders for visuals.</p>
-        :param pulumi.Input[bool] show: <p>The option to enable display of borders for visuals.</p>
-        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[pulumi.Input[bool]]:
-        """
-        <p>The option to enable display of borders for visuals.</p>
-        """
         return pulumi.get(self, "show")
 
     @show.setter
@@ -63607,10 +64125,6 @@ class ThemeConfigurationArgs:
                  sheet: Optional[pulumi.Input['ThemeSheetStyleArgs']] = None,
                  typography: Optional[pulumi.Input['ThemeTypographyArgs']] = None,
                  u_i_color_palette: Optional[pulumi.Input['ThemeUIColorPaletteArgs']] = None):
-        """
-        <p>The theme configuration. This configuration contains all of the display properties for
-                    a theme.</p>
-        """
         if data_color_palette is not None:
             pulumi.set(__self__, "data_color_palette", data_color_palette)
         if sheet is not None:
@@ -63663,15 +64177,6 @@ class ThemeDataColorPaletteArgs:
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  empty_fill_color: Optional[pulumi.Input[str]] = None,
                  min_max_gradient: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        <p>The theme colors that are used for data colors in charts. The colors description is a
-                    hexadecimal color code that consists of six alphanumerical characters, prefixed with
-                        <code>#</code>, for example #37BFF5. </p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] colors: <p>The hexadecimal codes for the colors.</p>
-        :param pulumi.Input[str] empty_fill_color: <p>The hexadecimal code of a color that applies to charts where a lack of data is
-                           highlighted.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] min_max_gradient: <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
-        """
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if empty_fill_color is not None:
@@ -63682,9 +64187,6 @@ class ThemeDataColorPaletteArgs:
     @property
     @pulumi.getter
     def colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        <p>The hexadecimal codes for the colors.</p>
-        """
         return pulumi.get(self, "colors")
 
     @colors.setter
@@ -63694,10 +64196,6 @@ class ThemeDataColorPaletteArgs:
     @property
     @pulumi.getter(name="emptyFillColor")
     def empty_fill_color(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The hexadecimal code of a color that applies to charts where a lack of data is
-                    highlighted.</p>
-        """
         return pulumi.get(self, "empty_fill_color")
 
     @empty_fill_color.setter
@@ -63707,9 +64205,6 @@ class ThemeDataColorPaletteArgs:
     @property
     @pulumi.getter(name="minMaxGradient")
     def min_max_gradient(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
-        """
         return pulumi.get(self, "min_max_gradient")
 
     @min_max_gradient.setter
@@ -63738,21 +64233,12 @@ class ThemeFontArgs:
 class ThemeGutterStyleArgs:
     def __init__(__self__, *,
                  show: Optional[pulumi.Input[bool]] = None):
-        """
-        <p>The display options for gutter spacing between tiles on a sheet.</p>
-        :param pulumi.Input[bool] show: <p>This Boolean value controls whether to display a gutter space between sheet tiles.
-                       </p>
-        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[pulumi.Input[bool]]:
-        """
-        <p>This Boolean value controls whether to display a gutter space between sheet tiles.
-                </p>
-        """
         return pulumi.get(self, "show")
 
     @show.setter
@@ -63764,19 +64250,12 @@ class ThemeGutterStyleArgs:
 class ThemeMarginStyleArgs:
     def __init__(__self__, *,
                  show: Optional[pulumi.Input[bool]] = None):
-        """
-        <p>The display options for margins around the outside edge of sheets.</p>
-        :param pulumi.Input[bool] show: <p>This Boolean value controls whether to display sheet margins.</p>
-        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[pulumi.Input[bool]]:
-        """
-        <p>This Boolean value controls whether to display sheet margins.</p>
-        """
         return pulumi.get(self, "show")
 
     @show.setter
@@ -63788,35 +64267,16 @@ class ThemeMarginStyleArgs:
 class ThemeResourcePermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 principal: pulumi.Input[str]):
-        """
-        <p>Permission for the resource.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: <p>The IAM action to grant or revoke permissions on.</p>
-        :param pulumi.Input[str] principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-                           following:</p>
-                       <ul>
-                           <li>
-                               <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-                           </li>
-                           <li>
-                               <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-                           </li>
-                           <li>
-                               <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-                                   ARN. Use this option only to share resources (templates) across AWS accounts.
-                                   (This is less common.) </p>
-                           </li>
-                        </ul>
-        """
+                 principal: pulumi.Input[str],
+                 resource: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        <p>The IAM action to grant or revoke permissions on.</p>
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -63826,28 +64286,20 @@ class ThemeResourcePermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-                    following:</p>
-                <ul>
-                    <li>
-                        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-                    </li>
-                    <li>
-                        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-                    </li>
-                    <li>
-                        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-                            ARN. Use this option only to share resources (templates) across AWS accounts.
-                            (This is less common.) </p>
-                    </li>
-                 </ul>
-        """
         return pulumi.get(self, "principal")
 
     @principal.setter
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
 
 
 @pulumi.input_type
@@ -63855,9 +64307,6 @@ class ThemeSheetStyleArgs:
     def __init__(__self__, *,
                  tile: Optional[pulumi.Input['ThemeTileStyleArgs']] = None,
                  tile_layout: Optional[pulumi.Input['ThemeTileLayoutStyleArgs']] = None):
-        """
-        <p>The theme display options for sheets. </p>
-        """
         if tile is not None:
             pulumi.set(__self__, "tile", tile)
         if tile_layout is not None:
@@ -63887,21 +64336,12 @@ class ThemeTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-                    resource.</p>
-        :param pulumi.Input[str] key: <p>Tag key.</p>
-        :param pulumi.Input[str] value: <p>Tag value.</p>
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        <p>Tag key.</p>
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -63911,9 +64351,6 @@ class ThemeTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        <p>Tag value.</p>
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -63926,9 +64363,6 @@ class ThemeTileLayoutStyleArgs:
     def __init__(__self__, *,
                  gutter: Optional[pulumi.Input['ThemeGutterStyleArgs']] = None,
                  margin: Optional[pulumi.Input['ThemeMarginStyleArgs']] = None):
-        """
-        <p>The display options for the layout of tiles on a sheet.</p>
-        """
         if gutter is not None:
             pulumi.set(__self__, "gutter", gutter)
         if margin is not None:
@@ -63957,9 +64391,6 @@ class ThemeTileLayoutStyleArgs:
 class ThemeTileStyleArgs:
     def __init__(__self__, *,
                  border: Optional[pulumi.Input['ThemeBorderStyleArgs']] = None):
-        """
-        <p>Display options related to tiles on a sheet.</p>
-        """
         if border is not None:
             pulumi.set(__self__, "border", border)
 
@@ -63977,9 +64408,6 @@ class ThemeTileStyleArgs:
 class ThemeTypographyArgs:
     def __init__(__self__, *,
                  font_families: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeFontArgs']]]] = None):
-        """
-        <p>The typeface for the theme.</p>
-        """
         if font_families is not None:
             pulumi.set(__self__, "font_families", font_families)
 
@@ -64012,39 +64440,6 @@ class ThemeUIColorPaletteArgs:
                  success_foreground: Optional[pulumi.Input[str]] = None,
                  warning: Optional[pulumi.Input[str]] = None,
                  warning_foreground: Optional[pulumi.Input[str]] = None):
-        """
-        <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
-                    description is a hexadecimal color code that consists of six alphanumerical characters,
-                    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
-                        Guide.</i>
-                </p>
-        :param pulumi.Input[str] accent: <p>This color is that applies to selected states and buttons.</p>
-        :param pulumi.Input[str] accent_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           accent color.</p>
-        :param pulumi.Input[str] danger: <p>The color that applies to error messages.</p>
-        :param pulumi.Input[str] danger_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           error color.</p>
-        :param pulumi.Input[str] dimension: <p>The color that applies to the names of fields that are identified as
-                           dimensions.</p>
-        :param pulumi.Input[str] dimension_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           dimension color.</p>
-        :param pulumi.Input[str] measure: <p>The color that applies to the names of fields that are identified as measures.</p>
-        :param pulumi.Input[str] measure_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           measure color.</p>
-        :param pulumi.Input[str] primary_background: <p>The background color that applies to visuals and other high emphasis UI.</p>
-        :param pulumi.Input[str] primary_foreground: <p>The color of text and other foreground elements that appear over the primary
-                           background regions, such as grid lines, borders, table banding, icons, and so on.</p>
-        :param pulumi.Input[str] secondary_background: <p>The background color that applies to the sheet background and sheet controls.</p>
-        :param pulumi.Input[str] secondary_foreground: <p>The foreground color that applies to any sheet title, sheet control text, or UI that
-                           appears over the secondary background.</p>
-        :param pulumi.Input[str] success: <p>The color that applies to success messages, for example the check mark for a
-                           successful download.</p>
-        :param pulumi.Input[str] success_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           success color.</p>
-        :param pulumi.Input[str] warning: <p>This color that applies to warning and informational messages.</p>
-        :param pulumi.Input[str] warning_foreground: <p>The foreground color that applies to any text or other elements that appear over the
-                           warning color.</p>
-        """
         if accent is not None:
             pulumi.set(__self__, "accent", accent)
         if accent_foreground is not None:
@@ -64081,9 +64476,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter
     def accent(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>This color is that applies to selected states and buttons.</p>
-        """
         return pulumi.get(self, "accent")
 
     @accent.setter
@@ -64093,10 +64485,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter(name="accentForeground")
     def accent_foreground(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    accent color.</p>
-        """
         return pulumi.get(self, "accent_foreground")
 
     @accent_foreground.setter
@@ -64106,9 +64494,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter
     def danger(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The color that applies to error messages.</p>
-        """
         return pulumi.get(self, "danger")
 
     @danger.setter
@@ -64118,10 +64503,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter(name="dangerForeground")
     def danger_foreground(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    error color.</p>
-        """
         return pulumi.get(self, "danger_foreground")
 
     @danger_foreground.setter
@@ -64131,10 +64512,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The color that applies to the names of fields that are identified as
-                    dimensions.</p>
-        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -64144,10 +64521,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter(name="dimensionForeground")
     def dimension_foreground(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    dimension color.</p>
-        """
         return pulumi.get(self, "dimension_foreground")
 
     @dimension_foreground.setter
@@ -64157,9 +64530,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter
     def measure(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The color that applies to the names of fields that are identified as measures.</p>
-        """
         return pulumi.get(self, "measure")
 
     @measure.setter
@@ -64169,10 +64539,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter(name="measureForeground")
     def measure_foreground(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    measure color.</p>
-        """
         return pulumi.get(self, "measure_foreground")
 
     @measure_foreground.setter
@@ -64182,9 +64548,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter(name="primaryBackground")
     def primary_background(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The background color that applies to visuals and other high emphasis UI.</p>
-        """
         return pulumi.get(self, "primary_background")
 
     @primary_background.setter
@@ -64194,10 +64557,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter(name="primaryForeground")
     def primary_foreground(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The color of text and other foreground elements that appear over the primary
-                    background regions, such as grid lines, borders, table banding, icons, and so on.</p>
-        """
         return pulumi.get(self, "primary_foreground")
 
     @primary_foreground.setter
@@ -64207,9 +64566,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter(name="secondaryBackground")
     def secondary_background(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The background color that applies to the sheet background and sheet controls.</p>
-        """
         return pulumi.get(self, "secondary_background")
 
     @secondary_background.setter
@@ -64219,10 +64575,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter(name="secondaryForeground")
     def secondary_foreground(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The foreground color that applies to any sheet title, sheet control text, or UI that
-                    appears over the secondary background.</p>
-        """
         return pulumi.get(self, "secondary_foreground")
 
     @secondary_foreground.setter
@@ -64232,10 +64584,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter
     def success(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The color that applies to success messages, for example the check mark for a
-                    successful download.</p>
-        """
         return pulumi.get(self, "success")
 
     @success.setter
@@ -64245,10 +64593,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter(name="successForeground")
     def success_foreground(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    success color.</p>
-        """
         return pulumi.get(self, "success_foreground")
 
     @success_foreground.setter
@@ -64258,9 +64602,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>This color that applies to warning and informational messages.</p>
-        """
         return pulumi.get(self, "warning")
 
     @warning.setter
@@ -64270,10 +64611,6 @@ class ThemeUIColorPaletteArgs:
     @property
     @pulumi.getter(name="warningForeground")
     def warning_foreground(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The foreground color that applies to any text or other elements that appear over the
-                    warning color.</p>
-        """
         return pulumi.get(self, "warning_foreground")
 
     @warning_foreground.setter

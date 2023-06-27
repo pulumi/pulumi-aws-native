@@ -10,6 +10,156 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type KeyspaceReplicationSpecification struct {
+	RegionList          []KeyspaceRegionListItem                             `pulumi:"regionList"`
+	ReplicationStrategy *KeyspaceReplicationSpecificationReplicationStrategy `pulumi:"replicationStrategy"`
+}
+
+// KeyspaceReplicationSpecificationInput is an input type that accepts KeyspaceReplicationSpecificationArgs and KeyspaceReplicationSpecificationOutput values.
+// You can construct a concrete instance of `KeyspaceReplicationSpecificationInput` via:
+//
+//	KeyspaceReplicationSpecificationArgs{...}
+type KeyspaceReplicationSpecificationInput interface {
+	pulumi.Input
+
+	ToKeyspaceReplicationSpecificationOutput() KeyspaceReplicationSpecificationOutput
+	ToKeyspaceReplicationSpecificationOutputWithContext(context.Context) KeyspaceReplicationSpecificationOutput
+}
+
+type KeyspaceReplicationSpecificationArgs struct {
+	RegionList          KeyspaceRegionListItemArrayInput                            `pulumi:"regionList"`
+	ReplicationStrategy KeyspaceReplicationSpecificationReplicationStrategyPtrInput `pulumi:"replicationStrategy"`
+}
+
+func (KeyspaceReplicationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyspaceReplicationSpecification)(nil)).Elem()
+}
+
+func (i KeyspaceReplicationSpecificationArgs) ToKeyspaceReplicationSpecificationOutput() KeyspaceReplicationSpecificationOutput {
+	return i.ToKeyspaceReplicationSpecificationOutputWithContext(context.Background())
+}
+
+func (i KeyspaceReplicationSpecificationArgs) ToKeyspaceReplicationSpecificationOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceReplicationSpecificationOutput)
+}
+
+func (i KeyspaceReplicationSpecificationArgs) ToKeyspaceReplicationSpecificationPtrOutput() KeyspaceReplicationSpecificationPtrOutput {
+	return i.ToKeyspaceReplicationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i KeyspaceReplicationSpecificationArgs) ToKeyspaceReplicationSpecificationPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceReplicationSpecificationOutput).ToKeyspaceReplicationSpecificationPtrOutputWithContext(ctx)
+}
+
+// KeyspaceReplicationSpecificationPtrInput is an input type that accepts KeyspaceReplicationSpecificationArgs, KeyspaceReplicationSpecificationPtr and KeyspaceReplicationSpecificationPtrOutput values.
+// You can construct a concrete instance of `KeyspaceReplicationSpecificationPtrInput` via:
+//
+//	        KeyspaceReplicationSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KeyspaceReplicationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToKeyspaceReplicationSpecificationPtrOutput() KeyspaceReplicationSpecificationPtrOutput
+	ToKeyspaceReplicationSpecificationPtrOutputWithContext(context.Context) KeyspaceReplicationSpecificationPtrOutput
+}
+
+type keyspaceReplicationSpecificationPtrType KeyspaceReplicationSpecificationArgs
+
+func KeyspaceReplicationSpecificationPtr(v *KeyspaceReplicationSpecificationArgs) KeyspaceReplicationSpecificationPtrInput {
+	return (*keyspaceReplicationSpecificationPtrType)(v)
+}
+
+func (*keyspaceReplicationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyspaceReplicationSpecification)(nil)).Elem()
+}
+
+func (i *keyspaceReplicationSpecificationPtrType) ToKeyspaceReplicationSpecificationPtrOutput() KeyspaceReplicationSpecificationPtrOutput {
+	return i.ToKeyspaceReplicationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *keyspaceReplicationSpecificationPtrType) ToKeyspaceReplicationSpecificationPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceReplicationSpecificationPtrOutput)
+}
+
+type KeyspaceReplicationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (KeyspaceReplicationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyspaceReplicationSpecification)(nil)).Elem()
+}
+
+func (o KeyspaceReplicationSpecificationOutput) ToKeyspaceReplicationSpecificationOutput() KeyspaceReplicationSpecificationOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationOutput) ToKeyspaceReplicationSpecificationOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationOutput) ToKeyspaceReplicationSpecificationPtrOutput() KeyspaceReplicationSpecificationPtrOutput {
+	return o.ToKeyspaceReplicationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o KeyspaceReplicationSpecificationOutput) ToKeyspaceReplicationSpecificationPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyspaceReplicationSpecification) *KeyspaceReplicationSpecification {
+		return &v
+	}).(KeyspaceReplicationSpecificationPtrOutput)
+}
+
+func (o KeyspaceReplicationSpecificationOutput) RegionList() KeyspaceRegionListItemArrayOutput {
+	return o.ApplyT(func(v KeyspaceReplicationSpecification) []KeyspaceRegionListItem { return v.RegionList }).(KeyspaceRegionListItemArrayOutput)
+}
+
+func (o KeyspaceReplicationSpecificationOutput) ReplicationStrategy() KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
+	return o.ApplyT(func(v KeyspaceReplicationSpecification) *KeyspaceReplicationSpecificationReplicationStrategy {
+		return v.ReplicationStrategy
+	}).(KeyspaceReplicationSpecificationReplicationStrategyPtrOutput)
+}
+
+type KeyspaceReplicationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyspaceReplicationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyspaceReplicationSpecification)(nil)).Elem()
+}
+
+func (o KeyspaceReplicationSpecificationPtrOutput) ToKeyspaceReplicationSpecificationPtrOutput() KeyspaceReplicationSpecificationPtrOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationPtrOutput) ToKeyspaceReplicationSpecificationPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationPtrOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationPtrOutput) Elem() KeyspaceReplicationSpecificationOutput {
+	return o.ApplyT(func(v *KeyspaceReplicationSpecification) KeyspaceReplicationSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret KeyspaceReplicationSpecification
+		return ret
+	}).(KeyspaceReplicationSpecificationOutput)
+}
+
+func (o KeyspaceReplicationSpecificationPtrOutput) RegionList() KeyspaceRegionListItemArrayOutput {
+	return o.ApplyT(func(v *KeyspaceReplicationSpecification) []KeyspaceRegionListItem {
+		if v == nil {
+			return nil
+		}
+		return v.RegionList
+	}).(KeyspaceRegionListItemArrayOutput)
+}
+
+func (o KeyspaceReplicationSpecificationPtrOutput) ReplicationStrategy() KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
+	return o.ApplyT(func(v *KeyspaceReplicationSpecification) *KeyspaceReplicationSpecificationReplicationStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicationStrategy
+	}).(KeyspaceReplicationSpecificationReplicationStrategyPtrOutput)
+}
+
 type KeyspaceTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -864,6 +1014,8 @@ func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationInput)(nil)).Elem(), KeyspaceReplicationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationPtrInput)(nil)).Elem(), KeyspaceReplicationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceTagInput)(nil)).Elem(), KeyspaceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceTagArrayInput)(nil)).Elem(), KeyspaceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBillingModeInput)(nil)).Elem(), TableBillingModeArgs{})
@@ -878,6 +1030,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputPtrInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
+	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationOutput{})
+	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(KeyspaceTagOutput{})
 	pulumi.RegisterOutputType(KeyspaceTagArrayOutput{})
 	pulumi.RegisterOutputType(TableBillingModeOutput{})

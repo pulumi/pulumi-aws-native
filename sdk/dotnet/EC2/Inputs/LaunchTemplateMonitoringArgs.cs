@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// Specifies whether detailed monitoring is enabled for an instance.
+    /// </summary>
     public sealed class LaunchTemplateMonitoringArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify true to enable detailed monitoring.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

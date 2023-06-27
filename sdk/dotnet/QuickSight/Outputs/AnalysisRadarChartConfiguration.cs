@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? AlternateBandColorsVisibility;
         public readonly string? AlternateBandEvenColor;
         public readonly string? AlternateBandOddColor;
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisRadarChartAxesRangeScale? AxesRangeScale;
         public readonly Outputs.AnalysisRadarChartSeriesSettings? BaseSeriesSettings;
         public readonly Outputs.AnalysisAxisDisplayOptions? CategoryAxis;
         public readonly Outputs.AnalysisChartAxisLabelOptions? CategoryLabelOptions;
@@ -35,6 +36,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             string? alternateBandEvenColor,
 
             string? alternateBandOddColor,
+
+            Pulumi.AwsNative.QuickSight.AnalysisRadarChartAxesRangeScale? axesRangeScale,
 
             Outputs.AnalysisRadarChartSeriesSettings? baseSeriesSettings,
 
@@ -61,6 +64,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             AlternateBandColorsVisibility = alternateBandColorsVisibility;
             AlternateBandEvenColor = alternateBandEvenColor;
             AlternateBandOddColor = alternateBandOddColor;
+            AxesRangeScale = axesRangeScale;
             BaseSeriesSettings = baseSeriesSettings;
             CategoryAxis = categoryAxis;
             CategoryLabelOptions = categoryLabelOptions;

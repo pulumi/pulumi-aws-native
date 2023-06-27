@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisScatterPlotCategoricallyAggregatedFieldWells
     {
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Category;
+        public readonly ImmutableArray<Outputs.AnalysisDimensionField> Label;
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> Size;
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> XAxis;
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> YAxis;
@@ -22,6 +23,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private AnalysisScatterPlotCategoricallyAggregatedFieldWells(
             ImmutableArray<Outputs.AnalysisDimensionField> category,
 
+            ImmutableArray<Outputs.AnalysisDimensionField> label,
+
             ImmutableArray<Outputs.AnalysisMeasureField> size,
 
             ImmutableArray<Outputs.AnalysisMeasureField> xAxis,
@@ -29,6 +32,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ImmutableArray<Outputs.AnalysisMeasureField> yAxis)
         {
             Category = category;
+            Label = label;
             Size = size;
             XAxis = xAxis;
             YAxis = yAxis;

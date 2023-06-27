@@ -10,20 +10,38 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// Specifies options for Spot Instances.
+    /// </summary>
     public sealed class LaunchTemplateSpotOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Deprecated
+        /// </summary>
         [Input("blockDurationMinutes")]
         public Input<int>? BlockDurationMinutes { get; set; }
 
+        /// <summary>
+        /// The behavior when a Spot Instance is interrupted. The default is terminate.
+        /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
 
+        /// <summary>
+        /// The maximum hourly price you're willing to pay for the Spot Instances.
+        /// </summary>
         [Input("maxPrice")]
         public Input<string>? MaxPrice { get; set; }
 
+        /// <summary>
+        /// The Spot Instance request type.
+        /// </summary>
         [Input("spotInstanceType")]
         public Input<string>? SpotInstanceType { get; set; }
 
+        /// <summary>
+        /// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+        /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
 

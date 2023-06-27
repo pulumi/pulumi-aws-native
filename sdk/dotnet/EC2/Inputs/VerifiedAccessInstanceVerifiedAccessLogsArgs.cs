@@ -22,10 +22,22 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public Input<Inputs.VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs>? CloudWatchLogs { get; set; }
 
         /// <summary>
+        /// Include claims from trust providers in Verified Access logs.
+        /// </summary>
+        [Input("includeTrustContext")]
+        public Input<bool>? IncludeTrustContext { get; set; }
+
+        /// <summary>
         /// Sends Verified Access logs to Kinesis.
         /// </summary>
         [Input("kinesisDataFirehose")]
         public Input<Inputs.VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs>? KinesisDataFirehose { get; set; }
+
+        /// <summary>
+        /// Select log version for Verified Access logs.
+        /// </summary>
+        [Input("logVersion")]
+        public Input<string>? LogVersion { get; set; }
 
         /// <summary>
         /// Sends Verified Access logs to Amazon S3.

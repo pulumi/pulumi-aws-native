@@ -35,33 +35,21 @@ class GetGatewayResponseResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        A Cloudformation auto generated ID.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[Any]:
-        """
-        The response parameters (paths, query strings, and headers) for the response.
-        """
         return pulumi.get(self, "response_parameters")
 
     @property
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[Any]:
-        """
-        The response templates for the response.
-        """
         return pulumi.get(self, "response_templates")
 
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[str]:
-        """
-        The HTTP status code for the response.
-        """
         return pulumi.get(self, "status_code")
 
 
@@ -81,9 +69,6 @@ def get_gateway_response(id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResponseResult:
     """
     Resource Type definition for AWS::ApiGateway::GatewayResponse
-
-
-    :param str id: A Cloudformation auto generated ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -102,8 +87,5 @@ def get_gateway_response_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResponseResult]:
     """
     Resource Type definition for AWS::ApiGateway::GatewayResponse
-
-
-    :param str id: A Cloudformation auto generated ID.
     """
     ...

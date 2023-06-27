@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// The minimum and maximum number of vCPUs.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateVCpuCount
     {
+        /// <summary>
+        /// The maximum number of vCPUs.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum number of vCPUs.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

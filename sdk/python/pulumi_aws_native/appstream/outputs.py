@@ -11,6 +11,9 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AppBlockBuilderAccessEndpoint',
+    'AppBlockBuilderTag',
+    'AppBlockBuilderVpcConfig',
     'AppBlockS3Location',
     'AppBlockScriptDetails',
     'AppBlockTag',
@@ -37,6 +40,103 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class AppBlockBuilderAccessEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "vpceId":
+            suggest = "vpce_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppBlockBuilderAccessEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppBlockBuilderAccessEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppBlockBuilderAccessEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 vpce_id: str):
+        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "vpce_id", vpce_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="vpceId")
+    def vpce_id(self) -> str:
+        return pulumi.get(self, "vpce_id")
+
+
+@pulumi.output_type
+class AppBlockBuilderTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AppBlockBuilderVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppBlockBuilderVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppBlockBuilderVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppBlockBuilderVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 subnet_ids: Optional[Sequence[str]] = None):
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
 class AppBlockS3Location(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -59,9 +159,10 @@ class AppBlockS3Location(dict):
 
     def __init__(__self__, *,
                  s3_bucket: str,
-                 s3_key: str):
+                 s3_key: Optional[str] = None):
         pulumi.set(__self__, "s3_bucket", s3_bucket)
-        pulumi.set(__self__, "s3_key", s3_key)
+        if s3_key is not None:
+            pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -70,7 +171,7 @@ class AppBlockS3Location(dict):
 
     @property
     @pulumi.getter(name="s3Key")
-    def s3_key(self) -> str:
+    def s3_key(self) -> Optional[str]:
         return pulumi.get(self, "s3_key")
 
 
@@ -133,40 +234,8 @@ class AppBlockScriptDetails(dict):
 
 @pulumi.output_type
 class AppBlockTag(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tagKey":
-            suggest = "tag_key"
-        elif key == "tagValue":
-            suggest = "tag_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AppBlockTag. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AppBlockTag.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AppBlockTag.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 tag_key: str,
-                 tag_value: str):
-        pulumi.set(__self__, "tag_key", tag_key)
-        pulumi.set(__self__, "tag_value", tag_value)
-
-    @property
-    @pulumi.getter(name="tagKey")
-    def tag_key(self) -> str:
-        return pulumi.get(self, "tag_key")
-
-    @property
-    @pulumi.getter(name="tagValue")
-    def tag_value(self) -> str:
-        return pulumi.get(self, "tag_value")
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -209,40 +278,8 @@ class ApplicationS3Location(dict):
 
 @pulumi.output_type
 class ApplicationTag(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tagKey":
-            suggest = "tag_key"
-        elif key == "tagValue":
-            suggest = "tag_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationTag. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApplicationTag.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApplicationTag.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 tag_key: str,
-                 tag_value: str):
-        pulumi.set(__self__, "tag_key", tag_key)
-        pulumi.set(__self__, "tag_value", tag_value)
-
-    @property
-    @pulumi.getter(name="tagKey")
-    def tag_key(self) -> str:
-        return pulumi.get(self, "tag_key")
-
-    @property
-    @pulumi.getter(name="tagValue")
-    def tag_value(self) -> str:
-        return pulumi.get(self, "tag_value")
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type

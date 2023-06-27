@@ -30,8 +30,14 @@ namespace Pulumi.AwsNative.AppStream
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("packagingType")]
+        public Output<string?> PackagingType { get; private set; } = null!;
+
+        [Output("postSetupScriptDetails")]
+        public Output<Outputs.AppBlockScriptDetails?> PostSetupScriptDetails { get; private set; } = null!;
+
         [Output("setupScriptDetails")]
-        public Output<Outputs.AppBlockScriptDetails> SetupScriptDetails { get; private set; } = null!;
+        public Output<Outputs.AppBlockScriptDetails?> SetupScriptDetails { get; private set; } = null!;
 
         [Output("sourceS3Location")]
         public Output<Outputs.AppBlockS3Location> SourceS3Location { get; private set; } = null!;
@@ -93,8 +99,14 @@ namespace Pulumi.AwsNative.AppStream
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("setupScriptDetails", required: true)]
-        public Input<Inputs.AppBlockScriptDetailsArgs> SetupScriptDetails { get; set; } = null!;
+        [Input("packagingType")]
+        public Input<string>? PackagingType { get; set; }
+
+        [Input("postSetupScriptDetails")]
+        public Input<Inputs.AppBlockScriptDetailsArgs>? PostSetupScriptDetails { get; set; }
+
+        [Input("setupScriptDetails")]
+        public Input<Inputs.AppBlockScriptDetailsArgs>? SetupScriptDetails { get; set; }
 
         [Input("sourceS3Location", required: true)]
         public Input<Inputs.AppBlockS3LocationArgs> SourceS3Location { get; set; } = null!;

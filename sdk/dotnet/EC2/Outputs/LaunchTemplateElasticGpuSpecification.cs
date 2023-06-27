@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies a specification for an Elastic GPU for launch template.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateElasticGpuSpecification
     {
+        /// <summary>
+        /// The type of Elastic Graphics accelerator.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

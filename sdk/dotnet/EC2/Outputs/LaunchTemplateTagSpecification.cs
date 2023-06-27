@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies the tags to apply to a resource when the resource is created for the launch template.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateTagSpecification
     {
+        /// <summary>
+        /// The type of resource to tag.
+        /// </summary>
         public readonly string? ResourceType;
+        /// <summary>
+        /// The tags for the resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateTag> Tags;
 
         [OutputConstructor]

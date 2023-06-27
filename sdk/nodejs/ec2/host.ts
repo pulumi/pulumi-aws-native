@@ -35,6 +35,10 @@ export class Host extends pulumi.CustomResource {
     }
 
     /**
+     * The ID of the Outpost hardware asset.
+     */
+    public readonly assetId!: pulumi.Output<string | undefined>;
+    /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
      */
     public readonly autoPlacement!: pulumi.Output<string | undefined>;
@@ -43,7 +47,7 @@ export class Host extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * Id of the host created.
+     * ID of the host created.
      */
     public /*out*/ readonly hostId!: pulumi.Output<string>;
     /**
@@ -81,6 +85,7 @@ export class Host extends pulumi.CustomResource {
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
+            resourceInputs["assetId"] = args ? args.assetId : undefined;
             resourceInputs["autoPlacement"] = args ? args.autoPlacement : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["hostMaintenance"] = args ? args.hostMaintenance : undefined;
@@ -90,6 +95,7 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
             resourceInputs["hostId"] = undefined /*out*/;
         } else {
+            resourceInputs["assetId"] = undefined /*out*/;
             resourceInputs["autoPlacement"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["hostId"] = undefined /*out*/;
@@ -108,6 +114,10 @@ export class Host extends pulumi.CustomResource {
  * The set of arguments for constructing a Host resource.
  */
 export interface HostArgs {
+    /**
+     * The ID of the Outpost hardware asset.
+     */
+    assetId?: pulumi.Input<string>;
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
      */

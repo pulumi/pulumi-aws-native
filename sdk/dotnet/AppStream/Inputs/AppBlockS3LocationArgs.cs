@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
-        [Input("s3Key", required: true)]
-        public Input<string> S3Key { get; set; } = null!;
+        [Input("s3Key")]
+        public Input<string>? S3Key { get; set; }
 
         public AppBlockS3LocationArgs()
         {

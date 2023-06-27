@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly string FieldId;
         public readonly Outputs.DashboardPivotTableConditionalFormattingScope? Scope;
+        public readonly ImmutableArray<Outputs.DashboardPivotTableConditionalFormattingScope> Scopes;
         public readonly Outputs.DashboardTextConditionalFormat? TextFormat;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardPivotTableConditionalFormattingScope? scope,
 
+            ImmutableArray<Outputs.DashboardPivotTableConditionalFormattingScope> scopes,
+
             Outputs.DashboardTextConditionalFormat? textFormat)
         {
             FieldId = fieldId;
             Scope = scope;
+            Scopes = scopes;
             TextFormat = textFormat;
         }
     }

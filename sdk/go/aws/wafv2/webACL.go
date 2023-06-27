@@ -16,6 +16,7 @@ type WebACL struct {
 	pulumi.CustomResourceState
 
 	Arn                  pulumi.StringOutput                 `pulumi:"arn"`
+	AssociationConfig    WebACLAssociationConfigPtrOutput    `pulumi:"associationConfig"`
 	Capacity             pulumi.IntOutput                    `pulumi:"capacity"`
 	CaptchaConfig        WebACLCaptchaConfigPtrOutput        `pulumi:"captchaConfig"`
 	ChallengeConfig      WebACLChallengeConfigPtrOutput      `pulumi:"challengeConfig"`
@@ -80,6 +81,7 @@ func (WebACLState) ElementType() reflect.Type {
 }
 
 type webACLArgs struct {
+	AssociationConfig    *WebACLAssociationConfig    `pulumi:"associationConfig"`
 	CaptchaConfig        *WebACLCaptchaConfig        `pulumi:"captchaConfig"`
 	ChallengeConfig      *WebACLChallengeConfig      `pulumi:"challengeConfig"`
 	CustomResponseBodies *WebACLCustomResponseBodies `pulumi:"customResponseBodies"`
@@ -96,6 +98,7 @@ type webACLArgs struct {
 
 // The set of arguments for constructing a WebACL resource.
 type WebACLArgs struct {
+	AssociationConfig    WebACLAssociationConfigPtrInput
 	CaptchaConfig        WebACLCaptchaConfigPtrInput
 	ChallengeConfig      WebACLChallengeConfigPtrInput
 	CustomResponseBodies WebACLCustomResponseBodiesPtrInput
@@ -149,6 +152,10 @@ func (o WebACLOutput) ToWebACLOutputWithContext(ctx context.Context) WebACLOutpu
 
 func (o WebACLOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebACL) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o WebACLOutput) AssociationConfig() WebACLAssociationConfigPtrOutput {
+	return o.ApplyT(func(v *WebACL) WebACLAssociationConfigPtrOutput { return v.AssociationConfig }).(WebACLAssociationConfigPtrOutput)
 }
 
 func (o WebACLOutput) Capacity() pulumi.IntOutput {

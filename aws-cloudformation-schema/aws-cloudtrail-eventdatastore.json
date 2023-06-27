@@ -211,16 +211,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "CloudTrail:CreateEventDataStore", "CloudTrail:AddTags", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole", "organizations:DescribeOrganization", "organizations:ListAWSServiceAccessForOrganization" ]
+      "permissions" : [ "CloudTrail:CreateEventDataStore", "CloudTrail:AddTags", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole", "organizations:DescribeOrganization", "organizations:ListAWSServiceAccessForOrganization", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "read" : {
       "permissions" : [ "CloudTrail:GetEventDataStore", "CloudTrail:ListEventDataStores", "CloudTrail:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "CloudTrail:UpdateEventDataStore", "CloudTrail:RestoreEventDataStore", "CloudTrail:AddTags", "CloudTrail:RemoveTags", "CloudTrail:StartEventDataStoreIngestion", "CloudTrail:StopEventDataStoreIngestion", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole", "organizations:DescribeOrganization", "organizations:ListAWSServiceAccessForOrganization" ]
+      "permissions" : [ "CloudTrail:UpdateEventDataStore", "CloudTrail:RestoreEventDataStore", "CloudTrail:AddTags", "CloudTrail:RemoveTags", "CloudTrail:StartEventDataStoreIngestion", "CloudTrail:StopEventDataStoreIngestion", "CloudTrail:GetEventDataStore", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole", "organizations:DescribeOrganization", "organizations:ListAWSServiceAccessForOrganization" ]
     },
     "delete" : {
-      "permissions" : [ "CloudTrail:DeleteEventDataStore" ]
+      "permissions" : [ "CloudTrail:DeleteEventDataStore", "CloudTrail:GetEventDataStore" ]
     },
     "list" : {
       "permissions" : [ "CloudTrail:ListEventDataStores", "CloudTrail:GetEventDataStore", "CloudTrail:ListTags" ]

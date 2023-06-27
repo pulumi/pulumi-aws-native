@@ -10,17 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// Information about a block device mapping for an Amazon EC2 launch template.
+    /// </summary>
     public sealed class LaunchTemplateBlockDeviceMappingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The user data to make available to the instance.
+        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
         [Input("ebs")]
         public Input<Inputs.LaunchTemplateEbsArgs>? Ebs { get; set; }
 
+        /// <summary>
+        /// To omit the device from the block device mapping, specify an empty string.
+        /// </summary>
         [Input("noDevice")]
         public Input<string>? NoDevice { get; set; }
 
+        /// <summary>
+        /// The virtual device name (ephemeralN).
+        /// </summary>
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }
 

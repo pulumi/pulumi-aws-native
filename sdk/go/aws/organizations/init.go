@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:organizations:Account":
 		r = &Account{}
+	case "aws-native:organizations:Organization":
+		r = &Organization{}
 	case "aws-native:organizations:OrganizationalUnit":
 		r = &OrganizationalUnit{}
 	case "aws-native:organizations:Policy":

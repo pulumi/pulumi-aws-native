@@ -25,7 +25,6 @@ export interface GetApplicationArgs {
 export interface GetApplicationResult {
     readonly appBlockArn?: string;
     readonly arn?: string;
-    readonly attributesToDelete?: string[];
     readonly createdTime?: string;
     readonly description?: string;
     readonly displayName?: string;

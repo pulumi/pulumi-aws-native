@@ -520,11 +520,6 @@ export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
 utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
 
-export { GetVolumeAttachmentArgs, GetVolumeAttachmentResult, GetVolumeAttachmentOutputArgs } from "./getVolumeAttachment";
-export const getVolumeAttachment: typeof import("./getVolumeAttachment").getVolumeAttachment = null as any;
-export const getVolumeAttachmentOutput: typeof import("./getVolumeAttachment").getVolumeAttachmentOutput = null as any;
-utilities.lazyLoad(exports, ["getVolumeAttachment","getVolumeAttachmentOutput"], () => require("./getVolumeAttachment"));
-
 export { HostArgs } from "./host";
 export type Host = import("./host").Host;
 export const Host: typeof import("./host").Host = null as any;

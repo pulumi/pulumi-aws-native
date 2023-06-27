@@ -10,9 +10,306 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AppBlockBuilderAccessEndpoint struct {
+	EndpointType string `pulumi:"endpointType"`
+	VpceId       string `pulumi:"vpceId"`
+}
+
+// AppBlockBuilderAccessEndpointInput is an input type that accepts AppBlockBuilderAccessEndpointArgs and AppBlockBuilderAccessEndpointOutput values.
+// You can construct a concrete instance of `AppBlockBuilderAccessEndpointInput` via:
+//
+//	AppBlockBuilderAccessEndpointArgs{...}
+type AppBlockBuilderAccessEndpointInput interface {
+	pulumi.Input
+
+	ToAppBlockBuilderAccessEndpointOutput() AppBlockBuilderAccessEndpointOutput
+	ToAppBlockBuilderAccessEndpointOutputWithContext(context.Context) AppBlockBuilderAccessEndpointOutput
+}
+
+type AppBlockBuilderAccessEndpointArgs struct {
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	VpceId       pulumi.StringInput `pulumi:"vpceId"`
+}
+
+func (AppBlockBuilderAccessEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockBuilderAccessEndpoint)(nil)).Elem()
+}
+
+func (i AppBlockBuilderAccessEndpointArgs) ToAppBlockBuilderAccessEndpointOutput() AppBlockBuilderAccessEndpointOutput {
+	return i.ToAppBlockBuilderAccessEndpointOutputWithContext(context.Background())
+}
+
+func (i AppBlockBuilderAccessEndpointArgs) ToAppBlockBuilderAccessEndpointOutputWithContext(ctx context.Context) AppBlockBuilderAccessEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockBuilderAccessEndpointOutput)
+}
+
+// AppBlockBuilderAccessEndpointArrayInput is an input type that accepts AppBlockBuilderAccessEndpointArray and AppBlockBuilderAccessEndpointArrayOutput values.
+// You can construct a concrete instance of `AppBlockBuilderAccessEndpointArrayInput` via:
+//
+//	AppBlockBuilderAccessEndpointArray{ AppBlockBuilderAccessEndpointArgs{...} }
+type AppBlockBuilderAccessEndpointArrayInput interface {
+	pulumi.Input
+
+	ToAppBlockBuilderAccessEndpointArrayOutput() AppBlockBuilderAccessEndpointArrayOutput
+	ToAppBlockBuilderAccessEndpointArrayOutputWithContext(context.Context) AppBlockBuilderAccessEndpointArrayOutput
+}
+
+type AppBlockBuilderAccessEndpointArray []AppBlockBuilderAccessEndpointInput
+
+func (AppBlockBuilderAccessEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppBlockBuilderAccessEndpoint)(nil)).Elem()
+}
+
+func (i AppBlockBuilderAccessEndpointArray) ToAppBlockBuilderAccessEndpointArrayOutput() AppBlockBuilderAccessEndpointArrayOutput {
+	return i.ToAppBlockBuilderAccessEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i AppBlockBuilderAccessEndpointArray) ToAppBlockBuilderAccessEndpointArrayOutputWithContext(ctx context.Context) AppBlockBuilderAccessEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockBuilderAccessEndpointArrayOutput)
+}
+
+type AppBlockBuilderAccessEndpointOutput struct{ *pulumi.OutputState }
+
+func (AppBlockBuilderAccessEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockBuilderAccessEndpoint)(nil)).Elem()
+}
+
+func (o AppBlockBuilderAccessEndpointOutput) ToAppBlockBuilderAccessEndpointOutput() AppBlockBuilderAccessEndpointOutput {
+	return o
+}
+
+func (o AppBlockBuilderAccessEndpointOutput) ToAppBlockBuilderAccessEndpointOutputWithContext(ctx context.Context) AppBlockBuilderAccessEndpointOutput {
+	return o
+}
+
+func (o AppBlockBuilderAccessEndpointOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v AppBlockBuilderAccessEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+func (o AppBlockBuilderAccessEndpointOutput) VpceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AppBlockBuilderAccessEndpoint) string { return v.VpceId }).(pulumi.StringOutput)
+}
+
+type AppBlockBuilderAccessEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (AppBlockBuilderAccessEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppBlockBuilderAccessEndpoint)(nil)).Elem()
+}
+
+func (o AppBlockBuilderAccessEndpointArrayOutput) ToAppBlockBuilderAccessEndpointArrayOutput() AppBlockBuilderAccessEndpointArrayOutput {
+	return o
+}
+
+func (o AppBlockBuilderAccessEndpointArrayOutput) ToAppBlockBuilderAccessEndpointArrayOutputWithContext(ctx context.Context) AppBlockBuilderAccessEndpointArrayOutput {
+	return o
+}
+
+func (o AppBlockBuilderAccessEndpointArrayOutput) Index(i pulumi.IntInput) AppBlockBuilderAccessEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppBlockBuilderAccessEndpoint {
+		return vs[0].([]AppBlockBuilderAccessEndpoint)[vs[1].(int)]
+	}).(AppBlockBuilderAccessEndpointOutput)
+}
+
+type AppBlockBuilderTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// AppBlockBuilderTagInput is an input type that accepts AppBlockBuilderTagArgs and AppBlockBuilderTagOutput values.
+// You can construct a concrete instance of `AppBlockBuilderTagInput` via:
+//
+//	AppBlockBuilderTagArgs{...}
+type AppBlockBuilderTagInput interface {
+	pulumi.Input
+
+	ToAppBlockBuilderTagOutput() AppBlockBuilderTagOutput
+	ToAppBlockBuilderTagOutputWithContext(context.Context) AppBlockBuilderTagOutput
+}
+
+type AppBlockBuilderTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AppBlockBuilderTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockBuilderTag)(nil)).Elem()
+}
+
+func (i AppBlockBuilderTagArgs) ToAppBlockBuilderTagOutput() AppBlockBuilderTagOutput {
+	return i.ToAppBlockBuilderTagOutputWithContext(context.Background())
+}
+
+func (i AppBlockBuilderTagArgs) ToAppBlockBuilderTagOutputWithContext(ctx context.Context) AppBlockBuilderTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockBuilderTagOutput)
+}
+
+// AppBlockBuilderTagArrayInput is an input type that accepts AppBlockBuilderTagArray and AppBlockBuilderTagArrayOutput values.
+// You can construct a concrete instance of `AppBlockBuilderTagArrayInput` via:
+//
+//	AppBlockBuilderTagArray{ AppBlockBuilderTagArgs{...} }
+type AppBlockBuilderTagArrayInput interface {
+	pulumi.Input
+
+	ToAppBlockBuilderTagArrayOutput() AppBlockBuilderTagArrayOutput
+	ToAppBlockBuilderTagArrayOutputWithContext(context.Context) AppBlockBuilderTagArrayOutput
+}
+
+type AppBlockBuilderTagArray []AppBlockBuilderTagInput
+
+func (AppBlockBuilderTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppBlockBuilderTag)(nil)).Elem()
+}
+
+func (i AppBlockBuilderTagArray) ToAppBlockBuilderTagArrayOutput() AppBlockBuilderTagArrayOutput {
+	return i.ToAppBlockBuilderTagArrayOutputWithContext(context.Background())
+}
+
+func (i AppBlockBuilderTagArray) ToAppBlockBuilderTagArrayOutputWithContext(ctx context.Context) AppBlockBuilderTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockBuilderTagArrayOutput)
+}
+
+type AppBlockBuilderTagOutput struct{ *pulumi.OutputState }
+
+func (AppBlockBuilderTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockBuilderTag)(nil)).Elem()
+}
+
+func (o AppBlockBuilderTagOutput) ToAppBlockBuilderTagOutput() AppBlockBuilderTagOutput {
+	return o
+}
+
+func (o AppBlockBuilderTagOutput) ToAppBlockBuilderTagOutputWithContext(ctx context.Context) AppBlockBuilderTagOutput {
+	return o
+}
+
+func (o AppBlockBuilderTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AppBlockBuilderTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o AppBlockBuilderTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AppBlockBuilderTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AppBlockBuilderTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AppBlockBuilderTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppBlockBuilderTag)(nil)).Elem()
+}
+
+func (o AppBlockBuilderTagArrayOutput) ToAppBlockBuilderTagArrayOutput() AppBlockBuilderTagArrayOutput {
+	return o
+}
+
+func (o AppBlockBuilderTagArrayOutput) ToAppBlockBuilderTagArrayOutputWithContext(ctx context.Context) AppBlockBuilderTagArrayOutput {
+	return o
+}
+
+func (o AppBlockBuilderTagArrayOutput) Index(i pulumi.IntInput) AppBlockBuilderTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppBlockBuilderTag {
+		return vs[0].([]AppBlockBuilderTag)[vs[1].(int)]
+	}).(AppBlockBuilderTagOutput)
+}
+
+type AppBlockBuilderVpcConfig struct {
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
+}
+
+// AppBlockBuilderVpcConfigInput is an input type that accepts AppBlockBuilderVpcConfigArgs and AppBlockBuilderVpcConfigOutput values.
+// You can construct a concrete instance of `AppBlockBuilderVpcConfigInput` via:
+//
+//	AppBlockBuilderVpcConfigArgs{...}
+type AppBlockBuilderVpcConfigInput interface {
+	pulumi.Input
+
+	ToAppBlockBuilderVpcConfigOutput() AppBlockBuilderVpcConfigOutput
+	ToAppBlockBuilderVpcConfigOutputWithContext(context.Context) AppBlockBuilderVpcConfigOutput
+}
+
+type AppBlockBuilderVpcConfigArgs struct {
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (AppBlockBuilderVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockBuilderVpcConfig)(nil)).Elem()
+}
+
+func (i AppBlockBuilderVpcConfigArgs) ToAppBlockBuilderVpcConfigOutput() AppBlockBuilderVpcConfigOutput {
+	return i.ToAppBlockBuilderVpcConfigOutputWithContext(context.Background())
+}
+
+func (i AppBlockBuilderVpcConfigArgs) ToAppBlockBuilderVpcConfigOutputWithContext(ctx context.Context) AppBlockBuilderVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockBuilderVpcConfigOutput)
+}
+
+type AppBlockBuilderVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (AppBlockBuilderVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppBlockBuilderVpcConfig)(nil)).Elem()
+}
+
+func (o AppBlockBuilderVpcConfigOutput) ToAppBlockBuilderVpcConfigOutput() AppBlockBuilderVpcConfigOutput {
+	return o
+}
+
+func (o AppBlockBuilderVpcConfigOutput) ToAppBlockBuilderVpcConfigOutputWithContext(ctx context.Context) AppBlockBuilderVpcConfigOutput {
+	return o
+}
+
+func (o AppBlockBuilderVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppBlockBuilderVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o AppBlockBuilderVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppBlockBuilderVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type AppBlockBuilderVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppBlockBuilderVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppBlockBuilderVpcConfig)(nil)).Elem()
+}
+
+func (o AppBlockBuilderVpcConfigPtrOutput) ToAppBlockBuilderVpcConfigPtrOutput() AppBlockBuilderVpcConfigPtrOutput {
+	return o
+}
+
+func (o AppBlockBuilderVpcConfigPtrOutput) ToAppBlockBuilderVpcConfigPtrOutputWithContext(ctx context.Context) AppBlockBuilderVpcConfigPtrOutput {
+	return o
+}
+
+func (o AppBlockBuilderVpcConfigPtrOutput) Elem() AppBlockBuilderVpcConfigOutput {
+	return o.ApplyT(func(v *AppBlockBuilderVpcConfig) AppBlockBuilderVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppBlockBuilderVpcConfig
+		return ret
+	}).(AppBlockBuilderVpcConfigOutput)
+}
+
+func (o AppBlockBuilderVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppBlockBuilderVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AppBlockBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppBlockBuilderVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type AppBlockS3Location struct {
-	S3Bucket string `pulumi:"s3Bucket"`
-	S3Key    string `pulumi:"s3Key"`
+	S3Bucket string  `pulumi:"s3Bucket"`
+	S3Key    *string `pulumi:"s3Key"`
 }
 
 // AppBlockS3LocationInput is an input type that accepts AppBlockS3LocationArgs and AppBlockS3LocationOutput values.
@@ -27,8 +324,8 @@ type AppBlockS3LocationInput interface {
 }
 
 type AppBlockS3LocationArgs struct {
-	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
-	S3Key    pulumi.StringInput `pulumi:"s3Key"`
+	S3Bucket pulumi.StringInput    `pulumi:"s3Bucket"`
+	S3Key    pulumi.StringPtrInput `pulumi:"s3Key"`
 }
 
 func (AppBlockS3LocationArgs) ElementType() reflect.Type {
@@ -41,6 +338,47 @@ func (i AppBlockS3LocationArgs) ToAppBlockS3LocationOutput() AppBlockS3LocationO
 
 func (i AppBlockS3LocationArgs) ToAppBlockS3LocationOutputWithContext(ctx context.Context) AppBlockS3LocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppBlockS3LocationOutput)
+}
+
+func (i AppBlockS3LocationArgs) ToAppBlockS3LocationPtrOutput() AppBlockS3LocationPtrOutput {
+	return i.ToAppBlockS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i AppBlockS3LocationArgs) ToAppBlockS3LocationPtrOutputWithContext(ctx context.Context) AppBlockS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockS3LocationOutput).ToAppBlockS3LocationPtrOutputWithContext(ctx)
+}
+
+// AppBlockS3LocationPtrInput is an input type that accepts AppBlockS3LocationArgs, AppBlockS3LocationPtr and AppBlockS3LocationPtrOutput values.
+// You can construct a concrete instance of `AppBlockS3LocationPtrInput` via:
+//
+//	        AppBlockS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppBlockS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToAppBlockS3LocationPtrOutput() AppBlockS3LocationPtrOutput
+	ToAppBlockS3LocationPtrOutputWithContext(context.Context) AppBlockS3LocationPtrOutput
+}
+
+type appBlockS3LocationPtrType AppBlockS3LocationArgs
+
+func AppBlockS3LocationPtr(v *AppBlockS3LocationArgs) AppBlockS3LocationPtrInput {
+	return (*appBlockS3LocationPtrType)(v)
+}
+
+func (*appBlockS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppBlockS3Location)(nil)).Elem()
+}
+
+func (i *appBlockS3LocationPtrType) ToAppBlockS3LocationPtrOutput() AppBlockS3LocationPtrOutput {
+	return i.ToAppBlockS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *appBlockS3LocationPtrType) ToAppBlockS3LocationPtrOutputWithContext(ctx context.Context) AppBlockS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockS3LocationPtrOutput)
 }
 
 type AppBlockS3LocationOutput struct{ *pulumi.OutputState }
@@ -57,12 +395,64 @@ func (o AppBlockS3LocationOutput) ToAppBlockS3LocationOutputWithContext(ctx cont
 	return o
 }
 
+func (o AppBlockS3LocationOutput) ToAppBlockS3LocationPtrOutput() AppBlockS3LocationPtrOutput {
+	return o.ToAppBlockS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o AppBlockS3LocationOutput) ToAppBlockS3LocationPtrOutputWithContext(ctx context.Context) AppBlockS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppBlockS3Location) *AppBlockS3Location {
+		return &v
+	}).(AppBlockS3LocationPtrOutput)
+}
+
 func (o AppBlockS3LocationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v AppBlockS3Location) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
-func (o AppBlockS3LocationOutput) S3Key() pulumi.StringOutput {
-	return o.ApplyT(func(v AppBlockS3Location) string { return v.S3Key }).(pulumi.StringOutput)
+func (o AppBlockS3LocationOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppBlockS3Location) *string { return v.S3Key }).(pulumi.StringPtrOutput)
+}
+
+type AppBlockS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (AppBlockS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppBlockS3Location)(nil)).Elem()
+}
+
+func (o AppBlockS3LocationPtrOutput) ToAppBlockS3LocationPtrOutput() AppBlockS3LocationPtrOutput {
+	return o
+}
+
+func (o AppBlockS3LocationPtrOutput) ToAppBlockS3LocationPtrOutputWithContext(ctx context.Context) AppBlockS3LocationPtrOutput {
+	return o
+}
+
+func (o AppBlockS3LocationPtrOutput) Elem() AppBlockS3LocationOutput {
+	return o.ApplyT(func(v *AppBlockS3Location) AppBlockS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret AppBlockS3Location
+		return ret
+	}).(AppBlockS3LocationOutput)
+}
+
+func (o AppBlockS3LocationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppBlockS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppBlockS3LocationPtrOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppBlockS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Key
+	}).(pulumi.StringPtrOutput)
 }
 
 type AppBlockScriptDetails struct {
@@ -102,6 +492,47 @@ func (i AppBlockScriptDetailsArgs) ToAppBlockScriptDetailsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AppBlockScriptDetailsOutput)
 }
 
+func (i AppBlockScriptDetailsArgs) ToAppBlockScriptDetailsPtrOutput() AppBlockScriptDetailsPtrOutput {
+	return i.ToAppBlockScriptDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i AppBlockScriptDetailsArgs) ToAppBlockScriptDetailsPtrOutputWithContext(ctx context.Context) AppBlockScriptDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockScriptDetailsOutput).ToAppBlockScriptDetailsPtrOutputWithContext(ctx)
+}
+
+// AppBlockScriptDetailsPtrInput is an input type that accepts AppBlockScriptDetailsArgs, AppBlockScriptDetailsPtr and AppBlockScriptDetailsPtrOutput values.
+// You can construct a concrete instance of `AppBlockScriptDetailsPtrInput` via:
+//
+//	        AppBlockScriptDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppBlockScriptDetailsPtrInput interface {
+	pulumi.Input
+
+	ToAppBlockScriptDetailsPtrOutput() AppBlockScriptDetailsPtrOutput
+	ToAppBlockScriptDetailsPtrOutputWithContext(context.Context) AppBlockScriptDetailsPtrOutput
+}
+
+type appBlockScriptDetailsPtrType AppBlockScriptDetailsArgs
+
+func AppBlockScriptDetailsPtr(v *AppBlockScriptDetailsArgs) AppBlockScriptDetailsPtrInput {
+	return (*appBlockScriptDetailsPtrType)(v)
+}
+
+func (*appBlockScriptDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppBlockScriptDetails)(nil)).Elem()
+}
+
+func (i *appBlockScriptDetailsPtrType) ToAppBlockScriptDetailsPtrOutput() AppBlockScriptDetailsPtrOutput {
+	return i.ToAppBlockScriptDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *appBlockScriptDetailsPtrType) ToAppBlockScriptDetailsPtrOutputWithContext(ctx context.Context) AppBlockScriptDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppBlockScriptDetailsPtrOutput)
+}
+
 type AppBlockScriptDetailsOutput struct{ *pulumi.OutputState }
 
 func (AppBlockScriptDetailsOutput) ElementType() reflect.Type {
@@ -114,6 +545,16 @@ func (o AppBlockScriptDetailsOutput) ToAppBlockScriptDetailsOutput() AppBlockScr
 
 func (o AppBlockScriptDetailsOutput) ToAppBlockScriptDetailsOutputWithContext(ctx context.Context) AppBlockScriptDetailsOutput {
 	return o
+}
+
+func (o AppBlockScriptDetailsOutput) ToAppBlockScriptDetailsPtrOutput() AppBlockScriptDetailsPtrOutput {
+	return o.ToAppBlockScriptDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o AppBlockScriptDetailsOutput) ToAppBlockScriptDetailsPtrOutputWithContext(ctx context.Context) AppBlockScriptDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppBlockScriptDetails) *AppBlockScriptDetails {
+		return &v
+	}).(AppBlockScriptDetailsPtrOutput)
 }
 
 func (o AppBlockScriptDetailsOutput) ExecutableParameters() pulumi.StringPtrOutput {
@@ -132,9 +573,67 @@ func (o AppBlockScriptDetailsOutput) TimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v AppBlockScriptDetails) int { return v.TimeoutInSeconds }).(pulumi.IntOutput)
 }
 
+type AppBlockScriptDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (AppBlockScriptDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppBlockScriptDetails)(nil)).Elem()
+}
+
+func (o AppBlockScriptDetailsPtrOutput) ToAppBlockScriptDetailsPtrOutput() AppBlockScriptDetailsPtrOutput {
+	return o
+}
+
+func (o AppBlockScriptDetailsPtrOutput) ToAppBlockScriptDetailsPtrOutputWithContext(ctx context.Context) AppBlockScriptDetailsPtrOutput {
+	return o
+}
+
+func (o AppBlockScriptDetailsPtrOutput) Elem() AppBlockScriptDetailsOutput {
+	return o.ApplyT(func(v *AppBlockScriptDetails) AppBlockScriptDetails {
+		if v != nil {
+			return *v
+		}
+		var ret AppBlockScriptDetails
+		return ret
+	}).(AppBlockScriptDetailsOutput)
+}
+
+func (o AppBlockScriptDetailsPtrOutput) ExecutableParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppBlockScriptDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutableParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppBlockScriptDetailsPtrOutput) ExecutablePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppBlockScriptDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExecutablePath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppBlockScriptDetailsPtrOutput) ScriptS3Location() AppBlockS3LocationPtrOutput {
+	return o.ApplyT(func(v *AppBlockScriptDetails) *AppBlockS3Location {
+		if v == nil {
+			return nil
+		}
+		return &v.ScriptS3Location
+	}).(AppBlockS3LocationPtrOutput)
+}
+
+func (o AppBlockScriptDetailsPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppBlockScriptDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type AppBlockTag struct {
-	TagKey   string `pulumi:"tagKey"`
-	TagValue string `pulumi:"tagValue"`
 }
 
 // AppBlockTagInput is an input type that accepts AppBlockTagArgs and AppBlockTagOutput values.
@@ -149,8 +648,6 @@ type AppBlockTagInput interface {
 }
 
 type AppBlockTagArgs struct {
-	TagKey   pulumi.StringInput `pulumi:"tagKey"`
-	TagValue pulumi.StringInput `pulumi:"tagValue"`
 }
 
 func (AppBlockTagArgs) ElementType() reflect.Type {
@@ -202,14 +699,6 @@ func (o AppBlockTagOutput) ToAppBlockTagOutput() AppBlockTagOutput {
 
 func (o AppBlockTagOutput) ToAppBlockTagOutputWithContext(ctx context.Context) AppBlockTagOutput {
 	return o
-}
-
-func (o AppBlockTagOutput) TagKey() pulumi.StringOutput {
-	return o.ApplyT(func(v AppBlockTag) string { return v.TagKey }).(pulumi.StringOutput)
-}
-
-func (o AppBlockTagOutput) TagValue() pulumi.StringOutput {
-	return o.ApplyT(func(v AppBlockTag) string { return v.TagValue }).(pulumi.StringOutput)
 }
 
 type AppBlockTagArrayOutput struct{ *pulumi.OutputState }
@@ -330,8 +819,6 @@ func (o ApplicationS3LocationPtrOutput) S3Key() pulumi.StringPtrOutput {
 }
 
 type ApplicationTag struct {
-	TagKey   string `pulumi:"tagKey"`
-	TagValue string `pulumi:"tagValue"`
 }
 
 // ApplicationTagInput is an input type that accepts ApplicationTagArgs and ApplicationTagOutput values.
@@ -346,8 +833,6 @@ type ApplicationTagInput interface {
 }
 
 type ApplicationTagArgs struct {
-	TagKey   pulumi.StringInput `pulumi:"tagKey"`
-	TagValue pulumi.StringInput `pulumi:"tagValue"`
 }
 
 func (ApplicationTagArgs) ElementType() reflect.Type {
@@ -399,14 +884,6 @@ func (o ApplicationTagOutput) ToApplicationTagOutput() ApplicationTagOutput {
 
 func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
 	return o
-}
-
-func (o ApplicationTagOutput) TagKey() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTag) string { return v.TagKey }).(pulumi.StringOutput)
-}
-
-func (o ApplicationTagOutput) TagValue() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTag) string { return v.TagValue }).(pulumi.StringOutput)
 }
 
 type ApplicationTagArrayOutput struct{ *pulumi.OutputState }
@@ -2635,8 +3112,15 @@ func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderAccessEndpointInput)(nil)).Elem(), AppBlockBuilderAccessEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderAccessEndpointArrayInput)(nil)).Elem(), AppBlockBuilderAccessEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderTagInput)(nil)).Elem(), AppBlockBuilderTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderTagArrayInput)(nil)).Elem(), AppBlockBuilderTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderVpcConfigInput)(nil)).Elem(), AppBlockBuilderVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockS3LocationInput)(nil)).Elem(), AppBlockS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockS3LocationPtrInput)(nil)).Elem(), AppBlockS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockScriptDetailsInput)(nil)).Elem(), AppBlockScriptDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockScriptDetailsPtrInput)(nil)).Elem(), AppBlockScriptDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockTagInput)(nil)).Elem(), AppBlockTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockTagArrayInput)(nil)).Elem(), AppBlockTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3LocationInput)(nil)).Elem(), ApplicationS3LocationArgs{})
@@ -2677,8 +3161,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackTagArrayInput)(nil)).Elem(), StackTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingInput)(nil)).Elem(), StackUserSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingArrayInput)(nil)).Elem(), StackUserSettingArray{})
+	pulumi.RegisterOutputType(AppBlockBuilderAccessEndpointOutput{})
+	pulumi.RegisterOutputType(AppBlockBuilderAccessEndpointArrayOutput{})
+	pulumi.RegisterOutputType(AppBlockBuilderTagOutput{})
+	pulumi.RegisterOutputType(AppBlockBuilderTagArrayOutput{})
+	pulumi.RegisterOutputType(AppBlockBuilderVpcConfigOutput{})
+	pulumi.RegisterOutputType(AppBlockBuilderVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppBlockS3LocationOutput{})
+	pulumi.RegisterOutputType(AppBlockS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(AppBlockScriptDetailsOutput{})
+	pulumi.RegisterOutputType(AppBlockScriptDetailsPtrOutput{})
 	pulumi.RegisterOutputType(AppBlockTagOutput{})
 	pulumi.RegisterOutputType(AppBlockTagArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationS3LocationOutput{})

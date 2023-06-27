@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? MeasureLabelVisibility;
         public readonly Pulumi.AwsNative.QuickSight.TemplateDataLabelOverlap? Overlap;
         public readonly Pulumi.AwsNative.QuickSight.TemplateDataLabelPosition? Position;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? TotalsVisibility;
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
@@ -41,6 +42,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateDataLabelPosition? position,
 
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? totalsVisibility,
+
             Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             CategoryLabelVisibility = categoryLabelVisibility;
@@ -51,6 +54,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             MeasureLabelVisibility = measureLabelVisibility;
             Overlap = overlap;
             Position = position;
+            TotalsVisibility = totalsVisibility;
             Visibility = visibility;
         }
     }

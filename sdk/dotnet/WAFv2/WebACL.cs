@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.WAFv2
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("associationConfig")]
+        public Output<Outputs.WebACLAssociationConfig?> AssociationConfig { get; private set; } = null!;
+
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
 
@@ -105,6 +108,9 @@ namespace Pulumi.AwsNative.WAFv2
 
     public sealed class WebACLArgs : global::Pulumi.ResourceArgs
     {
+        [Input("associationConfig")]
+        public Input<Inputs.WebACLAssociationConfigArgs>? AssociationConfig { get; set; }
+
         [Input("captchaConfig")]
         public Input<Inputs.WebACLCaptchaConfigArgs>? CaptchaConfig { get; set; }
 

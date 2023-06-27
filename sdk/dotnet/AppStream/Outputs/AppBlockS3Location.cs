@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AppStream.Outputs
     public sealed class AppBlockS3Location
     {
         public readonly string S3Bucket;
-        public readonly string S3Key;
+        public readonly string? S3Key;
 
         [OutputConstructor]
         private AppBlockS3Location(
             string s3Bucket,
 
-            string s3Key)
+            string? s3Key)
         {
             S3Bucket = s3Bucket;
             S3Key = s3Key;

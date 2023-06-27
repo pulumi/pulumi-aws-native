@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardPivotTableOptions
     {
         public readonly Outputs.DashboardTableCellStyle? CellStyle;
+        public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? CollapsedRowDimensionsVisibility;
         public readonly Outputs.DashboardTableCellStyle? ColumnHeaderStyle;
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? ColumnNamesVisibility;
         public readonly Pulumi.AwsNative.QuickSight.DashboardPivotTableMetricPlacement? MetricPlacement;
@@ -26,6 +27,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         [OutputConstructor]
         private DashboardPivotTableOptions(
             Outputs.DashboardTableCellStyle? cellStyle,
+
+            Pulumi.AwsNative.QuickSight.DashboardVisibility? collapsedRowDimensionsVisibility,
 
             Outputs.DashboardTableCellStyle? columnHeaderStyle,
 
@@ -44,6 +47,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.DashboardVisibility? toggleButtonsVisibility)
         {
             CellStyle = cellStyle;
+            CollapsedRowDimensionsVisibility = collapsedRowDimensionsVisibility;
             ColumnHeaderStyle = columnHeaderStyle;
             ColumnNamesVisibility = columnNamesVisibility;
             MetricPlacement = metricPlacement;

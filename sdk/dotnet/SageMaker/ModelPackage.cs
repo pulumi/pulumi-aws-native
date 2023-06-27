@@ -15,9 +15,6 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:ModelPackage")]
     public partial class ModelPackage : global::Pulumi.CustomResource
     {
-        [Output("additionalInferenceSpecificationDefinition")]
-        public Output<Outputs.ModelPackageAdditionalInferenceSpecificationDefinition?> AdditionalInferenceSpecificationDefinition { get; private set; } = null!;
-
         [Output("additionalInferenceSpecifications")]
         public Output<ImmutableArray<Outputs.ModelPackageAdditionalInferenceSpecificationDefinition>> AdditionalInferenceSpecifications { get; private set; } = null!;
 
@@ -33,9 +30,6 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("clientToken")]
         public Output<string?> ClientToken { get; private set; } = null!;
 
-        [Output("createdBy")]
-        public Output<Outputs.ModelPackageCreatedBy?> CreatedBy { get; private set; } = null!;
-
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
@@ -48,14 +42,8 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("driftCheckBaselines")]
         public Output<Outputs.ModelPackageDriftCheckBaselines?> DriftCheckBaselines { get; private set; } = null!;
 
-        [Output("environment")]
-        public Output<Outputs.ModelPackageEnvironment?> Environment { get; private set; } = null!;
-
         [Output("inferenceSpecification")]
         public Output<Outputs.ModelPackageInferenceSpecification?> InferenceSpecification { get; private set; } = null!;
-
-        [Output("lastModifiedBy")]
-        public Output<Outputs.ModelPackageLastModifiedBy?> LastModifiedBy { get; private set; } = null!;
 
         [Output("lastModifiedTime")]
         public Output<string?> LastModifiedTime { get; private set; } = null!;
@@ -86,9 +74,6 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Output("modelPackageStatusDetails")]
         public Output<Outputs.ModelPackageStatusDetails?> ModelPackageStatusDetails { get; private set; } = null!;
-
-        [Output("modelPackageStatusItem")]
-        public Output<Outputs.ModelPackageStatusItem?> ModelPackageStatusItem { get; private set; } = null!;
 
         [Output("modelPackageVersion")]
         public Output<int?> ModelPackageVersion { get; private set; } = null!;
@@ -156,9 +141,6 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ModelPackageArgs : global::Pulumi.ResourceArgs
     {
-        [Input("additionalInferenceSpecificationDefinition")]
-        public Input<Inputs.ModelPackageAdditionalInferenceSpecificationDefinitionArgs>? AdditionalInferenceSpecificationDefinition { get; set; }
-
         [Input("additionalInferenceSpecifications")]
         private InputList<Inputs.ModelPackageAdditionalInferenceSpecificationDefinitionArgs>? _additionalInferenceSpecifications;
         public InputList<Inputs.ModelPackageAdditionalInferenceSpecificationDefinitionArgs> AdditionalInferenceSpecifications
@@ -184,9 +166,6 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
 
-        [Input("createdBy")]
-        public Input<Inputs.ModelPackageCreatedByArgs>? CreatedBy { get; set; }
-
         [Input("customerMetadataProperties")]
         public Input<Inputs.ModelPackageCustomerMetadataPropertiesArgs>? CustomerMetadataProperties { get; set; }
 
@@ -196,14 +175,8 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("driftCheckBaselines")]
         public Input<Inputs.ModelPackageDriftCheckBaselinesArgs>? DriftCheckBaselines { get; set; }
 
-        [Input("environment")]
-        public Input<Inputs.ModelPackageEnvironmentArgs>? Environment { get; set; }
-
         [Input("inferenceSpecification")]
         public Input<Inputs.ModelPackageInferenceSpecificationArgs>? InferenceSpecification { get; set; }
-
-        [Input("lastModifiedBy")]
-        public Input<Inputs.ModelPackageLastModifiedByArgs>? LastModifiedBy { get; set; }
 
         [Input("lastModifiedTime")]
         public Input<string>? LastModifiedTime { get; set; }
@@ -228,9 +201,6 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("modelPackageStatusDetails")]
         public Input<Inputs.ModelPackageStatusDetailsArgs>? ModelPackageStatusDetails { get; set; }
-
-        [Input("modelPackageStatusItem")]
-        public Input<Inputs.ModelPackageStatusItemArgs>? ModelPackageStatusItem { get; set; }
 
         [Input("modelPackageVersion")]
         public Input<int>? ModelPackageVersion { get; set; }

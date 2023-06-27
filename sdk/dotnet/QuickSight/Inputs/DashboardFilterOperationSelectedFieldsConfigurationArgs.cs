@@ -12,6 +12,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFilterOperationSelectedFieldsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("selectedColumns")]
+        private InputList<Inputs.DashboardColumnIdentifierArgs>? _selectedColumns;
+        public InputList<Inputs.DashboardColumnIdentifierArgs> SelectedColumns
+        {
+            get => _selectedColumns ?? (_selectedColumns = new InputList<Inputs.DashboardColumnIdentifierArgs>());
+            set => _selectedColumns = value;
+        }
+
         [Input("selectedFieldOptions")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardSelectedFieldOptions>? SelectedFieldOptions { get; set; }
 

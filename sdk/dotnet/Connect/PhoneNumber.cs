@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Connect
         public Output<string> TargetArn { get; private set; } = null!;
 
         /// <summary>
-        /// The phone number type, either TOLL_FREE or DID.
+        /// The phone number type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.AwsNative.Connect
         public Input<string> TargetArn { get; set; } = null!;
 
         /// <summary>
-        /// The phone number type, either TOLL_FREE or DID.
+        /// The phone number type
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

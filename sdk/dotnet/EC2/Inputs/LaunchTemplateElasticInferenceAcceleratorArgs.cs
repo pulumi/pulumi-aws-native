@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// Specifies an elastic inference accelerator.
+    /// </summary>
     public sealed class LaunchTemplateElasticInferenceAcceleratorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of elastic inference accelerators to attach to the instance.
+        /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
+        /// <summary>
+        /// The type of elastic inference accelerator.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

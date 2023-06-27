@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// The minimum and maximum amount of memory, in MiB.
+    /// </summary>
     public sealed class LaunchTemplateMemoryMiBArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum amount of memory, in MiB.
+        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
+        /// <summary>
+        /// The minimum amount of memory, in MiB.
+        /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }
 

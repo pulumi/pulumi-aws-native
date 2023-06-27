@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'KeyspaceReplicationSpecification',
     'KeyspaceTag',
     'TableBillingMode',
     'TableClusteringKeyColumn',
@@ -20,6 +21,46 @@ __all__ = [
     'TableProvisionedThroughput',
     'TableTag',
 ]
+
+@pulumi.output_type
+class KeyspaceReplicationSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionList":
+            suggest = "region_list"
+        elif key == "replicationStrategy":
+            suggest = "replication_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyspaceReplicationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyspaceReplicationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyspaceReplicationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region_list: Optional[Sequence['KeyspaceRegionListItem']] = None,
+                 replication_strategy: Optional['KeyspaceReplicationSpecificationReplicationStrategy'] = None):
+        if region_list is not None:
+            pulumi.set(__self__, "region_list", region_list)
+        if replication_strategy is not None:
+            pulumi.set(__self__, "replication_strategy", replication_strategy)
+
+    @property
+    @pulumi.getter(name="regionList")
+    def region_list(self) -> Optional[Sequence['KeyspaceRegionListItem']]:
+        return pulumi.get(self, "region_list")
+
+    @property
+    @pulumi.getter(name="replicationStrategy")
+    def replication_strategy(self) -> Optional['KeyspaceReplicationSpecificationReplicationStrategy']:
+        return pulumi.get(self, "replication_strategy")
+
 
 @pulumi.output_type
 class KeyspaceTag(dict):

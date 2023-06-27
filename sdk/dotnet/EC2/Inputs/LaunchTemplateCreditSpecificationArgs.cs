@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// The user data to make available to the instance.
+    /// </summary>
     public sealed class LaunchTemplateCreditSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The user data to make available to the instance.
+        /// </summary>
         [Input("cpuCredits")]
         public Input<string>? CpuCredits { get; set; }
 

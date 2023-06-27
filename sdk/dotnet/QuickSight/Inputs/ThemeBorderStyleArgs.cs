@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The display options for tile borders for visuals.&lt;/p&gt;
-    /// </summary>
     public sealed class ThemeBorderStyleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// &lt;p&gt;The option to enable display of borders for visuals.&lt;/p&gt;
-        /// </summary>
         [Input("show")]
         public Input<bool>? Show { get; set; }
 

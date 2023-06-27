@@ -14,34 +14,29 @@ import (
 type ModelPackage struct {
 	pulumi.CustomResourceState
 
-	AdditionalInferenceSpecificationDefinition ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput   `pulumi:"additionalInferenceSpecificationDefinition"`
-	AdditionalInferenceSpecifications          ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput `pulumi:"additionalInferenceSpecifications"`
-	AdditionalInferenceSpecificationsToAdd     ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput `pulumi:"additionalInferenceSpecificationsToAdd"`
-	ApprovalDescription                        pulumi.StringPtrOutput                                            `pulumi:"approvalDescription"`
-	CertifyForMarketplace                      pulumi.BoolPtrOutput                                              `pulumi:"certifyForMarketplace"`
-	ClientToken                                pulumi.StringPtrOutput                                            `pulumi:"clientToken"`
-	CreatedBy                                  ModelPackageCreatedByPtrOutput                                    `pulumi:"createdBy"`
-	CreationTime                               pulumi.StringOutput                                               `pulumi:"creationTime"`
-	CustomerMetadataProperties                 ModelPackageCustomerMetadataPropertiesPtrOutput                   `pulumi:"customerMetadataProperties"`
-	Domain                                     pulumi.StringPtrOutput                                            `pulumi:"domain"`
-	DriftCheckBaselines                        ModelPackageDriftCheckBaselinesPtrOutput                          `pulumi:"driftCheckBaselines"`
-	Environment                                ModelPackageEnvironmentPtrOutput                                  `pulumi:"environment"`
-	InferenceSpecification                     ModelPackageInferenceSpecificationPtrOutput                       `pulumi:"inferenceSpecification"`
-	LastModifiedBy                             ModelPackageLastModifiedByPtrOutput                               `pulumi:"lastModifiedBy"`
-	LastModifiedTime                           pulumi.StringPtrOutput                                            `pulumi:"lastModifiedTime"`
-	MetadataProperties                         ModelPackageMetadataPropertiesPtrOutput                           `pulumi:"metadataProperties"`
-	ModelApprovalStatus                        ModelPackageModelApprovalStatusPtrOutput                          `pulumi:"modelApprovalStatus"`
-	ModelMetrics                               ModelPackageModelMetricsPtrOutput                                 `pulumi:"modelMetrics"`
-	ModelPackageArn                            pulumi.StringOutput                                               `pulumi:"modelPackageArn"`
-	ModelPackageDescription                    pulumi.StringPtrOutput                                            `pulumi:"modelPackageDescription"`
-	ModelPackageGroupName                      pulumi.StringPtrOutput                                            `pulumi:"modelPackageGroupName"`
-	ModelPackageName                           pulumi.StringPtrOutput                                            `pulumi:"modelPackageName"`
-	ModelPackageStatus                         ModelPackageStatusOutput                                          `pulumi:"modelPackageStatus"`
-	ModelPackageStatusDetails                  ModelPackageStatusDetailsPtrOutput                                `pulumi:"modelPackageStatusDetails"`
-	ModelPackageStatusItem                     ModelPackageStatusItemPtrOutput                                   `pulumi:"modelPackageStatusItem"`
-	ModelPackageVersion                        pulumi.IntPtrOutput                                               `pulumi:"modelPackageVersion"`
-	SamplePayloadUrl                           pulumi.StringPtrOutput                                            `pulumi:"samplePayloadUrl"`
-	SourceAlgorithmSpecification               ModelPackageSourceAlgorithmSpecificationPtrOutput                 `pulumi:"sourceAlgorithmSpecification"`
+	AdditionalInferenceSpecifications      ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput `pulumi:"additionalInferenceSpecifications"`
+	AdditionalInferenceSpecificationsToAdd ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput `pulumi:"additionalInferenceSpecificationsToAdd"`
+	ApprovalDescription                    pulumi.StringPtrOutput                                            `pulumi:"approvalDescription"`
+	CertifyForMarketplace                  pulumi.BoolPtrOutput                                              `pulumi:"certifyForMarketplace"`
+	ClientToken                            pulumi.StringPtrOutput                                            `pulumi:"clientToken"`
+	CreationTime                           pulumi.StringOutput                                               `pulumi:"creationTime"`
+	CustomerMetadataProperties             ModelPackageCustomerMetadataPropertiesPtrOutput                   `pulumi:"customerMetadataProperties"`
+	Domain                                 pulumi.StringPtrOutput                                            `pulumi:"domain"`
+	DriftCheckBaselines                    ModelPackageDriftCheckBaselinesPtrOutput                          `pulumi:"driftCheckBaselines"`
+	InferenceSpecification                 ModelPackageInferenceSpecificationPtrOutput                       `pulumi:"inferenceSpecification"`
+	LastModifiedTime                       pulumi.StringPtrOutput                                            `pulumi:"lastModifiedTime"`
+	MetadataProperties                     ModelPackageMetadataPropertiesPtrOutput                           `pulumi:"metadataProperties"`
+	ModelApprovalStatus                    ModelPackageModelApprovalStatusPtrOutput                          `pulumi:"modelApprovalStatus"`
+	ModelMetrics                           ModelPackageModelMetricsPtrOutput                                 `pulumi:"modelMetrics"`
+	ModelPackageArn                        pulumi.StringOutput                                               `pulumi:"modelPackageArn"`
+	ModelPackageDescription                pulumi.StringPtrOutput                                            `pulumi:"modelPackageDescription"`
+	ModelPackageGroupName                  pulumi.StringPtrOutput                                            `pulumi:"modelPackageGroupName"`
+	ModelPackageName                       pulumi.StringPtrOutput                                            `pulumi:"modelPackageName"`
+	ModelPackageStatus                     ModelPackageStatusOutput                                          `pulumi:"modelPackageStatus"`
+	ModelPackageStatusDetails              ModelPackageStatusDetailsPtrOutput                                `pulumi:"modelPackageStatusDetails"`
+	ModelPackageVersion                    pulumi.IntPtrOutput                                               `pulumi:"modelPackageVersion"`
+	SamplePayloadUrl                       pulumi.StringPtrOutput                                            `pulumi:"samplePayloadUrl"`
+	SourceAlgorithmSpecification           ModelPackageSourceAlgorithmSpecificationPtrOutput                 `pulumi:"sourceAlgorithmSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	Tags                    ModelPackageTagArrayOutput                   `pulumi:"tags"`
 	Task                    pulumi.StringPtrOutput                       `pulumi:"task"`
@@ -87,31 +82,26 @@ func (ModelPackageState) ElementType() reflect.Type {
 }
 
 type modelPackageArgs struct {
-	AdditionalInferenceSpecificationDefinition *ModelPackageAdditionalInferenceSpecificationDefinition  `pulumi:"additionalInferenceSpecificationDefinition"`
-	AdditionalInferenceSpecifications          []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecifications"`
-	AdditionalInferenceSpecificationsToAdd     []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecificationsToAdd"`
-	ApprovalDescription                        *string                                                  `pulumi:"approvalDescription"`
-	CertifyForMarketplace                      *bool                                                    `pulumi:"certifyForMarketplace"`
-	ClientToken                                *string                                                  `pulumi:"clientToken"`
-	CreatedBy                                  *ModelPackageCreatedBy                                   `pulumi:"createdBy"`
-	CustomerMetadataProperties                 *ModelPackageCustomerMetadataProperties                  `pulumi:"customerMetadataProperties"`
-	Domain                                     *string                                                  `pulumi:"domain"`
-	DriftCheckBaselines                        *ModelPackageDriftCheckBaselines                         `pulumi:"driftCheckBaselines"`
-	Environment                                *ModelPackageEnvironment                                 `pulumi:"environment"`
-	InferenceSpecification                     *ModelPackageInferenceSpecification                      `pulumi:"inferenceSpecification"`
-	LastModifiedBy                             *ModelPackageLastModifiedBy                              `pulumi:"lastModifiedBy"`
-	LastModifiedTime                           *string                                                  `pulumi:"lastModifiedTime"`
-	MetadataProperties                         *ModelPackageMetadataProperties                          `pulumi:"metadataProperties"`
-	ModelApprovalStatus                        *ModelPackageModelApprovalStatus                         `pulumi:"modelApprovalStatus"`
-	ModelMetrics                               *ModelPackageModelMetrics                                `pulumi:"modelMetrics"`
-	ModelPackageDescription                    *string                                                  `pulumi:"modelPackageDescription"`
-	ModelPackageGroupName                      *string                                                  `pulumi:"modelPackageGroupName"`
-	ModelPackageName                           *string                                                  `pulumi:"modelPackageName"`
-	ModelPackageStatusDetails                  *ModelPackageStatusDetails                               `pulumi:"modelPackageStatusDetails"`
-	ModelPackageStatusItem                     *ModelPackageStatusItem                                  `pulumi:"modelPackageStatusItem"`
-	ModelPackageVersion                        *int                                                     `pulumi:"modelPackageVersion"`
-	SamplePayloadUrl                           *string                                                  `pulumi:"samplePayloadUrl"`
-	SourceAlgorithmSpecification               *ModelPackageSourceAlgorithmSpecification                `pulumi:"sourceAlgorithmSpecification"`
+	AdditionalInferenceSpecifications      []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecifications"`
+	AdditionalInferenceSpecificationsToAdd []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecificationsToAdd"`
+	ApprovalDescription                    *string                                                  `pulumi:"approvalDescription"`
+	CertifyForMarketplace                  *bool                                                    `pulumi:"certifyForMarketplace"`
+	ClientToken                            *string                                                  `pulumi:"clientToken"`
+	CustomerMetadataProperties             *ModelPackageCustomerMetadataProperties                  `pulumi:"customerMetadataProperties"`
+	Domain                                 *string                                                  `pulumi:"domain"`
+	DriftCheckBaselines                    *ModelPackageDriftCheckBaselines                         `pulumi:"driftCheckBaselines"`
+	InferenceSpecification                 *ModelPackageInferenceSpecification                      `pulumi:"inferenceSpecification"`
+	LastModifiedTime                       *string                                                  `pulumi:"lastModifiedTime"`
+	MetadataProperties                     *ModelPackageMetadataProperties                          `pulumi:"metadataProperties"`
+	ModelApprovalStatus                    *ModelPackageModelApprovalStatus                         `pulumi:"modelApprovalStatus"`
+	ModelMetrics                           *ModelPackageModelMetrics                                `pulumi:"modelMetrics"`
+	ModelPackageDescription                *string                                                  `pulumi:"modelPackageDescription"`
+	ModelPackageGroupName                  *string                                                  `pulumi:"modelPackageGroupName"`
+	ModelPackageName                       *string                                                  `pulumi:"modelPackageName"`
+	ModelPackageStatusDetails              *ModelPackageStatusDetails                               `pulumi:"modelPackageStatusDetails"`
+	ModelPackageVersion                    *int                                                     `pulumi:"modelPackageVersion"`
+	SamplePayloadUrl                       *string                                                  `pulumi:"samplePayloadUrl"`
+	SourceAlgorithmSpecification           *ModelPackageSourceAlgorithmSpecification                `pulumi:"sourceAlgorithmSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	Tags                    []ModelPackageTag                    `pulumi:"tags"`
 	Task                    *string                              `pulumi:"task"`
@@ -120,31 +110,26 @@ type modelPackageArgs struct {
 
 // The set of arguments for constructing a ModelPackage resource.
 type ModelPackageArgs struct {
-	AdditionalInferenceSpecificationDefinition ModelPackageAdditionalInferenceSpecificationDefinitionPtrInput
-	AdditionalInferenceSpecifications          ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput
-	AdditionalInferenceSpecificationsToAdd     ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput
-	ApprovalDescription                        pulumi.StringPtrInput
-	CertifyForMarketplace                      pulumi.BoolPtrInput
-	ClientToken                                pulumi.StringPtrInput
-	CreatedBy                                  ModelPackageCreatedByPtrInput
-	CustomerMetadataProperties                 ModelPackageCustomerMetadataPropertiesPtrInput
-	Domain                                     pulumi.StringPtrInput
-	DriftCheckBaselines                        ModelPackageDriftCheckBaselinesPtrInput
-	Environment                                ModelPackageEnvironmentPtrInput
-	InferenceSpecification                     ModelPackageInferenceSpecificationPtrInput
-	LastModifiedBy                             ModelPackageLastModifiedByPtrInput
-	LastModifiedTime                           pulumi.StringPtrInput
-	MetadataProperties                         ModelPackageMetadataPropertiesPtrInput
-	ModelApprovalStatus                        ModelPackageModelApprovalStatusPtrInput
-	ModelMetrics                               ModelPackageModelMetricsPtrInput
-	ModelPackageDescription                    pulumi.StringPtrInput
-	ModelPackageGroupName                      pulumi.StringPtrInput
-	ModelPackageName                           pulumi.StringPtrInput
-	ModelPackageStatusDetails                  ModelPackageStatusDetailsPtrInput
-	ModelPackageStatusItem                     ModelPackageStatusItemPtrInput
-	ModelPackageVersion                        pulumi.IntPtrInput
-	SamplePayloadUrl                           pulumi.StringPtrInput
-	SourceAlgorithmSpecification               ModelPackageSourceAlgorithmSpecificationPtrInput
+	AdditionalInferenceSpecifications      ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput
+	AdditionalInferenceSpecificationsToAdd ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput
+	ApprovalDescription                    pulumi.StringPtrInput
+	CertifyForMarketplace                  pulumi.BoolPtrInput
+	ClientToken                            pulumi.StringPtrInput
+	CustomerMetadataProperties             ModelPackageCustomerMetadataPropertiesPtrInput
+	Domain                                 pulumi.StringPtrInput
+	DriftCheckBaselines                    ModelPackageDriftCheckBaselinesPtrInput
+	InferenceSpecification                 ModelPackageInferenceSpecificationPtrInput
+	LastModifiedTime                       pulumi.StringPtrInput
+	MetadataProperties                     ModelPackageMetadataPropertiesPtrInput
+	ModelApprovalStatus                    ModelPackageModelApprovalStatusPtrInput
+	ModelMetrics                           ModelPackageModelMetricsPtrInput
+	ModelPackageDescription                pulumi.StringPtrInput
+	ModelPackageGroupName                  pulumi.StringPtrInput
+	ModelPackageName                       pulumi.StringPtrInput
+	ModelPackageStatusDetails              ModelPackageStatusDetailsPtrInput
+	ModelPackageVersion                    pulumi.IntPtrInput
+	SamplePayloadUrl                       pulumi.StringPtrInput
+	SourceAlgorithmSpecification           ModelPackageSourceAlgorithmSpecificationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags                    ModelPackageTagArrayInput
 	Task                    pulumi.StringPtrInput
@@ -188,12 +173,6 @@ func (o ModelPackageOutput) ToModelPackageOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ModelPackageOutput) AdditionalInferenceSpecificationDefinition() ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput {
-	return o.ApplyT(func(v *ModelPackage) ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput {
-		return v.AdditionalInferenceSpecificationDefinition
-	}).(ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput)
-}
-
 func (o ModelPackageOutput) AdditionalInferenceSpecifications() ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
 		return v.AdditionalInferenceSpecifications
@@ -218,10 +197,6 @@ func (o ModelPackageOutput) ClientToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
 
-func (o ModelPackageOutput) CreatedBy() ModelPackageCreatedByPtrOutput {
-	return o.ApplyT(func(v *ModelPackage) ModelPackageCreatedByPtrOutput { return v.CreatedBy }).(ModelPackageCreatedByPtrOutput)
-}
-
 func (o ModelPackageOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackage) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
@@ -240,16 +215,8 @@ func (o ModelPackageOutput) DriftCheckBaselines() ModelPackageDriftCheckBaseline
 	return o.ApplyT(func(v *ModelPackage) ModelPackageDriftCheckBaselinesPtrOutput { return v.DriftCheckBaselines }).(ModelPackageDriftCheckBaselinesPtrOutput)
 }
 
-func (o ModelPackageOutput) Environment() ModelPackageEnvironmentPtrOutput {
-	return o.ApplyT(func(v *ModelPackage) ModelPackageEnvironmentPtrOutput { return v.Environment }).(ModelPackageEnvironmentPtrOutput)
-}
-
 func (o ModelPackageOutput) InferenceSpecification() ModelPackageInferenceSpecificationPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageInferenceSpecificationPtrOutput { return v.InferenceSpecification }).(ModelPackageInferenceSpecificationPtrOutput)
-}
-
-func (o ModelPackageOutput) LastModifiedBy() ModelPackageLastModifiedByPtrOutput {
-	return o.ApplyT(func(v *ModelPackage) ModelPackageLastModifiedByPtrOutput { return v.LastModifiedBy }).(ModelPackageLastModifiedByPtrOutput)
 }
 
 func (o ModelPackageOutput) LastModifiedTime() pulumi.StringPtrOutput {
@@ -290,10 +257,6 @@ func (o ModelPackageOutput) ModelPackageStatus() ModelPackageStatusOutput {
 
 func (o ModelPackageOutput) ModelPackageStatusDetails() ModelPackageStatusDetailsPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageStatusDetailsPtrOutput { return v.ModelPackageStatusDetails }).(ModelPackageStatusDetailsPtrOutput)
-}
-
-func (o ModelPackageOutput) ModelPackageStatusItem() ModelPackageStatusItemPtrOutput {
-	return o.ApplyT(func(v *ModelPackage) ModelPackageStatusItemPtrOutput { return v.ModelPackageStatusItem }).(ModelPackageStatusItemPtrOutput)
 }
 
 func (o ModelPackageOutput) ModelPackageVersion() pulumi.IntPtrOutput {

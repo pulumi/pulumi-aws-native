@@ -35,6 +35,7 @@ __all__ = [
     'IPAMPoolState',
     'IPAMScopeIpamScopeType',
     'KeyPairKeyType',
+    'LaunchTemplateCpuOptionsAmdSevSnp',
     'NetworkInsightsAccessScopeAnalysisFindingsFound',
     'NetworkInsightsAccessScopeAnalysisStatus',
     'NetworkInsightsAccessScopeProtocol',
@@ -308,6 +309,14 @@ class KeyPairKeyType(str, Enum):
     """
     RSA = "rsa"
     ED25519 = "ed25519"
+
+
+class LaunchTemplateCpuOptionsAmdSevSnp(str, Enum):
+    """
+    Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
 
 
 class NetworkInsightsAccessScopeAnalysisFindingsFound(str, Enum):

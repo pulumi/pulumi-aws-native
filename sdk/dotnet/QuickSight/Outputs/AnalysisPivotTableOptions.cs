@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisPivotTableOptions
     {
         public readonly Outputs.AnalysisTableCellStyle? CellStyle;
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? CollapsedRowDimensionsVisibility;
         public readonly Outputs.AnalysisTableCellStyle? ColumnHeaderStyle;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? ColumnNamesVisibility;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisPivotTableMetricPlacement? MetricPlacement;
@@ -26,6 +27,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         [OutputConstructor]
         private AnalysisPivotTableOptions(
             Outputs.AnalysisTableCellStyle? cellStyle,
+
+            Pulumi.AwsNative.QuickSight.AnalysisVisibility? collapsedRowDimensionsVisibility,
 
             Outputs.AnalysisTableCellStyle? columnHeaderStyle,
 
@@ -44,6 +47,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.AnalysisVisibility? toggleButtonsVisibility)
         {
             CellStyle = cellStyle;
+            CollapsedRowDimensionsVisibility = collapsedRowDimensionsVisibility;
             ColumnHeaderStyle = columnHeaderStyle;
             ColumnNamesVisibility = columnNamesVisibility;
             MetricPlacement = metricPlacement;

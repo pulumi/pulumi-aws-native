@@ -60,9 +60,11 @@ __all__ = [
     'AnalysisPaperSize',
     'AnalysisParameterValueType',
     'AnalysisPivotTableConditionalFormattingScopeRole',
+    'AnalysisPivotTableFieldCollapseState',
     'AnalysisPivotTableMetricPlacement',
     'AnalysisPivotTableSubtotalLevel',
     'AnalysisPrimaryValueDisplayType',
+    'AnalysisRadarChartAxesRangeScale',
     'AnalysisRadarChartShape',
     'AnalysisReferenceLineLabelHorizontalPosition',
     'AnalysisReferenceLineLabelVerticalPosition',
@@ -82,7 +84,6 @@ __all__ = [
     'AnalysisSheetControlSliderType',
     'AnalysisSimpleNumericalAggregationFunction',
     'AnalysisSortDirection',
-    'AnalysisSpecialValue',
     'AnalysisTableBorderStyle',
     'AnalysisTableCellImageScalingConfiguration',
     'AnalysisTableFieldIconSetType',
@@ -162,9 +163,11 @@ __all__ = [
     'DashboardPaperSize',
     'DashboardParameterValueType',
     'DashboardPivotTableConditionalFormattingScopeRole',
+    'DashboardPivotTableFieldCollapseState',
     'DashboardPivotTableMetricPlacement',
     'DashboardPivotTableSubtotalLevel',
     'DashboardPrimaryValueDisplayType',
+    'DashboardRadarChartAxesRangeScale',
     'DashboardRadarChartShape',
     'DashboardReferenceLineLabelHorizontalPosition',
     'DashboardReferenceLineLabelVerticalPosition',
@@ -184,7 +187,6 @@ __all__ = [
     'DashboardSheetControlSliderType',
     'DashboardSimpleNumericalAggregationFunction',
     'DashboardSortDirection',
-    'DashboardSpecialValue',
     'DashboardTableBorderStyle',
     'DashboardTableCellImageScalingConfiguration',
     'DashboardTableFieldIconSetType',
@@ -279,9 +281,11 @@ __all__ = [
     'TemplatePaperSize',
     'TemplateParameterValueType',
     'TemplatePivotTableConditionalFormattingScopeRole',
+    'TemplatePivotTableFieldCollapseState',
     'TemplatePivotTableMetricPlacement',
     'TemplatePivotTableSubtotalLevel',
     'TemplatePrimaryValueDisplayType',
+    'TemplateRadarChartAxesRangeScale',
     'TemplateRadarChartShape',
     'TemplateReferenceLineLabelHorizontalPosition',
     'TemplateReferenceLineLabelVerticalPosition',
@@ -301,7 +305,6 @@ __all__ = [
     'TemplateSheetControlSliderType',
     'TemplateSimpleNumericalAggregationFunction',
     'TemplateSortDirection',
-    'TemplateSpecialValue',
     'TemplateTableBorderStyle',
     'TemplateTableCellImageScalingConfiguration',
     'TemplateTableFieldIconSetType',
@@ -549,6 +552,7 @@ class AnalysisFunnelChartMeasureDataLabelStyle(str, Enum):
 class AnalysisGeospatialSelectedPointStyle(str, Enum):
     POINT = "POINT"
     CLUSTER = "CLUSTER"
+    HEATMAP = "HEATMAP"
 
 
 class AnalysisHistogramBinType(str, Enum):
@@ -718,6 +722,11 @@ class AnalysisPivotTableConditionalFormattingScopeRole(str, Enum):
     GRAND_TOTAL = "GRAND_TOTAL"
 
 
+class AnalysisPivotTableFieldCollapseState(str, Enum):
+    COLLAPSED = "COLLAPSED"
+    EXPANDED = "EXPANDED"
+
+
 class AnalysisPivotTableMetricPlacement(str, Enum):
     ROW = "ROW"
     COLUMN = "COLUMN"
@@ -733,6 +742,12 @@ class AnalysisPrimaryValueDisplayType(str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
     ACTUAL = "ACTUAL"
+
+
+class AnalysisRadarChartAxesRangeScale(str, Enum):
+    AUTO = "AUTO"
+    INDEPENDENT = "INDEPENDENT"
+    SHARED = "SHARED"
 
 
 class AnalysisRadarChartShape(str, Enum):
@@ -848,12 +863,6 @@ class AnalysisSimpleNumericalAggregationFunction(str, Enum):
 class AnalysisSortDirection(str, Enum):
     ASC = "ASC"
     DESC = "DESC"
-
-
-class AnalysisSpecialValue(str, Enum):
-    EMPTY = "EMPTY"
-    NULL = "NULL"
-    OTHER = "OTHER"
 
 
 class AnalysisTableBorderStyle(str, Enum):
@@ -1182,6 +1191,7 @@ class DashboardFunnelChartMeasureDataLabelStyle(str, Enum):
 class DashboardGeospatialSelectedPointStyle(str, Enum):
     POINT = "POINT"
     CLUSTER = "CLUSTER"
+    HEATMAP = "HEATMAP"
 
 
 class DashboardHistogramBinType(str, Enum):
@@ -1351,6 +1361,11 @@ class DashboardPivotTableConditionalFormattingScopeRole(str, Enum):
     GRAND_TOTAL = "GRAND_TOTAL"
 
 
+class DashboardPivotTableFieldCollapseState(str, Enum):
+    COLLAPSED = "COLLAPSED"
+    EXPANDED = "EXPANDED"
+
+
 class DashboardPivotTableMetricPlacement(str, Enum):
     ROW = "ROW"
     COLUMN = "COLUMN"
@@ -1366,6 +1381,12 @@ class DashboardPrimaryValueDisplayType(str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
     ACTUAL = "ACTUAL"
+
+
+class DashboardRadarChartAxesRangeScale(str, Enum):
+    AUTO = "AUTO"
+    INDEPENDENT = "INDEPENDENT"
+    SHARED = "SHARED"
 
 
 class DashboardRadarChartShape(str, Enum):
@@ -1481,12 +1502,6 @@ class DashboardSimpleNumericalAggregationFunction(str, Enum):
 class DashboardSortDirection(str, Enum):
     ASC = "ASC"
     DESC = "DESC"
-
-
-class DashboardSpecialValue(str, Enum):
-    EMPTY = "EMPTY"
-    NULL = "NULL"
-    OTHER = "OTHER"
 
 
 class DashboardTableBorderStyle(str, Enum):
@@ -1939,6 +1954,7 @@ class TemplateFunnelChartMeasureDataLabelStyle(str, Enum):
 class TemplateGeospatialSelectedPointStyle(str, Enum):
     POINT = "POINT"
     CLUSTER = "CLUSTER"
+    HEATMAP = "HEATMAP"
 
 
 class TemplateHistogramBinType(str, Enum):
@@ -2108,6 +2124,11 @@ class TemplatePivotTableConditionalFormattingScopeRole(str, Enum):
     GRAND_TOTAL = "GRAND_TOTAL"
 
 
+class TemplatePivotTableFieldCollapseState(str, Enum):
+    COLLAPSED = "COLLAPSED"
+    EXPANDED = "EXPANDED"
+
+
 class TemplatePivotTableMetricPlacement(str, Enum):
     ROW = "ROW"
     COLUMN = "COLUMN"
@@ -2123,6 +2144,12 @@ class TemplatePrimaryValueDisplayType(str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
     ACTUAL = "ACTUAL"
+
+
+class TemplateRadarChartAxesRangeScale(str, Enum):
+    AUTO = "AUTO"
+    INDEPENDENT = "INDEPENDENT"
+    SHARED = "SHARED"
 
 
 class TemplateRadarChartShape(str, Enum):
@@ -2238,12 +2265,6 @@ class TemplateSimpleNumericalAggregationFunction(str, Enum):
 class TemplateSortDirection(str, Enum):
     ASC = "ASC"
     DESC = "DESC"
-
-
-class TemplateSpecialValue(str, Enum):
-    EMPTY = "EMPTY"
-    NULL = "NULL"
-    OTHER = "OTHER"
 
 
 class TemplateTableBorderStyle(str, Enum):

@@ -37,6 +37,9 @@ export class Hub extends pulumi.CustomResource {
         return obj['__pulumiType'] === Hub.__pulumiType;
     }
 
+    public readonly autoEnableControls!: pulumi.Output<boolean | undefined>;
+    public readonly controlFindingGenerator!: pulumi.Output<string | undefined>;
+    public readonly enableDefaultStandards!: pulumi.Output<boolean | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
@@ -52,8 +55,14 @@ export class Hub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["autoEnableControls"] = args ? args.autoEnableControls : undefined;
+            resourceInputs["controlFindingGenerator"] = args ? args.controlFindingGenerator : undefined;
+            resourceInputs["enableDefaultStandards"] = args ? args.enableDefaultStandards : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
+            resourceInputs["autoEnableControls"] = undefined /*out*/;
+            resourceInputs["controlFindingGenerator"] = undefined /*out*/;
+            resourceInputs["enableDefaultStandards"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -65,5 +74,8 @@ export class Hub extends pulumi.CustomResource {
  * The set of arguments for constructing a Hub resource.
  */
 export interface HubArgs {
+    autoEnableControls?: pulumi.Input<boolean>;
+    controlFindingGenerator?: pulumi.Input<string>;
+    enableDefaultStandards?: pulumi.Input<boolean>;
     tags?: any;
 }

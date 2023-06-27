@@ -16,28 +16,13 @@ export function getGatewayResponse(args: GetGatewayResponseArgs, opts?: pulumi.I
 }
 
 export interface GetGatewayResponseArgs {
-    /**
-     * A Cloudformation auto generated ID.
-     */
     id: string;
 }
 
 export interface GetGatewayResponseResult {
-    /**
-     * A Cloudformation auto generated ID.
-     */
     readonly id?: string;
-    /**
-     * The response parameters (paths, query strings, and headers) for the response.
-     */
     readonly responseParameters?: any;
-    /**
-     * The response templates for the response.
-     */
     readonly responseTemplates?: any;
-    /**
-     * The HTTP status code for the response.
-     */
     readonly statusCode?: string;
 }
 /**
@@ -48,8 +33,5 @@ export function getGatewayResponseOutput(args: GetGatewayResponseOutputArgs, opt
 }
 
 export interface GetGatewayResponseOutputArgs {
-    /**
-     * A Cloudformation auto generated ID.
-     */
     id: pulumi.Input<string>;
 }

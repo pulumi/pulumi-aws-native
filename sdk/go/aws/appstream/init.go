@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:appstream:AppBlock":
 		r = &AppBlock{}
+	case "aws-native:appstream:AppBlockBuilder":
+		r = &AppBlockBuilder{}
 	case "aws-native:appstream:Application":
 		r = &Application{}
 	case "aws-native:appstream:ApplicationEntitlementAssociation":

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies an IPv6 address.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateIpv6Add
     {

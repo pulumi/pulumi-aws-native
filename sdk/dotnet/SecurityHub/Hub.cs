@@ -16,6 +16,15 @@ namespace Pulumi.AwsNative.SecurityHub
     [AwsNativeResourceType("aws-native:securityhub:Hub")]
     public partial class Hub : global::Pulumi.CustomResource
     {
+        [Output("autoEnableControls")]
+        public Output<bool?> AutoEnableControls { get; private set; } = null!;
+
+        [Output("controlFindingGenerator")]
+        public Output<string?> ControlFindingGenerator { get; private set; } = null!;
+
+        [Output("enableDefaultStandards")]
+        public Output<bool?> EnableDefaultStandards { get; private set; } = null!;
+
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -64,6 +73,15 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class HubArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoEnableControls")]
+        public Input<bool>? AutoEnableControls { get; set; }
+
+        [Input("controlFindingGenerator")]
+        public Input<string>? ControlFindingGenerator { get; set; }
+
+        [Input("enableDefaultStandards")]
+        public Input<bool>? EnableDefaultStandards { get; set; }
+
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

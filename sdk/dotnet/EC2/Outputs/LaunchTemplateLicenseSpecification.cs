@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies a license configuration for an instance.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateLicenseSpecification
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the license configuration.
+        /// </summary>
         public readonly string? LicenseConfigurationArn;
 
         [OutputConstructor]

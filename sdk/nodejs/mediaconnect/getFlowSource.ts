@@ -43,6 +43,10 @@ export interface GetFlowSourceResult {
      */
     readonly flowArn?: string;
     /**
+     * The source configuration for cloud flows receiving a stream from a bridge.
+     */
+    readonly gatewayBridgeSource?: outputs.mediaconnect.FlowSourceGatewayBridgeSource;
+    /**
      * The IP address that the flow will be listening on for incoming content.
      */
     readonly ingestIp?: string;

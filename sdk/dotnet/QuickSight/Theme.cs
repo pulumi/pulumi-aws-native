@@ -15,56 +15,30 @@ namespace Pulumi.AwsNative.QuickSight
     [AwsNativeResourceType("aws-native:quicksight:Theme")]
     public partial class Theme : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the theme.&lt;/p&gt;
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The ID of the theme that a custom theme will inherit from. All themes inherit from one of
-        /// 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
-        /// 				&lt;code&gt;ListThemes&lt;/code&gt; or choose &lt;b&gt;Themes&lt;/b&gt; from
-        /// 			within a QuickSight analysis. &lt;/p&gt;
-        /// </summary>
         [Output("baseThemeId")]
-        public Output<string?> BaseThemeId { get; private set; } = null!;
+        public Output<string> BaseThemeId { get; private set; } = null!;
 
         [Output("configuration")]
-        public Output<Outputs.ThemeConfiguration?> Configuration { get; private set; } = null!;
+        public Output<Outputs.ThemeConfiguration> Configuration { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The date and time that the theme was created.&lt;/p&gt;
-        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The date and time that the theme was last updated.&lt;/p&gt;
-        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A display name for the theme.&lt;/p&gt;
-        /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A valid grouping of resource permissions to apply to the new theme.
-        /// 			&lt;/p&gt;
-        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.ThemeResourcePermission>> Permissions { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A map of the key-value pairs for the resource tag or tags that you want to add to the
-        /// 			resource.&lt;/p&gt;
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ThemeTag>> Tags { get; private set; } = null!;
 
@@ -77,12 +51,6 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("version")]
         public Output<Outputs.ThemeVersion> Version { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A description of the first version of the theme that you're creating. Every time
-        /// 				&lt;code&gt;UpdateTheme&lt;/code&gt; is called, a new version is created. Each version of the
-        /// 			theme has a description of the version in the &lt;code&gt;VersionDescription&lt;/code&gt;
-        /// 			field.&lt;/p&gt;
-        /// </summary>
         [Output("versionDescription")]
         public Output<string?> VersionDescription { get; private set; } = null!;
 
@@ -134,31 +102,17 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The ID of the theme that a custom theme will inherit from. All themes inherit from one of
-        /// 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
-        /// 				&lt;code&gt;ListThemes&lt;/code&gt; or choose &lt;b&gt;Themes&lt;/b&gt; from
-        /// 			within a QuickSight analysis. &lt;/p&gt;
-        /// </summary>
-        [Input("baseThemeId")]
-        public Input<string>? BaseThemeId { get; set; }
+        [Input("baseThemeId", required: true)]
+        public Input<string> BaseThemeId { get; set; } = null!;
 
-        [Input("configuration")]
-        public Input<Inputs.ThemeConfigurationArgs>? Configuration { get; set; }
+        [Input("configuration", required: true)]
+        public Input<Inputs.ThemeConfigurationArgs> Configuration { get; set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A display name for the theme.&lt;/p&gt;
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.ThemeResourcePermissionArgs>? _permissions;
-
-        /// <summary>
-        /// &lt;p&gt;A valid grouping of resource permissions to apply to the new theme.
-        /// 			&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.ThemeResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.ThemeResourcePermissionArgs>());
@@ -167,11 +121,6 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("tags")]
         private InputList<Inputs.ThemeTagArgs>? _tags;
-
-        /// <summary>
-        /// &lt;p&gt;A map of the key-value pairs for the resource tag or tags that you want to add to the
-        /// 			resource.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.ThemeTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.ThemeTagArgs>());
@@ -181,12 +130,6 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("themeId", required: true)]
         public Input<string> ThemeId { get; set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A description of the first version of the theme that you're creating. Every time
-        /// 				&lt;code&gt;UpdateTheme&lt;/code&gt; is called, a new version is created. Each version of the
-        /// 			theme has a description of the version in the &lt;code&gt;VersionDescription&lt;/code&gt;
-        /// 			field.&lt;/p&gt;
-        /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }
 

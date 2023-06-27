@@ -81,7 +81,7 @@ class ConnectorApacheKafkaCluster(dict):
 @pulumi.output_type
 class ConnectorAutoScaling(dict):
     """
-    Details about auto scaling of a connector. 
+    Details about auto scaling of a connector.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -115,7 +115,7 @@ class ConnectorAutoScaling(dict):
                  scale_in_policy: 'outputs.ConnectorScaleInPolicy',
                  scale_out_policy: 'outputs.ConnectorScaleOutPolicy'):
         """
-        Details about auto scaling of a connector. 
+        Details about auto scaling of a connector.
         :param int max_worker_count: The maximum number of workers for a connector.
         :param int mcu_count: Specifies how many MSK Connect Units (MCU) as the minimum scaling unit.
         :param int min_worker_count: The minimum number of workers for a connector.

@@ -72,6 +72,7 @@ __all__ = [
     'WebACLAWSManagedRulesBotControlRuleSet',
     'WebACLAllowAction',
     'WebACLAndStatement',
+    'WebACLAssociationConfig',
     'WebACLBlockAction',
     'WebACLBody',
     'WebACLByteMatchStatement',
@@ -111,6 +112,7 @@ __all__ = [
     'WebACLRateBasedStatement',
     'WebACLRegexMatchStatement',
     'WebACLRegexPatternSetReferenceStatement',
+    'WebACLRequestBody',
     'WebACLRequestInspection',
     'WebACLResponseInspection',
     'WebACLResponseInspectionBodyContains',
@@ -2715,6 +2717,42 @@ class WebACLAndStatement(dict):
 
 
 @pulumi.output_type
+class WebACLAssociationConfig(dict):
+    """
+    AssociationConfig for body inspection
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestBody":
+            suggest = "request_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLAssociationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLAssociationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLAssociationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 request_body: Optional['outputs.WebACLRequestBody'] = None):
+        """
+        AssociationConfig for body inspection
+        """
+        if request_body is not None:
+            pulumi.set(__self__, "request_body", request_body)
+
+    @property
+    @pulumi.getter(name="requestBody")
+    def request_body(self) -> Optional['outputs.WebACLRequestBody']:
+        return pulumi.get(self, "request_body")
+
+
+@pulumi.output_type
 class WebACLBlockAction(dict):
     """
     Block traffic towards application.
@@ -4330,6 +4368,18 @@ class WebACLRegexPatternSetReferenceStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
         return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
+class WebACLRequestBody(dict):
+    """
+    Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+    """
+    def __init__(__self__):
+        """
+        Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+        """
+        pass
 
 
 @pulumi.output_type

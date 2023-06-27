@@ -15,6 +15,7 @@ type Monitor struct {
 	pulumi.CustomResourceState
 
 	CreatedAt                       pulumi.StringOutput                             `pulumi:"createdAt"`
+	HealthEventsConfig              MonitorHealthEventsConfigPtrOutput              `pulumi:"healthEventsConfig"`
 	InternetMeasurementsLogDelivery MonitorInternetMeasurementsLogDeliveryPtrOutput `pulumi:"internetMeasurementsLogDelivery"`
 	MaxCityNetworksToMonitor        pulumi.IntPtrOutput                             `pulumi:"maxCityNetworksToMonitor"`
 	ModifiedAt                      pulumi.StringOutput                             `pulumi:"modifiedAt"`
@@ -69,6 +70,7 @@ func (MonitorState) ElementType() reflect.Type {
 }
 
 type monitorArgs struct {
+	HealthEventsConfig              *MonitorHealthEventsConfig              `pulumi:"healthEventsConfig"`
 	InternetMeasurementsLogDelivery *MonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
 	MaxCityNetworksToMonitor        *int                                    `pulumi:"maxCityNetworksToMonitor"`
 	MonitorName                     *string                                 `pulumi:"monitorName"`
@@ -82,6 +84,7 @@ type monitorArgs struct {
 
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
+	HealthEventsConfig              MonitorHealthEventsConfigPtrInput
 	InternetMeasurementsLogDelivery MonitorInternetMeasurementsLogDeliveryPtrInput
 	MaxCityNetworksToMonitor        pulumi.IntPtrInput
 	MonitorName                     pulumi.StringPtrInput
@@ -132,6 +135,10 @@ func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOu
 
 func (o MonitorOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o MonitorOutput) HealthEventsConfig() MonitorHealthEventsConfigPtrOutput {
+	return o.ApplyT(func(v *Monitor) MonitorHealthEventsConfigPtrOutput { return v.HealthEventsConfig }).(MonitorHealthEventsConfigPtrOutput)
 }
 
 func (o MonitorOutput) InternetMeasurementsLogDelivery() MonitorInternetMeasurementsLogDeliveryPtrOutput {

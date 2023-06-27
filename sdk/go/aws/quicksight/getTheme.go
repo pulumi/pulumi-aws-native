@@ -26,22 +26,14 @@ type LookupThemeArgs struct {
 }
 
 type LookupThemeResult struct {
-	// <p>The Amazon Resource Name (ARN) of the theme.</p>
-	Arn *string `pulumi:"arn"`
-	// <p>The date and time that the theme was created.</p>
-	CreatedTime *string `pulumi:"createdTime"`
-	// <p>The date and time that the theme was last updated.</p>
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// <p>A display name for the theme.</p>
-	Name *string `pulumi:"name"`
-	// <p>A valid grouping of resource permissions to apply to the new theme.
-	// 			</p>
-	Permissions []ThemeResourcePermission `pulumi:"permissions"`
-	// <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-	// 			resource.</p>
-	Tags    []ThemeTag    `pulumi:"tags"`
-	Type    *ThemeType    `pulumi:"type"`
-	Version *ThemeVersion `pulumi:"version"`
+	Arn             *string                   `pulumi:"arn"`
+	CreatedTime     *string                   `pulumi:"createdTime"`
+	LastUpdatedTime *string                   `pulumi:"lastUpdatedTime"`
+	Name            *string                   `pulumi:"name"`
+	Permissions     []ThemeResourcePermission `pulumi:"permissions"`
+	Tags            []ThemeTag                `pulumi:"tags"`
+	Type            *ThemeType                `pulumi:"type"`
+	Version         *ThemeVersion             `pulumi:"version"`
 }
 
 func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...pulumi.InvokeOption) LookupThemeResultOutput {
@@ -80,36 +72,26 @@ func (o LookupThemeResultOutput) ToLookupThemeResultOutputWithContext(ctx contex
 	return o
 }
 
-// <p>The Amazon Resource Name (ARN) of the theme.</p>
 func (o LookupThemeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// <p>The date and time that the theme was created.</p>
 func (o LookupThemeResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// <p>The date and time that the theme was last updated.</p>
 func (o LookupThemeResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// <p>A display name for the theme.</p>
 func (o LookupThemeResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// <p>A valid grouping of resource permissions to apply to the new theme.
-//
-//	</p>
 func (o LookupThemeResultOutput) Permissions() ThemeResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeResourcePermission { return v.Permissions }).(ThemeResourcePermissionArrayOutput)
 }
 
-// <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-//
-//	resource.</p>
 func (o LookupThemeResultOutput) Tags() ThemeTagArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeTag { return v.Tags }).(ThemeTagArrayOutput)
 }

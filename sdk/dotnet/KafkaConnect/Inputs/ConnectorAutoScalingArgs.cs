@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
 {
 
     /// <summary>
-    /// Details about auto scaling of a connector. 
+    /// Details about auto scaling of a connector.
     /// </summary>
     public sealed class ConnectorAutoScalingArgs : global::Pulumi.ResourceArgs
     {

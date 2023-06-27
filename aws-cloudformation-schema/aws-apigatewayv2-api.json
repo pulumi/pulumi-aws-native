@@ -141,10 +141,10 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:POST", "s3:getObject" ]
+      "permissions" : [ "apigateway:POST", "apigateway:PUT", "s3:getObject" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT", "s3:getObject" ]
+      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT", "apigateway:POST", "s3:getObject" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET", "s3:getObject" ]

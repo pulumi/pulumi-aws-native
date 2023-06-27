@@ -12,12 +12,6 @@ namespace Pulumi.AwsNative.AppStream.Inputs
 
     public sealed class AppBlockTagArgs : global::Pulumi.ResourceArgs
     {
-        [Input("tagKey", required: true)]
-        public Input<string> TagKey { get; set; } = null!;
-
-        [Input("tagValue", required: true)]
-        public Input<string> TagValue { get; set; } = null!;
-
         public AppBlockTagArgs()
         {
         }

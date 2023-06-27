@@ -13,18 +13,26 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisScatterPlotUnaggregatedFieldWells
     {
+        public readonly ImmutableArray<Outputs.AnalysisDimensionField> Category;
+        public readonly ImmutableArray<Outputs.AnalysisDimensionField> Label;
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> Size;
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> XAxis;
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> YAxis;
 
         [OutputConstructor]
         private AnalysisScatterPlotUnaggregatedFieldWells(
+            ImmutableArray<Outputs.AnalysisDimensionField> category,
+
+            ImmutableArray<Outputs.AnalysisDimensionField> label,
+
             ImmutableArray<Outputs.AnalysisMeasureField> size,
 
             ImmutableArray<Outputs.AnalysisDimensionField> xAxis,
 
             ImmutableArray<Outputs.AnalysisDimensionField> yAxis)
         {
+            Category = category;
+            Label = label;
             Size = size;
             XAxis = xAxis;
             YAxis = yAxis;

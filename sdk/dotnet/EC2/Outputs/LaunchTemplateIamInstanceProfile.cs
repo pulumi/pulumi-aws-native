@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies an IAM instance profile, which is a container for an IAM role for your instance.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateIamInstanceProfile
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance profile.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The name of the instance profile.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

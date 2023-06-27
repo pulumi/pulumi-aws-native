@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// Specifies whether your instance is configured for hibernation.
+    /// </summary>
     public sealed class LaunchTemplateHibernationOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// TIf you set this parameter to true, the instance is enabled for hibernation.
+        /// </summary>
         [Input("configured")]
         public Input<bool>? Configured { get; set; }
 

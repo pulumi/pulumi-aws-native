@@ -213,7 +213,7 @@
       "permissions" : [ "comprehend:DescribeFlywheel", "comprehend:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "comprehend:UpdateFlywheel", "comprehend:ListTagsForResource", "comprehend:TagResource", "comprehend:UntagResource" ],
+      "permissions" : [ "iam:PassRole", "comprehend:DescribeFlywheel", "comprehend:UpdateFlywheel", "comprehend:ListTagsForResource", "comprehend:TagResource", "comprehend:UntagResource" ],
       "timeoutInMinutes" : 10
     },
     "delete" : {

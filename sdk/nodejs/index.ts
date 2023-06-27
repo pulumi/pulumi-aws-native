@@ -276,6 +276,7 @@ import * as systemsmanagersap from "./systemsmanagersap";
 import * as timestream from "./timestream";
 import * as transfer from "./transfer";
 import * as types from "./types";
+import * as verifiedpermissions from "./verifiedpermissions";
 import * as voiceid from "./voiceid";
 import * as vpclattice from "./vpclattice";
 import * as waf from "./waf";
@@ -501,6 +502,7 @@ export {
     timestream,
     transfer,
     types,
+    verifiedpermissions,
     voiceid,
     vpclattice,
     waf,

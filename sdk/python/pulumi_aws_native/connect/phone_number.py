@@ -26,7 +26,7 @@ class PhoneNumberArgs:
         The set of arguments for constructing a PhoneNumber resource.
         :param pulumi.Input[str] country_code: The phone number country code.
         :param pulumi.Input[str] target_arn: The ARN of the target the phone number is claimed to.
-        :param pulumi.Input[str] type: The phone number type, either TOLL_FREE or DID.
+        :param pulumi.Input[str] type: The phone number type
         :param pulumi.Input[str] description: The description of the phone number.
         :param pulumi.Input[str] prefix: The phone number prefix.
         :param pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]] tags: One or more tags.
@@ -69,7 +69,7 @@ class PhoneNumberArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The phone number type, either TOLL_FREE or DID.
+        The phone number type
         """
         return pulumi.get(self, "type")
 
@@ -136,7 +136,7 @@ class PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[str] prefix: The phone number prefix.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberTagArgs']]]] tags: One or more tags.
         :param pulumi.Input[str] target_arn: The ARN of the target the phone number is claimed to.
-        :param pulumi.Input[str] type: The phone number type, either TOLL_FREE or DID.
+        :param pulumi.Input[str] type: The phone number type
         """
         ...
     @overload
@@ -283,7 +283,7 @@ class PhoneNumber(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The phone number type, either TOLL_FREE or DID.
+        The phone number type
         """
         return pulumi.get(self, "type")
 

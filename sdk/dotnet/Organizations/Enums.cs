@@ -71,6 +71,37 @@ namespace Pulumi.AwsNative.Organizations
     }
 
     /// <summary>
+    /// Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationFeatureSet : IEquatable<OrganizationFeatureSet>
+    {
+        private readonly string _value;
+
+        private OrganizationFeatureSet(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationFeatureSet All { get; } = new OrganizationFeatureSet("ALL");
+        public static OrganizationFeatureSet ConsolidatedBilling { get; } = new OrganizationFeatureSet("CONSOLIDATED_BILLING");
+
+        public static bool operator ==(OrganizationFeatureSet left, OrganizationFeatureSet right) => left.Equals(right);
+        public static bool operator !=(OrganizationFeatureSet left, OrganizationFeatureSet right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationFeatureSet value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationFeatureSet other && Equals(other);
+        public bool Equals(OrganizationFeatureSet other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY
     /// </summary>
     [EnumType]

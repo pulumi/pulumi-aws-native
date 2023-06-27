@@ -218,10 +218,10 @@
       "permissions" : [ "Batch:DescribeComputeEnvironments" ]
     },
     "update" : {
-      "permissions" : [ "Batch:UpdateComputeEnvironment", "Batch:TagResource", "Batch:UnTagResource" ]
+      "permissions" : [ "Batch:UpdateComputeEnvironment", "Batch:DescribeComputeEnvironments", "Batch:TagResource", "Batch:UnTagResource", "Iam:PassRole", "Eks:DescribeCluster" ]
     },
     "delete" : {
-      "permissions" : [ "Batch:DeleteComputeEnvironment" ]
+      "permissions" : [ "Batch:DeleteComputeEnvironment", "Batch:DescribeComputeEnvironments", "Batch:UpdateComputeEnvironment", "Iam:PassRole", "Eks:DescribeCluster" ]
     },
     "list" : {
       "permissions" : [ "Batch:DescribeComputeEnvironments" ]

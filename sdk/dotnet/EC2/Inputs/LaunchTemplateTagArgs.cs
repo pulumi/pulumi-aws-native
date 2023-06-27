@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// The user data to make available to the instance.
+    /// </summary>
     public sealed class LaunchTemplateTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]

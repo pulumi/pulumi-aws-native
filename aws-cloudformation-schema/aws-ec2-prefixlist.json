@@ -90,7 +90,7 @@
   "primaryIdentifier" : [ "/properties/PrefixListId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "EC2:CreateManagedPrefixList", "EC2:DescribeManagedPrefixLists" ]
+      "permissions" : [ "EC2:CreateManagedPrefixList", "EC2:DescribeManagedPrefixLists", "EC2:CreateTags" ]
     },
     "read" : {
       "permissions" : [ "EC2:GetManagedPrefixListEntries", "EC2:DescribeManagedPrefixLists" ]

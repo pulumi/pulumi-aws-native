@@ -64,6 +64,7 @@ namespace Pulumi.AwsNative.WAFv2
     public sealed class GetWebACLResult
     {
         public readonly string? Arn;
+        public readonly Outputs.WebACLAssociationConfig? AssociationConfig;
         public readonly int? Capacity;
         public readonly Outputs.WebACLCaptchaConfig? CaptchaConfig;
         public readonly Outputs.WebACLChallengeConfig? ChallengeConfig;
@@ -83,6 +84,8 @@ namespace Pulumi.AwsNative.WAFv2
         [OutputConstructor]
         private GetWebACLResult(
             string? arn,
+
+            Outputs.WebACLAssociationConfig? associationConfig,
 
             int? capacity,
 
@@ -109,6 +112,7 @@ namespace Pulumi.AwsNative.WAFv2
             Outputs.WebACLVisibilityConfig? visibilityConfig)
         {
             Arn = arn;
+            AssociationConfig = associationConfig;
             Capacity = capacity;
             CaptchaConfig = captchaConfig;
             ChallengeConfig = challengeConfig;

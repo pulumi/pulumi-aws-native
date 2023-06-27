@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AutoScalingConfigurationArgs } from "./autoScalingConfiguration";
+export type AutoScalingConfiguration = import("./autoScalingConfiguration").AutoScalingConfiguration;
+export const AutoScalingConfiguration: typeof import("./autoScalingConfiguration").AutoScalingConfiguration = null as any;
+utilities.lazyLoad(exports, ["AutoScalingConfiguration"], () => require("./autoScalingConfiguration"));
+
+export { GetAutoScalingConfigurationArgs, GetAutoScalingConfigurationResult, GetAutoScalingConfigurationOutputArgs } from "./getAutoScalingConfiguration";
+export const getAutoScalingConfiguration: typeof import("./getAutoScalingConfiguration").getAutoScalingConfiguration = null as any;
+export const getAutoScalingConfigurationOutput: typeof import("./getAutoScalingConfiguration").getAutoScalingConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getAutoScalingConfiguration","getAutoScalingConfigurationOutput"], () => require("./getAutoScalingConfiguration"));
+
 export { GetObservabilityConfigurationArgs, GetObservabilityConfigurationResult, GetObservabilityConfigurationOutputArgs } from "./getObservabilityConfiguration";
 export const getObservabilityConfiguration: typeof import("./getObservabilityConfiguration").getObservabilityConfiguration = null as any;
 export const getObservabilityConfigurationOutput: typeof import("./getObservabilityConfiguration").getObservabilityConfigurationOutput = null as any;
@@ -53,6 +63,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:apprunner:AutoScalingConfiguration":
+                return new AutoScalingConfiguration(name, <any>undefined, { urn })
             case "aws-native:apprunner:ObservabilityConfiguration":
                 return new ObservabilityConfiguration(name, <any>undefined, { urn })
             case "aws-native:apprunner:Service":

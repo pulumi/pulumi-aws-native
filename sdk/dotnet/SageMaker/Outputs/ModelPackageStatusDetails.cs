@@ -16,16 +16,11 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelPackageStatusDetails
     {
-        public readonly ImmutableArray<Outputs.ModelPackageStatusItem> ImageScanStatuses;
         public readonly ImmutableArray<Outputs.ModelPackageStatusItem> ValidationStatuses;
 
         [OutputConstructor]
-        private ModelPackageStatusDetails(
-            ImmutableArray<Outputs.ModelPackageStatusItem> imageScanStatuses,
-
-            ImmutableArray<Outputs.ModelPackageStatusItem> validationStatuses)
+        private ModelPackageStatusDetails(ImmutableArray<Outputs.ModelPackageStatusItem> validationStatuses)
         {
-            ImageScanStatuses = imageScanStatuses;
             ValidationStatuses = validationStatuses;
         }
     }

@@ -5057,6 +5057,171 @@ func (in *keyPairKeyTypePtr) ToKeyPairKeyTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(KeyPairKeyTypePtrOutput)
 }
 
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+type LaunchTemplateCpuOptionsAmdSevSnp string
+
+const (
+	LaunchTemplateCpuOptionsAmdSevSnpEnabled  = LaunchTemplateCpuOptionsAmdSevSnp("enabled")
+	LaunchTemplateCpuOptionsAmdSevSnpDisabled = LaunchTemplateCpuOptionsAmdSevSnp("disabled")
+)
+
+func (LaunchTemplateCpuOptionsAmdSevSnp) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpuOptionsAmdSevSnp)(nil)).Elem()
+}
+
+func (e LaunchTemplateCpuOptionsAmdSevSnp) ToLaunchTemplateCpuOptionsAmdSevSnpOutput() LaunchTemplateCpuOptionsAmdSevSnpOutput {
+	return pulumi.ToOutput(e).(LaunchTemplateCpuOptionsAmdSevSnpOutput)
+}
+
+func (e LaunchTemplateCpuOptionsAmdSevSnp) ToLaunchTemplateCpuOptionsAmdSevSnpOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsAmdSevSnpOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LaunchTemplateCpuOptionsAmdSevSnpOutput)
+}
+
+func (e LaunchTemplateCpuOptionsAmdSevSnp) ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutput() LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
+	return e.ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchTemplateCpuOptionsAmdSevSnp) ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
+	return LaunchTemplateCpuOptionsAmdSevSnp(e).ToLaunchTemplateCpuOptionsAmdSevSnpOutputWithContext(ctx).ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutputWithContext(ctx)
+}
+
+func (e LaunchTemplateCpuOptionsAmdSevSnp) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchTemplateCpuOptionsAmdSevSnp) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchTemplateCpuOptionsAmdSevSnp) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchTemplateCpuOptionsAmdSevSnp) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LaunchTemplateCpuOptionsAmdSevSnpOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCpuOptionsAmdSevSnpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpuOptionsAmdSevSnp)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToLaunchTemplateCpuOptionsAmdSevSnpOutput() LaunchTemplateCpuOptionsAmdSevSnpOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToLaunchTemplateCpuOptionsAmdSevSnpOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsAmdSevSnpOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutput() LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
+	return o.ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCpuOptionsAmdSevSnp) *LaunchTemplateCpuOptionsAmdSevSnp {
+		return &v
+	}).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchTemplateCpuOptionsAmdSevSnp) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchTemplateCpuOptionsAmdSevSnp) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateCpuOptionsAmdSevSnpPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCpuOptionsAmdSevSnp)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutput() LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) Elem() LaunchTemplateCpuOptionsAmdSevSnpOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptionsAmdSevSnp) LaunchTemplateCpuOptionsAmdSevSnp {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCpuOptionsAmdSevSnp
+		return ret
+	}).(LaunchTemplateCpuOptionsAmdSevSnpOutput)
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LaunchTemplateCpuOptionsAmdSevSnp) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LaunchTemplateCpuOptionsAmdSevSnpInput is an input type that accepts LaunchTemplateCpuOptionsAmdSevSnpArgs and LaunchTemplateCpuOptionsAmdSevSnpOutput values.
+// You can construct a concrete instance of `LaunchTemplateCpuOptionsAmdSevSnpInput` via:
+//
+//	LaunchTemplateCpuOptionsAmdSevSnpArgs{...}
+type LaunchTemplateCpuOptionsAmdSevSnpInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuOptionsAmdSevSnpOutput() LaunchTemplateCpuOptionsAmdSevSnpOutput
+	ToLaunchTemplateCpuOptionsAmdSevSnpOutputWithContext(context.Context) LaunchTemplateCpuOptionsAmdSevSnpOutput
+}
+
+var launchTemplateCpuOptionsAmdSevSnpPtrType = reflect.TypeOf((**LaunchTemplateCpuOptionsAmdSevSnp)(nil)).Elem()
+
+type LaunchTemplateCpuOptionsAmdSevSnpPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutput() LaunchTemplateCpuOptionsAmdSevSnpPtrOutput
+	ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutputWithContext(context.Context) LaunchTemplateCpuOptionsAmdSevSnpPtrOutput
+}
+
+type launchTemplateCpuOptionsAmdSevSnpPtr string
+
+func LaunchTemplateCpuOptionsAmdSevSnpPtr(v string) LaunchTemplateCpuOptionsAmdSevSnpPtrInput {
+	return (*launchTemplateCpuOptionsAmdSevSnpPtr)(&v)
+}
+
+func (*launchTemplateCpuOptionsAmdSevSnpPtr) ElementType() reflect.Type {
+	return launchTemplateCpuOptionsAmdSevSnpPtrType
+}
+
+func (in *launchTemplateCpuOptionsAmdSevSnpPtr) ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutput() LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
+	return pulumi.ToOutput(in).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
+}
+
+func (in *launchTemplateCpuOptionsAmdSevSnpPtr) ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
+}
+
 type NetworkInsightsAccessScopeAnalysisFindingsFound string
 
 const (
@@ -9386,6 +9551,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IPAMPoolPublicIpSourcePtrInput)(nil)).Elem(), IPAMPoolPublicIpSource("byoip"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyTypeInput)(nil)).Elem(), KeyPairKeyType("rsa"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyTypePtrInput)(nil)).Elem(), KeyPairKeyType("rsa"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuOptionsAmdSevSnpInput)(nil)).Elem(), LaunchTemplateCpuOptionsAmdSevSnp("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuOptionsAmdSevSnpPtrInput)(nil)).Elem(), LaunchTemplateCpuOptionsAmdSevSnp("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocol("tcp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolPtrInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocol("tcp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocolArray{})
@@ -9503,6 +9670,8 @@ func init() {
 	pulumi.RegisterOutputType(IPAMScopeIpamScopeTypePtrOutput{})
 	pulumi.RegisterOutputType(KeyPairKeyTypeOutput{})
 	pulumi.RegisterOutputType(KeyPairKeyTypePtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsAmdSevSnpOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisFindingsFoundOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAnalysisStatusOutput{})

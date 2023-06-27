@@ -16,16 +16,17 @@ __all__ = ['AppBlockArgs', 'AppBlock']
 @pulumi.input_type
 class AppBlockArgs:
     def __init__(__self__, *,
-                 setup_script_details: pulumi.Input['AppBlockScriptDetailsArgs'],
                  source_s3_location: pulumi.Input['AppBlockS3LocationArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 packaging_type: Optional[pulumi.Input[str]] = None,
+                 post_setup_script_details: Optional[pulumi.Input['AppBlockScriptDetailsArgs']] = None,
+                 setup_script_details: Optional[pulumi.Input['AppBlockScriptDetailsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockTagArgs']]]] = None):
         """
         The set of arguments for constructing a AppBlock resource.
         """
-        pulumi.set(__self__, "setup_script_details", setup_script_details)
         pulumi.set(__self__, "source_s3_location", source_s3_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -33,17 +34,14 @@ class AppBlockArgs:
             pulumi.set(__self__, "display_name", display_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if packaging_type is not None:
+            pulumi.set(__self__, "packaging_type", packaging_type)
+        if post_setup_script_details is not None:
+            pulumi.set(__self__, "post_setup_script_details", post_setup_script_details)
+        if setup_script_details is not None:
+            pulumi.set(__self__, "setup_script_details", setup_script_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="setupScriptDetails")
-    def setup_script_details(self) -> pulumi.Input['AppBlockScriptDetailsArgs']:
-        return pulumi.get(self, "setup_script_details")
-
-    @setup_script_details.setter
-    def setup_script_details(self, value: pulumi.Input['AppBlockScriptDetailsArgs']):
-        pulumi.set(self, "setup_script_details", value)
 
     @property
     @pulumi.getter(name="sourceS3Location")
@@ -82,6 +80,33 @@ class AppBlockArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="packagingType")
+    def packaging_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "packaging_type")
+
+    @packaging_type.setter
+    def packaging_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "packaging_type", value)
+
+    @property
+    @pulumi.getter(name="postSetupScriptDetails")
+    def post_setup_script_details(self) -> Optional[pulumi.Input['AppBlockScriptDetailsArgs']]:
+        return pulumi.get(self, "post_setup_script_details")
+
+    @post_setup_script_details.setter
+    def post_setup_script_details(self, value: Optional[pulumi.Input['AppBlockScriptDetailsArgs']]):
+        pulumi.set(self, "post_setup_script_details", value)
+
+    @property
+    @pulumi.getter(name="setupScriptDetails")
+    def setup_script_details(self) -> Optional[pulumi.Input['AppBlockScriptDetailsArgs']]:
+        return pulumi.get(self, "setup_script_details")
+
+    @setup_script_details.setter
+    def setup_script_details(self, value: Optional[pulumi.Input['AppBlockScriptDetailsArgs']]):
+        pulumi.set(self, "setup_script_details", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -99,6 +124,8 @@ class AppBlock(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 packaging_type: Optional[pulumi.Input[str]] = None,
+                 post_setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
                  setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
                  source_s3_location: Optional[pulumi.Input[pulumi.InputType['AppBlockS3LocationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppBlockTagArgs']]]]] = None,
@@ -136,6 +163,8 @@ class AppBlock(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 packaging_type: Optional[pulumi.Input[str]] = None,
+                 post_setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
                  setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
                  source_s3_location: Optional[pulumi.Input[pulumi.InputType['AppBlockS3LocationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppBlockTagArgs']]]]] = None,
@@ -151,8 +180,8 @@ class AppBlock(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["name"] = name
-            if setup_script_details is None and not opts.urn:
-                raise TypeError("Missing required property 'setup_script_details'")
+            __props__.__dict__["packaging_type"] = packaging_type
+            __props__.__dict__["post_setup_script_details"] = post_setup_script_details
             __props__.__dict__["setup_script_details"] = setup_script_details
             if source_s3_location is None and not opts.urn:
                 raise TypeError("Missing required property 'source_s3_location'")
@@ -187,6 +216,8 @@ class AppBlock(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["packaging_type"] = None
+        __props__.__dict__["post_setup_script_details"] = None
         __props__.__dict__["setup_script_details"] = None
         __props__.__dict__["source_s3_location"] = None
         __props__.__dict__["tags"] = None
@@ -218,8 +249,18 @@ class AppBlock(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="packagingType")
+    def packaging_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "packaging_type")
+
+    @property
+    @pulumi.getter(name="postSetupScriptDetails")
+    def post_setup_script_details(self) -> pulumi.Output[Optional['outputs.AppBlockScriptDetails']]:
+        return pulumi.get(self, "post_setup_script_details")
+
+    @property
     @pulumi.getter(name="setupScriptDetails")
-    def setup_script_details(self) -> pulumi.Output['outputs.AppBlockScriptDetails']:
+    def setup_script_details(self) -> pulumi.Output[Optional['outputs.AppBlockScriptDetails']]:
         return pulumi.get(self, "setup_script_details")
 
     @property

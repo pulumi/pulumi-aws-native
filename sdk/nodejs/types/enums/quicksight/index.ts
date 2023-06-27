@@ -260,6 +260,7 @@ export type AnalysisFunnelChartMeasureDataLabelStyle = (typeof AnalysisFunnelCha
 export const AnalysisGeospatialSelectedPointStyle = {
     Point: "POINT",
     Cluster: "CLUSTER",
+    Heatmap: "HEATMAP",
 } as const;
 
 export type AnalysisGeospatialSelectedPointStyle = (typeof AnalysisGeospatialSelectedPointStyle)[keyof typeof AnalysisGeospatialSelectedPointStyle];
@@ -477,6 +478,13 @@ export const AnalysisPivotTableConditionalFormattingScopeRole = {
 
 export type AnalysisPivotTableConditionalFormattingScopeRole = (typeof AnalysisPivotTableConditionalFormattingScopeRole)[keyof typeof AnalysisPivotTableConditionalFormattingScopeRole];
 
+export const AnalysisPivotTableFieldCollapseState = {
+    Collapsed: "COLLAPSED",
+    Expanded: "EXPANDED",
+} as const;
+
+export type AnalysisPivotTableFieldCollapseState = (typeof AnalysisPivotTableFieldCollapseState)[keyof typeof AnalysisPivotTableFieldCollapseState];
+
 export const AnalysisPivotTableMetricPlacement = {
     Row: "ROW",
     Column: "COLUMN",
@@ -499,6 +507,14 @@ export const AnalysisPrimaryValueDisplayType = {
 } as const;
 
 export type AnalysisPrimaryValueDisplayType = (typeof AnalysisPrimaryValueDisplayType)[keyof typeof AnalysisPrimaryValueDisplayType];
+
+export const AnalysisRadarChartAxesRangeScale = {
+    Auto: "AUTO",
+    Independent: "INDEPENDENT",
+    Shared: "SHARED",
+} as const;
+
+export type AnalysisRadarChartAxesRangeScale = (typeof AnalysisRadarChartAxesRangeScale)[keyof typeof AnalysisRadarChartAxesRangeScale];
 
 export const AnalysisRadarChartShape = {
     Circle: "CIRCLE",
@@ -652,14 +668,6 @@ export const AnalysisSortDirection = {
 } as const;
 
 export type AnalysisSortDirection = (typeof AnalysisSortDirection)[keyof typeof AnalysisSortDirection];
-
-export const AnalysisSpecialValue = {
-    Empty: "EMPTY",
-    Null: "NULL",
-    Other: "OTHER",
-} as const;
-
-export type AnalysisSpecialValue = (typeof AnalysisSpecialValue)[keyof typeof AnalysisSpecialValue];
 
 export const AnalysisTableBorderStyle = {
     None: "NONE",
@@ -1097,6 +1105,7 @@ export type DashboardFunnelChartMeasureDataLabelStyle = (typeof DashboardFunnelC
 export const DashboardGeospatialSelectedPointStyle = {
     Point: "POINT",
     Cluster: "CLUSTER",
+    Heatmap: "HEATMAP",
 } as const;
 
 export type DashboardGeospatialSelectedPointStyle = (typeof DashboardGeospatialSelectedPointStyle)[keyof typeof DashboardGeospatialSelectedPointStyle];
@@ -1314,6 +1323,13 @@ export const DashboardPivotTableConditionalFormattingScopeRole = {
 
 export type DashboardPivotTableConditionalFormattingScopeRole = (typeof DashboardPivotTableConditionalFormattingScopeRole)[keyof typeof DashboardPivotTableConditionalFormattingScopeRole];
 
+export const DashboardPivotTableFieldCollapseState = {
+    Collapsed: "COLLAPSED",
+    Expanded: "EXPANDED",
+} as const;
+
+export type DashboardPivotTableFieldCollapseState = (typeof DashboardPivotTableFieldCollapseState)[keyof typeof DashboardPivotTableFieldCollapseState];
+
 export const DashboardPivotTableMetricPlacement = {
     Row: "ROW",
     Column: "COLUMN",
@@ -1336,6 +1352,14 @@ export const DashboardPrimaryValueDisplayType = {
 } as const;
 
 export type DashboardPrimaryValueDisplayType = (typeof DashboardPrimaryValueDisplayType)[keyof typeof DashboardPrimaryValueDisplayType];
+
+export const DashboardRadarChartAxesRangeScale = {
+    Auto: "AUTO",
+    Independent: "INDEPENDENT",
+    Shared: "SHARED",
+} as const;
+
+export type DashboardRadarChartAxesRangeScale = (typeof DashboardRadarChartAxesRangeScale)[keyof typeof DashboardRadarChartAxesRangeScale];
 
 export const DashboardRadarChartShape = {
     Circle: "CIRCLE",
@@ -1489,14 +1513,6 @@ export const DashboardSortDirection = {
 } as const;
 
 export type DashboardSortDirection = (typeof DashboardSortDirection)[keyof typeof DashboardSortDirection];
-
-export const DashboardSpecialValue = {
-    Empty: "EMPTY",
-    Null: "NULL",
-    Other: "OTHER",
-} as const;
-
-export type DashboardSpecialValue = (typeof DashboardSpecialValue)[keyof typeof DashboardSpecialValue];
 
 export const DashboardTableBorderStyle = {
     None: "NONE",
@@ -2088,6 +2104,7 @@ export type TemplateFunnelChartMeasureDataLabelStyle = (typeof TemplateFunnelCha
 export const TemplateGeospatialSelectedPointStyle = {
     Point: "POINT",
     Cluster: "CLUSTER",
+    Heatmap: "HEATMAP",
 } as const;
 
 export type TemplateGeospatialSelectedPointStyle = (typeof TemplateGeospatialSelectedPointStyle)[keyof typeof TemplateGeospatialSelectedPointStyle];
@@ -2305,6 +2322,13 @@ export const TemplatePivotTableConditionalFormattingScopeRole = {
 
 export type TemplatePivotTableConditionalFormattingScopeRole = (typeof TemplatePivotTableConditionalFormattingScopeRole)[keyof typeof TemplatePivotTableConditionalFormattingScopeRole];
 
+export const TemplatePivotTableFieldCollapseState = {
+    Collapsed: "COLLAPSED",
+    Expanded: "EXPANDED",
+} as const;
+
+export type TemplatePivotTableFieldCollapseState = (typeof TemplatePivotTableFieldCollapseState)[keyof typeof TemplatePivotTableFieldCollapseState];
+
 export const TemplatePivotTableMetricPlacement = {
     Row: "ROW",
     Column: "COLUMN",
@@ -2327,6 +2351,14 @@ export const TemplatePrimaryValueDisplayType = {
 } as const;
 
 export type TemplatePrimaryValueDisplayType = (typeof TemplatePrimaryValueDisplayType)[keyof typeof TemplatePrimaryValueDisplayType];
+
+export const TemplateRadarChartAxesRangeScale = {
+    Auto: "AUTO",
+    Independent: "INDEPENDENT",
+    Shared: "SHARED",
+} as const;
+
+export type TemplateRadarChartAxesRangeScale = (typeof TemplateRadarChartAxesRangeScale)[keyof typeof TemplateRadarChartAxesRangeScale];
 
 export const TemplateRadarChartShape = {
     Circle: "CIRCLE",
@@ -2480,14 +2512,6 @@ export const TemplateSortDirection = {
 } as const;
 
 export type TemplateSortDirection = (typeof TemplateSortDirection)[keyof typeof TemplateSortDirection];
-
-export const TemplateSpecialValue = {
-    Empty: "EMPTY",
-    Null: "NULL",
-    Other: "OTHER",
-} as const;
-
-export type TemplateSpecialValue = (typeof TemplateSpecialValue)[keyof typeof TemplateSpecialValue];
 
 export const TemplateTableBorderStyle = {
     None: "NONE",

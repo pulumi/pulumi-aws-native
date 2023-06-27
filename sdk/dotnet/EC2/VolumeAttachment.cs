@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.EC2
     public partial class VolumeAttachment : global::Pulumi.CustomResource
     {
         [Output("device")]
-        public Output<string> Device { get; private set; } = null!;
+        public Output<string?> Device { get; private set; } = null!;
 
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
@@ -69,8 +69,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class VolumeAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        [Input("device", required: true)]
-        public Input<string> Device { get; set; } = null!;
+        [Input("device")]
+        public Input<string>? Device { get; set; }
 
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;

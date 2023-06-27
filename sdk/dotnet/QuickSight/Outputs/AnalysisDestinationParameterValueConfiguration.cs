@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly Outputs.AnalysisCustomValuesConfiguration? CustomValuesConfiguration;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSelectAllValueOptions? SelectAllValueOptions;
+        public readonly Outputs.AnalysisColumnIdentifier? SourceColumn;
         public readonly string? SourceField;
         public readonly string? SourceParameterName;
 
@@ -24,12 +25,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.AnalysisSelectAllValueOptions? selectAllValueOptions,
 
+            Outputs.AnalysisColumnIdentifier? sourceColumn,
+
             string? sourceField,
 
             string? sourceParameterName)
         {
             CustomValuesConfiguration = customValuesConfiguration;
             SelectAllValueOptions = selectAllValueOptions;
+            SourceColumn = sourceColumn;
             SourceField = sourceField;
             SourceParameterName = sourceParameterName;
         }

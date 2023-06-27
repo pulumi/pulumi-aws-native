@@ -17,19 +17,15 @@ __all__ = ['ModelPackageArgs', 'ModelPackage']
 @pulumi.input_type
 class ModelPackageArgs:
     def __init__(__self__, *,
-                 additional_inference_specification_definition: Optional[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']] = None,
                  additional_inference_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]] = None,
                  additional_inference_specifications_to_add: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]] = None,
                  approval_description: Optional[pulumi.Input[str]] = None,
                  certify_for_marketplace: Optional[pulumi.Input[bool]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input['ModelPackageCreatedByArgs']] = None,
                  customer_metadata_properties: Optional[pulumi.Input['ModelPackageCustomerMetadataPropertiesArgs']] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  drift_check_baselines: Optional[pulumi.Input['ModelPackageDriftCheckBaselinesArgs']] = None,
-                 environment: Optional[pulumi.Input['ModelPackageEnvironmentArgs']] = None,
                  inference_specification: Optional[pulumi.Input['ModelPackageInferenceSpecificationArgs']] = None,
-                 last_modified_by: Optional[pulumi.Input['ModelPackageLastModifiedByArgs']] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
                  metadata_properties: Optional[pulumi.Input['ModelPackageMetadataPropertiesArgs']] = None,
                  model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
@@ -38,7 +34,6 @@ class ModelPackageArgs:
                  model_package_group_name: Optional[pulumi.Input[str]] = None,
                  model_package_name: Optional[pulumi.Input[str]] = None,
                  model_package_status_details: Optional[pulumi.Input['ModelPackageStatusDetailsArgs']] = None,
-                 model_package_status_item: Optional[pulumi.Input['ModelPackageStatusItemArgs']] = None,
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
                  source_algorithm_specification: Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']] = None,
@@ -49,8 +44,6 @@ class ModelPackageArgs:
         The set of arguments for constructing a ModelPackage resource.
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        if additional_inference_specification_definition is not None:
-            pulumi.set(__self__, "additional_inference_specification_definition", additional_inference_specification_definition)
         if additional_inference_specifications is not None:
             pulumi.set(__self__, "additional_inference_specifications", additional_inference_specifications)
         if additional_inference_specifications_to_add is not None:
@@ -61,20 +54,14 @@ class ModelPackageArgs:
             pulumi.set(__self__, "certify_for_marketplace", certify_for_marketplace)
         if client_token is not None:
             pulumi.set(__self__, "client_token", client_token)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
         if customer_metadata_properties is not None:
             pulumi.set(__self__, "customer_metadata_properties", customer_metadata_properties)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
         if drift_check_baselines is not None:
             pulumi.set(__self__, "drift_check_baselines", drift_check_baselines)
-        if environment is not None:
-            pulumi.set(__self__, "environment", environment)
         if inference_specification is not None:
             pulumi.set(__self__, "inference_specification", inference_specification)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
         if last_modified_time is not None:
             pulumi.set(__self__, "last_modified_time", last_modified_time)
         if metadata_properties is not None:
@@ -91,8 +78,6 @@ class ModelPackageArgs:
             pulumi.set(__self__, "model_package_name", model_package_name)
         if model_package_status_details is not None:
             pulumi.set(__self__, "model_package_status_details", model_package_status_details)
-        if model_package_status_item is not None:
-            pulumi.set(__self__, "model_package_status_item", model_package_status_item)
         if model_package_version is not None:
             pulumi.set(__self__, "model_package_version", model_package_version)
         if sample_payload_url is not None:
@@ -105,15 +90,6 @@ class ModelPackageArgs:
             pulumi.set(__self__, "task", task)
         if validation_specification is not None:
             pulumi.set(__self__, "validation_specification", validation_specification)
-
-    @property
-    @pulumi.getter(name="additionalInferenceSpecificationDefinition")
-    def additional_inference_specification_definition(self) -> Optional[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]:
-        return pulumi.get(self, "additional_inference_specification_definition")
-
-    @additional_inference_specification_definition.setter
-    def additional_inference_specification_definition(self, value: Optional[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]):
-        pulumi.set(self, "additional_inference_specification_definition", value)
 
     @property
     @pulumi.getter(name="additionalInferenceSpecifications")
@@ -161,15 +137,6 @@ class ModelPackageArgs:
         pulumi.set(self, "client_token", value)
 
     @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input['ModelPackageCreatedByArgs']]:
-        return pulumi.get(self, "created_by")
-
-    @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input['ModelPackageCreatedByArgs']]):
-        pulumi.set(self, "created_by", value)
-
-    @property
     @pulumi.getter(name="customerMetadataProperties")
     def customer_metadata_properties(self) -> Optional[pulumi.Input['ModelPackageCustomerMetadataPropertiesArgs']]:
         return pulumi.get(self, "customer_metadata_properties")
@@ -197,15 +164,6 @@ class ModelPackageArgs:
         pulumi.set(self, "drift_check_baselines", value)
 
     @property
-    @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['ModelPackageEnvironmentArgs']]:
-        return pulumi.get(self, "environment")
-
-    @environment.setter
-    def environment(self, value: Optional[pulumi.Input['ModelPackageEnvironmentArgs']]):
-        pulumi.set(self, "environment", value)
-
-    @property
     @pulumi.getter(name="inferenceSpecification")
     def inference_specification(self) -> Optional[pulumi.Input['ModelPackageInferenceSpecificationArgs']]:
         return pulumi.get(self, "inference_specification")
@@ -213,15 +171,6 @@ class ModelPackageArgs:
     @inference_specification.setter
     def inference_specification(self, value: Optional[pulumi.Input['ModelPackageInferenceSpecificationArgs']]):
         pulumi.set(self, "inference_specification", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[pulumi.Input['ModelPackageLastModifiedByArgs']]:
-        return pulumi.get(self, "last_modified_by")
-
-    @last_modified_by.setter
-    def last_modified_by(self, value: Optional[pulumi.Input['ModelPackageLastModifiedByArgs']]):
-        pulumi.set(self, "last_modified_by", value)
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -296,15 +245,6 @@ class ModelPackageArgs:
         pulumi.set(self, "model_package_status_details", value)
 
     @property
-    @pulumi.getter(name="modelPackageStatusItem")
-    def model_package_status_item(self) -> Optional[pulumi.Input['ModelPackageStatusItemArgs']]:
-        return pulumi.get(self, "model_package_status_item")
-
-    @model_package_status_item.setter
-    def model_package_status_item(self, value: Optional[pulumi.Input['ModelPackageStatusItemArgs']]):
-        pulumi.set(self, "model_package_status_item", value)
-
-    @property
     @pulumi.getter(name="modelPackageVersion")
     def model_package_version(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "model_package_version")
@@ -367,19 +307,15 @@ class ModelPackage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_inference_specification_definition: Optional[pulumi.Input[pulumi.InputType['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]] = None,
                  additional_inference_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]] = None,
                  additional_inference_specifications_to_add: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]] = None,
                  approval_description: Optional[pulumi.Input[str]] = None,
                  certify_for_marketplace: Optional[pulumi.Input[bool]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[pulumi.InputType['ModelPackageCreatedByArgs']]] = None,
                  customer_metadata_properties: Optional[pulumi.Input[pulumi.InputType['ModelPackageCustomerMetadataPropertiesArgs']]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  drift_check_baselines: Optional[pulumi.Input[pulumi.InputType['ModelPackageDriftCheckBaselinesArgs']]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['ModelPackageEnvironmentArgs']]] = None,
                  inference_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageInferenceSpecificationArgs']]] = None,
-                 last_modified_by: Optional[pulumi.Input[pulumi.InputType['ModelPackageLastModifiedByArgs']]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
                  metadata_properties: Optional[pulumi.Input[pulumi.InputType['ModelPackageMetadataPropertiesArgs']]] = None,
                  model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
@@ -388,7 +324,6 @@ class ModelPackage(pulumi.CustomResource):
                  model_package_group_name: Optional[pulumi.Input[str]] = None,
                  model_package_name: Optional[pulumi.Input[str]] = None,
                  model_package_status_details: Optional[pulumi.Input[pulumi.InputType['ModelPackageStatusDetailsArgs']]] = None,
-                 model_package_status_item: Optional[pulumi.Input[pulumi.InputType['ModelPackageStatusItemArgs']]] = None,
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
                  source_algorithm_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageSourceAlgorithmSpecificationArgs']]] = None,
@@ -427,19 +362,15 @@ class ModelPackage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_inference_specification_definition: Optional[pulumi.Input[pulumi.InputType['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]] = None,
                  additional_inference_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]] = None,
                  additional_inference_specifications_to_add: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]] = None,
                  approval_description: Optional[pulumi.Input[str]] = None,
                  certify_for_marketplace: Optional[pulumi.Input[bool]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[pulumi.InputType['ModelPackageCreatedByArgs']]] = None,
                  customer_metadata_properties: Optional[pulumi.Input[pulumi.InputType['ModelPackageCustomerMetadataPropertiesArgs']]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  drift_check_baselines: Optional[pulumi.Input[pulumi.InputType['ModelPackageDriftCheckBaselinesArgs']]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['ModelPackageEnvironmentArgs']]] = None,
                  inference_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageInferenceSpecificationArgs']]] = None,
-                 last_modified_by: Optional[pulumi.Input[pulumi.InputType['ModelPackageLastModifiedByArgs']]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
                  metadata_properties: Optional[pulumi.Input[pulumi.InputType['ModelPackageMetadataPropertiesArgs']]] = None,
                  model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
@@ -448,7 +379,6 @@ class ModelPackage(pulumi.CustomResource):
                  model_package_group_name: Optional[pulumi.Input[str]] = None,
                  model_package_name: Optional[pulumi.Input[str]] = None,
                  model_package_status_details: Optional[pulumi.Input[pulumi.InputType['ModelPackageStatusDetailsArgs']]] = None,
-                 model_package_status_item: Optional[pulumi.Input[pulumi.InputType['ModelPackageStatusItemArgs']]] = None,
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
                  source_algorithm_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageSourceAlgorithmSpecificationArgs']]] = None,
@@ -464,19 +394,15 @@ class ModelPackage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ModelPackageArgs.__new__(ModelPackageArgs)
 
-            __props__.__dict__["additional_inference_specification_definition"] = additional_inference_specification_definition
             __props__.__dict__["additional_inference_specifications"] = additional_inference_specifications
             __props__.__dict__["additional_inference_specifications_to_add"] = additional_inference_specifications_to_add
             __props__.__dict__["approval_description"] = approval_description
             __props__.__dict__["certify_for_marketplace"] = certify_for_marketplace
             __props__.__dict__["client_token"] = client_token
-            __props__.__dict__["created_by"] = created_by
             __props__.__dict__["customer_metadata_properties"] = customer_metadata_properties
             __props__.__dict__["domain"] = domain
             __props__.__dict__["drift_check_baselines"] = drift_check_baselines
-            __props__.__dict__["environment"] = environment
             __props__.__dict__["inference_specification"] = inference_specification
-            __props__.__dict__["last_modified_by"] = last_modified_by
             __props__.__dict__["last_modified_time"] = last_modified_time
             __props__.__dict__["metadata_properties"] = metadata_properties
             __props__.__dict__["model_approval_status"] = model_approval_status
@@ -485,7 +411,6 @@ class ModelPackage(pulumi.CustomResource):
             __props__.__dict__["model_package_group_name"] = model_package_group_name
             __props__.__dict__["model_package_name"] = model_package_name
             __props__.__dict__["model_package_status_details"] = model_package_status_details
-            __props__.__dict__["model_package_status_item"] = model_package_status_item
             __props__.__dict__["model_package_version"] = model_package_version
             __props__.__dict__["sample_payload_url"] = sample_payload_url
             __props__.__dict__["source_algorithm_specification"] = source_algorithm_specification
@@ -517,20 +442,16 @@ class ModelPackage(pulumi.CustomResource):
 
         __props__ = ModelPackageArgs.__new__(ModelPackageArgs)
 
-        __props__.__dict__["additional_inference_specification_definition"] = None
         __props__.__dict__["additional_inference_specifications"] = None
         __props__.__dict__["additional_inference_specifications_to_add"] = None
         __props__.__dict__["approval_description"] = None
         __props__.__dict__["certify_for_marketplace"] = None
         __props__.__dict__["client_token"] = None
-        __props__.__dict__["created_by"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["customer_metadata_properties"] = None
         __props__.__dict__["domain"] = None
         __props__.__dict__["drift_check_baselines"] = None
-        __props__.__dict__["environment"] = None
         __props__.__dict__["inference_specification"] = None
-        __props__.__dict__["last_modified_by"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["metadata_properties"] = None
         __props__.__dict__["model_approval_status"] = None
@@ -541,7 +462,6 @@ class ModelPackage(pulumi.CustomResource):
         __props__.__dict__["model_package_name"] = None
         __props__.__dict__["model_package_status"] = None
         __props__.__dict__["model_package_status_details"] = None
-        __props__.__dict__["model_package_status_item"] = None
         __props__.__dict__["model_package_version"] = None
         __props__.__dict__["sample_payload_url"] = None
         __props__.__dict__["source_algorithm_specification"] = None
@@ -549,11 +469,6 @@ class ModelPackage(pulumi.CustomResource):
         __props__.__dict__["task"] = None
         __props__.__dict__["validation_specification"] = None
         return ModelPackage(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="additionalInferenceSpecificationDefinition")
-    def additional_inference_specification_definition(self) -> pulumi.Output[Optional['outputs.ModelPackageAdditionalInferenceSpecificationDefinition']]:
-        return pulumi.get(self, "additional_inference_specification_definition")
 
     @property
     @pulumi.getter(name="additionalInferenceSpecifications")
@@ -581,11 +496,6 @@ class ModelPackage(pulumi.CustomResource):
         return pulumi.get(self, "client_token")
 
     @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[Optional['outputs.ModelPackageCreatedBy']]:
-        return pulumi.get(self, "created_by")
-
-    @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "creation_time")
@@ -606,19 +516,9 @@ class ModelPackage(pulumi.CustomResource):
         return pulumi.get(self, "drift_check_baselines")
 
     @property
-    @pulumi.getter
-    def environment(self) -> pulumi.Output[Optional['outputs.ModelPackageEnvironment']]:
-        return pulumi.get(self, "environment")
-
-    @property
     @pulumi.getter(name="inferenceSpecification")
     def inference_specification(self) -> pulumi.Output[Optional['outputs.ModelPackageInferenceSpecification']]:
         return pulumi.get(self, "inference_specification")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> pulumi.Output[Optional['outputs.ModelPackageLastModifiedBy']]:
-        return pulumi.get(self, "last_modified_by")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -669,11 +569,6 @@ class ModelPackage(pulumi.CustomResource):
     @pulumi.getter(name="modelPackageStatusDetails")
     def model_package_status_details(self) -> pulumi.Output[Optional['outputs.ModelPackageStatusDetails']]:
         return pulumi.get(self, "model_package_status_details")
-
-    @property
-    @pulumi.getter(name="modelPackageStatusItem")
-    def model_package_status_item(self) -> pulumi.Output[Optional['outputs.ModelPackageStatusItem']]:
-        return pulumi.get(self, "model_package_status_item")
 
     @property
     @pulumi.getter(name="modelPackageVersion")

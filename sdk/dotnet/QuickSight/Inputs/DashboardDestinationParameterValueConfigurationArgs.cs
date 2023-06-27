@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("selectAllValueOptions")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardSelectAllValueOptions>? SelectAllValueOptions { get; set; }
 
+        [Input("sourceColumn")]
+        public Input<Inputs.DashboardColumnIdentifierArgs>? SourceColumn { get; set; }
+
         [Input("sourceField")]
         public Input<string>? SourceField { get; set; }
 

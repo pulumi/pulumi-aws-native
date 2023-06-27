@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// The market (purchasing) option for the instances.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateInstanceMarketOptions
     {
+        /// <summary>
+        /// The market type.
+        /// </summary>
         public readonly string? MarketType;
         public readonly Outputs.LaunchTemplateSpotOptions? SpotOptions;
 

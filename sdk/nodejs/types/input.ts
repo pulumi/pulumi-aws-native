@@ -4060,6 +4060,11 @@ export namespace appmesh {
 }
 
 export namespace apprunner {
+    export interface AutoScalingConfigurationTagArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
     export interface ObservabilityConfigurationTagArgs {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
@@ -4340,9 +4345,24 @@ export namespace apprunner {
 }
 
 export namespace appstream {
+    export interface AppBlockBuilderAccessEndpointArgs {
+        endpointType: pulumi.Input<string>;
+        vpceId: pulumi.Input<string>;
+    }
+
+    export interface AppBlockBuilderTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface AppBlockBuilderVpcConfigArgs {
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface AppBlockS3LocationArgs {
         s3Bucket: pulumi.Input<string>;
-        s3Key: pulumi.Input<string>;
+        s3Key?: pulumi.Input<string>;
     }
 
     export interface AppBlockScriptDetailsArgs {
@@ -4353,8 +4373,6 @@ export namespace appstream {
     }
 
     export interface AppBlockTagArgs {
-        tagKey: pulumi.Input<string>;
-        tagValue: pulumi.Input<string>;
     }
 
     export interface ApplicationS3LocationArgs {
@@ -4363,8 +4381,6 @@ export namespace appstream {
     }
 
     export interface ApplicationTagArgs {
-        tagKey: pulumi.Input<string>;
-        tagValue: pulumi.Input<string>;
     }
 
     export interface DirectoryConfigCertificateBasedAuthPropertiesArgs {
@@ -5874,6 +5890,11 @@ export namespace budgets {
 }
 
 export namespace cassandra {
+    export interface KeyspaceReplicationSpecificationArgs {
+        regionList?: pulumi.Input<pulumi.Input<enums.cassandra.KeyspaceRegionListItem>[]>;
+        replicationStrategy?: pulumi.Input<enums.cassandra.KeyspaceReplicationSpecificationReplicationStrategy>;
+    }
+
     export interface KeyspaceTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -11431,268 +11452,733 @@ export namespace ec2 {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
+     */
     export interface LaunchTemplateAcceleratorCountArgs {
+        /**
+         * The maximum number of accelerators.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The minimum number of accelerators.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * The minimum and maximum amount of total accelerator memory, in MiB.
+     */
     export interface LaunchTemplateAcceleratorTotalMemoryMiBArgs {
+        /**
+         * The maximum amount of accelerator memory, in MiB.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The minimum amount of accelerator memory, in MiB.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
+     */
     export interface LaunchTemplateBaselineEbsBandwidthMbpsArgs {
+        /**
+         * The maximum baseline bandwidth, in Mbps.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The minimum baseline bandwidth, in Mbps.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * Information about a block device mapping for an Amazon EC2 launch template.
+     */
     export interface LaunchTemplateBlockDeviceMappingArgs {
+        /**
+         * The user data to make available to the instance.
+         */
         deviceName?: pulumi.Input<string>;
         ebs?: pulumi.Input<inputs.ec2.LaunchTemplateEbsArgs>;
+        /**
+         * To omit the device from the block device mapping, specify an empty string.
+         */
         noDevice?: pulumi.Input<string>;
+        /**
+         * The virtual device name (ephemeralN).
+         */
         virtualName?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies an instance's Capacity Reservation targeting option.
+     */
     export interface LaunchTemplateCapacityReservationSpecificationArgs {
+        /**
+         * Indicates the instance's Capacity Reservation preferences.
+         */
         capacityReservationPreference?: pulumi.Input<string>;
         capacityReservationTarget?: pulumi.Input<inputs.ec2.LaunchTemplateCapacityReservationTargetArgs>;
     }
 
+    /**
+     * Specifies a target Capacity Reservation.
+     */
     export interface LaunchTemplateCapacityReservationTargetArgs {
+        /**
+         * The ID of the Capacity Reservation in which to run the instance.
+         */
         capacityReservationId?: pulumi.Input<string>;
+        /**
+         * The ARN of the Capacity Reservation resource group in which to run the instance.
+         */
         capacityReservationResourceGroupArn?: pulumi.Input<string>;
     }
 
+    /**
+     * specifies the CPU options for an instance.
+     */
     export interface LaunchTemplateCpuOptionsArgs {
-        amdSevSnp?: pulumi.Input<string>;
+        /**
+         * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+         */
+        amdSevSnp?: pulumi.Input<enums.ec2.LaunchTemplateCpuOptionsAmdSevSnp>;
+        /**
+         * The number of CPU cores for the instance.
+         */
         coreCount?: pulumi.Input<number>;
+        /**
+         * The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+         */
         threadsPerCore?: pulumi.Input<number>;
     }
 
+    /**
+     * The user data to make available to the instance.
+     */
     export interface LaunchTemplateCreditSpecificationArgs {
+        /**
+         * The user data to make available to the instance.
+         */
         cpuCredits?: pulumi.Input<string>;
     }
 
+    /**
+     * The information for the launch template.
+     */
     export interface LaunchTemplateDataArgs {
+        /**
+         * The block device mapping.
+         */
         blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateBlockDeviceMappingArgs>[]>;
         capacityReservationSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCapacityReservationSpecificationArgs>;
         cpuOptions?: pulumi.Input<inputs.ec2.LaunchTemplateCpuOptionsArgs>;
         creditSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCreditSpecificationArgs>;
+        /**
+         * Indicates whether to enable the instance for stop protection.
+         */
         disableApiStop?: pulumi.Input<boolean>;
+        /**
+         * If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API.
+         */
         disableApiTermination?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether the instance is optimized for Amazon EBS I/O.
+         */
         ebsOptimized?: pulumi.Input<boolean>;
+        /**
+         * An elastic GPU to associate with the instance.
+         */
         elasticGpuSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateElasticGpuSpecificationArgs>[]>;
+        /**
+         * The elastic inference accelerator for the instance.
+         */
         elasticInferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateElasticInferenceAcceleratorArgs>[]>;
         enclaveOptions?: pulumi.Input<inputs.ec2.LaunchTemplateEnclaveOptionsArgs>;
         hibernationOptions?: pulumi.Input<inputs.ec2.LaunchTemplateHibernationOptionsArgs>;
         iamInstanceProfile?: pulumi.Input<inputs.ec2.LaunchTemplateIamInstanceProfileArgs>;
+        /**
+         * The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
+         */
         imageId?: pulumi.Input<string>;
+        /**
+         * Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+         */
         instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
         instanceMarketOptions?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceMarketOptionsArgs>;
         instanceRequirements?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceRequirementsArgs>;
         instanceType?: pulumi.Input<string>;
+        /**
+         * The ID of the kernel.
+         */
         kernelId?: pulumi.Input<string>;
+        /**
+         * The name of the EC2 key pair
+         */
         keyName?: pulumi.Input<string>;
+        /**
+         * The license configurations.
+         */
         licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecificationArgs>[]>;
         maintenanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMaintenanceOptionsArgs>;
         metadataOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMetadataOptionsArgs>;
         monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoringArgs>;
+        /**
+         * If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+         */
         networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterfaceArgs>[]>;
         placement?: pulumi.Input<inputs.ec2.LaunchTemplatePlacementArgs>;
         privateDnsNameOptions?: pulumi.Input<inputs.ec2.LaunchTemplatePrivateDnsNameOptionsArgs>;
         ramDiskId?: pulumi.Input<string>;
+        /**
+         * One or more security group IDs. 
+         */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * One or more security group names.
+         */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The tags to apply to the resources that are created during instance launch.
+         */
         tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecificationArgs>[]>;
+        /**
+         * The user data to make available to the instance.
+         */
         userData?: pulumi.Input<string>;
     }
 
+    /**
+     * Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
+     */
     export interface LaunchTemplateEbsArgs {
+        /**
+         * Indicates whether the EBS volume is deleted on instance termination.
+         */
         deleteOnTermination?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+         */
         encrypted?: pulumi.Input<boolean>;
+        /**
+         * The number of I/O operations per second (IOPS).
+         */
         iops?: pulumi.Input<number>;
+        /**
+         * The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
+         */
         kmsKeyId?: pulumi.Input<string>;
+        /**
+         * The ID of the snapshot.
+         */
         snapshotId?: pulumi.Input<string>;
+        /**
+         * The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+         */
         throughput?: pulumi.Input<number>;
+        /**
+         * The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+         */
         volumeSize?: pulumi.Input<number>;
+        /**
+         * The volume type.
+         */
         volumeType?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies a specification for an Elastic GPU for launch template.
+     */
     export interface LaunchTemplateElasticGpuSpecificationArgs {
+        /**
+         * The type of Elastic Graphics accelerator.
+         */
         type?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies an elastic inference accelerator.
+     */
     export interface LaunchTemplateElasticInferenceAcceleratorArgs {
+        /**
+         * The number of elastic inference accelerators to attach to the instance.
+         */
         count?: pulumi.Input<number>;
+        /**
+         * The type of elastic inference accelerator.
+         */
         type?: pulumi.Input<string>;
     }
 
+    /**
+     * Indicates whether the instance is enabled for AWS Nitro Enclaves.
+     */
     export interface LaunchTemplateEnclaveOptionsArgs {
+        /**
+         * If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+         */
         enabled?: pulumi.Input<boolean>;
     }
 
+    /**
+     * Specifies whether your instance is configured for hibernation.
+     */
     export interface LaunchTemplateHibernationOptionsArgs {
+        /**
+         * TIf you set this parameter to true, the instance is enabled for hibernation.
+         */
         configured?: pulumi.Input<boolean>;
     }
 
+    /**
+     * Specifies an IAM instance profile, which is a container for an IAM role for your instance.
+     */
     export interface LaunchTemplateIamInstanceProfileArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the instance profile.
+         */
         arn?: pulumi.Input<string>;
+        /**
+         * The name of the instance profile.
+         */
         name?: pulumi.Input<string>;
     }
 
+    /**
+     * The market (purchasing) option for the instances.
+     */
     export interface LaunchTemplateInstanceMarketOptionsArgs {
+        /**
+         * The market type.
+         */
         marketType?: pulumi.Input<string>;
         spotOptions?: pulumi.Input<inputs.ec2.LaunchTemplateSpotOptionsArgs>;
     }
 
+    /**
+     * The attributes for the instance types.
+     */
     export interface LaunchTemplateInstanceRequirementsArgs {
         acceleratorCount?: pulumi.Input<inputs.ec2.LaunchTemplateAcceleratorCountArgs>;
+        /**
+         * Indicates whether instance types must have accelerators by specific manufacturers.
+         */
         acceleratorManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The accelerators that must be on the instance type.
+         */
         acceleratorNames?: pulumi.Input<pulumi.Input<string>[]>;
         acceleratorTotalMemoryMiB?: pulumi.Input<inputs.ec2.LaunchTemplateAcceleratorTotalMemoryMiBArgs>;
+        /**
+         * The accelerator types that must be on the instance type.
+         */
         acceleratorTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The instance types to apply your specified attributes against.
+         */
         allowedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Indicates whether bare metal instance types must be included, excluded, or required.
+         */
         bareMetal?: pulumi.Input<string>;
         baselineEbsBandwidthMbps?: pulumi.Input<inputs.ec2.LaunchTemplateBaselineEbsBandwidthMbpsArgs>;
         burstablePerformance?: pulumi.Input<string>;
+        /**
+         * The CPU manufacturers to include.
+         */
         cpuManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The instance types to exclude.
+         */
         excludedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Indicates whether current or previous generation instance types are included.
+         */
         instanceGenerations?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The user data to make available to the instance.
+         */
         localStorage?: pulumi.Input<string>;
+        /**
+         * The type of local storage that is required.
+         */
         localStorageTypes?: pulumi.Input<pulumi.Input<string>[]>;
         memoryGiBPerVCpu?: pulumi.Input<inputs.ec2.LaunchTemplateMemoryGiBPerVCpuArgs>;
         memoryMiB?: pulumi.Input<inputs.ec2.LaunchTemplateMemoryMiBArgs>;
         networkBandwidthGbps?: pulumi.Input<inputs.ec2.LaunchTemplateNetworkBandwidthGbpsArgs>;
         networkInterfaceCount?: pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterfaceCountArgs>;
+        /**
+         * The price protection threshold for On-Demand Instances.
+         */
         onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        /**
+         * Indicates whether instance types must support hibernation for On-Demand Instances.
+         */
         requireHibernateSupport?: pulumi.Input<boolean>;
+        /**
+         * The price protection threshold for Spot Instances.
+         */
         spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
         totalLocalStorageGB?: pulumi.Input<inputs.ec2.LaunchTemplateTotalLocalStorageGBArgs>;
         vCpuCount?: pulumi.Input<inputs.ec2.LaunchTemplateVCpuCountArgs>;
     }
 
+    /**
+     * Specifies an IPv4 prefix for a network interface.
+     */
     export interface LaunchTemplateIpv4PrefixSpecificationArgs {
+        /**
+         * The IPv4 prefix.
+         */
         ipv4Prefix?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies an IPv6 address.
+     */
     export interface LaunchTemplateIpv6AddArgs {
         ipv6Address?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies an IPv6 prefix for a network interface.
+     */
     export interface LaunchTemplateIpv6PrefixSpecificationArgs {
         ipv6Prefix?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies a license configuration for an instance.
+     */
     export interface LaunchTemplateLicenseSpecificationArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the license configuration.
+         */
         licenseConfigurationArn?: pulumi.Input<string>;
     }
 
+    /**
+     * The maintenance options of your instance.
+     */
     export interface LaunchTemplateMaintenanceOptionsArgs {
+        /**
+         * Disables the automatic recovery behavior of your instance or sets it to default.
+         */
         autoRecovery?: pulumi.Input<string>;
     }
 
+    /**
+     * The minimum and maximum amount of memory per vCPU, in GiB.
+     */
     export interface LaunchTemplateMemoryGiBPerVCpuArgs {
+        /**
+         * The maximum amount of memory per vCPU, in GiB.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * TThe minimum amount of memory per vCPU, in GiB.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * The minimum and maximum amount of memory, in MiB.
+     */
     export interface LaunchTemplateMemoryMiBArgs {
+        /**
+         * The maximum amount of memory, in MiB.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The minimum amount of memory, in MiB.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * The metadata options for the instance.
+     */
     export interface LaunchTemplateMetadataOptionsArgs {
+        /**
+         * Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
+         */
         httpEndpoint?: pulumi.Input<string>;
+        /**
+         * Enables or disables the IPv6 endpoint for the instance metadata service.
+         */
         httpProtocolIpv6?: pulumi.Input<string>;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+         */
         httpPutResponseHopLimit?: pulumi.Input<number>;
+        /**
+         * IMDSv2 uses token-backed sessions.
+         */
         httpTokens?: pulumi.Input<string>;
+        /**
+         * Set to enabled to allow access to instance tags from the instance metadata.
+         */
         instanceMetadataTags?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies whether detailed monitoring is enabled for an instance.
+     */
     export interface LaunchTemplateMonitoringArgs {
+        /**
+         * Specify true to enable detailed monitoring.
+         */
         enabled?: pulumi.Input<boolean>;
     }
 
+    /**
+     * The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+     */
     export interface LaunchTemplateNetworkBandwidthGbpsArgs {
+        /**
+         * The maximum amount of network bandwidth, in Gbps.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The minimum amount of network bandwidth, in Gbps.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * Specifies the parameters for a network interface.
+     */
     export interface LaunchTemplateNetworkInterfaceArgs {
+        /**
+         * Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+         */
         associateCarrierIpAddress?: pulumi.Input<boolean>;
+        /**
+         * Associates a public IPv4 address with eth0 for a new network interface.
+         */
         associatePublicIpAddress?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether the network interface is deleted when the instance is terminated.
+         */
         deleteOnTermination?: pulumi.Input<boolean>;
+        /**
+         * A description for the network interface.
+         */
         description?: pulumi.Input<string>;
+        /**
+         * The device index for the network interface attachment.
+         */
         deviceIndex?: pulumi.Input<number>;
+        /**
+         * The IDs of one or more security groups.
+         */
         groups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of network interface.
+         */
         interfaceType?: pulumi.Input<string>;
+        /**
+         * The number of IPv4 prefixes to be automatically assigned to the network interface.
+         */
         ipv4PrefixCount?: pulumi.Input<number>;
+        /**
+         * One or more IPv4 prefixes to be assigned to the network interface.
+         */
         ipv4Prefixes?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateIpv4PrefixSpecificationArgs>[]>;
+        /**
+         * The number of IPv6 addresses to assign to a network interface.
+         */
         ipv6AddressCount?: pulumi.Input<number>;
+        /**
+         * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+         */
         ipv6Addresses?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateIpv6AddArgs>[]>;
+        /**
+         * The number of IPv6 prefixes to be automatically assigned to the network interface.
+         */
         ipv6PrefixCount?: pulumi.Input<number>;
+        /**
+         * One or more IPv6 prefixes to be assigned to the network interface.
+         */
         ipv6Prefixes?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateIpv6PrefixSpecificationArgs>[]>;
+        /**
+         * The index of the network card.
+         */
         networkCardIndex?: pulumi.Input<number>;
+        /**
+         * The ID of the network interface.
+         */
         networkInterfaceId?: pulumi.Input<string>;
+        /**
+         * The primary private IPv4 address of the network interface.
+         */
         privateIpAddress?: pulumi.Input<string>;
+        /**
+         * One or more private IPv4 addresses.
+         */
         privateIpAddresses?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplatePrivateIpAddArgs>[]>;
+        /**
+         * The number of secondary private IPv4 addresses to assign to a network interface.
+         */
         secondaryPrivateIpAddressCount?: pulumi.Input<number>;
+        /**
+         * The ID of the subnet for the network interface.
+         */
         subnetId?: pulumi.Input<string>;
     }
 
+    /**
+     * TThe minimum and maximum number of network interfaces.
+     */
     export interface LaunchTemplateNetworkInterfaceCountArgs {
         max?: pulumi.Input<number>;
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * Specifies the placement of an instance.
+     */
     export interface LaunchTemplatePlacementArgs {
+        /**
+         * The affinity setting for an instance on a Dedicated Host.
+         */
         affinity?: pulumi.Input<string>;
+        /**
+         * The Availability Zone for the instance.
+         */
         availabilityZone?: pulumi.Input<string>;
+        /**
+         * The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
+         */
         groupId?: pulumi.Input<string>;
+        /**
+         * The name of the placement group for the instance.
+         */
         groupName?: pulumi.Input<string>;
+        /**
+         * The ID of the Dedicated Host for the instance.
+         */
         hostId?: pulumi.Input<string>;
+        /**
+         * The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+         */
         hostResourceGroupArn?: pulumi.Input<string>;
+        /**
+         * The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+         */
         partitionNumber?: pulumi.Input<number>;
+        /**
+         * Reserved for future use.
+         */
         spreadDomain?: pulumi.Input<string>;
+        /**
+         * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+         */
         tenancy?: pulumi.Input<string>;
     }
 
+    /**
+     * Describes the options for instance hostnames.
+     */
     export interface LaunchTemplatePrivateDnsNameOptionsArgs {
+        /**
+         * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+         */
         enableResourceNameDnsAAAARecord?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+         */
         enableResourceNameDnsARecord?: pulumi.Input<boolean>;
+        /**
+         * The type of hostname for EC2 instances.
+         */
         hostnameType?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies a secondary private IPv4 address for a network interface.
+     */
     export interface LaunchTemplatePrivateIpAddArgs {
+        /**
+         * Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+         */
         primary?: pulumi.Input<boolean>;
+        /**
+         * The private IPv4 address.
+         */
         privateIpAddress?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies options for Spot Instances.
+     */
     export interface LaunchTemplateSpotOptionsArgs {
+        /**
+         * Deprecated
+         */
         blockDurationMinutes?: pulumi.Input<number>;
+        /**
+         * The behavior when a Spot Instance is interrupted. The default is terminate.
+         */
         instanceInterruptionBehavior?: pulumi.Input<string>;
+        /**
+         * The maximum hourly price you're willing to pay for the Spot Instances.
+         */
         maxPrice?: pulumi.Input<string>;
+        /**
+         * The Spot Instance request type.
+         */
         spotInstanceType?: pulumi.Input<string>;
+        /**
+         * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+         */
         validUntil?: pulumi.Input<string>;
     }
 
+    /**
+     * The user data to make available to the instance.
+     */
     export interface LaunchTemplateTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies the tags to apply to a resource when the resource is created for the launch template.
+     */
     export interface LaunchTemplateTagSpecificationArgs {
+        /**
+         * The type of resource to tag.
+         */
         resourceType?: pulumi.Input<string>;
+        /**
+         * The tags for the resource.
+         */
         tags?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagArgs>[]>;
     }
 
+    /**
+     * The minimum and maximum amount of total local storage, in GB.
+     */
     export interface LaunchTemplateTotalLocalStorageGBArgs {
         max?: pulumi.Input<number>;
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * The minimum and maximum number of vCPUs.
+     */
     export interface LaunchTemplateVCpuCountArgs {
+        /**
+         * The maximum number of vCPUs.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The minimum number of vCPUs.
+         */
         min?: pulumi.Input<number>;
     }
 
@@ -12335,9 +12821,17 @@ export namespace ec2 {
          */
         cloudWatchLogs?: pulumi.Input<inputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs>;
         /**
+         * Include claims from trust providers in Verified Access logs.
+         */
+        includeTrustContext?: pulumi.Input<boolean>;
+        /**
          * Sends Verified Access logs to Kinesis.
          */
         kinesisDataFirehose?: pulumi.Input<inputs.ec2.VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs>;
+        /**
+         * Select log version for Verified Access logs.
+         */
+        logVersion?: pulumi.Input<string>;
         /**
          * Sends Verified Access logs to Amazon S3.
          */
@@ -16307,6 +16801,11 @@ export namespace glue {
         sseAwsKmsKeyId?: pulumi.Input<string>;
     }
 
+    export interface DataQualityRulesetDataQualityTargetTableArgs {
+        databaseName?: pulumi.Input<string>;
+        tableName?: pulumi.Input<string>;
+    }
+
     export interface DatabaseDataLakePrincipalArgs {
         dataLakePrincipalIdentifier?: pulumi.Input<string>;
     }
@@ -17901,7 +18400,7 @@ export namespace imagebuilder {
          */
         containerTags?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+         * The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
          */
         repositoryName?: pulumi.Input<string>;
     }
@@ -18208,6 +18707,11 @@ export namespace inspectorv2 {
 }
 
 export namespace internetmonitor {
+    export interface MonitorHealthEventsConfigArgs {
+        availabilityScoreThreshold?: pulumi.Input<number>;
+        performanceScoreThreshold?: pulumi.Input<number>;
+    }
+
     export interface MonitorInternetMeasurementsLogDeliveryArgs {
         s3Config?: pulumi.Input<inputs.internetmonitor.MonitorS3ConfigArgs>;
     }
@@ -21090,7 +21594,7 @@ export namespace kafkaconnect {
     }
 
     /**
-     * Details about auto scaling of a connector. 
+     * Details about auto scaling of a connector.
      */
     export interface ConnectorAutoScalingArgs {
         /**
@@ -26098,6 +26602,20 @@ export namespace mediaconnect {
     }
 
     /**
+     * The source configuration for cloud flows receiving a stream from a bridge.
+     */
+    export interface FlowGatewayBridgeSourceArgs {
+        /**
+         * The ARN of the bridge feeding this flow.
+         */
+        bridgeArn: pulumi.Input<string>;
+        /**
+         * The name of the VPC interface attachment to use for this bridge source.
+         */
+        vpcInterfaceAttachment?: pulumi.Input<inputs.mediaconnect.FlowVpcInterfaceAttachmentArgs>;
+    }
+
+    /**
      * Information about the encryption of the flow.
      */
     export interface FlowOutputEncryptionArgs {
@@ -26145,6 +26663,10 @@ export namespace mediaconnect {
          * The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
          */
         entitlementArn?: pulumi.Input<string>;
+        /**
+         * The source configuration for cloud flows receiving a stream from a bridge.
+         */
+        gatewayBridgeSource?: pulumi.Input<inputs.mediaconnect.FlowGatewayBridgeSourceArgs>;
         /**
          * The IP address that the flow will be listening on for incoming content.
          */
@@ -26251,6 +26773,40 @@ export namespace mediaconnect {
          * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
          */
         url?: pulumi.Input<string>;
+    }
+
+    /**
+     * The source configuration for cloud flows receiving a stream from a bridge.
+     */
+    export interface FlowSourceGatewayBridgeSourceArgs {
+        /**
+         * The ARN of the bridge feeding this flow.
+         */
+        bridgeArn: pulumi.Input<string>;
+        /**
+         * The name of the VPC interface attachment to use for this bridge source.
+         */
+        vpcInterfaceAttachment?: pulumi.Input<inputs.mediaconnect.FlowSourceVpcInterfaceAttachmentArgs>;
+    }
+
+    /**
+     * The settings for attaching a VPC interface to an resource.
+     */
+    export interface FlowSourceVpcInterfaceAttachmentArgs {
+        /**
+         * The name of the VPC interface to use for this resource.
+         */
+        vpcInterfaceName?: pulumi.Input<string>;
+    }
+
+    /**
+     * The settings for attaching a VPC interface to an resource.
+     */
+    export interface FlowVpcInterfaceAttachmentArgs {
+        /**
+         * The name of the VPC interface to use for this resource.
+         */
+        vpcInterfaceName?: pulumi.Input<string>;
     }
 
     /**
@@ -30786,7 +31342,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisAggregationSortConfigurationArgs {
-        aggregationFunction: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
+        aggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
         sortDirection: pulumi.Input<enums.quicksight.AnalysisSortDirection>;
     }
@@ -31061,12 +31617,7 @@ export namespace quicksight {
         nullValueColor?: pulumi.Input<inputs.quicksight.AnalysisDataColorArgs>;
     }
 
-    export interface AnalysisColorsConfigurationArgs {
-        customColors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisCustomColorArgs>[]>;
-    }
-
     export interface AnalysisColumnConfigurationArgs {
-        colorsConfiguration?: pulumi.Input<inputs.quicksight.AnalysisColorsConfigurationArgs>;
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
         formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFormatConfigurationArgs>;
         role?: pulumi.Input<enums.quicksight.AnalysisColumnRole>;
@@ -31240,12 +31791,6 @@ export namespace quicksight {
         uRLTemplate: pulumi.Input<string>;
     }
 
-    export interface AnalysisCustomColorArgs {
-        color: pulumi.Input<string>;
-        fieldValue?: pulumi.Input<string>;
-        specialValue?: pulumi.Input<enums.quicksight.AnalysisSpecialValue>;
-    }
-
     export interface AnalysisCustomContentConfigurationArgs {
         contentType?: pulumi.Input<enums.quicksight.AnalysisCustomContentType>;
         contentUrl?: pulumi.Input<string>;
@@ -31319,6 +31864,7 @@ export namespace quicksight {
         measureLabelVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         overlap?: pulumi.Input<enums.quicksight.AnalysisDataLabelOverlap>;
         position?: pulumi.Input<enums.quicksight.AnalysisDataLabelPosition>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
     }
 
@@ -31492,6 +32038,7 @@ export namespace quicksight {
     export interface AnalysisDestinationParameterValueConfigurationArgs {
         customValuesConfiguration?: pulumi.Input<inputs.quicksight.AnalysisCustomValuesConfigurationArgs>;
         selectAllValueOptions?: pulumi.Input<enums.quicksight.AnalysisSelectAllValueOptions>;
+        sourceColumn?: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
         sourceField?: pulumi.Input<string>;
         sourceParameterName?: pulumi.Input<string>;
     }
@@ -31687,6 +32234,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisFilterOperationSelectedFieldsConfigurationArgs {
+        selectedColumns?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>[]>;
         selectedFieldOptions?: pulumi.Input<enums.quicksight.AnalysisSelectedFieldOptions>;
         selectedFields?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -31937,6 +32485,18 @@ export namespace quicksight {
         west: pulumi.Input<number>;
     }
 
+    export interface AnalysisGeospatialHeatmapColorScaleArgs {
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisGeospatialHeatmapDataColorArgs>[]>;
+    }
+
+    export interface AnalysisGeospatialHeatmapConfigurationArgs {
+        heatmapColor?: pulumi.Input<inputs.quicksight.AnalysisGeospatialHeatmapColorScaleArgs>;
+    }
+
+    export interface AnalysisGeospatialHeatmapDataColorArgs {
+        color: pulumi.Input<string>;
+    }
+
     export interface AnalysisGeospatialMapAggregatedFieldWellsArgs {
         colors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
         geospatial?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
@@ -31972,6 +32532,7 @@ export namespace quicksight {
 
     export interface AnalysisGeospatialPointStyleOptionsArgs {
         clusterMarkerConfiguration?: pulumi.Input<inputs.quicksight.AnalysisClusterMarkerConfigurationArgs>;
+        heatmapConfiguration?: pulumi.Input<inputs.quicksight.AnalysisGeospatialHeatmapConfigurationArgs>;
         selectedPointStyle?: pulumi.Input<enums.quicksight.AnalysisGeospatialSelectedPointStyle>;
     }
 
@@ -32671,6 +33232,7 @@ export namespace quicksight {
     export interface AnalysisPivotTableCellConditionalFormattingArgs {
         fieldId: pulumi.Input<string>;
         scope?: pulumi.Input<inputs.quicksight.AnalysisPivotTableConditionalFormattingScopeArgs>;
+        scopes?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPivotTableConditionalFormattingScopeArgs>[]>;
         textFormat?: pulumi.Input<inputs.quicksight.AnalysisTextConditionalFormatArgs>;
     }
 
@@ -32703,6 +33265,16 @@ export namespace quicksight {
         width?: pulumi.Input<string>;
     }
 
+    export interface AnalysisPivotTableFieldCollapseStateOptionArgs {
+        state?: pulumi.Input<enums.quicksight.AnalysisPivotTableFieldCollapseState>;
+        target: pulumi.Input<inputs.quicksight.AnalysisPivotTableFieldCollapseStateTargetArgs>;
+    }
+
+    export interface AnalysisPivotTableFieldCollapseStateTargetArgs {
+        fieldDataPathValues?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDataPathValueArgs>[]>;
+        fieldId?: pulumi.Input<string>;
+    }
+
     export interface AnalysisPivotTableFieldOptionArgs {
         customLabel?: pulumi.Input<string>;
         fieldId: pulumi.Input<string>;
@@ -32710,6 +33282,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisPivotTableFieldOptionsArgs {
+        collapseStateOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPivotTableFieldCollapseStateOptionArgs>[]>;
         dataPathOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPivotTableDataPathOptionArgs>[]>;
         selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPivotTableFieldOptionArgs>[]>;
     }
@@ -32724,6 +33297,7 @@ export namespace quicksight {
 
     export interface AnalysisPivotTableOptionsArgs {
         cellStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
+        collapsedRowDimensionsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         columnHeaderStyle?: pulumi.Input<inputs.quicksight.AnalysisTableCellStyleArgs>;
         columnNamesVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         metricPlacement?: pulumi.Input<enums.quicksight.AnalysisPivotTableMetricPlacement>;
@@ -32799,6 +33373,7 @@ export namespace quicksight {
         alternateBandColorsVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         alternateBandEvenColor?: pulumi.Input<string>;
         alternateBandOddColor?: pulumi.Input<string>;
+        axesRangeScale?: pulumi.Input<enums.quicksight.AnalysisRadarChartAxesRangeScale>;
         baseSeriesSettings?: pulumi.Input<inputs.quicksight.AnalysisRadarChartSeriesSettingsArgs>;
         categoryAxis?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
         categoryLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
@@ -32860,7 +33435,7 @@ export namespace quicksight {
     export interface AnalysisReferenceLineDynamicDataConfigurationArgs {
         calculation: pulumi.Input<inputs.quicksight.AnalysisNumericalAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
-        measureAggregationFunction: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
+        measureAggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
     }
 
     export interface AnalysisReferenceLineLabelConfigurationArgs {
@@ -32957,6 +33532,7 @@ export namespace quicksight {
 
     export interface AnalysisScatterPlotCategoricallyAggregatedFieldWellsArgs {
         category?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        label?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
         size?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
         xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
         yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
@@ -32980,6 +33556,8 @@ export namespace quicksight {
     }
 
     export interface AnalysisScatterPlotUnaggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
+        label?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
         size?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
         xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
         yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>[]>;
@@ -33672,7 +34250,7 @@ export namespace quicksight {
     }
 
     export interface DashboardAggregationSortConfigurationArgs {
-        aggregationFunction: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
+        aggregationFunction?: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
         sortDirection: pulumi.Input<enums.quicksight.DashboardSortDirection>;
     }
@@ -33951,12 +34529,7 @@ export namespace quicksight {
         nullValueColor?: pulumi.Input<inputs.quicksight.DashboardDataColorArgs>;
     }
 
-    export interface DashboardColorsConfigurationArgs {
-        customColors?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardCustomColorArgs>[]>;
-    }
-
     export interface DashboardColumnConfigurationArgs {
-        colorsConfiguration?: pulumi.Input<inputs.quicksight.DashboardColorsConfigurationArgs>;
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
         formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardFormatConfigurationArgs>;
         role?: pulumi.Input<enums.quicksight.DashboardColumnRole>;
@@ -34130,12 +34703,6 @@ export namespace quicksight {
         uRLTemplate: pulumi.Input<string>;
     }
 
-    export interface DashboardCustomColorArgs {
-        color: pulumi.Input<string>;
-        fieldValue?: pulumi.Input<string>;
-        specialValue?: pulumi.Input<enums.quicksight.DashboardSpecialValue>;
-    }
-
     export interface DashboardCustomContentConfigurationArgs {
         contentType?: pulumi.Input<enums.quicksight.DashboardCustomContentType>;
         contentUrl?: pulumi.Input<string>;
@@ -34209,6 +34776,7 @@ export namespace quicksight {
         measureLabelVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
         overlap?: pulumi.Input<enums.quicksight.DashboardDataLabelOverlap>;
         position?: pulumi.Input<enums.quicksight.DashboardDataLabelPosition>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
         visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
     }
 
@@ -34380,6 +34948,7 @@ export namespace quicksight {
     export interface DashboardDestinationParameterValueConfigurationArgs {
         customValuesConfiguration?: pulumi.Input<inputs.quicksight.DashboardCustomValuesConfigurationArgs>;
         selectAllValueOptions?: pulumi.Input<enums.quicksight.DashboardSelectAllValueOptions>;
+        sourceColumn?: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
         sourceField?: pulumi.Input<string>;
         sourceParameterName?: pulumi.Input<string>;
     }
@@ -34587,6 +35156,7 @@ export namespace quicksight {
     }
 
     export interface DashboardFilterOperationSelectedFieldsConfigurationArgs {
+        selectedColumns?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>[]>;
         selectedFieldOptions?: pulumi.Input<enums.quicksight.DashboardSelectedFieldOptions>;
         selectedFields?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -34837,6 +35407,18 @@ export namespace quicksight {
         west: pulumi.Input<number>;
     }
 
+    export interface DashboardGeospatialHeatmapColorScaleArgs {
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardGeospatialHeatmapDataColorArgs>[]>;
+    }
+
+    export interface DashboardGeospatialHeatmapConfigurationArgs {
+        heatmapColor?: pulumi.Input<inputs.quicksight.DashboardGeospatialHeatmapColorScaleArgs>;
+    }
+
+    export interface DashboardGeospatialHeatmapDataColorArgs {
+        color: pulumi.Input<string>;
+    }
+
     export interface DashboardGeospatialMapAggregatedFieldWellsArgs {
         colors?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
         geospatial?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
@@ -34872,6 +35454,7 @@ export namespace quicksight {
 
     export interface DashboardGeospatialPointStyleOptionsArgs {
         clusterMarkerConfiguration?: pulumi.Input<inputs.quicksight.DashboardClusterMarkerConfigurationArgs>;
+        heatmapConfiguration?: pulumi.Input<inputs.quicksight.DashboardGeospatialHeatmapConfigurationArgs>;
         selectedPointStyle?: pulumi.Input<enums.quicksight.DashboardGeospatialSelectedPointStyle>;
     }
 
@@ -35571,6 +36154,7 @@ export namespace quicksight {
     export interface DashboardPivotTableCellConditionalFormattingArgs {
         fieldId: pulumi.Input<string>;
         scope?: pulumi.Input<inputs.quicksight.DashboardPivotTableConditionalFormattingScopeArgs>;
+        scopes?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPivotTableConditionalFormattingScopeArgs>[]>;
         textFormat?: pulumi.Input<inputs.quicksight.DashboardTextConditionalFormatArgs>;
     }
 
@@ -35603,6 +36187,16 @@ export namespace quicksight {
         width?: pulumi.Input<string>;
     }
 
+    export interface DashboardPivotTableFieldCollapseStateOptionArgs {
+        state?: pulumi.Input<enums.quicksight.DashboardPivotTableFieldCollapseState>;
+        target: pulumi.Input<inputs.quicksight.DashboardPivotTableFieldCollapseStateTargetArgs>;
+    }
+
+    export interface DashboardPivotTableFieldCollapseStateTargetArgs {
+        fieldDataPathValues?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataPathValueArgs>[]>;
+        fieldId?: pulumi.Input<string>;
+    }
+
     export interface DashboardPivotTableFieldOptionArgs {
         customLabel?: pulumi.Input<string>;
         fieldId: pulumi.Input<string>;
@@ -35610,6 +36204,7 @@ export namespace quicksight {
     }
 
     export interface DashboardPivotTableFieldOptionsArgs {
+        collapseStateOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPivotTableFieldCollapseStateOptionArgs>[]>;
         dataPathOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPivotTableDataPathOptionArgs>[]>;
         selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPivotTableFieldOptionArgs>[]>;
     }
@@ -35624,6 +36219,7 @@ export namespace quicksight {
 
     export interface DashboardPivotTableOptionsArgs {
         cellStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
+        collapsedRowDimensionsVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
         columnHeaderStyle?: pulumi.Input<inputs.quicksight.DashboardTableCellStyleArgs>;
         columnNamesVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
         metricPlacement?: pulumi.Input<enums.quicksight.DashboardPivotTableMetricPlacement>;
@@ -35713,6 +36309,7 @@ export namespace quicksight {
         alternateBandColorsVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
         alternateBandEvenColor?: pulumi.Input<string>;
         alternateBandOddColor?: pulumi.Input<string>;
+        axesRangeScale?: pulumi.Input<enums.quicksight.DashboardRadarChartAxesRangeScale>;
         baseSeriesSettings?: pulumi.Input<inputs.quicksight.DashboardRadarChartSeriesSettingsArgs>;
         categoryAxis?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
         categoryLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
@@ -35774,7 +36371,7 @@ export namespace quicksight {
     export interface DashboardReferenceLineDynamicDataConfigurationArgs {
         calculation: pulumi.Input<inputs.quicksight.DashboardNumericalAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
-        measureAggregationFunction: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
+        measureAggregationFunction?: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
     }
 
     export interface DashboardReferenceLineLabelConfigurationArgs {
@@ -35871,6 +36468,7 @@ export namespace quicksight {
 
     export interface DashboardScatterPlotCategoricallyAggregatedFieldWellsArgs {
         category?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        label?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
         size?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
         xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
         yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
@@ -35894,6 +36492,8 @@ export namespace quicksight {
     }
 
     export interface DashboardScatterPlotUnaggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
+        label?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
         size?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
         xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
         yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>[]>;
@@ -37385,7 +37985,7 @@ export namespace quicksight {
     }
 
     export interface TemplateAggregationSortConfigurationArgs {
-        aggregationFunction: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
+        aggregationFunction?: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
         sortDirection: pulumi.Input<enums.quicksight.TemplateSortDirection>;
     }
@@ -37664,12 +38264,7 @@ export namespace quicksight {
         nullValueColor?: pulumi.Input<inputs.quicksight.TemplateDataColorArgs>;
     }
 
-    export interface TemplateColorsConfigurationArgs {
-        customColors?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateCustomColorArgs>[]>;
-    }
-
     export interface TemplateColumnConfigurationArgs {
-        colorsConfiguration?: pulumi.Input<inputs.quicksight.TemplateColorsConfigurationArgs>;
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
         formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateFormatConfigurationArgs>;
         role?: pulumi.Input<enums.quicksight.TemplateColumnRole>;
@@ -37858,12 +38453,6 @@ export namespace quicksight {
         uRLTemplate: pulumi.Input<string>;
     }
 
-    export interface TemplateCustomColorArgs {
-        color: pulumi.Input<string>;
-        fieldValue?: pulumi.Input<string>;
-        specialValue?: pulumi.Input<enums.quicksight.TemplateSpecialValue>;
-    }
-
     export interface TemplateCustomContentConfigurationArgs {
         contentType?: pulumi.Input<enums.quicksight.TemplateCustomContentType>;
         contentUrl?: pulumi.Input<string>;
@@ -37937,6 +38526,7 @@ export namespace quicksight {
         measureLabelVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
         overlap?: pulumi.Input<enums.quicksight.TemplateDataLabelOverlap>;
         position?: pulumi.Input<enums.quicksight.TemplateDataLabelPosition>;
+        totalsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
         visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
     }
 
@@ -38091,6 +38681,7 @@ export namespace quicksight {
     export interface TemplateDestinationParameterValueConfigurationArgs {
         customValuesConfiguration?: pulumi.Input<inputs.quicksight.TemplateCustomValuesConfigurationArgs>;
         selectAllValueOptions?: pulumi.Input<enums.quicksight.TemplateSelectAllValueOptions>;
+        sourceColumn?: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
         sourceField?: pulumi.Input<string>;
         sourceParameterName?: pulumi.Input<string>;
     }
@@ -38286,6 +38877,7 @@ export namespace quicksight {
     }
 
     export interface TemplateFilterOperationSelectedFieldsConfigurationArgs {
+        selectedColumns?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>[]>;
         selectedFieldOptions?: pulumi.Input<enums.quicksight.TemplateSelectedFieldOptions>;
         selectedFields?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -38536,6 +39128,18 @@ export namespace quicksight {
         west: pulumi.Input<number>;
     }
 
+    export interface TemplateGeospatialHeatmapColorScaleArgs {
+        colors?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateGeospatialHeatmapDataColorArgs>[]>;
+    }
+
+    export interface TemplateGeospatialHeatmapConfigurationArgs {
+        heatmapColor?: pulumi.Input<inputs.quicksight.TemplateGeospatialHeatmapColorScaleArgs>;
+    }
+
+    export interface TemplateGeospatialHeatmapDataColorArgs {
+        color: pulumi.Input<string>;
+    }
+
     export interface TemplateGeospatialMapAggregatedFieldWellsArgs {
         colors?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
         geospatial?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
@@ -38571,6 +39175,7 @@ export namespace quicksight {
 
     export interface TemplateGeospatialPointStyleOptionsArgs {
         clusterMarkerConfiguration?: pulumi.Input<inputs.quicksight.TemplateClusterMarkerConfigurationArgs>;
+        heatmapConfiguration?: pulumi.Input<inputs.quicksight.TemplateGeospatialHeatmapConfigurationArgs>;
         selectedPointStyle?: pulumi.Input<enums.quicksight.TemplateGeospatialSelectedPointStyle>;
     }
 
@@ -39258,6 +39863,7 @@ export namespace quicksight {
     export interface TemplatePivotTableCellConditionalFormattingArgs {
         fieldId: pulumi.Input<string>;
         scope?: pulumi.Input<inputs.quicksight.TemplatePivotTableConditionalFormattingScopeArgs>;
+        scopes?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePivotTableConditionalFormattingScopeArgs>[]>;
         textFormat?: pulumi.Input<inputs.quicksight.TemplateTextConditionalFormatArgs>;
     }
 
@@ -39290,6 +39896,16 @@ export namespace quicksight {
         width?: pulumi.Input<string>;
     }
 
+    export interface TemplatePivotTableFieldCollapseStateOptionArgs {
+        state?: pulumi.Input<enums.quicksight.TemplatePivotTableFieldCollapseState>;
+        target: pulumi.Input<inputs.quicksight.TemplatePivotTableFieldCollapseStateTargetArgs>;
+    }
+
+    export interface TemplatePivotTableFieldCollapseStateTargetArgs {
+        fieldDataPathValues?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDataPathValueArgs>[]>;
+        fieldId?: pulumi.Input<string>;
+    }
+
     export interface TemplatePivotTableFieldOptionArgs {
         customLabel?: pulumi.Input<string>;
         fieldId: pulumi.Input<string>;
@@ -39297,6 +39913,7 @@ export namespace quicksight {
     }
 
     export interface TemplatePivotTableFieldOptionsArgs {
+        collapseStateOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePivotTableFieldCollapseStateOptionArgs>[]>;
         dataPathOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePivotTableDataPathOptionArgs>[]>;
         selectedFieldOptions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePivotTableFieldOptionArgs>[]>;
     }
@@ -39311,6 +39928,7 @@ export namespace quicksight {
 
     export interface TemplatePivotTableOptionsArgs {
         cellStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
+        collapsedRowDimensionsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
         columnHeaderStyle?: pulumi.Input<inputs.quicksight.TemplateTableCellStyleArgs>;
         columnNamesVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
         metricPlacement?: pulumi.Input<enums.quicksight.TemplatePivotTableMetricPlacement>;
@@ -39386,6 +40004,7 @@ export namespace quicksight {
         alternateBandColorsVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
         alternateBandEvenColor?: pulumi.Input<string>;
         alternateBandOddColor?: pulumi.Input<string>;
+        axesRangeScale?: pulumi.Input<enums.quicksight.TemplateRadarChartAxesRangeScale>;
         baseSeriesSettings?: pulumi.Input<inputs.quicksight.TemplateRadarChartSeriesSettingsArgs>;
         categoryAxis?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
         categoryLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
@@ -39447,7 +40066,7 @@ export namespace quicksight {
     export interface TemplateReferenceLineDynamicDataConfigurationArgs {
         calculation: pulumi.Input<inputs.quicksight.TemplateNumericalAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
-        measureAggregationFunction: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
+        measureAggregationFunction?: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
     }
 
     export interface TemplateReferenceLineLabelConfigurationArgs {
@@ -39544,6 +40163,7 @@ export namespace quicksight {
 
     export interface TemplateScatterPlotCategoricallyAggregatedFieldWellsArgs {
         category?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        label?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
         size?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
         xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
         yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
@@ -39567,6 +40187,8 @@ export namespace quicksight {
     }
 
     export interface TemplateScatterPlotUnaggregatedFieldWellsArgs {
+        category?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
+        label?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
         size?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
         xAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
         yAxis?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[]>;
@@ -40258,20 +40880,10 @@ export namespace quicksight {
         visualId: pulumi.Input<string>;
     }
 
-    /**
-     * <p>The display options for tile borders for visuals.</p>
-     */
     export interface ThemeBorderStyleArgs {
-        /**
-         * <p>The option to enable display of borders for visuals.</p>
-         */
         show?: pulumi.Input<boolean>;
     }
 
-    /**
-     * <p>The theme configuration. This configuration contains all of the display properties for
-     *             a theme.</p>
-     */
     export interface ThemeConfigurationArgs {
         dataColorPalette?: pulumi.Input<inputs.quicksight.ThemeDataColorPaletteArgs>;
         sheet?: pulumi.Input<inputs.quicksight.ThemeSheetStyleArgs>;
@@ -40279,24 +40891,9 @@ export namespace quicksight {
         uIColorPalette?: pulumi.Input<inputs.quicksight.ThemeUIColorPaletteArgs>;
     }
 
-    /**
-     * <p>The theme colors that are used for data colors in charts. The colors description is a
-     *             hexadecimal color code that consists of six alphanumerical characters, prefixed with
-     *                 <code>#</code>, for example #37BFF5. </p>
-     */
     export interface ThemeDataColorPaletteArgs {
-        /**
-         * <p>The hexadecimal codes for the colors.</p>
-         */
         colors?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * <p>The hexadecimal code of a color that applies to charts where a lack of data is
-         *             highlighted.</p>
-         */
         emptyFillColor?: pulumi.Input<string>;
-        /**
-         * <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
-         */
         minMaxGradient?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -40304,181 +40901,59 @@ export namespace quicksight {
         fontFamily?: pulumi.Input<string>;
     }
 
-    /**
-     * <p>The display options for gutter spacing between tiles on a sheet.</p>
-     */
     export interface ThemeGutterStyleArgs {
-        /**
-         * <p>This Boolean value controls whether to display a gutter space between sheet tiles.
-         *         </p>
-         */
         show?: pulumi.Input<boolean>;
     }
 
-    /**
-     * <p>The display options for margins around the outside edge of sheets.</p>
-     */
     export interface ThemeMarginStyleArgs {
-        /**
-         * <p>This Boolean value controls whether to display sheet margins.</p>
-         */
         show?: pulumi.Input<boolean>;
     }
 
-    /**
-     * <p>Permission for the resource.</p>
-     */
     export interface ThemeResourcePermissionArgs {
-        /**
-         * <p>The IAM action to grant or revoke permissions on.</p>
-         */
         actions: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-         *             following:</p>
-         *         <ul>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-         *             </li>
-         *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
-         *                     (This is less common.) </p>
-         *             </li>
-         *          </ul>
-         */
         principal: pulumi.Input<string>;
+        resource?: pulumi.Input<string>;
     }
 
-    /**
-     * <p>The theme display options for sheets. </p>
-     */
     export interface ThemeSheetStyleArgs {
         tile?: pulumi.Input<inputs.quicksight.ThemeTileStyleArgs>;
         tileLayout?: pulumi.Input<inputs.quicksight.ThemeTileLayoutStyleArgs>;
     }
 
-    /**
-     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-     *             resource.</p>
-     */
     export interface ThemeTagArgs {
-        /**
-         * <p>Tag key.</p>
-         */
         key: pulumi.Input<string>;
-        /**
-         * <p>Tag value.</p>
-         */
         value: pulumi.Input<string>;
     }
 
-    /**
-     * <p>The display options for the layout of tiles on a sheet.</p>
-     */
     export interface ThemeTileLayoutStyleArgs {
         gutter?: pulumi.Input<inputs.quicksight.ThemeGutterStyleArgs>;
         margin?: pulumi.Input<inputs.quicksight.ThemeMarginStyleArgs>;
     }
 
-    /**
-     * <p>Display options related to tiles on a sheet.</p>
-     */
     export interface ThemeTileStyleArgs {
         border?: pulumi.Input<inputs.quicksight.ThemeBorderStyleArgs>;
     }
 
-    /**
-     * <p>The typeface for the theme.</p>
-     */
     export interface ThemeTypographyArgs {
         fontFamilies?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeFontArgs>[]>;
     }
 
-    /**
-     * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
-     *             description is a hexadecimal color code that consists of six alphanumerical characters,
-     *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
-     *                 Guide.</i>
-     *         </p>
-     */
     export interface ThemeUIColorPaletteArgs {
-        /**
-         * <p>This color is that applies to selected states and buttons.</p>
-         */
         accent?: pulumi.Input<string>;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             accent color.</p>
-         */
         accentForeground?: pulumi.Input<string>;
-        /**
-         * <p>The color that applies to error messages.</p>
-         */
         danger?: pulumi.Input<string>;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             error color.</p>
-         */
         dangerForeground?: pulumi.Input<string>;
-        /**
-         * <p>The color that applies to the names of fields that are identified as
-         *             dimensions.</p>
-         */
         dimension?: pulumi.Input<string>;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             dimension color.</p>
-         */
         dimensionForeground?: pulumi.Input<string>;
-        /**
-         * <p>The color that applies to the names of fields that are identified as measures.</p>
-         */
         measure?: pulumi.Input<string>;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             measure color.</p>
-         */
         measureForeground?: pulumi.Input<string>;
-        /**
-         * <p>The background color that applies to visuals and other high emphasis UI.</p>
-         */
         primaryBackground?: pulumi.Input<string>;
-        /**
-         * <p>The color of text and other foreground elements that appear over the primary
-         *             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
-         */
         primaryForeground?: pulumi.Input<string>;
-        /**
-         * <p>The background color that applies to the sheet background and sheet controls.</p>
-         */
         secondaryBackground?: pulumi.Input<string>;
-        /**
-         * <p>The foreground color that applies to any sheet title, sheet control text, or UI that
-         *             appears over the secondary background.</p>
-         */
         secondaryForeground?: pulumi.Input<string>;
-        /**
-         * <p>The color that applies to success messages, for example the check mark for a
-         *             successful download.</p>
-         */
         success?: pulumi.Input<string>;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             success color.</p>
-         */
         successForeground?: pulumi.Input<string>;
-        /**
-         * <p>This color that applies to warning and informational messages.</p>
-         */
         warning?: pulumi.Input<string>;
-        /**
-         * <p>The foreground color that applies to any text or other elements that appear over the
-         *             warning color.</p>
-         */
         warningForeground?: pulumi.Input<string>;
     }
 
@@ -45229,10 +45704,6 @@ export namespace sagemaker {
          * The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
          */
         nearestModelName?: pulumi.Input<string>;
-        /**
-         * The AWS Marketplace product ID of the model package.
-         */
-        productId?: pulumi.Input<string>;
     }
 
     export interface ModelPackageContainerDefinitionModelInputPropertiesArgs {
@@ -45240,9 +45711,6 @@ export namespace sagemaker {
          * The input configuration object for the model.
          */
         dataInputConfig: pulumi.Input<string>;
-    }
-
-    export interface ModelPackageCreatedByArgs {
     }
 
     /**
@@ -45372,9 +45840,6 @@ export namespace sagemaker {
         supportedTransformInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface ModelPackageLastModifiedByArgs {
-    }
-
     /**
      * Metadata properties of the tracking entity, trial, or trial component.
      */
@@ -45483,8 +45948,7 @@ export namespace sagemaker {
      * Details about the current status of the model package.
      */
     export interface ModelPackageStatusDetailsArgs {
-        imageScanStatuses?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelPackageStatusItemArgs>[]>;
-        validationStatuses: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelPackageStatusItemArgs>[]>;
+        validationStatuses?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelPackageStatusItemArgs>[]>;
     }
 
     /**
@@ -49006,6 +49470,28 @@ export namespace transfer {
     }
 }
 
+export namespace verifiedpermissions {
+    export interface IdentitySourceCognitoUserPoolConfigurationArgs {
+        clientIds?: pulumi.Input<pulumi.Input<string>[]>;
+        userPoolArn: pulumi.Input<string>;
+    }
+
+    export interface IdentitySourceConfigurationArgs {
+        cognitoUserPoolConfiguration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceCognitoUserPoolConfigurationArgs>;
+    }
+
+    export interface PolicyDefinitionArgs {
+    }
+
+    export interface PolicyStoreSchemaDefinitionArgs {
+        cedarJson?: pulumi.Input<string>;
+    }
+
+    export interface PolicyStoreValidationSettingsArgs {
+        mode: pulumi.Input<enums.verifiedpermissions.PolicyStoreValidationMode>;
+    }
+}
+
 export namespace voiceid {
     export interface DomainServerSideEncryptionConfigurationArgs {
         kmsKeyId: pulumi.Input<string>;
@@ -49852,6 +50338,13 @@ export namespace wafv2 {
     }
 
     /**
+     * AssociationConfig for body inspection
+     */
+    export interface WebACLAssociationConfigArgs {
+        requestBody?: pulumi.Input<inputs.wafv2.WebACLRequestBodyArgs>;
+    }
+
+    /**
      * Block traffic towards application.
      */
     export interface WebACLBlockActionArgs {
@@ -50169,6 +50662,12 @@ export namespace wafv2 {
         arn: pulumi.Input<string>;
         fieldToMatch: pulumi.Input<inputs.wafv2.WebACLFieldToMatchArgs>;
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
+    }
+
+    /**
+     * Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+     */
+    export interface WebACLRequestBodyArgs {
     }
 
     /**

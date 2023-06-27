@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -15,21 +14,23 @@ import (
 type ServiceLinkedRole struct {
 	pulumi.CustomResourceState
 
-	AWSServiceName pulumi.StringOutput    `pulumi:"aWSServiceName"`
-	CustomSuffix   pulumi.StringPtrOutput `pulumi:"customSuffix"`
-	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	// The service principal for the AWS service to which this role is attached.
+	AWSServiceName pulumi.StringPtrOutput `pulumi:"aWSServiceName"`
+	// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
+	CustomSuffix pulumi.StringPtrOutput `pulumi:"customSuffix"`
+	// The description of the role.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the role.
+	RoleName pulumi.StringOutput `pulumi:"roleName"`
 }
 
 // NewServiceLinkedRole registers a new resource with the given unique name, arguments, and options.
 func NewServiceLinkedRole(ctx *pulumi.Context,
 	name string, args *ServiceLinkedRoleArgs, opts ...pulumi.ResourceOption) (*ServiceLinkedRole, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ServiceLinkedRoleArgs{}
 	}
 
-	if args.AWSServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'AWSServiceName'")
-	}
 	var resource ServiceLinkedRole
 	err := ctx.RegisterResource("aws-native:iam:ServiceLinkedRole", name, args, &resource, opts...)
 	if err != nil {
@@ -62,16 +63,22 @@ func (ServiceLinkedRoleState) ElementType() reflect.Type {
 }
 
 type serviceLinkedRoleArgs struct {
-	AWSServiceName string  `pulumi:"aWSServiceName"`
-	CustomSuffix   *string `pulumi:"customSuffix"`
-	Description    *string `pulumi:"description"`
+	// The service principal for the AWS service to which this role is attached.
+	AWSServiceName *string `pulumi:"aWSServiceName"`
+	// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
+	CustomSuffix *string `pulumi:"customSuffix"`
+	// The description of the role.
+	Description *string `pulumi:"description"`
 }
 
 // The set of arguments for constructing a ServiceLinkedRole resource.
 type ServiceLinkedRoleArgs struct {
-	AWSServiceName pulumi.StringInput
-	CustomSuffix   pulumi.StringPtrInput
-	Description    pulumi.StringPtrInput
+	// The service principal for the AWS service to which this role is attached.
+	AWSServiceName pulumi.StringPtrInput
+	// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
+	CustomSuffix pulumi.StringPtrInput
+	// The description of the role.
+	Description pulumi.StringPtrInput
 }
 
 func (ServiceLinkedRoleArgs) ElementType() reflect.Type {
@@ -111,16 +118,24 @@ func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutputWithContext(ctx contex
 	return o
 }
 
-func (o ServiceLinkedRoleOutput) AWSServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringOutput { return v.AWSServiceName }).(pulumi.StringOutput)
+// The service principal for the AWS service to which this role is attached.
+func (o ServiceLinkedRoleOutput) AWSServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringPtrOutput { return v.AWSServiceName }).(pulumi.StringPtrOutput)
 }
 
+// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
 func (o ServiceLinkedRoleOutput) CustomSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringPtrOutput { return v.CustomSuffix }).(pulumi.StringPtrOutput)
 }
 
+// The description of the role.
 func (o ServiceLinkedRoleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the role.
+func (o ServiceLinkedRoleOutput) RoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringOutput { return v.RoleName }).(pulumi.StringOutput)
 }
 
 func init() {

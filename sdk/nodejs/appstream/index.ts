@@ -10,6 +10,11 @@ export type AppBlock = import("./appBlock").AppBlock;
 export const AppBlock: typeof import("./appBlock").AppBlock = null as any;
 utilities.lazyLoad(exports, ["AppBlock"], () => require("./appBlock"));
 
+export { AppBlockBuilderArgs } from "./appBlockBuilder";
+export type AppBlockBuilder = import("./appBlockBuilder").AppBlockBuilder;
+export const AppBlockBuilder: typeof import("./appBlockBuilder").AppBlockBuilder = null as any;
+utilities.lazyLoad(exports, ["AppBlockBuilder"], () => require("./appBlockBuilder"));
+
 export { ApplicationArgs } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
@@ -44,6 +49,11 @@ export { GetAppBlockArgs, GetAppBlockResult, GetAppBlockOutputArgs } from "./get
 export const getAppBlock: typeof import("./getAppBlock").getAppBlock = null as any;
 export const getAppBlockOutput: typeof import("./getAppBlock").getAppBlockOutput = null as any;
 utilities.lazyLoad(exports, ["getAppBlock","getAppBlockOutput"], () => require("./getAppBlock"));
+
+export { GetAppBlockBuilderArgs, GetAppBlockBuilderResult, GetAppBlockBuilderOutputArgs } from "./getAppBlockBuilder";
+export const getAppBlockBuilder: typeof import("./getAppBlockBuilder").getAppBlockBuilder = null as any;
+export const getAppBlockBuilderOutput: typeof import("./getAppBlockBuilder").getAppBlockBuilderOutput = null as any;
+utilities.lazyLoad(exports, ["getAppBlockBuilder","getAppBlockBuilderOutput"], () => require("./getAppBlockBuilder"));
 
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
@@ -122,6 +132,8 @@ const _module = {
         switch (type) {
             case "aws-native:appstream:AppBlock":
                 return new AppBlock(name, <any>undefined, { urn })
+            case "aws-native:appstream:AppBlockBuilder":
+                return new AppBlockBuilder(name, <any>undefined, { urn })
             case "aws-native:appstream:Application":
                 return new Application(name, <any>undefined, { urn })
             case "aws-native:appstream:ApplicationEntitlementAssociation":

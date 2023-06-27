@@ -28,6 +28,7 @@ export interface GetWebACLArgs {
 
 export interface GetWebACLResult {
     readonly arn?: string;
+    readonly associationConfig?: outputs.wafv2.WebACLAssociationConfig;
     readonly capacity?: number;
     readonly captchaConfig?: outputs.wafv2.WebACLCaptchaConfig;
     readonly challengeConfig?: outputs.wafv2.WebACLChallengeConfig;

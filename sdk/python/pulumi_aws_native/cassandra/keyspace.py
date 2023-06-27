@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['KeyspaceArgs', 'Keyspace']
@@ -17,6 +18,7 @@ __all__ = ['KeyspaceArgs', 'Keyspace']
 class KeyspaceArgs:
     def __init__(__self__, *,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
+                 replication_specification: Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceTagArgs']]]] = None):
         """
         The set of arguments for constructing a Keyspace resource.
@@ -24,6 +26,8 @@ class KeyspaceArgs:
         """
         if keyspace_name is not None:
             pulumi.set(__self__, "keyspace_name", keyspace_name)
+        if replication_specification is not None:
+            pulumi.set(__self__, "replication_specification", replication_specification)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -38,6 +42,15 @@ class KeyspaceArgs:
     @keyspace_name.setter
     def keyspace_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "keyspace_name", value)
+
+    @property
+    @pulumi.getter(name="replicationSpecification")
+    def replication_specification(self) -> Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']]:
+        return pulumi.get(self, "replication_specification")
+
+    @replication_specification.setter
+    def replication_specification(self, value: Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']]):
+        pulumi.set(self, "replication_specification", value)
 
     @property
     @pulumi.getter
@@ -55,6 +68,7 @@ class Keyspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
+                 replication_specification: Optional[pulumi.Input[pulumi.InputType['KeyspaceReplicationSpecificationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyspaceTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -89,6 +103,7 @@ class Keyspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
+                 replication_specification: Optional[pulumi.Input[pulumi.InputType['KeyspaceReplicationSpecificationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyspaceTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -100,6 +115,7 @@ class Keyspace(pulumi.CustomResource):
             __props__ = KeyspaceArgs.__new__(KeyspaceArgs)
 
             __props__.__dict__["keyspace_name"] = keyspace_name
+            __props__.__dict__["replication_specification"] = replication_specification
             __props__.__dict__["tags"] = tags
         super(Keyspace, __self__).__init__(
             'aws-native:cassandra:Keyspace',
@@ -124,6 +140,7 @@ class Keyspace(pulumi.CustomResource):
         __props__ = KeyspaceArgs.__new__(KeyspaceArgs)
 
         __props__.__dict__["keyspace_name"] = None
+        __props__.__dict__["replication_specification"] = None
         __props__.__dict__["tags"] = None
         return Keyspace(resource_name, opts=opts, __props__=__props__)
 
@@ -134,6 +151,11 @@ class Keyspace(pulumi.CustomResource):
         Name for Cassandra keyspace
         """
         return pulumi.get(self, "keyspace_name")
+
+    @property
+    @pulumi.getter(name="replicationSpecification")
+    def replication_specification(self) -> pulumi.Output[Optional['outputs.KeyspaceReplicationSpecification']]:
+        return pulumi.get(self, "replication_specification")
 
     @property
     @pulumi.getter

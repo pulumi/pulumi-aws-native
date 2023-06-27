@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateNetworkBandwidthGbps
     {
+        /// <summary>
+        /// The maximum amount of network bandwidth, in Gbps.
+        /// </summary>
         public readonly double? Max;
+        /// <summary>
+        /// The minimum amount of network bandwidth, in Gbps.
+        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

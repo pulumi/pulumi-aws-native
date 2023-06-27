@@ -71,6 +71,7 @@ __all__ = [
     'WebACLAWSManagedRulesBotControlRuleSetArgs',
     'WebACLAllowActionArgs',
     'WebACLAndStatementArgs',
+    'WebACLAssociationConfigArgs',
     'WebACLBlockActionArgs',
     'WebACLBodyArgs',
     'WebACLByteMatchStatementArgs',
@@ -110,6 +111,7 @@ __all__ = [
     'WebACLRateBasedStatementArgs',
     'WebACLRegexMatchStatementArgs',
     'WebACLRegexPatternSetReferenceStatementArgs',
+    'WebACLRequestBodyArgs',
     'WebACLRequestInspectionArgs',
     'WebACLResponseInspectionBodyContainsArgs',
     'WebACLResponseInspectionHeaderArgs',
@@ -2382,6 +2384,26 @@ class WebACLAndStatementArgs:
 
 
 @pulumi.input_type
+class WebACLAssociationConfigArgs:
+    def __init__(__self__, *,
+                 request_body: Optional[pulumi.Input['WebACLRequestBodyArgs']] = None):
+        """
+        AssociationConfig for body inspection
+        """
+        if request_body is not None:
+            pulumi.set(__self__, "request_body", request_body)
+
+    @property
+    @pulumi.getter(name="requestBody")
+    def request_body(self) -> Optional[pulumi.Input['WebACLRequestBodyArgs']]:
+        return pulumi.get(self, "request_body")
+
+    @request_body.setter
+    def request_body(self, value: Optional[pulumi.Input['WebACLRequestBodyArgs']]):
+        pulumi.set(self, "request_body", value)
+
+
+@pulumi.input_type
 class WebACLBlockActionArgs:
     def __init__(__self__, *,
                  custom_response: Optional[pulumi.Input['WebACLCustomResponseArgs']] = None):
@@ -3766,6 +3788,15 @@ class WebACLRegexPatternSetReferenceStatementArgs:
     @text_transformations.setter
     def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebACLTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class WebACLRequestBodyArgs:
+    def __init__(__self__):
+        """
+        Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+        """
+        pass
 
 
 @pulumi.input_type

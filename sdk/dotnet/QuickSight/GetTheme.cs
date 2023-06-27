@@ -57,31 +57,11 @@ namespace Pulumi.AwsNative.QuickSight
     [OutputType]
     public sealed class GetThemeResult
     {
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the theme.&lt;/p&gt;
-        /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// &lt;p&gt;The date and time that the theme was created.&lt;/p&gt;
-        /// </summary>
         public readonly string? CreatedTime;
-        /// <summary>
-        /// &lt;p&gt;The date and time that the theme was last updated.&lt;/p&gt;
-        /// </summary>
         public readonly string? LastUpdatedTime;
-        /// <summary>
-        /// &lt;p&gt;A display name for the theme.&lt;/p&gt;
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// &lt;p&gt;A valid grouping of resource permissions to apply to the new theme.
-        /// 			&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Outputs.ThemeResourcePermission> Permissions;
-        /// <summary>
-        /// &lt;p&gt;A map of the key-value pairs for the resource tag or tags that you want to add to the
-        /// 			resource.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Outputs.ThemeTag> Tags;
         public readonly Pulumi.AwsNative.QuickSight.ThemeType? Type;
         public readonly Outputs.ThemeVersion? Version;

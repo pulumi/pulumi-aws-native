@@ -49,51 +49,31 @@ class GetThemeResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the theme.</p>
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
-        """
-        <p>The date and time that the theme was created.</p>
-        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[str]:
-        """
-        <p>The date and time that the theme was last updated.</p>
-        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        <p>A display name for the theme.</p>
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.ThemeResourcePermission']]:
-        """
-        <p>A valid grouping of resource permissions to apply to the new theme.
-        			</p>
-        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ThemeTag']]:
-        """
-        <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-        			resource.</p>
-        """
         return pulumi.get(self, "tags")
 
     @property

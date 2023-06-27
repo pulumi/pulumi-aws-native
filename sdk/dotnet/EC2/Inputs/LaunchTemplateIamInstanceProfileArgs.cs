@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// Specifies an IAM instance profile, which is a container for an IAM role for your instance.
+    /// </summary>
     public sealed class LaunchTemplateIamInstanceProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance profile.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The name of the instance profile.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

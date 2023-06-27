@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public Input<string>? EntitlementArn { get; set; }
 
         /// <summary>
+        /// The source configuration for cloud flows receiving a stream from a bridge.
+        /// </summary>
+        [Input("gatewayBridgeSource")]
+        public Input<Inputs.FlowGatewayBridgeSourceArgs>? GatewayBridgeSource { get; set; }
+
+        /// <summary>
         /// The IP address that the flow will be listening on for incoming content.
         /// </summary>
         [Input("ingestIp")]

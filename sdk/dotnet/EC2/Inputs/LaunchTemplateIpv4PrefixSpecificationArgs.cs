@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// Specifies an IPv4 prefix for a network interface.
+    /// </summary>
     public sealed class LaunchTemplateIpv4PrefixSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IPv4 prefix.
+        /// </summary>
         [Input("ipv4Prefix")]
         public Input<string>? Ipv4Prefix { get; set; }
 

@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// Specifies a specification for an Elastic GPU for launch template.
+    /// </summary>
     public sealed class LaunchTemplateElasticGpuSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of Elastic Graphics accelerator.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

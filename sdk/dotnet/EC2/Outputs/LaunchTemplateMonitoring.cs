@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies whether detailed monitoring is enabled for an instance.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateMonitoring
     {
+        /// <summary>
+        /// Specify true to enable detailed monitoring.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

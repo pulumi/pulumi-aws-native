@@ -38,6 +38,7 @@ export class WebACL extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly associationConfig!: pulumi.Output<outputs.wafv2.WebACLAssociationConfig | undefined>;
     public /*out*/ readonly capacity!: pulumi.Output<number>;
     public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebACLCaptchaConfig | undefined>;
     public readonly challengeConfig!: pulumi.Output<outputs.wafv2.WebACLChallengeConfig | undefined>;
@@ -75,6 +76,7 @@ export class WebACL extends pulumi.CustomResource {
             if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
+            resourceInputs["associationConfig"] = args ? args.associationConfig : undefined;
             resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
             resourceInputs["challengeConfig"] = args ? args.challengeConfig : undefined;
             resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
@@ -91,6 +93,7 @@ export class WebACL extends pulumi.CustomResource {
             resourceInputs["labelNamespace"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["associationConfig"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["captchaConfig"] = undefined /*out*/;
             resourceInputs["challengeConfig"] = undefined /*out*/;
@@ -114,6 +117,7 @@ export class WebACL extends pulumi.CustomResource {
  * The set of arguments for constructing a WebACL resource.
  */
 export interface WebACLArgs {
+    associationConfig?: pulumi.Input<inputs.wafv2.WebACLAssociationConfigArgs>;
     captchaConfig?: pulumi.Input<inputs.wafv2.WebACLCaptchaConfigArgs>;
     challengeConfig?: pulumi.Input<inputs.wafv2.WebACLChallengeConfigArgs>;
     customResponseBodies?: pulumi.Input<inputs.wafv2.WebACLCustomResponseBodiesArgs>;

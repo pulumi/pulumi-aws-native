@@ -20,6 +20,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _category = value;
         }
 
+        [Input("label")]
+        private InputList<Inputs.TemplateDimensionFieldArgs>? _label;
+        public InputList<Inputs.TemplateDimensionFieldArgs> Label
+        {
+            get => _label ?? (_label = new InputList<Inputs.TemplateDimensionFieldArgs>());
+            set => _label = value;
+        }
+
         [Input("size")]
         private InputList<Inputs.TemplateMeasureFieldArgs>? _size;
         public InputList<Inputs.TemplateMeasureFieldArgs> Size

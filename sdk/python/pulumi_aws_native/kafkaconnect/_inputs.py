@@ -74,7 +74,7 @@ class ConnectorAutoScalingArgs:
                  scale_in_policy: pulumi.Input['ConnectorScaleInPolicyArgs'],
                  scale_out_policy: pulumi.Input['ConnectorScaleOutPolicyArgs']):
         """
-        Details about auto scaling of a connector. 
+        Details about auto scaling of a connector.
         :param pulumi.Input[int] max_worker_count: The maximum number of workers for a connector.
         :param pulumi.Input[int] mcu_count: Specifies how many MSK Connect Units (MCU) as the minimum scaling unit.
         :param pulumi.Input[int] min_worker_count: The minimum number of workers for a connector.

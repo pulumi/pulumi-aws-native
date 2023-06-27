@@ -10,16 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The display options for gutter spacing between tiles on a sheet.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class ThemeGutterStyle
     {
-        /// <summary>
-        /// &lt;p&gt;This Boolean value controls whether to display a gutter space between sheet tiles.
-        ///         &lt;/p&gt;
-        /// </summary>
         public readonly bool? Show;
 
         [OutputConstructor]

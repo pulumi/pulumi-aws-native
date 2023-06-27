@@ -37,17 +37,11 @@ class GetVPNGatewayRoutePropagationResult:
     @property
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> Optional[Sequence[str]]:
-        """
-        The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
-        """
         return pulumi.get(self, "route_table_ids")
 
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[str]:
-        """
-        The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
-        """
         return pulumi.get(self, "vpn_gateway_id")
 
 

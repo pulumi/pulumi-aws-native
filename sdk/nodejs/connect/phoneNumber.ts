@@ -66,7 +66,7 @@ export class PhoneNumber extends pulumi.CustomResource {
      */
     public readonly targetArn!: pulumi.Output<string>;
     /**
-     * The phone number type, either TOLL_FREE or DID.
+     * The phone number type
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -138,7 +138,7 @@ export interface PhoneNumberArgs {
      */
     targetArn: pulumi.Input<string>;
     /**
-     * The phone number type, either TOLL_FREE or DID.
+     * The phone number type
      */
     type: pulumi.Input<string>;
 }

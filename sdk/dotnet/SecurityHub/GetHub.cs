@@ -51,15 +51,27 @@ namespace Pulumi.AwsNative.SecurityHub
     [OutputType]
     public sealed class GetHubResult
     {
+        public readonly bool? AutoEnableControls;
+        public readonly string? ControlFindingGenerator;
+        public readonly bool? EnableDefaultStandards;
         public readonly string? Id;
         public readonly object? Tags;
 
         [OutputConstructor]
         private GetHubResult(
+            bool? autoEnableControls,
+
+            string? controlFindingGenerator,
+
+            bool? enableDefaultStandards,
+
             string? id,
 
             object? tags)
         {
+            AutoEnableControls = autoEnableControls;
+            ControlFindingGenerator = controlFindingGenerator;
+            EnableDefaultStandards = enableDefaultStandards;
             Id = id;
             Tags = tags;
         }

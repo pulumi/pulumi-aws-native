@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.InternetMonitor
     public sealed class GetMonitorResult
     {
         public readonly string? CreatedAt;
+        public readonly Outputs.MonitorHealthEventsConfig? HealthEventsConfig;
         public readonly Outputs.MonitorInternetMeasurementsLogDelivery? InternetMeasurementsLogDelivery;
         public readonly int? MaxCityNetworksToMonitor;
         public readonly string? ModifiedAt;
@@ -66,6 +67,8 @@ namespace Pulumi.AwsNative.InternetMonitor
         [OutputConstructor]
         private GetMonitorResult(
             string? createdAt,
+
+            Outputs.MonitorHealthEventsConfig? healthEventsConfig,
 
             Outputs.MonitorInternetMeasurementsLogDelivery? internetMeasurementsLogDelivery,
 
@@ -88,6 +91,7 @@ namespace Pulumi.AwsNative.InternetMonitor
             int? trafficPercentageToMonitor)
         {
             CreatedAt = createdAt;
+            HealthEventsConfig = healthEventsConfig;
             InternetMeasurementsLogDelivery = internetMeasurementsLogDelivery;
             MaxCityNetworksToMonitor = maxCityNetworksToMonitor;
             ModifiedAt = modifiedAt;

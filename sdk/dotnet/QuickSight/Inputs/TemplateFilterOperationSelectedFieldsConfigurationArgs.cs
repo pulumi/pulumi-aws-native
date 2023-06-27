@@ -12,6 +12,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFilterOperationSelectedFieldsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("selectedColumns")]
+        private InputList<Inputs.TemplateColumnIdentifierArgs>? _selectedColumns;
+        public InputList<Inputs.TemplateColumnIdentifierArgs> SelectedColumns
+        {
+            get => _selectedColumns ?? (_selectedColumns = new InputList<Inputs.TemplateColumnIdentifierArgs>());
+            set => _selectedColumns = value;
+        }
+
         [Input("selectedFieldOptions")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateSelectedFieldOptions>? SelectedFieldOptions { get; set; }
 

@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ContainerTags;
         /// <summary>
-        /// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+        /// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
         /// </summary>
         public readonly string? RepositoryName;
 

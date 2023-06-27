@@ -41,6 +41,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("position")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardDataLabelPosition>? Position { get; set; }
 
+        [Input("totalsVisibility")]
+        public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? TotalsVisibility { get; set; }
+
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 

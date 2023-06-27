@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly Outputs.AnalysisNumericalAggregationFunction Calculation;
         public readonly Outputs.AnalysisColumnIdentifier Column;
-        public readonly Outputs.AnalysisAggregationFunction MeasureAggregationFunction;
+        public readonly Outputs.AnalysisAggregationFunction? MeasureAggregationFunction;
 
         [OutputConstructor]
         private AnalysisReferenceLineDynamicDataConfiguration(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisColumnIdentifier column,
 
-            Outputs.AnalysisAggregationFunction measureAggregationFunction)
+            Outputs.AnalysisAggregationFunction? measureAggregationFunction)
         {
             Calculation = calculation;
             Column = column;

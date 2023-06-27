@@ -31,6 +31,7 @@ __all__ = [
     'DataCatalogEncryptionSettings',
     'DataCatalogEncryptionSettingsConnectionPasswordEncryption',
     'DataCatalogEncryptionSettingsEncryptionAtRest',
+    'DataQualityRulesetDataQualityTargetTable',
     'DatabaseDataLakePrincipal',
     'DatabaseFederatedDatabase',
     'DatabaseIdentifier',
@@ -1022,6 +1023,46 @@ class DataCatalogEncryptionSettingsEncryptionAtRest(dict):
     @pulumi.getter(name="sseAwsKmsKeyId")
     def sse_aws_kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "sse_aws_kms_key_id")
+
+
+@pulumi.output_type
+class DataQualityRulesetDataQualityTargetTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityRulesetDataQualityTargetTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityRulesetDataQualityTargetTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityRulesetDataQualityTargetTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: Optional[str] = None,
+                 table_name: Optional[str] = None):
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[str]:
+        return pulumi.get(self, "table_name")
 
 
 @pulumi.output_type

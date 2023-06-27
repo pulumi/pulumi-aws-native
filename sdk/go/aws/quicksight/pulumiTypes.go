@@ -178,9 +178,9 @@ func (o AnalysisAggregationFunctionPtrOutput) NumericalAggregationFunction() Ana
 }
 
 type AnalysisAggregationSortConfiguration struct {
-	AggregationFunction AnalysisAggregationFunction `pulumi:"aggregationFunction"`
-	Column              AnalysisColumnIdentifier    `pulumi:"column"`
-	SortDirection       AnalysisSortDirection       `pulumi:"sortDirection"`
+	AggregationFunction *AnalysisAggregationFunction `pulumi:"aggregationFunction"`
+	Column              AnalysisColumnIdentifier     `pulumi:"column"`
+	SortDirection       AnalysisSortDirection        `pulumi:"sortDirection"`
 }
 
 // AnalysisAggregationSortConfigurationInput is an input type that accepts AnalysisAggregationSortConfigurationArgs and AnalysisAggregationSortConfigurationOutput values.
@@ -195,9 +195,9 @@ type AnalysisAggregationSortConfigurationInput interface {
 }
 
 type AnalysisAggregationSortConfigurationArgs struct {
-	AggregationFunction AnalysisAggregationFunctionInput `pulumi:"aggregationFunction"`
-	Column              AnalysisColumnIdentifierInput    `pulumi:"column"`
-	SortDirection       AnalysisSortDirectionInput       `pulumi:"sortDirection"`
+	AggregationFunction AnalysisAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
+	Column              AnalysisColumnIdentifierInput       `pulumi:"column"`
+	SortDirection       AnalysisSortDirectionInput          `pulumi:"sortDirection"`
 }
 
 func (AnalysisAggregationSortConfigurationArgs) ElementType() reflect.Type {
@@ -251,8 +251,10 @@ func (o AnalysisAggregationSortConfigurationOutput) ToAnalysisAggregationSortCon
 	return o
 }
 
-func (o AnalysisAggregationSortConfigurationOutput) AggregationFunction() AnalysisAggregationFunctionOutput {
-	return o.ApplyT(func(v AnalysisAggregationSortConfiguration) AnalysisAggregationFunction { return v.AggregationFunction }).(AnalysisAggregationFunctionOutput)
+func (o AnalysisAggregationSortConfigurationOutput) AggregationFunction() AnalysisAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v AnalysisAggregationSortConfiguration) *AnalysisAggregationFunction {
+		return v.AggregationFunction
+	}).(AnalysisAggregationFunctionPtrOutput)
 }
 
 func (o AnalysisAggregationSortConfigurationOutput) Column() AnalysisColumnIdentifierOutput {
@@ -7301,141 +7303,7 @@ func (o AnalysisColorScalePtrOutput) NullValueColor() AnalysisDataColorPtrOutput
 	}).(AnalysisDataColorPtrOutput)
 }
 
-type AnalysisColorsConfiguration struct {
-	CustomColors []AnalysisCustomColor `pulumi:"customColors"`
-}
-
-// AnalysisColorsConfigurationInput is an input type that accepts AnalysisColorsConfigurationArgs and AnalysisColorsConfigurationOutput values.
-// You can construct a concrete instance of `AnalysisColorsConfigurationInput` via:
-//
-//	AnalysisColorsConfigurationArgs{...}
-type AnalysisColorsConfigurationInput interface {
-	pulumi.Input
-
-	ToAnalysisColorsConfigurationOutput() AnalysisColorsConfigurationOutput
-	ToAnalysisColorsConfigurationOutputWithContext(context.Context) AnalysisColorsConfigurationOutput
-}
-
-type AnalysisColorsConfigurationArgs struct {
-	CustomColors AnalysisCustomColorArrayInput `pulumi:"customColors"`
-}
-
-func (AnalysisColorsConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisColorsConfiguration)(nil)).Elem()
-}
-
-func (i AnalysisColorsConfigurationArgs) ToAnalysisColorsConfigurationOutput() AnalysisColorsConfigurationOutput {
-	return i.ToAnalysisColorsConfigurationOutputWithContext(context.Background())
-}
-
-func (i AnalysisColorsConfigurationArgs) ToAnalysisColorsConfigurationOutputWithContext(ctx context.Context) AnalysisColorsConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisColorsConfigurationOutput)
-}
-
-func (i AnalysisColorsConfigurationArgs) ToAnalysisColorsConfigurationPtrOutput() AnalysisColorsConfigurationPtrOutput {
-	return i.ToAnalysisColorsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisColorsConfigurationArgs) ToAnalysisColorsConfigurationPtrOutputWithContext(ctx context.Context) AnalysisColorsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisColorsConfigurationOutput).ToAnalysisColorsConfigurationPtrOutputWithContext(ctx)
-}
-
-// AnalysisColorsConfigurationPtrInput is an input type that accepts AnalysisColorsConfigurationArgs, AnalysisColorsConfigurationPtr and AnalysisColorsConfigurationPtrOutput values.
-// You can construct a concrete instance of `AnalysisColorsConfigurationPtrInput` via:
-//
-//	        AnalysisColorsConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisColorsConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisColorsConfigurationPtrOutput() AnalysisColorsConfigurationPtrOutput
-	ToAnalysisColorsConfigurationPtrOutputWithContext(context.Context) AnalysisColorsConfigurationPtrOutput
-}
-
-type analysisColorsConfigurationPtrType AnalysisColorsConfigurationArgs
-
-func AnalysisColorsConfigurationPtr(v *AnalysisColorsConfigurationArgs) AnalysisColorsConfigurationPtrInput {
-	return (*analysisColorsConfigurationPtrType)(v)
-}
-
-func (*analysisColorsConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisColorsConfiguration)(nil)).Elem()
-}
-
-func (i *analysisColorsConfigurationPtrType) ToAnalysisColorsConfigurationPtrOutput() AnalysisColorsConfigurationPtrOutput {
-	return i.ToAnalysisColorsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisColorsConfigurationPtrType) ToAnalysisColorsConfigurationPtrOutputWithContext(ctx context.Context) AnalysisColorsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisColorsConfigurationPtrOutput)
-}
-
-type AnalysisColorsConfigurationOutput struct{ *pulumi.OutputState }
-
-func (AnalysisColorsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisColorsConfiguration)(nil)).Elem()
-}
-
-func (o AnalysisColorsConfigurationOutput) ToAnalysisColorsConfigurationOutput() AnalysisColorsConfigurationOutput {
-	return o
-}
-
-func (o AnalysisColorsConfigurationOutput) ToAnalysisColorsConfigurationOutputWithContext(ctx context.Context) AnalysisColorsConfigurationOutput {
-	return o
-}
-
-func (o AnalysisColorsConfigurationOutput) ToAnalysisColorsConfigurationPtrOutput() AnalysisColorsConfigurationPtrOutput {
-	return o.ToAnalysisColorsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisColorsConfigurationOutput) ToAnalysisColorsConfigurationPtrOutputWithContext(ctx context.Context) AnalysisColorsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisColorsConfiguration) *AnalysisColorsConfiguration {
-		return &v
-	}).(AnalysisColorsConfigurationPtrOutput)
-}
-
-func (o AnalysisColorsConfigurationOutput) CustomColors() AnalysisCustomColorArrayOutput {
-	return o.ApplyT(func(v AnalysisColorsConfiguration) []AnalysisCustomColor { return v.CustomColors }).(AnalysisCustomColorArrayOutput)
-}
-
-type AnalysisColorsConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisColorsConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisColorsConfiguration)(nil)).Elem()
-}
-
-func (o AnalysisColorsConfigurationPtrOutput) ToAnalysisColorsConfigurationPtrOutput() AnalysisColorsConfigurationPtrOutput {
-	return o
-}
-
-func (o AnalysisColorsConfigurationPtrOutput) ToAnalysisColorsConfigurationPtrOutputWithContext(ctx context.Context) AnalysisColorsConfigurationPtrOutput {
-	return o
-}
-
-func (o AnalysisColorsConfigurationPtrOutput) Elem() AnalysisColorsConfigurationOutput {
-	return o.ApplyT(func(v *AnalysisColorsConfiguration) AnalysisColorsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisColorsConfiguration
-		return ret
-	}).(AnalysisColorsConfigurationOutput)
-}
-
-func (o AnalysisColorsConfigurationPtrOutput) CustomColors() AnalysisCustomColorArrayOutput {
-	return o.ApplyT(func(v *AnalysisColorsConfiguration) []AnalysisCustomColor {
-		if v == nil {
-			return nil
-		}
-		return v.CustomColors
-	}).(AnalysisCustomColorArrayOutput)
-}
-
 type AnalysisColumnConfiguration struct {
-	ColorsConfiguration *AnalysisColorsConfiguration `pulumi:"colorsConfiguration"`
 	Column              AnalysisColumnIdentifier     `pulumi:"column"`
 	FormatConfiguration *AnalysisFormatConfiguration `pulumi:"formatConfiguration"`
 	Role                *AnalysisColumnRole          `pulumi:"role"`
@@ -7453,7 +7321,6 @@ type AnalysisColumnConfigurationInput interface {
 }
 
 type AnalysisColumnConfigurationArgs struct {
-	ColorsConfiguration AnalysisColorsConfigurationPtrInput `pulumi:"colorsConfiguration"`
 	Column              AnalysisColumnIdentifierInput       `pulumi:"column"`
 	FormatConfiguration AnalysisFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 	Role                AnalysisColumnRolePtrInput          `pulumi:"role"`
@@ -7508,10 +7375,6 @@ func (o AnalysisColumnConfigurationOutput) ToAnalysisColumnConfigurationOutput()
 
 func (o AnalysisColumnConfigurationOutput) ToAnalysisColumnConfigurationOutputWithContext(ctx context.Context) AnalysisColumnConfigurationOutput {
 	return o
-}
-
-func (o AnalysisColumnConfigurationOutput) ColorsConfiguration() AnalysisColorsConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisColumnConfiguration) *AnalysisColorsConfiguration { return v.ColorsConfiguration }).(AnalysisColorsConfigurationPtrOutput)
 }
 
 func (o AnalysisColumnConfigurationOutput) Column() AnalysisColumnIdentifierOutput {
@@ -11832,112 +11695,6 @@ func (o AnalysisCustomActionURLOperationPtrOutput) URLTemplate() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-type AnalysisCustomColor struct {
-	Color        string                `pulumi:"color"`
-	FieldValue   *string               `pulumi:"fieldValue"`
-	SpecialValue *AnalysisSpecialValue `pulumi:"specialValue"`
-}
-
-// AnalysisCustomColorInput is an input type that accepts AnalysisCustomColorArgs and AnalysisCustomColorOutput values.
-// You can construct a concrete instance of `AnalysisCustomColorInput` via:
-//
-//	AnalysisCustomColorArgs{...}
-type AnalysisCustomColorInput interface {
-	pulumi.Input
-
-	ToAnalysisCustomColorOutput() AnalysisCustomColorOutput
-	ToAnalysisCustomColorOutputWithContext(context.Context) AnalysisCustomColorOutput
-}
-
-type AnalysisCustomColorArgs struct {
-	Color        pulumi.StringInput           `pulumi:"color"`
-	FieldValue   pulumi.StringPtrInput        `pulumi:"fieldValue"`
-	SpecialValue AnalysisSpecialValuePtrInput `pulumi:"specialValue"`
-}
-
-func (AnalysisCustomColorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisCustomColor)(nil)).Elem()
-}
-
-func (i AnalysisCustomColorArgs) ToAnalysisCustomColorOutput() AnalysisCustomColorOutput {
-	return i.ToAnalysisCustomColorOutputWithContext(context.Background())
-}
-
-func (i AnalysisCustomColorArgs) ToAnalysisCustomColorOutputWithContext(ctx context.Context) AnalysisCustomColorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisCustomColorOutput)
-}
-
-// AnalysisCustomColorArrayInput is an input type that accepts AnalysisCustomColorArray and AnalysisCustomColorArrayOutput values.
-// You can construct a concrete instance of `AnalysisCustomColorArrayInput` via:
-//
-//	AnalysisCustomColorArray{ AnalysisCustomColorArgs{...} }
-type AnalysisCustomColorArrayInput interface {
-	pulumi.Input
-
-	ToAnalysisCustomColorArrayOutput() AnalysisCustomColorArrayOutput
-	ToAnalysisCustomColorArrayOutputWithContext(context.Context) AnalysisCustomColorArrayOutput
-}
-
-type AnalysisCustomColorArray []AnalysisCustomColorInput
-
-func (AnalysisCustomColorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalysisCustomColor)(nil)).Elem()
-}
-
-func (i AnalysisCustomColorArray) ToAnalysisCustomColorArrayOutput() AnalysisCustomColorArrayOutput {
-	return i.ToAnalysisCustomColorArrayOutputWithContext(context.Background())
-}
-
-func (i AnalysisCustomColorArray) ToAnalysisCustomColorArrayOutputWithContext(ctx context.Context) AnalysisCustomColorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisCustomColorArrayOutput)
-}
-
-type AnalysisCustomColorOutput struct{ *pulumi.OutputState }
-
-func (AnalysisCustomColorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisCustomColor)(nil)).Elem()
-}
-
-func (o AnalysisCustomColorOutput) ToAnalysisCustomColorOutput() AnalysisCustomColorOutput {
-	return o
-}
-
-func (o AnalysisCustomColorOutput) ToAnalysisCustomColorOutputWithContext(ctx context.Context) AnalysisCustomColorOutput {
-	return o
-}
-
-func (o AnalysisCustomColorOutput) Color() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisCustomColor) string { return v.Color }).(pulumi.StringOutput)
-}
-
-func (o AnalysisCustomColorOutput) FieldValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalysisCustomColor) *string { return v.FieldValue }).(pulumi.StringPtrOutput)
-}
-
-func (o AnalysisCustomColorOutput) SpecialValue() AnalysisSpecialValuePtrOutput {
-	return o.ApplyT(func(v AnalysisCustomColor) *AnalysisSpecialValue { return v.SpecialValue }).(AnalysisSpecialValuePtrOutput)
-}
-
-type AnalysisCustomColorArrayOutput struct{ *pulumi.OutputState }
-
-func (AnalysisCustomColorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalysisCustomColor)(nil)).Elem()
-}
-
-func (o AnalysisCustomColorArrayOutput) ToAnalysisCustomColorArrayOutput() AnalysisCustomColorArrayOutput {
-	return o
-}
-
-func (o AnalysisCustomColorArrayOutput) ToAnalysisCustomColorArrayOutputWithContext(ctx context.Context) AnalysisCustomColorArrayOutput {
-	return o
-}
-
-func (o AnalysisCustomColorArrayOutput) Index(i pulumi.IntInput) AnalysisCustomColorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisCustomColor {
-		return vs[0].([]AnalysisCustomColor)[vs[1].(int)]
-	}).(AnalysisCustomColorOutput)
-}
-
 type AnalysisCustomContentConfiguration struct {
 	ContentType  *AnalysisCustomContentType                      `pulumi:"contentType"`
 	ContentUrl   *string                                         `pulumi:"contentUrl"`
@@ -13690,6 +13447,7 @@ type AnalysisDataLabelOptions struct {
 	MeasureLabelVisibility  *AnalysisVisibility        `pulumi:"measureLabelVisibility"`
 	Overlap                 *AnalysisDataLabelOverlap  `pulumi:"overlap"`
 	Position                *AnalysisDataLabelPosition `pulumi:"position"`
+	TotalsVisibility        *AnalysisVisibility        `pulumi:"totalsVisibility"`
 	Visibility              *AnalysisVisibility        `pulumi:"visibility"`
 }
 
@@ -13713,6 +13471,7 @@ type AnalysisDataLabelOptionsArgs struct {
 	MeasureLabelVisibility  AnalysisVisibilityPtrInput        `pulumi:"measureLabelVisibility"`
 	Overlap                 AnalysisDataLabelOverlapPtrInput  `pulumi:"overlap"`
 	Position                AnalysisDataLabelPositionPtrInput `pulumi:"position"`
+	TotalsVisibility        AnalysisVisibilityPtrInput        `pulumi:"totalsVisibility"`
 	Visibility              AnalysisVisibilityPtrInput        `pulumi:"visibility"`
 }
 
@@ -13825,6 +13584,10 @@ func (o AnalysisDataLabelOptionsOutput) Position() AnalysisDataLabelPositionPtrO
 	return o.ApplyT(func(v AnalysisDataLabelOptions) *AnalysisDataLabelPosition { return v.Position }).(AnalysisDataLabelPositionPtrOutput)
 }
 
+func (o AnalysisDataLabelOptionsOutput) TotalsVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v AnalysisDataLabelOptions) *AnalysisVisibility { return v.TotalsVisibility }).(AnalysisVisibilityPtrOutput)
+}
+
 func (o AnalysisDataLabelOptionsOutput) Visibility() AnalysisVisibilityPtrOutput {
 	return o.ApplyT(func(v AnalysisDataLabelOptions) *AnalysisVisibility { return v.Visibility }).(AnalysisVisibilityPtrOutput)
 }
@@ -13923,6 +13686,15 @@ func (o AnalysisDataLabelOptionsPtrOutput) Position() AnalysisDataLabelPositionP
 		}
 		return v.Position
 	}).(AnalysisDataLabelPositionPtrOutput)
+}
+
+func (o AnalysisDataLabelOptionsPtrOutput) TotalsVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v *AnalysisDataLabelOptions) *AnalysisVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.TotalsVisibility
+	}).(AnalysisVisibilityPtrOutput)
 }
 
 func (o AnalysisDataLabelOptionsPtrOutput) Visibility() AnalysisVisibilityPtrOutput {
@@ -18294,6 +18066,7 @@ func (o AnalysisDefinitionPtrOutput) Sheets() AnalysisSheetDefinitionArrayOutput
 type AnalysisDestinationParameterValueConfiguration struct {
 	CustomValuesConfiguration *AnalysisCustomValuesConfiguration `pulumi:"customValuesConfiguration"`
 	SelectAllValueOptions     *AnalysisSelectAllValueOptions     `pulumi:"selectAllValueOptions"`
+	SourceColumn              *AnalysisColumnIdentifier          `pulumi:"sourceColumn"`
 	SourceField               *string                            `pulumi:"sourceField"`
 	SourceParameterName       *string                            `pulumi:"sourceParameterName"`
 }
@@ -18312,6 +18085,7 @@ type AnalysisDestinationParameterValueConfigurationInput interface {
 type AnalysisDestinationParameterValueConfigurationArgs struct {
 	CustomValuesConfiguration AnalysisCustomValuesConfigurationPtrInput `pulumi:"customValuesConfiguration"`
 	SelectAllValueOptions     AnalysisSelectAllValueOptionsPtrInput     `pulumi:"selectAllValueOptions"`
+	SourceColumn              AnalysisColumnIdentifierPtrInput          `pulumi:"sourceColumn"`
 	SourceField               pulumi.StringPtrInput                     `pulumi:"sourceField"`
 	SourceParameterName       pulumi.StringPtrInput                     `pulumi:"sourceParameterName"`
 }
@@ -18352,6 +18126,12 @@ func (o AnalysisDestinationParameterValueConfigurationOutput) SelectAllValueOpti
 	return o.ApplyT(func(v AnalysisDestinationParameterValueConfiguration) *AnalysisSelectAllValueOptions {
 		return v.SelectAllValueOptions
 	}).(AnalysisSelectAllValueOptionsPtrOutput)
+}
+
+func (o AnalysisDestinationParameterValueConfigurationOutput) SourceColumn() AnalysisColumnIdentifierPtrOutput {
+	return o.ApplyT(func(v AnalysisDestinationParameterValueConfiguration) *AnalysisColumnIdentifier {
+		return v.SourceColumn
+	}).(AnalysisColumnIdentifierPtrOutput)
 }
 
 func (o AnalysisDestinationParameterValueConfigurationOutput) SourceField() pulumi.StringPtrOutput {
@@ -23064,6 +22844,7 @@ func (o AnalysisFilterListControlPtrOutput) Type() AnalysisSheetControlListTypeP
 }
 
 type AnalysisFilterOperationSelectedFieldsConfiguration struct {
+	SelectedColumns      []AnalysisColumnIdentifier    `pulumi:"selectedColumns"`
 	SelectedFieldOptions *AnalysisSelectedFieldOptions `pulumi:"selectedFieldOptions"`
 	SelectedFields       []string                      `pulumi:"selectedFields"`
 }
@@ -23080,6 +22861,7 @@ type AnalysisFilterOperationSelectedFieldsConfigurationInput interface {
 }
 
 type AnalysisFilterOperationSelectedFieldsConfigurationArgs struct {
+	SelectedColumns      AnalysisColumnIdentifierArrayInput   `pulumi:"selectedColumns"`
 	SelectedFieldOptions AnalysisSelectedFieldOptionsPtrInput `pulumi:"selectedFieldOptions"`
 	SelectedFields       pulumi.StringArrayInput              `pulumi:"selectedFields"`
 }
@@ -23161,6 +22943,12 @@ func (o AnalysisFilterOperationSelectedFieldsConfigurationOutput) ToAnalysisFilt
 	}).(AnalysisFilterOperationSelectedFieldsConfigurationPtrOutput)
 }
 
+func (o AnalysisFilterOperationSelectedFieldsConfigurationOutput) SelectedColumns() AnalysisColumnIdentifierArrayOutput {
+	return o.ApplyT(func(v AnalysisFilterOperationSelectedFieldsConfiguration) []AnalysisColumnIdentifier {
+		return v.SelectedColumns
+	}).(AnalysisColumnIdentifierArrayOutput)
+}
+
 func (o AnalysisFilterOperationSelectedFieldsConfigurationOutput) SelectedFieldOptions() AnalysisSelectedFieldOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisFilterOperationSelectedFieldsConfiguration) *AnalysisSelectedFieldOptions {
 		return v.SelectedFieldOptions
@@ -23193,6 +22981,15 @@ func (o AnalysisFilterOperationSelectedFieldsConfigurationPtrOutput) Elem() Anal
 		var ret AnalysisFilterOperationSelectedFieldsConfiguration
 		return ret
 	}).(AnalysisFilterOperationSelectedFieldsConfigurationOutput)
+}
+
+func (o AnalysisFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedColumns() AnalysisColumnIdentifierArrayOutput {
+	return o.ApplyT(func(v *AnalysisFilterOperationSelectedFieldsConfiguration) []AnalysisColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedColumns
+	}).(AnalysisColumnIdentifierArrayOutput)
 }
 
 func (o AnalysisFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedFieldOptions() AnalysisSelectedFieldOptionsPtrOutput {
@@ -29054,6 +28851,368 @@ func (o AnalysisGeospatialCoordinateBoundsPtrOutput) West() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
+type AnalysisGeospatialHeatmapColorScale struct {
+	Colors []AnalysisGeospatialHeatmapDataColor `pulumi:"colors"`
+}
+
+// AnalysisGeospatialHeatmapColorScaleInput is an input type that accepts AnalysisGeospatialHeatmapColorScaleArgs and AnalysisGeospatialHeatmapColorScaleOutput values.
+// You can construct a concrete instance of `AnalysisGeospatialHeatmapColorScaleInput` via:
+//
+//	AnalysisGeospatialHeatmapColorScaleArgs{...}
+type AnalysisGeospatialHeatmapColorScaleInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialHeatmapColorScaleOutput() AnalysisGeospatialHeatmapColorScaleOutput
+	ToAnalysisGeospatialHeatmapColorScaleOutputWithContext(context.Context) AnalysisGeospatialHeatmapColorScaleOutput
+}
+
+type AnalysisGeospatialHeatmapColorScaleArgs struct {
+	Colors AnalysisGeospatialHeatmapDataColorArrayInput `pulumi:"colors"`
+}
+
+func (AnalysisGeospatialHeatmapColorScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialHeatmapColorScale)(nil)).Elem()
+}
+
+func (i AnalysisGeospatialHeatmapColorScaleArgs) ToAnalysisGeospatialHeatmapColorScaleOutput() AnalysisGeospatialHeatmapColorScaleOutput {
+	return i.ToAnalysisGeospatialHeatmapColorScaleOutputWithContext(context.Background())
+}
+
+func (i AnalysisGeospatialHeatmapColorScaleArgs) ToAnalysisGeospatialHeatmapColorScaleOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapColorScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisGeospatialHeatmapColorScaleOutput)
+}
+
+func (i AnalysisGeospatialHeatmapColorScaleArgs) ToAnalysisGeospatialHeatmapColorScalePtrOutput() AnalysisGeospatialHeatmapColorScalePtrOutput {
+	return i.ToAnalysisGeospatialHeatmapColorScalePtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisGeospatialHeatmapColorScaleArgs) ToAnalysisGeospatialHeatmapColorScalePtrOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapColorScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisGeospatialHeatmapColorScaleOutput).ToAnalysisGeospatialHeatmapColorScalePtrOutputWithContext(ctx)
+}
+
+// AnalysisGeospatialHeatmapColorScalePtrInput is an input type that accepts AnalysisGeospatialHeatmapColorScaleArgs, AnalysisGeospatialHeatmapColorScalePtr and AnalysisGeospatialHeatmapColorScalePtrOutput values.
+// You can construct a concrete instance of `AnalysisGeospatialHeatmapColorScalePtrInput` via:
+//
+//	        AnalysisGeospatialHeatmapColorScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisGeospatialHeatmapColorScalePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialHeatmapColorScalePtrOutput() AnalysisGeospatialHeatmapColorScalePtrOutput
+	ToAnalysisGeospatialHeatmapColorScalePtrOutputWithContext(context.Context) AnalysisGeospatialHeatmapColorScalePtrOutput
+}
+
+type analysisGeospatialHeatmapColorScalePtrType AnalysisGeospatialHeatmapColorScaleArgs
+
+func AnalysisGeospatialHeatmapColorScalePtr(v *AnalysisGeospatialHeatmapColorScaleArgs) AnalysisGeospatialHeatmapColorScalePtrInput {
+	return (*analysisGeospatialHeatmapColorScalePtrType)(v)
+}
+
+func (*analysisGeospatialHeatmapColorScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisGeospatialHeatmapColorScale)(nil)).Elem()
+}
+
+func (i *analysisGeospatialHeatmapColorScalePtrType) ToAnalysisGeospatialHeatmapColorScalePtrOutput() AnalysisGeospatialHeatmapColorScalePtrOutput {
+	return i.ToAnalysisGeospatialHeatmapColorScalePtrOutputWithContext(context.Background())
+}
+
+func (i *analysisGeospatialHeatmapColorScalePtrType) ToAnalysisGeospatialHeatmapColorScalePtrOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapColorScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisGeospatialHeatmapColorScalePtrOutput)
+}
+
+type AnalysisGeospatialHeatmapColorScaleOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialHeatmapColorScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialHeatmapColorScale)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialHeatmapColorScaleOutput) ToAnalysisGeospatialHeatmapColorScaleOutput() AnalysisGeospatialHeatmapColorScaleOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapColorScaleOutput) ToAnalysisGeospatialHeatmapColorScaleOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapColorScaleOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapColorScaleOutput) ToAnalysisGeospatialHeatmapColorScalePtrOutput() AnalysisGeospatialHeatmapColorScalePtrOutput {
+	return o.ToAnalysisGeospatialHeatmapColorScalePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialHeatmapColorScaleOutput) ToAnalysisGeospatialHeatmapColorScalePtrOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapColorScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisGeospatialHeatmapColorScale) *AnalysisGeospatialHeatmapColorScale {
+		return &v
+	}).(AnalysisGeospatialHeatmapColorScalePtrOutput)
+}
+
+func (o AnalysisGeospatialHeatmapColorScaleOutput) Colors() AnalysisGeospatialHeatmapDataColorArrayOutput {
+	return o.ApplyT(func(v AnalysisGeospatialHeatmapColorScale) []AnalysisGeospatialHeatmapDataColor { return v.Colors }).(AnalysisGeospatialHeatmapDataColorArrayOutput)
+}
+
+type AnalysisGeospatialHeatmapColorScalePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialHeatmapColorScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisGeospatialHeatmapColorScale)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialHeatmapColorScalePtrOutput) ToAnalysisGeospatialHeatmapColorScalePtrOutput() AnalysisGeospatialHeatmapColorScalePtrOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapColorScalePtrOutput) ToAnalysisGeospatialHeatmapColorScalePtrOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapColorScalePtrOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapColorScalePtrOutput) Elem() AnalysisGeospatialHeatmapColorScaleOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialHeatmapColorScale) AnalysisGeospatialHeatmapColorScale {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisGeospatialHeatmapColorScale
+		return ret
+	}).(AnalysisGeospatialHeatmapColorScaleOutput)
+}
+
+func (o AnalysisGeospatialHeatmapColorScalePtrOutput) Colors() AnalysisGeospatialHeatmapDataColorArrayOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialHeatmapColorScale) []AnalysisGeospatialHeatmapDataColor {
+		if v == nil {
+			return nil
+		}
+		return v.Colors
+	}).(AnalysisGeospatialHeatmapDataColorArrayOutput)
+}
+
+type AnalysisGeospatialHeatmapConfiguration struct {
+	HeatmapColor *AnalysisGeospatialHeatmapColorScale `pulumi:"heatmapColor"`
+}
+
+// AnalysisGeospatialHeatmapConfigurationInput is an input type that accepts AnalysisGeospatialHeatmapConfigurationArgs and AnalysisGeospatialHeatmapConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisGeospatialHeatmapConfigurationInput` via:
+//
+//	AnalysisGeospatialHeatmapConfigurationArgs{...}
+type AnalysisGeospatialHeatmapConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialHeatmapConfigurationOutput() AnalysisGeospatialHeatmapConfigurationOutput
+	ToAnalysisGeospatialHeatmapConfigurationOutputWithContext(context.Context) AnalysisGeospatialHeatmapConfigurationOutput
+}
+
+type AnalysisGeospatialHeatmapConfigurationArgs struct {
+	HeatmapColor AnalysisGeospatialHeatmapColorScalePtrInput `pulumi:"heatmapColor"`
+}
+
+func (AnalysisGeospatialHeatmapConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialHeatmapConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisGeospatialHeatmapConfigurationArgs) ToAnalysisGeospatialHeatmapConfigurationOutput() AnalysisGeospatialHeatmapConfigurationOutput {
+	return i.ToAnalysisGeospatialHeatmapConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisGeospatialHeatmapConfigurationArgs) ToAnalysisGeospatialHeatmapConfigurationOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisGeospatialHeatmapConfigurationOutput)
+}
+
+func (i AnalysisGeospatialHeatmapConfigurationArgs) ToAnalysisGeospatialHeatmapConfigurationPtrOutput() AnalysisGeospatialHeatmapConfigurationPtrOutput {
+	return i.ToAnalysisGeospatialHeatmapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisGeospatialHeatmapConfigurationArgs) ToAnalysisGeospatialHeatmapConfigurationPtrOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisGeospatialHeatmapConfigurationOutput).ToAnalysisGeospatialHeatmapConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisGeospatialHeatmapConfigurationPtrInput is an input type that accepts AnalysisGeospatialHeatmapConfigurationArgs, AnalysisGeospatialHeatmapConfigurationPtr and AnalysisGeospatialHeatmapConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisGeospatialHeatmapConfigurationPtrInput` via:
+//
+//	        AnalysisGeospatialHeatmapConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisGeospatialHeatmapConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialHeatmapConfigurationPtrOutput() AnalysisGeospatialHeatmapConfigurationPtrOutput
+	ToAnalysisGeospatialHeatmapConfigurationPtrOutputWithContext(context.Context) AnalysisGeospatialHeatmapConfigurationPtrOutput
+}
+
+type analysisGeospatialHeatmapConfigurationPtrType AnalysisGeospatialHeatmapConfigurationArgs
+
+func AnalysisGeospatialHeatmapConfigurationPtr(v *AnalysisGeospatialHeatmapConfigurationArgs) AnalysisGeospatialHeatmapConfigurationPtrInput {
+	return (*analysisGeospatialHeatmapConfigurationPtrType)(v)
+}
+
+func (*analysisGeospatialHeatmapConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisGeospatialHeatmapConfiguration)(nil)).Elem()
+}
+
+func (i *analysisGeospatialHeatmapConfigurationPtrType) ToAnalysisGeospatialHeatmapConfigurationPtrOutput() AnalysisGeospatialHeatmapConfigurationPtrOutput {
+	return i.ToAnalysisGeospatialHeatmapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisGeospatialHeatmapConfigurationPtrType) ToAnalysisGeospatialHeatmapConfigurationPtrOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisGeospatialHeatmapConfigurationPtrOutput)
+}
+
+type AnalysisGeospatialHeatmapConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialHeatmapConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialHeatmapConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialHeatmapConfigurationOutput) ToAnalysisGeospatialHeatmapConfigurationOutput() AnalysisGeospatialHeatmapConfigurationOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapConfigurationOutput) ToAnalysisGeospatialHeatmapConfigurationOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapConfigurationOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapConfigurationOutput) ToAnalysisGeospatialHeatmapConfigurationPtrOutput() AnalysisGeospatialHeatmapConfigurationPtrOutput {
+	return o.ToAnalysisGeospatialHeatmapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialHeatmapConfigurationOutput) ToAnalysisGeospatialHeatmapConfigurationPtrOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisGeospatialHeatmapConfiguration) *AnalysisGeospatialHeatmapConfiguration {
+		return &v
+	}).(AnalysisGeospatialHeatmapConfigurationPtrOutput)
+}
+
+func (o AnalysisGeospatialHeatmapConfigurationOutput) HeatmapColor() AnalysisGeospatialHeatmapColorScalePtrOutput {
+	return o.ApplyT(func(v AnalysisGeospatialHeatmapConfiguration) *AnalysisGeospatialHeatmapColorScale {
+		return v.HeatmapColor
+	}).(AnalysisGeospatialHeatmapColorScalePtrOutput)
+}
+
+type AnalysisGeospatialHeatmapConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialHeatmapConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisGeospatialHeatmapConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialHeatmapConfigurationPtrOutput) ToAnalysisGeospatialHeatmapConfigurationPtrOutput() AnalysisGeospatialHeatmapConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapConfigurationPtrOutput) ToAnalysisGeospatialHeatmapConfigurationPtrOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapConfigurationPtrOutput) Elem() AnalysisGeospatialHeatmapConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialHeatmapConfiguration) AnalysisGeospatialHeatmapConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisGeospatialHeatmapConfiguration
+		return ret
+	}).(AnalysisGeospatialHeatmapConfigurationOutput)
+}
+
+func (o AnalysisGeospatialHeatmapConfigurationPtrOutput) HeatmapColor() AnalysisGeospatialHeatmapColorScalePtrOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialHeatmapConfiguration) *AnalysisGeospatialHeatmapColorScale {
+		if v == nil {
+			return nil
+		}
+		return v.HeatmapColor
+	}).(AnalysisGeospatialHeatmapColorScalePtrOutput)
+}
+
+type AnalysisGeospatialHeatmapDataColor struct {
+	Color string `pulumi:"color"`
+}
+
+// AnalysisGeospatialHeatmapDataColorInput is an input type that accepts AnalysisGeospatialHeatmapDataColorArgs and AnalysisGeospatialHeatmapDataColorOutput values.
+// You can construct a concrete instance of `AnalysisGeospatialHeatmapDataColorInput` via:
+//
+//	AnalysisGeospatialHeatmapDataColorArgs{...}
+type AnalysisGeospatialHeatmapDataColorInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialHeatmapDataColorOutput() AnalysisGeospatialHeatmapDataColorOutput
+	ToAnalysisGeospatialHeatmapDataColorOutputWithContext(context.Context) AnalysisGeospatialHeatmapDataColorOutput
+}
+
+type AnalysisGeospatialHeatmapDataColorArgs struct {
+	Color pulumi.StringInput `pulumi:"color"`
+}
+
+func (AnalysisGeospatialHeatmapDataColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialHeatmapDataColor)(nil)).Elem()
+}
+
+func (i AnalysisGeospatialHeatmapDataColorArgs) ToAnalysisGeospatialHeatmapDataColorOutput() AnalysisGeospatialHeatmapDataColorOutput {
+	return i.ToAnalysisGeospatialHeatmapDataColorOutputWithContext(context.Background())
+}
+
+func (i AnalysisGeospatialHeatmapDataColorArgs) ToAnalysisGeospatialHeatmapDataColorOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapDataColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisGeospatialHeatmapDataColorOutput)
+}
+
+// AnalysisGeospatialHeatmapDataColorArrayInput is an input type that accepts AnalysisGeospatialHeatmapDataColorArray and AnalysisGeospatialHeatmapDataColorArrayOutput values.
+// You can construct a concrete instance of `AnalysisGeospatialHeatmapDataColorArrayInput` via:
+//
+//	AnalysisGeospatialHeatmapDataColorArray{ AnalysisGeospatialHeatmapDataColorArgs{...} }
+type AnalysisGeospatialHeatmapDataColorArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialHeatmapDataColorArrayOutput() AnalysisGeospatialHeatmapDataColorArrayOutput
+	ToAnalysisGeospatialHeatmapDataColorArrayOutputWithContext(context.Context) AnalysisGeospatialHeatmapDataColorArrayOutput
+}
+
+type AnalysisGeospatialHeatmapDataColorArray []AnalysisGeospatialHeatmapDataColorInput
+
+func (AnalysisGeospatialHeatmapDataColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisGeospatialHeatmapDataColor)(nil)).Elem()
+}
+
+func (i AnalysisGeospatialHeatmapDataColorArray) ToAnalysisGeospatialHeatmapDataColorArrayOutput() AnalysisGeospatialHeatmapDataColorArrayOutput {
+	return i.ToAnalysisGeospatialHeatmapDataColorArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisGeospatialHeatmapDataColorArray) ToAnalysisGeospatialHeatmapDataColorArrayOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapDataColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisGeospatialHeatmapDataColorArrayOutput)
+}
+
+type AnalysisGeospatialHeatmapDataColorOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialHeatmapDataColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialHeatmapDataColor)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialHeatmapDataColorOutput) ToAnalysisGeospatialHeatmapDataColorOutput() AnalysisGeospatialHeatmapDataColorOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapDataColorOutput) ToAnalysisGeospatialHeatmapDataColorOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapDataColorOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapDataColorOutput) Color() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisGeospatialHeatmapDataColor) string { return v.Color }).(pulumi.StringOutput)
+}
+
+type AnalysisGeospatialHeatmapDataColorArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialHeatmapDataColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisGeospatialHeatmapDataColor)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialHeatmapDataColorArrayOutput) ToAnalysisGeospatialHeatmapDataColorArrayOutput() AnalysisGeospatialHeatmapDataColorArrayOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapDataColorArrayOutput) ToAnalysisGeospatialHeatmapDataColorArrayOutputWithContext(ctx context.Context) AnalysisGeospatialHeatmapDataColorArrayOutput {
+	return o
+}
+
+func (o AnalysisGeospatialHeatmapDataColorArrayOutput) Index(i pulumi.IntInput) AnalysisGeospatialHeatmapDataColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisGeospatialHeatmapDataColor {
+		return vs[0].([]AnalysisGeospatialHeatmapDataColor)[vs[1].(int)]
+	}).(AnalysisGeospatialHeatmapDataColorOutput)
+}
+
 type AnalysisGeospatialMapAggregatedFieldWells struct {
 	Colors     []AnalysisDimensionField `pulumi:"colors"`
 	Geospatial []AnalysisDimensionField `pulumi:"geospatial"`
@@ -29921,8 +30080,9 @@ func (o AnalysisGeospatialMapVisualPtrOutput) VisualId() pulumi.StringPtrOutput 
 }
 
 type AnalysisGeospatialPointStyleOptions struct {
-	ClusterMarkerConfiguration *AnalysisClusterMarkerConfiguration   `pulumi:"clusterMarkerConfiguration"`
-	SelectedPointStyle         *AnalysisGeospatialSelectedPointStyle `pulumi:"selectedPointStyle"`
+	ClusterMarkerConfiguration *AnalysisClusterMarkerConfiguration     `pulumi:"clusterMarkerConfiguration"`
+	HeatmapConfiguration       *AnalysisGeospatialHeatmapConfiguration `pulumi:"heatmapConfiguration"`
+	SelectedPointStyle         *AnalysisGeospatialSelectedPointStyle   `pulumi:"selectedPointStyle"`
 }
 
 // AnalysisGeospatialPointStyleOptionsInput is an input type that accepts AnalysisGeospatialPointStyleOptionsArgs and AnalysisGeospatialPointStyleOptionsOutput values.
@@ -29937,8 +30097,9 @@ type AnalysisGeospatialPointStyleOptionsInput interface {
 }
 
 type AnalysisGeospatialPointStyleOptionsArgs struct {
-	ClusterMarkerConfiguration AnalysisClusterMarkerConfigurationPtrInput   `pulumi:"clusterMarkerConfiguration"`
-	SelectedPointStyle         AnalysisGeospatialSelectedPointStylePtrInput `pulumi:"selectedPointStyle"`
+	ClusterMarkerConfiguration AnalysisClusterMarkerConfigurationPtrInput     `pulumi:"clusterMarkerConfiguration"`
+	HeatmapConfiguration       AnalysisGeospatialHeatmapConfigurationPtrInput `pulumi:"heatmapConfiguration"`
+	SelectedPointStyle         AnalysisGeospatialSelectedPointStylePtrInput   `pulumi:"selectedPointStyle"`
 }
 
 func (AnalysisGeospatialPointStyleOptionsArgs) ElementType() reflect.Type {
@@ -30024,6 +30185,12 @@ func (o AnalysisGeospatialPointStyleOptionsOutput) ClusterMarkerConfiguration() 
 	}).(AnalysisClusterMarkerConfigurationPtrOutput)
 }
 
+func (o AnalysisGeospatialPointStyleOptionsOutput) HeatmapConfiguration() AnalysisGeospatialHeatmapConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisGeospatialPointStyleOptions) *AnalysisGeospatialHeatmapConfiguration {
+		return v.HeatmapConfiguration
+	}).(AnalysisGeospatialHeatmapConfigurationPtrOutput)
+}
+
 func (o AnalysisGeospatialPointStyleOptionsOutput) SelectedPointStyle() AnalysisGeospatialSelectedPointStylePtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialPointStyleOptions) *AnalysisGeospatialSelectedPointStyle {
 		return v.SelectedPointStyle
@@ -30061,6 +30228,15 @@ func (o AnalysisGeospatialPointStyleOptionsPtrOutput) ClusterMarkerConfiguration
 		}
 		return v.ClusterMarkerConfiguration
 	}).(AnalysisClusterMarkerConfigurationPtrOutput)
+}
+
+func (o AnalysisGeospatialPointStyleOptionsPtrOutput) HeatmapConfiguration() AnalysisGeospatialHeatmapConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialPointStyleOptions) *AnalysisGeospatialHeatmapConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.HeatmapConfiguration
+	}).(AnalysisGeospatialHeatmapConfigurationPtrOutput)
 }
 
 func (o AnalysisGeospatialPointStyleOptionsPtrOutput) SelectedPointStyle() AnalysisGeospatialSelectedPointStylePtrOutput {
@@ -47082,9 +47258,10 @@ func (o AnalysisPivotTableAggregatedFieldWellsPtrOutput) Values() AnalysisMeasur
 }
 
 type AnalysisPivotTableCellConditionalFormatting struct {
-	FieldId    string                                        `pulumi:"fieldId"`
-	Scope      *AnalysisPivotTableConditionalFormattingScope `pulumi:"scope"`
-	TextFormat *AnalysisTextConditionalFormat                `pulumi:"textFormat"`
+	FieldId    string                                         `pulumi:"fieldId"`
+	Scope      *AnalysisPivotTableConditionalFormattingScope  `pulumi:"scope"`
+	Scopes     []AnalysisPivotTableConditionalFormattingScope `pulumi:"scopes"`
+	TextFormat *AnalysisTextConditionalFormat                 `pulumi:"textFormat"`
 }
 
 // AnalysisPivotTableCellConditionalFormattingInput is an input type that accepts AnalysisPivotTableCellConditionalFormattingArgs and AnalysisPivotTableCellConditionalFormattingOutput values.
@@ -47099,9 +47276,10 @@ type AnalysisPivotTableCellConditionalFormattingInput interface {
 }
 
 type AnalysisPivotTableCellConditionalFormattingArgs struct {
-	FieldId    pulumi.StringInput                                   `pulumi:"fieldId"`
-	Scope      AnalysisPivotTableConditionalFormattingScopePtrInput `pulumi:"scope"`
-	TextFormat AnalysisTextConditionalFormatPtrInput                `pulumi:"textFormat"`
+	FieldId    pulumi.StringInput                                     `pulumi:"fieldId"`
+	Scope      AnalysisPivotTableConditionalFormattingScopePtrInput   `pulumi:"scope"`
+	Scopes     AnalysisPivotTableConditionalFormattingScopeArrayInput `pulumi:"scopes"`
+	TextFormat AnalysisTextConditionalFormatPtrInput                  `pulumi:"textFormat"`
 }
 
 func (AnalysisPivotTableCellConditionalFormattingArgs) ElementType() reflect.Type {
@@ -47191,6 +47369,12 @@ func (o AnalysisPivotTableCellConditionalFormattingOutput) Scope() AnalysisPivot
 	}).(AnalysisPivotTableConditionalFormattingScopePtrOutput)
 }
 
+func (o AnalysisPivotTableCellConditionalFormattingOutput) Scopes() AnalysisPivotTableConditionalFormattingScopeArrayOutput {
+	return o.ApplyT(func(v AnalysisPivotTableCellConditionalFormatting) []AnalysisPivotTableConditionalFormattingScope {
+		return v.Scopes
+	}).(AnalysisPivotTableConditionalFormattingScopeArrayOutput)
+}
+
 func (o AnalysisPivotTableCellConditionalFormattingOutput) TextFormat() AnalysisTextConditionalFormatPtrOutput {
 	return o.ApplyT(func(v AnalysisPivotTableCellConditionalFormatting) *AnalysisTextConditionalFormat {
 		return v.TextFormat
@@ -47237,6 +47421,15 @@ func (o AnalysisPivotTableCellConditionalFormattingPtrOutput) Scope() AnalysisPi
 		}
 		return v.Scope
 	}).(AnalysisPivotTableConditionalFormattingScopePtrOutput)
+}
+
+func (o AnalysisPivotTableCellConditionalFormattingPtrOutput) Scopes() AnalysisPivotTableConditionalFormattingScopeArrayOutput {
+	return o.ApplyT(func(v *AnalysisPivotTableCellConditionalFormatting) []AnalysisPivotTableConditionalFormattingScope {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(AnalysisPivotTableConditionalFormattingScopeArrayOutput)
 }
 
 func (o AnalysisPivotTableCellConditionalFormattingPtrOutput) TextFormat() AnalysisTextConditionalFormatPtrOutput {
@@ -47551,6 +47744,31 @@ func (i *analysisPivotTableConditionalFormattingScopePtrType) ToAnalysisPivotTab
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisPivotTableConditionalFormattingScopePtrOutput)
 }
 
+// AnalysisPivotTableConditionalFormattingScopeArrayInput is an input type that accepts AnalysisPivotTableConditionalFormattingScopeArray and AnalysisPivotTableConditionalFormattingScopeArrayOutput values.
+// You can construct a concrete instance of `AnalysisPivotTableConditionalFormattingScopeArrayInput` via:
+//
+//	AnalysisPivotTableConditionalFormattingScopeArray{ AnalysisPivotTableConditionalFormattingScopeArgs{...} }
+type AnalysisPivotTableConditionalFormattingScopeArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisPivotTableConditionalFormattingScopeArrayOutput() AnalysisPivotTableConditionalFormattingScopeArrayOutput
+	ToAnalysisPivotTableConditionalFormattingScopeArrayOutputWithContext(context.Context) AnalysisPivotTableConditionalFormattingScopeArrayOutput
+}
+
+type AnalysisPivotTableConditionalFormattingScopeArray []AnalysisPivotTableConditionalFormattingScopeInput
+
+func (AnalysisPivotTableConditionalFormattingScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisPivotTableConditionalFormattingScope)(nil)).Elem()
+}
+
+func (i AnalysisPivotTableConditionalFormattingScopeArray) ToAnalysisPivotTableConditionalFormattingScopeArrayOutput() AnalysisPivotTableConditionalFormattingScopeArrayOutput {
+	return i.ToAnalysisPivotTableConditionalFormattingScopeArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisPivotTableConditionalFormattingScopeArray) ToAnalysisPivotTableConditionalFormattingScopeArrayOutputWithContext(ctx context.Context) AnalysisPivotTableConditionalFormattingScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisPivotTableConditionalFormattingScopeArrayOutput)
+}
+
 type AnalysisPivotTableConditionalFormattingScopeOutput struct{ *pulumi.OutputState }
 
 func (AnalysisPivotTableConditionalFormattingScopeOutput) ElementType() reflect.Type {
@@ -47612,6 +47830,26 @@ func (o AnalysisPivotTableConditionalFormattingScopePtrOutput) Role() AnalysisPi
 		}
 		return v.Role
 	}).(AnalysisPivotTableConditionalFormattingScopeRolePtrOutput)
+}
+
+type AnalysisPivotTableConditionalFormattingScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisPivotTableConditionalFormattingScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisPivotTableConditionalFormattingScope)(nil)).Elem()
+}
+
+func (o AnalysisPivotTableConditionalFormattingScopeArrayOutput) ToAnalysisPivotTableConditionalFormattingScopeArrayOutput() AnalysisPivotTableConditionalFormattingScopeArrayOutput {
+	return o
+}
+
+func (o AnalysisPivotTableConditionalFormattingScopeArrayOutput) ToAnalysisPivotTableConditionalFormattingScopeArrayOutputWithContext(ctx context.Context) AnalysisPivotTableConditionalFormattingScopeArrayOutput {
+	return o
+}
+
+func (o AnalysisPivotTableConditionalFormattingScopeArrayOutput) Index(i pulumi.IntInput) AnalysisPivotTableConditionalFormattingScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisPivotTableConditionalFormattingScope {
+		return vs[0].([]AnalysisPivotTableConditionalFormattingScope)[vs[1].(int)]
+	}).(AnalysisPivotTableConditionalFormattingScopeOutput)
 }
 
 type AnalysisPivotTableConfiguration struct {
@@ -47929,6 +48167,167 @@ func (o AnalysisPivotTableDataPathOptionArrayOutput) Index(i pulumi.IntInput) An
 	}).(AnalysisPivotTableDataPathOptionOutput)
 }
 
+type AnalysisPivotTableFieldCollapseStateOption struct {
+	State  *AnalysisPivotTableFieldCollapseState      `pulumi:"state"`
+	Target AnalysisPivotTableFieldCollapseStateTarget `pulumi:"target"`
+}
+
+// AnalysisPivotTableFieldCollapseStateOptionInput is an input type that accepts AnalysisPivotTableFieldCollapseStateOptionArgs and AnalysisPivotTableFieldCollapseStateOptionOutput values.
+// You can construct a concrete instance of `AnalysisPivotTableFieldCollapseStateOptionInput` via:
+//
+//	AnalysisPivotTableFieldCollapseStateOptionArgs{...}
+type AnalysisPivotTableFieldCollapseStateOptionInput interface {
+	pulumi.Input
+
+	ToAnalysisPivotTableFieldCollapseStateOptionOutput() AnalysisPivotTableFieldCollapseStateOptionOutput
+	ToAnalysisPivotTableFieldCollapseStateOptionOutputWithContext(context.Context) AnalysisPivotTableFieldCollapseStateOptionOutput
+}
+
+type AnalysisPivotTableFieldCollapseStateOptionArgs struct {
+	State  AnalysisPivotTableFieldCollapseStatePtrInput    `pulumi:"state"`
+	Target AnalysisPivotTableFieldCollapseStateTargetInput `pulumi:"target"`
+}
+
+func (AnalysisPivotTableFieldCollapseStateOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisPivotTableFieldCollapseStateOption)(nil)).Elem()
+}
+
+func (i AnalysisPivotTableFieldCollapseStateOptionArgs) ToAnalysisPivotTableFieldCollapseStateOptionOutput() AnalysisPivotTableFieldCollapseStateOptionOutput {
+	return i.ToAnalysisPivotTableFieldCollapseStateOptionOutputWithContext(context.Background())
+}
+
+func (i AnalysisPivotTableFieldCollapseStateOptionArgs) ToAnalysisPivotTableFieldCollapseStateOptionOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStateOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisPivotTableFieldCollapseStateOptionOutput)
+}
+
+// AnalysisPivotTableFieldCollapseStateOptionArrayInput is an input type that accepts AnalysisPivotTableFieldCollapseStateOptionArray and AnalysisPivotTableFieldCollapseStateOptionArrayOutput values.
+// You can construct a concrete instance of `AnalysisPivotTableFieldCollapseStateOptionArrayInput` via:
+//
+//	AnalysisPivotTableFieldCollapseStateOptionArray{ AnalysisPivotTableFieldCollapseStateOptionArgs{...} }
+type AnalysisPivotTableFieldCollapseStateOptionArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisPivotTableFieldCollapseStateOptionArrayOutput() AnalysisPivotTableFieldCollapseStateOptionArrayOutput
+	ToAnalysisPivotTableFieldCollapseStateOptionArrayOutputWithContext(context.Context) AnalysisPivotTableFieldCollapseStateOptionArrayOutput
+}
+
+type AnalysisPivotTableFieldCollapseStateOptionArray []AnalysisPivotTableFieldCollapseStateOptionInput
+
+func (AnalysisPivotTableFieldCollapseStateOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisPivotTableFieldCollapseStateOption)(nil)).Elem()
+}
+
+func (i AnalysisPivotTableFieldCollapseStateOptionArray) ToAnalysisPivotTableFieldCollapseStateOptionArrayOutput() AnalysisPivotTableFieldCollapseStateOptionArrayOutput {
+	return i.ToAnalysisPivotTableFieldCollapseStateOptionArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisPivotTableFieldCollapseStateOptionArray) ToAnalysisPivotTableFieldCollapseStateOptionArrayOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStateOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisPivotTableFieldCollapseStateOptionArrayOutput)
+}
+
+type AnalysisPivotTableFieldCollapseStateOptionOutput struct{ *pulumi.OutputState }
+
+func (AnalysisPivotTableFieldCollapseStateOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisPivotTableFieldCollapseStateOption)(nil)).Elem()
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOptionOutput) ToAnalysisPivotTableFieldCollapseStateOptionOutput() AnalysisPivotTableFieldCollapseStateOptionOutput {
+	return o
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOptionOutput) ToAnalysisPivotTableFieldCollapseStateOptionOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStateOptionOutput {
+	return o
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOptionOutput) State() AnalysisPivotTableFieldCollapseStatePtrOutput {
+	return o.ApplyT(func(v AnalysisPivotTableFieldCollapseStateOption) *AnalysisPivotTableFieldCollapseState {
+		return v.State
+	}).(AnalysisPivotTableFieldCollapseStatePtrOutput)
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOptionOutput) Target() AnalysisPivotTableFieldCollapseStateTargetOutput {
+	return o.ApplyT(func(v AnalysisPivotTableFieldCollapseStateOption) AnalysisPivotTableFieldCollapseStateTarget {
+		return v.Target
+	}).(AnalysisPivotTableFieldCollapseStateTargetOutput)
+}
+
+type AnalysisPivotTableFieldCollapseStateOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisPivotTableFieldCollapseStateOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisPivotTableFieldCollapseStateOption)(nil)).Elem()
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOptionArrayOutput) ToAnalysisPivotTableFieldCollapseStateOptionArrayOutput() AnalysisPivotTableFieldCollapseStateOptionArrayOutput {
+	return o
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOptionArrayOutput) ToAnalysisPivotTableFieldCollapseStateOptionArrayOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStateOptionArrayOutput {
+	return o
+}
+
+func (o AnalysisPivotTableFieldCollapseStateOptionArrayOutput) Index(i pulumi.IntInput) AnalysisPivotTableFieldCollapseStateOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisPivotTableFieldCollapseStateOption {
+		return vs[0].([]AnalysisPivotTableFieldCollapseStateOption)[vs[1].(int)]
+	}).(AnalysisPivotTableFieldCollapseStateOptionOutput)
+}
+
+type AnalysisPivotTableFieldCollapseStateTarget struct {
+	FieldDataPathValues []AnalysisDataPathValue `pulumi:"fieldDataPathValues"`
+	FieldId             *string                 `pulumi:"fieldId"`
+}
+
+// AnalysisPivotTableFieldCollapseStateTargetInput is an input type that accepts AnalysisPivotTableFieldCollapseStateTargetArgs and AnalysisPivotTableFieldCollapseStateTargetOutput values.
+// You can construct a concrete instance of `AnalysisPivotTableFieldCollapseStateTargetInput` via:
+//
+//	AnalysisPivotTableFieldCollapseStateTargetArgs{...}
+type AnalysisPivotTableFieldCollapseStateTargetInput interface {
+	pulumi.Input
+
+	ToAnalysisPivotTableFieldCollapseStateTargetOutput() AnalysisPivotTableFieldCollapseStateTargetOutput
+	ToAnalysisPivotTableFieldCollapseStateTargetOutputWithContext(context.Context) AnalysisPivotTableFieldCollapseStateTargetOutput
+}
+
+type AnalysisPivotTableFieldCollapseStateTargetArgs struct {
+	FieldDataPathValues AnalysisDataPathValueArrayInput `pulumi:"fieldDataPathValues"`
+	FieldId             pulumi.StringPtrInput           `pulumi:"fieldId"`
+}
+
+func (AnalysisPivotTableFieldCollapseStateTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisPivotTableFieldCollapseStateTarget)(nil)).Elem()
+}
+
+func (i AnalysisPivotTableFieldCollapseStateTargetArgs) ToAnalysisPivotTableFieldCollapseStateTargetOutput() AnalysisPivotTableFieldCollapseStateTargetOutput {
+	return i.ToAnalysisPivotTableFieldCollapseStateTargetOutputWithContext(context.Background())
+}
+
+func (i AnalysisPivotTableFieldCollapseStateTargetArgs) ToAnalysisPivotTableFieldCollapseStateTargetOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStateTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisPivotTableFieldCollapseStateTargetOutput)
+}
+
+type AnalysisPivotTableFieldCollapseStateTargetOutput struct{ *pulumi.OutputState }
+
+func (AnalysisPivotTableFieldCollapseStateTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisPivotTableFieldCollapseStateTarget)(nil)).Elem()
+}
+
+func (o AnalysisPivotTableFieldCollapseStateTargetOutput) ToAnalysisPivotTableFieldCollapseStateTargetOutput() AnalysisPivotTableFieldCollapseStateTargetOutput {
+	return o
+}
+
+func (o AnalysisPivotTableFieldCollapseStateTargetOutput) ToAnalysisPivotTableFieldCollapseStateTargetOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStateTargetOutput {
+	return o
+}
+
+func (o AnalysisPivotTableFieldCollapseStateTargetOutput) FieldDataPathValues() AnalysisDataPathValueArrayOutput {
+	return o.ApplyT(func(v AnalysisPivotTableFieldCollapseStateTarget) []AnalysisDataPathValue {
+		return v.FieldDataPathValues
+	}).(AnalysisDataPathValueArrayOutput)
+}
+
+func (o AnalysisPivotTableFieldCollapseStateTargetOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisPivotTableFieldCollapseStateTarget) *string { return v.FieldId }).(pulumi.StringPtrOutput)
+}
+
 type AnalysisPivotTableFieldOption struct {
 	CustomLabel *string             `pulumi:"customLabel"`
 	FieldId     string              `pulumi:"fieldId"`
@@ -48036,8 +48435,9 @@ func (o AnalysisPivotTableFieldOptionArrayOutput) Index(i pulumi.IntInput) Analy
 }
 
 type AnalysisPivotTableFieldOptions struct {
-	DataPathOptions      []AnalysisPivotTableDataPathOption `pulumi:"dataPathOptions"`
-	SelectedFieldOptions []AnalysisPivotTableFieldOption    `pulumi:"selectedFieldOptions"`
+	CollapseStateOptions []AnalysisPivotTableFieldCollapseStateOption `pulumi:"collapseStateOptions"`
+	DataPathOptions      []AnalysisPivotTableDataPathOption           `pulumi:"dataPathOptions"`
+	SelectedFieldOptions []AnalysisPivotTableFieldOption              `pulumi:"selectedFieldOptions"`
 }
 
 // AnalysisPivotTableFieldOptionsInput is an input type that accepts AnalysisPivotTableFieldOptionsArgs and AnalysisPivotTableFieldOptionsOutput values.
@@ -48052,8 +48452,9 @@ type AnalysisPivotTableFieldOptionsInput interface {
 }
 
 type AnalysisPivotTableFieldOptionsArgs struct {
-	DataPathOptions      AnalysisPivotTableDataPathOptionArrayInput `pulumi:"dataPathOptions"`
-	SelectedFieldOptions AnalysisPivotTableFieldOptionArrayInput    `pulumi:"selectedFieldOptions"`
+	CollapseStateOptions AnalysisPivotTableFieldCollapseStateOptionArrayInput `pulumi:"collapseStateOptions"`
+	DataPathOptions      AnalysisPivotTableDataPathOptionArrayInput           `pulumi:"dataPathOptions"`
+	SelectedFieldOptions AnalysisPivotTableFieldOptionArrayInput              `pulumi:"selectedFieldOptions"`
 }
 
 func (AnalysisPivotTableFieldOptionsArgs) ElementType() reflect.Type {
@@ -48133,6 +48534,12 @@ func (o AnalysisPivotTableFieldOptionsOutput) ToAnalysisPivotTableFieldOptionsPt
 	}).(AnalysisPivotTableFieldOptionsPtrOutput)
 }
 
+func (o AnalysisPivotTableFieldOptionsOutput) CollapseStateOptions() AnalysisPivotTableFieldCollapseStateOptionArrayOutput {
+	return o.ApplyT(func(v AnalysisPivotTableFieldOptions) []AnalysisPivotTableFieldCollapseStateOption {
+		return v.CollapseStateOptions
+	}).(AnalysisPivotTableFieldCollapseStateOptionArrayOutput)
+}
+
 func (o AnalysisPivotTableFieldOptionsOutput) DataPathOptions() AnalysisPivotTableDataPathOptionArrayOutput {
 	return o.ApplyT(func(v AnalysisPivotTableFieldOptions) []AnalysisPivotTableDataPathOption { return v.DataPathOptions }).(AnalysisPivotTableDataPathOptionArrayOutput)
 }
@@ -48163,6 +48570,15 @@ func (o AnalysisPivotTableFieldOptionsPtrOutput) Elem() AnalysisPivotTableFieldO
 		var ret AnalysisPivotTableFieldOptions
 		return ret
 	}).(AnalysisPivotTableFieldOptionsOutput)
+}
+
+func (o AnalysisPivotTableFieldOptionsPtrOutput) CollapseStateOptions() AnalysisPivotTableFieldCollapseStateOptionArrayOutput {
+	return o.ApplyT(func(v *AnalysisPivotTableFieldOptions) []AnalysisPivotTableFieldCollapseStateOption {
+		if v == nil {
+			return nil
+		}
+		return v.CollapseStateOptions
+	}).(AnalysisPivotTableFieldCollapseStateOptionArrayOutput)
 }
 
 func (o AnalysisPivotTableFieldOptionsPtrOutput) DataPathOptions() AnalysisPivotTableDataPathOptionArrayOutput {
@@ -48413,15 +48829,16 @@ func (o AnalysisPivotTableFieldWellsPtrOutput) PivotTableAggregatedFieldWells() 
 }
 
 type AnalysisPivotTableOptions struct {
-	CellStyle                *AnalysisTableCellStyle            `pulumi:"cellStyle"`
-	ColumnHeaderStyle        *AnalysisTableCellStyle            `pulumi:"columnHeaderStyle"`
-	ColumnNamesVisibility    *AnalysisVisibility                `pulumi:"columnNamesVisibility"`
-	MetricPlacement          *AnalysisPivotTableMetricPlacement `pulumi:"metricPlacement"`
-	RowAlternateColorOptions *AnalysisRowAlternateColorOptions  `pulumi:"rowAlternateColorOptions"`
-	RowFieldNamesStyle       *AnalysisTableCellStyle            `pulumi:"rowFieldNamesStyle"`
-	RowHeaderStyle           *AnalysisTableCellStyle            `pulumi:"rowHeaderStyle"`
-	SingleMetricVisibility   *AnalysisVisibility                `pulumi:"singleMetricVisibility"`
-	ToggleButtonsVisibility  *AnalysisVisibility                `pulumi:"toggleButtonsVisibility"`
+	CellStyle                        *AnalysisTableCellStyle            `pulumi:"cellStyle"`
+	CollapsedRowDimensionsVisibility *AnalysisVisibility                `pulumi:"collapsedRowDimensionsVisibility"`
+	ColumnHeaderStyle                *AnalysisTableCellStyle            `pulumi:"columnHeaderStyle"`
+	ColumnNamesVisibility            *AnalysisVisibility                `pulumi:"columnNamesVisibility"`
+	MetricPlacement                  *AnalysisPivotTableMetricPlacement `pulumi:"metricPlacement"`
+	RowAlternateColorOptions         *AnalysisRowAlternateColorOptions  `pulumi:"rowAlternateColorOptions"`
+	RowFieldNamesStyle               *AnalysisTableCellStyle            `pulumi:"rowFieldNamesStyle"`
+	RowHeaderStyle                   *AnalysisTableCellStyle            `pulumi:"rowHeaderStyle"`
+	SingleMetricVisibility           *AnalysisVisibility                `pulumi:"singleMetricVisibility"`
+	ToggleButtonsVisibility          *AnalysisVisibility                `pulumi:"toggleButtonsVisibility"`
 }
 
 // AnalysisPivotTableOptionsInput is an input type that accepts AnalysisPivotTableOptionsArgs and AnalysisPivotTableOptionsOutput values.
@@ -48436,15 +48853,16 @@ type AnalysisPivotTableOptionsInput interface {
 }
 
 type AnalysisPivotTableOptionsArgs struct {
-	CellStyle                AnalysisTableCellStylePtrInput            `pulumi:"cellStyle"`
-	ColumnHeaderStyle        AnalysisTableCellStylePtrInput            `pulumi:"columnHeaderStyle"`
-	ColumnNamesVisibility    AnalysisVisibilityPtrInput                `pulumi:"columnNamesVisibility"`
-	MetricPlacement          AnalysisPivotTableMetricPlacementPtrInput `pulumi:"metricPlacement"`
-	RowAlternateColorOptions AnalysisRowAlternateColorOptionsPtrInput  `pulumi:"rowAlternateColorOptions"`
-	RowFieldNamesStyle       AnalysisTableCellStylePtrInput            `pulumi:"rowFieldNamesStyle"`
-	RowHeaderStyle           AnalysisTableCellStylePtrInput            `pulumi:"rowHeaderStyle"`
-	SingleMetricVisibility   AnalysisVisibilityPtrInput                `pulumi:"singleMetricVisibility"`
-	ToggleButtonsVisibility  AnalysisVisibilityPtrInput                `pulumi:"toggleButtonsVisibility"`
+	CellStyle                        AnalysisTableCellStylePtrInput            `pulumi:"cellStyle"`
+	CollapsedRowDimensionsVisibility AnalysisVisibilityPtrInput                `pulumi:"collapsedRowDimensionsVisibility"`
+	ColumnHeaderStyle                AnalysisTableCellStylePtrInput            `pulumi:"columnHeaderStyle"`
+	ColumnNamesVisibility            AnalysisVisibilityPtrInput                `pulumi:"columnNamesVisibility"`
+	MetricPlacement                  AnalysisPivotTableMetricPlacementPtrInput `pulumi:"metricPlacement"`
+	RowAlternateColorOptions         AnalysisRowAlternateColorOptionsPtrInput  `pulumi:"rowAlternateColorOptions"`
+	RowFieldNamesStyle               AnalysisTableCellStylePtrInput            `pulumi:"rowFieldNamesStyle"`
+	RowHeaderStyle                   AnalysisTableCellStylePtrInput            `pulumi:"rowHeaderStyle"`
+	SingleMetricVisibility           AnalysisVisibilityPtrInput                `pulumi:"singleMetricVisibility"`
+	ToggleButtonsVisibility          AnalysisVisibilityPtrInput                `pulumi:"toggleButtonsVisibility"`
 }
 
 func (AnalysisPivotTableOptionsArgs) ElementType() reflect.Type {
@@ -48528,6 +48946,10 @@ func (o AnalysisPivotTableOptionsOutput) CellStyle() AnalysisTableCellStylePtrOu
 	return o.ApplyT(func(v AnalysisPivotTableOptions) *AnalysisTableCellStyle { return v.CellStyle }).(AnalysisTableCellStylePtrOutput)
 }
 
+func (o AnalysisPivotTableOptionsOutput) CollapsedRowDimensionsVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v AnalysisPivotTableOptions) *AnalysisVisibility { return v.CollapsedRowDimensionsVisibility }).(AnalysisVisibilityPtrOutput)
+}
+
 func (o AnalysisPivotTableOptionsOutput) ColumnHeaderStyle() AnalysisTableCellStylePtrOutput {
 	return o.ApplyT(func(v AnalysisPivotTableOptions) *AnalysisTableCellStyle { return v.ColumnHeaderStyle }).(AnalysisTableCellStylePtrOutput)
 }
@@ -48591,6 +49013,15 @@ func (o AnalysisPivotTableOptionsPtrOutput) CellStyle() AnalysisTableCellStylePt
 		}
 		return v.CellStyle
 	}).(AnalysisTableCellStylePtrOutput)
+}
+
+func (o AnalysisPivotTableOptionsPtrOutput) CollapsedRowDimensionsVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v *AnalysisPivotTableOptions) *AnalysisVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.CollapsedRowDimensionsVisibility
+	}).(AnalysisVisibilityPtrOutput)
 }
 
 func (o AnalysisPivotTableOptionsPtrOutput) ColumnHeaderStyle() AnalysisTableCellStylePtrOutput {
@@ -50218,6 +50649,7 @@ type AnalysisRadarChartConfiguration struct {
 	AlternateBandColorsVisibility *AnalysisVisibility                  `pulumi:"alternateBandColorsVisibility"`
 	AlternateBandEvenColor        *string                              `pulumi:"alternateBandEvenColor"`
 	AlternateBandOddColor         *string                              `pulumi:"alternateBandOddColor"`
+	AxesRangeScale                *AnalysisRadarChartAxesRangeScale    `pulumi:"axesRangeScale"`
 	BaseSeriesSettings            *AnalysisRadarChartSeriesSettings    `pulumi:"baseSeriesSettings"`
 	CategoryAxis                  *AnalysisAxisDisplayOptions          `pulumi:"categoryAxis"`
 	CategoryLabelOptions          *AnalysisChartAxisLabelOptions       `pulumi:"categoryLabelOptions"`
@@ -50246,6 +50678,7 @@ type AnalysisRadarChartConfigurationArgs struct {
 	AlternateBandColorsVisibility AnalysisVisibilityPtrInput                  `pulumi:"alternateBandColorsVisibility"`
 	AlternateBandEvenColor        pulumi.StringPtrInput                       `pulumi:"alternateBandEvenColor"`
 	AlternateBandOddColor         pulumi.StringPtrInput                       `pulumi:"alternateBandOddColor"`
+	AxesRangeScale                AnalysisRadarChartAxesRangeScalePtrInput    `pulumi:"axesRangeScale"`
 	BaseSeriesSettings            AnalysisRadarChartSeriesSettingsPtrInput    `pulumi:"baseSeriesSettings"`
 	CategoryAxis                  AnalysisAxisDisplayOptionsPtrInput          `pulumi:"categoryAxis"`
 	CategoryLabelOptions          AnalysisChartAxisLabelOptionsPtrInput       `pulumi:"categoryLabelOptions"`
@@ -50348,6 +50781,10 @@ func (o AnalysisRadarChartConfigurationOutput) AlternateBandOddColor() pulumi.St
 	return o.ApplyT(func(v AnalysisRadarChartConfiguration) *string { return v.AlternateBandOddColor }).(pulumi.StringPtrOutput)
 }
 
+func (o AnalysisRadarChartConfigurationOutput) AxesRangeScale() AnalysisRadarChartAxesRangeScalePtrOutput {
+	return o.ApplyT(func(v AnalysisRadarChartConfiguration) *AnalysisRadarChartAxesRangeScale { return v.AxesRangeScale }).(AnalysisRadarChartAxesRangeScalePtrOutput)
+}
+
 func (o AnalysisRadarChartConfigurationOutput) BaseSeriesSettings() AnalysisRadarChartSeriesSettingsPtrOutput {
 	return o.ApplyT(func(v AnalysisRadarChartConfiguration) *AnalysisRadarChartSeriesSettings { return v.BaseSeriesSettings }).(AnalysisRadarChartSeriesSettingsPtrOutput)
 }
@@ -50443,6 +50880,15 @@ func (o AnalysisRadarChartConfigurationPtrOutput) AlternateBandOddColor() pulumi
 		}
 		return v.AlternateBandOddColor
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisRadarChartConfigurationPtrOutput) AxesRangeScale() AnalysisRadarChartAxesRangeScalePtrOutput {
+	return o.ApplyT(func(v *AnalysisRadarChartConfiguration) *AnalysisRadarChartAxesRangeScale {
+		if v == nil {
+			return nil
+		}
+		return v.AxesRangeScale
+	}).(AnalysisRadarChartAxesRangeScalePtrOutput)
 }
 
 func (o AnalysisRadarChartConfigurationPtrOutput) BaseSeriesSettings() AnalysisRadarChartSeriesSettingsPtrOutput {
@@ -51648,7 +52094,7 @@ func (o AnalysisReferenceLineDataConfigurationOutput) StaticConfiguration() Anal
 type AnalysisReferenceLineDynamicDataConfiguration struct {
 	Calculation                AnalysisNumericalAggregationFunction `pulumi:"calculation"`
 	Column                     AnalysisColumnIdentifier             `pulumi:"column"`
-	MeasureAggregationFunction AnalysisAggregationFunction          `pulumi:"measureAggregationFunction"`
+	MeasureAggregationFunction *AnalysisAggregationFunction         `pulumi:"measureAggregationFunction"`
 }
 
 // AnalysisReferenceLineDynamicDataConfigurationInput is an input type that accepts AnalysisReferenceLineDynamicDataConfigurationArgs and AnalysisReferenceLineDynamicDataConfigurationOutput values.
@@ -51665,7 +52111,7 @@ type AnalysisReferenceLineDynamicDataConfigurationInput interface {
 type AnalysisReferenceLineDynamicDataConfigurationArgs struct {
 	Calculation                AnalysisNumericalAggregationFunctionInput `pulumi:"calculation"`
 	Column                     AnalysisColumnIdentifierInput             `pulumi:"column"`
-	MeasureAggregationFunction AnalysisAggregationFunctionInput          `pulumi:"measureAggregationFunction"`
+	MeasureAggregationFunction AnalysisAggregationFunctionPtrInput       `pulumi:"measureAggregationFunction"`
 }
 
 func (AnalysisReferenceLineDynamicDataConfigurationArgs) ElementType() reflect.Type {
@@ -51755,10 +52201,10 @@ func (o AnalysisReferenceLineDynamicDataConfigurationOutput) Column() AnalysisCo
 	return o.ApplyT(func(v AnalysisReferenceLineDynamicDataConfiguration) AnalysisColumnIdentifier { return v.Column }).(AnalysisColumnIdentifierOutput)
 }
 
-func (o AnalysisReferenceLineDynamicDataConfigurationOutput) MeasureAggregationFunction() AnalysisAggregationFunctionOutput {
-	return o.ApplyT(func(v AnalysisReferenceLineDynamicDataConfiguration) AnalysisAggregationFunction {
+func (o AnalysisReferenceLineDynamicDataConfigurationOutput) MeasureAggregationFunction() AnalysisAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v AnalysisReferenceLineDynamicDataConfiguration) *AnalysisAggregationFunction {
 		return v.MeasureAggregationFunction
-	}).(AnalysisAggregationFunctionOutput)
+	}).(AnalysisAggregationFunctionPtrOutput)
 }
 
 type AnalysisReferenceLineDynamicDataConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -51808,7 +52254,7 @@ func (o AnalysisReferenceLineDynamicDataConfigurationPtrOutput) MeasureAggregati
 		if v == nil {
 			return nil
 		}
-		return &v.MeasureAggregationFunction
+		return v.MeasureAggregationFunction
 	}).(AnalysisAggregationFunctionPtrOutput)
 }
 
@@ -54258,6 +54704,7 @@ func (o AnalysisSankeyDiagramVisualPtrOutput) VisualId() pulumi.StringPtrOutput 
 
 type AnalysisScatterPlotCategoricallyAggregatedFieldWells struct {
 	Category []AnalysisDimensionField `pulumi:"category"`
+	Label    []AnalysisDimensionField `pulumi:"label"`
 	Size     []AnalysisMeasureField   `pulumi:"size"`
 	XAxis    []AnalysisMeasureField   `pulumi:"xAxis"`
 	YAxis    []AnalysisMeasureField   `pulumi:"yAxis"`
@@ -54276,6 +54723,7 @@ type AnalysisScatterPlotCategoricallyAggregatedFieldWellsInput interface {
 
 type AnalysisScatterPlotCategoricallyAggregatedFieldWellsArgs struct {
 	Category AnalysisDimensionFieldArrayInput `pulumi:"category"`
+	Label    AnalysisDimensionFieldArrayInput `pulumi:"label"`
 	Size     AnalysisMeasureFieldArrayInput   `pulumi:"size"`
 	XAxis    AnalysisMeasureFieldArrayInput   `pulumi:"xAxis"`
 	YAxis    AnalysisMeasureFieldArrayInput   `pulumi:"yAxis"`
@@ -54364,6 +54812,10 @@ func (o AnalysisScatterPlotCategoricallyAggregatedFieldWellsOutput) Category() A
 	}).(AnalysisDimensionFieldArrayOutput)
 }
 
+func (o AnalysisScatterPlotCategoricallyAggregatedFieldWellsOutput) Label() AnalysisDimensionFieldArrayOutput {
+	return o.ApplyT(func(v AnalysisScatterPlotCategoricallyAggregatedFieldWells) []AnalysisDimensionField { return v.Label }).(AnalysisDimensionFieldArrayOutput)
+}
+
 func (o AnalysisScatterPlotCategoricallyAggregatedFieldWellsOutput) Size() AnalysisMeasureFieldArrayOutput {
 	return o.ApplyT(func(v AnalysisScatterPlotCategoricallyAggregatedFieldWells) []AnalysisMeasureField { return v.Size }).(AnalysisMeasureFieldArrayOutput)
 }
@@ -54406,6 +54858,15 @@ func (o AnalysisScatterPlotCategoricallyAggregatedFieldWellsPtrOutput) Category(
 			return nil
 		}
 		return v.Category
+	}).(AnalysisDimensionFieldArrayOutput)
+}
+
+func (o AnalysisScatterPlotCategoricallyAggregatedFieldWellsPtrOutput) Label() AnalysisDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *AnalysisScatterPlotCategoricallyAggregatedFieldWells) []AnalysisDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.Label
 	}).(AnalysisDimensionFieldArrayOutput)
 }
 
@@ -54842,9 +55303,11 @@ func (o AnalysisScatterPlotFieldWellsPtrOutput) ScatterPlotUnaggregatedFieldWell
 }
 
 type AnalysisScatterPlotUnaggregatedFieldWells struct {
-	Size  []AnalysisMeasureField   `pulumi:"size"`
-	XAxis []AnalysisDimensionField `pulumi:"xAxis"`
-	YAxis []AnalysisDimensionField `pulumi:"yAxis"`
+	Category []AnalysisDimensionField `pulumi:"category"`
+	Label    []AnalysisDimensionField `pulumi:"label"`
+	Size     []AnalysisMeasureField   `pulumi:"size"`
+	XAxis    []AnalysisDimensionField `pulumi:"xAxis"`
+	YAxis    []AnalysisDimensionField `pulumi:"yAxis"`
 }
 
 // AnalysisScatterPlotUnaggregatedFieldWellsInput is an input type that accepts AnalysisScatterPlotUnaggregatedFieldWellsArgs and AnalysisScatterPlotUnaggregatedFieldWellsOutput values.
@@ -54859,9 +55322,11 @@ type AnalysisScatterPlotUnaggregatedFieldWellsInput interface {
 }
 
 type AnalysisScatterPlotUnaggregatedFieldWellsArgs struct {
-	Size  AnalysisMeasureFieldArrayInput   `pulumi:"size"`
-	XAxis AnalysisDimensionFieldArrayInput `pulumi:"xAxis"`
-	YAxis AnalysisDimensionFieldArrayInput `pulumi:"yAxis"`
+	Category AnalysisDimensionFieldArrayInput `pulumi:"category"`
+	Label    AnalysisDimensionFieldArrayInput `pulumi:"label"`
+	Size     AnalysisMeasureFieldArrayInput   `pulumi:"size"`
+	XAxis    AnalysisDimensionFieldArrayInput `pulumi:"xAxis"`
+	YAxis    AnalysisDimensionFieldArrayInput `pulumi:"yAxis"`
 }
 
 func (AnalysisScatterPlotUnaggregatedFieldWellsArgs) ElementType() reflect.Type {
@@ -54941,6 +55406,14 @@ func (o AnalysisScatterPlotUnaggregatedFieldWellsOutput) ToAnalysisScatterPlotUn
 	}).(AnalysisScatterPlotUnaggregatedFieldWellsPtrOutput)
 }
 
+func (o AnalysisScatterPlotUnaggregatedFieldWellsOutput) Category() AnalysisDimensionFieldArrayOutput {
+	return o.ApplyT(func(v AnalysisScatterPlotUnaggregatedFieldWells) []AnalysisDimensionField { return v.Category }).(AnalysisDimensionFieldArrayOutput)
+}
+
+func (o AnalysisScatterPlotUnaggregatedFieldWellsOutput) Label() AnalysisDimensionFieldArrayOutput {
+	return o.ApplyT(func(v AnalysisScatterPlotUnaggregatedFieldWells) []AnalysisDimensionField { return v.Label }).(AnalysisDimensionFieldArrayOutput)
+}
+
 func (o AnalysisScatterPlotUnaggregatedFieldWellsOutput) Size() AnalysisMeasureFieldArrayOutput {
 	return o.ApplyT(func(v AnalysisScatterPlotUnaggregatedFieldWells) []AnalysisMeasureField { return v.Size }).(AnalysisMeasureFieldArrayOutput)
 }
@@ -54975,6 +55448,24 @@ func (o AnalysisScatterPlotUnaggregatedFieldWellsPtrOutput) Elem() AnalysisScatt
 		var ret AnalysisScatterPlotUnaggregatedFieldWells
 		return ret
 	}).(AnalysisScatterPlotUnaggregatedFieldWellsOutput)
+}
+
+func (o AnalysisScatterPlotUnaggregatedFieldWellsPtrOutput) Category() AnalysisDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *AnalysisScatterPlotUnaggregatedFieldWells) []AnalysisDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.Category
+	}).(AnalysisDimensionFieldArrayOutput)
+}
+
+func (o AnalysisScatterPlotUnaggregatedFieldWellsPtrOutput) Label() AnalysisDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *AnalysisScatterPlotUnaggregatedFieldWells) []AnalysisDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(AnalysisDimensionFieldArrayOutput)
 }
 
 func (o AnalysisScatterPlotUnaggregatedFieldWellsPtrOutput) Size() AnalysisMeasureFieldArrayOutput {
@@ -71761,9 +72252,9 @@ func (o DashboardAggregationFunctionPtrOutput) NumericalAggregationFunction() Da
 }
 
 type DashboardAggregationSortConfiguration struct {
-	AggregationFunction DashboardAggregationFunction `pulumi:"aggregationFunction"`
-	Column              DashboardColumnIdentifier    `pulumi:"column"`
-	SortDirection       DashboardSortDirection       `pulumi:"sortDirection"`
+	AggregationFunction *DashboardAggregationFunction `pulumi:"aggregationFunction"`
+	Column              DashboardColumnIdentifier     `pulumi:"column"`
+	SortDirection       DashboardSortDirection        `pulumi:"sortDirection"`
 }
 
 // DashboardAggregationSortConfigurationInput is an input type that accepts DashboardAggregationSortConfigurationArgs and DashboardAggregationSortConfigurationOutput values.
@@ -71778,9 +72269,9 @@ type DashboardAggregationSortConfigurationInput interface {
 }
 
 type DashboardAggregationSortConfigurationArgs struct {
-	AggregationFunction DashboardAggregationFunctionInput `pulumi:"aggregationFunction"`
-	Column              DashboardColumnIdentifierInput    `pulumi:"column"`
-	SortDirection       DashboardSortDirectionInput       `pulumi:"sortDirection"`
+	AggregationFunction DashboardAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
+	Column              DashboardColumnIdentifierInput       `pulumi:"column"`
+	SortDirection       DashboardSortDirectionInput          `pulumi:"sortDirection"`
 }
 
 func (DashboardAggregationSortConfigurationArgs) ElementType() reflect.Type {
@@ -71834,10 +72325,10 @@ func (o DashboardAggregationSortConfigurationOutput) ToDashboardAggregationSortC
 	return o
 }
 
-func (o DashboardAggregationSortConfigurationOutput) AggregationFunction() DashboardAggregationFunctionOutput {
-	return o.ApplyT(func(v DashboardAggregationSortConfiguration) DashboardAggregationFunction {
+func (o DashboardAggregationSortConfigurationOutput) AggregationFunction() DashboardAggregationFunctionPtrOutput {
+	return o.ApplyT(func(v DashboardAggregationSortConfiguration) *DashboardAggregationFunction {
 		return v.AggregationFunction
-	}).(DashboardAggregationFunctionOutput)
+	}).(DashboardAggregationFunctionPtrOutput)
 }
 
 func (o DashboardAggregationSortConfigurationOutput) Column() DashboardColumnIdentifierOutput {
@@ -78429,435 +78920,6 @@ func (o DashboardCategoryFilterConfigurationPtrOutput) FilterListConfiguration()
 	}).(DashboardFilterListConfigurationPtrOutput)
 }
 
-type DashboardChartAxisLabelOptions struct {
-	AxisLabelOptions   []DashboardAxisLabelOptions `pulumi:"axisLabelOptions"`
-	SortIconVisibility *DashboardVisibility        `pulumi:"sortIconVisibility"`
-	Visibility         *DashboardVisibility        `pulumi:"visibility"`
-}
-
-// DashboardChartAxisLabelOptionsInput is an input type that accepts DashboardChartAxisLabelOptionsArgs and DashboardChartAxisLabelOptionsOutput values.
-// You can construct a concrete instance of `DashboardChartAxisLabelOptionsInput` via:
-//
-//	DashboardChartAxisLabelOptionsArgs{...}
-type DashboardChartAxisLabelOptionsInput interface {
-	pulumi.Input
-
-	ToDashboardChartAxisLabelOptionsOutput() DashboardChartAxisLabelOptionsOutput
-	ToDashboardChartAxisLabelOptionsOutputWithContext(context.Context) DashboardChartAxisLabelOptionsOutput
-}
-
-type DashboardChartAxisLabelOptionsArgs struct {
-	AxisLabelOptions   DashboardAxisLabelOptionsArrayInput `pulumi:"axisLabelOptions"`
-	SortIconVisibility DashboardVisibilityPtrInput         `pulumi:"sortIconVisibility"`
-	Visibility         DashboardVisibilityPtrInput         `pulumi:"visibility"`
-}
-
-func (DashboardChartAxisLabelOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardChartAxisLabelOptions)(nil)).Elem()
-}
-
-func (i DashboardChartAxisLabelOptionsArgs) ToDashboardChartAxisLabelOptionsOutput() DashboardChartAxisLabelOptionsOutput {
-	return i.ToDashboardChartAxisLabelOptionsOutputWithContext(context.Background())
-}
-
-func (i DashboardChartAxisLabelOptionsArgs) ToDashboardChartAxisLabelOptionsOutputWithContext(ctx context.Context) DashboardChartAxisLabelOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardChartAxisLabelOptionsOutput)
-}
-
-func (i DashboardChartAxisLabelOptionsArgs) ToDashboardChartAxisLabelOptionsPtrOutput() DashboardChartAxisLabelOptionsPtrOutput {
-	return i.ToDashboardChartAxisLabelOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardChartAxisLabelOptionsArgs) ToDashboardChartAxisLabelOptionsPtrOutputWithContext(ctx context.Context) DashboardChartAxisLabelOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardChartAxisLabelOptionsOutput).ToDashboardChartAxisLabelOptionsPtrOutputWithContext(ctx)
-}
-
-// DashboardChartAxisLabelOptionsPtrInput is an input type that accepts DashboardChartAxisLabelOptionsArgs, DashboardChartAxisLabelOptionsPtr and DashboardChartAxisLabelOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardChartAxisLabelOptionsPtrInput` via:
-//
-//	        DashboardChartAxisLabelOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardChartAxisLabelOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardChartAxisLabelOptionsPtrOutput() DashboardChartAxisLabelOptionsPtrOutput
-	ToDashboardChartAxisLabelOptionsPtrOutputWithContext(context.Context) DashboardChartAxisLabelOptionsPtrOutput
-}
-
-type dashboardChartAxisLabelOptionsPtrType DashboardChartAxisLabelOptionsArgs
-
-func DashboardChartAxisLabelOptionsPtr(v *DashboardChartAxisLabelOptionsArgs) DashboardChartAxisLabelOptionsPtrInput {
-	return (*dashboardChartAxisLabelOptionsPtrType)(v)
-}
-
-func (*dashboardChartAxisLabelOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardChartAxisLabelOptions)(nil)).Elem()
-}
-
-func (i *dashboardChartAxisLabelOptionsPtrType) ToDashboardChartAxisLabelOptionsPtrOutput() DashboardChartAxisLabelOptionsPtrOutput {
-	return i.ToDashboardChartAxisLabelOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardChartAxisLabelOptionsPtrType) ToDashboardChartAxisLabelOptionsPtrOutputWithContext(ctx context.Context) DashboardChartAxisLabelOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardChartAxisLabelOptionsPtrOutput)
-}
-
-type DashboardChartAxisLabelOptionsOutput struct{ *pulumi.OutputState }
-
-func (DashboardChartAxisLabelOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardChartAxisLabelOptions)(nil)).Elem()
-}
-
-func (o DashboardChartAxisLabelOptionsOutput) ToDashboardChartAxisLabelOptionsOutput() DashboardChartAxisLabelOptionsOutput {
-	return o
-}
-
-func (o DashboardChartAxisLabelOptionsOutput) ToDashboardChartAxisLabelOptionsOutputWithContext(ctx context.Context) DashboardChartAxisLabelOptionsOutput {
-	return o
-}
-
-func (o DashboardChartAxisLabelOptionsOutput) ToDashboardChartAxisLabelOptionsPtrOutput() DashboardChartAxisLabelOptionsPtrOutput {
-	return o.ToDashboardChartAxisLabelOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardChartAxisLabelOptionsOutput) ToDashboardChartAxisLabelOptionsPtrOutputWithContext(ctx context.Context) DashboardChartAxisLabelOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardChartAxisLabelOptions) *DashboardChartAxisLabelOptions {
-		return &v
-	}).(DashboardChartAxisLabelOptionsPtrOutput)
-}
-
-func (o DashboardChartAxisLabelOptionsOutput) AxisLabelOptions() DashboardAxisLabelOptionsArrayOutput {
-	return o.ApplyT(func(v DashboardChartAxisLabelOptions) []DashboardAxisLabelOptions { return v.AxisLabelOptions }).(DashboardAxisLabelOptionsArrayOutput)
-}
-
-func (o DashboardChartAxisLabelOptionsOutput) SortIconVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardChartAxisLabelOptions) *DashboardVisibility { return v.SortIconVisibility }).(DashboardVisibilityPtrOutput)
-}
-
-func (o DashboardChartAxisLabelOptionsOutput) Visibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardChartAxisLabelOptions) *DashboardVisibility { return v.Visibility }).(DashboardVisibilityPtrOutput)
-}
-
-type DashboardChartAxisLabelOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardChartAxisLabelOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardChartAxisLabelOptions)(nil)).Elem()
-}
-
-func (o DashboardChartAxisLabelOptionsPtrOutput) ToDashboardChartAxisLabelOptionsPtrOutput() DashboardChartAxisLabelOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardChartAxisLabelOptionsPtrOutput) ToDashboardChartAxisLabelOptionsPtrOutputWithContext(ctx context.Context) DashboardChartAxisLabelOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardChartAxisLabelOptionsPtrOutput) Elem() DashboardChartAxisLabelOptionsOutput {
-	return o.ApplyT(func(v *DashboardChartAxisLabelOptions) DashboardChartAxisLabelOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardChartAxisLabelOptions
-		return ret
-	}).(DashboardChartAxisLabelOptionsOutput)
-}
-
-func (o DashboardChartAxisLabelOptionsPtrOutput) AxisLabelOptions() DashboardAxisLabelOptionsArrayOutput {
-	return o.ApplyT(func(v *DashboardChartAxisLabelOptions) []DashboardAxisLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.AxisLabelOptions
-	}).(DashboardAxisLabelOptionsArrayOutput)
-}
-
-func (o DashboardChartAxisLabelOptionsPtrOutput) SortIconVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardChartAxisLabelOptions) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.SortIconVisibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-func (o DashboardChartAxisLabelOptionsPtrOutput) Visibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardChartAxisLabelOptions) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.Visibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-type DashboardClusterMarker struct {
-	SimpleClusterMarker *DashboardSimpleClusterMarker `pulumi:"simpleClusterMarker"`
-}
-
-// DashboardClusterMarkerInput is an input type that accepts DashboardClusterMarkerArgs and DashboardClusterMarkerOutput values.
-// You can construct a concrete instance of `DashboardClusterMarkerInput` via:
-//
-//	DashboardClusterMarkerArgs{...}
-type DashboardClusterMarkerInput interface {
-	pulumi.Input
-
-	ToDashboardClusterMarkerOutput() DashboardClusterMarkerOutput
-	ToDashboardClusterMarkerOutputWithContext(context.Context) DashboardClusterMarkerOutput
-}
-
-type DashboardClusterMarkerArgs struct {
-	SimpleClusterMarker DashboardSimpleClusterMarkerPtrInput `pulumi:"simpleClusterMarker"`
-}
-
-func (DashboardClusterMarkerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardClusterMarker)(nil)).Elem()
-}
-
-func (i DashboardClusterMarkerArgs) ToDashboardClusterMarkerOutput() DashboardClusterMarkerOutput {
-	return i.ToDashboardClusterMarkerOutputWithContext(context.Background())
-}
-
-func (i DashboardClusterMarkerArgs) ToDashboardClusterMarkerOutputWithContext(ctx context.Context) DashboardClusterMarkerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardClusterMarkerOutput)
-}
-
-func (i DashboardClusterMarkerArgs) ToDashboardClusterMarkerPtrOutput() DashboardClusterMarkerPtrOutput {
-	return i.ToDashboardClusterMarkerPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardClusterMarkerArgs) ToDashboardClusterMarkerPtrOutputWithContext(ctx context.Context) DashboardClusterMarkerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardClusterMarkerOutput).ToDashboardClusterMarkerPtrOutputWithContext(ctx)
-}
-
-// DashboardClusterMarkerPtrInput is an input type that accepts DashboardClusterMarkerArgs, DashboardClusterMarkerPtr and DashboardClusterMarkerPtrOutput values.
-// You can construct a concrete instance of `DashboardClusterMarkerPtrInput` via:
-//
-//	        DashboardClusterMarkerArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardClusterMarkerPtrInput interface {
-	pulumi.Input
-
-	ToDashboardClusterMarkerPtrOutput() DashboardClusterMarkerPtrOutput
-	ToDashboardClusterMarkerPtrOutputWithContext(context.Context) DashboardClusterMarkerPtrOutput
-}
-
-type dashboardClusterMarkerPtrType DashboardClusterMarkerArgs
-
-func DashboardClusterMarkerPtr(v *DashboardClusterMarkerArgs) DashboardClusterMarkerPtrInput {
-	return (*dashboardClusterMarkerPtrType)(v)
-}
-
-func (*dashboardClusterMarkerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardClusterMarker)(nil)).Elem()
-}
-
-func (i *dashboardClusterMarkerPtrType) ToDashboardClusterMarkerPtrOutput() DashboardClusterMarkerPtrOutput {
-	return i.ToDashboardClusterMarkerPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardClusterMarkerPtrType) ToDashboardClusterMarkerPtrOutputWithContext(ctx context.Context) DashboardClusterMarkerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardClusterMarkerPtrOutput)
-}
-
-type DashboardClusterMarkerOutput struct{ *pulumi.OutputState }
-
-func (DashboardClusterMarkerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardClusterMarker)(nil)).Elem()
-}
-
-func (o DashboardClusterMarkerOutput) ToDashboardClusterMarkerOutput() DashboardClusterMarkerOutput {
-	return o
-}
-
-func (o DashboardClusterMarkerOutput) ToDashboardClusterMarkerOutputWithContext(ctx context.Context) DashboardClusterMarkerOutput {
-	return o
-}
-
-func (o DashboardClusterMarkerOutput) ToDashboardClusterMarkerPtrOutput() DashboardClusterMarkerPtrOutput {
-	return o.ToDashboardClusterMarkerPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardClusterMarkerOutput) ToDashboardClusterMarkerPtrOutputWithContext(ctx context.Context) DashboardClusterMarkerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardClusterMarker) *DashboardClusterMarker {
-		return &v
-	}).(DashboardClusterMarkerPtrOutput)
-}
-
-func (o DashboardClusterMarkerOutput) SimpleClusterMarker() DashboardSimpleClusterMarkerPtrOutput {
-	return o.ApplyT(func(v DashboardClusterMarker) *DashboardSimpleClusterMarker { return v.SimpleClusterMarker }).(DashboardSimpleClusterMarkerPtrOutput)
-}
-
-type DashboardClusterMarkerPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardClusterMarkerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardClusterMarker)(nil)).Elem()
-}
-
-func (o DashboardClusterMarkerPtrOutput) ToDashboardClusterMarkerPtrOutput() DashboardClusterMarkerPtrOutput {
-	return o
-}
-
-func (o DashboardClusterMarkerPtrOutput) ToDashboardClusterMarkerPtrOutputWithContext(ctx context.Context) DashboardClusterMarkerPtrOutput {
-	return o
-}
-
-func (o DashboardClusterMarkerPtrOutput) Elem() DashboardClusterMarkerOutput {
-	return o.ApplyT(func(v *DashboardClusterMarker) DashboardClusterMarker {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardClusterMarker
-		return ret
-	}).(DashboardClusterMarkerOutput)
-}
-
-func (o DashboardClusterMarkerPtrOutput) SimpleClusterMarker() DashboardSimpleClusterMarkerPtrOutput {
-	return o.ApplyT(func(v *DashboardClusterMarker) *DashboardSimpleClusterMarker {
-		if v == nil {
-			return nil
-		}
-		return v.SimpleClusterMarker
-	}).(DashboardSimpleClusterMarkerPtrOutput)
-}
-
-type DashboardClusterMarkerConfiguration struct {
-	ClusterMarker *DashboardClusterMarker `pulumi:"clusterMarker"`
-}
-
-// DashboardClusterMarkerConfigurationInput is an input type that accepts DashboardClusterMarkerConfigurationArgs and DashboardClusterMarkerConfigurationOutput values.
-// You can construct a concrete instance of `DashboardClusterMarkerConfigurationInput` via:
-//
-//	DashboardClusterMarkerConfigurationArgs{...}
-type DashboardClusterMarkerConfigurationInput interface {
-	pulumi.Input
-
-	ToDashboardClusterMarkerConfigurationOutput() DashboardClusterMarkerConfigurationOutput
-	ToDashboardClusterMarkerConfigurationOutputWithContext(context.Context) DashboardClusterMarkerConfigurationOutput
-}
-
-type DashboardClusterMarkerConfigurationArgs struct {
-	ClusterMarker DashboardClusterMarkerPtrInput `pulumi:"clusterMarker"`
-}
-
-func (DashboardClusterMarkerConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardClusterMarkerConfiguration)(nil)).Elem()
-}
-
-func (i DashboardClusterMarkerConfigurationArgs) ToDashboardClusterMarkerConfigurationOutput() DashboardClusterMarkerConfigurationOutput {
-	return i.ToDashboardClusterMarkerConfigurationOutputWithContext(context.Background())
-}
-
-func (i DashboardClusterMarkerConfigurationArgs) ToDashboardClusterMarkerConfigurationOutputWithContext(ctx context.Context) DashboardClusterMarkerConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardClusterMarkerConfigurationOutput)
-}
-
-func (i DashboardClusterMarkerConfigurationArgs) ToDashboardClusterMarkerConfigurationPtrOutput() DashboardClusterMarkerConfigurationPtrOutput {
-	return i.ToDashboardClusterMarkerConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardClusterMarkerConfigurationArgs) ToDashboardClusterMarkerConfigurationPtrOutputWithContext(ctx context.Context) DashboardClusterMarkerConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardClusterMarkerConfigurationOutput).ToDashboardClusterMarkerConfigurationPtrOutputWithContext(ctx)
-}
-
-// DashboardClusterMarkerConfigurationPtrInput is an input type that accepts DashboardClusterMarkerConfigurationArgs, DashboardClusterMarkerConfigurationPtr and DashboardClusterMarkerConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardClusterMarkerConfigurationPtrInput` via:
-//
-//	        DashboardClusterMarkerConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardClusterMarkerConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDashboardClusterMarkerConfigurationPtrOutput() DashboardClusterMarkerConfigurationPtrOutput
-	ToDashboardClusterMarkerConfigurationPtrOutputWithContext(context.Context) DashboardClusterMarkerConfigurationPtrOutput
-}
-
-type dashboardClusterMarkerConfigurationPtrType DashboardClusterMarkerConfigurationArgs
-
-func DashboardClusterMarkerConfigurationPtr(v *DashboardClusterMarkerConfigurationArgs) DashboardClusterMarkerConfigurationPtrInput {
-	return (*dashboardClusterMarkerConfigurationPtrType)(v)
-}
-
-func (*dashboardClusterMarkerConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardClusterMarkerConfiguration)(nil)).Elem()
-}
-
-func (i *dashboardClusterMarkerConfigurationPtrType) ToDashboardClusterMarkerConfigurationPtrOutput() DashboardClusterMarkerConfigurationPtrOutput {
-	return i.ToDashboardClusterMarkerConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardClusterMarkerConfigurationPtrType) ToDashboardClusterMarkerConfigurationPtrOutputWithContext(ctx context.Context) DashboardClusterMarkerConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardClusterMarkerConfigurationPtrOutput)
-}
-
-type DashboardClusterMarkerConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DashboardClusterMarkerConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardClusterMarkerConfiguration)(nil)).Elem()
-}
-
-func (o DashboardClusterMarkerConfigurationOutput) ToDashboardClusterMarkerConfigurationOutput() DashboardClusterMarkerConfigurationOutput {
-	return o
-}
-
-func (o DashboardClusterMarkerConfigurationOutput) ToDashboardClusterMarkerConfigurationOutputWithContext(ctx context.Context) DashboardClusterMarkerConfigurationOutput {
-	return o
-}
-
-func (o DashboardClusterMarkerConfigurationOutput) ToDashboardClusterMarkerConfigurationPtrOutput() DashboardClusterMarkerConfigurationPtrOutput {
-	return o.ToDashboardClusterMarkerConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardClusterMarkerConfigurationOutput) ToDashboardClusterMarkerConfigurationPtrOutputWithContext(ctx context.Context) DashboardClusterMarkerConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardClusterMarkerConfiguration) *DashboardClusterMarkerConfiguration {
-		return &v
-	}).(DashboardClusterMarkerConfigurationPtrOutput)
-}
-
-func (o DashboardClusterMarkerConfigurationOutput) ClusterMarker() DashboardClusterMarkerPtrOutput {
-	return o.ApplyT(func(v DashboardClusterMarkerConfiguration) *DashboardClusterMarker { return v.ClusterMarker }).(DashboardClusterMarkerPtrOutput)
-}
-
-type DashboardClusterMarkerConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardClusterMarkerConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardClusterMarkerConfiguration)(nil)).Elem()
-}
-
-func (o DashboardClusterMarkerConfigurationPtrOutput) ToDashboardClusterMarkerConfigurationPtrOutput() DashboardClusterMarkerConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardClusterMarkerConfigurationPtrOutput) ToDashboardClusterMarkerConfigurationPtrOutputWithContext(ctx context.Context) DashboardClusterMarkerConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardClusterMarkerConfigurationPtrOutput) Elem() DashboardClusterMarkerConfigurationOutput {
-	return o.ApplyT(func(v *DashboardClusterMarkerConfiguration) DashboardClusterMarkerConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardClusterMarkerConfiguration
-		return ret
-	}).(DashboardClusterMarkerConfigurationOutput)
-}
-
-func (o DashboardClusterMarkerConfigurationPtrOutput) ClusterMarker() DashboardClusterMarkerPtrOutput {
-	return o.ApplyT(func(v *DashboardClusterMarkerConfiguration) *DashboardClusterMarker {
-		if v == nil {
-			return nil
-		}
-		return v.ClusterMarker
-	}).(DashboardClusterMarkerPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionPtrInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
@@ -78952,8 +79014,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisClusterMarkerConfigurationPtrInput)(nil)).Elem(), AnalysisClusterMarkerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColorScaleInput)(nil)).Elem(), AnalysisColorScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColorScalePtrInput)(nil)).Elem(), AnalysisColorScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColorsConfigurationInput)(nil)).Elem(), AnalysisColorsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColorsConfigurationPtrInput)(nil)).Elem(), AnalysisColorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnConfigurationInput)(nil)).Elem(), AnalysisColumnConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnConfigurationArrayInput)(nil)).Elem(), AnalysisColumnConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnHierarchyInput)(nil)).Elem(), AnalysisColumnHierarchyArgs{})
@@ -79009,8 +79069,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionSetParametersOperationPtrInput)(nil)).Elem(), AnalysisCustomActionSetParametersOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionURLOperationInput)(nil)).Elem(), AnalysisCustomActionURLOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionURLOperationPtrInput)(nil)).Elem(), AnalysisCustomActionURLOperationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomColorInput)(nil)).Elem(), AnalysisCustomColorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomColorArrayInput)(nil)).Elem(), AnalysisCustomColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomContentConfigurationInput)(nil)).Elem(), AnalysisCustomContentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomContentConfigurationPtrInput)(nil)).Elem(), AnalysisCustomContentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomContentVisualInput)(nil)).Elem(), AnalysisCustomContentVisualArgs{})
@@ -79228,6 +79286,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGaugeChartVisualPtrInput)(nil)).Elem(), AnalysisGaugeChartVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialCoordinateBoundsInput)(nil)).Elem(), AnalysisGeospatialCoordinateBoundsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialCoordinateBoundsPtrInput)(nil)).Elem(), AnalysisGeospatialCoordinateBoundsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialHeatmapColorScaleInput)(nil)).Elem(), AnalysisGeospatialHeatmapColorScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialHeatmapColorScalePtrInput)(nil)).Elem(), AnalysisGeospatialHeatmapColorScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialHeatmapConfigurationInput)(nil)).Elem(), AnalysisGeospatialHeatmapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialHeatmapConfigurationPtrInput)(nil)).Elem(), AnalysisGeospatialHeatmapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialHeatmapDataColorInput)(nil)).Elem(), AnalysisGeospatialHeatmapDataColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialHeatmapDataColorArrayInput)(nil)).Elem(), AnalysisGeospatialHeatmapDataColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialMapAggregatedFieldWellsInput)(nil)).Elem(), AnalysisGeospatialMapAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialMapAggregatedFieldWellsPtrInput)(nil)).Elem(), AnalysisGeospatialMapAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialMapConfigurationInput)(nil)).Elem(), AnalysisGeospatialMapConfigurationArgs{})
@@ -79452,10 +79516,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableConditionalFormattingOptionArrayInput)(nil)).Elem(), AnalysisPivotTableConditionalFormattingOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableConditionalFormattingScopeInput)(nil)).Elem(), AnalysisPivotTableConditionalFormattingScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableConditionalFormattingScopePtrInput)(nil)).Elem(), AnalysisPivotTableConditionalFormattingScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableConditionalFormattingScopeArrayInput)(nil)).Elem(), AnalysisPivotTableConditionalFormattingScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableConfigurationInput)(nil)).Elem(), AnalysisPivotTableConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableConfigurationPtrInput)(nil)).Elem(), AnalysisPivotTableConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableDataPathOptionInput)(nil)).Elem(), AnalysisPivotTableDataPathOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableDataPathOptionArrayInput)(nil)).Elem(), AnalysisPivotTableDataPathOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableFieldCollapseStateOptionInput)(nil)).Elem(), AnalysisPivotTableFieldCollapseStateOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableFieldCollapseStateOptionArrayInput)(nil)).Elem(), AnalysisPivotTableFieldCollapseStateOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableFieldCollapseStateTargetInput)(nil)).Elem(), AnalysisPivotTableFieldCollapseStateTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableFieldOptionInput)(nil)).Elem(), AnalysisPivotTableFieldOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableFieldOptionArrayInput)(nil)).Elem(), AnalysisPivotTableFieldOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableFieldOptionsInput)(nil)).Elem(), AnalysisPivotTableFieldOptionsArgs{})
@@ -79841,12 +79909,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryFilterPtrInput)(nil)).Elem(), DashboardCategoryFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryFilterConfigurationInput)(nil)).Elem(), DashboardCategoryFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryFilterConfigurationPtrInput)(nil)).Elem(), DashboardCategoryFilterConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardChartAxisLabelOptionsInput)(nil)).Elem(), DashboardChartAxisLabelOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardChartAxisLabelOptionsPtrInput)(nil)).Elem(), DashboardChartAxisLabelOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardClusterMarkerInput)(nil)).Elem(), DashboardClusterMarkerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardClusterMarkerPtrInput)(nil)).Elem(), DashboardClusterMarkerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardClusterMarkerConfigurationInput)(nil)).Elem(), DashboardClusterMarkerConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardClusterMarkerConfigurationPtrInput)(nil)).Elem(), DashboardClusterMarkerConfigurationArgs{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationSortConfigurationOutput{})
@@ -79940,8 +80002,6 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisClusterMarkerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisColorScaleOutput{})
 	pulumi.RegisterOutputType(AnalysisColorScalePtrOutput{})
-	pulumi.RegisterOutputType(AnalysisColorsConfigurationOutput{})
-	pulumi.RegisterOutputType(AnalysisColorsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnHierarchyOutput{})
@@ -79997,8 +80057,6 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisCustomActionSetParametersOperationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomActionURLOperationOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomActionURLOperationPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisCustomColorOutput{})
-	pulumi.RegisterOutputType(AnalysisCustomColorArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomContentConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomContentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomContentVisualOutput{})
@@ -80220,6 +80278,12 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisGaugeChartVisualPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisGeospatialCoordinateBoundsOutput{})
 	pulumi.RegisterOutputType(AnalysisGeospatialCoordinateBoundsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialHeatmapColorScaleOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialHeatmapColorScalePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialHeatmapConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialHeatmapConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialHeatmapDataColorOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialHeatmapDataColorArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisGeospatialMapAggregatedFieldWellsOutput{})
 	pulumi.RegisterOutputType(AnalysisGeospatialMapAggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisGeospatialMapConfigurationOutput{})
@@ -80444,10 +80508,14 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisPivotTableConditionalFormattingOptionArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableConditionalFormattingScopeOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableConditionalFormattingScopePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisPivotTableConditionalFormattingScopeArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableDataPathOptionOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableDataPathOptionArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisPivotTableFieldCollapseStateOptionOutput{})
+	pulumi.RegisterOutputType(AnalysisPivotTableFieldCollapseStateOptionArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisPivotTableFieldCollapseStateTargetOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableFieldOptionOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableFieldOptionArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableFieldOptionsOutput{})
@@ -80835,10 +80903,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardCategoryFilterPtrOutput{})
 	pulumi.RegisterOutputType(DashboardCategoryFilterConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardCategoryFilterConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardChartAxisLabelOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardChartAxisLabelOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardClusterMarkerOutput{})
-	pulumi.RegisterOutputType(DashboardClusterMarkerPtrOutput{})
-	pulumi.RegisterOutputType(DashboardClusterMarkerConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardClusterMarkerConfigurationPtrOutput{})
 }

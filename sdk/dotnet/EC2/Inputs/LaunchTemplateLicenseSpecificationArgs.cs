@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// Specifies a license configuration for an instance.
+    /// </summary>
     public sealed class LaunchTemplateLicenseSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the license configuration.
+        /// </summary>
         [Input("licenseConfigurationArn")]
         public Input<string>? LicenseConfigurationArn { get; set; }
 

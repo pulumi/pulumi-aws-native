@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AccountJoinedMethod',
     'AccountStatus',
+    'OrganizationFeatureSet',
     'PolicyType',
 ]
 
@@ -26,6 +27,14 @@ class AccountStatus(str, Enum):
     ACTIVE = "ACTIVE"
     SUSPENDED = "SUSPENDED"
     PENDING_CLOSURE = "PENDING_CLOSURE"
+
+
+class OrganizationFeatureSet(str, Enum):
+    """
+    Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
+    """
+    ALL = "ALL"
+    CONSOLIDATED_BILLING = "CONSOLIDATED_BILLING"
 
 
 class PolicyType(str, Enum):

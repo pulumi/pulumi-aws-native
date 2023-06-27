@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFilterOperationSelectedFieldsConfiguration
     {
+        public readonly ImmutableArray<Outputs.AnalysisColumnIdentifier> SelectedColumns;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSelectedFieldOptions? SelectedFieldOptions;
         public readonly ImmutableArray<string> SelectedFields;
 
         [OutputConstructor]
         private AnalysisFilterOperationSelectedFieldsConfiguration(
+            ImmutableArray<Outputs.AnalysisColumnIdentifier> selectedColumns,
+
             Pulumi.AwsNative.QuickSight.AnalysisSelectedFieldOptions? selectedFieldOptions,
 
             ImmutableArray<string> selectedFields)
         {
+            SelectedColumns = selectedColumns;
             SelectedFieldOptions = selectedFieldOptions;
             SelectedFields = selectedFields;
         }

@@ -29,10 +29,14 @@ __all__ = [
     'FlowEntitlementEncryptionArgs',
     'FlowFailoverConfigSourcePriorityPropertiesArgs',
     'FlowFailoverConfigArgs',
+    'FlowGatewayBridgeSourceArgs',
     'FlowOutputEncryptionArgs',
     'FlowOutputVpcInterfaceAttachmentArgs',
     'FlowSourceEncryptionArgs',
+    'FlowSourceGatewayBridgeSourceArgs',
+    'FlowSourceVpcInterfaceAttachmentArgs',
     'FlowSourceArgs',
+    'FlowVpcInterfaceAttachmentArgs',
     'GatewayNetworkArgs',
 ]
 
@@ -1088,6 +1092,45 @@ class FlowFailoverConfigArgs:
 
 
 @pulumi.input_type
+class FlowGatewayBridgeSourceArgs:
+    def __init__(__self__, *,
+                 bridge_arn: pulumi.Input[str],
+                 vpc_interface_attachment: Optional[pulumi.Input['FlowVpcInterfaceAttachmentArgs']] = None):
+        """
+        The source configuration for cloud flows receiving a stream from a bridge.
+        :param pulumi.Input[str] bridge_arn: The ARN of the bridge feeding this flow.
+        :param pulumi.Input['FlowVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this bridge source.
+        """
+        pulumi.set(__self__, "bridge_arn", bridge_arn)
+        if vpc_interface_attachment is not None:
+            pulumi.set(__self__, "vpc_interface_attachment", vpc_interface_attachment)
+
+    @property
+    @pulumi.getter(name="bridgeArn")
+    def bridge_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the bridge feeding this flow.
+        """
+        return pulumi.get(self, "bridge_arn")
+
+    @bridge_arn.setter
+    def bridge_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bridge_arn", value)
+
+    @property
+    @pulumi.getter(name="vpcInterfaceAttachment")
+    def vpc_interface_attachment(self) -> Optional[pulumi.Input['FlowVpcInterfaceAttachmentArgs']]:
+        """
+        The name of the VPC interface attachment to use for this bridge source.
+        """
+        return pulumi.get(self, "vpc_interface_attachment")
+
+    @vpc_interface_attachment.setter
+    def vpc_interface_attachment(self, value: Optional[pulumi.Input['FlowVpcInterfaceAttachmentArgs']]):
+        pulumi.set(self, "vpc_interface_attachment", value)
+
+
+@pulumi.input_type
 class FlowOutputEncryptionArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
@@ -1333,11 +1376,75 @@ class FlowSourceEncryptionArgs:
 
 
 @pulumi.input_type
+class FlowSourceGatewayBridgeSourceArgs:
+    def __init__(__self__, *,
+                 bridge_arn: pulumi.Input[str],
+                 vpc_interface_attachment: Optional[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs']] = None):
+        """
+        The source configuration for cloud flows receiving a stream from a bridge.
+        :param pulumi.Input[str] bridge_arn: The ARN of the bridge feeding this flow.
+        :param pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this bridge source.
+        """
+        pulumi.set(__self__, "bridge_arn", bridge_arn)
+        if vpc_interface_attachment is not None:
+            pulumi.set(__self__, "vpc_interface_attachment", vpc_interface_attachment)
+
+    @property
+    @pulumi.getter(name="bridgeArn")
+    def bridge_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the bridge feeding this flow.
+        """
+        return pulumi.get(self, "bridge_arn")
+
+    @bridge_arn.setter
+    def bridge_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bridge_arn", value)
+
+    @property
+    @pulumi.getter(name="vpcInterfaceAttachment")
+    def vpc_interface_attachment(self) -> Optional[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs']]:
+        """
+        The name of the VPC interface attachment to use for this bridge source.
+        """
+        return pulumi.get(self, "vpc_interface_attachment")
+
+    @vpc_interface_attachment.setter
+    def vpc_interface_attachment(self, value: Optional[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs']]):
+        pulumi.set(self, "vpc_interface_attachment", value)
+
+
+@pulumi.input_type
+class FlowSourceVpcInterfaceAttachmentArgs:
+    def __init__(__self__, *,
+                 vpc_interface_name: Optional[pulumi.Input[str]] = None):
+        """
+        The settings for attaching a VPC interface to an resource.
+        :param pulumi.Input[str] vpc_interface_name: The name of the VPC interface to use for this resource.
+        """
+        if vpc_interface_name is not None:
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
+
+    @property
+    @pulumi.getter(name="vpcInterfaceName")
+    def vpc_interface_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VPC interface to use for this resource.
+        """
+        return pulumi.get(self, "vpc_interface_name")
+
+    @vpc_interface_name.setter
+    def vpc_interface_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_interface_name", value)
+
+
+@pulumi.input_type
 class FlowSourceArgs:
     def __init__(__self__, *,
                  decryption: Optional[pulumi.Input['FlowEncryptionArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entitlement_arn: Optional[pulumi.Input[str]] = None,
+                 gateway_bridge_source: Optional[pulumi.Input['FlowGatewayBridgeSourceArgs']] = None,
                  ingest_ip: Optional[pulumi.Input[str]] = None,
                  ingest_port: Optional[pulumi.Input[int]] = None,
                  max_bitrate: Optional[pulumi.Input[int]] = None,
@@ -1359,6 +1466,7 @@ class FlowSourceArgs:
         :param pulumi.Input['FlowEncryptionArgs'] decryption: The type of decryption that is used on the content ingested from this source.
         :param pulumi.Input[str] description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         :param pulumi.Input[str] entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
+        :param pulumi.Input['FlowGatewayBridgeSourceArgs'] gateway_bridge_source: The source configuration for cloud flows receiving a stream from a bridge.
         :param pulumi.Input[str] ingest_ip: The IP address that the flow will be listening on for incoming content.
         :param pulumi.Input[int] ingest_port: The port that the flow will be listening on for incoming content.
         :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
@@ -1382,6 +1490,8 @@ class FlowSourceArgs:
             pulumi.set(__self__, "description", description)
         if entitlement_arn is not None:
             pulumi.set(__self__, "entitlement_arn", entitlement_arn)
+        if gateway_bridge_source is not None:
+            pulumi.set(__self__, "gateway_bridge_source", gateway_bridge_source)
         if ingest_ip is not None:
             pulumi.set(__self__, "ingest_ip", ingest_ip)
         if ingest_port is not None:
@@ -1450,6 +1560,18 @@ class FlowSourceArgs:
     @entitlement_arn.setter
     def entitlement_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "entitlement_arn", value)
+
+    @property
+    @pulumi.getter(name="gatewayBridgeSource")
+    def gateway_bridge_source(self) -> Optional[pulumi.Input['FlowGatewayBridgeSourceArgs']]:
+        """
+        The source configuration for cloud flows receiving a stream from a bridge.
+        """
+        return pulumi.get(self, "gateway_bridge_source")
+
+    @gateway_bridge_source.setter
+    def gateway_bridge_source(self, value: Optional[pulumi.Input['FlowGatewayBridgeSourceArgs']]):
+        pulumi.set(self, "gateway_bridge_source", value)
 
     @property
     @pulumi.getter(name="ingestIp")
@@ -1642,6 +1764,30 @@ class FlowSourceArgs:
     @whitelist_cidr.setter
     def whitelist_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "whitelist_cidr", value)
+
+
+@pulumi.input_type
+class FlowVpcInterfaceAttachmentArgs:
+    def __init__(__self__, *,
+                 vpc_interface_name: Optional[pulumi.Input[str]] = None):
+        """
+        The settings for attaching a VPC interface to an resource.
+        :param pulumi.Input[str] vpc_interface_name: The name of the VPC interface to use for this resource.
+        """
+        if vpc_interface_name is not None:
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
+
+    @property
+    @pulumi.getter(name="vpcInterfaceName")
+    def vpc_interface_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VPC interface to use for this resource.
+        """
+        return pulumi.get(self, "vpc_interface_name")
+
+    @vpc_interface_name.setter
+    def vpc_interface_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_interface_name", value)
 
 
 @pulumi.input_type

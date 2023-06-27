@@ -20,13 +20,13 @@
   "primaryIdentifier" : [ "/properties/StackName", "/properties/EntitlementName", "/properties/ApplicationIdentifier" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "appstream:AssociateApplicationToEntitlement" ]
+      "permissions" : [ "appstream:AssociateApplicationToEntitlement", "appstream:ListEntitledApplications" ]
     },
     "read" : {
       "permissions" : [ "appstream:ListEntitledApplications" ]
     },
     "delete" : {
-      "permissions" : [ "appstream:DisassociateApplicationFromEntitlement" ]
+      "permissions" : [ "appstream:DisassociateApplicationFromEntitlement", "appstream:ListEntitledApplications" ]
     }
   }
 }

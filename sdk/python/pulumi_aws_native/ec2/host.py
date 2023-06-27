@@ -15,6 +15,7 @@ __all__ = ['HostArgs', 'Host']
 class HostArgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
+                 asset_id: Optional[pulumi.Input[str]] = None,
                  auto_placement: Optional[pulumi.Input[str]] = None,
                  host_maintenance: Optional[pulumi.Input[str]] = None,
                  host_recovery: Optional[pulumi.Input[str]] = None,
@@ -24,6 +25,7 @@ class HostArgs:
         """
         The set of arguments for constructing a Host resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
+        :param pulumi.Input[str] asset_id: The ID of the Outpost hardware asset.
         :param pulumi.Input[str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
         :param pulumi.Input[str] host_maintenance: Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
         :param pulumi.Input[str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
@@ -32,6 +34,8 @@ class HostArgs:
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
+        if asset_id is not None:
+            pulumi.set(__self__, "asset_id", asset_id)
         if auto_placement is not None:
             pulumi.set(__self__, "auto_placement", auto_placement)
         if host_maintenance is not None:
@@ -56,6 +60,18 @@ class HostArgs:
     @availability_zone.setter
     def availability_zone(self, value: pulumi.Input[str]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Outpost hardware asset.
+        """
+        return pulumi.get(self, "asset_id")
+
+    @asset_id.setter
+    def asset_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asset_id", value)
 
     @property
     @pulumi.getter(name="autoPlacement")
@@ -135,6 +151,7 @@ class Host(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asset_id: Optional[pulumi.Input[str]] = None,
                  auto_placement: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  host_maintenance: Optional[pulumi.Input[str]] = None,
@@ -148,6 +165,7 @@ class Host(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] asset_id: The ID of the Outpost hardware asset.
         :param pulumi.Input[str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
         :param pulumi.Input[str] host_maintenance: Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
@@ -180,6 +198,7 @@ class Host(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asset_id: Optional[pulumi.Input[str]] = None,
                  auto_placement: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  host_maintenance: Optional[pulumi.Input[str]] = None,
@@ -196,6 +215,7 @@ class Host(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HostArgs.__new__(HostArgs)
 
+            __props__.__dict__["asset_id"] = asset_id
             __props__.__dict__["auto_placement"] = auto_placement
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
@@ -228,6 +248,7 @@ class Host(pulumi.CustomResource):
 
         __props__ = HostArgs.__new__(HostArgs)
 
+        __props__.__dict__["asset_id"] = None
         __props__.__dict__["auto_placement"] = None
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["host_id"] = None
@@ -237,6 +258,14 @@ class Host(pulumi.CustomResource):
         __props__.__dict__["instance_type"] = None
         __props__.__dict__["outpost_arn"] = None
         return Host(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Outpost hardware asset.
+        """
+        return pulumi.get(self, "asset_id")
 
     @property
     @pulumi.getter(name="autoPlacement")
@@ -258,7 +287,7 @@ class Host(pulumi.CustomResource):
     @pulumi.getter(name="hostId")
     def host_id(self) -> pulumi.Output[str]:
         """
-        Id of the host created.
+        ID of the host created.
         """
         return pulumi.get(self, "host_id")
 

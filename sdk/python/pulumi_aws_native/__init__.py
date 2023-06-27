@@ -449,6 +449,8 @@ if typing.TYPE_CHECKING:
     timestream = __timestream
     import pulumi_aws_native.transfer as __transfer
     transfer = __transfer
+    import pulumi_aws_native.verifiedpermissions as __verifiedpermissions
+    verifiedpermissions = __verifiedpermissions
     import pulumi_aws_native.voiceid as __voiceid
     voiceid = __voiceid
     import pulumi_aws_native.vpclattice as __vpclattice
@@ -680,6 +682,7 @@ else:
     systemsmanagersap = _utilities.lazy_import('pulumi_aws_native.systemsmanagersap')
     timestream = _utilities.lazy_import('pulumi_aws_native.timestream')
     transfer = _utilities.lazy_import('pulumi_aws_native.transfer')
+    verifiedpermissions = _utilities.lazy_import('pulumi_aws_native.verifiedpermissions')
     voiceid = _utilities.lazy_import('pulumi_aws_native.voiceid')
     vpclattice = _utilities.lazy_import('pulumi_aws_native.vpclattice')
     waf = _utilities.lazy_import('pulumi_aws_native.waf')
@@ -857,6 +860,7 @@ _utilities.register(
   "mod": "apprunner",
   "fqn": "pulumi_aws_native.apprunner",
   "classes": {
+   "aws-native:apprunner:AutoScalingConfiguration": "AutoScalingConfiguration",
    "aws-native:apprunner:ObservabilityConfiguration": "ObservabilityConfiguration",
    "aws-native:apprunner:Service": "Service",
    "aws-native:apprunner:VpcConnector": "VpcConnector",
@@ -869,6 +873,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.appstream",
   "classes": {
    "aws-native:appstream:AppBlock": "AppBlock",
+   "aws-native:appstream:AppBlockBuilder": "AppBlockBuilder",
    "aws-native:appstream:Application": "Application",
    "aws-native:appstream:ApplicationEntitlementAssociation": "ApplicationEntitlementAssociation",
    "aws-native:appstream:ApplicationFleetAssociation": "ApplicationFleetAssociation",
@@ -1837,6 +1842,7 @@ _utilities.register(
    "aws-native:glue:Connection": "Connection",
    "aws-native:glue:Crawler": "Crawler",
    "aws-native:glue:DataCatalogEncryptionSettings": "DataCatalogEncryptionSettings",
+   "aws-native:glue:DataQualityRuleset": "DataQualityRuleset",
    "aws-native:glue:Database": "Database",
    "aws-native:glue:DevEndpoint": "DevEndpoint",
    "aws-native:glue:Job": "Job",
@@ -2620,6 +2626,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.organizations",
   "classes": {
    "aws-native:organizations:Account": "Account",
+   "aws-native:organizations:Organization": "Organization",
    "aws-native:organizations:OrganizationalUnit": "OrganizationalUnit",
    "aws-native:organizations:Policy": "Policy",
    "aws-native:organizations:ResourcePolicy": "ResourcePolicy"
@@ -3243,6 +3250,17 @@ _utilities.register(
    "aws-native:transfer:Server": "Server",
    "aws-native:transfer:User": "User",
    "aws-native:transfer:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "verifiedpermissions",
+  "fqn": "pulumi_aws_native.verifiedpermissions",
+  "classes": {
+   "aws-native:verifiedpermissions:IdentitySource": "IdentitySource",
+   "aws-native:verifiedpermissions:Policy": "Policy",
+   "aws-native:verifiedpermissions:PolicyStore": "PolicyStore",
+   "aws-native:verifiedpermissions:PolicyTemplate": "PolicyTemplate"
   }
  },
  {

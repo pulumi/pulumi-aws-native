@@ -21,19 +21,14 @@ func LookupGatewayResponse(ctx *pulumi.Context, args *LookupGatewayResponseArgs,
 }
 
 type LookupGatewayResponseArgs struct {
-	// A Cloudformation auto generated ID.
 	Id string `pulumi:"id"`
 }
 
 type LookupGatewayResponseResult struct {
-	// A Cloudformation auto generated ID.
-	Id *string `pulumi:"id"`
-	// The response parameters (paths, query strings, and headers) for the response.
+	Id                 *string     `pulumi:"id"`
 	ResponseParameters interface{} `pulumi:"responseParameters"`
-	// The response templates for the response.
-	ResponseTemplates interface{} `pulumi:"responseTemplates"`
-	// The HTTP status code for the response.
-	StatusCode *string `pulumi:"statusCode"`
+	ResponseTemplates  interface{} `pulumi:"responseTemplates"`
+	StatusCode         *string     `pulumi:"statusCode"`
 }
 
 func LookupGatewayResponseOutput(ctx *pulumi.Context, args LookupGatewayResponseOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResponseResultOutput {
@@ -50,7 +45,6 @@ func LookupGatewayResponseOutput(ctx *pulumi.Context, args LookupGatewayResponse
 }
 
 type LookupGatewayResponseOutputArgs struct {
-	// A Cloudformation auto generated ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -72,22 +66,18 @@ func (o LookupGatewayResponseResultOutput) ToLookupGatewayResponseResultOutputWi
 	return o
 }
 
-// A Cloudformation auto generated ID.
 func (o LookupGatewayResponseResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResponseResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The response parameters (paths, query strings, and headers) for the response.
 func (o LookupGatewayResponseResultOutput) ResponseParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupGatewayResponseResult) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
 }
 
-// The response templates for the response.
 func (o LookupGatewayResponseResultOutput) ResponseTemplates() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupGatewayResponseResult) interface{} { return v.ResponseTemplates }).(pulumi.AnyOutput)
 }
 
-// The HTTP status code for the response.
 func (o LookupGatewayResponseResultOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResponseResult) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }

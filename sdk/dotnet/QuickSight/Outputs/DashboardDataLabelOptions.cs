@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? MeasureLabelVisibility;
         public readonly Pulumi.AwsNative.QuickSight.DashboardDataLabelOverlap? Overlap;
         public readonly Pulumi.AwsNative.QuickSight.DashboardDataLabelPosition? Position;
+        public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? TotalsVisibility;
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]
@@ -41,6 +42,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.DashboardDataLabelPosition? position,
 
+            Pulumi.AwsNative.QuickSight.DashboardVisibility? totalsVisibility,
+
             Pulumi.AwsNative.QuickSight.DashboardVisibility? visibility)
         {
             CategoryLabelVisibility = categoryLabelVisibility;
@@ -51,6 +54,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             MeasureLabelVisibility = measureLabelVisibility;
             Overlap = overlap;
             Position = position;
+            TotalsVisibility = totalsVisibility;
             Visibility = visibility;
         }
     }

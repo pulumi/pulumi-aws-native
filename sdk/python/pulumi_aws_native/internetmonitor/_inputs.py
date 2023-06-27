@@ -11,10 +11,40 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'MonitorHealthEventsConfigArgs',
     'MonitorInternetMeasurementsLogDeliveryArgs',
     'MonitorS3ConfigArgs',
     'MonitorTagArgs',
 ]
+
+@pulumi.input_type
+class MonitorHealthEventsConfigArgs:
+    def __init__(__self__, *,
+                 availability_score_threshold: Optional[pulumi.Input[float]] = None,
+                 performance_score_threshold: Optional[pulumi.Input[float]] = None):
+        if availability_score_threshold is not None:
+            pulumi.set(__self__, "availability_score_threshold", availability_score_threshold)
+        if performance_score_threshold is not None:
+            pulumi.set(__self__, "performance_score_threshold", performance_score_threshold)
+
+    @property
+    @pulumi.getter(name="availabilityScoreThreshold")
+    def availability_score_threshold(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "availability_score_threshold")
+
+    @availability_score_threshold.setter
+    def availability_score_threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "availability_score_threshold", value)
+
+    @property
+    @pulumi.getter(name="performanceScoreThreshold")
+    def performance_score_threshold(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "performance_score_threshold")
+
+    @performance_score_threshold.setter
+    def performance_score_threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "performance_score_threshold", value)
+
 
 @pulumi.input_type
 class MonitorInternetMeasurementsLogDeliveryArgs:

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The typeface for the theme.&lt;/p&gt;
-    /// </summary>
     public sealed class ThemeTypographyArgs : global::Pulumi.ResourceArgs
     {
         [Input("fontFamilies")]

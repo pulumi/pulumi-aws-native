@@ -18,6 +18,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("scope")]
         public Input<Inputs.AnalysisPivotTableConditionalFormattingScopeArgs>? Scope { get; set; }
 
+        [Input("scopes")]
+        private InputList<Inputs.AnalysisPivotTableConditionalFormattingScopeArgs>? _scopes;
+        public InputList<Inputs.AnalysisPivotTableConditionalFormattingScopeArgs> Scopes
+        {
+            get => _scopes ?? (_scopes = new InputList<Inputs.AnalysisPivotTableConditionalFormattingScopeArgs>());
+            set => _scopes = value;
+        }
+
         [Input("textFormat")]
         public Input<Inputs.AnalysisTextConditionalFormatArgs>? TextFormat { get; set; }
 

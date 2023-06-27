@@ -98,7 +98,6 @@ from .get_verified_access_group import *
 from .get_verified_access_instance import *
 from .get_verified_access_trust_provider import *
 from .get_volume import *
-from .get_volume_attachment import *
 from .get_vpc import *
 from .get_vpc_cidr_block import *
 from .get_vpc_endpoint import *

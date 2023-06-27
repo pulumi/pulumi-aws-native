@@ -17,6 +17,7 @@ __all__ = ['MonitorArgs', 'Monitor']
 @pulumi.input_type
 class MonitorArgs:
     def __init__(__self__, *,
+                 health_events_config: Optional[pulumi.Input['MonitorHealthEventsConfigArgs']] = None,
                  internet_measurements_log_delivery: Optional[pulumi.Input['MonitorInternetMeasurementsLogDeliveryArgs']] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,8 @@ class MonitorArgs:
         """
         The set of arguments for constructing a Monitor resource.
         """
+        if health_events_config is not None:
+            pulumi.set(__self__, "health_events_config", health_events_config)
         if internet_measurements_log_delivery is not None:
             pulumi.set(__self__, "internet_measurements_log_delivery", internet_measurements_log_delivery)
         if max_city_networks_to_monitor is not None:
@@ -47,6 +50,15 @@ class MonitorArgs:
             pulumi.set(__self__, "tags", tags)
         if traffic_percentage_to_monitor is not None:
             pulumi.set(__self__, "traffic_percentage_to_monitor", traffic_percentage_to_monitor)
+
+    @property
+    @pulumi.getter(name="healthEventsConfig")
+    def health_events_config(self) -> Optional[pulumi.Input['MonitorHealthEventsConfigArgs']]:
+        return pulumi.get(self, "health_events_config")
+
+    @health_events_config.setter
+    def health_events_config(self, value: Optional[pulumi.Input['MonitorHealthEventsConfigArgs']]):
+        pulumi.set(self, "health_events_config", value)
 
     @property
     @pulumi.getter(name="internetMeasurementsLogDelivery")
@@ -135,6 +147,7 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 health_events_config: Optional[pulumi.Input[pulumi.InputType['MonitorHealthEventsConfigArgs']]] = None,
                  internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['MonitorInternetMeasurementsLogDeliveryArgs']]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
@@ -175,6 +188,7 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 health_events_config: Optional[pulumi.Input[pulumi.InputType['MonitorHealthEventsConfigArgs']]] = None,
                  internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['MonitorInternetMeasurementsLogDeliveryArgs']]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
@@ -193,6 +207,7 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
+            __props__.__dict__["health_events_config"] = health_events_config
             __props__.__dict__["internet_measurements_log_delivery"] = internet_measurements_log_delivery
             __props__.__dict__["max_city_networks_to_monitor"] = max_city_networks_to_monitor
             __props__.__dict__["monitor_name"] = monitor_name
@@ -230,6 +245,7 @@ class Monitor(pulumi.CustomResource):
         __props__ = MonitorArgs.__new__(MonitorArgs)
 
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["health_events_config"] = None
         __props__.__dict__["internet_measurements_log_delivery"] = None
         __props__.__dict__["max_city_networks_to_monitor"] = None
         __props__.__dict__["modified_at"] = None
@@ -249,6 +265,11 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="healthEventsConfig")
+    def health_events_config(self) -> pulumi.Output[Optional['outputs.MonitorHealthEventsConfig']]:
+        return pulumi.get(self, "health_events_config")
 
     @property
     @pulumi.getter(name="internetMeasurementsLogDelivery")

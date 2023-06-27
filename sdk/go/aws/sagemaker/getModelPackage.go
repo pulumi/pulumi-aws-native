@@ -25,24 +25,18 @@ type LookupModelPackageArgs struct {
 }
 
 type LookupModelPackageResult struct {
-	AdditionalInferenceSpecificationDefinition *ModelPackageAdditionalInferenceSpecificationDefinition  `pulumi:"additionalInferenceSpecificationDefinition"`
-	AdditionalInferenceSpecifications          []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecifications"`
-	AdditionalInferenceSpecificationsToAdd     []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecificationsToAdd"`
-	ApprovalDescription                        *string                                                  `pulumi:"approvalDescription"`
-	CertifyForMarketplace                      *bool                                                    `pulumi:"certifyForMarketplace"`
-	CreatedBy                                  *ModelPackageCreatedBy                                   `pulumi:"createdBy"`
-	CreationTime                               *string                                                  `pulumi:"creationTime"`
-	CustomerMetadataProperties                 *ModelPackageCustomerMetadataProperties                  `pulumi:"customerMetadataProperties"`
-	Environment                                *ModelPackageEnvironment                                 `pulumi:"environment"`
-	LastModifiedBy                             *ModelPackageLastModifiedBy                              `pulumi:"lastModifiedBy"`
-	LastModifiedTime                           *string                                                  `pulumi:"lastModifiedTime"`
-	ModelApprovalStatus                        *ModelPackageModelApprovalStatus                         `pulumi:"modelApprovalStatus"`
-	ModelPackageArn                            *string                                                  `pulumi:"modelPackageArn"`
-	ModelPackageName                           *string                                                  `pulumi:"modelPackageName"`
-	ModelPackageStatus                         *ModelPackageStatus                                      `pulumi:"modelPackageStatus"`
-	ModelPackageStatusDetails                  *ModelPackageStatusDetails                               `pulumi:"modelPackageStatusDetails"`
-	ModelPackageStatusItem                     *ModelPackageStatusItem                                  `pulumi:"modelPackageStatusItem"`
-	ModelPackageVersion                        *int                                                     `pulumi:"modelPackageVersion"`
+	AdditionalInferenceSpecifications []ModelPackageAdditionalInferenceSpecificationDefinition `pulumi:"additionalInferenceSpecifications"`
+	ApprovalDescription               *string                                                  `pulumi:"approvalDescription"`
+	CertifyForMarketplace             *bool                                                    `pulumi:"certifyForMarketplace"`
+	CreationTime                      *string                                                  `pulumi:"creationTime"`
+	CustomerMetadataProperties        *ModelPackageCustomerMetadataProperties                  `pulumi:"customerMetadataProperties"`
+	LastModifiedTime                  *string                                                  `pulumi:"lastModifiedTime"`
+	ModelApprovalStatus               *ModelPackageModelApprovalStatus                         `pulumi:"modelApprovalStatus"`
+	ModelPackageArn                   *string                                                  `pulumi:"modelPackageArn"`
+	ModelPackageName                  *string                                                  `pulumi:"modelPackageName"`
+	ModelPackageStatus                *ModelPackageStatus                                      `pulumi:"modelPackageStatus"`
+	ModelPackageStatusDetails         *ModelPackageStatusDetails                               `pulumi:"modelPackageStatusDetails"`
+	ModelPackageVersion               *int                                                     `pulumi:"modelPackageVersion"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ModelPackageTag `pulumi:"tags"`
 }
@@ -82,21 +76,9 @@ func (o LookupModelPackageResultOutput) ToLookupModelPackageResultOutputWithCont
 	return o
 }
 
-func (o LookupModelPackageResultOutput) AdditionalInferenceSpecificationDefinition() ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput {
-	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageAdditionalInferenceSpecificationDefinition {
-		return v.AdditionalInferenceSpecificationDefinition
-	}).(ModelPackageAdditionalInferenceSpecificationDefinitionPtrOutput)
-}
-
 func (o LookupModelPackageResultOutput) AdditionalInferenceSpecifications() ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) []ModelPackageAdditionalInferenceSpecificationDefinition {
 		return v.AdditionalInferenceSpecifications
-	}).(ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput)
-}
-
-func (o LookupModelPackageResultOutput) AdditionalInferenceSpecificationsToAdd() ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {
-	return o.ApplyT(func(v LookupModelPackageResult) []ModelPackageAdditionalInferenceSpecificationDefinition {
-		return v.AdditionalInferenceSpecificationsToAdd
 	}).(ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput)
 }
 
@@ -108,10 +90,6 @@ func (o LookupModelPackageResultOutput) CertifyForMarketplace() pulumi.BoolPtrOu
 	return o.ApplyT(func(v LookupModelPackageResult) *bool { return v.CertifyForMarketplace }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupModelPackageResultOutput) CreatedBy() ModelPackageCreatedByPtrOutput {
-	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageCreatedBy { return v.CreatedBy }).(ModelPackageCreatedByPtrOutput)
-}
-
 func (o LookupModelPackageResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
@@ -120,14 +98,6 @@ func (o LookupModelPackageResultOutput) CustomerMetadataProperties() ModelPackag
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageCustomerMetadataProperties {
 		return v.CustomerMetadataProperties
 	}).(ModelPackageCustomerMetadataPropertiesPtrOutput)
-}
-
-func (o LookupModelPackageResultOutput) Environment() ModelPackageEnvironmentPtrOutput {
-	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageEnvironment { return v.Environment }).(ModelPackageEnvironmentPtrOutput)
-}
-
-func (o LookupModelPackageResultOutput) LastModifiedBy() ModelPackageLastModifiedByPtrOutput {
-	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageLastModifiedBy { return v.LastModifiedBy }).(ModelPackageLastModifiedByPtrOutput)
 }
 
 func (o LookupModelPackageResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
@@ -152,10 +122,6 @@ func (o LookupModelPackageResultOutput) ModelPackageStatus() ModelPackageStatusP
 
 func (o LookupModelPackageResultOutput) ModelPackageStatusDetails() ModelPackageStatusDetailsPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageStatusDetails { return v.ModelPackageStatusDetails }).(ModelPackageStatusDetailsPtrOutput)
-}
-
-func (o LookupModelPackageResultOutput) ModelPackageStatusItem() ModelPackageStatusItemPtrOutput {
-	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageStatusItem { return v.ModelPackageStatusItem }).(ModelPackageStatusItemPtrOutput)
 }
 
 func (o LookupModelPackageResultOutput) ModelPackageVersion() pulumi.IntPtrOutput {

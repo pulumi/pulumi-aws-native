@@ -14,24 +14,16 @@ __all__ = ['VolumeAttachmentArgs', 'VolumeAttachment']
 @pulumi.input_type
 class VolumeAttachmentArgs:
     def __init__(__self__, *,
-                 device: pulumi.Input[str],
                  instance_id: pulumi.Input[str],
-                 volume_id: pulumi.Input[str]):
+                 volume_id: pulumi.Input[str],
+                 device: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VolumeAttachment resource.
         """
-        pulumi.set(__self__, "device", device)
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "volume_id", volume_id)
-
-    @property
-    @pulumi.getter
-    def device(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "device")
-
-    @device.setter
-    def device(self, value: pulumi.Input[str]):
-        pulumi.set(self, "device", value)
+        if device is not None:
+            pulumi.set(__self__, "device", device)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -50,6 +42,15 @@ class VolumeAttachmentArgs:
     @volume_id.setter
     def volume_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "volume_id", value)
+
+    @property
+    @pulumi.getter
+    def device(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "device")
+
+    @device.setter
+    def device(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device", value)
 
 
 class VolumeAttachment(pulumi.CustomResource):
@@ -103,8 +104,6 @@ class VolumeAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VolumeAttachmentArgs.__new__(VolumeAttachmentArgs)
 
-            if device is None and not opts.urn:
-                raise TypeError("Missing required property 'device'")
             __props__.__dict__["device"] = device
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
@@ -141,7 +140,7 @@ class VolumeAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def device(self) -> pulumi.Output[str]:
+    def device(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "device")
 
     @property

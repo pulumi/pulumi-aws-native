@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'KeyspaceReplicationSpecificationArgs',
     'KeyspaceTagArgs',
     'TableBillingModeArgs',
     'TableClusteringKeyColumnArgs',
@@ -19,6 +20,35 @@ __all__ = [
     'TableProvisionedThroughputArgs',
     'TableTagArgs',
 ]
+
+@pulumi.input_type
+class KeyspaceReplicationSpecificationArgs:
+    def __init__(__self__, *,
+                 region_list: Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]] = None,
+                 replication_strategy: Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']] = None):
+        if region_list is not None:
+            pulumi.set(__self__, "region_list", region_list)
+        if replication_strategy is not None:
+            pulumi.set(__self__, "replication_strategy", replication_strategy)
+
+    @property
+    @pulumi.getter(name="regionList")
+    def region_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]]:
+        return pulumi.get(self, "region_list")
+
+    @region_list.setter
+    def region_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]]):
+        pulumi.set(self, "region_list", value)
+
+    @property
+    @pulumi.getter(name="replicationStrategy")
+    def replication_strategy(self) -> Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']]:
+        return pulumi.get(self, "replication_strategy")
+
+    @replication_strategy.setter
+    def replication_strategy(self, value: Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']]):
+        pulumi.set(self, "replication_strategy", value)
+
 
 @pulumi.input_type
 class KeyspaceTagArgs:

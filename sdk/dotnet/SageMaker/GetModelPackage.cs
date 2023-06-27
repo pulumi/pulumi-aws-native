@@ -51,23 +51,17 @@ namespace Pulumi.AwsNative.SageMaker
     [OutputType]
     public sealed class GetModelPackageResult
     {
-        public readonly Outputs.ModelPackageAdditionalInferenceSpecificationDefinition? AdditionalInferenceSpecificationDefinition;
         public readonly ImmutableArray<Outputs.ModelPackageAdditionalInferenceSpecificationDefinition> AdditionalInferenceSpecifications;
-        public readonly ImmutableArray<Outputs.ModelPackageAdditionalInferenceSpecificationDefinition> AdditionalInferenceSpecificationsToAdd;
         public readonly string? ApprovalDescription;
         public readonly bool? CertifyForMarketplace;
-        public readonly Outputs.ModelPackageCreatedBy? CreatedBy;
         public readonly string? CreationTime;
         public readonly Outputs.ModelPackageCustomerMetadataProperties? CustomerMetadataProperties;
-        public readonly Outputs.ModelPackageEnvironment? Environment;
-        public readonly Outputs.ModelPackageLastModifiedBy? LastModifiedBy;
         public readonly string? LastModifiedTime;
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageModelApprovalStatus? ModelApprovalStatus;
         public readonly string? ModelPackageArn;
         public readonly string? ModelPackageName;
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageStatus? ModelPackageStatus;
         public readonly Outputs.ModelPackageStatusDetails? ModelPackageStatusDetails;
-        public readonly Outputs.ModelPackageStatusItem? ModelPackageStatusItem;
         public readonly int? ModelPackageVersion;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -76,25 +70,15 @@ namespace Pulumi.AwsNative.SageMaker
 
         [OutputConstructor]
         private GetModelPackageResult(
-            Outputs.ModelPackageAdditionalInferenceSpecificationDefinition? additionalInferenceSpecificationDefinition,
-
             ImmutableArray<Outputs.ModelPackageAdditionalInferenceSpecificationDefinition> additionalInferenceSpecifications,
-
-            ImmutableArray<Outputs.ModelPackageAdditionalInferenceSpecificationDefinition> additionalInferenceSpecificationsToAdd,
 
             string? approvalDescription,
 
             bool? certifyForMarketplace,
 
-            Outputs.ModelPackageCreatedBy? createdBy,
-
             string? creationTime,
 
             Outputs.ModelPackageCustomerMetadataProperties? customerMetadataProperties,
-
-            Outputs.ModelPackageEnvironment? environment,
-
-            Outputs.ModelPackageLastModifiedBy? lastModifiedBy,
 
             string? lastModifiedTime,
 
@@ -108,29 +92,21 @@ namespace Pulumi.AwsNative.SageMaker
 
             Outputs.ModelPackageStatusDetails? modelPackageStatusDetails,
 
-            Outputs.ModelPackageStatusItem? modelPackageStatusItem,
-
             int? modelPackageVersion,
 
             ImmutableArray<Outputs.ModelPackageTag> tags)
         {
-            AdditionalInferenceSpecificationDefinition = additionalInferenceSpecificationDefinition;
             AdditionalInferenceSpecifications = additionalInferenceSpecifications;
-            AdditionalInferenceSpecificationsToAdd = additionalInferenceSpecificationsToAdd;
             ApprovalDescription = approvalDescription;
             CertifyForMarketplace = certifyForMarketplace;
-            CreatedBy = createdBy;
             CreationTime = creationTime;
             CustomerMetadataProperties = customerMetadataProperties;
-            Environment = environment;
-            LastModifiedBy = lastModifiedBy;
             LastModifiedTime = lastModifiedTime;
             ModelApprovalStatus = modelApprovalStatus;
             ModelPackageArn = modelPackageArn;
             ModelPackageName = modelPackageName;
             ModelPackageStatus = modelPackageStatus;
             ModelPackageStatusDetails = modelPackageStatusDetails;
-            ModelPackageStatusItem = modelPackageStatusItem;
             ModelPackageVersion = modelPackageVersion;
             Tags = tags;
         }

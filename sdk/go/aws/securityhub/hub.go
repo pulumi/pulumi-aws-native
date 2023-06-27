@@ -16,7 +16,10 @@ import (
 type Hub struct {
 	pulumi.CustomResourceState
 
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	AutoEnableControls      pulumi.BoolPtrOutput   `pulumi:"autoEnableControls"`
+	ControlFindingGenerator pulumi.StringPtrOutput `pulumi:"controlFindingGenerator"`
+	EnableDefaultStandards  pulumi.BoolPtrOutput   `pulumi:"enableDefaultStandards"`
+	Tags                    pulumi.AnyOutput       `pulumi:"tags"`
 }
 
 // NewHub registers a new resource with the given unique name, arguments, and options.
@@ -58,12 +61,18 @@ func (HubState) ElementType() reflect.Type {
 }
 
 type hubArgs struct {
-	Tags interface{} `pulumi:"tags"`
+	AutoEnableControls      *bool       `pulumi:"autoEnableControls"`
+	ControlFindingGenerator *string     `pulumi:"controlFindingGenerator"`
+	EnableDefaultStandards  *bool       `pulumi:"enableDefaultStandards"`
+	Tags                    interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Hub resource.
 type HubArgs struct {
-	Tags pulumi.Input
+	AutoEnableControls      pulumi.BoolPtrInput
+	ControlFindingGenerator pulumi.StringPtrInput
+	EnableDefaultStandards  pulumi.BoolPtrInput
+	Tags                    pulumi.Input
 }
 
 func (HubArgs) ElementType() reflect.Type {
@@ -101,6 +110,18 @@ func (o HubOutput) ToHubOutput() HubOutput {
 
 func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return o
+}
+
+func (o HubOutput) AutoEnableControls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Hub) pulumi.BoolPtrOutput { return v.AutoEnableControls }).(pulumi.BoolPtrOutput)
+}
+
+func (o HubOutput) ControlFindingGenerator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringPtrOutput { return v.ControlFindingGenerator }).(pulumi.StringPtrOutput)
+}
+
+func (o HubOutput) EnableDefaultStandards() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Hub) pulumi.BoolPtrOutput { return v.EnableDefaultStandards }).(pulumi.BoolPtrOutput)
 }
 
 func (o HubOutput) Tags() pulumi.AnyOutput {

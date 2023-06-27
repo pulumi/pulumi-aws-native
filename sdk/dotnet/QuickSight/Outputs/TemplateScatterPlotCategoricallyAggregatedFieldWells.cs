@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateScatterPlotCategoricallyAggregatedFieldWells
     {
         public readonly ImmutableArray<Outputs.TemplateDimensionField> Category;
+        public readonly ImmutableArray<Outputs.TemplateDimensionField> Label;
         public readonly ImmutableArray<Outputs.TemplateMeasureField> Size;
         public readonly ImmutableArray<Outputs.TemplateMeasureField> XAxis;
         public readonly ImmutableArray<Outputs.TemplateMeasureField> YAxis;
@@ -22,6 +23,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private TemplateScatterPlotCategoricallyAggregatedFieldWells(
             ImmutableArray<Outputs.TemplateDimensionField> category,
 
+            ImmutableArray<Outputs.TemplateDimensionField> label,
+
             ImmutableArray<Outputs.TemplateMeasureField> size,
 
             ImmutableArray<Outputs.TemplateMeasureField> xAxis,
@@ -29,6 +32,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ImmutableArray<Outputs.TemplateMeasureField> yAxis)
         {
             Category = category;
+            Label = label;
             Size = size;
             XAxis = xAxis;
             YAxis = yAxis;

@@ -14,13 +14,17 @@ __all__ = ['ServiceLinkedRoleArgs', 'ServiceLinkedRole']
 @pulumi.input_type
 class ServiceLinkedRoleArgs:
     def __init__(__self__, *,
-                 a_ws_service_name: pulumi.Input[str],
+                 a_ws_service_name: Optional[pulumi.Input[str]] = None,
                  custom_suffix: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceLinkedRole resource.
+        :param pulumi.Input[str] a_ws_service_name: The service principal for the AWS service to which this role is attached.
+        :param pulumi.Input[str] custom_suffix: A string that you provide, which is combined with the service-provided prefix to form the complete role name.
+        :param pulumi.Input[str] description: The description of the role.
         """
-        pulumi.set(__self__, "a_ws_service_name", a_ws_service_name)
+        if a_ws_service_name is not None:
+            pulumi.set(__self__, "a_ws_service_name", a_ws_service_name)
         if custom_suffix is not None:
             pulumi.set(__self__, "custom_suffix", custom_suffix)
         if description is not None:
@@ -28,16 +32,22 @@ class ServiceLinkedRoleArgs:
 
     @property
     @pulumi.getter(name="aWSServiceName")
-    def a_ws_service_name(self) -> pulumi.Input[str]:
+    def a_ws_service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service principal for the AWS service to which this role is attached.
+        """
         return pulumi.get(self, "a_ws_service_name")
 
     @a_ws_service_name.setter
-    def a_ws_service_name(self, value: pulumi.Input[str]):
+    def a_ws_service_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "a_ws_service_name", value)
 
     @property
     @pulumi.getter(name="customSuffix")
     def custom_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that you provide, which is combined with the service-provided prefix to form the complete role name.
+        """
         return pulumi.get(self, "custom_suffix")
 
     @custom_suffix.setter
@@ -47,6 +57,9 @@ class ServiceLinkedRoleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the role.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -68,12 +81,15 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] a_ws_service_name: The service principal for the AWS service to which this role is attached.
+        :param pulumi.Input[str] custom_suffix: A string that you provide, which is combined with the service-provided prefix to form the complete role name.
+        :param pulumi.Input[str] description: The description of the role.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceLinkedRoleArgs,
+                 args: Optional[ServiceLinkedRoleArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IAM::ServiceLinkedRole
@@ -105,11 +121,10 @@ class ServiceLinkedRole(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceLinkedRoleArgs.__new__(ServiceLinkedRoleArgs)
 
-            if a_ws_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'a_ws_service_name'")
             __props__.__dict__["a_ws_service_name"] = a_ws_service_name
             __props__.__dict__["custom_suffix"] = custom_suffix
             __props__.__dict__["description"] = description
+            __props__.__dict__["role_name"] = None
         super(ServiceLinkedRole, __self__).__init__(
             'aws-native:iam:ServiceLinkedRole',
             resource_name,
@@ -135,20 +150,38 @@ class ServiceLinkedRole(pulumi.CustomResource):
         __props__.__dict__["a_ws_service_name"] = None
         __props__.__dict__["custom_suffix"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["role_name"] = None
         return ServiceLinkedRole(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="aWSServiceName")
-    def a_ws_service_name(self) -> pulumi.Output[str]:
+    def a_ws_service_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The service principal for the AWS service to which this role is attached.
+        """
         return pulumi.get(self, "a_ws_service_name")
 
     @property
     @pulumi.getter(name="customSuffix")
     def custom_suffix(self) -> pulumi.Output[Optional[str]]:
+        """
+        A string that you provide, which is combined with the service-provided prefix to form the complete role name.
+        """
         return pulumi.get(self, "custom_suffix")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the role.
+        """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> pulumi.Output[str]:
+        """
+        The name of the role.
+        """
+        return pulumi.get(self, "role_name")
 

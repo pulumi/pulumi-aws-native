@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.EC2
     public partial class Host : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of the Outpost hardware asset.
+        /// </summary>
+        [Output("assetId")]
+        public Output<string?> AssetId { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
         /// </summary>
         [Output("autoPlacement")]
@@ -28,7 +34,7 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the host created.
+        /// ID of the host created.
         /// </summary>
         [Output("hostId")]
         public Output<string> HostId { get; private set; } = null!;
@@ -108,6 +114,12 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class HostArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Outpost hardware asset.
+        /// </summary>
+        [Input("assetId")]
+        public Input<string>? AssetId { get; set; }
+
         /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
         /// </summary>

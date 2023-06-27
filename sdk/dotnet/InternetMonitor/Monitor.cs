@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.InternetMonitor
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("healthEventsConfig")]
+        public Output<Outputs.MonitorHealthEventsConfig?> HealthEventsConfig { get; private set; } = null!;
+
         [Output("internetMeasurementsLogDelivery")]
         public Output<Outputs.MonitorInternetMeasurementsLogDelivery?> InternetMeasurementsLogDelivery { get; private set; } = null!;
 
@@ -102,6 +105,9 @@ namespace Pulumi.AwsNative.InternetMonitor
 
     public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
+        [Input("healthEventsConfig")]
+        public Input<Inputs.MonitorHealthEventsConfigArgs>? HealthEventsConfig { get; set; }
+
         [Input("internetMeasurementsLogDelivery")]
         public Input<Inputs.MonitorInternetMeasurementsLogDeliveryArgs>? InternetMeasurementsLogDelivery { get; set; }
 

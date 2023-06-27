@@ -37,13 +37,7 @@ export class VPNGatewayRoutePropagation extends pulumi.CustomResource {
         return obj['__pulumiType'] === VPNGatewayRoutePropagation.__pulumiType;
     }
 
-    /**
-     * The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
-     */
     public readonly routeTableIds!: pulumi.Output<string[]>;
-    /**
-     * The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
-     */
     public readonly vpnGatewayId!: pulumi.Output<string>;
 
     /**
@@ -80,12 +74,6 @@ export class VPNGatewayRoutePropagation extends pulumi.CustomResource {
  * The set of arguments for constructing a VPNGatewayRoutePropagation resource.
  */
 export interface VPNGatewayRoutePropagationArgs {
-    /**
-     * The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
-     */
     routeTableIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
-     */
     vpnGatewayId: pulumi.Input<string>;
 }

@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisGeospatialPointStyleOptions
     {
         public readonly Outputs.AnalysisClusterMarkerConfiguration? ClusterMarkerConfiguration;
+        public readonly Outputs.AnalysisGeospatialHeatmapConfiguration? HeatmapConfiguration;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisGeospatialSelectedPointStyle? SelectedPointStyle;
 
         [OutputConstructor]
         private AnalysisGeospatialPointStyleOptions(
             Outputs.AnalysisClusterMarkerConfiguration? clusterMarkerConfiguration,
 
+            Outputs.AnalysisGeospatialHeatmapConfiguration? heatmapConfiguration,
+
             Pulumi.AwsNative.QuickSight.AnalysisGeospatialSelectedPointStyle? selectedPointStyle)
         {
             ClusterMarkerConfiguration = clusterMarkerConfiguration;
+            HeatmapConfiguration = heatmapConfiguration;
             SelectedPointStyle = selectedPointStyle;
         }
     }

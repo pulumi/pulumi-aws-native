@@ -63,12 +63,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("nearestModelName")]
         public Input<string>? NearestModelName { get; set; }
 
-        /// <summary>
-        /// The AWS Marketplace product ID of the model package.
-        /// </summary>
-        [Input("productId")]
-        public Input<string>? ProductId { get; set; }
-
         public ModelPackageContainerDefinitionArgs()
         {
         }

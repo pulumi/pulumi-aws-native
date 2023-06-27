@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
+    /// <summary>
+    /// Specifies an instance's Capacity Reservation targeting option.
+    /// </summary>
     public sealed class LaunchTemplateCapacityReservationSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates the instance's Capacity Reservation preferences.
+        /// </summary>
         [Input("capacityReservationPreference")]
         public Input<string>? CapacityReservationPreference { get; set; }
 

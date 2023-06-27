@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;Display options related to tiles on a sheet.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class ThemeTileStyle
     {

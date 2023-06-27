@@ -10,27 +10,87 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Outputs
 {
 
+    /// <summary>
+    /// Specifies the parameters for a network interface.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateNetworkInterface
     {
+        /// <summary>
+        /// Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+        /// </summary>
         public readonly bool? AssociateCarrierIpAddress;
+        /// <summary>
+        /// Associates a public IPv4 address with eth0 for a new network interface.
+        /// </summary>
         public readonly bool? AssociatePublicIpAddress;
+        /// <summary>
+        /// Indicates whether the network interface is deleted when the instance is terminated.
+        /// </summary>
         public readonly bool? DeleteOnTermination;
+        /// <summary>
+        /// A description for the network interface.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The device index for the network interface attachment.
+        /// </summary>
         public readonly int? DeviceIndex;
+        /// <summary>
+        /// The IDs of one or more security groups.
+        /// </summary>
         public readonly ImmutableArray<string> Groups;
+        /// <summary>
+        /// The type of network interface.
+        /// </summary>
         public readonly string? InterfaceType;
+        /// <summary>
+        /// The number of IPv4 prefixes to be automatically assigned to the network interface.
+        /// </summary>
         public readonly int? Ipv4PrefixCount;
+        /// <summary>
+        /// One or more IPv4 prefixes to be assigned to the network interface.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateIpv4PrefixSpecification> Ipv4Prefixes;
+        /// <summary>
+        /// The number of IPv6 addresses to assign to a network interface.
+        /// </summary>
         public readonly int? Ipv6AddressCount;
+        /// <summary>
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateIpv6Add> Ipv6Addresses;
+        /// <summary>
+        /// The number of IPv6 prefixes to be automatically assigned to the network interface.
+        /// </summary>
         public readonly int? Ipv6PrefixCount;
+        /// <summary>
+        /// One or more IPv6 prefixes to be assigned to the network interface.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateIpv6PrefixSpecification> Ipv6Prefixes;
+        /// <summary>
+        /// The index of the network card.
+        /// </summary>
         public readonly int? NetworkCardIndex;
+        /// <summary>
+        /// The ID of the network interface.
+        /// </summary>
         public readonly string? NetworkInterfaceId;
+        /// <summary>
+        /// The primary private IPv4 address of the network interface.
+        /// </summary>
         public readonly string? PrivateIpAddress;
+        /// <summary>
+        /// One or more private IPv4 addresses.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplatePrivateIpAdd> PrivateIpAddresses;
+        /// <summary>
+        /// The number of secondary private IPv4 addresses to assign to a network interface.
+        /// </summary>
         public readonly int? SecondaryPrivateIpAddressCount;
+        /// <summary>
+        /// The ID of the subnet for the network interface.
+        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]

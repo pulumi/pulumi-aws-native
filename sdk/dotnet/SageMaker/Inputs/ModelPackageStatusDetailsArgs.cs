@@ -15,15 +15,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelPackageStatusDetailsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("imageScanStatuses")]
-        private InputList<Inputs.ModelPackageStatusItemArgs>? _imageScanStatuses;
-        public InputList<Inputs.ModelPackageStatusItemArgs> ImageScanStatuses
-        {
-            get => _imageScanStatuses ?? (_imageScanStatuses = new InputList<Inputs.ModelPackageStatusItemArgs>());
-            set => _imageScanStatuses = value;
-        }
-
-        [Input("validationStatuses", required: true)]
+        [Input("validationStatuses")]
         private InputList<Inputs.ModelPackageStatusItemArgs>? _validationStatuses;
         public InputList<Inputs.ModelPackageStatusItemArgs> ValidationStatuses
         {

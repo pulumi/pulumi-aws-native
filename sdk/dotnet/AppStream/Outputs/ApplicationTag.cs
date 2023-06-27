@@ -13,17 +13,9 @@ namespace Pulumi.AwsNative.AppStream.Outputs
     [OutputType]
     public sealed class ApplicationTag
     {
-        public readonly string TagKey;
-        public readonly string TagValue;
-
         [OutputConstructor]
-        private ApplicationTag(
-            string tagKey,
-
-            string tagValue)
+        private ApplicationTag()
         {
-            TagKey = tagKey;
-            TagValue = tagValue;
         }
     }
 }

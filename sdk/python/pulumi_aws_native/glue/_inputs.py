@@ -30,6 +30,7 @@ __all__ = [
     'DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs',
     'DataCatalogEncryptionSettingsEncryptionAtRestArgs',
     'DataCatalogEncryptionSettingsArgs',
+    'DataQualityRulesetDataQualityTargetTableArgs',
     'DatabaseDataLakePrincipalArgs',
     'DatabaseFederatedDatabaseArgs',
     'DatabaseIdentifierArgs',
@@ -909,6 +910,35 @@ class DataCatalogEncryptionSettingsArgs:
     @encryption_at_rest.setter
     def encryption_at_rest(self, value: Optional[pulumi.Input['DataCatalogEncryptionSettingsEncryptionAtRestArgs']]):
         pulumi.set(self, "encryption_at_rest", value)
+
+
+@pulumi.input_type
+class DataQualityRulesetDataQualityTargetTableArgs:
+    def __init__(__self__, *,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None):
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_name", value)
 
 
 @pulumi.input_type

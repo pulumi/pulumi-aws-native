@@ -29,7 +29,7 @@ type PhoneNumber struct {
 	Tags PhoneNumberTagArrayOutput `pulumi:"tags"`
 	// The ARN of the target the phone number is claimed to.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
-	// The phone number type, either TOLL_FREE or DID.
+	// The phone number type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -91,7 +91,7 @@ type phoneNumberArgs struct {
 	Tags []PhoneNumberTag `pulumi:"tags"`
 	// The ARN of the target the phone number is claimed to.
 	TargetArn string `pulumi:"targetArn"`
-	// The phone number type, either TOLL_FREE or DID.
+	// The phone number type
 	Type string `pulumi:"type"`
 }
 
@@ -107,7 +107,7 @@ type PhoneNumberArgs struct {
 	Tags PhoneNumberTagArrayInput
 	// The ARN of the target the phone number is claimed to.
 	TargetArn pulumi.StringInput
-	// The phone number type, either TOLL_FREE or DID.
+	// The phone number type
 	Type pulumi.StringInput
 }
 
@@ -183,7 +183,7 @@ func (o PhoneNumberOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }
 
-// The phone number type, either TOLL_FREE or DID.
+// The phone number type
 func (o PhoneNumberOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

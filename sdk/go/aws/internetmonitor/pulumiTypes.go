@@ -10,6 +10,154 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type MonitorHealthEventsConfig struct {
+	AvailabilityScoreThreshold *float64 `pulumi:"availabilityScoreThreshold"`
+	PerformanceScoreThreshold  *float64 `pulumi:"performanceScoreThreshold"`
+}
+
+// MonitorHealthEventsConfigInput is an input type that accepts MonitorHealthEventsConfigArgs and MonitorHealthEventsConfigOutput values.
+// You can construct a concrete instance of `MonitorHealthEventsConfigInput` via:
+//
+//	MonitorHealthEventsConfigArgs{...}
+type MonitorHealthEventsConfigInput interface {
+	pulumi.Input
+
+	ToMonitorHealthEventsConfigOutput() MonitorHealthEventsConfigOutput
+	ToMonitorHealthEventsConfigOutputWithContext(context.Context) MonitorHealthEventsConfigOutput
+}
+
+type MonitorHealthEventsConfigArgs struct {
+	AvailabilityScoreThreshold pulumi.Float64PtrInput `pulumi:"availabilityScoreThreshold"`
+	PerformanceScoreThreshold  pulumi.Float64PtrInput `pulumi:"performanceScoreThreshold"`
+}
+
+func (MonitorHealthEventsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorHealthEventsConfig)(nil)).Elem()
+}
+
+func (i MonitorHealthEventsConfigArgs) ToMonitorHealthEventsConfigOutput() MonitorHealthEventsConfigOutput {
+	return i.ToMonitorHealthEventsConfigOutputWithContext(context.Background())
+}
+
+func (i MonitorHealthEventsConfigArgs) ToMonitorHealthEventsConfigOutputWithContext(ctx context.Context) MonitorHealthEventsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorHealthEventsConfigOutput)
+}
+
+func (i MonitorHealthEventsConfigArgs) ToMonitorHealthEventsConfigPtrOutput() MonitorHealthEventsConfigPtrOutput {
+	return i.ToMonitorHealthEventsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MonitorHealthEventsConfigArgs) ToMonitorHealthEventsConfigPtrOutputWithContext(ctx context.Context) MonitorHealthEventsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorHealthEventsConfigOutput).ToMonitorHealthEventsConfigPtrOutputWithContext(ctx)
+}
+
+// MonitorHealthEventsConfigPtrInput is an input type that accepts MonitorHealthEventsConfigArgs, MonitorHealthEventsConfigPtr and MonitorHealthEventsConfigPtrOutput values.
+// You can construct a concrete instance of `MonitorHealthEventsConfigPtrInput` via:
+//
+//	        MonitorHealthEventsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitorHealthEventsConfigPtrInput interface {
+	pulumi.Input
+
+	ToMonitorHealthEventsConfigPtrOutput() MonitorHealthEventsConfigPtrOutput
+	ToMonitorHealthEventsConfigPtrOutputWithContext(context.Context) MonitorHealthEventsConfigPtrOutput
+}
+
+type monitorHealthEventsConfigPtrType MonitorHealthEventsConfigArgs
+
+func MonitorHealthEventsConfigPtr(v *MonitorHealthEventsConfigArgs) MonitorHealthEventsConfigPtrInput {
+	return (*monitorHealthEventsConfigPtrType)(v)
+}
+
+func (*monitorHealthEventsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorHealthEventsConfig)(nil)).Elem()
+}
+
+func (i *monitorHealthEventsConfigPtrType) ToMonitorHealthEventsConfigPtrOutput() MonitorHealthEventsConfigPtrOutput {
+	return i.ToMonitorHealthEventsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *monitorHealthEventsConfigPtrType) ToMonitorHealthEventsConfigPtrOutputWithContext(ctx context.Context) MonitorHealthEventsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorHealthEventsConfigPtrOutput)
+}
+
+type MonitorHealthEventsConfigOutput struct{ *pulumi.OutputState }
+
+func (MonitorHealthEventsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorHealthEventsConfig)(nil)).Elem()
+}
+
+func (o MonitorHealthEventsConfigOutput) ToMonitorHealthEventsConfigOutput() MonitorHealthEventsConfigOutput {
+	return o
+}
+
+func (o MonitorHealthEventsConfigOutput) ToMonitorHealthEventsConfigOutputWithContext(ctx context.Context) MonitorHealthEventsConfigOutput {
+	return o
+}
+
+func (o MonitorHealthEventsConfigOutput) ToMonitorHealthEventsConfigPtrOutput() MonitorHealthEventsConfigPtrOutput {
+	return o.ToMonitorHealthEventsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorHealthEventsConfigOutput) ToMonitorHealthEventsConfigPtrOutputWithContext(ctx context.Context) MonitorHealthEventsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorHealthEventsConfig) *MonitorHealthEventsConfig {
+		return &v
+	}).(MonitorHealthEventsConfigPtrOutput)
+}
+
+func (o MonitorHealthEventsConfigOutput) AvailabilityScoreThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorHealthEventsConfig) *float64 { return v.AvailabilityScoreThreshold }).(pulumi.Float64PtrOutput)
+}
+
+func (o MonitorHealthEventsConfigOutput) PerformanceScoreThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorHealthEventsConfig) *float64 { return v.PerformanceScoreThreshold }).(pulumi.Float64PtrOutput)
+}
+
+type MonitorHealthEventsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitorHealthEventsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorHealthEventsConfig)(nil)).Elem()
+}
+
+func (o MonitorHealthEventsConfigPtrOutput) ToMonitorHealthEventsConfigPtrOutput() MonitorHealthEventsConfigPtrOutput {
+	return o
+}
+
+func (o MonitorHealthEventsConfigPtrOutput) ToMonitorHealthEventsConfigPtrOutputWithContext(ctx context.Context) MonitorHealthEventsConfigPtrOutput {
+	return o
+}
+
+func (o MonitorHealthEventsConfigPtrOutput) Elem() MonitorHealthEventsConfigOutput {
+	return o.ApplyT(func(v *MonitorHealthEventsConfig) MonitorHealthEventsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorHealthEventsConfig
+		return ret
+	}).(MonitorHealthEventsConfigOutput)
+}
+
+func (o MonitorHealthEventsConfigPtrOutput) AvailabilityScoreThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitorHealthEventsConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityScoreThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o MonitorHealthEventsConfigPtrOutput) PerformanceScoreThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitorHealthEventsConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PerformanceScoreThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
 type MonitorInternetMeasurementsLogDelivery struct {
 	S3Config *MonitorS3Config `pulumi:"s3Config"`
 }
@@ -410,12 +558,16 @@ func (o MonitorTagArrayOutput) Index(i pulumi.IntInput) MonitorTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorHealthEventsConfigInput)(nil)).Elem(), MonitorHealthEventsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorHealthEventsConfigPtrInput)(nil)).Elem(), MonitorHealthEventsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorInternetMeasurementsLogDeliveryInput)(nil)).Elem(), MonitorInternetMeasurementsLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorInternetMeasurementsLogDeliveryPtrInput)(nil)).Elem(), MonitorInternetMeasurementsLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorS3ConfigInput)(nil)).Elem(), MonitorS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorS3ConfigPtrInput)(nil)).Elem(), MonitorS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagInput)(nil)).Elem(), MonitorTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagArrayInput)(nil)).Elem(), MonitorTagArray{})
+	pulumi.RegisterOutputType(MonitorHealthEventsConfigOutput{})
+	pulumi.RegisterOutputType(MonitorHealthEventsConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitorInternetMeasurementsLogDeliveryOutput{})
 	pulumi.RegisterOutputType(MonitorInternetMeasurementsLogDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(MonitorS3ConfigOutput{})
