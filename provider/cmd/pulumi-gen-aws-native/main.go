@@ -295,6 +295,7 @@ func emitPackage(pkgSpec *pschema.PackageSpec, language, outDir string) error {
 
 	return nil
 }
+
 func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir, jsonFileName string) error {
 	compressedSchema, err := schema.CompressSchema(pkgSpec)
 	if err != nil {

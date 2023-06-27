@@ -12147,7 +12147,7 @@ export namespace ec2 {
     }
 
     /**
-     * Specifies the tags to apply to a resource when the resource is created for the launch template.
+     * Specifies the tags to apply to the launch template during creation.
      */
     export interface LaunchTemplateTagSpecificationArgs {
         /**
