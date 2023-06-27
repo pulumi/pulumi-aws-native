@@ -15259,7 +15259,7 @@ func (o LaunchTemplateTagArrayOutput) Index(i pulumi.IntInput) LaunchTemplateTag
 	}).(LaunchTemplateTagOutput)
 }
 
-// Specifies the tags to apply to a resource when the resource is created for the launch template.
+// Specifies the tags to apply to the launch template during creation.
 type LaunchTemplateTagSpecification struct {
 	// The type of resource to tag.
 	ResourceType *string `pulumi:"resourceType"`
@@ -15278,7 +15278,7 @@ type LaunchTemplateTagSpecificationInput interface {
 	ToLaunchTemplateTagSpecificationOutputWithContext(context.Context) LaunchTemplateTagSpecificationOutput
 }
 
-// Specifies the tags to apply to a resource when the resource is created for the launch template.
+// Specifies the tags to apply to the launch template during creation.
 type LaunchTemplateTagSpecificationArgs struct {
 	// The type of resource to tag.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
@@ -15323,7 +15323,7 @@ func (i LaunchTemplateTagSpecificationArray) ToLaunchTemplateTagSpecificationArr
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagSpecificationArrayOutput)
 }
 
-// Specifies the tags to apply to a resource when the resource is created for the launch template.
+// Specifies the tags to apply to the launch template during creation.
 type LaunchTemplateTagSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateTagSpecificationOutput) ElementType() reflect.Type {
