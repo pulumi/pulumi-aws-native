@@ -83,7 +83,7 @@
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "qldb:StreamJournalToKinesis", "qldb:DescribeJournalKinesisStream" ]
+      "permissions" : [ "iam:PassRole", "qldb:StreamJournalToKinesis", "qldb:DescribeJournalKinesisStream" ]
     },
     "delete" : {
       "permissions" : [ "qldb:CancelJournalKinesisStream", "qldb:DescribeJournalKinesisStream" ]

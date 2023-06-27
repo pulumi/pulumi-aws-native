@@ -34,7 +34,7 @@
       "permissions" : [ "elasticfilesystem:CreateMountTarget", "elasticfilesystem:DescribeMountTargets" ]
     },
     "read" : {
-      "permissions" : [ "elasticfilesystem:DescribeMountTargets" ]
+      "permissions" : [ "elasticfilesystem:DescribeMountTargets", "elasticfilesystem:DescribeMountTargetSecurityGroups" ]
     },
     "update" : {
       "permissions" : [ "elasticfilesystem:DescribeMountTargets", "elasticfilesystem:DescribeMountTargetSecurityGroups", "elasticfilesystem:ModifyMountTargetSecurityGroups" ]
@@ -43,7 +43,15 @@
       "permissions" : [ "elasticfilesystem:DescribeMountTargets", "elasticfilesystem:DeleteMountTarget" ]
     },
     "list" : {
-      "permissions" : [ "elasticfilesystem:DescribeMountTargets", "elasticfilesystem:DescribeMountTargetSecurityGroups" ]
+      "permissions" : [ "elasticfilesystem:DescribeMountTargets", "elasticfilesystem:DescribeMountTargetSecurityGroups" ],
+      "handlerSchema" : {
+        "properties" : {
+          "FileSystemId" : {
+            "$ref" : "resource-schema.json#/properties/FileSystemId"
+          }
+        },
+        "required" : [ "FileSystemId" ]
+      }
     }
   }
 }

@@ -101,7 +101,7 @@
       "permissions" : [ "personalize:DescribeDataset" ]
     },
     "update" : {
-      "permissions" : [ "personalize:CreateDatasetImportJob", "personalize:DescribeDatasetImportJob", "iam:PassRole" ],
+      "permissions" : [ "personalize:DescribeDataset", "personalize:CreateDatasetImportJob", "personalize:DescribeDatasetImportJob", "iam:PassRole" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {

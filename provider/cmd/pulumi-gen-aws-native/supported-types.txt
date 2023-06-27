@@ -44,11 +44,13 @@ AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
 AWS::AppIntegrations::DataIntegration
 AWS::AppIntegrations::EventIntegration
+AWS::AppRunner::AutoScalingConfiguration
 AWS::AppRunner::ObservabilityConfiguration
 AWS::AppRunner::Service
 AWS::AppRunner::VpcConnector
 AWS::AppRunner::VpcIngressConnection
 AWS::AppStream::AppBlock
+AWS::AppStream::AppBlockBuilder
 AWS::AppStream::Application
 AWS::AppStream::ApplicationEntitlementAssociation
 AWS::AppStream::ApplicationFleetAssociation
@@ -216,6 +218,7 @@ AWS::EC2::IPAMResourceDiscoveryAssociation
 AWS::EC2::IPAMScope
 AWS::EC2::InternetGateway
 AWS::EC2::KeyPair
+AWS::EC2::LaunchTemplate
 AWS::EC2::LocalGatewayRoute
 AWS::EC2::LocalGatewayRouteTable
 AWS::EC2::LocalGatewayRouteTableVPCAssociation
@@ -550,6 +553,7 @@ AWS::OpenSearchServerless::VpcEndpoint
 AWS::OpenSearchService::Domain
 AWS::OpsWorksCM::Server
 AWS::Organizations::Account
+AWS::Organizations::Organization
 AWS::Organizations::OrganizationalUnit
 AWS::Organizations::Policy
 AWS::Organizations::ResourcePolicy
@@ -733,6 +737,10 @@ AWS::Transfer::Certificate
 AWS::Transfer::Connector
 AWS::Transfer::Profile
 AWS::Transfer::Workflow
+AWS::VerifiedPermissions::IdentitySource
+AWS::VerifiedPermissions::Policy
+AWS::VerifiedPermissions::PolicyStore
+AWS::VerifiedPermissions::PolicyTemplate
 AWS::VoiceID::Domain
 AWS::VpcLattice::AccessLogSubscription
 AWS::VpcLattice::AuthPolicy
@@ -807,8 +815,10 @@ Generic::Database::Schema
 Generic::Transcribe::Vocabulary
 GitHub::Git::Tag
 GitHub::Organizations::Membership
+GitHub::Organizations::Secret
 GitHub::Repositories::Collaborator
 GitHub::Repositories::Repository
+GitHub::Repositories::Secret
 GitHub::Repositories::Webhook
 GitHub::Teams::Membership
 GitHub::Teams::RepositoryAccess

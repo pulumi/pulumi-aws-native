@@ -122,19 +122,19 @@
   "description" : "Resource Type definition for AWS::Pinpoint::InAppTemplate",
   "handlers" : {
     "create" : {
-      "permissions" : [ "mobiletargeting:CreateInAppTemplate" ]
+      "permissions" : [ "mobiletargeting:CreateInAppTemplate", "mobiletargeting:GetInAppTemplate", "mobiletargeting:TagResource" ]
     },
     "delete" : {
-      "permissions" : [ "mobiletargeting:DeleteInAppTemplate" ]
+      "permissions" : [ "mobiletargeting:DeleteInAppTemplate", "mobiletargeting:GetInAppTemplate" ]
     },
     "list" : {
-      "permissions" : [ "mobiletargeting:GetInAppTemplate" ]
+      "permissions" : [ "mobiletargeting:GetInAppTemplate", "mobiletargeting:ListTemplates" ]
     },
     "read" : {
       "permissions" : [ "mobiletargeting:GetInAppTemplate", "mobiletargeting:ListTemplates" ]
     },
     "update" : {
-      "permissions" : [ "mobiletargeting:UpdateInAppTemplate" ]
+      "permissions" : [ "mobiletargeting:UpdateInAppTemplate", "mobiletargeting:GetInAppTemplate" ]
     }
   },
   "primaryIdentifier" : [ "/properties/TemplateName" ],

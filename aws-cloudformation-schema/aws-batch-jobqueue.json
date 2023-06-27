@@ -80,10 +80,10 @@
       "permissions" : [ "Batch:DescribeJobQueues" ]
     },
     "update" : {
-      "permissions" : [ "Batch:UpdateJobQueue", "Batch:TagResource", "Batch:UnTagResource" ]
+      "permissions" : [ "Batch:DescribeJobQueues", "Batch:UpdateJobQueue", "Batch:TagResource", "Batch:UnTagResource" ]
     },
     "delete" : {
-      "permissions" : [ "Batch:DeleteJobQueue" ]
+      "permissions" : [ "Batch:UpdateJobQueue", "Batch:DescribeJobQueues", "Batch:DeleteJobQueue" ]
     },
     "list" : {
       "permissions" : [ "Batch:DescribeJobQueues" ]

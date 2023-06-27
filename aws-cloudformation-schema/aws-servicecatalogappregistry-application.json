@@ -46,7 +46,12 @@
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "additionalIdentifiers" : [ [ "/properties/Name" ] ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "servicecatalog:CreateApplication", "servicecatalog:TagResource" ]

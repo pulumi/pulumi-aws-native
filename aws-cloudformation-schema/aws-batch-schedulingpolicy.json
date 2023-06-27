@@ -94,10 +94,10 @@
       "permissions" : [ "Batch:UpdateSchedulingPolicy", "Batch:TagResource", "Batch:UnTagResource" ]
     },
     "delete" : {
-      "permissions" : [ "Batch:DeleteSchedulingPolicy" ]
+      "permissions" : [ "Batch:DescribeSchedulingPolicies", "Batch:DeleteSchedulingPolicy" ]
     },
     "list" : {
-      "permissions" : [ "Batch:ListSchedulingPolicies" ]
+      "permissions" : [ "Batch:ListSchedulingPolicies", "Batch:DescribeSchedulingPolicies" ]
     }
   }
 }

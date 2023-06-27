@@ -327,7 +327,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateInferenceExperiment", "sagemaker:DescribeInferenceExperiment", "sagemaker:ListTags", "iam:PassRole" ]
+      "permissions" : [ "sagemaker:CreateInferenceExperiment", "sagemaker:DescribeInferenceExperiment", "sagemaker:AddTags", "sagemaker:ListTags", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "sagemaker:DeleteInferenceExperiment", "sagemaker:DescribeInferenceExperiment", "sagemaker:StopInferenceExperiment", "sagemaker:ListTags" ]

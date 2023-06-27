@@ -295,16 +295,16 @@
   "primaryIdentifier" : [ "/properties/StudioComponentId", "/properties/StudioId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:PassRole", "nimble:CreateStudioComponent", "nimble:TagResource", "ds:AuthorizeApplication", "ec2:DescribeSecurityGroups", "fsx:DescribeFilesystems", "ds:DescribeDirectories" ]
+      "permissions" : [ "iam:PassRole", "nimble:CreateStudioComponent", "nimble:GetStudioComponent", "nimble:TagResource", "ds:AuthorizeApplication", "ec2:DescribeSecurityGroups", "fsx:DescribeFilesystems", "ds:DescribeDirectories" ]
     },
     "read" : {
       "permissions" : [ "nimble:GetStudioComponent" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "nimble:UpdateStudioComponent", "ds:AuthorizeApplication", "ec2:DescribeSecurityGroups", "fsx:DescribeFilesystems", "ds:DescribeDirectories" ]
+      "permissions" : [ "iam:PassRole", "nimble:UpdateStudioComponent", "nimble:GetStudioComponent", "ds:AuthorizeApplication", "ec2:DescribeSecurityGroups", "fsx:DescribeFilesystems", "ds:DescribeDirectories" ]
     },
     "delete" : {
-      "permissions" : [ "nimble:DeleteStudioComponent", "nimble:UntagResource", "ds:UnauthorizeApplication" ]
+      "permissions" : [ "nimble:DeleteStudioComponent", "nimble:GetStudioComponent", "nimble:UntagResource", "ds:UnauthorizeApplication" ]
     },
     "list" : {
       "handlerSchema" : {

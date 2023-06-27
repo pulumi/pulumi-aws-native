@@ -53,6 +53,22 @@
         }
       },
       "additionalProperties" : false
+    },
+    "HealthEventsConfig" : {
+      "type" : "object",
+      "properties" : {
+        "AvailabilityScoreThreshold" : {
+          "type" : "number",
+          "minimum" : 0.0,
+          "maximum" : 100.0
+        },
+        "PerformanceScoreThreshold" : {
+          "type" : "number",
+          "minimum" : 0.0,
+          "maximum" : 100.0
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -130,6 +146,9 @@
     },
     "InternetMeasurementsLogDelivery" : {
       "$ref" : "#/definitions/InternetMeasurementsLogDelivery"
+    },
+    "HealthEventsConfig" : {
+      "$ref" : "#/definitions/HealthEventsConfig"
     }
   },
   "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/ModifiedAt", "/properties/MonitorArn", "/properties/ProcessingStatus", "/properties/ProcessingStatusInfo" ],
