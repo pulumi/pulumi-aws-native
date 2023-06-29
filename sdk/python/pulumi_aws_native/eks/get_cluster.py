@@ -105,7 +105,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def logging(self) -> Optional['outputs.ClusterLogging']:
+    def logging(self) -> Optional['outputs.Logging']:
         return pulumi.get(self, "logging")
 
     @property

@@ -38,6 +38,7 @@ __all__ = [
     'CampaignTemplate',
     'CampaignTemplateConfiguration',
     'CampaignWriteTreatmentResource',
+    'Groups',
     'InAppTemplateBodyConfig',
     'InAppTemplateButtonConfig',
     'InAppTemplateDefaultButtonConfiguration',
@@ -56,6 +57,7 @@ __all__ = [
     'SegmentLocation',
     'SegmentRecency',
     'SegmentSetDimension',
+    'SegmentSourceSegments',
 ]
 
 @pulumi.output_type
@@ -1509,6 +1511,62 @@ class CampaignWriteTreatmentResource(dict):
 
 
 @pulumi.output_type
+class Groups(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceSegments":
+            suggest = "source_segments"
+        elif key == "sourceType":
+            suggest = "source_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Groups. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Groups.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Groups.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Optional[Sequence['outputs.SegmentDimensions']] = None,
+                 source_segments: Optional[Sequence['outputs.SegmentSourceSegments']] = None,
+                 source_type: Optional[str] = None,
+                 type: Optional[str] = None):
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if source_segments is not None:
+            pulumi.set(__self__, "source_segments", source_segments)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.SegmentDimensions']]:
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="sourceSegments")
+    def source_segments(self) -> Optional[Sequence['outputs.SegmentSourceSegments']]:
+        return pulumi.get(self, "source_segments")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[str]:
+        return pulumi.get(self, "source_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class InAppTemplateBodyConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2268,7 +2326,7 @@ class SegmentGPSPoint(dict):
 @pulumi.output_type
 class SegmentGroups(dict):
     def __init__(__self__, *,
-                 groups: Optional[Sequence['outputs.SegmentGroups']] = None,
+                 groups: Optional[Sequence['outputs.Groups']] = None,
                  include: Optional[str] = None):
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -2277,7 +2335,7 @@ class SegmentGroups(dict):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[Sequence['outputs.SegmentGroups']]:
+    def groups(self) -> Optional[Sequence['outputs.Groups']]:
         return pulumi.get(self, "groups")
 
     @property
@@ -2396,5 +2454,25 @@ class SegmentSetDimension(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class SegmentSourceSegments(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 version: Optional[int] = None):
+        pulumi.set(__self__, "id", id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[int]:
+        return pulumi.get(self, "version")
 
 

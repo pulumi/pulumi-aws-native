@@ -55,6 +55,7 @@ __all__ = [
     'DatastoreStorage',
     'DatastoreTag',
     'DatastoreTimestampPartition',
+    'Partition',
     'PipelineActivity',
     'PipelineAddAttributes',
     'PipelineChannel',
@@ -1313,7 +1314,7 @@ class DatastorePartition(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 partition: Optional['outputs.DatastorePartition'] = None,
+                 partition: Optional['outputs.Partition'] = None,
                  timestamp_partition: Optional['outputs.DatastoreTimestampPartition'] = None):
         if partition is not None:
             pulumi.set(__self__, "partition", partition)
@@ -1322,7 +1323,7 @@ class DatastorePartition(dict):
 
     @property
     @pulumi.getter
-    def partition(self) -> Optional['outputs.DatastorePartition']:
+    def partition(self) -> Optional['outputs.Partition']:
         return pulumi.get(self, "partition")
 
     @property
@@ -1507,6 +1508,35 @@ class DatastoreTimestampPartition(dict):
     @pulumi.getter(name="timestampFormat")
     def timestamp_format(self) -> Optional[str]:
         return pulumi.get(self, "timestamp_format")
+
+
+@pulumi.output_type
+class Partition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Partition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Partition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Partition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_name: str):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> str:
+        return pulumi.get(self, "attribute_name")
 
 
 @pulumi.output_type

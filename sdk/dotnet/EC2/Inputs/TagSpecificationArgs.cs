@@ -11,9 +11,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
 {
 
     /// <summary>
-    /// Specifies the tags to apply to the launch template during creation.
+    /// Specifies the tags to apply to a resource when the resource is created for the launch template.
     /// </summary>
-    public sealed class LaunchTemplateTagSpecificationArgs : global::Pulumi.ResourceArgs
+    public sealed class TagSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of resource to tag.
@@ -33,9 +33,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
             set => _tags = value;
         }
 
-        public LaunchTemplateTagSpecificationArgs()
+        public TagSpecificationArgs()
         {
         }
-        public static new LaunchTemplateTagSpecificationArgs Empty => new LaunchTemplateTagSpecificationArgs();
+        public static new TagSpecificationArgs Empty => new TagSpecificationArgs();
     }
 }

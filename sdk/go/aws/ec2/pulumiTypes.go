@@ -10739,7 +10739,7 @@ type LaunchTemplateData struct {
 	// One or more security group names.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The tags to apply to the resources that are created during instance launch.
-	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
+	TagSpecifications []TagSpecification `pulumi:"tagSpecifications"`
 	// The user data to make available to the instance.
 	UserData *string `pulumi:"userData"`
 }
@@ -10801,7 +10801,7 @@ type LaunchTemplateDataArgs struct {
 	// One or more security group names.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The tags to apply to the resources that are created during instance launch.
-	TagSpecifications LaunchTemplateTagSpecificationArrayInput `pulumi:"tagSpecifications"`
+	TagSpecifications TagSpecificationArrayInput `pulumi:"tagSpecifications"`
 	// The user data to make available to the instance.
 	UserData pulumi.StringPtrInput `pulumi:"userData"`
 }
@@ -10968,8 +10968,8 @@ func (o LaunchTemplateDataOutput) SecurityGroups() pulumi.StringArrayOutput {
 }
 
 // The tags to apply to the resources that are created during instance launch.
-func (o LaunchTemplateDataOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateTagSpecification { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
+func (o LaunchTemplateDataOutput) TagSpecifications() TagSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateData) []TagSpecification { return v.TagSpecifications }).(TagSpecificationArrayOutput)
 }
 
 // The user data to make available to the instance.
@@ -15259,7 +15259,7 @@ func (o LaunchTemplateTagArrayOutput) Index(i pulumi.IntInput) LaunchTemplateTag
 	}).(LaunchTemplateTagOutput)
 }
 
-// Specifies the tags to apply to a resource when the resource is created for the launch template.
+// Specifies the tags to apply to the launch template during creation.
 type LaunchTemplateTagSpecification struct {
 	// The type of resource to tag.
 	ResourceType *string `pulumi:"resourceType"`
@@ -15278,7 +15278,7 @@ type LaunchTemplateTagSpecificationInput interface {
 	ToLaunchTemplateTagSpecificationOutputWithContext(context.Context) LaunchTemplateTagSpecificationOutput
 }
 
-// Specifies the tags to apply to a resource when the resource is created for the launch template.
+// Specifies the tags to apply to the launch template during creation.
 type LaunchTemplateTagSpecificationArgs struct {
 	// The type of resource to tag.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
@@ -15323,7 +15323,7 @@ func (i LaunchTemplateTagSpecificationArray) ToLaunchTemplateTagSpecificationArr
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagSpecificationArrayOutput)
 }
 
-// Specifies the tags to apply to a resource when the resource is created for the launch template.
+// Specifies the tags to apply to the launch template during creation.
 type LaunchTemplateTagSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateTagSpecificationOutput) ElementType() reflect.Type {
@@ -26252,6 +26252,115 @@ func (o SubnetTagArrayOutput) Index(i pulumi.IntInput) SubnetTagOutput {
 	}).(SubnetTagOutput)
 }
 
+// Specifies the tags to apply to a resource when the resource is created for the launch template.
+type TagSpecification struct {
+	// The type of resource to tag.
+	ResourceType *string `pulumi:"resourceType"`
+	// The tags for the resource.
+	Tags []LaunchTemplateTag `pulumi:"tags"`
+}
+
+// TagSpecificationInput is an input type that accepts TagSpecificationArgs and TagSpecificationOutput values.
+// You can construct a concrete instance of `TagSpecificationInput` via:
+//
+//	TagSpecificationArgs{...}
+type TagSpecificationInput interface {
+	pulumi.Input
+
+	ToTagSpecificationOutput() TagSpecificationOutput
+	ToTagSpecificationOutputWithContext(context.Context) TagSpecificationOutput
+}
+
+// Specifies the tags to apply to a resource when the resource is created for the launch template.
+type TagSpecificationArgs struct {
+	// The type of resource to tag.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// The tags for the resource.
+	Tags LaunchTemplateTagArrayInput `pulumi:"tags"`
+}
+
+func (TagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagSpecification)(nil)).Elem()
+}
+
+func (i TagSpecificationArgs) ToTagSpecificationOutput() TagSpecificationOutput {
+	return i.ToTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i TagSpecificationArgs) ToTagSpecificationOutputWithContext(ctx context.Context) TagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagSpecificationOutput)
+}
+
+// TagSpecificationArrayInput is an input type that accepts TagSpecificationArray and TagSpecificationArrayOutput values.
+// You can construct a concrete instance of `TagSpecificationArrayInput` via:
+//
+//	TagSpecificationArray{ TagSpecificationArgs{...} }
+type TagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToTagSpecificationArrayOutput() TagSpecificationArrayOutput
+	ToTagSpecificationArrayOutputWithContext(context.Context) TagSpecificationArrayOutput
+}
+
+type TagSpecificationArray []TagSpecificationInput
+
+func (TagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagSpecification)(nil)).Elem()
+}
+
+func (i TagSpecificationArray) ToTagSpecificationArrayOutput() TagSpecificationArrayOutput {
+	return i.ToTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i TagSpecificationArray) ToTagSpecificationArrayOutputWithContext(ctx context.Context) TagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagSpecificationArrayOutput)
+}
+
+// Specifies the tags to apply to a resource when the resource is created for the launch template.
+type TagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagSpecification)(nil)).Elem()
+}
+
+func (o TagSpecificationOutput) ToTagSpecificationOutput() TagSpecificationOutput {
+	return o
+}
+
+func (o TagSpecificationOutput) ToTagSpecificationOutputWithContext(ctx context.Context) TagSpecificationOutput {
+	return o
+}
+
+// The type of resource to tag.
+func (o TagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// The tags for the resource.
+func (o TagSpecificationOutput) Tags() LaunchTemplateTagArrayOutput {
+	return o.ApplyT(func(v TagSpecification) []LaunchTemplateTag { return v.Tags }).(LaunchTemplateTagArrayOutput)
+}
+
+type TagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (TagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagSpecification)(nil)).Elem()
+}
+
+func (o TagSpecificationArrayOutput) ToTagSpecificationArrayOutput() TagSpecificationArrayOutput {
+	return o
+}
+
+func (o TagSpecificationArrayOutput) ToTagSpecificationArrayOutputWithContext(ctx context.Context) TagSpecificationArrayOutput {
+	return o
+}
+
+func (o TagSpecificationArrayOutput) Index(i pulumi.IntInput) TagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagSpecification {
+		return vs[0].([]TagSpecification)[vs[1].(int)]
+	}).(TagSpecificationOutput)
+}
+
 type TrafficMirrorFilterRuleTrafficMirrorPortRange struct {
 	FromPort int `pulumi:"fromPort"`
 	ToPort   int `pulumi:"toPort"`
@@ -30583,6 +30692,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetVCpuCountRangeRequestPtrInput)(nil)).Elem(), SpotFleetVCpuCountRangeRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetTagInput)(nil)).Elem(), SubnetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetTagArrayInput)(nil)).Elem(), SubnetTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagSpecificationInput)(nil)).Elem(), TagSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagSpecificationArrayInput)(nil)).Elem(), TagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRangeInput)(nil)).Elem(), TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput)(nil)).Elem(), TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTagInput)(nil)).Elem(), TrafficMirrorFilterTagArgs{})
@@ -31015,6 +31126,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetVCpuCountRangeRequestPtrOutput{})
 	pulumi.RegisterOutputType(SubnetTagOutput{})
 	pulumi.RegisterOutputType(SubnetTagArrayOutput{})
+	pulumi.RegisterOutputType(TagSpecificationOutput{})
+	pulumi.RegisterOutputType(TagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTagOutput{})

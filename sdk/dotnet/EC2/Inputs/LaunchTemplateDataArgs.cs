@@ -187,14 +187,14 @@ namespace Pulumi.AwsNative.EC2.Inputs
         }
 
         [Input("tagSpecifications")]
-        private InputList<Inputs.LaunchTemplateTagSpecificationArgs>? _tagSpecifications;
+        private InputList<Inputs.TagSpecificationArgs>? _tagSpecifications;
 
         /// <summary>
         /// The tags to apply to the resources that are created during instance launch.
         /// </summary>
-        public InputList<Inputs.LaunchTemplateTagSpecificationArgs> TagSpecifications
+        public InputList<Inputs.TagSpecificationArgs> TagSpecifications
         {
-            get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.LaunchTemplateTagSpecificationArgs>());
+            get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.TagSpecificationArgs>());
             set => _tagSpecifications = value;
         }
 

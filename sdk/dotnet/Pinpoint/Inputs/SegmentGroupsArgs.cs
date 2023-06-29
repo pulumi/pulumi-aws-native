@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
     public sealed class SegmentGroupsArgs : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
-        private InputList<Inputs.SegmentGroupsArgs>? _groups;
-        public InputList<Inputs.SegmentGroupsArgs> Groups
+        private InputList<Inputs.GroupsArgs>? _groups;
+        public InputList<Inputs.GroupsArgs> Groups
         {
-            get => _groups ?? (_groups = new InputList<Inputs.SegmentGroupsArgs>());
+            get => _groups ?? (_groups = new InputList<Inputs.GroupsArgs>());
             set => _groups = value;
         }
 

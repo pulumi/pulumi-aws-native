@@ -11644,7 +11644,7 @@ export namespace ec2 {
         /**
          * The tags to apply to the resources that are created during instance launch.
          */
-        tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecificationArgs>[]>;
+        tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.TagSpecificationArgs>[]>;
         /**
          * The user data to make available to the instance.
          */
@@ -12614,6 +12614,20 @@ export namespace ec2 {
     export interface SubnetTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies the tags to apply to a resource when the resource is created for the launch template.
+     */
+    export interface TagSpecificationArgs {
+        /**
+         * The type of resource to tag.
+         */
+        resourceType?: pulumi.Input<string>;
+        /**
+         * The tags for the resource.
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagArgs>[]>;
     }
 
     export interface TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs {
@@ -13732,16 +13746,6 @@ export namespace eks {
     }
 
     /**
-     * Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
-     */
-    export interface ClusterLoggingArgs {
-        /**
-         * The cluster control plane logging configuration for your cluster. 
-         */
-        clusterLogging?: pulumi.Input<inputs.eks.ClusterLoggingEnabledTypesArgs>;
-    }
-
-    /**
      * The cluster control plane logging configuration for your cluster. 
      */
     export interface ClusterLoggingEnabledTypesArgs {
@@ -13913,6 +13917,16 @@ export namespace eks {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+     */
+    export interface LoggingArgs {
+        /**
+         * The cluster control plane logging configuration for your cluster. 
+         */
+        clusterLogging?: pulumi.Input<inputs.eks.ClusterLoggingEnabledTypesArgs>;
     }
 
     /**
@@ -19777,7 +19791,7 @@ export namespace iotanalytics {
     }
 
     export interface DatastorePartitionArgs {
-        partition?: pulumi.Input<inputs.iotanalytics.DatastorePartitionArgs>;
+        partition?: pulumi.Input<inputs.iotanalytics.PartitionArgs>;
         timestampPartition?: pulumi.Input<inputs.iotanalytics.DatastoreTimestampPartitionArgs>;
     }
 
@@ -19811,6 +19825,10 @@ export namespace iotanalytics {
     export interface DatastoreTimestampPartitionArgs {
         attributeName: pulumi.Input<string>;
         timestampFormat?: pulumi.Input<string>;
+    }
+
+    export interface PartitionArgs {
+        attributeName: pulumi.Input<string>;
     }
 
     export interface PipelineActivityArgs {
@@ -30718,6 +30736,13 @@ export namespace pinpoint {
         treatmentName?: pulumi.Input<string>;
     }
 
+    export interface GroupsArgs {
+        dimensions?: pulumi.Input<pulumi.Input<inputs.pinpoint.SegmentDimensionsArgs>[]>;
+        sourceSegments?: pulumi.Input<pulumi.Input<inputs.pinpoint.SegmentSourceSegmentsArgs>[]>;
+        sourceType?: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
+    }
+
     export interface InAppTemplateBodyConfigArgs {
         alignment?: pulumi.Input<enums.pinpoint.InAppTemplateAlignment>;
         body?: pulumi.Input<string>;
@@ -30821,7 +30846,7 @@ export namespace pinpoint {
     }
 
     export interface SegmentGroupsArgs {
-        groups?: pulumi.Input<pulumi.Input<inputs.pinpoint.SegmentGroupsArgs>[]>;
+        groups?: pulumi.Input<pulumi.Input<inputs.pinpoint.GroupsArgs>[]>;
         include?: pulumi.Input<string>;
     }
 
@@ -30838,6 +30863,11 @@ export namespace pinpoint {
     export interface SegmentSetDimensionArgs {
         dimensionType?: pulumi.Input<string>;
         values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SegmentSourceSegmentsArgs {
+        id: pulumi.Input<string>;
+        version?: pulumi.Input<number>;
     }
 }
 

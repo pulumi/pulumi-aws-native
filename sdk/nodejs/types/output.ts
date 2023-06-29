@@ -11718,7 +11718,7 @@ export namespace ec2 {
         /**
          * The tags to apply to the resources that are created during instance launch.
          */
-        tagSpecifications?: outputs.ec2.LaunchTemplateTagSpecification[];
+        tagSpecifications?: outputs.ec2.TagSpecification[];
         /**
          * The user data to make available to the instance.
          */
@@ -12846,6 +12846,20 @@ export namespace ec2 {
     export interface SubnetTag {
         key: string;
         value: string;
+    }
+
+    /**
+     * Specifies the tags to apply to a resource when the resource is created for the launch template.
+     */
+    export interface TagSpecification {
+        /**
+         * The type of resource to tag.
+         */
+        resourceType?: string;
+        /**
+         * The tags for the resource.
+         */
+        tags?: outputs.ec2.LaunchTemplateTag[];
     }
 
     export interface TrafficMirrorFilterRuleTrafficMirrorPortRange {
@@ -13979,16 +13993,6 @@ export namespace eks {
     }
 
     /**
-     * Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
-     */
-    export interface ClusterLogging {
-        /**
-         * The cluster control plane logging configuration for your cluster. 
-         */
-        clusterLogging?: outputs.eks.ClusterLoggingEnabledTypes;
-    }
-
-    /**
      * The cluster control plane logging configuration for your cluster. 
      */
     export interface ClusterLoggingEnabledTypes {
@@ -14160,6 +14164,16 @@ export namespace eks {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: string;
+    }
+
+    /**
+     * Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+     */
+    export interface Logging {
+        /**
+         * The cluster control plane logging configuration for your cluster. 
+         */
+        clusterLogging?: outputs.eks.ClusterLoggingEnabledTypes;
     }
 
     /**
@@ -20080,7 +20094,7 @@ export namespace iotanalytics {
     }
 
     export interface DatastorePartition {
-        partition?: outputs.iotanalytics.DatastorePartition;
+        partition?: outputs.iotanalytics.Partition;
         timestampPartition?: outputs.iotanalytics.DatastoreTimestampPartition;
     }
 
@@ -20114,6 +20128,10 @@ export namespace iotanalytics {
     export interface DatastoreTimestampPartition {
         attributeName: string;
         timestampFormat?: string;
+    }
+
+    export interface Partition {
+        attributeName: string;
     }
 
     export interface PipelineActivity {
@@ -31211,6 +31229,13 @@ export namespace pinpoint {
         treatmentName?: string;
     }
 
+    export interface Groups {
+        dimensions?: outputs.pinpoint.SegmentDimensions[];
+        sourceSegments?: outputs.pinpoint.SegmentSourceSegments[];
+        sourceType?: string;
+        type?: string;
+    }
+
     export interface InAppTemplateBodyConfig {
         alignment?: enums.pinpoint.InAppTemplateAlignment;
         body?: string;
@@ -31314,7 +31339,7 @@ export namespace pinpoint {
     }
 
     export interface SegmentGroups {
-        groups?: outputs.pinpoint.SegmentGroups[];
+        groups?: outputs.pinpoint.Groups[];
         include?: string;
     }
 
@@ -31331,6 +31356,11 @@ export namespace pinpoint {
     export interface SegmentSetDimension {
         dimensionType?: string;
         values?: string[];
+    }
+
+    export interface SegmentSourceSegments {
+        id: string;
+        version?: number;
     }
 
 }

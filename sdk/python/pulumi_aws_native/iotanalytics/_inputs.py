@@ -54,6 +54,7 @@ __all__ = [
     'DatastoreStorageArgs',
     'DatastoreTagArgs',
     'DatastoreTimestampPartitionArgs',
+    'PartitionArgs',
     'PipelineActivityArgs',
     'PipelineAddAttributesArgs',
     'PipelineChannelArgs',
@@ -1034,7 +1035,7 @@ class DatastorePartitionsArgs:
 @pulumi.input_type
 class DatastorePartitionArgs:
     def __init__(__self__, *,
-                 partition: Optional[pulumi.Input['DatastorePartitionArgs']] = None,
+                 partition: Optional[pulumi.Input['PartitionArgs']] = None,
                  timestamp_partition: Optional[pulumi.Input['DatastoreTimestampPartitionArgs']] = None):
         if partition is not None:
             pulumi.set(__self__, "partition", partition)
@@ -1043,11 +1044,11 @@ class DatastorePartitionArgs:
 
     @property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input['DatastorePartitionArgs']]:
+    def partition(self) -> Optional[pulumi.Input['PartitionArgs']]:
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input['DatastorePartitionArgs']]):
+    def partition(self, value: Optional[pulumi.Input['PartitionArgs']]):
         pulumi.set(self, "partition", value)
 
     @property
@@ -1206,6 +1207,22 @@ class DatastoreTimestampPartitionArgs:
     @timestamp_format.setter
     def timestamp_format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timestamp_format", value)
+
+
+@pulumi.input_type
+class PartitionArgs:
+    def __init__(__self__, *,
+                 attribute_name: pulumi.Input[str]):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "attribute_name", value)
 
 
 @pulumi.input_type

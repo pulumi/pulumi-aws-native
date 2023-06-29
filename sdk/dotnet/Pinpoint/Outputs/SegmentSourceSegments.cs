@@ -11,19 +11,19 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
 {
 
     [OutputType]
-    public sealed class SegmentGroups
+    public sealed class SegmentSourceSegments
     {
-        public readonly ImmutableArray<Outputs.Groups> Groups;
-        public readonly string? Include;
+        public readonly string Id;
+        public readonly int? Version;
 
         [OutputConstructor]
-        private SegmentGroups(
-            ImmutableArray<Outputs.Groups> groups,
+        private SegmentSourceSegments(
+            string id,
 
-            string? include)
+            int? version)
         {
-            Groups = groups;
-            Include = include;
+            Id = id;
+            Version = version;
         }
     }
 }

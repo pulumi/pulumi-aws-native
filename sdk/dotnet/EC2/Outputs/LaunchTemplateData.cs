@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         /// <summary>
         /// The tags to apply to the resources that are created during instance launch.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LaunchTemplateTagSpecification> TagSpecifications;
+        public readonly ImmutableArray<Outputs.TagSpecification> TagSpecifications;
         /// <summary>
         /// The user data to make available to the instance.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             ImmutableArray<string> securityGroups,
 
-            ImmutableArray<Outputs.LaunchTemplateTagSpecification> tagSpecifications,
+            ImmutableArray<Outputs.TagSpecification> tagSpecifications,
 
             string? userData)
         {

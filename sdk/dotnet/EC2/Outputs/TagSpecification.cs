@@ -11,10 +11,10 @@ namespace Pulumi.AwsNative.EC2.Outputs
 {
 
     /// <summary>
-    /// Specifies the tags to apply to the launch template during creation.
+    /// Specifies the tags to apply to a resource when the resource is created for the launch template.
     /// </summary>
     [OutputType]
-    public sealed class LaunchTemplateTagSpecification
+    public sealed class TagSpecification
     {
         /// <summary>
         /// The type of resource to tag.
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly ImmutableArray<Outputs.LaunchTemplateTag> Tags;
 
         [OutputConstructor]
-        private LaunchTemplateTagSpecification(
+        private TagSpecification(
             string? resourceType,
 
             ImmutableArray<Outputs.LaunchTemplateTag> tags)

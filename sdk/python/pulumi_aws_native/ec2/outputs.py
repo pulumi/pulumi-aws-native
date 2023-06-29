@@ -197,6 +197,7 @@ __all__ = [
     'SpotFleetTotalLocalStorageGBRequest',
     'SpotFleetVCpuCountRangeRequest',
     'SubnetTag',
+    'TagSpecification',
     'TrafficMirrorFilterRuleTrafficMirrorPortRange',
     'TrafficMirrorFilterTag',
     'TrafficMirrorSessionTag',
@@ -3569,7 +3570,7 @@ class LaunchTemplateData(dict):
                  ram_disk_id: Optional[str] = None,
                  security_group_ids: Optional[Sequence[str]] = None,
                  security_groups: Optional[Sequence[str]] = None,
-                 tag_specifications: Optional[Sequence['outputs.LaunchTemplateTagSpecification']] = None,
+                 tag_specifications: Optional[Sequence['outputs.TagSpecification']] = None,
                  user_data: Optional[str] = None):
         """
         The information for the launch template.
@@ -3587,7 +3588,7 @@ class LaunchTemplateData(dict):
         :param Sequence['LaunchTemplateNetworkInterface'] network_interfaces: If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
         :param Sequence[str] security_group_ids: One or more security group IDs. 
         :param Sequence[str] security_groups: One or more security group names.
-        :param Sequence['LaunchTemplateTagSpecification'] tag_specifications: The tags to apply to the resources that are created during instance launch.
+        :param Sequence['TagSpecification'] tag_specifications: The tags to apply to the resources that are created during instance launch.
         :param str user_data: The user data to make available to the instance.
         """
         if block_device_mappings is not None:
@@ -3842,7 +3843,7 @@ class LaunchTemplateData(dict):
 
     @property
     @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateTagSpecification']]:
+    def tag_specifications(self) -> Optional[Sequence['outputs.TagSpecification']]:
         """
         The tags to apply to the resources that are created during instance launch.
         """
@@ -5609,7 +5610,7 @@ class LaunchTemplateTag(dict):
 @pulumi.output_type
 class LaunchTemplateTagSpecification(dict):
     """
-    Specifies the tags to apply to a resource when the resource is created for the launch template.
+    Specifies the tags to apply to the launch template during creation.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5632,7 +5633,7 @@ class LaunchTemplateTagSpecification(dict):
                  resource_type: Optional[str] = None,
                  tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None):
         """
-        Specifies the tags to apply to a resource when the resource is created for the launch template.
+        Specifies the tags to apply to the launch template during creation.
         :param str resource_type: The type of resource to tag.
         :param Sequence['LaunchTemplateTag'] tags: The tags for the resource.
         """
@@ -9943,6 +9944,58 @@ class SubnetTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TagSpecification(dict):
+    """
+    Specifies the tags to apply to a resource when the resource is created for the launch template.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TagSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TagSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TagSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_type: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None):
+        """
+        Specifies the tags to apply to a resource when the resource is created for the launch template.
+        :param str resource_type: The type of resource to tag.
+        :param Sequence['LaunchTemplateTag'] tags: The tags for the resource.
+        """
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        """
+        The type of resource to tag.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.LaunchTemplateTag']]:
+        """
+        The tags for the resource.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

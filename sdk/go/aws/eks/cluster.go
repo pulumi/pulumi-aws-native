@@ -27,7 +27,7 @@ type Cluster struct {
 	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
 	Endpoint                pulumi.StringOutput                     `pulumi:"endpoint"`
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrOutput `pulumi:"kubernetesNetworkConfig"`
-	Logging                 ClusterLoggingPtrOutput                 `pulumi:"logging"`
+	Logging                 LoggingPtrOutput                        `pulumi:"logging"`
 	// The unique name to give to your cluster.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
@@ -89,7 +89,7 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	EncryptionConfig        []ClusterEncryptionConfig       `pulumi:"encryptionConfig"`
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
-	Logging                 *ClusterLogging                 `pulumi:"logging"`
+	Logging                 *Logging                        `pulumi:"logging"`
 	// The unique name to give to your cluster.
 	Name               *string                   `pulumi:"name"`
 	OutpostConfig      *ClusterOutpostConfig     `pulumi:"outpostConfig"`
@@ -106,7 +106,7 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	EncryptionConfig        ClusterEncryptionConfigArrayInput
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
-	Logging                 ClusterLoggingPtrInput
+	Logging                 LoggingPtrInput
 	// The unique name to give to your cluster.
 	Name               pulumi.StringPtrInput
 	OutpostConfig      ClusterOutpostConfigPtrInput
@@ -189,8 +189,8 @@ func (o ClusterOutput) KubernetesNetworkConfig() ClusterKubernetesNetworkConfigP
 	return o.ApplyT(func(v *Cluster) ClusterKubernetesNetworkConfigPtrOutput { return v.KubernetesNetworkConfig }).(ClusterKubernetesNetworkConfigPtrOutput)
 }
 
-func (o ClusterOutput) Logging() ClusterLoggingPtrOutput {
-	return o.ApplyT(func(v *Cluster) ClusterLoggingPtrOutput { return v.Logging }).(ClusterLoggingPtrOutput)
+func (o ClusterOutput) Logging() LoggingPtrOutput {
+	return o.ApplyT(func(v *Cluster) LoggingPtrOutput { return v.Logging }).(LoggingPtrOutput)
 }
 
 // The unique name to give to your cluster.
