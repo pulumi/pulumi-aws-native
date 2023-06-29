@@ -132,6 +132,7 @@ AWS::CodePipeline::CustomActionType
 AWS::CodeStarConnections::Connection
 AWS::CodeStarNotifications::NotificationRule
 AWS::Cognito::IdentityPoolPrincipalTag
+AWS::Comprehend::DocumentClassifier
 AWS::Comprehend::Flywheel
 AWS::Config::AggregationAuthorization
 AWS::Config::ConfigurationAggregator
