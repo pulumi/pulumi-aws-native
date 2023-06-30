@@ -59,7 +59,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig | undefined>;
-    public readonly logging!: pulumi.Output<outputs.eks.ClusterLogging | undefined>;
+    public readonly logging!: pulumi.Output<outputs.eks.Logging | undefined>;
     /**
      * The unique name to give to your cluster.
      */
@@ -143,7 +143,7 @@ export class Cluster extends pulumi.CustomResource {
 export interface ClusterArgs {
     encryptionConfig?: pulumi.Input<pulumi.Input<inputs.eks.ClusterEncryptionConfigArgs>[]>;
     kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfigArgs>;
-    logging?: pulumi.Input<inputs.eks.ClusterLoggingArgs>;
+    logging?: pulumi.Input<inputs.eks.LoggingArgs>;
     /**
      * The unique name to give to your cluster.
      */

@@ -21,7 +21,7 @@ class ClusterArgs:
                  role_arn: pulumi.Input[str],
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
-                 logging: Optional[pulumi.Input['ClusterLoggingArgs']] = None,
+                 logging: Optional[pulumi.Input['LoggingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
@@ -91,11 +91,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def logging(self) -> Optional[pulumi.Input['ClusterLoggingArgs']]:
+    def logging(self) -> Optional[pulumi.Input['LoggingArgs']]:
         return pulumi.get(self, "logging")
 
     @logging.setter
-    def logging(self, value: Optional[pulumi.Input['ClusterLoggingArgs']]):
+    def logging(self, value: Optional[pulumi.Input['LoggingArgs']]):
         pulumi.set(self, "logging", value)
 
     @property
@@ -151,7 +151,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
-                 logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
+                 logging: Optional[pulumi.Input[pulumi.InputType['LoggingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_config: Optional[pulumi.Input[pulumi.InputType['ClusterOutpostConfigArgs']]] = None,
                  resources_vpc_config: Optional[pulumi.Input[pulumi.InputType['ClusterResourcesVpcConfigArgs']]] = None,
@@ -195,7 +195,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
-                 logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
+                 logging: Optional[pulumi.Input[pulumi.InputType['LoggingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_config: Optional[pulumi.Input[pulumi.InputType['ClusterOutpostConfigArgs']]] = None,
                  resources_vpc_config: Optional[pulumi.Input[pulumi.InputType['ClusterResourcesVpcConfigArgs']]] = None,
@@ -321,7 +321,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logging(self) -> pulumi.Output[Optional['outputs.ClusterLogging']]:
+    def logging(self) -> pulumi.Output[Optional['outputs.Logging']]:
         return pulumi.get(self, "logging")
 
     @property

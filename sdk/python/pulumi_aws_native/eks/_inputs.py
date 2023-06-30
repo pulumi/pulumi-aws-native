@@ -17,7 +17,6 @@ __all__ = [
     'ClusterKubernetesNetworkConfigArgs',
     'ClusterLoggingEnabledTypesArgs',
     'ClusterLoggingTypeConfigArgs',
-    'ClusterLoggingArgs',
     'ClusterOutpostConfigArgs',
     'ClusterProviderArgs',
     'ClusterResourcesVpcConfigArgs',
@@ -28,6 +27,7 @@ __all__ = [
     'IdentityProviderConfigOidcIdentityProviderConfigArgs',
     'IdentityProviderConfigRequiredClaimArgs',
     'IdentityProviderConfigTagArgs',
+    'LoggingArgs',
     'NodegroupLaunchTemplateSpecificationArgs',
     'NodegroupRemoteAccessArgs',
     'NodegroupScalingConfigArgs',
@@ -235,30 +235,6 @@ class ClusterLoggingTypeConfigArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['ClusterLoggingTypeConfigType']]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class ClusterLoggingArgs:
-    def __init__(__self__, *,
-                 cluster_logging: Optional[pulumi.Input['ClusterLoggingEnabledTypesArgs']] = None):
-        """
-        Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
-        :param pulumi.Input['ClusterLoggingEnabledTypesArgs'] cluster_logging: The cluster control plane logging configuration for your cluster. 
-        """
-        if cluster_logging is not None:
-            pulumi.set(__self__, "cluster_logging", cluster_logging)
-
-    @property
-    @pulumi.getter(name="clusterLogging")
-    def cluster_logging(self) -> Optional[pulumi.Input['ClusterLoggingEnabledTypesArgs']]:
-        """
-        The cluster control plane logging configuration for your cluster. 
-        """
-        return pulumi.get(self, "cluster_logging")
-
-    @cluster_logging.setter
-    def cluster_logging(self, value: Optional[pulumi.Input['ClusterLoggingEnabledTypesArgs']]):
-        pulumi.set(self, "cluster_logging", value)
 
 
 @pulumi.input_type
@@ -755,6 +731,30 @@ class IdentityProviderConfigTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LoggingArgs:
+    def __init__(__self__, *,
+                 cluster_logging: Optional[pulumi.Input['ClusterLoggingEnabledTypesArgs']] = None):
+        """
+        Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+        :param pulumi.Input['ClusterLoggingEnabledTypesArgs'] cluster_logging: The cluster control plane logging configuration for your cluster. 
+        """
+        if cluster_logging is not None:
+            pulumi.set(__self__, "cluster_logging", cluster_logging)
+
+    @property
+    @pulumi.getter(name="clusterLogging")
+    def cluster_logging(self) -> Optional[pulumi.Input['ClusterLoggingEnabledTypesArgs']]:
+        """
+        The cluster control plane logging configuration for your cluster. 
+        """
+        return pulumi.get(self, "cluster_logging")
+
+    @cluster_logging.setter
+    def cluster_logging(self, value: Optional[pulumi.Input['ClusterLoggingEnabledTypesArgs']]):
+        pulumi.set(self, "cluster_logging", value)
 
 
 @pulumi.input_type

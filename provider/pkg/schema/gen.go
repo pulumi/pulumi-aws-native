@@ -851,14 +851,24 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 	if propSchema.Reference != "" {
 		schemaName := strings.TrimPrefix(propSchema.Reference, "#/definitions/")
 		typName := schemaName
-		if !strings.HasPrefix(schemaName, ctx.resourceName) {
-			typName = fmt.Sprintf("%s%s", ctx.resourceName, schemaName)
-		}
-		// See https://github.com/pulumi/pulumi-aws-native/issues/644, fixing this without special case
-		// is likely to be a breaking change.
-		if parentName == "ClusterLoggingClusterLogging" && typName == "ClusterLogging" {
+
+		// For the fully qualified name, we prepend the resource name to the type name if it's not
+		// already there. This avoids name collisions of types from different modules. However, we
+		// don't do this if it would result in a name that already exists.
+		// Preserve a previous special case, see https://github.com/pulumi/pulumi-aws-native/issues/644
+		if parentName == "LoggingClusterLogging" && typName == "ClusterLogging" {
 			typName = "ClusterLoggingEnabledTypes"
+		} else if !strings.HasPrefix(schemaName, ctx.resourceName) {
+			// Create a full type name by turning Foo into ResourceFoo.
+			fullTypName := fmt.Sprintf("%s%s", ctx.resourceName, schemaName)
+			if _, ok := ctx.resourceSpec.Definitions[fullTypName]; !ok {
+				typName = fullTypName
+			} else {
+				fmt.Printf("Not expanding type name from %s to %s because a type of that name already exists\n",
+					schemaName, fullTypName)
+			}
 		}
+
 		tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)
 
 		typeSchema, ok := ctx.resourceSpec.Definitions[schemaName]
@@ -1001,7 +1011,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		}
 	}
 
-	fmt.Printf("failed to generate property types for %+v", propSchema)
+	fmt.Printf("failed to generate property types for %+v\n", propSchema)
 	return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
 }
 

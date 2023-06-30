@@ -183,6 +183,7 @@ __all__ = [
     'SpotFleetTotalLocalStorageGBRequestArgs',
     'SpotFleetVCpuCountRangeRequestArgs',
     'SubnetTagArgs',
+    'TagSpecificationArgs',
     'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs',
     'TrafficMirrorFilterTagArgs',
     'TrafficMirrorSessionTagArgs',
@@ -3404,7 +3405,7 @@ class LaunchTemplateDataArgs:
                  ram_disk_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
+                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['TagSpecificationArgs']]]] = None,
                  user_data: Optional[pulumi.Input[str]] = None):
         """
         The information for the launch template.
@@ -3422,7 +3423,7 @@ class LaunchTemplateDataArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]] network_interfaces: If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more security group IDs. 
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: One or more security group names.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]] tag_specifications: The tags to apply to the resources that are created during instance launch.
+        :param pulumi.Input[Sequence[pulumi.Input['TagSpecificationArgs']]] tag_specifications: The tags to apply to the resources that are created during instance launch.
         :param pulumi.Input[str] user_data: The user data to make available to the instance.
         """
         if block_device_mappings is not None:
@@ -3793,14 +3794,14 @@ class LaunchTemplateDataArgs:
 
     @property
     @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]:
+    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagSpecificationArgs']]]]:
         """
         The tags to apply to the resources that are created during instance launch.
         """
         return pulumi.get(self, "tag_specifications")
 
     @tag_specifications.setter
-    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]):
+    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagSpecificationArgs']]]]):
         pulumi.set(self, "tag_specifications", value)
 
     @property
@@ -5506,7 +5507,7 @@ class LaunchTemplateTagSpecificationArgs:
                  resource_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]] = None):
         """
-        Specifies the tags to apply to a resource when the resource is created for the launch template.
+        Specifies the tags to apply to the launch template during creation.
         :param pulumi.Input[str] resource_type: The type of resource to tag.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]] tags: The tags for the resource.
         """
@@ -8599,6 +8600,46 @@ class SubnetTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TagSpecificationArgs:
+    def __init__(__self__, *,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]] = None):
+        """
+        Specifies the tags to apply to a resource when the resource is created for the launch template.
+        :param pulumi.Input[str] resource_type: The type of resource to tag.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]] tags: The tags for the resource.
+        """
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of resource to tag.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]]:
+        """
+        The tags for the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

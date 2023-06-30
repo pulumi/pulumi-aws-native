@@ -4518,7 +4518,7 @@ func (o DatastoreParquetConfigurationPtrOutput) SchemaDefinition() DatastoreSche
 }
 
 type DatastorePartition struct {
-	Partition          *DatastorePartition          `pulumi:"partition"`
+	Partition          *Partition                   `pulumi:"partition"`
 	TimestampPartition *DatastoreTimestampPartition `pulumi:"timestampPartition"`
 }
 
@@ -4534,7 +4534,7 @@ type DatastorePartitionInput interface {
 }
 
 type DatastorePartitionArgs struct {
-	Partition          DatastorePartitionPtrInput          `pulumi:"partition"`
+	Partition          PartitionPtrInput                   `pulumi:"partition"`
 	TimestampPartition DatastoreTimestampPartitionPtrInput `pulumi:"timestampPartition"`
 }
 
@@ -4548,47 +4548,6 @@ func (i DatastorePartitionArgs) ToDatastorePartitionOutput() DatastorePartitionO
 
 func (i DatastorePartitionArgs) ToDatastorePartitionOutputWithContext(ctx context.Context) DatastorePartitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionOutput)
-}
-
-func (i DatastorePartitionArgs) ToDatastorePartitionPtrOutput() DatastorePartitionPtrOutput {
-	return i.ToDatastorePartitionPtrOutputWithContext(context.Background())
-}
-
-func (i DatastorePartitionArgs) ToDatastorePartitionPtrOutputWithContext(ctx context.Context) DatastorePartitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionOutput).ToDatastorePartitionPtrOutputWithContext(ctx)
-}
-
-// DatastorePartitionPtrInput is an input type that accepts DatastorePartitionArgs, DatastorePartitionPtr and DatastorePartitionPtrOutput values.
-// You can construct a concrete instance of `DatastorePartitionPtrInput` via:
-//
-//	        DatastorePartitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type DatastorePartitionPtrInput interface {
-	pulumi.Input
-
-	ToDatastorePartitionPtrOutput() DatastorePartitionPtrOutput
-	ToDatastorePartitionPtrOutputWithContext(context.Context) DatastorePartitionPtrOutput
-}
-
-type datastorePartitionPtrType DatastorePartitionArgs
-
-func DatastorePartitionPtr(v *DatastorePartitionArgs) DatastorePartitionPtrInput {
-	return (*datastorePartitionPtrType)(v)
-}
-
-func (*datastorePartitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatastorePartition)(nil)).Elem()
-}
-
-func (i *datastorePartitionPtrType) ToDatastorePartitionPtrOutput() DatastorePartitionPtrOutput {
-	return i.ToDatastorePartitionPtrOutputWithContext(context.Background())
-}
-
-func (i *datastorePartitionPtrType) ToDatastorePartitionPtrOutputWithContext(ctx context.Context) DatastorePartitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionPtrOutput)
 }
 
 // DatastorePartitionArrayInput is an input type that accepts DatastorePartitionArray and DatastorePartitionArrayOutput values.
@@ -4630,64 +4589,12 @@ func (o DatastorePartitionOutput) ToDatastorePartitionOutputWithContext(ctx cont
 	return o
 }
 
-func (o DatastorePartitionOutput) ToDatastorePartitionPtrOutput() DatastorePartitionPtrOutput {
-	return o.ToDatastorePartitionPtrOutputWithContext(context.Background())
-}
-
-func (o DatastorePartitionOutput) ToDatastorePartitionPtrOutputWithContext(ctx context.Context) DatastorePartitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatastorePartition) *DatastorePartition {
-		return &v
-	}).(DatastorePartitionPtrOutput)
-}
-
-func (o DatastorePartitionOutput) Partition() DatastorePartitionPtrOutput {
-	return o.ApplyT(func(v DatastorePartition) *DatastorePartition { return v.Partition }).(DatastorePartitionPtrOutput)
+func (o DatastorePartitionOutput) Partition() PartitionPtrOutput {
+	return o.ApplyT(func(v DatastorePartition) *Partition { return v.Partition }).(PartitionPtrOutput)
 }
 
 func (o DatastorePartitionOutput) TimestampPartition() DatastoreTimestampPartitionPtrOutput {
 	return o.ApplyT(func(v DatastorePartition) *DatastoreTimestampPartition { return v.TimestampPartition }).(DatastoreTimestampPartitionPtrOutput)
-}
-
-type DatastorePartitionPtrOutput struct{ *pulumi.OutputState }
-
-func (DatastorePartitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatastorePartition)(nil)).Elem()
-}
-
-func (o DatastorePartitionPtrOutput) ToDatastorePartitionPtrOutput() DatastorePartitionPtrOutput {
-	return o
-}
-
-func (o DatastorePartitionPtrOutput) ToDatastorePartitionPtrOutputWithContext(ctx context.Context) DatastorePartitionPtrOutput {
-	return o
-}
-
-func (o DatastorePartitionPtrOutput) Elem() DatastorePartitionOutput {
-	return o.ApplyT(func(v *DatastorePartition) DatastorePartition {
-		if v != nil {
-			return *v
-		}
-		var ret DatastorePartition
-		return ret
-	}).(DatastorePartitionOutput)
-}
-
-func (o DatastorePartitionPtrOutput) Partition() DatastorePartitionPtrOutput {
-	return o.ApplyT(func(v *DatastorePartition) *DatastorePartition {
-		if v == nil {
-			return nil
-		}
-		return v.Partition
-	}).(DatastorePartitionPtrOutput)
-}
-
-func (o DatastorePartitionPtrOutput) TimestampPartition() DatastoreTimestampPartitionPtrOutput {
-	return o.ApplyT(func(v *DatastorePartition) *DatastoreTimestampPartition {
-		if v == nil {
-			return nil
-		}
-		return v.TimestampPartition
-	}).(DatastoreTimestampPartitionPtrOutput)
 }
 
 type DatastorePartitionArrayOutput struct{ *pulumi.OutputState }
@@ -5650,6 +5557,139 @@ func (o DatastoreTimestampPartitionPtrOutput) TimestampFormat() pulumi.StringPtr
 			return nil
 		}
 		return v.TimestampFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type Partition struct {
+	AttributeName string `pulumi:"attributeName"`
+}
+
+// PartitionInput is an input type that accepts PartitionArgs and PartitionOutput values.
+// You can construct a concrete instance of `PartitionInput` via:
+//
+//	PartitionArgs{...}
+type PartitionInput interface {
+	pulumi.Input
+
+	ToPartitionOutput() PartitionOutput
+	ToPartitionOutputWithContext(context.Context) PartitionOutput
+}
+
+type PartitionArgs struct {
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+}
+
+func (PartitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Partition)(nil)).Elem()
+}
+
+func (i PartitionArgs) ToPartitionOutput() PartitionOutput {
+	return i.ToPartitionOutputWithContext(context.Background())
+}
+
+func (i PartitionArgs) ToPartitionOutputWithContext(ctx context.Context) PartitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionOutput)
+}
+
+func (i PartitionArgs) ToPartitionPtrOutput() PartitionPtrOutput {
+	return i.ToPartitionPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionArgs) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionOutput).ToPartitionPtrOutputWithContext(ctx)
+}
+
+// PartitionPtrInput is an input type that accepts PartitionArgs, PartitionPtr and PartitionPtrOutput values.
+// You can construct a concrete instance of `PartitionPtrInput` via:
+//
+//	        PartitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartitionPtrInput interface {
+	pulumi.Input
+
+	ToPartitionPtrOutput() PartitionPtrOutput
+	ToPartitionPtrOutputWithContext(context.Context) PartitionPtrOutput
+}
+
+type partitionPtrType PartitionArgs
+
+func PartitionPtr(v *PartitionArgs) PartitionPtrInput {
+	return (*partitionPtrType)(v)
+}
+
+func (*partitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Partition)(nil)).Elem()
+}
+
+func (i *partitionPtrType) ToPartitionPtrOutput() PartitionPtrOutput {
+	return i.ToPartitionPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionPtrType) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionPtrOutput)
+}
+
+type PartitionOutput struct{ *pulumi.OutputState }
+
+func (PartitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Partition)(nil)).Elem()
+}
+
+func (o PartitionOutput) ToPartitionOutput() PartitionOutput {
+	return o
+}
+
+func (o PartitionOutput) ToPartitionOutputWithContext(ctx context.Context) PartitionOutput {
+	return o
+}
+
+func (o PartitionOutput) ToPartitionPtrOutput() PartitionPtrOutput {
+	return o.ToPartitionPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionOutput) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Partition) *Partition {
+		return &v
+	}).(PartitionPtrOutput)
+}
+
+func (o PartitionOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v Partition) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+type PartitionPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Partition)(nil)).Elem()
+}
+
+func (o PartitionPtrOutput) ToPartitionPtrOutput() PartitionPtrOutput {
+	return o
+}
+
+func (o PartitionPtrOutput) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
+	return o
+}
+
+func (o PartitionPtrOutput) Elem() PartitionOutput {
+	return o.ApplyT(func(v *Partition) Partition {
+		if v != nil {
+			return *v
+		}
+		var ret Partition
+		return ret
+	}).(PartitionOutput)
+}
+
+func (o PartitionPtrOutput) AttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributeName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7676,7 +7716,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreParquetConfigurationInput)(nil)).Elem(), DatastoreParquetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreParquetConfigurationPtrInput)(nil)).Elem(), DatastoreParquetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastorePartitionInput)(nil)).Elem(), DatastorePartitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatastorePartitionPtrInput)(nil)).Elem(), DatastorePartitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastorePartitionArrayInput)(nil)).Elem(), DatastorePartitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastorePartitionsInput)(nil)).Elem(), DatastorePartitionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastorePartitionsPtrInput)(nil)).Elem(), DatastorePartitionsArgs{})
@@ -7692,6 +7731,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreTagArrayInput)(nil)).Elem(), DatastoreTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreTimestampPartitionInput)(nil)).Elem(), DatastoreTimestampPartitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatastoreTimestampPartitionPtrInput)(nil)).Elem(), DatastoreTimestampPartitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionInput)(nil)).Elem(), PartitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionPtrInput)(nil)).Elem(), PartitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineActivityInput)(nil)).Elem(), PipelineActivityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineActivityArrayInput)(nil)).Elem(), PipelineActivityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineAddAttributesInput)(nil)).Elem(), PipelineAddAttributesArgs{})
@@ -7785,7 +7826,6 @@ func init() {
 	pulumi.RegisterOutputType(DatastoreParquetConfigurationOutput{})
 	pulumi.RegisterOutputType(DatastoreParquetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DatastorePartitionOutput{})
-	pulumi.RegisterOutputType(DatastorePartitionPtrOutput{})
 	pulumi.RegisterOutputType(DatastorePartitionArrayOutput{})
 	pulumi.RegisterOutputType(DatastorePartitionsOutput{})
 	pulumi.RegisterOutputType(DatastorePartitionsPtrOutput{})
@@ -7801,6 +7841,8 @@ func init() {
 	pulumi.RegisterOutputType(DatastoreTagArrayOutput{})
 	pulumi.RegisterOutputType(DatastoreTimestampPartitionOutput{})
 	pulumi.RegisterOutputType(DatastoreTimestampPartitionPtrOutput{})
+	pulumi.RegisterOutputType(PartitionOutput{})
+	pulumi.RegisterOutputType(PartitionPtrOutput{})
 	pulumi.RegisterOutputType(PipelineActivityOutput{})
 	pulumi.RegisterOutputType(PipelineActivityArrayOutput{})
 	pulumi.RegisterOutputType(PipelineAddAttributesOutput{})

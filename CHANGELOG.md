@@ -1,5 +1,14 @@
 ## HEAD (Unreleased)
 
+- PR #952 fixes an issue in schema generation where separate types would occasionally have the same
+  name and would overwrite each other's metadata. This caused the following renames:
+  - Resource `aws-native:eks:Cluster` input `logging` type changed from `#/types/aws-native:eks:ClusterLogging` to `#/types/aws-native:eks:Logging`
+  - Resource `aws-native:eks:Cluster` output `logging` type changed from `#/types/aws-native:eks:ClusterLogging` to `#/types/aws-native:eks:Logging`
+  - Function `aws-native:eks:getCluster` output `logging` type changed from `#/types/aws-native:eks:ClusterLogging` to `#/types/aws-native:eks:Logging`
+  - Type `aws-native:ec2:LaunchTemplateData` input `tagSpecifications` items type changed from `#/types/aws-native:ec2:LaunchTemplateTagSpecification` to `#/types/aws-native:ec2:TagSpecification`
+  - Type `aws-native:iotanalytics:DatastorePartition` input `partition` type changed from `#/types/aws-native:iotanalytics:DatastorePartition` to `#/types/aws-native:iotanalytics:Partition`
+  - Type `aws-native:eks:ClusterLogging` was removed
+
 ## 0.67.0 (June 27, 2023)
 ### Does the PR have any schema changes?
 

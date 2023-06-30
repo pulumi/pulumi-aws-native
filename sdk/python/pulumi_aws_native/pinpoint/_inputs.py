@@ -37,6 +37,7 @@ __all__ = [
     'CampaignTemplateConfigurationArgs',
     'CampaignTemplateArgs',
     'CampaignWriteTreatmentResourceArgs',
+    'GroupsArgs',
     'InAppTemplateBodyConfigArgs',
     'InAppTemplateButtonConfigArgs',
     'InAppTemplateDefaultButtonConfigurationArgs',
@@ -55,6 +56,7 @@ __all__ = [
     'SegmentLocationArgs',
     'SegmentRecencyArgs',
     'SegmentSetDimensionArgs',
+    'SegmentSourceSegmentsArgs',
 ]
 
 @pulumi.input_type
@@ -1468,6 +1470,59 @@ class CampaignWriteTreatmentResourceArgs:
 
 
 @pulumi.input_type
+class GroupsArgs:
+    def __init__(__self__, *,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDimensionsArgs']]]] = None,
+                 source_segments: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSourceSegmentsArgs']]]] = None,
+                 source_type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if source_segments is not None:
+            pulumi.set(__self__, "source_segments", source_segments)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDimensionsArgs']]]]:
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDimensionsArgs']]]]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="sourceSegments")
+    def source_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSourceSegmentsArgs']]]]:
+        return pulumi.get(self, "source_segments")
+
+    @source_segments.setter
+    def source_segments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSourceSegmentsArgs']]]]):
+        pulumi.set(self, "source_segments", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_type", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class InAppTemplateBodyConfigArgs:
     def __init__(__self__, *,
                  alignment: Optional[pulumi.Input['InAppTemplateAlignment']] = None,
@@ -2256,7 +2311,7 @@ class SegmentGPSPointArgs:
 @pulumi.input_type
 class SegmentGroupsArgs:
     def __init__(__self__, *,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentGroupsArgs']]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['GroupsArgs']]]] = None,
                  include: Optional[pulumi.Input[str]] = None):
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -2265,11 +2320,11 @@ class SegmentGroupsArgs:
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SegmentGroupsArgs']]]]:
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupsArgs']]]]:
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentGroupsArgs']]]]):
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupsArgs']]]]):
         pulumi.set(self, "groups", value)
 
     @property
@@ -2365,5 +2420,33 @@ class SegmentSetDimensionArgs:
     @values.setter
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class SegmentSourceSegmentsArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 version: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "id", id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "version", value)
 
 

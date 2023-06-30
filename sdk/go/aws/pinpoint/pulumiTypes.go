@@ -4508,6 +4508,118 @@ func (o CampaignWriteTreatmentResourceArrayOutput) Index(i pulumi.IntInput) Camp
 	}).(CampaignWriteTreatmentResourceOutput)
 }
 
+type Groups struct {
+	Dimensions     []SegmentDimensions     `pulumi:"dimensions"`
+	SourceSegments []SegmentSourceSegments `pulumi:"sourceSegments"`
+	SourceType     *string                 `pulumi:"sourceType"`
+	Type           *string                 `pulumi:"type"`
+}
+
+// GroupsInput is an input type that accepts GroupsArgs and GroupsOutput values.
+// You can construct a concrete instance of `GroupsInput` via:
+//
+//	GroupsArgs{...}
+type GroupsInput interface {
+	pulumi.Input
+
+	ToGroupsOutput() GroupsOutput
+	ToGroupsOutputWithContext(context.Context) GroupsOutput
+}
+
+type GroupsArgs struct {
+	Dimensions     SegmentDimensionsArrayInput     `pulumi:"dimensions"`
+	SourceSegments SegmentSourceSegmentsArrayInput `pulumi:"sourceSegments"`
+	SourceType     pulumi.StringPtrInput           `pulumi:"sourceType"`
+	Type           pulumi.StringPtrInput           `pulumi:"type"`
+}
+
+func (GroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Groups)(nil)).Elem()
+}
+
+func (i GroupsArgs) ToGroupsOutput() GroupsOutput {
+	return i.ToGroupsOutputWithContext(context.Background())
+}
+
+func (i GroupsArgs) ToGroupsOutputWithContext(ctx context.Context) GroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupsOutput)
+}
+
+// GroupsArrayInput is an input type that accepts GroupsArray and GroupsArrayOutput values.
+// You can construct a concrete instance of `GroupsArrayInput` via:
+//
+//	GroupsArray{ GroupsArgs{...} }
+type GroupsArrayInput interface {
+	pulumi.Input
+
+	ToGroupsArrayOutput() GroupsArrayOutput
+	ToGroupsArrayOutputWithContext(context.Context) GroupsArrayOutput
+}
+
+type GroupsArray []GroupsInput
+
+func (GroupsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Groups)(nil)).Elem()
+}
+
+func (i GroupsArray) ToGroupsArrayOutput() GroupsArrayOutput {
+	return i.ToGroupsArrayOutputWithContext(context.Background())
+}
+
+func (i GroupsArray) ToGroupsArrayOutputWithContext(ctx context.Context) GroupsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupsArrayOutput)
+}
+
+type GroupsOutput struct{ *pulumi.OutputState }
+
+func (GroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Groups)(nil)).Elem()
+}
+
+func (o GroupsOutput) ToGroupsOutput() GroupsOutput {
+	return o
+}
+
+func (o GroupsOutput) ToGroupsOutputWithContext(ctx context.Context) GroupsOutput {
+	return o
+}
+
+func (o GroupsOutput) Dimensions() SegmentDimensionsArrayOutput {
+	return o.ApplyT(func(v Groups) []SegmentDimensions { return v.Dimensions }).(SegmentDimensionsArrayOutput)
+}
+
+func (o GroupsOutput) SourceSegments() SegmentSourceSegmentsArrayOutput {
+	return o.ApplyT(func(v Groups) []SegmentSourceSegments { return v.SourceSegments }).(SegmentSourceSegmentsArrayOutput)
+}
+
+func (o GroupsOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Groups) *string { return v.SourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupsOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Groups) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type GroupsArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Groups)(nil)).Elem()
+}
+
+func (o GroupsArrayOutput) ToGroupsArrayOutput() GroupsArrayOutput {
+	return o
+}
+
+func (o GroupsArrayOutput) ToGroupsArrayOutputWithContext(ctx context.Context) GroupsArrayOutput {
+	return o
+}
+
+func (o GroupsArrayOutput) Index(i pulumi.IntInput) GroupsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Groups {
+		return vs[0].([]Groups)[vs[1].(int)]
+	}).(GroupsOutput)
+}
+
 type InAppTemplateBodyConfig struct {
 	Alignment *InAppTemplateAlignment `pulumi:"alignment"`
 	Body      *string                 `pulumi:"body"`
@@ -6702,6 +6814,31 @@ func (i *segmentDimensionsPtrType) ToSegmentDimensionsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentDimensionsPtrOutput)
 }
 
+// SegmentDimensionsArrayInput is an input type that accepts SegmentDimensionsArray and SegmentDimensionsArrayOutput values.
+// You can construct a concrete instance of `SegmentDimensionsArrayInput` via:
+//
+//	SegmentDimensionsArray{ SegmentDimensionsArgs{...} }
+type SegmentDimensionsArrayInput interface {
+	pulumi.Input
+
+	ToSegmentDimensionsArrayOutput() SegmentDimensionsArrayOutput
+	ToSegmentDimensionsArrayOutputWithContext(context.Context) SegmentDimensionsArrayOutput
+}
+
+type SegmentDimensionsArray []SegmentDimensionsInput
+
+func (SegmentDimensionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SegmentDimensions)(nil)).Elem()
+}
+
+func (i SegmentDimensionsArray) ToSegmentDimensionsArrayOutput() SegmentDimensionsArrayOutput {
+	return i.ToSegmentDimensionsArrayOutputWithContext(context.Background())
+}
+
+func (i SegmentDimensionsArray) ToSegmentDimensionsArrayOutputWithContext(ctx context.Context) SegmentDimensionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDimensionsArrayOutput)
+}
+
 type SegmentDimensionsOutput struct{ *pulumi.OutputState }
 
 func (SegmentDimensionsOutput) ElementType() reflect.Type {
@@ -6826,6 +6963,26 @@ func (o SegmentDimensionsPtrOutput) UserAttributes() pulumi.AnyOutput {
 		}
 		return v.UserAttributes
 	}).(pulumi.AnyOutput)
+}
+
+type SegmentDimensionsArrayOutput struct{ *pulumi.OutputState }
+
+func (SegmentDimensionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SegmentDimensions)(nil)).Elem()
+}
+
+func (o SegmentDimensionsArrayOutput) ToSegmentDimensionsArrayOutput() SegmentDimensionsArrayOutput {
+	return o
+}
+
+func (o SegmentDimensionsArrayOutput) ToSegmentDimensionsArrayOutputWithContext(ctx context.Context) SegmentDimensionsArrayOutput {
+	return o
+}
+
+func (o SegmentDimensionsArrayOutput) Index(i pulumi.IntInput) SegmentDimensionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SegmentDimensions {
+		return vs[0].([]SegmentDimensions)[vs[1].(int)]
+	}).(SegmentDimensionsOutput)
 }
 
 type SegmentGPSPoint struct {
@@ -6977,8 +7134,8 @@ func (o SegmentGPSPointPtrOutput) RangeInKilometers() pulumi.Float64PtrOutput {
 }
 
 type SegmentGroups struct {
-	Groups  []SegmentGroups `pulumi:"groups"`
-	Include *string         `pulumi:"include"`
+	Groups  []Groups `pulumi:"groups"`
+	Include *string  `pulumi:"include"`
 }
 
 // SegmentGroupsInput is an input type that accepts SegmentGroupsArgs and SegmentGroupsOutput values.
@@ -6993,8 +7150,8 @@ type SegmentGroupsInput interface {
 }
 
 type SegmentGroupsArgs struct {
-	Groups  SegmentGroupsArrayInput `pulumi:"groups"`
-	Include pulumi.StringPtrInput   `pulumi:"include"`
+	Groups  GroupsArrayInput      `pulumi:"groups"`
+	Include pulumi.StringPtrInput `pulumi:"include"`
 }
 
 func (SegmentGroupsArgs) ElementType() reflect.Type {
@@ -7050,31 +7207,6 @@ func (i *segmentGroupsPtrType) ToSegmentGroupsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentGroupsPtrOutput)
 }
 
-// SegmentGroupsArrayInput is an input type that accepts SegmentGroupsArray and SegmentGroupsArrayOutput values.
-// You can construct a concrete instance of `SegmentGroupsArrayInput` via:
-//
-//	SegmentGroupsArray{ SegmentGroupsArgs{...} }
-type SegmentGroupsArrayInput interface {
-	pulumi.Input
-
-	ToSegmentGroupsArrayOutput() SegmentGroupsArrayOutput
-	ToSegmentGroupsArrayOutputWithContext(context.Context) SegmentGroupsArrayOutput
-}
-
-type SegmentGroupsArray []SegmentGroupsInput
-
-func (SegmentGroupsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SegmentGroups)(nil)).Elem()
-}
-
-func (i SegmentGroupsArray) ToSegmentGroupsArrayOutput() SegmentGroupsArrayOutput {
-	return i.ToSegmentGroupsArrayOutputWithContext(context.Background())
-}
-
-func (i SegmentGroupsArray) ToSegmentGroupsArrayOutputWithContext(ctx context.Context) SegmentGroupsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentGroupsArrayOutput)
-}
-
 type SegmentGroupsOutput struct{ *pulumi.OutputState }
 
 func (SegmentGroupsOutput) ElementType() reflect.Type {
@@ -7099,8 +7231,8 @@ func (o SegmentGroupsOutput) ToSegmentGroupsPtrOutputWithContext(ctx context.Con
 	}).(SegmentGroupsPtrOutput)
 }
 
-func (o SegmentGroupsOutput) Groups() SegmentGroupsArrayOutput {
-	return o.ApplyT(func(v SegmentGroups) []SegmentGroups { return v.Groups }).(SegmentGroupsArrayOutput)
+func (o SegmentGroupsOutput) Groups() GroupsArrayOutput {
+	return o.ApplyT(func(v SegmentGroups) []Groups { return v.Groups }).(GroupsArrayOutput)
 }
 
 func (o SegmentGroupsOutput) Include() pulumi.StringPtrOutput {
@@ -7131,13 +7263,13 @@ func (o SegmentGroupsPtrOutput) Elem() SegmentGroupsOutput {
 	}).(SegmentGroupsOutput)
 }
 
-func (o SegmentGroupsPtrOutput) Groups() SegmentGroupsArrayOutput {
-	return o.ApplyT(func(v *SegmentGroups) []SegmentGroups {
+func (o SegmentGroupsPtrOutput) Groups() GroupsArrayOutput {
+	return o.ApplyT(func(v *SegmentGroups) []Groups {
 		if v == nil {
 			return nil
 		}
 		return v.Groups
-	}).(SegmentGroupsArrayOutput)
+	}).(GroupsArrayOutput)
 }
 
 func (o SegmentGroupsPtrOutput) Include() pulumi.StringPtrOutput {
@@ -7147,26 +7279,6 @@ func (o SegmentGroupsPtrOutput) Include() pulumi.StringPtrOutput {
 		}
 		return v.Include
 	}).(pulumi.StringPtrOutput)
-}
-
-type SegmentGroupsArrayOutput struct{ *pulumi.OutputState }
-
-func (SegmentGroupsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SegmentGroups)(nil)).Elem()
-}
-
-func (o SegmentGroupsArrayOutput) ToSegmentGroupsArrayOutput() SegmentGroupsArrayOutput {
-	return o
-}
-
-func (o SegmentGroupsArrayOutput) ToSegmentGroupsArrayOutputWithContext(ctx context.Context) SegmentGroupsArrayOutput {
-	return o
-}
-
-func (o SegmentGroupsArrayOutput) Index(i pulumi.IntInput) SegmentGroupsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SegmentGroups {
-		return vs[0].([]SegmentGroups)[vs[1].(int)]
-	}).(SegmentGroupsOutput)
 }
 
 type SegmentLocation struct {
@@ -7613,6 +7725,106 @@ func (o SegmentSetDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type SegmentSourceSegments struct {
+	Id      string `pulumi:"id"`
+	Version *int   `pulumi:"version"`
+}
+
+// SegmentSourceSegmentsInput is an input type that accepts SegmentSourceSegmentsArgs and SegmentSourceSegmentsOutput values.
+// You can construct a concrete instance of `SegmentSourceSegmentsInput` via:
+//
+//	SegmentSourceSegmentsArgs{...}
+type SegmentSourceSegmentsInput interface {
+	pulumi.Input
+
+	ToSegmentSourceSegmentsOutput() SegmentSourceSegmentsOutput
+	ToSegmentSourceSegmentsOutputWithContext(context.Context) SegmentSourceSegmentsOutput
+}
+
+type SegmentSourceSegmentsArgs struct {
+	Id      pulumi.StringInput `pulumi:"id"`
+	Version pulumi.IntPtrInput `pulumi:"version"`
+}
+
+func (SegmentSourceSegmentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentSourceSegments)(nil)).Elem()
+}
+
+func (i SegmentSourceSegmentsArgs) ToSegmentSourceSegmentsOutput() SegmentSourceSegmentsOutput {
+	return i.ToSegmentSourceSegmentsOutputWithContext(context.Background())
+}
+
+func (i SegmentSourceSegmentsArgs) ToSegmentSourceSegmentsOutputWithContext(ctx context.Context) SegmentSourceSegmentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentSourceSegmentsOutput)
+}
+
+// SegmentSourceSegmentsArrayInput is an input type that accepts SegmentSourceSegmentsArray and SegmentSourceSegmentsArrayOutput values.
+// You can construct a concrete instance of `SegmentSourceSegmentsArrayInput` via:
+//
+//	SegmentSourceSegmentsArray{ SegmentSourceSegmentsArgs{...} }
+type SegmentSourceSegmentsArrayInput interface {
+	pulumi.Input
+
+	ToSegmentSourceSegmentsArrayOutput() SegmentSourceSegmentsArrayOutput
+	ToSegmentSourceSegmentsArrayOutputWithContext(context.Context) SegmentSourceSegmentsArrayOutput
+}
+
+type SegmentSourceSegmentsArray []SegmentSourceSegmentsInput
+
+func (SegmentSourceSegmentsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SegmentSourceSegments)(nil)).Elem()
+}
+
+func (i SegmentSourceSegmentsArray) ToSegmentSourceSegmentsArrayOutput() SegmentSourceSegmentsArrayOutput {
+	return i.ToSegmentSourceSegmentsArrayOutputWithContext(context.Background())
+}
+
+func (i SegmentSourceSegmentsArray) ToSegmentSourceSegmentsArrayOutputWithContext(ctx context.Context) SegmentSourceSegmentsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentSourceSegmentsArrayOutput)
+}
+
+type SegmentSourceSegmentsOutput struct{ *pulumi.OutputState }
+
+func (SegmentSourceSegmentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentSourceSegments)(nil)).Elem()
+}
+
+func (o SegmentSourceSegmentsOutput) ToSegmentSourceSegmentsOutput() SegmentSourceSegmentsOutput {
+	return o
+}
+
+func (o SegmentSourceSegmentsOutput) ToSegmentSourceSegmentsOutputWithContext(ctx context.Context) SegmentSourceSegmentsOutput {
+	return o
+}
+
+func (o SegmentSourceSegmentsOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SegmentSourceSegments) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o SegmentSourceSegmentsOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SegmentSourceSegments) *int { return v.Version }).(pulumi.IntPtrOutput)
+}
+
+type SegmentSourceSegmentsArrayOutput struct{ *pulumi.OutputState }
+
+func (SegmentSourceSegmentsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SegmentSourceSegments)(nil)).Elem()
+}
+
+func (o SegmentSourceSegmentsArrayOutput) ToSegmentSourceSegmentsArrayOutput() SegmentSourceSegmentsArrayOutput {
+	return o
+}
+
+func (o SegmentSourceSegmentsArrayOutput) ToSegmentSourceSegmentsArrayOutputWithContext(ctx context.Context) SegmentSourceSegmentsArrayOutput {
+	return o
+}
+
+func (o SegmentSourceSegmentsArrayOutput) Index(i pulumi.IntInput) SegmentSourceSegmentsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SegmentSourceSegments {
+		return vs[0].([]SegmentSourceSegments)[vs[1].(int)]
+	}).(SegmentSourceSegmentsOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsCampaignHookInput)(nil)).Elem(), ApplicationSettingsCampaignHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsCampaignHookPtrInput)(nil)).Elem(), ApplicationSettingsCampaignHookArgs{})
@@ -7666,6 +7878,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTemplateConfigurationPtrInput)(nil)).Elem(), CampaignTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWriteTreatmentResourceInput)(nil)).Elem(), CampaignWriteTreatmentResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWriteTreatmentResourceArrayInput)(nil)).Elem(), CampaignWriteTreatmentResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupsInput)(nil)).Elem(), GroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupsArrayInput)(nil)).Elem(), GroupsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateBodyConfigInput)(nil)).Elem(), InAppTemplateBodyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateBodyConfigPtrInput)(nil)).Elem(), InAppTemplateBodyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateButtonConfigInput)(nil)).Elem(), InAppTemplateButtonConfigArgs{})
@@ -7692,17 +7906,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDemographicPtrInput)(nil)).Elem(), SegmentDemographicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDimensionsInput)(nil)).Elem(), SegmentDimensionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDimensionsPtrInput)(nil)).Elem(), SegmentDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDimensionsArrayInput)(nil)).Elem(), SegmentDimensionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentGPSPointInput)(nil)).Elem(), SegmentGPSPointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentGPSPointPtrInput)(nil)).Elem(), SegmentGPSPointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentGroupsInput)(nil)).Elem(), SegmentGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentGroupsPtrInput)(nil)).Elem(), SegmentGroupsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SegmentGroupsArrayInput)(nil)).Elem(), SegmentGroupsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentLocationInput)(nil)).Elem(), SegmentLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentLocationPtrInput)(nil)).Elem(), SegmentLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentRecencyInput)(nil)).Elem(), SegmentRecencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentRecencyPtrInput)(nil)).Elem(), SegmentRecencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentSetDimensionInput)(nil)).Elem(), SegmentSetDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentSetDimensionPtrInput)(nil)).Elem(), SegmentSetDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentSourceSegmentsInput)(nil)).Elem(), SegmentSourceSegmentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentSourceSegmentsArrayInput)(nil)).Elem(), SegmentSourceSegmentsArray{})
 	pulumi.RegisterOutputType(ApplicationSettingsCampaignHookOutput{})
 	pulumi.RegisterOutputType(ApplicationSettingsCampaignHookPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSettingsLimitsOutput{})
@@ -7755,6 +7971,8 @@ func init() {
 	pulumi.RegisterOutputType(CampaignTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CampaignWriteTreatmentResourceOutput{})
 	pulumi.RegisterOutputType(CampaignWriteTreatmentResourceArrayOutput{})
+	pulumi.RegisterOutputType(GroupsOutput{})
+	pulumi.RegisterOutputType(GroupsArrayOutput{})
 	pulumi.RegisterOutputType(InAppTemplateBodyConfigOutput{})
 	pulumi.RegisterOutputType(InAppTemplateBodyConfigPtrOutput{})
 	pulumi.RegisterOutputType(InAppTemplateButtonConfigOutput{})
@@ -7781,15 +7999,17 @@ func init() {
 	pulumi.RegisterOutputType(SegmentDemographicPtrOutput{})
 	pulumi.RegisterOutputType(SegmentDimensionsOutput{})
 	pulumi.RegisterOutputType(SegmentDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(SegmentDimensionsArrayOutput{})
 	pulumi.RegisterOutputType(SegmentGPSPointOutput{})
 	pulumi.RegisterOutputType(SegmentGPSPointPtrOutput{})
 	pulumi.RegisterOutputType(SegmentGroupsOutput{})
 	pulumi.RegisterOutputType(SegmentGroupsPtrOutput{})
-	pulumi.RegisterOutputType(SegmentGroupsArrayOutput{})
 	pulumi.RegisterOutputType(SegmentLocationOutput{})
 	pulumi.RegisterOutputType(SegmentLocationPtrOutput{})
 	pulumi.RegisterOutputType(SegmentRecencyOutput{})
 	pulumi.RegisterOutputType(SegmentRecencyPtrOutput{})
 	pulumi.RegisterOutputType(SegmentSetDimensionOutput{})
 	pulumi.RegisterOutputType(SegmentSetDimensionPtrOutput{})
+	pulumi.RegisterOutputType(SegmentSourceSegmentsOutput{})
+	pulumi.RegisterOutputType(SegmentSourceSegmentsArrayOutput{})
 }

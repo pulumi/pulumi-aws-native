@@ -16,7 +16,6 @@ __all__ = [
     'ClusterControlPlanePlacement',
     'ClusterEncryptionConfig',
     'ClusterKubernetesNetworkConfig',
-    'ClusterLogging',
     'ClusterLoggingEnabledTypes',
     'ClusterLoggingTypeConfig',
     'ClusterOutpostConfig',
@@ -29,6 +28,7 @@ __all__ = [
     'IdentityProviderConfigOidcIdentityProviderConfig',
     'IdentityProviderConfigRequiredClaim',
     'IdentityProviderConfigTag',
+    'Logging',
     'NodegroupLaunchTemplateSpecification',
     'NodegroupRemoteAccess',
     'NodegroupScalingConfig',
@@ -210,46 +210,6 @@ class ClusterKubernetesNetworkConfig(dict):
         The CIDR block to assign Kubernetes service IP addresses from.
         """
         return pulumi.get(self, "service_ipv6_cidr")
-
-
-@pulumi.output_type
-class ClusterLogging(dict):
-    """
-    Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clusterLogging":
-            suggest = "cluster_logging"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterLogging. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterLogging.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterLogging.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cluster_logging: Optional['outputs.ClusterLoggingEnabledTypes'] = None):
-        """
-        Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
-        :param 'ClusterLoggingEnabledTypes' cluster_logging: The cluster control plane logging configuration for your cluster. 
-        """
-        if cluster_logging is not None:
-            pulumi.set(__self__, "cluster_logging", cluster_logging)
-
-    @property
-    @pulumi.getter(name="clusterLogging")
-    def cluster_logging(self) -> Optional['outputs.ClusterLoggingEnabledTypes']:
-        """
-        The cluster control plane logging configuration for your cluster. 
-        """
-        return pulumi.get(self, "cluster_logging")
 
 
 @pulumi.output_type
@@ -809,6 +769,46 @@ class IdentityProviderConfigTag(dict):
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Logging(dict):
+    """
+    Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterLogging":
+            suggest = "cluster_logging"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Logging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Logging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Logging.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_logging: Optional['outputs.ClusterLoggingEnabledTypes'] = None):
+        """
+        Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+        :param 'ClusterLoggingEnabledTypes' cluster_logging: The cluster control plane logging configuration for your cluster. 
+        """
+        if cluster_logging is not None:
+            pulumi.set(__self__, "cluster_logging", cluster_logging)
+
+    @property
+    @pulumi.getter(name="clusterLogging")
+    def cluster_logging(self) -> Optional['outputs.ClusterLoggingEnabledTypes']:
+        """
+        The cluster control plane logging configuration for your cluster. 
+        """
+        return pulumi.get(self, "cluster_logging")
 
 
 @pulumi.output_type
