@@ -824,7 +824,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ecs:RegisterTaskDefinition", "ecs:DescribeTaskDefinition", "iam:GetRole", "iam:PassRole" ]
+      "permissions" : [ "ecs:RegisterTaskDefinition", "ecs:DescribeTaskDefinition", "ecs:TagResource", "iam:GetRole", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "ecs:DescribeTaskDefinition" ]

@@ -92,7 +92,7 @@
   "createOnlyProperties" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "frauddetector:CreateList", "frauddetector:GetListElements", "frauddetector:ListTagsForResource", "frauddetector:UpdateList" ]
+      "permissions" : [ "frauddetector:CreateList", "frauddetector:GetListElements", "frauddetector:GetListsMetadata", "frauddetector:ListTagsForResource", "frauddetector:TagResource", "frauddetector:UpdateList" ]
     },
     "read" : {
       "permissions" : [ "frauddetector:GetListElements", "frauddetector:GetListsMetadata", "frauddetector:ListTagsForResource" ]
