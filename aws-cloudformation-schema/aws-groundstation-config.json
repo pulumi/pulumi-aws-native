@@ -275,13 +275,13 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "groundstation:CreateConfig", "groundstation:TagResource" ]
+      "permissions" : [ "groundstation:CreateConfig", "groundstation:TagResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "groundstation:DescribeConfig", "groundstation:ListTagsForResource" ]
+      "permissions" : [ "groundstation:GetConfig", "groundstation:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "groundstation:UpdateConfig", "groundstation:ListTagsForResource", "groundstation:TagResource", "groundstation:UntagResource" ]
+      "permissions" : [ "groundstation:UpdateConfig", "groundstation:ListTagsForResource", "groundstation:TagResource", "groundstation:UntagResource", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "groundstation:DeleteConfig" ]

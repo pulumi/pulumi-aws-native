@@ -82,7 +82,7 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "frauddetector:GetVariables", "frauddetector:CreateVariable", "frauddetector:ListTagsForResource" ]
+      "permissions" : [ "frauddetector:GetVariables", "frauddetector:CreateVariable", "frauddetector:ListTagsForResource", "frauddetector:TagResource" ]
     },
     "read" : {
       "permissions" : [ "frauddetector:GetVariables", "frauddetector:ListTagsForResource" ]

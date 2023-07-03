@@ -30,10 +30,16 @@
       "type" : "string"
     },
     "KeyType" : {
-      "description" : "The title of the TPS report is a mandatory element.",
+      "description" : "The crypto-system used to generate a key pair.",
       "type" : "string",
       "default" : "rsa",
       "enum" : [ "rsa", "ed25519" ]
+    },
+    "KeyFormat" : {
+      "description" : "The format of the private key",
+      "type" : "string",
+      "default" : "pem",
+      "enum" : [ "pem", "ppk" ]
     },
     "PublicKeyMaterial" : {
       "description" : "Plain text public key to import",
@@ -61,7 +67,8 @@
   "required" : [ "KeyName" ],
   "primaryIdentifier" : [ "/properties/KeyName" ],
   "additionalIdentifiers" : [ [ "/properties/KeyPairId" ] ],
-  "createOnlyProperties" : [ "/properties/KeyName", "/properties/KeyType" ],
+  "createOnlyProperties" : [ "/properties/KeyName", "/properties/KeyType", "/properties/KeyFormat", "/properties/PublicKeyMaterial", "/properties/Tags" ],
+  "writeOnlyProperties" : [ "/properties/KeyFormat" ],
   "readOnlyProperties" : [ "/properties/KeyPairId", "/properties/KeyFingerprint" ],
   "tagging" : {
     "taggable" : true,

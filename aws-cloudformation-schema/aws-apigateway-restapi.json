@@ -135,7 +135,7 @@
   "writeOnlyProperties" : [ "/properties/Body", "/properties/BodyS3Location", "/properties/CloneFrom", "/properties/FailOnWarnings", "/properties/Mode", "/properties/Parameters" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:GET", "apigateway:POST", "apigateway:UpdateRestApiPolicy", "s3:GetObject", "iam:PassRole" ]
+      "permissions" : [ "apigateway:GET", "apigateway:POST", "apigateway:PUT", "apigateway:PATCH", "apigateway:UpdateRestApiPolicy", "s3:GetObject", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET" ]
