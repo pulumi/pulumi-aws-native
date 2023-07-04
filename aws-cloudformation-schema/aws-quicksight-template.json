@@ -921,6 +921,20 @@
       "required" : [ "ColorFillType", "Colors" ],
       "additionalProperties" : false
     },
+    "ColorsConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "CustomColors" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CustomColor"
+          },
+          "maxItems" : 50,
+          "minItems" : 0
+        }
+      },
+      "additionalProperties" : false
+    },
     "ColumnConfiguration" : {
       "type" : "object",
       "properties" : {
@@ -932,6 +946,9 @@
         },
         "Role" : {
           "$ref" : "#/definitions/ColumnRole"
+        },
+        "ColorsConfiguration" : {
+          "$ref" : "#/definitions/ColorsConfiguration"
         }
       },
       "required" : [ "Column" ],
@@ -1516,6 +1533,25 @@
         }
       },
       "required" : [ "URLTarget", "URLTemplate" ],
+      "additionalProperties" : false
+    },
+    "CustomColor" : {
+      "type" : "object",
+      "properties" : {
+        "FieldValue" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 0
+        },
+        "Color" : {
+          "type" : "string",
+          "pattern" : "^#[A-F0-9]{6}$"
+        },
+        "SpecialValue" : {
+          "$ref" : "#/definitions/SpecialValue"
+        }
+      },
+      "required" : [ "Color" ],
       "additionalProperties" : false
     },
     "CustomContentConfiguration" : {
@@ -7721,6 +7757,10 @@
         }
       },
       "additionalProperties" : false
+    },
+    "SpecialValue" : {
+      "type" : "string",
+      "enum" : [ "EMPTY", "NULL", "OTHER" ]
     },
     "StringDefaultValues" : {
       "type" : "object",

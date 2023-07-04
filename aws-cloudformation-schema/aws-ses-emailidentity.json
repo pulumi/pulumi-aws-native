@@ -120,13 +120,13 @@
   "writeOnlyProperties" : [ "/properties/DkimSigningAttributes/DomainSigningSelector", "/properties/DkimSigningAttributes/DomainSigningPrivateKey" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ses:CreateEmailIdentity", "ses:PutEmailIdentityMailFromAttributes", "ses:PutEmailIdentityFeedbackAttributes", "ses:PutEmailIdentityDkimAttributes" ]
+      "permissions" : [ "ses:CreateEmailIdentity", "ses:PutEmailIdentityMailFromAttributes", "ses:PutEmailIdentityFeedbackAttributes", "ses:PutEmailIdentityDkimAttributes", "ses:GetEmailIdentity" ]
     },
     "read" : {
       "permissions" : [ "ses:GetEmailIdentity" ]
     },
     "update" : {
-      "permissions" : [ "ses:PutEmailIdentityMailFromAttributes", "ses:PutEmailIdentityFeedbackAttributes", "ses:PutEmailIdentityConfigurationSetAttributes", "ses:PutEmailIdentityDkimSigningAttributes", "ses:PutEmailIdentityDkimAttributes" ]
+      "permissions" : [ "ses:PutEmailIdentityMailFromAttributes", "ses:PutEmailIdentityFeedbackAttributes", "ses:PutEmailIdentityConfigurationSetAttributes", "ses:PutEmailIdentityDkimSigningAttributes", "ses:PutEmailIdentityDkimAttributes", "ses:GetEmailIdentity" ]
     },
     "delete" : {
       "permissions" : [ "ses:DeleteEmailIdentity" ]
