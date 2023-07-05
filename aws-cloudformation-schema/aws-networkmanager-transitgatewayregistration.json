@@ -19,7 +19,7 @@
   "primaryIdentifier" : [ "/properties/GlobalNetworkId", "/properties/TransitGatewayArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "networkmanager:RegisterTransitGateway" ],
+      "permissions" : [ "networkmanager:RegisterTransitGateway", "networkmanager:GetTransitGatewayRegistrations" ],
       "timeoutInMinutes" : 30
     },
     "read" : {
@@ -37,7 +37,7 @@
       "permissions" : [ "networkmanager:GetTransitGatewayRegistrations" ]
     },
     "delete" : {
-      "permissions" : [ "networkmanager:DeregisterTransitGateway" ],
+      "permissions" : [ "networkmanager:DeregisterTransitGateway", "networkmanager:GetTransitGatewayRegistrations" ],
       "timeoutInMinutes" : 30
     }
   }

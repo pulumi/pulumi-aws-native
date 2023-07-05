@@ -105,7 +105,7 @@
   "readOnlyProperties" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ssm-incidents:CreateReplicationSet", "ssm-incidents:ListReplicationSets", "ssm-incidents:UpdateDeletionProtection", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "ssm-incidents:CreateReplicationSet", "ssm-incidents:ListReplicationSets", "ssm-incidents:UpdateDeletionProtection", "ssm-incidents:GetReplicationSet", "ssm-incidents:TagResource", "ssm-incidents:ListTagsForResource", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "ssm-incidents:ListReplicationSets", "ssm-incidents:GetReplicationSet", "ssm-incidents:ListTagsForResource" ]

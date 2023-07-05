@@ -96,7 +96,7 @@
       "timeoutInMinutes" : 210
     },
     "delete" : {
-      "permissions" : [ "ec2:DeleteVpcEndpoints" ],
+      "permissions" : [ "ec2:DeleteVpcEndpoints", "ec2:DescribeVpcEndpoints" ],
       "timeoutInMinutes" : 210
     },
     "list" : {
