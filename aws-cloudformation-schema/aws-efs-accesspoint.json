@@ -117,13 +117,13 @@
   "readOnlyProperties" : [ "/properties/AccessPointId", "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticfilesystem:CreateAccessPoint" ]
+      "permissions" : [ "elasticfilesystem:CreateAccessPoint", "elasticfilesystem:TagResource", "elasticfilesystem:DescribeAccessPoints" ]
     },
     "read" : {
       "permissions" : [ "elasticfilesystem:DescribeAccessPoints" ]
     },
     "delete" : {
-      "permissions" : [ "elasticfilesystem:DeleteAccessPoint" ]
+      "permissions" : [ "elasticfilesystem:DeleteAccessPoint", "elasticfilesystem:DescribeAccessPoints" ]
     },
     "list" : {
       "permissions" : [ "elasticfilesystem:DescribeAccessPoints" ]

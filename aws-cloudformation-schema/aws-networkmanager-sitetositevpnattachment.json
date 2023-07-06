@@ -126,7 +126,7 @@
   "required" : [ "CoreNetworkId", "VpnConnectionArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment", "networkmanager:CreateSiteToSiteVpnAttachment", "ec2:DescribeRegions" ],
+      "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment", "networkmanager:CreateSiteToSiteVpnAttachment", "ec2:DescribeRegions", "networkmanager:TagResource" ],
       "timeoutInMinutes" : 40
     },
     "read" : {

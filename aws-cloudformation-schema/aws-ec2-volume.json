@@ -87,7 +87,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateVolume", "ec2:DescribeVolumes", "ec2:DescribeVolumeAttribute", "ec2:ModifyVolumeAttribute", "ec2:CreateTags" ]
+      "permissions" : [ "ec2:CreateVolume", "ec2:DescribeVolumes", "ec2:DescribeVolumeAttribute", "ec2:ModifyVolumeAttribute", "ec2:CreateTags", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeVolumes", "ec2:DescribeVolumeAttribute", "ec2:DescribeTags" ]

@@ -97,13 +97,13 @@
       "timeoutInMinutes" : 60
     },
     "read" : {
-      "permissions" : [ "networkmanager:GetTransitGatewayPeering" ]
+      "permissions" : [ "networkmanager:GetTransitGatewayPeering", "networkmanager:TagResource" ]
     },
     "update" : {
-      "permissions" : [ "networkmanager:TagResource", "networkmanager:UntagResource", "networkmanager:ListTagsForResource", "ec2:DescribeRegions" ]
+      "permissions" : [ "networkmanager:TagResource", "networkmanager:UntagResource", "networkmanager:ListTagsForResource", "networkmanager:GetTransitGatewayPeering", "ec2:DescribeRegions" ]
     },
     "delete" : {
-      "permissions" : [ "networkmanager:DeletePeering", "ec2:DescribeRegions" ],
+      "permissions" : [ "networkmanager:DeletePeering", "networkmanager:GetTransitGatewayPeering", "ec2:DescribeRegions" ],
       "timeoutInMinutes" : 60
     },
     "list" : {

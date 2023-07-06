@@ -130,7 +130,7 @@
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "networkmanager:CreateTransitGatewayRouteTableAttachment", "networkmanager:GetTransitGatewayRouteTableAttachment", "iam:CreateServiceLinkedRole", "ec2:DescribeRegions" ]
+      "permissions" : [ "networkmanager:CreateTransitGatewayRouteTableAttachment", "networkmanager:GetTransitGatewayRouteTableAttachment", "networkmanager:TagResource", "iam:CreateServiceLinkedRole", "ec2:DescribeRegions" ]
     },
     "read" : {
       "permissions" : [ "networkmanager:GetTransitGatewayRouteTableAttachment" ]

@@ -962,7 +962,7 @@
     "Stage" : {
       "type" : "string",
       "pattern" : "\\S+",
-      "maxLength" : 16
+      "maxLength" : 512
     },
     "PrivateLinkServiceName" : {
       "type" : "string",

@@ -20,6 +20,7 @@
     }
   },
   "required" : [ "ResourceArn", "UseServiceLinkedRole" ],
+  "createOnlyProperties" : [ "/properties/ResourceArn" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

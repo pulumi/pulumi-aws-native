@@ -71,12 +71,12 @@
   },
   "required" : [ "SchemaHandlerPackage", "TypeName" ],
   "writeOnlyProperties" : [ "/properties/SchemaHandlerPackage" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/IsDefaultVersion", "/properties/ProvisioningType", "/properties/Visibility", "/properties/VersionId", "/properties/TypeArn" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/IsDefaultVersion", "/properties/Visibility", "/properties/VersionId", "/properties/TypeArn" ],
   "createOnlyProperties" : [ "/properties/ExecutionRoleArn", "/properties/LoggingConfig", "/properties/SchemaHandlerPackage", "/properties/TypeName" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloudformation:DescribeTypeRegistration", "cloudformation:RegisterType", "iam:PassRole", "s3:GetObject", "s3:ListBucket", "kms:Decrypt" ]
+      "permissions" : [ "cloudformation:DescribeType", "cloudformation:DescribeTypeRegistration", "cloudformation:RegisterType", "iam:PassRole", "s3:GetObject", "s3:ListBucket", "kms:Decrypt" ]
     },
     "read" : {
       "permissions" : [ "cloudformation:DescribeType" ]
@@ -85,6 +85,16 @@
       "permissions" : [ "cloudformation:DeregisterType", "cloudformation:DescribeType" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "TypeName" : {
+            "$ref" : "resource-schema.json#/properties/TypeName"
+          },
+          "Arn" : {
+            "$ref" : "resource-schema.json#/properties/Arn"
+          }
+        }
+      },
       "permissions" : [ "cloudformation:ListTypes" ]
     }
   },
