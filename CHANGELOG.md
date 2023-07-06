@@ -1,5 +1,6 @@
 ## HEAD (Unreleased)
 
+- Upgrade AWS SDK dependencies to fix SSO issues (#954)
 - PR #952 fixes an issue in schema generation where separate types would occasionally have the same
   name and would overwrite each other's metadata. This caused the following renames:
   - Resource `aws-native:eks:Cluster` input `logging` type changed from `#/types/aws-native:eks:ClusterLogging` to `#/types/aws-native:eks:Logging`
